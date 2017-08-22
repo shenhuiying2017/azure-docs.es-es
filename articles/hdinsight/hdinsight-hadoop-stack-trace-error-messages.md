@@ -14,14 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-ms.date: 04/26/2017
+ms.date: 08/15/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: ef647b4414cc3f338719eff8ccd403abaefd41b5
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 45b3df39dcabf8be640bf6b9e5b83a452d6dd824
 ms.contentlocale: es-es
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Índice de Hadoop en artículos de solución de problemas de HDInsight
@@ -36,7 +35,6 @@ Los artículos se organizan por tipos de error.
 
 ## <a name="more-troubleshooting-articles"></a>Más artículos de solución de problemas
 * [Información sobre el uso de HDInsight en Linux](hdinsight-hadoop-linux-information.md)
-* [Depuración de Hadoop en HDInsight: ver registros e interpretar mensajes de error](hdinsight-debug-jobs.md)
 * [Acceso a registros de aplicación de YARN en Hadoop basado en Linux en HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Habilitar los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux (vista previa)](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Notas de la versión de los componentes de Hadoop en HDInsight de Azure](hdinsight-release-notes.md)

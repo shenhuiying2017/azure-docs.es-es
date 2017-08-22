@@ -1,5 +1,5 @@
 ---
-title: "Implementación en Azure App Service con Jenkins y la CLI de Azure | Microsoft Docs"
+title: Ejecute la CLI de Azure con Jenkins | Documentos de Microsoft
 description: "Aprenda a usar la CLI de Azure para implementar una aplicación web de Java para Azure en Jenkins Pipeline"
 services: app-service\web
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: d0d20c10c7b14ff8873bb71feb9047a1c49700ef
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 5ca8338d4bf343f08fe70081cff755fa76a126a9
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 

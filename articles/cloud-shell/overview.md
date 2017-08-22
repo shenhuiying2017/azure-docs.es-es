@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 865c72b7525c185d047d6c9f57b642a195e56fd4
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 7165633cd354eeea2e3619f839338e6af1524e56
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Introducción a Azure Cloud Shell (versión preliminar)
@@ -49,7 +49,7 @@ Se crea una cuenta de almacenamiento con redundancia local (LRS) en su nombre co
 
 Se crearán tres recursos en su nombre:
 1. Grupo de recursos llamado: `cloud-shell-storage-<region>`
-2. Cuenta de almacenamiento llamada: `cs-uniqueGuid`
+2. Cuenta de almacenamiento llamada: `cs<uniqueGuid>`
 3. Recurso compartido de archivos llamado: `cs-<user>-<domain>-com-uniqueGuid`
 
 > [!Note]
@@ -58,7 +58,7 @@ Se crearán tres recursos en su nombre:
 #### <a name="use-existing-resources"></a>Uso de recursos existentes
 ![](media/advanced-storage.png)
 
-También se ofrece una opción avanzada que le permite asociar los recursos existentes Cloud Shell. Cuando aparezca el mensaje del programa de instalación, haga clic en "Mostrar configuración avanzada" para seleccionar otras opciones. Las listas desplegables se filtran para las cuentas de almacenamiento redundante local y globalmente y para la región asignada de Cloud Shell.
+También se ofrece una opción avanzada que le permite asociar los recursos existentes Cloud Shell. Cuando aparezca el mensaje del programa de instalación, haga clic en "Mostrar configuración avanzada" para seleccionar otras opciones. Las listas desplegables se filtran para las cuentas de almacenamiento redundante local o globalmente y para la región asignada de Cloud Shell.
 
 [Obtenga más información sobre el almacenamiento de Cloud Shell, la actualización de recursos compartidos de archivos y la carga y descarga de archivos]. (persisting-shell-storage.md)
 
@@ -88,3 +88,4 @@ Se recomienda Cloud Shell para Chrome, Edge y Safari. Aunque se admite Cloud She
 1. Cuando se utiliza una suscripción de Azure Active Directory, no se puede crear almacenamiento debido al error: 400 DisallowedOperation. Para resolver este problema, use una suscripción de Azure con capacidad de creación de recursos de almacenamiento. Las suscripciones de AD no pueden crear recursos de Azure.
 
 Para conocer las limitaciones conocidas específicas, consulte las [limitaciones de Cloud Shell](limitations.md).
+

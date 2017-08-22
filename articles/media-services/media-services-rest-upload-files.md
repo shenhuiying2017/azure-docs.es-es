@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 08/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 256f8323d199db98a1267a5139a1ab3f14a3441c
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 14945cf23ead64b90a9e9ad6503a96f1b0669675
+ms.contentlocale: es-es
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carga de archivos en una cuenta de Servicios multimedia mediante API de REST
@@ -47,16 +47,20 @@ El flujo de trabajo básico para la carga de activos se divide en las secciones 
 
 AMS también permite cargar activos en bloque. Para obtener más información, consulte [esta](media-services-rest-upload-files.md#upload_in_bulk) sección.
 
-## <a name="upload-assets"></a>Carga de activos
-### <a name="create-an-asset"></a>Creación de un recurso
 > [!NOTE]
-> Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
-> 
 > Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 > 
-> Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md). 
-> 
-> 
+
+## <a name="connect-to-media-services"></a>Conexión con Servicios multimedia
+
+Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
+
+## <a name="upload-assets"></a>Carga de activos
+
+### <a name="create-an-asset"></a>Creación de un recurso
 
 Un recurso es un contenedor para varios tipos o conjuntos de objetos en Servicios multimedia, como vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos. En la API de REST, crear un recurso requiere el envío de una solicitud POST a Servicios multimedia y colocar la información sobre cualquier propiedad del recurso en el cuerpo de solicitud.
 
@@ -90,7 +94,6 @@ En el ejemplo siguiente se muestra cómo crear un recurso.
     Host: media.windows.net
 
     {"Name":"BigBuckBunny.mp4"}
-
 
 **Respuesta HTTP**
 
@@ -150,7 +153,6 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
        "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
     }
 
-
 **Respuesta HTTP**
 
     HTTP/1.1 201 Created
@@ -184,7 +186,6 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
        "MimeType":"video/mp4",
        "ContentChecksum":null
     }
-
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Creación de AccessPolicy con permiso de escritura.
 
@@ -269,7 +270,6 @@ En el ejemplo siguiente se muestra cómo crear un localizador de dirección URL 
        "Type":1
     }
 
-
 **Respuesta HTTP**
 
 Si se realiza correctamente, se devuelve la respuesta siguiente:
@@ -349,7 +349,6 @@ Si se realiza correctamente, se devuelve lo siguiente: HTTP/1.1 204 No Content
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
     x-ms-version: 2.11
     Host: media.windows.net
-
 
 **Respuesta HTTP**
 

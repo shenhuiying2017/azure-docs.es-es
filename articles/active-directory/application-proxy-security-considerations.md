@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f1ef6c3cc3ad2eda9fbcf79bf729918a847d27d7
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c6ead651133eb17fd55f7567cdb14dc3bcd64245
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -61,13 +61,15 @@ Como el Proxy de aplicación de Azure AD es un servidor proxy inverso, todo el t
 
 No es necesario abrir conexiones de entrada a la red corporativa.
 
-Los conectores de Azure AD solo usan conexiones salientes al servicio Azure AD Application Proxy, lo que significa que no es necesario abrir los puertos de firewall para las conexiones entrantes. Los servidores proxy tradicionales requerían una red perimetral (también conocida como *DMZ*, *zona desmilitarizada* o *subred filtrada*) y permitían el acceso a las conexiones no autenticadas en el perímetro de la red. Este escenario hacía necesaria una gran inversión adicional en productos de firewall de aplicaciones web para analizar el tráfico y ofrecer una mayor protección al entorno. Con Proxy de aplicación no se necesita una red perimetral, ya que todas las conexiones son de salida y tienen lugar a través de un canal seguro.
+Los conectores de Proxy de aplicación solo usan conexiones salientes al servicio Azure AD Application Proxy, lo que significa que no es necesario abrir los puertos de firewall para las conexiones entrantes. Los servidores proxy tradicionales requerían una red perimetral (también conocida como *DMZ*, *zona desmilitarizada* o *subred filtrada*) y permitían el acceso a las conexiones no autenticadas en el perímetro de la red. Este escenario hacía necesaria una gran inversión adicional en productos de firewall de aplicaciones web para analizar el tráfico y ofrecer una mayor protección al entorno. Con Proxy de aplicación no se necesita una red perimetral, ya que todas las conexiones son de salida y tienen lugar a través de un canal seguro.
+
+Para más información sobre los conectores, consulte [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md).
 
 ### <a name="cloud-scale-analytics-and-machine-learning"></a>Análisis de escala en la nube y aprendizaje automático 
 
 Obtenga una protección de seguridad avanzada.
 
-[Azure AD Identity Protection](active-directory-identityprotection.md) con inteligencia controlada por aprendizaje automático se proporciona desde nuestra Unidad de crímenes digitales y el Centro de respuesta de seguridad de Microsoft. Juntos identificamos de manera proactiva las cuentas en peligro y ofrecemos protección en tiempo real frente a inicios de sesión de alto riesgo. Tomamos en consideración diversos factores, como el acceso desde dispositivos infectados y a través de redes anónimas, y desde ubicaciones atípicas y poco probables.
+Dado que forma parte de Azure Active Directory, el Proxy de aplicación puede sacar provecho de [Azure AD Identity Protection](active-directory-identityprotection.md), con inteligencia controlada por Machine Learning y datos de Microsoft Security Response Center y Digital Crimes Unit. Juntos identificamos de manera proactiva las cuentas en peligro y ofrecemos protección en tiempo real frente a inicios de sesión de alto riesgo. Tomamos en consideración diversos factores, como el acceso desde dispositivos infectados y a través de redes anónimas, y desde ubicaciones atípicas y poco probables.
 
 Muchos de estos informes y eventos ya están disponibles a través de una API para la integración con los sistemas de información de seguridad y administración de eventos (SIEM).
 
@@ -119,7 +121,7 @@ Cada vez que el servicio de Proxy de aplicación actualiza los valores de config
 
 Cuando los usuarios tienen acceso a una aplicación publicada, los siguientes eventos tienen lugar entre el servicio Application Proxy y el conector del proxy de aplicación:
 
-1. [El servicio Application Proxy comprueba los valores de configuración de la aplicación](#the-service-checks-the-configuration-settings-for-the-app)
+1. [El servicio autentica al usuario de la aplicación](#the-service-checks-the-configuration-settings-for-the-app)
 2. [El servicio realiza una solicitud en la cola del conector](#The-service-places-a-request-in-the-connector-queue)
 3. [El conector procesa la solicitud de la cola](#the-connector-receives-the-request-from-the-queue)
 4. [El conector espera una respuesta](#the-connector-waits-for-a-response)
@@ -128,7 +130,7 @@ Cuando los usuarios tienen acceso a una aplicación publicada, los siguientes ev
 Para más información sobre lo que ocurre en cada uno de estos pasos, continúe leyendo.
 
 
-#### <a name="1-the-service-checks-the-configuration-settings-for-the-app"></a>1. El servicio comprueba los valores de configuración de la aplicación
+#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. El servicio autentica al usuario de la aplicación
 
 Si ha configurado la aplicación para que use el acceso directo como método de autenticación previa, se omiten los pasos descritos en esta sección.
 

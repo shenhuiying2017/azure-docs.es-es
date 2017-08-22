@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 17f6062537714fbef7c8509261ac4875f8a44b6e
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 75abfb977a47ccef45bcc2124b31fbd06ea7d68e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -32,19 +32,12 @@ Si aún no ve los datos en la hoja Retención del portal de Application Insights
 
 ![Herramienta Retención](./media/app-insights-usage-retention/retention.png)
 
-a. La página Información general siempre está disponible. Además, puede guardar informes con nombre con una configuración de parámetros diferente. Guarde el informe en la carpeta de compartidos para que puedan verlo otros usuarios que tienen acceso al recurso.
-
-b. De forma predeterminada, el gráfico cuenta todos los usuarios que usan cualquiera de los eventos personalizados o vistas de página recibidas de la aplicación. Seleccione uno, o un subconjunto, para centrarse en una actividad de usuario determinada. 
-
-c. Agregue uno o varios filtros en las propiedades. Por ejemplo, podría centrarse en los usuarios de un país o una región determinados. Haga clic en **Actualizar** después de establecer los filtros.
-
-d. **Restaurar valores predeterminados** siempre borra el filtro personalizado y los filtros de eventos.
-
-e. El gráfico de resumen muestra los totales en el periodo seleccionado.
-
-f. La cuadrícula muestra el número de usuarios que han regresado para repetir las acciones seleccionadas en un periodo determinado. Cada fila representa una cohorte de usuarios que llevó a cabo una de las acciones seleccionadas en el periodo mostrado. Cada celda de la fila muestra cuántos de esa cohorte regresaron al menos una vez en un periodo posterior. Algunos usuarios pueden regresar en más de un periodo.
-
-Todos los usuarios que usaron la aplicación durante el intervalo de tiempo del gráfico se representan exactamente en una fila del gráfico. Cada usuario se cuenta en el periodo de cuando realizó por primera vez la acción seleccionada en el intervalo de tiempo del gráfico. Por tanto, suele haber un número mayor en la primera fila.
+1. La barra de herramientas permite a los usuarios crear nuevos informes de retención, abrir los informes ya existentes, guardar el informe de retención actual (o guardarlo mediante la opción Guardar como), revertir los cambios efectuados en los informes guardados, actualizar los datos del informe, compartir un informe por correo electrónico o vínculo directo y acceder a la página de documentación. 
+2. De forma predeterminada, la herramienta de retención muestra todos los usuarios que hicieron algo y que , posteriormente, regresaron e hicieron algo más a lo largo de un período. Puede seleccionar una combinación diferente de eventos para centrar el enfoque en las actividades específicas del usuario.
+3. Agregue uno o varios filtros en las propiedades. Por ejemplo, puede centrarse en los usuarios de un país o una región determinados. Haga clic en **Actualizar** después de establecer los filtros. 
+4. El gráfico de retención general muestra un resumen de la retención del usuario durante un período de tiempo seleccionado. 
+5. La cuadrícula muestra el número de usuarios retenidos según el generador de consultas en 2. Cada fila representa una cohorte de usuarios que llevó a cabo cualquier evento en el periodo mostrado. Cada celda de la fila muestra cuántos de esa cohorte regresaron al menos una vez en un periodo posterior. Algunos usuarios pueden regresar en más de un periodo. 
+6. Las tarjetas de información muestran los 5 eventos de inicio más importantes y los 5 eventos devueltos principales para proporcionar a los usuarios una mejor comprensión de su informe de retención. 
 
 
 ## <a name="use-business-events-to-track-retention"></a>Uso de eventos empresariales para realizar un seguimiento de la retención
@@ -69,9 +62,10 @@ O en el código del servidor ASP.NET:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-* [Información general del uso](app-insights-usage-overview.md)
-* [Usuarios y sesiones](app-insights-usage-segmentation.md)
-* [Eventos personalizados de codificación](app-insights-api-custom-events-metrics.md)
-
+- Para habilitar las experiencias de uso, empiece por enviar [eventos personalizados](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [vistas de páginas](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Si ya ha enviado eventos personalizados o vistas de página, explore las herramientas de uso para obtener información sobre cómo los usuarios utilizan el servicio.
+    - [Usuarios, sesiones, eventos](app-insights-usage-segmentation.md)
+    - [Embudos](usage-funnels.md)
+    - [Libros](app-insights-usage-workbooks.md)
+    - [Adición de contexto de usuario](app-insights-usage-send-user-context.md)
 

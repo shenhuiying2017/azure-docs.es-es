@@ -3,8 +3,8 @@ title: Comprar un nombre de dominio personalizado para Azure Web Apps
 description: "Obtenga información sobre cómo comprar un nombre de dominio personalizado con una aplicación web en Azure App Service."
 services: app-service\web
 documentationcenter: 
-author: rmcmurray
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
@@ -12,8 +12,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
-ms.author: robmcm
+ms.date: 08/17/2016
+ms.author: cephalin
 ms.translationtype: HT
 ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 44d350d2d098be14ad254066a8528fe117200ec4

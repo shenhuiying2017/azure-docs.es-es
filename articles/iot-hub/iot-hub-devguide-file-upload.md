@@ -12,22 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f09813af5f758b49e819f36664ffe22ca22b16ec
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="file-uploads-with-iot-hub"></a>Cargas de archivos con IoT Hub
+# <a name="upload-files-with-iot-hub"></a>Carga de archivos con IoT Hub
 
-## <a name="overview"></a>Información general
+Tal como se detalla en el artículo [Puntos de conexión de IoT Hub][lnk-endpoints], un dispositivo puede iniciar cargas de archivos mediante el envío de una notificación a través de un punto de conexión accesible desde el dispositivo (**/devices/{deviceId}/files**). Cuando un dispositivo notifica a IoT Hub que se ha completado una carga, este envía un mensaje de notificación de carga a través del punto de conexión accesible desde el servicio (**/messages/servicebound/filenotifications**).
 
-Tal como se detalla en el artículo [Puntos de conexión de IoT Hub][lnk-endpoints], los dispositivos pueden iniciar cargas de archivos mediante el envío de una notificación a través de un punto de conexión accesible desde el dispositivo (**/devices/{deviceId}/files**).  Cuando un dispositivo notifica al Centro de IoT que se ha completado una carga, el Centro de IoT genera notificaciones de carga de archivos que se pueden recibir a través de un punto de conexión accesible desde el servicio (**/messages/servicebound/filenotifications**) en forma de mensajes.
-
-En lugar de servir de intermediario de los mensajes, el Centro de IoT actúa como distribuidor a una cuenta de Almacenamiento de Azure asociada. Un dispositivo solicita un token de almacenamiento del Centro de IoT que es específico del archivo que el dispositivo quiere cargar. El dispositivo usa el URI de SAS para cargar el archivo en el almacenamiento y, cuando la carga ha finalizado, envía una notificación de finalización al Centro de IoT. El Centro de IoT comprueba que el archivo se ha cargado y luego agrega una notificación de carga de archivo al nuevo punto de conexión de mensajería de notificaciones de archivos accesible desde el servicio.
+En lugar de servir de intermediario de los mensajes, IoT Hub actúa como distribuidor a una cuenta de Azure Storage asociada. Un dispositivo solicita un token de almacenamiento de IoT Hub que es específico del archivo que el dispositivo quiere cargar. El dispositivo usa el URI de SAS para cargar el archivo en el almacenamiento y, cuando la carga ha finalizado, envía una notificación de finalización a IoT Hub. IoT Hub comprueba que la carga del archivo está completa y agrega después un mensaje de notificación de carga de archivo al nuevo punto de conexión de notificaciones de archivos accesible desde el servicio.
 
 Antes de cargar un archivo en IoT Hub desde un dispositivo, tiene que configurar su centro mediante la [asociación de una cuenta de Azure Storage][lnk-associate-storage] al mismo.
 
@@ -41,14 +39,14 @@ Si duda entre el uso de propiedades notificadas, mensajes de dispositivo a nube 
 
 ## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Asociar una cuenta de Azure Storage con IoT Hub
 
-Para utilizar la funcionalidad de carga de archivos, primero debe vincular una cuenta de Almacenamiento de Azure al Centro de IoT. Puede completar esta tarea a través de [Azure Portal][lnk-management-portal] o mediante programación, con las [API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis]. Una vez que ha asociado una cuenta de Azure Storage a IoT Hub, el servicio devuelve un URI de SAS a un dispositivo cuando este inicie una solicitud de carga de archivos.
+Para utilizar la funcionalidad de carga de archivos, primero debe vincular una cuenta de Azure Storage a IoT Hub. Puede completar esta tarea a través de [Azure Portal][lnk-management-portal] o mediante programación, con las [API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis]. Una vez que ha asociado una cuenta de Azure Storage a IoT Hub, el servicio devuelve un URI de SAS a un dispositivo cuando este inicie una solicitud de carga de archivos.
 
 > [!NOTE]
 > Los [SDK de IoT de Azure][lnk-sdks] administran automáticamente la recuperación del URI de SAS: cargan el archivo y notifican a IoT Hub que la carga se ha completado.
 
 
 ## <a name="initialize-a-file-upload"></a>Inicialización de una carga de archivos
-IoT Hub tiene un punto de conexión concreto para dispositivos para solicitar un URI de SAS para el almacenamiento para cargar un archivo. El dispositivo inicia el proceso de carga de archivos mediante el envío de una operación POST a IoT Hub en `{iot hub}.azure-devices.net/devices/{deviceId}/files` con el siguiente cuerpo JSON:
+IoT Hub tiene un punto de conexión concreto para dispositivos para solicitar un URI de SAS para el almacenamiento para cargar un archivo. Para iniciar el proceso de carga de archivos, el dispositivo envía una solicitud POST a `{iot hub}.azure-devices.net/devices/{deviceId}/files` con el cuerpo JSON siguiente:
 
 ```json
 {
@@ -71,13 +69,16 @@ IoT Hub devuelve los datos siguientes, que usa el dispositivo para cargar el arc
 ### <a name="deprecated-initialize-a-file-upload-with-a-get"></a>En desuso: inicializar una carga de archivo con un comando GET
 
 > [!NOTE]
-> Esta sección describe la funcionalidad en desuso para la recepción de un URI de SAS de IoT Hub. Debe usar el método POST que se ha descrito anteriormente.
+> Esta sección describe la funcionalidad en desuso para la recepción de un URI de SAS de IoT Hub. Use el método POST que se ha descrito anteriormente.
 
-El Centro de IoT tiene dos puntos de conexión de REST que permiten la carga de archivos: uno para obtener el URI de SAS para el almacenamiento y el otro para notificar al Centro de IoT que la carga se ha completado. El dispositivo inicia el proceso de carga de archivos mediante el envío de una operación GET al Centro de IoT en `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. IoT Hub devuelve un URI de SAS específico del archivo que se va a cargar, junto con un identificador de correlación que se usará una vez que finalice la carga.
+IoT Hub tiene dos puntos de conexión de REST que permiten la carga de archivos: uno para obtener el URI de SAS para el almacenamiento y el otro para notificar al centro de IoT que la carga se ha completado. El dispositivo inicia el proceso de carga de archivos mediante el envío de una operación GET al centro de IoT en `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. IoT Hub devuelve:
 
-## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Notificación al Centro de IoT de una carga de archivos completada
+* Un URI de SAS específico del archivo que se va a cargar.
+* Un identificador de correlación que se usará cuando se haya completado la carga.
 
-El dispositivo es responsable de cargar el archivo en el almacenamiento mediante los SDK de Almacenamiento de Azure. Una vez completada la carga, el dispositivo envía un POST a IoT Hub en `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` con el siguiente cuerpo JSON:
+## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Notificación a IoT Hub de una carga de archivos completada
+
+El dispositivo es responsable de cargar el archivo en el almacenamiento mediante los SDK de Azure Storage. Cuando la carga se haya completado, el dispositivo envía una solicitud POST a `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` con el siguiente cuerpo JSON:
 
 ```json
 {
@@ -96,7 +97,7 @@ Los siguientes temas de referencia proporcionan más información sobre la carga
 
 ## <a name="file-upload-notifications"></a>Notificaciones de carga de archivos
 
-Cuando un dispositivo carga un archivo y notifica al Centro de IoT que la carga ha finalizado, el servicio genera opcionalmente un mensaje de notificación que contiene el nombre y la ubicación de almacenamiento del archivo.
+Opcionalmente, cuando el dispositivo notifica a IoT Hub que la carga ha finalizado, el servicio puede generar un mensaje de notificación que contiene el nombre y la ubicación de almacenamiento del archivo.
 
 Como se ha explicado en [Puntos de conexión][lnk-endpoints], IoT Hub entrega notificaciones de carga de archivos a través de un punto de conexión accesible desde el servicio (**/messages/servicebound/fileuploadnotifications**) en forma de mensajes. La semántica de recepción de las notificaciones de carga de archivos es la misma que para los mensajes de nube a dispositivo y tiene el mismo [ciclo de vida del mensaje][lnk-lifecycle]. Cada mensaje recuperado del punto de conexión de notificación de carga de archivos es un registro JSON con las siguientes propiedades:
 
@@ -124,7 +125,7 @@ Como se ha explicado en [Puntos de conexión][lnk-endpoints], IoT Hub entrega no
 
 ## <a name="file-upload-notification-configuration-options"></a>Opciones de configuración de notificaciones de carga de archivos
 
-Cada Centro de IoT expone las siguientes opciones de configuración para las notificaciones de carga de archivos:
+Cada centro de IoT expone las siguientes opciones de configuración para las notificaciones de carga de archivos:
 
 | Propiedad | Description | Intervalo y valor predeterminado |
 | --- | --- | --- |
@@ -137,10 +138,10 @@ Cada Centro de IoT expone las siguientes opciones de configuración para las not
 
 Otros temas de referencia en la guía del desarrollador de IoT Hub son los siguientes:
 
-* En [Puntos de conexión de IoT Hub][lnk-endpoints], se describen los diferentes puntos de conexión que expone cada centro de IoT Hub para las operaciones en tiempo de ejecución y de administración.
-* En [Cuotas y limitación][lnk-quotas], se describen las cuotas que se aplican al servicio IoT Hub y el comportamiento de limitación que se espera al usar el servicio.
+* En [Puntos de conexión de IoT Hub][lnk-endpoints], se describen los diferentes puntos de conexión que expone cada centro de IoT para las operaciones en tiempo de ejecución y de administración.
+* En [Cuotas y limitación][lnk-quotas], se describen las cuotas y el comportamiento de limitación que se aplican al servicio IoT Hub.
 * En [SDK de dispositivo y servicio IoT de Azure][lnk-sdks] se muestran los diversos SDK de lenguaje que puede usar para desarrollar aplicaciones para dispositivo y de servicio que interactúen con IoT Hub.
-* En [Referencia: Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes][lnk-query], se describe el lenguaje de consulta de IoT Hub que se puede usar para recuperar información de IoT Hub sobre los dispositivos gemelos y trabajos.
+* En [Lenguaje de consulta de IoT Hub][lnk-query], se describe el lenguaje de consulta que se puede usar para recuperar información de IoT Hub sobre los trabajos y dispositivos gemelos.
 * En [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
 ## <a name="next-steps"></a>Pasos siguientes

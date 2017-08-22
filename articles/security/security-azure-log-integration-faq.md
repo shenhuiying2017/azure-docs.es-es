@@ -11,20 +11,19 @@ ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/26/2017
+ms.workload8: na
+ms.date: 08/07/2017
 ms.author: TomSh
 ms.custom: azlog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: e6aefe5f16e7148f7837a8741355c61851618495
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 9b9285ec659e7d3d3f6aa42a88bb6e822e2dfc91
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-log-integration-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre la integración de registro de Azure (P+F)
-Estas P+F responden a preguntas acerca de la integración de registro de Azure, un servicio que le permite integrar los registros sin procesar de los recursos de Azure en los sistemas locales de administración de eventos e información de seguridad (SIEM). Esta integración proporciona un panel unificado de todos los recursos, locales o en la nube, para que pueda agregar, correlacionar, analizar y alertar de eventos de seguridad asociados a las aplicaciones.
+En estas preguntas más frecuentes se responde a dudas acerca de Azure Log Integration, un servicio que le permite integrar los registros sin procesar de los recursos de Azure en los sistemas locales de administración de eventos e información de seguridad (SIEM). Esta integración proporciona un panel unificado de todos los recursos, locales o en la nube, para que pueda agregar, correlacionar, analizar y alertar de eventos de seguridad asociados a las aplicaciones.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>¿Es el software Integración de registro de Azure gratuito?
 Sí. No hay ningún cargo por el software Integración de registro de Azure.
@@ -33,18 +32,18 @@ Sí. No hay ningún cargo por el software Integración de registro de Azure.
 
 Está actualmente disponible en la versión comercial de Azure y en Azure Government. No se encuentra disponible ni en China ni en Alemania.
 
-## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>¿Cómo puedo ver las cuentas de almacenamiento desde las que el servicio de integración de registro de Azure extrae los registros de máquinas virtuales de Azure?
+## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>¿Cómo puedo ver las cuentas de almacenamiento desde las que el servicio Azure Log Integration extrae los registros de máquinas virtuales de Azure?
 Ejecute el comando **azlog source list**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>¿Cómo puedo saber de qué suscripción son los registros de integración de Azure?
 
-En el caso de los registros de auditoría que se colocan en los directorios AzureResourcemanagerJson, el identificador de la suscripción está en el nombre del archivo de registro. Esto también es cierto para los registros de la carpeta AzureSecurityCenterJson. Por ejemplo:
+En el caso de los registros de auditoría que se colocan en los directorios **AzureResourcemanagerJson**, el identificador de la suscripción está en el nombre del archivo de registro. Esto también se aplica en el caso de los registros de la carpeta **AzureSecurityCenterJson**. Por ejemplo:
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
 Los registros de auditoría de Azure Active Directory incluyen el identificador del inquilino como parte del nombre.
 
-La lectura de los registros de diagnóstico de una instancia de Event Hubs no incluyen el identificador de la suscripción como parte del nombre, pero en su lugar, incluyen un nombre descriptivo especificado como parte de la creación del origen de dicha instancia. 
+Los registros de diagnóstico que se leen desde una instancia de Event Hub no incluyen el identificador de suscripción como parte del nombre. En su lugar, incluyen el nombre descriptivo especificado como parte de la creación del origen de la instancia de Event Hub. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>¿Cómo se puede actualizar la configuración de proxy?
 Si la configuración de proxy no permite el acceso a Azure Storage directamente, abra el archivo **AZLOG.EXE.CONFIG** en **c:\Program Files\Microsoft Azure Log Integration**. Actualice el archivo para que incluya la sección **defaultProxy** con la dirección del proxy de su organización. Después realizar la actualización, detenga e inicie el servicio mediante los comandos **net stop azlog** y **net start azlog**.
@@ -66,7 +65,7 @@ Si la configuración de proxy no permite el acceso a Azure Storage directamente,
       </system.diagnostics>   
 
 ## <a name="how-can-i-see-the-subscription-information-in-windows-events"></a>¿Cómo se puede ver la información de suscripción en los eventos de Windows?
-Anexe el **subscriptionid** al nombre descriptivo al agregar el origen.
+Al agregar el origen, anexe el **identificador de suscripción** al nombre descriptivo.
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
 El archivo XML de eventos presenta los metadatos como se muestra a continuación, incluido el identificador de suscripción.
@@ -74,7 +73,7 @@ El archivo XML de eventos presenta los metadatos como se muestra a continuación
 ![XML de eventos][1]
 
 ## <a name="error-messages"></a>mensajes de error
-### <a name="when-running-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Cuando ejecuto el comando **azlog createazureid**, ¿por qué obtengo el siguiente error?
+### <a name="when-running-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Al ejecutar el comando ```azlog createazureid```, ¿por qué obtengo el siguiente error?
 Error:
 
   *Failed to create AAD Application (Error al crear la aplicación de AAD): Inquilino 72f988bf-86f1-41af-91ab-2d7cd011db37 - Reason = 'Forbidden' - Message = 'No tiene privilegios suficientes para completar la operación'.*
@@ -125,7 +124,7 @@ Después de realizar cambios, compruebe la cuenta de almacenamiento para asegura
 
 Si experimenta problemas durante la instalación y la configuración, abra una [solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) y seleccione **Integración de registros** como el servicio para el que está solicitando soporte técnico.
 
-### <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>¿Puedo usar la integración de registros de Azure para integrar los registros de Network Watcher en mi SIEM?
+### <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-in-to-my-siem"></a>¿Puedo usar Azure Log Integration para integrar los registros de Network Watcher en mi SIEM?
 
 Network Watcher genera grandes cantidades de información de registro y estos registros no están diseñados para su envío a un SIEM. El único destino admitido para los registros de Network Watcher es una cuenta de almacenamiento. Azlog no admite la lectura de estos registros ni su envío a un SIEM
 

@@ -13,10 +13,10 @@ ms.topic: landing - page
 ms.date: 7/06/2017
 ms.author: arijitt
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 29aa2510fc04f24c437d6bb6142eebb8859569c0
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 9313f0713818f80bae99c32a438d97ba544a7a6b
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -38,7 +38,7 @@ Consulte los siguientes artículos para más ayuda para la solución de problema
 | Para información acerca de | Consulte |
 | --- | --- |
 | HDInsight en Linux y optimización | [Información sobre el uso de HDInsight en Linux](hdinsight-hadoop-linux-information.md)<br>[Rendimiento y memoria de Hadoop](hdinsight-hadoop-stack-trace-error-messages.md)<br>[Rendimiento de consultas de Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
-| Registros y volcados de memoria | [Acceso a registros de aplicaciones de YARN en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>[Habilitación de volcados del montón para servicios de Hadoop](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>[Analizar los registros de HDInsight](hdinsight-debug-jobs.md)|
+| Registros y volcados de memoria | [Acceso a registros de aplicaciones de YARN en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>[Habilitación de volcados del montón para servicios de Hadoop](hdinsight-hadoop-collect-debug-heap-dump-linux.md)|
 | Errors | [Descripción y resolución de errores de WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>[La configuración de Hive corrige un error de memoria insuficiente](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Herramientas | [Uso de vistas de Ambari para depurar trabajos de Tez](hdinsight-debug-ambari-tez-view.md)<br>[Optimización de consultas de Hive](hdinsight-hadoop-optimize-hive-query.md) |
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 6c76311b8ba36ea5dba1c2cd63ee05e1048ca9de
-ms.openlocfilehash: 6ceb50b05075ea9d056a873cf70b13ff85dc6094
-ms.lasthandoff: 02/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 25ec625c1f32fd1477685196ea21ad6f582bc7ce
+ms.contentlocale: es-es
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Descubra competiciones en la Galería de Cortana Intelligence
@@ -34,8 +34,7 @@ Para obtener respuestas a preguntas frecuentes sobre las competiciones, consulte
 
 ![Seleccione las competiciones en la página principal de la galería](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
 
- La página **[Competiciones](https://gallery.cortanaintelligence.com/competitions)**
- muestra una lista de las competiciones más populares.
+ La página **[Competiciones](https://gallery.cortanaintelligence.com/competitions)** muestra una lista de las competiciones más populares.
 Haga clic en **Ver todos** para ver todas las competiciones.
 Desde esta página, puede examinar todas las competiciones de la Galería. También puede buscar seleccionando criterios de filtrado a la izquierda de la página y escribiendo términos de búsqueda en la parte superior.
 
@@ -46,13 +45,11 @@ Desde esta página, puede examinar todas las competiciones de la Galería. Tambi
 ![Agregar sus comentarios](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="enter-a-competition"></a>Participar en una competición
-Si la competición está abierta, el estado en la página de información será **Activo**. Para especificar la competición, haga clic en **Escribir competición** y se le proporcionarán instrucciones en los recursos que necesite y los pasos que debe tomar.
+Si la competición está abierta, el estado en la página de detalles será **Activo**. Para especificar la competición, haga clic en **Escribir competición** y se le proporcionarán instrucciones en los recursos que necesite y los pasos que debe tomar.
 
-![Ha completado la competición](media/machine-learning-gallery-competitions/open-competition.png)
+![La competición está activa](media/machine-learning-gallery-competitions/open-competition.png)
 
-Si ya no está abierta la competición, su estado en la página de información será **Completado** y el vínculo **Escribir competencia** se reemplazará por la palabra **Finalizado**.
-
-![Ha completado la competición](media/machine-learning-gallery-competitions/completed-competition.png)
+Si la competición se ha completado, se muestra una lista de ganadores.
 
 **[IR A LA GALERÍA >>](http://gallery.cortanaintelligence.com)**
 

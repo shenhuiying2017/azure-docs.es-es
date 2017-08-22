@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/08/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: b4031e5ec5ab38863e1e74f5b6ebb117f23a327e
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 2de9a87390da11a034c6cebaa37d4cc89edf3cad
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -52,7 +52,6 @@ No se preocupe.  Se crea una instantánea del área de trabajo antes de la actua
 Puede usar la herramienta del convertidor de lenguaje en la página de búsqueda de registros para convertir cada una de ellas.  No hay ningún método para convertir automáticamente varias búsquedas sin actualizar el área de trabajo.
 
 
-
 ## <a name="alerts"></a>Alertas
 
 ### <a name="i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>Tengo una gran cantidad de reglas de alertas. ¿Es necesario crearlas de nuevo en el nuevo lenguaje después de actualizar?  
@@ -63,7 +62,10 @@ No, las reglas de alertas se convierten automáticamente al nuevo lenguaje de b�
 ### <a name="does-anything-change-with-powerbi-integration"></a>¿Hay algún cambio en la integración con Power BI?
 Sí.  Una vez que se haya actualizado el área de trabajo, el proceso de exportación de datos de Log Analytics a Power BI dejará de funcionar.  Se deshabilitarán las programaciones existentes creadas antes de actualizar.  Después de la actualización, Azure Log Analytics usa la misma plataforma que Application Insights y el usuario utilizará el mismo proceso para exportar las consultas de Log Analytics a Power BI que se describe en [el proceso de exportación de consultas de Application Insights a Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
 
+## <a name="dashboards"></a>Paneles
 
+### <a name="can-i-still-use-dashboards"></a>¿Puedo continuar usando paneles?
+Puede continuar usando los paneles que creó antes de que se actualizara el área de trabajo, pero podrá editarlos ni crear otros nuevos.  Puede continuar creando y editando vistas con el [Diseñador de vistas](log-analytics-view-designer.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

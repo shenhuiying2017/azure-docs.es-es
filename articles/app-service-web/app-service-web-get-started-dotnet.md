@@ -11,22 +11,24 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: b5a7f3ebe5e95d3838e71b7b17b91e85da0d51a2
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 567d7d29fde875690ee4dc6dd5752e86fa77ff40
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>Creación de una aplicación web ASP.NET en Azure
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático.  Esta guía de inicio rápido muestra cómo implementar su primera aplicación web ASP.NET en Azure Web Apps. Cuando haya terminado, tendrá un grupo de recursos que consta de un plan de App Service y una aplicación web de Azure con una aplicación web implementada.
 
-![Aplicación web de ASP.NET en Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
+Vea el vídeo para ver este inicio rápido en acción y, a continuación, siga los pasos para publicar su primera aplicación de .NET en Azure.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -91,7 +93,7 @@ Junto a **Grupo de recursos**, seleccione **Nuevo**.
 
 Asigne el nombre **myResourceGroup** al grupo de recursos y seleccione **Aceptar**.
 
-## <a name="create-an-app-service-plan"></a>Creación de un plan del Servicio de aplicaciones
+## <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
@@ -99,11 +101,11 @@ Junto a **Plan de App Service**, seleccione **Nuevo**.
 
 En el cuadro de diálogo **Configurar plan de App Service**, use la configuración de la tabla que sigue a la captura de pantalla.
 
-![Creación de un plan de Servicio de aplicaciones](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![Creación de un plan de App Service](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 | Configuración | Valor sugerido | Descripción |
 |-|-|-|
-|Plan de servicio de aplicación| myAppServicePlan | Nombre del plan de App Service. |
+|Plan de App Service| myAppServicePlan | Nombre del plan de App Service. |
 | Ubicación | Europa occidental | El centro de datos donde se hospeda la aplicación web. |
 | Tamaño | Gratuito | [Plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/) determina las características de hospedaje. |
 

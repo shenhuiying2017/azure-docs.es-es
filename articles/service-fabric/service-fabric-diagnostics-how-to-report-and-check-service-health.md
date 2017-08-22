@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2017
+ms.date: 07/19/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ad779784a6a8092ad44f5b564db2d3b207989d86
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 83981d5bec14c06c509f1a8a4153dc23298f5ce0
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="report-and-check-service-health"></a>Notificación y comprobación del estado del servicio
@@ -29,7 +29,7 @@ Hay tres maneras de informar sobre el estado del servicio:
 * Mediante los objetos [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) o [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext).  
   Puede usar los objetos `Partition` y `CodePackageActivationContext` para informar sobre el estado de elementos que forman parte del contexto actual. Por ejemplo, el código que se ejecuta como parte de una réplica solo puede informar sobre el estado de esa réplica, la partición a la que pertenece y la aplicación de la que forma parte.
 * Mediante `FabricClient`.   
-  Puede usar `FabricClient` para informar sobre el estado del código de servicio si el clúster no es [seguro](service-fabric-cluster-security.md) o si el servicio se ejecuta con privilegios de administrador. Esto no se cumplirá en la mayoría de los escenarios reales. Con `FabricClient`, puede notificar sobre el estado de cualquier entidad que forme parte del clúster. Sin embargo, lo ideal es que el código de servicio solo envíe informes relacionados con su propio estado.
+  Puede usar `FabricClient` para informar sobre el estado del código de servicio si el clúster no es [seguro](service-fabric-cluster-security.md) o si el servicio se ejecuta con privilegios de administrador. La mayoría de los escenarios reales no usan clústeres no seguros ni proporcionan privilegios de administrador. Con `FabricClient`, puede notificar sobre el estado de cualquier entidad que forme parte del clúster. Sin embargo, lo ideal es que el código de servicio solo envíe informes relacionados con su propio estado.
 * Use las API de REST en el nivel de clúster, aplicación, aplicación implementada, servicio, paquete de servicios, partición, réplica o nodo. Esto se puede usar para informar sobre el estado desde dentro de un contenedor.
 
 Este artículo le guiará a través de un ejemplo que informa del estado del código de servicio. El ejemplo también muestra cómo se pueden usar las herramientas que ofrece Service Fabric para comprobar el estado de mantenimiento. Este artículo pretende ser una introducción rápida a las funcionalidades de supervisión del estado de Service Fabric. Para obtener más información, puede leer la serie de artículos detallados sobre el estado, empezando por el vínculo al final de este documento.
@@ -41,7 +41,7 @@ Debe tener instalados los siguientes elementos:
 * SDK de Service Fabric
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>Para crear un clúster de desarrollo seguro local
-* Abra PowerShell con privilegios de administrador y ejecute los comandos siguientes.
+* Abra PowerShell con privilegios de administrador y ejecute los comandos siguientes:
 
 ![Comandos que muestran cómo crear un clúster de desarrollo seguro](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-secure-dev-cluster.png)
 
@@ -50,7 +50,7 @@ Debe tener instalados los siguientes elementos:
 2. Cree un proyecto mediante la plantilla **Servicio con estado** .
    
     ![Creación de una aplicación de Service Fabric con servicio con estado](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-stateful-service-application-dialog.png)
-3. Presione **F5** para ejecutar la aplicación en modo de depuración. Se implementará la aplicación en el clúster local.
+3. Presione **F5** para ejecutar la aplicación en modo de depuración. La aplicación se implementa en el clúster local.
 4. Después de ejecutarse la aplicación, haga clic con el botón derecho en el icono Administrador de clúster local en el área de notificación y seleccione **Administrar clúster local** en el menú de función rápida para abrir el explorador de Service Fabric.
    
     ![Apertura del explorador de Service Fabric desde el área de notificación](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/LaunchSFX.png)
@@ -62,7 +62,7 @@ Debe tener instalados los siguientes elementos:
     ![Aplicación correcta en PowerShell](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/ps-healthy-app-report.png)
 
 ## <a name="to-add-custom-health-events-to-your-service-code"></a>Para agregar eventos de estado personalizados a su código de servicio
-Las plantillas de proyecto de Service Fabric en Visual Studio contienen código de ejemplo. Los pasos siguientes muestran cómo puede informar sobre eventos de estado personalizados desde el código de servicio. Estos informes aparecerán automáticamente en las herramientas estándar para la supervisión de estado que proporciona Service Fabric, como el explorador de Service Fabric, la vista del estado del Portal de Azure y PowerShell.
+Las plantillas de proyecto de Service Fabric en Visual Studio contienen código de ejemplo. Los pasos siguientes muestran cómo puede informar sobre eventos de estado personalizados desde el código de servicio. Estos informes aparecen automáticamente en las herramientas estándar para la supervisión del estado que proporciona Service Fabric, como Service Fabric Explorer, la vista del estado de Azure Portal y PowerShell.
 
 1. Vuelva a abrir la aplicación que creó anteriormente en Visual Studio o cree otra con un servicio con estado mediante la plantilla de Visual Studio **Servicio con estado** .
 2. Abra el archivo Stateful1.cs y busque la llamada `myDictionary.TryGetValueAsync` en el método `RunAsync`. Puede ver que este método devuelve un `result` que mantiene el valor actual del contador porque la lógica principal de esta aplicación es mantener el recuento en funcionamiento. Si se tratara de una aplicación real y si la falta de resultados representara un error, es posible que le interesara marcar ese evento.
@@ -123,15 +123,15 @@ Las plantillas de proyecto de Service Fabric en Visual Studio contienen código 
         this.Partition.ReportReplicaHealth(healthInformation);
     }
     ```
-   Este código activará el informe de estado cada vez que se ejecute `RunAsync` . Después de realizar el cambio, presione **F5** para ejecutar la aplicación.
-6. Después de que la aplicación se esté ejecutando, abra el explorador de Service Fabric para comprobar el estado de la aplicación. Esta vez, el explorador de Service Fabric mostrará que el estado de la aplicación no es correcto. Esto es debido al error que se notificó en el código que se agregó anteriormente.
+   Este código activa el informe de estado cada vez que se ejecuta `RunAsync` . Después de realizar el cambio, presione **F5** para ejecutar la aplicación.
+6. Después de que la aplicación se esté ejecutando, abra el explorador de Service Fabric para comprobar el estado de la aplicación. Esta vez, Service Fabric Explorer muestra que el estado de la aplicación no es correcto. Esto es debido al error que se notificó en el código que se agregó anteriormente.
    
     ![Aplicación no correcta en el explorador de Service Fabric](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
-7. Si selecciona la réplica principal en la vista de árbol del explorador de Service Fabric, verá que **Health State** también indica un error. El explorador de Service Fabric también muestra los detalles del informe de estado que se agregaron al parámetro `HealthInformation` en el código. También puede ver los mismos informes de estado en PowerShell y en el Portal de Azure.
+7. Si selecciona la réplica principal en la vista de árbol del explorador de Service Fabric, verá que **Health State** también indica un error. El explorador de Service Fabric también muestra los detalles del informe de estado que se agregaron al parámetro `HealthInformation` en el código. También puede ver los mismos informes de estado en PowerShell y en Azure Portal.
    
     ![Estado de réplica del explorador de Service Fabric](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/replica-health-error-report-sfx.png)
 
-Este informe permanecerá en el administrador de estado hasta que se sustituya por otro informe o se elimine esta réplica. Dado que no establecimos `TimeToLive` para este informe de estado en el objeto `HealthInformation`, el informe nunca expirará.
+Este informe permanece en el administrador de estado hasta que se sustituya por otro o se elimine esta réplica. Dado que no establecimos `TimeToLive` para este informe de estado en el objeto `HealthInformation`, el informe nunca expira.
 
 Recomendamos notificar sobre el mantenimiento en el nivel más detallado, que en este caso es la réplica. También se puede informar sobre el estado en `Partition`.
 

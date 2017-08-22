@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 3fb0f6b26f36ef4044c9733ace05c4f59909ddda
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4f4ecd12bc26fcc44a20a193d73f952ed56f1a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -56,7 +55,7 @@ Si tiene alguna pregunta, comente el artículo y le responderemos en cuanto sea 
 
 **P:** ¿Mi aplicación web sigue usando una imagen de contenedor de Docker antigua después de actualizar la imagen en DockerHub? ¿Se admite la integración e implementación continuas de contenedores personalizados?
 
-**R.**: Para configurar la integración e implementación continua de las imágenes de Docker Hub consulte el siguiente artículo: [Implementación continua de Docker Hub con Web App en Linux](./app-service-linux-ci-cd.md). Para registros privados, puede actualizar el contenedor deteniendo y, luego, iniciando la aplicación web. También puede cambiar o agregar una configuración de aplicación ficticia para forzar una actualización del contenedor.
+**R.**: Para configurar la integración e implementación continua de las imágenes de Azure Container Registry o Docker Hub consulte el siguiente artículo: [Implementación continua con Azure Web App en Linux](./app-service-linux-ci-cd.md). Para registros privados, puede actualizar el contenedor deteniendo y, luego, iniciando la aplicación web. También puede cambiar o agregar una configuración de aplicación ficticia para forzar una actualización del contenedor.
 
 **P.**: ¿Los entornos de ensayo son compatibles?
 
@@ -64,7 +63,7 @@ Si tiene alguna pregunta, comente el artículo y le responderemos en cuanto sea 
 
 **P:** ¿Puedo usar **Web Deploy** para implementar mi aplicación web?
 
-**R:** Sí, tiene que establecer una configuración de aplicación denominada `UseWebDeployScm` en `false`.
+**R:** Sí, tiene que establecer una configuración de aplicación denominada `WEBSITE_WEBDEPLOY_USE_SCM` en `false`.
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 
@@ -104,7 +103,7 @@ Si tiene alguna pregunta, comente el artículo y le responderemos en cuanto sea 
 
 **P.:** Mi contenedor personalizado escucha a un puerto distinto al puerto 80. ¿Cómo puedo configurar mi aplicación para enrutar las solicitudes hacia ese puerto?
 
-**R.**: Ofrecemos detección de puertos automática, pero también puede especificar un parámetro de la aplicación llamado **PORT** y asignarle el valor del número de puerto esperado.
+**R.**: Ofrecemos detección de puertos automática, pero también puede especificar un parámetro de la aplicación llamado **WEBSITES_PORT** y asignarle el valor del número de puerto esperado. Anteriormente la plataforma utilizaba el parámetro de la aplicación `PORT`. Tenemos previsto dejar de usar este parámetro de la aplicación y usar `WEBSITES_PORT` exclusivamente.
 
 **P:** ¿Es necesario implementar HTTPS en mi contenedor personalizado?
 
@@ -128,8 +127,8 @@ Si tiene alguna pregunta, comente el artículo y le responderemos en cuanto sea 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [¿Qué es Web App on Linux de Azure?](app-service-linux-intro.md)
-* [Creación de aplicaciones web en Web App on Linux de Azure](app-service-linux-how-to-create-web-app.md)
+* [Creación de aplicaciones web en Azure Web App en Linux](app-service-linux-how-to-create-web-app.md)
 * [Compatibilidad con SSH para Web App on Linux de Azure](./app-service-linux-ssh-support.md)
 * [Configuración de entornos de ensayo en Azure App Service](./web-sites-staged-publishing.md)
-* [Implementación continua de Docker Hub con Azure Web App en Linux](./app-service-linux-ci-cd.md)
+* [Implementación continua con Azure Web App en Linux](./app-service-linux-ci-cd.md)
 

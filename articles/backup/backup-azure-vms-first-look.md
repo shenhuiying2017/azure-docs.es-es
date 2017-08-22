@@ -11,15 +11,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 6/14/2017
+ms.topic: article
+ms.date: 8/2/2017
 ms.author: markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 61328e32763faea90074fc6d499e660c4109ab6d
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 1a0e738cfac01d90e91959412b1ad5591705f617
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="first-look-backing-up-azure-virtual-machines"></a>Primer contacto: copia de seguridad de máquinas virtuales de Azure
@@ -31,7 +30,7 @@ ms.lasthandoff: 06/16/2017
 
 Este tutorial le guiará por los pasos para crear copias de seguridad de una máquina virtual de Azure en un almacén de copia de seguridad de Azure. En este artículo se describe el modelo de implementación clásica o de Service Manager para la creación de copias de seguridad de máquinas virtuales. Los siguientes pasos se aplican únicamente a los almacenes de Backup creados en el portal clásico. Microsoft recomienda usar el modelo de Resource Manager para nuevas implementaciones.
 
-Si está interesado en la realización de una copia de seguridad de una máquina virtual en un almacén de Servicios de recuperación que pertenece a un grupo de recursos, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md).
+Si está interesado en la realización de una copia de seguridad de una máquina virtual en un almacén de Recovery Services que pertenece a un grupo de recursos, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Recovery Services](backup-azure-vms-first-look-arm.md).
 
 Para completar correctamente este tutorial, se deben cumplir estos requisitos previos:
 
@@ -49,8 +48,8 @@ Un almacén de copia de seguridad es una entidad que almacena todas las copias d
 
 > [!IMPORTANT]
 > A partir de marzo de 2017, ya no podrá usar el portal clásico para crear almacenes de Backup.
-> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **A partir del 1 de noviembre de 2017**:
->- Los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
+> Puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del 15 de octubre de 2017, no podrá usar PowerShell para crear almacenes de Backup. **El 1 de noviembre de 2017**:
+>- Todos los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
 >- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 >
 
@@ -58,7 +57,7 @@ Un almacén de copia de seguridad es una entidad que almacena todas las copias d
 Antes de registrar la máquina virtual con un almacén, ejecute el proceso de detección para identificar nuevas máquinas virtuales. Este proceso devuelve una lista de las máquinas virtuales incluidas en la suscripción, junto con información adicional; por ejemplo, el nombre del servicio en la nube y la región.
 
 1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/)
-2. En el Portal de Azure clásico, haga clic en **Servicios de recuperación** para abrir la lista de almacenes de Servicios de recuperación.
+2. En el Portal de Azure clásico, haga clic en **Recovery Services** para abrir la lista de almacenes de Recovery Services.
     ![Seleccionar carga de trabajo](./media/backup-azure-vms-first-look/recovery-services-icon.png)
 3. En la lista de almacenes de copia de seguridad, seleccione el almacén de copia de una máquina virtual.
 

@@ -14,7 +14,7 @@ Dadas las diferencias en los Acuerdos de Nivel de Servicio y los conjuntos de ca
 | **Desarrollo y pruebas o prueba de concepto**   | Básica                  |
 |                                    |                        |
 
-Si continúa utilizando las SKU antiguas, las recomendaciones de SKU de producción son las SKU Estándar y HighPerformance. Para obtener información acerca de las SKU anteriores, consulte [SKU de puerta de enlace (antiguo)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+Si continúa utilizando las SKU antiguas, las recomendaciones de SKU de producción son las SKU Estándar y HighPerformance. Para información acerca de las SKU antiguas, consulte [SKU de puerta de enlace (SKU heredadas)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
 
 ###  <a name="feature"></a>Conjuntos de características de las SKU de puerta de enlace
 

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/08/2015
+ms.date: 8/04/2017
 ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3a7f5a4afa8b00801f58776e2cf9d7bff9748925
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: dc07b2f38d6fd2de941ebbe99303f6e63cbf122d
+ms.contentlocale: es-es
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configuración de las conexiones seguras en un clúster de Service Fabric desde Visual Studio
@@ -30,13 +30,13 @@ El clúster de Azure Service Fabric admite dos tipos de conexiones: conexiones *
 Las herramientas de Visual Studio Service Fabric admiten todos los tipos de autenticación para conectarse a un clúster para la publicación. Consulte [Configuración de un clúster de Service Fabric en Azure Portal](service-fabric-cluster-creation-via-portal.md) para obtener instrucciones sobre cómo configurar un clúster de Service Fabric seguro.
 
 ## <a name="configure-cluster-connections-in-publish-profiles"></a>Configuración de las conexiones del clúster en perfiles de publicación
-Si publica un proyecto de Service Fabric desde Visual Studio, use el cuadro de diálogo **Publicar aplicación de Service Fabric** para elegir un clúster de Azure Service Fabric haciendo clic en el botón **Seleccionar** de la sección **Punto de conexión**. Puede iniciar sesión en su cuenta de Azure y, a continuación, seleccione un clúster existente en las suscripciones.
+Si publica un proyecto de Service Fabric desde Visual Studio, use el cuadro de diálogo **Publicar aplicación de Service Fabric** para elegir un clúster de Azure Service Fabric. En **Punto de conexión**, seleccione un clúster actual en su suscripción.
 
 ![El cuadro de diálogo **Publicar aplicación de Service Fabric** se usa para configurar una conexión de Service Fabric.][publishdialog]
 
-El cuadro de diálogo **Seleccionar clúster de Service Fabric** valida automáticamente la conexión del clúster. Si la validación es correcta, significa que el sistema tiene instalados los certificados correctos para conectarse al clúster de forma segura, o el clúster no es seguro. Los errores de validación pueden surgir debido a problemas de red o si el sistema no se ha configurado correctamente para conectarse a un clúster seguro.
+El cuadro de diálogo **Publicación de la aplicación de Service Fabric** valida automáticamente la conexión del clúster. Si se le pide, inicie sesión en su cuenta de Azure. Si la validación es correcta, significa que el sistema tiene instalados los certificados correctos para conectarse al clúster de forma segura, o el clúster no es seguro. Los errores de validación pueden surgir debido a problemas de red o si el sistema no se ha configurado correctamente para conectarse a un clúster seguro.
 
-![En el cuadro de diálogo **Select Service Fabric Cluster** (Seleccionar clúster de Service Fabric), puede configurar una conexión de clúster de Service Fabric existente o crear y configurar una conexión de clúster nueva.][selectsfcluster]
+![El cuadro de diálogo **Publicación de la aplicación de Service Fabric** valida una conexión de clúster de Service Fabric existente y configurada correctamente.][selectsfcluster]
 
 ### <a name="to-connect-to-a-secure-cluster"></a>Para conectarse a un clúster seguro
 1. Asegúrese de que puede acceder a uno de los certificados de cliente en el que el clúster de destino puede confiar. Normalmente, el certificado se comparte como un archivo de intercambio de información personal (.pfx, Personal Information Exchange). Consulte [Configuración de un clúster de Service Fabric desde Azure Portal](service-fabric-cluster-creation-via-portal.md) para ver cómo configurar el servidor y conceder acceso a un cliente.

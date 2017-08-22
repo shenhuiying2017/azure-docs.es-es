@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 676a46449b1ff5ceb749df876bad614c3804d220
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: d71fdcf2a054a9b9ac1d74ddd3a6b43d151fa87d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
@@ -262,6 +262,7 @@ Esta es la configuración de Fabric que se puede personalizar:
 |IsEnabled|Bool, el valor predeterminado es false. | Habilita o deshabilita httpgateway. Httpgateway está deshabilitado de forma predeterminada y es necesario establecer esta configuración para habilitarlo. |
 |ActiveListeners |Uint, el valor predeterminado es 50. | Número de lecturas para enviar a la cola del servidor HTTP. Controla el número de solicitudes simultáneas que se pueden satisfacer mediante HttpGateway. |
 |MaxEntityBodySize |Uint, el valor predeterminado es 4 194 304. |  Proporciona el tamaño máximo del cuerpo que se puede esperar de una solicitud HTTP. El valor predeterminado es 4 MB. Httpgateway no atenderá una solicitud si el tamaño del cuerpo es mayor que su valor. El tamaño mínimo del fragmento de lectura es 4096 bytes. Así que tiene que ser > = 4096. |
+|HttpGatewayHealthReportSendInterval |Tiempo en segundos, el valor predeterminado es 30. | Especifique el intervalo de tiempo en segundos. El intervalo dentro del cual la puerta de enlace HTTP envía los informes de mantenimiento acumulados a Health Manager. |
 
 ### <a name="section-name-ktllogger"></a>Nombre de sección: KtlLogger
 | **Parámetro** | **Valores permitidos** | **Orientación o breve descripción** |
@@ -278,10 +279,10 @@ Esta es la configuración de Fabric que se puede personalizar:
 | **Parámetro** | **Valores permitidos** | **Orientación o breve descripción** |
 | --- | --- | --- |
 |IsEnabled |Bool, el valor predeterminado es false. | Habilita o deshabilita HttpApplicationGateway. HttpApplicationGateway está deshabilitado de forma predeterminada y para habilitarlo es necesario establecer esta configuración. |
-|NumberOfParallelOperations | Uint, el valor predeterminado es 1000. | Número de lecturas para enviar a la cola del servidor HTTP. Controla el número de solicitudes simultáneas que se pueden satisfacer mediante HttpGateway. |
-|DefaultHttpRequestTimeout |Tiempo en segundos. El valor predeterminado es 60. |Especifique el intervalo de tiempo en segundos.  Proporciona el tiempo de espera de solicitud predeterminado para las solicitudes HTTP que se van a procesar en la puerta de enlace de aplicaciones HTTP. |
+|NumberOfParallelOperations | Uint, el valor predeterminado es 5000 | Número de lecturas para enviar a la cola del servidor HTTP. Controla el número de solicitudes simultáneas que se pueden satisfacer mediante HttpGateway. |
+|DefaultHttpRequestTimeout |Tiempo en segundos. El valor predeterminado es 120 |Especifique el intervalo de tiempo en segundos.  Proporciona el tiempo de espera de solicitud predeterminado para las solicitudes HTTP que se van a procesar en la puerta de enlace de aplicaciones HTTP. |
 |ResolveServiceBackoffInterval |Tiempo en segundos, el valor predeterminado es 5. |Especifique el intervalo de tiempo en segundos.  Proporciona el intervalo de retroceso predeterminado antes de reintentar una operación errónea del servicio de resolución. |
-|BodyChunkSize |Uint, el valor predeterminado es 4096. |  Proporciona el tamaño del fragmento en bytes usado para leer el cuerpo. |
+|BodyChunkSize |Uint, el valor predeterminado es 16384. |  Proporciona el tamaño del fragmento en bytes usado para leer el cuerpo. |
 |GatewayAuthCredentialType |string, el valor predeterminado es "None" | Indica el tipo de credenciales de seguridad que se usarán en el punto de conexión de la puerta de enlace de aplicaciones HTTP. Valores válidos son "None/X509. |
 |GatewayX509CertificateStoreName |string, el valor predeterminado es "My". | Nombre del almacén de certificados X.509 que contiene el certificado de puerta de enlace de aplicaciones HTTP. |
 |GatewayX509CertificateFindType |string, el valor predeterminado es "FindByThumbprint". | Indica cómo buscar el certificado en el almacén especificado mediante el valor admitido GatewayX509CertificateStoreName: FindByThumbprint; FindBySubjectName. |

@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/3/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: e562e6a1a6c2b8203f3d5a9a2ee5680372499693
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 93808e617f33a5c78e5c89f4dac4680d44724d1c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Exploración de registros de seguimiento de .NET en Application Insights
@@ -197,7 +196,7 @@ En el Explorador de soluciones, haga clic con el botón derecho en `ApplicationI
 A veces, el paso de todos los eventos y solicitudes por la canalización puede llevar un rato.
 
 ### <a name="limits"></a>¿Qué cantidad de datos se conserva?
-Hasta 500 eventos por segundo de cada aplicación. Los eventos se conservan durante siete días.
+Hay varios factores que afectan a la cantidad de datos que se conservan. Consulte la sección [Límites](app-insights-api-custom-events-metrics.md#limits) de la página de métricas de eventos de cliente para más información. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>No veo algunas de las entradas del registro que esperaba
 Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)

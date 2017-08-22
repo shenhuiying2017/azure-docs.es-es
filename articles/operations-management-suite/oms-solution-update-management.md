@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/09/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8f83f5d13cb61709653f255c756dc78453073626
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="update-management-solution-in-oms"></a>Solución Administración de actualizaciones de OMS
@@ -64,10 +64,10 @@ En la fecha y hora especificadas en la implementación de actualizaciones, los e
     > [!NOTE]
     > System Center Configuration Manager no puede administrar simultáneamente el agente de Windows.  
     >
-* CentOS 6 (x86/x64) y 7 (x64)
-* Red Hat Enterprise (x86/x64) 6 y 7 (x64)
-* SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)
-* Ubuntu 12.04 LTS y versiones más recientes (x86/x64)  
+* CentOS 6 (x86/x64) y 7 (x64)  
+* Red Hat Enterprise (x86/x64) 6 y 7 (x64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)  
+* Ubuntu 12.04 LTS y versiones más recientes (x86/x64)   
     > [!NOTE]  
     > Para evitar que las actualizaciones se apliquen fuera de una ventana de mantenimiento en Ubuntu, vuelva a configurar el paquete de actualizaciones desatendidas para deshabilitar las actualizaciones automáticas. Para más información sobre cómo configurarlo, consulte el [tema sobre actualizaciones automáticas en la Guía de Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
@@ -78,6 +78,9 @@ En la fecha y hora especificadas en la implementación de actualizaciones, los e
     >
 
 Para más información acerca de cómo instalar el agente de OMS para Linux y descargar la versión más reciente, consulte [Agente de Operations Management Suite para Linux](https://github.com/microsoft/oms-agent-for-linux).  Para más información sobre cómo instalar el agente de OMS para Windows, consulte [Agente de Operations Management Suite para Windows](../log-analytics/log-analytics-windows-agents.md).  
+
+### <a name="permissions"></a>Permisos
+Para crear implementaciones de actualizaciones, debe tener asignado el rol de colaborador en su cuenta Automation y el área de trabajo Log Analytics.  
 
 ## <a name="solution-components"></a>Componentes de soluciones
 Esta solución consta de los siguientes recursos que se agregan a la cuenta de Automation y a los agentes directamente conectados o al grupo de administración conectado a Operations Manager.
@@ -155,7 +158,7 @@ Al agregar la solución Administración de actualizaciones al área de trabajo d
 ## <a name="viewing-update-assessments"></a>Visualización de evaluaciones de la actualización
 Haga clic en el icono de **Administración de actualizaciones** para abrir el panel **Administración de actualizaciones**.<br><br> ![Panel Update Management Summary](./media/oms-solution-update-management/update-management-dashboard.png) (Resumen de administración de actualizaciones)<br>
 
-Este panel proporciona un análisis detallado del estado de las actualizaciones clasificadas por tipo de sistema operativo y clasificación de la actualización: crítica, seguridad u otros (por ejemplo, una actualización de definiciones). Al seleccionar el icono **Implementaciones de actualizaciones**, le redirige a la página Implementaciones de actualizaciones donde puede ver las programaciones, las implementaciones que se está ejecutando actualmente o las implementaciones completadas, o puede programar una nueva implementación.  
+Este panel proporciona un análisis detallado del estado de las actualizaciones clasificadas por tipo de sistema operativo y clasificación de la actualización: crítica, seguridad u otros (por ejemplo, una actualización de definiciones). Los resultados de cada icono de este panel reflejan solo las actualizaciones que están aprobadas para la implementación, que se basa en el origen de sincronización de los equipos.   Al seleccionar el icono **Implementaciones de actualizaciones**, le redirige a la página Implementaciones de actualizaciones donde puede ver las programaciones, las implementaciones que se está ejecutando actualmente o las implementaciones completadas, o puede programar una nueva implementación.  
 
 Para ejecutar una búsqueda en el registro que devuelva todos los registros, haga clic en el icono específico o, para ejecutar una consulta de una categoría determinada y criterios predefinidos, seleccione una de las disponibles en la lista de la columna **Consultas de actualización comunes**.    
 
@@ -309,6 +312,17 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 ## <a name="troubleshooting"></a>Solución de problemas
 
 En esta sección se proporciona información para resolver problemas con la solución de administración de actualizaciones.  
+
+### <a name="how-do-i-troubleshoot-onboarding-issues"></a>¿Cómo se pueden solucionar los problemas de incorporación?
+Si se producen problemas al intentar incorporar la solución o una máquina virtual, compruebe en los registros de eventos **Registros de aplicaciones y servicios y Operations Manager** los eventos con el identificador 4502 y el mensaje de evento que contenga **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  La tabla siguiente destaca los mensajes de error específicos y una posible solución para cada uno.  
+
+| Message | Motivo | Solución |   
+|----------|----------|----------|  
+| No se pudo registrar la máquina para la administración de revisiones,<br>error en el registro con la excepción<br>System.InvalidOperationException: {"Message":"La máquina ya<br>está registrada en una cuenta diferente. "} | La máquina ya está incorporada a otra área de trabajo para Update Management | Realice una limpieza de los artefactos antiguos [eliminando el grupo de hybrid runbook](../automation/automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
+| No se pudo registrar la máquina para la administración de revisiones,<br>error en el registro con la excepción<br>System.Net.Http.HttpRequestException: error al enviar la solicitud. ---><br>System.Net.WebException: la conexión subyacente<br>se cerró: error inesperado<br>en una operación de recepción. ---> System.ComponentModel.Win32Exception:<br>el cliente y el servidor no pueden comunicarse,<br>dado que no poseen un algoritmo común | El proxy, la puerta de enlace o el firewall están bloqueando la comunicación | [Revise los requisitos de red](../automation/automation-offering-get-started.md#network-planning)|  
+| No se pudo registrar la máquina para la administración de revisiones,<br>error en el registro con la excepción<br>Newtonsoft.Json.JsonReaderException: error al analizar el valor de infinito positivo. | El proxy, la puerta de enlace o el firewall están bloqueando la comunicación | [Revise los requisitos de red](../automation/automation-offering-get-started.md#network-planning)| 
+| El certificado presentado por el servicio <wsid>.oms.opinsights.azure.com<br>no fue emitido por una entidad de certificación<br>utilizada para los servicios de Microsoft. Póngase en contacto con<br>el administrador de red para comprobar si están ejecutando un proxy que intercepte<br>la comunicación TLS/SSL. |El proxy, la puerta de enlace o el firewall están bloqueando la comunicación | [Revise los requisitos de red](../automation/automation-offering-get-started.md#network-planning)|  
+| No se pudo registrar la máquina para la administración de revisiones,<br>error en el registro con la excepción<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>error al crear un certificado autofirmado. ---><br>System.UnauthorizedAccessException: se denegó el acceso. | Error al generar un certificado autofirmado | Compruebe que la cuenta del sistema tiene<br>acceso de lectura a la carpeta:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
 ### <a name="how-do-i-troubleshoot-update-deployments"></a>¿Cómo puedo solucionar problemas con las implementaciones de actualizaciones?
 Puede ver los resultados del runbook responsable de implementar las actualizaciones incluidas en la implementación de actualizaciones programada en la hoja Trabajos de su cuenta de Automation vinculada con el área de trabajo de OMS que admite esta solución.  El runbook **Patch-MicrosoftOMSComputer** es un runbook secundario que tiene como destino un equipo administrado específico y, al revisar el flujo detallado, presentará información detallada de la implementación.  La salida muestra qué actualizaciones necesarias son aplicables, el estado de descarga, el estado de instalación y detalles adicionales.<br><br> ![Estado del trabajo de implementación de actualizaciones](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 94c8160464cd7355ac0e0733801d0b06fcdfab7c
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 95404f9dbffa08edf12ee6c07f671d5f207ce99a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
@@ -39,9 +39,9 @@ Un grupo de sincronización tiene las siguientes propiedades:
 -   El **directiva de resolución de conflictos** es una directiva de nivel de grupo, que puede ser *Prevalece la base de datos central* o *Prevalece el cliente*.
 
 Data Sync usa una topología de concentrador y radio para sincronizar los datos. Defina una de las bases de datos del grupo como base de datos central. El resto de las bases de datos son bases de datos miembro. La sincronización solo se produce entre la base de datos central y los clientes individuales.
--   La **base de datos central** debe ser una instancia de Azure SQL Database.
+-   La **base de datos central** debe ser una base de datos SQL de Azure.
 -   Las **bases de datos miembro** pueden ser bases de datos SQL, bases de datos de SQL Server locales o instancias de SQL Server en Azure Virtual Machines.
--   La **base de datos de sincronización** contiene los metadatos y el registro para Data Sync. La base de datos de sincronización tiene que ser una instancia de Azure SQL Database ubicada en la misma región que la base de datos central. La base de datos la crea el propio cliente y es de su propiedad.
+-   La **base de datos de sincronización** contiene los metadatos y el registro para Data Sync. La base de datos de sincronización tiene que ser una base de datos SQL de Azure ubicada en la misma región que la base de datos central. La base de datos la crea el propio cliente y es de su propiedad.
 
 > [!NOTE]
 > Si usa una base de datos local, debe [configurar un agente local](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync).
@@ -143,15 +143,21 @@ Data Sync no controla las referencias circulares, así que asegúrese de no usar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre SQL Database y SQL Data Sync, vea:
+Para más información sobre SQL Data Sync, consulte:
 
 -   [Introducción a SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+
+-   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync:
+    -   [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Uso de PowerShell para realizar la sincronización entre una base de datos SQL de Azure y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [Descarga de la documentación técnica completa de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 
 -   [Descarga de la documentación de la API de REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
--   [Información general de Base de datos SQL](sql-database-technical-overview.md)
+Para más información sobre SQL Database, consulte:
+
+-   [Información general de SQL Database](sql-database-technical-overview.md)
 
 -   [Administración del ciclo de vida de las aplicaciones](https://msdn.microsoft.com/library/jj907294.aspx)
 

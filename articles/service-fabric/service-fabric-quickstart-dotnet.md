@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/21/2017
+ms.date: 08/09/2017
 ms.author: mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: d1acbc609d1928101eb3e4b9eaa6ea05856e17d3
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 530749275b720caefd7e7e57291b4bc0d313faf0
 ms.contentlocale: es-es
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -94,12 +94,18 @@ Para ver lo que ocurre en el código, siga estos pasos:
 2. Abra el archivo **VoteDataController.cs** y establezca un punto de interrupción en el método **Put** (línea 50) de esta API web.
 
 3. Vuelva al explorador y haga clic en una opción de votación o agregue una nueva opción de votación. Alcanzará el primer punto de interrupción del controlador de API del front-end web.
-    - Aquí es donde el código JavaScript del explorador envía una solicitud al controlador de API web del servicio front-end. Después, el controlador del servicio front-end usa ReverseProxy para enviar una solicitud PUT al servicio back-end.
+    - Aquí es donde el código JavaScript del explorador envía una solicitud al controlador de API web del servicio front-end.
+    
+    ![Incorporación del servicio front-end de voto](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+
+    - Primero construimos la dirección URL para el valor de ReverseProxy para nuestro servicio back-end **(1)**.
+    - A continuación, enviamos la solicitud PUT de HTTP para ReverseProxy **(2)**.
+    - Por último, devolvemos la respuesta desde el servicio back-end al cliente **(3)**.
 
 4. Pulse **F5** para continuar.
     - Ya está en el punto de interrupción del servicio back-end.
     
-    ![Adición de un método asincrónico de votación](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+    ![Incorporación del servicio back-end de voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
     - En la primera línea del método **(1)** usamos `StateManager` para obtener o agregar un diccionario confiable denominado `counts`.
     - Todas las interacciones con valores de un diccionario confiable requieren una transacción. Esta instrucción using **(2)** crea dicha transacción.
@@ -109,7 +115,9 @@ Para ver lo que ocurre en el código, siga estos pasos:
 Para detener la sesión de depuración, pulse **Maýus+F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>Implementación de la aplicación en Azure
-Para implementar la aplicación en un clúster de Azure, puede crear su propio clúster o usar un Party Cluster. Un Party Cluster es un clúster de Service Fabric gratuito y de duración limitada, hospedado en Azure y ejecutado por el equipo de Service Fabric. En dicho clúster, cualquier usuario puede implementar aplicaciones y obtener información sobre la plataforma. Para obtener acceso a un Party Cluster, [siga estas instrucciones](http://aka.ms/tryservicefabric). 
+Para implementar la aplicación en un clúster de Azure, puede crear su propio clúster o usar un Party Cluster.
+
+Los clústeres de entidad son clústeres de Service Fabric gratuitos y de duración limitada, hospedados en Azure y ejecutados por el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y obtener información sobre la plataforma. Para obtener acceso a un Party Cluster, [siga estas instrucciones](http://aka.ms/tryservicefabric). 
 
 Para obtener información sobre cómo crear su propio clúster, vea [Creación del primer clúster de Service Fabric en Azure](service-fabric-get-started-azure-cluster.md).
 

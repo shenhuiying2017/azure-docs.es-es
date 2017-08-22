@@ -12,33 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2017
+ms.date: 08/07/2017
 ms.author: sethm;hillaryc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 3466bbd23cb20df826ad919b8c76289d89375f04
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 5a4e69ea7e13cb017f8fb432c524c6a8ce9228a8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
-Bus de servicios de Azure emplea varios agentes de mensajes para procesar mensajes y varios almacenes de mensajería para almacenar mensajes. Un único agente de mensajes controla una cola o tema convencional, que se almacena en un almacén de mensajería. Las *particiones* de Service Bus permiten que las colas y temas, o *entidades de mensajería*, se dividan entre varios agentes de mensajes y almacenes de mensajería. Esto significa que el rendimiento general de una entidad particionada ya no está limitado por el rendimiento de un solo agente o almacén de mensajería. Además, una interrupción temporal de un almacén de mensajería no hace que una cola o tema con particiones deje de estar disponible. Las colas y los temas con particiones pueden contener todas las características avanzadas de Service Bus, como la compatibilidad con transacciones y sesiones.
+Azure Service Bus emplea varios agentes de mensajes para procesar mensajes y varios almacenes de mensajería para almacenar mensajes. Un único agente de mensajes controla una cola o tema convencional, que se almacena en un almacén de mensajería. Las *particiones* de Service Bus permiten que las colas y temas, o *entidades de mensajería*, se dividan entre varios agentes de mensajes y almacenes de mensajería. Esto significa que el rendimiento general de una entidad particionada ya no está limitado por el rendimiento de un solo agente o almacén de mensajería. Además, una interrupción temporal de un almacén de mensajería no hace que una cola o tema con particiones deje de estar disponible. Las colas y los temas con particiones pueden contener todas las características avanzadas de Service Bus, como la compatibilidad con transacciones y sesiones.
 
-Para obtener más información sobre los aspectos internos de Service Bus, consulte el artículo [Arquitectura de Service Bus][Service Bus architecture].
+Para información sobre los aspectos internos de Service Bus, consulte el artículo [Arquitectura de Service Bus][Service Bus architecture].
 
 La partición está activada de forma predeterminada al crear la entidad en todas las colas y temas de mensajería Estándar y Premium. Puede crear entidades de nivel de mensajería Estándar sin particiones, pero las colas y los temas en un espacio de nombres Premium siempre están particionados; esta opción no se puede deshabilitar. 
 
 No es posible cambiar la opción de particionamiento en una cola o tema existente en los niveles Estándar o Premium. Solo puede establecer la opción cuando se crea la entidad.
 
 ## <a name="how-it-works"></a>Cómo funciona
-Cada cola o tema con particiones consta de varios fragmentos. Cada fragmento se almacena en un almacén de mensajería diferente y se controla por un agente de mensajes diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a uno de los fragmentos. La selección se realiza de forma aleatoria mediante el Bus de servicio o una clave de partición que el remitente puede especificar.
 
-Cuando un cliente quiere recibir un mensaje de una cola con particiones, o de una suscripción a un tema con particiones, Service Bus consulta en todos los fragmentos si hay mensajes y luego devuelve al receptor el primer mensaje que se obtiene de cualquiera de los almacenes de mensajería. Bus de servicio almacena en caché los demás mensajes y los devuelve cuando recibe solicitudes de recepción adicionales. Un cliente de recepción no es consciente de las particiones; el comportamiento de cara al cliente de una cola o tema con particiones (por ejemplo, lectura, finalización, aplazamiento, mensajes fallidos y captura previa) es idéntico al comportamiento de una entidad regular.
+Cada cola o tema con particiones consta de varios fragmentos. Cada fragmento se almacena en un almacén de mensajería diferente y se controla por un agente de mensajes diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a uno de los fragmentos. La selección se realiza de forma aleatoria mediante Service Bus o una clave de partición que el remitente puede especificar.
+
+Cuando un cliente quiere recibir un mensaje de una cola con particiones, o de una suscripción a un tema con particiones, Service Bus consulta en todos los fragmentos si hay mensajes y luego devuelve al receptor el primer mensaje que se obtiene de cualquiera de los almacenes de mensajería. Service Bus almacena en caché los demás mensajes y los devuelve cuando recibe solicitudes de recepción adicionales. Un cliente de recepción no es consciente de las particiones; el comportamiento de cara al cliente de una cola o tema con particiones (por ejemplo, lectura, finalización, aplazamiento, mensajes fallidos y captura previa) es idéntico al comportamiento de una entidad regular.
 
 No hay costos adicionales cuando se envía un mensaje a una cola o tema con particiones o cuando se recibe un mensaje de ellos.
 
 ## <a name="enable-partitioning"></a>Habilitación de las particiones
+
 Para usar colas o temas con particiones con Azure Service Bus, use el SDK de Azure versión 2.2 o posteriores, o especifique `api-version=2013-10` en sus solicitudes HTTP.
 
 ### <a name="standard"></a>Estándar
@@ -69,24 +70,24 @@ También puede crear una cola o tema con particiones en [Azure Portal][Azure por
 Cuando un mensaje se coloca en cola en una cola o tema con particiones, Service Bus comprueba la presencia de una clave de partición. Si encuentra una, selecciona el fragmento basado en esa clave. Si no encuentra una clave de partición, selecciona el fragmento basado en un algoritmo interno.
 
 ### <a name="using-a-partition-key"></a>Uso de una clave de partición
-En algunos escenarios, como sesiones o transacciones, es necesario que los mensajes se almacenen en un fragmento específico. Todos estos escenarios requieren el uso de una clave de partición. Todos los mensajes que usan la misma clave de partición se asignan al mismo fragmento. Si el fragmento no está disponible temporalmente, Bus de servicio devuelve un error.
+En algunos escenarios, como sesiones o transacciones, es necesario que los mensajes se almacenen en un fragmento específico. Todos estos escenarios requieren el uso de una clave de partición. Todos los mensajes que usan la misma clave de partición se asignan al mismo fragmento. Si el fragmento no está disponible temporalmente, Service Bus devuelve un error.
 
 En función del escenario, se usan diferentes propiedades de mensaje como clave de partición:
 
-**SessionId**: si un mensaje tiene establecida la propiedad [BrokeredMessage.SessionId][BrokeredMessage.SessionId], Service Bus usa esta propiedad como clave de partición. De esta manera, todos los mensajes que pertenecen a la misma sesión se gestionan por el mismo agente de mensajes. Esto permite que Bus de servicio garantice la ordenación de los mensajes así como la coherencia de los estados de la sesión.
+**SessionId**: si un mensaje tiene establecida la propiedad [BrokeredMessage.SessionId][BrokeredMessage.SessionId], Service Bus usa esta propiedad como clave de partición. De esta manera, todos los mensajes que pertenecen a la misma sesión se gestionan por el mismo agente de mensajes. Esto permite que Service Bus garantice la ordenación de los mensajes así como la coherencia de los estados de la sesión.
 
 **PartitionKey**: si un mensaje tiene establecida la propiedad [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] pero no la propiedad [BrokeredMessage.SessionId][BrokeredMessage.SessionId], Service Bus usa la propiedad [PartitionKey][PartitionKey] como clave de partición. Si el mensaje tiene establecidas las propiedades [SessionId][SessionId] y [PartitionKey][PartitionKey], ambas propiedades deben ser idénticas. Si la propiedad [PartitionKey][PartitionKey] se establece en un valor distinto del de la propiedad [SessionId][SessionId], Service Bus devuelve una excepción de operación no válida. La propiedad [PartitionKey][PartitionKey] debe usarse si un remitente envía mensajes transaccionales que no tienen en cuenta la sesión. La clave de partición asegura que todos los mensajes que se envían dentro de una transacción se gestionan por el mismo agente de mensajes.
 
 **MessageId**: si la cola o el tema tienen la propiedad [QueueDescription.RequiresDuplicateDetection][QueueDescription.RequiresDuplicateDetection] establecida en **true** y las propiedades [BrokeredMessage.SessionId][BrokeredMessage.SessionId] o [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] no se establecieron, la propiedad [BrokeredMessage.MessageId][BrokeredMessage.MessageId] sirve de clave de partición. (Tenga en cuenta que las bibliotecas de Microsoft .NET y AMQP asignan automáticamente un identificador de mensaje si la aplicación emisora no lo hace). En este caso, todas las copias del mismo mensaje se controlan por el mismo agente de mensajes. Esto permite que Service Bus detecte y elimine los mensajes duplicados. Si la propiedad [QueueDescription.RequiresDuplicateDetection][QueueDescription.RequiresDuplicateDetection] no se establece en **true**, Service Bus no considera la propiedad [MessageId][MessageId] como una clave de partición.
 
 ### <a name="not-using-a-partition-key"></a>Sin uso de una clave de partición
-En ausencia de una clave de partición, Service Bus distribuye los mensajes en modo round-robin a todos los fragmentos de una cola o tema con particiones. Si el fragmento elegido no está disponible, Bus de servicio asigna el mensaje a un fragmento diferente. De esta manera, la operación de envío se realiza correctamente a pesar de la no disponibilidad temporal de un almacén de mensajería. Sin embargo, no obtendrá la ordenación garantizada que proporciona una clave de partición.
+En ausencia de una clave de partición, Service Bus distribuye los mensajes en modo round-robin a todos los fragmentos de una cola o tema con particiones. Si el fragmento elegido no está disponible, Service Bus asigna el mensaje a un fragmento diferente. De esta manera, la operación de envío se realiza correctamente a pesar de la no disponibilidad temporal de un almacén de mensajería. Sin embargo, no obtendrá la ordenación garantizada que proporciona una clave de partición.
 
 Para acceder a un análisis más detallado del equilibrio entre la disponibilidad (sin clave de partición) y la coherencia (con una clave de partición), consulte [este artículo](../event-hubs/event-hubs-availability-and-consistency.md). Esta información se aplica igualmente a entidades de Service Bus con particiones y a particiones de Event Hubs.
 
 Para dar a Service Bus el tiempo suficiente para poner en cola el mensaje en un fragmento diferente, el valor [MessagingFactorySettings.OperationTimeout][MessagingFactorySettings.OperationTimeout] especificado por el cliente que envía el mensaje debe ser superior a 15 segundos. Se recomienda establecer la propiedad [OperationTimeout][OperationTimeout] en el valor predeterminado de 60 segundos.
 
-Tenga en cuenta que una clave de partición “ancla” un mensaje a un fragmento específico. Si el almacén de mensajería que contiene este fragmento no está disponible, Bus de servicio devuelve un error. En ausencia de una clave de partición, Bus de servicio puede elegir un fragmento diferente y la operación se realiza correctamente. Por lo tanto, se recomienda no suministrar una clave de partición a menos que sea necesario.
+Tenga en cuenta que una clave de partición “ancla” un mensaje a un fragmento específico. Si el almacén de mensajería que contiene este fragmento no está disponible, Service Bus devuelve un error. En ausencia de una clave de partición, Service Bus puede elegir un fragmento diferente y la operación se realiza correctamente. Por lo tanto, se recomienda no suministrar una clave de partición a menos que sea necesario.
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Temas avanzados: uso de transacciones con entidades con particiones
 Los mensajes que se envían como parte de una transacción deben especificar una clave de partición. Puede ser una de las propiedades siguientes: [BrokeredMessage.SessionId][BrokeredMessage.SessionId], [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] o [BrokeredMessage.MessageId][BrokeredMessage.MessageId]. Todos los mensajes que se envían como parte de la misma transacción deben especificar la misma clave de partición. Si intenta enviar un mensaje sin una clave de partición dentro de una transacción, Service Bus devuelve una excepción de operación no válida. Si intenta enviar varios mensajes dentro de la misma transacción que tienen claves de partición diferentes, Service Bus devuelve una excepción de operación no válida. Por ejemplo:
@@ -103,7 +104,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 committableTransaction.Commit();
 ```
 
-Si se establece alguna de las propiedades que sirven de clave de partición, Bus de servicio ancla el mensaje a un fragmento específico. Este comportamiento se produce independientemente de si se usa una transacción o no. Se recomienda que no especifique una clave de partición si no es necesario.
+Si se establece alguna de las propiedades que sirven de clave de partición, Service Bus ancla el mensaje a un fragmento específico. Este comportamiento se produce independientemente de si se usa una transacción o no. Se recomienda que no especifique una clave de partición si no es necesario.
 
 ## <a name="using-sessions-with-partitioned-entities"></a>Uso de sesiones con entidades con particiones
 Para enviar un mensaje transaccional a un tema o cola que tiene en cuenta la sesión, el mensaje debe tener establecida la propiedad [BrokeredMessage.SessionId][BrokeredMessage.SessionId]. Si también se especifica la propiedad [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey], debe ser idéntica a la propiedad [SessionId][SessionId]. Si difieren, Service Bus devuelve una excepción de operación no válida.
@@ -140,7 +141,7 @@ Service Bus de Azure admite el reenvío automático de mensajes desde entidades 
 En su implementación actual, Service Bus impone las siguientes limitaciones en colas y temas con particiones:
 
 * Las colas y los temas con particiones no admiten el envío de mensajes que pertenecen a sesiones diferentes en una sola transacción.
-* Actualmente Bus de servicio permite hasta 100 colas o temas particionados por espacio de nombres. Cada cola o tema con particiones se tiene en cuenta para la cuota de 10.000 entidades por espacio de nombres (no se aplica al nivel Premium).
+* Actualmente, Service Bus permite hasta 100 colas o temas particionados por espacio de nombres. Cada cola o tema con particiones se tiene en cuenta para la cuota de 10.000 entidades por espacio de nombres (no se aplica al nivel Premium).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte la explicación en [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus][AMQP 1.0 support for Service Bus partitioned queues and topics] para más información sobre las entidades de mensajería con particiones. 

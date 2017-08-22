@@ -41,7 +41,8 @@ En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para 
    > 
 7. En "Secretos de aplicación", haga clic en **Generar nueva contraseña**. Anote el valor que aparece. Una vez que salga de esta página, la contraseña no se volverá a mostrar.
 
-    > [AZURE.IMPORTANT] La contraseña es una credencial de seguridad importante. No la comparta con nadie ni la distribuya en una aplicación cliente.
+    > [!IMPORTANT]
+    > La contraseña es una credencial de seguridad importante. No la comparta con nadie ni la distribuya en una aplicación cliente.
 
 ## <a name="secrets"> </a>Incorporación de información de la cuenta de Microsoft a la aplicación de Servicio de aplicaciones
 1. En [Azure Portal], navegue hasta la aplicación y haga clic en **Configuración** > **Autenticación/autorización**.

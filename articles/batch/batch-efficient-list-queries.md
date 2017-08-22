@@ -12,24 +12,31 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 08/02/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 791b7a22e5b7edd2e31f6ab01131530a8053ac2b
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: a80b207f591bd888d4749287527013c5e554fb6e
+ms.contentlocale: es-es
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creación de consultas para enumerar los recursos de Batch con eficacia
 
 Aquí obtendrá información sobre cómo mejorar el rendimiento de la aplicación de Azure Batch reduciendo la cantidad de datos que devuelve el servicio al consultar trabajos, tareas, y nodos de proceso mediante la biblioteca de [.NET de Batch][api_net].
 
-Casi todas las aplicaciones que usan Lote realizan algún tipo de supervisión u otra operación que consulta el servicio de Lote, a menudo a intervalos regulares. Por ejemplo, para determinar si quedan tareas en cola en un trabajo, debe obtener información de cada una de las tareas del trabajo. Para determinar el estado de los nodos de un grupo, tiene que obtener los datos de cada nodo del grupo. En este artículo, se explica cómo ejecutar este tipo de consultas de la manera más eficaz.
+Casi todas las aplicaciones de Batch realizan algún tipo de supervisión u otra operación que consulta el servicio Batch, a menudo a intervalos regulares. Por ejemplo, para determinar si quedan tareas en cola en un trabajo, debe obtener información de cada una de las tareas del trabajo. Para determinar el estado de los nodos de un grupo, tiene que obtener los datos de cada nodo del grupo. En este artículo, se explica cómo ejecutar este tipo de consultas de la manera más eficaz.
+
+> [!NOTE]
+> El servicio Batch proporciona compatibilidad con la API especial para el escenario común en el que se cuentan las tareas en un trabajo. En lugar de usar una consulta de lista para ello, puede llamar a la operación de obtención de recuentos de tarea [Get Task Counts] [rest_get_task_counts]. Get Task Counts indica cuántas tareas están pendientes, en ejecución o completadas, y cuántas finalizaron correctamente o con errores. Esta operación es más eficaz que una consulta de lista. Para más información, consulte [Recuento de tareas de un trabajo por estado (versión preliminar)](batch-get-task-counts.md). 
+>
+> La operación Get Task Counts no está disponible en versiones de Batch anteriores a 2017-06-01.5.1. Si está utilizando una versión anterior del servicio, utilice una consulta de lista para contar las tareas de un trabajo en su lugar.
+>
+> 
 
 ## <a name="meet-the-detaillevel"></a>Presentación de DetailLevel
-En una aplicación de Lote de producción, algunas entidades como los trabajos, las tareas y los nodos de ejecución pueden contarse por millares. Cuando solicita información sobre estos recursos, es posible que cada consulta envíe un gran volumen de información desde el servicio de Batch hasta la aplicación. Si limita el número de elementos y el tipo de información que va a devolver una consulta, podrá acelerar las consultas y, por tanto, mejorar el rendimiento de la aplicación.
+En una aplicación de Batch de producción, algunas entidades como los trabajos, las tareas y los nodos de ejecución pueden contarse por millares. Cuando solicita información sobre estos recursos, es posible que cada consulta envíe un gran volumen de información desde el servicio de Batch hasta la aplicación. Si limita el número de elementos y el tipo de información que va a devolver una consulta, podrá acelerar las consultas y, por tanto, mejorar el rendimiento de la aplicación.
 
 Este fragmento de código de la API de [.NET de Batch][api_net] enumera *todas* las tareas asociadas a un trabajo, junto con *todas* las propiedades de cada tarea:
 
@@ -53,10 +60,10 @@ IPagedEnumerable<CloudTask> completedTasks =
     batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
-En este caso de ejemplo, si hay miles de tareas en el trabajo, los resultados de la segunda consulta normalmente se devolverán más rápido que en la primera consulta. [A continuación](#efficient-querying-in-batch-net)encontrará más información sobre el uso de ODATADetailLevel al enumerar elementos con la API de Lote de .NET.
+En este caso de ejemplo, si hay miles de tareas en el trabajo, los resultados de la segunda consulta normalmente se devolverán más rápido que en la primera consulta. [A continuación](#efficient-querying-in-batch-net)encontrará más información sobre el uso de ODATADetailLevel al enumerar elementos con la API de .NET para Batch.
 
 > [!IMPORTANT]
-> Es muy recomendable suministrar *siempre* un objeto ODATADetailLevel a las llamadas de la lista de la API de .NET para garantizar la máxima eficacia y rendimiento de su aplicación. La especificación de un nivel de detalle puede ayudarle a reducir los tiempos de respuesta del servicio Lote, a mejorar la utilización de la red y a minimizar el uso de la memoria por parte de las aplicaciones cliente.
+> Es muy recomendable suministrar *siempre* un objeto ODATADetailLevel a las llamadas de la lista de la API de .NET para garantizar la máxima eficacia y rendimiento de su aplicación. La especificación de un nivel de detalle puede ayudarle a reducir los tiempos de respuesta del servicio de Batch, a mejorar la utilización de la red y a minimizar el uso de la memoria por parte de las aplicaciones cliente.
 > 
 > 
 
@@ -99,14 +106,14 @@ La cadena expand reduce el número de llamadas API necesarias para obtener deter
 * Las cadenas booleanas son `true` o `false`.
 * Si se especifica una propiedad o un operador no válidos, aparecerá el error `400 (Bad Request)` .
 
-## <a name="efficient-querying-in-batch-net"></a>Consultas eficaces en .NET de Lote
+## <a name="efficient-querying-in-batch-net"></a>Consultas eficaces en .NET de Batch
 En la API de [.NET de Batch][api_net], se usa la clase [ODATADetailLevel][odata] para suministrar cadenas filter, select y expand a las operaciones de lista. La clase ODataDetailLevel tiene tres propiedades de cadena públicas que se pueden especificar en el constructor, o bien establecerse directamente en el objeto. Luego el objeto ODataDetailLevel pasa como parámetro a las distintas operaciones de lista como [ListPools][net_list_pools], [ListJobs][net_list_jobs] y [ListTasks][net_list_tasks].
 
 * [ODATADetailLevel][odata].[FilterClause][odata_filter]: limita el número de elementos que se devuelven.
 * [ODATADetailLevel.SelectClause][odata].[SelectClause][odata_select]: especifica los valores de propiedad devueltos con cada elemento.
 * [ODATADetailLevel][odata].[ExpandClause][odata_expand]: recupera datos para todos los elementos en una sola llamada API en lugar de en llamadas independientes para cada elemento.
 
-El siguiente fragmento de código usa la API de .NET de Lote para consultar de forma eficaz las estadísticas de un conjunto específico de grupos en el servicio Lote. En este escenario, el usuario de Lote tiene grupos de prueba y de producción. Los identificadores del grupo de prueba tienen el prefijo "test", mientras que los del grupo de producción tienen el prefijo "prod". En el fragmento de código, *myBatchClient* es una instancia de la clase [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) inicializada correctamente.
+El siguiente fragmento de código usa la API de .NET para Batch para consultar de forma eficaz las estadísticas de un conjunto específico de grupos en el servicio Batch. En este escenario, el usuario de Batch tiene grupos de prueba y de producción. Los identificadores del grupo de prueba tienen el prefijo "test", mientras que los del grupo de producción tienen el prefijo "prod". En el fragmento de código, *myBatchClient* es una instancia de la clase [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) inicializada correctamente.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -139,7 +146,7 @@ List<CloudPool> testPools =
 > 
 > 
 
-## <a name="batch-rest-to-net-api-mappings"></a>Asignaciones de la API de Lote de REST y la de .NET
+## <a name="batch-rest-to-net-api-mappings"></a>Correspondencia entre la API de REST y la API de .NET para Batch
 Los nombres de propiedades en las cadenas filter, select y expand *deben* reflejar sus homólogos en la API de REST, tanto en el nombre en sí como en el uso de mayúsculas y minúsculas. En las tablas siguientes, se proporcionan asignaciones entre los homólogos de la API de .NET y la de REST.
 
 ### <a name="mappings-for-filter-strings"></a>Asignaciones de las cadenas filter
@@ -160,10 +167,10 @@ Los nombres de propiedades en las cadenas filter, select y expand *deben* reflej
 | [PoolOperations.ListPools][net_list_pools] |[Enumeración de los grupos de una cuenta][rest_list_pools] |
 
 ### <a name="mappings-for-select-strings"></a>Asignaciones de las cadenas select
-* **Tipos de .NET de Lote**: tipos de la API de .NET de Lote.
+* **Tipos de .NET de Batch**: tipos de la API de .NET para Batch.
 * **Entidades de la API de REST**: todas las páginas de esta columna contienen una o varias tablas que enumeran los nombres de propiedades de la API de REST para el tipo. Estos nombres de propiedades se usan al construir cadenas *select* . Estos mismos nombres se usarán al construir una cadena [ODATADetailLevel.SelectClause][odata_select].
 
-| Tipos de .NET de Lote | Entidades de la API de REST |
+| Tipos de .NET de Batch | Entidades de la API de REST |
 | --- | --- |
 | [Certificate][net_cert] |[Obtención de información sobre un certificado][rest_get_cert] |
 | [CloudJob][net_job] |[Obtención de información sobre un trabajo][rest_get_job] |
@@ -216,7 +223,7 @@ Sample complete, hit ENTER to continue...
 Como se muestra en los tiempos transcurridos, se pueden reducir considerablemente los tiempos de respuesta, para lo que es preciso limitar las propiedades y el número de elementos que se devuelven. Puede encontrar este y otros proyectos de ejemplo en el repositorio [azure-batch-samples][github_samples] de GitHub.
 
 ### <a name="batchmetrics-library-and-code-sample"></a>Biblioteca y código de ejemplo de BatchMetrics
-Además del ejemplo de código EfficientListQueries anterior, puede encontrar el proyecto [BatchMetrics][batch_metrics] en el repositorio de GitHub [azure-batch-samples][github_samples]. El proyecto de ejemplo BatchMetrics demuestra cómo supervisar de forma eficiente el progreso del trabajo de Lote de Azure mediante la API de Lote.
+Además del ejemplo de código EfficientListQueries anterior, puede encontrar el proyecto [BatchMetrics][batch_metrics] en el repositorio de GitHub [azure-batch-samples][github_samples]. El proyecto de ejemplo BatchMetrics demuestra cómo supervisar de forma eficiente el progreso del trabajo de Azure Batch mediante la API de Batch.
 
 El ejemplo [BatchMetrics][batch_metrics] incluye un proyecto de biblioteca de clases de .NET que puede incorporar en sus propios proyectos y un programa de línea de comandos simple para probar y demostrar el uso de la biblioteca.
 
@@ -239,10 +246,10 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 
 ## <a name="next-steps"></a>Pasos siguientes
 ### <a name="parallel-node-tasks"></a>Tareas paralelas de nodo
-[Maximizar el uso de recursos de proceso de Lote de Azure con tareas simultáneas nodo](batch-parallel-node-tasks.md) es otro artículo relacionada con rendimiento de aplicaciones de Lote. Algunos tipos de cargas de trabajo pueden beneficiarse de la ejecución de tareas paralelas en una menor cantidad de nodos de proceso que, sin embargo, sean de mayor tamaño. Consulte la sección [Escenario de ejemplo](batch-parallel-node-tasks.md#example-scenario) en el artículo para obtener detalles sobre dicho escenario.
+[Maximizar el uso de recursos de proceso de Azure Batch con tareas simultáneas nodo](batch-parallel-node-tasks.md) es otro artículo relacionada con rendimiento de aplicaciones de Batch. Algunos tipos de cargas de trabajo pueden beneficiarse de la ejecución de tareas paralelas en una menor cantidad de nodos de proceso que, sin embargo, sean de mayor tamaño. Consulte la sección [Escenario de ejemplo](batch-parallel-node-tasks.md#example-scenario) en el artículo para obtener detalles sobre dicho escenario.
 
 ### <a name="batch-forum"></a>Foro de Batch
-El [foro de Azure Batch][forum] en MSDN es un lugar excelente para debatir y formular preguntas sobre el servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio Lote.
+El [foro de Azure Batch][forum] en MSDN es un lugar excelente para debatir y formular preguntas sobre el servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio Batch.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
@@ -293,3 +300,4 @@ El [foro de Azure Batch][forum] en MSDN es un lugar excelente para debatir y for
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
+[rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job

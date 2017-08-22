@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: bd7694374034faa5ef1df84397580d80e3f40e43
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -241,6 +241,39 @@ En las secciones siguientes se describe cómo se actualizan los agentes de prote
 4. Si un equipo cliente no está conectado a la red, aparecerá el estado **Actualización pendiente** en la columna **Estado del agente** mientras el equipo no se conecte a la red.
 
   Una vez que el equipo cliente se conecte a la red, aparecerá el estado **Actualizando** en la columna **Actualizaciones del agente** para el equipo cliente.
+  
+### <a name="move-legacy-protection-groups-from-old-version-and-sync-the-new-version-with-azure"></a>Paso de los grupos de protección heredados de una versión antigua y sincronización de la nueva versión con Azure
+
+Una vez que Azure Backup Server y el sistema operativo están ambos actualizados, está listo para proteger los nuevos orígenes de datos con Modern Backup Storage. Aunque los orígenes de datos ya protegidos seguirán estándolo del modo antiguo, como cuando usaban Azure Backup Server, en la nueva protección se usará Modern Backup Storage.
+
+En los pasos siguientes se migran los orígenes de datos del modo antiguo de protección a Modern Backup Storage.
+
+• Agregue los nuevos volúmenes al grupo de almacenamiento DPM y asigne etiquetas de origen de datos y nombres descriptivos, si lo desea.
+• Para cada origen de datos que se encuentre en el modo antiguo, detenga la protección de los orígenes de datos y use la opción “Conservar datos protegidos”.  Así permitirá la recuperación de los puntos de recuperación antiguos después de la migración.
+
+• Cree un nuevo grupo de protección y seleccione los orígenes de datos que se almacenarán con el nuevo formato.
+• DPM realizará localmente una copia de la réplica desde el almacenamiento de copia de seguridad antiguo en el volumen de Modern Backup Storage.
+Nota: Esto se verá como un trabajo de operación posterior a la recuperación • Todos los nuevos puntos de recuperación y sincronización se almacenarán entonces en Modern Backup Storage.
+•Los puntos de recuperación antiguos se eliminarán cuando expiren y finalmente se liberará el espacio en disco.
+• Una vez que se eliminan todos los volúmenes heredados del almacenamiento antiguo, el disco se puede quitar de Azure Backup y del sistema.
+• Realice una copia de seguridad de la base de datos DPM de Azure.
+
+Parte 2: Elementos importantes. El nuevo servidor deberá tener mismo nombre que la instancia original de Azure Backup Server. No se puede cambiar el nombre de la nueva instancia de Azure Backup Server, si desea usar el grupo de almacenamiento antiguo y la base de datos DPM para conservar los puntos de recuperación: debe tener la copia de seguridad de la base de datos DPM, ya que será necesario restaurarla.
+
+1) Cierre la instancia original de Azure Backup Server o desconéctela.
+2) Restablezca la cuenta de máquina en Active Directory.
+3) Instale Server 2016 en un equipo nuevo y asígnele el mismo nombre de máquina que la instancia original de Azure Backup Server.
+4) Únase al dominio
+5) Instale Azure Backup Server V2 (mueva los discos del grupo de DPM Storage desde el servidor antiguo e impórtelos)
+6) Restaure la base de datos DPM tomada al final de la parte 2
+7) Conecte el almacenamiento del servidor de copia de seguridad original al nuevo servidor.
+8) Desde SQL, restaure la base de datos DPM
+9) Desde la línea de comandos de administrador en el nuevo servidor, cambie al directorio de la ubicación de instalación de Microsoft Azure Backup y a la carpeta bin
+
+Ejemplo de ruta de acceso: C:\windows\system32>cd "c:\Archivos de programa\Microsoft Azure Backup\DPM\DPM\bin\
+a Azure Backup. Ejecute DPMSYNC -SYNC
+
+10) Ejecute DPMSYNC-SYNC Nota: Si ha agregado nuevos discos al bloque de almacenamiento DPM en lugar de mover los antiguos, ejecute DPMSYNC -Reallocatereplica
 
 ## <a name="new-powershell-cmdlets-in-v2"></a>Nuevos cmdlets de PowerShell en v2
 

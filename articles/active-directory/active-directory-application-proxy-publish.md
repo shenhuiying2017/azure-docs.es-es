@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -63,9 +63,9 @@ Proxy de aplicación de Azure AD permite publicar aplicaciones locales para acce
 6. Para finalizar al asistente, haga clic en la marca de verificación de la parte inferior de la pantalla. La aplicación ya está definida en Azure AD.
 
 ## <a name="assign-users-and-groups-to-the-application"></a>Asignación de usuarios y grupos a la aplicación
-Para que los usuarios accedan a su aplicación publicada, es preciso que los asigne individualmente o en grupos. (Acuérdese también de asignarse acceso). Esto requiere que cada usuario tenga una licencia de Azure Basic o superior. Puede asignar licencias individualmente o a grupos. Consulte [Asignación de grupos a una aplicación](active-directory-applications-guiding-developers-assigning-users.md) para más información. 
+Para que los usuarios accedan a su aplicación publicada, es preciso que los asigne individualmente o en grupos. (Acuérdese también de asignarse acceso). Cada usuario que asigna necesita una licencia para Azure básico o superior. Puede asignar licencias individualmente o a grupos. Consulte [Asignación de usuarios a una aplicación](active-directory-applications-guiding-developers-assigning-users.md) para más información. 
 
-Para las aplicaciones que requieren autenticación previa, concede permisos para usar la aplicación. Para las aplicaciones que no requieren autenticación previa, los usuarios se pueden asignar a la aplicación para que aparezca en su lista de aplicaciones, como MyApps.
+Para aplicaciones que requieren autenticación previa, la asignación de un usuario concede permiso para usar la aplicación. Para aplicaciones que no requieren la autenticación previa, la asignación de un usuario significa que el usuario puede acceder a la aplicación mediante el panel de acceso.
 
 1. Tras finalizar al Asistente para agregar aplicación, verá la página de inicio rápido de la aplicación. Para administrar quién tiene acceso a la aplicación, seleccione **Usuarios y grupos**.
    
@@ -90,7 +90,7 @@ En la página Configurar se pueden modificar las aplicaciones publicadas o confi
 
 Después de publicar las aplicaciones mediante el Proxy de aplicación de Azure Active Directory, estas aparecen en la lista de aplicaciones en Azure AD y se pueden administrar desde ahí.
 
-Si deshabilita los servicios de proxy de aplicación después de haber publicado aplicaciones, estas dejarán de estar accesibles desde fuera de la red privada. Esto no las elimina.
+Si deshabilita los servicios del proxy de aplicaciones después de haber publicado aplicaciones, estas dejarán de estar accesibles desde fuera de la red privada. Los usuarios pueden seguir teniendo acceso a las aplicaciones locales como de costumbre.
 
 Para ver una aplicación y asegurarse de que sea accesible, haga doble clic en su nombre. Si se deshabilita el servicio de Proxy de aplicación y la aplicación no está disponible, aparece un mensaje de advertencia en la parte superior de la pantalla.
 

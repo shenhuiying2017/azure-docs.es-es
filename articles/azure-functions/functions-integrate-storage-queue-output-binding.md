@@ -16,30 +16,24 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
 ms.contentlocale: es-es
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
-<a id="add-messages-to-an-azure-storage-queue-using-functions" class="xliff"></a>
-
-# Agregar mensajes a una cola de Azure Storage con Functions
+# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Agregar mensajes a una cola de Azure Storage con Functions
 
 En Azure Functions, los enlaces de entrada y salida proporcionan una manera declarativa de conectarse a los datos de servicio externos desde su función. En este tema, obtendrá información sobre cómo actualizar una función existente agregando un enlace de salida que envía mensajes a Azure Queue Storage.  
 
 ![Vea el mensaje en los registros.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
 * Instale el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
 ## <a name="add-binding"></a>Agregar un enlace de salida
  
@@ -49,7 +43,7 @@ En Azure Functions, los enlaces de entrada y salida proporcionan una manera decl
     
     ![Agregue un enlace de salida de Queue Storage a una función en Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Use la configuración especificada en la tabla y seleccione **Guardar**: 
+3. Use la configuración que se especifica en la tabla: 
 
     ![Agregue un enlace de salida de Queue Storage a una función en Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -59,11 +53,11 @@ En Azure Functions, los enlaces de entrada y salida proporcionan una manera decl
     | **Conexión de la cuenta de almacenamiento** | AzureWebJobStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una nueva.  |
     | **Nombre del parámetro de mensaje** | outQueueItem | El nombre del parámetro del enlace de salida. | 
 
+4. Haga clic en **Guardar** para agregar el enlace.
+ 
 Ahora que tiene definido un enlace de salida, necesita actualizar el código que va a usar el enlace para agregar mensajes a una cola.  
 
-<a id="update-the-function-code" class="xliff"></a>
-
-## Actualizar el código de la función
+## <a name="update-the-function-code"></a>Actualizar el código de la función
 
 1. Seleccione la función para mostrar su código en el editor. 
 
@@ -92,9 +86,7 @@ Ahora que tiene definido un enlace de salida, necesita actualizar el código que
 
 El valor que se ha pasado al desencadenador HTTP se incluye en un mensaje agregado a la cola.
  
-<a id="test-the-function" class="xliff"></a>
-
-## Prueba de la función 
+## <a name="test-the-function"></a>Prueba de la función 
 
 1. Después de que se guarden los cambios del código, seleccione **Ejecutar**. 
 
@@ -104,9 +96,7 @@ El valor que se ha pasado al desencadenador HTTP se incluye en un mensaje agrega
 
 Después, puede conectarse a su cuenta de almacenamiento para comprobar la cola nueva y el mensaje que ha agregado en esta. 
 
-<a id="connect-to-the-queue" class="xliff"></a>
-
-## Conectarse a la cola
+## <a name="connect-to-the-queue"></a>Conectarse a la cola
 
 Omita los tres primeros pasos si ya ha instalado el Explorador de almacenamiento y lo ha conectado a su cuenta de almacenamiento.    
 
@@ -127,15 +117,11 @@ Omita los tres primeros pasos si ya ha instalado el Explorador de almacenamiento
     ![Cree una cola de almacenamiento.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Limpieza de recursos
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ha agregado un enlace de salida a una función existente. 
 

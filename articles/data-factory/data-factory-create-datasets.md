@@ -13,17 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: shlo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 870436655c84c0bc53ca41eaa67f6fd32ef93ceb
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 6fd58edd830df8ea3f77a68e8dfcaf6de055b17c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Data Factory de Azure
+# <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Azure Data Factory
 En este artículo se describe qué son los conjuntos de datos, cómo se definen en formato JSON y cómo se usan en canalizaciones de Azure Data Factory. Se incluyen detalles sobre cada sección (por ejemplo, structure, availability y policy) en la definición JSON del conjunto de datos. También se ofrecen ejemplos de uso de las propiedades **offset**, **anchorDateTime** y **style** en una definición JSON de conjunto de datos.
 
 > [!NOTE]
@@ -77,7 +76,7 @@ La tabla siguiente describe las propiedades del JSON anterior:
 
 | Propiedad | Descripción | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
-| name |Nombre del conjunto de datos. Consulte [Data Factory de Azure: reglas de nomenclatura](data-factory-naming-rules.md) para ver este tipo de reglas. |Sí |N/D |
+| name |Nombre del conjunto de datos. Consulte [Azure Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para ver este tipo de reglas. |Sí |N/D |
 | type |Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para más información, consulte [Tipo de conjunto de datos](#Type). |Sí |N/D |
 | structure |Esquema del conjunto de datos.<br/><br/>Para más información, consulte [Estructura del conjunto de datos](#Structure). |No |N/D |
 | typeProperties | Las propiedades de tipo son diferentes para cada tipo (por ejemplo: Azure Blob o SQL Azure Table). Para más información sobre los tipos admitidos y sus propiedades, consulte [Tipo de conjunto de datos](#Type). |Sí |N/D |
@@ -202,7 +201,7 @@ Las siguientes instrucciones le ayudan a determinar cuándo incluir información
     Dado que la información de tipo ya está disponible para orígenes de datos estructurados, no debe incluir información de tipo cuando se incluye la sección "structure".
 * **En cuanto al esquema de los orígenes de datos de lectura (en concreto, Blob Storage)**, puede optar por guardar los datos sin almacenar ningún esquema o información de tipos con ellos. Para estos tipos de orígenes de datos, incluya "structure" cuando desee asignar columnas de origen a columnas de receptor. Incluya también "structure" cuando el conjunto de datos sea una entrada para una actividad de copia y los tipos de datos del conjunto de datos de origen se deban convertir a tipos nativos para el receptor. 
     
-    Data Factory admite los siguientes valores para proporcionar información de tipos en "structure": Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset y Timespan. Estos valores son valores de tipos basados en .NET compatibles con Common Language Specification (CLS).
+    Data Factory admite los siguientes valores para proporcionar información de tipos en "structure": **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset y Timespan**. Estos valores son valores de tipos basados en .NET compatibles con Common Language Specification (CLS).
 
 Data Factory realiza automáticamente las conversiones de tipo al mover datos desde un almacén de datos de origen a un almacén de datos de receptor. 
   
@@ -269,7 +268,7 @@ El siguiente conjunto de datos es mensual y se produce el tercer día de cada me
 "availability": {
     "frequency": "Month",
     "interval": 1,
-    "offset": "3.08:00:00",    
+    "offset": "3.08:00:00", 
     "style": "StartOfInterval"
 }
 ```
@@ -280,8 +279,8 @@ En la sección **policy** de la definición del conjunto de datos se definen los
 ### <a name="validation-policies"></a>Directivas de validación
 | Nombre de la directiva | Descripción | Se aplica a | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Valida que los datos de **Azure Blob Storage** satisfacen los requisitos de tamaño mínimo (en megabytes). |Almacenamiento de blobs de Azure |No |N/D |
-| minimumRows |Valida que los datos de una **base de datos SQL de Azure** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Base de datos SQL de Azure</li><li>Tabla de Azure</li></ul> |No |N/D |
+| minimumSizeMB |Valida que los datos de **Azure Blob Storage** satisfacen los requisitos de tamaño mínimo (en megabytes). |Azure Blob Storage |No |N/D |
+| minimumRows |Valida que los datos de una **base de datos SQL de Azure** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>Tabla de Azure</li></ul> |No |N/D |
 
 #### <a name="examples"></a>Ejemplos
 **minimumSizeMB:**
@@ -326,7 +325,7 @@ A menos que se esté produciendo un conjunto de datos mediante Data Factory, deb
 Puede crear conjuntos de datos mediante el uso de algunas de estas herramientas o SDK: 
 
 - Asistente para copia 
-- Portal de Azure
+- Azure Portal
 - Visual Studio
 - PowerShell
 - Plantilla del Administrador de recursos de Azure

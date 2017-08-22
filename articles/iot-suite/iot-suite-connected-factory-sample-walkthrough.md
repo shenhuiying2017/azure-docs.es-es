@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Tutorial de la solución de fábrica preconfigurada conectada
@@ -48,7 +47,14 @@ El diagrama siguiente describe los componentes lógicos de la solución preconfi
 
 ![Arquitectura lógica de fábrica conectada][connected-factory-logical]
 
-## <a name="simulation"></a>Simulación
+## <a name="communication-patterns"></a>Patrones de comunicación
+
+La solución emplea la [especificación de publicación/suscripción de OPC UA](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) para enviar datos de telemetría de OPC UA a IoT Hub en formato JSON. Para este fin, la solución usa el módulo [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) de IoT Edge.
+
+La solución también tiene un cliente de OPC UA integrado en una aplicación web que puede establecer conexiones con servidores de OPC UA locales. El cliente usa un [proxy inverso](https://wikipedia.org/wiki/Reverse_proxy) y recibe ayuda de IoT Hub para realizar la conexión sin necesidad de abrir puertos en el firewall local. Este patrón de comunicación se denomina [comunicación asistida por el servicio](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). Para este fin, la solución usa el módulo [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) de IoT Edge.
+
+
+## <a name="simulation"></a>Simulation
 
 Las estaciones simuladas y los sistemas de ejecución de fabricación (MES) simulados constituyen una línea de producción de fábrica. Los dispositivos simulados y el módulo publicador de OPC se basan en el [estándar .NET de OPC UA][lnk-OPC-UA-NET-Standard] publicado por el consorcio OPC Foundation.
 
@@ -107,11 +113,11 @@ La vista de la serie temporal de los datos del nodo viene directamente de TSI me
 ## <a name="iot-hub"></a>IoT Hub
 El [centro de IoT][lnk-IoT Hub] recibe los datos enviados desde el módulo publicador de OPC en la nube y permite que estén disponibles para el servicio de Azure TSI. 
 
-La instancia de IoT Hub en la solución también:
+El centro de IoT en la solución también:
 - Mantiene un Registro de identidad que almacena los identificadores de todos los módulos publicador y proxy de OPC.
 - Se usa como canal de transporte para la comunicación bidireccional del módulo proxy de OPC.
 
-## <a name="azure-storage"></a>Almacenamiento de Azure
+## <a name="azure-storage"></a>Azure Storage
 La solución emplea Azure Blob Storage como almacenamiento en disco en la máquina virtual y para almacenar datos de implementación.
 
 ## <a name="web-app"></a>Aplicación web

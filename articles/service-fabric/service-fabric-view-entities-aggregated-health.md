@@ -12,34 +12,39 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 08/18/2017
 ms.author: oanapl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a93c84435c1adab117961bceae0f7b49b2b2348a
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: ddc7d4faf50129911103d6ebb6a17c8ee76c8767
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="view-service-fabric-health-reports"></a>Vista de los informes de estado de Service Fabric
-Azure Service Fabric presenta un [modelo de mantenimiento](service-fabric-health-introduction.md) formado por entidades de mantenimiento en las que componentes y guardianes del sistema pueden notificar las condiciones locales que están supervisando. El [almacén de estado](service-fabric-health-introduction.md#health-store) agrega todos los datos de mantenimiento para determinar si las entidades son correctas.
+Azure Service Fabric presenta un [modelo de mantenimiento](service-fabric-health-introduction.md) con entidades de estado en las que componentes y guardianes del sistema pueden notificar las condiciones locales que están supervisando. El [almacén de estado](service-fabric-health-introduction.md#health-store) agrega todos los datos de mantenimiento para determinar si las entidades son correctas.
 
-De fábrica, el clúster está rellenado con informes de estado enviados por los componentes del sistema. Lea más en [Uso de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+El clúster se rellena automáticamente con informes de estado enviados por los componentes del sistema. Lea más en [Uso de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
 Service Fabric proporciona varias maneras de obtener el mantenimiento agregado de las entidades:
 
 * [Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md) y otras herramientas de visualización
-* Consultas de mantenimiento (a través de PowerShell, la API o REST)
-* Consultas generales que devuelven una lista de entidades con el mantenimiento como una de las propiedades (a través de Powerhsell, la API o REST)
+* Consultas de mantenimiento (a través de PowerShell, API o REST)
+* Consultas generales que devuelven una lista de entidades con el estado como una de las propiedades (a través de PowerShell, API o REST)
 
-Para demostrar estas opciones, vamos a usar un clúster local con cinco nodos. Junto a la aplicación **fabric:/System** (que está integrada), se implementan algunas otras aplicaciones. Una de estas aplicaciones es **fabric:/WordCount**. Esta aplicación contiene un servicio con estado configurado con siete réplicas. Dado que solo hay cinco nodos, los componentes del sistema muestran una advertencia de que la partición está por debajo del recuento de destino.
+Para demostrar estas opciones, vamos a usar un clúster local con los nodos y la [aplicación fabric:/WordCount](http://aka.ms/servicefabric-wordcountapp). La aplicación **fabric:/WordCount** contiene dos servicios predeterminados, uno con estado de tipo `WordCountServiceType` y otro sin estado de tipo `WordCountWebServiceType`. He cambiado el archivo `ApplicationManifest.xml` para requerir siete réplicas de destino para el servicio con estado y una partición. Dado que hay solo cinco nodos en el clúster, los componentes del sistema notifican una advertencia en la partición del servicio porque está por debajo del número de destino.
 
 ```xml
 <Service Name="WordCountService">
-    <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="2">
+<<<<<<< HEAD
+    <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="3">
       <UniformInt64Partition PartitionCount="1" LowKey="1" HighKey="26" />
     </StatefulService>
+=======
+  <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="2">
+    <UniformInt64Partition PartitionCount="[WordCountService_PartitionCount]" LowKey="1" HighKey="26" />
+  </StatefulService>
+>>>>>>> 5e84dbdd8e45a5d6b36f435a550b7433b873bf11
 </Service>
 ```
 
@@ -47,7 +52,7 @@ Para demostrar estas opciones, vamos a usar un clúster local con cinco nodos. J
 El Explorador de Service Fabric proporciona una vista visual del clúster. En la imagen siguiente, puede ver que:
 
 * La aplicación **fabric:/WordCount** está en rojo (en error) porque tiene un evento de error notificado por **MyWatchdog** para la propiedad **Availability**.
-* Uno de sus servicios, **fabric:/WordCount/WordCountService** está en amarillo (en advertencia). Como el servicio está configurado con siete réplicas, no se pueden colocar todas, ya que solo hay cinco nodos. Aunque no se muestra aquí, la partición de servicio está en amarillo debido al informe del sistema. La partición en amarillo desencadena el servicio en amarillo.
+* Uno de sus servicios, **fabric:/WordCount/WordCountService** está en amarillo (en advertencia). El servicio está configurado con siete réplicas y el clúster tiene cinco nodos, por lo que no se pueden colocar dos réplicas. Aunque no se muestra aquí, la partición de servicio está en amarillo debido al informe del sistema de `System.FM` que indica que `Partition is below target replica or instance count` (la partición está por debajo del número de instancias o réplicas de destino). La partición en amarillo desencadena el servicio en amarillo.
 * El clúster está en rojo debido a la aplicación en rojo.
 
 La evaluación usa las directivas predeterminadas del manifiesto de clúster y el manifiesto de aplicación. Son directivas estrictas y no toleran ningún error.
@@ -65,14 +70,14 @@ Vista del clúster con el Explorador de Service Fabric.
 >
 
 ## <a name="health-queries"></a>Consultas de mantenimiento
-Service Fabric expone las consultas de mantenimiento para cada uno de los [tipos de entidad](service-fabric-health-introduction.md#health-entities-and-hierarchy)admitidos. Se puede acceder e ellas mediante la API (los métodos se pueden encontrar en **FabricClient.HealthManager**), los cmdlets de PowerShell y REST. Estas consultas devuelven información completa de mantenimiento sobre la entidad: el estado de mantenimiento agregado, los eventos de mantenimiento de la entidad, los estados de mantenimiento de los elementos secundarios (si procede) y las evaluaciones de mantenimiento incorrecto cuando el mantenimiento de la entidad no es correcto.
+Service Fabric expone las consultas de mantenimiento para cada uno de los [tipos de entidad](service-fabric-health-introduction.md#health-entities-and-hierarchy)admitidos. Se puede acceder a ellas mediante la API, con los métodos de [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), los cmdlets de PowerShell y REST. Estas consultas devuelven información completa de mantenimiento sobre la entidad: el estado de mantenimiento agregado, los eventos de mantenimiento de la entidad, los estados de mantenimiento de los elementos secundarios (si procede), las evaluaciones de estado incorrecto y las estadísticas de mantenimiento de los elementos secundarios (cuando corresponde).
 
 > [!NOTE]
-> Se devuelve una entidad de mantenimiento cuando se rellena completamente en el Almacén de estado. La entidad debe estar activa (no eliminada) y tener un informe de sistema. Sus entidades primarias en la cadena de jerarquía deben tener también informes del sistema. Si no se cumple alguna de estas condiciones, las consultas de mantenimiento devuelven una excepción que muestra por qué no se devuelve la entidad.
+> Se devuelve una entidad de mantenimiento cuando se rellena completamente en el Almacén de estado. La entidad debe estar activa (no eliminada) y tener un informe de sistema. Sus entidades primarias en la cadena de jerarquía deben tener también informes del sistema. Si no se cumple alguna de estas condiciones, las consultas de mantenimiento devuelven una excepción [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) con el código [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` que muestra por qué no se devuelve la entidad.
 >
 >
 
-Las consultas de mantenimiento requieren pasar el identificador de entidad, que depende del tipo de entidad. Las consultas aceptan parámetros de directivas de mantenimiento opcionales. Si no se especifican directivas de mantenimiento, se usan para la evaluación las [directivas de mantenimiento](service-fabric-health-introduction.md#health-policies) del manifiesto de aplicación o de clúster. También aceptan filtros para devolver solo los elementos secundarios o eventos parciales, los que respetan los filtros especificados.
+Las consultas de mantenimiento requieren pasar el identificador de entidad, que depende del tipo de entidad. Las consultas aceptan parámetros de directivas de mantenimiento opcionales. Si no se especifican directivas de mantenimiento, se usan para la evaluación las [directivas de mantenimiento](service-fabric-health-introduction.md#health-policies) del manifiesto de aplicación o de clúster. Si los manifiestos no contienen una definición de las directivas de mantenimiento, para la evaluación se usan las predeterminadas. Las directivas de mantenimiento predeterminadas no toleran errores. También aceptan filtros para devolver solo los elementos secundarios o eventos parciales, los que respetan los filtros especificados. Otro filtro permite excluir las estadísticas de los elementos secundarios.
 
 > [!NOTE]
 > Los filtros de salida se aplican en el servidor, por lo que se reduce el tamaño de la respuesta del mensaje. Recomendamos usar los filtros de salida para limitar los datos devueltos en lugar de aplicar filtros en el cliente.
@@ -84,7 +89,8 @@ Contiene el mantenimiento de la entidad:
 * El estado de mantenimiento agregado de la entidad. El Almacén de estado lo calcula en función de los informes de mantenimiento de la entidad, los estados de mantenimiento de los elementos secundarios (si procede) y las directivas de mantenimiento. Lea más sobre la [evaluación del mantenimiento de entidades](service-fabric-health-introduction.md#health-evaluation).  
 * Eventos de mantenimiento de la entidad.
 * La colección de los estados de mantenimiento de todos los elementos secundarios de las entidades que pueden tener elementos secundarios. Los estados de mantenimiento contienen identificadores de entidad y el estado de mantenimiento agregado. Para obtener el mantenimiento completo de un elemento secundario, llame al mantenimiento de consultas del tipo de entidad secundaria y pase el identificador de elementos secundarios.
-* Si la entidad no es correcta, las evaluaciones de mantenimiento incorrecto apuntan al informe que desencadenó el estado de la entidad.
+* Si la entidad no es correcta, las evaluaciones de mantenimiento incorrecto apuntan al informe que desencadenó el estado de la entidad. Las evaluaciones son recursivas, contienen las evaluaciones de mantenimiento de los elementos secundarios que desencadenaron el estado de mantenimiento actual. Por ejemplo, un guardián notificó un error en una réplica. El estado de la aplicación muestra una evaluación de estado incorrecto debido a un servicio con un estado incorrecto; este estado del servicio se debe a que una partición tiene un error; el estado de la partición es incorrecto debido a que una réplica tiene otro error; el estado de la réplica es incorrecto debido al informe de estado de error del guardián.
+* Las estadísticas de estado de todos los tipos de elementos secundarios de las entidades que los tienen. Por ejemplo, el estado del clúster muestra el número total de aplicaciones, servicios, particiones, réplicas y entidades implementadas en el clúster. El estado del servicio muestra el número total de particiones y réplicas en el servicio especificado.
 
 ## <a name="get-cluster-health"></a>Obtención del mantenimiento de clúster
 Devuelve el mantenimiento de la entidad del clúster y contiene los estados de mantenimiento de aplicaciones y nodos (elementos secundarios del clúster). Entrada:
@@ -92,6 +98,8 @@ Devuelve el mantenimiento de la entidad del clúster y contiene los estados de m
 * [Opcional] La directiva de mantenimiento del clúster utilizada para evaluar los nodos y los eventos del clúster.
 * [Opcional] La asignación de directivas de mantenimiento de aplicaciones, con las directivas de mantenimiento usadas para invalidar las directivas de manifiesto de aplicación.
 * [Opcional] Filtros para eventos, nodos y aplicaciones que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente los errores o advertencias y errores). Todos los eventos, nodos y aplicaciones se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
+* [Opcional] Filtro para excluir las estadísticas de estado.
+* [Opcional] Filtro para incluir las estadísticas de estado fabric:/System. Solo se pude aplicar cuando no se excluyen las estadísticas de estado. De forma predeterminada, las estadísticas de estado incluyen solo las estadísticas de las aplicaciones de usuario y no la aplicación del sistema.
 
 ### <a name="api"></a>API
 Para obtener el mantenimiento del clúster, cree una instancia de `FabricClient` y llame al método [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) en su instancia de **HealthManager**.
@@ -102,7 +110,7 @@ La siguiente llamada obtiene el mantenimiento del clúster:
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-El código siguiente obtiene el mantenimiento del clúster mediante una directiva de mantenimiento personalizada del clúster y filtros para nodos y aplicaciones. Crea la clase [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), que contiene toda la información de entrada.
+El código siguiente obtiene el mantenimiento del clúster mediante una directiva de mantenimiento personalizada del clúster y filtros para nodos y aplicaciones. Especifica que las estadísticas de estado incluyen las de tipo fabric:/System. Crea la clase [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), que contiene toda la información de entrada.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -117,11 +125,17 @@ var applicationsFilter = new ApplicationHealthStatesFilter()
 {
     HealthStateFilterValue = HealthStateFilter.Error
 };
+var healthStatisticsFilter = new ClusterHealthStatisticsFilter()
+{
+    ExcludeHealthStatistics = false,
+    IncludeSystemApplicationHealthStatistics = true
+};
 var queryDescription = new ClusterHealthQueryDescription()
 {
     HealthPolicy = policy,
     ApplicationsFilter = applicationsFilter,
     NodesFilter = nodesFilter,
+    HealthStatisticsFilter = healthStatisticsFilter
 };
 
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync(queryDescription);
@@ -132,85 +146,97 @@ El cmdlet para obtener el mantenimiento del clúster es [Get-ServiceFabricCluste
 
 El estado del clúster es igual a cinco nodos, la aplicación del sistema y fabric:/WordCount se configuran tal como se ha descrito.
 
-El siguiente cmdlet obtiene el mantenimiento del clúster con directivas de mantenimiento predeterminadas. El estado de mantenimiento agregado está en advertencia, porque la aplicación fabric:/WordCount está en advertencia. Observe cómo las evaluaciones de mantenimiento incorrecto muestran detalles de las condiciones que desencadenaron el mantenimiento agregado.
+El siguiente cmdlet obtiene el mantenimiento del clúster con directivas de mantenimiento predeterminadas. El estado de mantenimiento agregado está en advertencia, porque también lo está la aplicación fabric:/WordCount. Observe cómo las evaluaciones de mantenimiento incorrecto muestran detalles de las condiciones que desencadenaron el mantenimiento agregado.
 
 ```xml
-PS C:\> Get-ServiceFabricClusterHealth
+PS D:\ServiceFabric> Get-ServiceFabricClusterHealth
+
 
 AggregatedHealthState   : Warning
-UnhealthyEvaluations    :
+UnhealthyEvaluations    : 
                           Unhealthy applications: 100% (1/1), MaxPercentUnhealthyApplications=0%.
-
+                          
                           Unhealthy application: ApplicationName='fabric:/WordCount', AggregatedHealthState='Warning'.
-
-                              Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-
-                              Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Warning'.
-
-                                  Unhealthy event: SourceId='System.PLB',
-                          Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
-                          ConsiderWarningAsError=false.
-
-
-NodeHealthStates        :
-                          NodeName              : _Node_2
-                          AggregatedHealthState : Ok
-
-                          NodeName              : _Node_0
-                          AggregatedHealthState : Ok
-
-                          NodeName              : _Node_1
-                          AggregatedHealthState : Ok
-
-                          NodeName              : _Node_3
-                          AggregatedHealthState : Ok
-
+                          
+                            Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
+                          
+                            Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Warning'.
+                          
+                                Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                          
+                                Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Warning'.
+                          
+                                    Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
+                          
+                          
+NodeHealthStates        : 
                           NodeName              : _Node_4
                           AggregatedHealthState : Ok
-
-ApplicationHealthStates :
+                          
+                          NodeName              : _Node_3
+                          AggregatedHealthState : Ok
+                          
+                          NodeName              : _Node_2
+                          AggregatedHealthState : Ok
+                          
+                          NodeName              : _Node_1
+                          AggregatedHealthState : Ok
+                          
+                          NodeName              : _Node_0
+                          AggregatedHealthState : Ok
+                          
+ApplicationHealthStates : 
                           ApplicationName       : fabric:/System
                           AggregatedHealthState : Ok
-
+                          
                           ApplicationName       : fabric:/WordCount
                           AggregatedHealthState : Warning
-
+                          
 HealthEvents            : None
+HealthStatistics        : 
+                          Node                  : 5 Ok, 0 Warning, 0 Error
+                          Replica               : 6 Ok, 0 Warning, 0 Error
+                          Partition             : 1 Ok, 1 Warning, 0 Error
+                          Service               : 1 Ok, 1 Warning, 0 Error
+                          DeployedServicePackage : 6 Ok, 0 Warning, 0 Error
+                          DeployedApplication   : 5 Ok, 0 Warning, 0 Error
+                          Application           : 0 Ok, 1 Warning, 0 Error
 ```
 
 El siguiente cmdlet de PowerShell obtiene el mantenimiento del clúster mediante una directiva de aplicación personalizada. Filtra los resultados para obtener solo los nodos y las aplicaciones con error o advertencia. Como resultado, no se devuelve ningún nodo, ya que todos son correctos. Solo la aplicación fabric:/WordCount respeta el filtro de aplicaciones. Puesto que la directiva personalizada especifica que hay que considerar que las advertencias son errores en la aplicación fabric:/WordCount, la aplicación se evalúa como en error y lo mismo el clúster.
 
 ```powershell
-PS c:\> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
+PS D:\ServiceFabric> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
 $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
 $appHealthPolicyMap.Add($appUri1, $appHealthPolicy)
-Get-ServiceFabricClusterHealth -ApplicationHealthPolicyMap $appHealthPolicyMap -ApplicationsFilter "Warning,Error" -NodesFilter "Warning,Error"
+Get-ServiceFabricClusterHealth -ApplicationHealthPolicyMap $appHealthPolicyMap -ApplicationsFilter "Warning,Error" -NodesFilter "Warning,Error" -ExcludeHealthStatistics
 
 
 AggregatedHealthState   : Error
-UnhealthyEvaluations    :
+UnhealthyEvaluations    : 
                           Unhealthy applications: 100% (1/1), MaxPercentUnhealthyApplications=0%.
-
+                          
                           Unhealthy application: ApplicationName='fabric:/WordCount', AggregatedHealthState='Error'.
-
-                              Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-
-                              Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
-
-                                  Unhealthy event: SourceId='System.PLB',
-                          Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
-                          ConsiderWarningAsError=true.
-
-
+                          
+                            Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
+                          
+                            Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
+                          
+                                Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                          
+                                Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Error'.
+                          
+                                    Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
+                          
+                          
 NodeHealthStates        : None
-ApplicationHealthStates :
+ApplicationHealthStates : 
                           ApplicationName       : fabric:/WordCount
                           AggregatedHealthState : Error
-
+                          
 HealthEvents            : None
-
 ```
 
 ### <a name="rest"></a>REST
@@ -249,37 +275,37 @@ El cmdlet para obtener el mantenimiento del nodo es [Get-ServiceFabricNodeHealth
 El siguiente cmdlet obtiene el mantenimiento del nodo mediante directivas de mantenimiento predeterminadas:
 
 ```powershell
-PS C:\> Get-ServiceFabricNodeHealth _Node_1
+PS D:\ServiceFabric> Get-ServiceFabricNodeHealth _Node_1
 
 
 NodeName              : _Node_1
 AggregatedHealthState : Ok
-HealthEvents          :
+HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 6
-                        SentAt                : 3/22/2016 7:47:56 PM
-                        ReceivedAt            : 3/22/2016 7:48:19 PM
+                        SequenceNumber        : 3
+                        SentAt                : 7/13/2017 4:39:23 PM
+                        ReceivedAt            : 7/13/2017 4:40:47 PM
                         TTL                   : Infinite
                         Description           : Fabric node is up.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : Error->Ok = 3/22/2016 7:48:19 PM, LastWarning = 1/1/0001 12:00:00 AM
+                        Transitions           : Error->Ok = 7/13/2017 4:40:47 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 El siguiente cmdlet obtiene el mantenimiento de todos los nodos del clúster:
 
 ```powershell
-PS C:\> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
+PS D:\ServiceFabric> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
 
 NodeName AggregatedHealthState
 -------- ---------------------
-_Node_2                     Ok
-_Node_0                     Ok
-_Node_1                     Ok
-_Node_3                     Ok
 _Node_4                     Ok
+_Node_3                     Ok
+_Node_2                     Ok
+_Node_1                     Ok
+_Node_0                     Ok
 ```
 
 ### <a name="rest"></a>REST
@@ -291,6 +317,7 @@ Devuelve el mantenimiento de una entidad de aplicación. Contiene los estados de
 * [Obligatorio] El nombre de la aplicación (URI) que identifica la aplicación.
 * [Opcional] La directiva de mantenimiento de aplicación usada para invalidar las directivas de manifiesto de aplicación.
 * [Opcional] Filtros para eventos, servicios y aplicaciones implementadas que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente errores o advertencias y errores). Todos los eventos, servicios y aplicaciones implementadas se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
+* [Opcional] Filtro para excluir las estadísticas de estado. Si no se especifica, las estadísticas de estado incluyen los estados correcto, de advertencia y recuento de errores para todos los elementos secundarios de la aplicación: servicios, particiones, réplicas, aplicaciones implementadas y paquetes de servicio implementados.
 
 ### <a name="api"></a>API
 Para obtener el mantenimiento de la aplicación, cree una instancia de `FabricClient` y llame al método [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) en su instancia de HealthManager.
@@ -335,95 +362,94 @@ El cmdlet para obtener el mantenimiento de la aplicación es [Get-ServiceFabricA
 El siguiente cmdlet devuelve el mantenimiento de la aplicación **fabric:/WordCount** :
 
 ```powershell
-PS c:\>
-PS C:\WINDOWS\system32>  Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
-UnhealthyEvaluations            :
+UnhealthyEvaluations            : 
                                   Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-
+                                  
                                   Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Warning'.
-
-                                      Unhealthy event: SourceId='System.PLB',
-                                  Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
-                                  ConsiderWarningAsError=false.
-
-ServiceHealthStates             :
-                                  ServiceName           : fabric:/WordCount/WordCountService
-                                  AggregatedHealthState : Warning
-
+                                  
+                                    Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                                  
+                                    Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Warning'.
+                                  
+                                        Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
+                                  
+ServiceHealthStates             : 
                                   ServiceName           : fabric:/WordCount/WordCountWebService
                                   AggregatedHealthState : Ok
-
-DeployedApplicationHealthStates :
-                                  ApplicationName       : fabric:/WordCount
-                                  NodeName              : _Node_0
-                                  AggregatedHealthState : Ok
-
-                                  ApplicationName       : fabric:/WordCount
-                                  NodeName              : _Node_2
-                                  AggregatedHealthState : Ok
-
-                                  ApplicationName       : fabric:/WordCount
-                                  NodeName              : _Node_3
-                                  AggregatedHealthState : Ok
-
+                                  
+                                  ServiceName           : fabric:/WordCount/WordCountService
+                                  AggregatedHealthState : Warning
+                                  
+DeployedApplicationHealthStates : 
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_4
                                   AggregatedHealthState : Ok
-
+                                  
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : _Node_3
+                                  AggregatedHealthState : Ok
+                                  
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : _Node_0
+                                  AggregatedHealthState : Ok
+                                  
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : _Node_2
+                                  AggregatedHealthState : Ok
+                                  
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_1
                                   AggregatedHealthState : Ok
-
-HealthEvents                    :
+                                  
+HealthEvents                    : 
                                   SourceId              : System.CM
                                   Property              : State
                                   HealthState           : Ok
-                                  SequenceNumber        : 360
-                                  SentAt                : 3/22/2016 7:56:53 PM
-                                  ReceivedAt            : 3/22/2016 7:56:53 PM
+                                  SequenceNumber        : 282
+                                  SentAt                : 7/13/2017 5:57:05 PM
+                                  ReceivedAt            : 7/13/2017 5:57:05 PM
                                   TTL                   : Infinite
                                   Description           : Application has been created.
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
-                                  Transitions           : Error->Ok = 3/22/2016 7:56:53 PM, LastWarning = 1/1/0001 12:00:00 AM
-
-                                  SourceId              : MyWatchdog
-                                  Property              : Availability
-                                  HealthState           : Ok
-                                  SequenceNumber        : 131031545225930951
-                                  SentAt                : 3/22/2016 9:08:42 PM
-                                  ReceivedAt            : 3/22/2016 9:08:42 PM
-                                  TTL                   : Infinite
-                                  Description           : Availability checked successfully, latency ok
-                                  RemoveWhenExpired     : False
-                                  IsExpired             : False
-                                  Transitions           : Error->Ok = 3/22/2016 8:55:39 PM, LastWarning = 1/1/0001 12:00:00 AM
+                                  Transitions           : Error->Ok = 7/13/2017 5:57:05 PM, LastWarning = 1/1/0001 12:00:00 AM
+                                  
+HealthStatistics                : 
+                                  Replica               : 6 Ok, 0 Warning, 0 Error
+                                  Partition             : 1 Ok, 1 Warning, 0 Error
+                                  Service               : 1 Ok, 1 Warning, 0 Error
+                                  DeployedServicePackage : 6 Ok, 0 Warning, 0 Error
+                                  DeployedApplication   : 5 Ok, 0 Warning, 0 Error
 ```
 
 El siguiente cmdlet de PowerShell pasa directivas personalizadas. También filtra los elementos secundarios y los eventos.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesFilter Error -EventsFilter Error -DeployedApplicationsFilter Error
+PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesFilter Error -EventsFilter Error -DeployedApplicationsFilter Error -ExcludeHealthStatistics
+
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
-UnhealthyEvaluations            :
+UnhealthyEvaluations            : 
                                   Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
-
+                                  
                                   Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
-
-                                      Unhealthy event: SourceId='System.PLB',
-                                  Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
-                                  ConsiderWarningAsError=true.
-
-ServiceHealthStates             :
+                                  
+                                    Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                                  
+                                    Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Error'.
+                                  
+                                        Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
+                                  
+ServiceHealthStates             : 
                                   ServiceName           : fabric:/WordCount/WordCountService
                                   AggregatedHealthState : Error
-
+                                  
 DeployedApplicationHealthStates : None
 HealthEvents                    : None
 ```
@@ -437,6 +463,7 @@ Devuelve el mantenimiento de una entidad del servicio. Contiene los estados de m
 * [Obligatorio] El nombre del servicio (URI) que identifica el servicio.
 * [Opcional] La directiva de mantenimiento de aplicación usada para invalidar la directiva de manifiesto de aplicación.
 * [Opcional] Filtros para eventos y particiones que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente errores o advertencias y errores). Todos los eventos y particiones se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
+* [Opcional] Filtro para excluir las estadísticas de estado. Si no se especifica, las estadísticas de estado muestran el estado correcto, de advertencia y recuento de errores para todas las particiones y réplicas del servicio.
 
 ### <a name="api"></a>API
 Para obtener el mantenimiento del servicio mediante la API, cree una instancia de `FabricClient` y llame al método [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) en su instancia de HealthManager.
@@ -465,69 +492,38 @@ El cmdlet para obtener el mantenimiento del servicio es [Get-ServiceFabricServic
 El siguiente cmdlet obtiene el mantenimiento del servicio con directivas de mantenimiento predeterminadas.
 
 ```powershell
-PS C:\> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCountService
+PS D:\ServiceFabric> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCountService
 
 
 ServiceName           : fabric:/WordCount/WordCountService
 AggregatedHealthState : Warning
-UnhealthyEvaluations  :
-                        Unhealthy event: SourceId='System.PLB',
-                        Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
-                        ConsiderWarningAsError=false.
-
-PartitionHealthStates :
-                        PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
+UnhealthyEvaluations  : 
+                        Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                        
+                        Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Warning'.
+                        
+                            Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
+                        
+PartitionHealthStates : 
+                        PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
                         AggregatedHealthState : Warning
-
-HealthEvents          :
+                        
+HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 10
-                        SentAt                : 3/22/2016 7:56:53 PM
-                        ReceivedAt            : 3/22/2016 7:57:18 PM
+                        SequenceNumber        : 15
+                        SentAt                : 7/13/2017 5:57:05 PM
+                        ReceivedAt            : 7/13/2017 5:57:18 PM
                         TTL                   : Infinite
                         Description           : Service has been created.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : Error->Ok = 3/22/2016 7:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
-
-                        SourceId              : System.PLB
-                        Property              : ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b
-                        HealthState           : Warning
-                        SequenceNumber        : 131031547693687021
-                        SentAt                : 3/22/2016 9:12:49 PM
-                        ReceivedAt            : 3/22/2016 9:12:49 PM
-                        TTL                   : 00:01:05
-                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
-                        fabric:/WordCount/WordCountService Secondary Partition a1f83a35-d6bf-4d39-b90d-28d15f39599b could not be placed, possibly,
-                        due to the following constraints and properties:  
-                        Placement Constraint: N/A
-                        Depended Service: N/A
-
-                        Constraint Elimination Sequence:
-                        ReplicaExclusionStatic eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
-                        ReplicaExclusionDynamic eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
-
-                        Nodes Eliminated By Constraints:
-
-                        ReplicaExclusionStatic:
-                        FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status:
-                        None/None
-                        FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status:
-                        None/None
-                        FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status:
-                        None/None
-                        FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status:
-                        None/None
-
-                        ReplicaExclusionDynamic:
-                        FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status:
-                        None/None
-
-
-                        RemoveWhenExpired     : True
-                        IsExpired             : False
+                        Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
+                        
+HealthStatistics      : 
+                        Replica               : 5 Ok, 0 Warning, 0 Error
+                        Partition             : 0 Ok, 1 Warning, 0 Error
 ```
 
 ### <a name="rest"></a>REST
@@ -539,6 +535,7 @@ Devuelve el mantenimiento de una entidad de partición. Contiene los estados de 
 * [Obligatorio] El identificador de partición (GUID) que identifica la partición.
 * [Opcional] La directiva de mantenimiento de aplicación usada para invalidar la directiva de manifiesto de aplicación.
 * [Opcional] Filtros de eventos y réplicas que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente errores o advertencias y errores). Todos los eventos y réplicas se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
+* [Opcional] Filtro para excluir las estadísticas de estado. Si no se especifica, las estadísticas de estado muestran cuántas réplicas están en estado correcto, de advertencia y de error.
 
 ### <a name="api"></a>API
 Para obtener el mantenimiento de la partición mediante la API, cree una instancia de `FabricClient` y llame al método [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) en su instancia de HealthManager. Para especificar parámetros opcionales, cree [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
@@ -550,45 +547,75 @@ PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionH
 ### <a name="powershell"></a>PowerShell
 El cmdlet para obtener el mantenimiento de la partición es [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Conéctese primero al clúster mediante el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) .
 
-El siguiente cmdlet obtiene el mantenimiento de todas las particiones del servicio **fabric:/WordCount/WordCountService** :
+El siguiente cmdlet obtiene el estado de todas las particiones del servicio **fabric:/WordCount/WordCountService** y filtra los estados de mantenimiento de las réplicas:
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth
+PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
 
-
-PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
+PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
 AggregatedHealthState : Warning
-UnhealthyEvaluations  :
+UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-
-ReplicaHealthStates   :
-                        ReplicaId             : 131031502143040223
-                        AggregatedHealthState : Ok
-
-                        ReplicaId             : 131031502346844060
-                        AggregatedHealthState : Ok
-
-                        ReplicaId             : 131031502346844059
-                        AggregatedHealthState : Ok
-
-                        ReplicaId             : 131031502346844061
-                        AggregatedHealthState : Ok
-
-                        ReplicaId             : 131031502346844058
-                        AggregatedHealthState : Ok
-
-HealthEvents          :
+                        
+ReplicaHealthStates   : None
+HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Warning
-                        SequenceNumber        : 76
-                        SentAt                : 3/22/2016 7:57:26 PM
-                        ReceivedAt            : 3/22/2016 7:57:48 PM
+                        SequenceNumber        : 72
+                        SentAt                : 7/13/2017 5:57:29 PM
+                        ReceivedAt            : 7/13/2017 5:57:48 PM
                         TTL                   : Infinite
                         Description           : Partition is below target replica or instance count.
+                        fabric:/WordCount/WordCountService 7 2 af2e3e44-a8f8-45ac-9f31-4093eb897600
+                          N/P RD _Node_2 Up 131444422260002646
+                          N/S RD _Node_4 Up 131444422293113678
+                          N/S RD _Node_3 Up 131444422293113679
+                          N/S RD _Node_1 Up 131444422293118720
+                          N/S RD _Node_0 Up 131444422293118721
+                          (Showing 5 out of 5 replicas. Total available replicas: 5.)
+                        
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : Error->Warning = 3/22/2016 7:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
+                        Transitions           : Ok->Warning = 7/13/2017 5:57:48 PM, LastError = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.PLB
+                        Property              : ServiceReplicaUnplacedHealth_Secondary_af2e3e44-a8f8-45ac-9f31-4093eb897600
+                        HealthState           : Warning
+                        SequenceNumber        : 131444445174851664
+                        SentAt                : 7/13/2017 6:35:17 PM
+                        ReceivedAt            : 7/13/2017 6:35:18 PM
+                        TTL                   : 00:01:05
+                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
+                        Secondary replica could not be placed due to the following constraints and properties:  
+                        TargetReplicaSetSize: 7
+                        Placement Constraint: N/A
+                        Parent Service: N/A
+                        
+                        Constraint Elimination Sequence:
+                        Existing Secondary Replicas eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
+                        Existing Primary Replica eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
+                        
+                        Nodes Eliminated By Constraints:
+                        
+                        Existing Secondary Replicas -- Nodes with Partition's Existing Secondary Replicas/Instances:
+                        --
+                        FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status: None/None
+                        FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status: None/None
+                        FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status: None/None
+                        FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status: None/None
+                        
+                        Existing Primary Replica -- Nodes with Partition's Existing Primary Replica or Secondary Replicas:
+                        --
+                        FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status: None/None
+                        
+                        
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 7/13/2017 5:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
+                        
+HealthStatistics      : 
+                        Replica               : 5 Ok, 0 Warning, 0 Error
 ```
 
 ### <a name="rest"></a>REST
@@ -614,24 +641,24 @@ El cmdlet para obtener el mantenimiento de la réplica es [Get-ServiceFabricRepl
 El cmdlet siguiente obtiene el mantenimiento de la réplica principal para todas las particiones del servicio:
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
+PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 
-PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
-ReplicaId             : 131031502143040223
+PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
+ReplicaId             : 131444422260002646
 AggregatedHealthState : Ok
-HealthEvents          :
+HealthEvents          : 
                         SourceId              : System.RA
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 131031502145556748
-                        SentAt                : 3/22/2016 7:56:54 PM
-                        ReceivedAt            : 3/22/2016 7:57:12 PM
+                        SequenceNumber        : 131444422263668344
+                        SentAt                : 7/13/2017 5:57:06 PM
+                        ReceivedAt            : 7/13/2017 5:57:18 PM
                         TTL                   : Infinite
-                        Description           : Replica has been created.
+                        Description           : Replica has been created._Node_2
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
+                        Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ### <a name="rest"></a>REST
@@ -643,6 +670,7 @@ Devuelve el mantenimiento de una aplicación implementada en una actividad del n
 * [Obligatorio] El nombre de la aplicación (URI) y el nombre del nodo (cadena) que identifican a la aplicación implementada
 * [Opcional] La directiva de mantenimiento de aplicación usada para invalidar las directivas de manifiesto de aplicación.
 * [Opcional] Filtros de eventos y paquetes de servicio implementados que especifican las entradas que son de interés y se deben devolver en el resultado (por ejemplo, únicamente errores o advertencias y errores). Todos los eventos y paquetes de servicio implementados se utilizan para evaluar el mantenimiento agregado de la entidad, independientemente del filtro.
+* [Opcional] Filtro para excluir las estadísticas de estado. Si no se especifica, las estadísticas de estado muestran el número de paquetes de servicio implementados en los estados de mantenimiento correcto, de advertencia y de error.
 
 ### <a name="api"></a>API
 Para obtener el mantenimiento de una aplicación implementada en un nodo mediante la API, cree una instancia de `FabricClient` y llame al método [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) en su instancia de HealthManager. Para especificar parámetros opcionales, utilice [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
@@ -658,33 +686,38 @@ El cmdlet para obtener el mantenimiento de la aplicación implementada es [Get-S
 El siguiente cmdlet obtiene el mantenimiento de la aplicación **fabric:/WordCount** implementada en **_Node_2**.
 
 ```powershell
-PS C:\> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_2
+PS D:\ServiceFabric> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_0
 
 
 ApplicationName                    : fabric:/WordCount
-NodeName                           : _Node_2
+NodeName                           : _Node_0
 AggregatedHealthState              : Ok
-DeployedServicePackageHealthStates :
+DeployedServicePackageHealthStates : 
                                      ServiceManifestName   : WordCountServicePkg
-                                     NodeName              : _Node_2
+                                     ServicePackageActivationId : 
+                                     NodeName              : _Node_0
                                      AggregatedHealthState : Ok
-
+                                     
                                      ServiceManifestName   : WordCountWebServicePkg
-                                     NodeName              : _Node_2
+                                     ServicePackageActivationId : 
+                                     NodeName              : _Node_0
                                      AggregatedHealthState : Ok
-
-HealthEvents                       :
+                                     
+HealthEvents                       : 
                                      SourceId              : System.Hosting
                                      Property              : Activation
                                      HealthState           : Ok
-                                     SequenceNumber        : 131031502143710698
-                                     SentAt                : 3/22/2016 7:56:54 PM
-                                     ReceivedAt            : 3/22/2016 7:57:12 PM
+                                     SequenceNumber        : 131444422261848308
+                                     SentAt                : 7/13/2017 5:57:06 PM
+                                     ReceivedAt            : 7/13/2017 5:57:17 PM
                                      TTL                   : Infinite
                                      Description           : The application was activated successfully.
                                      RemoveWhenExpired     : False
                                      IsExpired             : False
-                                     Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
+                                     Transitions           : Error->Ok = 7/13/2017 5:57:17 PM, LastWarning = 1/1/0001 12:00:00 AM
+                                     
+HealthStatistics                   : 
+                                     DeployedServicePackage : 2 Ok, 0 Warning, 0 Error
 ```
 
 ### <a name="rest"></a>REST
@@ -711,56 +744,57 @@ El cmdlet para obtener el mantenimiento del paquete de servicio implementado es 
 El siguiente cmdlet obtiene el mantenimiento del paquete de servicio **WordCountServicePkg** de la aplicación **fabric:/WordCount** implementada en **_Node_2**. La entidad tiene informes **System.Hosting** para la activación correcta del paquete de servicio y del punto de entrada, y para el registro correcto del tipo de servicio.
 
 ```powershell
-PS C:\> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
+PS D:\ServiceFabric> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
 
 
-ApplicationName       : fabric:/WordCount
-ServiceManifestName   : WordCountServicePkg
-NodeName              : _Node_2
-AggregatedHealthState : Ok
-HealthEvents          :
-                        SourceId              : System.Hosting
-                        Property              : Activation
-                        HealthState           : Ok
-                        SequenceNumber        : 131031502301306211
-                        SentAt                : 3/22/2016 7:57:10 PM
-                        ReceivedAt            : 3/22/2016 7:57:12 PM
-                        TTL                   : Infinite
-                        Description           : The ServicePackage was activated successfully.
-                        RemoveWhenExpired     : False
-                        IsExpired             : False
-                        Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
-
-                        SourceId              : System.Hosting
-                        Property              : CodePackageActivation:Code:EntryPoint
-                        HealthState           : Ok
-                        SequenceNumber        : 131031502301568982
-                        SentAt                : 3/22/2016 7:57:10 PM
-                        ReceivedAt            : 3/22/2016 7:57:12 PM
-                        TTL                   : Infinite
-                        Description           : The CodePackage was activated successfully.
-                        RemoveWhenExpired     : False
-                        IsExpired             : False
-                        Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
-
-                        SourceId              : System.Hosting
-                        Property              : ServiceTypeRegistration:WordCountServiceType
-                        HealthState           : Ok
-                        SequenceNumber        : 131031502314788519
-                        SentAt                : 3/22/2016 7:57:11 PM
-                        ReceivedAt            : 3/22/2016 7:57:12 PM
-                        TTL                   : Infinite
-                        Description           : The ServiceType was registered successfully.
-                        RemoveWhenExpired     : False
-                        IsExpired             : False
-                        Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
+ApplicationName            : fabric:/WordCount
+ServiceManifestName        : WordCountServicePkg
+ServicePackageActivationId : 
+NodeName                   : _Node_2
+AggregatedHealthState      : Ok
+HealthEvents               : 
+                             SourceId              : System.Hosting
+                             Property              : Activation
+                             HealthState           : Ok
+                             SequenceNumber        : 131444422267693359
+                             SentAt                : 7/13/2017 5:57:06 PM
+                             ReceivedAt            : 7/13/2017 5:57:18 PM
+                             TTL                   : Infinite
+                             Description           : The ServicePackage was activated successfully.
+                             RemoveWhenExpired     : False
+                             IsExpired             : False
+                             Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
+                             
+                             SourceId              : System.Hosting
+                             Property              : CodePackageActivation:Code:EntryPoint
+                             HealthState           : Ok
+                             SequenceNumber        : 131444422267903345
+                             SentAt                : 7/13/2017 5:57:06 PM
+                             ReceivedAt            : 7/13/2017 5:57:18 PM
+                             TTL                   : Infinite
+                             Description           : The CodePackage was activated successfully.
+                             RemoveWhenExpired     : False
+                             IsExpired             : False
+                             Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
+                             
+                             SourceId              : System.Hosting
+                             Property              : ServiceTypeRegistration:WordCountServiceType
+                             HealthState           : Ok
+                             SequenceNumber        : 131444422272458374
+                             SentAt                : 7/13/2017 5:57:07 PM
+                             ReceivedAt            : 7/13/2017 5:57:18 PM
+                             TTL                   : Infinite
+                             Description           : The ServiceType was registered successfully.
+                             RemoveWhenExpired     : False
+                             IsExpired             : False
+                             Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ### <a name="rest"></a>REST
 Puede obtener el mantenimiento del paquete de servicio implementado con una [solicitud GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) o una [solicitud POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) que incluye las directivas de mantenimiento descritas en el cuerpo.
 
 ## <a name="health-chunk-queries"></a>Consultas de fragmentos de mantenimiento
-Las consultas de fragmentos de mantenimiento pueden devolver elementos secundarios de clúster de varios niveles (recursivamente), según los filtros de entrada. Admiten filtros avanzados que permiten una gran flexibilidad para expresar los elementos secundarios específicos que se devolverán, identificados por su identificador único u otro identificador de grupo o estado de mantenimiento. De forma predeterminada, no se incluye ningún elemento secundario, a diferencia de los comandos de mantenimiento que siempre incluyen elementos secundarios de primer nivel.
+Las consultas de fragmentos de mantenimiento pueden devolver elementos secundarios de clúster de varios niveles (recursivamente), según los filtros de entrada. Admite filtros avanzados que permiten una gran flexibilidad al elegir los elementos secundarios que se devuelven. Los filtros pueden especificar elementos secundarios por el identificador único o por otros identificadores de grupo o estados de mantenimiento. De forma predeterminada, no se incluye ningún elemento secundario, a diferencia de los comandos de mantenimiento que siempre incluyen elementos secundarios de primer nivel.
 
 Las [consultas de mantenimiento](service-fabric-view-entities-aggregated-health.md#health-queries) solo devuelven elementos secundarios de primer nivel de la entidad especificada, según los filtros necesarios. Para obtener los elementos secundarios de los elementos secundarios, debe llamar a las API de mantenimiento adicionales para cada entidad que sea de interés. De igual forma, para obtener el mantenimiento de entidades específicas, debe llamar a una API de mantenimiento para cada entidad deseada. El filtrado avanzado de consultas de fragmentos le permite solicitar varios elementos de interés en una consulta, lo que reduce el tamaño del mensaje y el número de mensajes.
 
@@ -843,7 +877,7 @@ El cmdlet para obtener el mantenimiento del clúster es [Get-ServiceFabricCluste
 El código siguiente obtiene los nodos solo si se encuentran en estado de error, a excepción de un nodo específico, que se debe devolver siempre.
 
 ```xml
-PS C:\> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
+PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
 $allFilter = [System.Fabric.Health.HealthStateFilter]::All;
 
 $nodeFilter1 = New-Object System.Fabric.Health.NodeHealthStateFilter -Property @{HealthStateFilter=$errorFilter}
@@ -855,20 +889,21 @@ $nodeFilters.Add($nodeFilter2)
 
 Get-ServiceFabricClusterHealthChunk -NodeFilters $nodeFilters
 
-HealthState                  : Error
-NodeHealthStateChunks        :
-                               TotalCount            : 1
 
+HealthState                  : Warning
+NodeHealthStateChunks        : 
+                               TotalCount            : 1
+                               
                                NodeName              : _Node_1
                                HealthState           : Ok
-
+                               
 ApplicationHealthStateChunks : None
 ```
 
 El siguiente cmdlet obtiene fragmentos del clúster con filtros de aplicación.
 
 ```xml
-$errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
+PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
 $allFilter = [System.Fabric.Health.HealthStateFilter]::All;
 
 # All replicas
@@ -893,47 +928,48 @@ $appFilters.Add($appFilter)
 
 Get-ServiceFabricClusterHealthChunk -ApplicationFilters $appFilters
 
+
 HealthState                  : Error
 NodeHealthStateChunks        : None
-ApplicationHealthStateChunks :
+ApplicationHealthStateChunks : 
                                TotalCount            : 1
-
+                               
                                ApplicationName       : fabric:/WordCount
                                ApplicationTypeName   : WordCount
                                HealthState           : Error
-                               ServiceHealthStateChunks :
-                                   TotalCount            : 1
-
-                                   ServiceName           : fabric:/WordCount/WordCountService
-                                   HealthState           : Error
-                                   PartitionHealthStateChunks :
-                                       TotalCount            : 1
-
-                                       PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
-                                       HealthState           : Error
-                                       ReplicaHealthStateChunks :
-                                           TotalCount            : 5
-
-                                           ReplicaOrInstanceId   : 131031502143040223
-                                           HealthState           : Ok
-
-                                           ReplicaOrInstanceId   : 131031502346844060
-                                           HealthState           : Ok
-
-                                           ReplicaOrInstanceId   : 131031502346844059
-                                           HealthState           : Ok
-
-                                           ReplicaOrInstanceId   : 131031502346844061
-                                           HealthState           : Ok
-
-                                           ReplicaOrInstanceId   : 131031502346844058
-                                           HealthState           : Error
+                               ServiceHealthStateChunks : 
+                                TotalCount            : 1
+                               
+                                ServiceName           : fabric:/WordCount/WordCountService
+                                HealthState           : Error
+                                PartitionHealthStateChunks : 
+                                    TotalCount            : 1
+                               
+                                    PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
+                                    HealthState           : Error
+                                    ReplicaHealthStateChunks : 
+                                        TotalCount            : 5
+                               
+                                        ReplicaOrInstanceId   : 131444422293118720
+                                        HealthState           : Ok
+                               
+                                        ReplicaOrInstanceId   : 131444422293118721
+                                        HealthState           : Ok
+                               
+                                        ReplicaOrInstanceId   : 131444422293113678
+                                        HealthState           : Ok
+                               
+                                        ReplicaOrInstanceId   : 131444422293113679
+                                        HealthState           : Ok
+                               
+                                        ReplicaOrInstanceId   : 131444422260002646
+                                        HealthState           : Error
 ```
 
 El siguiente cmdlet devuelve todas las entidades implementadas en un nodo.
 
 ```xml
-$errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
+PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
 $allFilter = [System.Fabric.Health.HealthStateFilter]::All;
 
 $dspFilter = New-Object System.Fabric.Health.DeployedServicePackageHealthStateFilter -Property @{HealthStateFilter=$allFilter}
@@ -950,40 +986,39 @@ Get-ServiceFabricClusterHealthChunk -ApplicationFilters $appFilters
 
 HealthState                  : Error
 NodeHealthStateChunks        : None
-ApplicationHealthStateChunks :
+ApplicationHealthStateChunks : 
                                TotalCount            : 2
-
+                               
                                ApplicationName       : fabric:/System
                                HealthState           : Ok
-                               DeployedApplicationHealthStateChunks :
-                                   TotalCount            : 1
-
-                                   NodeName              : _Node_2
-                                   HealthState           : Ok
-                                   DeployedServicePackageHealthStateChunks :
-                                       TotalCount            : 1
-
-                                       ServiceManifestName   : FAS
-                                       HealthState           : Ok
-
-
-
+                               DeployedApplicationHealthStateChunks : 
+                                TotalCount            : 1
+                               
+                                NodeName              : _Node_2
+                                HealthState           : Ok
+                                DeployedServicePackageHealthStateChunks :
+                                    TotalCount            : 1
+                               
+                                    ServiceManifestName   : FAS
+                                    ServicePackageActivationId : 
+                                    HealthState           : Ok
+                               
+                               
+                               
                                ApplicationName       : fabric:/WordCount
                                ApplicationTypeName   : WordCount
                                HealthState           : Error
-                               DeployedApplicationHealthStateChunks :
-                                   TotalCount            : 1
-
-                                   NodeName              : _Node_2
-                                   HealthState           : Ok
-                                   DeployedServicePackageHealthStateChunks :
-                                       TotalCount            : 2
-
-                                       ServiceManifestName   : WordCountServicePkg
-                                       HealthState           : Ok
-
-                                       ServiceManifestName   : WordCountWebServicePkg
-                                       HealthState           : Ok
+                               DeployedApplicationHealthStateChunks : 
+                                TotalCount            : 1
+                               
+                                NodeName              : _Node_2
+                                HealthState           : Ok
+                                DeployedServicePackageHealthStateChunks :
+                                    TotalCount            : 1
+                               
+                                    ServiceManifestName   : WordCountServicePkg
+                                    ServicePackageActivationId : 
+                                    HealthState           : Ok
 ```
 
 ### <a name="rest"></a>REST
@@ -1024,7 +1059,7 @@ Las consultas que contienen **HealthState** para las entidades son las siguiente
   * PowerShell: Get-ServiceFabricDeployedApplication.
 
 > [!NOTE]
-> Algunas de las consultas devuelven resultados paginados. La devolución de estas consultas es una lista que se deriva de [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Si los resultados no caben en un mensaje, solo se devuelve una página y ContinuationToken, que realiza el seguimiento de dónde se detuvo la enumeración. Debe continuar llamando a la misma consulta y pasar el token de continuación de la consulta anterior para obtener los siguientes resultados.
+> Algunas de las consultas devuelven resultados paginados. La devolución de estas consultas es una lista que se deriva de [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Si los resultados no caben en un mensaje, solo se devuelve una página y ContinuationToken, que realiza el seguimiento de dónde se detuvo la enumeración. Continúe llamando a la misma consulta y pase el token de continuación de la consulta anterior para obtener los siguientes resultados.
 >
 >
 
@@ -1056,10 +1091,10 @@ ApplicationParameters  : { "WordCountWebService_InstanceCount" = "1";
                          [ProcessId] -tid [ThreadId]","EnvironmentBlock":"_NO_DEBUG_HEAP=1\u0000"}]" }
 ```
 
-El siguiente cmdlet obtiene los servicios con un estado de mantenimiento de advertencia:
+El siguiente cmdlet obtiene los servicios con un estado de mantenimiento de error:
 
 ```powershell
-PS C:\> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Warning"}
+PS D:\ServiceFabric> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Error"}
 
 
 ServiceName            : fabric:/WordCount/WordCountService
@@ -1069,7 +1104,7 @@ IsServiceGroup         : False
 ServiceManifestVersion : 1.0.0
 HasPersistedState      : True
 ServiceStatus          : Active
-HealthState            : Warning
+HealthState            : Error
 ```
 
 ## <a name="cluster-and-application-upgrades"></a>Actualización de clústeres y aplicaciones
@@ -1088,8 +1123,8 @@ ApplicationName               : fabric:/WordCount
 ApplicationTypeName           : WordCount
 TargetApplicationTypeVersion  : 1.0.0.0
 ApplicationParameters         : {}
-StartTimestampUtc             : 4/21/2015 5:23:26 PM
-FailureTimestampUtc           : 4/21/2015 5:23:37 PM
+StartTimestampUtc             : 4/21/2017 5:23:26 PM
+FailureTimestampUtc           : 4/21/2017 5:23:37 PM
 FailureReason                 : HealthCheck
 UpgradeState                  : RollingBackInProgress
 UpgradeDuration               : 00:00:23
@@ -1137,6 +1172,72 @@ Más información sobre la [actualización de aplicaciones de Service Fabric](se
 
 ## <a name="use-health-evaluations-to-troubleshoot"></a>Uso de las evaluaciones de mantenimiento para solucionar problemas
 Siempre que haya un problema con el clúster o una aplicación, consulte el mantenimiento del clúster o de la aplicación para analizar lo que pasa. Las evaluaciones de mantenimiento incorrecto proporcionan detalles sobre lo que activó el estado incorrecto actual. Si lo necesita, puede explorar en profundidad las entidades secundarias incorrectas para identificar la causa principal.
+
+Por ejemplo, considere una aplicación con un estado incorrecto porque hay un informe de errores en una de sus réplicas. El siguiente cmdlet de Powershell muestra las evaluaciones de estado incorrecto:
+
+```powershell
+PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount -EventsFilter None -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
+
+
+ApplicationName                 : fabric:/WordCount
+AggregatedHealthState           : Error
+UnhealthyEvaluations            : 
+                                  Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
+                                  
+                                  Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
+                                  
+                                    Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                                  
+                                    Unhealthy partition: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', AggregatedHealthState='Error'.
+                                  
+                                        Unhealthy replicas: 20% (1/5), MaxPercentUnhealthyReplicasPerPartition=0%.
+                                  
+                                        Unhealthy replica: PartitionId='af2e3e44-a8f8-45ac-9f31-4093eb897600', ReplicaOrInstanceId='131444422260002646', AggregatedHealthState='Error'.
+                                  
+                                            Error event: SourceId='MyWatchdog', Property='Memory'.
+                                  
+ServiceHealthStates             : None
+DeployedApplicationHealthStates : None
+HealthEvents                    : None
+```
+
+Puede mirar la réplica para obtener más información:
+
+```powershell
+PS D:\ServiceFabric> Get-ServiceFabricReplicaHealth -ReplicaOrInstanceId 131444422260002646 -PartitionId af2e3e44-a8f8-45ac-9f31-4093eb897600
+
+
+PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
+ReplicaId             : 131444422260002646
+AggregatedHealthState : Error
+UnhealthyEvaluations  : 
+                        Error event: SourceId='MyWatchdog', Property='Memory'.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 131444422263668344
+                        SentAt                : 7/13/2017 5:57:06 PM
+                        ReceivedAt            : 7/13/2017 5:57:18 PM
+                        TTL                   : Infinite
+                        Description           : Replica has been created._Node_2
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : MyWatchdog
+                        Property              : Memory
+                        HealthState           : Error
+                        SequenceNumber        : 131444451657749403
+                        SentAt                : 7/13/2017 6:46:05 PM
+                        ReceivedAt            : 7/13/2017 6:46:05 PM
+                        TTL                   : Infinite
+                        Description           : 
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Warning->Error = 7/13/2017 6:46:05 PM, LastOk = 1/1/0001 12:00:00 AM
+```
 
 > [!NOTE]
 > Las evaluaciones de mantenimiento incorrecto muestran la razón principal de que la entidad se evaluara con el estado de mantenimiento actual. Puede haber muchos otros eventos que desencadenen este estado pero no se reflejan en las evaluaciones. Para más información, explore en profundidad las entidades de mantenimiento para averiguar todos los informes de mantenimiento incorrecto en el clúster.
