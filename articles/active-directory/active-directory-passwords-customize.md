@@ -53,7 +53,7 @@ Los administradores de ADFS pueden agregar un vínculo a su página de inicio de
 
 Con el comando siguiente en el servidor ADFS, se agrega un vínculo a la página de inicio de sesión ADFS que permite a los usuarios escribir el flujo de trabajo de restablecimiento de contraseñas de autoservicio directamente.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?<A/></p>" ```
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
 
 ## <a name="customize-the-sign-in-and-access-panel-look-and-feel"></a>Personalización de la apariencia del panel de acceso e inicio de sesión
 

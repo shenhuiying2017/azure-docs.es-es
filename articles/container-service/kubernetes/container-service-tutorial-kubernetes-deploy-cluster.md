@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2017
+ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
@@ -45,7 +45,7 @@ En los tutoriales anteriores, se creó una imagen de contenedor y se actualizó 
 En el [tutorial anterior](./container-service-tutorial-kubernetes-prepare-acr.md), se creó un grupo de recursos denominado *myResourceGroup*. Si todavía no lo ha hecho, cree ahora este grupo de recursos.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westeurope
 ```
 
 Cree un clúster de Kubernetes en Azure Container Service con el comando [az acs create](/cli/azure/acs#create). 
