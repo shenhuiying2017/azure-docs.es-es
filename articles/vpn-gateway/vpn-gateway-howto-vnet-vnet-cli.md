@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: cad933cc453f1bfdbf29914ca3a9a6029108e70f
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configuración de una conexión de puerta de enlace de VPN de red virtual a red virtual mediante la CLI de Azure
 
-En este artículo se explica cómo crear una conexión de VPN Gateway entre redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Al conectar redes virtuales de distintas suscripciones, estas no necesitan estar asociadas con el mismo inquilino de Active Directory. Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y usan la CLI de Azure. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
+En este artículo se explica cómo crear una conexión de VPN Gateway entre redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Al conectar redes virtuales de distintas suscripciones, estas no necesitan estar asociadas con el mismo inquilino de Active Directory. 
+
+Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y usan la CLI de Azure. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI de Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal de Azure clásico](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -42,7 +44,7 @@ Se puede combinar la comunicación entre redes virtuales con configuraciones de 
 
 ![Acerca de las conexiones](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>¿Por qué debería conectarse a redes virtuales?
+### <a name="why"></a>¿Por qué debería conectarse a redes virtuales?
 
 Puede que desee conectar redes virtuales por las siguientes razones:
 
@@ -183,11 +185,11 @@ En los ejemplos usamos los siguientes valores:
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-4---create-the-connections"></a>Paso 4: Creación de las conexiones
+### <a name="createconnect"></a>Paso 4: Creación de las conexiones
 
 Ahora tiene dos redes virtuales con puertas de enlace de VPN. El siguiente paso consiste en crear conexiones de puerta de enlace de VPN entre las puertas de enlace de red virtual. Si usó los ejemplos anteriores, las puertas de enlace de red virtual se encuentran en grupos de recursos distintos. Cuando las puertas de enlace están en grupos de recursos distintos, debe identificar y especificar los identificadores de recursos para cada puerta de enlace al establecer una conexión. Si sus redes virtuales están en el mismo grupo de recursos, puede usar el [segundo conjunto de instrucciones](#samerg) porque no es necesario especificar los identificadores de recursos.
 
-### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a>Para conectar redes virtuales que residen en grupos de recursos distintos
+### <a name="diffrg"></a>Conexión de redes virtuales que residen en grupos de recursos distintos
 
 1. Obtenga el id. de recurso de VNet1GW de la salida del comando siguiente:
 
@@ -260,7 +262,7 @@ En este escenario, conectaremos TestVNet1 y TestVNet5. Las redes virtuales resid
 
 ### <a name="TestVNet1diff"></a>Paso 5: Creación y configuración de TestVNet1
 
-Estas instrucciones son una continuación de los pasos descritos en las secciones anteriores. Tiene que completar el [paso 1](#Connect) y el [paso 2](#TestVNet1) para crear y configurar TestVNet1 y la puerta de enlace de VPN para TestVNet1. Para esta configuración, no se necesita crear TestVNet4 de la sección anterior, aunque, si la creó, no entrará en conflicto con estos pasos. Cuando haya completado el paso 1 y el 2, continúe con el paso 6 (a continuación).
+Estas instrucciones son una continuación de los pasos descritos en las secciones anteriores. Tiene que completar el [paso 1](#Connect) y el [paso 2](#TestVNet1) para crear y configurar TestVNet1 y VPN Gateway para TestVNet1. Para esta configuración, no se necesita crear TestVNet4 de la sección anterior, aunque, si la creó, no entrará en conflicto con estos pasos. Cuando haya completado el paso 1 y el 2, continúe con el paso 6 (a continuación).
 
 ### <a name="verifyranges"></a>Paso 6: Comprobación de los intervalos de direcciones IP
 
@@ -320,7 +322,7 @@ Este paso debe realizarse en el contexto de la nueva suscripción, Suscripción 
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-8---create-the-connections"></a>Paso 8: Creación de las conexiones
+### <a name="connections5"></a>Paso 8: Creación de las conexiones
 
 Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]** y **[Suscripción 5]** porque las puertas de enlace están en suscripciones diferentes. Para cambiar entre suscripciones, use "az account list --all" para obtener una lista de las suscripciones disponibles para su cuenta y después use "az account set --subscription <subscriptionID>" para cambiar a la suscripción que desea usar.
 

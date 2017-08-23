@@ -2,7 +2,9 @@
 title: "Creación de una aplicación de función e implementación de código de función desde GitHub | Microsoft Docs"
 description: "Creación de una aplicación de función e implementación de código de función desde GitHub"
 services: functions
+ms.service: functions
 keywords: 
+ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017

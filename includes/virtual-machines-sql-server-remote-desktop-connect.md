@@ -1,6 +1,4 @@
-Use los pasos siguientes para conectarse a la máquina virtual de SQL Server con Escritorio remoto:
-
-1. Una vez creada y en ejecución la máquina virtual de Azure, haga clic en el icono Máquinas virtuales en Azure Portal para ver las máquinas virtuales.
+1. Una vez creada y en ejecución la máquina virtual de Azure, haga clic en el icono Virtual Machines en Azure Portal para ver las máquinas virtuales.
 
 1. Haga clic en el botón de puntos suspensivos, **...** , de la nueva máquina virtual.
 
@@ -16,6 +14,4 @@ Use los pasos siguientes para conectarse a la máquina virtual de SQL Server con
 
    ![Autenticación de escritorio remoto](./media/virtual-machines-sql-server-remote-desktop-connect/remote-desktop-connect.png)
 
-Después de conectarse a la máquina virtual de SQL Server, puede iniciar SQL Server Management Studio y conectarse con la autenticación de Windows mediante sus credenciales de administrador local. Si ha habilitado la autenticación de SQL Server, también puede conectarse con la autenticación de SQL mediante el inicio de sesión de SQL y la contraseña configurada durante el aprovisionamiento.
-
-El acceso a la máquina le permite cambiar directamente la máquina y la configuración de SQL Server según sus necesidades. Por ejemplo, podría configurar el firewall o cambiar la configuración de SQL Server.
+1. Haga clic en **Aceptar** para conectar.

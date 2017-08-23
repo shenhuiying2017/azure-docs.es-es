@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 25502e4124442ed1853e3c3d9226107328c29316
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: fb7d391e3118a9dccde5501c3f30c6f580932a30
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Control del tráfico de aplicaciones web de Azure con el Administrador de tráfico de Azure
@@ -50,7 +49,7 @@ Cuando utilice el Administrador de tráfico de Azure con Azure, tenga en cuenta 
 * Los extremos de aplicación web que especifica en un perfil del Administrador de tráfico de Azure aparecerán en la sección **Nombres de dominio** de la página de configuración de la aplicación web del perfil, pero no se configurarán ahí.
 * Después de agregar una aplicación web a un perfil, la **Dirección URL** del sitio del panel de la página del portal de la aplicación web mostrará la dirección URL del dominio personalizado de la aplicación web si ha configurado alguna. De lo contrario, mostrará la dirección URL del perfil del Administrador de tráfico (por ejemplo, `contoso.trafficmgr.com`). Tanto el nombre de dominio directo de la aplicación web como la dirección URL del Administrador de tráfico serán visibles en la página de configuración de la aplicación web en la sección **Nombres de dominio** .
 * Los nombres de dominio personalizado funcionarán tal como se espera, pero además de agregarlos a las aplicaciones web, también deberá configurar la asignación de DNS para que apunte a la dirección URL del Administrador de tráfico. Para información sobre cómo configurar un dominio personalizado para un sitio web de Azure, consulte [Configuración de un nombre de dominio personalizado para un sitio web de Azure](app-service-web-tutorial-custom-domain.md).
-* Solo podrá agregar aplicaciones web que estén en modo estándar a un perfil del Administrador de tráfico de Azure.
+* Solo puede agregar aplicaciones web que estén en modo estándar o premium a un perfil de Azure Traffic Manager.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si desea obtener información general de carácter técnico y conceptual del Administrador de tráfico de Azure, consulte [Información general sobre el Administrador de tráfico](../traffic-manager/traffic-manager-overview.md).

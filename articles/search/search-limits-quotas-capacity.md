@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/07/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: d41a02b837d2cd0c478abdcf3068a5ccf7ed1b6f
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
 ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="service-limits-in-azure-search"></a>Límites de servicio en la Búsqueda de Azure
@@ -49,13 +48,15 @@ Hay una correspondencia uno a uno entre los límites de los índices y los lími
 | Índice: perfiles de puntuación máximos por índice |100 |100 |100 |100 |100 |100 |
 | Índice: funciones máximas por perfil |8 |8 |8 |8 |8 |8 |
 | Indexadores: carga máxima de indexación por invocación |10 000 documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |N/D <sup>2</sup> |
-| Indexadores: tiempo de ejecución máximo |3 minutos |24 horas |24 horas |24 horas |24 horas |N/D <sup>2</sup> |
+| Indexadores: tiempo de ejecución máximo | De 1 a 3 minutos <sup>3</sup> |24 horas |24 horas |24 horas |24 horas |N/D <sup>2</sup> |
 | Indexador de blobs: tamaño máximo de blob, MB |16 |16 |128 |256 |256 |N/D <sup>2</sup> |
 | Indexador de blobs: número máximo de caracteres del contenido extraído de un blob |32 000 |64 000 |4 millones |4 millones |4 millones |N/D <sup>2</sup> |
 
 <sup>1</sup> El nivel básico es el único SKU con un límite inferior de 100 campos por índice.
 
 <sup>2</sup> S3 HD actualmente no admite indexadores. Póngase en contacto con el soporte técnico de Azure si necesita urgentemente esta funcionalidad.
+
+<sup>3</sup> El tiempo de ejecución máximo del indexador para el nivel Gratis es 3 minutos para orígenes de Blob y 1 minuto para los demás orígenes de datos.
 
 ## <a name="document-size-limits"></a>Límites de tamaño de documento
 | Recurso | Gratuito | Básica | S1 | S2 | S3 | S3 HD |

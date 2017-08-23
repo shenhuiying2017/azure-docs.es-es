@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 07/26/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: e9a858addb768ce051fccce0eaf83e49a83da21b
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: f461efbc2a23f85e8b6d3fdec156a0df1636708a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="assign-and-manage-resource-policies"></a>Asignación y administración de directivas de recursos
@@ -170,7 +169,7 @@ Antes de continuar con la creación de la definición de la directiva, observe l
 Puede crear una definición de directiva con el cmdlet `New-AzureRmPolicyDefinition`.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
   "if": {
     "allOf": [
       {
@@ -195,12 +194,49 @@ $policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy 
 }'
 ```            
 
-La salida se almacena en un objeto `$policy`, que se usa durante la asignación de directivas. 
+La salida se almacena en un objeto `$definition`, que se usa durante la asignación de directivas. 
 
 En vez de especificar JSON como un parámetro, puede proporcionar la ruta de acceso a un archivo .json que contiene la regla de directiva.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
+$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
+```
+
+En el ejemplo siguiente se crea una definición de directiva que incluye parámetros:
+
+```powershell
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}' 
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters 
 ```
 
 ### <a name="assign-policy"></a>Asignación de directiva
@@ -209,17 +245,17 @@ Aplique la directiva al ámbito deseado mediante el cmdlet `New-AzureRmPolicyAss
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
-New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $policy
+New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 Para asignar una directiva que requiera parámetros, realice la creación y establezca el objeto con esos valores. En el ejemplo siguiente se recupera una directiva integrada y se pasan los valores de parámetros:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
-$policy = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
+$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
 $array = @("West US", "West US 2")
 $param = @{"listOfAllowedLocations"=$array}
-New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
+New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -PolicyDefinition $definition -PolicyParameterObject $param
 ```
 
 ### <a name="view-policy-assignment"></a>Visualización de la asignación de directiva
@@ -259,7 +295,21 @@ Devuelve todas las definiciones de directiva disponibles, incluidas las directiv
 ```azurecli
 {                                                            
   "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
-  "displayName": "Allowed locations",                                                                                                                "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                 "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                                                                    "policyRule": {                                                                                                                                      "if": {                                                                                                                                              "not": {                                                                                                                                             "field": "location",                                                                                                                               "in": "[parameters('listOfAllowedLocations')]"                                                                                                   }                                                                                                                                                },                                                                                                                                                 "then": {                                                                                                                                            "effect": "Deny"                                                                                                                                 }                                                                                                                                                },                                                                                                                                                 "policyType": "BuiltIn"
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
 }
 ```
 

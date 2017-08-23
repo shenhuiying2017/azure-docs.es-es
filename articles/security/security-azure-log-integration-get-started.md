@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/20/2017
+ms.date: 07/26/2017
 ms.author: TomSh
 ms.custom: azlog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 02b3095bb77a122fddd74e636395628333a13936
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: a5c51817688140cc2778602b4c1d5184ae4729a0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration en registros de Diagnósticos de Azure y reenvío de eventos de Windows
@@ -101,8 +100,8 @@ Después de completar la rutina de configuración básica, está listo para real
 Debería ver algo parecido a lo que se muestra en la siguiente ilustración. </br></br>
 ![Pantalla de instalación con la casilla de telemetría activada](./media/security-azure-log-integration-get-started/loaded-modules.png) </br></br>
 3. Ahora debe configurar AzLog para usar un entorno de Azure específico. Un "entorno de Azure" es el "tipo" de centro de datos de la nube de Azure en que desea trabajar. Aunque hay varios entornos de Azure en este momento, las opciones pertinentes actualmente son **AzureCloud** o **AzureUSGovernment**.   En el entorno de PowerShell con privilegios elevados, asegúrese de que se encuentra en **C:\Archivos de programa\Microsoft Azure Log Integration\**. </br></br>
-    Ahí, ejecute el comando: </br>
-    ``Set-AzlogAzureEnvironment -Name AzureCloud`` (para Azure comercial)
+    Una vez ahí, ejecute el comando: </br>
+    ``Set-AzlogAzureEnvironment -Name AzureCloud`` (para anuncios de Azure)
 
       >[!NOTE]
       Si el comando se ejecuta correctamente, no recibirá ningún informe.  Si desea usar la nube de Azure US Government, debe usar **AzureUSGovernment** en la variable de nombre para la nube del gobierno estadounidense. No se admiten otras nubes de Azure en este momento.  
@@ -136,7 +135,7 @@ Realice los pasos siguientes para obtener la clave de almacenamiento:
  ![Más servicios](./media/security-azure-log-integration-get-started/more-services.png)
  3. Escriba **Almacenamiento** en el cuadro de texto **Filtrar**. Haga clic en **Cuentas de almacenamiento** (esta opción aparecerá después de escribir **Almacenamiento**).
 
-  ![Cuadro Filtrar](./media/security-azure-log-integration-get-started/filter.png)
+   ![Cuadro Filtrar](./media/security-azure-log-integration-get-started/filter.png)
  4. Aparecerá una lista de cuentas de almacenamiento; haga doble clic en la cuenta asignada al almacenamiento de registros.
 
    ![lista de cuentas de almacenamiento](./media/security-azure-log-integration-get-started/storage-accounts.png)
@@ -182,8 +181,8 @@ Para más información sobre Azure Log Integration, vea los siguientes documento
 
 * [Microsoft Azure Log Integration for Azure logs](https://www.microsoft.com/download/details.aspx?id=53324) (Integración de registros de Microsoft Azure para registros de Azure): Centro de descarga para obtener información, los requisitos del sistema y las instrucciones de instalación de la integración de registros de Azure.
 * [Introduction to Azure log integration](security-azure-log-integration-overview.md) (Introducción a la integración de registro de Azure): este documento es una introducción del servicio de integración de registro de Azure, las principales funcionalidades y cómo funciona.
-* [Pasos de configuración para soluciones de asociados](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : esta entrada de blog le muestra cómo configurar la integración de registros de Azure para que funcione con soluciones de asociados, como Splunk, HP ArcSight y IBM QRadar.
+* [Pasos de configuración para soluciones de asociados](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : esta entrada de blog le muestra cómo configurar la integración de registros de Azure para que funcione con soluciones de asociados, como Splunk, HP ArcSight y IBM QRadar. Esta es la guía actual sobre cómo configurar los componentes de SIEM. Primero póngase en contacto con el proveedor de SIEM para obtener más detalles.
 * [Preguntas más frecuentes sobre la integración de registro de Azure (P+F)](security-azure-log-integration-faq.md). Este artículo de preguntas más frecuentes responde a preguntas sobre la integración de registro de Azure.
-* [Integración de las alertas de Security Center con la integración de registro de Azure (versión preliminar)](../security-center/security-center-integrating-alerts-with-log-integration.md). Este documento le explica cómo sincronizar las alertas de Security Center, además de los eventos de seguridad de máquina virtual recopilados por Diagnósticos de Azure y los registros de auditoría de Azure, con sus análisis de registros o una solución SIEM.
+* [Integración de las alertas de Azure Security Center con la integración de registro de Azure](../security-center/security-center-integrating-alerts-with-log-integration.md): este documento muestra cómo sincronizar alertas de Security Center, además de eventos de seguridad de máquina virtual recopilados por Azure Diagnostics y Registros de actividad de Azure, con la solución Log Analytics o de SIEM.
 * [New features for Azure diagnostics and Azure Audit Logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) (Nuevas características de Diagnósticos de Azure y registros de auditoría de Azure): esta entrada de blog es una introducción a los registros de auditoría de Azure y a otras características que le ayudarán a obtener información sobre las operaciones de los recursos de Azure.
 

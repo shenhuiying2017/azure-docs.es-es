@@ -57,7 +57,7 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 El archivo de manifiesto se encuentra en el siguiente directorio del repositorio clonado.
 
 ```bash
-/azure-voting-app-redis/kubernetes-manifests/
+/azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yaml
 ```
 
 ## <a name="update-manifest-file"></a>Actualización del archivo de manifiesto

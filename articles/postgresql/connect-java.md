@@ -6,10 +6,10 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/23/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
@@ -19,14 +19,10 @@ ms.lasthandoff: 06/26/2017
 
 ---
 
-<a id="azure-database-for-postgresql-use-java-to-connect-and-query-data" class="xliff"></a>
-
-# Azure Database for PostgreSQL: uso de Java para conectarse y consultar datos
+# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso de Java para conectarse y consultar datos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for PostgreSQL mediante una aplicación de Java. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este artículo se da por hecho que está familiarizado con el desarrollo mediante Java y que nunca ha utilizado Azure Database for PostgreSQL.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Creación de la base de datos: Azure Portal](quickstart-create-server-database-portal.md)
 - [Creación de la base de datos: CLI de Azure](quickstart-create-server-database-azure-cli.md)
@@ -35,9 +31,7 @@ Además, deberá:
 - Descargue el [controlador JDBC de PostgreSQL](https://jdbc.postgresql.org/download.html) que coincida con su versión de Java y Java Development Kit.
 - Incluya el archivo jar JDBC de PostgreSQL (por ejemplo postgresql-42.1.1.jar) en la ruta de acceso de clase de aplicación. Para más información, consulte los [detalles sobre la ruta de acceso de clase](https://jdbc.postgresql.org/documentation/head/classpath.html).
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Obtención de información sobre la conexión
+## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 Obtenga la información de conexión necesaria para conectarse a Azure Database for PostgreSQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
@@ -47,9 +41,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
  ![Azure Database for PostgreSQL: inicio de sesión del administrador del servidor](./media/connect-java/1-connection-string.png)
 5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** para ver el nombre de inicio de sesión del administrador del servidor y, si es necesario, restablecer la contraseña.
 
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
-
-## Conexión, creación de una tabla e inserción de datos
+## <a name="connect-create-table-and-insert-data"></a>Conexión, creación de una tabla e inserción de datos
 Use el código siguiente para conectarse y cargar los datos mediante la función con una instrucción SQL **INSERT**. Los métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) y [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) se usan para conectarse, quitar y crear la tabla. El objeto [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) se usa para generar los comandos insert, con setString() y setInt() para enlazar los valores de parámetro. El método [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) ejecuta el comando para cada conjunto de parámetros. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
@@ -149,9 +141,7 @@ public class CreateTableInsertRows {
 }
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Lectura de datos
+## <a name="read-data"></a>Lectura de datos
 Use el código siguiente para leer los datos con una instrucción SQL **SELECT**. Los métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) y [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) se usan para conectarse, crear y ejecutar la instrucción Select. Los resultados se procesan mediante un objeto [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html). 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
@@ -238,9 +228,7 @@ public class ReadTable {
 
 ```
 
-<a id="update-data" class="xliff"></a>
-
-## Actualización de datos
+## <a name="update-data"></a>Actualización de datos
 Use el código siguiente para cambiar los datos con una instrucción SQL **UPDATE**. Los métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) y [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) se usan para conectarse, preparar y ejecutar la instrucción Update. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
@@ -320,9 +308,7 @@ public class UpdateTable {
     }
 }
 ```
-<a id="delete-data" class="xliff"></a>
-
-## Eliminación de datos
+## <a name="delete-data"></a>Eliminación de datos
 Use el código siguiente para quitar datos con una instrucción SQL **DELETE**. Los métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) y [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) se usan para conectarse, preparar y ejecutar la instrucción Delete. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
@@ -402,9 +388,7 @@ public class DeleteTable {
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Migración de una base de datos mediante exportación e importación](./howto-migrate-using-export-and-import.md)
 

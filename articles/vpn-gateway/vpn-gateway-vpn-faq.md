@@ -1,6 +1,6 @@
 ---
 title: "Preguntas más frecuentes acerca de Azure VPN Gateway | Microsoft Docs"
-description: "Preguntas más frecuentes sobre la puerta de enlace de VPN Preguntas más frecuentes sobre las conexiones entre locales, las conexiones de configuración híbrida y las puertas de enlace de VPN de Microsoft Azure Virtual Network."
+description: "Preguntas más frecuentes sobre VPN Gateway Preguntas más frecuentes sobre las conexiones entre locales, las conexiones de configuración híbrida y las puertas de enlace de VPN de Microsoft Azure Virtual Network."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3627b3dfa5067883625b9a714645164ec99c8a51
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27e5dbff8d4a9a2ed82ab6691aa82c2668fec958
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre la puerta de enlace de VPN
+# <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
 ## <a name="connecting-to-virtual-networks"></a>Conexión a redes virtuales
 
@@ -58,7 +57,7 @@ Las configuraciones **de punto a sitio** (VPN sobre SSTP) le permiten conectarse
 
 Puede configurar la red virtual para utilizar las conexiones de sitio a sitio y de punto a sitio simultáneamente, siempre que cree la conexión de sitio a sitio mediante un tipo de VPN basada en enrutamiento para la puerta de enlace. Los tipos de VPN basada en enrutamiento se denominan puertas de enlace dinámicas en el modelo de implementación clásico.
 
-## <a name="virtual-network-gateways"></a>Puertas de enlace de red virtual
+## <a name="gateways"></a>Puertas de enlace de red virtual
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>¿Es la puerta de enlace de VPN una puerta de enlace de red virtual?
 
@@ -132,7 +131,7 @@ Una puerta de enlace de VPN es básicamente un dispositivo de hosts múltiples c
 
 Para más información, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
-## <a name="site-to-site-connections-and-vpn-devices"></a>Conexiones de sitio a sitio y dispositivos VPN
+## <a name="s2s"></a>Conexiones de sitio a sitio y dispositivos VPN
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>¿Qué tengo que tener en cuenta al seleccionar un dispositivo VPN?
 
@@ -178,7 +177,7 @@ el tráfico en tránsito a través de Puerta de enlace de VPN de Azure es posibl
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>¿Azure genera la misma clave precompartida de IPsec/IKE para todas mis conexiones VPN para la misma red virtual?
 
-No, Azure de forma predeterminada genera distintas claves precompartidas para distintas conexiones VPN. Sin embargo, puede utilizar la API de REST para establecer la clave de la puerta de enlace VPN o el cmdlet PowerShell para establecer el valor de clave que prefiera. La clave TIENE QUE ser una cadena alfanumérica con una longitud de entre 1 y 128 caracteres.
+No, Azure de forma predeterminada genera distintas claves precompartidas para distintas conexiones VPN. Sin embargo, puede utilizar la API de REST para establecer la clave de VPN Gateway o el cmdlet PowerShell para establecer el valor de clave que prefiera. La clave TIENE QUE ser una cadena alfanumérica con una longitud de entre 1 y 128 caracteres.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>¿Tengo más ancho de banda con más VPN de sitio a sitio que si tengo una única red virtual?
 
@@ -196,7 +195,7 @@ Sí, las VPN de punto a sitio (P2S) se pueden usar con las puertas de enlace de 
 
 Sí, este procedimiento se admite. Para más información, consulte [Configurar conexiones VPN ExpressRoute y sitio a sitio que coexistan](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="ipsecike-policy"></a>Directiva de IPsec o IKE
+## <a name="ipsecike"></a>Directiva de IPsec o IKE
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
 
@@ -205,7 +204,7 @@ Sí, este procedimiento se admite. Para más información, consulte [Configurar 
 
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
-## <a name="cross-premises-connectivity-and-vms"></a>Conectividad entre locales y máquinas virtuales
+## <a name="vms"></a>Conectividad entre locales y máquinas virtuales
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>Si mi máquina virtual está en una red virtual y tengo una conexión entre locales, ¿cómo debo conectar a la máquina virtual?
 
@@ -222,7 +221,7 @@ No. Únicamente el tráfico que tiene como destino una IP que se encuentra en lo
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a>P+F de Red virtual
+## <a name="faq"></a>Preguntas más frecuentes sobre Virtual Network
 
 Consulte información adicional de redes virtuales adicionales en las [Preguntas frecuentes sobre redes virtuales](../virtual-network/virtual-networks-faq.md).
 

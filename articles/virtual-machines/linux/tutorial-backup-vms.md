@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/05/2017
+ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 4dcfad63fdc610160bd47a3b900591fb06585005
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: d0cbf7883a8737bcb10e9dd251c9792a12993f77
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Copia de seguridad de máquinas virtuales Linux en Azure
@@ -38,7 +38,7 @@ Para proteger sus datos realice copias de seguridad a intervalos regulares. Azur
 
 Cuando el servicio Azure Backup inicia una copia de seguridad, desencadena que la extensión de copia de seguridad tome una instantánea de un momento dado. En Linux, el servicio Azure Backup usa la extensión _VMSnapshotLinux_. La extensión se instala cuando se realiza la primera copia de seguridad de la máquina virtual, en caso de que esta esté en ejecución. Si no se está ejecutando la máquina virtual, el servicio Azure Backup toma una instantánea del almacenamiento subyacente (ya que no se produce ninguna escritura de la aplicación mientras se detiene la máquina virtual).
 
-Después de que el servicio Azure Backup toma la instantánea, se transfieren los datos al almacén. Para que el proceso resulte más eficaz, el servicio identifica y transfiere únicamente los bloques de datos que han cambiado desde la última copia de seguridad.
+De forma predeterminada, Azure Backup toma una instantánea coherente con el sistema de archivos de la máquina virtual Linux, pero puede configurarse para que tome una [instantánea coherente con la aplicación mediante el marco de script anterior y posterior](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Después de que el servicio Azure Backup toma la instantánea, se transfieren los datos al almacén. Para que el proceso resulte más eficaz, el servicio identifica y transfiere únicamente los bloques de datos que han cambiado desde la última copia de seguridad.
 
 Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea un punto de recuperación.
 
@@ -95,7 +95,7 @@ En este ejemplo, se muestra cómo recuperar la página web predeterminada de ngi
 6. En el menú de la izquierda, haga clic en **Máquinas virtuales**. 
 7. En la lista, seleccione la máquina virtual.
 8. En la hoja de la máquina virtual, en la sección **Configuración**, haga clic en **Copia de seguridad**. Se abre la hoja **Copia de seguridad**. 
-9. En el menú en la parte superior de la hoja, seleccione **Recuperación de archivos (versión preliminar)**. Se abrirá la hoja **Recuperación de archivos (versión preliminar)**.
+9. En el menú de la parte superior de la hoja, seleccione **Recuperación de archivos**. Se abrirá la hoja **Recuperación de archivos**.
 10. En **Paso 1: Seleccionar punto de recuperación**, seleccione un punto de recuperación en la lista desplegable.
 11. En **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Download Executable** (Descargar ejecutable). Guarde el archivo descargado en un equipo local.
 7. Haga clic en **Descargar script** para descargar el archivo de script localmente.

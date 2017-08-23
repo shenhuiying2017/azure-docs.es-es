@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
-ms.author: magoedte;csand
-translationtype: Human Translation
+ms.author: magoedte
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
 ms.openlocfilehash: 4fcfa2e7ec2e8257407026ed4cca0e15fd0b5bb6
-
+ms.contentlocale: es-es
+ms.lasthandoff: 12/06/2016
 
 ---
 # <a name="managing-azure-web-app-using-azure-automation"></a>Administración de aplicaciones web de Azure mediante Automatización de Azure
@@ -41,10 +42,5 @@ Estos son algunos ejemplos de administración de Servicios de aplicaciones con A
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar Aplicaciones web de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
 * Consulte el [Tutorial de introducción](../automation/automation-first-runbook-graphical.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -15,31 +15,29 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: dac95b5866aa165587009062064ca135b9255ab2
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: b9b5ddf42958a2b4e241d0252101d979009e7dc0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
-# <a name="populate-groups-dynamically-based-on-object-attributes"></a>Rellenado dinámico de grupos en función de los atributos de objeto 
+# <a name="populate-groups-dynamically-based-on-object-attributes"></a>Rellenado dinámico de grupos en función de los atributos de objeto
 El Portal de Azure clásico proporciona la capacidad de habilitar pertenencias dinámicas basadas en atributos más complejos para grupos de Azure Active Directory (Azure AD).  
 
-Cuando los atributos de un usuario o un dispositivo cambian, el sistema evalúa todas las reglas de grupos dinámicos de un directorio para ver si la modificación de los atributos del usuario o dispositivo en cuestión desencadenaría adiciones o eliminaciones en el grupo. Si un usuario o dispositivo cumple una regla de un grupo, se agrega a este como miembro. Si, por el contrario, deja de cumplir la regla del grupo al que pertenece, se le quita como miembro de este.
+Cuando cambia cualquier atributo de un usuario, el sistema evalúa todas las reglas de grupos dinámicos de un directorio para ver si la modificación desencadenaría adiciones o retiradas en el grupo. Si un usuario o dispositivo cumple una regla de un grupo, se agrega a este como miembro. Cuando ya no cumple la regla, se quita.
 
 > [!NOTE]
-> Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365. 
+> - Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365.
 >
-> La pertenencia dinámica a grupos requiere que haya una licencia de Azure AD Premium asignada
+> - Esta característica requiere una licencia de Azure AD Premium P1 para cada miembro de usuario agregado a al menos un grupo dinámico.
 >
-> * Al administrador que administra la regla en un grupo
-> * Todos los miembros del grupo
->
-> Tenga también en cuenta que aunque puede crear un grupo dinámico para dispositivos o usuarios, no se puede crear una regla que seleccione tanto objetos de usuario como de dispositivo. 
+> - Puede crear un grupo dinámico para dispositivos o usuarios, pero no se puede crear una regla que contenga tanto objetos de usuario como de dispositivo.
 
-## <a name="to-create-the-advanced-rule"></a>Para crear la regla avanzada
+> - En este momento no es posible crear un grupo de dispositivos basado en atributos de usuario propietario. Las reglas de pertenencia de dispositivo solo pueden hacer referencia a atributos inmediatos de objetos de dispositivo del directorio.
+
+## <a name="to-create-an-advanced-rule"></a>Para crear una regla avanzada
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory**y luego abra el directorio de su organización.
 2. Seleccione la pestaña **Grupos** y abra el grupo que desea editar.
 3. Seleccione la pestaña **Configurar**, seleccione la opción **Regla avanzada** y escriba la regla avanzada en el cuadro de texto.
@@ -90,11 +88,11 @@ En la tabla siguiente se enumeran todos los operadores de regla de expresión ad
 | Not Match |-notMatch |
 | Match |-match |
 | En el | -in |
-| Not In | -notIn |
+| No en el | -notIn |
 
 ## <a name="operator-precedence"></a>Precedencia de operadores
 
-Todos los operadores se enumeran a continuación por orden de precedencia, de menor a mayor, los operadores en la misma línea tienen la misma prioridad -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
+Todos los operadores se enumeran a continuación por orden de precedencia, de menor a mayor, los operadores en la misma línea tienen la misma prioridad -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 
 Todos los operadores se pueden utilizar con o sin prefijo de guión.
 
@@ -136,8 +134,8 @@ Operadores permitidos
 
 | Propiedades | Valores permitidos | Uso |
 | --- | --- | --- |
-| accountEnabled |true false |user.accountEnabled -eq true) |
-| dirSyncEnabled |true false null |(user.dirSyncEnabled -eq true) |
+| accountEnabled |true false |user.accountEnabled -eq true |
+| dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propiedades de tipo cadena
 Operadores permitidos
@@ -150,11 +148,14 @@ Operadores permitidos
 * -notContains
 * -match
 * -notMatch
+* -in
+* -notIn
 
 | Propiedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | city |Cualquier valor de cadena o $null |(user.city -eq "value") |
 | country |Cualquier valor de cadena o $null |(user.country -eq "value") |
+| companyName | Cualquier valor de cadena o $null | (user.companyName -eq "value") |
 | department |Cualquier valor de cadena o $null |(user.department -eq "value") |
 | DisplayName |Cualquier valor de cadena |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |Cualquier valor de cadena o $null |(user.facsimileTelephoneNumber -eq "value") |
@@ -189,6 +190,34 @@ Operadores permitidos
 | otherMails |Cualquier valor de cadena |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## <a name="multi-value-properties"></a>Propiedades de varios valores
+Operadores permitidos
+
+* -any (se satisface cuando al menos un elemento de la colección coincide con la condición)
+* -all (se satisface cuando todos los elementos de la colección coinciden con la condición)
+
+| Propiedades | Valores | Uso |
+| --- | --- | --- |
+| assignedPlans |Cada objeto de la colección expone las siguientes propiedades de cadena: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+
+Las propiedades de varios valores son colecciones de objetos del mismo tipo. Puede usar los operadores -any y -all para aplicar una condición a uno o todos los elementos de la colección, respectivamente. Por ejemplo:
+
+assignedPlans es una propiedad de varios valores que muestra todos los planes de servicio asignados al usuario. En la expresión siguiente se seleccionarán los usuarios que tienen el plan de servicio Exchange Online (Plan 2) que también está en estado Habilitado:
+
+```
+user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+(El identificador GUID identifica el plan de servicio Exchange Online [Plan 2]).
+
+> [!NOTE]
+> Esto es útil si desea identificar a todos los usuarios para los que se habilitó una funcionalidad de Office 365 (u otro servicio en línea de Microsoft), por ejemplo, para establecerlos como destino de cierto conjunto de directivas.
+
+En la expresión siguiente se seleccionarán todos los usuarios que tengan algún plan de servicio asociado con el servicio de Intune (identificado por el nombre de servicio "SCO"):
+```
+user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
 ## <a name="use-of-null-values"></a>Uso de valores nulos
 
 Para especificar un valor nulo en una regla, puede usar "null" o $null. Ejemplo:
@@ -203,59 +232,54 @@ Un ejemplo de una regla que utiliza un atributo de extensión sería
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Los atributos personalizados se sincronizan desde Windows Server AD local o desde una aplicación de SaaS conectada y el formato es "user.extension[GUID]\___[Attribute]", donde [GUID] es el identificador único de AAD para la aplicación que creó el atributo en AAD y [Attribute] es el nombre del atributo que se creó.
+Los atributos personalizados se sincronizan desde Windows Server AD local o desde una aplicación SaaS conectada y el formato es "user.extension[GUID]\___[Attribute]", donde [GUID] es el identificador único de AAD para la aplicación que creó el atributo en AAD y [Attribute] es el nombre del atributo cuando se creó.
 Un ejemplo de una regla que utiliza un atributo personalizado es
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
 El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Windows Azure AD Graph y la búsqueda del nombre en cuestión.
 
-## <a name="support-for-multi-value-properties"></a>Compatibilidad con las propiedades de varios valores
+## <a name="direct-reports-rule"></a>Regla de "subordinados directos"
+Puede crear un grupo con todos los subordinados directos de un administrador. Cuando los subordinados directos de un administrador cambien en el futuro, la pertenencia del grupo se ajustará automáticamente.
 
-Para incluir una propiedad de varios valores en una regla, use el operador "-any", como en
+> [!NOTE]
+> 1. Para que la regla funcione, asegúrese de que la propiedad de **identificador de administrador** esté establecida correctamente en los usuarios del inquilino. Puede comprobar el valor actual de un usuario en la **pestaña Perfil**.
+> 2. Esta regla admite solo subordinados **directos**. Actualmente no es posible crear un grupo para una jerarquía anidada, por ejemplo, un grupo que incluya subordinados directos y sus subordinados.
 
-  user.assignedPlans -any assignedPlan.service -startsWith "SCO"
+**Para configurar el grupo**
 
-## <a name="direct-reports-rule"></a>Regla de informes directos
-Puede rellenar los miembros de un grupo en función del atributo de administrador de un usuario.
+1. Siga los pasos del 1 al 5 de la sección [Para crear la regla avanzada](#to-create-the-advanced-rule) y seleccione el **tipo de pertenencia** de **Usuario dinámico**.
+2. En la hoja **Dynamic membership rules** (Reglas de pertenencia dinámica), escriba la regla con la siguiente sintaxis:
 
-**Para configurar un grupo como un grupo de  “Administrador”**
+    *Direct Reports for "{obectID_of_manager}"*
 
-1. En el Portal de Azure clásico, haga clic en **Active Directory**y luego en el nombre del directorio de su organización.
-2. Seleccione la pestaña **Grupos** y abra el grupo que desea editar.
-3. Seleccione la pestaña **Configurar** y luego seleccione **REGLA AVANZADA**.
-4. Escriba la regla con la sintaxis siguiente:
+    Ejemplo de una regla válida:
+```
+                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
+```
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
+3. Después de guardar la regla, todos los usuarios con el valor de identificador de administrador especificado se agregarán al grupo.
 
-    Direct Reports for *Direct Reports for {obectID_of_manager}*. Un ejemplo de una regla válida para informes directos
-
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-
-    donde "62e19b97-8b3d-4d4a-a106-4ce66896a863" es el identificador de objeto del administrador. Encontrará el identificador de objeto en Azure AD, en la pestaña **Perfil** de la página del usuario que es el administrador.
-5. Al guardar esta regla, todos los usuarios que la cumplen se unirán como miembros del grupo. Pueden pasar unos minutos hasta que empiece a llenarse el grupo.
-
-# <a name="using-attributes-to-create-rules-for-device-objects"></a>Uso de atributos para crear reglas para los objetos de dispositivo
+## <a name="using-attributes-to-create-rules-for-device-objects"></a>Uso de atributos para crear reglas para los objetos de dispositivo
 También puede crear una regla que selecciona objetos de dispositivo para la pertenencia de un grupo. Pueden utilizarse los siguientes atributos del dispositivo:
 
-| Propiedades | Valores permitidos | Uso |
-| --- | --- | --- |
-| accountEnabled |true false |(device.accountEnabled -eq true) |
-| DisplayName |Cualquier valor de cadena |(device.displayName -eq "Rob Iphone”) |
-| deviceOSType |Cualquier valor de cadena |(device.deviceOSType -eq "IOS") |
-| deviceOSVersion |Cualquier valor de cadena |(device.OSVersion -eq "9.1") |
-| isDirSynced |true false null |(device.isDirSynced -eq true) |
-| isManaged |true false null |(device.isManaged -eq false) |
-| isCompliant |true false null |(device.isCompliant -eq true) |
-| deviceCategory |Cualquier valor de cadena |(device.deviceCategory -eq "") |
-| deviceManufacturer |Cualquier valor de cadena |(device.deviceManufacturer - eq "Microsoft") |
-| deviceModel |Cualquier valor de cadena |(device.deviceModel -eq "IPhone 7+") |
-| deviceOwnership |Cualquier valor de cadena |(device.deviceOwnership -eq "") |
-| domainName |Cualquier valor de cadena |(device.domainName -eq "contoso.com") |
-| enrollmentProfileName |Cualquier valor de cadena |(device.enrollmentProfileName -eq "") |
-| isRooted |true false null |(device.isRooted -eq true) |
-| managementType |Cualquier valor de cadena |(device.managementType -eq "") |
-| organizationalUnit |Cualquier valor de cadena |(device.organizationalUnit -eq "") |
-| deviceId |un valor válido de deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId |un valor de objectId de AAD válido |(device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+| Propiedades              | Valores permitidos                  | Uso                                                       |
+|-------------------------|---------------------------------|-------------------------------------------------------------|
+| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
+| DisplayName             | Cualquier valor de cadena                | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | Cualquier valor de cadena                | (device.deviceOSType -eq "IOS")                             |
+| deviceOSVersion         | Cualquier valor de cadena                | (device.OSVersion -eq "9.1")                                |
+| deviceCategory          | Cualquier valor de cadena                | (device.deviceCategory -eq "")                              |
+| deviceManufacturer      | Cualquier valor de cadena                | (device.deviceManufacturer - eq "Microsoft")                 |
+| deviceModel             | Cualquier valor de cadena                | (device.deviceModel -eq "IPhone 7+")                        |
+| deviceOwnership         | Cualquier valor de cadena                | (device.deviceOwnership -eq "")                             |
+| domainName              | Cualquier valor de cadena                | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Cualquier valor de cadena                | (device.enrollmentProfileName -eq "")                       |
+| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
+| managementType          | Cualquier valor de cadena                | (device.managementType -eq "")                              |
+| organizationalUnit      | Cualquier valor de cadena                | (device.organizationalUnit -eq "")                          |
+| deviceId                | un valor válido de deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId                | un valor de objectId de AAD válido            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
 > No se pueden crear estas reglas de dispositivo mediante la lista desplegable de "regla simple" en el Portal de Azure clásico.

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: d66489b43e983f313028a846d2b7da1534c86b53
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 1032c4e7d378016e36c92efa9478be72e9a557c4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
@@ -59,7 +58,7 @@ Para crear o configurar una red virtual se pueden usar las siguientes herramient
 * CLI de Azure (para redes virtuales clásicas y del Administrador de recursos).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>¿Qué intervalos de direcciones puedo usar en mis redes virtuales?
-Puede usar los intervalos de direcciones IP públicas y cualquier intervalo de direcciones IP definido en [RFC 1918](http://tools.ietf.org/html/rfc1918).
+Cualquier intervalo de direcciones IP definido en [RFC 1918](http://tools.ietf.org/html/rfc1918). Por ejemplo, 10.0.0.0/16.
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>¿Puedo tener direcciones IP públicas en mis redes virtuales?
 Sí. Para más información acerca de los intervalos de direcciones IP públicas, consulte el artículo [Espacio de direcciones IP públicas en una red virtual (VNet)](virtual-networks-public-ip-within-vnet.md). A sus direcciones IP públicas no se puede acceder directamente desde Internet.

@@ -1,6 +1,6 @@
 ---
 title: "Asignación de roles de administrador en Azure Active Directory | Microsoft Docs"
-description: "Explica qué roles de administrador están disponibles con Azure Active Directory y cómo asignarlos."
+description: "Un rol de administrador se puede usar para crear o editar usuarios, asignar roles administrativos, restablecer contraseñas de usuario, administrar licencias de usuario o administrar dominios. Un usuario al que se asigne un rol de administrador tiene los mismos permisos en todos los servicios en la nube a los que se haya suscrito la organización."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,24 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 1d3c9023ff4d3a722363d38d3c927fb7f4304448
+ms.reviewer: Vince.Smith
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 042e2f4117a35e80694a1643dd95fa54d508f1f7
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Asignación de roles de administrador en Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Portal de Azure](active-directory-assign-admin-roles-azure-portal.md)
+> * [Portal de Azure]()
 > * [Portal de Azure clásico](active-directory-assign-admin-roles.md)
 >
 >
 
-Con Azure Active Directory (Azure AD), puede designar administradores independientes que desempeñen distintas funciones. Esos administradores tendrán acceso a varias características del portal de Azure o el portal de Azure clásico y, según el rol que tengan, podrán crear o editar usuarios, asignar roles administrativos a otros, restablecer contraseñas de usuario o administrar licencias de usuario y dominios, entre otras funciones. Un usuario al que se haya asignado un rol de administrador tendrá los mismos permisos en todos los servicios en la nube a los que se haya suscrito la organización, independientemente de si ha asignado el rol en el Portal de Office 365, en el Portal de Azure clásico o por medio del módulo de Azure AD para Windows PowerShell.
+Use Azure Active Directory (Azure AD) para designar administradores independientes para distintas funciones. Esos administradores pueden acceder a características seleccionadas de Azure Portal o el Portal de Azure clásico y, según el rol que tengan, crear o editar usuarios, asignar roles administrativos a otros, restablecer contraseñas de usuario, administrar licencias de usuario y administrar dominios, entre otras funciones. Un usuario al que se haya asignado un rol de administrador tendrá los mismos permisos en todos los servicios en la nube a los que se haya suscrito la organización, independientemente de si el rol se ha asignado en el Portal de Office 365, en el Portal de Azure clásico o por medio del módulo de Azure AD para Microsoft PowerShell.
+
+> [!IMPORTANT]
+> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure clásico al que se hace referencia en este artículo. Para más información sobre cómo asignar roles de administrador en el Centro de administración de Azure AD, vea [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+
 
 Los roles de administrador disponibles son los siguientes:
 
@@ -79,7 +85,7 @@ Los roles de administrador disponibles son los siguientes:
 
 * **Administrador de roles con privilegios**: los usuarios con este rol pueden administrar asignaciones de rol en Azure Active Directory, así como también dentro de Azure AD Privileged Identity Management. Además, este rol permite administrar todos los aspectos de Privileged Identity Management.
 
-* **Administrador de seguridad**: los usuarios con este rol tienen todos los permisos de solo lectura del rol Lector de seguridad más la capacidad de administrar la configuración de servicios relacionados con la seguridad: Azure Active Directory Identity Protection, Privileged Identity Management y Centro de seguridad y cumplimiento de Office 365. Encuentre más información disponible sobre los permisos de Office 365 en [Permisos del Centro de seguridad y cumplimiento de Office 365](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Administrador de seguridad**: los usuarios con este rol tienen todos los permisos de solo lectura del rol Lector de seguridad más la capacidad de administrar la configuración de servicios relacionados con la seguridad: Azure Active Directory Identity Protection, Azure Information Protection, Privileged Identity Management y Centro de seguridad y cumplimiento de Office 365. Encuentre más información disponible sobre los permisos de Office 365 en [Permisos del Centro de seguridad y cumplimiento de Office 365](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Lector de seguridad**: los usuarios con este rol tienen acceso global de solo lectura, incluida toda información en Azure Active Directory, Identity Protection, Privileged Identity Management, así como también la capacidad de leer registros de auditoría e informes de inicio de sesión de Azure Active Directory. El rol también concede permiso de solo lectura en el Centro de seguridad y cumplimiento de Office 365. Encuentre más información disponible sobre los permisos de Office 365 en [Permisos del Centro de seguridad y cumplimiento de Office 365](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
