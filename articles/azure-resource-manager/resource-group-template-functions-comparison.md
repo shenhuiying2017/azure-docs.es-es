@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/01/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: d993bd5cae5fa2f0a6eda999c95b10bd1c268be2
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 521e5ed06c138bcd374913588f06a2e6c1e99963
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funciones de comparación para las plantillas de Azure Resource Manager
@@ -26,12 +26,10 @@ ms.lasthandoff: 07/21/2017
 Resource Manager proporciona varias funciones para realizar comparaciones en las plantillas.
 
 * [equals](#equals)
-* [less](#less)
-* [lessOrEquals](#lessorequals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
-
-<a id="equals" />
+* [less](#less)
+* [lessOrEquals](#lessorequals)
 
 ## <a name="equals"></a>equals
 `equals(arg1, arg2)`
@@ -142,139 +140,29 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | checkArrays | Booleano | True |
 | checkObjects | Booleano | True |
 
-<a id="less" />
 
-## <a name="less"></a>less
-`less(arg1, arg2)`
-
-Comprueba si el primer valor es menor que el segundo.
-
-### <a name="parameters"></a>parameters
-
-| Parámetro | Obligatorio | Tipo | Descripción |
-|:--- |:--- |:--- |:--- |
-| arg1 |Sí |entero o cadena |El primer valor de la comparación menor. |
-| arg2 |Sí |entero o cadena |El segundo valor de la comparación menor. |
-
-### <a name="return-value"></a>Valor devuelto
-
-Devuelve **True** si el primer valor es menor que el segundo; en caso contrario, **False**.
-
-### <a name="example"></a>Ejemplo
-
-La plantilla de ejemplo comprueba si un valor es menor que el otro.
+En el siguiente ejemplo se usa [not](resource-group-template-functions-logical.md#not) con **equals**.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
-    },
     "resources": [
     ],
     "outputs": {
-        "checkInts": {
+        "checkNotEquals": {
             "type": "bool",
-            "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[less(parameters('firstString'), parameters('secondString'))]"
+            "value": "[not(equals(1, 2))]"
         }
     }
-}
 ```
 
-La salida del ejemplo anterior con el valor predeterminado es:
+El resultado del ejemplo anterior es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
-| checkInts | Booleano | True |
-| checkStrings | Booleano | False |
+| checkNotEquals | Booleano | True |
 
-<a id="lessorequals" />
-
-## <a name="lessorequals"></a>lessOrEquals
-`lessOrEquals(arg1, arg2)`
-
-Comprueba si el primer valor es menor o igual que el segundo.
-
-### <a name="parameters"></a>parameters
-
-| Parámetro | Obligatorio | Tipo | Descripción |
-|:--- |:--- |:--- |:--- |
-| arg1 |Sí |entero o cadena |El primer valor de la comparación menor o igual. |
-| arg2 |Sí |entero o cadena |El segundo valor de la comparación menor o igual. |
-
-### <a name="return-value"></a>Valor devuelto
-
-Devuelve **True** si el primer valor es menor o igual que el segundo; en caso contrario, **False**.
-
-### <a name="example"></a>Ejemplo
-
-La plantilla de ejemplo comprueba si un valor es menor o igual que el otro.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
-        }
-    }
-}
-```
-
-La salida del ejemplo anterior con el valor predeterminado es:
-
-| Nombre | Tipo | Valor |
-| ---- | ---- | ----- |
-| checkInts | Booleano | True |
-| checkStrings | Booleano | False |
-
-<a id="greater" />
 
 ## <a name="greater"></a>greater
 `greater(arg1, arg2)`
@@ -340,7 +228,6 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | checkInts | Booleano | False |
 | checkStrings | Booleano | True |
 
-<a id="greaterorequals" />
 
 ## <a name="greaterorequals"></a>greaterOrEquals
 `greaterOrEquals(arg1, arg2)`
@@ -405,6 +292,138 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | ---- | ---- | ----- |
 | checkInts | Booleano | False |
 | checkStrings | Booleano | True |
+
+
+
+## <a name="less"></a>less
+`less(arg1, arg2)`
+
+Comprueba si el primer valor es menor que el segundo.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sí |entero o cadena |El primer valor de la comparación menor. |
+| arg2 |Sí |entero o cadena |El segundo valor de la comparación menor. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Devuelve **True** si el primer valor es menor que el segundo; en caso contrario, **False**.
+
+### <a name="example"></a>Ejemplo
+
+La plantilla de ejemplo comprueba si un valor es menor que el otro.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "firstInt": {
+            "type": "int",
+            "defaultValue": 1
+        },
+        "secondInt": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "firstString": {
+            "type": "string",
+            "defaultValue": "A"
+        },
+        "secondString": {
+            "type": "string",
+            "defaultValue": "a"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "checkInts": {
+            "type": "bool",
+            "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
+        },
+        "checkStrings": {
+            "type": "bool",
+            "value": "[less(parameters('firstString'), parameters('secondString'))]"
+        }
+    }
+}
+```
+
+La salida del ejemplo anterior con el valor predeterminado es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| checkInts | Booleano | True |
+| checkStrings | Booleano | False |
+
+
+## <a name="lessorequals"></a>lessOrEquals
+`lessOrEquals(arg1, arg2)`
+
+Comprueba si el primer valor es menor o igual que el segundo.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sí |entero o cadena |El primer valor de la comparación menor o igual. |
+| arg2 |Sí |entero o cadena |El segundo valor de la comparación menor o igual. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Devuelve **True** si el primer valor es menor o igual que el segundo; en caso contrario, **False**.
+
+### <a name="example"></a>Ejemplo
+
+La plantilla de ejemplo comprueba si un valor es menor o igual que el otro.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "firstInt": {
+            "type": "int",
+            "defaultValue": 1
+        },
+        "secondInt": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "firstString": {
+            "type": "string",
+            "defaultValue": "A"
+        },
+        "secondString": {
+            "type": "string",
+            "defaultValue": "a"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "checkInts": {
+            "type": "bool",
+            "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
+        },
+        "checkStrings": {
+            "type": "bool",
+            "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
+        }
+    }
+}
+```
+
+La salida del ejemplo anterior con el valor predeterminado es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| checkInts | Booleano | True |
+| checkStrings | Booleano | False |
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

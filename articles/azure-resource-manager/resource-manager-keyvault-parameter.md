@@ -12,135 +12,186 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 07/25/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 0bf872a44b8ed7cae53d2659aa7be878902130e9
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 1ca72599e67e79d42a3d430dbb13e89ea7265334
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="use-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Uso de Key Vault para pasar el valor de parámetro seguro durante la implementación
 
 Cuando tiene que pasar un valor seguro (por ejemplo, una contraseña) como un parámetro durante la implementación, puede recuperar el valor de [Azure Key Vault](../key-vault/key-vault-whatis.md). El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. No es necesario especificar manualmente el valor del secreto cada vez que implementan los recursos. Key Vault puede existir en una suscripción diferente en la que está implementando el grupo de recursos. Cuando hace referencia a Key Vault, incluye el identificador de suscripción.
 
-En este tema se muestra cómo crear un Key Vault y el secreto, configurar el acceso al secreto para una plantilla de Resource Manager y pasar el secreto como un parámetro. Si ya tiene un Key Vault y un secreto, pero necesita comprobar el acceso de usuario y la plantilla, vaya a la sección [Habilitación del acceso al secreto](#enable-access-to-the-secret). Si ya tiene Key Vault y el secreto y está seguro de está configurado para el acceso de usuario y la plantilla, vaya a la sección [Referencia a un secreto con identificador estático](#reference-a-secret-with-static-id). 
+Al crear el almacén de claves, establezca la propiedad *enabledForTemplateDeployment* en *true*. Al establecer este valor en true, permite el acceso desde las plantillas de Resource Manager durante la implementación.  
 
 ## <a name="deploy-a-key-vault-and-secret"></a>Implementación de un almacén de claves y un secreto
 
-Puede implementar Key Vault y un secreto a través de una plantilla de Resource Manager. Para obtener un ejemplo, vea [Esquema de la plantilla de Key Vault](resource-manager-template-keyvault.md) y [Key vault secret template](resource-manager-template-keyvault-secret.md) (Plantilla de secreto de Key Vault). Al crear el almacén de claves, establezca el valor de la propiedad **enabledForTemplateDeployment** en **True** para que pueda hacerse referencia a él desde otras plantillas de Resource Manager. 
+Para crear un almacén de claves y un secreto, use la CLI de Azure o PowerShell. Tenga en cuenta que el almacén de claves está habilitado para la implementación de plantillas. 
 
-O bien, puede crear Key Vault y el secreto a través de Azure Portal. 
+Para la CLI de Azure, utilice:
 
-1. Seleccione **Nuevo** -> **Seguridad e identidad** -> **Key Vault**.
+```azurecli
+vaultname={your-unique-vault-name}
+password={password-value}
 
-   ![crear un Key Vault nuevo](./media/resource-manager-keyvault-parameter/new-key-vault.png)
+az group create --name examplegroup --location 'South Central US'
+az keyvault create --name $vaultname --resource-group examplegroup --location 'South Central US' --enabled-for-template-deployment true
+az keyvault secret set --vault-name $vaultname --name examplesecret --value $password
+```
 
-2. Proporcione valores para Key Vault. Por ahora, puede omitir la configuración de **Directivas de acceso** y **Directiva de acceso avanzado**. Dichas configuraciones se tratarán en la sección. Seleccione **Crear**.
+Para PowerShell, use:
 
-   ![establecer Key Vault](./media/resource-manager-keyvault-parameter/create-key-vault.png)
+```powershell
+$vaultname = "{your-unique-vault-name}"
+$password = "{password-value}"
 
-3. Ahora dispone de un Key Vault. Seleccione ese Key Vault.
-
-4. En la hoja Key Vault, seleccione **Secretos**.
-
-   ![seleccionar secretos](./media/resource-manager-keyvault-parameter/select-secret.png)
-
-5. Seleccione **Agregar**.
-
-   ![seleccionar agregar](./media/resource-manager-keyvault-parameter/add-secret.png)
-
-6. Seleccione **Manual** para opciones de carga. Proporcione un nombre y valor para el secreto. Seleccione **Crear**.
-
-   ![proporcionar secreto](./media/resource-manager-keyvault-parameter/provide-secret.png)
-
-Ha creado su Key Vault y el secreto.
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmKeyVault -VaultName $vaultname -ResourceGroupName examplegroup -Location "South Central US" -EnabledForTemplateDeployment
+$secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
+Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
+```
 
 ## <a name="enable-access-to-the-secret"></a>Habilitación del acceso al secreto
 
-Si usa un nuevo Key Vault o uno ya existente, asegúrese de que el usuario que implementa la plantilla puede acceder al secreto. El usuario que implementa una plantilla que hace referencia a un secreto debe tener el permiso `Microsoft.KeyVault/vaults/deploy/action` para Key Vault. Los roles [Propietario](../active-directory/role-based-access-built-in-roles.md#owner) y [Colaborador](../active-directory/role-based-access-built-in-roles.md#contributor) conceden este acceso. También puede crear un [rol personalizado](../active-directory/role-based-access-control-custom-roles.md) que concede este permiso y agrega el usuario a ese rol. Además, debe conceder a Resource Manager la capacidad de acceder a Key Vault durante la implementación.
+Si usa un nuevo Key Vault o uno ya existente, asegúrese de que el usuario que implementa la plantilla puede acceder al secreto. El usuario que implementa una plantilla que hace referencia a un secreto debe tener el permiso `Microsoft.KeyVault/vaults/deploy/action` para Key Vault. Los roles [Propietario](../active-directory/role-based-access-built-in-roles.md#owner) y [Colaborador](../active-directory/role-based-access-built-in-roles.md#contributor) conceden este acceso. También puede crear un [rol personalizado](../active-directory/role-based-access-control-custom-roles.md) que concede este permiso y agrega el usuario a ese rol. Para más información sobre cómo agregar un usuario a un rol, vea [Asignación de un usuario a roles de administrador en Azure Active Directory](../active-directory/active-directory-users-assign-role-azure-portal.md).
 
-Puede comprobar o realizar estos pasos a través del portal.
-
-1. Seleccione **Access Control (IAM)**.
-
-   ![seleccionar control de acceso](./media/resource-manager-keyvault-parameter/select-access-control.png)
-
-2. Si la cuenta que piensa utilizar para la implementación de plantillas todavía no tiene el rol Propietario o Colaborador (o se ha agregado a un rol personalizado que conceda permiso `Microsoft.KeyVault/vaults/deploy/action`), seleccione **Agregar**
-
-   ![agregar usuario](./media/resource-manager-keyvault-parameter/add-user.png)
-
-3. Seleccione el rol Colaborador o Propietario y busque la identidad para asignar a ese rol. Seleccione **Aceptar** para terminar de agregar la identidad al rol.
-
-   ![agregar usuario](./media/resource-manager-keyvault-parameter/search-user.png)
-
-4. Para habilitar el acceso desde una plantilla durante la implementación, seleccione **Directivas de acceso avanzado**. Seleccione la opción **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas**.
-
-   ![habilitar el acceso de plantilla](./media/resource-manager-keyvault-parameter/select-template-access.png)
 
 ## <a name="reference-a-secret-with-static-id"></a>Referencia a un secreto con identificador estático
 
-Se hace referencia al secreto desde dentro de un **archivo de parámetros (no la plantilla)** que pasa valores a la plantilla. Se hace referencia al secreto pasando el identificador de recurso de almacén de claves y el nombre del secreto. En este ejemplo, ya debe existir el secreto del almacén de claves y se utiliza un valor estático para el mismo identificador de recurso.
+La plantilla que recibe un secreto de Key Vault es como cualquier otra plantilla. Esto se debe a que **se hace referencia al almacén de claves del archivo de parámetros, no de la plantilla**. Por ejemplo, la siguiente plantilla implementa una base de datos SQL que incluye una contraseña de administrador. El parámetro de contraseña se establece en una cadena segura. Pero la plantilla no especifica de dónde procede ese valor.
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "sqlsvrAdminLoginPassword": {
-        "reference": {
-          "keyVault": {
-            "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-          },
-          "secretName": "adminPassword"
-        }
-      },
-      "sqlsvrAdminLogin": {
-        "value": "exampleadmin"
-      }
-    }
-}
-```
-
-En la plantilla, el parámetro que acepta el secreto debe ser **securestring**. En el ejemplo siguiente se muestran las secciones pertinentes de una plantilla que implementa un SQL Server que requiere una contraseña de administrador.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sqlsvrAdminLogin": {
-            "type": "string",
-            "minLength": 4
+        "administratorLogin": {
+            "type": "string"
         },
-        "sqlsvrAdminLoginPassword": {
+        "administratorLoginPassword": {
             "type": "securestring"
         },
-        ...
+        "collation": {
+            "type": "string"
+        },
+        "databaseName": {
+            "type": "string"
+        },
+        "edition": {
+            "type": "string"
+        },
+        "requestedServiceObjectiveId": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "maxSizeBytes": {
+            "type": "string"
+        },
+        "serverName": {
+            "type": "string"
+        },
+        "sampleName": {
+            "type": "string",
+            "defaultValue": ""
+        }
     },
     "resources": [
         {
-          "name": "[variables('sqlsvrName')]",
-          "type": "Microsoft.Sql/servers",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2014-04-01-preview",
-          "properties": {
-              "administratorLogin": "[parameters('sqlsvrAdminLogin')]",
-              "administratorLoginPassword": "[parameters('sqlsvrAdminLoginPassword')]"
-          },
-          ...
+            "apiVersion": "2015-05-01-preview",
+            "location": "[parameters('location')]",
+            "name": "[parameters('serverName')]",
+            "properties": {
+                "administratorLogin": "[parameters('administratorLogin')]",
+                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                "version": "12.0"
+            },
+            "resources": [
+                {
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                    ],
+                    "location": "[parameters('location')]",
+                    "name": "[parameters('databaseName')]",
+                    "properties": {
+                        "collation": "[parameters('collation')]",
+                        "edition": "[parameters('edition')]",
+                        "maxSizeBytes": "[parameters('maxSizeBytes')]",
+                        "requestedServiceObjectiveId": "[parameters('requestedServiceObjectiveId')]",
+                        "sampleName": "[parameters('sampleName')]"
+                    },
+                    "type": "databases"
+                },
+                {
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                    ],
+                    "location": "[parameters('location')]",
+                    "name": "AllowAllWindowsAzureIps",
+                    "properties": {
+                        "endIpAddress": "0.0.0.0",
+                        "startIpAddress": "0.0.0.0"
+                    },
+                    "type": "firewallrules"
+                }
+            ],
+            "type": "Microsoft.Sql/servers"
         }
-    ],
-    "variables": {
-        "sqlsvrName": "[concat('sqlsvr', uniqueString(resourceGroup().id))]"
-    },
-    "outputs": { }
+    ]
 }
 ```
 
+Ahora, cree un archivo de parámetros para la plantilla anterior. En el archivo de parámetros, especifique un parámetro que coincida con el nombre del parámetro de la plantilla. Para el valor del parámetro, haga referencia al secreto del almacén de claves. Se hace referencia al secreto pasando el identificador de recurso de almacén de claves y el nombre del secreto. En este ejemplo, ya debe existir el secreto del almacén de claves y se utiliza un valor estático para el mismo identificador de recurso.
 
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "administratorLogin": {
+            "value": "exampleadmin"
+        },
+        "administratorLoginPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/{guid}/resourceGroups/examplegroup/providers/Microsoft.KeyVault/vaults/{vault-name}"
+              },
+              "secretName": "examplesecret"
+            }
+        },
+        "collation": {
+            "value": "SQL_Latin1_General_CP1_CI_AS"
+        },
+        "databaseName": {
+            "value": "exampledb"
+        },
+        "edition": {
+            "value": "Standard"
+        },
+        "location": {
+            "value": "southcentralus"
+        },
+        "maxSizeBytes": {
+            "value": "268435456000"
+        },
+        "requestedServiceObjectiveId": {
+            "value": "455330e1-00cd-488b-b5fa-177c226f28b7"
+        },
+        "sampleName": {
+            "value": ""
+        },
+        "serverName": {
+            "value": "exampleserver"
+        }
+    }
+}
+```
 
 ## <a name="reference-a-secret-with-dynamic-id"></a>Referencia a un secreto con identificador dinámico
 

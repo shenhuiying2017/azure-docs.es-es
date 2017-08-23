@@ -14,28 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/20/2017
-ms.author: genemi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 069656b495929d66f6a47b38141f56b6bf0ac92f
+ms.date: 07/31/2017
+ms.author: genemi;carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: d9731cf5399cce6f103129ccda521f2867bd8da6
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Diseño de una base de datos de SQL Azure Database y conexión con C&#x23; y ADO.NET
 
-Azure SQL Database es una base de datos relacional como servicio (DBaaS) de Microsoft Cloud ("Azure"). En este tutorial, aprenderá a usar Azure Portal y ADO.NET para: 
+Azure SQL Database es una base de datos relacional como servicio (DBaaS) de Microsoft Cloud ("Azure"). En este tutorial se aprenderá a usar Azure Portal y ADO.NET con Visual Studio para: 
 
 > [!div class="checklist"]
 > * Crear una base de datos en Azure Portal
 > * Configurar una regla de firewall de nivel de servidor en Azure Portal
-> * Conectarse a la base de datos con ADO.NET
+> * Conectarse a la base de datos con ADO.NET y Visual Studio
 > * Crear tablas con ADO.NET
-> * Insertar datos con ADO.NET 
-> * Consultar los datos ADO.NET
+> * Insertar, actualizar y eliminar datos con ADO.NET 
+> * Consultar datos con ADO.NET
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Una instalación de [Visual Studio Community 2017, Visual Studio Professional 2017 o Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -53,8 +57,18 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Los pasos siguientes están disponibles:
+En este tutorial ha aprendido las tareas básicas de una base de datos, como crear una base de datos y tablas, cargar y consultar datos, y restaurar la base de datos a un momento anterior en el tiempo. Ha aprendido a:
+> [!div class="checklist"]
+> * Crear una base de datos
+> * Configurar una regla de firewall
+> * Conectarse a la base de datos con [Visual Studio y C#](sql-database-connect-query-dotnet-visual-studio.md)
+> * Cree las tablas.
+> * Insertar, actualizar y eliminar datos
+> * Datos de consulta
 
-- [Usar LINQ en el programa de C# para las consultas SQL](https://msdn.microsoft.com/library/bb425822.aspx)
-- [Migración de una base de datos SQL Server a Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+Vaya al siguiente tutorial para más información sobre la migración de los datos.
+
+> [!div class="nextstepaction"]
+>[Migración de una base de datos SQL Server a Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+
 

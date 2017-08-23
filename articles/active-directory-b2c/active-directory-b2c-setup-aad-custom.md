@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 976c4752cc3c3cc1c74adf7d57c3539d39aef556
+ms.sourcegitcommit: 495a695466c47c6030716d97c52b3bbf5ce9bf99
+ms.openlocfilehash: 6c073d70debfdc3560405955d65fa9ccaa7d8b1f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: inicio de sesión con cuentas de Azure AD
@@ -142,7 +142,7 @@ Para obtener un token del punto de conexión de Azure AD es preciso definir los 
 
 Debe actualizar la sección `<Metadata>` del archivo XML al que se ha hecho referencia anteriormente para reflejar la configuración de su inquilino de Azure AD específico. En el archivo XML, actualice los valores de los metadatos como se indica a continuación:
 
-1. Establezca `<Item Key="METADATA">` en `https://login.microsoftonline.com/yourAzureADtenant/.well-known/openid-configuration`, donde `yourAzureADtenant` es el nombre del inquilino de Azure AD (contoso.com).
+1. Establezca `<Item Key="METADATA">` en `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, donde `yourAzureADtenant` es el nombre del inquilino de Azure AD (contoso.com).
 1. Abra el explorador y vaya a la dirección URL `METADATA` que acaba de actualizar.
 1. En el explorador, busque el objeto "issuer" y copie su valor. Debería ser similar a lo siguiente: `https://sts.windows.net/{tenantId}/`.
 1. Pegue el valor de `<Item Key="ProviderName">` en el archivo XML.

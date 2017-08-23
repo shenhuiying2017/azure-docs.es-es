@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 74982663b0501d3a5c7973a5f383e14e0f964696
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 0bd9ec41761c9ce575f3bcf4d1f8e8578b83e01c
 ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funciones de matriz y de objeto para las plantillas de Azure Resource Manager 
@@ -34,6 +33,7 @@ Resource Manager ofrece varias funciones para trabajar con matrices y objetos.
 * [empty](#empty)
 * [first](#first)
 * [intersection](#intersection)
+* [json](#json)
 * [last](#last)
 * [length](#length)
 * [min](#min)
@@ -243,7 +243,7 @@ En el ejemplo siguiente se muestra cómo combinar dos matrices.
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con los valores predeterminados es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -271,7 +271,7 @@ En el ejemplo siguiente se muestra cómo combinar dos valores de cadena y devolv
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con los valores predeterminados es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -348,7 +348,7 @@ En el ejemplo siguiente se muestra cómo utilizar contains con diferentes tipos:
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con los valores predeterminados es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -486,7 +486,7 @@ En el ejemplo siguiente se comprueba si una matriz, un objeto y una cadena está
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con los valores predeterminados es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -540,7 +540,7 @@ En el ejemplo siguiente se muestra cómo utilizar la primera función con una ma
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con los valores predeterminados es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -614,6 +614,53 @@ El resultado del ejemplo anterior con los valores predeterminados es:
 | objectOutput | Objeto | {"one": "a", "three": "c"} |
 | arrayOutput | Matriz | ["two", "three"] |
 
+
+## <a name="json"></a>json
+`json(arg1)`
+
+Devuelve un objeto JSON.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sí |cadena |Valor que se va a convertir en JSON. |
+
+
+### <a name="return-value"></a>Valor devuelto
+
+Objeto JSON de la cadena especificada o un objeto vacío si se especifica **null**.
+
+### <a name="example"></a>Ejemplo
+
+En el ejemplo siguiente se muestra cómo utilizar la intersección con matrices y objetos:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+    ],
+    "outputs": {
+        "jsonOutput": {
+            "type": "object",
+            "value": "[json('{\"a\": \"b\"}')]"
+        },
+        "nullOutput": {
+            "type": "bool",
+            "value": "[empty(json('null'))]"
+        }
+    }
+}
+```
+
+El resultado del ejemplo anterior con los valores predeterminados es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| jsonOutput | Objeto | {"a": "b"} |
+| nullOutput | boolean | True |
+
 <a id="last" />
 
 ## <a name="last"></a>last
@@ -660,7 +707,7 @@ En el ejemplo siguiente se muestra cómo utilizar la última función con una ma
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con los valores predeterminados es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -720,7 +767,7 @@ En el ejemplo siguiente se muestra cómo utilizar length con una matriz y una ca
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con los valores predeterminados es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -783,7 +830,7 @@ En el ejemplo siguiente se muestra cómo utilizar min con una matriz y una lista
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con los valores predeterminados es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -835,7 +882,7 @@ En el ejemplo siguiente se muestra cómo utilizar max con una matriz y una lista
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con los valores predeterminados es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -956,7 +1003,7 @@ En el ejemplo siguiente se omite el número especificado de elementos de la matr
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con los valores predeterminados es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1025,7 +1072,7 @@ En el ejemplo siguiente se toma el número especificado de elementos de la matri
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con los valores predeterminados es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |

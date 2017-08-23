@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 11/18/2016
+ms.date: 6/2/2017
 ms.author: shigu;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 8d189256ed4c876859203406cda95ce0be36c96c
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: a0452c4dedc218dff17404c4ecee70d788e49644
+ms.contentlocale: es-es
+ms.lasthandoff: 07/25/2017
 
 ---
 
-# <a name="memory-optimizations-for-columnstore-compression"></a>Optimizaciones de memoria para la compresión de almacén de columnas
+# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximización de la calidad del grupo de filas del almacén de columnas
 
-Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas.  Emplee estos métodos para mejorar las tasas de compresión y el rendimiento de las consultas de los índices de almacén de columnas.
+El número de filas de un grupo de filas determina la calidad del grupo de filas. Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas.  Emplee estos métodos para mejorar las tasas de compresión y el rendimiento de las consultas de los índices de almacén de columnas.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Por qué importa el tamaño del grupo de filas
 Como los índices de almacén de columnas examinan una tabla mediante el examen de segmentos de columna de grupos de filas individuales, al maximizar el número de filas de cada grupo de estas, se mejora el rendimiento de las consultas. Cuando los grupos de filas presentan un gran número de filas, la compresión de datos mejora; es decir, hay menos datos que se deben leer en el disco.
@@ -37,11 +37,45 @@ Para obtener el mejor rendimiento de consultas, el objetivo consiste en maximiza
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>Los grupos de filas pueden recortarse durante la compresión
 
-Durante una carga masiva o regeneración de índice de almacén columnas, a veces no queda suficiente memoria disponible para comprimir todas las filas designadas para cada grupo de filas. Cuando existe una presión de memoria, los índices de almacén de columnas recortan el tamaño de los grupos de filas para que se pueda realizar la compresión en el almacén de columnas.
+Durante una carga masiva o regeneración de índice de almacén columnas, a veces no queda suficiente memoria disponible para comprimir todas las filas designadas para cada grupo de filas. Cuando existe una presión de memoria, los índices de almacén de columnas recortan el tamaño de los grupos de filas para que se pueda realizar la compresión en el almacén de columnas. 
 
 Cuando no hay memoria suficiente para comprimir al menos 10.000 filas en cada grupo de filas, SQL Data Warehouse genera un error.
 
 Para obtener más información sobre la carga masiva, consulte [Carga de datos en un índice de almacén de columnas agrupado](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+
+## <a name="how-to-monitor-rowgroup-quality"></a>Cómo supervisar la calidad del grupo de filas
+
+Hay una DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) que expone información útil como el número de filas de los grupos de filas y el motivo para recortar si ha habido recorte. Puede crear la siguiente vista como una forma práctica para consultar esta DMV a fin de obtener información sobre el recorte del grupo de filas.
+
+```sql
+create view dbo.vCS_rg_physical_stats
+as 
+with cte
+as
+(
+select   tb.[name]                    AS [logical_table_name]
+,        rg.[row_group_id]            AS [row_group_id]
+,        rg.[state]                   AS [state]
+,        rg.[state_desc]              AS [state_desc]
+,        rg.[total_rows]              AS [total_rows]
+,        rg.[trim_reason_desc]        AS trim_reason_desc
+,        mp.[physical_name]           AS physical_name
+FROM    sys.[schemas] sm
+JOIN    sys.[tables] tb               ON  sm.[schema_id]          = tb.[schema_id]                             
+JOIN    sys.[pdw_table_mappings] mp   ON  tb.[object_id]          = mp.[object_id]
+JOIN    sys.[pdw_nodes_tables] nt     ON  nt.[name]               = mp.[physical_name]
+JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  rg.[object_id]     = nt.[object_id]
+                                                                            AND rg.[pdw_node_id]   = nt.[pdw_node_id]
+                                        AND rg.[distribution_id]    = nt.[distribution_id]                                          
+)
+select *
+from cte;
+```
+
+trim_reason_desc indica si el grupo de filas se ha recortado (trim_reason_desc = NO_TRIM implica que no ha habido ningún recorte y que el grupo de filas es de calidad óptima). Los siguientes motivos de recorte indican el recorte prematuro del grupo de filas:
+- BULKLOAD: este motivo de recorte se usa cuando el lote entrante de filas de la carga tenía menos de 1 millón de filas. El motor creará grupos de filas comprimidos si hay más de 100.000 filas que se van a insertar (en lugar de insertar en el almacén delta), pero establece el motivo de recorte en BULKLOAD. En este escenario, considere la posibilidad de aumentar la ventana de carga por lotes para acumular más filas. Además, vuelva a evaluar el esquema de partición para asegurarse de que no es demasiado granular si los grupos de filas no pueden abarcar los límites de partición.
+- MEMORY_LIMITATION: para crear grupos de filas con 1 millón de filas, el motor necesita una determinada cantidad de memoria de trabajo. Cuando la memoria disponible de la sesión de carga es inferior a la memoria de trabajo necesaria, los grupos de filas se recortan prematuramente. En las siguientes secciones se explica cómo estimar la memoria necesaria y asignar más.
+- DICTIONARY_SIZE: este motivo de recorte indica que el recorte del grupo de filas se ha producido porque había al menos una columna de cadena con cadenas de cardinalidad anchas o altas. El tamaño del diccionario está limitado a 16 MB de memoria y, cuando se alcanza este límite, se comprime el grupo de filas. Si ejecuta en esta situación, considere la posibilidad de aislar la columna problemática en una tabla independiente.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Cómo calcular los requisitos de memoria
 

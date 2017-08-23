@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/14/2017
+ms.date: 06/24/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 1cce449a87571fdabd0dbf76f764f442b2990ffe
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Introducción a Azure Multi-Factor Authentication en la nube
@@ -41,66 +41,8 @@ Siempre y cuando los usuarios tengan licencias que incluyen Azure Multi-Factor A
 Si no dispone una de estas tres licencias o no tiene suficientes licencias para cubrir a todos los usuarios, es correcto también. Solo tiene que realizar un paso adicional y [crear un proveedor de Muti-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) en el directorio.
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Activación de la verificación en dos pasos para los usuarios
-Para solicitar la verificación en dos pasos de un usuario, cambie el estado del usuario de deshabilitado a habilitado.  Para más información sobre los estados de usuario, consulte [Estados de usuario en Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
-Utilice el procedimiento siguiente para habilitar MFA para los usuarios.
-
-### <a name="to-turn-on-multi-factor-authentication"></a>Activación de Azure Multi-Factor Authentication
-1. Inicie sesión como administrador en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. En la parte izquierda, haga clic en **Active Directory**.
-3. En Directorio, seleccione el directorio para el usuario que desea habilitar.
-   ![Hacer clic en Directorio](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4. En la parte superior, haga clic en **Usuarios**.
-5. En la parte inferior de la página, haga clic en **Admin. Multi-Factor Auth**. Se abre una nueva pestaña del explorador.
-   ![Hacer clic en Directorio](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6. Busque el usuario que desea habilitar para la verificación en dos pasos. Puede que necesite cambiar la vista en la parte superior. Asegúrese de que el estado es **deshabilitado**.
-   ![Habilitar usuario](./media/multi-factor-authentication-get-started-cloud/enable1.png)
-7. Coloque una **marca de comprobación** en el cuadro junto a su nombre.
-8. A la derecha, haga clic en **Habilitar**.
-   ![Habilitar usuario](./media/multi-factor-authentication-get-started-cloud/user1.png)
-9. Haga clic en **Habilitar Multi-Factor Auth**.
-   ![Habilitar usuario](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-10. Observe que el estado del usuario ha cambiado de **deshabilitado** a **habilitado**.
-    ![Habilitar usuarios](./media/multi-factor-authentication-get-started-cloud/user.png)
-
-Una vez habilitados los usuarios, envíeles una notificación por correo electrónico. La próxima vez que intenten iniciar sesión, se les pedirá que inscriban su cuenta para la verificación en dos pasos. Una vez que comiencen a utilizar la verificación en dos pasos, también deberán configurar las contraseñas de aplicación para evitar que se bloqueen aplicaciones que no son de explorador.
-
-## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Use PowerShell para automatizar la activación de la verificación en dos pasos
-Para cambiar el [estado](multi-factor-authentication-whats-next.md) con [Azure AD PowerShell](/powershell/azure/overview), puede utilizar lo siguiente.  Puede cambiar `$st.State` para que sea igual a uno de los estados siguientes:
-
-* habilitado
-* Aplicado
-* Disabled  
-
-> [!IMPORTANT]
-> No es aconsejable mover usuarios directamente desde el estado deshabilitado al estado forzado. Las aplicaciones que no son de explorador dejarán de funcionar porque el usuario no ha pasado a través del proceso de registro de MFA y obtenido una [contraseña de aplicación](multi-factor-authentication-whats-next.md#app-passwords). Si tiene aplicaciones que no son de explorador y requiere contraseñas de aplicación, se recomienda que pase del estado deshabilitado al habilitado. Esto permitirá a los usuarios registrar y obtener sus contraseñas de aplicación. Después, podrá pasar al estado forzado.
-
-El uso de PowerShell sería una opción para habilitar usuarios de forma masiva. Actualmente no hay ninguna característica de habilitación de forma masiva en el Portal de Azure y debe seleccionar cada usuario individualmente. Si tiene muchos usuarios, esto puede suponer bastante trabajo. Con la creación de un script de PowerShell mediante las opciones que aparecen a continuación, puede recorrer en iteración una lista de usuarios y habilitarlos.
-
-```PowerShell
-
-$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-$st.RelyingParty = "*"
-$st.State = "Enabled"
-$sta = @($st)
-Set-MsolUser -UserPrincipalName "bsimon@contoso.com" -StrongAuthenticationRequirements $sta
-```
-
-Aquí tiene un ejemplo:
-
-```Powershell
-$users = @("bsimon@contoso.com", "jsmith@contoso.com", "ljacobson@contoso.com")
-foreach ($user in $users)
-{
-   $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-   $st.RelyingParty = "*"
-   $st.State = "Enabled"
-   $sta = @($st)
-   Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-}
-```
-
-Para más información, consulte [Estados de usuario en Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
+Utilice uno de los procedimientos enumerados en el artículo sobre la [exigencia de verificación en dos pasos para un usuario o un grupo](multi-factor-authentication-get-started-user-states.md) para empezar a usar Azure MFA. Puede elegir exigir la verificación en dos pasos para todos los inicios de sesión o crear directivas de acceso condicional para exigir la verificación en dos pasos únicamente cuando usted lo necesite.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha configurado Azure Multi-Factor Authentication en la nube, puede configurar la implementación. Consulte [Configuración de Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md) para conocer más detalles.

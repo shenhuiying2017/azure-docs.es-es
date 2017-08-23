@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: e9c1868f978616eb71410171faed6d5a60030258
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: ab95c39a3b5c4ac2c07bf5de36abbdc22fde7e7d
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows
@@ -37,7 +36,7 @@ Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux ahora tie
 La solución Cifrado de discos de Azure admite los tres escenarios de cliente siguientes:
 
 * Habilitación del cifrado en las nuevas máquinas virtuales IaaS creadas a partir de un VHD precifrado y las claves de cifrado
-* Habilitación del cifrado en las nuevas máquinas virtuales IaaS creadas a partir de imágenes de la Galería de Azure
+* Habilitación del cifrado en las nuevas máquinas virtuales IaaS creadas a partir de imágenes compatibles de la Galería de Azure
 * Habilitación del cifrado en las máquinas virtuales IaaS existentes que se ejecutan en Azure
 * Deshabilitación del cifrado en máquinas virtuales IaaS de Windows
 * Deshabilitación del cifrado en unidades de datos para máquinas virtuales IaaS con Linux
@@ -49,7 +48,7 @@ La solución admite los siguientes escenarios para las máquinas virtuales IaaS 
 
 * Integración con el Almacén de claves de Azure
 * Máquinas virtuales de nivel estándar: [máquinas virtuales IaaS de las series A, D, DS, G, GS, F, etc.](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* Habilitación del cifrado en máquinas virtuales IaaS de Linux y Windows y máquinas virtuales de discos administrados
+* Habilitación del cifrado en las máquinas virtuales IaaS Windows y Linux y las máquinas virtuales de disco administradas a partir de imágenes compatibles de la Galería de Azure
 * Deshabilitación del cifrado en sistemas operativos y unidades de datos para máquinas virtuales IaaS de Windows y máquinas virtuales de discos administrados
 * Deshabilitación del cifrado en unidades de datos para máquinas virtuales IaaS de Linux y máquinas virtuales de discos administrados
 * Habilitación del cifrado en máquinas virtuales IaaS que ejecutan el sistema operativo cliente de Windows
@@ -64,7 +63,9 @@ La solución no admite los siguientes escenarios, características y tecnología
 
 * Máquinas virtuales IaaS de nivel básico
 * Deshabilitación del cifrado en una unidad del sistema operativo para máquinas virtuales IaaS Linux
+* Deshabilitación del cifrado en una unidad de datos si la unidad del sistema operativo está cifrada para las máquinas virtuales Iaas Linux
 * Máquinas virtuales IaaS creadas con el método clásico de generación de máquinas virtuales
+* NO se admite la habilitación del cifrado en imágenes personalizadas de cliente de máquinas virtuales IaaS Windows y Linux. En la actualidad no se admite la habilitación del cifrado en el disco del sistema operativo de LVM Linux. Se admitirá pronto.
 * Integración con el Servicio de administración de claves local
 * Azure Files (sistema de archivos compartido), Network File System (NFS), volúmenes dinámicos y máquinas virtuales Windows configuradas con sistemas RAID basadas en software
 * Restaure y realice una copia de seguridad de máquinas virtuales cifradas sin clave de cifrado.
@@ -80,7 +81,7 @@ Al habilitar e implementar Azure Disk Encryption para las máquinas virtuales Ia
 * Cifrado del volumen de sistema operativo para proteger el volumen de arranque en reposo en el almacenamiento
 * Cifrado de volúmenes de datos para proteger los volúmenes de datos en reposo en el almacenamiento
 * Deshabilitación del cifrado en unidades de datos y del sistema operativo para máquinas virtuales IaaS con Windows
-* Deshabilitación del cifrado en unidades de datos para máquinas virtuales IaaS con Linux
+* Deshabilitación del cifrado en las unidades de datos de las máquinas virtuales IaaS Linux (solo si la unidad del sistema operativo NO ESTÁ cifrada)
 * Protección de las claves y secretos de cifrado en la suscripción de Key Vault
 * Notificación del estado de cifrado de la máquina virtual IaaS cifrada
 * Eliminación de las opciones de configuración de cifrado de disco de la máquina virtual IaaS
@@ -130,12 +131,13 @@ Para deshabilitar el cifrado de disco para las máquinas virtuales IaaS, complet
 
 1. Elija deshabilitar el cifrado (descifrado) en una máquina virtual IaaS en ejecución en Azure a través de la plantilla de Resource Manager de Azure Disk Encryption o los cmdlets de PowerShell, y especifique la configuración de descifrado.
 
- Este paso deshabilita el cifrado del volumen del sistema operativo o de datos (o ambos) en la máquina virtual IaaS con Windows en ejecución. Sin embargo, como se mencionó en la sección anterior, no se admite deshabilitar el cifrado del disco del sistema operativo. El paso de descifrado se permite solo para las unidades de datos en máquinas virtuales con Linux.
+ Este paso deshabilita el cifrado del volumen del sistema operativo o de datos (o ambos) en la máquina virtual IaaS con Windows en ejecución. Sin embargo, como se mencionó en la sección anterior, no se admite deshabilitar el cifrado del disco del sistema operativo. El paso de descifrado se permite solo para unidades de datos en máquinas virtuales Linux siempre que el disco del sistema operativo no esté cifrado.
 2. Azure actualiza el modelo de servicio de la máquina virtual y la máquina virtual IaaS se marca como descifrada. El contenido de la máquina virtual ya no se cifra en reposo.
 
 > [!NOTE]
 > La operación de deshabilitación del cifrado no elimina el almacén de claves y el material de clave de cifrado (claves de cifrado de BitLocker para sistemas Windows y frase de contraseña para Linux).
  > No se admite la deshabilitación del cifrado de disco del sistema operativo para Linux. El paso de descifrado se permite solo para las unidades de datos en máquinas virtuales con Linux.
+La deshabilitación del cifrado del disco de datos para Linux no se admite si la unidad del sistema operativo está cifrada.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure para los escenarios admitidos que se describen en la sección "Información general", vea los siguientes requisitos previos:
@@ -147,7 +149,7 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
 > [!NOTE]
 > En el caso de Windows Server 2008 R2, debe tener .NET Framework 4.5 instalado para poder habilitar el cifrado en Azure. Se puede instalar desde Windows Update mediante la instalación de la actualización opcional Microsoft .NET Framework 4.5.2 para sistemas basados en x64 con Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption se admite en las siguientes distribuciones y versiones del servidor de Linux:
+* Azure Disk Encryption se admite en las siguientes distribuciones y versiones del servidor Linux basadas en la Galería de Azure:
 
 | Distribución de Linux | Versión | Tipo de volumen compatible con el cifrado|
 | --- | --- |--- |
@@ -187,16 +189,16 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
 * La plataforma Azure necesita acceso a las claves de cifrado o los secretos del almacén de claves para ponerlos a disposición de la máquina virtual cuando arranque y descifre el volumen del sistema operativo de la máquina virtual. Para conceder permisos a la plataforma Azure, configure la propiedad **EnabledForDiskEncryption** en el almacén de claves. Para obtener más información, vea **Instalación y configuración del almacén de claves para Azure Disk Encryption** en el Apéndice.
 * El secreto del almacén de claves y las direcciones URL de KEK deben tener versiones. Azure exige esta restricción del control de versiones. Para ver direcciones URL de KEK y de secretos válidas, vea los ejemplos siguientes:
 
-  * Ejemplo de dirección URL de secreto válida:   *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Ejemplo de dirección URL de KEK válida:   *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Ejemplo de dirección URL de secreto válida: *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Ejemplo de dirección URL de KEK válida: *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Azure Disk Encryption no admite que los números de puerto se especifiquen como parte de los secretos del almacén de claves y las direcciones URL de KEK. Para ver ejemplos de direcciones URL de almacén de claves admitidas y no admitidas, vea lo siguiente:
 
-  * Dirección URL de almacén de claves no aceptable  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Dirección URL de almacén de claves aceptable:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Dirección URL de almacén de claves no aceptable: *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Dirección URL de almacén de claves aceptable: *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Para habilitar la característica Azure Disk Encryption, las máquinas virtuales IaaS deben cumplir los siguientes requisitos de configuración de puntos de conexión de red:
-  * Para que un token se conecte al almacén de claves, la máquina virtual IaaS debe poder conectarse a un punto de conexión de Azure Active Directory, \[Login.windows.net\].
+  * Para que un token se conecte al almacén de claves, la máquina virtual IaaS debe poder conectarse a un punto de conexión de Azure Active Directory, \[login.microsoftonline.com\].
   * Para escribir las claves de cifrado en el almacén de claves, la máquina virtual IaaS debe poder conectarse al punto de conexión del almacén de claves.
   * La máquina virtual IaaS debe poder conectarse al punto de conexión de Azure Storage que hospeda el repositorio de extensiones de Azure y la cuenta de Azure Storage que hospeda los archivos VHD.
 
@@ -230,7 +232,7 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
 
 * Los discos de datos montados de forma recursiva no son compatibles con Azure Disk Encryption para Linux. Por ejemplo, si el sistema de destino ha montado un disco en/foo/barra y, a continuación, otro en /foo/barra/baz, el cifrado de /foo/barra/baz se realizará correctamente, pero se producirá un error de cifrado de /foo/barra. 
 
-* Azure Disk Encryption solo es compatible con las imágenes de la galería que cumplen los requisitos previos mencionados anteriormente.  Las imágenes personalizadas no se admiten debido a los comportamientos de los procesos y los esquemas de las particiones personalizadas que puedan existir en estas imágenes.  Además, incluso pueden no ser compatibles las máquinas virtuales basadas en imágenes de la galería que inicialmente cumplieran los requisitos previos, pero fueran modificadas después de su creación.  Por ello, el procedimiento sugerido para cifrar una VM de Linux es partir de una imagen limpia de la galería, cifrar la máquina virtual y, a continuación, agregarle los datos o el software personalizado según sea necesario.  
+* Azure Disk Encryption solo se admite en imágenes admitidas de la Galería de Azure que cumplen los requisitos previos mencionados anteriormente. Las imágenes personalizadas de cliente no se admiten debido a los comportamientos de los procesos y los esquemas de las particiones personalizadas que puedan existir en estas imágenes. Además, incluso pueden no ser compatibles las máquinas virtuales basadas en imágenes de la galería que inicialmente cumplieran los requisitos previos, pero fueran modificadas después de su creación.  Por ello, el procedimiento sugerido para cifrar una VM de Linux es partir de una imagen limpia de la galería, cifrar la máquina virtual y, a continuación, agregarle los datos o el software personalizado según sea necesario.  
 
 > [!NOTE]
 > La copia de seguridad y restauración de las máquinas virtuales cifradas solo se admite para las máquinas virtuales que se cifran mediante la configuración de KEK. No se admite en máquinas virtuales cifradas sin KEK. KEK es un parámetro opcional que habilita las máquinas virtuales.
@@ -246,7 +248,7 @@ Las secciones siguientes pueden ayudarle a configurar una autenticación basada 
 ##### <a name="create-an-azure-ad-application-by-using-azure-powershell"></a>Creación de una aplicación de Azure AD mediante Azure PowerShell
 Utilice el siguiente cmdlet de PowerShell para crear una aplicación de Azure AD:
 
-    $aadClientSecret = “yourSecret”
+    $aadClientSecret = "yourSecret"
     $azureAdApplication = New-AzureRmADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password $aadClientSecret
     $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
 
@@ -700,7 +702,7 @@ En una máquina virtual IaaS con Windows o Linux en ejecución, se puede deshabi
 El paso de deshabilitación del cifrado deshabilita el cifrado del volumen del sistema operativo o de datos (o ambos) en la máquina virtual IaaS con Windows en ejecución. No es posible deshabilitar el volumen del sistema operativo y dejar el volumen de datos cifrado. Cuando se realiza el paso de deshabilitación del cifrado, el modelo de implementación clásica de Azure actualiza el modelo de servicio de la máquina virtual y la máquina virtual IaaS con Windows se marca como descifrada. El contenido de la máquina virtual ya no se cifra en reposo. El descifrado no elimina el almacén de claves ni el material de clave de cifrado (claves de cifrado de BitLocker para Windows y frase de contraseña para Linux).
 
 ##### <a name="linux-vm"></a>Máquina virtual de Linux
-El paso de deshabilitación del cifrado deshabilita el cifrado del volumen de datos en la máquina virtual IaaS con Linux en ejecución.
+El paso de deshabilitación del cifrado deshabilita el cifrado del volumen de datos en la máquina virtual IaaS con Linux en ejecución. Este paso solo funciona si el disco del sistema operativo no está cifrado.
 
 > [!NOTE]
 > No se permite deshabilitar el cifrado en el disco del sistema operativo en máquinas virtuales Linux.

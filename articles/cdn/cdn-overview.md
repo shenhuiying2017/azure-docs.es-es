@@ -1,9 +1,9 @@
 ---
 title: "Información general de CDN de Azure | Microsoft Docs"
-description: "Obtenga información acerca de la Red de entrega de contenido (CDN) de Azure y de cómo usarla para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos."
+description: "Obtenga información acerca de Content Delivery Network (CDN) de Azure y de cómo usarla para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos."
 services: cdn
 documentationcenter: 
-author: lichard
+author: smcevoy
 manager: akucer
 editor: 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,22 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
-ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 299e55e095ac323ed0ded7c7844d7cd103174af2
+ms.author: v-semcev
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 0517f35a43e99181075dc5a6836e406c2c06824e
 ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
-# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Información general de la red de entrega de contenido (CDN) de Azure
+# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Información general de Content Delivery Network (CDN) de Azure
 > [!NOTE]
-> En este documento se describe qué es la red de entrega de contenido (CDN) de Azure, cómo funciona y las características de cada producto CDN de Azure.  Si desea omitir esta información y pasar directamente a un tutorial sobre cómo crear un punto de conexión de CDN, consulte [Uso de CDN de Azure](cdn-create-new-endpoint.md).  Para ver una lista de ubicaciones actuales de nodos de CDN, consulte [Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure](cdn-pop-locations.md).
+> En este documento se describe qué es Content Delivery Network (CDN) de Azure, cómo funciona y las características de cada producto CDN de Azure.  Si desea omitir esta información y pasar directamente a un tutorial sobre cómo crear un punto de conexión de CDN, consulte [Uso de CDN de Azure](cdn-create-new-endpoint.md).  Para ver una lista de ubicaciones actuales de nodos de CDN, consulte [Ubicaciones POP de la Red de entrega de contenido (CDN) de Azure](cdn-pop-locations.md).
 > 
 > 
 
-La Red de entrega de contenido (CDN) de Azure almacena en caché contenido de web estático en ubicaciones colocadas estratégicamente para proporcionar el máximo rendimiento a la hora de proporcionar contenido a los usuarios.  CDN ofrece a los desarrolladores una solución global para entregar contenido de alto ancho de banda almacenando en caché el contenido en nodos físicos en todo el mundo. 
+Content Delivery Network (CDN) de Azure almacena en caché contenido de web estático en ubicaciones colocadas estratégicamente para proporcionar el máximo rendimiento a la hora de proporcionar contenido a los usuarios.  CDN ofrece a los desarrolladores una solución global para entregar contenido de alto ancho de banda almacenando en caché el contenido en nodos físicos en todo el mundo. 
 
 Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los recursos de sitios web se incluyen:
 
@@ -40,7 +39,7 @@ Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los r
 ![Información general de la red CDN](./media/cdn-overview/cdn-overview.png)
 
 1. Un usuario (Alice) solicita un archivo (también denominado un recurso) mediante una dirección URL con un nombre de dominio especial, como `<endpointname>.azureedge.net`.  DNS enruta la solicitud hacia la ubicación del punto de presencia (POP) con mejor rendimiento.  Este es normalmente el POP geográficamente más cercano al usuario.
-2. Si los servidores perimetrales del POP no tienen el archivo en la memoria caché, el servidor perimetral solicitará el archivo desde el origen.  El origen puede ser una aplicación web, servicio en la nube o cuenta de Almacenamiento de Azure, o cualquier servidor web accesible públicamente.
+2. Si los servidores perimetrales del POP no tienen el archivo en la memoria caché, el servidor perimetral solicitará el archivo desde el origen.  El origen puede ser una aplicación web, servicio en la nube o cuenta de Azure Storage, o cualquier servidor web accesible públicamente.
 3. El origen devuelve el archivo al servidor perimetral, incluidos los encabezados HTTP opcionales que describen el período de vida (TTL) del archivo.
 4. El servidor perimetral almacena el archivo en caché y devuelve el archivo al solicitante original (Alice).  El archivo permanece en caché en el servidor perimetral hasta que expire el TTL.  Si el origen no ha especificado ningún TTL, el valor predeterminado será de siete días.
 5. Después, los usuarios adicionales pueden solicitar el mismo archivo mediante la misma dirección URL y también se les puede dirigir al mismo POP.
@@ -51,28 +50,37 @@ Hay tres productos del servicio CDN de Azure: **Azure CDN Standard de Akamai**, 
 
 |  | Estándar de Akamai | Estándar de Verizon | Premium de Verizone |
 | --- | --- | --- | --- |
-| Fácil integración con servicios de Azure, como [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md) y [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Se puede administrar mediante la [API de REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) o [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Compatibilidad con HTTPS con el punto de conexión de red CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| HTTPS de dominio personalizado | |**&#x2713;** |**&#x2713;** |
-| Equilibrio de carga |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015)  |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Pila dual IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Compatibilidad con nombre de dominio personalizado](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Almacenamiento en caché de cadena de consulta](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Filtrado geográfico](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Características de rendimiento y optimizaciones__ |
+| [Aceleración de sitios dinámicos](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
+| [Optimización de streaming multimedia](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&#x2713;**  | \* |  \* |
+| [Optimización de archivos grandes](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&#x2713;**  | \* |  \* |
+| [Equilibrio de carga del servidor global (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Purga rápida](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Carga previa de activos](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
-| [Análisis esencial](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
+| [Almacenamiento en caché de cadena de consulta](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Pila dual IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Compatibilidad con HTTP/2](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Seguridad__ |
+| Compatibilidad con HTTPS con el punto de conexión de red CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| HTTPS de dominio personalizado | |**&#x2713;** |**&#x2713;** |
+| [Compatibilidad con nombre de dominio personalizado](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Filtrado geográfico](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Autenticación de token](cdn-token-auth.md)|  |  |**&#x2713;**| 
+| [Protección contra DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__Análisis e informes__ |
+| [Análisis esencial](cdn-analyze-usage-patterns.md) | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Informes de HTTP avanzados](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Estadísticas en tiempo real](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Alertas en tiempo real](cdn-real-time-alerts.md) | | |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Facilidad de uso__ |
+| Fácil integración con servicios de Azure, como [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md) y [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Se puede administrar mediante la [API de REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) o [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Motor de entrega de contenido personalizable, basado en reglas](cdn-rules-engine.md) | | |**&#x2713;** |
 | Configuración de la memoria caché o del encabezado (mediante un [motor de reglas](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Redirección/rescritura de direcciones URL (mediante un [motor de reglas](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Reglas de dispositivos móviles (mediante un [motor de reglas](cdn-rules-engine.md)) | | |**&#x2713;** |
-| [Autenticación de token](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
+\* Verizon admite la entrega de archivos de gran tamaño y de elementos multimedia directamente a través de la entrega web general.
 
 
 > [!TIP]

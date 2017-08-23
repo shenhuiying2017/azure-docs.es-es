@@ -1,5 +1,5 @@
 ---
-title: "Habilitación de directiva de SSL y SSL de extremo a extremo en Application Gateway | Microsoft Docs"
+title: "Habilitación de SSL de extremo a extremo en Azure Application Gateway | Microsoft Docs"
 description: "En esta página se proporciona información general sobre la compatibilidad de Application Gateway con el protocolo SSL de extremo a extremo."
 documentationcenter: na
 services: application-gateway
@@ -13,16 +13,16 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 07/19/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 40368e31790a7ffa2d34a51a13e78d028cd0a1eb
-ms.lasthandoff: 04/05/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 689ee54dc1db2ea371b08270718278fd98c65bb5
+ms.contentlocale: es-es
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Introducción a la directiva SSL y SSL de un extremo a otro en Application Gateway
+# <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Introducción a SSL de extremo a extremo con Application Gateway
 
 Application Gateway es compatible con la terminación SSL en la puerta de enlace; después, el tráfico fluye normalmente sin cifrar a los servidores back-end. Esta característica permite a los servidores web liberarse de la costosa sobrecarga de cifrado y descifrado. Sin embargo, para algunos clientes, la comunicación sin cifrar en los servidores back-end no es una opción aceptable. Esta comunicación sin cifrar podría deberse a los requisitos de seguridad, a los requisitos de cumplimiento o a la posibilidad de que la aplicación solo acepte una conexión segura. Para tales aplicaciones, Application Gateway admite el cifrado SSL de un extremo a otro.
 
@@ -40,17 +40,9 @@ En este ejemplo, las solicitudes mediante TLS1.2 se enrutan a los servidores bac
 
 Application Gateway solo se comunica con instancias de back-end conocidas, que tienen en la lista blanca su certificado con Application Gateway. Para habilitar la creación de listas blancas de certificados, debe cargar la clave pública de los certificados de servidor back-end en Application Gateway (no el certificado raíz). Solo se permiten conexiones en back-ends conocidos y en la lista blanca. Los back-ends restantes producen un error de puerta de enlace. Los certificados autofirmados son para fines de prueba que y no se recomiendan para cargas de trabajo de producción. Para poder usar estos certificados, deben estar en la lista blanca con Application Gateway, tal y como se describe en los pasos anteriores.
 
-## <a name="application-gateway-ssl-policy"></a>Directiva SSL de Application Gateway
-
-Application Gateway admite directivas de negociación SSL configurables, que permiten a los clientes mayor control de las conexiones SSL en Application Gateway.
-
-1. SSL 2.0 y 3.0 están deshabilitados de forma predeterminada en todas las instancias de Application Gateway. Estas directivas no se pueden configurar bajo ningún concepto.
-2. La definición de directivas SSL permite deshabilitar cualquiera de los siguientes tres protocolos: **TLSv1\_0**, **TLSv1\_1** y **TLSv1\_2**.
-3. Si no se define ninguna directiva SSL, se habilitan los tres (TLSv1\_0, TLSv1\_1 y TLSv1_2).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de obtener información sobre la directiva SSL y SSL de extremo a extremo, vaya a la página sobre [habilitación d SSL de extremo a extremo en Application Gateway](application-gateway-end-to-end-ssl-powershell.md) para crear una puerta de enlace de aplicaciones mediante SSL de extremo a extremo.
+Después de obtener información sobre SSL de extremo a extremo, vaya a la página sobre [habilitación de SSL de extremo a extremo en Application Gateway](application-gateway-end-to-end-ssl-powershell.md) para crear una puerta de enlace de aplicaciones mediante SSL de extremo a extremo.
 
 <!--Image references-->
 

@@ -15,22 +15,19 @@ ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/05/2017
-ms.author: rachelap, glenga
+ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: be7a9979ba7e6aa26c60b24bcc892ca35af3c1fc
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: f3aa6740751db9aa979a88f9600f68cf4353643c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Creación de la primera función mediante Visual Studio
 
 Azure Functions permite ejecutar el código en un entorno sin servidor sin necesidad de crear una máquina virtual o publicar una aplicación web.
 
-> [!IMPORTANT]
-> En este tema se utiliza una versión preliminar de Visual Studio para completar sus pasos. Asegúrese de que ha instalado [Visual Studio 2017 Preview versión 15.3](https://www.visualstudio.com/vs/preview/) antes de continuar.
-
-En este tema, aprenderá a usar Herramientas de Azure Functions para Visual Studio 2017 para crear y probar una función de "Hola mundo" localmente. Luego publicará el código de función en Azure.
+En este tema, aprenderá a usar Herramientas de Azure Functions para Visual Studio 2017 para crear y probar una función de "Hola mundo" localmente. Luego publicará el código de función en Azure. Estas herramientas están disponibles como parte de la carga de trabajo de desarrollo de Azure en Visual Studio 2017 (versión 15.3 o posteriores).
 
 ![Código Azure Functions en un proyecto de Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -38,17 +35,11 @@ En este tema, aprenderá a usar Herramientas de Azure Functions para Visual Stud
 
 Para completar este tutorial, instale:
 
-* [Versión 15.3 de Visual Studio 2017 Preview](https://www.visualstudio.com/vs/preview/), incluyendo la carga de trabajo **Desarrollo de Azure**.
+* [Versión 15.3 de Visual Studio 2017](https://www.visualstudio.com/vs/preview/), con la carga de trabajo **Desarrollo de Azure**.
 
     ![Instalar Visual Studio 2017 con la cargas de trabajo Desarrollo de Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="install-azure-functions-tools-for-visual-studio-2017"></a>Instalación de Herramientas de Azure Functions para Visual Studio 2017
-
-Antes de comenzar, debe descargar e instalar Herramientas de Azure Functions para Visual Studio 2017. Estas herramientas solo pueden utilizarse con la versión 15.3 de Visual Studio 2017 Preview, o cualquier versión posterior. Si ya ha instalado Herramientas de Azure Functions, puede omitir esta sección.
-
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)]   
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## <a name="create-an-azure-functions-project-in-visual-studio"></a>Creación de un proyecto de Azure Functions en Visual Studio
 
@@ -58,27 +49,29 @@ Ahora que ha creado el proyecto, puede crear la primera función.
 
 ## <a name="create-the-function"></a>Creación de la función
 
-En el **Explorador de soluciones**, haga clic con el botón derecho en el nodo del proyecto y seleccione **Agregar** > **Nuevo elemento**. Seleccione **Función de Azure** y haga clic en **Agregar**.
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en el nodo del proyecto y seleccione **Agregar** > **Nuevo elemento**. Seleccione **Función de Azure** y haga clic en **Agregar**.
 
-Seleccione **HttpTrigger**, escriba un **nombre de función**, seleccione **Anónimo** en **Derechos de acceso**y haga clic en **Crear**. Cualquier cliente puede acceder a la función que se crea mediante una solicitud HTTP. 
+2. Seleccione **HttpTrigger**, escriba un **nombre de función**, seleccione **Anónimo** en **Derechos de acceso**y haga clic en **Crear**. Cualquier cliente puede acceder a la función que se crea mediante una solicitud HTTP. 
 
-![Crear una nueva función de Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
+    ![Crear una nueva función de Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
 Ahora que ha creado una función desencadenada por HTTP, puede probarla en el equipo local.
 
 ## <a name="test-the-function-locally"></a>Prueba local de la función
 
-[!INCLUDE [Test the function locally](../../includes/functions-vstools-test.md)]
+Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en el equipo de desarrollo local. Se le solicita que instale estas herramientas la primera vez que inicie una función de Visual Studio.  
 
-Copie la dirección URL de la función de los resultados del runtime de Azure Functions.  
+1. Para probar la función, presione F5. Si se le solicita, acepte la solicitud de Visual Studio para descargar e instalar las herramientas de Azure Functions Core (CLI).  También es preciso que habilite una excepción de firewall para que las herramientas para controlen las solicitudes de HTTP.
 
-![Runtime local de Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
+2. Copie la dirección URL de la función de los resultados del runtime de Azure Functions.  
 
- Pegue la dirección URL de la solicitud HTTP en la barra de direcciones del explorador. Agregue la cadena de consulta `&name=<yourname>` a esta dirección URL y ejecute la solicitud. A continuación se muestra la respuesta en el explorador para la solicitud GET local devuelta por la función: 
+    ![Runtime local de Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-![Respuesta de localhost de la función en el explorador](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
+3. Pegue la dirección URL de la solicitud HTTP en la barra de direcciones del explorador. Agregue la cadena de consulta `&name=<yourname>` a esta dirección URL y ejecute la solicitud. A continuación se muestra la respuesta en el explorador para la solicitud GET local devuelta por la función: 
 
-Para detener la depuración, haga clic en el botón **Detener** de la barra de herramientas de Visual Studio.
+    ![Respuesta de localhost de la función en el explorador](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
+
+4. Para detener la depuración, haga clic en el botón **Detener** de la barra de herramientas de Visual Studio.
 
 Después de comprobar que la función se ejecuta correctamente en el equipo local es el momento de publicar el proyecto en Azure.
 
@@ -90,22 +83,22 @@ Debe tener una aplicación de función en la suscripción de Azure para poder pu
 
 ## <a name="test-your-function-in-azure"></a>Prueba de una función en Azure
 
-Copie la URL base de la aplicación de función de la página de perfil de publicación. Reemplace la parte `localhost:port` de la dirección URL que usó al probar la función localmente por la nueva URL base. Como antes, asegúrese de que agrega la cadena de consulta `&name=<yourname>` a esta dirección URL y ejecute la solicitud.
+1. Copie la URL base de la aplicación de función de la página de perfil de publicación. Reemplace la parte `localhost:port` de la dirección URL que usó al probar la función localmente por la nueva URL base. Como antes, asegúrese de que agrega la cadena de consulta `&name=<yourname>` a esta dirección URL y ejecute la solicitud.
 
-La dirección URL que llama a la función desencadenada por HTTP es similar a la siguiente:
+    La dirección URL que llama a la función desencadenada por HTTP es similar a la siguiente:
 
-    http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
 
-Pegue la dirección URL de la solicitud HTTP en la barra de direcciones del explorador. A continuación se muestra la respuesta en el explorador para la solicitud GET remota devuelta por la función: 
+2. Pegue la dirección URL de la solicitud HTTP en la barra de direcciones del explorador. A continuación se muestra la respuesta en el explorador para la solicitud GET remota devuelta por la función: 
 
-![Respuesta de la función en el explorador](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
+    ![Respuesta de la función en el explorador](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
  
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ha usado Visual Studio para crear una aplicación de función en C# con una función simple desencadenada por HTTP. 
 
-[!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
-
-Para más información acerca de la realización de pruebas y la depuración locales mediante Azure Functions Core Tools, consulte [Codificación y comprobación de las funciones de Azure en un entorno local](functions-run-local.md). Para más información sobre el desarrollo de funciones como bibliotecas de clases .NET, consulte [Utilizar bibliotecas de clases de .NET con Azure Functions](functions-dotnet-class-library.md). 
++ Para aprender a configurar su proyecto para que admita otros tipos de desencadenadores y enlaces, consulte la sección [Configuración del proyecto para el desarrollo local](functions-develop-vs.md#configure-the-project-for-local-development) de [Herramientas de Azure Functions para Visual Studio](functions-develop-vs.md).
++ Para más información acerca de la realización de pruebas y la depuración locales mediante Azure Functions Core Tools, consulte [Codificación y comprobación de las funciones de Azure en un entorno local](functions-run-local.md). 
++ Para más información sobre el desarrollo de funciones como bibliotecas de clases .NET, consulte [Utilizar bibliotecas de clases de .NET con Azure Functions](functions-dotnet-class-library.md). 
 
 

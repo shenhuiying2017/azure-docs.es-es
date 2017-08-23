@@ -20,7 +20,6 @@ ms.openlocfilehash: 8f87f2c0caccded5b0f24052deee6cefaad08013
 ms.contentlocale: es-es
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guía para la creación de una imagen de máquina virtual para Azure Marketplace
 En este artículo, **paso 2**, se explica cómo puede preparar los discos duros virtuales (VHD) que va a implementar en Azure Marketplace. Los VHD constituyen el fundamento de la SKU. El proceso difiere en función de si la SKU que va a proporcionar está basada en Linux o en Windows. En este artículo se tratan ambos escenarios. Este proceso puede realizarse en paralelo con la [creación y registro de cuentas][link-acct-creation].
@@ -299,9 +298,9 @@ El URI de firma de acceso compartido creado debe cumplir los siguientes requisit
 La dirección URL de SAS puede generarse de varias maneras a fin de compartir el disco duro virtual para Azure Marketplace.
 Estos son las 3 herramientas recomendadas:
 
-1.    Explorador de Azure Storage
-2.    Explorador de almacenamiento de Microsoft
-3.    CLI de Azure
+1.  Explorador de Azure Storage
+2.  Explorador de almacenamiento de Microsoft
+3.  CLI de Azure
 
 **Explorador de Azure Storage (recomendado para los usuarios de Windows)**
 
@@ -332,15 +331,15 @@ A continuación se enumeran los pasos para generar la dirección URL de SAS medi
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
 
-8.    Después de seleccionar el archivo (.vhd) en el contenedor, haga clic en la pestaña **Seguridad** .
+8.  Después de seleccionar el archivo (.vhd) en el contenedor, haga clic en la pestaña **Seguridad** .
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
 
-9.    En el cuadro de diálogo **Seguridad del contenedor de blobs**, deje los valores predeterminados de la pestaña **Nivel de acceso** y, después, haga clic en la pestaña **Firmas de acceso compartido**.
+9.  En el cuadro de diálogo **Seguridad del contenedor de blobs**, deje los valores predeterminados de la pestaña **Nivel de acceso** y, después, haga clic en la pestaña **Firmas de acceso compartido**.
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
 
-10.    Siga estos pasos a fin de generar un URI de firma de acceso compartido para la imagen .vhd:
+10. Siga estos pasos a fin de generar un URI de firma de acceso compartido para la imagen .vhd:
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
@@ -360,45 +359,45 @@ A continuación se enumeran los pasos para generar la dirección URL de SAS medi
        - Asegúrese de que **"=rl"** aparece al final de la firma. Esto demuestra que el acceso de lectura y lista se ha proporcionado correctamente.
        - En el centro de la firma, asegúrese de que aparece **"sr=c"**. Esto demuestra que tiene acceso de nivel de contenedor.
 
-11.    Para asegurarse de que el URI de firma de acceso compartido generado funciona correctamente, haga clic en **Probar en el explorador**. El proceso de descarga debería comenzar.
+11. Para asegurarse de que el URI de firma de acceso compartido generado funciona correctamente, haga clic en **Probar en el explorador**. El proceso de descarga debería comenzar.
 
-12.    Copie el URI de firma de acceso compartido. Este es el URI que debe pegar en el portal de publicación.
+12. Copie el URI de firma de acceso compartido. Este es el URI que debe pegar en el portal de publicación.
 
-13.    Repita los pasos de 6 a 10 para cada disco duro virtual en la SKU.
+13. Repita los pasos de 6 a 10 para cada disco duro virtual en la SKU.
 
 **Explorador de Microsoft Azure Storage (Windows/MAC/Linux)**
 
 A continuación se muestran los pasos para generar la dirección URL de SAS mediante el Explorador de Microsoft Azure Storage.
 
-1.    Descargue el Explorador de Microsoft Azure Storage desde el sitio web [http://storageexplorer.com/](http://storageexplorer.com/). Vaya a [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) (Explorador de Microsoft Azure Storage) y haga clic en **"Download for Windows"** (Descargar para Windows).
+1.  Descargue el Explorador de Microsoft Azure Storage desde el sitio web [http://storageexplorer.com/](http://storageexplorer.com/). Vaya a [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) (Explorador de Microsoft Azure Storage) y haga clic en **"Download for Windows"** (Descargar para Windows).
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
-2.    Una vez instalado, abra la aplicación.
+2.  Una vez instalado, abra la aplicación.
 
-3.    Haga clic en **Agregar cuenta**.
+3.  Haga clic en **Agregar cuenta**.
 
-4.    Configure el Explorador de Microsoft Azure Storage con su suscripción iniciando sesión en su cuenta.
+4.  Configure el Explorador de Microsoft Azure Storage con su suscripción iniciando sesión en su cuenta.
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
 
-5.    Vaya a la cuenta de almacenamiento y seleccione el contenedor.
+5.  Vaya a la cuenta de almacenamiento y seleccione el contenedor.
 
-6.    Seleccione **"Get Share Access Signature"** (Obtener la firma de acceso compartido) haciendo clic derecho en el **contenedor**.
+6.  Seleccione **"Get Share Access Signature"** (Obtener la firma de acceso compartido) haciendo clic derecho en el **contenedor**.
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
 
-7.    Actualice la hora de inicio, la hora de expiración y los permisos según se especifica a continuación:
+7.  Actualice la hora de inicio, la hora de expiración y los permisos según se especifica a continuación:
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
-    a.    **Hora de inicio**: para proteger la hora UTC, seleccione el día anterior a la fecha actual. Por ejemplo, si la fecha actual es el 6 de octubre de 2014, seleccione 5/10/2014.
+    a.  **Hora de inicio**: para proteger la hora UTC, seleccione el día anterior a la fecha actual. Por ejemplo, si la fecha actual es el 6 de octubre de 2014, seleccione 5/10/2014.
 
-    b.    **Hora de caducidad:** seleccione una fecha que sea al menos 3 semanas después de la **Hora de inicio**.
+    b.  **Hora de caducidad:** seleccione una fecha que sea al menos 3 semanas después de la **Hora de inicio**.
 
-    c.    **Permisos**: seleccione los permisos **Lista** y **Lectura**.
+    c.  **Permisos**: seleccione los permisos **Lista** y **Lectura**.
 
-8.    Copie el URI de la firma de acceso compartido del contenedor.
+8.  Copie el URI de la firma de acceso compartido del contenedor.
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_14.png)
 
@@ -418,21 +417,21 @@ A continuación se muestran los pasos para generar la dirección URL de SAS medi
     - Asegúrese de que **"sp=rl"** aparece en el medio de la firma. Esto demuestra que el acceso de lectura y lista se ha proporcionado correctamente.
     - En el centro de la firma, asegúrese de que aparece **"sr=c"**. Esto demuestra que tiene acceso de nivel de contenedor.
 
-9.    Para asegurarse de que el URI de firma de acceso compartido generado funciona correctamente, pruébelo en el explorador. El proceso de descarga debería comenzar.
+9.  Para asegurarse de que el URI de firma de acceso compartido generado funciona correctamente, pruébelo en el explorador. El proceso de descarga debería comenzar.
 
-10.    Copie el URI de firma de acceso compartido. Este es el URI que debe pegar en el portal de publicación.
+10. Copie el URI de firma de acceso compartido. Este es el URI que debe pegar en el portal de publicación.
 
-11.    Repita estos pasos para cada VHD de la SKU.
+11. Repita estos pasos para cada VHD de la SKU.
 
 **CLI de Azure (recomendado para la integración continua y distinta de Windows)**
 
 A continuación se enumeran los pasos para generar la dirección URL de SAS mediante la CLI de Azure.
 
-1.    Descargue la CLI de Microsoft Azure desde [aquí](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). También puede encontrar vínculos diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** y **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Descargue la CLI de Microsoft Azure desde [aquí](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). También puede encontrar vínculos diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** y **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
-2.    Una vez completada la descarga, instálela.
+2.  Una vez completada la descarga, instálela.
 
-3.    Cree un archivo de PowerShell con el código siguiente y guárdelo en local.
+3.  Cree un archivo de PowerShell con el código siguiente y guárdelo en local.
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -454,21 +453,21 @@ A continuación se enumeran los pasos para generar la dirección URL de SAS medi
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.    Abra el editor de Powershell con el modo de "Ejecutar como administrador" y abra el archivo del paso 3.
+4.  Abra el editor de Powershell con el modo de "Ejecutar como administrador" y abra el archivo del paso 3.
 
-5.    Ejecute el script para conseguir la dirección URL de SAS para el acceso de nivel de contenedor.
+5.  Ejecute el script para conseguir la dirección URL de SAS para el acceso de nivel de contenedor.
 
     A continuación se muestra el resultado de la firma de SAS; copie la parte resaltada en el Bloc de notas.
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
 
-6.    Ahora tendrá la dirección URL de SAS de nivel de contenedor y tendrá que agregar el nombre del disco duro virtual en ella.
+6.  Ahora tendrá la dirección URL de SAS de nivel de contenedor y tendrá que agregar el nombre del disco duro virtual en ella.
 
     N.º de URL de SAS de nivel de contenedor
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.    Inserte el nombre del disco duro virtual después del nombre del contenedor en la dirección URL de SAS como se indica a continuación:`https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+7.  Inserte el nombre del disco duro virtual después del nombre del contenedor en la dirección URL de SAS como se indica a continuación:`https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     Ejemplo:
 
@@ -477,14 +476,14 @@ A continuación se enumeran los pasos para generar la dirección URL de SAS medi
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     - Compruebe que el nombre de archivo de imagen y ".vhd" están en el URI.
-    -    Asegúrese de que "sp=rl" aparece en el medio de la firma. Esto demuestra que el acceso de lectura y lista se ha proporcionado correctamente.
-    -    Asegúrese de que "sr=c" aparece en el medio de la firma. Esto demuestra que tiene acceso de nivel de contenedor.
+    -   Asegúrese de que "sp=rl" aparece en el medio de la firma. Esto demuestra que el acceso de lectura y lista se ha proporcionado correctamente.
+    -   Asegúrese de que "sr=c" aparece en el medio de la firma. Esto demuestra que tiene acceso de nivel de contenedor.
 
-8.    Para asegurarse de que el URI de firma de acceso compartido generado funciona correctamente, pruébelo en el explorador. El proceso de descarga debería comenzar.
+8.  Para asegurarse de que el URI de firma de acceso compartido generado funciona correctamente, pruébelo en el explorador. El proceso de descarga debería comenzar.
 
-9.    Copie el URI de firma de acceso compartido. Este es el URI que debe pegar en el portal de publicación.
+9.  Copie el URI de firma de acceso compartido. Este es el URI que debe pegar en el portal de publicación.
 
-10.    Repita estos pasos para cada VHD de la SKU.
+10. Repita estos pasos para cada VHD de la SKU.
 
 
 ### <a name="53-provide-information-about-the-vm-image-and-request-certification-in-the-publishing-portal"></a>5.3 Proporcionar información acerca de la imagen de máquina virtual y solicitar su certificación en el portal de publicación
@@ -547,8 +546,8 @@ Cuando termine con los detalles de SKU, podrá continuar con la [guía de conten
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
 [link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
-[link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2.md
-[link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[link-azure-2]:../storage/blobs/storage-dotnet-shared-access-signature-part-2.md
+[link-azure-1]:../storage/common/storage-dotnet-shared-access-signature-part-1.md
 [link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299
 [link-technet-3]:https://technet.microsoft.com/library/hh846766.aspx
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx

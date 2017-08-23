@@ -100,7 +100,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 **Para configurar el inicio de sesión único de Azure AD con Birst Agile Business Analytics, siga estos pasos:**
 
-1. En Azure Portal, en la página de integración de la aplicación **** , haga clic en **Inicio de sesión único**.
+1. En Azure Portal, en la **página de integración de la aplicación** , haga clic en **Inicio de sesión único**.
 
     ![Configurar inicio de sesión único][4]
 

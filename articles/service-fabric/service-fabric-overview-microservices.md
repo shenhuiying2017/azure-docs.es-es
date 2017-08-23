@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c90079542a91720cb60010dfd5be2cf76802cc70
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 53c142217c67465d29fa413f4edb4f96fcb4c6cc
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>¿Por qué usar un enfoque de microservicios para crear aplicaciones?
@@ -46,7 +45,7 @@ Dicho enfoque de diseño monolítico tiene varias ventajas. A menudo es más fá
 
 Los microservicios solucionan estas desventajas y se adaptan mejor a los anteriores requisitos empresariales, pero también tienen ventajas y desventajas. Las ventajas de los microservicios son que cada uno suele encapsular funcionalidades empresariales más simples, las cuales se pueden escalar o reducir verticalmente, probar, implementar y administrar de forma independiente. Una ventaja importante del enfoque de microservicios es que los equipos están más condicionados por los escenarios empresariales que por la tecnología, que es lo que fomenta el enfoque con niveles. En la práctica, los equipos más pequeños desarrollan un microservicio en función de un escenario del cliente y usan las tecnologías que prefieren. 
 
-Es decir, no es necesario que la organización normalice su tecnología para mantener aplicaciones monolíticas. Los equipos individuales con servicios propios pueden hacer lo más lógico en función de sus conocimientos o de lo que sea más adecuado para resolver el problema. En la práctica, es preferible tener un conjunto de tecnologías recomendadas, como un almacén NoSQL o un marco de aplicaciones web concretos.
+Es decir, no es necesario que la organización normalice su tecnología para mantener aplicaciones de microservicio. Los equipos individuales con servicios propios pueden hacer lo más lógico en función de sus conocimientos o de lo que sea más adecuado para resolver el problema. En la práctica, es preferible tener un conjunto de tecnologías recomendadas, como un almacén NoSQL o un marco de aplicaciones web concretos.
 
 La desventaja de los microservicios surge al tener que administrar un mayor número de entidades independientes y trabajar con la mayor complejidad de las implementaciones y el control de versiones. Aumentan tanto el tráfico de red entre los microservicios como las latencias de red correspondientes. Una gran cantidad de servicios granulares comunicándose entre sí no trae nada bueno para el rendimiento. Sin herramientas que ayuden a ver estas dependencias, es difícil “ver” todo el sistema. 
 
@@ -157,7 +156,7 @@ Un enfoque clave en Service Fabric es reutilizar código existente, que luego pu
 
 ![Migración a microservicios][Image3]
 
-Es importante insistir en que puede **empezar y detenerse en cualquiera de estas fases**, no está obligado a pasar a la fase siguiente. Veamos ahora ejemplos de cada una de las fases.
+Es importante volver a insistir en que puede **empezar y detenerse en cualquiera de estas fases**, no está obligado a pasar a la fase siguiente. Veamos ahora ejemplos de cada una de las fases.
 
 **Levantamiento y movimiento** gran cantidad de compañías están levantando y moviendo las aplicaciones monolíticas existentes a contenedores por dos motivos:
 
