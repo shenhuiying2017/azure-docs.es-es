@@ -17,9 +17,9 @@
 ### [Compilación e implementación de una aplicación de Node.js](cloud-services-nodejs-develop-deploy-app.md)
 ### [Compilación de una aplicación web Node.js con Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Storage y Visual Studio
-#### [Blob Storage y servicios conectados](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Queue Storage y servicios conectados](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Table Storage y servicios conectados](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Blob Storage y servicios conectados](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Queue Storage y servicios conectados](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Table Storage y servicios conectados](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Configuración de paquetes para la compilación e implementación continua
 #### [TFS y Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configuración de reglas de tráfico para un rol](cloud-services-enable-communication-role-instances.md)
