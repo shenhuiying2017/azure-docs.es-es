@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 8de3df11a59178b782d50b7662aa5d8cab11a260
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Introducción al SDK de Batch para Python
@@ -32,7 +31,7 @@ ms.lasthandoff: 07/06/2017
 >
 >
 
-Aprenda los conceptos básicos del cliente de [Azure Batch][azure_batch] y [Python de Batch][py_azure_sdk] gracias a una pequeña aplicación de Batch escrita en Python que verá. Se examina la forma en que dos scripts de ejemplo usan el servicio Batch para procesar una carga de trabajo paralela en máquinas virtuales Linux en la nube, y cómo interactúan con [Azure Storage](../storage/storage-introduction.md) para almacenar provisionalmente archivos y recuperarlos. Aprenderá un flujo de trabajo de la aplicación Lote habitual y obtenga un conocimiento básico de los componentes principales de Lote, como trabajos, tareas, grupos y nodos de proceso.
+Aprenda los conceptos básicos del cliente de [Azure Batch][azure_batch] y [Python de Batch][py_azure_sdk] gracias a una pequeña aplicación de Batch escrita en Python que verá. Se examina la forma en que dos scripts de ejemplo usan el servicio Batch para procesar una carga de trabajo paralela en máquinas virtuales Linux en la nube, y cómo interactúan con [Azure Storage](../storage/common/storage-introduction.md) para almacenar provisionalmente archivos y recuperarlos. Aprenderá un flujo de trabajo de la aplicación Lote habitual y obtenga un conocimiento básico de los componentes principales de Lote, como trabajos, tareas, grupos y nodos de proceso.
 
 ![Flujo de trabajo de soluciones de Batch (básico)][11]<br/>
 
@@ -42,7 +41,7 @@ En este artículo se considera que tiene conocimientos prácticos de Python y es
 ### <a name="accounts"></a>Cuentas
 * **Cuenta de Azure**: si aún no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure][azure_free_account].
 * **Cuenta de Batch**: una vez que tenga una suscripción a Azure, [cree una cuenta de Azure Batch](batch-account-create-portal.md).
-* **Cuenta de almacenamiento**: consulte la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
+* **Cuenta de almacenamiento**: consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
 
 ### <a name="code-sample"></a>Código de ejemplo
 El [ejemplo de código ][github_article_samples]del tutorial de Python es uno de los muchos ejemplos de código de Batch que se encuentran en el repositorio [azure-batch-samples][github_samples] de GitHub. Para descargar todos los ejemplos, haga clic en **Clone or download > Download ZIP** (Clonar o descargar > Descargar ZIP) en la página principal del repositorio o haga clic en el vínculo de descarga directa [azure-batch-samples-master.zip][github_samples_zip]. Una vez que haya extraído el contenido del archivo ZIP, los dos scripts de este tutorial estarán encuentran en el directorio de `article_samples` :
@@ -153,7 +152,7 @@ if __name__ == '__main__':
 ![Crear contenedores en Azure Storage][1]
 <br/>
 
-Batch incluye compatibilidad integrada para interactuar con Azure Storage. Los contenedores de la cuenta de Storage proporcionarán los archivos que necesitarán las tareas que se ejecutan en la cuenta de Batch. Los contenedores también proporcionan un lugar para almacenar los datos de salida que producen las tareas. Lo primero que hace el script *python_tutorial_client.py* es crear tres contenedores en [Azure Blob Storage](../storage/storage-introduction.md#blob-storage):
+Batch incluye compatibilidad integrada para interactuar con Azure Storage. Los contenedores de la cuenta de Storage proporcionarán los archivos que necesitarán las tareas que se ejecutan en la cuenta de Batch. Los contenedores también proporcionan un lugar para almacenar los datos de salida que producen las tareas. Lo primero que hace el script *python_tutorial_client.py* es crear tres contenedores en [Azure Blob Storage](../storage/common/storage-introduction.md#blob-storage):
 
 * **application**: este contenedor almacenará el script de Python ejecutado por las tareas, *python_tutorial_task.py*.
 * **input**: las tareas descargarán los archivos de datos que se van a procesar desde el contenedor *input* .
@@ -183,7 +182,7 @@ blob_client.create_container(OUTPUT_CONTAINER_NAME, fail_on_exist=False)
 Una vez creados los contenedores, la aplicación ya puede cargar los archivos que utilizarán las tareas.
 
 > [!TIP]
-> [Uso de Azure Blob Storage desde Python](../storage/storage-python-how-to-use-blob-storage.md) ofrece una buena introducción sobre cómo trabajar con los blobs y contenedores de Azure Storage. Al empezar a trabajar con Lote, debe encontrarse cerca de la parte superior de la lista de lectura.
+> [Uso de Azure Blob Storage desde Python](../storage/blobs/storage-python-how-to-use-blob-storage.md) ofrece una buena introducción sobre cómo trabajar con los blobs y contenedores de Azure Storage. Al empezar a trabajar con Lote, debe encontrarse cerca de la parte superior de la lista de lectura.
 >
 >
 
@@ -277,7 +276,7 @@ Las Firmas de acceso compartido son cadenas que proporcionan acceso seguro a con
 * **Firma de acceso compartido de contenedores**: cuando cada tarea finaliza su trabajo en el nodo de proceso, carga su archivo de salida en el contenedor *output* de Almacenamiento de Azure. Para ello, *python_tutorial_task.py* utiliza una firma de acceso compartido de contenedores que proporciona acceso de escritura al contenedor. La función `get_container_sas_token` de *python_tutorial_client.py* obtiene la firma de acceso compartido del contenedor, que luego se pasa como argumento de la línea de comandos a las tareas. En el paso 5, [Agregar tareas a un trabajo](#step-5-add-tasks-to-job), se describe el uso de la SAS de contenedores.
 
 > [!TIP]
-> Consulte la serie de dos partes sobre las firmas de acceso compartido, [Parte 1: Descripción del modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) y [Parte 2: Creación y uso de una SAS con el servicio Blob](../storage/storage-dotnet-shared-access-signature-part-2.md), para más información sobre cómo proporcionar acceso seguro a los datos de la cuenta de Storage.
+> Consulte la serie de dos partes sobre las firmas de acceso compartido, [Parte 1: Descripción del modelo SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) y [Parte 2: Creación y uso de una SAS con el servicio Blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md), para más información sobre cómo proporcionar acceso seguro a los datos de la cuenta de Storage.
 >
 >
 
@@ -537,7 +536,7 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
 ```
 
 ## <a name="step-7-download-task-output"></a>Paso 7: Descargar el resultado de la tarea
-![Descargar el resultado de la tarea desde Storage][7]<br/>
+![Descargar el resultado de la tarea de Storage][7]<br/>
 
 Ahora que se ha completado el trabajo, el resultado de las tareas se puede descargar desde Almacenamiento de Azure. Esto se realiza mediante una llamada a `download_blobs_from_container` en *python_tutorial_client.py*:
 
@@ -712,7 +711,7 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [4]: ./media/batch-python-tutorial/batch_workflow_04_sm.png "Crear trabajo de Batch"
 [5]: ./media/batch-python-tutorial/batch_workflow_05_sm.png "Agregar tareas al trabajo"
 [6]: ./media/batch-python-tutorial/batch_workflow_06_sm.png "Supervisar tareas"
-[7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "Descargar el resultado de la tarea desde Storage"
+[7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "Descargar el resultado de la tarea de Storage"
 [8]: ./media/batch-python-tutorial/batch_workflow_sm.png "Flujo de trabajo de soluciones de Batch (diagrama completo)"
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Credenciales de Batch en el portal"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Credenciales de Storage en el portal"

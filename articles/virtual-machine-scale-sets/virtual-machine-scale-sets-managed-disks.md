@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Conjuntos de escalado de máquinas virtuales y discos administrados
@@ -45,7 +45,7 @@ Como alternativa, también puede buscar en el [repositorio Azure Quickstart Temp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre los discos administrados en general, consulte [este artículo](../storage/storage-managed-disks-overview.md).
+Para más información sobre los discos administrados en general, consulte [este artículo](../virtual-machines/windows/managed-disks-overview.md).
 
 Para ver cómo convertir una plantilla de Resource Manager para aprovisionar conjuntos de escalado con discos administrados, consulte [este artículo](./virtual-machine-scale-sets-convert-template-to-md.md). Las mismas modificaciones en las plantillas de Resource Manager se aplican también a la API de REST de Azure.
 

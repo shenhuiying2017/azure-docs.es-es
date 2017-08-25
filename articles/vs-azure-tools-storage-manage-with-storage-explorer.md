@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/17/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0b1f7711586cdfacbbfb28af121c7f37ba564cde
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Introducción al Explorador de Storage (versión preliminar)
@@ -156,7 +156,7 @@ Para la asociación a una cuenta de almacenamiento externa, se necesitan el nomb
 2. En el mensaje de confirmación, seleccione **Sí** para confirmar la desasociación de la cuenta de almacenamiento externa.
 
 ## <a name="attach-a-storage-account-by-using-an-sas"></a>Asociación de una cuenta de almacenamiento mediante una SAS
-Una [SAS](storage/storage-dotnet-shared-access-signature-part-1.md) permite al administrador de una suscripción de Azure conceder acceso temporal a una cuenta de almacenamiento sin tener que proporcionar las credenciales de suscripción de Azure.
+Una [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) permite al administrador de una suscripción de Azure conceder acceso temporal a una cuenta de almacenamiento sin tener que proporcionar las credenciales de suscripción de Azure.
 
 Para ilustrar este escenario, supongamos que el Usuario A es administrador de una suscripción de Azure y desea permitir que el Usuario B acceda a una cuenta de almacenamiento durante un tiempo limitado con determinados permisos:
 

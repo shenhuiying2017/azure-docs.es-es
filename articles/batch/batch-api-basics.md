@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
@@ -46,7 +46,7 @@ El siguiente flujo de trabajo general es típico de casi todas las aplicaciones 
 Las secciones siguientes tratan estos, y otros, recursos de Batch que permitirán que haya un escenario de cálculo distribuido.
 
 > [!NOTE]
-> Necesitará una [cuenta de Batch](#account) para utilizar este servicio. Casi todas las soluciones de Batch usan una cuenta de [Azure Storage][azure_storage] para el almacenamiento y la recuperación de archivos. Actualmente, Batch solo admite el tipo de cuenta de almacenamiento **de uso general**, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
+> Necesitará una [cuenta de Batch](#account) para utilizar este servicio. Casi todas las soluciones de Batch usan una cuenta de [Azure Storage][azure_storage] para el almacenamiento y la recuperación de archivos. Actualmente, Batch solo admite el tipo de cuenta de almacenamiento **de uso general**, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -85,7 +85,7 @@ Para decidir qué modo de asignación de grupos va a utilizar, piense cuál se a
     - El modo de asignación de grupos Servicio Batch admite la autenticación de clave compartida o la [autenticación de Azure Active Directory](batch-aad-auth.md) (Azure AD). 
     - Puede usar nodos de proceso dedicados o de baja prioridad en grupos asignados con el modo de asignación de grupos Servicio Batch.
     - No use el modo de asignación de grupos Servicio Batch si tiene previsto crear grupos de máquinas virtuales de Azure a partir de imágenes de máquinas virtuales personalizadas o si prevé utilizar una red virtual. En su lugar, cree la cuenta con el modo de asignación de grupos Suscripción de usuario.
-    - Los grupos de máquinas virtuales aprovisionados en una cuenta creada con el modo de asignación de grupos Servicio Batch se deben crear a partir de imágenes de [Azure Virtual Machines Marketplace][vm_marketplace].
+    - Los grupos de máquinas virtuales aprovisionados en una cuenta creada con el modo de asignación de grupos Servicio Batch se deben crear a partir de imágenes de [Azure Virtual Machines Marketplace][ vm_marketplace].
 
 * **Suscripción de usuario**: con el modo de asignación de grupos Suscripción de usuario, los grupos de Batch se asignan en la suscripción de Azure donde se crea la cuenta. Tenga en cuenta estos puntos clave acerca del modo de asignación de grupos Suscripción de usuario:
      
@@ -94,7 +94,7 @@ Para decidir qué modo de asignación de grupos va a utilizar, piense cuál se a
     - Debe usar la [autenticación de Azure Active Directory](batch-aad-auth.md) con los grupos que se asignan en la suscripción del usuario. 
     - Debe configurar un almacén de claves de Azure para su cuenta de Batch si el modo de asignación de grupos se establece en Suscripción de usuario. 
     - Solo puede usar nodos de proceso dedicados en grupos en una cuenta creada con el modo de asignación de grupos Suscripción de usuario. No se admiten nodos de prioridad baja.
-    - Los grupos de máquinas virtuales aprovisionados en una cuenta con el modo de asignación de grupos Suscripción de usuario se deben crear a partir de imágenes de [Azure Virtual Machines Marketplace][vm_marketplace] o a partir de las imágenes personalizadas que proporcione.
+    - Los grupos de máquinas virtuales aprovisionados en una cuenta con el modo de asignación de grupos Suscripción de usuario se deben crear a partir de imágenes de [Azure Virtual Machines Marketplace][ vm_marketplace] o a partir de las imágenes personalizadas que proporcione.
 
 En la tabla siguiente se comparan los modos de asignación de grupos Servicio Batch y Suscripción de usuario.
 
@@ -114,7 +114,7 @@ En la tabla siguiente se comparan los modos de asignación de grupos Servicio Ba
 
 La mayoría de las soluciones de Batch usan Azure Storage para almacenar los archivos de recursos y los archivos de salida.  
 
-Actualmente, Batch solo admite el tipo de cuenta de almacenamiento de uso general, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md). Las tareas de Batch (incluidas las tareas estándar, las de inicio, las de preparación de trabajos y las de liberación de trabajos) deben especificar archivos de recursos que residan en cuentas de almacenamiento de uso general.
+Actualmente, Batch solo admite el tipo de cuenta de almacenamiento de uso general, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md). Las tareas de Batch (incluidas las tareas estándar, las de inicio, las de preparación de trabajos y las de liberación de trabajos) deben especificar archivos de recursos que residan en cuentas de almacenamiento de uso general.
 
 
 ## <a name="compute-node"></a>Nodo de proceso

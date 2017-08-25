@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 70dbf5786262f75199270aa8009e03b9b48b8559
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="lesson-13-deploy"></a>Lección 13: Implementación
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/21/2017
 
 En esta lección, configurará propiedades de implementación. Para ello, especificará un servidor de Azure Analysis Services en el que realizar la implementación y un nombre para el modelo. A continuación, implementará el modelo en esa instancia. Después de implementa el modelo, los usuarios pueden conectarse a él mediante una aplicación cliente de generación de informes. Para más información, consulte [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy) (Implementación en Azure Analysis Services).  
   
-Tiempo estimado para completar esta lección: **cinco minutos**  
+Tiempo estimado para completar esta lección: **5 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 12: Análisis en Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  

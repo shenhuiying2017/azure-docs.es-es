@@ -12,7 +12,7 @@ La autenticación de clave compartida significa que la aplicación usará el nom
 > 
 > 
 
-Si se usa la autenticación de clave compartida, se creará una [cadena de conexión](../articles/storage/storage-configure-connection-string.md). La cadena de conexión consta de:  
+Si se usa la autenticación de clave compartida, se creará una [cadena de conexión](../articles/storage/common/storage-configure-connection-string.md). La cadena de conexión consta de:  
 
 * Protocolo **DefaultEndpointsProtocol** : puede elegir si usar HTTP o HTTPS. De todos modos, se recomienda encarecidamente el uso de HTTPS.
 * **Nombre de cuenta** : es el nombre de la cuenta de almacenamiento.
@@ -36,5 +36,5 @@ El siguiente ejemplo muestra cómo usar el Explorador de almacenamiento de Micro
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Como puede ver, cuando usa una SAS, no expone su clave de cuenta en la aplicación. Para más información sobre SAS y los procedimientos de uso recomendados, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
+Como puede ver, cuando usa una SAS, no expone su clave de cuenta en la aplicación. Para más información sobre SAS y los procedimientos de uso recomendados, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

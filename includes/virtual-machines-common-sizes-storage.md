@@ -13,7 +13,7 @@ ACU: 180-240
 | Standard_L32s* | 32 | 256  | 5,630 | 64             | ND / ND (0)          | 40 000 / 1000                            | 8 / 20000 | 
  
 
-El rendimiento máximo de disco que es posible con una máquina virtual de la serie Ls puede estar limitado por el número, el tamaño y la fragmentación de cualquier disco asociado. Para obtener más información, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](../articles/storage/storage-premium-storage.md). 
+El rendimiento máximo de disco que es posible con una máquina virtual de la serie Ls puede estar limitado por el número, el tamaño y la fragmentación de cualquier disco asociado. Para obtener más información, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](../articles/storage/common/storage-premium-storage.md). 
 
 *La instancia está aislada en el hardware dedicado a un solo cliente.
 

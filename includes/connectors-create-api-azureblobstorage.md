@@ -1,6 +1,6 @@
 ### <a name="prerequisites"></a>Requisitos previos
 * Una cuenta de Azure; puede crear una [gratuita](https://azure.microsoft.com/free)
-* Una cuenta de [Azure Blob Storage](../articles/storage/storage-create-storage-account.md) que incluya el nombre de la cuenta de almacenamiento y su clave de acceso. Esta información aparece en las propiedades de la cuenta de almacenamiento en el Portal de Azure. Más información sobre [Azure Storage](../articles/storage/storage-introduction.md).
+* Una cuenta de [Azure Blob Storage](../articles/storage/common/storage-create-storage-account.md) que incluya el nombre de la cuenta de almacenamiento y su clave de acceso. Esta información aparece en las propiedades de la cuenta de almacenamiento en el Portal de Azure. Más información sobre [Azure Storage](../articles/storage/common/storage-introduction.md).
 
 Antes de usar la cuenta de Almacenamiento de blobs de Azure en una aplicación lógica, conéctese a la cuenta de Almacenamiento de blobs de Azure. Esto lo puede hacer fácilmente dentro de la aplicación lógica en Azure Portal.  
 

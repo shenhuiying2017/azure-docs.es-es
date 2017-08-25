@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 94d228f38a760b40f1acb4685702e6244f03bb5d
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
 ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
@@ -34,7 +34,7 @@ Con Analysis Services, puede combinar datos de diversos orígenes, definir métr
 Vea [este vídeo](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) para averiguar cómo Azure Analysis Services se integra en las funcionalidades globales de BI de Microsoft y cómo puede beneficiarse de tener sus modelos de datos en la nube.
 
 ## <a name="built-on-sql-server-analysis-services"></a>Basado en SQL Server Analysis Services
-Azure Analysis Services es compatible con muchas de las estupendas características que ya se encuentran en SQL Server Analysis Services Enterprise Edition. Azure Analysis Services admite modelos tabulares en los [niveles de compatibilidad](https://docs.microsoft.com/sql/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services) 1200 y 1400. Se admiten todas las traducciones, particiones, seguridad de nivel de fila y relaciones bidireccionales. Los modos In-memory y DirectQuery permiten consultas increíblemente rápidas en conjuntos de datos enormes y complejos.
+Azure Analysis Services es compatible con muchas de las estupendas características que ya se encuentran en SQL Server Analysis Services Enterprise Edition. Azure Analysis Services admite modelos tabulares en los [niveles de compatibilidad](analysis-services-compat-level.md) 1200 y 1400. Se admiten todas las traducciones, particiones, seguridad de nivel de fila y relaciones bidireccionales. Los modos In-memory y DirectQuery permiten consultas increíblemente rápidas en conjuntos de datos enormes y complejos.
 
 Los modelos tabulares ofrecen un desarrollo rápido y son altamente personalizables. Para los desarrolladores, los modelos tabulares incluyen el modelo de objetos tabulares (TOM) para describir los objetos del modelo. El modelo de objetos tabulares se expone en JSON por medio del [lenguaje de scripting de modelos tabulares (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) y el lenguaje de definición de datos AMO mediante el espacio de nombres [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
 

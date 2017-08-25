@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d30c09d23a84200ba81df133c9de5b11910ffb61
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Soluciones de Batch y HPC para cargas de trabajo de procesos a gran escala
@@ -106,7 +106,7 @@ Servicios de proceso de Azure son el núcleo de una solución Big Compute y los 
 ### <a name="storage-services"></a>Servicios de almacenamiento
 Normalmente, una solución Big Compute funciona en un conjunto de datos de entrada y genera datos para sus resultados. Entre algunos de los servicios de almacenamiento de Azure que se usan en soluciones Big Compute se incluyen los siguientes:
 
-* [Almacenamiento de blobs, tablas y colas](https://azure.microsoft.com/documentation/services/storage/) : administre grandes cantidades de datos no estructurados, datos NoSQL y mensajes de flujo de trabajo y comunicación, respectivamente. Por ejemplo, puede usar el Almacenamiento de blobs para grandes conjuntos de datos técnicos o para las imágenes de entrada o los archivos multimedia que su aplicación procesa. Puede usar colas para la comunicación asincrónica en una solución. Consulte [Introducción a Almacenamiento de Microsoft Azure](../storage/storage-introduction.md).
+* [Almacenamiento de blobs, tablas y colas](https://azure.microsoft.com/documentation/services/storage/) : administre grandes cantidades de datos no estructurados, datos NoSQL y mensajes de flujo de trabajo y comunicación, respectivamente. Por ejemplo, puede usar el Almacenamiento de blobs para grandes conjuntos de datos técnicos o para las imágenes de entrada o los archivos multimedia que su aplicación procesa. Puede usar colas para la comunicación asincrónica en una solución. Consulte [Introducción a Almacenamiento de Microsoft Azure](../storage/common/storage-introduction.md).
 * [Almacenamiento de archivos de Azure](https://azure.microsoft.com/services/storage/files/) : comparte archivos comunes y datos en Azure mediante el protocolo SMB estándar, que se necesita para algunas soluciones de clúster HPC.
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) : proporciona un sistema de archivos distribuido de Apache Hadoop a hiperescala para la nube, algo que es útil para realizar análisis por lotes, interactivos y en tiempo real.
 

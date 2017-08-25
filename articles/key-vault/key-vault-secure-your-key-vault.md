@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="secure-your-key-vault"></a>Protección de un almacén de claves
@@ -197,7 +197,7 @@ El rol personalizado definido solo se puede asignar a la aplicación en la que s
 
 El ámbito de la asignación de roles personalizados a los desarrolladores u operadores para el permiso de "implementación o acción" es el grupo de recursos. De este modo los secretos (certificado SSL y certificado de arranque) solo los obtendrán las máquinas virtuales creadas en el grupo de recursos 'ContosoAppRG'. Las máquinas virtuales que un miembro del equipo de desarrolladores u operadores cree en otro grupo de recursos no podrán obtener dichos secretos, aunque conozcan sus identificadores URI.
 
-En este ejemplo se muestra un escenario simple. Los escenarios de la vida real pueden ser más complejos y puede que necesite ajustar los permisos del almacén de claves en función de sus necesidades. Por ejemplo, en nuestro ejemplo, asumimos que el equipo de seguridad proporcionará las referencias de las claves y los secretos (identificadores URI y huellas digitales) que los desarrolladores y operadores necesitan hacer referencia en sus aplicaciones. De ahí que no necesiten conceder a los desarrolladores u operadores acceso al plano de datos. Además, tenga en cuenta que este ejemplo se centra en la protección de un almacén de claves. Debe darse una consideración parecida a la protección de [las máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/security/), [las cuentas de almacenamiento](../storage/storage-security-guide.md) y otros recursos de Azure.
+En este ejemplo se muestra un escenario simple. Los escenarios de la vida real pueden ser más complejos y puede que necesite ajustar los permisos del almacén de claves en función de sus necesidades. Por ejemplo, en nuestro ejemplo, asumimos que el equipo de seguridad proporcionará las referencias de las claves y los secretos (identificadores URI y huellas digitales) que los desarrolladores y operadores necesitan hacer referencia en sus aplicaciones. De ahí que no necesiten conceder a los desarrolladores u operadores acceso al plano de datos. Además, tenga en cuenta que este ejemplo se centra en la protección de un almacén de claves. Debe darse una consideración parecida a la protección de [las máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/security/), [las cuentas de almacenamiento](../storage/common/storage-security-guide.md) y otros recursos de Azure.
 
 > [!NOTE]
 > Nota: En este ejemplo se muestra cómo se bloqueará el acceso a un almacén de claves en producción. Los desarrolladores deben tener su propia suscripción o grupo de recursos, en el que tengan permisos completos para administrar sus almacenes, máquinas virtuales y la cuenta de Storage donde desarrollan la aplicación.

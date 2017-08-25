@@ -17,10 +17,10 @@ ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 4d8e3f1252bc71cbf4bbbd30a16897bf4a0444d7
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 52113e1240b81299ae3338f35b2934891017adbf
 ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Información general sobre las máquinas virtuales Windows en Azure
@@ -73,7 +73,7 @@ Azure cobra un [precio por hora](https://azure.microsoft.com/pricing/details/vir
 Su suscripción tiene [límites de cuota](../../azure-subscription-service-limits.md) predeterminados que pueden afectar a la implementación de numerosas máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región. Para aumentar estos límites, cree una incidencia de soporte técnico y solicite un aumento.
 
 ### <a name="operating-system-disks-and-images"></a>Imágenes y discos del sistema operativo
-Las máquinas virtuales usan [discos duros virtuales (VHD)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para almacenar el sistema operativo y los datos. Estos discos también se usan para las imágenes entre las que se puede elegir para instalar un sistema operativo. 
+Las máquinas virtuales usan [discos duros virtuales (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para almacenar el sistema operativo y los datos. Estos discos también se usan para las imágenes entre las que se puede elegir para instalar un sistema operativo. 
 
 Azure proporciona muchas [imágenes de Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/) que se pueden usar con diversas versiones y tipos de sistemas operativos Windows Server. Las imágenes de Marketplace se identifican mediante el publicador de la imagen, la oferta, la SKU y la versión (normalmente, la versión se especifica como la más reciente). 
 
@@ -102,7 +102,7 @@ Los recursos de esta tabla se usan en la máquina virtual y deben ya existir o c
 | Recurso | Obligatorio | Description |
 | --- | --- | --- |
 | [Grupos de recursos](../../azure-resource-manager/resource-group-overview.md) |yes |La máquina virtual debe encontrarse en un grupo de recursos. |
-| [Cuenta de almacenamiento](../../storage/storage-create-storage-account.md) |yes |La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales. |
+| [Cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md) |yes |La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales. |
 | [Red virtual](../../virtual-network/virtual-networks-overview.md) |Sí |La máquina virtual debe ser miembro de una red virtual. |
 | [Dirección IP pública](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella. |
 | [Interfaz de red](../../virtual-network/virtual-network-network-interface.md) |Sí |La máquina virtual necesita la interfaz de red para comunicarse en la red. |

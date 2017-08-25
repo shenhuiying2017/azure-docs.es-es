@@ -39,10 +39,10 @@ Puede usar NuGet para obtener ambos paquetes. Siga estos pasos:
 Tiene dos opciones de entorno para ejecutar los ejemplos de esta guía:
 
 * Puede ejecutar el código en una cuenta de Almacenamiento de Azure en la nube. 
-* Puede ejecutar el código en el emulador de almacenamiento de Azure. El emulador de almacenamiento es un entorno local que emula una cuenta de Almacenamiento de Azure en la nube. El emulador es una opción gratis para probar y depurar el código mientras la aplicación está en desarrollo. El emulador usa una cuenta y una clave conocidas. Para más información, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](../articles/storage/storage-use-emulator.md)
+* Puede ejecutar el código en el emulador de almacenamiento de Azure. El emulador de almacenamiento es un entorno local que emula una cuenta de Almacenamiento de Azure en la nube. El emulador es una opción gratis para probar y depurar el código mientras la aplicación está en desarrollo. El emulador usa una cuenta y una clave conocidas. Para más información, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](../articles/storage/common/storage-use-emulator.md)
 
 Si el destino es una cuenta de 
-Storage en la nube, copie la clave de acceso principal de su cuenta de Storage de Azure Portal. Para obtener más información, consulte [Visualización y copia de las claves de acceso de almacenamiento](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Storage en la nube, copie la clave de acceso principal de su cuenta de Storage de Azure Portal. Para obtener más información, consulte [Visualización y copia de las claves de acceso de almacenamiento](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 > [!NOTE]
 > Puede dirigirse al emulador de almacenamiento para evitar incurrir en cualquier coste asociado con Almacenamiento de Azure. Sin embargo, si selecciona dirigirse a una cuenta de almacenamiento de Azure en la nube, los costes derivados de la realización de este tutorial serán insignificantes.
@@ -52,7 +52,7 @@ Storage en la nube, copie la clave de acceso principal de su cuenta de Storage d
 ### <a name="configure-your-storage-connection-string"></a>Configuración de la cadena de conexión de almacenamiento.
 La biblioteca del cliente de almacenamiento de Azure para .NET admite el uso de una cadena de conexión de almacenamiento para configurar extremos y credenciales a fin de obtener acceso a los servicios de almacenamiento. La mejor manera de conservar la cadena de conexión de almacenamiento es mediante un archivo de configuración. 
 
-Para obtener más información sobre las cadenas de conexión, consulte [Configuración de una cadena de conexión a Almacenamiento de Azure](../articles/storage/storage-configure-connection-string.md).
+Para obtener más información sobre las cadenas de conexión, consulte [Configuración de una cadena de conexión a Almacenamiento de Azure](../articles/storage/common/storage-configure-connection-string.md).
 
 > [!NOTE]
 > La clave de la cuenta de almacenamiento es similar a la contraseña raíz de la cuenta de almacenamiento. Siempre debe proteger la clave de la cuenta de almacenamiento. Evite distribuirla a otros usuarios, codificarla de forma rígida o guardarla en un archivo de texto que sea accesible a otros usuarios. Si cree que una clave puede haber corrido peligro, vuelva a generarla a través de Azure Portal.

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 87a5d721ca785329b407d31126bd0b211b17ccf3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 47c178c66ec98fe5d333edd725b64465026e73ed
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -33,7 +33,7 @@ Después de revisar la [arquitectura del escenario](vmm-to-azure-walkthrough-arc
 **Requisito** | **Detalles**
 --- | ---
 **Cuenta de Azure** | Necesita una [cuenta de Microsoft Azure](http://azure.microsoft.com/).
-**Almacenamiento de Azure** | Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados.<br/><br/> La cuenta de almacenamiento debe estar en la misma región que el almacén de Azure Recovery Services.<br/><br/>Puede usar [almacenamiento con redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage) o almacenamiento con redundancia local. Se recomienda el almacenamiento con redundancia geográfica. Con el almacenamiento con redundancia geográfica, los datos resisten en caso de una interrupción regional o si no se puede recuperar la región primaria.<br/><br/> Puede usar una cuenta de almacenamiento de Azure estándar o puede usar Azure [Premium Storage](../storage/storage-premium-storage.md). Premium Storage puede hospedar cargas de trabajo de E/S intensas y, normalmente, se usa para las máquinas virtuales que necesitan un alto rendimiento constante de E/S y latencia baja. Si utiliza Premium Storage para los datos replicados, también necesitará una cuenta de almacenamiento estándar. Una cuenta de almacenamiento estándar almacena los registros de replicación que capturan los cambios continuos en los datos locales.
+**Almacenamiento de Azure** | Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados.<br/><br/> La cuenta de almacenamiento debe estar en la misma región que el almacén de Azure Recovery Services.<br/><br/>Puede usar [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) o almacenamiento con redundancia local. Se recomienda el almacenamiento con redundancia geográfica. Con el almacenamiento con redundancia geográfica, los datos resisten en caso de una interrupción regional o si no se puede recuperar la región primaria.<br/><br/> Puede usar una cuenta de almacenamiento de Azure estándar o puede usar Azure [Premium Storage](../storage/common/storage-premium-storage.md). Premium Storage puede hospedar cargas de trabajo de E/S intensas y, normalmente, se usa para las máquinas virtuales que necesitan un alto rendimiento constante de E/S y latencia baja. Si utiliza Premium Storage para los datos replicados, también necesitará una cuenta de almacenamiento estándar. Una cuenta de almacenamiento estándar almacena los registros de replicación que capturan los cambios continuos en los datos locales.
 **Red de Azure** | Se necesita una [red de Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md) a la que se conectarán las máquinas virtuales de Azure después de la conmutación por error. La red de Azure debe estar en la misma región que el almacén de Recovery Services.
 **Servidores de VMM locales** | Necesita uno o más servidores de VMM con System Center 2012 R2 o versiones posteriores.<br/><br/> Todos los servidores de VMM deben tener una o varias nubes privadas. Cada nube necesita uno o más grupos host.<br/><br/> El servidor de VMM necesita acceso a Internet.
 **Hyper-V local** | Los servidores host de Hyper-V deben ejecutar como mínimo Windows Server 2012 R2 con el rol de Hyper-V habilitado, o Microsoft Hyper-V Server 2012 R2. Deben instalarse las actualizaciones más recientes.<br/><br/> El host de Hyper-V debe estar situado en un grupo host de VMM (situado en una nube de VMM).<br/><br/> Un host debe tener una o varias máquinas virtuales que desee replicar.<br/><br/> Los hosts de Hyper-V deben estar conectados a Internet para replicación en Azure, directamente o mediante un servidor proxy. Los servidores de Hyper-V deben tener instaladas las correcciones que se describen en el artículo [2961977](https://support.microsoft.com/kb/2961977).

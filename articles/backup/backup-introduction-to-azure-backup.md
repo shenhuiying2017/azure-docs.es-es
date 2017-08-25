@@ -17,10 +17,10 @@ ms.date: 8/11/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 7cc29feaf7411bac1d081f7f7aa3daf92fae88d1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5a6aad672ddaa43f993daf4cf48975e91d2657da
 ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
@@ -35,7 +35,7 @@ Las soluciones de copia de seguridad tradicionales han evolucionado para tratar 
 
 **Escalado ilimitado**: Azure Backup usa la eficacia subyacente y la escala ilimitada de la nube de Azure para proporcionar alta disponibilidad, sin sobrecarga de mantenimiento o supervisión. Puede configurar alertas para proporcionar información sobre los eventos, pero no tiene que preocuparse por la alta disponibilidad de los datos en la nube.
 
-**Varias opciones de almacenamiento**: un aspecto de alta disponibilidad es la replicación del almacenamiento. Azure Backup ofrece dos tipos de replicación: [almacenamiento con redundancia local](../storage/storage-redundancy.md#locally-redundant-storage) y [almacenamiento con redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage). Elija la opción de almacenamiento de copia de seguridad más acorde con sus necesidades:
+**Varias opciones de almacenamiento**: un aspecto de alta disponibilidad es la replicación del almacenamiento. Azure Backup ofrece dos tipos de replicación: [almacenamiento con redundancia local](../storage/common/storage-redundancy.md#locally-redundant-storage) y [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage). Elija la opción de almacenamiento de copia de seguridad más acorde con sus necesidades:
 
 * El almacenamiento con redundancia local (LRS) replica los datos tres veces (crea tres copias de los datos) en un centro de datos emparejado de la misma región. LRS es una opción de bajo costo para proteger los datos contra errores de hardware local.
 
@@ -95,10 +95,10 @@ En la siguiente tabla se muestran los componentes de Azure Backup que son compat
 | Copia de seguridad de máquina virtual de IaaS de Azure |Copia de seguridad coherente con la aplicación mediante un [marco de scripts previos y posteriores](backup-azure-linux-app-consistent.md)<br/> [Recuperación de archivos pormenorizada](backup-azure-restore-files-from-vm.md)<br/> [Restauración de todos los discos de máquina virtual](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Restauración de máquina virtual](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Uso de máquinas virtuales de Premium Storage con Azure Backup
-Azure Backup protege las máquinas virtuales de Premium Storage. Azure Premium Storage es almacenamiento basado en unidades de estado sólido (SSD) diseñado para admitir cargas de trabajo de E/S intensivas. Premium Storage es adecuado para cargas de trabajo de máquina virtual (VM). Para más información sobre Premium Storage, consulte el artículo [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
+Azure Backup protege las máquinas virtuales de Premium Storage. Azure Premium Storage es almacenamiento basado en unidades de estado sólido (SSD) diseñado para admitir cargas de trabajo de E/S intensivas. Premium Storage es adecuado para cargas de trabajo de máquina virtual (VM). Para más información sobre Premium Storage, consulte el artículo [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/common/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Copia de seguridad de máquinas virtuales de Premium Storage
-Durante la copia de seguridad de máquinas virtuales de Premium Storage, el servicio Backup crea una ubicación de ensayo temporal, llamada "AzureBackup-" en la cuenta de Premium Storage. El tamaño de la ubicación de ensayo equivale al de la instantánea del punto de recuperación. Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de ensayo temporal. Para más información, consulte las [limitaciones de Premium Storage](../storage/storage-premium-storage.md#scalability-and-performance-targets). Una vez finalizado el trabajo de copia de seguridad, se elimina la ubicación de ensayo. El precio del almacenamiento utilizado para la ubicación de ensayo es coherente con todos los [precios de Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing).
+Durante la copia de seguridad de máquinas virtuales de Premium Storage, el servicio Backup crea una ubicación de ensayo temporal, llamada "AzureBackup-" en la cuenta de Premium Storage. El tamaño de la ubicación de ensayo equivale al de la instantánea del punto de recuperación. Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de ensayo temporal. Para más información, consulte las [limitaciones de Premium Storage](../storage/common/storage-premium-storage.md#scalability-and-performance-targets). Una vez finalizado el trabajo de copia de seguridad, se elimina la ubicación de ensayo. El precio del almacenamiento utilizado para la ubicación de ensayo es coherente con todos los [precios de Premium Storage](../storage/common/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > No modifique ni edite la ubicación de ensayo.

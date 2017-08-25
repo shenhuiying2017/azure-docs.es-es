@@ -59,7 +59,7 @@ La tabla siguiente proporciona una breve descripción de las diferencias entre l
 | Los datos se pueden leer tanto desde la ubicación secundaria como desde la ubicación principal. |No |No |No |Sí |
 | Cantidad de copias de datos mantenidas en nodos independientes |3 |3 |6 |6 |
 
-Puede obtener más información sobre las [opciones de replicación de Almacenamiento de Azure aquí](../articles/storage/storage-redundancy.md). Para más información acerca de los discos administrados, consulte [Azure Managed Disks overview](../articles/storage/storage-managed-disks-overview.md) (Introducción a los discos administrados de Azure).
+Puede obtener más información sobre las [opciones de replicación de Almacenamiento de Azure aquí](../articles/storage/common/storage-redundancy.md). Para más información acerca de los discos administrados, consulte [Azure Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md) (Introducción a los discos administrados de Azure).
 
 ### <a name="storage-costs"></a>Costos de almacenamiento
 Los precios varían según el tipo de almacenamiento y la disponibilidad que seleccione.
@@ -75,7 +75,7 @@ Los precios varían según el tipo de almacenamiento y la disponibilidad que sel
 Consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/) para más información sobre los diferentes tipos de almacenamiento y opciones de disponibilidad.
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidad
-Un conjunto de disponibilidad es una agrupación lógica de máquinas virtuales que permite a Azure conocer cómo se crea su aplicación para proporcionar redundancia y disponibilidad. Se recomienda la creación de dos, o más, máquinas virtuales en un conjunto de disponibilidad no solo para proporcionar una aplicación de alta disponibilidad sino también para cumplir el [99,95 % del Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Cuando una sola máquina virtual usa [Azure Premium Storage](../articles/storage/storage-premium-storage.md), se aplica el Acuerdo de Nivel de Servicio de Azure para los eventos de mantenimiento no planeados. 
+Un conjunto de disponibilidad es una agrupación lógica de máquinas virtuales que permite a Azure conocer cómo se crea su aplicación para proporcionar redundancia y disponibilidad. Se recomienda la creación de dos, o más, máquinas virtuales en un conjunto de disponibilidad no solo para proporcionar una aplicación de alta disponibilidad sino también para cumplir el [99,95 % del Acuerdo de Nivel de Servicio de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Cuando una sola máquina virtual usa [Azure Premium Storage](../articles/storage/common/storage-premium-storage.md), se aplica el Acuerdo de Nivel de Servicio de Azure para los eventos de mantenimiento no planeados. 
 
 El conjunto de disponibilidad consta de dos agrupaciones adicionales que protegen contra errores de hardware y permiten la aplicación segura de las actualizaciones: dominios de error (FD) y dominios de actualización (UD).
 
@@ -90,7 +90,7 @@ Un dominio de error es un grupo lógico de hardware subyacente que comparte la f
 Un dominio de actualización es un grupo lógico de hardware subyacente que puede someterse a mantenimiento o reiniciarse al mismo tiempo. Cuando se crean máquinas virtuales en un conjunto de disponibilidad, la plataforma de Azure las distribuye automáticamente entre estos dominios de error. Este enfoque garantiza que al menos una instancia de la aplicación sigue ejecutándose cuando se realiza el mantenimiento periódico de la plataforma Azure. Es posible que el orden en que se reinician los dominios de actualización no siga una secuencia durante un mantenimiento planeado, pero se reinician de uno en uno.
 
 ### <a name="managed-disk-fault-domains"></a>Dominios de error de Managed Disks
-Para las máquinas virtuales que usen [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), las máquinas virtuales se alinean con los dominios de error de disco administrado cuando se usa un conjunto de disponibilidad administrada. Esta alineación garantiza que todos los discos administrados conectados a una máquina virtual se encuentran en el mismo dominio de error de disco administrado. Solo se pueden crear máquinas virtuales con discos administrados en un conjunto de disponibilidad administrada. El número de dominios de error de disco administrado varía según la región: dos o tres dominios de error de disco administrado por región.
+Para las máquinas virtuales que usen [Azure Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md), las máquinas virtuales se alinean con los dominios de error de disco administrado cuando se usa un conjunto de disponibilidad administrada. Esta alineación garantiza que todos los discos administrados conectados a una máquina virtual se encuentran en el mismo dominio de error de disco administrado. Solo se pueden crear máquinas virtuales con discos administrados en un conjunto de disponibilidad administrada. El número de dominios de error de disco administrado varía según la región: dos o tres dominios de error de disco administrado por región.
 
 ![Dominios de error de disco administrado](./media/virtual-machines-common-manage-availability/md-fd.png)
 

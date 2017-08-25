@@ -7,7 +7,7 @@
 * Prácticas recomendadas de escalado en el Servicio de aplicaciones
   
   * Agotamiento de puertos y agrupación de conexiones
-  * [Sacar provecho del Almacenamiento de Azure desde su aplicación del Servicio de aplicaciones](../articles/storage/storage-dotnet-how-to-use-blobs.md)
+  * [Sacar provecho del Almacenamiento de Azure desde su aplicación del Servicio de aplicaciones](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md)
   * [Sacar provecho de una red CDN de Azure desde su aplicación del Servicio de aplicaciones](../articles/cdn/cdn-overview.md)
   * [Sacar provecho de Caché en Redis de Azure desde su aplicación del Servicio de aplicaciones](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
 * Distribución geográfica

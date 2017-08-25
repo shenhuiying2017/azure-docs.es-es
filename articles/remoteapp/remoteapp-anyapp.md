@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 348e154f8398b5e60ad5a698cd319fa381de2fa5
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Ejecución de cualquier aplicación de Windows en cualquier dispositivo con Azure RemoteApp
@@ -88,7 +88,7 @@ La primera parte la tiene que hacer usted como administrador. Luego, tenemos alg
 1. Comience por publicar la interfaz de línea de comandos (cmd.exe). En la pestaña **Publicación**, seleccione **cmd**, y, a continuación, haga clic en **Publicar > Publicar programa con ruta de acceso**.
 2. Escriba el nombre de la aplicación y la ruta de acceso. Para nuestros fines actuales, utilice "Explorador de archivos" como nombre y "%SYSTEMDRIVE%\windows\explorer.exe" como ruta de acceso.
    ![Publique el archivo cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Ahora tiene que crear una [cuenta de almacenamiento](../storage/storage-create-storage-account.md) de Azure. Hemos llamado a la nuestra "accessstorage", así que elija un nombre que sea significativo para usted. (Para citar erróneamente a Highlander, solo puede haber una con el nombre "accessstorage") ![Nuestra cuenta de Azure Storage](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. Ahora tiene que crear una [cuenta de almacenamiento](../storage/common/storage-create-storage-account.md) de Azure. Hemos llamado a la nuestra "accessstorage", así que elija un nombre que sea significativo para usted. (Para citar erróneamente a Highlander, solo puede haber una con el nombre "accessstorage") ![Nuestra cuenta de Azure Storage](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Ahora vuelva al panel para poder obtener la ruta de acceso al sistema de almacenamiento (ubicación del extremo). La volverá a usar en un momento, así que asegúrese de copiarla en alguna parte.
    ![La ruta de acceso de la cuenta de almacenamiento](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. A continuación, una vez creada la cuenta de almacenamiento, necesitará la clave de acceso principal. Haga clic en **Administrar claves de acceso**y, a continuación, copie la clave de acceso principal.
