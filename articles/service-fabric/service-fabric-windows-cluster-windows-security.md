@@ -3,7 +3,7 @@ title: "Protección de un clúster en ejecución en Windows mediante la segurida
 description: "Aprenda a configurar la seguridad de nodo a nodo y de cliente a nodo en un clúster independiente que se ejecute en Windows mediante la seguridad de Windows."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: ce3bf686-ffc4-452f-b15a-3c812aa9e672
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/28/2017
-ms.author: ryanwi
+ms.date: 08/24/2017
+ms.author: dekapur
 ms.translationtype: Human Translation
 ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
 ms.openlocfilehash: b8842047351da6fdb547e0b09492b89fad962bee
 ms.contentlocale: es-es
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger un clúster independiente en Windows mediante la seguridad de Windows
