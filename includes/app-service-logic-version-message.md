@@ -1,5 +1,0 @@
-> [!NOTE]
-> Este artículo es aplicable al esquema de aplicaciones lógicas de la versión preliminar 2014-12-01. Estamos trabajando intensamente en la versión siguiente de este conector que se integrará con facilidad con el esquema de aplicaciones lógicas, versión preliminar 2015-08-01 Mientras tanto, [aquí puede ver cómo se puede utilizar este conector con la versión preliminar 2015-08-01 del esquema de Logic Apps](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). 
-> 
-> 
-
