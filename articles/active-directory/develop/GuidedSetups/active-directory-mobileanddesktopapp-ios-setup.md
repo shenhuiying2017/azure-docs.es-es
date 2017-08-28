@@ -1,4 +1,24 @@
+---
+title: "Introducción a iOS en Azure AD v2: configuración | Microsoft Docs"
+description: "Cómo pueden llamar las aplicaciones de iOS (Swift) a una API que requiera tokens de acceso mediante el punto de conexión de Azure Active Directory v2"
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 78c6ca83a2711ad81b7819a8723869980a1925a3
+ms.contentlocale: es-es
 
+---
 ## <a name="setting-up-your-ios-application"></a>Configuración de la aplicación de iOS
 
 En esta sección se proporcionan instrucciones paso a paso sobre cómo crear un nuevo proyecto a fin de mostrar cómo integrar una aplicación de iOS (Swift) con *Iniciar sesión en Microsoft*, de manera que pueda consultar las API web que requieran un token.
@@ -137,3 +157,4 @@ Debe crearse un archivo Main.storyboard automáticamente como parte de la planti
     </scene>
 </scenes>
 ```
+

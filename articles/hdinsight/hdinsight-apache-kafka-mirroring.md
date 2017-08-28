@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/13/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 06c09658d09bc05d2f5e2a0f17a9047ee8044486
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: e418cb01e1a9168e3662e8d6242903e052b6047b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>Uso de MirrorMaker para replicar temas de Apache Kafka con Kafka en HDInsight (versión preliminar)
@@ -116,10 +116,21 @@ Una vez creados los recursos, se le redirigirá a una hoja del grupo de recursos
 
     Para obtener más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use el siguiente comando para encontrar los hosts Zookeeper, establezca la variable `SOURCE_ZKHOSTS` y cree varios temas nuevos denominados `testtopic`:
+2. Use los comandos siguientes para buscar los hosts de Zookeeper para el clúster de origen:
 
     ```bash
-    SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export SOURCE_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    
+    Replace `$PASSWORD` with the password for the cluster.
+
+    Replace `$CLUSTERNAME` with the name of the source cluster.
+
+3. To create a topic named `testtopic`, use the following command:
+
+    ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
     ```
 
@@ -139,7 +150,7 @@ Una vez creados los recursos, se le redirigirá a una hoja del grupo de recursos
 
     Esto devuelve información similar al texto siguiente:
 
-    `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181`
+    `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181`
 
     Guarde esta información. Se usa en la siguiente sección.
 
@@ -178,9 +189,13 @@ Una vez creados los recursos, se le redirigirá a una hoja del grupo de recursos
 
     ```bash
     sudo apt -y install jq
-    DEST_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
+    DEST_BROKERHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     echo $DEST_BROKERHOSTS
     ```
+
+    Reemplace `$PASSWORD` por la contraseña de la cuenta de inicio de sesión (del administrador) del clúster.
+
+    Reemplace `$CLUSTERNAME` por el nombre del clúster de destino.
 
     Estos comandos devuelven información similar a la siguiente:
 
@@ -221,7 +236,7 @@ Una vez creados los recursos, se le redirigirá a una hoja del grupo de recursos
 
     * **--num.streams**: número de subprocesos de consumidor para crear.
 
-    Al inicio, MirrorMaker devuelve información similar al texto siguiente:
+ Al inicio, MirrorMaker devuelve información similar al texto siguiente:
 
     ```json
     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
@@ -232,22 +247,29 @@ Una vez creados los recursos, se le redirigirá a una hoja del grupo de recursos
 2. En la conexión SSH al clúster de **origen**, use el siguiente comando para iniciar un productor y enviar mensajes al tema:
 
     ```bash
-    sudo apt -y install jq
-    SOURCE_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
+    SOURCE_BROKERHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
- Cuando llegue a una línea en blanco con un cursor, escriba algunos mensajes de texto. Estos se envían al tema en el clúster de **origen**. Cuando haya terminado, use **Ctrl + C** para finalizar el proceso de productor.
+    Reemplace `$PASSWORD` por la contraseña de inicio de sesión (del administrador) del clúster de origen.
+
+    Reemplace `$CLUSTERNAME` por el nombre del clúster de origen.
+
+     Cuando llegue a una línea en blanco con un cursor, escriba algunos mensajes de texto. Estos se envían al tema en el clúster de **origen**. Cuando haya terminado, use **Ctrl + C** para finalizar el proceso de productor.
 
 3. En la conexión SSH al clúster de **destino**, use **Ctrl + C** para iniciar el proceso de MirrorMaker. A continuación, use los siguientes comandos para comprobar que el tema `testtopic` se creó y que los datos de dicho tema se han replicado a este reflejo:
 
     ```bash
-    DEST_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
+    DEST_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-  La lista de temas ahora incluye `testtopic`, que se crea cuando MirrorMaster refleja el tema desde el clúster de origen al destino. Los mensajes que se recuperan desde el tema son los mismos que se introdujeron en el clúster de origen.
+    Reemplace `$PASSWORD` por la contraseña de inicio de sesión (del administrador) del clúster de destino.
+
+    Reemplace `$CLUSTERNAME` por el nombre del clúster de destino.
+
+    La lista de temas ahora incluye `testtopic`, que se crea cuando MirrorMaster refleja el tema desde el clúster de origen al destino. Los mensajes que se recuperan desde el tema son los mismos que se introdujeron en el clúster de origen.
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
 

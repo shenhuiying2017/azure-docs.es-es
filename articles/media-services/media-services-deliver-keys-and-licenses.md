@@ -4,7 +4,7 @@ description: "Este artículo describe cómo puede utilizar Servicios de multimed
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
 ms.service: media-services

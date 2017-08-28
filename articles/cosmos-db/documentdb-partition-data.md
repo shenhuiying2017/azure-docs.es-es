@@ -16,10 +16,10 @@ ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 3fbb2f0629e510dfa9dac8e363eafb8e668e81d4
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Creación de particiones en Azure Cosmos DB con la API de DocumentDB
@@ -42,7 +42,10 @@ Para empezar a trabajar con código, descargue el proyecto del [ejemplo de versi
 <a name="partition-keys"></a>
 <a name="single-partition-and-partitioned-collections"></a>
 <a name="migrating-from-single-partition"></a>
-## Claves de partición en la API de DocumentDB, especifique la definición de la clave de partición en el formulario de una ruta de acceso JSON. En la tabla siguiente se muestran ejemplos de definiciones de clave de partición y los valores correspondientes a cada una de ellas. La clave de partición se especifica como una ruta de acceso; por ejemplo, `/department` representa el departamento de propiedad. 
+
+## <a name="partition-keys"></a>Claves de partición
+
+En la API de DocumentDB, especifique la definición de la clave de partición en el formulario de una ruta de acceso JSON. En la tabla siguiente se muestran ejemplos de definiciones de clave de partición y los valores correspondientes a cada una de ellas. La clave de partición se especifica como una ruta de acceso; por ejemplo, `/department` representa el departamento de propiedad. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>

@@ -13,25 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/11/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: da8029f5cd69f3fd9d423c8e3ff22f2a7527f480
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 574ccaa8b2d9448a60ddf8adc7f92fa3683b1d61
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Uso de las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks
 
-Azure Data Lake incluye herramientas para trabajar con clústeres genéricos de Hadoop, además de herramientas para trabajar con Data Lake y Azure HDInsight. En este documento se proporcionan los pasos necesarios para usar las herramientas de Data Lake con Sandbox de Hortonworks en una máquina virtual local.
+Azure Data Lake incluye herramientas para trabajar con clústeres de Hadoop genéricos. En este documento se proporcionan los pasos necesarios para usar las herramientas de Data Lake con Sandbox de Hortonworks en una máquina virtual local.
 
 Mediante Sandbox de Hortonworks puede trabajar con Hadoop localmente en su entorno de desarrollo. Una vez que haya desarrollado una solución y quiera implementarla a escala, puede desplazarse a un clúster de HDInsight.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Sandbox de Hortonworks en ejecución en una máquina virtual en el entorno de desarrollo. Este documento se ha escrito y probado con el espacio aislado ejecutado en Oracle VirtualBox, que se ha configurado siguiendo la información de [Introducción al ecosistema de Hadoop con un espacio aislado de Hadoop en una máquina virtual](hdinsight-hadoop-emulator-get-started.md).
+* Sandbox de Hortonworks en ejecución en una máquina virtual en el entorno de desarrollo. Este documento se ha escrito y probado con el espacio aislado ejecutado en Oracle VirtualBox, Para información sobre cómo configurar el espacio aislado, consulte el documento de [introducción al espacio aislado de Hortonworks](hdinsight-hadoop-emulator-get-started.md) .
 
 * Visual Studio 2013, Visual Studio 2015 o Visual Studio 2017 (cualquier edición).
 
@@ -41,7 +40,7 @@ Mediante Sandbox de Hortonworks puede trabajar con Hadoop localmente en su entor
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Configuración de contraseñas para el espacio aislado
 
-Asegúrese de que Sandbox de Hortonworks se esté ejecutando. Luego, siga los pasos de [Introducción al ecosistema de Hadoop con un espacio aislado de Hadoop en una máquina virtual](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). Estos pasos configuran la contraseña de la cuenta `root` de SSH y de la cuenta `admin` de Ambari. Estas contraseñas se usan al conectarse al espacio aislado desde Visual Studio.
+Asegúrese de que Sandbox de Hortonworks se esté ejecutando. A continuación, siga los pasos descritos en el documento de [introducción al espacio aislado de Hortonworks](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). Estos pasos configuran la contraseña de la cuenta `root` de SSH y de la cuenta `admin` de Ambari. Estas contraseñas se usan al conectarse al espacio aislado desde Visual Studio.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Conexión de las herramientas al espacio aislado
 
@@ -80,19 +79,19 @@ Después de seguir estos pasos, tendrá una entrada **Clúster local de HDInsigh
 
 ## <a name="write-a-hive-query"></a>Escritura de una consulta de Hive
 
-Hive proporciona un lenguaje de consultas de tipo SQL (HiveQL) para trabajar con datos estructurados. Use los pasos siguientes para obtener información sobre cómo ejecutar consultas ad hoc en el clúster local.
+Hive proporciona un lenguaje de consultas de tipo SQL (HiveQL) para trabajar con datos estructurados. Use los pasos siguientes para aprender a ejecutar consultas a petición en el clúster local.
 
 1. En el **Explorador de servidores**, haga clic con el botón derecho en la entrada del clúster local agregado anteriormente y, luego, seleccione **Escribir una consulta de Hive**.
 
     ![Captura de pantalla del Explorador de servidores, con la opción Escribir una consulta de Hive resaltada](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
 
-    Se abrirá una nueva ventana de consulta en la que puede escribir y enviar rápidamente una consulta al clúster local.
+    Aparece una nueva ventana de consulta. Aquí puede escribir y enviar rápidamente una consulta al clúster local.
 
 2. En la nueva ventana de consulta, escriba el siguiente comando:
 
         select count(*) from sample_08;
 
-    En la parte superior de la ventana de consulta, asegúrese de que esté seleccionada la configuración del clúster local y, luego, seleccione **Enviar**. Deje las demás opciones (**Lote** y el nombre del servidor) en los valores predeterminados.
+    Para ejecutar la consulta, seleccione **Enviar** en la parte superior de la ventana. Deje las demás opciones (**Lote** y el nombre del servidor) en los valores predeterminados.
 
     ![Captura de pantalla de la ventana de consulta, con el botón Enviar resaltado](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
@@ -124,7 +123,7 @@ Hive proporciona un lenguaje de consultas de tipo SQL (HiveQL) para trabajar con
 
 ## <a name="create-a-hive-project"></a>Creación de un proyecto de Hive
 
-También puede crear un proyecto que incluya varios scripts de Hive. Un proyecto resulta útil si tiene scripts relacionados que necesita conservar juntos o mantener mediante un sistema de control de versiones.
+También puede crear un proyecto que incluya varios scripts de Hive. Cuando tenga scripts relacionados o desee almacenar scripts en un sistema de control de versiones, use un proyecto.
 
 1. En Visual Studio, seleccione **Archivo**, **Nuevo** y **Proyecto**.
 
@@ -132,7 +131,7 @@ También puede crear un proyecto que incluya varios scripts de Hive. Un proyecto
 
     ![Captura de pantalla de la ventana Nuevo proyecto, con las opciones Azure Data Lake, HIVE, Ejemplo de Hive y Aceptar resaltadas](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
-El proyecto **Hive Sample** contiene dos scripts, **WebLogAnalysis.hql** y **SensorDataAnalysis.hql**. Puede enviarlos con el mismo botón **Enviar**, situado en la parte superior de la ventana.
+El proyecto **Hive Sample** contiene dos scripts, **WebLogAnalysis.hql** y **SensorDataAnalysis.hql**. Puede enviar estos scripts con el mismo botón **Enviar**, situado en la parte superior de la ventana.
 
 ## <a name="create-a-pig-project"></a>Creación de un proyecto de Pig
 
@@ -191,7 +190,7 @@ Las herramientas de Data Lake también le permiten ver fácilmente la informaci�
 
 ### <a name="database-and-table-properties"></a>Propiedades de las bases de datos y de las tablas
 
-Puede ver las propiedades de una base de datos o de una tabla. Al seleccionar **Propiedades** se muestran los detalles del elemento seleccionado en la ventana de propiedades. Por ejemplo, puede ver la información que se muestra en la siguiente captura de pantalla.
+Puede ver las propiedades de una base de datos o de una tabla. Al seleccionar **Propiedades** se muestran los detalles del elemento seleccionado en la ventana de propiedades. Por ejemplo, puede ver la información que se muestra en la siguiente captura de pantalla:
 
 ![Captura de pantalla de la ventana Propiedades](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
 

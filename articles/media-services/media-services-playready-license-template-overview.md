@@ -2,7 +2,7 @@
 title: "Información general de plantillas de licencias de PlayReady de Media Services"
 description: "En este tema se ofrece información general sobre la plantilla de licencia de PlayReady que se usó para configurar las licencias de PlayReady."
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

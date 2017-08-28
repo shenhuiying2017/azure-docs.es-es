@@ -2,7 +2,7 @@
 title: H264 Multiple Bitrate 4x3 SD | Microsoft Docs
 description: "El tema proporciona información general sobre el valor predeterminado de tarea **H264 Multiple Bitrate 4x3 SD**."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

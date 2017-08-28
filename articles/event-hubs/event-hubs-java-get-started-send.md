@@ -12,21 +12,20 @@ ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 45776b0920f65ae9749b00978656bcefa2bf01a8
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b31771001989e20b88bc8d7bca1afceb58ec197c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Envío de eventos a Azure Event Hubs mediante Java
 
 ## <a name="introduction"></a>Introducción
-Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
+Event Hubs es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en un centro de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
 
 Para más información, consulte [Información general de Event Hubs][Event Hubs overview].
 
@@ -34,13 +33,13 @@ Este tutorial muestra cómo enviar eventos a un centro de eventos mediante una a
 
 Para completar este tutorial necesitará lo siguiente:
 
-* Un entorno de desarrollo de Java. Para este tutorial, asumimos que vamos a trabajar con [Eclipse](https://www.eclipse.org/).
+* Un entorno de desarrollo de Java. En este tutorial, se da por hecho que se va a trabajar con [Eclipse](https://www.eclipse.org/).
 * Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
 ## <a name="send-messages-to-event-hubs"></a>Envío de mensajes a Centros de eventos
-La biblioteca de cliente de Java para Centros de eventos está disponible para su uso en proyectos de Maven en el [repositorio central de Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22), y se puede hacer referencia a ella mediante la siguiente declaración de dependencia en el archivo de proyecto de Maven:    
+La biblioteca de cliente de Java para Event Hubs está disponible para su uso en proyectos de Maven desde el [repositorio central de Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Puede hacer referencia a esta biblioteca con la siguiente declaración de dependencia en el archivo de proyecto de Maven:    
 
-```XML
+```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
@@ -48,14 +47,13 @@ La biblioteca de cliente de Java para Centros de eventos está disponible para s
 </dependency>
 ```
 
-Para distintos tipos de entornos de compilación, puede obtener explícitamente los últimos archivos JAR publicados en el [repositorio central de Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) o en el [punto de distribución de versiones en GitHub](https://github.com/Azure/azure-event-hubs/releases).  
+Para distintos tipos de entornos de compilación, puede obtener explícitamente los últimos archivos JAR publicados del [repositorio central de Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22).  
 
 Para un editor de eventos simples, importe el paquete *com.microsoft.azure.eventhubs* para las clases de cliente de Event Hubs y el paquete *com.microsoft.azure.servicebus* para las clases de utilidad, como las excepciones comunes que se comparten con el cliente de mensajería de Azure Service Bus. 
 
-Para el ejemplo siguiente, primero cree un nuevo proyecto de Maven para una aplicación de consola o shell en su entorno de desarrollo de Java favorito. La clase se llamará `Send`.     
+Para el ejemplo siguiente, primero cree un nuevo proyecto de Maven para una aplicación de consola o shell en su entorno de desarrollo de Java favorito. Asigne `Send` como nombre de la clase.     
 
-```Java
-
+```java
 import java.io.IOException;
 import java.nio.charset.*;
 import java.util.*;
@@ -73,7 +71,7 @@ public class Send
 
 Reemplace los nombres del espacio de nombres y del centro de eventos por los valores que usó al crear el centro de eventos.
 
-```Java
+```java
     final String namespaceName = "----ServiceBusNamespaceName-----";
     final String eventHubName = "----EventHubName-----";
     final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
@@ -81,9 +79,9 @@ Reemplace los nombres del espacio de nombres y del centro de eventos por los val
     ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
 ```
 
-A continuación, cree un evento singular convirtiendo una cadena en su codificación de bytes UTF-8. Después creamos una nueva instancia de cliente de Centros de eventos a partir de la cadena de conexión y enviamos el mensaje.   
+A continuación, cree un evento singular transformando una cadena en su codificación de bytes UTF-8. Después creamos una nueva instancia de cliente de Event Hubs a partir de la cadena de conexión y enviamos el mensaje.   
 
-```Java 
+```java 
 
     byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
     EventData sendEvent = new EventData(payloadBytes);

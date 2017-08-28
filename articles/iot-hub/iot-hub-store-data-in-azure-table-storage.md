@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ed867e1e7702d3f178feeab007ac94fb1d67c140
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 06503f9564e00ef62587d02f2da4778974e246c5
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-table-storage"></a>Procedimiento para guardar mensajes de IoT Hub que contienen datos del sensor en Azure Table Storage
@@ -47,7 +47,7 @@ Aprenderá a crear una cuenta de Azure Storage y una aplicación de función de 
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Nuevo** > **Storage** > **Cuenta de Storage**.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Nuevo** > **Storage** > **Cuenta de Storage** > **Crear**.
 
 2. Escriba la información necesaria para la cuenta de almacenamiento:
 
@@ -109,7 +109,7 @@ IoT Hub expone un punto de conexión integrado compatible con el centro de event
 
 ## <a name="create-and-deploy-an-azure-function-app"></a>Creación e implementación de una aplicación de función de Azure
 
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Nuevo** > **Compute** > **Function App**.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Nuevo** > **Compute** > **Function App** > **Crear**.
 
 2. Escriba la información necesaria para la aplicación de función.
 
@@ -169,7 +169,7 @@ IoT Hub expone un punto de conexión integrado compatible con el centro de event
 
 8. En **Grupo de consumidores del Centro de eventos**, escriba el nombre del grupo de consumidores que creó y haga clic en **Guardar**.
 
-9. Haga clic en **Desarrollar** y luego en **Ver archivos**.
+9. Haga clic en la función que ha creado en la parte izquierda y en **Ver archivos** de la derecha.
 
 10. Reemplace el código de `index.js` por lo siguiente:
 

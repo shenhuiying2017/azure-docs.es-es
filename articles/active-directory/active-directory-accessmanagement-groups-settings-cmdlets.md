@@ -12,23 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: rodejo
+ms.date: 08/09/2017
+ms.author: curtand
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 7dd4833000e8550b172e0451c48788b1e627a1fb
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 2ee71536257d4349fdf8d80bdcb1899a1d244293
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
 
 > [!IMPORTANT]
-> Este contenido se aplica únicamente a grupos de Office 365. 
+> Este contenido se aplica únicamente a grupos de Office 365. Para obtener más información sobre cómo permitir a los usuarios crear grupos de seguridad, establezca `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` como se describe en [Set-MSOLCompanySettings](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
-Los grupos de Office 365 se configuran mediante un objeto Settings y un objeto SettingsTemplate. Inicialmente, no verá ningún objeto Settings en el directorio. Esto significa que el directorio está configurado con los valores predeterminados. Para cambiar la configuración predeterminada, debe crear un nuevo objeto Settings utilizando una plantilla SettingsTemplate. Las plantillas de configuración las define Microsoft. Hay varias plantillas de configuración diferentes. Para configurar los valores del grupo para su directorio, utilizará la plantilla denominada "Group.Unified". Para configurar los valores de un único grupo, utilice la plantilla "Group.Unified.Guest". Esta plantilla se usa para administrar el acceso de invitado a un grupo. 
+Los grupos de Office 365 se configuran mediante un objeto Settings y un objeto SettingsTemplate. Al principio no ve ningún objeto de configuración en el directorio porque este se ha configurado de forma predeterminada. Para cambiar la configuración predeterminada, debe crear un nuevo objeto Settings utilizando una plantilla SettingsTemplate. Las plantillas de configuración las define Microsoft. Hay varias plantillas de configuración diferentes. Para configurar los valores del grupo de Office 365 para su directorio, utiliza la plantilla denominada "Group.Unified". Para configurar los valores del grupo de Office 365 en un único grupo, utilice la plantilla denominada "Group.Unified.Guest". Esta plantilla se usa para administrar el acceso de invitado a un grupo de Office 365. 
 
-Los cmdlets forman parte del módulo Azure Active Directory PowerShell V2. Para más información acerca de este módulo y para obtener instrucciones cómo descargar e instalar el módulo en el equipo, consulte [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/) (Azure Active Directory PowerShell versión 2). Puede instalar la versión 2 del módulo desde [aquí](https://www.powershellgallery.com/packages/AzureAD/).
+Los cmdlets forman parte del módulo Azure Active Directory PowerShell V2. Para obtener instrucciones sobre cómo descargar e instalar el módulo en el equipo, consulte el artículo [Azure Active Directory PowerShell versión 2](https://docs.microsoft.com/powershell/azuread/). Puede instalar la versión 2 del módulo desde [la Galería de PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="retrieve-a-specific-settings-value"></a>Recuperación de un valor de configuración específico
 Si conoce el nombre de la configuración que desea recuperar, puede usar el siguiente cmdlet para recuperar el valor de configuración actual. En este ejemplo, se recuperará el valor de una configuración denominada "UsageGuidelinesUrl". Puede obtener información adicional sobre la configuración de directorio y sus nombres en este artículo.
@@ -38,7 +40,7 @@ Si conoce el nombre de la configuración que desea recuperar, puede usar el sigu
 ```
 
 ## <a name="create-settings-at-the-directory-level"></a>Creación de una configuración en el nivel de directorio
-Con estos pasos se crean configuraciones en el nivel de directorio, las cuales se aplican a todos los grupos unificados del directorio.
+Con estos pasos se crean configuraciones en el nivel de directorio, las cuales se aplican a todos los grupos de Office 365 (grupos unificados) del directorio.
 
 1. En los cmdlets DirectorySettings, debe especificar el identificador de la plantilla SettingsTemplate que desea usar. Si no conoce este identificador, este cmdlet devuelve la lista de plantillas de configuración:
   

@@ -1,5 +1,5 @@
 ---
-title: "Configuración de la directiva SSL y SSL de extremo a extremo con Application Gateway | Microsoft Docs"
+title: "Configuración de SSL de extremo a extremo con Azure Application Gateway | Microsoft Docs"
 description: "En este artículo se describe cómo configurar SSL de extremo a extremo con Application Gateway mediante PowerShell para Azure Resource Manager"
 services: application-gateway
 documentationcenter: na
@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 07/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6d969d6a0c649c263e1d5bb99bdbceec484cb9a3
+ms.contentlocale: es-es
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="configure-ssl-policy-and-end-to-end-ssl-with-application-gateway-using-powershell"></a>Configuración de la directiva SSL y SSL de extremo a extremo con Application Gateway mediante PowerShell
+# <a name="configure-end-to-end-ssl-with-application-gateway-using-powershell"></a>Configuración de SSL de extremo a extremo con Application Gateway mediante PowerShell
 
 ## <a name="overview"></a>Información general
 
 Application Gateway admite el cifrado de extremo a extremo del tráfico. Para ello, lo que hace es terminar la conexión SSL en la puerta de enlace de aplicaciones. La puerta de enlace aplica entonces las reglas de enrutamiento al tráfico, vuelve a cifrar el paquete y lo reenvía al back-end adecuado según las reglas de enrutamiento definidas. Cualquier respuesta del servidor web pasa por el mismo proceso en su regreso al usuario final.
 
-Otra característica que admite la puerta de enlace de aplicaciones es la deshabilitación de determinadas versiones del protocolo SSL. Application Gateway admite la deshabilitación de la siguiente versión del protocolo: **TLSv1.0**, **TLSv1.1** y **TLSv1.2**.
+Otra característica que admite Application Gateway es la definición de opciones SSL personalizadas. Application Gateway admite deshabilitar la siguiente versión de protocolo; **TLSv1.0**, **TLSv1.1**, y **TLSv1.2** así como definir qué conjuntos de cifrado usar y el orden de preferencia.  Para más información sobre las opciones configurables de SSL, visite la [introducción a la directiva SSL](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 y SSL 3.0 están deshabilitados de manera predeterminada y no se pueden habilitar. Se considera que no son seguros y no se pueden usar con Application Gateway.
@@ -40,9 +41,9 @@ En este escenario, aprenderá a crear una puerta de enlace de aplicaciones media
 En este escenario:
 
 * Creará un grupo de recursos llamado **appgw-rg**.
-* Creará una red virtual denominada **appgwvnet** con un bloque CIDR reservado de 10.0.0.0/16.
+* Creará una red virtual denominada **appgwvnet** con un espacio de direcciones de 10.0.0.0/16.
 * Creará dos subredes llamadas **appgwsubnet** y **appsubnet**.
-* Creará una puerta de enlace de aplicaciones pequeña que admita el cifrado SSL de extremo a extremo y deshabilite determinados protocolos SSL.
+* Creará una puerta de enlace de aplicaciones pequeña que admite el cifrado SSL de extremo a extremo que limita las versiones de protocolos SSL y los conjuntos de cifrado.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -136,7 +137,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Creación de un objeto de configuración de la Puerta de enlace de aplicaciones
 
-Debe configurar todos los elementos de configuración antes de crear la puerta de enlace de aplicaciones de la aplicación. En los pasos siguientes, se crean los elementos de configuración necesarios para un recurso de puerta de enlace de aplicaciones.
+Se deben establecer todos los elementos de configuración antes de crear la puerta de enlace de aplicaciones. En los pasos siguientes, se crean los elementos de configuración necesarios para un recurso de puerta de enlace de aplicaciones.
 
 ### <a name="step-1"></a>Paso 1
 
@@ -178,7 +179,7 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 Configure el certificado de la puerta de enlace de aplicaciones. Este certificado se usa para descifrar y volver a cifrar el tráfico de la puerta de enlace de aplicaciones.
 
 ```powershell
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+$cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
 ```
 
 > [!NOTE]
@@ -189,7 +190,7 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 Cree el agente de escucha HTTP para la puerta de enlace de aplicaciones. Asigne la configuración IP de front-end, el puerto y el certificado SSL que se usarán.
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
 ```
 
 ### <a name="step-7"></a>Paso 7
@@ -235,18 +236,18 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 ### <a name="step-11"></a>Paso 11
 
-Configure la directiva SSL que se usará en la puerta de enlace de aplicaciones. Application Gateway admite la posibilidad de deshabilitar determinadas versiones del protocolo SSL.
+Configure la directiva SSL que se usará en la puerta de enlace de aplicaciones. Application Gateway admite la posibilidad de establecer una versión mínima para las versiones del protocolo SSL.
 
-Los valores siguientes son una lista de versiones de protocolo que se pueden deshabilitar.
+Los valores siguientes son una lista de versiones de protocolo que se pueden definir.
 
 * **TLSv1_0**
 * **TLSv1_1**
 * **TLSv1_2**
 
-En el ejemplo siguiente se deshabilita **TLSv1\_0**.
+Establece la versión mínima del protocolo en **TLSv1_2** y solo habilita **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** y solo **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
 
 ```powershell
-$sslPolicy = New-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0
+$SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 ```
 
 ## <a name="create-the-application-gateway"></a>Creación de Application Gateway
@@ -254,10 +255,10 @@ $sslPolicy = New-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_
 Con todos los pasos anteriores, cree la puerta de enlace de aplicaciones. La creación de la puerta de enlace de aplicaciones es un proceso de ejecución largo.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgateway -SslCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslPolicy $sslPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-## <a name="disable-ssl-protocol-versions-on-an-existing-application-gateway"></a>Deshabilitación de las versiones de protocolo SSL en una puerta de enlace de aplicaciones existente
+## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Límite de las versiones de protocolo SSL en una instancia de Application Gateway existente
 
 Los pasos anteriores le llevan por la creación de una aplicación con SSL de extremo a extremo y la deshabilitación de determinadas versiones del protocolo SSL. En el ejemplo siguiente se deshabilitan determinadas directivas SSL en una puerta de enlace de aplicaciones existente.
 
@@ -271,15 +272,16 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName Ad
 
 ### <a name="step-2"></a>Paso 2
 
-Defina una directiva SSL. En el ejemplo siguiente, se deshabilitan TLSv1.0 y TLSv1.1.
+Defina una directiva SSL. En el ejemplo siguiente, se deshabilitan TLSv1.0 y TLSv1.1 y los conjuntos de cifrado **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** y **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** son los únicos permitidos.
 
 ```powershell
-Set-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0, TLSv1_1 -ApplicationGateway $gw
+Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+
 ```
 
 ### <a name="step-3"></a>Paso 3
 
-Por último, actualice la puerta de enlace. Es importante tener en cuenta que este último paso es una tarea de ejecución prolongada. Cuando termine, SSL de extremo a extremo está configurado en la puerta de enlace de aplicaciones.
+Por último, actualice la puerta de enlace. Es importante tener en cuenta que este último paso es una tarea de ejecución prolongada. Una vez terminado, SSL de extremo a extremo está configurado en la puerta de enlace de aplicaciones.
 
 ```powershell
 $gw | Set-AzureRmApplicationGateway
@@ -287,7 +289,7 @@ $gw | Set-AzureRmApplicationGateway
 
 ## <a name="get-application-gateway-dns-name"></a>Obtención del nombre DNS de una puerta de enlace de aplicaciones
 
-Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la puerta de enlace de aplicaciones, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la puerta de enlace de aplicaciones. [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para ello, recupere los detalles de la puerta de enlace de aplicaciones y su nombre DNS o IP asociados mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
+Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la Application Gateway, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la Application Gateway. [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para ello, recupere los detalles de la puerta de enlace de aplicaciones y su nombre DNS o IP asociados mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -319,10 +321,5 @@ DnsSettings              : {
 
 Aprenda sobre la protección de la seguridad de las aplicaciones web con el firewall de aplicaciones web mediante Application Gateway en [Información general sobre el firewall de aplicaciones web](application-gateway-webapplicationfirewall-overview.md)
 
-[scenario]: ./media/application-gateway-end-to-end-ssl-powershell/scenario.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+[scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
 

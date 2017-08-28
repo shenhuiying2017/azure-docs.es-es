@@ -1,6 +1,6 @@
 ---
 title: "Información general sobre la administración y la supervisión de la seguridad en Azure | Microsoft Docs"
-description: " Azure proporciona mecanismos de seguridad que ayudan en la administración y la supervisión de servicios en la nube y máquinas virtuales de Azure.  En este artículo se proporciona información general sobre estas características y servicios básicos de seguridad. "
+description: " Azure proporciona mecanismos de seguridad que ayudan en la administración y la supervisión de Azure Cloud Services y Virtual Machines.  En este artículo se proporciona información general sobre estas características y servicios básicos de seguridad. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f0c174d7d845dd7e48de6388270dde2469d89a12
-ms.lasthandoff: 03/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
+ms.contentlocale: es-es
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Información general sobre la administración y la supervisión de la seguridad en Azure
-Azure proporciona mecanismos de seguridad que ayudan en la administración y la supervisión de servicios en la nube y máquinas virtuales de Azure. En este artículo se proporciona información general sobre estas características y servicios básicos de seguridad. Además, se incluyen vínculos a artículos que ofrecen detalles de cada uno de estos servicios o características para que pueda tener más información al respecto.
+Azure proporciona mecanismos de seguridad que ayudan en la administración y la supervisión de Azure Cloud Services y Virtual Machines. En este artículo se proporciona información general sobre estas características y servicios básicos de seguridad. Además, se incluyen vínculos a artículos que ofrecen detalles de cada uno de estos servicios o características para que pueda tener más información al respecto.
 
 La seguridad de los servicios en la nube de Microsoft se basa en la colaboración y la responsabilidad compartida entre usted y Microsoft. Responsabilidad compartida significa que Microsoft es responsable de Microsoft Azure y de la seguridad física de sus centros de datos (mediante el uso de protecciones de seguridad, como puertas de entrada con notificación de bloqueo, barreras y restricciones). Además, Azure proporciona fuertes niveles de seguridad en la nube en la capa de software que satisfacen las necesidades de seguridad, privacidad y cumplimiento de sus exigentes clientes.
 
-Usted es el propietario de sus datos e identidades, es responsable de protegerlos, de la seguridad de los recursos locales y de la seguridad de los componentes de nube sobre los que tiene el control. Microsoft proporciona controles de seguridad y funcionalidades que ayudan a proteger los datos y las aplicaciones. Su responsabilidad de la seguridad se basa en el tipo de servicio en la nube.
+Usted es el propietario de sus datos e identidades, es responsable de protegerlos, de la seguridad de los recursos locales y de la seguridad de los componentes de nube sobre los que tiene el control. Microsoft proporciona controles de seguridad y funcionalidades que ayudan a proteger los datos y las aplicaciones. Su grado de responsabilidad de la seguridad se basa en el tipo de servicio en la nube.
 
 En el siguiente gráfico se resume cómo se reparte la responsabilidad entre Microsoft y el cliente.
 
@@ -64,7 +64,7 @@ Symantec End Point Protection (SEP) también se admite en Azure. Gracias a la in
 
 Más información:
 
-* [Implementación de soluciones antimalware en máquinas virtuales de Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
+* [Implementación de soluciones antimalware en Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware para Cloud Services y Virtual Machines de Azure](azure-security-antimalware.md)
 * [Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](../virtual-machines/windows/classic/install-trend.md)
 * [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](../virtual-machines/windows/classic/install-symantec.md)
@@ -80,18 +80,18 @@ Más información:
 * [Cómo funciona Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
 
 ## <a name="expressroute"></a>ExpressRoute
-Microsoft Azure ExpressRoute le permite ampliar sus redes de local en la nube de Microsoft a través de una conexión privada y dedicada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y CRM Online. La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida. Las conexiones ExpressRoute no pasan por la red pública de Internet. Esto permite a las conexiones de ExpressRoute ofrecer más confiabilidad, más velocidad, menor latencia y mayor seguridad que las conexiones normales a través de Internet.
+Microsoft Azure ExpressRoute le permite ampliar sus redes de local en la nube de Microsoft a través de una conexión privada y dedicada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, tales como Microsoft Azure, Office 365 y CRM Online. La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida. Las conexiones ExpressRoute no pasan por la red pública de Internet. Esto permite a las conexiones de ExpressRoute ofrecer más confiabilidad, más velocidad, menor latencia y mayor seguridad que las conexiones normales a través de Internet.
 
 Más información:
 
 * [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md)
 
 ## <a name="virtual-network-gateways"></a>Puertas de enlace de red virtual
-Las puertas de enlace de VPN, también llamadas puertas de enlace de red virtual de Azure, se usan para enviar tráfico de red entre las redes virtuales y las ubicaciones locales. También se usan para enviar el tráfico entre varias redes virtuales dentro de Azure (red virtual a red virtual).  Las puertas de enlace de VPN proporcionan conectividad local segura entre Azure y su infraestructura.
+Las VPN Gateway, también llamadas puertas de enlace de red virtual de Azure, se usan para enviar tráfico de red entre las redes virtuales y las ubicaciones locales. También se usan para enviar el tráfico entre varias redes virtuales dentro de Azure (red virtual a red virtual).  Las VPN Gateway proporcionan conectividad local segura entre Azure y su infraestructura.
 
 Más información:
 
-* [Información acerca de las puertas de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+* [Información acerca de las VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Azure Network Security Overview](security-network-overview.md)
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management

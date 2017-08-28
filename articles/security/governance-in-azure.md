@@ -1,5 +1,4 @@
 ---
-
 title: Sistema de gobierno en Azure | Microsoft Docs
 description: "Obtenga información acerca de los servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso, que se pueden escalar tanto vertical como horizontalmente para satisfacer las necesidades de su aplicación o de su empresa."
 services: security
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 91fb3c70d95cca46dd68e3f15ad67c914cfbfa5b
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f3fbca281dbbfca7ff9392d003429719c589afbd
 ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -171,7 +169,7 @@ Conceda acceso asignando el rol RBAC adecuado a usuarios, grupos y aplicaciones 
 
 Por ejemplo, un usuario con acceso a un grupo de recursos puede administrar todos los recursos que contiene, como sitios web, máquinas virtuales y subredes.
 
-RBAC de Azure solo es compatible con operaciones de administración de los recursos de Azure del Portal de Azure y de las API de Azure Resource Manager. No todas las operaciones de nivel de datos para recursos de Azure pueden autorizarse. Por ejemplo, puede autorizar a un empleado que administre las cuentas de almacenamiento, pero no los blobs o las tablas de una cuenta de almacenamiento. De igual forma, una base de datos SQL se puede administrar, pero no las tablas que contiene.
+RBAC de Azure solo es compatible con operaciones de administración de los recursos de Azure de Azure Portal y de las API de Azure Resource Manager. No todas las operaciones de nivel de datos para recursos de Azure pueden autorizarse. Por ejemplo, puede autorizar a un empleado que administre las cuentas de almacenamiento, pero no los blobs o las tablas de una cuenta de almacenamiento. De igual forma, una base de datos SQL se puede administrar, pero no las tablas que contiene.
 
 Si desea más detalles sobre cómo RBAC ayuda a administrar el acceso, consulte [¿Qué es el control de acceso basado en rol?](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)
 
@@ -337,7 +335,7 @@ A continuación, se muestran las funcionalidades de las redes virtuales de Azure
 
 - **Aislamiento**: las redes virtuales están completamente aisladas entre sí. Puede crear redes virtuales independientes para el desarrollo, la prueba y la producción que usan los mismos bloques de direcciones de CIDR. Por el contrario, puede crear varias redes virtuales que usan diferentes bloques de direcciones CIDR y que conectan redes entre sí. También puede segmentar una red virtual en varias subredes. Azure proporciona resolución de nombres interna para máquinas virtuales e instancias de rol de Cloud Services conectadas a una red virtual. Si lo desea, puede configurar una red virtual para usar sus propios servidores DNS, en lugar de utilizar la resolución de nombres interna Azure.
 
-- **Conectividad a Internet**: todas las máquinas virtuales de Azure y las instancias de rol de Cloud Services conectadas a una red virtual tienen acceso a Internet, de forma predeterminada. También puede habilitar el acceso entrante a recursos específicos, según sea necesario.
+- **Conectividad a Internet**: todas las instancias de Azure Virtual Machines y las instancias de rol de Cloud Services conectadas a una red virtual tienen acceso a Internet, de forma predeterminada. También puede habilitar el acceso entrante a recursos específicos, según sea necesario.
 
 - **Conectividad de los recursos de Azure**: los recursos de Azure, como Cloud Services y las máquinas virtuales, se pueden conectar a la misma red virtual. Los recursos pueden conectarse entre sí mediante direcciones IP privadas, aunque estén en subredes diferentes. Azure proporciona el enrutamiento predeterminado entre subredes, redes virtuales y redes locales, por lo que no tendrá que configurar ni administrar rutas.
 
@@ -424,7 +422,7 @@ Microsoft cuenta con un equipo de seguridad y cumplimiento normativo que supervi
 
 Operations Management Suite (también conocido como OMS) es una colección de servicios de administración que desde el principio se diseñaron en la nube. En lugar de implementar y administrar recursos locales, los componentes de OMS se hospedan en su totalidad en Azure. La configuración es mínima, y puede estar listo y rindiendo literalmente en cuestión de minutos.
 
-![Operations Management Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
+![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
 El hecho de que los servicios de OMS se ejecuten en la nube no significa que no puedan administrar eficazmente cualquier entorno local.
 
@@ -434,7 +432,7 @@ Los runbooks en la nube normalmente no pueden acceder a los recursos locales, pe
 
 Un conjunto de servicios que se ejecutan en Azure proporciona la funcionalidad principal de OMS. Cada servicio ofrece una función de administración específica, y se pueden combinar los servicios para lograr escenarios de administración diferentes.
 
-![Operations Management Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
+![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
 Operations Manager de Azure amplía sus funcionalidades proporcionando soluciones de administración. Las [soluciones de administración](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) son conjuntos de lógica preempaquetados que implementan un escenario de administración concreto aprovechando uno o varios servicios de OMS.
 

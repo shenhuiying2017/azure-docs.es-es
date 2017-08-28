@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 96553e9d2faac08ef861bc1f277b286b798bde0b
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 149af1f68e574f78127a9c2de8a0e79ed8774d29
 ms.contentlocale: es-es
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -90,10 +90,10 @@ El flujo de la delegación de Kerberos del Proxy de aplicación de Azure AD se i
 
 Para obtener más información sobre Kerberos, consulte [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Todo lo que necesita saber sobre Delegación restringida de kerberos [KCD]).
 
-Las aplicaciones que no son de Windows normalmente usan nombres de usuario o nombres de cuenta SAM en lugar de direcciones de correo electrónico de dominio. Si esta situación se aplica a sus aplicaciones, debe configurar el campo de identidad de inicio de sesión designado para conectar las identidades de nube a las identidades de aplicación. 
+Las aplicaciones que no son de Windows normalmente usan nombres de usuario o nombres de cuenta SAM en lugar de direcciones de correo electrónico de dominio. Si esta situación se aplica a sus aplicaciones, debe configurar el campo de identidad de inicio de sesión delegada para conectar las identidades de nube a las identidades de aplicación. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Trabajar con diferentes identidades locales y de nube
-Proxy de aplicación supone que los usuarios tienen exactamente la misma identidad en la nube y en local. Si no es el caso, puede seguir usando KCD para el inicio de sesión único. Configure una **Identidad de inicio de sesión designada** para cada aplicación para especificar qué identidad se debe usar al realizar el inicio de sesión único.  
+Proxy de aplicación supone que los usuarios tienen exactamente la misma identidad en la nube y en local. Si no es el caso, puede seguir usando KCD para el inicio de sesión único. Configure una **Identidad de inicio de sesión delegada** para cada aplicación para especificar qué identidad se debe usar al realizar el inicio de sesión único.  
 
 Esta funcionalidad permite a muchas organizaciones que tienen identidades locales y en la nube diferentes disponer de inicio de sesión único en aplicaciones locales desde aplicaciones en la nube sin que los usuarios tengan que escribir nombres de usuario y contraseñas diferentes. Esto incluye las organizaciones que:
 

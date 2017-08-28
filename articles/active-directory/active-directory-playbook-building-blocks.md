@@ -1,5 +1,4 @@
 ---
-
 title: "Guía de prueba de concepto de Azure Active Directory: bloques de creación | Documentos de Microsoft"
 description: "Exploración e implementación rápida de escenarios de administración de identidades y acceso"
 services: active-directory
@@ -15,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 9c81bc0c702d559eee8b5fbf2a0508697f4276a0
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 671f2d386aca23bc5c02d0e0ab23e6d9d79a8693
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guía de prueba de concepto de Azure Active Directory: bloques de creación
@@ -69,7 +67,7 @@ Tiempo aproximado para completarlo: una hora para menos de 1000 usuarios de prue
 | --- | --- |
 | Descargue la versión más reciente de Azure AD Connect. | [Descarga de Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
 | Instale Azure AD Connect con la ruta de acceso más sencilla: rápido. <br/>1. Filtre a la unidad organizativa de destino para minimizar el tiempo del ciclo de sincronización.<br/>2. Elija el conjunto de usuarios de destino en el grupo local.<br/>3. Implemente las características necesarias por los demás temas de la prueba de concepto. | [Azure AD Connect: Instalación personalizada: Filtrado por dominio y unidad organizativa](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Instalación personalizada: Filtrado de sincronización basado en grupos](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integración de las identidades locales con Azure Active Directory: Configuración de características de sincronización](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| Apertura de la UI de Azure AD Connect y visualización de los perfiles en ejecución completados (importación, sincronización y exportación) | [Azure AD Connect Sync: Programador](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
+| Apertura de la UI de Azure AD Connect y visualización de los perfiles en ejecución completados (importación, sincronización y exportación) | [Azure AD Connect Sync: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
 | Abra el [Portal de administración de Azure AD](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), vaya a la hoja "Todos los usuarios", agregue la columna "Origen de autoridad" y vea los usuarios que aparecen, marcados correctamente como procedentes de "Windows Server AD". | [Portal de administración de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
 ### <a name="considerations"></a>Consideraciones
@@ -77,7 +75,7 @@ Tiempo aproximado para completarlo: una hora para menos de 1000 usuarios de prue
 1. Examine las consideraciones de seguridad de la sincronización de hash de contraseñas [aquí](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  Si la sincronización de hash de contraseñas para los usuarios de producción piloto no es una opción, tenga en cuenta las alternativas siguientes:
    * Crear usuarios de prueba en el dominio de producción. Asegúrese de que no sincronizar ninguna otra cuenta.
    * Trasladarse a un entorno UAT.
-2.    Si desea lograr la federación, merece la pena entender los costos asociados a una solución federada con el proveedor de identidades local más allá de la prueba de concepto y medirlo en relación a las ventajas que busca:
+2.  Si desea lograr la federación, merece la pena entender los costos asociados a una solución federada con el proveedor de identidades local más allá de la prueba de concepto y medirlo en relación a las ventajas que busca:
     * Está en la ruta crítica, por lo que tiene que diseñarlo para lograr una alta disponibilidad.
     * Es un servicio local que necesita para el plan de capacidad.
     * Es un servicio local que necesita para la supervisión el mantenimiento o la revisión.
@@ -102,7 +100,7 @@ Tiempo aproximado para completarlo: 15 minutos
 | Paso | Recursos |
 | --- | --- |
 | Vaya al Portal de administración de Azure AD. | [Portal de administración de Azure AD: Personalización de marca de empresa](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Cargue los recursos de la página de inicio de sesión (logotipo prominente o pequeño, etiquetas, etc.). Opcionalmente, si tiene AD FS, alinee los mismos recursos con páginas de inicio de sesión ADFS. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso: Elementos personalizables](active-directory-add-company-branding.md#customizable-elements) |
+| Cargue los recursos de la página de inicio de sesión (logotipo prominente o pequeño, etiquetas, etc.). Opcionalmente, si tiene AD FS, alinee los mismos recursos con páginas de inicio de sesión ADFS. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso: Elementos personalizables](active-directory-add-company-branding.md) |
 | Espere unos minutos para que surta efecto el cambio. |  |
 | Inicie sesión con las credenciales de usuario de prueba de concepto para https://myapps.microsoft.com. |  |
 | Confirme la apariencia en el explorador. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md) |
@@ -290,7 +288,7 @@ Tiempo aproximado para completarlo: 60 minutos
 | Cree perfiles de ejecución para el conector creado (importación completa, importación diferencial, sincronización completa, sincronización diferencial y exportación). | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx) (Creación de un perfil de ejecución del agente de administración)<br/> [Uso de conectores con el administrador de servicios de Azure AD Connect Sync](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Ejecute el perfil de importación completa y verifique que hay objetos en el espacio del conector. | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx) (Búsqueda de un objeto en el espacio del conector)<br/>[Uso de conectores con el administrador de servicios de Azure AD Connect Sync: Espacio del conector de búsqueda](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | Cree reglas de sincronización para que los objetos del metaverso tengan los atributos necesarios para las cargas de trabajo. | [Azure AD Connect Sync: procedimientos recomendados para cambiar la configuración predeterminada: Cambios en las reglas de sincronización](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect Sync: conocimiento del aprovisionamiento declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync: conocimiento de expresiones de aprovisionamiento declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| Inicie el ciclo de sincronización completa. | [Azure AD Connect Sync: Programador: Inicio del programador](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
+| Inicie el ciclo de sincronización completa. | [Azure AD Connect Sync: Scheduler: Inicio de Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | En caso de problemas, soluciónelos. | [Solución de problemas de un objeto que no se sincroniza con Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | Compruebe que el usuario de LDAP puede iniciar sesión y acceda a la aplicación. | https://myapps.microsoft.com |
 
@@ -487,7 +485,7 @@ Tiempo aproximado para completarlo: 15 minutos
 | Tenga en cuenta que si GA2 nunca se registró para MFA, será necesario registrarse para Azure MFA. |  |
 | Vuelva a la pestaña original en el paso 3 y haga clic en el botón Actualizar, en el explorador. Tenga en cuenta que ahora tiene acceso para cambiar la "Configuración de usuario". | |
 | Si lo desea, si los administradores globales tienen el correo electrónico habilitado, puede consultar la bandeja de entrada de GA1 y de GA2 y ver la notificación del rol que se va a activar. |  |
-| 8    Consulte el historial de auditoría y observe el informe para confirmar que aparece la elevación del GA2. | [¿Qué es Azure AD Privileged Identity Management?: Revisión de la actividad de un rol](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8 Consulte el historial de auditoría y observe el informe para confirmar que aparece la elevación del GA2. | [¿Qué es Azure AD Privileged Identity Management?: Revisión de la actividad de un rol](active-directory-privileged-identity-management-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>Consideraciones
 

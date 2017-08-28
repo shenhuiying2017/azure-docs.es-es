@@ -1,12 +1,11 @@
 ---
-title: "Experiencia de inicio de sesión de Azure MFA con la verificación en dos pasos | Microsoft Docs"
+title: "Inicio de sesión de Azure MFA con la verificación en dos pasos | Microsoft Docs"
 description: "Esta página proporciona instrucciones sobre dónde debe ir para ver los distintos métodos de inicio de sesión disponibles con Azure MFA."
 keywords: "autenticación de usuario, experiencia de inicio de sesión, inicio de sesión con el teléfono móvil, inicio de sesión con el teléfono del trabajo"
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: pblachar
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: kgremban
+ms.reviewer: librown
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: e972446ea92e8fd31406c9ccff7832b7441f3a2a
-ms.lasthandoff: 03/04/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: d12115be61ca00dfb86dd822ccae9f9096fa796a
+ms.contentlocale: es-es
+ms.lasthandoff: 08/16/2017
 
 ---
+
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>La experiencia de inicio de sesión con Azure Multi-Factor Authentication
 > [!NOTE]
 > El propósito de este artículo es recorrer una experiencia de inicio de sesión típica. Para obtener ayuda sobre el inicio de sesión o resolver problemas, consulte [Problemas con Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
@@ -43,7 +45,6 @@ La siguiente información describe la experiencia de verificación de dos pasos 
 1. Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña.  
 2. Microsoft lo llamará.  
 3. Responda al teléfono y pulse la tecla #.  
-4. Con esto debe haber iniciado sesión.  
 
 ## <a name="signing-in-with-a-text-message"></a>Inicio de sesión con un mensaje de texto
 La siguiente información describe la experiencia de verificación de dos pasos con mensaje de texto a un móvil:
@@ -51,10 +52,9 @@ La siguiente información describe la experiencia de verificación de dos pasos 
 1. Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña. 
 2. Microsoft envía un mensaje de texto que contiene un código numérico. 
 3. Escriba el código en el cuadro que aparece en la página de inicio de sesión. 
-4. Con esto debe haber iniciado sesión. 
 
 ## <a name="signing-in-with-the-microsoft-authenticator-app"></a>Inicio de sesión con la aplicación Microsoft Authenticator 
-La siguiente información describe la experiencia de uso de la aplicación Microsoft Authenticator para las verificaciones en dos pasos. Hay dos maneras diferentes de utilizar la aplicación. O bien puede recibir notificaciones push en el dispositivo o puede abrir la aplicación para obtener un código de verificación.
+La siguiente información describe la experiencia de uso de la aplicación Microsoft Authenticator para las verificaciones en dos pasos. Hay dos maneras diferentes de utilizar la aplicación. Puede recibir notificaciones push en el dispositivo o puede abrir la aplicación para obtener un código de comprobación.
 
 ### <a name="to-sign-in-with-a-notification-from-the-microsoft-authenticator-app"></a>Para iniciar sesión con una notificación de la aplicación Microsoft Authenticator
 1. Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña.
@@ -67,7 +67,7 @@ La siguiente información describe la experiencia de uso de la aplicación Micro
 
 ### <a name="to-sign-in-using-a-verification-code-with-the-microsoft-authenticator-app"></a>Para iniciar sesión en la aplicación Microsoft Authenticator con un código de verificación
 
-Si usa la aplicación Microsoft Authenticator para obtener códigos de verificación, al abrir la aplicación, podrá ver un número debajo de su nombre de cuenta. Este número cambia cada 30 segundos para que no use el mismo número dos veces. Cuando se le solicite un código de verificación, abra la aplicación y use cualquier número que se muestre. 
+Si usa la aplicación Microsoft Authenticator para obtener códigos de comprobación, al abrir la aplicación, podrá ver un número debajo de su nombre de cuenta. Este número cambia cada 30 segundos para que no use el mismo número dos veces. Cuando se le solicite un código de verificación, abra la aplicación y use cualquier número que se muestre. 
 
 1. Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña.
 2. Microsoft le pedirá un código de verificación.
@@ -75,17 +75,15 @@ Si usa la aplicación Microsoft Authenticator para obtener códigos de verificac
   ![Escribir el código de comprobación](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Abra la aplicación Microsoft Authenticator en el teléfono y escriba el código en el cuadro donde está iniciando sesión.
-4. Con esto debe haber iniciado sesión.
 
 ## <a name="signing-in-with-an-alternate-method"></a>Inicio de sesión con un método alternativo
 En ocasiones, no tiene el teléfono o el dispositivo que configuró como método de verificación preferida. Esta situación es el motivo por el que se recomienda configurar métodos de copia de seguridad para la cuenta. En la siguiente sección se mostrará cómo iniciar sesión con un método alternativo cuando el método principal no esté disponible.
 
 1. Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña.
-2. Seleccione **Usar otra opción de comprobación**. Verá distintas opciones de verificación en función del número que haya instalado.
+2. Seleccione **Usar otra opción de comprobación**. Verá distintas opciones de comprobación en función del número de ellas que haya configurado.
+3. Elija un método alternativo e inicie sesión.
 
   ![Usar método alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
-
-3. Elija un método alternativo e inicie sesión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

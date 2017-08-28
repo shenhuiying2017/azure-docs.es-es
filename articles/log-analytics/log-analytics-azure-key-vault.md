@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 708bf39b69cf798ac44aca65cf7dee6fa9a24591
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solución de Azure Key Vault Analytics en Log Analytics
@@ -76,7 +75,7 @@ En la siguiente tabla se muestran los métodos de recopilación de datos y otros
 
 | Plataforma | Agente directo | Agente System Center Operations Manager | Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
-| Las tablas de Azure |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Sí](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | a la llegada |
+| Las tablas de Azure |  |  |&#8226; |  |  | a la llegada |
 
 ## <a name="use-azure-key-vault"></a>Uso de Azure Key Vault
 Después de [instalar la solución](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), vea los datos de Key Vault haciendo clic en icono de **Azure Key Vault** desde la página **Introducción** de Log Analytics.

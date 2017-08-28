@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 05538e1633d6e8353cc7980d081af3672a3f97d8
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a7ce4d771e9c655687f72f4b46c7405cf64aeb74
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>SDK de .NET Core para Azure Cosmos DB: notas de la versión y recursos
@@ -58,6 +58,11 @@ El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con
 > [!NOTE] 
 > El SDK de .NET Core para Azure Cosmos DB aún no es compatible con aplicaciones de la Plataforma universal de Windows (UWP). Si quiere que el SDK de .NET Core que admita aplicaciones de UWP, envíe un correo electrónico a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
+
+* Se agregó compatibilidad para PartitionKeyRangeId como un FeedOption para definir el ámbito de los resultados de la consulta en un valor de intervalo de claves de partición específico. 
+* Se agregó compatibilidad para StartTime como un ChangeFeedOption para empezar la búsqueda de los cambios después de ese momento. 
+
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
 *   Se corrigió un problema en la clase JsonSerializable que podría provocar una excepción de desbordamiento de pila.
@@ -76,7 +81,6 @@ El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-*   Se agregó compatibilidad con la característica Unidad de solicitud por minuto (RU/m).
 *   Se agregó compatibilidad con un nuevo nivel de coherencia denominado ConsistentPrefix.
 *   Se agregó compatibilidad con métricas de consulta para particiones individuales.
 *   Se agregó compatibilidad para limitar el tamaño del token de continuación para las consultas.
@@ -133,6 +137,7 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en los foros de [Stac
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.5.0](#1.5.0) |10 de agosto de 2017 |--- | 
 | [1.4.1](#1.4.1) |7 de agosto de 2017 |--- |
 | [1.4.0](#1.4.0) |2 de agosto de 2017 |--- |
 | [1.3.2](#1.3.2) |12 de junio de 2017 |--- |

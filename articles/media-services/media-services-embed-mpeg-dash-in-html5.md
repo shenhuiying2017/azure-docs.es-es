@@ -2,7 +2,7 @@
 title: "Inserción de un vídeo de streaming adaptable MPEG-DASH en una aplicación HTML5 con DASH.js | Microsoft Docs"
 description: "En este vídeo se muestra cómo incluir un vídeo de streaming adaptable MPEG-DASH en una aplicación HTML5 con DASH.js."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

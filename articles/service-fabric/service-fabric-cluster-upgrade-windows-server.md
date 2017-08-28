@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a6f74374582d551e2540d1ebd5e9677c92330e09
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: ac40775ca62362a32184207857a0b965a798e135
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>Actualización del clúster de Azure Service Fabric independiente en Windows Server
@@ -188,6 +187,23 @@ Después de corregir los problemas que provocaron la reversión, debe iniciar la
 
 
 ## <a name="upgrade-the-cluster-configuration"></a>Actualizar la configuración del clúster
+Antes de iniciar la actualización de la configuración, puede probar el nuevo archivo json de configuración del clúster al ejecutar el script de PowerShell en el paquete independiente.
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
+
+```
+o
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
+
+```
+
+Algunas configuraciones no se pueden actualizar, como los puntos de conexión, el nombre del clúster, la dirección IP del nodo, etc. Esto probará el nuevo archivo json de configuración del clúster en el antiguo y generará errores en la ventana de PowerShell si hay cualquier problema.
+
 Para actualizar la configuración del clúster, ejecute **Start-ServiceFabricClusterConfigurationUpgrade**. El dominio de actualización procesa la actualización de la configuración.
 
 ```powershell
@@ -198,10 +214,11 @@ Para actualizar la configuración del clúster, ejecute **Start-ServiceFabricClu
 
 ### <a name="cluster-certificate-config-upgrade"></a>Actualización de la configuración de un certificado de clúster  
 El certificado del clúster se usa para realizar la autenticación entre los nodos del clúster, de modo que la sustitución de dicho certificado se debe llevar a cabo con la máxima cautela, ya que cualquier error bloqueará la comunicación entre dichos nodos.  
-Desde el punto de vista técnico, se admiten dos opciones:  
+Desde el punto de vista técnico, se admiten tres opciones:  
 
 1. Actualización de un solo certificado: la ruta de actualización es "Certificado A (principal) -> Certificado B (principal) -> Certificado C (principal) ->...".   
 2. Actualización de dos certificados: la ruta de actualización es "Certificado A (principal) -> Certificado A (principal) y B (secundario) -> Certificado B (principal) -> Certificado B (principal) y C (secundario) -> Certificado C (principal) -> ...".
+3. Actualización del tipo de certificado: configuración de certificado basada en huella digital <-> Configuración de certificado basada en CommonName. Por ejemplo, Huella digital del certificado A (principal) y Huella digital B (secundaria) -> Certificado CommonName C.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

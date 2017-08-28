@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: banders
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a552bbce2c6a1b60ab73e3e945985ff3dccbc93a
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: ce8065d777bb315d4f9589d1b24a5152296facfe
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -63,7 +63,7 @@ Wire Data obtiene sus datos de Microsoft Dependency Agent. Dependency Agent depe
 | Agentes de Windows | Sí | Wire Data analiza y recopila datos de equipos del agente de Windows. <br><br> Además del [agente de OMS](log-analytics-windows-agents.md), los agentes de Windows requieren el agente de dependencia de Microsoft. Consulte los [sistemas operativos compatibles](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para obtener una lista completa de las versiones de sistema operativo. |
 | Agentes de Linux | Sí | Wire Data analiza y recopila datos de equipos del agente de Linux.<br><br> Además del [agente de OMS](log-analytics-linux-agents.md), los agentes de Linux requieren Microsoft Dependency Agent. Consulte los [sistemas operativos compatibles](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para obtener una lista completa de las versiones de sistema operativo. |
 | Grupo de administración de System Center Operations Manager | Sí | Wire Data analiza y recopila datos de los agentes de Windows y Linux en un [grupo de administración de System Center Operations Manager](log-analytics-om-agents.md) conectado. <br><br> Se requiere una conexión directa desde el equipo agente de System Center Operations Manager a Log Analytics. Los datos se reenvían desde el grupo de administración a Log Analytics. |
-| Cuenta de almacenamiento de Azure | No | Wire Data recopila datos de equipos de agente, por lo que no hay ningún dato en él que recopilar desde Azure Storage. |
+| Cuenta de Azure Storage | No | Wire Data recopila datos de equipos de agente, por lo que no hay ningún dato en él que recopilar desde Azure Storage. |
 
 En Windows, tanto System Center Operations Manager como Log Analytics usan Microsoft Monitoring Agent (MMA) para recopilar y enviar los datos. Dependiendo del contexto, el agente se denomina agente de System Center Operations Manager, agente de OMS, agente de Log Analytics, MMA o agente directo. System Center Operations Manager y Log Analytics proporcionan versiones ligeramente diferentes de MMA. Cada una de estas versiones puede informar a System Center Operations Manager, a Log Analytics o a ambos.
 

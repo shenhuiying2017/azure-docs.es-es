@@ -12,21 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/10/2017
 ms.author: curtand;jeffsta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: b483dcce0bec933e5dab6c990f4912cb596ebda0
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 402c1be07b8ee885ee5341128fb3f419611b924d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Administración de los nombres de dominio personalizados en Azure Active Directory
 Un nombre de dominio es una parte importante del identificador para muchos recursos de directorio: forma parte de un nombre de usuario o una dirección de correo electrónico de un usuario, forma parte de la dirección para un grupo y puede formar parte del URI del identificador de una aplicación. Un recurso en Azure Active Directory (Azure AD) puede incluir un nombre de dominio cuya pertenencia al directorio que contiene el recurso ya se haya verificado. Solo los administradores globales pueden realizar tareas de administración de Azure AD.
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Establecimiento del nombre de dominio principal para su directorio de Azure AD
-Cuando se crea el directorio, el nombre de dominio inicial, por ejemplo, contoso.onmicrosoft.com, también será el nombre de dominio principal. El dominio principal será el nombre de dominio predeterminado de un nuevo usuario cuando este se cree. Esto simplifica el proceso para que un administrador cree usuarios nuevos en el portal. Para cambiar el nombre de dominio principal, siga estos pasos:
+Cuando se crea el directorio, el nombre de dominio inicial, por ejemplo, contoso.onmicrosoft.com, también será el nombre de dominio principal. El dominio principal será el nombre de dominio predeterminado de un nuevo usuario cuando este se cree. Establecer un nombre de dominio primario simplifica el proceso para que un administrador cree usuarios nuevos en el portal. Para cambiar el nombre de dominio principal, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Azure Active Directory** en el cuadro de texto y presione **ENTRAR**.
@@ -34,14 +33,14 @@ Cuando se crea el directorio, el nombre de dominio inicial, por ejemplo, contoso
    ![Apertura de Administración de usuarios](./media/active-directory-domains-add-azure-portal/user-management.png)
 3. En la hoja ***nombreDeDirectorio***, seleccione **Nombres de dominio**.
 4. En la hoja ***nombreDeDirectorio* -Nombres de dominio**, seleccione el nombre de dominio que desee que sea el principal.
-5. En la hoja ***nombreDeDominio*** (es decir, la hoja que se abre con el nombre de dominio nuevo en el título), seleccione el comando **Convertir en principal**. Confirme la elección cuando se le pregunte.
+5. En la hoja de ***nombre de dominio*** (es decir, la hoja que se abre con el nombre de dominio nuevo en el título), seleccione el comando **Convertir en principal**. Confirme la elección cuando se le pregunte.
    
    ![Conversión de un nombre de dominio en principal](./media/active-directory-domains-manage-azure-portal/make-primary.png)
 
 Puede cambiar el nombre de dominio principal para el directorio de modo que sea cualquier dominio personalizado comprobado que no esté federado. El hecho de cambiar el dominio principal para el directorio no cambiará los nombres de usuario existentes.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad"></a>Adición de dominios personalizados a Azure AD
-Puede agregar hasta 900 nombres de dominio personalizado a cada directorio de Azure AD. El proceso de [agregar un nombre de dominio personalizado adicional](active-directory-domains-add-azure-portal.md) es igual para el primer nombre de dominio personalizado.
+Puede agregar hasta 900 nombres de dominio personalizado a cada directorio de Azure AD. El proceso de [agregar un nombre de dominio personalizado adicional](add-custom-domain.md) es igual para el primer nombre de dominio personalizado.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Adición de subdominios de un dominio personalizado
 Si desea agregar un nombre de dominio de tercer nivel, como "europe.contoso.com", a su directorio, primero debe agregar y comprobar el dominio de segundo nivel, como contoso.com. Azure AD comprobará automáticamente el subdominio. Para ver que se ha comprobado el subdominio que acaba de agregar, actualice la página del explorador que muestra los dominios.
@@ -67,6 +66,6 @@ También se pueden completar la mayoría de las tareas de administración para l
 * [Using Graph API to manage domain names in Azure AD (Uso de la API Graph para administrar nombres de dominio en Azure AD)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Agregar nombres de dominio personalizados](active-directory-domains-add-azure-portal.md)
+* [Agregar nombres de dominio personalizados](add-custom-domain.md)
 
 

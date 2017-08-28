@@ -2,7 +2,7 @@
 title: "Publicación de contenido de Azure Media Services mediante .NET | Microsoft Docs"
 description: "Aprenda a crear un localizador que se usa para generar una dirección URL de streaming. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET."
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/15/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a3ba385e15510139929735adb5e50b6291846356
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
+ms.contentlocale: es-es
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Uso de PowerShell para administrar recursos de Event Hubs
 
-Microsoft Azure PowerShell es un entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus servicios de Azure. Este artículo describe cómo utilizar el [módulo de PowerShell de Resource Manager de Event Hubs](/powershell/module/azurerm.eventhub) para aprovisionar y administrar entidades de Event Hubs (espacios de nombres, Event Hubs y grupos de consumidores) mediante una consola o script de Azure PowerShell.
+Microsoft Azure PowerShell es un entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus servicios de Azure. Este artículo describe cómo utilizar el [módulo de PowerShell de Resource Manager de Event Hubs](/powershell/module/azurerm.eventhub) para aprovisionar y administrar entidades de Event Hubs (espacios de nombres, Event Hubs individuales y grupos de consumidores) mediante una consola o script de Azure PowerShell.
 
 También puede administrar los recursos de Event Hubs mediante plantillas de Azure Resource Manager. Para más información, consulte el artículo [Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 
@@ -78,27 +78,27 @@ Esta parte del script hace lo siguiente:
     }
     ```
 
-## <a name="create-an-event-hub"></a>Creación de un Centro de eventos
+## <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
-Para crear un centro de eventos, realice una comprobación de espacio de nombres mediante el script de la sección anterior. A continuación, use el cmdlet New-[AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub) para crear el centro de eventos:
+Para crear un centro de eventos, realice una comprobación de espacio de nombres mediante el script de la sección anterior. A continuación, use el cmdlet [New-AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub) para crear el centro de eventos:
 
 ```powershell
-# Check if Event Hub already exists
+# Check if event hub already exists
 $CurrentEH = Get-AzureRMEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 
 if($CurrentEH)
 {
-    Write-Host "The Event Hub $EventHubName already exists in the $Location region:"
+    Write-Host "The event hub $EventHubName already exists in the $Location region:"
     # Report what was found
     Get-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 }
 else
 {
-    Write-Host "The $EventHubName Event Hub does not exist."
-    Write-Host "Creating the $EventHubName Event Hub in the $Location region..."
+    Write-Host "The $EventHubName event hub does not exist."
+    Write-Host "Creating the $EventHubName event hub in the $Location region..."
     New-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName -Location $Location -MessageRetentionInDays 3
     $CurrentEH = Get-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
-    Write-Host "The $EventHubName Event Hub in Resource Group $ResGrpName in the $Location region has been successfully created."
+    Write-Host "The $EventHubName event hub in Resource Group $ResGrpName in the $Location region has been successfully created."
 }
 ```
 
@@ -112,7 +112,7 @@ $CurrentCG = Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -Na
 
 if($CurrentCG)
 {
-    Write-Host "The consumer group $ConsumerGroupName in Event Hub $EventHubName already exists in the $Location region:"
+    Write-Host "The consumer group $ConsumerGroupName in event hub $EventHubName already exists in the $Location region:"
     # Report what was found
     Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 }
@@ -122,7 +122,7 @@ else
     Write-Host "Creating the $ConsumerGroupName consumer group in the $Location region..."
     New-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName -ConsumerGroupName $ConsumerGroupName
     $CurrentCG = Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
-    Write-Host "The $ConsumerGroupName consumer group in Event Hub $EventHubName in Resource Group $ResGrpName in the $Location region has been successfully created."
+    Write-Host "The $ConsumerGroupName consumer group in event hub $EventHubName in Resource Group $ResGrpName in the $Location region has been successfully created."
 }
 ```
 
@@ -140,7 +140,7 @@ Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $
 
 ## <a name="remove-event-hub"></a>Eliminación de un centro de eventos
 
-Para quitar las entidades de Event Hubs que creó, puede usar el cmdlet `Remove-*` como en el ejemplo siguiente:
+Para quitar las instancias de Event Hubs que creó, puede usar el cmdlet `Remove-*` como en el ejemplo siguiente:
 
 ```powershell
 # Clean up

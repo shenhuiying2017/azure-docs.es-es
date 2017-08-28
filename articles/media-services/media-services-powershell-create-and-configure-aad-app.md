@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo usar PowerShell para crear una ap
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

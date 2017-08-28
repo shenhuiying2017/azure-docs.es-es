@@ -4,7 +4,7 @@ description: "En este tema se explica cómo usar la CLI 2.0 para crear una aplic
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: c148ca2a2a098f5f0c4ff94846c318b59b4864f4
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6adf4e43aa80c28c6f5f8d8a071966323ba85723
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -44,20 +44,21 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 ## <a name="cloud-init-overview"></a>Introducción a cloud-init
 [cloud-init](https://cloudinit.readthedocs.io) es un enfoque ampliamente usado para personalizar una máquina virtual Linux la primera vez que se arranca. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar los usuarios y la seguridad. Como cloud-init se ejecuta durante el proceso de arranque inicial, no hay pasos adicionales o agentes requeridos que aplicar a la configuración.
 
-cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get install** o **yum install** para instalar un paquete. Por el contrario, puede definir una lista de paquetes para instalar y cloud-init usará automáticamente la herramienta de administración de paquetes nativos para la distribución de Linux (distro) que seleccione.
+cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get install** o **yum install** para instalar un paquete. En su lugar, puede definir una lista de paquetes que se van a instalar. Cloud-init usará automáticamente la herramienta de administración de paquetes nativos para la distribución de Linux (distro) que seleccione.
 
 Trabajamos con nuestros asociados para que cloud-init se incluya y funcione en las imágenes que estos proporcionan a Azure. En la tabla siguiente se describe la disponibilidad actual de cloud-init en imágenes de la plataforma de Azure:
 
 | Alias | Publicador | Oferta | SKU | Versión |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |más reciente |
+| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |más reciente |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |más reciente |
 | CoreOS |CoreOS |CoreOS |Stable |más reciente |
 
 
 ## <a name="create-cloud-init-config-file"></a>Creación de un archivo de configuración cloud-init
 Para ver cloud-init en acción, cree una máquina virtual que instale NGINX y ejecute una aplicación Node.js sencilla "Hello World". Con la siguiente configuración de cloud-init se instalan los paquetes necesarios, se crea una aplicación Node.js y luego se inicializa e inicia la aplicación.
 
-Cree un archivo denominado *cloud-init.txt* y pegue la siguiente configuración:
+En el shell actual, cree un archivo denominado "*cloud-init.txt*" y pegue la siguiente configuración. Por ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Puede utilizar el editor que prefiera. Escriba `sensible-editor cloud-init.txt` para crear el archivo y ver una lista de editores disponibles. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
 
 ```yaml
 #cloud-config
@@ -116,13 +117,13 @@ Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#crea
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVM \
-    --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init.txt
 ```
 
-Transcurren unos minutos hasta que la máquina virtual se crea, los paquetes se instalan y la aplicación se inicia. Cuando se haya creado la máquina virtual, anote el valor `publicIpAddress` mostrado por la CLI de Azure. Esta dirección se usa para acceder a la aplicación Node.js mediante un explorador web.
+Transcurren unos minutos hasta que la máquina virtual se crea, los paquetes se instalan y la aplicación se inicia. Hay tareas en segundo plano que continúan ejecutándose después de que la CLI de Azure vuelve a abrir el símbolo del sistema. Es posible que tenga que esperar otros dos minutos antes de poder acceder a la aplicación. Cuando se haya creado la máquina virtual, anote el valor `publicIpAddress` mostrado por la CLI de Azure. Esta dirección se usa para acceder a la aplicación Node.js mediante un explorador web.
 
 Para permitir que el tráfico web llegue a la máquina virtual, abra el puerto 80 desde Internet con el comando [az vm open-port](/cli/azure/vm#open-port):
 
@@ -149,10 +150,10 @@ Los pasos siguientes muestran cómo puede:
 - Crear una máquina virtual e insertar el certificado
 
 ### <a name="create-an-azure-key-vault"></a>Crear una instancia de Azure Key Vault
-En primer lugar, cree una instancia de Key Vault con [az keyvault create](/cli/azure/keyvault#create) y habilítela para su uso al implementar una máquina virtual. Cada instancia de Key Vault requiere un nombre único, que debe estar todo en minúsculas. Reemplace *<mykeyvault>* en el siguiente ejemplo por su propio nombre único de Key Vault:
+En primer lugar, cree una instancia de Key Vault con [az keyvault create](/cli/azure/keyvault#create) y habilítela para su uso al implementar una máquina virtual. Cada instancia de Key Vault requiere un nombre único, que debe estar todo en minúsculas. Reemplace *mykeyvault* en el siguiente ejemplo por su propio nombre único de Key Vault:
 
 ```azurecli-interactive 
-keyvault_name=<mykeyvault>
+keyvault_name=mykeyvault
 az keyvault create \
     --resource-group myResourceGroupAutomate \
     --name $keyvault_name \
@@ -171,7 +172,7 @@ az keyvault certificate create \
 
 
 ### <a name="prepare-certificate-for-use-with-vm"></a>Preparación del certificado para usarlo con la máquina virtual
-Para usar el certificado durante el proceso de creación de la máquina virtual, obtenga el id. del certificado con [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions). Convierta el certificado con [az vm format-secret](/cli/azure/vm#format-secret). En el ejemplo siguiente se asigna la salida de estos comandos a las variables para facilitar su uso en los pasos siguientes:
+Para usar el certificado durante el proceso de creación de la máquina virtual, obtenga el id. del certificado con [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions). La máquina virtual necesita el certificado en un formato determinado para insertarlo en el arranque, por lo que convierte el certificado con [az vm format-secret](/cli/azure/vm#format-secret). En el ejemplo siguiente se asigna la salida de estos comandos a las variables para facilitar su uso en los pasos siguientes:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -183,9 +184,9 @@ vm_secret=$(az vm format-secret --secret "$secret")
 
 
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>Creación de la configuración de cloud-init para proteger NGINX
-Cuando crea una máquina virtual, los certificados y las claves se almacenan en el directorio */var/lib/waagent/* protegido. Para automatizar el proceso de agregar el certificado a la máquina virtual y configurar NGINX, puede expandir la configuración de cloud-init del ejemplo anterior.
+Cuando crea una máquina virtual, los certificados y las claves se almacenan en el directorio */var/lib/waagent/* protegido. Para automatizar el proceso de agregar el certificado a la máquina virtual y configurar NGINX, puede utilizar la configuración de cloud-init actualizada del ejemplo anterior.
 
-Cree un archivo denominado *cloud-init-secured.txt* y pegue la siguiente configuración:
+Cree un archivo denominado "*cloud-init-secured.txt*" y pegue la siguiente configuración. De nuevo, si se utiliza Cloud Shell, cree ahí el archivo de configuración de cloud-init y no en la máquina local. Use `sensible-editor cloud-init-secured.txt` para crear el archivo y ver una lista de editores disponibles. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
 
 ```yaml
 #cloud-config
@@ -243,14 +244,14 @@ Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#crea
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVMSecured \
-    --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init-secured.txt \
     --secrets "$vm_secret"
 ```
 
-Transcurren unos minutos hasta que la máquina virtual se crea, los paquetes se instalan y la aplicación se inicia. Cuando se haya creado la máquina virtual, anote el valor `publicIpAddress` mostrado por la CLI de Azure. Esta dirección se usa para acceder a la aplicación Node.js mediante un explorador web.
+Transcurren unos minutos hasta que la máquina virtual se crea, los paquetes se instalan y la aplicación se inicia. Hay tareas en segundo plano que continúan ejecutándose después de que la CLI de Azure vuelve a abrir el símbolo del sistema. Es posible que tenga que esperar otros dos minutos antes de poder acceder a la aplicación. Cuando se haya creado la máquina virtual, anote el valor `publicIpAddress` mostrado por la CLI de Azure. Esta dirección se usa para acceder a la aplicación Node.js mediante un explorador web.
 
 Para permitir que el tráfico web llegue a la máquina virtual, abra el puerto 443 desde Internet con el comando [az vm open-port](/cli/azure/vm#open-port):
 

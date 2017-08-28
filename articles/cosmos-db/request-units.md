@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 88edb489d967a5bc5cc1c4aa1aeb5abcd6539d12
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 7a4efc0fb9b3855b9dbbe445768ceb2a9940d0b2
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
@@ -31,7 +31,7 @@ Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.
 
 Azure Cosmos DB admite varias API con distintas operaciones que varían desde lecturas y escrituras sencillas hasta consultas de grafos complejos. Puesto que no todas las solicitudes son iguales, se les asigna una cantidad regularizada de **unidades de solicitud** según el número de procesamientos necesario para prestar servicio a la solicitud. El número de unidades de solicitud para una operación es determinista y puede realizar un seguimiento del número de unidades de solicitud consumidas por cualquier operación de Azure Cosmos DB a través de un encabezado de respuesta. 
 
-Para proporcionar un rendimiento predecible, debe reservar el rendimiento en unidades de 100 RU/segundo. Para cada bloque de 100 RU/segundo, puede adjuntar un bloque de 1.000 RU/minuto. Combinar el aprovisionamiento por segundo y por minuto resulta muy eficaz, puesto que no es necesario aprovisionar para las cargas máximas y puede ahorrar hasta un 75 % de los costos en comparación con cualquier servicio que funcione solo con aprovisionamiento por segundo.
+Para proporcionar un rendimiento predecible, debe reservar el rendimiento en unidades de 100 RU/segundo. 
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:  
 
@@ -45,7 +45,7 @@ Debido a que Azure Cosmos DB es un servicio de base de datos con varios modelos,
 ## <a name="request-units-and-request-charges"></a>Unidades de solicitud y cargos de solicitud
 Azure Cosmos DB ofrece un rendimiento predecible y rápido mediante la *reserva* de recursos para satisfacer las necesidades de rendimiento de la aplicación.  Como la carga de aplicaciones y los patrones de acceso cambian con el tiempo, Azure Cosmos DB permite aumentar o disminuir fácilmente el rendimiento reservado disponible para la aplicación.
 
-Con Azure Cosmos DB, el rendimiento reservado se especifica en términos de procesamiento de unidades de solicitud por segundo.  Puede pensar en unidades de solicitud como divisa de rendimiento, donde se *reserva* una cantidad de unidades de solicitud garantizadas para la aplicación por segundo o minuto.  Cada operación de Azure Cosmos DB: escritura de un documento, realización de una consulta, actualización de un documento, consume CPU, memoria y E/S por segundo.  Es decir, cada operación implica un *cargo de solicitud*, que se expresa en *unidades de solicitud*.  La descripción de los factores que afectan a los cargos de unidades de solicitud, junto con los requisitos de rendimiento de la aplicación, le permite ejecutar la aplicación de la forma más rentable posible. El explorador de consultas también es una excelente herramienta para probar el centro de una consulta.
+Con Azure Cosmos DB, el rendimiento reservado se especifica en términos de procesamiento de unidades de solicitud por segundo. Puede pensar en unidades de solicitud como divisa de rendimiento, donde se *reserva* una cantidad de unidades de solicitud garantizadas para la aplicación por segundo.  Cada operación de Azure Cosmos DB: escritura de un documento, realización de una consulta, actualización de un documento, consume CPU, memoria y E/S por segundo.  Es decir, cada operación implica un *cargo de solicitud*, que se expresa en *unidades de solicitud*.  La descripción de los factores que afectan a los cargos de unidades de solicitud, junto con los requisitos de rendimiento de la aplicación, le permite ejecutar la aplicación de la forma más rentable posible. El explorador de consultas también es una excelente herramienta para probar el centro de una consulta.
 
 Se recomienda ver una introducción en el vídeo siguiente, donde Aravind Ramachandran explica las unidades de solicitud y un rendimiento predecible con Azure Cosmos DB.
 
@@ -54,7 +54,7 @@ Se recomienda ver una introducción en el vídeo siguiente, donde Aravind Ramach
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Especificación de la capacidad de unidad de solicitud en Azure Cosmos DB
-Cuando comienza una nueva colección, tabla o grafo, especifica el número de unidades de solicitud por segundo (RU por segundo) que desea reservar. También puede decidir si desea habilitar RU por minuto. Si habilita esta opción, obtendrá 10 veces lo que obtiene por segundo, pero por minuto. Según el rendimiento aprovisionado, Azure Cosmos DB asigna las particiones físicas para hospedar la colección y divide y reequilibra los datos entre las particiones a medida que va creciendo.
+Cuando comienza una nueva colección, tabla o grafo, especifica el número de unidades de solicitud por segundo (RU por segundo) que desea reservar. Según el rendimiento aprovisionado, Azure Cosmos DB asigna las particiones físicas para hospedar la colección y divide y reequilibra los datos entre las particiones a medida que va creciendo.
 
 Azure Cosmos DB requiere que se especifique una clave de partición cuando se aprovisiona una colección con 2.500 unidades de solicitud o un valor superior. También se requiere una clave de partición para escalar el rendimiento de la colección a más de 2.500 unidades de solicitud en el futuro. Por lo tanto, se recomienda encarecidamente configurar una [clave de partición](partition-data.md) al crear un contenedor, sea cual sea su rendimiento inicial. Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos) para que Azure Cosmos DB pueda escalar la colección/tabla/grafo y las solicitudes de manera uniforme. 
 
@@ -239,7 +239,7 @@ Con esto en mente, un método para calcular la cantidad de rendimiento reservado
 > 
 
 ## <a name="use-api-for-mongodbs-portal-metrics"></a>Uso de las métricas del Portal de la API de MongoDB
-La manera más sencilla de obtener una buena estimación de los cargos en materia de unidad de solicitud de la API de MongoDB es usar las métricas [Azure Portal](https://portal.azure.com). Con los gráficos *Número de solicitudes* y *Cargo de solicitud*, puede obtener una estimación de cuántas unidades de solicitud está consumiendo cada operación y cuántas unidades de solicitud consumen entre sí.
+La manera más sencilla de obtener una buena estimación de los cargos en materia de unidad de solicitud de la API de MongoDB es usar las métricas [Azure Portal](https://portal.azure.com). Con los grafos *Número de solicitudes* y *Cargo de solicitud*, puede obtener una estimación de cuántas unidades de solicitud está consumiendo cada operación y cuántas unidades de solicitud consumen entre sí.
 
 ![Métricas del Portal de la API de MongoDB][6]
 
@@ -336,7 +336,7 @@ Con esta información, podemos hacer una estimación de los requisitos de RU par
 En este caso, se espera un requisito de rendimiento medio de 1,275 RU/s.  Redondeando hasta los 100 más cercanos, se pueden proporciona 1300 RU/s para esta colección de la aplicación.
 
 ## <a id="RequestRateTooLarge"></a> Superación de los límites de rendimiento reservados en Azure Cosmos DB
-La retirada del consumo de la unidad de solicitud se evalúa como frecuencia por segundo si la opción Unidad de solicitud por minuto está deshabilitada o el presupuesto está vacío. Para las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para un contenedor, las solicitudes a esa colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produzca una limitación, el servidor finalizará de forma preventiva la solicitud con RequestRateTooLargeException (código de estado HTTP 429) y devolverá el encabezado x-ms-retry-after-ms que indicará la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
+Recuerde que el consumo de la unidad de solicitud se evalúa como frecuencia por segundo si el presupuesto está vacío. Para las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para un contenedor, las solicitudes a esa colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produzca una limitación, el servidor finalizará de forma preventiva la solicitud con RequestRateTooLargeException (código de estado HTTP 429) y devolverá el encabezado x-ms-retry-after-ms que indicará la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge

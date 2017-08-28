@@ -4,7 +4,7 @@ description: "En este tema se muestra cómo crear una tarea de codificación que
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: b7029ac5-eadd-4a2f-8111-1fc460828981
 ms.service: media-services

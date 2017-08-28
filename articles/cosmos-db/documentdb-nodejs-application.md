@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 08/14/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: e5f7697b1069186b9ab6b6594fa5efb069252475
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 1a98509a98bcd2a5de593eb006f905766fe72966
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="_Toc395783175"></a>Creación de una aplicación web de Node.js con Azure Cosmos DB
@@ -33,13 +33,13 @@ ms.lasthandoff: 07/26/2017
 
 En este tutorial de Node.js se muestra cómo usar Azure Cosmos DB y la API de DocumentDB para almacenar y acceder a los datos de una aplicación Node.js Express hospedada en Azure Websites. Compile una aplicación de administración de tareas basadas en web sencilla, una aplicación ToDo, que permite crear, recuperar y completar tareas. Las tareas se almacenan como documentos JSON en Azure Cosmos DB. Este tutorial le guiará a través de la creación e implementación de la aplicación y le explicará lo que sucede en cada fragmento de código.
 
-![Captura de pantalla de la aplicación My Todo List creada en este tutorial de Node.js](./media/documentdb-nodejs-application/image1.png)
+![Captura de pantalla de la aplicación My Todo List creada en este tutorial de Node.js](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
 
 ¿No tiene tiempo para completar el tutorial y solo desea obtener la solución completa? No es un problema, puede obtener la solución de ejemplo completa en [GitHub][GitHub]. Solo tiene que leer el archivo [Léame](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) para obtener instrucciones sobre cómo ejecutar la aplicación.
 
 ## <a name="_Toc395783176"></a>Requisitos previos
 > [!TIP]
-> En este tutorial de Node.js se presupone que tiene experiencia previa con el uso de Node.js y los sitios web de Azure.
+> En este tutorial de Node.js se presupone que tiene experiencia previa con el uso de Node.js y Azure Websites.
 > 
 > 
 
@@ -78,12 +78,12 @@ Ahora aprendamos a crear un proyecto Node.js básico de Hello World usando el ma
         npm start
 6. Para ver la nueva aplicación, vaya a [http://localhost:3000](http://localhost:3000) desde el explorador.
    
-    ![Aprendizaje de Node.js - Captura de pantalla de la aplicación Hello World en una ventana del explorador](./media/documentdb-nodejs-application/image12.png)
+    ![Aprendizaje de Node.js - Captura de pantalla de la aplicación Hello World en una ventana del explorador](./media/documentdb-nodejs-application/cosmos-db-node-js-express.png)
 
     A continuación, para detener la aplicación, presione CTRL+C en la ventana de terminal y, a continuación, haga clic en **y** para finalizar el trabajo por lotes.
 
 ## <a name="_Toc395783179"></a>Paso 3: Instalación de módulos adicionales
-El archivo **package.json** es uno de los archivos creados en la raíz del proyecto. Este archivo contiene una lista de módulos adicionales necesarios para una aplicación Node.js. Posteriormente, cuando implemente esta aplicación en un sitio web de Azure, este archivo se usará para determinar qué módulos se deben instalar en Azure para ofrecer respaldo a su aplicación. Todavía hay que instalar dos paquetes más para este tutorial.
+El archivo **package.json** es uno de los archivos creados en la raíz del proyecto. Este archivo contiene una lista de módulos adicionales necesarios para una aplicación Node.js. Posteriormente, cuando implemente esta aplicación en Azure Websites, este archivo se usará para determinar qué módulos se deben instalar en Azure para ofrecer respaldo a su aplicación. Todavía hay que instalar dos paquetes más para este tutorial.
 
 1. De nuevo en el terminal, instale el módulo **async** mediante npm.
    
@@ -190,12 +190,6 @@ Se encarga de toda la configuración e instalación iniciales; ahora volvamos a 
    
         module.exports = DocDBUtils;
    
-   > [!TIP]
-   > createCollection toma un parámetro de requestOptions opcional que puede utilizarse para especificar el tipo de la oferta para la colección. Si no se proporciona ningún valor requestOptions.offerType, la colección se creará con el tipo de oferta predeterminada.
-   > 
-   > Para más información sobre los tipos de ofertas de Azure Cosmos DB, consulte el artículo sobre los [Niveles de rendimiento de Azure cosmos DB](performance-levels.md) 
-   > 
-   > 
 5. Guarde y cierre el archivo **docdbUtils.js** .
 6. Al principio del archivo **taskDao.js**, agregue el código siguiente para hacer referencia a los elementos **DocumentDBClient** y **docdbUtils.js** creados anteriormente:
    
@@ -497,20 +491,20 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
              button.btn(type="submit") Add item
    
 
-    Esto amplía el diseño y proporciona contenido para el marcador de posición **content** que hemos visto anteriormente en el archivo **layout.jade**.
+Esto amplía el diseño y proporciona contenido para el marcador de posición **content** que hemos visto anteriormente en el archivo **layout.jade**.
    
-    En este diseño hemos creado dos formularios HTML.
+En este diseño hemos creado dos formularios HTML.
 
-    El primer formulario contiene una tabla para nuestros datos y un botón que nos permite actualizar los elementos publicando en el método **/completetask** de nuestro controlador.
+El primer formulario contiene una tabla para nuestros datos y un botón que nos permite actualizar los elementos publicando en el método **/completetask** de nuestro controlador.
     
-    El segundo formulario contiene dos campos de entrada y un botón que nos permite crear un nuevo elemento publicando en el método **/addtask** de nuestro controlador.
+El segundo formulario contiene dos campos de entrada y un botón que nos permite crear un nuevo elemento publicando en el método **/addtask** de nuestro controlador.
 
-    Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
+Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
 
 ## <a name="_Toc395783181"></a>Paso 6: Ejecución de la aplicación de forma local
 1. Para probar la aplicación en el equipo local, ejecute `npm start` en terminal para iniciar la aplicación y, a continuación, actualice la página del explorador [http://localhost:3000](http://localhost:3000). La página se debería parecer a la de la imagen siguiente:
    
-    ![Captura de pantalla de la aplicación MyTodo List en una ventana del explorador](./media/documentdb-nodejs-application/image18.png)
+    ![Captura de pantalla de la aplicación MyTodo List en una ventana del explorador](./media/documentdb-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
     > Si recibe un error acerca de la sangría en el archivo layout.jade o el archivo index.jade, asegúrese de que las dos primeras líneas de los dos archivos están justificadas a la izquierda, sin espacios en blanco. Si hay espacios delante de las dos primeras líneas, quítelos, guarde ambos archivos y, a continuación, actualice la ventana del explorador. 
@@ -518,13 +512,13 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 2. Utilice los campos Elemento, Nombre del elemento y Categoría para especificar una nueva tarea y, a continuación, haga clic en **Agregar elemento**. Esto crea un documento en Azure Cosmos DB con esas propiedades. 
 3. La página debería actualizarse para mostrar el elemento recién creado en la lista ToDo.
    
-    ![Captura de pantalla de la aplicación con un nuevo elemento en la lista de tareas pendientes](./media/documentdb-nodejs-application/image19.png)
+    ![Captura de pantalla de la aplicación con un nuevo elemento en la lista de tareas pendientes](./media/documentdb-nodejs-application/cosmos-db-node-js-added-task.png)
 4. Para completar una tarea, simplemente marque la casilla en la columna Complete y, a continuación, haga clic en **Actualizar tareas**. Con ello, se actualizará el documento que ya haya creado.
 
 5. Para detener la aplicación, presione CTRL+C en la ventana de terminal y, a continuación, haga clic en **Y** para finalizar el trabajo por lotes.
 
-## <a name="_Toc395783182"></a>Paso 7: Implementación del proyecto de desarrollo de aplicación en Sitios web de Azure
-1. Si todavía no lo ha hecho, habilite un repositorio para el sitio web de Azure. En el tema [Implementación de Git local en el Servicio de aplicaciones de Azure](../app-service-web/app-service-deploy-local-git.md) puede encontrar instrucciones para hacerlo.
+## <a name="_Toc395783182"></a>Paso 7: Implementación del proyecto de desarrollo de aplicación en Azure Websites
+1. Si todavía no lo ha hecho, habilite un repositorio para el sitio web de Azure. En el tema [Implementación de Git local en Azure App Service](../app-service-web/app-service-deploy-local-git.md) puede encontrar instrucciones para hacerlo.
 2. Agregue el sitio web de Azure como un git remoto.
    
         git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git

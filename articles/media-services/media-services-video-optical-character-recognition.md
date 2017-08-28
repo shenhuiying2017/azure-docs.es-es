@@ -4,7 +4,7 @@ description: "Gracias al OCR (reconocimiento óptico de caracteres) de Análisis
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
 ms.service: media-services

@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 04965375fc94fc1aa8b1c48deb743bb1d0cf1c26
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 78996fdb1bbb9bc2e532f80dc9611efad389119e
 ms.contentlocale: es-es
-ms.lasthandoff: 03/21/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="set-alerts-in-application-insights"></a>Definición de alertas en Application Insights
@@ -42,9 +41,9 @@ Abra la hoja Reglas de alerta y, a continuación, utilice el botón Agregar.
 * Establezca el recurso antes de las demás propiedades. **Elija el recurso "(components)"** si desea establecer alertas sobre métricas de rendimiento o de uso.
 * El nombre que asigne a la alerta debe ser único dentro del grupo de recursos (no solo en la aplicación).
 * Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el valor de umbral.
-* Si activa la casilla "Email owners..." (Propietarios de correo electrónico), las alertas se enviarán por correo electrónico a todos los usuarios con acceso a este grupo de recursos. Para expandir dicho conjunto de usuarios, agréguelos al [grupo de recursos o suscripción](app-insights-resources-roles-access-control.md) (no al recurso).
-* Si especifica "Correos electrónicos adicionales", las alertas se enviarán a esos usuarios o grupos (independientemente de que haya activado la casilla anterior). 
-* Establezca una [dirección de webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) si ha configurado una aplicación web para responder a las alertas. Se llamará a esta dirección cuando se active la alerta (es decir, cuando se desencadene) y cuando se haya resuelto. (Pero tenga en cuenta que, en la actualidad, los parámetros de consulta no se pasan como propiedades de webhook).
+* Si activa la casilla "Enviar correo electrónico a propietarios, colaboradores y lectores", las alertas se envían por correo electrónico a todos los usuarios con acceso a este grupo de recursos. Para expandir dicho conjunto de usuarios, agréguelos al [grupo de recursos o suscripción](app-insights-resources-roles-access-control.md) (no al recurso).
+* Si especifica "Correos electrónicos adicionales", las alertas se envían a esos usuarios o grupos (independientemente de que haya activado la casilla anterior). 
+* Establezca una [dirección de webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) si ha configurado una aplicación web para responder a las alertas. Se llamará a esta dirección cuando la alerta se active y cuando se haya resuelto. (Pero tenga en cuenta que, en la actualidad, los parámetros de consulta no se pasan como propiedades de webhook).
 * Puede habilitar o deshabilitar la alerta: consulte los botones de la parte superior de la hoja.
 
 *No puedo ver el botón Agregar alerta* 
@@ -52,7 +51,7 @@ Abra la hoja Reglas de alerta y, a continuación, utilice el botón Agregar.
 * ¿Está usando una cuenta de organización? Puede establecer alertas si tiene acceso de propietario o colaborador a este recurso de aplicación. Eche un vistazo a la hoja Access Control. [Más información sobre el control de acceso][roles].
 
 > [!NOTE]
-> En la hoja de alertas, verá que ya hay una alerta configurada: [Diagnóstico proactivo](app-insights-proactive-failure-diagnostics.md). Se trata de una alerta automática que supervisa una métrica determinada: el índice de errores de las solicitudes. A menos que decida deshabilitar esta opción, no es necesario establecer su propio índice de errores de las solicitudes. 
+> En la hoja de alertas, verá que ya hay una alerta configurada: [Proactive Diagnostics](app-insights-proactive-failure-diagnostics.md). La alerta automática supervisa una métrica determinada: el índice de errores de las solicitudes. A menos que decida deshabilitar esta opción, no es necesario establecer su propio índice de errores de las solicitudes. 
 > 
 > 
 
@@ -82,12 +81,12 @@ El historial de cambios de estado está en el registro de actividad:
 * Una alerta puede parpadear con frecuencia entre los estados de alerta y correcto, incluso si se establece un período largo. Esto puede suceder si el valor de métrica se sitúa alrededor del umbral. No hay ninguna histéresis en el umbral: la transición a alerta se produce en el mismo valor que la transición a correcto.
 
 ## <a name="what-are-good-alerts-to-set"></a>¿Qué alertas es conveniente establecer?
-Depende de la aplicación. Para empezar, es mejor no establecer demasiadas métricas. Observe durante un tiempo sus gráficos de métrica mientras se ejecuta la aplicación para hacerse una idea de cómo se comporta normalmente. Esto le ayudará a encontrar maneras de mejorar su rendimiento. A continuación, configure alertas para que le avisen cuando las métricas salgan de la zona normal. 
+Depende de la aplicación. Para empezar, es mejor no establecer demasiadas métricas. Observe durante un tiempo sus gráficos de métrica mientras se ejecuta la aplicación para hacerse una idea de cómo se comporta normalmente. Este procedimiento le ayudará a encontrar maneras de mejorar su rendimiento. A continuación, configure alertas para que le avisen cuando las métricas salgan de la zona normal. 
 
 Las alertas más populares son:
 
-* Las [métricas del explorador][client], especialmente los **tiempos de carga de página del explorador**, son buenas para aplicaciones web. Si la página tiene una gran cantidad de scripts, deberá tener en cuenta las **excepciones del explorador**. Para obtener estas métricas y alertas, tiene que configurar [la supervisión de páginas web][client].
-* **Tiempo de respuesta del servidor** para las aplicaciones web del lado servidor. Además de configurar alertas, eche un vistazo a esta métrica para ver si varía desproporcionadamente con tasas de solicitud altas: esto puede indicar que la aplicación se está quedando sin recursos. 
+* Las [métricas del explorador][client], especialmente los **tiempos de carga de página del explorador**, son buenas para aplicaciones web. Si la página tiene muchos scripts, debe buscar **excepciones del explorador**. Para obtener estas métricas y alertas, tiene que configurar [la supervisión de páginas web][client].
+* **Tiempo de respuesta del servidor** para las aplicaciones web del lado servidor. Además de configurar alertas, eche un vistazo a esta métrica para ver si varía desproporcionadamente con tasas de solicitud altas: la variación puede indicar que la aplicación se está quedando sin recursos. 
 * **Excepciones de servidor** : para verlas, deberá realizar alguna [configuración adicional](app-insights-asp-net-exceptions.md).
 
 No olvide que los [diagnósticos proactivos de frecuencia de errores](app-insights-proactive-failure-diagnostics.md) permiten supervisar automáticamente la velocidad a la que la aplicación responde a solicitudes con códigos de error. 
@@ -100,7 +99,7 @@ No olvide que los [diagnósticos proactivos de frecuencia de errores](app-insigh
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
 * [Use PowerShell to set alerts in Application Insights (Uso de PowerShell para definir alertas en Application Insights)](app-insights-powershell-alerts.md)
 * [Proactive diagnostics](app-insights-proactive-diagnostics.md) 

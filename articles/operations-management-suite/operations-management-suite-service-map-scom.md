@@ -14,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 0b710c338be3a2c2fde6bba43173f7c5f480e357
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a7dbe54ffb4daa941c19b51ba263dd3d23b7a98b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integración de Mapa de servicio con System Center Operations Manager
   > [!NOTE]
-  > Esta característica está en versión preliminar privada, por lo que no se debe usar en los sistemas de producción.
+  > Esta característica está en versión preliminar pública.
   > 
   
 Mapa de servicio de Operations Management Suite detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre los servicios. Mapa de servicio permite ver los servidores a medida que piensa en ellos, como los sistemas interconectados que ofrecen servicios críticos. Mapa de servicio muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin una configuración necesaria que sea distinta a la instalación de un agente. Para más detalles, consulte la [documentación de Mapa de servicio](operations-management-suite-service-map.md).
@@ -62,17 +61,21 @@ Para configurar la integración de Mapa de servicio, haga lo siguiente:
 
     ![Área de trabajo de configuración de Operations Manager](media/oms-service-map/scom-config-workspace.png)
 
-4. En la ventana **Selección de servidor**, se puede configurar el grupo de servidores de Mapa de servicio con los servidores que desea sincronizar entre Operations Manager y Mapa de servicio. Haga clic en **Agregar o quitar servidores**.   
+4. En la ventana **Selección de Grupo de máquinas**, elija los grupos de máquinas de Service Map que desea sincronizar con Operations Manager. Haga clic en **Agregar o quitar Grupos de máquinas**, seleccione los grupos de la lista de **Grupos de máquinas disponibles** y haga clic en **Agregar**.  Cuando haya terminado la selección de grupos, haga clic en **Aceptar** para finalizar.
+    
+    ![Configuración de grupos de máquinas de Operations Manager](media/oms-service-map/scom-config-machine-groups.png)
+    
+5. En la ventana **Selección de servidor**, se puede configurar el grupo de servidores de Mapa de servicio con los servidores que desea sincronizar entre Operations Manager y Mapa de servicio. Haga clic en **Agregar o quitar servidores**.   
     
     Para que la integración genere un diagrama de aplicación distribuida para un servidor, el servidor debe cumplir lo siguiente:
 
-    * Debe estar administrado por Operations Manager.
-    * Debe estar administrado por Mapa de servicio.
-    * Debe figurar en el grupo de servidores de Mapa de servicio.
+    * Administrado por Operations Manager
+    * Administrado por Service Map
+    * Aparece en el grupo de servidores de Service Map
 
     ![Grupo de configuración de Operations Manager](media/oms-service-map/scom-config-group.png)
 
-5. Opcional: seleccione el grupo de recursos del servidor de administración para comunicarse con Operations Management Suite y haga clic en **Agregar área de trabajo**.
+6. Opcional: seleccione el grupo de recursos del servidor de administración para comunicarse con Operations Management Suite y haga clic en **Agregar área de trabajo**.
 
     ![Grupo de recursos de configuración de Operations Manager](media/oms-service-map/scom-config-pool.png)
 
@@ -80,23 +83,22 @@ Para configurar la integración de Mapa de servicio, haga lo siguiente:
 
     ![Grupo de recursos de configuración de Operations Manager](media/oms-service-map/scom-config-success.png)
 
-    >[!NOTE]
-    >El intervalo de sincronización predeterminado se establece en 60 minutos. Los usuarios pueden configurar invalidaciones para cambiar el intervalo de sincronización. También puede agregar servidores al grupo de servidores de Mapa de servicio manualmente en el panel **Creación**. Para ello, seleccione **Grupos** y, a continuación, busque el **Grupo de servidores de Mapa de servicio**. Las asignaciones de servidor para esos servidores están sincronizadas con la siguiente sincronización, que se basa en el intervalo de sincronización configurado.
 
 ## <a name="monitor-service-map"></a>Supervisión del Mapa de servicio
 Después de conectar el área de trabajo de Operations Management Suite, una nueva carpeta (Mapa de servicio) aparece en el panel **Supervisión** de la consola de Operations Manager.
 
 ![Panel de supervisión de Operations Manager](media/oms-service-map/scom-monitoring.png)
 
-La carpeta de Service Map tiene tres nodos:
-* **Alertas activas**: muestra todas las alertas activas sobre la comunicación entre Operations Manager y la solución de Mapa de servicio en Operations Management Suite.
-
-    >[!NOTE]
-    >Estas alertas no son las alertas de Operations Management Suite que aparecen en Operations Manager.
+La carpeta de Service Map tiene cuatro nodos:
+* **Alertas activas**: muestra todas las alertas activas sobre la comunicación entre Operations Manager y Service Map.  Observe que estas alertas no son alertas de Operations Management Suite sincronizadas con Operations Manager. 
 
 * **Servidores**: muestra los servidores supervisados que se han configurado para la sincronización con Mapa de servicio.
 
     ![Panel de servidores de supervisión de Operations Manager](media/oms-service-map/scom-monitoring-servers.png)
+
+* **Vistas de dependencia de grupo de máquinas**: muestra todos los grupos de máquinas que se sincronizan desde Service Map. Puede hacer clic en cualquier grupo para ver su diagrama de aplicaciones distribuidas.
+
+    ![Diagrama de aplicaciones distribuidas de Operations Manager](media/oms-service-map/scom-group-dad.png)
 
 * **Vistas de la dependencia de servidor**: muestra todos los servidores que se sincronizan desde Mapa de servicio. Puede hacer clic en cualquier servidor para ver su diagrama de aplicaciones distribuidas.
 
@@ -120,15 +122,16 @@ Se crea una regla, _Microsoft.SystemCenter.ServiceMapImport.Rule_, para capturar
 ## <a name="known-issues-and-limitations"></a>Problemas conocidos y limitaciones
 
 El diseño actual presenta los problemas y limitaciones siguientes:
-* Aunque puede agregar servidores manualmente al grupo de servidores de Mapa de servicio desde el panel **Creación**, las asignaciones para esos servidores se sincronizarán desde Mapa de servicio únicamente durante el siguiente ciclo de sincronización. El valor predeterminado es de 60 minutos, pero puede invalidarlo. 
 * Puede conectarse a una sola área de trabajo de Operations Management Suite.
+* Aunque puede agregar servidores manualmente al grupo de servidores de Service Map desde el panel **Creación**, las asignaciones para esos servidores no se sincronizan inmediatamente.  Se sincronizarán desde Service Map durante el siguiente ciclo de sincronización.
+* Si realiza cambios en los diagramas de aplicación distribuida creados por el módulo de administración, es probable que se sobrescriban esos cambios en la próxima sincronización con Service Map.
 
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 Para obtener documentación oficial de Azure acerca de cómo crear una entidad de servicio, consulte:
-* [Uso de Azure PowerShell para crear una entidad de servicio](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Uso de la CLI de Azure para crear a una entidad de servicio](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Create a service principal by using the Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Uso de Azure Portal para crear una entidad de servicio)
+* [Uso de Azure PowerShell para crear una entidad de servicio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+* [Uso de la CLI de Azure para crear a una entidad de servicio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Create a service principal by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Uso de Azure Portal para crear una entidad de servicio)
 
 ### <a name="feedback"></a>Comentarios
-¿Quiere hacernos llegar algún comentario acerca de Mapa de servicio o esta documentación? Visite nuestra [página de voz del usuario](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), donde puede sugerir características o votar sugerencias existentes.
+¿Quiere hacernos llegar algún comentario acerca de Mapa de servicio o esta documentación? Visite nuestra [página Voz del usuario](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), donde puede sugerir características o votar sugerencias existentes.
 

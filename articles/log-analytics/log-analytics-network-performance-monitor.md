@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 5c2cb05ced7841899c2bd19f627d13b86a4b05cc
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Solución Monitor de rendimiento de red de Log Analytics
@@ -218,7 +217,7 @@ En la siguiente tabla se muestran los métodos de recopilación de datos y otros
 
 | plataforma | Agente directo | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Sí](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Sí](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |Protocolos de enlace TCP/mensajes ICMP ECHO cada 5 segundos, datos enviados cada 3 minutos |
+| Windows | &#8226; | &#8226; |  |  |  |Protocolos de enlace TCP/mensajes ICMP ECHO cada 5 segundos, datos enviados cada 3 minutos |
 
 La solución usa transacciones sintéticas para evaluar el estado de la red. Los agentes de OMS instalados en diversos puntos de la red intercambian entre sí paquetes TCP o ICMP Echo (según el protocolo seleccionado para la supervisión). En el proceso, los agentes conocen el tiempo de ida y vuelta y se enteran de la pérdida de paquetes, si la hay. Periódicamente, cada agente también realiza un seguimiento de la ruta hasta los demás agentes para descubrir las diversas rutas de la red que se deben comprobar. Con estos datos, los agentes pueden deducir la latencia de red y las cifras de pérdida de paquetes. Cada cinco segundos los agentes repiten las pruebas y agregan datos en un período de tres minutos antes de cargarlos en el servicio Log Analytics.
 

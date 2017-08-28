@@ -1,6 +1,6 @@
 ---
-title: "Uso de los Centros de notificaciones para enviar noticias de última hora (Windows Universal)"
-description: "Use Centros de notificaciones de Azure con etiquetas en el registro para enviar noticias de última hora a una aplicación universal de Windows."
+title: "Uso de Notification Hubs para enviar noticias de última hora (Windows Universal)"
+description: "Use Azure Notification Hubs con etiquetas en el registro para enviar noticias de última hora a una aplicación universal de Windows."
 services: notification-hubs
 documentationcenter: windows
 author: ysxu
@@ -14,22 +14,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a1367739c87138afb5b1b3e136acd8620ac56468
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0e945b5626a08fcb428131f2abb465c2c141011a
+ms.contentlocale: es-es
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>Uso de los Centros de notificaciones para enviar noticias de última hora
+# <a name="use-notification-hubs-to-send-breaking-news"></a>Uso de Notification Hubs para enviar noticias de última hora
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Información general
-Este tema muestra cómo puede usar los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora en una aplicación (no Silverlight) de la Tienda Windows o de Windows Phone 8.1. Si su objetivo es Silverlight para Windows Phone 8.1, consulte la versión de [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) . Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música y así sucesivamente. 
+Este tema muestra cómo puede usar Azure Notification Hubs para difundir notificaciones de noticias de última hora en una aplicación (no Silverlight) de la Tienda Windows o de Windows Phone 8.1. Si su objetivo es Silverlight para Windows Phone 8.1, consulte la versión de [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) . Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música y así sucesivamente. 
 
-Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el Centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para información sobre las etiquetas, consulte [Expresiones de etiqueta y enrutamiento de los Centros de notificaciones](notification-hubs-tags-segment-push-message.md).
+Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el Centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para información sobre las etiquetas, consulte [Expresiones de etiqueta y enrutamiento de Notification Hubs](notification-hubs-tags-segment-push-message.md).
+
+> [!NOTE]
+> Los proyectos de Tienda Windows y Windows Phone versión 8.1 y versiones anteriores no se admiten en Visual Studio 2017.  Para más información, consulte [Compatibilidad y destinatarios de la plataforma de Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs). 
 
 ## <a name="prerequisites"></a>Requisitos previos
-Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones][get-started]. Antes de comenzar este tutorial, debe haber completado [Introducción a los Centros de notificaciones][get-started].
+Este tema se basa en la aplicación que creó en [Introducción a Notification Hubs][get-started]. Antes de comenzar este tutorial, debe haber completado la [Introducción a Notification Hubs][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Adición de una selección de categorías a la aplicación
 El primer paso es agregar los elementos de la interfaz de usuario a la página principal existente que permiten al usuario seleccionar las categorías para registrar. Las categorías seleccionadas por un usuario se almacenan en el dispositivo. Cuando la aplicación se inicia, se crea un registro de dispositivos en el Centro de notificaciones con las categorías seleccionadas como etiquetas.
@@ -165,7 +169,7 @@ Estos pasos permiten registrar el Centro de notificaciones en el inicio mediante
    
         var result = await notifications.SubscribeToCategories();
    
-    De esta forma, se garantiza que cada vez que la aplicación se inicia, se recuperan las categorías del almacenamiento local y se solicita un registro de estas categorías. El método **InitNotificationsAsync** se creó como parte del tutorial [Introducción a los Centros de notificaciones][get-started].
+    De esta forma, se garantiza que cada vez que la aplicación se inicia, se recuperan las categorías del almacenamiento local y se solicita un registro de estas categorías. El método **InitNotificationsAsync** se creó como parte del tutorial [Introducción a Notification Hubs][get-started].
 2. En el archivo de proyecto MainPage.xaml.cs, agregue el siguiente código en el método *OnNavigatedTo* :
    
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -208,17 +212,17 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
      ![][14]
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial hemos aprendido cómo difundir noticias de última hora por categoría. Considere la posibilidad de llevar a cabo uno de los siguientes tutoriales que destacan otros escenarios de Centros de notificaciones avanzados:
+En este tutorial hemos aprendido cómo difundir noticias de última hora por categoría. Considere la posibilidad de llevar a cabo uno de los siguientes tutoriales que destacan otros escenarios de Notification Hubs avanzados:
 
-* [Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]
+* [Uso de Notification Hubs para difundir noticias de última hora localizadas]
   
     Conozca cómo expandir la aplicación de noticias de última hora para habilitar el envío de notificaciones localizadas.
 
 <!-- Anchors. -->
-[Adición de una selección de categorías a la aplicación]: #adding-categories
-[Registro de notificaciones]: #register
-[Envío de notificaciones desde su back-end]: #send
-[Ejecución de la aplicación y generación de notificaciones]: #test-app
+[Add category selection to the app]: #adding-categories
+[Register for notifications]: #register
+[Send notifications from your back-end]: #send
+[Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -231,19 +235,14 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 
 <!-- URLs.-->
 [get-started]: /manage/services/notification-hubs/getting-started-windows-dotnet/
-[Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Notificación a los usuarios con los Centros de notificaciones]: /manage/services/notification-hubs/notify-users
-[Servicio móvil]: /develop/mobile/tutorials/get-started/
-[Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
-[Procedimientos de los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/library/jj927172.aspx
-[Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Uso de Notification Hubs para difundir noticias de última hora localizadas]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
+[Mobile Service]: /develop/mobile/tutorials/get-started/
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 

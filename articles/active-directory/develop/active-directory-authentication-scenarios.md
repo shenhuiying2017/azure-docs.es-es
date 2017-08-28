@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 49ac46d8a04e31df1e5c31a60e387c8cd0b93037
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
 ms.contentlocale: es-es
-ms.lasthandoff: 04/20/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Escenarios de autenticación para Azure AD
@@ -239,7 +238,7 @@ Los tipos de identidad de aplicación y de identidad de usuario delegado se trat
 ##### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>Identidad de usuario delegado con concesión de código de autorización OAuth 2.0
 1. Un usuario ya ha iniciado sesión en una aplicación web, cuyo mecanismo de autenticación es independiente de Azure AD.
 2. La aplicación web requiere un código de autorización para adquirir un token de acceso, por lo que emite una solicitud a través del explorador al punto de conexión de autorización de Azure AD y proporciona el identificador de la aplicación y el identificador URI de redirección de la aplicación web después de la correcta autenticación. El usuario inicia sesión en Azure AD.
-3. Si el usuario de la aplicación web todavía no ha dado su consentimiento para permitir que la aplicación web llame a la API web en su nombre, el usuario tendrá que dar su consentimiento. La aplicación mostrará los permisos que requiere y, si alguno de estos permisos es de nivel de administrador, un usuario normal del directorio no podrá dar su consentimiento. Este proceso de consentimiento solo se aplica a las aplicaciones multiempresa (de varios inquilinos), no a las aplicaciones de un solo inquilino, puesto que la aplicación ya tendrá los permisos necesarios.
+3. Si el usuario de la aplicación web todavía no ha dado su consentimiento para permitir que la aplicación web llame a la API web en su nombre, el usuario tendrá que dar su consentimiento. La aplicación mostrará los permisos que requiere y, si alguno de estos permisos es de nivel de administrador, un usuario normal del directorio no podrá dar su consentimiento. Este consentimiento se aplica tanto a aplicaciones de un solo inquilino como a aplicaciones multiempresa.  En el caso de las aplicaciones de un solo inquilino, un administrador puede realizar una operación de consentimiento de administrador en nombre de sus usuarios.  Esto puede hacerse mediante el botón `Grant Permissions` en [Azure Portal](https://portal.azure.com). 
 4. Una vez que el usuario haya dado su consentimiento, la aplicación web recibe el código de autorización que necesita para adquirir un token de acceso.
 5. Con el código de autorización emitido por Azure AD, la aplicación web envía una solicitud al punto de conexión de token de Azure AD que incluye el código de autorización, detalles sobre la aplicación cliente (URI de redirección e identificador de la aplicación), además del recurso deseado (URI del identificador de la aplicación para la API web).
 6. Azure AD valida el código de autorización e información sobre la aplicación web y la API web. Tras la correcta validación, Azure AD devuelve dos tokens: un token de acceso de JWT y un token de actualización de JWT.

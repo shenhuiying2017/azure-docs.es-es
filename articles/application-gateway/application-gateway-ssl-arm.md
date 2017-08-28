@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 21a45f8ac5b4cb5fd0f5513fb43f7ca263977393
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ededabc7c665d6bb05b91e4d21d01fb1379add32
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-resource-manager"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-ssl-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-ssl-arm.md)
+> * [Azure Portal](application-gateway-ssl-portal.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
 > * [CLI de Azure 2.0](application-gateway-ssl-cli.md)
 
@@ -217,10 +217,18 @@ En este ejemplo se configura el tamaño de instancia de la puerta de enlace de a
 > [!NOTE]
 > El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Se puede elegir entre Standard_Small, Standard_Medium y Standard_Large.
 
+### <a name="step-10"></a>Paso 10
+
+```powershell
+$policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
+```
+
+Este paso permite definir la directiva SSL que se usará en la puerta de enlace de aplicaciones. Para más información, visite [Configuración de versiones de directivas SSL y conjuntos de cifrado en Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
+
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>Creación de una puerta de enlace de aplicaciones con New-AzureApplicationGateway
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
+$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
 En este ejemplo se crea una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la puerta de enlace de aplicaciones se denomina **appgwtest**.

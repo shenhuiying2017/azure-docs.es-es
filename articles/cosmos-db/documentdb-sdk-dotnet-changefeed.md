@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/14/2017
 ms.author: maquaran
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: b2987800aa0d8aaf237f46a9435d53fec7372a92
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 40c796bc5af1220c46950a6fac062ffdd243e59f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios .NET de DocumentDB: descarga y notas de la versión
@@ -48,6 +48,10 @@ ms.lasthandoff: 07/31/2017
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* Agregue un método para obtener una estimación de trabajo restante que se va a procesar en la fuente de cambio.
+* Compatible con el [SDK para .NET de DocumentDB](documentdb-sdk-dotnet.md), versiones 1.13.2 y superiores.
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * SDK de GA
 * Compatible con el [SDK para .NET de DocumentDB](documentdb-sdk-dotnet.md), versiones 1.14.1 e inferiores.
@@ -63,6 +67,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.1.0](#1.1.0) |13 de agosto de 2017 |--- |
 | [1.0.0](#1.0.0) |7 de julio de 2017 |--- |
 
 

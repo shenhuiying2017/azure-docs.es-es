@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: nini
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a9d1b05e8f6740cb7c5ccf15dbe33b15bdbe27b0
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: ca86787e344aa5e9e68934dee6e9e83aeb4cc340
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Evaluación de aplicaciones y microservicios de Azure Service Fabric con PowerShell
@@ -31,14 +31,21 @@ ms.lasthandoff: 07/06/2017
 
 ![Símbolo de Service Fabric](./media/log-analytics-service-fabric/service-fabric-assessment-symbol.png)
 
-Este artículo describe cómo utilizar la solución de Service Fabric en Log Analytics para ayudar a identificar y solucionar problemas en su clúster de Service Fabric, ya que se obtiene visibilidad del rendimiento de los nodos de Service Fabric y de cómo se ejecutan las aplicaciones y los microservicios.
+En este artículo se describe cómo utilizar la solución de Service Fabric en Log Analytics para ayudar a identificar y solucionar problemas en su clúster de Service Fabric. Le ayuda a ver cómo funcionan los nodos de Service Fabric y cómo se ejecutan sus aplicaciones y microservicios.
 
-La solución de Service Fabric utiliza datos de Diagnósticos de Azure de las máquinas virtuales de Service Fabric recopilando estos datos de las tablas WAD de Azure. Posteriormente, Log Analytics lee los eventos del marco de Service Fabric, incluidos los **eventos de servicios de confianza**, los **eventos de actor**, los **eventos operativos** y los **eventos ETW personalizados**. Con el panel de la solución de Service Fabric, se pueden ver los eventos pertinentes y problemas importantes de su entorno de Service Fabric.
+La solución de Service Fabric utiliza datos de Diagnósticos de Azure de las máquinas virtuales de Service Fabric recopilando estos datos de las tablas WAD de Azure. Log Analytics lee a continuación los siguientes eventos del marco de Service Fabric:
+
+- **Eventos de Reliable Services**
+- **Eventos de actor**
+- **Eventos operativos**
+- **Eventos de ETW personalizados**
+
+Con el panel de la solución de Service Fabric, se pueden ver los eventos pertinentes y problemas importantes de su entorno de Service Fabric.
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
 Siga estos tres sencillos pasos para instalar y configurar la solución:
 
-1. Asegúrese de que el área de trabajo de Log Analytics que utiliza está asociado con la misma suscripción de Azure que usó para crear todos los recursos del clúster, incluidas las cuentas de Storage. Consulte [Introducción a Log Analytics](log-analytics-get-started.md) para obtener información sobre cómo crear un área de trabajo de Log Analytics.
+1. Asocie la suscripción de Azure que usó para crear todos los recursos del clúster, incluidas las cuentas de almacenamiento, a su área de trabajo. Consulte [Introducción a Log Analytics](log-analytics-get-started.md) para obtener información sobre cómo crear un área de trabajo de Log Analytics.
 2. Configure Log Analytics para recopilar y ver los registros de Service Fabric.
 3. Habilite la solución de Service Fabric en el área de trabajo de Log Analytics.
 
@@ -46,7 +53,7 @@ Siga estos tres sencillos pasos para instalar y configurar la solución:
 En esta sección, aprenderá a configurar Log Analytics para recuperar registros de Service Fabric. Los registros permiten ver, analizar y solucionar problemas del clúster o de las aplicaciones y los servicios que se ejecutan en ese clúster mediante el portal de OMS.
 
 > [!NOTE]
-> La extensión de Diagnósticos de Azure tiene que estar configurada para cargar los registros en tablas de almacenamiento que coincidan con lo que Log Analytics va a buscar. Para más información, vea [Recopilación de registros con Diagnósticos de Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md). Los ejemplos de valores de configuración en este artículo muestran los nombres que deben tener las tablas de almacenamiento. Cuando se haya configurado Diagnósticos en el clúster y se carguen los registros en una cuenta de almacenamiento, el siguiente paso consiste en configurar Log Analytics para recopilar estos registros.
+> Configure la extensión Azure Diagnostics para cargar los registros de las tablas de almacenamiento. Las tablas deben coincidir con lo que busca Log Analytics. Para más información, vea [Recopilación de registros con Diagnósticos de Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md). Los ejemplos de valores de configuración en este artículo muestran los nombres que deben tener las tablas de almacenamiento. Cuando se haya configurado Diagnósticos en el clúster y se carguen los registros en una cuenta de almacenamiento, el siguiente paso consiste en configurar Log Analytics para recopilar estos registros.
 >
 >
 
@@ -58,7 +65,8 @@ Las siguientes herramientas se usarán para realizar algunas de las operaciones 
 * [Operations Management Suite](http://www.microsoft.com/oms)
 
 ### <a name="configure-a-log-analytics-workspace-to-show-the-cluster-logs"></a>Configuración de un área de trabajo de Log Analytics para mostrar los registros del clúster
-Una vez creada el área de trabajo de Log Analytics como se describió antes, el siguiente paso consiste en configurar el área de trabajo para que extraiga los registros de las tablas de Azure Storage donde la extensión de Diagnósticos los carga desde el clúster. Para ello, ejecute el siguiente script de PowerShell:
+
+Después de crear un área de trabajo de Log Analytics, configúrela para extraer registros de las tablas de almacenamiento Azure. A continuación, ejecute el siguiente script de PowerShell:
 
 ```
 <#
@@ -290,7 +298,7 @@ $workspace = Select-Workspace
 $storageAccount = Select-StorageAccount
 ```
 
-Después de configurar el área de trabajo de Log Analytics para leer datos de las tablas de Azure en su cuenta de almacenamiento, inicie sesión en Azure Portal y seleccione el área de trabajo de Log Analytics en **Todos los recursos**. Una vez seleccionado, debería ver el número de registros de cuenta de almacenamiento conectados a esa área de trabajo de Log Analytics. Seleccione el icono de **registros de la cuenta de almacenamiento** y compruebe en la lista de registros de la cuenta de almacenamiento que la cuenta de almacenamiento está conectada a esa área de trabajo de Log Analytics:
+Después de configurar el área de trabajo de Log Analytics para leer las tablas de Azure de su cuenta de almacenamiento, inicie sesión en Azure Portal. En **Todos los recursos**, seleccione el área de trabajo de Log Analytics. Se muestra el número de registros de la cuenta de almacenamiento conectados al área de trabajo. Seleccione el icono **Registros de la cuenta de almacenamiento**. Revise la lista de registros de la cuenta de almacenamiento para comprobar que la cuenta de almacenamiento está conectada al área de trabajo correcta.
 
 ![Registros de la cuenta de almacenamiento](./media/log-analytics-service-fabric/sf1.png)
 
@@ -346,7 +354,7 @@ $workspace = Select-Workspace
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -IntelligencePackName "ServiceFabric" -Enabled $true
 ```
 
-Después de habilita la solución, el icono de Service Fabric se agrega a la página de *información general* de Log Analytics, con una vista de problemas importantes, como errores de runAsync y cancelaciones que se han producido en las últimas 24 horas.
+Después de habilitar la solución, se agrega el icono de Service Fabric a la página *Información general* de Log Analytics. La página muestra una vista de problemas importantes, como errores de runAsync y cancelaciones producidos en las últimas 24 horas.
 
 ![Icono de Service Fabric](./media/log-analytics-service-fabric/sf2.png)
 
@@ -355,29 +363,33 @@ Haga clic en el icono de **Service Fabric** icono para abrir el panel de Service
 
 | **Evento de Service Fabric** | **descripción** |
 | --- | --- |
-| Problemas importantes |Una pantalla con problemas como RunAsyncFailures RunAsynCancellations y nodos inactivos. |
-| Eventos operativos |Eventos operativos importantes como implementaciones y actualizaciones de aplicaciones. |
-| Eventos de servicios de confianza |Eventos de servicios de confianza importantes como Runasyncinvocations. |
-| Eventos de actor |Eventos de actor importantes generados por los microservicios, como las excepciones que inician un método de actor, activaciones y desactivaciones de actor, etc. |
-| Eventos de aplicación |Todos los eventos ETW personalizados generados por las aplicaciones. |
+| Problemas importantes | Se muestran problemas, como RunAsyncFailures, RunAsynCancellations y nodos inactivos. |
+| Eventos operativos | Se muestran eventos operativos destacados, como implementaciones y actualizaciones de aplicaciones. |
+| Eventos de servicios de confianza | Se muestran eventos destacados de Reliable Services, como Runasyncinvocations. |
+| Eventos de actor | Se muestran eventos destacados de actor generados por los microservicios. Los eventos incluyen las excepciones producidas por un método de actor, las activaciones y desactivaciones de actor, etc. |
+| Eventos de aplicación | Todos los eventos ETW personalizados generados por las aplicaciones. |
 
 ![Panel de Service Fabric](./media/log-analytics-service-fabric/sf3.png)
 
 ![Panel de Service Fabric](./media/log-analytics-service-fabric/sf4.png)
 
-La siguiente tabla muestra los métodos de recolección de datos y otros detalles sobre cómo se recopilan los datos para Service Fabric.
+En la siguiente tabla se muestran los métodos de recolección de datos y otros detalles sobre cómo se recopilan los datos para Service Fabric:
 
-| plataforma | Agente directo | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
+| plataforma | Agente directo | Agente de Operations Manager | Azure Storage | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![No](./media/log-analytics-malware/oms-bullet-red.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |![Sí](./media/log-analytics-malware/oms-bullet-green.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |10 minutos |
+| Windows |  |  | &#8226; |  |  |10 minutos |
 
 > [!NOTE]
-> Puede cambiar el ámbito de estos eventos en la solución de Service Fabric haciendo clic **Data based on last 7 days** (Datos basados en los últimos 7 días) en la parte superior del panel. También puede mostrar los eventos generados en los últimos 7 días, 1 día o 6 horas, o bien seleccionar **Personalizado** y especificar un intervalo de fechas personalizado.
+> Cambie el ámbito de los eventos con **Data based on last seven days** (Datos basados en los últimos siete días) en la parte superior del panel. También puede mostrar los eventos generados en los últimos 7 días, 1 día o 6 horas, o bien seleccionar **Personalizado** y especificar un intervalo de fechas personalizado.
 >
 >
 
 ## <a name="troubleshoot-your-service-fabric-and-log-analytics-configuration"></a>Solución de problemas de Service Fabric y configuración de Log Analytics
-Si necesita comprobar la configuración de Log Analytics porque no puede ver los datos de eventos en Log Analytics, use el siguiente script. Lee la configuración de diagnósticos de Service Fabric, comprueba los datos que se escriben en las tablas y verifica que Log Analytics está configurado para leer las tablas.
+Si necesita comprobar la configuración de Log Analytics porque no puede ver datos de eventos en Log Analytics, use el siguiente script. Las acciones que realiza son las siguientes:
+
+1. Lee la configuración de diagnóstico de Service Fabric
+2. Comprueba los datos escritos en las tablas
+3. Comprueba que Log Analytics está configurado para leer las tablas
 
 ```
 <#

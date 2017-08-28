@@ -12,27 +12,26 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 08/11/2017
 ms.author: saurse;trinadhk;markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: e2eac02d194c8a3de653292664cb94a55aafc9b7
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 300b2b17b44e21ed446fd63d572a2461e2fc1343
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>Restauración de archivos en un equipo de Windows Server o cliente de Windows mediante el modelo de implementación de clásica
 > [!div class="op_single_selector"]
 > * [Portal clásico](backup-azure-restore-windows-server-classic.md)
-> * [Portal de Azure](backup-azure-restore-windows-server.md)
+> * [Azure Portal](backup-azure-restore-windows-server.md)
 >
 >
 
 En este artículo se explica cómo recuperar datos de un almacén de Backup y restaurarlos en un servidor o equipo. A partir de marzo de 2017, no se podrán crear almacenes de Backup en el portal clásico.
 
 > [!IMPORTANT]
-> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **A partir del 1 de noviembre de 2017**:
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **15 de octubre de 2017**, ya no podrá usar PowerShell para crear almacenes de Backup. <br/> **A partir del 1 de noviembre de 2017**:
 >- Los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
 >- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 >

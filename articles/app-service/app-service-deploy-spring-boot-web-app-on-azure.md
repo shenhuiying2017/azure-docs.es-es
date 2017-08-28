@@ -4,7 +4,7 @@ description: "Este tutorial guiará a los desarrolladores a través de los pasos
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: multiple
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/20/2017
+ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: a071cd1933caafce1f176cd5c5c4f41a60c54357
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 0c388862d927a1492745832225c686670c071f86
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -91,7 +91,7 @@ Los siguientes pasos le guiarán por las diferentes fases de creación de una ap
 
 1. Una vez que haya iniciado sesión en la cuenta de Azure Portal, haga clic en el icono de menú de **App Services**:
    
-   ![Portal de Azure][AZ01]
+   ![Azure Portal][AZ01]
 
 1. Cuando aparezca la página **App Services**, haga clic en **+ Agregar** para crear un nuevo elemento de App Service.
 
@@ -196,11 +196,9 @@ Los siguientes pasos le guiarán por las fases necesarias para implementar la ap
 
 Para obtener más información sobre el uso de aplicaciones de Spring Boot en Azure, consulte los siguientes artículos:
 
-* [Ejecución de una aplicación de Spring Boot en Linux en Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
+* [Implementación de una aplicación de Spring Boot en Linux en Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
 
-* [Ejecución de una aplicación de Spring Boot en un clúster de Kubernetes en Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
-
-## <a name="additional-resources"></a>Recursos adicionales
+* [Implementación de una aplicación de Spring Boot en un clúster de Kubernetes en Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
 Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure] y [Java Tools for Visual Studio Team Services] (Herramientas de Java para Visual Studio Team Services).
 

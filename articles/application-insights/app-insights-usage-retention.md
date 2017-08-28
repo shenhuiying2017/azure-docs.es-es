@@ -11,22 +11,22 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 75abfb977a47ccef45bcc2124b31fbd06ea7d68e
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 2363e725d44facc5417c0baf3f80c8b55fdca470
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Análisis de retención de usuarios para aplicaciones web con Application Insights
 
-La hoja Retención de [Azure Application Insights](app-insights-overview.md) lo ayuda a analizar cuántos usuarios regresan a la aplicación, y con qué frecuencia realizan determinadas tareas o lograr objetivos. Por ejemplo, si ejecuta un sitio de juegos, puede comparar el número de usuarios que regresan al sitio después de perder una partida con la cantidad que vuelven tras ganar. Esta información puede ayudarlo a mejorar la experiencia de los usuarios y la estrategia empresarial.
+La característica Retención de [Azure Application Insights](app-insights-overview.md) le ayuda a analizar cuántos usuarios regresan a la aplicación, y con qué frecuencia realizan determinadas tareas o logran objetivos. Por ejemplo, si ejecuta un sitio de juegos, puede comparar el número de usuarios que regresan al sitio después de perder una partida con la cantidad que vuelven tras ganar. Esta información puede ayudarlo a mejorar la experiencia de los usuarios y la estrategia empresarial.
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
-Si aún no ve los datos en la hoja Retención del portal de Application Insights, [obtenga información sobre cómo empezar a trabajar con las herramientas de uso](app-insights-usage-overview.md).
+Si aún no ve los datos en la herramienta Retención del portal de Application Insights, [obtenga información sobre cómo empezar a trabajar con las herramientas de uso](app-insights-usage-overview.md).
 
 ## <a name="the-retention-tool"></a>La herramienta Retención
 
@@ -37,8 +37,11 @@ Si aún no ve los datos en la hoja Retención del portal de Application Insights
 3. Agregue uno o varios filtros en las propiedades. Por ejemplo, puede centrarse en los usuarios de un país o una región determinados. Haga clic en **Actualizar** después de establecer los filtros. 
 4. El gráfico de retención general muestra un resumen de la retención del usuario durante un período de tiempo seleccionado. 
 5. La cuadrícula muestra el número de usuarios retenidos según el generador de consultas en 2. Cada fila representa una cohorte de usuarios que llevó a cabo cualquier evento en el periodo mostrado. Cada celda de la fila muestra cuántos de esa cohorte regresaron al menos una vez en un periodo posterior. Algunos usuarios pueden regresar en más de un periodo. 
-6. Las tarjetas de información muestran los 5 eventos de inicio más importantes y los 5 eventos devueltos principales para proporcionar a los usuarios una mejor comprensión de su informe de retención. 
+6. Las tarjetas de información muestran los cinco eventos de inicio más importantes y los cinco eventos devueltos principales para proporcionar a los usuarios una mejor comprensión de su informe de retención. 
 
+![Mantener el puntero sobre la retención](./media/app-insights-usage-retention/hover.png)
+
+Los usuarios pueden mantener el puntero sobre las celdas de la herramienta Retención para acceder al botón de análisis y a la información que explica lo que significa cada celda. El botón Análisis conduce al usuario a la herramienta Análisis con una consulta rellenada previamente para generar usuarios desde la celda. 
 
 ## <a name="use-business-events-to-track-retention"></a>Uso de eventos empresariales para realizar un seguimiento de la retención
 
@@ -66,6 +69,9 @@ O en el código del servidor ASP.NET:
 - Si ya ha enviado eventos personalizados o vistas de página, explore las herramientas de uso para obtener información sobre cómo los usuarios utilizan el servicio.
     - [Usuarios, sesiones, eventos](app-insights-usage-segmentation.md)
     - [Embudos](usage-funnels.md)
+    - [Flujos de usuario](app-insights-usage-flows.md)
     - [Libros](app-insights-usage-workbooks.md)
     - [Adición de contexto de usuario](app-insights-usage-send-user-context.md)
+
+
 

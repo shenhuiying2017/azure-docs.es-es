@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 08/14/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 85723eeb9c030dc51bdad47ea8e0996ff7868336
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a09e965b6fc9b89023c09092860fcf79773a4518
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: Integración de Azure Active Directory con SAP Business Object Cloud
@@ -45,7 +46,7 @@ Para configurar la integración de Azure AD con SAP Business Object Cloud, se ne
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
@@ -111,9 +112,17 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub-domain>.projectorca.cloud/`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: 
+    | |
+    |-|-|
+    | `https://<sub-domain>.sapanalytics.cloud/` |
+    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `<sub-domain>.projectorca.cloud`
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+    | |
+    |-|-|
+    | `<sub-domain>.sapbusinessobjects.cloud` |
+    | `<sub-domain>.sapanalytics.cloud` |
 
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de SAP Business Object Cloud](https://www.sap.com/product/analytics/cloud-analytics.support.html) para obtener la dirección URL de inicio de sesión; para obtener el identificador, descargue los metadatos de SAP Business Object Cloud de la consola de administrador, como se explica más adelante en este tutorial. 
@@ -195,8 +204,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="creating-an-sap-business-object-cloud-test-user"></a>Creación de un usuario de prueba de SAP Business Object Cloud
 
-Para permitir que los usuarios de Azure AD inicien sesión en SAP Business Object Cloud, se deben aprovisionar en SAP Business Object Cloud.  
-En el caso de SAP Business Object Cloud, el aprovisionamiento es una tarea manual.
+Para permitir que los usuarios de Azure AD inicien sesión en SAP Business Object Cloud, se deben aprovisionar en SAP Business Object Cloud. Para SAP Business Object Cloud, el aprovisionamiento es una tarea manual.
 
 **Para aprovisionar una cuenta de usuario, realice estos pasos:**
 

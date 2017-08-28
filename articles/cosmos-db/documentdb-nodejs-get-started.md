@@ -13,16 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 08/14/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 04b147d98a6d9d508deea40e68a68d3e421f51fa
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6510e0270bb2efa252a2b2ad40014c5d26b74a81
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Tutorial de Node.js: aplicación de consola de Node.js para DocumentDB
+# <a name="nodejs-tutorial-use-the-documentdb-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Tutorial de Node.js: utilización de la API de DocumentDB en Azure Cosmos DB para crear una aplicación de consola Node.js
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -83,7 +83,7 @@ Estupendo. Ahora que terminamos la configuración, comencemos a escribir algo de
 ## <a id="Config"></a>Paso 3: Configuración de las opciones de la aplicación
 Abra ```config.js``` en el editor de texto que prefiera.
 
-Después, copie y pegue el siguiente fragmento de código y defina las propiedades ```config.endpoint``` y ```config.primaryKey``` para el identificador URI del punto de conexión de Azure Cosmos DB y la clave principal. Ambas opciones de configuración se encuentran en el [Portal de Azure](https://portal.azure.com).
+Después, copie y pegue el siguiente fragmento de código y defina las propiedades ```config.endpoint``` y ```config.primaryKey``` para el identificador URI del punto de conexión de Azure Cosmos DB y la clave principal. Ambas opciones de configuración se encuentran en [Azure Portal](https://portal.azure.com).
 
 ![Tutorial de Node.js: captura de pantalla de Azure Portal que muestra una cuenta de Azure Cosmos DB, con el centro ACTIVO resaltado, el botón CLAVES resaltado en la hoja de la cuenta de Azure Cosmos DB y los valores de URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves (base de datos de nodos)][keys]
 
@@ -367,7 +367,7 @@ En el terminal, busque el archivo ```app.js``` y ejecute el comando: ```node app
 
 ¡Enhorabuena! Ha creado correctamente un documento de Azure Cosmos DB.
 
-![Tutorial de Node.js: diagrama que muestra la relación jerárquica entre la cuenta, la base de datos, la colección y los documentos (base de datos de nodos)](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
+![Tutorial de Node.js: diagrama que muestra la relación jerárquica entre la cuenta, la base de datos, la colección y los documentos (base de datos de nodos)](./media/documentdb-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
 ## <a id="Query"></a>Paso 8: Consulta de los recursos de Azure Cosmos DB
 Azure Cosmos DB admite [consultas](documentdb-sql-query.md) enriquecidas en los documentos JSON que se almacenan en las colecciones. El código de ejemplo siguiente muestra una consulta que se puede ejecutar en los documentos de la colección.
@@ -408,7 +408,7 @@ En el siguiente diagrama se muestra cómo se llama a la sintaxis de la consulta 
 
 ![Tutorial de Node.js: diagrama que ilustra el ámbito y el significado de la consulta (base de datos de nodo).](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-La palabra clave [FROM](documentdb-sql-query.md#FromClause) es opcional en la consulta porque las consultas de Azure Cosmos DB ya tienen como ámbito una única colección. Por lo tanto, «FROM Families f" se puede intercambiar por  "FROM root r", o cualquier otra variable de nombre que elija. Azure Cosmos DB deducirá la familia, la raíz o el nombre de variable elegido y hará referencia a la colección actual de forma predeterminada.
+La palabra clave [FROM](documentdb-sql-query.md#FromClause) es opcional en la consulta porque las consultas de Azure Cosmos DB ya tienen como ámbito una única colección. Por lo tanto, "FROM Families f" se puede intercambiar por "FROM root r", o cualquier otra variable de nombre que elija. Azure Cosmos DB deducirá la familia, la raíz o el nombre de variable elegido y hará referencia a la colección actual de forma predeterminada.
 
 Copie y pegue el código de debajo de la llamada a **getFamilyDocument** para ejecutar la función **queryCollection**.
 

@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 08/14/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: f4134d10e57ff7c8ea6308f076f33e4dc703082c
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 93afa49166c5b31d23237c308b9d34f6d6f3507d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configuración de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services
@@ -48,7 +47,7 @@ Antes de habilitar LDAP seguro, adquiera un certificado válido de acuerdo con l
 5. **Propósito del certificado** : el certificado debe ser válido para la autenticación del servidor SSL.
 
 > [!NOTE]
-> **Entidades de certificación empresariales:** Azure AD Domain Services no admite actualmente el uso de certificados de LDAP seguros emitidos por la entidad de certificación empresarial de su organización. Esta restricción se debe a que el servicio no confía en la entidad de certificación empresarial como una entidad de certificación raíz. Tenemos pensado agregar compatibilidad con las entidades de certificación empresariales en el futuro. Si debe usar obligatoriamente certificados emitidos por su entidad de certificación empresarial [póngase en contacto con nosotros](active-directory-ds-contact-us.md) para obtener ayuda.
+> **Entidades de certificación empresariales:** Azure AD Domain Services no admite el uso de certificados de LDAP seguros emitidos por la entidad de certificación empresarial de su organización. Esta restricción se debe a que el servicio no confía en la entidad de certificación empresarial como una entidad de certificación raíz. 
 >
 >
 

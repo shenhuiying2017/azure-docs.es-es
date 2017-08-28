@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.date: 06/30/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a3c287c5317bd7db2b560e37ddacc9e43d7292d1
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: b25ff5331f119efd44c61808f7d1d5decb226bd6
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="what-performance-options-are-available-for-an-azure-sql-database"></a>¿Qué opciones de rendimiento están disponibles para una instancia de Azure SQL Database?
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/21/2017
 - El nivel **Premium RS** proporciona los mismos niveles de rendimiento que el nivel Premium con un Acuerdo de Nivel de Servicio reducido porque se ejecuta con un número menor de copias redundantes que una base de datos de los demás niveles de servicio. Por ello, si se produce un error del servicio, deberá recuperar la base de datos a partir de una copia de seguridad con un retardo de hasta 5 minutos.
 
 > [!IMPORTANT]
-> Una base de datos SQL de Azure obtiene un conjunto de recursos garantizado, y las características de rendimiento previstas de la base de datos no resultan afectadas por ninguna otra base de datos de Azure. 
+> Azure SQL Database obtiene un conjunto de recursos garantizado, y las características de rendimiento previstas de la base de datos no resultan afectadas por ninguna otra base de datos de Azure. 
 
 ## <a name="choosing-a-service-tier"></a>Selección de un nivel de servicio
 En la tabla siguiente se proporcionan ejemplos de los niveles más adecuados para las diferentes cargas de trabajo de las aplicaciones.
@@ -45,7 +45,7 @@ En la tabla siguiente se proporcionan ejemplos de los niveles más adecuados par
 
 Puede crear bases de datos únicas con recursos dedicados dentro de un nivel de servicio con un [nivel de rendimiento](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) específico o también puede crear bases de datos dentro de un [grupo elástico de SQL](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus). En un grupo elástico de SQL, los recursos de proceso y almacenamiento se comparten entre varias bases de datos dentro de un único servidor lógico. 
 
-Los recursos disponibles para las bases de datos únicas se expresan como unidades de transacción de base de datos (DTU) y, para los grupos elásticos de SQL, como unidades de transacción de bases de datos elásticas (eDTU). Para más información sobre las DTU y las eDTU, consulte [¿Qué son las DTU y las eDTU?](sql-database-what-is-a-dtu.md)
+Los recursos disponibles para las bases de datos únicas se expresan como unidades de transacción de base de datos (DTU) y, para los grupos elásticos de SQL, como unidades de transacción de Elastic Database (eDTU). Para más información sobre las DTU y las eDTU, consulte [¿Qué son las DTU y las eDTU?](sql-database-what-is-a-dtu.md)
 
 Para decidir el nivel de servicio, determine las características mínimas de la base de datos que necesita:
 
@@ -92,13 +92,14 @@ Al cambiar el nivel de servicio o de rendimiento de una base de datos, se crea u
 La duración de todo el proceso de escalado vertical depende del nivel de servicio y del tamaño de la base de datos antes y después del cambio. Por ejemplo, el cambio de una base de datos de 250 GB dentro de un nivel de servicio Estándar, o bien desde o hacia este, se completará en 6 horas. Para una base de datos del mismo tamaño que cambie los niveles de rendimiento del nivel de servicio Premium, se completará en unas 3 horas.
 
 > [!TIP]
-> Para comprobar el estado de una operación de escalado de bases de datos SQL en curso puede utilizar la siguiente consulta: ```select * from sys.dm_operation_status```.
+> Para comprobar el estado de una operación de escalado de SQL Database en curso puede utilizar la siguiente consulta: ```select * from sys.dm_operation_status```.
 >
 
 * Si va a actualizar a un nivel de servicio o rendimiento más elevado, el tamaño máximo de la base de datos no aumenta a no ser que especifique un tamaño máximo mayor.
 * Para degradar una base de datos, esta no debe alcanzar el tamaño máximo permitido del nivel de servicio de destino. 
-* Al actualizar una base de datos con la [replicación geográfica](sql-database-geo-replication-portal.md) habilitada, actualice sus bases de datos secundarias al nivel de rendimiento deseado antes de actualizar la principal (regla general).
-* Al degradar de un nivel de servicio **Premium** a un nivel de servicio inferior, primero debe terminar todas las relaciones de replicación geográfica. Puede seguir los pasos que se describen en el tema [Recuperación de una interrupción](sql-database-disaster-recovery.md) para detener el proceso de replicación entre la base de datos principal y las bases de datos secundarias.
+* Al actualizar una base de datos con la [replicación geográfica](sql-database-geo-replication-portal.md) habilitada, actualice sus bases de datos secundarias al nivel de rendimiento deseado antes de actualizar la principal (regla general). Al actualizar a una edición diferente, antes hay que actualizar la base de datos secundaria. 
+* Al cambiar a una versión anterior de una base de datos con la [replicación geográfica](sql-database-geo-replication-portal.md) habilitada, cambie a una versión anterior sus bases de datos principales al nivel de rendimiento deseado antes de cambiar a una versión anterior la secundaria (regla general). Al cambiar a una versión anterior a una edición diferente, antes hay que cambiar a una versión anterior la principal. 
+
 * Las ofertas del servicio de restauración son diferentes para los distintos niveles de servicio. Si va a degradar al nivel **Básico**, tendrá un período de retención más bajo; consulte [Copias de seguridad de Azure SQL Database](sql-database-automated-backups.md).
 * Las nuevas propiedades de la base de datos no se aplican hasta que se completan los cambios.
 
@@ -108,7 +109,7 @@ La duración de todo el proceso de escalado vertical depende del nivel de servic
 Como se ha indicado anteriormente, se admite un tamaño máximo de 4 TB para bases de datos P11 y P15 en algunas regiones. Las siguientes consideraciones y limitaciones se aplican a las bases de datos P11 y P15 con un tamaño máximo de 4 TB:
 
 - Si elige la opción de tamaño máximo de 4 TB al crear una base de datos (con un valor de 4 TB o 4096 GB), el comando de creación produce un error si la base de datos se aprovisiona en una región no admitida.
-- Para las bases de datos con niveles de rendimiento P11 y P15 ubicadas en alguna de las regiones admitidas, puede aumentar la capacidad de almacenamiento máxima hasta 4 TB. Esto se puede comprobar mediante [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) o inspeccionando el tamaño de la base de datos en el portal de Azure. La actualización de una base de datos P11 o P15 existente solo puede realizarse mediante un inicio de sesión de entidad de seguridad de nivel de servidor o por los miembros del rol de base de datos dbmanager. 
+- Para las bases de datos con niveles de rendimiento P11 y P15 ubicadas en alguna de las regiones admitidas, puede aumentar la capacidad de almacenamiento máxima hasta 4 TB. Esto se puede comprobar mediante [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) o inspeccionando el tamaño de la base de datos en Azure Portal. La actualización de una base de datos P11 o P15 existente solo puede realizarse mediante un inicio de sesión de entidad de seguridad de nivel de servidor o por los miembros del rol de base de datos dbmanager. 
 - Si se ha ejecutado una operación de actualización en una región admitida, la configuración se actualiza inmediatamente. La base de datos permanecerá en línea durante el proceso de actualización. Sin embargo, no podrá utilizar los 4 TB completos de almacenamiento hasta que se hayan actualizado los archivos de base de datos reales con el nuevo tamaño máximo. El período de tiempo necesario depende del tamaño de la base de datos que se va a actualizar.  
 - Al crear o actualizar una base de datos P11 o P15, solo puede optar entre un tamaño máximo de 1 TB y 4 TB. Actualmente no se admiten tamaños de almacenamiento intermedios. Cuando crea una base de datos P11 o P15, se selecciona previamente la opción de almacenamiento predeterminada de 1 TB. En el caso de bases de datos ubicadas en alguna de las regiones admitidas, puede aumentar el almacenamiento máximo a 4 TB en bases de datos únicas nuevas o existentes. Para todas las demás regiones, el tamaño máximo no se puede aumentar por encima de 1 TB. El precio no cambia cuando se selecciona la opción de 4 TB de almacenamiento incluido.
 - El tamaño máximo de base de datos de 4 TB no se puede cambiar a 1 TB aunque el almacenamiento real usado esté por debajo de 1 TB. Por tanto, no puede degradar una base de datos P11-4TB/P15-4TB a una base de datos P11-1TB/P15-1TB o de un nivel de rendimiento inferior (por ejemplo, a P1-P6) hasta que proporcionemos opciones de almacenamiento adicionales para el resto de los niveles de rendimiento. Esta restricción también se aplica a los escenarios de copia y restauración, lo que incluye la restauración a un momento dado, la restauración geográfica, la retención de copias de seguridad a largo plazo y la copia de base de datos. Una vez que una base de datos está configurada con la opción de 4 TB, todas las operaciones de restauración de esta base de datos deben ejecutarse en una P11/P15 con un tamaño máximo de 4 TB.
@@ -120,7 +121,7 @@ Como se ha indicado anteriormente, se admite un tamaño máximo de 4 TB para ba
 
 ## <a name="manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal"></a>Administración de niveles de servicio y rendimiento de bases de datos mediante Azure Portal
 
-Para establecer o cambiar el nivel de servicio, el nivel de rendimiento o la cantidad de almacenamiento de una base de datos SQL de Azure nueva o existente mediante Azure Portal, abra la ventana **Configurar rendimiento** ventana de la base de datos; para ello, haga clic en **Plan de tarifa (escalar DTU)**, como se muestra en la siguiente captura de pantalla. 
+Para establecer o cambiar el nivel de servicio, el nivel de rendimiento o la cantidad de almacenamiento de un Azure SQL Database nueva o existente mediante Azure Portal, abra la ventana **Configurar rendimiento** ventana de la base de datos; para ello, haga clic en **Plan de tarifa (escalar DTU)**, como se muestra en la siguiente captura de pantalla. 
 
 - Establezca o cambie el nivel de servicio y seleccione el nivel de servicio de su carga de trabajo. 
 - Establezca o cambie el nivel de rendimiento (**DTU**) dentro de un nivel de servicio mediante el control deslizante de **DTU**.
@@ -148,7 +149,7 @@ Para establecer o cambiar los niveles de servicio, los niveles de rendimiento y 
 
 ## <a name="manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli"></a>Administración de niveles de servicio y rendimiento de bases de datos únicas mediante la CLI de Azure
 
-Para establecer o cambiar los niveles de servicio, los niveles de rendimiento y la cantidad de almacenamiento de las bases de datos SQL de Azure mediante la CLI de Azure, use los siguientes comandos de [Base de datos SQL de la CLI de Azure](/cli/azure/sql/db). Use [Cloud Shell](/azure/cloud-shell/overview) para ejecutar la CLI en el explorador o [instálela](/cli/azure/install-azure-cli) en Windows, Linux o macOS. Para crear y administrar grupos elásticos de SQL, vea [Grupos elásticos](sql-database-elastic-pool.md).
+Para establecer o cambiar los niveles de servicio, los niveles de rendimiento y la cantidad de almacenamiento de las bases de datos SQL de Azure mediante la CLI de Azure, use los siguientes comandos de [SQL Database de la CLI de Azure](/cli/azure/sql/db). Use [Cloud Shell](/azure/cloud-shell/overview) para ejecutar la CLI en el explorador o [instálela](/cli/azure/install-azure-cli) en Windows, Linux o macOS. Para crear y administrar grupos elásticos de SQL, vea [Grupos elásticos](sql-database-elastic-pool.md).
 
 | Cmdlet | Descripción |
 | --- | --- |
@@ -170,8 +171,8 @@ Para establecer o cambiar los niveles de servicio, los niveles de rendimiento y 
 | Comando | Descripción |
 | --- | --- |
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Crear una base de datos. Debe estar conectado a la base de datos maestra para crear una base de datos.|
-| [ALTER DATABASE (Base de datos SQL de Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifica una base de datos SQL de Azure. |
-|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devuelve la edición (nivel de servicio), el objetivo de servicio (plan de tarifa) y el nombre del grupo elástico, si existe, para una base de datos SQL de Azure o una instancia de Azure SQL Data Warehouse. Si inició sesión en la base de datos maestra en un servidor de Azure SQL Database, devuelve información sobre todas las bases de datos. Para Azure SQL Data Warehouse, debe estar conectado a la base de datos maestra.|
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifica Azure SQL Database. |
+|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devuelve la edición (nivel de servicio), el objetivo de servicio (plan de tarifa) y el nombre del grupo elástico, si existe, para una instancia de Azure SQL Database o de Azure SQL Data Warehouse. Si inició sesión en la base de datos maestra en un servidor de Azure SQL Database, devuelve información sobre todas las bases de datos. Para Azure SQL Data Warehouse, debe estar conectado a la base de datos maestra.|
 |[sys.database_usage (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Muestra el número, el tipo y la duración de las bases de datos en un servidor de Azure SQL Database.|
 
 En el ejemplo siguiente se muestra cómo se cambia el tamaño máximo mediante el comando ALTER DATABASE:

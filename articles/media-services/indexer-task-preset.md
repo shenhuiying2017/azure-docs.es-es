@@ -4,7 +4,7 @@ description: "En este tema se ofrece información general sobre los valores pred
 services: media-services
 documentationcenter: 
 author: Asolanki
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

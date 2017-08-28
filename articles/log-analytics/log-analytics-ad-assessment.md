@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimización del entorno de Active Directory con la solución de evaluación de Active Directory en Log Analytics
@@ -73,7 +73,7 @@ En la siguiente tabla se muestran los métodos de recopilación de datos para ag
 
 | plataforma | Agente directo | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Sí](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Sí](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Sí](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 días |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |7 días |
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Cómo se establecen prioridades entre las recomendaciones
 A cada recomendación efectuada se le asigna un valor de ponderación que identifica su importancia relativa. Se muestran solo las diez recomendaciones más importantes.
@@ -176,13 +176,6 @@ Después de que se ejecute la siguiente evaluación programada, de forma predete
 *¿Cuánto tiempo tarda en recopilar datos?*
 
 * La recopilación de datos reales en el servidor tarda aproximadamente 1 hora. Puede demorar más en servidores que tengan una gran cantidad de servidores de Active Directory.
-
-*¿Qué tipo de datos se recopila?*
-
-* Se recopilan los siguientes tipos de datos:
-  * WMI
-  * Registro
-  * Contadores de rendimiento
 
 *¿Se puede configurar el momento en que se recopilan los datos?*
 

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 08/08/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6c01fe7a791742d283505057a310891a075029ef
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
+ms.contentlocale: es-es
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Uso de expresiones regulares para filtrar búsquedas de registros en Log Analytics
@@ -25,6 +25,9 @@ ms.lasthandoff: 04/12/2017
 Las [búsquedas de registros](log-analytics-log-searches.md) permiten extraer información del repositorio de Log Analytics.  Las [expresiones de filtro](log-analytics-search-reference.md#filter-expressions) permiten filtrar los resultados de la búsqueda según criterios específicos.  La palabra clave **RegEx** permite especificar una expresión regular para este filtro.  
 
 En este artículo se proporcionan detalles sobre la sintaxis de expresión regular utilizada por Log Analytics.
+
+> [!NOTE]
+> Solo puede utilizar expresiones regulares con campos de búsqueda.  Para más información sobre los campos de búsqueda, consulte **Tipos de campo** en [Descripción de las búsquedas de registros en Log Analytics](log-analytics-log-searches.md#use-additional-filters).
 
 
 ## <a name="regex-keyword"></a>Palabra clave RegEx

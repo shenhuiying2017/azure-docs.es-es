@@ -5,20 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: librown
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2017
+ms.date: 08/12/2017
 ms.author: kgremban
+ms.reviewer: librown
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: ec52f719f33db0d893d707b59293fa75a8ff4314
-ms.openlocfilehash: 033392783fd98cbdb23fd0254c93687754808286
-ms.lasthandoff: 02/10/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 002b850221c25111c33c145cb45973488bbbb4e1
+ms.contentlocale: es-es
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Inicie sesión con el teléfono, no la contraseña
@@ -29,7 +30,7 @@ Esta característica está disponible en dispositivos iOS y Android, y funciona 
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-Muchos de los usuarios usan la aplicación Microsoft Authenticator para la verificación en dos pasos al iniciar sesión en la cuenta de Microsoft. Escriba la contraseña, vaya a la aplicación para aprobar una notificación u obtener un código de verificación. Con el inicio de sesión de teléfono, omitirá la contraseña y realizará toda la verificación de identidad con el teléfono. Esto funciona como la verificación en dos pasos que solicita algo que sabe y algo que tiene. El teléfono sigue siendo lo que tiene, pero ahora le pedimos que escriba el PIN o la clave biométrica del teléfono como elemento que conoce. 
+Muchos de los usuarios usan la aplicación Microsoft Authenticator para la verificación en dos pasos al iniciar sesión en la cuenta de Microsoft. Escriba la contraseña, vaya a la aplicación para aprobar una notificación u obtener un código de verificación. Con el inicio de sesión de teléfono, omitirá la contraseña y realizará toda la verificación de identidad con el teléfono. Dado que el inicio de sesión en el teléfono es un tipo de verificación en dos pasos, sigue teniendo que proporcionar una información que conozca y algo que tenga para verificar su identidad. El teléfono sigue siendo el objeto que tiene y su PIN o su clave biométrica es la información que conoce. 
 
 ## <a name="how-to-get-started"></a>Primeros pasos
 
@@ -39,12 +40,12 @@ Para iniciar sesión su cuenta personal de Microsoft con el teléfono, siga esto
 
   - Si aún no tiene la aplicación de Microsoft Authenticator, instale y agregue su cuenta personal de Microsoft según los pasos de la [página de Microsoft Authenticator](microsoft-authenticator-app-how-to.md). Las cuentas recién agregadas se habilitan automáticamente, por lo que estará listo para continuar.
 
-  - Si ya utiliza Microsoft Authenticator para la verificación en dos pasos, seleccione su cuenta desde la página de inicio de la aplicación y seleccione **Habilitar inicio de sesión en el teléfono** del menú desplegable.
+  - Si ya utiliza Microsoft Authenticator para la verificación en dos pasos, seleccione su cuenta desde la página de inicio de la aplicación y seleccione **Habilitar inicio de sesión en el teléfono** en el menú desplegable.
 
   >[!NOTE] 
-  >Para proteger su cuenta, necesitamos un PIN o bloqueo biométrico en el dispositivo. Si mantiene el teléfono desbloqueado, la aplicación le pedirá que configure un bloqueo antes de habilitar el inicio de sesión con el teléfono. 
+  >Para proteger su cuenta, necesitamos un PIN o bloqueo biométrico en el dispositivo. Si mantiene el teléfono desbloqueado, la aplicación le pide que configure un bloqueo antes de habilitar el inicio de sesión en el teléfono. 
 
-3. La mayoría de las páginas donde normalmente escribiría la contraseña de su cuenta de Microsoft tiene un vínculo que dice **Use una aplicación en su lugar**. Seleccione esta opción para iniciar sesión con su teléfono. 
+3. La mayoría de las páginas donde normalmente escribiría la contraseña de su cuenta de Microsoft tiene un vínculo que dice **Use una aplicación en su lugar**. Seleccione este vínculo para iniciar sesión con su teléfono. 
 
 4. Microsoft le enviará una notificación al teléfono. Acéptela para iniciar sesión en su cuenta.   
 
@@ -64,15 +65,15 @@ En este momento el inicio de sesión con el teléfono no puede usarse para desbl
  
 ### <a name="does-this-replace-two-step-verification-should-i-turn-it-off"></a>¿Reemplaza esto la verificación en dos pasos? ¿Debo apagarla?   
 
-A veces. Estamos trabajando para ampliar el alcance del inicio de sesión con el teléfono, pero por ahora aún hay lugares del ecosistema de Microsoft que no son compatibles. En esos lugares se usa todavía la verificación en dos pasos para el inicio de sesión seguro. Por esa razón, no, no debería desactivar la verificación en dos pasos para su cuenta. 
+A veces. Estamos trabajando para ampliar el alcance del inicio de sesión con el teléfono, pero por ahora aún hay lugares del ecosistema de Microsoft que no son compatibles. En esos lugares se usa todavía la verificación en dos pasos para el inicio de sesión seguro. Por esa razón, no debería desactivar la comprobación en dos pasos para su cuenta. 
  
-### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-will-i-have-to-approve-two-notifications"></a>De acuerdo, si mantengo activa la verificación en dos pasos para mi cuenta, ¿tendré que aprobar dos notificaciones?
+### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-do-i-have-to-approve-two-notifications"></a>De acuerdo, si mantengo activa la comprobación en dos pasos para mi cuenta, ¿tendré que aprobar dos notificaciones?
 
 No, para nada. El inicio de sesión en su cuenta de Microsoft con el teléfono cuenta como verificación en dos pasos. En lugar de escribir la contraseña y aprobar una notificación, demuestra su identidad al saber desbloquear el teléfono y, después, aprueba una notificación. No le enviaremos una segunda notificación para que la apruebe.
 
 ### <a name="what-if-i-lose-my-phone-or-dont-have-it-with-me-how-can-i-access-my-account"></a>¿Qué ocurre si pierdo mi teléfono o no lo tengo conmigo?, ¿cómo puedo acceder a mi cuenta?  
 
-Siempre puede hacer clic en **Use su contraseña en su lugar** de la página de inicio de sesión para volver a utilizar la contraseña. Tenga en cuenta que, si usa la verificación en dos pasos, seguirá siendo necesario un segundo método para comprobar el inicio de sesión. Por eso es muy recomendable asegurarse de que tiene información de seguridad adicional actualizada en su cuenta. Puede administrar la información de seguridad en https://account.live.com/proofs/manage. 
+Siempre puede hacer clic en **Use su contraseña en su lugar** de la página de inicio de sesión para volver a utilizar la contraseña. Tenga en cuenta que, si usa la comprobación en dos pasos, seguirá siendo necesario un segundo método para verificar el inicio de sesión. Por eso es muy recomendable asegurarse de que tiene información de seguridad adicional actualizada en su cuenta. Puede administrar la información de seguridad en https://account.live.com/proofs/manage. 
  
 ### <a name="how-do-i-stop-using-this-feature-and-go-back-to-entering-my-password"></a>¿Cómo dejo de usar esta característica y vuelvo a escribir mi contraseña?
 

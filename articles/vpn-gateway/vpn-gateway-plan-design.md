@@ -1,6 +1,6 @@
 ---
 title: "Planeamiento y diseño de conexiones entre locales: Azure VPN Gateway | Microsoft Docs"
-description: "Obtenga información acerca del planeamiento y diseño de puerta de enlace de VPN para conexiones locales, híbridas y de red virtual a red virtual"
+description: "Obtenga información acerca del planeamiento y diseño de VPN Gateway para conexiones locales, híbridas y de red virtual a red virtual"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: b9b53ca61ff9448b4b587f6c406046b3d1a80d15
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="planning-and-design-for-vpn-gateway"></a>Planeamiento y diseño de puerta de enlace de VPN
+# <a name="planning-and-design-for-vpn-gateway"></a>Planeamiento y diseño de VPN Gateway
 
 El planeamiento y el diseño de las configuraciones entre locales y de red virtual a red virtual pueden ser simples o complejos, según las necesidades de la red. Este artículo le guía a través de las consideraciones de diseño y planificación básicas.
 
-## <a name="planning"></a>Planificación
+## <a name="planning"></a>Planeación
 
 ### <a name="compare"></a>Opciones de conectividad entre locales
 
@@ -37,16 +37,16 @@ Si quiere conectar los sitios locales de manera a una red virtual de manera segu
 * ¿Dispone de una dirección IP pública?
 * ¿Planea usar un dispositivo VPN? Si es así, ¿es compatible?
 * ¿Va a conectar solo algunos equipos o desea establecer una conexión persistente para su sitio?
-* ¿Qué tipo de puerta de enlace de VPN se necesita para la solución que desea crear?
+* ¿Qué tipo de VPN Gateway se necesita para la solución que desea crear?
 * ¿Qué SKU de puerta de enlace se debe usar?
 
-### <a name="planning-table"></a>Tabla de planeación
+### <a name="planningtable"></a>Tabla de planeación
 
 La tabla siguiente puede ayudarle a decidir la mejor opción de conectividad para su solución.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="gateway-skus"></a>SKU de puerta de enlace
+### <a name="gwsku"></a>SKU de puerta de enlace
 
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -56,20 +56,20 @@ La lista siguiente describe el flujo de trabajo común para la conectividad en l
 
 1. Diseñe y planee la topología de conectividad y enumere los espacios de direcciones para todas las redes que desea conectar.
 2. Cree una red virtual de Azure. 
-3. Cree una puerta de enlace de VPN para la red virtual.
+3. Cree una VPN Gateway para la red virtual.
 4. Cree y configure conexiones a redes locales o a otras redes virtuales (según sea necesario).
-5. Cree y configure una conexión de punto a sitio para la puerta de enlace de VPN de Azure (según sea necesario).
+5. Cree y configure una conexión de punto a sitio para Azure VPN Gateway (según sea necesario).
 
 ## <a name="design"></a>Diseño
 ### <a name="topologies"></a>Topologías de conexión
 
-Para comenzar, consulte los diagramas del artículo [Acerca de Puerta de enlace de VPN](vpn-gateway-about-vpngateways.md) . El artículo contiene diagramas básicos, los modelos de implementación de cada topología y las herramientas de implementación disponibles que puede usar para implementar la configuración.
+Para comenzar, consulte los diagramas del artículo [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md) . El artículo contiene diagramas básicos, los modelos de implementación de cada topología y las herramientas de implementación disponibles que puede usar para implementar la configuración.
 
 ### <a name="designbasics"></a>Conceptos básicos del diseño
 
-Las secciones siguientes analizan los aspectos básicos de la puerta de enlace de VPN. 
+Las secciones siguientes analizan los aspectos básicos de VPN Gateway. 
 
-#### <a name="networking-services-limits"></a>Límites de servicios de red
+#### <a name="servicelimits"></a>Límites de servicios de red
 
 Desplácese a través de las tablas para ver los [límites de servicios de red](../azure-subscription-service-limits.md#networking-limits). Los límites mencionados pueden afectar a su diseño.
 
@@ -79,7 +79,7 @@ Al crear conexiones, debe tener en cuenta los intervalos de subred. No puede ten
 
 También es importante evitar las subredes superpuestas cuando se trabaja con conexiones de red virtual a red virtual. Si las subredes se superponen y si existe una dirección IP en la red virtual de envío y en la red virtual de destino, se produce un error en las conexiones de red virtual a red virtual. Azure no puede enrutar los datos a la otra red virtual porque la dirección de destino forma parte de la red virtual de envío.
 
-Las puertas de enlace VPN requieren una subred específica denominada subred de puerta de enlace. Para que funcionen correctamente, todas las subredes de puerta de enlace se deben llamar GatewaySubnet. Asegúrese de no asignar un nombre distinto a la subred de puerta de enlace y no implemente máquinas virtuales ni ningún otro elemento en la subred de puerta de enlace. Consulte [Subredes de la puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsub).
+Las VPN Gateway requieren una subred específica denominada subred de puerta de enlace. Para que funcionen correctamente, todas las subredes de puerta de enlace se deben llamar GatewaySubnet. Asegúrese de no asignar un nombre distinto a la subred de puerta de enlace y no implemente máquinas virtuales ni ningún otro elemento en la subred de puerta de enlace. Consulte [Subredes de la puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsub).
 
 #### <a name="local"></a>Acerca de las puertas de enlace de red local
 
@@ -117,7 +117,7 @@ Las tablas siguientes muestran el tipo de VPN según cómo se asigna a cada conf
 
 Para configurar una conexión de sitio a sitio, independientemente del modelo de implementación, necesita los siguientes elementos:
 
-* Un dispositivo VPN compatible con puertas de enlace de VPN de Azure.
+* Un dispositivo VPN compatible con Azure VPN Gateway.
 * Una dirección IP IPv4 orientada al público que no se encuentre detrás de NAT.
 
 Debe tener experiencia en la configuración del dispositivo VPN o pedirle a alguien que pueda configurar el dispositivo para usted.
@@ -140,4 +140,4 @@ Ambos modelos de implementación permiten configurar una conexión de tunelizaci
 
 Consulte los artículos [Preguntas más frecuentes sobre VPN Gateway](vpn-gateway-vpn-faq.md) e [Información sobre VPN Gateway](vpn-gateway-about-vpngateways.md) para obtener más información que pueda ayudarle con el diseño.
 
-Para obtener más información acerca de la configuración de puerta de enlace específica, vea [Acerca de la configuración de puerta de enlace de VPN](vpn-gateway-about-vpn-gateway-settings.md).
+Para obtener más información acerca de la configuración de puerta de enlace específica, vea [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).

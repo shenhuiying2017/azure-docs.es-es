@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 77f50a830c38b3a90110845e58ee7cbb28742c10
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8a5b39351f665c51ae7d83f755329e54ff3cf786
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -34,13 +34,12 @@ Este documento proporciona información general sobre las extensiones de máquin
 Varias extensiones de máquina virtual de Azure diferentes están disponibles, cada una con un caso de uso específico. A continuación, se indican algunos ejemplos:
 
 - Aplique configuraciones de estado deseado de PowerShell a una máquina virtual mediante la extensión DSC para Linux. Para obtener más información, consulte la sección sobre la [extensión de configuración de estado deseado de Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure la supervisión de una máquina virtual con la extensión de máquina virtual de Microsoft Monitoring Agent. Para obtener más información, consulte [Habilitación o deshabilitación de la supervisión de máquinas virtuales](vm-monitoring.md).
+- Configure la supervisión de una máquina virtual con la extensión de máquina virtual de Microsoft Monitoring Agent. Para más información, consulte el artículo sobre la [supervisión de máquinas virtuales Linux](tutorial-monitoring.md).
 - Configure la supervisión de su infraestructura de Azure con la extensión de Datadog. Para obtener más información, consulte el [blog de Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure un host de Docker en una máquina virtual de Azure mediante la extensión de máquina virtual de Docker. Para obtener más información, consulte [Extensión de máquina virtual de Docker](dockerextension.md).
 
 Además de las extensiones específicas de proceso, una extensión de script personalizado está disponible tanto para máquinas virtuales Windows como para máquinas virtuales Linux. La extensión de script personalizado para Linux permite que se ejecute cualquier script de Bash en una máquina virtual. Los scripts personalizados resultan útiles para diseñar implementaciones de Azure que requieren una configuración más allá de lo que las herramientas de Azure nativas pueden proporcionar. Para obtener más información, consulte la sección sobre la [extensión de script personalizado de máquina virtual Linux](extensions-customscript.md).
 
-Para trabajar a través de un ejemplo en el cual se usa una extensión de máquina virtual en una implementación completa de la aplicación, consulte [Automatización de implementaciones de aplicaciones en Azure Virtual Machines](../linux/dotnet-core-1-landing.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -88,7 +87,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Las extensiones de máquina virtual se pueden aplicar a una máquina virtual existente a través de Azure Portal. Para ello, seleccione la máquina virtual, elija **Extensiones** y haga clic en **Agregar**. Seleccione la extensión que quiera en la lista de extensiones disponibles y siga las instrucciones del asistente.
 
@@ -131,7 +130,7 @@ Para obtener más información, consulte la [plantilla de Resource Manager](http
 }
 ```
 
-Para obtener más información, consulte [Creación de plantillas de Azure Resource Manager con extensiones de máquina virtual Linux](../linux/extensions-authoring-templates.md).
+Para más información, consulte [Creación de plantillas de Azure Resource Manager](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions).
 
 ## <a name="secure-vm-extension-data"></a>Protección de datos de extensión de máquina virtual
 

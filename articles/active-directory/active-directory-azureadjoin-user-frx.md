@@ -3,8 +3,8 @@ title: "Configuración de un dispositivo nuevo con Azure AD durante la configura
 description: "Un tema que explica cómo los usuarios pueden configurar Azure AD Join durante su configuración rápida."
 services: active-directory
 documentationcenter: 
-author: femila
-manager: swadhwa
+author: MarkusVi
+manager: femila
 editor: 
 tags: azure-classic-portal
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -20,7 +20,6 @@ ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a6227096559af9b9beba7081ba770db80189dc18
 ms.contentlocale: es-es
 ms.lasthandoff: 02/11/2017
-
 
 ---
 # <a name="set-up-a-new-device-with-azure-ad-during-setup"></a>Configuración de un dispositivo nuevo con Azure AD durante la configuración

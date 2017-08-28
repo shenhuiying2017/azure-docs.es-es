@@ -4,7 +4,7 @@ description: "Este tutorial lo guiará a través de los pasos de publicación de
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
 ms.service: media-services

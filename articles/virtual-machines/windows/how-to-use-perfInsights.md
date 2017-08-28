@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 99386a92b76d0d58f7f5c94d30d3423559eee685
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: f22bd42302b96118dba0d4e5e387c6798a0b8777
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights 
@@ -311,7 +311,7 @@ En la perspectiva Volumen (*VolumeMap*), se muestran en las tablas todos los dis
 
 Si la máquina virtual de destino hospeda alguna instancia de SQL Server, verá una pestaña adicional en el informe con el nombre **SQL Server**:
 
-![pestaña sql](media/how-to-use-perfInsights/sqltab.png)
+![ficha sql](media/how-to-use-perfInsights/sqltab.png)
 
 En esta sección se incluye una pestaña "Información general" y subpestañas adicionales para cada una de las instancias de SQL Server hospedadas en la máquina virtual.
 
@@ -350,3 +350,4 @@ Este mensaje se enviará desde **CTS Automated Diagnostics Services** (ctsadiag@
 Para mayor seguridad, tendrá que cambiar la contraseña la primera vez que la use.
 
 Después de iniciar sesión en DTM, encontrará un cuadro de diálogo para cargar el archivo **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip** recopilado por PerfInsights.
+

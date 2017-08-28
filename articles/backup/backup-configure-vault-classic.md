@@ -13,30 +13,25 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 08/11/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 3cd32a85c225d1670887d086c324db1eadd61262
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a8daa6a4655b72936b6299c0fa5b80459ffa5da3
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-portal"></a>Realización de una copia de seguridad en Azure de un servidor o estación de trabajo Windows con el Portal clásico
 > [!div class="op_single_selector"]
 > * [Portal clásico](backup-configure-vault-classic.md)
-> * [Portal de Azure](backup-configure-vault.md)
+> * [Azure Portal](backup-configure-vault.md)
 >
 >
 
-En este artículo, se tratan los procedimientos necesarios para preparar el entorno y crear una copia de seguridad de un servidor (o estación de trabajo) de Windows Server en Azure. También se describen los aspectos que se deben tener en cuenta al implementar la solución de copia de seguridad. Si está interesado en probar el servicio Copia de seguridad de Azure por primera vez, este artículo le guiará rápidamente en ese proceso.
+En este artículo, se tratan los procedimientos necesarios para preparar el entorno y crear una copia de seguridad de un servidor (o estación de trabajo) de Windows Server en Azure. También se describen los aspectos que se deben tener en cuenta al implementar la solución de copia de seguridad. Si está interesado en probar el servicio Azure Backup por primera vez, este artículo le guiará rápidamente en ese proceso.
 
-
-> [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: el de Resource Manager y el clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
->
->
+Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: el de Resource Manager y el clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 Si desea crear una copia de seguridad de un servidor o cliente en Azure, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en tan solo unos minutos.
@@ -47,7 +42,7 @@ Para hacer una copia de seguridad de los archivos y las carpetas de un servidor 
 > [!IMPORTANT]
 > A partir de marzo de 2017, ya no podrá usar el portal clásico para crear almacenes de Backup.
 >
-> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **A partir del 1 de noviembre de 2017**:
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **15 de octubre de 2017**, ya no podrá usar PowerShell para crear almacenes de Backup. <br/> **A partir del 1 de noviembre de 2017**:
 >- Los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
 >- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 >
@@ -57,7 +52,7 @@ Para hacer una copia de seguridad de los archivos y las carpetas de un servidor 
 La máquina local se debe autenticar con un almacén de copia de seguridad antes de poder crear una copia de seguridad de los datos en Azure. La autenticación se realiza mediante las *credenciales de almacén*. El archivo de credenciales de almacén se descarga a través de un canal seguro desde el portal clásico. La clave privada de certificado no se conserva en el portal ni en el servicio.
 
 ### <a name="to-download-the-vault-credential-file-to-a-local-machine"></a>Para descargar el archivo de credenciales de almacén en una máquina local:
-1. En el panel de navegación de la izquierda, haga clic en **Servicios de recuperación**y, luego, seleccione el almacén de copia de seguridad que creó.
+1. En el panel de navegación de la izquierda, haga clic en **Recovery Services**y, luego, seleccione el almacén de copia de seguridad que creó.
 
     ![IR completado](./media/backup-configure-vault-classic/rs-left-nav.png)
 2. En la página de Inicio rápido, haga clic en **Descargar credenciales de almacén**.
@@ -76,14 +71,14 @@ La máquina local se debe autenticar con un almacén de copia de seguridad antes
 Después de crear el almacén de copia de seguridad y de descargar el archivo de credenciales de almacén, se debe instalar un agente en cada una de sus máquinas con Windows.
 
 ### <a name="to-download-install-and-register-the-agent"></a>Para descargar, instalar y registrar el agente:
-1. Haga clic en **Servicios de recuperación**y, luego, seleccione el almacén de copia de seguridad que desea registrar en un servidor.
+1. Haga clic en **Recovery Services**y, luego, seleccione el almacén de copia de seguridad que desea registrar en un servidor.
 2. En la página Inicio rápido, haga clic en el **Agente para Windows Server, System Center Data Protection Manager o cliente de Windows**. A continuación, haga clic en **Guardar**.
 
     ![Guardar agente](./media/backup-configure-vault-classic/agent.png)
 3. Una vez que se descargue el archivo MARSagentinstaller.exe, haga clic en **Ejecutar** (o haga doble clic en **MARSAgentInstaller.exe** en la ubicación guardada).
 4. Elija la carpeta de instalación y la carpeta de caché que se requieren para el agente y, luego, haga clic en **Siguiente**. La ubicación de caché que especifique debe tener un espacio libre de, como mínimo, el 5% de los datos de copia de seguridad.
 5. Puede continuar para conectarse a Internet a través de la configuración predeterminada de proxy.             Si usa un servidor proxy para conectarse a Internet, en la página Configuración de proxy, active la casilla **Utilice una configuración de proxy personalizada** y, luego, escriba los detalles del servidor proxy. Si usa un proxy autenticado, escriba los detalles de nombre y contraseña del usuario y, luego, haga clic en **Siguiente**.
-6. Haga clic en **Instalar** para comenzar la instalación del agente. El agente de Copia de seguridad instalar .NET Framework 4.5 y Windows PowerShell (si todavía no está instalado) para completar la instalación.
+6. Haga clic en **Instalar** para comenzar la instalación del agente. El agente de Backup instala .NET Framework 4.5 y Windows PowerShell (si todavía no está instalado) para completar la instalación.
 7. Una vez que se instale el agente, haga clic en **Proceder al registro** para continuar con el flujo de trabajo.
 8. En la página Identificación del almacén, busque y seleccione el archivo de credenciales de almacén que descargó anteriormente.
 
@@ -93,7 +88,7 @@ Después de crear el almacén de copia de seguridad y de descargar el archivo de
 
     Si encuentra un error de credenciales de almacén como "Las credenciales del almacén no son válidas", el archivo está dañado o no tiene asociadas las credenciales más recientes con el Servicio de recuperación. Vuelva a intentar la operación después de descargar un nuevo archivo de credenciales de almacén desde el portal. Este error también se puede producir si un usuario hace clic varias veces en la opción **Descargar credenciales de almacén** en sucesión rápida. En este caso, solo es válido el último archivo de credenciales de almacén.
 9. En la página Configuración de cifrado, puede generar una frase de contraseña o proporcionarla (con un mínimo de 16 caracteres). Recuerde guardar la frase de contraseña en una ubicación segura.
-10. Haga clic en **Finalizar** El Asistente para registrar servidor registra el servidor con el servicio Copia de seguridad.
+10. Haga clic en **Finalizar** El Asistente para registrar servidor registra el servidor con Backup.
 
     > [!WARNING]
     > Si pierde u olvida la frase de contraseña, Microsoft no puede ayudarle a recuperar los datos de copia de seguridad. El usuario posee la frase de contraseña de cifrado y Microsoft no puede verla. Guarde el archivo en una ubicación protegida, ya que será necesario durante una operación de recuperación.
@@ -111,10 +106,10 @@ La copia de seguridad inicial incluye dos tareas clave:
 Una vez que la directiva de copia de seguridad completa la copia de seguridad inicial, crea puntos de copia de seguridad que puede usar si necesita recuperar los datos. Para ello, la directiva de copia de seguridad se basa en la programación que define.
 
 ### <a name="to-schedule-the-backup"></a>Para programar la copia de seguridad
-1. Abra el agente de Copia de seguridad de Microsoft Azure. (Se abrirá automáticamente si dejó activada la casilla **Inicio del agente de Microsoft Azure Recovery Services** cuando cerró el Asistente para registrar servidor). Para encontrarlo, busque **Copia de seguridad de Microsoft Azure**en la máquina.
+1. Abra el agente de Microsoft Azure Backup. (Se abrirá automáticamente si dejó activada la casilla **Inicio del agente de Microsoft Azure Recovery Services** cuando cerró el Asistente para registrar servidor). Para encontrarlo, busque **Microsoft Azure Backup**en la máquina.
 
-    ![Lanzamiento del agente de Copia de seguridad de Azure](./media/backup-configure-vault-classic/snap-in-search.png)
-2. En el Agente de Copia de seguridad, haga clic en **Programar copia de seguridad**.
+    ![Lanzamiento del agente de Azure Backup](./media/backup-configure-vault-classic/snap-in-search.png)
+2. En el Agente de Backup, haga clic en **Programar copia de seguridad**.
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-configure-vault-classic/schedule-backup-close.png)
 3. En la página de introducción del Asistente para programar copias de seguridad, haga clic en **Siguiente**.
@@ -128,7 +123,7 @@ Una vez que la directiva de copia de seguridad completa la copia de seguridad in
     ![Elementos para la copia de seguridad de Windows Server](./media/backup-configure-vault-classic/specify-backup-schedule-close.png)
 
    > [!NOTE]
-   > Si desea más información sobre cómo especificar la programación de las copias de seguridad, consulte el artículo [Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
+   > Si desea más información sobre cómo especificar la programación de las copias de seguridad, consulte el artículo [Usar Azure Backup para cambiar su infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
    >
    >
 
@@ -137,16 +132,16 @@ Una vez que la directiva de copia de seguridad completa la copia de seguridad in
     La directiva de retención especifica el tiempo durante el que se almacenará la copia de seguridad. En vez de especificar solo una directiva para todos los puntos de copia de seguridad, puede especificar directivas de retención distintas en función de cuándo se realice la copia de seguridad. Puede modificar las directivas de retención diarias, semanales, mensuales y anuales según sus necesidades.
 9. En la página Elija el tipo de copia de seguridad inicial, elija el tipo de copia de seguridad inicial. Deje activada la opción **Automáticamente a través de la red** y, luego, haga clic en **Siguiente**.
 
-    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure](backup-azure-backup-import-export.md) para más información.
+    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](backup-azure-backup-import-export.md) para más información.
 10. En la página Confirmación, revise la información y, luego, haga clic en **Finalizar**.
 11. Cuando el asistente termine de crear la programación de copia de seguridad, haga clic en **Cerrar**.
 
 ### <a name="enable-network-throttling-optional"></a>Habilitación de la velocidad moderada de la red (opcional)
-El agente de Copia de seguridad brinda limitación de la red. Esta limitación controla cómo se utiliza el ancho de banda de red durante la transferencia de datos. Este control puede resultar útil si necesita realizar una copia de seguridad durante las horas de trabajo, pero no quiere que el proceso interfiera con otro tráfico de Internet. La limitación se aplica a las actividades de copia de seguridad y restauración.
+El agente de Backup brinda limitación de la red. Esta limitación controla cómo se utiliza el ancho de banda de red durante la transferencia de datos. Este control puede resultar útil si necesita realizar una copia de seguridad durante las horas de trabajo, pero no quiere que el proceso interfiera con otro tráfico de Internet. La limitación se aplica a las actividades de copia de seguridad y restauración.
 
 **Para habilitar la limitación de red**
 
-1. En el agente de Copia de seguridad, haga clic en **Cambiar propiedades**.
+1. En el agente de Backup, haga clic en **Cambiar propiedades**.
 
     ![Cambiar propiedades](./media/backup-configure-vault-classic/change-properties.png)
 2. En la pestaña **Limitación**, active la casilla **Habilitar el límite de uso del ancho de banda de Internet para operaciones de copia de seguridad**.
@@ -158,13 +153,13 @@ El agente de Copia de seguridad brinda limitación de la red. Esta limitación c
 4. Haga clic en **Aceptar**.
 
 ### <a name="to-back-up-now"></a>Para crear ahora mismo una copia de seguridad
-1. En el agente de Copia de seguridad, haga clic en **Iniciar copia de seguridad** para completar la propagación inicial a través de la red.
+1. En el agente de Backup, haga clic en **Iniciar copia de seguridad** para completar la propagación inicial a través de la red.
 
     ![Realizar copia de seguridad de Windows Server ahora](./media/backup-configure-vault-classic/backup-now.png)
 2. En la página Confirmación, revise la configuración que el asistente para iniciar copia de seguridad usará para crear la copia de seguridad de la máquina. Luego, haga clic en **Crear copia de seguridad**.
 3. Haga clic en **Cerrar** para cerrar el asistente. Si lo hace antes de que finalice el proceso de copia de seguridad, el asistente se sigue ejecutando en segundo plano.
 
-Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completado** se refleja en la consola de Copia de seguridad.
+Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completado** se refleja en la consola de Backup.
 
 ![IR completado](./media/backup-configure-vault-classic/ircomplete.png)
 
@@ -174,6 +169,6 @@ Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completa
 Para más información sobre la copia de seguridad de máquinas virtuales u otras cargas de trabajo, consulte:
 
 * [Preparación del entorno de copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-prepare.md)
-* [Preparación para la copia de seguridad de cargas de trabajo en Microsoft Azure](backup-azure-microsoft-azure-backup.md)
+* [Copias de seguridad de cargas de trabajo en Azure con Microsoft Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 * [Preparación para la copia de seguridad de cargas de trabajo en Azure con DPM](backup-azure-dpm-introduction.md)
 

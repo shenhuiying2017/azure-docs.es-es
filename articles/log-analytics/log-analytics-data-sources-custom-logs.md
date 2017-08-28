@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 08/15/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 8105cd6ef87a592a0a84ff44a2ce94efcd874a2c
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b7f28868e3ffdf95dbe39872f382e7c97eae692c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registros personalizados de Log Analytics
@@ -35,6 +35,10 @@ Los archivos de registro que se van a recopilar deben cumplir los criterios sigu
 - El archivo de registro no debe permitir actualizaciones circulares, en las que el archivo se sobrescribe con nuevas entradas.
 - El archivo de registro debe utilizar la codificación ASCII o UTF-8.  No se admiten otros formatos, como UTF-16.
 
+>[!NOTE]
+>Si hay entradas duplicadas en el archivo de registro, Log Analytics los recoge.  Sin embargo, los resultados de búsqueda serán incoherentes donde los resultados del filtro muestren más eventos que el recuento de resultados.  Es importante que valide el registro para determinar si la aplicación que crea está causando este comportamiento y solucionarlo si es posible antes de crear la definición de la colección de registros personalizada.  
+>
+  
 ## <a name="defining-a-custom-log"></a>Definición de un registro personalizado
 Utilice el procedimiento siguiente para definir un archivo de registro personalizado.  Desplácese hasta el final de este artículo para ver un tutorial con un ejemplo de cómo agregar un registro personalizado.
 

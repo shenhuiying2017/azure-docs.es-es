@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2c796156df6ed2a891d423030bdd07b5c19f3235
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 317792e04244a96cf8e47bc7e4a7f633f7a6d8c3
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>SDK de .NET para Azure Cosmos DB: descarga y notas de la versión
@@ -53,6 +53,11 @@ ms.lasthandoff: 08/09/2017
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="a-name11701170"></a><a name="1.17.0"/>1.17.0 
+
+* Se agregó compatibilidad para PartitionKeyRangeId como un FeedOption para definir el ámbito de los resultados de la consulta en un valor de intervalo de claves de partición específico. 
+* Se agregó compatibilidad para StartTime como un ChangeFeedOption para empezar la búsqueda de los cambios después de ese momento.
+
 ### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
 * Se corrigió un problema en la clase JsonSerializable que podría provocar una excepción de desbordamiento de pila.
 
@@ -67,7 +72,6 @@ ms.lasthandoff: 08/09/2017
 *   Se ha corregido un problema que afectaba a los equipos x64 que no admiten instrucciones SSE4 y que producía una excepción SEHException al ejecutar consultas de la API de DocumentDB de Azure Cosmos DB.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
-*   Se agregó compatibilidad con la característica Unidad de solicitud por minuto (RU/m).
 *   Se agregó compatibilidad con un nuevo nivel de coherencia denominado ConsistentPrefix.
 *   Se agregó compatibilidad con métricas de consulta para particiones individuales.
 *   Se agregó compatibilidad para limitar el tamaño del token de continuación para las consultas.
@@ -254,6 +258,7 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.17.0](#1.17.0) |10 de agosto de 2017 |--- |
 | [1.16.1](#1.16.1) |7 de agosto de 2017 |--- |
 | [1.16.0](#1.16.0) |2 de agosto de 2017 |--- |
 | [1.15.0](#1.15.0) |30 de junio de 2017 |--- |

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios
@@ -28,13 +28,13 @@ ms.lasthandoff: 07/06/2017
 
 Este artículo le ayudará a usar la solución de seguimiento de cambios de Log Analytics para identificar fácilmente los cambios del entorno. La solución realiza un seguimiento de los cambios efectuados en el software de Windows y Linux, en los archivos y las claves del Registro de Windows, en los servicios de Windows y en los demonios de Linux. Identificar los cambios de configuración puede ayudarle a localizar problemas operativos.
 
-La solución se instala para actualizar el tipo de agente que ha instalado. Los cambios en los demonios de Linux, los Servicios de Windows y el software instalados en los servidores supervisados se leen y, a continuación, los datos se envían al servicio de Log Analytics en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos. Con la información en el panel de seguimiento de cambios, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
+La solución se instala para actualizar el tipo de agente que ha instalado. Se leen los cambios en el software instalado, los servicios de Windows y los demonios de Linux en los servidores de supervisión. A continuación, los datos se envían al servicio Log Analytics en la nube donde se procesan. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos. Con la información en el panel de seguimiento de cambios, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
 Utilice la siguiente información para instalar y configurar la solución.
 
 * Debe tener un agente [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md) o [Linux](log-analytics-linux-agents.md) en cada equipo en el que desee supervisar los cambios.
-* Agregue la solución Change Tracking (seguimiento de cambios) al área de trabajo de OMS desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [incorporación de soluciones de Log Analytics desde la Galería de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
+* Agregue la solución Change Tracking al área de trabajo de OMS desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Como alternativa, agregue la solución con la información del artículo sobre la [incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md). No es necesario realizar ninguna otra configuración.
 
 ### <a name="configure-linux-files-to-track"></a>Configuración de los archivos de Linux de los que se realizará un seguimiento
 Use los pasos siguientes para configurar los archivos de los que se realizará un seguimiento en los equipos Linux.
@@ -43,7 +43,7 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 2. En la página **Configuración**, haga clic en **Datos** y, luego, en **Seguimiento de archivos de Linux**.
 3. En Change Tracking de archivos de Linux, escriba toda la ruta de acceso, incluido el nombre del archivo del que desea realizar un seguimiento y, a continuación, haga clic en el símbolo **Agregar**. Por ejemplo: "/etc/*.conf"
 4. Haga clic en **Guardar**.  
-  
+
 > [!NOTE]
 > El seguimiento de archivos de Linux tiene funcionalidades adicionales, incluido el seguimiento de directorios, recursión de los directorios y seguimiento de comodines.
 
@@ -72,16 +72,16 @@ Use los pasos siguientes para configurar las claves del Registro para realizar u
 2. **Links** (control de referencias de vínculo simbólico de Linux a otros archivos o directorios)
    * **Ignore** (omitir los vínculos simbólicos durante las recursiones para no incluir los archivos/directorios a los que se hace referencia)
    * **Follow** (seguir los vínculos simbólicos durante las recursiones para incluir también los archivos/directorios a los que se hace referencia)
-   * **Manage** (seguir los vínculos simbólicos y modificar el tratamiento del contenido devuelto) 
-   
+   * **Manage** (seguir los vínculos simbólicos y modificar el tratamiento del contenido devuelto)
+
    > [!NOTE]   
-   > No se recomienda la opción de vínculos "Manage" debido a que actualmente no se admite la recuperación de contenido de archivos.
-   
+   > La opción de administración de vínculos no se recomienda. No se admite la recuperación de contenido de los archivos.
+
 3. **Recurse** (recorrer los niveles de carpeta y hacer seguimiento de todos los archivos que cumplen con la instrucción path)
 4. **Sudo** (habilitar el acceso a los archivos o directorios que requieren el privilegio sudo)
 
 ### <a name="limitations"></a>Limitaciones
-Actualmente, la solución de seguimiento de cambios no admite nada de lo siguiente:
+Actualmente, la solución Change Tracking no admite los elementos siguientes:
 
 * Carpetas (directorios) para seguimiento de archivos de Windows
 * Recursión para seguimiento de archivos de Windows
@@ -102,9 +102,9 @@ El seguimiento de cambios recopila inventario de software y metadatos de servici
 
 La siguiente tabla muestra los métodos de recopilación de datos y otros detalles sobre cómo se recopilan los datos para el seguimiento de cambios.
 
-| plataforma | Agente directo | Agente de SCOM | Agente Linux | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| plataforma | Agente directo | Agente de Operations Manager | Agente Linux | Azure Storage | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows y Linux |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sí](./media/log-analytics-change-tracking/oms-bullet-green.png) | Entre 5 y 50 minutos, según el tipo de cambio. Para más información, siga leyendo. |
+| Windows y Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | Entre 5 y 50 minutos, según el tipo de cambio. Para obtener más información, vea la tabla siguiente. |
 
 
 En la tabla siguiente se muestra la frecuencia de recopilación de datos para los tipos de cambios.
@@ -128,7 +128,7 @@ Log Analytics realiza la supervisión y el seguimiento del Registro de Windows c
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
     - Supervisa los scripts que se ejecutan al apagar el equipo.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
-    - Supervisa las claves que se cargan antes de que el usuario inicie sesión en su cuenta de Windows para programas de 32 bits que se ejecutan en equipos de 64 bits.
+    - Supervisa las claves que se cargan antes de que el usuario inicie sesión en su cuenta de Windows. La clave se usa para programas de 32 bits que se ejecutan en equipos de 64 bits.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components
     - Supervisa los cambios en la configuración de la aplicación.
 - HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
@@ -142,9 +142,9 @@ Log Analytics realiza la supervisión y el seguimiento del Registro de Windows c
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Supervisa el registro del controlador de superposición de iconos para programas de 32 bits que se ejecutan en equipos de 64 bits.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Supervisa si hay nuevos complementos de objeto auxiliares del explorador para Internet Explorer, que pueden utilizarse para acceder a Document Object Model de la página actual y para controlar la navegación.
+    - Supervisa si hay nuevos complementos de objeto auxiliar de explorador para Internet Explorer. Se utiliza para acceder a Document Object Model (DOM) de la página actual y controlar la navegación.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Supervisa si hay nuevos complementos de objeto auxiliares del explorador para Internet Explorer, que pueden utilizarse para acceder a Document Object Model de la página actual y para controlar la navegación para programas de 32 bits que se ejecutan en equipos de 64 bits.
+    - Supervisa si hay nuevos complementos de objeto auxiliar de explorador para Internet Explorer. Sirve para acceder a Document Object Model de la página actual y controlar la navegación de programas de 32 bits que se ejecutan en equipos de 64 bits.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
     - Supervisa si hay nuevas extensiones de Internet Explorer, como menús de la herramienta personalizada y botones de la barra de herramientas personalizada.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions

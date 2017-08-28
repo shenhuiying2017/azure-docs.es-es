@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 08/10/2017
 ms.author: TomSh
 ms.custom: azlog
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 5e672bd6b9356ce16663e843e4a4e7365cb159c3
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 1aa93ac52d1d5c4efe222c6da505e3639170cf55
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="introduction-to-microsoft-azure-log-integration"></a>Introducción a la integración de registro de Microsoft Azure
@@ -29,10 +29,10 @@ Aprenda sobre la integración de registro de Azure, sus principales funcionalida
 
 Integración de registro de Azure es una solución gratuita que permite integrar los registros sin procesar de los recursos de Azure en los sistemas locales de administración de eventos e información de seguridad (SIEM).
 
-Integración de registro de Azure recopila eventos de Windows de los canales del visor de eventos de Windows, los [registros de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), las [alertas de Azure Security Center](../security-center/security-center-intro.md) y los [registros de Azure Diagnostics](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de los recursos de Azure. Esta integración ayuda a la solución SIEM a proporcionar un panel unificado para todos los recursos, tanto locales como en la nube, de forma que puede agregar, correlacionar, analizar y alertar sobre los eventos de seguridad.
+Integración de registro de Azure recopila eventos de Windows de los registros del Visor de eventos de Windows, los [registros de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), las [alertas de Azure Security Center](../security-center/security-center-intro.md) y los [registros de Azure Diagnostics](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de los recursos de Azure. Esta integración ayuda a la solución SIEM a proporcionar un panel unificado para todos los recursos, tanto locales como en la nube, de forma que puede agregar, correlacionar, analizar y alertar sobre los eventos de seguridad.
 
 >[!NOTE]
-En este momento, las únicas nubes compatibles son Azure comercial y Azure Government. No se admiten otras nubes en este momento.
+En este momento, las únicas nubes compatibles son Azure comercial y Azure Government. No se admiten otras nubes.
 
 ![Integración de registro de Azure][1]
 
@@ -43,23 +43,10 @@ Azure genera gran cantidad de registros para cada servicio. Estos registros repr
 * **Registros de plano de datos**: ofrecen visibilidad sobre los eventos que surgen cuando se usa un recurso de Azure. Un ejemplo de este tipo de registro son los canales **Sistema**, **Seguridad** y **Aplicación** del Visor de eventos de Windows en una máquina virtual Windows. Otro ejemplo es el registro de diagnóstico configurado a través de Azure Monitor.
 * **Eventos procesados**: proporcionan información de alertas y eventos analizados procesada en nombre del usuario. Un ejemplo de este tipo de evento son las alertas de Azure Security Center, donde Azure Security Center ha procesado y analizado la suscripción para proporcionar alertas pertinentes para el estado de seguridad actual.
 
-Azure Log Integration admite actualmente la integración de registros de actividad de Azure, registros de eventos de Windows de las máquinas virtuales Windows en su suscripción de Azure, alertas de Azure Security Center, registros de Diagnósticos de Azure y registros de auditoría de Azure Active Directory.
+Integración de registro de Azure admite ArcSight, QRadar y Splunk. En todas las circunstancias, consulte a su proveedor SIEM para evaluar si tienen un conector nativo. En algunos casos, no necesitará utilizar Integración de registro de Azure cuando haya conectores nativos disponibles. Para más información sobre los tipos de registro compatibles, consulte las preguntas frecuentes.
 
 >[!NOTE]
 Aunque Integración de registro de Azure es una solución gratuita, se aplicarán costes de Azure Storage derivados del almacenamiento de la información de los archivos de registro.
-
-En la siguiente tabla se explica en detalle la categoría Registro y la integración de SIEM.
-
-| Tipo de registro  |Análisis de registros que admiten JSON (Splunk, ELK)| ArcSight  | QRadar  |   
-|---|---|---|---|
-|  Registros de auditoría de AAD |  Sí | Necesita la creación de un archivo de analizador JSON de FlexConnector. Vea la documentación de ArcSight para obtener más información.  |  Debe crear una extensión del origen del registro. Vea la documentación de QRadar para obtener más información. |  
-| Registros de actividad  | Sí  |  Archivo de analizador JSON de FlexConnector disponible en el centro de descarga junto con la descarga de la integración de registros de Azure. |  [QRadar DSM](https://www.ibm.com/support/knowledgecenter/SSKMKU/com.ibm.dsm.doc/c_dsm_guide_microsoft_azure_overview.html) (enviar mediante Syslog) |  
-| Alertas de ASC  | Sí  |  Necesita la creación de un archivo de analizador JSON de FlexConnector. Vea la documentación de ArcSight para obtener más información. | [QRadar DSM](https://www.ibm.com/support/knowledgecenter/SSKMKU/com.ibm.dsm.doc/c_dsm_guide_microsoft_azure_overview.html) (enviar mediante Syslog)   |   
-| Registros de diagnóstico (registros de recursos) | Sí | Necesita que el usuario final cree un archivo de analizador JSON de FlexConnector. Vea la documentación de ArcSight para obtener información sobre cómo hacerlo. | Debe crear una extensión del origen del registro. Vea la documentación de QRadar para obtener más información. |
-| Registros de VM | Sí mediante eventos reenviados y no mediante JSON | Sí mediante eventos reenviados | Sí mediante eventos reenviados |
-
-Para obtener más información sobre los tipos de registro compatibles, visite las [preguntas más frecuentes](security-azure-log-integration-faq.md)
-
 
 Puede encontrar ayuda de la comunidad en [Foro MSDN de Azure Log Integration](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). El foro ofrece a la comunidad de AzLog la posibilidad de ayudarse en relación con preguntas, respuestas, consejos y sugerencias sobre cómo sacar el máximo partido de Integración de registro de Azure. Además, el equipo de Azure Log Integration supervisa este foro y le ayudará a cada vez que se pueda.
 

@@ -4,7 +4,7 @@ description: "En este tema se muestra cómo empezar a desarrollar Azure Function
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 51bdcb01-1846-4e1f-bd90-70020ab471b0
 ms.service: media-services
@@ -14,20 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ca7c89dc5f56f1bf4c300874111e65048e88abcf
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: e5103bf2c0bc1fb29e75407a901fdc3e371acb8c
+ms.contentlocale: es-es
+ms.lasthandoff: 08/16/2017
 
 ---
 #<a name="develop-azure-functions-with-media-services"></a>Desarrollo de Azure Functions con Media Services
 
-En este tema se trata cómo empezar a desarrollar Azure Functions con Media Services mediante Azure Portal. 
-
-También puede implementar instancias de [Azure Functions de Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) existentes presionando el botón **Implementar en Azure**. Este repositorio incluye ejemplos de Azure Functions que usan Azure Media Services para mostrar flujos de trabajo relacionados con la ingesta directa de contenido desde Blob Storage, la codificación y la escritura de contenido de nuevo en Blob Storage. También incluye ejemplos de cómo supervisar las notificaciones de trabajo por medio de webhooks y colas de Azure. También puede desarrollar sus funciones a partir de los ejemplos del repositorio [Azure Functions de Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). 
-
 En este tema se muestra cómo empezar a crear instancias de Azure Functions que usan Media Services. La función de Azure definida en este tema supervisa un contenedor de la cuenta de almacenamiento llamado **input** para los nuevos archivos MP4. Una vez que un archivo se coloca en el contenedor de almacenamiento, el desencadenador de blobs ejecutará la función.
+
+Si desea explorar e implementar instancias de Azure Functions existentes que usan Azure Media Services, visite [Azure Functions de Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Este repositorio incluye ejemplos que usan Azure Media Services para mostrar flujos de trabajo relacionados con la ingesta directa de contenido desde Blob Storage, la codificación y la escritura de contenido de nuevo en Blob Storage. También incluye ejemplos de cómo supervisar las notificaciones de trabajo por medio de webhooks y colas de Azure. También puede desarrollar sus funciones a partir de los ejemplos del repositorio [Azure Functions de Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Para implementar las funciones, presione el botón **Implementar en Azure**.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -341,13 +339,13 @@ Para probar la función, debe cargar un archivo MP4 en el contenedor **input** d
 
 ## <a name="next-step"></a>Paso siguiente
 
-En este punto, está listo para iniciar el desarrollo de una aplicación de Servicios multimedia. 
+En este punto, está listo para iniciar el desarrollo de una aplicación de Media Services. 
  
 Para obtener más detalles y completar ejemplos y soluciones de uso de Azure Functions y Logic Apps con Azure Media Services para crear flujos de trabajo de creación de contenido personalizado, consulte el [ejemplo de integración de Functions de .NET de Media Services en GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 Además, consulte [Uso de Azure WebHooks para supervisar las notificaciones de trabajo de Media Services con .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

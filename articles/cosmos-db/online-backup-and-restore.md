@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/11/2017
 ms.author: raprasa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: a438b5079ae48c82fb2dbd5ce4547302364e0ef5
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 130f0eb259621737d6dbdb151e363915fb334ce1
 ms.contentlocale: es-es
-ms.lasthandoff: 06/26/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB
@@ -50,13 +49,16 @@ La imagen siguiente ilustra copias de seguridad completas y periódicas de todas
 
 ![Copias de seguridad completas y periódicas de todas las entidades de Cosmos DB en Azure Storage de GRS](./media/online-backup-and-restore/automatic-backup.png)
 
-## <a name="retention-period-for-a-given-snapshot"></a>Período de retención de una instantánea determinada
-Como se describió anteriormente, se tomar instantáneas de los datos cada 4 horas y se conservan las últimas dos instantáneas durante 30 días. Siguiendo nuestras normas de cumplimiento, las instantáneas se purgan después de 90 días.
+## <a name="backup-retention-period"></a>Período de retención de copia de seguridad
+Como se describió anteriormente, Azure Cosmos DB toma instantáneas de los datos cada cuatro horas y conserva las últimas dos instantáneas de cada partición durante 30 días. Siguiendo nuestras normas de cumplimiento, las instantáneas se purgan después de 90 días.
 
 Si desea mantener sus propias instantáneas, puede utilizar la opción de exportación a JSON [herramienta de migración de datos](import-data.md#export-to-json-file) en la base de datos de Azure Cosmos para programar copias de seguridad adicionales. 
 
-## <a name="restore-database-from-the-online-backup"></a>Restaurar base de datos desde la copia de seguridad en línea
-En caso de que elimine accidentalmente sus datos, puede [presentar una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o llamar al [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) para restaurar los datos a partir de la copia de seguridad automática más reciente. Si se va a restaurar una instantánea específica de su copia de seguridad, Cosmos DB requiere que hayamos tenido disponibles los datos al menos durante el ciclo de copia de seguridad de esa instantánea.
+## <a name="restoring-a-database-from-an-online-backup"></a>Restauración de una base de datos desde una copia de seguridad en línea
+En caso de que elimine accidentalmente su base de datos o colección, puede [presentar un vale de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o llamar al [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) para restaurar los datos a partir de la copia de seguridad automática más reciente. Si necesita restaurar la base de datos debido a problemas de datos dañados, consulte [Control de los datos dañados](#handling-data-corruption) ya que puede ser necesario realizar pasos adicionales para impedir que los datos dañados se escriban en las copias de seguridad. Si se va a restaurar una instantánea específica de su copia de seguridad, Cosmos DB requiere que los datos hayan estado disponibles durante el ciclo de copia de seguridad de esa instantánea.
+
+## <a name="handling-data-corruption"></a>Control de los datos dañados
+Azure Cosmos DB conserva las dos últimas copias de seguridad de cada partición en el sistema. Este modelo funciona muy bien cuando un contenedor (colección de documentos, grafos o tablas) o una base de datos se eliminan accidentalmente porque una de las últimas versiones se puede restaurar. Sin embargo, cuando se presenta un problema de daños en los datos, Azure Cosmos DB puede no ser consciente de los daños en los datos y es posible que los daños puedan haber entrado en las copias de seguridad. En cuanto se detectan daños, se debe eliminar el contenedor dañado (colección, grafo o tabla) para que las copias de seguridad estén protegidas de ser sobrescritas con datos dañados. Puesto que la última copia de seguridad podría ser de cuatro horas de antigüedad, el usuario puede emplear [Cambiar fuente](change-feed.md) para capturar y almacenar las últimas cuatro horas de datos antes de eliminar el contenedor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,7 +2,7 @@
 title: "Introducción al empaquetado dinámico de Azure Media Services | Microsoft Docs"
 description: "El tema proporciona información general sobre el empaquetado dinámico."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

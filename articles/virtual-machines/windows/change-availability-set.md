@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d8c8ad96ba0ba55692e80a29b7de74165a2c13bd
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: d1daa01191480eaeb81727416b2134b00c698dc3
+ms.contentlocale: es-es
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Cambio del conjunto de disponibilidad de una máquina virtual Windows
@@ -89,7 +89,7 @@ En los pasos siguientes se describe cómo cambiar el conjunto de disponibilidad 
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. Agregue discos de datos y extensiones. Para más información, consulte el artículo sobre cómo [conectar discos de datos a máquinas virtuales](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y [Ejemplos de configuración de extensiones](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Los discos de datos y las extensiones pueden agregarse a la máquina virtual mediante PowerShell o la CLI de Azure.
+5. Agregue discos de datos y extensiones. Para más información, vea [Cómo conectar un disco de datos administrado a una VM con Windows en Azure Portal](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y [Extensiones en Plantillas de Resource Manager](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions). Los discos de datos y las extensiones pueden agregarse a la máquina virtual mediante PowerShell o la CLI de Azure.
 
 ## <a name="example-script"></a>Script de ejemplo
 El script siguiente proporciona un ejemplo de recopilación de la información necesaria: se elimina la máquina virtual original y, luego, se vuelve a crear en un nuevo conjunto de disponibilidad.
@@ -156,6 +156,6 @@ El script siguiente proporciona un ejemplo de recopilación de la información n
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Agregue almacenamiento adicional a la máquina virtual mediante la adición de un [disco de datos](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)adicional.
+Agregue almacenamiento adicional a la máquina virtual mediante la adición de un [disco de datos](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)adicional.
 
 

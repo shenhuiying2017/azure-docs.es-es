@@ -12,20 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 89049688ab60842910f1bab8e56c349029dd17a7
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
 # <a name="event-hubs-samples"></a>Ejemplos de Event Hubs 
 
-Los ejemplos de Event Hubs muestran las características clave de [Azure Event Hubs](/azure/event-hubs/). En este artículo se categorizan y describen los ejemplos disponibles, con vínculos a cada uno.
+El conjunto de ejemplos de Event Hubs muestra las características clave de [Azure Event Hubs](/azure/event-hubs/). En este artículo se categorizan y describen los ejemplos disponibles, con vínculos a cada uno.
 
 En el momento de redactar este artículo, los ejemplos de Event Hubs se encuentran en distintos lugares:
 
@@ -46,11 +45,11 @@ El ejemplo de [Get started sending](https://github.com/Azure/azure-event-hubs/tr
 
 ### <a name="receive-events"></a>Recepción de eventos 
 
-El ejemplo de [Get started receiving with the Event Processor Host](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) (Introducción a la recepción con el host del procesador de eventos) es una aplicación de consola de .NET Core que recibe mensajes desde un centro de eventos mediante `Event Processor Host`.
+El ejemplo de [introducción a la recepción con el host del procesador de eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) es una aplicación de consola de .NET Core que recibe mensajes desde un centro de eventos mediante el host del procesador de eventos.
 
-## <a name="net-framework"></a>.NET Framework    
+## <a name="net-framework"></a>.NET Framework   
 
-Estos ejemplos muestran otras características de Azure Event Hubs que tienen como destino la [biblioteca de .NET Framework](https://msdn.microsoft.com/library/w0x726c2.aspx).
+Estos ejemplos muestran otras características de Azure Event Hubs que tienen como destino la [biblioteca de .NET Framework](/dotnet/framework/index).
  
 ### <a name="notify-users-of-events-received"></a>Notificación a los usuarios sobre los eventos recibidos
 
@@ -77,7 +76,7 @@ El ejemplo de [Import data from the web](https://github.com/Azure-Samples/event-
 Si desea conocer más información sobre las versiones de .NET Framework, visite los vínculos siguientes:
 
 - [Marcos y destinos](/dotnet/articles/standard/frameworks)
-- [.NET Framework 4.6 y 4.5](https://msdn.microsoft.com/library/w0x726c2.aspx)
+- [.NET Framework 4.6 y 4.5](/dotnet/framework/index)
 
 Si desea conocer más información acerca de Event Hubs, consulte los siguientes artículos:
 

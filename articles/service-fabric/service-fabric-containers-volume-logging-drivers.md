@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 868c3051f60c27f15bfd99f66e50b65595951a00
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -58,12 +58,21 @@ Service Fabric admite la determinación de los [complementos de volumen de Docke
 </ApplicationManifest>
 ```
 
-En el ejemplo anterior, la etiqueta `Source` de `Volume` hace referencia a la carpeta de origen. La carpeta de origen puede ser una carpeta de la máquina virtual que hospeda los contenedores o un almacén remoto persistente. La etiqueta `Destination` es la ubicación a la que `Source` está asignado dentro del contenedor en ejecución. Cuando se usa un complemento de volumen, el nombre del complemento (etiqueta `Driver`) se especifica como se muestra en el ejemplo anterior.  Si se especifica un controlador de registro de Docker, es necesario implementar agentes o contenedores para controlar los registros en el clúster. 
+En el ejemplo anterior, la etiqueta `Source` de `Volume` hace referencia a la carpeta de origen. La carpeta de origen puede ser una carpeta de la máquina virtual que hospeda los contenedores o un almacén remoto persistente. La etiqueta `Destination` es la ubicación a la que `Source` está asignado dentro del contenedor en ejecución. 
+
+Al especificar un complemento de volumen, Service Fabric crea automáticamente el volumen con los parámetros especificados. La etiqueta `Source` es el nombre del volumen y la etiqueta `Driver` especifica el complemento de controlador del volumen. Las opciones pueden especificarse mediante la etiqueta `DriverOption`, como se muestra en el fragmento de código siguiente:
+
+```xml
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
+           <DriverOption Name="share" Value="models"/>
+</Volume>
+```
+
+Si se especifica un controlador de registro de Docker, es necesario implementar agentes o contenedores para controlar los registros en el clúster.  La etiqueta `DriverOption` además se puede usar para especificar opciones del controlador de registro.
 
 Consulte los artículos siguientes para implementar contenedores en un clúster de Service Fabric:
 
-[Implementación de un contenedor de Windows en Service fabric en Windows Server 2016](service-fabric-deploy-container.md)
 
-[Implementación de un contenedor de Docker en Service Fabric en Linux](service-fabric-deploy-container-linux.md)
+[Implementación de un contenedor en Service Fabric](service-fabric-deploy-container.md)
 
 

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9687b8342723239d1ab07bcaf59176f4a0911215
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 181ed544ae4697753490642fea8eef636322a114
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotección desde Azure a un sitio local
@@ -58,7 +58,10 @@ Cuando se prepare para reproteger máquinas virtuales, tome o considere las sigu
 
     El destino maestro tiene otros requisitos previos que se enumeran en [Comprobaciones habituales en un destino maestro antes de reproteger](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
-* Se necesita un servidor de configuración en local al conmutar por recuperación. Durante la conmutación por recuperación, la máquina virtual debe encontrarse en la base de datos del servidor de configuración. En caso contrario, la conmutación por recuperación no será correcta. Asegúrese de realizar una copia de seguridad programada periódica del servidor. En caso de desastre, restaure el servidor con la misma dirección IP para que la conmutación por recuperación funcione.
+* Se necesita un servidor de configuración en local al conmutar por recuperación. Durante la conmutación por recuperación, la máquina virtual debe encontrarse en la base de datos del servidor de configuración. En caso contrario, la conmutación por recuperación no será correcta. 
+
+> [!IMPORTANT]
+> Asegúrese de realizar una copia de seguridad programada periódica del servidor de configuración. En caso de desastre, restaure el servidor con la misma dirección IP para que la conmutación por recuperación funcione.
 
 * Establezca `disk.EnableUUID=true` en los parámetros de configuración de la máquina virtual del destino maestro en VMware. Si la fila no existe, agréguela. Esta configuración es necesaria a fin de proporcionar un UUID uniforme al disco de máquina virtual (VMDK) para que se monte correctamente.
 
@@ -115,7 +118,7 @@ Para más información sobre cómo instalar un servidor de destino maestro, vea:
 
 #### <a name="what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback"></a>¿Qué tipos de almacén de datos se admiten en el host ESXi local durante la conmutación por recuperación?
 
-Actualmente, Azure Site Recovery admite la conmutación por recuperación únicamente en un almacén de datos de sistema de archivos de máquina virtual (VMFS). No se admiten los almacenes de datos vSAN ni NFS. Debido a esta limitación, la entrada de selección de almacén de datos en la pantalla de reprotección está vacía en el caso de los almacenes de datos NFS o muestra el almacén de datos vSAN, pero produce un error durante el trabajo. Si piensa conmutar por recuperación, puede crear un almacén de datos VMFS local y conmutar por recuperación en él. Esta conmutación por recuperación ocasionará una descarga completa del VMDK.
+Actualmente, Azure Site Recovery admite la conmutación por recuperación únicamente en un almacén de datos de sistema de archivos de máquina virtual (VMFS) o vSAN. No se admiten los almacenes de datos NFS. Debido a esta limitación, la entrada de selección de almacén de datos en la pantalla de reprotección está vacía en el caso de los almacenes de datos NFS o muestra el almacén de datos vSAN, pero produce un error durante el trabajo. Si piensa conmutar por recuperación, puede crear un almacén de datos VMFS local y conmutar por recuperación en él. Esta conmutación por recuperación ocasionará una descarga completa del VMDK.
 
 ### <a name="common-things-to-check-after-completing-installation-of-the-master-target-server"></a>Comprobaciones habituales tras completar la instalación del servidor de destino maestro
 

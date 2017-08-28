@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 4a41d9eb8b28aed499bb20e17e3c979962c78bcd
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes X12 para la integración empresarial con aplicaciones lógicas
@@ -272,6 +271,9 @@ Además del juego de caracteres, puede especificar un conjunto de delimitadores 
 | Carácter de reemplazo |Escriba un carácter de reemplazo que se usa para reemplazar todos los caracteres separadores en los datos de carga al generar el mensaje X12 saliente. |
 | Terminador de segmento |Para indicar el final de un segmento EDI, escriba un solo carácter. |
 | Sufijo |Seleccione el carácter que se usa con el identificador de segmento. Si designa un sufijo, el elemento de datos del terminador de segmento podrá estar vacío. Si se deja vacío el terminador de segmento, deberá designar un sufijo. |
+
+> [!TIP]
+> Para proporcionar valores de caracteres especiales, edite el contrato como JSON y proporcione el valor ASCII para el carácter especial.
 
 ### <a name="validation"></a>Validación
 

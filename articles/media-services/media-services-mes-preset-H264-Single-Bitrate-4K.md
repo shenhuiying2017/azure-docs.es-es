@@ -2,7 +2,7 @@
 title: Valores predeterminados de Media Encoder Standard para H264 Single Bitrate 4K - Azure | Microsoft Docs
 description: "En el tema se proporciona información general sobre el valor predeterminado de tarea **H264 Single Bitrate 4K**."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

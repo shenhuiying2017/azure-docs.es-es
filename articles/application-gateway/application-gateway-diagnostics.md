@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 2a2d731a8c904f290fcd4bbbd18872d8319b2ff5
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 12c252340b82aba5ee69b12db83353750782e7c5
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
@@ -122,7 +122,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
     ![Portal: identificador de recurso de la cuenta de almacenamiento](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Anote el identificador de recurso de la puerta de enlace de aplicaciones para la que se está habilitando el registro. Este valor tiene el siguiente formato: /subscriptions/\<idSuscripción\>/resourceGroups/\<nombreDeGrupoDeRecursos\>/providers/Microsoft.Network/applicationGateways/\<nombreDePuertaDeEnlaceDeAplicaciones\>. Para buscar esta información, use Azure Portal.
+2. Observe el identificador de recurso de la puerta de enlace de aplicaciones para la que se está habilitando el registro. Este valor tiene el siguiente formato: /subscriptions/\<idSuscripción\>/resourceGroups/\<nombreDeGrupoDeRecursos\>/providers/Microsoft.Network/applicationGateways/\<nombreDePuertaDeEnlaceDeAplicaciones\>. Para buscar esta información, use Azure Portal.
 
     ![Portal: identificador de recurso de la puerta de enlace de aplicaciones](./media/application-gateway-diagnostics/diagnostics2.png)
 

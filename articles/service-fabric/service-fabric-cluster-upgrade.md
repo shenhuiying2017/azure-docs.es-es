@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2017
+ms.date: 8/10/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6efb5c20140d3ea76a2a9cd1eb495db69f14048d
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Actualización de un clúster de Azure Service Fabric
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/21/2017
 Para cualquier sistema moderno, diseñar la capacidad de actualización es clave para lograr el éxito a largo plazo de su producto. Un clúster de Azure Service Fabric es un recurso de su propiedad que está parcialmente administrado por Microsoft. En este artículo se describe lo que se administra automáticamente y lo que puede configurar usted mismo.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Control de la versión de Service Fabric que se ejecuta en el clúster
-Puede configurar el clúster para recibir las actualizaciones automáticas de Service Fabric cuando Microsoft publica una versión nueva, o seleccionar la versión compatible de Service Fabric que desea que tenga el clúster.
+Puede configurar el clúster para recibir las actualizaciones automáticas cuando Microsoft las publica o puede seleccionar la versión compatible de Service Fabric que desea que tenga el clúster.
 
 Para ello, establezca el modo de actualización en la configuración del clúster en el portal o mediante Resource Manager en el momento de creación, o posteriormente en un clúster activo 
 
@@ -165,7 +165,7 @@ Además de la capacidad de configurar el modo de actualización del clúster, aq
 ### <a name="certificates"></a>Certificados
 Puede agregar nuevos o eliminar fácilmente los certificados del clúster y el cliente a través del portal. Consulte [este documento para obtener instrucciones detalladas](service-fabric-cluster-security-update-certs-azure.md)
 
-![Captura de pantalla que muestra las huellas digitales del certificado en el portal de Azure.][CertificateUpgrade]
+![Captura de pantalla que muestra las huellas digitales del certificado en Azure Portal.][CertificateUpgrade]
 
 ### <a name="application-ports"></a>Puertos de aplicación
 Puede cambiar los puertos de aplicación cambiando las propiedades del recurso del equilibrador de carga asociado al tipo de nodo. Puede usar el portal o Resource Manager de PowerShell directamente.

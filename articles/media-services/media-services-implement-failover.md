@@ -4,7 +4,7 @@ description: "En este tema se muestra cómo implementar un escenario de streamin
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services

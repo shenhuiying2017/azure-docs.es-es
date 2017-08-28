@@ -4,7 +4,7 @@ description: "En este tema se muestra cómo se usa .NET para realizar una codifi
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services

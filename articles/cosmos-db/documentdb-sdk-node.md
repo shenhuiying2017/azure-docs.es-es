@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 297fe8850499212ca41b0b5ca132b7de8c761297
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>SDK de Node.js para Azure Cosmos DB: notas de la versión y recursos
@@ -62,19 +62,27 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="1.12.2"/>1.12.2</a>
+*   Documentación de NPM corregida.
+
+### <a name="1.12.1"/>1.12.1</a>
+* Se ha corregido un error en executeStoredProcedure en el que los documentos implicados tenían caracteres especiales de Unicode (LS, PS).
+* Se ha corregido un error a la hora de administrar los documentos con caracteres Unicode en la clave de partición.
+* Se ha corregido el problema de compatibilidad con la creación de colecciones con los medios de nombre. Problema de GitHub n.º 114.
+* Se ha corregido el problema de compatibilidad con el token de autorización de permiso. Problema de GitHub n.º 178.
+
 ### <a name="1.12.0"/>1.12.0</a>
-* Se agregó compatibilidad con la característica [Unidad de solicitud por minuto (RU/m)](../cosmos-db/request-units-per-minute.md).
 * Se agregó compatibilidad con un nuevo [nivel de coherencia](consistency-levels.md) denominado ConsistentPrefix.
 * Se agregó compatibilidad con UriFactory.
-* Se corrigió un error de compatibilidad con unicode. (Problema de GitHub n.º 171)
+* Se ha corregido un error de compatibilidad con Unicode. Problema de GitHub n.º 171.
 
 ### <a name="1.11.0"/>1.11.0</a>
 * Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG).
 * Se agregó la opción para controlar el grado de paralelismo de las consultas de partición cruzada.
 * Se agregó la opción para deshabilitar la comprobación de SSL cuando se ejecuta en el emulador de Azure Cosmos DB.
 * Reducción del procesamiento mínimo en las colecciones particionadas de 10 100 RU/s a 2500 RU/s.
-* Se corrigió el error de token de continuación de la colección de una sola partición (github #107).
-* Se corrigió el error executeStoredProcedure en el control 0 como parámetro único (github #155).
+* Se ha corregido el error de token de continuación de la colección de una sola partición. Problema de GitHub n.º 107.
+* Se ha corregido el error executeStoredProcedure en el control 0 como parámetro único. Problema de GitHub n.º 155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Encabezado de agente de usuario fijo para incluir la versión del SDK.
@@ -90,7 +98,7 @@ ms.lasthandoff: 07/25/2017
 
 ### <a name="1.9.0"/>1.9.0</a>
 * Se ha agregado compatibilidad de la directiva de reintentos con las solicitudes de limitación. (Las solicitudes limitadas reciben una excepción demasiado grande de la tasa de solicitudes, código de error 429). De manera predeterminada, Azure Cosmos DB realiza nueve reintentos para cada solicitud cuando aparece el código de error 429, respetando el tiempo de retryAfter en el encabezado de respuesta. Ahora puede establecerse un tiempo del intervalo de reintento fijo como parte de la propiedad RetryOptions del objeto ConnectionPolicy si quiere ignorar el tiempo de retryAfter que ha devuelto el servidor entre los reintentos. Azure Cosmos DB espera ahora un máximo de 30 segundos para cada solicitud que se está limitando (independientemente del recuento de reintentos) y devuelve la respuesta con el código de error 429. Este tiempo también puede reemplazarse en la propiedad RetryOptions del objeto ConnectionPolicy.
-* Cosmos DB ahora devuelve x-ms-throttle-retry-count y x-ms-throttle-retry-wait-time-ms como los encabezados de respuesta de cada solicitud para denotar el recuento de reintentos de limitación y el tiempo acumulativo que esperó la solicitud entre los reintentos.
+* Cosmos DB ahora devuelve x-ms-throttle-retry-count y x-ms-throttle-retry-wait-time-ms como los encabezados de respuesta de cada solicitud para denotar el recuento de reintentos de limitación y el tiempo acumulativo que ha esperado la solicitud entre los reintentos.
 * Se ha agregado la clase RetryOptions que expone la propiedad RetryOptions en la clase ConnectionPolicy que puede usarse para reemplazar algunas de las opciones de reintentos predeterminadas.
 
 ### <a name="1.8.0"/>1.8.0</a>
@@ -118,7 +126,7 @@ ms.lasthandoff: 07/25/2017
 * Corrige el problema [95](https://github.com/Azure/azure-documentdb-node/issues/95) : advertencia de pérdida de escucha de EventEmitter.
 
 ### <a name="1.5.1"/>1.5.1</a>
-* Corrige el problema [92](https://github.com/Azure/azure-documentdb-node/issues/90) : cambio de nombre de la carpeta Hash a hash para sistemas que distinguen mayúsculas de minúsculas.
+* Corrige el problema [92](https://github.com/Azure/azure-documentdb-node/issues/90): cambio de nombre de la carpeta Hash a hash para sistemas que distinguen mayúsculas de minúsculas.
 
 ### <a name="1.5.0"/>1.5.0</a>
 * Se implementa la compatibilidad con el particionamiento, para lo que se agregan resolvedores de hash y de particiones de intervalo.
@@ -160,7 +168,7 @@ ms.lasthandoff: 07/25/2017
 * SDK de GA.
 
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
-Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
+Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
 Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible.
 
@@ -170,6 +178,8 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |10 de agosto de 2017 |--- |
+| [1.12.1](#1.12.1) |10 de agosto de 2017 |--- |
 | [1.12.0](#1.12.0) |10 de mayo de 2017 |--- |
 | [1.11.0](#1.11.0) |16 de marzo de 2017 |--- |
 | [1.10.2](#1.10.2) |27 de enero de 2017 |--- |

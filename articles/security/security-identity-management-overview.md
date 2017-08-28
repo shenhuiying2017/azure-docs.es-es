@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: bb9d08d6164ec01ce1d76fc4a23e782213ecfcd9
-ms.lasthandoff: 03/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 8d00882caf5411240c5f0a3533c78c3dbe361ef2
+ms.contentlocale: es-es
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-identity-management-security-overview"></a>Información general sobre seguridad de administración de identidades de Azure
@@ -50,7 +50,7 @@ Inicio de sesión único (SSO) significa poder tener acceso a todas las aplicaci
 
 Muchas organizaciones confían en el modelo de software como servicio (SaaS), como Office 365, Box y Salesforce para la productividad del usuario final. Tradicionalmente, el personal de TI tenía que crear y actualizar individualmente cuentas de usuario en cada aplicación SaaS y los usuarios tenían que recordar una contraseña para cada aplicación SaaS.
 
-Azure AD extiende Active Directory local a la nube, permitiendo a los usuarios usar su cuenta profesional principal no solo para iniciar sesión en sus dispositivos unidos a dominios y recursos de la empresa, sino también en todas las aplicaciones web y SaaS necesarias para su trabajo.
+Azure AD extiende los entornos de Active Directory locales a la nube, permitiendo a los usuarios usar su cuenta profesional principal no solo para iniciar sesión en sus dispositivos unidos a dominios y recursos de la empresa, sino también en todas las aplicaciones web y SaaS necesarias para su trabajo.
 
 Los usuarios no solo no tienen que administrar varios conjuntos de nombres de usuario y contraseñas, sino que es posible aprovisionar o cancelar el aprovisionamiento del acceso a las aplicaciones automáticamente en función de los grupos de la organización y de su estado de empleado. Azure AD introduce controles de seguridad y acceso que permiten administrar de forma centralizada el acceso de los usuarios a través de aplicaciones SaaS.
 

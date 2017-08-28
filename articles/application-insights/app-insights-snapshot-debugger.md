@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: sewhee
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: dcc5cc0be4c03ad661cf1539cb98a7d4fc94e778
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: bb6c93557ea26bed721315dc82da917e4727b5f9
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
@@ -115,7 +115,7 @@ La recopilación de instantáneas está disponible para:
 2. Agregue el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) en la aplicación.
 
 3. Las instantáneas solo se recopilan en las excepciones de las que se informa a Application Insights. Es posible que tenga que modificar el código para informar de las excepciones. El código de control de excepciones depende de la estructura de la aplicación, pero a continuación se muestra un ejemplo:
-   ```C#
+    ```C#
    TelemetryClient _telemetryClient = new TelemetryClient();
 
    void ExampleRequest()
@@ -132,54 +132,55 @@ La recopilación de instantáneas está disponible para:
             // TODO: Rethrow the exception if desired.
         }
    }
+    ```
+    
+## <a name="grant-permissions"></a>Concesión de permisos
 
-## Grant permissions
+Los propietarios de la suscripción de Azure pueden inspeccionar instantáneas. Otros usuarios deben obtener permiso de un propietario.
 
-Owners of the Azure subscription can inspect snapshots. Other users must be granted permission by an owner.
+Para conceder permiso, asigne el rol `Application Insights Snapshot Debugger` a los usuarios que inspeccionarán instantáneas. Los propietarios de suscripción pueden asignar este rol a usuarios individuales o grupos en el recurso de Application Insights de destino o en su grupo de recursos o suscripción.
 
-To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
-
-1. Open the Access Control (IAM) blade.
-1. Click the +Add button.
-1. Select Application Insights Snapshot Debugger from the Roles drop-down list.
-1. Search for and enter a name for the user to add.
-1. Click the Save button to add the user to the role.
+1. Abra la hoja Access Control (IAM).
+1. Haga clic en el botón +Agregar.
+1. Seleccione Depurador de instantáneas de Application Insights en la lista desplegable Roles.
+1. Busque el usuario que quiere agregar y escriba un nombre.
+1. Haga clic en el botón Guardar para agregar el usuario al rol.
 
 
 [!IMPORTANT]
-    Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
+    Las instantáneas pueden contener información personal y otra información confidencial en valores de variables y parámetros.
 
-## Debug snapshots in the Application Insights portal
+## <a name="debug-snapshots-in-the-application-insights-portal"></a>Depuración de instantáneas en el portal de Application Insights
 
-If a snapshot is available for a given exception or a problem ID, an **Open Debug Snapshot** button appears on the [exception](app-insights-asp-net-exceptions.md) in the Application Insights portal.
+Si una instantánea está disponible para una excepción o un identificador de problema determinados, se mostrará un botón **Abrir instantánea de depuración** en la [excepción](app-insights-asp-net-exceptions.md) del portal de Application Insights.
 
-![Open Debug Snapshot button on exception](./media/app-insights-snapshot-debugger/snapshot-on-exception.png)
+![Botón Abrir instantánea de depuración de la excepción](./media/app-insights-snapshot-debugger/snapshot-on-exception.png)
 
-In the Debug Snapshot view, you see a call stack and a variables pane. When you select frames of the call stack in the call stack pane, you can view local variables and parameters for that function call in the variables pane.
+En la vista de depuración instantánea, verá una pila de llamadas y un panel de variables. Al seleccionar marcos de la pila de llamadas en el panel de la pila de llamadas, podrá ver las variables locales y los parámetros para esa llamada de función en el panel de variables.
 
-![View Debug Snapshot in the portal](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
+![Visualización de la instantánea de depuración en el portal](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
 
-Snapshots might contain sensitive information, and by default they are not viewable. To view snapshots, you must have the `Application Insights Snapshot Debugger` role assigned to you.
+Las instantáneas pueden contener información confidencial y, de forma predeterminada, no están visibles. Para ver las instantáneas, debe tener asignado el rol `Application Insights Snapshot Debugger`.
 
-## Debug snapshots with Visual Studio 2017 Enterprise
-1. Click the **Download Snapshot** button to download a `.diagsession` file, which can be opened by Visual Studio 2017 Enterprise. 
+## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Depuración de instantáneas con Visual Studio Enterprise 2017
+1. Haga clic en el botón **Descargar instantánea** para descargar un archivo `.diagsession`, que puede abrirse en Visual Studio Enterprise 2017. 
 
-2. To open the `.diagsession` file, you must first [download and install the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
+2. Para abrir el archivo `.diagsession`, debe primero [descargar e instalar la extensión del Depurador de instantáneas para Visual Studio](https://aka.ms/snapshotdebugger).
 
-3. After you open the snapshot file, the Minidump Debugging page in Visual Studio appears. Click **Debug Managed Code** to start debugging the snapshot. The snapshot opens to the line of code where the exception was thrown so that you can debug the current state of the process.
+3. Después de abrir el archivo de instantánea, aparece la página de depuración de minivolcado de Visual Studio. Haga clic en **Depurar código administrado** para empezar a depurar la instantánea. La instantánea se abre en la línea de código donde se produjo la excepción para que pueda depurar el estado actual del proceso.
 
-    ![View debug snapshot in Visual Studio](./media/app-insights-snapshot-debugger/open-snapshot-visualstudio.png)
+    ![Visualización de la instantánea de depuración en Visual Studio](./media/app-insights-snapshot-debugger/open-snapshot-visualstudio.png)
 
-The downloaded snapshot contains any symbol files that were found on your web application server. These symbol files are required to associate snapshot data with source code. For App Service apps, make sure to enable symbol deployment when you publish your web apps.
+La instantánea descargada contiene los archivos de símbolos que se encontraron en el servidor de aplicaciones web. Estos archivos de símbolos son necesarios para asociar los datos de instantáneas con el código fuente. Para las aplicaciones de App Service, asegúrese de habilitar la implementación de símbolos cuando publique las aplicaciones web.
 
-## How snapshots work
+## <a name="how-snapshots-work"></a>Funcionamiento de las instantáneas
 
-When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10 to 20 minutes. The shadow process is then analyzed, and a snapshot is created while the main process continues to run and serve traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files that are needed to view the snapshot.
+Cuando se inicia la aplicación, se crea un proceso independiente de usuario de carga de instantáneas que supervisa las solicitudes de instantáneas de la aplicación. Cuando se solicita una instantánea, se realiza una instantánea de los procesos en ejecución en unos 10-20 minutos. El proceso de instantánea se analiza y se crea una instantánea mientras el proceso principal sigue ejecutándose y entregando el tráfico a los usuarios. Luego, la instantánea se carga en Application Insights junto con los correspondientes archivos de símbolos (.pdb) que sean necesarios para ver la instantánea.
 
-## Current limitations
+## <a name="current-limitations"></a>Limitaciones actuales
 
-### Publish symbols
-The Snapshot Debugger requires symbol files on the production server to decode variables and to provide a debugging experience in Visual Studio. The 15.2 release of Visual Studio 2017 publishes symbols for release builds by default when it publishes to App Service. In prior versions, you need to add the following line to your publish profile `.pubxml` file so that symbols are published in release mode:
+### <a name="publish-symbols"></a>Publicación de símbolos
+El Depurador de instantáneas requiere que los archivos de símbolos estén presentes en el servidor de producción para descodificar variables y proporcionar una experiencia de depuración en Visual Studio. La versión 15.2 de Visual Studio 2017 publica símbolos de compilaciones de versión de forma predeterminada al publicar en App Service. En las versiones anteriores, tiene que agregar la siguiente línea al archivo `.pubxml` de su perfil de publicación para que los símbolos se publiquen en modo de versión:
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>

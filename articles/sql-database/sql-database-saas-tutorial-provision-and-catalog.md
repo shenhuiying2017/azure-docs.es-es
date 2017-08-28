@@ -14,28 +14,25 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/11/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: c019ea9207379ea1b88ec5d990e1c2b8565092a2
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 8fa4c4f95386a92c8c818eef1a5b4de5a086fe07
 ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Aprovisionamiento y registro de nuevos inquilinos en el catálogo
 
-En este tutorial, se aprovisionan nuevos inquilinos en la aplicación SaaS de Wingtip. Creará inquilinos mediante el aprovisionamiento de bases de datos de inquilinos, y los registrará en el catálogo. El *catálogo* es una base de datos que mantiene la asignación entre los inquilinos de una aplicación SaaS y sus datos.
-
-Utilice estos scripts para explorar los patrones de aprovisionamiento y catálogo empleados y cómo se implementa el registro de nuevos inquilinos en el catálogo. El catálogo desempeña un papel importante para dirigir las solicitudes de aplicación a las bases de datos correctas.
+En este tutorial aprenderá a aprovisionar y catalogar los patrones SaaS, y cómo se implementan en la aplicación SaaS de Wingtip. Creará e inicializará nuevas bases de datos de inquilinos y las registrará en el catálogo de inquilinos de la aplicación. El catálogo es una base de datos que mantiene la asignación entre los diversos inquilinos de aplicaciones SaaS y sus datos. El catálogo desempeña un papel importante para dirigir las solicitudes de aplicación a las bases de datos correctas.  
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 
-> * Aprovisionar un nuevo inquilino único
+> * Aprovisionar un nuevo inquilino único, incluidos todos los pasos de su implementación
 > * Aprovisionar un lote de inquilinos adicionales
-> * Acceder a los detalles de cómo aprovisionar inquilinos y registrarlos en el catálogo.
 
 
 Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
@@ -45,63 +42,45 @@ Para completar este tutorial, asegúrese de cumplir los siguientes requisitos pr
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Introducción al patrón de catálogo de SaaS
 
-En una aplicación SaaS multiinquilino con copia de seguridad en base de datos, es importante saber dónde se almacena la información de cada inquilino. En el patrón de catálogo de SaaS, una base de datos de catálogo se usa para mantener la asignación entre los inquilinos y la ubicación de almacenamiento de sus datos. La aplicación SaaS de Wingtip utiliza una arquitectura inquilino único por base de datos, pero el patrón básico de almacenamiento de la asignación de inquilino a base de datos en un catálogo es aplicable tanto si se usa una base de datos de inquilino único como multiinquilino.
+En una aplicación SaaS multiinquilino con copia de seguridad en base de datos, es importante saber dónde se almacena la información de cada inquilino. En el patrón de catálogo de SaaS, una base de datos de catálogo se usa para mantener la asignación entre cada inquilino y la ubicación de almacenamiento de sus datos. La aplicación SaaS de Wingtip utiliza una arquitectura inquilino único por base de datos, pero el patrón básico de almacenamiento de la asignación de inquilino a base de datos en un catálogo es aplicable tanto si se usa una base de datos de inquilino único como multiinquilino.
 
-A cada inquilino se le asigna una clave que distingue sus datos en el catálogo. En la aplicación SaaS de Wingtip, la clave se forma a partir de un hash del nombre del inquilino. Este patrón permite utilizar la parte del nombre del inquilino de la dirección URL de la aplicación para generar la clave y recuperar una conexión del inquilino específica. Podrían utilizarse otros esquemas de identificación sin afectar al patrón general.
+A cada inquilino se le asigna una clave que les identifica en el catálogo y que, a su vez, se asigna a la ubicación de la base de datos adecuada. En la aplicación SaaS de Wingtip, la clave se forma a partir de un hash del nombre del inquilino. Esto permite utilizar la parte del nombre del inquilino de la dirección URL de la aplicación para generar la clave. También se podrían utilizar otros esquemas de claves de inquilino.  
 
-El catálogo de la aplicación se implementa mediante la tecnología de administración de particiones en la [biblioteca de cliente de Elastic Database (EDCL)](sql-database-elastic-database-client-library.md). EDCL es responsable de crear y administrar un *catálogo* con copia de seguridad en base de datos donde se mantiene un *mapa de particiones*. El catálogo contiene la asignación entre las claves (inquilinos) y sus particiones (bases de datos).
+El catálogo permite cambiar el nombre o la ubicación de la base de datos con un mínimo impacto en la aplicación.  En un modelo de base de datos multiinquilino, esto también permite mover a un inquilino entre bases de datos.  El catálogo también puede usarse para indicar si un inquilino o base de datos está sin conexión debido a operaciones de mantenimiento u otras acciones. Todo esto se trata en el [tutorial Restauración de un solo inquilino](sql-database-saas-tutorial-restore-single-tenant.md).
+
+Además, el catálogo, que es en efecto una base de datos de administración de una aplicación SaaS, puede almacenar inquilinos adicionales o metadatos de base de datos tales como el nivel o edición de una base de datos, la versión del esquema, el plan de servicios o los contratos de nivel de servicio ofrecidos a los inquilinos, y cualquier otra información que facilite la administración de la aplicación, el soporte al cliente y los procesos DevOps.  
+
+Además de la aplicación de SaaS, el catálogo puede habilitar herramientas de base de datos.  En el ejemplo SaaS de Wingtip, el catálogo se utiliza para habilitar consultas entre inquilinos. Esto se detalla en el [tutorial de análisis ad hoc](sql-database-saas-tutorial-adhoc-analytics.md). La administración de trabajos entre bases de datos se describe en los tutoriales sobre [administración de esquemas](sql-database-saas-tutorial-schema-management.md) y [análisis de inquilinos](sql-database-saas-tutorial-tenant-analytics.md). 
+
+En la aplicación SaaS de Wingtip, el catálogo se implementa mediante las características de administración de particiones de la [biblioteca de cliente de Elastic Database (EDCL)](sql-database-elastic-database-client-library.md). La EDCL permite que una aplicación pueda crear, administrar y usar un mapa de particiones con copia de seguridad en base de datos. Un mapa de particiones contiene una lista de particiones (bases de datos) y la asignación entre las claves (inquilinos) y las bases de datos.  Las funciones de EDCL se pueden usar a partir de aplicaciones o scripts de PowerShell durante el aprovisionamiento del inquilino para crear entradas en el mapa de particiones, y a partir de aplicaciones para conectarse eficazmente a la base de datos correcta. La EDCL almacena en caché la información de conexión para minimizar el tráfico en la base de datos de catálogo y acelerar la aplicación.  
 
 > [!IMPORTANT]
 > Los datos de asignación son accesibles en la base de datos de catálogo, pero *no los edite*. Para editar datos de asignación, utilice únicamente las API de la biblioteca de cliente de Elastic Database. No se admite la manipulación directa de los datos de asignación, que entraña el riesgo de dañar el catálogo.
 
+
+## <a name="introduction-to-the-saas-provisioning-pattern"></a>Introducción al patrón de aprovisionamiento de SaaS
+
+Durante la incorporación de un nuevo inquilino a una aplicación SaaS que usa el modelo de base de datos de un solo inquilino, se debe aprovisionar una nueva base de datos de inquilino.  Esta se debe crear en la ubicación y nivel de servicio adecuados, inicializar con el esquema y los datos de referencia apropiados y, a continuación, registrar en el catálogo con la clave de inquilino correcta.  
+
+Se pueden usar diferentes enfoques para el aprovisionamiento de la base de datos, entre los cuales se incluyen la ejecución de scripts de SQL, la implementación de un archivo BACPAC o la copia de una base de datos de plantillas "golden".  
+
+El método de aprovisionamiento utilizado debe estar incluido en su estrategia general de administración de esquemas, que debe garantizar que las nuevas bases de datos se aprovisionan con los esquemas más recientes.  Todo ello se describe en el [tutorial de administración de esquemas](sql-database-saas-tutorial-schema-management.md).  
+
+La aplicación SaaS de Wingtip aprovisiona nuevos inquilinos copiando una base de datos golden llamada basetenantdb que está implementada en el servidor de catálogo.  El aprovisionamiento se puede integrar en la aplicación como parte de la experiencia de registro y se puede admitir sin conexión mediante scripts. Este tutorial describe el aprovisionamiento con PowerShell. Los scripts de aprovisionamiento copian la base de datos basetenantdb para crear una nueva base de datos de inquilinos en un grupo elástico y, a continuación, la inicializa con información específica del inquilino y la registra en el mapa de particiones del catálogo.  En la aplicación de ejemplo, se asignan nombres a las bases de datos según el nombre del inquilino, aunque este no es una parte fundamental del patrón. El uso del catálogo permite asignar cualquier nombre a la base de datos. 
 
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtener scripts de la aplicación Wingtip
 
 Los scripts SaaS de Wingtip y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Pasos para descargar los scripts SaaS de Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
-## <a name="provision-one-new-tenant"></a>Aprovisionamiento de un nuevo inquilino
 
-Si ya ha creado un inquilino en el [primer tutorial sobre SaaS de Wingtip](sql-database-saas-tutorial.md), puede pasar directamente a la siguiente sección y [aprovisionar un lote de inquilinos](#provision-a-batch-of-tenants).
+## <a name="provision-and-catalog-detailed-walkthrough"></a>Tutorial detallado de aprovisionamiento y catalogación
 
-Ejecute el script *Demo-ProvisionAndCatalog* para crear un inquilino rápidamente y registrarlo en el catálogo:
-
-1. Abra **Demo-ProvisionAndCatalog.ps1** en PowerShell ISE y establezca los siguientes valores:
-   * **$TenantName** = el nombre de la nueva ubicación (por ejemplo, *Bushwillow Blues*).
-   * **$VenueType** = uno de los tipos predefinidos de ubicación: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic o soccer.
-   * **$DemoScenario** = 1. Deje este valor establecido en _1_ para *aprovisionar un único inquilino*.
-
-1. Presione **F5** y ejecute el script.
-
-Una vez completado el script, se aprovisiona el nuevo inquilino y su aplicación de *eventos* se abre en el explorador:
-
-![Nuevo inquilino](./media/sql-database-saas-tutorial-provision-and-catalog/new-tenant.png)
-
-
-## <a name="provision-a-batch-of-tenants"></a>Aprovisionamiento de un lote de inquilinos
-
-Este ejercicio aprovisiona un lote de inquilinos adicionales. Se recomienda que aprovisione un lote de inquilinos antes de completar otros tutoriales de SaaS de Wingtip, de manera que haya un mayor número de bases de datos con el que trabajar.
-
-1. Abra ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1* en *PowerShell ISE* y cambie el parámetro *$DemoScenario* a 3:
-   * **$DemoScenario** = **3**. Cambie este valor a **3** para *aprovisionar un lote de inquilinos*.
-1. Presione **F5** y ejecute el script.
-
-El script implementa un lote de inquilinos adicionales Este script usa una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) que controla el lote y, a continuación, delega el aprovisionamiento de cada base de datos a una plantilla vinculada. Esto permite que Azure Resource Manager negocie el proceso de aprovisionamiento para su script. Las plantillas aprovisionan bases de datos en paralelo cuando sea posible y controlan los reintentos si es necesario, optimizando así el proceso general. El script es idempotente, por lo que si se produce un error o se detiene por alguna razón, vuelva a ejecutarlo.
-
-### <a name="verify-the-batch-of-tenants-successfully-deployed"></a>Compruebe que el lote de inquilinos se haya implementado correctamente.
-
-* Abra el servidor *tenants1* yendo a su lista de servidores de [Azure Portal](https://portal.azure.com), haga clic en **bases de datos SQL** y compruebe que el lote de 17 bases de datos adicionales está ahora en la lista:
-
-   ![lista de base de datos](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
-
-
-## <a name="stepping-through-the-provision-and-catalog-implementation-details"></a>Análisis paso a paso de los detalles de implementación de aprovisionamiento y catalogación
-
-Para entender mejor cómo la aplicación Wingtip implementa el aprovisionamiento de un nuevo inquilino, vuelva a ejecutar el script *Demo-ProvisionAndCatalog* y aprovisione otro inquilino. Esta vez, agregue un punto de interrupción y siga los pasos del flujo de trabajo:
+Para entender cómo la aplicación Wingtip implementa el aprovisionamiento de un nuevo inquilino, agregue un punto de interrupción y recorra el flujo de trabajo mientras aprovisiona un inquilino:
 
 1. Abra ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ y defina los siguientes parámetros:
-   * **$TenantName** = los nombres de inquilino deben ser únicos. Por lo tanto, establezca un nombre distinto a los inquilinos existentes (por ejemplo, *Hackberry Hitters*).
-   * **$VenueType** = use uno de los tipos de ubicación predefinidos (por ejemplo, *judo*).
+   * **$TenantName** = el nombre de la nueva ubicación (por ejemplo, *Bushwillow Blues*).
+   * **$VenueType** = uno de los tipos predefinidos de ubicación: *blues*, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic o soccer.
    * **$DemoScenario** = **1**. Establezca este valor en **1** para *aprovisionar un único inquilino*.
 
 1. Agregue un punto de interrupción colocando el cursor en cualquier lugar de la línea 48, que dice: *New-Tenant `* y presione **F9**.
@@ -123,8 +102,8 @@ Lo que se indica a continuación no son pasos que se deban seguir de forma expl�
 
 1. **Importe el módulo SubscriptionManagement.psm1** que contiene funciones para iniciar sesión en Azure y seleccionar la suscripción de Azure con la que está trabajando.
 1. **Importe el módulo CatalogAndDatabaseManagement.psm1** que proporciona un catálogo y una abstracción de nivel de inquilino sobre las funciones de [administración de particiones](sql-database-elastic-scale-shard-map-management.md). Este es un módulo importante que encapsula gran parte del patrón de catálogo y que merece la pena explorar.
-1. **Obtenga los detalles de configuración**. Vaya a *Get-Configuration* (con **F11**) y vea cómo se especifica la configuración de la aplicación. Los nombres de recursos y otros valores específicos de la aplicación se definen aquí, pero no cambie ninguno de estos valores hasta que esté familiarizado con los scripts.
-1. **Obtenga el objeto de catálogo**. Vaya a *Get-Catalog* para ver cómo se inicializa el catálogo mediante las funciones de administración de particiones que se importan desde **AzureShardManagement.psm1**. El catálogo se compone de los siguientes objetos:
+1. **Obtenga los detalles de configuración**. Vaya a Get-Configuration (con F11) y vea cómo se especifica la configuración de la aplicación. Los nombres de recursos y otros valores específicos de la aplicación se definen aquí, pero no cambie ninguno de estos valores hasta que esté familiarizado con los scripts.
+1. **Obtenga el objeto de catálogo**. Vaya a Get-Catalog que crea y devuelve un objeto de catálogo que se usa en el script de nivel superior.  Esta función utiliza las funciones de administración de particiones que se importan desde **AzureShardManagement.psm1**. El objeto de catálogo se compone de lo siguiente:
    * $catalogServerFullyQualifiedName se construye con la raíz estándar junto con su nombre de usuario: _catalog-\<usuario\>.database.windows.net_.
    * $catalogDatabaseName se obtiene de la configuración: *tenantcatalog*.
    * El objeto $shardMapManager se inicializa desde la base de datos del catálogo.
@@ -132,25 +111,42 @@ Lo que se indica a continuación no son pasos que se deban seguir de forma expl�
    Se generará y devolverá un objeto de catálogo, que se usará en el script de nivel superior.
 1. **Calcule la nueva clave de inquilino**. Para crear la clave de inquilino a partir del nombre del inquilino se utiliza una función hash.
 1. **Compruebe si ya existe la clave de inquilino**. Se comprobará en el catálogo que la clave está disponible.
-1. **La base de datos de inquilino se aprovisiona con New-TenantDatabase**. Use **F11** para acceder y ver cómo la base de datos se aprovisiona mediante una plantilla de Resource Manager.
+1. **La base de datos de inquilino se aprovisiona con New-TenantDatabase**. Use **F11** para acceder y ver cómo la base de datos se aprovisiona mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-El nombre de la base de datos se construye a partir del nombre del inquilino para dejar claro qué partición pertenece a cada inquilino (también podrían emplearse fácilmente otras estrategias para asignar un nombre a la base de datos).
+El nombre de la base de datos se construye a partir del nombre del inquilino para dejar claro qué partición pertenece a cada inquilino (Se pueden usar fácilmente otras estrategias de nomenclatura de base de datos). Se utiliza una plantilla de Resource Manager para crear una base de datos de inquilino mediante la copia de una base de datos golden (basetenantdb) en el servidor de catálogo. Un método alternativo podría consistir en crear una base de datos vacía y, a continuación, inicializarla mediante la importación de un archivo BACPAC o la ejecución de un script de inicialización de una ubicación conocida.  
 
-Se utiliza una plantilla de Resource Manager para crear una base de datos de inquilino al copiar una base de datos *golden* (basetenantdb) en el servidor de catálogo.  Un método alternativo podría consistir en crear una base de datos vacía y, a continuación, inicializarla mediante la importación de un archivo BACPAC.
+La plantilla de Resource Manager se encuentra en la carpeta ...\Learning Modules\Common: *tenantdatabasecopytemplate.json*.
 
-La plantilla de Resource Manager se encuentra en la carpeta ...\\Learning Modules\\Common\\: *tenantdatabasecopytemplate.json*.
+Una vez creada la base de datos de inquilino, se vuelve a **inicializar con el nombre de la ubicación (inquilino) y el tipo de ubicación**. Aquí también podría realizarse otro tipo de inicialización.
 
-Una vez creada la base de datos de inquilino, se vuelve a inicializar con el nombre de la ubicación (inquilino) y el tipo de ubicación. Aquí también podría realizarse otro tipo de inicialización.
-
-La base de datos de inquilino se registra en el catálogo con *Add-TenantDatabaseToCatalog* mediante la clave de inquilino. Use **F11** para acceder a los detalles:
+La **base de datos de inquilino se registra en el catálogo** con *Add-TenantDatabaseToCatalog* mediante la clave de inquilino. Use **F11** para acceder a los detalles:
 
 * La base de datos de catálogo se agrega a la asignación de particiones (la lista de bases de datos conocidas).
-* Se crea la asignación que vincula el valor de clave (inquilino) a la partición (base de datos).
-* Se agregan metadatos adicionales sobre el inquilino.
+* Se crea la asignación que vincula el valor de clave a la partición.
+* Se agregan metadatos adicionales (nombre de la ubicación) sobre el inquilino a la tabla Tenants del catálogo.  Esta tabla no forma parte del esquema de ShardManagement y la EDCL no la instala.  Esta tabla muestra cómo la base de datos de catálogo puede ampliarse para admitir los datos adicionales específicos de la aplicación.   
 
-Después de que se complete el aprovisionamiento, la ejecución vuelve al script *Demo-ProvisionAndCatalog* original y la página de **eventos** para el nuevo inquilino se abre en el explorador:
 
-   ![events](media/sql-database-saas-tutorial-provision-and-catalog/new-tenant2.png)
+Después de que se complete el aprovisionamiento, la ejecución vuelve al script *Demo-ProvisionAndCatalog* original que abre la página de **eventos** para el nuevo inquilino en el explorador:
+
+   ![events](media/sql-database-saas-tutorial-provision-and-catalog/new-tenant.png)
+
+
+## <a name="provision-a-batch-of-tenants"></a>Aprovisionamiento de un lote de inquilinos
+
+Este ejercicio aprovisiona un lote de 17 inquilinos. Se recomienda que aprovisione este lote de inquilinos antes de completar otros tutoriales de SaaS de Wingtip, de manera que haya un mayor número de bases de datos con las que trabajar.
+
+1. Abra ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1* en *PowerShell ISE* y cambie el parámetro *$DemoScenario* a 3:
+   * **$DemoScenario** = **3**. Cambie este valor a **3** para *aprovisionar un lote de inquilinos*.
+1. Presione **F5** y ejecute el script.
+
+El script implementa un lote de inquilinos adicionales Este script usa una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) que controla el lote y, a continuación, delega el aprovisionamiento de cada base de datos a una plantilla vinculada. Esto permite que Azure Resource Manager negocie el proceso de aprovisionamiento para su script. Las plantillas aprovisionan bases de datos en paralelo cuando sea posible y controlan los reintentos si es necesario, optimizando así el proceso general. El script es idempotente, por lo que si se produce un error o se detiene por alguna razón, vuelva a ejecutarlo.
+
+### <a name="verify-the-batch-of-tenants-successfully-deployed"></a>Compruebe que el lote de inquilinos se haya implementado correctamente.
+
+* Abra el servidor *tenants1* yendo a su lista de servidores de [Azure Portal](https://portal.azure.com), haga clic en **bases de datos SQL** y compruebe que el lote de 17 bases de datos adicionales está ahora en la lista:
+
+   ![lista de base de datos](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
+
 
 
 ## <a name="other-provisioning-patterns"></a>Otros patrones de aprovisionamiento

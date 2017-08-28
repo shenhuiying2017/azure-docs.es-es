@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: d1efdf9b6b005852e570491aeb723a5758a4c839
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
@@ -42,7 +42,7 @@ Puede habilitar esta extensión mediante cmdlets de Azure PowerShell, scripts de
 
 No se puede usar Azure portal para habilitar LAD 3.0 ni configurarlo. En su lugar, instala versión 2.3 y la configura. Los grafos y las alertas de Azure Portal funcionan con datos procedentes de ambas versiones de la extensión.
 
-Mediante estas instrucciones de instalación y una [configuración de ejemplo descargable](https://github.com/Azure/azure-linux-extensions/blob/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) se configura LAD 3.0 para:
+Mediante estas instrucciones de instalación y una [configuración de ejemplo descargable](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) se configura LAD 3.0 para:
 
 * capturar las mismas métricas que las proporcionadas por LAD 2.3 y almacenarlas,
 * capturar un conjunto útil de métricas del sistema de archivos (función nueva de LAD 3.0),
@@ -55,7 +55,8 @@ La configuración que se puede descargar es solo un ejemplo; modifíquela como c
 
 * **Versión 2.2.0 o posterior del agente Linux de Azure**. La mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.2.7 o posterior. Ejecute `/usr/sbin/waagent -version` para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior del agente invitado, siga [estas instrucciones](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) para actualizarla.
 * **Azure CLI**. [Instale el entorno de CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina.
-* Una cuenta de almacenamiento ya existente para almacenar los datos y el token de SAS asociado a ellos que garantiza los derechos de acceso necesarios.
+* El comando wget, si aún no lo tiene: ejecute `sudo apt-get install wget`.
+* Una suscripción a Azure existente con una cuenta de almacenamiento para almacenar los datos.
 
 ### <a name="sample-installation"></a>Instalación de ejemplo
 
@@ -70,8 +71,11 @@ my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnos
 # Should login to Azure first before anything else
 az login
 
+# Select the subscription containing the storage account
+az account set --subscription <your_azure_subscription_id>
+
 # Download the sample Public settings. (You could also use curl or any web browser)
-wget https://github.com/Azure/azure-linux-extensions/blob/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
+wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
 
 # Build the VM resource ID. Replace storage account name and resource ID in the public settings.
 my_vm_resource_id=$(az vm show -g $my_resource_group -n $my_linux_vm --query "id" -o tsv)
@@ -381,7 +385,7 @@ Elemento | Valor
 ------- | -----
 espacio de nombres | (Opcional) es el espacio de nombres OMI en el que la consulta debería ejecutarse. Si no se especifica, el valor predeterminado es "root/scx", implementado por los [proveedores multiplataforma de System Center](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | Es la consulta de OMI que va a ejecutarse.
-table | (Opcional) es la tabla de almacenamiento de Azure, en la cuenta de almacenamiento designada (consulte [Configuración protegida](#protected-settings)).
+table | (Opcional) es la tabla de Azure Storage, en la cuenta de almacenamiento designada (consulte [Configuración protegida](#protected-settings)).
 frequency | (Opcional) es el número de segundos entre la ejecución de la consulta. El valor predeterminado es de 300 (5 minutos) y el mínimo es de 15 segundos.
 sinks | (Opcional) es una lista separada por comas de nombres de receptores adicionales en los que deberían publicarse los resultados de las métricas de muestra sin procesar. Ni la extensión ni Métricas de Azure computan ninguna agregación de estos ejemplos sin procesar.
 

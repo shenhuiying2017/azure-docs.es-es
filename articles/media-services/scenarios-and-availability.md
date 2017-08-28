@@ -4,7 +4,7 @@ description: "Este tema ofrece información general de los escenarios y la dispo
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

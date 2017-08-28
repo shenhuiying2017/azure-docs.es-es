@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 95404f9dbffa08edf12ee6c07f671d5f207ce99a
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 926938a8ed20167e1f17a9883007cd993897f14a
 ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
@@ -52,7 +52,7 @@ Data Sync usa una topología de concentrador y radio para sincronizar los datos.
 
 Data Sync es útil en los casos en que es necesario mantener los datos actualizados entre varias bases de datos SQL de Azure o bases de datos de SQL Server. Estos son los casos de uso principales de Data Sync:
 
--   **Sincronización de datos híbridos:** con la sincronización de datos, puede mantener los datos sincronizados entre bases de datos locales y bases de datos SQL de Azure para habilitar aplicaciones híbridas con su capa de datos de SQL. Esta funcionalidad puede interesar a los clientes que se plantean realizar la migración a la nube y les gustaría colocar algunas de sus aplicaciones en Azure.
+-   **Sincronización de datos híbridos:** con la sincronización de datos, puede mantener los datos sincronizados entre bases de datos locales e instancias de Azure SQL Databases para habilitar aplicaciones híbridas. Esta funcionalidad puede interesar a los clientes que se plantean realizar la migración a la nube y les gustaría colocar algunas de sus aplicaciones en Azure.
 
 -   **Aplicaciones distribuidas:** en muchos casos, es conveniente separar diferentes cargas de trabajo entre diferentes bases de datos. Por ejemplo, si tiene una base de datos de producción de grande, pero también debe ejecutar una carga de trabajo de informes o análisis en estos datos, resulta útil tener una segunda base de datos para esta carga de trabajo adicional. Este enfoque minimiza el impacto de rendimiento en la carga de trabajo de producción. Puede usar Data Sync para mantener estas dos bases de datos sincronizadas.
 

@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 05/01/2017
+ms.date: 08/10/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 333f8320820a1729a14ffc2e29446e7452aa768e
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Conexión de Cosmos DB con Azure Search mediante indexadores
@@ -33,7 +33,7 @@ Si opta por la primera opción, el [Asistente para la importación de datos ](se
 > Cosmos DB es la siguiente generación de DocumentDB. Aunque cambie el nombre del producto, la sintaxis es la misma que antes. Siga con las especificaciones de `documentdb` como se indica en este artículo sobre el indexador. 
 
 > [!TIP]
-> Puede iniciar el asistente para **importar datos** del panel de Cosmos DB para simplificar la indexación para ese origen de datos. En el panel de navegación de la izquierda, vaya a **Colecciones** > **Add Azure Search** (Añadir búsqueda de Azure) para empezar.
+> Puede iniciar el asistente para **importar datos** del panel de Cosmos DB para simplificar la indexación para ese origen de datos. En el panel de navegación de la izquierda, vaya a **Colecciones** > **Agregar Azure Search** para empezar.
 
 <a name="Concepts"></a>
 ## <a name="azure-search-indexer-concepts"></a>Conceptos del indexador de Azure Search
@@ -99,21 +99,21 @@ Documento de ejemplo:
 
 Consulta de filtro:
 
-    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
+    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
 
 Consulta sin formato:
 
-    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark
+    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
     
     
 Consulta de proyección:
 
-    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark
+    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 
 Consulta sin formato de matriz:
 
-    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
+    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 <a name="CreateIndex"></a>
 ## <a name="step-2-create-an-index"></a>Paso 2: Creación de un índice
@@ -241,7 +241,21 @@ El fin de una directiva de detección de cambios de datos es identificar de form
 
 Se recomienda encarecidamente usar esta directiva para garantizar un buen rendimiento del indexador. 
 
-Si usa una consulta personalizada, asegúrese de que la consulta proyecta la propiedad `_ts`. 
+Si usa una consulta personalizada, asegúrese de que la consulta proyecta la propiedad `_ts`.
+
+<a name="IncrementalProgress"></a>
+### <a name="incremental-progress-and-custom-queries"></a>Progreso incremental y consultas personalizadas
+El progreso incremental durante la indexación garantiza que si se interrumpe la ejecución del indexador por errores transitorios o por el límite de tiempo de ejecución, dicho indexador puede retomar la ejecución por donde la dejó la próxima vez que se ejecute, en lugar de tener que volver a indexar toda la colección desde el principio. Esto es especialmente importante cuando se indexan colecciones grandes. 
+
+Para habilitar el progreso incremental cuando se usa una consulta personalizada, asegúrese de que la consulta ordena los resultados por la columna `_ts`. Esto permite la creación de puntos de comprobación, que Azure Search usa para proporcionar el progreso incremental en presencia de errores.   
+
+En algunos casos, incluso si la consulta contiene una cláusula `ORDER BY [collection alias]._ts`, Azure Search puede no deducir que la consulta se ordene por `_ts`. Puede indicar a Azure Search que los resultados se ordenen mediante el uso de la propiedad de configuración `assumeOrderByHighWaterMarkColumn`. Para especificar esta sugerencia, cree o actualice el indexador como se indica a continuación: 
+
+    {
+     ... other indexer definition properties
+     "parameters" : {
+            "configuration" : { "assumeOrderByHighWaterMarkColumn" : true } }
+    } 
 
 <a name="DataDeletionDetectionPolicy"></a>
 ## <a name="indexing-deleted-documents"></a>Indexación de documentos eliminados

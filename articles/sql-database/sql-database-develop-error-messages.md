@@ -1,6 +1,6 @@
 ---
 title: "Códigos de error de SQL: error de conexión de base de datos | Microsoft Docs"
-description: "Obtenga información acerca de los códigos de error de SQL de las aplicaciones cliente de la Base de datos SQL, como los errores de conexión de base de datos más comunes, los problemas de copia de la base de datos y los errores generales. "
+description: "Obtenga información acerca de los códigos de error de SQL de las aplicaciones cliente de la SQL Database, como los errores de conexión de base de datos más comunes, los problemas de copia de la base de datos y los errores generales. "
 keywords: "código de error de SQL, acceder a SQL, error de conexión de base de datos, códigos de error de SQL"
 services: sql-database
 documentationcenter: 
@@ -16,15 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 407d8cef2508e4b2344953db86bc9829081cda7c
-ms.openlocfilehash: 72faf68d8a9779b612723f9ee6589cc332bf5ed5
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 2ef879aa31c8ee44a2c6281438f24a8b94649b1b
 ms.contentlocale: es-es
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
-# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-error-and-other-issues"></a>Códigos de error para las aplicaciones cliente de la Base de datos SQL: error de conexión de base de datos y otros problemas.
+# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-error-and-other-issues"></a>Códigos de error para las aplicaciones cliente de SQL Database: error de conexión de base de datos y otros problemas.
 <!--
 Old Title on MSDN:  Error Messages (Azure SQL Database)
 ShortId on MSDN:  ff394106.aspx
@@ -32,27 +31,28 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-En este artículo se enumeran los códigos de error de SQL de la aplicación cliente de Base de datos SQL, incluidos los errores de conexión de base de datos, los errores transitorios, los errores de regulación de recursos, los problemas de copia de la base de datos, el grupo elástico y otros errores. La mayoría de las categorías son específicas de la Base de datos SQL de Azure y no se aplican a Microsoft SQL Server.
+En este artículo se enumeran los códigos de error de SQL de la aplicación cliente de SQL Database, incluidos los errores de conexión de base de datos, los errores transitorios, los errores de regulación de recursos, los problemas de copia de la base de datos, el grupo elástico y otros errores. La mayoría de las categorías son específicas de Azure SQL Database y no se aplican a Microsoft SQL Server.
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Errores de conexión de base de datos, errores transitorios y otros errores temporales
-En la siguiente tabla se abordan los códigos de error de SQL para errores de pérdida de conexión y otros errores transitorios que pueden surgir cuando la aplicación intenta obtener acceso a la Base de datos SQL. Para obtener tutoriales de introducción acerca de cómo conectarse a Base de datos de SQL Azure, consulte [Conexión a Base de datos SQL de Azure](sql-database-libraries.md).
+En la siguiente tabla se abordan los códigos de error de SQL para errores de pérdida de conexión y otros errores transitorios que pueden surgir cuando la aplicación intenta obtener acceso a SQL Database. Para obtener tutoriales de introducción acerca de cómo conectarse a Azure SQL Database, consulte [Conexión a SQL Database](sql-database-libraries.md).
 
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>Errores de conexión de base de datos y errores transitorios más comunes
-La infraestructura de Azure ofrece la posibilidad de volver a configurar dinámicamente servidores cuando surgen cargas de trabajo pesadas en el servicio de Base de datos SQL.  Este comportamiento dinámico podría dar lugar a que el programa cliente perdiera su conexión a Base de datos SQL. Este tipo de condición de error se conoce como *error transitorio*.
+La infraestructura de Azure ofrece la posibilidad de volver a configurar dinámicamente servidores cuando surgen cargas de trabajo pesadas en el servicio de SQL Database.  Este comportamiento dinámico podría dar lugar a que el programa cliente perdiera su conexión a SQL Database. Este tipo de condición de error se conoce como *error transitorio*.
 
-Si el programa cliente tiene lógica de reintento, puede intentar restablecer una conexión después de dar tiempo a que se corrijan los errores transitorios.  Se recomienda un retraso de 5 segundos antes del primer reintento. Si se vuelve a intentar después de un retraso menor de 5 segundos, se correrá el riesgo de sobrecargar el servicio en la nube. Para cada intento siguiente el retraso debe aumentar exponencialmente, hasta un máximo de 60 segundos.
+Se recomienda encarecidamente que el programa cliente tenga lógica de reintento para poder tratar de restablecer una conexión después de dar tiempo a que se corrijan los errores transitorios.  Se recomienda un retraso de 5 segundos antes del primer reintento. Si se vuelve a intentar después de un retraso menor de 5 segundos, se correrá el riesgo de sobrecargar el servicio en la nube. Para cada intento siguiente el retraso debe aumentar exponencialmente, hasta un máximo de 60 segundos.
 
 Los errores transitorios suelen manifestarse como uno de los siguientes mensajes de error de los programas cliente:
 
-* La base de datos <db_name> del servidor <Azure_instance> no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de <session_id>
-* La base de datos <db_name> del servidor <Azure_instance> no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de <session_id>. (Microsoft SQL Server, error: 40613)
+* La base de datos &lt;db_name&gt; del servidor &lt;Azure_instance&gt; no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de asistencia al cliente y proporcióneles el identificador de seguimiento de sesión de &lt;session_id&gt;.
+* La base de datos &lt;db_name&gt; del servidor &lt;Azure_instance&gt; no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de asistencia al cliente y proporcióneles el identificador de seguimiento de sesión de &lt;session_id&gt;. (Microsoft SQL Server, error: 40613)
 * El host remoto cerró a la fuerza una conexión ya existente.
 * System.Data.Entity.Core.EntityCommandExecutionException: Se produjo un error al ejecutar la definición del comando. Vea la excepción interna para obtener detalles. ---> System.Data.SqlClient.SqlException: Error en el nivel del transporte al recibir los resultados del servidor. (proveedor: proveedor de sesión, error: 19: La conexión física es inservible)
+* Error al tratar de conectarse a una base de datos secundaria porque la base de datos está en proceso de reconfiguración y ocupada aplicando nuevas páginas en mitad de una transacción activa en la base de datos principal. 
 
 Para obtener ejemplos de lógica de reintento, vea:
 
-* [Bibliotecas de conexiones para la base de datos SQL y SQL Server](sql-database-libraries.md) 
-* [Acciones para corregir errores de conexión y errores transitorios en Base de datos SQL](sql-database-connectivity-issues.md)
+* [Bibliotecas de conexiones para SQL Database y SQL Server](sql-database-libraries.md) 
+* [Acciones para corregir errores de conexión y errores transitorios en SQL Database](sql-database-connectivity-issues.md)
 
 Una explicación del *período de bloqueo* para clientes que usan ADO.NET está disponible en [Grupos de conexión de SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
@@ -62,15 +62,16 @@ Los siguientes errores son transitorios y se deben volver a probar en la lógica
 | Código de error | Gravedad | Descripción |
 | ---:| ---:|:--- |
 | 4060 |16 |No se puede abrir la base de datos "%.&#x2a;ls" solicitada por el inicio de sesión. Error de inicio de sesión. |
-| 40197 |17 |Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de Base de datos SQL se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a la base de datos SQL hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo. |
-| 40501 |20 |El servicio está ocupado actualmente. Vuelva a intentar la solicitud después de 10 segundos. Identificador de incidente: %ls. Código: %d.<br/><br/>*Nota:* Para obtener más información, consulte:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md). |
+| 40197 |17 |Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de SQL Database se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a SQL Database hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo. |
+| 40501 |20 |El servicio está ocupado actualmente. Vuelva a intentar la solicitud después de 10 segundos. Identificador de incidente: %ls. Código: %d.<br/><br/>*Nota:* Para obtener más información, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-resource-limits.md). |
 | 40613 |17 |La base de datos '%.&#x2a;ls' en el servidor '%.&#x2a;ls' no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de '%.&#x2a;ls'. |
 | 49918 |16 |No se puede procesar la solicitud. No hay suficientes recursos para procesar la solicitud.<br/><br/>El servicio está ocupado actualmente. Vuelva a intentar realizar la solicitud más tarde. |
 | 49919 |16 |No se procesar, crear ni actualizar la solicitud. Hay demasiadas operaciones de creación o actualización en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes de creación o actualización para su suscripción o servidor. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para las operaciones pendientes. Espere a que se completen solicitudes de creación o actualización pendientes o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
 | 49920 |16 |No se puede procesar la solicitud. Hay demasiadas operaciones en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes para esta suscripción. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para el estado de la operación. Espere a que las solicitudes pendientes se hayan completado o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
+| 4221 |16 |No se pudo iniciar sesión en el secundario de lectura debido a una espera prolongada en HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING. La réplica no está disponible para el inicio de sesión porque faltan las versiones de las filas de transacciones que estaban en proceso cuando se recicló la réplica. Se puede resolver el problema al revertir o asignar las transacciones activas en la réplica principal. Se pueden minimizar las repeticiones de esta condición al evitar escribir transacciones en la principal. |
 
 ## <a name="database-copy-errors"></a>Errores de copia de base de datos
-Pueden encontrarse los siguientes errores al copiar una base de datos en Base de datos SQL de Azure. Para más información, vea [Copiar una base de datos SQL de Azure](sql-database-copy.md).
+Pueden encontrarse los siguientes errores al copiar una base de datos en Azure SQL Database. Para más información, vea [Copiar Azure SQL Database](sql-database-copy.md).
 
 | Código de error | Gravedad | Descripción |
 | ---:| ---:|:--- |
@@ -89,7 +90,7 @@ Pueden encontrarse los siguientes errores al copiar una base de datos en Base de
 | 40571 |16 |No se pudo copiar la base de datos debido a un error interno. Quite la base de datos de destino y vuelva a intentarlo más adelante. |
 
 ## <a name="resource-governance-errors"></a>Errores de regulación de recursos
-La causa de los siguientes errores es un uso excesivo de recursos mientras se trabaja con Base de datos SQL de Azure. Por ejemplo:
+La causa de los siguientes errores es un uso excesivo de recursos mientras se trabaja con Azure SQL Database. Por ejemplo:
 
 * Una transacción ha permanecido abierta durante demasiado tiempo.
 * Una transacción contiene demasiados bloqueos.
@@ -98,12 +99,12 @@ La causa de los siguientes errores es un uso excesivo de recursos mientras se tr
 
 Temas relacionados:
 
-* Encontrará información más detallada aquí: [Límites de recursos de Base de datos SQL de Azure](sql-database-resource-limits.md)
+* Encontrará información más detallada aquí: [Límites de recursos de Azure SQL Database](sql-database-resource-limits.md)
 
 | Código de error | Gravedad | Descripción |
 | ---:| ---:|:--- |
-| 10928 |20 |Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>*Nota:* Para obtener más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md). |
-| 10929 |20 |Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, Inténtelo de nuevo más tarde.<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>*Nota:* Para obtener más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md). |
+| 10928 |20 |Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>*Nota:* Para obtener más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-resource-limits.md). |
+| 10929 |20 |Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para más información, vea [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, Inténtelo de nuevo más tarde.<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>*Nota:* Para obtener más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-resource-limits.md). |
 | 40544 |20 |La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles. |
 | 40549 |16 |La sesión terminó porque tiene una transacción de larga duración. Intente reducir la transacción. |
 | 40550 |16 |La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción. |
@@ -185,7 +186,7 @@ Los siguientes errores no se incluyen en ninguna categoría anterior.
 | 40607 |16 |Los inicios de sesión de Windows no se admiten en esta versión de SQL Server. |
 | 40611 |16 |Los servidores pueden tener como máximo 128 reglas de firewall definidas. |
 | 40614 |16 |La dirección IP de inicio de la regla de firewall no puede superar la dirección IP final. |
-| 40615 |16 |No se puede abrir el servidor '{0}' solicitado por el inicio de sesión. No está permitido que el cliente con la dirección IP '{1}' acceda al servidor.  Para habilitar el acceso, use el Portal de bases de datos SQL o ejecute sp_set_firewall_rule en la base de datos maestra para crear una regla de firewall para esta dirección IP o intervalo de direcciones.  Puede tardar hasta cinco minutos que este cambio surta efecto. |
+| 40615 |16 |No se puede abrir el servidor '{0}' solicitado por el inicio de sesión. No está permitido que el cliente con la dirección IP '{1}' acceda al servidor.  Para habilitar el acceso, use el portal de SQL Database o ejecute sp_set_firewall_rule en la base de datos maestra para crear una regla de firewall para esta dirección IP o intervalo de direcciones.  Puede tardar hasta cinco minutos que este cambio surta efecto. |
 | 40617 |16 |El nombre de regla de firewall que comienza por <rule name> es demasiado largo. La longitud máxima es 128. |
 | 40618 |16 |El nombre de la regla de firewall no puede estar vacío. |
 | 40620 |16 |Error de inicio de sesión del usuario "%.&#x2a;ls". Error de cambio de contraseña. El cambio de contraseña durante el inicio de sesión no se admite en esta versión de SQL Server. |
@@ -216,6 +217,6 @@ Los siguientes errores no se incluyen en ninguna categoría anterior.
 
 ## <a name="related-links"></a>Vínculos relacionados
 * [Características de Azure SQL Database](sql-database-features.md)
-* [Límites de recursos de Base de datos SQL](sql-database-resource-limits.md)
+* [Límites de recursos de SQL Database](sql-database-resource-limits.md)
 
 

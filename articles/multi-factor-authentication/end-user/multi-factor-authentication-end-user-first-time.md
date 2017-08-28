@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 58ddf3913a5d00ee9a89a1fa112f3d55d9a815ed
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b05672744dadb15f2780af100f3dd41412e55265
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configuración de mi cuenta para la comprobación en dos pasos
@@ -49,7 +49,7 @@ La primera pregunta en el proceso de inscripción es cómo desea ponerse en cont
 | [Llamada de teléfono de la oficina](#use-your-office-phone-as-the-contact-method) |Realiza una llamada de voz automatizada al número de teléfono que proporcione. El usuario responde a la llamada y pulsa # en el teclado del teléfono para autenticarse. |
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>Usar una aplicación móvil como método de contacto
-Con este método se requiere que instale una aplicación de autenticador en el teléfono o tableta. Los pasos de este artículo se basan en la aplicación Microsoft Authenticator, que está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Con este método se requiere que instale una aplicación de autenticador en el teléfono o tableta. Los pasos de este artículo se basan en la aplicación Microsoft Authenticator, que está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 1. Seleccione **Aplicación móvil** en la lista desplegable.
 2. Seleccione **Recibir notificaciones de comprobación** o **Usar código de comprobación** y, luego, seleccione **Configurar**.

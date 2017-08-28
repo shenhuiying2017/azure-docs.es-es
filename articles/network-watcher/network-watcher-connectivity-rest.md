@@ -1,6 +1,6 @@
 ---
-title: "Comprobación de la conectividad con Azure Network Watcher: CLI de Azure | Microsoft Docs"
-description: "En esta página se explica cómo comprobar la conectividad con Network Watcher mediante la API de REST de Azure"
+title: "Comprobación de la conectividad con Azure Network Watcher: Azure Portal | Microsoft Docs"
+description: "En esta página se explica cómo comprobar la conectividad con Network Watcher en Azure Portal"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -11,31 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2017
+ms.date: 08/02/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9a900752dccfd82524951a01ebf70f882a35afd9
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-rest-api"></a>Comprobación de la conectividad con Azure Network Watcher mediante la API de REST de Azure
+# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Comprobación de la conectividad con Azure Network Watcher usando Azure Portal
 
 > [!div class="op_single_selector"]
+> - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [API de REST de Azure](network-watcher-connectivity-rest.md)
 
-Aprenda a usar la conectividad para comprobar si se puede establecer una conexión TCP directa de una máquina virtual con un punto de conexión determinado.
-
-Este artículo le guía por los distintos tipos de comprobaciones que se pueden ejecutar con la conectividad.
-
-* [Comprobación de la conectividad con una máquina virtual](#check-connectivity-to-a-virtual-machine)
-* [Problemas de validación de enrutamiento](#validate-routing-issues)
-* [Comprobación de la latencia del sitio web](#check-website-latency)
-* [Comprobación de la conectividad con un punto de conexión de almacenamiento](#check-connectivity-to-a-storage-endpoint)
+Aprenda a usar la conectividad para comprobar si se puede establecer una conexión TCP directa de una máquina virtual a un punto de conexión determinado.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -101,7 +95,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-En el resultado siguiente, se usa el id. de la máquina virtual en este ejemplo:
+En la salida siguiente, se usa el identificador de la máquina virtual en este ejemplo:
 
 ```json
 ...
@@ -116,9 +110,9 @@ En el resultado siguiente, se usa el id. de la máquina virtual en este ejemplo:
 }
 ```
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Comprobación de la conectividad con una máquina virtual
+## <a name="check-connectivity-to-a-virtual-machine"></a>Comprobación de la conectividad a una máquina virtual
 
-En este ejemplo se comprueba la conectividad con una máquina virtual de destino a través del puerto 80.
+En este ejemplo se comprueba la conectividad a una máquina virtual de destino a través del puerto 80.
 
 ### <a name="example"></a>Ejemplo
 
@@ -170,7 +164,7 @@ null
 
 ### <a name="response"></a>Response
 
-La siguiente respuesta procede del ejemplo anterior.  En esta respuesta, el `ConnectionStatus` es **Unreachable** (inaccesible). Se puede ver que ninguno de los sondeos enviados se pudo realizar. Error de conectividad en la aplicación virtual debido a una `NetworkSecurityRule` configurada por el usuario denominada **UserRule_Port80**, configurada para bloquear el tráfico entrante en el puerto 80. Esta información puede utilizarse para investigar problemas de conexión.
+La siguiente respuesta procede del ejemplo anterior.  En esta respuesta, el `ConnectionStatus` es **Unreachable** (inaccesible). Se puede ver que ninguno de los sondeos enviados se pudo realizar. Error de conectividad en la aplicación virtual debido a una `NetworkSecurityRule` configurada por el usuario denominada **UserRule_Port80**, que se configuró para bloquear el tráfico entrante en el puerto 80. Esta información puede utilizarse para investigar problemas de conexión.
 
 ```json
 {
@@ -415,7 +409,7 @@ En la siguiente respuesta, puede ver que `connectionStatus` se muestra como **Re
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Comprobación de la conectividad con un punto de conexión de almacenamiento
+## <a name="check-connectivity-to-a-storage-endpoint"></a>Comprobación de la conectividad a un punto de conexión de almacenamiento
 
 En el ejemplo siguiente se comprueba la conectividad de una máquina virtual con una cuenta de almacenamiento de blog.
 
@@ -469,7 +463,7 @@ null
 
 ### <a name="response"></a>Response
 
-El siguiente json es la respuesta de ejemplo que procede de la ejecución de la llamada API anterior. Cuando la comprobación es correcta, la propiedad `connectionStatus` se muestra como **Reachable** (accesible).  Se proporcionan los detalles sobre el número de saltos necesarios para llegar a la latencia y al blob de almacenamiento.
+El siguiente ejemplo es la respuesta que procede de la ejecución de la llamada API anterior. Cuando la comprobación es correcta, la propiedad `connectionStatus` se muestra como **Reachable** (accesible).  Se proporcionan los detalles sobre el número de saltos necesarios para llegar a la latencia y al blob de almacenamiento.
 
 ```json
 {

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 8132b4844260a997e62effd167f2f1206f3edbcd
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
 ms.contentlocale: es-es
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
@@ -122,7 +122,8 @@ En las secciones siguientes se proporcionan más detalles y los pasos que están
 
 ## <a name="risky-sign-ins"></a>Inicios de sesión no seguros
 
-Azure Active Directory detecta algunos [tipos de eventos de riesgo](active-directory-reporting-risk-events.md#risk-event-types) en tiempo real. Todos los eventos de riesgo en tiempo real que se hayan detectado durante el inicio de sesión de un usuario contribuyen a la creación de un concepto lógico que se denomina *inicio de sesión peligroso*. Un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario. El ciclo de vida de un inicio de sesión peligroso finaliza cuando un usuario cierra la sesión.
+Azure Active Directory detecta [tipos de eventos de riesgo](active-directory-reporting-risk-events.md#risk-event-types) en tiempo real y sin conexión. Cada evento de riesgo que se haya detectado durante el inicio de sesión de un usuario contribuye a un concepto lógico, llamado inicio de sesión peligroso. Un inicio de sesión peligroso es un indicador de un intento de inicio de sesión que puede haber realizado alguien que no es el propietario legítimo de una cuenta de usuario.
+
 
 ### <a name="sign-in-risk-level"></a>Nivel de riesgo del inicio de sesión
 
@@ -212,7 +213,7 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 
 ## <a name="users-flagged-for-risk"></a>Usuarios marcados con riesgo
 
-Todos los [eventos de riesgo](active-directory-identity-protection-risk-events.md) que detectó Azure Active Directory para un usuario contribuyen a la creación de un concepto lógico que se denomina *usuarios marcados en riesgo*. Un *usuario marcado con riesgo* o un *usuario peligroso* es un indicador de una cuenta de usuario que puede haber estado en peligro.   
+Todos los [eventos de riesgo](active-directory-identity-protection-risk-events.md) activos que detectó Azure Active Directory para un usuario contribuyen a la creación de un concepto lógico que se denomina riesgo de usuario. Un usuario marcado como en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro.
 
 ![Usuarios marcados con riesgo](./media/active-directory-identityprotection/1200.png)
 

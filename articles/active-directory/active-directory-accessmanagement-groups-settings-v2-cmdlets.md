@@ -1,5 +1,5 @@
 ---
-title: "Cmdlets de PowerShell de Azure Active Directory para la administración de grupos en Azure AD | Microsoft Docs"
+title: Ejemplos de PowerShell para administrar grupos en Azure Active Directory | Microsoft Docs
 description: "En esta página se proporcionan ejemplos de PowerShell para ayudarlo a administrar grupos de Azure Active Directory."
 keywords: "Azure AD, Azure Active Directory, PowerShell, grupos, administración de grupos"
 services: active-directory
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: rodejo
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c2a313c5ad011d03309a962bf2905750a478b890
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f1ce76178baa44428afca5631c749c2739ad779e
 ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets de la versión 2 de Azure Active Directory para la administración de grupos
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/05/2017
 >
 >
 
-En el siguiente documento se proporcionan ejemplos de cómo usar PowerShell para administrar grupos en Azure Active Directory (Azure AD).  También se ofrece información sobre cómo configurar el módulo de Azure AD PowerShell. En primer lugar, debe [descargar el módulo de Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+En este artículo se incluyen ejemplos de cómo usar PowerShell para administrar grupos en Azure Active Directory (Azure AD).  También se indica cómo configurar el módulo de Azure AD PowerShell. En primer lugar, debe [descargar el módulo de Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>Instalación del módulo de Azure AD PowerShell
 Para instalar el módulo de Azure AD PowerShell, use los siguientes comandos:
@@ -46,14 +46,14 @@ Para comprobar que se ha instalado el módulo, ejecute el siguiente comando:
     ---------- ---------    ----                                ----------------
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 
-Ahora puede empezar a usar los cmdlets del módulo. Para ver una descripción completa de los cmdlets del módulo de Azure AD, consulte la [documentación de referencia en línea](/powershell/azure/install-adv2?view=azureadps-2.0).
+Ahora puede empezar a usar los cmdlets del módulo. Para ver una descripción completa de los cmdlets del módulo de Azure AD, consulte la documentación de referencia en línea para obtener [Azure Active Directory PowerShell versión 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 ## <a name="connecting-to-the-directory"></a>Conexión al directorio
-Antes de empezar a administrar los grupos mediante los cmdlets de Azure AD PowerShell, debe conectar la sesión de PowerShell al directorio que quiera administrar. Para ello, ejecute el siguiente comando:
+Antes de empezar a administrar los grupos mediante los cmdlets de Azure AD PowerShell, debe conectar la sesión de PowerShell al directorio que quiera administrar. Use el comando siguiente:
 
     PS C:\Windows\system32> Connect-AzureAD
 
-El cmdlet le pedirá las credenciales que quiera utilizar para acceder al directorio. En este ejemplo, vamos a utilizar karen@drumkit.onmicrosoft.com para tener acceso al directorio de demostración. El cmdlet devolverá una confirmación para mostrar que la sesión se ha conectado correctamente al directorio:
+El cmdlet le pide las credenciales que quiere utilizar para tener acceso al directorio. En este ejemplo, vamos a utilizar karen@drumkit.onmicrosoft.com para tener acceso al directorio de demostración. El cmdlet devuelve una confirmación para mostrar que la sesión se ha conectado correctamente al directorio:
 
     Account                       Environment Tenant
     -------                       ----------- ------
@@ -66,13 +66,13 @@ Para recuperar grupos que ya se encuentren en el directorio, puede usar el cmdle
 
     PS C:\Windows\system32> get-azureadgroup
 
-El cmdlet devolverá todos los grupos del directorio conectado.
+El cmdlet devuelve todos los grupos del directorio conectado.
 
 Puede usar el parámetro -objectID si quiere recuperar un grupo específico para el que especifica el id. de objeto del grupo:
 
     PS C:\Windows\system32> get-azureadgroup -ObjectId e29bae11-4ac0-450c-bc37-6dae8f3da61b
 
-El cmdlet devolverá ahora el grupo cuyo id. de objeto coincida con el valor del parámetro especificado:
+El cmdlet devuelve ahora el grupo cuyo id. de objeto coincide con el valor del parámetro especificado:
 
     DeletionTimeStamp            :
     ObjectId                     : e29bae11-4ac0-450c-bc37-6dae8f3da61b
@@ -109,7 +109,8 @@ Puede buscar un grupo específico mediante el parámetro - filter. Este parámet
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-Tenga en cuenta que los cmdlets de Azure AD PowerShell implementan el estándar de consulta OData. Puede obtener más información [aquí](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
+> [!NOTE] 
+> Los cmdlets de Azure AD PowerShell implementan el estándar de consulta de OData. Para obtener más información, consulte **$filter** en [Opciones de la consulta del sistema OData mediante el punto de conexión de OData](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
 
 ## <a name="creating-groups"></a>Creación de grupos
 Para crear un nuevo grupo en el directorio, use el cmdlet New-AzureADGroup. Este cmdlet crea un nuevo grupo de seguridad llamado "Marketing":
@@ -212,23 +213,22 @@ Para agregar propietarios a un grupo, utilice el cmdlet Add-AzureADGroupOwner:
 
 El parámetro -ObjectId es el id. de objeto del grupo al que desea agregar un propietario y RefObjectId es el del usuario que desea agregar como propietario al grupo.
 
-Para recuperar los propietarios de un grupo, utilice Get-AzureADGroupOwner:
+Para recuperar los propietarios de un grupo, utilice el cmdlet Get-AzureADGroupOwner:
 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 
-El cmdlet devolverá la lista de propietarios del grupo especificado:
+El cmdlet devuelve la lista de propietarios del grupo especificado:
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
                           e831b3fd-77c9-49c7-9fca-de43e109ef67 User
 
-Si desea quitar un propietario de un grupo, utilice Remove-AzureADGroupOwner:
+Si desea quitar un propietario de un grupo, utilice el cmdlet Remove-AzureADGroupOwner:
 
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="reserved-aliases"></a>Alias reservados 
-Cuando se crea un grupo, algunos de los puntos de conexión permiten al usuario final especificar un mailNickname o alias que se usarán como parte de la dirección de correo electrónico del grupo.   
-Los grupos con los siguientes alias de correo electrónico con privilegios elevados solo puede crearlos un administrador global de Azure AD. 
+Cuando se crea un grupo, algunos de los puntos de conexión permiten al usuario final especificar un mailNickname o alias que se usarán como parte de la dirección de correo electrónico del grupo. Los grupos con los siguientes alias de correo electrónico con privilegios elevados solo puede crearlos un administrador global de Azure AD. 
   
 * abuse 
 * admin 

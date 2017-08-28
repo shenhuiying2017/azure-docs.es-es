@@ -4,7 +4,7 @@ description: "Este tutorial le guía por los pasos para cargar archivos en una c
 services: media-services
 documentationcenter: 
 author: johndeu
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services

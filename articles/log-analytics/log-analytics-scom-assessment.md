@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 8094f6e619bde8b25323cddb42bc04b1ead62113
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -67,7 +67,7 @@ En la siguiente tabla se muestran los métodos de recopilación de datos de Eval
 
 | plataforma | Agente directo | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |  ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Sí](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | siete días |
+| Windows | | | | &#8226; | | siete días |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Cuentas de ejecución de Operations Manager para OMS
 

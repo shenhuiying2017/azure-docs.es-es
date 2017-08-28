@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: cb36fdd0032d6d3c47e68a782d3bba427fe9fcd5
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de riesgo de Azure Active Directory
@@ -50,7 +50,14 @@ Las continuas inversiones de Microsoft en procesos de detección conducirán a:
 
 ### <a name="leaked-credentials"></a>Credenciales con fugas
 
-Los investigadores de seguridad de Microsoft han encontrado credenciales con fugas publicadas en la Web oscura. Estas credenciales se encuentran normalmente en texto sin formato. Se comprueban con credenciales de Azure AD y, si hay una coincidencia, se notifican como "Credenciales con fugas" en Identity Protection.
+Cuando los cibercriminales llegan a poner en peligro las contraseñas válidas de usuarios legítimos, es frecuente que las compartan. Suelen hacer esto publicándolas en la Web oscura o sitios de pegado, o bien mediante el intercambio o la venta de esas credenciales en el mercado negro. El servicio de filtrado de credenciales de Microsoft adquiere pares de nombre de usuario y contraseña mediante la supervisión de sitios web públicos y de la Web oscura y trabajando en conjunto con:
+
+- Investigadores
+- Autoridades judiciales
+- Equipos de seguridad de Microsoft
+- Otros orígenes de confianza 
+
+Cuando el servicio adquiere pares de nombre de usuario y contraseña, se comprueban con respecto a las credenciales actuales válidas de los usuarios de AAD. Cuando se encuentra una coincidencia, significa que la contraseña de un usuario está en peligro y se crea un *evento de riesgo de credenciales filtradas*.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inicios de sesión desde direcciones IP anónimas
 

@@ -4,7 +4,7 @@ description: "Aprenda a acceder a la API de Azure Media Services con la autentic
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

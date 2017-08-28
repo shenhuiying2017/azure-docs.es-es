@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 045c4cd49e7b7b1e0b02cc7dc6ede636d0622208
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Optimización del entorno de SQL Server con la solución de evaluación de SQL en Log Analytics
@@ -66,7 +66,7 @@ En la siguiente tabla se muestran los métodos de recopilación de datos para ag
 
 | plataforma | Agente directo | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Sí](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![Sí](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![No](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![No](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![Sí](./media/log-analytics-sql-assessment/oms-bullet-green.png) |7 días |
+| Windows | &#8226; | &#8226; |  |  | &#8226; |7 días |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Cuentas de ejecución de Operations Manager para OMS
 Log Analytics en OMS usa el agente y el grupo de administración de Operations Manager para recopilar y enviar datos al servicio de OMS. OMS se basa en paquetes de administración de cargas de trabajo para proporcionar servicios de valor añadido. Cada carga de trabajo requiere privilegios específicos de carga de trabajo para ejecutar paquetes de administración en un contexto de seguridad diferente, como una cuenta de dominio. Debe proporcionar información de credenciales mediante la configuración de una cuenta de ejecución de Operations Manager.

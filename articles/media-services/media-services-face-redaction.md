@@ -4,7 +4,7 @@ description: "Este tema muestra cómo censurar caras con Análisis multimedia de
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
 ms.service: media-services

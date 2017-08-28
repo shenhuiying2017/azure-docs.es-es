@@ -4,7 +4,7 @@ description: "En este tema se describe cómo configurar un canal que recibe una 
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services

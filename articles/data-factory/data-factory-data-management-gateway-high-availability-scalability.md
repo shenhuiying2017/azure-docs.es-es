@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: ed62e35930b64919f4be0f3491f4eda995b81e7f
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: b6bf353a2bad28b0db3a88e971e5c6b209b7ab2b
 ms.contentlocale: es-es
 ms.lasthandoff: 08/10/2017
 
@@ -24,7 +24,9 @@ ms.lasthandoff: 08/10/2017
 Este artículo le ayuda a configurar una solución de alta disponibilidad y escalabilidad con Data Management Gateway.    
 
 > [!NOTE]
-> En este artículo se da por supuesto que ya está familiarizado con los conceptos básicos de Data Management Gateway. Para más información, consulte [Data Management Gateway](data-factory-data-management-gateway.md).  
+> En este artículo se da por supuesto que ya está familiarizado con los conceptos básicos de Data Management Gateway. Para más información, consulte [Data Management Gateway](data-factory-data-management-gateway.md).
+
+>**La versión preliminar de esta característica es compatible oficialmente con Data Management Gateway versión 2.12.xxxx.x y superior**. Asegúrese de que está utilizando la versión 2.12.xxxx.x o superior. Descargue la versión más reciente de Data Management Gateway [aquí](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="overview"></a>Información general
 Puede asociar puertas de enlace de administración de datos instaladas en varios equipos de forma local con una sola puerta de enlace lógica desde el portal. Estos equipos se llaman **nodos**. Puede tener hasta **cuatro nodos** asociados con una puerta de enlace lógica. Las ventajas de tener varios nodos (máquinas locales con la puerta de enlace instalada) para una puerta de enlace lógica son:  
@@ -125,7 +127,7 @@ En esta sección se da por supuesto que ha consultado o está familiarizado con 
 11. Para eliminar un nodo de puerta de enlace, haga clic en **Eliminar nodo** en la barra de herramientas, seleccione el nodo que desea eliminar y, a continuación, haga clic en **Eliminar** desde la barra de herramientas. Esta acción elimina el nodo seleccionado del grupo. Tenga en cuenta que esta acción no desinstala el software de la puerta de enlace de administración de datos del nodo (máquina Windows local). Use **Agregar o quitar programas** de forma local en el Panel de Control para desinstalar la puerta de enlace. Cuando se desinstala la puerta de enlace del nodo, se elimina automáticamente en el portal.   
 
 ## <a name="upgrade-an-existing-gateway"></a>Actualización de una puerta de enlace existente
-Puede actualizar una puerta de enlace existente para usar la característica de alta disponibilidad y escalabilidad. Esta característica solo funciona con los nodos que tengan una versión de Data Management Gateway igual o posterior a la 2.9.xxxx. Puede ver la versión de Data Management Gateway instalada en un equipo en la pestaña **Ayuda** de Configuration Manager de Data Management Gateway. 
+Puede actualizar una puerta de enlace existente para usar la característica de alta disponibilidad y escalabilidad. Esta característica solo funciona con los nodos que tengan una versión de Data Management Gateway igual o posterior a la 2.12.xxxx. Puede ver la versión de Data Management Gateway instalada en un equipo en la pestaña **Ayuda** de Configuration Manager de Data Management Gateway. 
 
 1. Para actualizar la puerta de enlace en el equipo local a la versión más reciente debe descargar y ejecutar un paquete de instalación MSI de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Consulte la sección [Instalación](data-factory-data-management-gateway.md#installation) para más información.  
 2. Acceda a Azure Portal. Abra la página **Factoría de datos** de la factoría de datos. Haga clic en el icono Servicios vinculados para abrir la página **Servicios vinculados**. Seleccione la puerta de enlace para abrir la página **Puerta de enlace**. Haga clic para habilitar la **Característica de versión preliminar** tal como se muestra en la siguiente imagen: 
@@ -193,7 +195,7 @@ Estado  | Comentarios/Escenarios
 En línea | Nodo conectado al servicio Data Factory.
 Sin conexión | El nodo está sin conexión.
 Actualizando | El nodo se está actualizando automáticamente.
-Limitado | Debido a un problema de conectividad. Puede ser debido a un problema en el puerto HTTP 8050, a un problema de conectividad del bus de servicio o un problema de sincronización de credenciales. 
+Limitado | Debido a un problema de conectividad. Puede ser debido a un problema en el puerto HTTP 8050, a un problema de conectividad de Service Bus o un problema de sincronización de credenciales. 
 Inactivo | El nodo tiene una configuración diferente de la configuración de la mayoría de los otros nodos.<br/><br/> Un nodo puede estar inactivo cuando no se puede conectar a otros nodos. 
 
 
@@ -247,3 +249,4 @@ Después de eliminarlo, haga clic en **Característica de versión preliminar** 
 Consulte los artículos siguientes:
 - [Data Management Gateway](data-factory-data-management-gateway.md): ofrece una información general detallada de la puerta de enlace.
 - [Movimiento de datos entre equipos locales y almacenes de datos en la nube](data-factory-move-data-between-onprem-and-cloud.md): contiene un tutorial con instrucciones paso a paso para usar una puerta de enlace con un único nodo. 
+

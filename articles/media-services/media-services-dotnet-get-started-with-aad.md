@@ -4,7 +4,7 @@ description: "En este tema se explica cómo usar la autenticación de Azure Acti
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

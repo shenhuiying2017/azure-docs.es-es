@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 618c6fead3dbad385c4ded39352eea0cfcf1b134
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 1b0d64cd592c4738311797b826e490639340f92a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="create-recovery-plans"></a>Creación de planes de recuperación
@@ -26,7 +26,7 @@ ms.lasthandoff: 06/16/2017
 
 En este artículo se proporciona información sobre cómo crear y personalizar planes de recuperación en [Azure Site Recovery](site-recovery-overview.md).
 
-Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
  Cree planes de recuperación para realizar las siguientes tareas:
 
@@ -44,6 +44,7 @@ Publique cualquier comentario o pregunta que tenga en la parte inferior de este 
     - Para la replicación de VMM en Azure, seleccione **Tipo de origen** > **VMM**.  Seleccione el servidor VMM de origen y **Azure** como destino.
     - Para la replicación de Hyper-V en Azure (sin VMM), seleccione **Tipo de origen** > **Sitio Hyper-V**. Seleccione el sitio como origen y **Azure** como destino.
     - Para la replicación de una máquina virtual de VMware o un servidor local físico en Azure, seleccione un servidor de configuración como origen y **Azure** como destino.
+    - Para un plan de recuperación de Azure en Azure, seleccione una región de Azure como origen y otra secundaria de Azure como destino. Las regiones de Azure secundarias son únicamente aquellas en las que se protegen las máquinas virtuales.
 2. En **Seleccionar máquinas virtuales**, seleccione las máquinas virtuales (o un grupo de replicación) que desee agregar al grupo predeterminado (Grupo 1) del plan de recuperación.
 
 ## <a name="customize-and-extend-recovery-plans"></a>Personalización y extensión de planes de recuperación

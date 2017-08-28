@@ -4,7 +4,7 @@ description: "En este tema se ofrece información general sobre los códecs y fo
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services

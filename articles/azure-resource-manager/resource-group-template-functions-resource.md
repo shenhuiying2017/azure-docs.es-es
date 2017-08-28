@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/09/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 36d2a8f00f9dcb2e1cef103b33973d2bed754cdc
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 494ade55f21c19d9c68d5cc52756528401d9bb77
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
@@ -76,7 +76,9 @@ Otras funciones List tienen diferentes formatos de retorno. Para ver el formato 
 
 ### <a name="remarks"></a>Comentarios
 
-Cualquier operación que comienza por **list** se puede usar como función en la plantilla. Entre las operaciones disponibles se incluyen no solo listKeys, sino también operaciones como `list`, `listAdminKeys` y `listStatus`. Para determinar qué tipos de recursos tienen una operación de lista, dispone de las siguientes opciones:
+Cualquier operación que comienza por **list** se puede usar como función en la plantilla. Entre las operaciones disponibles se incluyen no solo listKeys, sino también operaciones como `list`, `listAdminKeys` y `listStatus`. Sin embargo, no puede usar operaciones **list** que requieren valores en el cuerpo de solicitud. Por ejemplo, la operación [List Account SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) requiere parámetros de cuerpo de solicitud como *signedExpiry*, por lo que no puede usarla dentro de una plantilla.
+
+Para determinar qué tipos de recursos tienen una operación de lista, dispone de las siguientes opciones:
 
 * Vea las [operaciones de API de REST](/rest/api/) para un proveedor de recursos y busque operaciones List. Por ejemplo, las cuentas de almacenamiento tienen una [operación listKeys](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
 * Utilice el cmdlet de PowerShell [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation). En el ejemplo siguiente se obtienen todas las operaciones List para cuentas de almacenamiento:
@@ -280,7 +282,7 @@ El ejemplo anterior devuelve un objeto en el formato siguiente:
 }
 ```
 
-En el ejemplo siguiente se hace referencia a una cuenta de almacenamiento que no se implementa en esta plantilla, pero que existe dentro del mismo grupo de recursos.
+En el ejemplo siguiente se hace referencia a una cuenta de almacenamiento que no se implementa en esta plantilla. La cuenta de almacenamiento ya existe dentro del mismo grupo de recursos.
 
 ```json
 {
@@ -425,7 +427,7 @@ Para obtener el identificador de recurso para una base de datos de un grupo de r
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
-A menudo, necesitará utilizar esta función cuando se usa una cuenta de almacenamiento o red virtual en un grupo de recursos alternativo. La cuenta de almacenamiento o la red virtual puede utilizarse en varios grupos de recursos; por lo tanto, no es deseable su eliminación cuando se elimina un único grupo de recursos. En el ejemplo siguiente se muestra cómo un recurso de un grupo de recursos externos se puede utilizar fácilmente:
+A menudo, necesitará utilizar esta función cuando se usa una cuenta de almacenamiento o red virtual en un grupo de recursos alternativo. En el ejemplo siguiente se muestra cómo un recurso de un grupo de recursos externos se puede utilizar fácilmente:
 
 ```json
 {

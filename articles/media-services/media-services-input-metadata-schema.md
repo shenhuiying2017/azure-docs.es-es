@@ -2,7 +2,7 @@
 title: Esquema de metadatos de entrada de Azure Media Services | Microsoft Docs
 description: "En este tema se proporciona información general sobre el esquema de metadatos de entrada de Azure Media Services."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

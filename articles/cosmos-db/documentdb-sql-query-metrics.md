@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 08/15/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: d8b0bde3778054042c32dbc9c9e08d0b2f1fd3ca
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
 ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
@@ -153,7 +153,7 @@ A continuación se muestran los factores más comunes que afectan al rendimiento
 | Métricas de ejecución de consultas | Analice las métricas de ejecución de consultas para identificar posibles reescrituras de formas de datos y consultas.  |
 
 ### <a name="provisioned-throughput"></a>Rendimiento aprovisionado
-En Cosmos DB, se crean contenedores de datos, cada uno con un rendimiento reservado expresado en unidades de solicitud (RU) por segundo y por minuto. Una lectura de un documento de 1 KB es 1 RU, y cada operación (incluidas las consultas) se normaliza a un número fijo de RU según su complejidad. Por ejemplo, si tiene 1000 RU/s aprovisionadas en su contenedor y tiene una consulta como `SELECT * FROM c WHERE c.city = 'Seattle'` que consume 5 RU, puede realizar entonces (1000 RU/s)/(5 RU/consulta) = 200 consultas/s de estas por segundo. 
+En Cosmos DB, se crean contenedores de datos, cada uno con un rendimiento reservado expresado en unidades de solicitud (RU) por segundo. Una lectura de un documento de 1 KB es 1 RU, y cada operación (incluidas las consultas) se normaliza a un número fijo de RU según su complejidad. Por ejemplo, si tiene 1000 RU/s aprovisionadas en su contenedor y tiene una consulta como `SELECT * FROM c WHERE c.city = 'Seattle'` que consume 5 RU, puede realizar entonces (1000 RU/s)/(5 RU/consulta) = 200 consultas/s de estas por segundo. 
 
 Si envía más de 200 consultas/s, el servicio comienza a limitar la tasa de solicitudes entrantes por encima de 200/s. Los SDK controlan automáticamente este caso mediante la realización de un retroceso/reintento; por lo tanto, podría advertir una latencia más alta con estas consultas. El aumento del rendimiento aprovisionado al valor necesario mejora la latencia de las consultas y el rendimiento. 
 
@@ -174,18 +174,73 @@ Para aprender más sobre la creación de particiones y las claves de particiones
 ### <a name="sdk-and-query-options"></a>SDK y opciones de consulta
 Consulte [Sugerencias de rendimiento](performance-tips.md) y [Prueba de rendimiento](performance-testing.md) para saber cómo obtener el mejor rendimiento del cliente de Azure Cosmos DB. Esto incluye el uso de los SDK más recientes, la configuración de opciones específicas de la plataforma, como el número predeterminado de conexiones, la frecuencia de recolección de elementos no utilizados y el uso de opciones de conectividad ligera, como Direct/TCP. 
 
-Para las consultas, ajuste `MaxBufferedItemCount` y `MaxDegreeOfParallelism` para identificar las mejores configuraciones para su aplicación, en especial si realiza consultas entre particiones (sin un filtro por el valor de clave de partición).
+
+#### <a name="max-item-count"></a>Recuento máximo de elementos
+Para las consultas, el valor de `MaxItemCount` puede tener un impacto significativo en el momento de realizar consultas globales. Cada recorrido de ida y vuelta al servidor devolverá un número de elementos inferior al especificado en `MaxItemCount` (con un valor predeterminado de 100 elementos). Si se establece en un valor más alto (-1 es el máximo y el número recomendado) mejorará la duración total de la consulta limitando el número de recorridos de ida y vuelta entre el servidor y cliente, especialmente en aquellas consultas con grandes conjuntos de resultados.
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        MaxItemCount = -1, 
+    }).AsDocumentQuery();
+```
+
+#### <a name="max-degree-of-parallelism"></a>Grado máximo de paralelismo
+Para las consultas, ajuste `MaxDegreeOfParallelism` para identificar las mejores configuraciones para su aplicación, en especial si realiza consultas entre particiones (sin un filtro en el valor de clave de partición). `MaxDegreeOfParallelism` controla el número máximo de tareas en paralelo, es decir, el número máximo de particiones que se van a visitar en paralelo. 
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        MaxDegreeOfParallelism = -1, 
+        EnableCrossPartitionQuery = true 
+    }).AsDocumentQuery();
+```
+
+Supongamos que
+* D. = número máximo predeterminado de tareas en paralelo (= número total de procesadores en el equipo cliente)
+* P = número máximo especificado por el usuario de tareas en paralelo
+* N = número de particiones que se necesita visitar para responder a una consulta
+
+A continuación se muestran las distintas implicaciones de cómo se comportarán las consultas en paralelo para valores diferentes de P.
+* (P == 0) => modo serie
+* (P == 1) => un máximo de una tarea
+* (P > 1) => mínimo de tareas en paralelo (P, N) 
+* (P < 1) => mínimo de tareas en paralelo (N, D)
 
 Para acceder a notas de versión de SDK y conocer detalles sobre las clases y los métodos implementados, consulte [SDK de DocumentDB](documentdb-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>Latencia de red
 Para saber cómo configurar la distribución global y conectarse a la región más cercana, consulte [Distribución global de Azure Cosmos DB](tutorial-global-distribution-documentdb.md). La latencia de red tiene un impacto significativo en el rendimiento de consultas cuando es necesario realizar varios recorridos de ida y vuelta o recuperar un gran conjunto de resultados de la consulta. 
 
+La sección sobre métricas de ejecución de consultas explica cómo recuperar el tiempo de ejecución del servidor de consultas ( `totalExecutionTimeInMs`), de modo que pueda diferenciar entre el tiempo invertido en la ejecución de la consulta y el tiempo empleado en el tránsito de la red.
+
 ### <a name="indexing-policy"></a>Directiva de indexación
 Para información sobre las rutas de indexación, las clases y los modos y cómo afectan a la ejecución de consultas, consulte [Configuración de la directiva de indexación](indexing-policies.md). De forma predeterminada, la directiva de indexación usa la indexación de valores hash para las cadenas, que resulta eficaz para las consultas de igualdad, aunque no así para las consultas de intervalo y las consultas ORDER BY. Si tiene consultas de intervalo para las cadenas, se recomienda especificar el tipo de índice de intervalo para todas las cadenas. 
 
 ## <a name="query-execution-metrics"></a>Métricas de ejecución de consultas
 Para obtener métrica detalladas sobre la ejecución de consultas, pase el encabezado opcional `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` en el SDK de .NET). El valor devuelto en `x-ms-documentdb-query-metrics` tiene los siguientes pares de clave-valor pensados para la solución avanzada de problemas de la ejecución de consultas. 
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        PopulateQueryMetrics = true, 
+    }).AsDocumentQuery();
+
+FeedResponse<dynamic> result = await query.ExecuteNextAsync();
+
+// Returns metrics by partition key range Id
+IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
+
+```
 
 | Métrica | Unidad | Descripción | 
 | ------ | -----| ----------- |

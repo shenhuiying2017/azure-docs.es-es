@@ -1,6 +1,6 @@
 ---
-title: "Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones (ASP.NET)"
-description: "Obtenga información acerca de cómo utilizar las plantillas de los Centros de notificaciones para enviar, en una sola solicitud, una notificación independiente de plataforma que tenga como destino todas las plataformas."
+title: "Envío de notificaciones entre plataformas a los usuarios con Notification Hubs (ASP.NET)"
+description: "Obtenga información acerca de cómo utilizar las plantillas de Notification Hubs para enviar, en una sola solicitud, una notificación independiente de plataforma que tenga como destino todas las plataformas."
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,24 +14,27 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0cc620324c75ed6ffee26fe442014d61673ba1e6
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ef971fcfe68978ea9ce0810c69efbe134bb15f8a
+ms.contentlocale: es-es
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones
-En el tutorial anterior, [Notificación a los usuarios con Centros de notificaciones], aprendió a insertar notificaciones en todos los dispositivos que tiene registrado un usuario autenticado específico. En ese tutorial, se necesitaban varias solicitudes para enviar una notificación a cada plataforma de cliente compatible. Los Centros de notificaciones son compatibles con plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Con esto se simplifica el envío de notificaciones entre plataformas. Este tema muestra cómo aprovecha las plantillas para enviar, en una sola solicitud, una notificación independiente de la plataforma que se dirige a todas las plataformas. Para más información sobre las plantillas, vea [Introducción a los Centros de notificaciones de Azure][Plantillas].
+# <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Envío de notificaciones entre plataformas a los usuarios con Notification Hubs
+En el tutorial anterior, [Notificación a los usuarios con Notification Hubs], aprendió a insertar notificaciones en todos los dispositivos que tiene registrado un usuario autenticado específico. En ese tutorial, se necesitaban varias solicitudes para enviar una notificación a cada plataforma de cliente compatible. Notification Hubs es compatible con plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Con esto se simplifica el envío de notificaciones entre plataformas. Este tema muestra cómo aprovecha las plantillas para enviar, en una sola solicitud, una notificación independiente de la plataforma que se dirige a todas las plataformas. Para más información sobre las plantillas, consulte [Introducción a Azure Notification Hubs][Templates].
+> [!IMPORTANT]
+> Los proyectos de Windows Phone 8.1 y versiones anteriores no se admiten en Visual Studio 2017. Para más información, consulte [Compatibilidad y destinatarios de la plataforma de Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 > [!NOTE]
-> Los Centros de notificaciones permiten que un dispositivo registre varias plantillas con la misma etiqueta. En este caso, un mensaje entrante dirigido a esa etiqueta da lugar a que se entreguen varias notificaciones al dispositivo, una por cada plantilla. Esto le permite mostrar el mismo mensaje en varias notificaciones visuales, como distintivo y como notificación del sistema en una aplicación de la Tienda Windows.
+> Notification Hubs permite que un dispositivo registre varias plantillas con la misma etiqueta. En este caso, un mensaje entrante dirigido a esa etiqueta da lugar a que se entreguen varias notificaciones al dispositivo, una por cada plantilla. Esto le permite mostrar el mismo mensaje en varias notificaciones visuales, como distintivo y como notificación del sistema en una aplicación de la Tienda Windows.
 > 
 > 
 
 Lleve a cabo los siguientes pasos para enviar notificaciones entre plataformas mediante plantillas:
 
 1. En el Explorador de soluciones en Visual Studio, expanda la carpeta **Controladores** y, a continuación, abra el archivo RegisterController.cs.
-2. Encuentre el bloque de código en el método **Post**, que crea un registro, y reemplace el contenido del `switch` por el código siguiente:
+2. Encuentre el bloque de código en el método **Put** que crea un registro y reemplace el contenido de `switch` por el código siguiente:
    
         switch (deviceUpdate.Platform)
         {
@@ -74,7 +77,7 @@ Lleve a cabo los siguientes pasos para enviar notificaciones entre plataformas m
             return Request.CreateResponse(HttpStatusCode.OK);
         }
    
-    Este código envía una notificación a todas las plataformas al mismo tiempo y sin que sea necesario especificar una carga nativa. Los Centros de notificaciones crean y entregan la carga correcta a cada dispositivo con el valor de *etiqueta* especificado, como se indica en las plantillas registradas.
+    Este código envía una notificación a todas las plataformas al mismo tiempo y sin que sea necesario especificar una carga nativa. Notification Hubs crea y entrega la carga correcta a cada dispositivo con el valor de *etiqueta* especificado, como se indica en las plantillas registradas.
 4. Publique de nuevo su proyecto de back-end de WebApi.
 5. Ejecute la aplicación cliente otra vez y compruebe que el registro se realice correctamente.
 6. (Opcional) Implemente la aplicación cliente en un segundo dispositivo y, a continuación, ejecute la aplicación.
@@ -82,10 +85,10 @@ Lleve a cabo los siguientes pasos para enviar notificaciones entre plataformas m
     Observe que aparecerá una notificación en cada dispositivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que completó este tutorial, obtenga más información acerca de los Centros de notificaciones y las plantillas en estos temas:
+Ahora que completó este tutorial, obtenga más información acerca de Notification Hubs y las plantillas en estos temas:
 
-* **[Uso de los Centros de notificaciones para enviar noticias de última hora]** <br/>(C# para Tienda Windows / iOS)Muestra otro escenario para el uso de las plantillas
-* **[Introducción a los Centros de notificaciones de Azure][Plantillas]**<br/>Este tema de información general contiene información más detallada sobre las plantillas.
+* **[Uso de Notification Hubs para enviar noticias de última hora]** <br/>(C# para Tienda Windows / iOS)Muestra otro escenario para el uso de las plantillas
+* **[Introducción a Azure Notification Hubs][Templates]**<br/>Este tema de información general contiene información más detallada sobre las plantillas.
 
 <!-- Anchors. -->
 
@@ -95,18 +98,13 @@ Ahora que completó este tutorial, obtenga más información acerca de los Centr
 
 
 <!-- URLs. -->
-[Inserción a usuarios de ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Inserción a usuarios de Mobile Services]: /manage/services/notification-hubs/notify-users/
-[Visual Studio 2012 Express para Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
+[Push to users ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Push to users Mobile Services]: /manage/services/notification-hubs/notify-users/
+[Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Centros de notificaciones de Microsoft Azure]: http://go.microsoft.com/fwlink/p/?LinkId=314257
-[Notificación a los usuarios con Centros de notificaciones]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Plantillas]: http://go.microsoft.com/fwlink/p/?LinkId=317339
-[Procedimientos del Centro de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Uso de Notification Hubs para enviar noticias de última hora]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
+[Notificación a los usuarios con Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
+[Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 

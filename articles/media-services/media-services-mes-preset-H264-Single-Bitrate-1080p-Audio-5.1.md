@@ -2,7 +2,7 @@
 title: H264 Single Bitrate 1080p Audio 5.1 | Microsoft Docs
 description: "El tema proporciona información general sobre el valor predeterminado de tarea **H264 Single Bitrate 1080p Audio 5.1**."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

@@ -4,7 +4,7 @@ description: "Este tutorial lo guiará a través de los pasos de supervisión de
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: bb4e3ee3-1ab9-46d0-9ae7-848d945bc0b8
 ms.service: media-services

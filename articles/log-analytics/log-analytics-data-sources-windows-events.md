@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 08/15/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 1cdaa8c4bf511a07383023f1baf79449ef7fdd35
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 1be8500ec2cb78ef0edf57f4d8561336cf00ebcb
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Orígenes de datos de registros de eventos de Windows en Log Analytics
@@ -38,7 +38,9 @@ A medida que escribe el nombre de un registro de eventos, Log Analytics da suger
 ## <a name="data-collection"></a>Colección de datos
 Log Analytics recopila cada evento que coincide con una gravedad seleccionada de un registro de eventos supervisado al crear el evento.  El agente registra su lugar en cada registro de eventos del que recopila entradas.  Si el agente queda sin conexión durante un período, Log Analytics recopila los eventos desde donde quedó, aunque esos eventos se hayan creado mientras el agente estaba sin conexión.  Sin embargo, existe la posibilidad de que estos eventos no se recopilen si el registro de eventos hace que los eventos no recopilados se sobrescriban mientras el agente está sin conexión.
 
-
+>[!NOTE]
+>Log Analytics no recopila eventos de auditoría creados por SQL Server del origen *MSSQLSERVER* con Id. de evento 18453 que contengan palabras clave *Classic* o *Audit Success* y la palabra clave *0xa0000000000000*.
+>
 
 ## <a name="windows-event-records-properties"></a>Propiedades de los registros de eventos de Windows
 Los registros de eventos de Windows tienen un tipo **Event** y las propiedades que aparecen en la tabla siguiente:

@@ -4,7 +4,7 @@ description: En este tema se describen las cuotas y limitaciones relacionadas co
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: d4c43afd-dba8-40a2-ad92-6de54152f7ec
 ms.service: media-services

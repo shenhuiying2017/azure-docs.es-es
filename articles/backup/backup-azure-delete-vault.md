@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/21/2017
+ms.date: 08/11/2017
 ms.author: markgal;trinadhk
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: e72ccd2efc271956c688e70804cef915c257a2e3
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
 ms.contentlocale: es-es
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
@@ -27,14 +27,14 @@ El servicio Azure Backup tiene dos tipos de almacenes: el almacén de Backup y e
 | **Tipo de implementación** | **Portal** | **Nombre del almacén** |
 | --- | --- | --- |
 | Clásico |Clásico |Almacén de copia de seguridad |
-| Resource Manager |Las tablas de Azure |Almacén de Servicios de recuperación |
+| Resource Manager |Las tablas de Azure |Almacén de Recovery Services |
 
 > [!NOTE]
 > Los almacenes de copia de seguridad no pueden proteger soluciones implementadas con Resource Manager. Sin embargo, puede usar un almacén de Recovery Services para proteger los servidores y las máquinas virtuales implementados con el modelo clásico.  
 >
 
 > [!IMPORTANT]
-> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **A partir del 1 de noviembre de 2017**:
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **15 de octubre de 2017**, ya no podrá usar PowerShell para crear almacenes de Backup. <br/> **A partir del 1 de noviembre de 2017**:
 >- Los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
 >- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 >
@@ -53,11 +53,11 @@ Si ya tiene abierto el almacén de Recovery Services, vaya al segundo paso.
 
 1. Abra Azure Portal y, desde el panel, abra el almacén que desea eliminar.
 
-   Si el almacén de Recovery Services no está anclado al panel, en el menú Concentrador, haga clic en **Más servicios** y, en la lista de recursos, escriba **Recovery Services**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de Servicios de recuperación**.
+   Si el almacén de Recovery Services no está anclado al panel, en el menú Concentrador, haga clic en **Más servicios** y, en la lista de recursos, escriba **Recovery Services**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de Recovery Services**.
 
-   ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
+   ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   Se muestra la lista de almacenes de Servicios de recuperación. En la lista, seleccione el almacén que desea eliminar.
+   Se muestra la lista de almacenes de Recovery Services. En la lista, seleccione el almacén que desea eliminar.
 
    ![elegir el almacén en la lista](./media/backup-azure-work-with-vaults/choose-vault-to-delete.png)
 2. En la vista de almacén, examine el panel **Essentials** . Para eliminar un almacén, no puede haber ningún elemento protegido. Si ve un número que no sea cero en **Elementos de copia de seguridad** o en **Servidores de administración de copias de seguridad**, debe quitar estos elementos para poder eliminar el almacén.

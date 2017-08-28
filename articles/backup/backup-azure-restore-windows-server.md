@@ -12,18 +12,18 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2017
+ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: d8a85da4c929180c7ca52a19724d2be702fe3e9c
-ms.openlocfilehash: db71f7ea9561542fe9b579bf471cf2b81f5997cd
-ms.lasthandoff: 02/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 231dd61f95267b3a504ed70e9b3a5abc470b69b2
+ms.contentlocale: es-es
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restauración de archivos en un equipo de Windows Server o cliente de Windows mediante el modelo de implementación de Resource Manager
 > [!div class="op_single_selector"]
-> * [Portal de Azure](backup-azure-restore-windows-server.md)
+> * [Azure Portal](backup-azure-restore-windows-server.md)
 > * [Portal clásico](backup-azure-restore-windows-server-classic.md)
 >
 >
@@ -33,7 +33,7 @@ En este artículo se explica cómo restaurar datos a partir de un almacén de co
 * La restauración de datos en la misma máquina desde la cual se realizaron las copias de seguridad.
 * Restaurar datos en una máquina alternativa.
 
-En enero de 2017, Microsoft publicó una actualización de versión previa para el agente de MARS. Además de las correcciones de errores, esta actualización permite restaurar de forma instantánea, lo que permite montar una instantánea de punto de recuperación grabable como un volumen de recuperación. Después, puede explorar el volumen y copiar archivos de recuperación en un equipo local, por tanto, restaurando los archivos de forma selectiva.
+En enero de 2017, Microsoft publicó una actualización de versión preliminar para el agente de MARS. Además de las correcciones de errores, esta actualización permite restaurar de forma instantánea, lo que permite montar una instantánea de punto de recuperación grabable como un volumen de recuperación. Después, puede explorar el volumen y copiar archivos de recuperación en un equipo local, por tanto, restaurando los archivos de forma selectiva.
 
 > [!NOTE]
 > Se necesita la [actualización de enero de 2017 de Azure Backup](https://support.microsoft.com/en-us/help/3216528?preview) si desea utilizar la restauración instantánea para restaurar datos. También se deben proteger los datos de copia de seguridad en los almacenes en configuraciones regionales que aparecen en el artículo de soporte técnico. Consulte la [actualización de Azure Backup de enero de 2017](https://support.microsoft.com/en-us/help/3216528?preview) para obtener la lista más reciente de configuraciones regionales que admitan la restauración instantánea. La restauración instantánea **no** está actualmente disponible en todas las configuraciones regionales.
@@ -43,43 +43,11 @@ La restauración instantánea está disponible en los almacenes de Recovery Serv
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="recover-data-to-the-same-machine"></a>Recuperar los datos en la misma máquina
-Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máquina (desde la que se realizó la copia de seguridad), los pasos siguientes le ayudarán a recuperar esos datos.
-
-1. Abra el complemento **Copia de seguridad de Microsoft Azure** .
-2. Haga clic en **Recuperar datos** para iniciar el flujo de trabajo.
-
-    ![Recuperar datos](./media/backup-azure-restore-windows-server/recover.png)
-3. Seleccione la opción **Este servidor (*nombreDeLaMáquina*)**, para restaurar en la misma máquina el archivo del que ha creado una copia de seguridad.
-
-    ![Misma máquina](./media/backup-azure-restore-windows-server/samemachine.png)
-4. Elija entre **Examinar archivos** o **Buscar archivos**.
-
-    Deje la opción predeterminada si va a restaurar uno o varios archivos cuya ruta de acceso se conoce. Si no está seguro de la estructura de carpetas pero desea buscar un archivo, escoja la opción **Buscar archivos** . En esta sección, se continuará con la opción predeterminada.
-
-    ![Examinar archivos](./media/backup-azure-restore-windows-server/browseandsearch.png)
-5. Seleccione el volumen desde el que desea restaurar el archivo.
-
-    Puede realizar la restauración a un momento dado. Las fechas que aparecen en **negrita** en el control del calendario indican la disponibilidad de un punto de restauración. Una vez seleccionada una fecha, según su programación de copia de seguridad (y el éxito que haya tenido al realizar una operación de copia de seguridad), puede seleccionar un momento dato en el menú desplegable **Tiempo** .
-
-    ![Fecha y volumen](./media/backup-azure-restore-windows-server/volanddate.png)
-6. Seleccione los elementos que desea recuperar. Puede seleccionar varias carpetas y archivos para restaurar.
-
-    ![Seleccionar archivos](./media/backup-azure-restore-windows-server/selectfiles.png)
-7. Especifique los parámetros de recuperación.
-
-    ![Opciones de recuperación](./media/backup-azure-restore-windows-server/recoveroptions.png)
-
-   * Tiene la opción de restaurar en la ubicación original (en la que la carpeta o el archivos se sobrescribirán) o en otra ubicación en la misma máquina.
-   * Si el archivo o carpeta que desea restaurar existe en la ubicación de destino, tiene la opción de crear copias (dos versiones del mismo archivo), sobrescribir los archivos en la ubicación de destino u omitir la recuperación de los archivos que existen en el destino.
-   * Se recomienda que deje la opción predeterminada de la restauración de las ACL en los archivos que se está recuperando.
-8. Una vez proporcionadas estas entradas, haga clic en **Siguiente**. El flujo de trabajo de recuperación que se encarga de restaurar los archivos de la máquina, se iniciará.
-
 ## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>Uso de la restauración instantánea para recuperar datos en la misma máquina
 
 Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máquina (desde la que se realizó la copia de seguridad), los pasos siguientes le ayudarán a recuperar esos datos.
 
-1. Abra el complemento **Copia de seguridad de Microsoft Azure** . Si no conoce la ubicación donde se instaló el complemento, busque el equipo o servidor para **Microsoft Azure Backup**.
+1. Abra el complemento **Microsoft Azure Backup** . Si no conoce la ubicación donde se instaló el complemento, busque el equipo o servidor para **Microsoft Azure Backup**.
 
     La aplicación de escritorio debe aparecer en los resultados de búsqueda.
 
@@ -119,53 +87,12 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
     ![Desmontaje del volumen y confirmación](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Si no hace clic en Desmontar, el volumen de recuperación permanecerá montado durante seis horas desde el momento en el que se montó. No se ejecutará ninguna operación de copia de seguridad mientras el volumen esté montado. Cualquier operación de copia de seguridad programada para ejecutarse durante el tiempo en el que el volumen está montado, se ejecutará después de desmontar el volumen de recuperación.
+    > Si no hace clic en Desmontar, el volumen de recuperación permanecerá montado durante seis horas desde el momento en el que se montó. Sin embargo, el tiempo de montaje se puede extender hasta 24 horas en el caso de una copia de archivos en curso. No se ejecutará ninguna operación de copia de seguridad mientras el volumen esté montado. Cualquier operación de copia de seguridad programada para ejecutarse durante el tiempo en el que el volumen está montado, se ejecutará después de desmontar el volumen de recuperación.
     >
-
-## <a name="recover-to-an-alternate-machine"></a>Recuperar en una máquina alternativa
-
-Si ha perdido todo el servidor, todavía puede recuperar los datos de la Copia de seguridad de Azure en una máquina diferente. Los pasos siguientes muestran el flujo de trabajo.  
-
-La terminología usada en estos pasos incluye:
-
-- *Máquina de origen* : es la máquina original desde la que se realizó la copia de seguridad y que no está disponible actualmente.
-- *Máquina de destino* : es la máquina en la que se recuperan los datos.
-- *Almacén de ejemplo*: almacén de copia de seguridad en el que se registran la *máquina de origen* y la *máquina de destino*. <br/>
-
-> [!NOTE]
-> No se pueden restaurar copias de seguridad realizadas desde una máquina en una máquina que está ejecutando una versión anterior del sistema operativo. Por ejemplo, si se realizan copias de seguridad de una máquina con Windows 7, esta puede restaurarse en un Windows 8 o una máquina con una versión superior. Sin embargo, la acción a la inversa no está asegurada.
->
->
-
-1. Abra el complemento **Copia de seguridad de Microsoft Azure** en la *Máquina de destino*.
-2. Asegúrese de que tanto la *Máquina de destino* como la *Máquina de origen* están registradas en el mismo almacén de copia de seguridad.
-3. Haga clic en **Recuperar datos** para iniciar el flujo de trabajo.
-
-    ![Recuperar datos](./media/backup-azure-restore-windows-server-classic/recover.png)
-4. Seleccione **Otro servidor**
-
-    ![Otro servidor](./media/backup-azure-restore-windows-server-classic/anotherserver.png)
-5. Proporcione el archivo de credenciales de almacén que se corresponde con el *Almacén de ejemplo*. Si el archivo de credenciales de almacén no es válido (o ha expirado), descargue un nuevo archivo de credenciales de almacén desde el *almacén de ejemplo* en el Portal de Azure clásico. Una vez que se proporciona el archivo de almacén de credenciales, se muestra el almacén de copia de seguridad en el archivo de almacén de credenciales.
-6. Seleccione la *Máquina de origen* en la lista de máquinas mostradas.
-
-    ![Lista de máquinas](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-7. Seleccione la opción **Buscar archivos** o **Examinar archivos**. En esta sección, usaremos la opción **Buscar archivos** .
-
-    ![Search](./media/backup-azure-restore-windows-server-classic/search.png)
-8. Seleccione el volumen y la fecha en la pantalla siguiente. Busque el nombre de la carpeta o el archivo que desea restaurar.
-
-    ![Buscar artículos](./media/backup-azure-restore-windows-server-classic/searchitems.png)
-9. Seleccione la ubicación en la que se deben restaurar los archivos.
-
-    ![Restaurar ubicación](./media/backup-azure-restore-windows-server-classic/restorelocation.png)
-10. Proporcione la frase de contraseña de cifrado que se proporcionó durante el registro de la *Máquina de origen* en el *Almacén de ejemplo*.
-
-    ![Cifrado](./media/backup-azure-restore-windows-server-classic/encryption.png)
-11. Una vez especificada la entrada, haga clic en **Recuperar**, para desencadenar la restauración de los archivos con copia de seguridad en el destino proporcionado.
 
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Uso de restauración instantánea para restaurar datos en una máquina alternativa
-Si ha perdido todo el servidor, todavía puede recuperar los datos de la Copia de seguridad de Azure en una máquina diferente. Los pasos siguientes muestran el flujo de trabajo.
+Si ha perdido todo el servidor, todavía puede recuperar los datos de Azure Backup en una máquina diferente. Los pasos siguientes muestran el flujo de trabajo.
 
 
 La terminología usada en estos pasos incluye:
@@ -179,7 +106,7 @@ La terminología usada en estos pasos incluye:
 >
 >
 
-1. Abra el complemento **Copia de seguridad de Microsoft Azure** en la *Máquina de destino*.
+1. Abra el complemento **Microsoft Azure Backup** en la *Máquina de destino*.
 
 2. Asegúrese de que tanto la *máquina de destino* como la *máquina de origen* están registradas en el mismo almacén de Recovery Services.
 
@@ -194,6 +121,7 @@ La terminología usada en estos pasos incluye:
 5. Proporcione el archivo de credenciales de almacén que se corresponde con el *Almacén de ejemplo* y haga clic en **Siguiente**.
 
     Si el archivo de credenciales de almacén no es válido (o ha expirado), descargue un nuevo archivo de credenciales de almacén desde el *Almacén de ejemplo* en Azure Portal. Cuando proporcione una credencial de almacén válida, aparecerá el nombre del almacén de copia de seguridad correspondiente.
+
 
 6. En el panel **Seleccionar servidor de copia de seguridad**, seleccione la *máquina de origen* en la lista de máquinas mostradas y proporcione la frase de contraseña. A continuación, haga clic en **Siguiente**.
 
@@ -224,8 +152,35 @@ La terminología usada en estos pasos incluye:
     ![Cifrado](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > Si no hace clic en Desmontar, el volumen de recuperación permanecerá montado durante seis horas desde el momento en el que se montó. No se ejecutará ninguna operación de copia de seguridad mientras el volumen esté montado. Cualquier operación de copia de seguridad programada para ejecutarse durante el tiempo en el que el volumen está montado, se ejecutará después de desmontar el volumen de recuperación.
+    > Si no hace clic en Desmontar, el volumen de recuperación permanecerá montado durante seis horas desde el momento en el que se montó. Sin embargo, el tiempo de montaje se puede extender hasta 24 horas en el caso de una copia de archivos en curso. No se ejecutará ninguna operación de copia de seguridad mientras el volumen esté montado. Cualquier operación de copia de seguridad programada para ejecutarse durante el tiempo en el que el volumen está montado, se ejecutará después de desmontar el volumen de recuperación.
     >
+
+## <a name="troubleshooting"></a>Solución de problemas
+Si Azure Backup no monta correctamente el volumen de recuperación incluso después de varios minutos de hacer clic en **Montar** o no se puede montar el volumen de recuperación con uno o varios errores, siga los pasos siguientes para empezar a realizar la recuperación normalmente.
+
+1.  Cancele el proceso de montaje en curso en caso de que se haya estado ejecutando durante varios minutos.
+
+2.  Asegúrese de que se encuentra en la versión más reciente del agente de Azure Backup. Para averiguar la información de versión del agente de Azure Backup, haga clic en **Acerca del agente de Microsoft Azure Recovery Services** en el panel **Acciones** de la consola de Microsoft Azure Backup y asegúrese de que el número de la **versión** es igual o mayor al de la versión mencionada en [este artículo](https://go.microsoft.com/fwlink/?linkid=229525). Puede descargar la versión más reciente [aquí](https://go.microsoft.com/fwLink/?LinkID=288905).
+
+3.  Vaya al **Administrador de dispositivos** -> **Controladores de almacenamiento** y asegúrese de que puede encontrar el **iniciador iSCSI de Microsoft**. Si es así, vaya directamente al paso 7 a continuación. 
+
+4.  Si no encuentra el servicio del iniciador iSCSI de Microsoft como se mencionó en el paso 3, compruebe si puede encontrar una entrada en **Administrador de dispositivos** -> **Controladores de almacenamiento** denominada **Dispositivo desconocido** con el identificador de hardware **ROOT\ISCSIPRT**.
+
+5.  Haga clic con el botón derecho en **Dispositivo desconocido** y seleccione **Actualizar software de controlador**.
+
+6.  Actualice el controlador. Para ello, seleccione la opción **Buscar software de controlador actualizado automáticamente**. Al finalizar la actualización **Dispositivo desconocido** debería pasar a **Iniciador iSCSI de Microsoft** tal y como se muestra a continuación. 
+
+    ![Cifrado](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
+
+7.  Vaya a **Administrador de tareas** -> **Servicios (local)** -> **Servicio del iniciador iSCSI de Microsoft**. 
+
+    ![Cifrado](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
+    
+8.  Reinicie el servicio del iniciador iSCSI de Microsoft haciendo clic con el botón derecho en el servicio, después en **Detener** y, finalmente, haga clic con el botón derecho de nuevo y seleccione **Iniciar**.
+
+9.  Vuelva a intentar la recuperación mediante la restauración instantánea. 
+
+Si la recuperación sigue sin funcionar, reinicie el cliente y el servidor. Si no es recomendable reiniciar el equipo o la recuperación sigue sin funcionar incluso después de reiniciar el servidor, intente recuperar desde una máquina alternativa y póngase en contacto con el soporte técnico de Azure. Para ello, vaya a [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) y envíe una solicitud de soporte técnico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Ahora que ha recuperado los archivos y las carpetas, puede [administrar las copias de seguridad](backup-azure-manage-windows-server.md).

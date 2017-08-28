@@ -1,4 +1,24 @@
+---
+title: "Introducción a iOS en Azure AD v2: configuración | Microsoft Docs"
+description: "Cómo pueden llamar las aplicaciones de iOS (Swift) a una API que requiera tokens de acceso mediante el punto de conexión de Azure Active Directory v2"
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 8a4f412102c0e75654030f5d4f8aab575fdcebba
+ms.contentlocale: es-es
 
+---
 ## <a name="create-an-application-express"></a>Creación de una aplicación (proceso rápido)
 Ahora tiene que registrar la aplicación en el *Portal de registro de aplicaciones de Microsoft*:
 1. Registre la aplicación en el [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure).
@@ -12,7 +32,7 @@ Ahora tiene que registrar la aplicación en el *Portal de registro de aplicacion
 2.  Escriba el nombre de la aplicación y su correo electrónico.
 3.  Asegúrese de que está desactivada la opción de configuración paso a paso.
 4.  Haga clic en `Add Platform`, seleccione `Native Application` y haga clic en `Save`.
-5.  Vuelva a Xcode. En `ViewController.swift`, reemplace la línea que empieza por '`let kClientID`' por el identificador de aplicación que acaba de registrar:
+5.  Vuelva a Xcode. En `ViewController.swift`, reemplace la línea que empieza por “`let kClientID`” por el identificador de aplicación que acaba de registrar:
 
 ```swift
 let kClientID = "Your_Application_Id_Here"
@@ -49,3 +69,4 @@ Agregue lo siguiente bajo el nodo raíz <code>dict</code>:
 Reemplace <i><code>[Your_Application_Id_Here]</code></i> por el identificador de aplicación que acaba de registrar.
 </li>
 </ol>
+

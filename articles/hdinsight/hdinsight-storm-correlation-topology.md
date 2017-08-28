@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
+ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 2d35232cdb9d7076c27e98f7c2300ec910479e8d
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 06630096383601e48e8f69f8553314cee42f5f3e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Correlación de eventos que llegan a diferentes horas con Storm y HBase
@@ -35,8 +35,8 @@ En este documento, obtendrá información sobre cómo crear una topología bási
 
 * Apache Storm en clústeres de HDInsight (Windows)
 
-  > [!IMPORTANT]
-  > Aunque se admiten topologías SCP.NET en clústeres de Storm basados en Linux creados después del 28/10/2016, el SDK de HBase para el paquete de .NET disponible a partir del 28/10/2016 no funciona correctamente en Linux.
+  > [!WARNING]
+  > Aunque se admiten topologías SCP.NET en clústeres de Storm basados en Linux creados después del 28/10/2016, el SDK de HBase para el paquete de .NET disponible a partir del 28/10/2016 no funciona correctamente en HDInsight basado en Linux
 
 * Apache HBase en un clúster de HDInsight (basado en Linux o Windows).
 

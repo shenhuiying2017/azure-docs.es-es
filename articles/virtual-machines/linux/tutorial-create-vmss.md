@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 08/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: fceaf1b1d1c243ef8cff6ba6b188bb66514d0591
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 2b8d519e11f70eda164bd8f6e131a3989f242ab0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -49,7 +49,9 @@ Los conjuntos de escalado admiten hasta 1000 máquinas virtuales cuando se usa u
 ## <a name="create-an-app-to-scale"></a>Creación de una aplicación para escalar
 Para su uso en producción, puede que desee [crear una imagen de máquina virtual personalizada](tutorial-custom-images.md) que incluya la instalación y configuración de la aplicación. En este tutorial, vamos a personalizar las máquinas virtuales del primer arranque para ver rápidamente un conjunto de escalado en funcionamiento.
 
-En un tutorial anterior, aprendió [cómo personalizar una máquina virtual Linux en el primer arranque](tutorial-automate-vm-deployment.md) con cloud-init. Pues bien, el mismo archivo de configuración cloud-init puede usarlo para instalar NGINX y ejecutar una aplicación sencilla Node.js "Hello World". Cree un archivo denominado *cloud-init.txt* y pegue la siguiente configuración:
+En un tutorial anterior, aprendió [cómo personalizar una máquina virtual Linux en el primer arranque](tutorial-automate-vm-deployment.md) con cloud-init. Pues bien, el mismo archivo de configuración cloud-init puede usarlo para instalar NGINX y ejecutar una aplicación sencilla Node.js "Hello World". 
+
+En el shell actual, cree un archivo denominado "*cloud-init.txt*" y pegue la siguiente configuración. Por ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Escriba `sensible-editor cloud-init.txt` para crear el archivo y ver una lista de editores disponibles. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
 
 ```yaml
 #cloud-config
@@ -107,14 +109,14 @@ Ahora, cree un conjunto de escalado de máquinas virtuales con [az vmss create](
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
   --generate-ssh-keys      
 ```
 
-Se tardan unos minutos en crear y configurar todos los recursos de conjunto de escalado y máquinas virtuales.
+Se tardan unos minutos en crear y configurar todos los recursos de conjunto de escalado y máquinas virtuales. Hay tareas en segundo plano que continúan ejecutándose después de que la CLI de Azure vuelve a abrir el símbolo del sistema. Es posible que tenga que esperar otros dos minutos antes de poder acceder a la aplicación.
 
 
 ## <a name="allow-web-traffic"></a>Permitir tráfico web
@@ -215,14 +217,14 @@ Para crear un conjunto de escalado y conectar discos de datos, agregue el parám
 
 ```azurecli-interactive 
 az vmss create \
-  --resource-group myResourceGroupScaleSet \
-  --name myScaleSetDisks \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
-  --upgrade-policy-mode automatic \
-  --custom-data cloud-init.txt \
-  --admin-username azureuser \
-  --generate-ssh-keys \
-  --data-disk-sizes-gb 50
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSetDisks \
+    --image UbuntuLTS \
+    --upgrade-policy-mode automatic \
+    --custom-data cloud-init.txt \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --data-disk-sizes-gb 50
 ```
 
 Cuando se quitan las instancias de un conjunto de escalado, también se quitan los discos de datos conectados.
@@ -231,10 +233,10 @@ Cuando se quitan las instancias de un conjunto de escalado, también se quitan l
 Para agregar un disco de datos a las instancias en el conjunto de escalado, use [az vmss disk attach](/cli/azure/vmss/disk#attach). En el ejemplo siguiente se agrega un disco de *50* Gb a cada instancia:
 
 ```azurecli-interactive 
-az vmss disk attach `
-    --resource-group myResourceGroupScaleSet `
-    --name myScaleSet `
-    --size-gb 50 `
+az vmss disk attach \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet \
+    --size-gb 50 \
     --lun 2
 ```
 
@@ -242,9 +244,9 @@ az vmss disk attach `
 Para quitar un disco de datos a las instancias en el conjunto de escalado, use [az vmss disk detach](/cli/azure/vmss/disk#detach). En el ejemplo siguiente se quita el disco de datos en el LUN *2* de cada instancia:
 
 ```azurecli-interactive 
-az vmss disk detach `
-    --resource-group myResourceGroupScaleSet `
-    --name myScaleSet `
+az vmss disk detach \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet \
     --lun 2
 ```
 

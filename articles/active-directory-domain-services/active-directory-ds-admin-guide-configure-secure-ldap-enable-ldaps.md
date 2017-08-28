@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9ee64be31e043660aa71999acaf305b83fb15d2c
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 3b19f078b0d6dc3e02d951014056406fd1b099a8
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configuración de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Asegúrese de que ha completado [Tarea 2: Exportación del certificado LDAP seguro a un archivo .PFX](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
+Asegúrese de que ha completado la [Tarea 2: Exportación del certificado LDAP seguro a un archivo .PFX](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md).
 
 Elija si usar la experiencia de Azure Portal (versión preliminar) o el portal de Azure clásico para completar esta tarea.
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Realice los siguientes pasos de configuración para habilitar LDAP seguro:
 
 1. Vaya a **[Azure Portal](https://portal.azure.com)**.
 
-2. Busque 'servicios de dominio de' en el cuadro de búsqueda **Buscar recursos**. En el resultado de la búsqueda, seleccione **Azure AD Domain Services**. La hoja **Azure AD Domain Services** mostrará el dominio administrado.
+2. Busque “servicios de dominio” en el cuadro de búsqueda **Buscar recursos**. En el resultado de la búsqueda, seleccione **Azure AD Domain Services**. La hoja **Azure AD Domain Services** mostrará el dominio administrado.
 
     ![Búsqueda del dominio administrado aprovisionado](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
@@ -103,13 +103,13 @@ Eso es todo: ya está listo para conectarse al dominio administrado mediante LDA
 
 Antes de comenzar esta tarea, asegúrese de haber completado los pasos que se describen en la [tarea 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview).
 
-La exposición del dominio administrado para el acceso LDAPS a través de Internet representa una amenaza de seguridad. Se puede alcanzar el dominio administrado desde Internet en el puerto usado para LDAP seguro (esto es, el puerto 636). Por lo tanto, puede elegir restringir el acceso al dominio administrado para direcciones IP conocidas específicas. Para obtener una seguridad mejorada, cree un grupo de seguridad de red (NSG) y asócielo con la red virtual.
+La exposición del dominio administrado para el acceso LDAPS a través de Internet representa una amenaza de seguridad. Se puede alcanzar el dominio administrado desde Internet en el puerto usado para LDAP seguro (es decir, el puerto 636). Por lo tanto, puede elegir restringir el acceso al dominio administrado a direcciones IP conocidas específicas. Para mejorar la seguridad, cree un grupo de seguridad de red (NSG) y asócielo a la subred en la que habilitó Azure AD Domain Services.
 
-En la siguiente tabla se muestra un NSG de ejemplo que puede configurar para bloquear el acceso de LDAP seguro a través de Internet. NSG contiene un conjunto de reglas que permiten el acceso de LDAPS de entrada a través del puerto TCP 636 solo desde un conjunto especificado de direcciones IP. La regla predeterminada 'DenyAll' se aplica a todo el tráfico de entrada de Internet. La regla NSG para permitir el acceso LDAPS a través de Internet a partir de direcciones IP especificadas tiene una prioridad mayor que la regla NSG DenyAll.
+En la siguiente tabla se muestra un NSG de ejemplo que puede configurar para bloquear el acceso LDAP seguro a través de Internet. NSG contiene un conjunto de reglas que permiten el acceso LDAPS de entrada a través del puerto TCP 636 solo desde un conjunto especificado de direcciones IP. La regla predeterminada “DenyAll” se aplica a todo el tráfico de entrada de Internet. La regla NSG para permitir el acceso LDAPS a través de Internet desde direcciones IP especificadas tiene una prioridad mayor que la regla NSG DenyAll.
 
-![NSG de muestra para el acceso de LDAPS seguro a través de Internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![NSG de muestra para el acceso LDAPS seguro a través de Internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**Más información** - [Creación de un grupo de seguridad de red](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**Más información** - [Grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
 
 <br>
 
@@ -117,4 +117,6 @@ En la siguiente tabla se muestra un NSG de ejemplo que puede configurar para blo
 * [Introducción a Azure AD Domain Services](active-directory-ds-getting-started.md)
 * [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 * [Administración de directiva de grupo en un dominio administrado de Azure AD Domain Services](active-directory-ds-admin-guide-administer-group-policy.md)
+* [Grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md)
+* [Creación de un grupo de seguridad de red](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 

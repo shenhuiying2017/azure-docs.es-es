@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: dda5ea77b35fa8491128135ea7709016781f2aea
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 631f9794994530092d05a33b06ebf8c07f331649
 ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -48,6 +48,13 @@ Antes de empezar este tutorial:
 - Cree un clúster de Windows Service Fabric en Azure (por ejemplo, [siguiendo este tutorial](service-fabric-tutorial-create-cluster-azure-ps.md)).
 - Cree una [cuenta de Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
+## <a name="download-the-voting-sample-application"></a>Descarga de la aplicación de ejemplo de votación
+Si no compiló la aplicación de ejemplo de votación en la [primera parte de esta serie de tutoriales](service-fabric-tutorial-create-dotnet-app.md), puede descargarla. En una ventana Comandos, ejecute el comando siguiente para clonar el repositorio de la aplicación de ejemplo en la máquina local.
+
+```
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
+```
+
 ## <a name="prepare-a-publish-profile"></a>Preparar un perfil de publicación
 Ahora que ha [creado una aplicación](service-fabric-tutorial-create-dotnet-app.md) y ha [implementado la aplicación en Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), ya puede configurar la integración continua.  En primer lugar, prepare un perfil de publicación en la aplicación que se use durante el proceso de implementación que se ejecuta en Team Services.  El perfil de publicación debe configurarse para que tenga como destino el clúster que ha creado antes.  Inicie Visual Studio y abra un proyecto de aplicación existente de Service Fabric.  En el **Explorador de soluciones**, haga clic con el botón derecho en la aplicación y seleccione **Publicar...**.
 
@@ -71,47 +78,44 @@ Compruebe su correo electrónico y seleccione su cuenta en la lista desplegable 
 La publicación del repositorio crea un proyecto de equipo en su cuenta con el mismo nombre que el repositorio local. Para crear el repositorio en un proyecto de equipo existente, haga clic en **Avanzado**, junto al nombre del **repositorio**, y seleccione un proyecto de equipo. Puede ver el código en la web seleccionando **Ver en la web**.
 
 ## <a name="configure-continuous-delivery-with-vsts"></a>Configurar la entrega continua con VSTS
-Use el asistente integrado de Visual Studio para configurar la entrega continua con VSTS.
+Una definición de compilación de Team Services describe un flujo de trabajo compuesto por una serie de pasos de compilación que se ejecutan de manera secuencial. Cree una definición de compilación que genere un paquete de aplicación de Service Fabric y otros artefactos para implementarlos en un clúster de Service Fabric. Obtenga más información sobre las [definiciones de compilación de Team Services](https://www.visualstudio.com/docs/build/define/create). 
 
-1. Haga clic con el botón derecho en el proyecto de aplicación **MyApplication** en el **Explorador de soluciones** y, luego, seleccione **Agregar** -> **Entrega continua con VSTS**. Aparecerá un cuadro de diálogo para que escriba la configuración necesaria.
+Las definiciones de versión de Team Services describen un flujo de trabajo que implementa un paquete de aplicación en un clúster. Cuando se usan juntas, la definición de compilación y la de versión ejecutan el flujo de trabajo completo empezando por los archivos de origen y terminando por la ejecución de una aplicación en el clúster. Obtenga más información sobre las [definiciones de versión](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)de Team Services.
 
-    ![Entrega continua con VSTS][continuous-delivery-with-VSTS]
+### <a name="create-a-build-definition"></a>Creación de una definición de compilación
+Abra un explorador web y navegue hasta el nuevo proyecto de equipo en: https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting. 
 
-    Los valores de **Cuenta**, **Proyecto** y **Repositorio Git** se indican automáticamente.
+Seleccione la pestaña **Compilación y versión**, a continuación, **Compilaciones** y, finalmente, **+ Nueva definición**.  En **Seleccionar una plantilla**, seleccione la plantilla de la **aplicación de Azure Service Fabric** y haga clic en **Aplicar**. 
 
-2. Elija **VS2017 hospedado** como cola del agente.
+![Elegir la plantilla de compilación][select-build-template] 
 
-3. Elija **Crear conexión** en la lista desplegable **Conexión de clúster**, que abre un sitio web para configurar un punto de conexión de servicio en VSTS. 
+La aplicación de votación contiene un proyecto de .NET Core, por tanto, agregue una tarea que restaure las dependencias. En la vista **Tareas**, seleccione **+ Agregar tarea** en la parte inferior izquierda. Busque "línea de comandos" para encontrar la tarea de línea de comandos y, a continuación, haga clic en **Agregar**. 
 
-4. Establezca el foco en la ventana del explorador y elija **Nuevo punto de conexión de servicio** -> **Service Fabric**.
+![Agregar tarea][add-task] 
 
-    ![Nuevo punto de conexión de servicio][new-service-endpoint]
+En la nueva tarea, escriba "Run dotnet.exe" en **Nombre para mostrar**, "dotnet.exe" en **Herramienta**y "restore" en **Argumentos**. 
 
-    Aparecerá un cuadro de diálogo para agregar una nueva conexión de Service Fabric.
-    
-5. Seleccione **Basada en certificados** y complete el cuadro de diálogo:
+![Nueva tarea][new-task] 
 
-    ![Cuadro de diálogo de nuevo punto de conexión de servicio][new-service-endpoint-dialog]
+En la vista **Desencadenadores**, haga clic en el conmutador **Habilitar este desencadenador** en **Integración continua**. 
 
-    1. Escriba un **nombre de conexión**.
-    2. Escriba el punto de conexión de administración del clúster en el campo **Punto de conexión del clúster** (por ejemplo, "tcp://mycluster.eastus.cloudapp.azure.com:19000"). Especifique "tcp://" como protocolo.  El puerto de punto de conexión de administración predeterminado es el 19000.
-    3. Proporcione la **huella digital del certificado de servidor**.  La huella digital se puede obtener abriendo el Service Fabric Explorer del clúster (https://mycluster.eastus.cloudapp.azure.com:19080).
-        - Elija el nodo **Clúster** en la vista de árbol y la pestaña **Manifiesto** situada en el panel derecho.
-        - Busque el elemento **<ServerCertificate>** en el archivo XML y copie el contenido del atributo **X509FindValue**.
-    4. En el campo **Certificado de cliente** indique el certificado de cliente como una cadena codificada en Base64, necesario para que el certificado se instale en el agente de compilación:
-        - Asegúrese de que tiene disponible el certificado como archivo PFX.
-        - Ejecute el siguiente comando de PowerShell para generar el archivo PFX como cadena codificada en Base64 en el Portapapeles: `[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(C:\path\to\certificate.pfx)) | clip`
-        - Pegue (Control + V) el valor del Portapapeles al campo del cuadro de diálogo.
-    5. Escriba la **contraseña del certificado** en el campo **Contraseña** y haga clic en **Aceptar**.
+Seleccione **Guardar y poner en cola** y escriba "Hosted VS2017" como **cola del agente**. Seleccione **Poner en cola** para iniciar manualmente una compilación.  Las compilaciones también se desencadenan después de una inserción o una protección.
 
-6. En Visual Studio, elija **<Refresh>** en el campo **Conexión de clúster** del cuadro de diálogo **Entrega continua con VSTS**. El punto de conexión del clúster que acaba de crear debería aparecer en la lista desplegable.
+Para comprobar el progreso de la compilación, vaya a la pestaña **Compilaciones**.  Cuando haya comprobado que la compilación se ejecuta correctamente, defina una definición de versión que implemente la aplicación en un clúster. 
 
-7. Elija el nombre de definición predeterminado de compilación o de versión o cambie los nombres propuestos en el cuadro de diálogo. Cuando haya terminado, haga clic en **Aceptar**.
+### <a name="create-a-release-definition"></a>Creación de una definición de versión  
 
-Después de unos instantes, aparece un cuadro de diálogo en Visual Studio, en el que se le pregunta si quiere abrir la definición de compilación y de versión en el explorador. Puede hacerlo para inspeccionar su configuración, aunque este paso no es obligatorio en este tutorial.
+Seleccione la pestaña **Compilación y versión**, a continuación, **Versiones** y, finalmente, **+ Nueva definición**.  En **Crear definición de versión**, seleccione la plantilla de **implementación de Azure Service Fabric** de la lista y haga clic en **Siguiente**.  Seleccione el origen **Compilación**, active la casilla **Implementación continua** y haga clic en **Crear**. 
 
-- Una definición de compilación de Team Services describe un flujo de trabajo compuesto por una serie de pasos de compilación que se ejecutan de manera secuencial. Cree una definición de compilación que genere un paquete de aplicación de Service Fabric y otros artefactos para implementarlos en un clúster de Service Fabric. Obtenga más información sobre las [definiciones de compilación de Team Services](https://www.visualstudio.com/docs/build/define/create).
-- Las definiciones de versión de Team Services describen un flujo de trabajo que implementa un paquete de aplicación en un clúster. Cuando se usan juntas, la definición de compilación y la de versión ejecutan el flujo de trabajo completo empezando por los archivos de origen y terminando por la ejecución de una aplicación en el clúster. Obtenga más información sobre las [definiciones de versión](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)de Team Services.
+En la vista **Entornos**, haga clic en **Agregar** a la derecha de **Conexión de clúster**.  Especifique un nombre de conexión "mysftestcluster", un punto de conexión de clúster "tcp://mysftestcluster.westus.cloudapp.azure.com:19000" y las credenciales de Azure Active Directory o del certificado para el clúster. En los campos **Nombre de usuario** y **Contraseña**, defina las credenciales de Azure Active Directory que quiera usar para conectarse al clúster. Para la autenticación basada en certificados, defina la codificación Base64 del archivo de certificado de cliente en el campo **Certificado de cliente**.  Consulte la ventana emergente de ayuda de ese campo para saber cómo obtener ese valor.  Si el certificado está protegido por contraseña, defina la contraseña en el campo **Contraseña** .  Haga clic en **Guardar** para guardar la definición de la versión.
+
+![Agregar conexión del clúster][add-cluster-connection] 
+
+Haga clic en **Ejecutar en el agente** y seleccione **Hosted VS2017** como **Cola de implementación**. Haga clic en **Guardar** para guardar la definición de la versión.
+
+![Ejecutar en el agente][run-on-agent]
+
+Seleccione **+Versión** -> **Crear versión** -> **Crear** para crear manualmente una versión.  Compruebe que la implementación se haya efectuado correctamente y que la aplicación se está ejecutando en el clúster.  Abra un explorador web y vaya a [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Observe que la versión de la aplicación de este ejemplo es "1.0.0.20170616.3". 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Confirmar e insertar cambios y desencadenar una versión
 Para comprobar que la canalización de la integración continua funciona, inserte algunos cambios de código en Team Services.    
@@ -130,7 +134,7 @@ La inserción de los cambios en Team Services desencadena automáticamente una c
 
 Para comprobar el progreso de la compilación, vaya a la pestaña **Compilaciones** de **Team Explorer** en Visual Studio.  Cuando haya comprobado que la compilación se ejecuta correctamente, defina una definición de versión que implemente la aplicación en un clúster.
 
-Compruebe que la implementación se haya efectuado correctamente y que la aplicación se está ejecutando en el clúster.  Abra un explorador web y vaya a [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Observe que la versión de la aplicación de este ejemplo es "1.0.0.20170616.3".
+Compruebe que la implementación se haya efectuado correctamente y que la aplicación se está ejecutando en el clúster.  Abra un explorador web y vaya a [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Observe que la versión de la aplicación de este ejemplo es "1.0.0.20170815.3".
 
 ![Service Fabric Explorer][sfx1]
 
@@ -141,7 +145,7 @@ Cuando haya comenzado la actualización de la aplicación, podrá ver el progres
 
 ![Service Fabric Explorer][sfx2]
 
-La actualización de la aplicación puede tardar varios minutos. Una vez concluida la actualización, la aplicación ejecutará la próxima versión  (en este ejemplo es "1.0.0.20170616.4").
+La actualización de la aplicación puede tardar varios minutos. Una vez concluida la actualización, la aplicación ejecutará la próxima versión  En este ejemplo "1.0.0.20170815.4".
 
 ![Service Fabric Explorer][sfx3]
 
@@ -179,3 +183,4 @@ Ahora que ha implementado una aplicación y ha configurado la integración conti
 [continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
+[run-on-agent]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/RunOnAgent.png

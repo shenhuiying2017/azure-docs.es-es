@@ -4,7 +4,7 @@ description: "En este tema se muestran instrucciones paso a paso sobre cómo eje
 services: media-services
 documentationcenter: 
 author: Lichard
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services

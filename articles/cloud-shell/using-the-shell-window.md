@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 345217452a25448f31fabdcc25dca182bbcf72eb
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: a47961dfdaf178a6b793bd68105d9792a9275bb3
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -54,7 +54,8 @@ Si sale de una sesión, asegúrese de salir de cada ventana de sesión, ya que c
 * Desplácese con el mouse o panel táctil para mover texto terminal.
 
 ## <a name="exit-command"></a>Comando Exit
-Al ejecutar `exit` se terminará la sesión activa. Este comportamiento se produce de forma predeterminada después de 10 minutos sin interacción.
+Al ejecutar `exit` se terminará la sesión activa. Este comportamiento se produce de forma predeterminada después de 20 minutos sin interacción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Inicio rápido de Cloud Shell](quickstart.md)
+

@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 07/21/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 823ff810ffc0b65ec1bb38e4dc314da1d0f9a64a
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: e8895ef3c11aea48513e4060a20f5f49b11fc961
 ms.contentlocale: es-es
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Uso de Apache Kafka (versión preliminar) con Storm en HDInsight
@@ -73,7 +73,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
     
     * Grupo de recursos de Azure
     * Red virtual
-    * Cuenta de almacenamiento de Azure
+    * Cuenta de Azure Storage
     * Kafka en HDInsight versión 3.6 (tres nodos de trabajo)
     * Storm en HDInsight versión 3.6 (tres nodos de trabajo)
 
@@ -164,12 +164,12 @@ Para más información sobre las topologías de Flux, vea [https://storm.apache.
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
         -Credential $creds
     $respObj = ConvertFrom-Json $resp.Content
-    $brokerHosts = $respObj.host_components.HostRoles.host_name
+    $brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
     ($brokerHosts -join ":9092,") + ":9092"
     ```
 
     ```bash
-    curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
+    curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
     ```
 
     > [!IMPORTANT]
@@ -177,9 +177,10 @@ Para más información sobre las topologías de Flux, vea [https://storm.apache.
 
     El valor que se devuelve es similar al texto siguiente:
 
-        wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+        wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
 
-    Guarde este valor, porque se usará más adelante.
+    > [!IMPORTANT]
+    > Aunque puede haber más de dos hosts de agente para el clúster, no es necesario proporcionar una lista completa de los hosts a los clientes. Con uno o dos es suficiente.
 
 2. Use uno de los métodos siguientes para detectar los hosts de Zookeeper de Kafka:
 
@@ -189,12 +190,12 @@ Para más información sobre las topologías de Flux, vea [https://storm.apache.
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" `
         -Credential $creds
     $respObj = ConvertFrom-Json $resp.Content
-    $zookeeperHosts = $respObj.host_components.HostRoles.host_name
+    $zookeeperHosts = $respObj.host_components.HostRoles.host_name[0..1]
     ($zookeeperHosts -join ":2181,") + ":2181"
     ```
 
     ```bash
-    curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'
+    curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2
     ```
 
     > [!IMPORTANT]
@@ -202,14 +203,17 @@ Para más información sobre las topologías de Flux, vea [https://storm.apache.
 
     El valor que se devuelve es similar al texto siguiente:
 
-        zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk3-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+        zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+
+    > [!IMPORTANT]
+    > Aunque haya más de dos nodos de Zookeeper, no es necesario proporcionar una lista completa de los hosts a los clientes. Con uno o dos es suficiente.
 
     Guarde este valor, porque se usará más adelante.
 
 3. Edite el archivo `dev.properties` en la raíz del proyecto. Agregue la información de hosts de agente y Zookeeper a las líneas correspondientes en este archivo. El siguiente ejemplo se configura con los valores de ejemplo de los pasos anteriores:
 
-        kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk3-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
-        kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+        kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+        kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
         kafka.topic: stormtopic
 
 4. Guarde el archivo `dev.properties` y, después, use el siguiente comando para cargarlo en el clúster de Storm:
@@ -288,7 +292,7 @@ Para más información sobre las topologías de Flux, vea [https://storm.apache.
 1. Desde la sesión de SSH al clúster Storm, use el siguiente comando para iniciar la topología del lector:
 
   ```bash
-  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml -e
+  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
   ```
 
 2. Cuando se inicie la topología, abra la interfaz de usuario de Storm. Esta interfaz de usuario web se encuentra en https://storm-BASENAME.azurehdinsight.net/stormui. Reemplace __BASENAME__ por el nombre base que utilizó al crear el clúster. 

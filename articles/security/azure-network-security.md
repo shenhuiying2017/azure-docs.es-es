@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: bec61dd630348e4657862077f07b1313ed0ed373
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -314,7 +314,7 @@ Este flujo de comunicación es posible porque Azure usa varias rutas del sistema
 
 -   Desde una red virtual a su red local a través de una puerta de enlace de VPN.
 
-Muchas empresas tienen requisitos estrictos de seguridad y conformidad que requieren la inspección local de todos los paquetes de redes para asegurar el cumplimiento de directivas específicas. Azure proporciona un mecanismo denominado [tunelización forzada](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) que enruta el tráfico desde las máquinas virtuales a una ubicación local mediante la creación de una ruta personalizada o mediante anuncios de [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) a través de ExpressRoute o VPN. anuncios a través de ExpressRoute o VPN.
+Muchas empresas tienen requisitos estrictos de seguridad y conformidad que requieren la inspección local de todos los paquetes de redes para asegurar el cumplimiento de directivas específicas. Azure proporciona un mecanismo denominado [tunelización forzada](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) que enruta el tráfico desde las máquinas virtuales a una ubicación local mediante la creación de una ruta personalizada o mediante anuncios de [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) a través de ExpressRoute o VPN.
 
 La tunelización forzada en Azure se configura a través de rutas definidas por el usuario (UDR) de redes virtuales. La redirección del tráfico a un sitio local se expresa como una ruta predeterminada a la puerta de enlace de VPN de Azure.
 
@@ -386,7 +386,6 @@ Application Gateway también le permite optimizar el rendimiento y la disponibil
 
 
 También se proporciona un [firewall de aplicaciones web (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) como parte de la instancia de Application Gateway. Esta proporciona protección a las aplicaciones web frente a vulnerabilidades web y vulnerabilidades de seguridad comunes. Application Gateway se puede configurar como una puerta de enlace orientada a Internet, una puerta de enlace solo para uso interno o una combinación de las dos.
-Puerta de enlace orientada a Internet, puerta de enlace solo para uso interno o una combinación de las dos.
 
 El WAF de Application Gateway se puede ejecutar en modo de detección o de prevención. Un caso de uso común es el de los administradores que lo ejecutan en modo de detección para observar el tráfico en busca de patrones malintencionados. Si se detectan posibles vulnerabilidades de seguridad, con solo pasar al modo de prevención se bloquea el tráfico entrante sospechoso.
 

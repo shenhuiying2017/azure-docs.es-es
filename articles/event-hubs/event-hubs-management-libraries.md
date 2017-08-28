@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 4/10/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a9023448c4ced1edf54c84bb103454cbd76fbfba
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0d659cb860a6c98342b548212820efe046decfcc
 ms.contentlocale: es-es
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -40,13 +40,13 @@ Para comenzar a usar las bibliotecas de administración de Event Hubs, debe aute
 * [Uso de Azure PowerShell para crear a una entidad de servicio para acceder a recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Uso de la CLI de Azure para crear a una entidad de servicio para acceder a recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-Estos tutoriales le proporcionarán valores para `AppId` (id. de cliente), `TenantId` y `ClientSecret` (clave de autenticación), los cuales se usan para la autenticación mediante las bibliotecas de administración. Debe tener permisos de "propietario" en el grupo de recursos en el que desea realizar la ejecución.
+Estos tutoriales le proporcionan valores para `AppId` (identificador de cliente), `TenantId` y `ClientSecret` (clave de autenticación), que usan las bibliotecas de administración con fines de autenticación. Debe tener permisos de **Propietario** en el grupo de recursos en el que desea realizar la ejecución.
 
 ## <a name="programming-pattern"></a>Modelo de programación
 
 El patrón para manipular los recursos de Event Hubs sigue un protocolo común:
 
-1. Obtenga un token de Azure Active Directory mediante la biblioteca `Microsoft.IdentityModel.Clients.ActiveDirectory`.
+1. Obtenga un token de AAD mediante la biblioteca `Microsoft.IdentityModel.Clients.ActiveDirectory`.
     ```csharp
     var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 

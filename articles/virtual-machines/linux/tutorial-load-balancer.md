@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 9dd85d38a64f0557fb4ef250b0e177e21bb84e53
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7b3a089d2f6386afcc46cbc4377594be0d758fc6
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -167,7 +167,9 @@ done
 ## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
 ### <a name="create-cloud-init-config"></a>Creación de cloud-init config
-En un tutorial anterior sobre [cómo personalizar una máquina virtual Linux en el primer arranque](tutorial-automate-vm-deployment.md), aprendió a automatizar la personalización de máquinas virtuales con cloud-init. Pues bien, el mismo archivo de configuración cloud-init puede usarlo para instalar NGINX y ejecutar una aplicación sencilla Node.js "Hello World". Cree un archivo denominado *cloud-init.txt* y pegue la siguiente configuración:
+En un tutorial anterior sobre [cómo personalizar una máquina virtual Linux en el primer arranque](tutorial-automate-vm-deployment.md), aprendió a automatizar la personalización de máquinas virtuales con cloud-init. Pues bien, el mismo archivo de configuración cloud-init puede usarlo para instalar NGINX y ejecutar una aplicación sencilla Node.js "Hello World".
+
+En el shell actual, cree un archivo denominado "*cloud-init.txt*" y pegue la siguiente configuración. Por ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Escriba `sensible-editor cloud-init.txt` para crear el archivo y ver una lista de editores disponibles. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
 
 ```yaml
 #cloud-config
@@ -219,9 +221,7 @@ Cree el conjunto de disponibilidad con [az vm availability-set create](/cli/azur
 ```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupLoadBalancer \
-    --name myAvailabilitySet \
-    --platform-fault-domain-count 3 \
-    --platform-update-domain-count 2
+    --name myAvailabilitySet
 ```
 
 Ahora puede crear las máquinas virtuales con el comando [az vm create](/cli/azure/vm#create). El siguiente ejemplo crea tres máquinas virtuales y genera claves SSH si aún no existen:
@@ -233,7 +233,7 @@ for i in `seq 1 3`; do
         --name myVM$i \
         --availability-set myAvailabilitySet \
         --nics myNic$i \
-        --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+        --image UbuntuLTS \
         --admin-username azureuser \
         --generate-ssh-keys \
         --custom-data cloud-init.txt \
@@ -241,7 +241,7 @@ for i in `seq 1 3`; do
 done
 ```
 
-Se tarda unos minutos en crear y configurar las tres máquinas virtuales. El sondeo de estado del equilibrador de carga detecta automáticamente cuándo la aplicación se está ejecutando en cada máquina virtual. Una vez que la aplicación se esté ejecutando, la regla del equilibrador de carga empieza a distribuir el tráfico.
+Hay tareas en segundo plano que continúan ejecutándose después de que la CLI de Azure vuelve a abrir el símbolo del sistema. El parámetro `--no-wait` no espera a que se completen todas las tareas. Es posible que tenga que esperar otros dos minutos antes de poder acceder a la aplicación. El sondeo de estado del equilibrador de carga detecta automáticamente cuándo la aplicación se está ejecutando en cada máquina virtual. Una vez que la aplicación se esté ejecutando, la regla del equilibrador de carga empieza a distribuir el tráfico.
 
 
 ## <a name="test-load-balancer"></a>Prueba del equilibrador de carga
@@ -255,7 +255,7 @@ az network public-ip show \
     --output tsv
 ```
 
-A continuación, puede escribir la dirección IP pública en un explorador web. Se muestra la aplicación, incluido el nombre de host de la máquina virtual a la que el equilibrador de carga distribuye el tráfico como en el ejemplo siguiente:
+A continuación, puede escribir la dirección IP pública en un explorador web. Recuerde que tendrán que pasar unos minutos para que las máquinas virtuales estén listas antes de que el equilibrador de carga comience a distribuir el tráfico a ellas. Se muestra la aplicación, incluido el nombre de host de la máquina virtual a la que el equilibrador de carga distribuye el tráfico como en el ejemplo siguiente:
 
 ![Ejecución de la aplicación Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
 
@@ -304,7 +304,7 @@ En este tutorial, ha creado un equilibrador de carga y conectó máquinas virtua
 > * Ver un equilibrador de carga en acción
 > * Agregar y quitar las máquinas virtuales de un equilibrador de carga
 
-Prosiga con el siguiente tutorial para aprender más sobre los componentes de red virtual de Azure.
+Prosiga con el siguiente tutorial para aprender más sobre los componentes de Azure Virtual Network.
 
 > [!div class="nextstepaction"]
 > [Administración de máquinas y redes virtuales](tutorial-virtual-network.md)

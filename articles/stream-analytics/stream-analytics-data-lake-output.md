@@ -1,10 +1,10 @@
 ---
 title: Salida de Stream Analytics Data Lake Store | Microsoft Docs
-description: "Configuración de la autenticación y la autorización de un Almacén de Azure Data Lake en un trabajo de Análisis de transmisiones"
+description: "Configuración de la autenticación y la autorización de un Almacén de Azure Data Lake en un trabajo de Stream Analytics"
 keywords: 
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
@@ -14,23 +14,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 5d0a86742e4b238b94855464b2528db32b80526b
-ms.lasthandoff: 01/25/2017
-
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
+ms.contentlocale: es-es
+ms.lasthandoff: 08/12/2017
 
 ---
-# <a name="stream-analytics-data-lake-store-output"></a>Salida de los Análisis de transmisiones del Almacén de Data Lake
-Los trabajos de Análisis de transmisiones admiten varios métodos de salida, y uno de ellos es el [Almacén de Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). El Almacén de Azure Data Lake es un repositorio de gran escala en toda la empresa para cargas de trabajo de análisis de macrodatos. El Almacén de Data Lake permite almacenar datos de cualquier tamaño, tipo y velocidad de ingesta para realizar análisis exploratorios y operativos.
+# <a name="stream-analytics-data-lake-store-output"></a>Salida de Data Lake Store de Stream Analytics
+Los trabajos de Stream Analytics admiten varios métodos de salida, y uno de ellos es [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). El Almacén de Azure Data Lake es un repositorio de gran escala en toda la empresa para cargas de trabajo de análisis de macrodatos. El Almacén de Data Lake permite almacenar datos de cualquier tamaño, tipo y velocidad de ingesta para realizar análisis exploratorios y operativos.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Autorización de una cuenta del Almacén de Data Lake
-1. Cuando se selecciona Data Lake Store como una salida en el Portal de administración de Azure, se le pedirá que autorice el uso de la instancia de Data Lake Store existente o pida acceso a la vista previa de Data Lake Store mediante el Portal de Azure clásico.
+1. Cuando se selecciona Data Lake Store como una salida en Azure Portal, se le pedirá que autorice el uso de la instancia de Data Lake Store existente o pida acceso a Data Lake Store mediante el Portal de Azure clásico.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
-2. Si ya dispone de acceso al Almacén de Data Lake, haga clic en “Autorizar ahora” y, durante unos segundos, se mostrará una página con el mensaje “Redirigiendo a la autorización...”. Esta página se cerrará automáticamente y se le mostrará la página donde podrá configurar la salida del Almacén de Data Lake.
+2. Si ya dispone de acceso a Data Lake Store, haga clic en "Autorizar ahora" y, durante unos segundos, se mostrará una página con el mensaje "Redirigiendo a la autorización...". Esta página se cerrará automáticamente y se le mostrará la página donde podrá configurar la salida del Almacén de Data Lake.
 
 Si no se registró en Data Lake Store, puede hacer clic en el vínculo "Suscribirme ahora" para iniciar la solicitud, o bien siga las [instrucciones de introducción](../data-lake-store/data-lake-store-get-started-portal.md).
 
@@ -49,7 +49,7 @@ Una vez que se haya autenticado la cuenta del Almacén de Data Lake, podrá conf
 </tr>
 <tr>
 <td>Cuenta del Almacén de Data Lake</td>
-<td>El nombre de la cuenta de almacenamiento a donde está enviando la salida Se le mostrará una lista desplegable de cuentas del Almacén de Data Lake a las que el usuario cuya sesión se ha iniciado en el portal tiene acceso.</td>
+<td>El nombre de la cuenta de almacenamiento a donde está enviando la salida Aparecerá una lista de cuentas de almacén de Data Lake Store a que el usuario que ha iniciado sesión tiene acceso.</td>
 </tr>
 <tr>
 <td>Patrón de prefijo de la ruta [<I>opcional</I>]</td>
@@ -73,7 +73,7 @@ Una vez que se haya autenticado la cuenta del Almacén de Data Lake, podrá conf
 </tr>
 <tr>
 <td>Delimitador</td>
-<td>Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical.</td>
+<td>Solo se aplica para la serialización de CSV. Stream Analytics admite un número de delimitadores comunes para la serialización de datos CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical.</td>
 </tr>
 <tr>
 <td>Formato</td>
