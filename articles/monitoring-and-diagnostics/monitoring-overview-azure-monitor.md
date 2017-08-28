@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 72b0c11f8bea24fc8777e3e0d7712577fab8ef97
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 619a004b9aff99be68988e1f7be3ccad400a8a0e
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -143,10 +142,10 @@ En general, puede manipular el seguimiento, el enrutamiento y la recuperación d
 ## <a name="next-steps"></a>Pasos siguientes
 Más información acerca de
 - Hay un tutorial en vídeo de Azure Monitor en  
-[Introducción a Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) Puede consultar un vídeo adicional donde se explica un escenario en el que puede usar Azure Monitor en [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) (Información sobre supervisión y diagnósticos de Microsoft Azure) y en un [vídeo sobre Azure Monitor de Ignite 2016](https://myignite.microsoft.com/videos/4977)
+[Introducción a Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) Puede consultar un vídeo adicional donde se explica un escenario en el que puede usar Azure Monitor en [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) (Información sobre supervisión y Microsoft Azure Diagnostics) y en un [vídeo sobre Azure Monitor de Ignite 2016](https://myignite.microsoft.com/videos/4977)
 - Haga un recorrido por la interfaz de Azure Monitor en [Introducción a Azure Monitor](monitoring-get-started.md)
 - Configure las [extensiones de Diagnósticos de Azure](../azure-diagnostics.md) si intenta diagnosticar problemas en su aplicación de Cloud Services, Virtual Machines, Conjuntos de escalado de máquinas virtuales o Service Fabric.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) : si está intentando diagnosticar problemas en su aplicación web de Servicio de aplicaciones.
-- [Solución de problemas de Azure Storage](../storage/storage-e2e-troubleshooting.md) : si usa Blob Storage, Table Storage o Queue Storage.
+- [Solución de problemas de Azure Storage](../storage/common/storage-e2e-troubleshooting.md) : si usa Blob Storage, Table Storage o Queue Storage.
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) y [Operations Management Suite](https://www.microsoft.com/oms/)
 

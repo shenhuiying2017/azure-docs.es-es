@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Diagnósticos de Microsoft Azure | Microsoft Docs"
+title: "Introducción a Microsoft Azure Diagnostics | Microsoft Docs"
 description: "Use Diagnósticos de Azure para realizar tareas de depuración, medición de rendimiento, supervisión y análisis de tráfico en servicios en la nube, en máquinas virtuales y en Service Fabric"
 services: multiple
 documentationcenter: .net
@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: e2d3a6725ee53dc6d6986b185fac143901ba6955
+ms.contentlocale: es-es
 ms.lasthandoff: 03/31/2017
 
 

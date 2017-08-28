@@ -7,7 +7,7 @@
 > * Microsoft Monitoring Agent
 > * Agente del generador de perfiles del servicio de Microsoft      
 > * Extensión de dominio de Microsoft Azure        
-> * Extensión de diagnósticos de Microsoft Azure   
+> * Extensión de Microsoft Azure Diagnostics   
 > * Extensión de escritorio remoto de Microsoft Azure
 > * Recopilador de registros de Microsoft Azure
 >
