@@ -6,17 +6,17 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 05/02/2017
-ms.topic: quickstart
+ms.date: 08/22/2017
+ms.topic: hero-article
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 2292b35819c5a98b690041e10f6e6d1a93fa7837
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8bd3e4bb7423db44c48b04f25edcf1074e6ea0bd
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -44,11 +44,14 @@ Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecu
 
 Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran recursos de Azure como instancias de Function App, bases de datos y cuentas de almacenamiento.
 
-En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup`:
+En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup`.  
+Si no usa Cloud Shell, primero debe iniciar sesión con `az login`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
+
+
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de almacenamiento de Azure
 
 Functions usa una cuenta de Azure Storage para mantener el estado y otra información sobre sus funciones. Cree una cuenta de almacenamiento en el grupo de recursos que ha creado con el comando [az storage account create](/cli/azure/storage/account#create).
@@ -86,7 +89,8 @@ Debe tener una Function App para hospedar la ejecución de las funciones. La Fun
 En el siguiente comando, sustituya su propio nombre de la Function App único donde vea el marcador de posición `<app_name>` y el nombre de la cuenta de almacenamiento para `<storage_name>`. El `<app_name>` se usa como el dominio DNS predeterminado para la Function App y, por ello, el nombre debe ser único en todas las aplicaciones de Azure. 
 
 ```azurecli-interactive
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
+az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
+--consumption-plan-location westeurope
 ```
 De manera predeterminada, una Function App se crea con el plan de hospedaje Consumo, lo que significa que los recursos se agregan de manera dinámica según sea necesario mediante sus funciones y solo paga cuando las funciones se ejecutan. Para obtener más información, vea [Choose the correct hosting plan](functions-scale.md) (Elegir el plan de hospedaje correcto). 
 
@@ -117,7 +121,9 @@ Ahora que tiene una Function App, puede implementar el código de función actua
 Existen varias maneras de crear el código de función en su nueva Function App. Este tema se conecta a un repositorio de ejemplo de GitHub. Como antes, en el código siguiente reemplace el marcador de posición `<app_name>` por el nombre de la Function App que ha creado. 
 
 ```azurecli-interactive
-az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
+az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --branch master \
+--repo-url https://github.com/Azure-Samples/functions-quickstart \
+--manual-integration 
 ```
 Después de que se haya establecido el origen de implementación, la CLI de Azure muestra información similar al ejemplo siguiente (se han quitado los valores NULL para tener una mayor legibilidad):
 
@@ -146,7 +152,7 @@ curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 
 ![La respuesta de función que se muestra en un explorador.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-curl.png)  
 
-Si no tiene cURL disponible en su línea de comandos, simplemente escriba la misma dirección URL en la dirección de su explorador web. De nuevo, reemplace el marcador de posición `<app_name>` por el nombre de su Function App, y anexe la cadena de consulta `&name=<yourname>` a la dirección URL y ejecute la solicitud. 
+Si no tiene cURL disponible en su línea de comandos, escriba la misma dirección URL en la dirección de su explorador web. De nuevo, reemplace el marcador de posición `<app_name>` por el nombre de su Function App, anexe la cadena de consulta `&name=<yourname>` a la dirección URL y ejecute la solicitud. 
 
     http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
    

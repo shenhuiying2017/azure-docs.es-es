@@ -22,8 +22,8 @@ Las nueva SKU de puerta de enlace simplifican los conjuntos de características 
 
 | **SKU**| **Características**|
 | ---    | ---         |
-|Básica   | Basada en ruta: 10 túneles con P2S<br>Basada en directiva (IKEv1): 1 túnel; sin P2S|
-| VpnGw1, VpnGw2, VpnGw3 |VPN basada en ruta hasta 30 túneles (*) <br>P2S, BGP, activo-activo, directiva de protocolo de seguridad de Internet/intercambio de claves por red personalizada, coexistencia de ExpressRoute/VPN |
+|**Básico**   | **VPN basada en enrutamiento**: 10 túneles con P2S<br><br>**VPN basada en directivas**: (IKEv1): 1 túnel; sin P2S|
+| **VpnGw1, VpnGw2 y VpnGw3** | **VPN basada en enrutamiento**: hasta 30 túneles (*), P2S, BGP, activo-activo, directiva de IPsec/IKE personalizada, coexistencia de VPN y ExpressRoute |
 |        |             |
 
 (*) Se puede configurar "PolicyBasedTrafficSelectors" para conectar una puerta de enlace de VPN Gateway basada en ruta (VpnGw1, VpnGw2, VpnGw3) a varios dispositivos de firewall locales basados en directivas. Consulte [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Conexión de puertas de enlace VPN Gateway a varios dispositivos de VPN locales basados en directivas con PowerShell) para más información.

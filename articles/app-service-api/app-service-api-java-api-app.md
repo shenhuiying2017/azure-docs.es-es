@@ -1,6 +1,6 @@
 ---
-title: "Compilación e implementación de una aplicación de API de Java en el Servicio de aplicaciones de Azure"
-description: "Aprenda a crear un paquete de aplicación de API de Java y a implementarlo en el Servicio de aplicaciones de Azure."
+title: "Compilación e implementación de una aplicación de API de Java en Azure App Service"
+description: "Aprenda a crear un paquete de aplicación de API de Java y a implementarlo en Azure App Service."
 services: app-service\api
 documentationcenter: java
 author: rmcmurray
@@ -14,18 +14,17 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e38c540071cb49b0177e79178566d72ecb5f8886
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Compilación e implementación de una aplicación de API de Java en el Servicio de aplicaciones de Azure
+# <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Compilación e implementación de una aplicación de API de Java en Azure App Service
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-En este tutorial se muestra cómo crear una aplicación de Java e implementarla en las aplicaciones de API del Servicio de aplicaciones de Azure mediante [Git]. Las instrucciones que se indican en este tutorial se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Java. El código de este tutorial está compilado mediante [Maven]. [Jax-RS] se utiliza para crear el servicio RESTful y se genera a partir de la especificación de metadatos de [Swagger] mediante el [Editor de Swagger].
+En este tutorial se muestra cómo crear una aplicación de Java e implementarla en API Apps de Azure App Service mediante [Git]. Las instrucciones que se indican en este tutorial se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Java. El código de este tutorial está compilado mediante [Maven]. [Jax-RS] se utiliza para crear el servicio RESTful y se genera a partir de la especificación de metadatos de [Swagger] mediante el [Editor de Swagger].
 
 ## <a name="prerequisites"></a>Requisitos previos
 1. [Kit para desarrolladores de Java 8] \(o posterior)
@@ -239,8 +238,8 @@ En esta sección va a reemplazar la implementación en el lado servidor del cód
           copy target\ROOT.war deploy\webapps
           cd deploy
 
-## <a name="publish-the-output-to-azure-app-service"></a>Publicación del resultado en el Servicio de aplicaciones de Azure
-En esta sección aprenderá a crear una nueva aplicación de API mediante el Portal de Azure, a prepararla para hospedar aplicaciones Java y a implementar el archivo WAR recién creado en el Servicio de aplicaciones de Azure para ejecutar la nueva aplicación de API. 
+## <a name="publish-the-output-to-azure-app-service"></a>Publicación del resultado en Azure App Service
+En esta sección aprenderá a crear una nueva aplicación de API mediante Azure Portal, a prepararla para hospedar aplicaciones Java y a implementar el archivo WAR recién creado en Azure App Service para ejecutar la nueva aplicación de API. 
 
 1. Cree una nueva aplicación de API en [Azure Portal]; para ello, haga clic en el elemento de menú **Nuevo -> Web y móvil -> Aplicación de API**, escriba los detalles de la aplicación y haga clic en **Crear**.
    
@@ -266,19 +265,19 @@ En esta sección aprenderá a crear una nueva aplicación de API mediante el Por
          git push azure master
    
     Después de emitir la solicitud **push** , se le pedirá la contraseña que creó anteriormente para la credencial de la implementación. Después de escribir las credenciales, verá que en el portal se muestra que la implementación se ha llevado a cabo.
-7. Si utiliza nuevamente Postman para llegar a la aplicación de API recién implementada que se ejecuta en el Servicio de aplicaciones de Azure, verá que el comportamiento es coherente y que ahora se devuelven los datos de contacto, y todo ello mediante sencillos cambios en el código Java con scaffold Swagger.io. 
+7. Si utiliza nuevamente Postman para llegar a la aplicación de API recién implementada que se ejecuta en Azure App Service, verá que el comportamiento es coherente y que ahora se devuelven los datos de contacto, y todo ello mediante sencillos cambios en el código Java con scaffold Swagger.io. 
    
     ![Uso de la API de REST de contactos de Java activa en Azure][postman-calling-azure-contacts]
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo ha sido capaz de comenzar con un archivo JSON de Swagger y algún código Java con scaffold obtenido con el editor de Swagger.io. A partir de ahí, algunos sencillos cambios y un proceso de implementación de Git han dado lugar a que tengamos una aplicación de API funcional escrita en Java. El siguiente tutorial muestra cómo [consumir aplicaciones de API desde clientes JavaScript mediante CORS][App Service API CORS]. Otros tutoriales de la serie muestran cómo implementar la autenticación y autorización.
 
-Para sacar más partido a este ejemplo, aprenda más sobre el [SDK de almacenamiento para Java] para conservar los blobs de JSON. O bien, puede usar el [SDK de Java de DocumentDB] para guardar los datos de contacto en Azure DocumentDB. 
+Para sacar más partido a este ejemplo, aprenda más sobre el [SDK de Storage para Java] para conservar los blobs de JSON. O bien, puede usar el [SDK de Java de DocumentDB] para guardar los datos de contacto en Azure DocumentDB. 
 
 <a name="see-also"></a>
 
 ## <a name="see-also"></a>Otras referencias
-Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure].
+Para más información sobre el uso de Azure con Java, visite [Azure para desarrolladores de Java](/java/azure).
 
 <!-- URL List -->
 
@@ -287,14 +286,14 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [SDK de Java de DocumentDB]: ../documentdb/documentdb-java-application.md
 [evaluación gratuita]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Centro para desarrolladores de Java de Azure]: /develop/java/
+[Azure Java Developer Center]: /develop/java/
 [Kit para desarrolladores de Java 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
 [editor en línea de Swagger]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
-[SDK de almacenamiento para Java]: ../storage/storage-java-how-to-use-blob-storage.md
+[SDK de Storage para Java]:../storage/blobs/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [Editor de Swagger]: http://editor.swagger.io/
 [código de Visual Studio]: https://code.visualstudio.com

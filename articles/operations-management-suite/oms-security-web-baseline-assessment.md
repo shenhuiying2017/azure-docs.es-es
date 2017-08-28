@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 8be49b182df675fe3235d148b87379e1dff3a384
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 40b0c6ca933ea02ac9f5fe3bfaaf87a310542a8d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Evaluación de línea de base web en la solución Security and Audit de Operations Management Suite
@@ -29,6 +29,9 @@ Este documento le ayuda a usar las funcionalidades de evaluación de base de ref
 Actualmente, Seguridad de OMS proporciona una evaluación de línea de base de seguridad para sistemas operativos. Examina la configuración del sistema operativo de los servidores cada 24 horas y proporciona una vista de las configuraciones potencialmente vulnerables. Consulte [Evaluación de línea base en la solución Security and Audit de Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline) para más información sobre esto.
 
 El objetivo de la evaluación de base de referencia web es encontrar configuraciones del servidor web potencialmente vulnerables. Los tres orígenes principales de las configuraciones de línea de base web son la configuración de .NET, ASP.NET e IIS.  Al igual que la evaluación de línea de base de sistema operativo, Seguridad de OMS va a examinar cada 24 horas los servidores web y a proporcionar una vista de su estado de seguridad.  En Internet Information Services (IIS), las configuraciones son muy personalizables, lo que permite reemplazar diversos niveles de sitio y aplicación. El examen comprueba la configuración en cada nivel de aplicación o sitio, además del nivel raíz predeterminado. Esto le ayudará a identificar la configuración que pueda sufrir una vulnerabilidad y corregirla con rapidez, junto con nuestras recomendaciones para dicha configuración.
+
+>[!NOTE] 
+>Puede descargar los identificadores de configuración comunes y las reglas de línea de base utilizadas por la seguridad de OMS en esta [página](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335?redir=0).
 
 
 ## <a name="web-security-baseline-assessment"></a>Evaluación de base de referencia de seguridad web

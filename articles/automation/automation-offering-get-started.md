@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/18/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 7ef31d7d72844c0ed3be0701549e49e26aac9abf
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
 ms.contentlocale: es-es
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -67,8 +67,8 @@ Al designar un equipo para que ejecute trabajos híbridos de runbook, debe tener
 ### <a name="permissions-required-to-create-automation-account"></a>Permisos necesarios para crear la cuenta de Automation
 Para crear o actualizar una cuenta de Automation, debe tener los siguientes privilegios y permisos, necesarios para completar este tema.   
  
-* Para crear una cuenta de Automation, debe agregarse la cuenta de usuario de AD a un rol con los privilegios equivalentes a los del rol Colaborador para los recursos de Microsoft Automation, como se resalta en el artículo [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
-* Los usuarios sin privilegios de administrador en el inquilino de Azure AD pueden [registrar aplicaciones de AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) si los registros de aplicaciones se configuran en **Sí**.  Si se establecen en **No**, el usuario que realice esta acción debe ser administrador global de Azure AD. 
+* Para crear una cuenta de Automation, debe agregar la cuenta de usuario de AD a un rol con los privilegios equivalentes a los del rol Propietario para los recursos de Microsoft Automation, como se resalta en el artículo [Control de acceso basado en roles en Azure Automation](automation-role-based-access-control.md).  
+* Los usuarios sin privilegios de administrador en el inquilino de Azure AD pueden **registrar aplicaciones de AD** si los registros de aplicaciones se configuran en [Sí](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Si se establecen en **No**, el usuario que realice esta acción debe ser administrador global de Azure AD. 
 
 Si no es miembro de la instancia de Active Directory de la suscripción antes de que le agreguen al rol de administrador global/coadministrador de esta última, se le agregará a Active Directory como invitado. En este caso, recibirá una advertencia tipo "No tiene permisos para crear..." en la hoja **Agregar cuenta de Automation**. Los usuarios que primero se agregaron al rol de administrador global/coadministrador se pueden quitar de la instancia de Active Directory de la suscripción y volverse a agregar para convertirlos en usuarios completos en Active Directory. Para comprobar esta situación, en el panel de **Azure Active Directory** de Azure Portal, seleccione **Usuarios y grupos**, **All Users** y, después de seleccionar el usuario específico, seleccione **Perfil**. El valor del atributo **Tipo de usuario** del perfil de los usuarios no debería ser **Invitado**.
 
@@ -90,7 +90,7 @@ Todas las tareas de automatización que realice con recursos mediante los cmdlet
 Los recursos de Automation de cada cuenta de Automation están asociados con una sola región de Azure, pero las cuentas de Automation pueden administrar recursos en su suscripción. Cree cuentas de Automation en distintas regiones si tiene directivas que requieren que los datos y recursos se aíslen en una región específica.
 
 > [!NOTE]
-> A las cuentas de automatización y los recursos que contienen, que se crean en Azure Portal, no se puede acceder desde el Portal de Azure clásico. Si desea administrar estas cuentas o sus recursos con Windows PowerShell, debe usar los módulos del Administrador de recursos de Azure.
+> A las cuentas de Automation y los recursos que contienen, que se crean en Azure Portal, no se puede acceder desde el Portal de Azure clásico. Si desea administrar estas cuentas o sus recursos con Windows PowerShell, debe usar los módulos de Azure Resource Manager.
 > 
 
 Al crear una cuenta de Automation en Azure Portal, crea automáticamente dos entidades de autenticación:

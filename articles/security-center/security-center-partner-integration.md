@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4d0909e926de14a0cbe9799b969ac7a1946d69d1
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="partner-integration-in-azure-security-center"></a>Integración de asociados en Azure Security Center
@@ -61,9 +61,9 @@ En función de la configuración de su entorno de Azure y de la directiva de seg
 
 ## <a name="manage-partner-solutions"></a>Administración de soluciones de asociados
 
-Después de la implementación, para ver información acerca del mantenimiento de la solución y realizar tareas de administración básicas, en la hoja **Security Center**, seleccione el icono **Soluciones de asociados**. Para información acerca de cómo administrar soluciones de asociados en Security Center, consulte [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md).
+Después de la implementación, para ver información acerca del mantenimiento de la solución y realizar tareas de administración básicas, en la hoja **Security Center**, seleccione la opción **Soluciones de asociados**. Para información acerca de cómo administrar soluciones de asociados en Security Center, consulte [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md).
 
-![Integración de asociados](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
+![Integración de asociados](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
 
 > [!NOTE]
 > La compatibilidad con la protección del punto de conexión Symantec se limita a la detección. No hay alertas de estado disponibles.

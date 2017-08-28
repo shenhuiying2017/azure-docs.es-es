@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Conjuntos de escalado de máquinas virtuales de Azure y discos de datos conectados
@@ -99,10 +99,21 @@ También puede agregar un disco mediante la adición de una nueva entrada a la p
     }          
 ]
 ```
+
 A continuación, seleccione _PUT_ para aplicar los cambios a su conjunto de escalado. Este ejemplo podría funcionar siempre y cuando se utilice un tamaño de máquina virtual que admite más de dos discos de datos conectados.
 
 > [!NOTE]
 > Cuando se realiza un cambio en una definición de conjunto de escalado, como agregar o quitar un disco de datos, se aplica a todas las máquinas virtuales recién creadas, pero solo se aplica a las máquinas virtuales existentes si la propiedad _upgradePolicy_ se establece en "Automático". Si se establece en "Manual", hay que aplicar manualmente el nuevo modelo a las máquinas virtuales existentes. Puede hacerlo en el portal, con el comando _Update-AzureRmVmssInstance_ de PowerShell, o mediante el comando _az vmss update-instances_ de la CLI.
+
+## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Adición de discos de datos previamente rellenados a un conjunto de escalado existente 
+> Cuando se agregan discos a un modelo de conjunto de escalado existente, los discos siempre se crean vacíos. Esto es así por diseño. Este escenario también incluye nuevas instancias creadas por el conjunto de escalado. Este comportamiento se debe a que la definición de conjunto de escalado tiene un disco de datos vacío. Para crear unidades de datos rellenadas previamente para un modelo de conjunto de escalado existente, puede elegir entre las dos opciones siguientes:
+
+* Copiar datos de la máquina virtual de instancia 0 en discos de datos de las otras máquinas virtuales mediante la ejecución de un script personalizado.
+* Crear una imagen administrada con el disco de SO más un disco de datos (con los datos necesarios) y crear un nuevo conjunto de escalado con la imagen. De esta forma cada nueva máquina creada tendrá un disco de datos que se proporciona en la definición del conjunto de escalado. Dado que esta definición hará referencia a una imagen con un disco de datos que tiene datos personalizados, cada máquina virtual del conjunto de escalado aparecerá automáticamente con estos cambios.
+
+> La forma de crear una imagen personalizada se puede encontrar aquí: [Captura de una imagen administrada de una máquina virtual generalizada en Azure](/azure/virtual-machines/windows/capture-image-resource/). 
+
+> El usuario debe capturar la máquina virtual de instancia 0 que tenga los datos necesarios y luego usar ese disco duro virtual para la definición de la imagen.
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>Supresión de un disco de datos de un conjunto de escalado
 Puede quitar un disco de datos de un conjunto de escalado de la máquina virtual mediante el comando _az vmss disk detach_ de la CLI de Azure. Por ejemplo, el comando siguiente quita el disco definido en lun 2:

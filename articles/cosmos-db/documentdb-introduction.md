@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a8854c0f6313238ee846ad1c537d23d8fd20c66f
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
 ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Introducción a Azure Cosmos DB: API de DocumentDB
@@ -48,6 +48,8 @@ Mediante la API de DocumentDB, Azure Cosmos DB ofrece las siguientes funcionalid
 * **Diseño abierto** : comience rápidamente con las destrezas y herramientas existentes. La programación de la API de DocumentDB es sencilla, asequible y no necesita herramientas nuevas ni extensiones personalizadas de JSON o JavaScript. Puede tener acceso a todas las funciones de la base de datos incluido el procesamiento de CRUD, las consultas y JavaScript en una interfaz RESTful HTTP sencilla. La API de DocumentDB abarca formatos, lenguajes y estándares actuales y ofrece funcionalidades de base de datos de gran valor.
 
 * **Indexación automática:** de manera predeterminada, Azure Cosmos DB indexa automáticamente todos los documentos de la base de datos y no espera ni requiere ningún esquema, ni tampoco la creación de índices secundarios. ¿No desea tener que indexar todo? No se preocupe, también puede [renunciar a las rutas de acceso en los archivos JSON](indexing-policies.md) .
+
+* **Compatibilidad con la fuente de cambios:** La fuente de cambios proporciona una lista ordenada de documentos de una colección de Azure Cosmos DB en el orden en el que se modificaron. Esta fuente se puede utilizar para realizar escuchas de modificaciones de datos con el fin de replicar los datos, desencadenar llamadas a la API o realizar el procesamiento de la secuencia en las actualizaciones. La fuente de cambios está habilitada automáticamente y es fácil de usar: [Aprender más sobre la fuente de cambios](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
 
 ## <a name="data-management"></a>¿Cómo se administran los datos con la API DocumentDB?
 La API de DocumentDB ayuda a administrar los datos JSON con recursos de base de datos bien definidos. Estos recursos se replican para ofrecer elevados niveles de disponibilidad y solo se pueden direccionar a través de su URI lógico. La API de DocumentDB ofrece un modelo de programación RESTful basado en HTTP sencillo para todos los recursos. 
