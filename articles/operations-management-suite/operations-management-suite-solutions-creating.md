@@ -21,7 +21,6 @@ ms.openlocfilehash: 312f84fe2aaf3f63fe2b8d818786ef1c570ccfe1
 ms.contentlocale: es-es
 ms.lasthandoff: 05/11/2017
 
-
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Diseño y compilación de una solución de administración en Operations Management Suite (OMS) (versión preliminar)
 > [!NOTE]
@@ -86,4 +85,3 @@ Una vez haya finalizado y probado la solución, puede ponerla a disposición de 
 * Obtenga información acerca de cómo [crear un archivo de solución](operations-management-suite-solutions-solution-file.md) para la solución de administración.
 * Obtenga más información en [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Búsqueda de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates) para obtener ejemplos de diferentes plantillas de Resource Manager.
-

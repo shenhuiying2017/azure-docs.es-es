@@ -4,7 +4,7 @@ description: "Este tutorial le guiará por los pasos necesarios para implementar
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 6c98fcfa-39e6-43a5-83a5-d4954788f8a4
 ms.service: media-services

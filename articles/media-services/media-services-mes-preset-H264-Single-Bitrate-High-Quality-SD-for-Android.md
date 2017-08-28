@@ -2,7 +2,7 @@
 title: H264 Single Bitrate High Quality SD for Android | Microsoft Docs
 description: "El tema proporciona información general sobre el valor predeterminado de tarea **H264 Single Bitrate High Quality SD for Android**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

@@ -4,7 +4,7 @@ description: "En este tema se muestra cómo configurar el codificador en directo
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
@@ -14,10 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/11/2017
 
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Uso del codificador Wirecast para enviar una transmisión por secuencias en directo de velocidad de bits única
@@ -69,7 +70,7 @@ Mientras se inicia el canal puede [configurar el codificador](media-services-con
 >
 >
 
-## <a name="a-idconfigurewirecastrtmpaconfigure-the-telestream-wirecast-encoder"></a><a id=configure_wirecast_rtmp></a>Configuración del codificador Telestream Wirecast
+## <a id=configure_wirecast_rtmp></a>Configuración del codificador Telestream Wirecast
 En este tutorial se usa la siguiente configuración de salida. En el resto de esta sección se describen los pasos de configuración con más detalle.
 
 **Vídeo**:
@@ -176,9 +177,4 @@ Consulte el tema de [solución de problemas](media-services-troubleshooting-live
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

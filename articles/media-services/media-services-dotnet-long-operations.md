@@ -4,7 +4,7 @@ description: "En este tema se muestra cómo sondear las operaciones de larga dur
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services

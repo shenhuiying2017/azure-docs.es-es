@@ -2,7 +2,7 @@
 title: H264 Multiple Bitrate 4x3 SD Audio 5.1 | Microsoft Docs
 description: "El tema proporciona información general sobre el valor predeterminado de tarea **H264 Multiple Bitrate 4x3 SD Audio 5.1**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

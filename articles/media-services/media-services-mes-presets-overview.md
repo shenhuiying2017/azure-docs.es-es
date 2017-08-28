@@ -2,7 +2,7 @@
 title: Valores preestablecidos de las tareas de MES (Media Encoder Standard) | Microsoft Docs
 description: "En este tema se proporciona información general de los valores preestablecidos de las tareas de MES (Media Encoder Standard)."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

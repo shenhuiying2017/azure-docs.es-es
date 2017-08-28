@@ -4,7 +4,7 @@ description: "Este artículo muestra cómo recortar vídeos con el Codificador m
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 7628f674-2005-4531-8b61-d7a4f53e46ba
 ms.service: media-services

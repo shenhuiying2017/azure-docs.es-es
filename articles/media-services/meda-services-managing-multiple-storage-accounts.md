@@ -4,7 +4,7 @@ description: "En este artículo se dan instrucciones sobre cómo administrar rec
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services

@@ -4,7 +4,7 @@ description: "Aprenda a crear un componente de procesador de multimedia para cod
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: dbf9496f-c6f0-42a7-aa36-70f89dcb8ea2
 ms.service: media-services

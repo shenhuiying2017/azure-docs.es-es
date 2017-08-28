@@ -21,7 +21,6 @@ ms.openlocfilehash: a635b214fcc9b37ac426df227420b643e2a02cc7
 ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Administración del servicio Búsqueda de Azure con PowerShell
 > [!div class="op_single_selector"]
@@ -64,7 +63,7 @@ Para especificar la suscripción, ejecute el siguiente comando. En el ejemplo si
     # New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
     # Register the ARM provider idempotently. This must be done once per subscription
-    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search" -Force
+    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search"
 
     # Create a new search service
     # This command will return once the service is fully created

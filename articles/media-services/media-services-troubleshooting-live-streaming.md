@@ -4,7 +4,7 @@ description: "En este tema se ofrecen sugerencias sobre cómo solucionar problem
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
 ms.service: media-services

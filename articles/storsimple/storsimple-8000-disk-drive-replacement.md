@@ -20,7 +20,6 @@ ms.openlocfilehash: 146c9f5c751443608f8f405be949398f9f721053
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Reemplazo de una unidad de disco en un dispositivo de la serie StorSimple 8000
 
@@ -105,6 +104,7 @@ Después de que se ha producido un error en la unidad de su dispositivo StorSimp
 3. Con el transportador de la unidad insertado, cierre el asa transportadora de la unidad mientras continúa empujando el transportador de la unidad hacia el chasis, hasta que el asa transportadora de la unidad encaje en una posición de bloqueo.
 4. Utilice la llave de bloqueo proporcionada por Microsoft (destornillador Torx inviolable) para fijar el asa transportadora en su lugar girando el destornillador de bloqueo un cuarto de vuelta hacia la derecha.
 5. Compruebe que la sustitución se ha realizado correctamente y la unidad está operativa. Acceda a Azure Portal y vaya a **Configuración** > **Mantenimiento de hardware**. En **Componentes compartidos** o **Componentes compartidos de EBOD**, el estado de la unidad debe ser verde, lo que indica que está en buenas condiciones.
+<!---Loc Comment: It seems it should say "Device settings > Hardware health" instead of "Settings > Hardware health"---->
    
    > [!NOTE]
    > Puede tardar varias horas para que el estado del disco cambie a verde, después de la sustitución.

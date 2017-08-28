@@ -4,7 +4,7 @@ description: "Aprenda a obtener contenido multimedia en Servicios multimedia med
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 41df7cbe-b8e2-48c1-a86c-361ec4e5251f
 ms.service: media-services

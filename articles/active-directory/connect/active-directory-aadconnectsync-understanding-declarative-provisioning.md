@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 5b715ec247183fc1b8cb3fa485612bb0f992b5cf
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7497ec2ca658c3790227c56ef1755d9a1cb74e0a
 ms.contentlocale: es-es
-ms.lasthandoff: 01/27/2017
+ms.lasthandoff: 08/22/2017
 
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronización de Azure AD Connect: conocimiento del aprovisionamiento declarativo

@@ -4,7 +4,7 @@ description: "Aprenda a descargar recursos en el equipo. Los ejemplos de código
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services

@@ -4,7 +4,7 @@ description: "En este tema se explica cómo usar la CLI 2.0 para crear una aplic
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.service: media-services
 ms.workload: media
@@ -18,7 +18,6 @@ ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: 9218988c7daef20d03b1444b386dd03b815fbed0
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
-
 
 ---
 

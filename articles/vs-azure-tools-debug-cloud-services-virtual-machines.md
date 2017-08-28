@@ -3,8 +3,8 @@ title: "Depuración de una máquina virtual o un servicio en la nube de Azure en
 description: "Depurar un servicio en la nube o una máquina virtual en Visual Studio"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 945e06e0-2100-41af-b218-72347367ddab
 ms.service: visual-studio-online
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
 ms.openlocfilehash: dd9019a6feb86d90fc6219b06bf1e69da4c2b18f
-
+ms.contentlocale: es-es
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Depuración de una máquina virtual o un servicio en la nube de Azure en Visual Studio
@@ -165,9 +166,4 @@ Los proyectos ASP.NET de Visual Studio ofrecen una opción para crear una práct
 ## <a name="next-steps"></a>Pasos siguientes
 * Use **Intellitrace** para recopilar un registro de llamadas y eventos de un servidor de versión. Consulte [Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado](http://go.microsoft.com/fwlink/?LinkID=623016).
 * Use **Diagnósticos de Azure** para registrar información detallada del código que se ejecuta en los roles, bien sea en el entorno de desarrollo o en Azure. Consulte [Recopilación de datos de registro mediante Diagnósticos de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

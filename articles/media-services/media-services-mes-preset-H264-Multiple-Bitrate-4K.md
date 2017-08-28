@@ -2,7 +2,7 @@
 title: Valores predeterminados de Media Encoder Standard para H264 Multiple Bitrate 4K - Azure | Microsoft Docs
 description: "En el tema se proporciona información general sobre el valor predeterminado de tarea **H264 Multiple Bitrate 4K**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

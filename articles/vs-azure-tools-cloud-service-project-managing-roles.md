@@ -3,8 +3,8 @@ title: "Administración de roles en servicios en la nube de Azure con Visual Stu
 description: "Obtenga información sobre cómo agregar y quitar roles en los servicios en la nube de Azure con Visual Studio."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 5ec9ae2e-8579-4e5d-999e-8ae05b629bd1
 ms.service: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: d46c2b846f5790db1e1b0e06a12184fe7bed7c34
+ms.contentlocale: es-es
 ms.lasthandoff: 03/22/2017
-
 
 ---
 # <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>Administración de roles en servicios en la nube de Azure con Visual Studio

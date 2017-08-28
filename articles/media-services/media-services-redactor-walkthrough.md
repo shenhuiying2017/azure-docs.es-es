@@ -4,7 +4,7 @@ description: "En este tema se muestran instrucciones paso a paso sobre cómo eje
 services: media-services
 documentationcenter: 
 author: Lichard
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: rli; juliako;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: b34502aa75d94da1abcda880bb1a251a8455f3f8
+ms.contentlocale: es-es
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Tutorial de censura de rostros con Azure Media Analytics
@@ -91,12 +91,12 @@ Si como desarrollador trata de analizar los datos de anotaciones del JSON, busqu
 
 ### <a name="set-up-the-tool"></a>Configuración de la herramienta
 
-1.    Descargue y genere la solución completa. 
+1.  Descargue y genere la solución completa. 
 
     ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.    Descargue FFMPEG desde [aquí](https://ffmpeg.org/download.html). Este proyecto se desarrolló originalmente mediante la versión be1d324 (2016-10-04) con vinculación estática. 
-3.    Copie ffmpeg.exe y ffprobe.exe en la misma carpeta de salida que AzureMediaRedactor.exe. 
+2.  Descargue FFMPEG desde [aquí](https://ffmpeg.org/download.html). Este proyecto se desarrolló originalmente mediante la versión be1d324 (2016-10-04) con vinculación estática. 
+3.  Copie ffmpeg.exe y ffprobe.exe en la misma carpeta de salida que AzureMediaRedactor.exe. 
 
     ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
@@ -114,13 +114,13 @@ Si como desarrollador trata de analizar los datos de anotaciones del JSON, busqu
     
     ![Censura de rostros](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.    El campo de texto de la parte inferior se actualizará con los identificadores de los rostros. Cree un archivo denominado "idlist.txt" con estos identificadores como una lista delimitada de nueva línea. 
+5.  El campo de texto de la parte inferior se actualizará con los identificadores de los rostros. Cree un archivo denominado "idlist.txt" con estos identificadores como una lista delimitada de nueva línea. 
 
     >[!NOTE]
     > El archivo idlist.txt debe guardarse en ANSI. Puede usar el Bloc de notas para guardarlo en tal codificación.
     
-6.    Cargue el archivo en el recurso de salida del paso 1. Cargue el vídeo original en este recurso y establézcalo como recurso principal. 
-7.    Ejecute el trabajo Redaction (Censura) de este recurso con el modo "Redact" (Censurar) para obtener el vídeo censurado final. 
+6.  Cargue el archivo en el recurso de salida del paso 1. Cargue el vídeo original en este recurso y establézcalo como recurso principal. 
+7.  Ejecute el trabajo Redaction (Censura) de este recurso con el modo "Redact" (Censurar) para obtener el vídeo censurado final. 
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
