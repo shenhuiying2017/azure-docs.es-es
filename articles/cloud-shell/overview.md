@@ -60,7 +60,7 @@ Se crearán tres recursos en su nombre:
 
 También se ofrece una opción avanzada que le permite asociar los recursos existentes Cloud Shell. Cuando aparezca el mensaje del programa de instalación, haga clic en "Mostrar configuración avanzada" para seleccionar otras opciones. Las listas desplegables se filtran para las cuentas de almacenamiento redundante local o globalmente y para la región asignada de Cloud Shell.
 
-[Obtenga más información sobre el almacenamiento de Cloud Shell, la actualización de recursos compartidos de archivos y la carga y descarga de archivos]. (persisting-shell-storage.md)
+[Obtenga más información sobre el almacenamiento de Cloud Shell, la actualización de recursos compartidos de archivos y la carga y descarga de archivos.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Conceptos
 * Cloud Shell se ejecuta en un equipo temporal proporcionado en cada sesión y por usuario
