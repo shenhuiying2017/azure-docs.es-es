@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo crear una función de Azure que s
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701

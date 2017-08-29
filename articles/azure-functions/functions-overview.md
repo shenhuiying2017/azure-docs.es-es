@@ -4,7 +4,7 @@ description: "Entender cómo utilizar las funciones de Azure para optimizar las 
 services: functions
 documentationcenter: na
 author: mattchenderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"

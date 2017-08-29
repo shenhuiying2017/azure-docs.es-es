@@ -4,7 +4,7 @@ description: "Descubra cómo utilizar desencadenadores y enlaces de Azure Servic
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"

@@ -4,7 +4,7 @@ description: "Obtenga información sobre los conceptos y las técnicas de Azure 
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "guía para desarrolladores, Azure functions, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
 ms.contentlocale: es-es
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="azure-functions-developers-guide"></a>Guía para desarrolladores de Azure Functions

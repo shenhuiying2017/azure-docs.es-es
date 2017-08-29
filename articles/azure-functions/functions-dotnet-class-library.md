@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo crear bibliotecas de clases d
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"

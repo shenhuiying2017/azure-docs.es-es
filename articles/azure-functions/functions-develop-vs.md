@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo desarrollar y probar Azure Functi
 services: functions
 documentationcenter: .net
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: functions
 ms.workload: na

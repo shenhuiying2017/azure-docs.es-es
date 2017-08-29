@@ -4,7 +4,7 @@ description: "Comprenda cómo se escala Azure Functions para satisfacer las nece
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"

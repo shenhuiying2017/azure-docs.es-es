@@ -4,7 +4,7 @@ description: "Descubra cómo utilizar desencadenadores y enlaces de almacenamien
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "funciones de azure, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"

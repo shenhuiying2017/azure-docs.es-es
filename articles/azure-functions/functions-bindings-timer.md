@@ -4,7 +4,7 @@ description: "Descubra cómo utilizar desencadenadores de temporizador en funcio
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "funciones de azure, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"

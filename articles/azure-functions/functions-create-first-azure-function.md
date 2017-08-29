@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo crear su primera función de Azur
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d

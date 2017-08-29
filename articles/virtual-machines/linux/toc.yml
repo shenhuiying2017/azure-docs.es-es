@@ -41,6 +41,14 @@
       href: tutorial-jenkins-github-docker-cicd.md
     - name: '13: CI/CD con Team Services'
       href: tutorial-build-deploy-jenkins.md
+    - name: 14a - Creación de pila LAMP
+      href: tutorial-lamp-stack.md
+    - name: 14b - Creación de pila LEMP
+      href: tutorial-lemp-stack.md
+    - name: 14b - Creación de pila MEAN
+      href: tutorial-mean-stack.md
+    - name: 15 - Protección de servidor web con SSL
+      href: tutorial-secure-web-server.md
 - name: Muestras
   items:
     - name: CLI de Azure
@@ -261,6 +269,10 @@
               href: n-series-driver-setup.md
     - name: Administración del almacenamiento
       items:
+        - name: Más información sobre Managed Disks
+          href: managed-disks-overview.md
+        - name: Preguntas más frecuentes de discos
+          href: faq-for-disks.md
         - name: Agregar un disco
           items:
             - name: CLI de Azure
@@ -273,16 +285,18 @@
           href: expand-disks.md
         - name: Instantánea de un disco
           href: snapshot-copy-managed-disk.md
+        - name: Copia de seguridad de discos no administrados
+          href: incremental-snapshots.md
         - name: Conversión en Managed Disks
           href: convert-unmanaged-to-managed-disks.md
-        - name: Preguntas más frecuentes de discos
-          href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Conversión de disco entre Estándar y Premium
           href: convert-disk-storage.md
         - name: Copia de archivos en una máquina virtual
           href: copy-files-to-linux-vm-using-scp.md
         - name: Uso de File Storage
           href: mount-azure-file-storage-on-linux-using-smb.md
+        - name: Implementación de discos con plantilla
+          href: using-managed-disks-template-deployments.md
         - name: Optimización del rendimiento
           href: optimization.md
           items:

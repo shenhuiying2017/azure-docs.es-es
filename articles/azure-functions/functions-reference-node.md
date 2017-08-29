@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo desarrollar funciones con JavaScr
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"

@@ -4,7 +4,7 @@ description: Almacenamiento de datos no estructurados mediante Azure Functions y
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, functions, procesamiento de eventos, Cosmos DB, proceso dinámico, arquitectura sin servidor"

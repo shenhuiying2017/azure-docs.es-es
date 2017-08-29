@@ -4,7 +4,7 @@ description: "Descubra cómo usar los enlaces de Azure Event Hubs de Azure Funct
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "funciones de azure, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
@@ -21,7 +21,6 @@ ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 19021bef8b7156b3049f43b0275c0ed0c6b22514
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="azure-functions-event-hubs-bindings"></a>Enlaces de Event Hubs de Azure Functions

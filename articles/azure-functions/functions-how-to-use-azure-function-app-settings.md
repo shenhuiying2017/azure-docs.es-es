@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo definir la configuración de Azur
 services: 
 documentationcenter: .net
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: functions

@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo crear una plantilla de Azure Reso
 services: Functions
 documtationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funciones, arquitectura sin servidor, infraestructura como código, azure resource manager"

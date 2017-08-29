@@ -4,7 +4,7 @@ description: Uso de enlaces de archivo externo en Azure Functions
 services: functions
 documentationcenter: 
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: functions
