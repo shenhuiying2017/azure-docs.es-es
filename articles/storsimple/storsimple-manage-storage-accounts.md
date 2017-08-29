@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/29/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4bdef3c0a68b07ee2d6e0ab5344ff7cc41965f1e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 68b767c9c93f2daff476a21029b9813f347590b5
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>Usar el servicio de Administrador de StorSimple para administrar su cuenta de almacenamiento
@@ -53,7 +52,7 @@ Las tareas más comunes relacionadas con las cuentas de almacenamiento que se pu
 Hay tres tipos de cuentas de almacenamiento que se pueden usar con el dispositivo StorSimple.
 
 * **Cuentas de almacenamiento generadas automáticamente** : como sugiere su nombre, este tipo de cuenta de almacenamiento se genera automáticamente cuando se crea el servicio. Para obtener más información sobre cómo se crea esta cuenta de almacenamiento, consulte el [Paso 1: Crear un nuevo servicio](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service), en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md). 
-* **Cuentas de almacenamiento en la suscripción al servicio** : se trata de cuentas de almacenamiento de Azure que están asociadas a la misma suscripción que la del servicio. Para obtener más información sobre cómo se crean estas cuentas de almacenamiento, vea [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md). 
+* **Cuentas de almacenamiento en la suscripción al servicio** : se trata de cuentas de almacenamiento de Azure que están asociadas a la misma suscripción que la del servicio. Para obtener más información sobre cómo se crean estas cuentas de almacenamiento, vea [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md). 
 * **Cuentas de almacenamiento fuera de la suscripción al servicio** : son las cuentas de almacenamiento de Azure no asociadas al servicio que probablemente existían antes de que se crease el servicio.
 
 ## <a name="add-a-storage-account"></a>Agregar una cuenta de almacenamiento

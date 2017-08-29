@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7bc6fd9921ab0f2374ace33ea5c1ab93a78f860
 ms.contentlocale: es-es
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Eventos de registro para la evaluación de diagnósticos y la supervisión de soluciones de Batch
@@ -33,7 +33,7 @@ Como ocurre con muchos de los servicios de Azure, el servicio Batch emite evento
 
 ## <a name="prerequisites"></a>Requisitos previos
 * [Una cuenta de Azure Batch](batch-account-create-portal.md)
-* [Una cuenta de Azure Storage](../storage/storage-create-storage-account.md#create-a-storage-account)
+* [Una cuenta de Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   
   Para conservar los registros de diagnóstico de Batch, es preciso crear la cuenta de Azure Storage en la que Azure va a almacenar los registros. Especifique esta cuenta de Storage cuando [habilite el registro de diagnóstico](#enable-diagnostic-logging) para su cuenta de Batch. La cuenta de Storage que especifique al habilitar la recopilación de registros no es la misma que la cuenta de almacenamiento vinculada a la que se hace referencia en los artículos sobre [paquetes de aplicación](batch-application-packages.md) y [persistencia de salida de tarea](batch-task-output.md).
   

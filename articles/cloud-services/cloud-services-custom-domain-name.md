@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5834ad4e35894f9417d0319f120c8b74b69b3355
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9f872fd5119042945356225a80331da18f3a6d99
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure
@@ -42,7 +42,7 @@ Sin embargo, también puede exponer su aplicación en su propio nombre de domini
 <p/>
 
 > [!NOTE]
-> Los procedimientos de esta tarea se aplican a los servicios en la nube de Azure. Para Servicios de aplicaciones, consulte [este artículo](../app-service-web/web-sites-custom-domain-name.md). Para las cuentas de almacenamiento, consulte [este artículo](../storage/storage-custom-domain-name.md).
+> Los procedimientos de esta tarea se aplican a los servicios en la nube de Azure. Para Servicios de aplicaciones, consulte [este artículo](../app-service-web/web-sites-custom-domain-name.md). Para las cuentas de almacenamiento, consulte [este artículo](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

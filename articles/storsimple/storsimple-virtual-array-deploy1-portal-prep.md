@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a5bc3a72eccc48ec26ef5f029d780175d66080c0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implementación de la matriz virtual de StorSimple: preparación de Azure Portal
@@ -144,7 +144,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/).
 
 Este paso es opcional y solo se debe llevar a cabo si no habilitó la creación automática de una cuenta de almacenamiento con su servicio.
 
-Si necesita crear una cuenta de Azure Storage en una región distinta, consulte [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) para instrucciones detalladas.
+Si necesita crear una cuenta de Azure Storage en una región distinta, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para instrucciones detalladas.
 
 Siga estos pasos en [Azure Portal](https://ms.portal.azure.com/) en la página del servicio StorSimple Device Manager para agregar una cuenta de Microsoft Azure Storage existente.
 

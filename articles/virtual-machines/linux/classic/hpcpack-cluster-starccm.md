@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9a2796c66fa49c543e52b654e583ade7625a7f31
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Ejecución de STAR-CCM+ con Microsoft HPC Pack en un clúster de Linux RDMA en Azure
@@ -119,7 +119,7 @@ Ahora que todos los nodos están en ejecución en el clúster, hay que establece
 ## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Configuración de un recurso compartido de archivos de Azure para nodos Linux y Windows
 Puede utilizar el servicio de archivos de Azure para almacenar los scripts, los paquetes de aplicaciones y los archivos de datos. El servicio de archivos de Azure proporciona funcionalidades CIFS en el almacenamiento de blobs de Azure como un almacén persistente. Tenga en cuenta que no se trata de la solución más escalable, pero sí es la más sencilla y no requiere máquinas virtuales dedicadas.
 
-Cree un recurso compartido de archivos de Azure siguiendo las instrucciones descritas en el artículo [Introducción a Azure File Storage en Windows](../../../storage/storage-dotnet-how-to-use-files.md).
+Cree un recurso compartido de archivos de Azure siguiendo las instrucciones descritas en el artículo [Introducción a Azure File Storage en Windows](../../../storage/files/storage-dotnet-how-to-use-files.md).
 
 Mantenga **saname** como nombre de la cuenta de almacenamiento, **sharename** como nombre del recurso compartido de archivos y **sakey** como clave de la cuenta de almacenamiento.
 

@@ -15,10 +15,10 @@ ms.workload: 5/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9adaf46743bad039e2a5680a7d6dca767d964459
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 77d12d6d48b22dfb3e7f09f273dffc11401bb15f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -199,7 +199,7 @@ Para obtener detalles completos sobre estas y las demás variables de entorno de
 ## <a name="resource-files"></a>Archivos de recursos
 Hay dos conjuntos de archivos de recursos que se deben tener en cuenta para las tareas de múltiples instancias: **archivos de recursos comunes** que descargan *todas* las tareas (tanto principales como subtareas) y **archivos de recursos** especificados para la propia tarea de múltiples instancias, que descarga *solo la tarea principal*.
 
-Puede especificar uno o más **archivos de recursos comunes** en la configuración de instancias múltiples de una tarea. La tarea principal y todas las subtareas descargan estos archivos de recursos comunes desde el [Azure Storage](../storage/storage-introduction.md) en el **directorio compartido de tareas** de cada nodo. Puede tener acceso al directorio compartido de tareas desde las líneas de comandos de coordinación y aplicación mediante la variable de entorno `AZ_BATCH_TASK_SHARED_DIR` . La ruta de acceso `AZ_BATCH_TASK_SHARED_DIR` es idéntica en todos los nodos asignados a la tarea de múltiples instancias, por lo que puede compartir un único comando de coordinación entre el principal y todas las subtareas. Batch no "comparte" el directorio en un sentido de acceso remoto, pero puede usarlo como un montaje o punto de recurso compartido, tal como se mencionó anteriormente en la información sobre las variables de entorno.
+Puede especificar uno o más **archivos de recursos comunes** en la configuración de instancias múltiples de una tarea. La tarea principal y todas las subtareas descargan estos archivos de recursos comunes desde el [Azure Storage](../storage/common/storage-introduction.md) en el **directorio compartido de tareas** de cada nodo. Puede tener acceso al directorio compartido de tareas desde las líneas de comandos de coordinación y aplicación mediante la variable de entorno `AZ_BATCH_TASK_SHARED_DIR` . La ruta de acceso `AZ_BATCH_TASK_SHARED_DIR` es idéntica en todos los nodos asignados a la tarea de múltiples instancias, por lo que puede compartir un único comando de coordinación entre el principal y todas las subtareas. Batch no "comparte" el directorio en un sentido de acceso remoto, pero puede usarlo como un montaje o punto de recurso compartido, tal como se mencionó anteriormente en la información sobre las variables de entorno.
 
 Los archivos de recursos que especifique para la propia tarea de múltiples instancias se descargan en el directorio de trabajo de la tarea, `AZ_BATCH_TASK_WORKING_DIR`, de forma predeterminada. Como se mencionó, a diferencia de los archivos de recursos comunes, solo la tarea principal descarga los archivos de recursos especificados para la propia tarea de múltiples instancias.
 

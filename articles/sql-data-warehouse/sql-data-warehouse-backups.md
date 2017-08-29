@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ef2e6e7a19c7ed1730fdec5eca73c941e1b319c4
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 54c0149a769e654139bbdf709802d49127f041ac
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="sql-data-warehouse-backups"></a>Copias de seguridad de SQL Data Warehouse
@@ -35,15 +35,15 @@ SQL Data Warehouse protege los datos al almacenarlos en Azure Premium Storage co
 
 Para más información sobre:
 
-* Azure Premium Storage, consulte [Introducción a Azure Premium Storage](../storage/storage-premium-storage.md).
-* Almacenamiento con redundancia local, consulte [Replicación de Azure Storage](../storage/storage-redundancy.md#locally-redundant-storage).
+* Azure Premium Storage, consulte [Introducción a Azure Premium Storage](../storage/common/storage-premium-storage.md).
+* Almacenamiento con redundancia local, consulte [Replicación de Azure Storage](../storage/common/storage-redundancy.md#locally-redundant-storage).
 
 ## <a name="azure-storage-blob-snapshots"></a>Instantáneas de Azure Storage Blob
 Una de las ventajas de usar Azure Premium Storage, es que SQL Data Warehouse usa instantáneas de Azure Storage Blob para realizar la copia de seguridad del almacenamiento de datos local. Puede restaurar un almacén de datos a un punto de restauración de instantáneas. Las instantáneas se inician como mínimo cada ocho horas y están disponibles durante siete días.  
 
 Para más información sobre:
 
-* Instantáneas de blobs de Azure, consulte [Creación de una instantánea de un blob](../storage/storage-blob-snapshots.md).
+* Instantáneas de blobs de Azure, consulte [Creación de una instantánea de un blob](../storage/blobs/storage-blob-snapshots.md).
 
 ## <a name="geo-redundant-backups"></a>Copias de seguridad con redundancia geográfica
 Cada 24 horas, SQL Data Warehouse almacena el almacenamiento de datos completo en almacenamiento Estándar. El almacenamiento de datos completo se crea para que coincida con la hora de la última instantánea. El almacenamiento estándar pertenece a una cuenta de almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). La característica RA-GRS de Azure Storage replica los archivos de copias de seguridad en un [centro de datos emparejado](../best-practices-availability-paired-regions.md). Esta replicación geográfica garantiza que pueda restaurar el almacenamiento de datos en caso de que no se pueda acceder a las instantáneas de la región primaria. 
@@ -62,8 +62,8 @@ Esta característica está activada de forma predeterminada. Si no desea utiliza
 
 Para más información sobre:
 
-* Almacenamiento con redundancia geográfica, consulte [Replicación de Azure Storage](../storage/storage-redundancy.md).
-* Almacenamiento de RA-GRS, consulte [Almacenamiento con redundancia geográfica con acceso de lectura](../storage/storage-redundancy.md#read-access-geo-redundant-storage).
+* Almacenamiento con redundancia geográfica, consulte [Replicación de Azure Storage](../storage/common/storage-redundancy.md).
+* Almacenamiento de RA-GRS, consulte [Almacenamiento con redundancia geográfica con acceso de lectura](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
 
 ## <a name="data-warehouse-backup-schedule-and-retention-period"></a>Programación de copia de seguridad de almacenamiento de datos y período de retención
 SQL Data Warehouse crea instantáneas en los almacenamientos de datos en línea entre cada cuatro y ocho horas y guarda cada instantánea durante siete días. Puede restaurar la base de datos en línea a uno de los puntos de restauración de los últimos siete días. 

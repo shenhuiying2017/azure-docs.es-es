@@ -6,16 +6,16 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/29/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: a80adae0359aac6aa8c9e7922e3f4c3883dd8056
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: a7555464879826c5e4f55929d23163b002664e81
 ms.contentlocale: es-es
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -31,10 +31,10 @@ En este tutorial rápido se usan como punto de partida los recursos creados en u
 Instale [Go](https://golang.org/doc/install) y el [controlador Pure Go Postgres (pq)](https://github.com/lib/pq) en su máquina. Dependiendo de la plataforma, siga estos pasos:
 
 ### <a name="windows"></a>Windows
-1. [Descargue](https://golang.org/dl/) e instale Go a Microsoft Windows de acuerdo con las [instrucciones de instalación](https://golang.org/doc/install).
+1. [Descargue](https://golang.org/dl/) e instale Go para Microsoft Windows de acuerdo con las [instrucciones de instalación](https://golang.org/doc/install).
 2. En el menú Inicio, inicie el símbolo del sistema.
 3. Cree una carpeta para su proyecto, como `mkdir  %USERPROFILE%\go\src\postgresqlgo`.
-4. Cambie el directorio en la carpeta del proyecto, por ejemplo `cd %USERPROFILE%\go\src\postgresqlgo`.
+4. Cambie el directorio a la carpeta de proyecto, por ejemplo `cd %USERPROFILE%\go\src\postgresqlgo`.
 5. Establezca la variable de entorno para GOPATH con el fin de que apunte al directorio de código fuente. `set GOPATH=%USERPROFILE%\go`.
 6. Instale el [controlador Pure Go Postgres (pq)](https://github.com/lib/pq) mediante la ejecución del comando `go get github.com/lib/pq`.
 
@@ -47,11 +47,11 @@ Instale [Go](https://golang.org/doc/install) y el [controlador Pure Go Postgres 
    ```
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-1. Abra el shell de Bash. 
+1. Inicie el shell de Bash. 
 2. Instale Go mediante la ejecución de `sudo apt-get install golang-go`.
-3. Cree una carpeta para el proyecto en su directorio particular, como `mkdir -p ~/go/src/postgresqlgo/`.
-4. Cambie el directorio en la carpeta, por ejemplo `cd ~/go/src/postgresqlgo/`.
-5. Establezca la variable de entorno GOPATH para que apunte a un directorio de origen válido, como la carpeta go del directorio particular actual. En el shell de Bash, ejecute `export GOPATH=~/go` para agregar el directorio go como GOPATH para la sesión de shell actual.
+3. Cree una carpeta para el proyecto en su directorio principal, como `mkdir -p ~/go/src/postgresqlgo/`.
+4. Cambie el directorio a la carpeta, por ejemplo, `cd ~/go/src/postgresqlgo/`.
+5. Establezca la variable de entorno GOPATH para que apunte a un directorio de origen válido, como la carpeta go del directorio principal actual. En el shell de Bash, ejecute `export GOPATH=~/go` para agregar el directorio go como GOPATH para la sesión de shell actual.
 6. Instale el [controlador Pure Go Postgres (pq)](https://github.com/lib/pq) mediante la ejecución del comando `go get github.com/lib/pq`.
 
    En resumen, ejecute estos comandos de Bash:
@@ -65,10 +65,10 @@ Instale [Go](https://golang.org/doc/install) y el [controlador Pure Go Postgres 
 
 ### <a name="apple-macos"></a>MacOS de Apple
 1. Descargue e instale Go de acuerdo con las [instrucciones de instalación](https://golang.org/doc/install) que coincidan con su plataforma. 
-2. Abra el shell de Bash. 
-3. Cree una carpeta para el proyecto en su directorio particular, como `mkdir -p ~/go/src/postgresqlgo/`.
-4. Cambie el directorio en la carpeta, por ejemplo `cd ~/go/src/postgresqlgo/`.
-5. Establezca la variable de entorno GOPATH para que apunte a un directorio de origen válido, como la carpeta go del directorio particular actual. En el shell de Bash, ejecute `export GOPATH=~/go` para agregar el directorio go como GOPATH para la sesión de shell actual.
+2. Inicie el shell de Bash. 
+3. Cree una carpeta para el proyecto en su directorio principal, como `mkdir -p ~/go/src/postgresqlgo/`.
+4. Cambie el directorio a la carpeta, por ejemplo, `cd ~/go/src/postgresqlgo/`.
+5. Establezca la variable de entorno GOPATH para que apunte a un directorio de origen válido, como la carpeta go del directorio principal actual. En el shell de Bash, ejecute `export GOPATH=~/go` para agregar el directorio go como GOPATH para la sesión de shell actual.
 6. Instale el [controlador Pure Go Postgres (pq)](https://github.com/lib/pq) mediante la ejecución del comando `go get github.com/lib/pq`.
 
    En resumen, instale Go y después ejecute estos comandos de Bash:
@@ -93,7 +93,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
 1. Para escribir código Golang, utilice un editor de texto simple, como el Bloc de notas en Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) o [Nano](https://www.nano-editor.org/) en Ubuntu, o TextEdit en macOS. Si prefiere un entorno de desarrollo integrado (IDE) más rico, pruebe [Gogland](https://www.jetbrains.com/go/) de Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) de Microsoft o [Atom](https://atom.io/).
 2. Pegue el código de Golang de las secciones siguientes en archivos de texto y guárdelos en la carpeta del proyecto con la extensión de archivo \*.go, como la ruta de acceso de Windows `%USERPROFILE%\go\src\postgresqlgo\createtable.go` o la ruta de acceso de Linux `~/go/src/postgresqlgo/createtable.go`.
 3. Busque las constantes `HOST`, `DATABASE`, `USER` y `PASSWORD` en el código y reemplace los valores de ejemplo con sus propios valores.  
-4. Inicie el símbolo del sistema o el shell de Bash. Cambie el directorio en la carpeta del proyecto. Por ejemplo, en Windows `cd %USERPROFILE%\go\src\postgresqlgo\`. En Linux `cd ~/go/src/postgresqlgo/`. Algunos de los entornos de IDE mencionados ofrecen funcionalidades de depuración y de tiempo de ejecución sin necesidad de comandos de shell.
+4. Inicie el símbolo del sistema o el shell de Bash. Cambie el directorio a la carpeta de proyecto. Por ejemplo, en Windows `cd %USERPROFILE%\go\src\postgresqlgo\`. En Linux `cd ~/go/src/postgresqlgo/`. Algunos de los entornos de IDE mencionados ofrecen funcionalidades de depuración y de tiempo de ejecución sin necesidad de comandos de shell.
 5. Ejecute el código escribiendo el comando `go run createtable.go` para compilar la aplicación y ejecútela. 
 6. Además, para compilar el código en una aplicación nativa, `go build createtable.go`, inicie `createtable.exe` para ejecutar la aplicación.
 

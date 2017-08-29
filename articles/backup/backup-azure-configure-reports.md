@@ -16,10 +16,10 @@ ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4629665e6fbe26c26eb45af7509de338367c4e18
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
@@ -32,7 +32,7 @@ En este artículo se habla sobre los pasos para configurar informes de Azure Bac
 4. La frecuencia de actualización programada para los informes es de 24 horas en Power BI. También puede realizar una actualización ad hoc de los informes en Power BI, en cuyo caso, se usan los últimos datos de la cuenta de Storage del cliente para informes de representación. 
 
 ## <a name="prerequisites"></a>Requisitos previos
-1. Cree una [cuenta de Azure Storage](../storage/storage-create-storage-account.md#create-a-storage-account) para informes. Esta cuenta de Storage se usa para almacenar datos relacionados de informes.
+1. Cree una [cuenta de Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account) para informes. Esta cuenta de Storage se usa para almacenar datos relacionados de informes.
 2. [Cree una cuenta de Power BI](https://powerbi.microsoft.com/landing/signin/) para ver, personalizar y crear sus propios informes mediante el portal de Power BI.
 3. Registre el proveedor de recursos **Microsoft.insights** si no se ha registrado ya, con la suscripción de la cuenta de Storage y también con la suscripción del almacén de Recovery Services para habilitar el flujo de datos de informes a la cuenta de Storage. Para hacer lo mismo, debe ir a Azure Portal > Suscripción > Proveedores de recursos y busque este proveedor para registrarlo. 
 
@@ -82,7 +82,7 @@ Después de configurar la cuenta de Storage para informes con el almacén de Rec
 4. Escriba el nombre de la cuenta de Storage configurada en el paso 5 anterior y haga clic en el botón **Siguiente**.
 
     ![Escribir el nombre de la cuenta de Storage](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Escriba la clave de cuenta de almacenamiento de esta cuenta de Storage. Puede [ver y copiar las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#manage-your-storage-account); para ello, vaya a la cuenta de Storage en Azure Portal. 
+5. Escriba la clave de cuenta de almacenamiento de esta cuenta de Storage. Puede [ver y copiar las claves de acceso de almacenamiento](../storage/common/storage-create-storage-account.md#manage-your-storage-account); para ello, vaya a la cuenta de Storage en Azure Portal. 
 
      ![Escribir la cuenta de Storage](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 048854b440f939077a7a95fa1db9ba42daf55ede
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure
@@ -186,7 +186,7 @@ Hay varias opciones para mover datos entre los nodos de Linux y el nodo principa
 ### <a name="azure-file-storage"></a>Almacenamiento de archivos de Azure
 El servicio [Archivo de Azure](https://azure.microsoft.com/services/storage/files/) expone recursos compartidos de archivos mediante el protocolo SMB 2.1 estándar. Las VM y los servicios en la nube de Azure pueden compartir datos de archivo entre componentes de aplicaciones a través de recursos compartidos montados, y las aplicaciones locales pueden acceder a datos de archivo de un recurso compartido a través de la API de Almacenamiento de archivos. 
 
-Para obtener pasos detallados para crear un recurso compartido de archivos de Azure y montarlo en el nodo principal, vea [Introducción a Almacenamiento de archivos de Azure en Windows](../../../storage/storage-file-how-to-use-files-windows.md). Para montar el recurso compartido de archivos de Azure en los nodos de Linux, vea [Uso de almacenamiento de Azure File Storage con Linux](../../../storage/storage-how-to-use-files-linux.md). Para establecer conexiones persistentes, consulte [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Para obtener pasos detallados para crear un recurso compartido de archivos de Azure y montarlo en el nodo principal, vea [Introducción a Almacenamiento de archivos de Azure en Windows](../../../storage/files/storage-how-to-use-files-windows.md). Para montar el recurso compartido de archivos de Azure en los nodos de Linux, vea [Uso de almacenamiento de Azure File Storage con Linux](../../../storage/files/storage-how-to-use-files-linux.md). Para establecer conexiones persistentes, consulte [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 En el siguiente ejemplo, cree un recurso compartido de Archivos de Azure en una cuenta de almacenamiento. Para montar el recurso compartido en el nodo principal, abra un símbolo del sistema y escriba los siguientes comandos:
 

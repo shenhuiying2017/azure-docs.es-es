@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 071be50ff7f72ecd711b2c3036f39b70df01a6ba
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a0e944d0d74ecb72a919538d54db330cbbdeef64
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>Implementación de una aplicación web con MSDeploy, un nombre de host personalizado y un certificado SSL
@@ -123,7 +122,7 @@ Ahora verá que el recurso de MSDeploy admite una propiedad **packageUri** que s
 
     "packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('webDeployPackageFolder'), '/', parameters('webDeployPackageFileName'), parameters('_artifactsLocationSasToken'))]"
 
-Esta propiedad **packageUri** admite el identificador URI de la cuenta de almacenamiento que apunta a la cuenta de almacenamiento donde se cargará el archivo comprimido del paquete. El Administrador de recursos de Azure aprovechará las [firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md) para descargar el paquete localmente desde la cuenta de almacenamiento cuando se implemente la plantilla. Este proceso se automatizará mediante un script de PowerShell que cargará el paquete y llamará a la API de administración de Azure para crear las claves requeridas y pasarlas a la plantilla como parámetros (*_artifactsLocation* y *_artifactsLocationSasToken*). Debe definir los parámetros de la carpeta y el nombre de archivo donde se carga el paquete en el contenedor de almacenamiento.
+Esta propiedad **packageUri** admite el identificador URI de la cuenta de almacenamiento que apunta a la cuenta de almacenamiento donde se cargará el archivo comprimido del paquete. El Administrador de recursos de Azure aprovechará las [firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para descargar el paquete localmente desde la cuenta de almacenamiento cuando se implemente la plantilla. Este proceso se automatizará mediante un script de PowerShell que cargará el paquete y llamará a la API de administración de Azure para crear las claves requeridas y pasarlas a la plantilla como parámetros (*_artifactsLocation* y *_artifactsLocationSasToken*). Debe definir los parámetros de la carpeta y el nombre de archivo donde se carga el paquete en el contenedor de almacenamiento.
 
 Después, debe agregar otro recurso anidado para configurar los enlaces de nombre de host para sacar provecho de un dominio personalizado. En primer lugar, deberá asegurarse de que posee el nombre de host y configurarlo para que Azure compruebe que en efecto lo posee; consulte [Configurar un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](app-service-web-tutorial-custom-domain.md). Una vez hecho esto, puede agregar lo siguiente a la plantilla en la sección de recursos Microsoft.Web/sites:
 

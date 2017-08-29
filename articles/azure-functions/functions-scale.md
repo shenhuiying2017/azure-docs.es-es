@@ -15,14 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/12/2017
-ms.author: donnam, glenga
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 5131a432a5de26ed1fc82005446d101d3094ef8b
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 70e77e09b2e2116153159167af61776398904a3c
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-functions-consumption-and-app-service-plans"></a>Plan de consumo y plan de App Service de Azure Functions 
@@ -81,7 +80,7 @@ Always On solo está disponible en un plan de App Service. En un plan de consumo
 
 Tanto en el plan de consumo como en el plan de App Service, una aplicación de función requiere una cuenta de Azure Storage que admita almacenamiento de Azure en blobs, colas y tablas. A nivel interno, Azure Functions usa Azure Storage para operaciones como la administración de desencadenadores y las ejecuciones de la función de registro. Algunas cuentas de almacenamiento no son compatibles con colas ni tablas, como las cuentas de almacenamiento solo para blob (incluido Premium Storage) y las cuentas de almacenamiento de uso general con replicación de almacenamiento con redundancia de zona. Estas cuentas se filtran en la hoja **Cuenta de almacenamiento** al crear una aplicación de función.
 
-Para obtener más información sobre los tipos de cuenta de almacenamiento, vea [Introducción de los servicios Azure Storage](../storage/storage-introduction.md#introducing-the-azure-storage-services).
+Para obtener más información sobre los tipos de cuenta de almacenamiento, vea [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Funcionamiento del plan de consumo
 
@@ -91,8 +90,8 @@ Al usar el plan de consumo, los archivos de código de función se almacenan en 
 
 > [!NOTE]
 > Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs si una aplicación de función ha quedado inactiva. Después de que la aplicación de función se ejecute, los blobs se procesan inmediatamente. Para evitar este retraso inicial, considere una de las siguientes opciones:
-> - Usar un plan de App Service con Always On habilitado.
-> - Usar otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob. Para obtener un ejemplo, vea [Desencadenador de cola con enlace de entrada de blob](functions-bindings-storage-blob.md#input-sample).
+> - Usar un plan de App Service con Always On habilitado
+> - Usar otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob Para obtener un ejemplo, vea [Desencadenador de cola con enlace de entrada de blob](functions-bindings-storage-blob.md#input-sample).
 
 ### <a name="runtime-scaling"></a>Escalado del entorno de tiempo de ejecución
 

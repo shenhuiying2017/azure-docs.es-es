@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5bc983ef1ffaac5d6de7bbc2cdf51838d8051aac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Uso de la extensión de diagnóstico de Linux para supervisar los datos de rendimiento y diagnóstico de una máquina virtual Linux
@@ -152,7 +152,7 @@ Paso 2: Ejecute **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTC
 
 ## <a name="review-your-data"></a>Revisión de los datos
 
-Los datos de diagnóstico y rendimiento y se almacenan en una tabla de almacenamiento de Azure. Consulte [Uso del Almacenamiento de tablas de Azure con Ruby](../../../storage/storage-ruby-how-to-use-table-storage.md) para obtener información sobre cómo acceder a los datos de la tabla de almacenamiento utilizando scripts de la CLI de Azure.
+Los datos de diagnóstico y rendimiento y se almacenan en una tabla de almacenamiento de Azure. Consulte [Uso del Almacenamiento de tablas de Azure con Ruby](../../../cosmos-db/table-storage-how-to-use-ruby.md) para obtener información sobre cómo acceder a los datos de la tabla de almacenamiento utilizando scripts de la CLI de Azure.
 
 Además, puede utilizar las siguientes herramientas de la interfaz de usuario para tener acceso a los datos:
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8bb0357a1ac2effd1144afd2af1741205592d253
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 23c30c954875598ce3e01db137b0ef8cda9779f4
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Creación y carga de un disco duro virtual que contiene el sistema operativo Linux
@@ -74,7 +74,7 @@ azure login
 <a id="upload"> </a>
 
 ## <a name="step-3-upload-the-image-to-azure"></a>Paso 3: cargar la imagen en Azure
-Tiene que cargar el archivo VHD a una cuenta de almacenamiento. Puede seleccionar una cuenta de almacenamiento existente o [crear una nueva](../../../storage/storage-create-storage-account.md).
+Tiene que cargar el archivo VHD a una cuenta de almacenamiento. Puede seleccionar una cuenta de almacenamiento existente o [crear una nueva](../../../storage/common/storage-create-storage-account.md).
 
 Use la CLI de Azure para cargar la imagen con el siguiente comando:
 

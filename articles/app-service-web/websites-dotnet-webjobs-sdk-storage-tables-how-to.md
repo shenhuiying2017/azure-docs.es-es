@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47db68afb8ea938a9861765f9e60c78436569110
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 13cfc788c14d714df7022ce003d34691cf73d121
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a>Cómo usar el almacenamiento de tablas de Azure con el SDK de WebJobs
@@ -139,7 +139,7 @@ El siguiente ejemplo de código usa un objeto `CloudTable` para agregar una enti
             tableBinding.Execute(insertOperation);
         }
 
-Para obtener más información acerca de cómo usar el objeto `CloudTable` , consulte [Uso del almacenamiento de tablas de .NET](../storage/storage-dotnet-how-to-use-tables.md) 
+Para obtener más información acerca de cómo usar el objeto `CloudTable` , consulte [Uso del almacenamiento de tablas de .NET](../cosmos-db/table-storage-how-to-use-dotnet.md) 
 
 ## <a id="queues"></a>Temas relacionados tratados en el artículo sobre procedimientos de las colas
 Para obtener información sobre cómo controlar el procesamiento de tablas desencadenado por un mensaje de cola o para ver los escenarios de SDK de WebJobs no específicos para el procesamiento de tablas, consulte [Cómo usar el almacenamiento de colas con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 

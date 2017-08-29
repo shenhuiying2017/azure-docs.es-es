@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 8a9d7c7f3f8aefa5312e5e3313dbd581d6df900a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a23301ba88279af3f7bf4d353ae808e9eeb0900d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Procedimientos recomendados para crear plantillas de Azure Resource Manager
@@ -394,7 +394,7 @@ También es conveniente dar formato al JSON para mejorar la legibilidad. Puede u
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para instrucciones sobre cómo diseñar la solución para las máquinas virtuales, consulte [Ejecución de una máquina virtual Windows en Azure](../guidance/guidance-compute-single-vm.md) y [Ejecución de una máquina virtual Linux en Azure](../guidance/guidance-compute-single-vm-linux.md).
-* Si desea obtener instrucciones sobre cómo configurar una cuenta de almacenamiento, consulte [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../storage/storage-performance-checklist.md).
+* Si desea obtener instrucciones sobre cómo configurar una cuenta de almacenamiento, consulte [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../storage/common/storage-performance-checklist.md).
 * Para información sobre cómo una empresa puede usar Resource Manager para administrar suscripciones de manera eficaz, consulte [Scaffold empresarial de Azure: gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
 
 

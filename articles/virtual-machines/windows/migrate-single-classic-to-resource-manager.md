@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 4bae56abfdc609ad40e6fbefe120493f1cd4e66d
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 82389834d85981c0ed71bdcc891fbfdbe1377654
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>Migración manual de una máquina virtual clásica a una nueva máquina virtual de disco administrada con ARM desde VHD 
 
 
-Esta sección lo ayudará a migrar las máquinas virtuales de Azure existentes desde el modelo de implementación clásico a [Managed Disks](../../storage/storage-managed-disks-overview.md) en el modelo de implementación de Resource Manager.
+Esta sección lo ayudará a migrar las máquinas virtuales de Azure existentes desde el modelo de implementación clásico a [Managed Disks](managed-disks-overview.md) en el modelo de implementación de Resource Manager.
 
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Planeación de la migración a Managed Disks

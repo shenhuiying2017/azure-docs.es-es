@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/11/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5cd05743425069925e71e85a616967c812bd3491
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2e4b1a307fae06c0639d93b9804c6f0f703d5900
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
@@ -55,7 +55,7 @@ HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociad
 
 Hay dos formas de firmas de acceso compartido:
 
-* Ad-hoc: la hora de inicio, la hora de expiración y los permisos para la SAS se especifican todos en el URI de SAS (o se encuentran implícitos en el caso en el que se omita la hora de inicio).
+* Ad hoc: la hora de inicio, la hora de expiración y los permisos para la firma de acceso compartido se especifican en el URI de esta.
 
 * Directiva de acceso almacenada: se define una directiva de acceso almacenada en un contenedor de recursos, como un contenedor de blobs. Una directiva puede usarse para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada.
 
@@ -63,18 +63,21 @@ La diferencia entre las dos formas es importante para un escenario principal: re
 
 1. Se alcanza el tiempo de expiración especificado en la SAS.
 
-2. Se alcanza la hora de expiración especificada en la directiva de acceso almacenada a la que hace referencia la SAS. Esto puede producirse porque transcurra el intervalo o porque haya modificado la directiva de acceso almacenado para tener una hora de expiración pasada, que es una forma de revocar la SAS.
+2. Se alcanza la hora de expiración especificada en la directiva de acceso almacenada a la que hace referencia la SAS. Los escenarios siguientes hacen que se alcance la hora de expiración:
+
+    * Ha transcurrido el intervalo de tiempo.
+    * La directiva de acceso almacenada se ha modificado para que la hora de expiración haya pasado. Cambiar la hora de expiración es una manera de revocar la firma de acceso compartido.
 
 3. Se elimina la directiva de acceso almacenada a la que hace referencia la SAS, que es otra forma de revocar la SAS. Si se vuelve a crear la directiva de acceso almacenada con el mismo nombre, todos los tokens de SAS de la directiva anterior son válidos (si la SAS no ha caducado). Si prevé revocar la SAS, asegúrese de usar un nombre distinto si vuelve a crear la directiva de acceso con una hora de expiración futura.
 
-4. Se vuelve a generar la clave de cuenta que se usó para crear la SAS. Regenerar la clave hace que todas las aplicaciones que usan la clave anterior no se puedan autenticar. Debe actualizar todos los componentes con la nueva clave.
+4. Se vuelve a generar la clave de cuenta que se usó para crear la SAS. Regenerar la clave hace que todas las aplicaciones que usan la clave anterior no se puedan autenticar. Actualice todos los componentes con la nueva clave.
 
 > [!IMPORTANT]
 > Los URI de firma de acceso compartido están asociados a la clave de la cuenta que se utiliza para crear la firma y a la directiva de acceso almacenada correspondiente (en su caso). Si no se especifica una directiva de acceso almacenada, la única forma de revocar una firma de acceso compartido es cambiar la clave de la cuenta.
 
-Se recomienda usar siempre las directivas de acceso almacenadas, para que pueda revocar las firmas o ampliar la fecha de expiración según sea necesario. Los pasos descritos en este documento utilizan directivas de acceso almacenadas para generar las SAS.
+Se recomienda usar siempre las directivas de acceso almacenadas. Al utilizar las directivas almacenadas, puede revocar las firmas o ampliar la fecha de expiración según sea necesario. Los pasos descritos en este documento utilizan directivas de acceso almacenadas para generar las SAS.
 
-Para más información sobre firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md)
+Para más información sobre firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 ### <a name="create-a-stored-policy-and-sas-using-c"></a>Creación de una directiva almacenada y una SAS mediante C\#
 
@@ -92,7 +95,7 @@ Para más información sobre firmas de acceso compartido, consulte [Firmas de ac
 
    * FileToUpload: la ruta de acceso a un archivo que se carga en el contenedor.
 
-4. Ejecute el proyecto. Aparece una ventana de consola y, una vez generada la SAS, se mostrará información similar al texto siguiente:
+4. Ejecute el proyecto. Una vez generada la firma de acceso compartido, se mostrará información similar al texto siguiente:
 
         Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
 
@@ -133,39 +136,48 @@ Se incluye un ejemplo de creación de un clúster de HDInsight que usa la SAS en
 
 1. Abra el archivo `CreateCluster\HDInsightSAS.ps1` en un editor de texto y modifique los valores siguientes al principio del documento.
 
-        # Replace 'mycluster' with the name of the cluster to be created
-        $clusterName = 'mycluster'
-        # Valid values are 'Linux' and 'Windows'
-        $osType = 'Linux'
-        # Replace 'myresourcegroup' with the name of the group to be created
-        $resourceGroupName = 'myresourcegroup'
-        # Replace with the Azure data center you want to the cluster to live in
-        $location = 'North Europe'
-        # Replace with the name of the default storage account to be created
-        $defaultStorageAccountName = 'mystorageaccount'
-        # Replace with the name of the SAS container created earlier
-        $SASContainerName = 'sascontainer'
-        # Replace with the name of the SAS storage account created earlier
-        $SASStorageAccountName = 'sasaccount'
-        # Replace with the SAS token generated earlier
-        $SASToken = 'sastoken'
-        # Set the number of worker nodes in the cluster
-        $clusterSizeInNodes = 2
+    ```powershell
+    # Replace 'mycluster' with the name of the cluster to be created
+    $clusterName = 'mycluster'
+    # Valid values are 'Linux' and 'Windows'
+    $osType = 'Linux'
+    # Replace 'myresourcegroup' with the name of the group to be created
+    $resourceGroupName = 'myresourcegroup'
+    # Replace with the Azure data center you want to the cluster to live in
+    $location = 'North Europe'
+    # Replace with the name of the default storage account to be created
+    $defaultStorageAccountName = 'mystorageaccount'
+    # Replace with the name of the SAS container created earlier
+    $SASContainerName = 'sascontainer'
+    # Replace with the name of the SAS storage account created earlier
+    $SASStorageAccountName = 'sasaccount'
+    # Replace with the SAS token generated earlier
+    $SASToken = 'sastoken'
+    # Set the number of worker nodes in the cluster
+    $clusterSizeInNodes = 3
+    ```
 
     Por ejemplo, cambie `'mycluster'` por el nombre del clúster que desea crear. Los valores de SAS deben coincidir con los valores de los pasos anteriores al crear una cuenta de almacenamiento y el token de SAS.
 
     Una vez que haya cambiado los valores, guarde el archivo.
-2. Abra un nuevo símbolo del sistema de Azure PowerShell. Si no está familiarizado con Azure PowerShell, o si no lo ha instalado, consulte [Cómo instalar y configurar Azure PowerShell][powershell].
-3. En el símbolo del sistema, use el siguiente comando para autenticarse en la suscripción de Azure:
 
-        Login-AzureRmAccount
+2. Abra un nuevo símbolo del sistema de Azure PowerShell. Si no está familiarizado con Azure PowerShell, o si no lo ha instalado, consulte [Cómo instalar y configurar Azure PowerShell][powershell].
+
+1. En el símbolo del sistema, use el siguiente comando para autenticarse en la suscripción de Azure:
+
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
     Cuando se le solicite, inicie sesión con la cuenta de la suscripción de Azure.
 
     Si la cuenta está asociada a varias suscripciones de Azure, puede que tenga que usar `Select-AzureRmSubscription` para seleccionar la suscripción que quiere usar.
+
 4. En el símbolo del sistema, cambie los directorios al directorio `CreateCluster` que contiene el archivo HDInsightSAS.ps1. Después, use el siguiente comando para ejecutar el script
 
-        .\HDInsightSAS.ps1
+    ```powershell
+    .\HDInsightSAS.ps1
+    ```
 
     Mientras se ejecuta el script, registra la salida en el símbolo del sistema de PowerShell mientras crea las cuentas de grupo de recursos y de almacenamiento. Se le pedirá que escriba el usuario HTTP para el clúster de HDInsight. Esta cuenta se usa para proteger el acceso HTTP/s al clúster.
 
@@ -218,31 +230,42 @@ Para comprobar que tiene el acceso restringido, utilice los métodos siguientes:
 * Para clústeres de HDInsight **basados en Windows** , use el Escritorio remoto para conectarse al clúster. Para más información, vea [Connect to HDInsight using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp) (Conectarse a HDInsight mediante RDP).
 
     Una vez conectado, use el icono de **línea de comandos de Hadoop** en el escritorio para abrir un símbolo del sistema.
+
 * Para clústeres de HDInsight **basados en Linux** , use SSH para conectarse al clúster. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Una vez conectado al clúster, siga estos pasos para comprobar que solo puede leer y listar elementos en la cuenta de almacenamiento de SAS:
 
-1. En el símbolo del sistema, escriba lo siguiente. Reemplace **SASCONTAINER** por el nombre del contenedor creado para la cuenta de almacenamiento de SAS. Reemplace **SASACCOUNTNAME** por el nombre de la cuenta de almacenamiento utilizada para la SAS:
+1. Para mostrar el contenido del contenedor, utilice el siguiente comando desde el símbolo del sistema: 
 
-        hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```bash
+    hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```
 
-    Este comando muestra el contenido del contenedor, que debe incluir el archivo que se cargó al crear el contenedor y la SAS.
+    Reemplace **SASCONTAINER** por el nombre del contenedor creado para la cuenta de almacenamiento de SAS. Reemplace **SASACCOUNTNAME** por el nombre de la cuenta de almacenamiento utilizada para la firma de acceso compartido.
+
+    La lista incluye el archivo que se cargó al crear el contenedor y la firma de acceso compartido.
 
 2. Use el siguiente comando para comprobar que puede leer el contenido del archivo. Reemplace **SASCONTAINER** y **SASACCOUNTNAME** tal como lo ha hecho en el paso anterior. Reemplace **FILENAME** por el nombre de archivo que aparece en el comando anterior:
 
-        hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+    ```bash
+    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+    ```
 
     Este comando muestra el contenido del archivo.
 
 3. Use el siguiente comando para descargar el archivo en el sistema de archivos local:
 
-        hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+    ```bash
+    hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+    ```
 
     Este comando descarga el archivo en un archivo local denominado **testfile.txt**.
 
 4. Use el siguiente comando para cargar el archivo local en un nuevo archivo denominado **testupload.txt** en el almacenamiento de SAS:
 
-        hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+    ```bash
+    hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+    ```
 
     Recibirá un mensaje similar al texto siguiente:
 
@@ -250,7 +273,9 @@ Una vez conectado al clúster, siga estos pasos para comprobar que solo puede le
 
     Este error se produce porque la ubicación de almacenamiento es solo de lectura y lista. Use el siguiente comando para colocar los datos en el almacenamiento predeterminado para el clúster, que tiene permiso de escritura:
 
-        hdfs dfs -put testfile.txt wasb:///testupload.txt
+    ```bash
+    hdfs dfs -put testfile.txt wasb:///testupload.txt
+    ```
 
     Esta vez, la operación debe completarse correctamente.
 

@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 08/10/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 183cb2ad4f2a80f9a0e1e7a33f1cacae006c0df4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2779655aee3af3a351b30f18b4c9d9918e9f2210
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
@@ -40,22 +39,19 @@ En este artículo se describe:
 > [!NOTE]
 > Si no está familiarizado con la actividad de copia, consulte [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md) antes de leer este artículo.
 >
->
 
 ## <a name="performance-reference"></a>Referencia de rendimiento
+
+Como referencia, la tabla siguiente muestra la cantidad de procesamiento de copias en MBps para los pares origen-receptor especificados en función de pruebas internas. A efectos de comparación, también muestra cómo distintos valores de [unidades de movimiento de datos de nube](#cloud-data-movement-units) o de [escalabilidad de Data Management Gateway](data-factory-data-management-gateway-high-availability-scalability.md) (varios nodos de puerta de enlace) pueden contribuir al rendimiento de copias.
+
 ![Matriz de rendimiento](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [!NOTE]
-> Para lograr un mayor rendimiento, use más unidades de movimiento de datos (DMU) que el número máximo de DMU predeterminado, que es 32 para una ejecución de actividad de copia de nube a nube. Por ejemplo, con 100 DMU, puede copiar datos de Azure Blob a Azure Data Lake Store a una velocidad de **1 GBps**. Consulte la sección [Unidades de movimiento de datos en la nube](#cloud-data-movement-units) para más detalles sobre esta característica y el escenario admitido. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/) para solicitar más DMU.
->
->
 
 **Puntos a tener en cuenta:**
 * La capacidad de proceso se calcula con la siguiente fórmula: [tamaño de los datos leídos del origen]/[duración de la ejecución de Copiar actividad].
 * Los números de referencia de rendimiento de la tabla se midieron mediante el conjunto de datos [TPC-H](http://www.tpc.org/tpch/) en una ejecución de una única actividad de copia.
-* Para copiar entre almacenes de datos en la nube, establezca **cloudDataMovementUnits** en 1 y 4 (u 8) para compararlos. **parallelCopies** no se especifica. Consulte la sección [Copia en paralelo](#parallel-copy) para más información sobre estas características.
 * En los almacenes de datos de Azure, el origen y el receptor se encuentran en la misma región de Azure.
-* Para movimientos de datos híbridos (del entorno local a la nube o de la nube al entorno local), se requiere que una sola instancia de puerta de enlace se ejecute en una máquina que esté separada del almacén de datos local. La configuración se muestra en la tabla siguiente. Si se ha ejecutado una única actividad en la puerta de enlace, la operación de copia solo ha consumido una pequeña parte del ancho de banda de red, memoria y CPU de la máquina de prueba.
+* Para la copia híbrida entre almacenes de datos locales y en la nube, cada nodo de puerta de enlace se ejecutaba en un equipo independiente del almacén de datos local con la especificación siguiente. Si se ha ejecutado una única actividad en la puerta de enlace, la operación de copia solo ha consumido una pequeña parte del ancho de banda de red, memoria y CPU de la máquina de prueba. Obtenga más información en [Consideraciones sobre Data Management Gateway](#considerations-for-data-management-gateway).
     <table>
     <tr>
         <td>CPU</td>
@@ -70,6 +66,10 @@ En este artículo se describe:
         <td>Interfaz de Internet: 10 Gbps; interfaz de intranet: 40 Gbps</td>
     </tr>
     </table>
+
+
+> [!TIP]
+> Para lograr un mayor rendimiento, use más unidades de movimiento de datos (DMU) que el número máximo de DMU predeterminado, que es 32 para una ejecución de actividad de copia de nube a nube. Por ejemplo, con 100 DMU, puede copiar datos de Azure Blob a Azure Data Lake Store a una velocidad de **1 GBps**. Consulte la sección [Unidades de movimiento de datos en la nube](#cloud-data-movement-units) para más detalles sobre esta característica y el escenario admitido. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/) para solicitar más DMU.
 
 ## <a name="parallel-copy"></a>Copia en paralelo
 Puede leer datos del origen o escribir datos en el destino **en paralelo dentro de una ejecución de actividad de copia**. Esta característica mejora el rendimiento de una operación de copia y reduce el tiempo necesario para mover datos.
@@ -115,7 +115,6 @@ Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son 1 (pr
 
 > [!NOTE]
 > Si necesita más DMU de nube para aumentar el rendimiento, póngase en contacto con el [servicio técnico de Azure](https://azure.microsoft.com/support/). La configuración de 8 o más solo funciona actualmente cuando se **copian varios archivos de Blob Storage, Data Lake Store, Amazon S3, FTP en la nube o SFTP en la nube a Blob Storage, Data Lake Store o Azure SQL Database**.
->
 >
 
 ### <a name="parallelcopies"></a>parallelCopies
@@ -247,15 +246,21 @@ Para optimizar el rendimiento del servicio Data Factory con la actividad de copi
    * Características de rendimiento:
      * [Copia paralela](#parallel-copy)
      * [Unidades de movimiento de datos de nube](#cloud-data-movement-units)
-     * [Copias almacenadas provisionalmente](#staged-copy)   
+     * [Copias almacenadas provisionalmente](#staged-copy)
+     * [Escalabilidad de Data Management Gateway](data-factory-data-management-gateway-high-availability-scalability.md)
+   * [Data Management Gateway](#considerations-for-data-management-gateway)
    * [Origen](#considerations-for-the-source)
    * [Sink](#considerations-for-the-sink)
    * [Serialización y deserialización](#considerations-for-serialization-and-deserialization)
    * [Compresión](#considerations-for-compression)
    * [Asignación de columnas](#considerations-for-column-mapping)
-   * [Data Management Gateway](#considerations-for-data-management-gateway)
    * [Otras consideraciones](#other-considerations)
 3. **Expanda la configuración a todo el conjunto de datos**. Cuando esté satisfecho con los resultados de la ejecución y el rendimiento, puede expandir la definición y el período activo de canalización para cubrir todo el conjunto de datos.
+
+## <a name="considerations-for-data-management-gateway"></a>Consideraciones sobre Data Management Gateway
+**Configuración de puerta de enlace**: se recomienda usar una máquina dedicada para hospedar Data Management Gateway. Vea [Consideraciones sobre el uso de Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+
+**Supervisión y escalado vertical u horizontal de la puerta de enlace**: una sola puerta de enlace con uno o varios nodos de puerta de enlace puede atender varias ejecuciones de actividad de copia simultáneamente. Para ver una instantánea casi en tiempo real del uso de recursos (CPU, memoria, red [entrada y salida], etc.) en una máquina de puerta de enlace, además del número de trabajos simultáneos en ejecución frente al límite de Azure Portal, vea [Supervisión de la puerta de enlace en el portal](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si depende mucho del movimiento de datos híbridos con un gran número de ejecuciones de actividad de copia simultáneas o con grandes volúmenes de datos que copiar, considere la posibilidad de [escalar vertical u horizontalmente la puerta de enlace](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) con el fin de mejorar el uso de recursos o aprovisionar más recursos para ampliar la capacidad de copia. 
 
 ## <a name="considerations-for-the-source"></a>Consideraciones sobre el origen
 ### <a name="general"></a>General
@@ -342,13 +347,6 @@ La propiedad **columnMappings** se puede establecer en la actividad de copia par
 
 Si el almacén de datos de origen es consultable, por ejemplo, si es un almacén relacional, como SQL Database o SQL Server, o es un almacén NoSQL como Table Storage o Azure Cosmos DB, considere la posibilidad de insertar la lógica de filtrado y reordenación de columnas en la propiedad **query**, en lugar de usar la asignación de columnas. De esta forma, la proyección se produce mientras el servicio de movimiento de datos lee los datos del almacén de datos de origen, donde es mucho más eficaz.
 
-## <a name="considerations-for-data-management-gateway"></a>Consideraciones sobre Data Management Gateway
-Para ver las recomendaciones de configuración de la puerta de enlace, consulte [Consideraciones sobre el uso de Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).
-
-**Entorno de la máquina de puerta de enlace:**recomendamos usar una máquina dedicada para hospedar Data Management Gateway. Use herramientas como PerfMon para examinar el uso de CPU, memoria y ancho de banda durante una operación de copia en la máquina de puerta de enlace. Cambie a un equipo con más capacidad si la CPU, la memoria o el ancho de banda de red se convierten en un cuello de botella.
-
-**Ejecuciones simultáneas de actividad de copia**: una única instancia de Data Management Gateway puede atender varias ejecuciones de actividad de copia al mismo tiempo, o de manera simultánea. El número máximo de trabajos simultáneos se calcula en función de la configuración de hardware de la máquina de puerta de enlace. Los trabajos de copia adicionales se ponen a la cola hasta que los selecciona la puerta de enlace o hasta que se agota el tiempo de espera de otro trabajo. Para evitar la contención de recursos en la máquina de puerta de enlace, puede organizar la programación de la actividad de copia para reducir el número de trabajos de copia que pueden estar en la cola a la vez, o bien dividir la carga entre varias máquinas de puerta de enlace.
-
 ## <a name="other-considerations"></a>Otras consideraciones
 Si el tamaño de los datos que quiere copiar es grande, puede ajustar la lógica empresarial para particionar los datos aún más mediante el mecanismo de fragmentación de Data Factory. A continuación, programe la actividad de copia para ejecutarse con mayor frecuencia y así reducir el tamaño de los datos con cada ejecución de actividad de copia.
 
@@ -404,7 +402,7 @@ En este caso, la compresión de datos bzip2 podría estar ralentizando la canali
 ## <a name="reference"></a>Referencia
 Estas son algunas referencias para la supervisión y la optimización del rendimiento para algunos de los almacenes de datos admitidos:
 
-* Azure Storage (que incluyeBlob Storage y Table Storage): [Objetivos de escalabilidad de Azure Storage](../storage/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../storage/storage-performance-checklist.md)
+* Azure Storage (que incluyeBlob Storage y Table Storage): [Objetivos de escalabilidad de Azure Storage](../storage/common/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../storage/common/storage-performance-checklist.md)
 * Base de datos SQL de Azure: puede [supervisar el rendimiento](../sql-database/sql-database-single-database-monitor.md) y comprobar el porcentaje de unidades de transacción de base de datos (DTU).
 * Almacenamiento de datos SQL de Azure: su capacidad se mide en unidades de almacenamiento de datos (DWU); consulte [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Niveles de rendimiento de Azure Cosmos DB](../documentdb/documentdb-performance-levels.md)

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: e6ebab3e4d7deeefbab395b0a898fbf441d75b5d
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 94aa3bfc700cad3de9fc5516c0c9a4d86ade3fed
 ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-11-run-a-test-failover-of-physical-servers-to-azure"></a>Paso 11: Ejecutar una conmutación por error de prueba de servidores físicos en Azure
@@ -35,13 +34,13 @@ Antes de ejecutar una conmutación por error de prueba se recomienda comprobar l
 
 ## <a name="managed-disk-considerations"></a>Consideraciones sobre discos administrados
 
-Los [discos administrados](../storage/storage-managed-disks-overview.md) simplifican la administración de los discos de las máquinas virtuales de Azure al administrar las cuentas de almacenamiento asociadas a los discos de la máquina virtual. 
+Los [discos administrados](../virtual-machines/windows/managed-disks-overview.md) simplifican la administración de los discos de las máquinas virtuales de Azure al administrar las cuentas de almacenamiento asociadas a los discos de la máquina virtual. 
 
 - Al habilitar la protección de un servidor, los datos de las máquinas virtuales se replican en una cuenta de almacenamiento. Los discos administrados se crean y se asocian a la máquina virtual únicamente cuando se produce la conmutación por error.
 - Los discos administrados solo se pueden crear para máquinas virtuales de Azure implementadas con el modelo de Resource Manager.  
 - Con esta opción habilitada, solo se pueden seleccionar los conjuntos de disponibilidad de los grupos de recursos que tienen la opción **Usar discos administrados** habilitada. Las máquinas virtuales con discos administrados deben estar en conjuntos de disponibilidad con la opción **Usar discos administrados** establecida en **Sí**. Si esta opción no está habilitada para las máquinas virtuales, solo se pueden seleccionar los conjuntos de disponibilidad de los grupos de recursos sin discos administrados habilitados.
-- [Más información](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) sobre discos administrados y conjuntos de disponibilidad.
-- Si la cuenta de almacenamiento que usa para la replicación se ha cifrado con cifrado del servicio Storage, no se pueden crear discos administrados durante la conmutación por error. En este caso no habilite el uso de discos administrados o deshabilite la protección de la máquina virtual y vuelva a habilitarla de modo que use una cuenta de almacenamiento que no tenga habilitado el cifrado. [Más información](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+- Obtenga [más información](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) sobre discos administrados y conjuntos de disponibilidad.
+- Si la cuenta de almacenamiento que usa para la replicación se ha cifrado con cifrado del servicio Storage, no se pueden crear discos administrados durante la conmutación por error. En este caso no habilite el uso de discos administrados, o deshabilite la protección de la máquina virtual y vuelva a habilitarla de modo que use una cuenta de almacenamiento que no tenga habilitado el cifrado. [Más información](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 
 ## <a name="network-considerations"></a>Consideraciones sobre la red
@@ -58,7 +57,7 @@ Puede establecer la dirección IP de destino de una máquina virtual de Azure cr
      - Por ejemplo, si una máquina de origen tiene dos adaptadores de red y el tamaño de la máquina de destino admite cuatro, el equipo de destino tendrá dos adaptadores. Si el equipo de origen tiene dos adaptadores pero el tamaño de destino compatible solo admite uno, el equipo de destino tendrá solo un adaptador.     
    - Si la máquina virtual tiene varios adaptadores de red, todos ellos se conectarán a la misma red.
    - Si la máquina virtual tiene varios adaptadores de red, el primero de ellos que se muestre en la lista se convertirá en el *predeterminado* en la máquina virtual de Azure.
- - [Más información](vmware-walkthrough-network.md) sobre direcciones IP.
+ - Obtenga [más información](vmware-walkthrough-network.md) sobre direcciones IP.
 
 
 
@@ -70,11 +69,11 @@ Se recomienda comprobar las propiedades del servidor de origen antes de ejecutar
 2. En el panel **Elemento replicado**, puede ver un resumen de información de la máquina, el estado de mantenimiento y los puntos de recuperación disponibles más recientes. Haga clic en **Propiedades** para ver más detalles.
 3. En **Proceso y red**, puede:
     - Modificar el nombre de la máquina virtual de Azure. El nombre debe satisfacer los [requisitos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Especificar un [grupo de recursos](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md) posterior a la conmutación por error
+    - Especificar un [grupo de recursos] posterior a la conmutación por error.
     - Especificar un tamaño de destino para la máquina virtual de Azure
-    - Seleccione un [conjunto de disponibilidad](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Seleccione un [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md).
     - Especifique si quiere usar [discos administrados](#managed-disk-considerations). Seleccione **Sí** si quiere asociar discos administrados a la máquina al migrar a Azure.
-    - Vea o modifique la configuración de red, incluida la red o subred en la que se va a ubicar la máquina virtual de Azure después de la conmutación por error y la dirección IP que se le va a asignar.
+    - Ver o modificar la configuración de red, incluida la red o subred en la que se va a ubicar la máquina virtual de Azure después de la conmutación por error y la dirección IP que se le va a asignar.
 4. En **Discos** puede ver información sobre los discos de datos y el sistema operativo de la máquina virtual.
 
 ## <a name="run-a-test-failover"></a>Ejecución de una conmutación por error de prueba

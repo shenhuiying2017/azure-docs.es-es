@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 97db1c51a16fbf62abe8062938beefa16a4f7afd
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50049b1c66bf93cbed52e30e66385c33a4d97c5b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="import-data-into-analytics"></a>Importación de datos a Analytics
@@ -134,7 +134,7 @@ Para importar datos, cárguelos en Azure Storage, cree una clave de acceso para 
 
 Puede llevar a cabo el siguiente proceso manualmente o configurar un sistema automatizado para hacerlo a intervalos regulares. Debe seguir estos pasos para cada bloque de datos que desea importar.
 
-1. Cargue los datos en [Azure Blob Storage](../storage/storage-dotnet-how-to-use-blobs.md). 
+1. Cargue los datos en [Azure Blob Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
  * Los blobs pueden tener un tamaño de hasta 1 GB sin comprimir. Los blobs grandes de cientos de MB son ideales desde la perspectiva del rendimiento.
  * Es posible comprimir con Gzip para mejorar el tiempo de carga y la latencia de los datos, a fin de que estén disponibles para consultarlos. Use la extensión de nombre de archivo `.gz`.
@@ -142,7 +142,7 @@ Puede llevar a cabo el siguiente proceso manualmente o configurar un sistema aut
  * Al enviar datos de alta frecuencia, cada pocos segundos, se recomienda utilizar más de una cuenta de almacenamiento, por motivos de rendimiento.
 
  
-2. [Cree una clave de firma de acceso compartido para el blob](../storage/storage-dotnet-shared-access-signature-part-2.md). La clave debe tener un período de caducidad de un día y proporcionar acceso de lectura.
+2. [Cree una clave de firma de acceso compartido para el blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). La clave debe tener un período de caducidad de un día y proporcionar acceso de lectura.
 3. Realice una llamada de REST para notificar a Application Insights que hay datos en espera.
 
  * Punto de conexión: `https://dc.services.visualstudio.com/v2/track`

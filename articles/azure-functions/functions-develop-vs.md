@@ -12,12 +12,12 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: glenga, donnam
+ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: fab2b3042faf870fe4b9d09d5e96dadb7155c450
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1e0568bc58e8879cabe409cf8e9b5866f922e7c9
 ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Herramientas de Azure Functions para Visual Studio  
@@ -36,24 +36,15 @@ En este tema se muestra cómo usar Herramientas de Azure Functions para Visual S
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de instalar Herramientas de Azure Functions, debe tener instalada la [versión 15.3 de Visual Studio 2017 Preview](https://www.visualstudio.com/vs/preview/), incluida una de las siguientes cargas de trabajo:
+Las herramientas de Azure Functions forman parte de la carga de trabajo de desarrollo de Azure de la [versión 15.3 de Visual Studio 2017](https://www.visualstudio.com/vs/) y las posteriores. Asegúrese de incluir la carga de trabajo de **desarrollo Azure** en la instalación de la versión 15.3 de Visual Studio 2017:
 
-* Desarrollo de Azure
-* ASP.NET y desarrollo web
+![Instalar Visual Studio 2017 con la cargas de trabajo Desarrollo de Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 Para crear e implementar funciones, también necesita:
 
 * Una suscripción de Azure activa. Si no tiene una suscripción de Azure, hay disponibles [cuentas gratis](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Una cuenta de Almacenamiento de Azure. Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account).  
-
-## <a name="install-the-azure-functions-tools"></a>Instalación de Herramientas de Azure Functions
-
-Puede [descargar e instalar el paquete de extensión](https://marketplace.visualstudio.com/vsgallery/e3705d94-7cc3-4b79-ba7b-f43f30774d28) o usar los pasos siguientes para instalarlo desde Visual Studio.  
-
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)] 
-
-
+* Una cuenta de Almacenamiento de Azure. Para crear una cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
 ## <a name="create-an-azure-functions-project"></a>Creación de un proyecto de Azure Functions 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]

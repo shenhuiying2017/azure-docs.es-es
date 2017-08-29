@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: e9808af4aa875c5199279825325688afc69e6de6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3c7ab236d0a9efee6ac3fa97ed6de85cacbc9a89
 ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-cosmos-db-faq"></a>Preguntas más frecuentes sobre Azure Cosmos DB
@@ -210,7 +210,7 @@ Puede usar Azure Portal para examinar los datos. También puede usar el código 
 ### <a name="which-tools-work-with-the-table-api-preview"></a>¿Qué herramientas funcionarán con Table API (versión preliminar)? 
 Puede usar la versión anterior de Azure Explorer (0.8.9).
 
-Las herramientas que tengan suficiente flexibilidad como para aceptar una cadena de conexión en el formato especificado antes son compatibles con la nueva Table API (versión preliminar). En la página [Herramientas de cliente de Azure Storage](../storage/storage-explorers.md) se ofrece una lista de herramientas de tabla. 
+Las herramientas que tengan suficiente flexibilidad como para aceptar una cadena de conexión en el formato especificado antes son compatibles con la nueva Table API (versión preliminar). En la página [Herramientas de cliente de Azure Storage](../storage/common/storage-explorers.md) se ofrece una lista de herramientas de tabla. 
 
 ### <a name="do-powershell-or-azure-cli-work-with-the-new-table-api-preview"></a>¿Funcionan PowerShell y la CLI de Azure con la nueva Table API (versión preliminar)?
 Tenemos previsto agregar compatibilidad de PowerShell y la CLI de Azure con Table API (versión preliminar). 

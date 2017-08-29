@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 56e8f5cf3886c740853a40781c42b3e36144134b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedimientos recomendados de la matriz virtual de StorSimple
@@ -146,7 +145,7 @@ Utilice las siguientes recomendaciones para las cuentas de almacenamiento asocia
   
   * Se recomienda que crearlo en la región más cercana a la oficina remota o sucursal en la que está implementada la matriz virtual de StorSimple para minimizar las latencias.
   * Tenga en cuenta que las cuentas de almacenamiento no se pueden mover entre diferentes regiones. Tampoco es posible mover servicios entre suscripciones.
-  * Utilice una cuenta de almacenamiento que implementa redundancia entre los centros de datos. El almacenamiento con redundancia geográfica (GRS), el almacenamiento con redundancia de zona (ZRS) y el almacenamiento con redundancia local (LRS) se admiten para su uso con cualquier matriz virtual. Para más información acerca de los distintos tipos de cuentas de almacenamiento, vaya a [Replicación de almacenamiento de Azure](../storage/storage-redundancy.md).
+  * Utilice una cuenta de almacenamiento que implementa redundancia entre los centros de datos. El almacenamiento con redundancia geográfica (GRS), el almacenamiento con redundancia de zona (ZRS) y el almacenamiento con redundancia local (LRS) se admiten para su uso con cualquier matriz virtual. Para más información acerca de los distintos tipos de cuentas de almacenamiento, vaya a [Replicación de almacenamiento de Azure](../storage/common/storage-redundancy.md).
 
 ### <a name="shares-and-volumes"></a>Recursos compartidos y volúmenes
 En una matriz virtual de StorSimple se pueden aprovisionar recursos compartidos cuando está configurada como un servidor de archivos y volúmenes cuando está configurada como un servidor de iSCSI. Los procedimientos recomendados para la creación de volúmenes y recursos compartidos están relacionados con el tamaño y el tipo configurado.

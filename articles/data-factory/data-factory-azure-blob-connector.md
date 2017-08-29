@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 7be5e5095b8aa6f2ae3d8c0b636883c4ff7ced63
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2cf955b52010869a4e753c441e17bdd32fd2e63d
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copia de datos hacia Azure Blob Storage o desde él con Azure Data Factory
@@ -168,7 +167,7 @@ En esta sección se describe el comportamiento resultante de la operación de co
 Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blob Storage. En este tutorial, los almacenes de datos de origen y destino son de tipo: Azure Blob Storage. La canalización en este tutorial copia datos de una carpeta a otra carpeta en el mismo contenedor de blobs. Este tutorial es sencillo a propósito para mostrar sus valores de configuración o propiedades al usar Blob Storage como origen o receptor. 
 
 ### <a name="prerequisites"></a>Requisitos previos
-1. Si aún no tiene una, cree una **cuenta de Azure Storage** de uso general. En este tutorial usará el almacenamiento de blobs como almacén de datos de **origen** y **destino**. Si no tiene una cuenta de Almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
+1. Si aún no tiene una, cree una **cuenta de Azure Storage** de uso general. En este tutorial usará el almacenamiento de blobs como almacén de datos de **origen** y **destino**. Si no tiene una cuenta de Almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
 2. Cree un contenedor de blobs denominado **adfblobconnector** en la cuenta de almacenamiento. 
 4. Cree una carpeta denominada **entrada** en el contenedor **adfblobconnector**.
 5. Cree un archivo denominado **emp.txt** con el siguiente contenido y cárguelo en la carpeta **entrada** mediante herramientas como el [Explorador de Azure Storage](https://azurestorageexplorer.codeplex.com/).
@@ -263,8 +262,7 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
 ### <a name="monitor-the-pipeline-copy-task"></a>Supervisión de la canalización (tarea de copia)
 
 1. Haga clic en el vínculo `Click here to monitor copy pipeline` de la página **Implementación**. 
-2. Verá la opción **Monitor and Manage application** (Supervisar y administrar la aplicación) en una pestaña aparte. 
-    ![Supervisar y administrar la aplicación](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+2. Verá la opción **Monitor and Manage application** (Supervisar y administrar la aplicación) en una pestaña aparte.  ![Supervisar y administrar la aplicación](media/data-factory-azure-blob-connector/monitor-manage-app.png)
 3. Cambie la hora de **inicio** de la parte superior a `04/19/2017` y la hora de **finalización** a `04/27/2017`; a continuación, haga clic en **Aplicar**. 
 4. Verá cinco ventanas de actividad en la lista **ACTIVITY WINDOWS** (VENTANAS DE ACTIVIDAD). Las horas de **WindowStart** deben abarcar todos los días desde las horas de inicio hasta las horas de finalización de la canalización. 
 5. Haga clic en el botón **Actualizar** de la lista **ACTIVITY WINDOWS** (VENTANAS DE ACTIVIDAD) unas cuantas veces hasta que vea el estado de todas las ventanas de actividad establecido en Listo. 

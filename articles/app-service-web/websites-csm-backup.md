@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1ad2911f809a17e4a6c0f2fe9087e1d9eb2da39e
-ms.lasthandoff: 12/08/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c1b8fc3be3af46279bf35bddbc82acf1827b9eb9
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-rest-to-back-up-and-restore-app-service-apps"></a>Uso de REST para copia de seguridad y restauración de aplicaciones del Servicio de aplicaciones
@@ -58,7 +58,7 @@ Para realizar una copia de seguridad de una aplicación de inmediato, envíe una
 
 Este es el aspecto de la dirección URL al utilizar nuestro sitio web de ejemplo. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
 
-Proporcione un objeto JSON en el cuerpo de la solicitud para especificar qué cuenta de almacenamiento se usa para almacenar la copia de seguridad. El objeto JSON debe tener una propiedad denominada **storageAccountUrl**, que contiene una [URL de SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) , que concede acceso de escritura al contenedor de Almacenamiento de Azure que contiene el blob de copia de seguridad. Si desea hacer una copia de seguridad de las bases de datos, debe proporcionar igualmente una lista con los nombres, tipos y cadenas de conexión de las bases de datos de las que va a realizar una copia de seguridad.
+Proporcione un objeto JSON en el cuerpo de la solicitud para especificar qué cuenta de almacenamiento se usa para almacenar la copia de seguridad. El objeto JSON debe tener una propiedad denominada **storageAccountUrl**, que contiene una [URL de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) , que concede acceso de escritura al contenedor de Almacenamiento de Azure que contiene el blob de copia de seguridad. Si desea hacer una copia de seguridad de las bases de datos, debe proporcionar igualmente una lista con los nombres, tipos y cadenas de conexión de las bases de datos de las que va a realizar una copia de seguridad.
 
 ```
 {

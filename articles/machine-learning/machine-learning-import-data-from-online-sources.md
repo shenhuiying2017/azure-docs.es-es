@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;garye
-translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: afecdde0cbc0bcbe0932b23dc1a8e067d02ded12
-ms.lasthandoff: 12/20/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 16d4586d82ed256a90d8eb6be4aab927aed1200a
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importación de datos al Estudio de aprendizaje automático de Azure desde varios orígenes de datos en línea con el módulo Importar datos
@@ -44,6 +44,7 @@ Con el módulo [Importar datos][import-data], puede tener acceso a los datos des
 * Base de datos SQL de Azure o SQL Server en máquina virtual de Azure
 * La base de datos de SQL Server local
 * Un proveedor de fuentes de datos, actualmente OData
+* Azure CosmosDB (anteriormente denominado DocumentDB)
 
 Para tener acceso a orígenes de datos en línea en el experimento de Studio, agregue el módulo [Importar datos][import-data] al experimento, seleccione **Origen de datos** y, después, especifique los parámetros necesarios para acceder a los datos. Los orígenes de datos en línea admitidos se muestran en la tabla siguiente. Esta tabla también resume los formatos de archivo admitidos y los parámetros usados para tener acceso a los datos.
 
@@ -55,7 +56,7 @@ Tenga en cuenta que, como a estos datos de entrenamiento se tiene acceso mientra
 > Por lo general, las cuentas de almacenamiento de Azure que podría haber creado antes de que esta opción de servicio estuviera disponible no deberían verse afectadas. 
 > Si tiene que crear una cuenta nueva, seleccione **Clásico** en Modelo de implementación, o bien utilice Resource Manager y seleccione **Uso general** en lugar de **Blob Storage** en **Tipo de cuenta**. 
 > 
-> Para obtener más información, consulte [Capas de almacenamiento de acceso frecuente y acceso esporádico](../storage/storage-blob-storage-tiers.md).
+> Para obtener más información, consulte [Capas de almacenamiento de acceso frecuente y acceso esporádico](../storage/blobs/storage-blob-storage-tiers.md).
 > 
 > 
 

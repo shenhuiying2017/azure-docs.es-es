@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 305f02bb120a1096c46de94d103a5700dabdc8ba
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 438f32ee3605e2dd0c46de7993a359cc269262fe
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-between-on-premises-hyper-v-virtual-machines-and-azure-without-vmm-with-azure-site-recovery"></a>Replicación entre máquinas virtuales de Hyper-V local y Azure (sin VMM) con Azure Site Recovery
@@ -51,7 +51,7 @@ Las organizaciones necesitan una estrategia de recuperación ante desastres y co
 
 ## <a name="azure-prerequisites"></a>Requisitos previos de Azure
 * Necesita una cuenta de [Microsoft Azure](https://azure.microsoft.com/) . Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el almacén de Azure Site Recovery y estar asociada a la misma suscripción. [Más información sobre Almacenamiento de Azure](../storage/storage-introduction.md). Tenga en cuenta que no se admite el desplazamiento de cuentas de almacenamiento creadas mediante el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
+* Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el almacén de Azure Site Recovery y estar asociada a la misma suscripción. [Más información sobre Almacenamiento de Azure](../storage/common/storage-introduction.md). Tenga en cuenta que no se admite el desplazamiento de cuentas de almacenamiento creadas mediante el [nuevo Portal de Azure](../storage/common/storage-create-storage-account.md) entre grupos de recursos.
 * Necesitará una red virtual de Azure para que las máquinas virtuales de Azure se conecten a una red al conmutar por error desde el sitio principal.
 
 ## <a name="hyper-v-prerequisites"></a>Requisitos previos de Hyper-V
@@ -167,7 +167,7 @@ Los parámetros son:
     ![Crear cuenta de almacenamiento](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
 > [!NOTE]
-> 1. No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
+> 1. No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/common/storage-create-storage-account.md) entre grupos de recursos.
 > 2. No se admite la [migración de cuentas de almacenamiento](../azure-resource-manager/resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones para cuentas de almacenamiento usadas para implementar Site Recovery.
 >
 
@@ -202,7 +202,7 @@ Agregue máquinas virtuales a grupos de protección para habilitar su protecció
 3. Una vez configurada la protección, puede:
 
    * Ver las máquinas virtuales en **Elementos protegidos** > **Grupos de protección** > *nombre_grupo_protección* > **Máquinas virtuales**. Puede desplazarse hasta los detalles de la máquina en la pestaña **Propiedades**.
-   * Configurar las propiedades de conmutación por error de una máquina virtual en **Elementos protegidos** > **Grupos de protección** > *nombre_grupo_protección* > **Máquinas virtuales** *nombre_máquina_virtual* > **Configurar**. Puede configurar:
+   * Configurar las propiedades de conmutación por error de una máquina virtual en **Elementos protegidos** >  **Grupos de protección** > *nombre_grupo_protección* > **Máquinas virtuales***nombre_máquina_virtual* > **Configurar**. Puede configurar:
 
      * **Nombre**: el nombre de la máquina virtual en Azure.
      * **Tamaño**: el tamaño de destino de la máquina virtual que conmuta por error.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 2796a77984fb811b2ea563a45652bb6312b3dd26
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fb5b8c9ac96ac44d0112919664a177f33ef392da
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -34,7 +34,7 @@ El servicio de Azure Site Recovery contribuye a su estrategia de recuperación a
 
 Cuando se producen interrupciones en la ubicación principal, podrá realizar la conmutación por error a una ubicación secundaria para mantener disponibles las aplicaciones y cargas de trabajo. Puede realizar la conmutación por recuperación a la ubicación principal cuando vuelva a su funcionamiento normal. Consulte [¿Qué es Site Recovery?](site-recovery-overview.md) para más información sobre Site Recovery.
 
-En este artículo se resumen los requisitos previos necesarios para comenzar la replicación de Site Recovery a Azure.
+En este artículo se resumen los requisitos previos necesarios para comenzar la replicación de Site Recovery del entorno local a Azure.
 
 Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -46,7 +46,7 @@ Publique cualquier comentario o pregunta que tenga en la parte inferior de este 
 **Cuenta de Azure** | Una cuenta de [Microsoft Azure](http://azure.microsoft.com/) .<br/><br/> Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 **Servicio Site Recovery** | Para más información sobre los precios de Site Recovery, consulte los [precios de Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/). Se recomienda crear un almacén de Recovery Services en la región de Azure de destino que quiera usar como ubicación de recuperación ante desastres. Por ejemplo, si las máquinas virtuales de origen se ejecutan en el este de EE. UU. y quiere replicar en el centro de EE. UU., se recomienda crear el almacén en el centro de EE. UU.|
 **Capacidad de Azure** | Para la región de Azure de destino que quiera usar como la ubicación de recuperación ante desastres, debe tener una suscripción con capacidad suficiente para máquinas virtuales, cuentas de almacenamiento y componentes de red. Para agregar más capacidad, puede ponerse en contacto con el soporte técnico.
-**Instrucciones sobre almacenamiento** | Asegúrese de seguir las [instrucciones sobre almacenamiento](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) en las máquinas virtuales de Azure de origen para evitar problemas de rendimiento. Si sigue la configuración predeterminada, Site Recovery crea las cuentas de almacenamiento necesarias en función de la configuración de origen. Si personaliza y selecciona su propia configuración, asegúrese de seguir los pasos que se describen en [Objetivos de escalabilidad para discos de máquinas virtuales](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
+**Instrucciones sobre almacenamiento** | Asegúrese de seguir las [instrucciones sobre almacenamiento](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) en las máquinas virtuales de Azure de origen para evitar problemas de rendimiento. Si sigue la configuración predeterminada, Site Recovery crea las cuentas de almacenamiento necesarias en función de la configuración de origen. Si personaliza y selecciona su propia configuración, asegúrese de seguir los pasos que se describen en [Objetivos de escalabilidad para discos de máquinas virtuales](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
 **Instrucciones sobre redes** | Deberá incluir en la lista de permitidos las direcciones URL o los intervalos IP específicos de la conectividad de salida. Para más información, consulte el artículo [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md) (Instrucciones sobre redes para replicar máquinas virtuales de Azure).
 **MV de Azure** | Asegúrese de que todos los certificados raíz más recientes estén presentes en la máquina virtual Windows o Linux. Si los certificados raíz más recientes no están presentes, la máquina virtual no se puede registrar en Site Recovery debido a restricciones de seguridad.
 

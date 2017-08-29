@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 29ffb61715d803340abdb7e02aa64e9233676798
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 279bac30b47a6e7470018166887cdc2fc5b7e2ed
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Uso del Diseñador de vistas para crear vistas personalizadas en Log Analytics
@@ -30,7 +30,7 @@ Estos son otros de los artículos disponibles sobre el Diseñador de vistas:
 * [Referencia de los elementos de visualización](log-analytics-view-designer-parts.md): referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas.
 
 >[!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas de todas las vistas se deben escribir en el [nuevo lenguaje de consulta](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Todas las vistas que se crearon antes de actualizar el área de trabajo se convertirán automáticamente.
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas de todas las vistas se deben escribir en el [nuevo lenguaje de consulta](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).  Todas las vistas que se crearon antes de actualizar el área de trabajo se convertirán automáticamente.
 
 ## <a name="concepts"></a>Conceptos
 Las vistas creadas con el Diseñador de vistas contienen los elementos de la siguiente tabla.

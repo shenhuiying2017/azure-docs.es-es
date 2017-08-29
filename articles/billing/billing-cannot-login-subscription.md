@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 08/21/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 05e23ad6bc07293f53e081b905c3a9ce1c91e6f9
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4f67be9b59ab42e10c4cd755998795a72b711da6
 ms.contentlocale: es-es
-ms.lasthandoff: 04/07/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="i-cant-sign-in-to-manage-my-azure-subscription"></a>No puedo iniciar sesión para administrar mi suscripción de Azure
@@ -36,28 +35,6 @@ Si la página del explorador de Internet se bloquea, pruebe cada uno de los sigu
   A. Haga clic en el botón **Herramientas** ![](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Seguridad** > **Exploración de InPrivate**.
   
   B. Vaya a [Azure Portal](https://portal.azure.com)e inicie sesión en el portal.
-
-## <a name="error-message-no-subscriptions-found"></a>Mensaje de Error No se han encontrado suscripciones
-Si su cuenta no tiene los permisos necesarios, puede ver un mensaje de error **No se encontró ninguna suscripción**. Asegúrese de que inicie sesión como el administrador correcto. Un administrador de cuenta solo puede acceder al [Centro de cuentas](https://account.windowsazure.com/Subscriptions). Los administradores de cuenta (CA) y los administradores de servicios (SA) y los coadministradores (CA) solo tienen acceso a [Azure Portal](https://portal.azure.com) o al Portal de Azure clásico.
-
-**Escenario 1: Se recibe un mensaje de error en [Azure Portal](https://portal.azure.com)**
-
-Para corregir este problema:
-
-* Asegúrese de haber seleccionado el directorio correcto de Azure haciendo clic en la cuenta pertinente de la parte superior derecha.
-
-![Selección del directorio en la parte superior derecha de Azure Portal](./media/billing-cannot-login-subscription/directory-switch.png)
-
-* Si selecciona el directorio de Azure correcto, pero sigue produciéndose el error, [agregue la cuenta como propietario](billing-add-change-azure-subscription-administrator.md).
-
-**Escenario 2: Se recibe un mensaje de error en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions)**
-
-Compruebe si la cuenta que ha usado es el administrador de cuentas. Para comprobar quién es el administrador de cuentas, siga estos pasos:
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En el menú de concentrador, seleccione **Suscripción**.
-3. Seleccione la suscripción que quiera comprobar y, a continuación, seleccione **Configuración**.
-4. Seleccione **Propiedades**. El administrador de cuentas de la suscripción se muestra en el cuadro **Administrador de cuentas** .
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Inicia sesión automáticamente con un usuario diferente
 Este problema puede producirse si usa más de una cuenta de usuario en un explorador de Internet.

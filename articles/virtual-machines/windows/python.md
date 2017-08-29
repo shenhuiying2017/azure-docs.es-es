@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 8ac757a84a932c434b508aa33c343c866a40bf02
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bb777d41570d7b1dc97402d532519488912948e3
 ms.contentlocale: es-es
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -500,7 +500,7 @@ Para decidir un tamaño de máquina virtual, se deben considerar muchos aspectos
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Incorporación de un disco de datos a la máquina virtual
 
-Las máquinas virtuales pueden tener uno o más [discos de datos](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) que se almacenen en discos duros virtuales.
+Las máquinas virtuales pueden tener uno o más [discos de datos](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) que se almacenen en discos duros virtuales.
 
 1. Para agregar un disco de datos a la máquina virtual, agregue esta función después de las variables en el archivo .py: 
 

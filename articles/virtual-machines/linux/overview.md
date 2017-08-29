@@ -16,10 +16,10 @@ ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 392ed1b7ac5f543b322024f4b771c73bf865e970
 ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure y Linux
@@ -39,7 +39,7 @@ Se anunció un Acuerdo de Nivel de Servicio líder de la industria de máquinas 
 
 El servicio Managed Disks controla la creación y administración de las cuentas de almacenamiento de Azure Storage en segundo plano y se asegura de que no tenga que preocuparse de los límites de escalabilidad de la cuenta de almacenamiento. Simplemente especifique el tamaño del disco y el nivel de rendimiento (Estándar o Premium), y Azure crea y administra el disco por usted. Ni siquiera tendrá que preocuparse por el almacenamiento que se va a usar a medida que agrega discos o escala y reduce verticalmente la máquina virtual. Si está creando nuevas máquinas virtuales, [use la CLI de Azure 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o Azure Portal para crear máquinas virtuales con sistema operativo administrado y discos de datos. Si tiene máquinas virtuales con discos no administrados, puede [convertir las máquinas virtuales para realizar copias de seguridad con Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-También puede administrar sus imágenes personalizadas en una cuenta de almacenamiento por región de Azure y utilizarlas para crear cientos de máquinas virtuales en la misma suscripción. Para obtener más información sobre Managed Disks, consulte [Información general de Managed Disks](../../storage/storage-managed-disks-overview.md).
+También puede administrar sus imágenes personalizadas en una cuenta de almacenamiento por región de Azure y utilizarlas para crear cientos de máquinas virtuales en la misma suscripción. Para obtener más información sobre Managed Disks, consulte [Información general de Managed Disks](../windows/managed-disks-overview.md).
 
 ## <a name="azure-virtual-machines--instances"></a>Máquinas virtuales e instancias de Azure
 Microsoft Azure permite ejecutar varias de las distribuciones de Linux más populares proporcionadas y mantenidas por diversos asociados.  Encontrará distribuciones como Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS y FreeBSD, entre otras, en Azure Marketplace. Trabajamos activamente con distintas comunidades de Linux para agregar aún más tipos a la lista de [distribuciones de Linux aprobadas para Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
@@ -60,7 +60,7 @@ Estas son algunas directrices básicas para seleccionar un tamaño de máquina v
 
 Nota: Las máquinas virtuales de las series DS y GS tienen acceso a Premium Storage, nuestro almacenamiento de alto rendimiento, baja latencia y respaldado por SSD para cargas de trabajo con uso intensivo de E/S. Premium Storage está disponible en determinadas regiones. Para obtener información, consulte:
 
-* [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../storage/storage-premium-storage.md)
+* [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../storage/common/storage-premium-storage.md)
 
 ## <a name="automation"></a>Automatización
 Para instaurar una cultura de DevOps adecuada, la infraestructura al completa debe ser código.  Cuando toda la infraestructura reside en el código, puede volver a crearse con facilidad (servidores de Phoenix).  Azure funciona con todas las principales herramientas de automatización, como Ansible, Chef, SaltStack y Puppet.  Asimismo, tiene sus propias herramientas de automatización:
@@ -120,7 +120,7 @@ Ahora, la máquina virtual se está ejecutando en Azure y ya puede iniciar sesi�
 
 ## <a name="related-azure-components"></a>Componentes de Azure relacionados
 ## <a name="storage"></a>Almacenamiento
-* [Introducción a Microsoft Azure Storage](../../storage/storage-introduction.md)
+* [Introducción a Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Incorporación de un disco a una máquina virtual con Linux mediante la CLI de Azure](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Incorporación de un disco de datos a una máquina virtual con Linux en Azure Portal](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

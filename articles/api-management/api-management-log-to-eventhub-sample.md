@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 666d0f655a0705423d025b88a1f457b866008ab9
-ms.lasthandoff: 03/29/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 70ee752c5639c90f77dde104ce85eec0a1062300
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Supervisión de API con Administración de API de Azure, Centros de eventos y Runscope
@@ -262,7 +263,7 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 Pude aprovechar una [biblioteca de cliente existente para Runscope`HttpResponseMessage` que facilita inserción de las instancias ](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) y `HttpRequestMessage` a su servicio. Para tener acceso a la API Runscope, necesitará una cuenta y una clave de API. Pueden encontrarse instrucciones para obtener una clave de API en la presentación en pantalla [Creación de aplicaciones para acceder a la API Runscope](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) .
 
 ## <a name="complete-sample"></a>Ejemplo completo
-El [código fuente](https://github.com/darrelmiller/ApimEventProcessor) y las pruebas del ejemplo se encuentran en GitHub. Necesitará un [servicio API Management](api-management-get-started.md), [un Centro de eventos conectado](api-management-howto-log-event-hubs.md) y una [cuenta de almacenamiento](../storage/storage-create-storage-account.md) para ejecutar el ejemplo usted mismo.   
+El [código fuente](https://github.com/darrelmiller/ApimEventProcessor) y las pruebas del ejemplo se encuentran en GitHub. Necesitará un [servicio API Management](api-management-get-started.md), [un Centro de eventos conectado](api-management-howto-log-event-hubs.md) y una [cuenta de almacenamiento](../storage/common/storage-create-storage-account.md) para ejecutar el ejemplo usted mismo.   
 
 El ejemplo es simplemente una aplicación de consola simple que realiza escuchas de eventos procedentes del Centro de eventos, los convierte a objetos `HttpRequestMessage` y `HttpResponseMessage` y, a continuación, los reenvía a la API Runscope.
 

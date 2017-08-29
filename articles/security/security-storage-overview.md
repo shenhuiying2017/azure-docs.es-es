@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 1fdff8fcc031f585b0d4eec7f1afa224e6bca089
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: da28cbf5f6f91df1f89114a63bc3f2ebac0f6d73
 ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-storage-security-overview"></a>Información general sobre seguridad de Azure Storage
@@ -31,7 +31,7 @@ Azure Storage es la solución de almacenamiento en la nube para las aplicaciones
 * Se puede conceder acceso delegado a los objetos de datos de Azure Storage mediante las Firmas de acceso compartido.
 * El método de autenticación usado por alguien cuando accede a Almacenamiento puede seguirse mediante el análisis de almacenamiento.
 
-Para obtener más información sobre la seguridad en Azure Storage, consulte la [guía de seguridad de Azure Storage](../storage/storage-security-guide.md). Esta guía proporciona una profundización en las características de seguridad de Azure Storage, como las claves de cuenta de almacenamiento, el cifrado de datos en tránsito y en reposo y el análisis de almacenamiento.
+Para obtener más información sobre la seguridad en Azure Storage, consulte la [guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md). Esta guía proporciona una profundización en las características de seguridad de Azure Storage, como las claves de cuenta de almacenamiento, el cifrado de datos en tránsito y en reposo y el análisis de almacenamiento.
 
 Este artículo ofrece una visión general de las características de seguridad de Azure que se pueden usar con Azure Storage. Además, se incluyen vínculos a artículos que ofrecen detalles de cada característica para que pueda tener más información al respecto.
 
@@ -56,15 +56,15 @@ Una Firma de acceso compartido (SAS) ofrece acceso delegado a los recursos en la
 
 Más información:
 
-* [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Blob Storage](../storage/storage-dotnet-shared-access-signature-part-2.md)
+* [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Blob Storage](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
 
 ## <a name="encryption-in-transit"></a>Cifrado en tránsito
 Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a través de redes. Con Azure Storage, puede proteger los datos mediante:
 
-* [Cifrado de nivel de transporte](../storage/storage-security-guide.md#encryption-in-transit), como HTTPS para transferir datos a Azure Storage o desde este servicio.
-* [Cifrado en el cable](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como el cifrado SMB 3.0 para recursos compartidos de Azure File.
-* [Cifrado de cliente](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), para cifrar los datos antes de transferirlos al almacenamiento y descifrarlos una vez transferidos desde este servicio.
+* [Cifrado de nivel de transporte](../storage/common/storage-security-guide.md#encryption-in-transit), como HTTPS para transferir datos a Azure Storage o desde este servicio.
+* [Cifrado en el cable](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como el cifrado SMB 3.0 para recursos compartidos de Azure File.
+* [Cifrado de cliente](../storage/common/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), para cifrar los datos antes de transferirlos al almacenamiento y descifrarlos una vez transferidos desde este servicio.
 
 Más información acerca del cifrado de cliente:
 
@@ -74,14 +74,14 @@ Más información acerca del cifrado de cliente:
 ## <a name="encryption-at-rest"></a>Cifrado en reposo
 Para muchas organizaciones, el [cifrado de los datos en reposo](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Hay tres características de Azure que proporcionan cifrado de datos "en reposo":
 
-* [Cifrado del servicio Storage](../storage/storage-security-guide.md#encryption-at-rest) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
-* [Cifrado de cliente](../storage/storage-security-guide.md#client-side-encryption) también proporciona la característica de cifrado en reposo.
-* [Azure Disk Encryption](../storage/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
+* [Cifrado del servicio Storage](../storage/common/storage-security-guide.md#encryption-at-rest) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
+* [Cifrado de cliente](../storage/common/storage-security-guide.md#client-side-encryption) también proporciona la característica de cifrado en reposo.
+* [Azure Disk Encryption](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
 
 Más información acerca del Cifrado de servicio de almacenamiento:
 
 * [Cifrado del servicio Azure Storage](https://azure.microsoft.com/services/storage/) está disponible para [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Para más información sobre otros tipos de almacenamiento de Azure, consulte [File Storage](https://azure.microsoft.com/services/storage/files/), [Premium Storage (disco)](https://azure.microsoft.com/services/storage/premium-storage/), [Table Storage](https://azure.microsoft.com/services/storage/tables/) y [Queue Storage](https://azure.microsoft.com/services/storage/queues/).
-* [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](../storage/storage-service-encryption.md)
+* [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure Disk Encryption
 Azure Disk Encryption para máquinas virtuales (VM) le ayuda a solucionar los aspectos de seguridad y cumplimiento normativo de su organización, ya que cifra los discos de las máquinas virtuales (incluidos los discos de arranque y de datos) con claves y directivas que usted controla en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).

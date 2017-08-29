@@ -12,12 +12,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: b3a4e8f9c8580ad4c7899964dbfe99ad74e0c744
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2530b7c20347b9fb58aee4dfe693847cf3911741
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -54,7 +53,7 @@ await conainer.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>Obtención de una firma de acceso compartido para el contenedor
 
-Después de crear el contenedor, obtenga una firma de acceso compartido (SAS) con acceso de escritura en el contenedor. Una SAS proporciona acceso delegado al contenedor. La SAS concede acceso con un conjunto de permisos y durante un intervalo de tiempo que puede especificar. El servicio Batch necesita una SAS con permisos de escritura para escribir la salida de la tarea en el contenedor. Para más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido \(SAS\) en Azure Storage](../storage/storage-dotnet-shared-access-signature-part-1.md).
+Después de crear el contenedor, obtenga una firma de acceso compartido (SAS) con acceso de escritura en el contenedor. Una SAS proporciona acceso delegado al contenedor. La SAS concede acceso con un conjunto de permisos y durante un intervalo de tiempo que puede especificar. El servicio Batch necesita una SAS con permisos de escritura para escribir la salida de la tarea en el contenedor. Para más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido \(SAS\) en Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 Cuando se obtiene una SAS mediante las API de Azure Storage, la API devuelve una cadena de token de SAS. Esta cadena de token incluye todos los parámetros de la SAS, incluidos los permisos y el intervalo durante el que la SAS es válida. Para usar la SAS para acceder a un contenedor de Azure Storage, es necesario anexar la cadena de token de SAS al URI del recurso. El identificador URI del recurso, junto con el token de SAS anexado, proporciona acceso autenticado a Azure Storage.
 
@@ -146,7 +145,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-Para más información acerca de los directorios virtuales de Azure Storage, consulte [Enumerar los blobs de un contenedor](../storage/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+Para más información acerca de los directorios virtuales de Azure Storage, consulte [Enumerar los blobs de un contenedor](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
 
 
 ## <a name="diagnose-file-upload-errors"></a>Diagnóstico de errores de carga de archivos

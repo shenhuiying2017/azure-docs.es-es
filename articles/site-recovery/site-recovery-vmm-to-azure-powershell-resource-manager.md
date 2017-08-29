@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 933cb8692abea1f66192605208ddd9c0b9057235
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 34086044db752f09f1282517b59856091e85c2fc
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Replicación de máquinas virtuales de Hyper-V de nubes de VMM en Azure con PowerShell y Azure Resource Manager
@@ -59,7 +58,7 @@ Asegúrese de que tiene preparados estos requisitos previos:
 ### <a name="azure-prerequisites"></a>Requisitos previos de Azure
 * Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/) . Si no tiene una, comience con un [cuenta gratuita](https://azure.microsoft.com/free). También puede leer sobre [los precios del Administrador de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 * Si prueba la replicación en un escenario de suscripción de CSP, necesitará una suscripción de CSP. Más información sobre el programa CSP en [Inscríbete en el programa CSP](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
-* Necesitará una cuenta de almacenamiento de Azure v2 (Resource Manager) para almacenar los datos replicados en Azure. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el servicio Azure Site Recovery y estar asociada a la misma suscripción o a la suscripción de CSP. Para más información sobre la configuración del almacenamiento de Azure, vea [Introducción a Almacenamiento de Microsoft Azure](../storage/storage-introduction.md) como referencia.
+* Necesitará una cuenta de almacenamiento de Azure v2 (Resource Manager) para almacenar los datos replicados en Azure. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el servicio Azure Site Recovery y estar asociada a la misma suscripción o a la suscripción de CSP. Para más información sobre la configuración del almacenamiento de Azure, vea [Introducción a Almacenamiento de Microsoft Azure](../storage/common/storage-introduction.md) como referencia.
 * Tendrá que asegurarse de que las máquinas virtuales que quiere proteger cumplen los [requisitos previos de máquina virtual de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 > [!NOTE]

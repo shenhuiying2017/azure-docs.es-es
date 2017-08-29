@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 09b65ccd77f6e0898f07c4262940e517a8f913fa
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 47f4441612be4f363ba82cc22b09786a6f3bfdc3
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Opciones de contexto de proceso para R Server en HDInsight (versión preliminar)
@@ -30,7 +29,7 @@ Microsoft R Server en Azure HDInsight controla cómo se ejecutan las llamadas es
 El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, tiene la opción de ejecutar las funciones distribuidas paralelizadas de ScaleR en los diferentes núcleos del servidor de nodo perimetral. También puede ejecutarlas en los nodos del clúster utilizando los contextos de proceso de Spark o Hadoop MapReduce de ScaleR.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Microsoft R Server en Azure HDInsight
-[Microsoft R Server en Azure HDInsight](hdinsight-hadoop-r-server-overview.md) proporciona las últimas funcionalidades para análisis basado en R. Puede usar datos almacenados en un contenedor HDFS en su cuenta de almacenamiento de [Azure Blob](../storage/storage-introduction.md "Azure Blob Storage"), un almacén de Data Lake Store o el sistema de archivos local de Linux. Como R Server se basa en el lenguaje R de código abierto integrado, las aplicaciones basadas en R que se crean aplican cualquiera de los más de 8000 paquetes de R de código abierto. También pueden utilizar las rutinas de [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), un paquete de análisis de macrodatos de Microsoft que se incluye con R Server.  
+[Microsoft R Server en Azure HDInsight](hdinsight-hadoop-r-server-overview.md) proporciona las últimas funcionalidades para análisis basado en R. Puede usar datos almacenados en un contenedor HDFS en su cuenta de almacenamiento de [Azure Blob](../storage/common/storage-introduction.md "Azure Blob Storage"), un almacén de Data Lake Store o el sistema de archivos local de Linux. Como R Server se basa en el lenguaje R de código abierto integrado, las aplicaciones basadas en R que se crean aplican cualquiera de los más de 8000 paquetes de R de código abierto. También pueden utilizar las rutinas de [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), un paquete de análisis de macrodatos de Microsoft que se incluye con R Server.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de proceso de un nodo perimetral
 En general, el script de R que se ejecuta en el nodo perimetral de R Server lo hace dentro del intérprete de R de ese nodo. Las excepciones son esos pasos que llaman a una función ScaleR. Las llamadas a ScaleR se ejecutan en un entorno de proceso determinado por la manera en que establece el contexto de proceso de ScaleR.  Al ejecutar el script de R desde un nodo perimetral, los posibles valores del contexto de proceso son:

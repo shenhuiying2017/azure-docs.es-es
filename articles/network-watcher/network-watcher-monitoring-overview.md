@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 31c1bbdd04423d98dba0f8da435930ad3fed52e2
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 18aa9837742082535a115efd47bdc4b8dfda8a6b
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -54,8 +54,25 @@ En la actualidad, Network Watcher dispone de las siguientes funcionalidades:
 
 Network Watcher usa el [modelo de control de acceso de basado en rol (RBAC) de Azure](../active-directory/role-based-access-control-what-is.md). Network Watcher requiere los siguientes permisos. Es importante asegurarse de que el rol que se usa para iniciar las API de Network Watcher, o mediante Network Watcher desde el portal, tenga el acceso requerido.
 
-|Recurso| Permiso| | |---|---| | |Microsoft.
-|Microsoft.Storage/ |Lectura| | |Microsoft.Authorization/| Lectura| | |Microsoft.Resources/subscriptions/resourceGroups/| Lectura| | |Microsoft.Storage/storageAccounts/listServiceSas/ | Acción| | |Microsoft.Storage/storageAccounts/listAccountSas/ |Acción| | |Microsoft.Storage/storageAccounts/listKeys/ | Acción| | |Microsoft.Compute/virtualMachines/ |Lectura| | |Microsoft.Compute/virtualMachines/ |Escritura| | |Microsoft.Compute/virtualMachineScaleSets/ |Lectura| | |Microsoft.Compute/virtualMachineScaleSets/ |Escritura| | |Microsoft.Network/networkWatchers/packetCaptures/| Lectura| | |Microsoft.Network/networkWatchers/packetCaptures/| Escritura| | |Microsoft.Network/networkWatchers/packetCaptures/| Eliminación| | |Microsoft.Network/networkWatchers/ |Escritura| | |Microsoft.Network/networkWatchers/| Lectura| | |Microsoft.Insights/alertRules/ |*| | |Microsoft.Support/| *| |
+|Recurso| Permiso|
+|---|---| 
+|Microsoft.Storage/ |Lectura|
+|Microsoft.Authorization/| Lectura| 
+|Microsoft.Resources/subscriptions/resourceGroups/| Lectura|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | Acción|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |Acción|
+|Microsoft.Storage/storageAccounts/listKeys/ | Acción|
+|Microsoft.Compute/virtualMachines/ |Lectura|
+|Microsoft.Compute/virtualMachines/ |Escritura|
+|Microsoft.Compute/virtualMachineScaleSets/ |Lectura|
+|Microsoft.Compute/virtualMachineScaleSets/ |Escritura|
+|Microsoft.Network/networkWatchers/packetCaptures/ |Lectura|
+|Microsoft.Network/networkWatchers/packetCaptures/| Escritura|
+|Microsoft.Network/networkWatchers/packetCaptures/| Eliminar|
+|Microsoft.Network/networkWatchers/ |Escritura |
+|Microsoft.Network/networkWatchers/| Lectura |
+|Microsoft.Insights/alertRules/ |*|
+|Microsoft.Support/ | *|
 
 ### <a name="network-subscription-limits"></a>Límites de suscripción de red
 

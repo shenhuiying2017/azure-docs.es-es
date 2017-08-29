@@ -17,10 +17,10 @@ ms.date: 5/27/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: e7853892af550ec66fbc48b669a6c9b8ff18df8c
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: f48c4bd27b1df1d02090ed51172f943e50c76c3e
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -120,8 +120,8 @@ En las patillas del sensor, use el siguiente cableado:
 | -----------------------  | ---------------------- | ------------: |
 | VDD (patilla 5G)             | Potencia 3,3 V (patilla 1)       | Cable blanco   |
 | GND (patilla 7G)             | GND (patilla 6)            | Cable marrón   |
-| SCK (patilla 8G)             | I2C1 SDA (patilla 3)       | Cable naranja  |
-| SDI (patilla 10G)            | I2C1 SCL (patilla 5)       | Cable rojo     |
+| SDI (patilla 10G)            | I2C1 SDA (patilla 3)       | Cable rojo     |
+| SCK (patilla 8G)             | I2C1 SCL (patilla 5)       | Cable naranja  |
 | LED VDD (patilla 18F)        | GPIO 24 (patilla 18)       | Cable blanco   |
 | LED GND (patilla 17F)        | GND (patilla 20)           | Cable negro   |
 

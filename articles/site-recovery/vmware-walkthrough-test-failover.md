@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 4be4cb8285d2e0e8b8520c289ef7668164c9fe50
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f1a6df56a2bb0094d972d2e659057cc124156b88
 ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-12-run-a-test-failover-to-azure-for-vmware-vms"></a>Paso 12: Ejecución de una conmutación por error en Azure para máquinas virtuales VMware
@@ -31,17 +30,17 @@ Publique cualquier comentario o pregunta en la parte inferior de este artículo,
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Antes de ejecutar una conmutación por error de prueba se recomienda comprobar las propiedades del servidor y realizar los cambios necesarios. Puede acceder a las propiedades de la máquina virtual en **Elementos replicados**. En la hoja **Información esencial** se detalla la configuración y el estado de las máquinas.
+Antes de ejecutar una conmutación por error de prueba, se recomienda comprobar las propiedades del servidor y realizar los cambios necesarios. Puede acceder a las propiedades de la máquina virtual en **Elementos replicados**. En la hoja **Información esencial** se detalla la configuración y el estado de las máquinas.
 
 ## <a name="managed-disk-considerations"></a>Consideraciones sobre discos administrados
 
-Los [discos administrados](../storage/storage-managed-disks-overview.md) simplifican la administración de los discos de las máquinas virtuales de Azure al administrar las cuentas de almacenamiento asociadas a los discos de la máquina virtual. 
+Los [discos administrados](../virtual-machines/windows/managed-disks-overview.md) simplifican la administración de los discos de las máquinas virtuales de Azure al administrar las cuentas de almacenamiento asociadas a los discos de la máquina virtual. 
 
 - Al habilitar la protección de una máquina virtual, los datos de las máquinas virtuales se replican en una cuenta de almacenamiento. Los discos administrados se crean y solo se asocian a la máquina virtual cuando se produce la conmutación por error.
 - Los discos administrados solo se pueden crear para máquinas virtuales de Azure implementadas con el modelo de Resource Manager.  
 - Con esta opción habilitada, solo se pueden seleccionar los conjuntos de disponibilidad de los grupos de recursos que tienen la opción **Usar discos administrados** habilitada. Las máquinas virtuales con discos administrados deben estar en conjuntos de disponibilidad con la opción **Usar discos administrados** establecida en **Sí**. Si esta opción no está habilitada para las máquinas virtuales, solo se pueden seleccionar los conjuntos de disponibilidad de los grupos de recursos sin discos administrados habilitados.
 - Obtenga [más información](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) sobre discos administrados y conjuntos de disponibilidad.
-- Si la cuenta de almacenamiento que usa para la replicación se ha cifrado con cifrado del servicio Storage, no se pueden crear discos administrados durante la conmutación por error. En este caso no habilite el uso de discos administrados o deshabilite la protección de la máquina virtual y vuelva a habilitarla de modo que use una cuenta de almacenamiento que no tenga habilitado el cifrado. [Más información](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+- Si la cuenta de almacenamiento que usa para la replicación se ha cifrado con cifrado del servicio Storage, no se pueden crear discos administrados durante la conmutación por error. En este caso no habilite el uso de discos administrados, o deshabilite la protección de la máquina virtual y vuelva a habilitarla de modo que use una cuenta de almacenamiento que no tenga habilitado el cifrado. [Más información](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 
 ## <a name="network-considerations"></a>Consideraciones sobre la red
@@ -69,11 +68,11 @@ Se recomienda comprobar las propiedades de la máquina de origen antes de ejecut
 1. En **Elementos protegidos**, haga clic en **Elementos replicados** y luego en la máquina virtual.
 2. En el panel **Elementos replicados**, puede ver un resumen de información de la máquina virtual, el estado de mantenimiento y los puntos de recuperación más recientes disponibles. Haga clic en **Propiedades** para ver más detalles.
 3. En **Proceso y red**, puede:
-    - Modificar el nombre de la máquina virtual de Azure. El nombre debe cumplir los [requisitos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Especificar un [grupo de recursos](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md) posterior a la conmutación por error.
-    - Especificar un tamaño de destino para la máquina virtual de Azure.
-    - Seleccionar un [conjunto de disponibilidad](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
-    - Especificar si quiere usar [discos administrados](#managed-disk-considerations). Seleccione **Sí** si quiere asociar discos administrados a la máquina al migrar a Azure.
+    - Modificar el nombre de la máquina virtual de Azure. El nombre debe satisfacer los [requisitos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+    - Especificar un [grupo de recursos] posterior a la conmutación por error.
+    - Especificar un tamaño de destino para la máquina virtual de Azure
+    - Seleccione un [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md).
+    - Especifique si quiere usar [discos administrados](#managed-disk-considerations). Seleccione **Sí** si quiere asociar discos administrados a la máquina al migrar a Azure.
     - Ver o modificar la configuración de red, incluida la red o subred en la que se va a ubicar la máquina virtual de Azure después de la conmutación por error y la dirección IP que se le va a asignar.
 4. En **Discos** puede ver información sobre los discos de datos y el sistema operativo de la máquina virtual.
 

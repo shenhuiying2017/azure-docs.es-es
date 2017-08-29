@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: cristyg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 2fb060749c203a445196530bb7711d50d83c2923
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1e5d5ea5b1ec121fe008abc48178b1d58f540ce1
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -33,7 +32,7 @@ Use los comandos de la [Azure PowerShell](https://docs.microsoft.com/en-us/power
 ## <a name="prerequisites"></a>Requisitos previos
 * **Azure PowerShell**: para instalar y empezar a trabajar con PowerShell, consulte las [instrucciones de instalación](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps). Inicie sesión en la suscripción de Azure mediante la ejecución de `Login-AzureRMAccount`. Para más información, consulte el artículo de [introducción a Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azurep).
 * **Grupo de recursos**: cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups) antes de crear un registro de contenedor o utilice un grupo de recursos ya existente. Asegúrese de que el grupo de recursos está en una ubicación donde el servicio Container Registry está [disponible](https://azure.microsoft.com/regions/services/). Para crear un grupo de recursos mediante Azure PowerShell, consulte la [referencia de PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps#create-a-resource-group).
-* **Cuenta de almacenamiento** (opcional): cree una [cuenta de almacenamiento](../storage/storage-introduction.md) estándar de Azure para realizar copias del registro de contenedor en la misma ubicación. Si no especifica una cuenta de almacenamiento al crear un registro con `New-AzureRMContainerRegistry`, el comando creará una automáticamente. Para crear una cuenta de almacenamiento mediante PowerShell, consulte la [referencia de PowerShell](https://docs.microsoft.com/en-us/powershell/module/azure/new-azurestorageaccount). Premium Storage no se admite actualmente.
+* **Cuenta de almacenamiento** (opcional): cree una [cuenta de almacenamiento](../storage/common/storage-introduction.md) estándar de Azure para realizar copias del registro de contenedor en la misma ubicación. Si no especifica una cuenta de almacenamiento al crear un registro con `New-AzureRMContainerRegistry`, el comando creará una automáticamente. Para crear una cuenta de almacenamiento mediante PowerShell, consulte la [referencia de PowerShell](https://docs.microsoft.com/en-us/powershell/module/azure/new-azurestorageaccount). Premium Storage no se admite actualmente.
 * **Entidad de servicio** (opcional): cuando crea un registro con PowerShell, el acceso a este no está configurado de forma predeterminada. Según sus necesidades, puede asignar una entidad de servicio de Azure Active Directory existente a un registro o crear y asignar una nueva. Como alternativa, puede habilitar la cuenta de usuario de administrador del registro. Consulte las secciones más adelante en este artículo. Para más información acerca del acceso al registro, consulte [Authenticate with the container registry](container-registry-authentication.md) (Autenticación con el registro de contenedor).
 
 ## <a name="create-a-container-registry"></a>Creación de un registro de contenedor

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: c9eb4bad1c0069b3f8ed2df30ef72b2c530ffab3
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de direcciones IP y métodos de asignación (clásico) en Azure
@@ -34,7 +33,7 @@ Las direcciones IP privadas se utilizan para la comunicación dentro de una red 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../resource-manager-deployment-model.md).  Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen Resource Manager. Para más información sobre las direcciones IP en Resource Manager, vea el artículo [Direcciones IP en Azure](virtual-network-ip-addresses-overview-arm.md).
 
 ## <a name="public-ip-addresses"></a>Direcciones IP públicas
-Las direcciones IP públicas permiten que los recursos de Azure se comuniquen con Internet y servicios de acceso público de Azure como [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL Database](../sql-database/sql-database-technical-overview.md) y [Azure Storage](../storage/storage-introduction.md).
+Las direcciones IP públicas permiten que los recursos de Azure se comuniquen con Internet y servicios de acceso público de Azure como [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL Database](../sql-database/sql-database-technical-overview.md) y [Azure Storage](../storage/common/storage-introduction.md).
 
 Una dirección IP pública se asocia a los siguientes tipos de recursos:
 
@@ -155,7 +154,7 @@ La tabla siguiente muestra los límites impuestos al direccionamiento IP en Azur
 |  | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | Direcciones IP públicas (dinámicas) |5 |ponerse en contacto con el servicio de soporte técnico |
-| Direcciones IP públicas reservadas |20 | |ponerse en contacto con el servicio de soporte técnico |
+| Direcciones IP públicas reservadas |20 |ponerse en contacto con el servicio de soporte técnico |
 | VIP pública por implementación (servicio en la nube) |5 |ponerse en contacto con el servicio de soporte técnico |
 | VIP privada (ILB) por implementación (servicio en la nube) |1 |1 |
 

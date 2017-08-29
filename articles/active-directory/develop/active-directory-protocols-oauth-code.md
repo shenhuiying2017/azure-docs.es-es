@@ -16,10 +16,10 @@ ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c6670b97ebc0545dbcb01d2b0cb1e260f99cfed9
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure Active Directory
@@ -266,7 +266,7 @@ En la tabla siguiente se enumeran los códigos de estado HTTP que devuelve el pu
 | invalid_client |Se produjo un error de autenticación de cliente. |Las credenciales del cliente no son válidas. Para corregirlo, el administrador de la aplicación actualiza las credenciales. |
 | unsupported_grant_type |El servidor de autorización no admite el tipo de concesión de autorización. |Cambie el tipo de concesión de la solicitud. Este tipo de error solo debe producirse durante el desarrollo y detectarse en las pruebas iniciales. |
 | invalid_resource |El recurso de destino no es válido porque no existe, Azure AD no lo encuentra o no está configurado correctamente. |Este error indica que el recurso, en caso de que exista, no se ha configurado en el inquilino. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
-| interaction_required |La solicitud requiere la interacción del usuario. Por ejemplo, hay que realizar un paso de autenticación más. |Vuelva a tratar de realizar la solicitud con el mismo recurso. |
+| interaction_required |La solicitud requiere la interacción del usuario. Por ejemplo, hay que realizar un paso de autenticación más. | En lugar de una solicitud no interactiva, reintente con una solicitud de autorización interactiva para el mismo recurso. |
 | temporarily_unavailable |De manera temporal, el servidor está demasiado ocupado para atender la solicitud. |Vuelva a intentarlo. La aplicación podría explicar al usuario que su respuesta se retrasó debido a una condición temporal. |
 
 ## Uso del token de acceso para acceder al recurso
@@ -329,15 +329,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
-| Parámetro | Description |
-| --- | --- |
-| access_token |El nuevo token de acceso que se solicitó. |
-| expires_in |Duración restante del token en segundos. Un valor típico es 3600 (una hora). |
-| expires_on |La fecha y hora en que expira el token. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. |
-| refresh_token |Nuevo refresh_token de OAuth 2.0 que puede usarse para solicitar nuevos tokens de acceso cuando expira en esta respuesta. |
-| resource |Identifica el recurso protegido que el token de acceso puede utilizar para acceder. |
-| ámbito |Permisos de suplantación concedidos a la aplicación cliente nativa. El permiso predeterminado es **user_impersonation**. El propietario del recurso de destino puede registrar valores alternativos en Azure AD. |
-| token_type |El tipo de token. El único valor admitido es **bearer**. |
 
 ### Respuesta correcta
 Una respuesta de token correcta tendrá un aspecto similar al siguiente:
@@ -352,6 +343,15 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
+| Parámetro | Descripción |
+| --- | --- |
+| token_type |El tipo de token. El único valor admitido es **bearer**. |
+| expires_in |Duración restante del token en segundos. Un valor típico es 3600 (una hora). |
+| expires_on |La fecha y hora en que expira el token. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. |
+| resource |Identifica el recurso protegido que el token de acceso puede utilizar para acceder. |
+| ámbito |Permisos de suplantación concedidos a la aplicación cliente nativa. El permiso predeterminado es **user_impersonation**. El propietario del recurso de destino puede registrar valores alternativos en Azure AD. |
+| access_token |El nuevo token de acceso que se solicitó. |
+| refresh_token |Nuevo refresh_token de OAuth 2.0 que puede usarse para solicitar nuevos tokens de acceso cuando expira en esta respuesta. |
 
 ### Respuesta de error
 Una respuesta de error de ejemplo podría tener este aspecto:

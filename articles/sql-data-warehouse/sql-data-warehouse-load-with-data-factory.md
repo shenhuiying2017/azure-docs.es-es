@@ -1,5 +1,4 @@
 ---
-
 title: 'Carga de datos en Azure SQL Data Warehouse: Data Factory | Microsoft Docs'
 description: En este tutorial se cargan datos en Azure SQL Data Warehouse mediante Data Factory de Azure y se utiliza una base de datos de SQL Server como origen de datos.
 services: sql-data-warehouse
@@ -16,13 +15,11 @@ ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6474104846eefa1aa7e137e7914b7a7f1ee8a83a
-ms.openlocfilehash: aad76a633b127d23d59dae995d7a503023c5eac7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
 ms.contentlocale: es-es
-ms.lasthandoff: 02/09/2017
-
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -38,7 +35,7 @@ Puede usar Azure Data Factory para cargar datos en Azure SQL Data Warehouse desd
 
 - Necesita una instancia en línea de **SQL Data Warehouse**. Si no dispone de un almacén de datos, aprenda a [crear una instancia de Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md).
 
-- Debe tener una **cuenta de Azure Storage**. Si todavía no tiene una cuenta de almacenamiento, obtenga información sobre cómo [crear una](../storage/storage-create-storage-account.md). El rendimiento mejora si la cuenta de almacenamiento y el almacenamiento de datos se encuentran en la misma región de Azure.
+- Debe tener una **cuenta de Azure Storage**. Si todavía no tiene una cuenta de almacenamiento, obtenga información sobre cómo [crear una](../storage/common/storage-create-storage-account.md). El rendimiento mejora si la cuenta de almacenamiento y el almacenamiento de datos se encuentran en la misma región de Azure.
 
 ## <a name="configure-a-data-factory"></a>Configuración de una factoría de datos
 1. Inicie sesión en el [Portal de Azure][].
@@ -114,7 +111,7 @@ Ahora indique a Data Factory la información de destino.
 
     ![Esquema de asignación](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
-4. Haga clic en **Next**.
+4. Haga clic en **Siguiente**.
 
 ## <a name="configure-the-performance-settings"></a>Configuración de las opciones de rendimiento
 En las opciones de rendimiento, configure una cuenta de Azure Storage para usarla con el fin de almacenar provisionalmente los datos antes de que se carguen en SQL Data Warehouse con buen rendimiento con [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). Una vez que se realiza la copia, los datos provisionales en almacenamiento se limpiarán automáticamente.

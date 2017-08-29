@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: d3488b1e7857799d8ed7de796610e8d52034bd8f
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
 ms.contentlocale: es-es
-ms.lasthandoff: 03/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use la herramienta de diagnóstico de StorSimple para solucionar los problemas de los dispositivos de la serie 8000.
@@ -389,7 +388,7 @@ Para usar esta herramienta, realice los siguientes pasos:
 
     Si las latencias de lectura y escritura detectadas por la herramienta de diagnóstico son demasiado elevadas:
 
-    1. Configure el análisis de almacenamiento para los servicios de blob y analice la salida para comprender las latencias de la cuenta de almacenamiento de Azure. Para obtener instrucciones detalladas, vaya a [Habilitación y configuración del análisis de almacenamiento](../storage/storage-enable-and-view-metrics-classic-portal.md). Si esas latencias también son altas y comparables a las cifras que recibió con la herramienta de diagnóstico de StorSimple, debe registrar una solicitud de servicio con Azure Storage.
+    1. Configure el análisis de almacenamiento para los servicios de blob y analice la salida para comprender las latencias de la cuenta de almacenamiento de Azure. Para obtener instrucciones detalladas, vaya a [Habilitación y configuración del análisis de almacenamiento](../storage/common/storage-enable-and-view-metrics.md). Si esas latencias también son altas y comparables a las cifras que recibió con la herramienta de diagnóstico de StorSimple, debe registrar una solicitud de servicio con Azure Storage.
 
     2. Si las latencias de la cuenta de almacenamiento son demasiado bajas, póngase en contacto con su administrador de red para que investigue los problemas de latencia de su red.
 

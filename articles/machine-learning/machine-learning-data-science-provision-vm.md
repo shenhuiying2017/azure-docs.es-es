@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b1b29ba11bc489a6ad67c2d9043cdb8a2dca7ef8
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 76cd54cd234dfe43e8f0d61f0b66f0ed0c09e8b7
 ms.contentlocale: es-es
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="provision-the-microsoft-data-science-virtual-machine"></a>Aprovisionamiento de Microsoft Data Science Virtual Machine
@@ -60,7 +60,7 @@ También hay una imagen de [CentOS](machine-learning-data-science-linux-dsvm-int
 Antes de poder crear una Microsoft Data Science Virtual Machine, debe tener lo siguiente:
 
 * **Una suscripción a Azure**: para conseguir una, vea [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Una cuenta de Azure Storage**: consulte la sección sobre [creación de una cuenta de Azure Storage](../storage/storage-create-storage-account.md#create-a-storage-account) para crear una. Como alternativa, la cuenta de almacenamiento puede crearse como parte del proceso de creación de la máquina virtual si no quiere usar una cuenta existente.
+* **Una cuenta de Azure Storage**: consulte la sección sobre [creación de una cuenta de Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account) para crear una. Como alternativa, la cuenta de almacenamiento puede crearse como parte del proceso de creación de la máquina virtual si no quiere usar una cuenta existente.
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Creación de su Microsoft Data Science Virtual Machine
 Estos son los pasos para crear una instancia de Microsoft Data Science Virtual Machine:

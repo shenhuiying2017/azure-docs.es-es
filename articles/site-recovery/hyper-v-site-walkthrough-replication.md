@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 42a0421b4589b95c0da806be0ec8875b7d62c91d
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ca5bec5cf1152e6259b9fe7a869edd2d62b88e1a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -43,7 +43,7 @@ Hyper-V usa dos tipos de instantáneas, una instantánea estándar que proporcio
 3. En **Frecuencia de copia**, especifique la frecuencia con la que desea replicar diferencias de datos después de la replicación inicial (cada 30 segundos, 5 o 15 minutos).
 
     > [!NOTE]
-    > Cuando la replicación se realiza en Premium Storage, no se admite una frecuencia de 30 segundos. La limitación viene determinada por el número de instantáneas por blob (100) que admite Premium Storage. [Más información](../storage/storage-premium-storage.md#snapshots-and-copy-blob).
+    > Cuando la replicación se realiza en Premium Storage, no se admite una frecuencia de 30 segundos. La limitación viene determinada por el número de instantáneas por blob (100) que admite Premium Storage. [Más información](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob).
 
 4. En **Retención de punto de recuperación**, especifique la duración en horas del período de retención para cada punto de recuperación. Las máquinas virtuales se pueden recuperar en cualquier punto dentro de un período.
 5. En **Frecuencia de instantánea coherente con la aplicación**especifique la frecuencia (entre 1 y 12 horas) con la que se crearán los puntos de recuperación que contengan las instantáneas coherentes con la aplicación.
@@ -57,5 +57,5 @@ Cuando se crea una nueva directiva, esta se asocia automáticamente con el sitio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vaya al [paso 10: habilitación de la replicación](hyper-v-site-walkthrough-enable-replication.md)
+Vaya a [Paso 10: Habilitación de la replicación](hyper-v-site-walkthrough-enable-replication.md)
 

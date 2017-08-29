@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 8e0b9181bcd43692619726e7215e90116e5b9221
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b813172fc1fc1cc683f463f05370c95bfec10f8d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uso de capturas de paquetes para realizar la supervisión proactiva de la red con alertas y Azure Functions
@@ -362,7 +362,7 @@ Después de que se cumplan los criterios que desencadenen la alerta, se creará 
 
 Si el archivo de captura se almacena localmente, puede iniciar sesión en la máquina virtual para recuperarlo.
 
-Para obtener instrucciones sobre cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/storage-dotnet-how-to-use-blobs.md). Otra herramienta que puede usar es el [Explorador de almacenamiento](http://storageexplorer.com/).
+Para obtener instrucciones sobre cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Otra herramienta que puede usar es el [Explorador de almacenamiento](http://storageexplorer.com/).
 
 Después de que se ha descargado la captura, puede verla con cualquier herramienta que pueda leer un archivo **.cap**. A continuación se muestran vínculos a dos de estas herramientas:
 

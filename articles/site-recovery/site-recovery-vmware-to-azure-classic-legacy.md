@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: d50a4bdbafccd645ca339b2dd1ab97456704e3ae
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 325be23cffc9c728a8af6f92a0f3dce6d31da4ae
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-vmware-virtual-machines-and-physical-servers-to-azure-with-azure-site-recovery-using-the-classic-portal-legacy"></a>Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery usando el portal clásico (heredado)
@@ -122,8 +122,8 @@ Las áreas principales que tiene que tener en cuenta:
 * **Número de orígenes por servidor de destino principal**: se pueden proteger varias máquinas de origen con un único servidor de destino principal. No obstante, no se puede proteger una única máquina de origen en varios servidores de destino principales porque cuando se replican los discos, se crea un disco duro virtual que refleja el tamaño del disco en el almacenamiento de blobs de Azure y se adjunta como un disco de datos al servidor de destino principal.  
 * **Frecuencia de cambio diaria máxima por origen**: hay tres factores que hay que tener en cuenta al considerar la frecuencia de cambio recomendada por origen. Para las consideraciones basadas en destino, se necesitan dos E/S por segundo en el disco de destino para cada operación en el origen. Esto se debe a que se producirá una lectura de datos anteriores y una escritura de datos nuevos en el disco de destino.
   * **Frecuencia de cambio diaria admitida por el servidor de procesos**: una máquina de origen no puede abarcar varios servidores de procesos. Un servidor de un solo proceso puede admitir hasta 1 TB de frecuencia de cambio diaria. Por lo tanto, 1 TB es la frecuencia de cambio de datos diaria máxima admitida para una máquina de origen.
-  * **Rendimiento máximo compatible con el disco de destino**: la renovación máxima por disco de origen no puede ser superior a 144 GB/día (con tamaño de escritura de 8K). Consulte la tabla en la sección de destino principal para el rendimiento y la E/S por segundo del destino para distintos tamaños de escritura. Este número debe dividirse entre dos porque cada E/S por segundo de origen genera 2 E/S por segundo en el disco de destino. Conozca los [objetivos de escalabilidad y rendimiento de Azure](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) al configurar el destino para las cuentas de Premium Storage.
-  * **Rendimiento máximo admitido por la cuenta de almacenamiento**: un origen no puede abarcar varias cuentas de almacenamiento. Dado que una cuenta de almacenamiento tiene un máximo de 20.000 solicitudes por segundo y que cada E/S por segundo de origen genera 2 E/S por segundo en el servidor de destino principal, se recomienda mantener el número de E/S por segundo en el origen a 10.000. Conozca los [objetivos de escalabilidad y rendimiento de Azure](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) al configurar el origen para las cuentas de Premium Storage.
+  * **Rendimiento máximo compatible con el disco de destino**: la renovación máxima por disco de origen no puede ser superior a 144 GB/día (con tamaño de escritura de 8K). Consulte la tabla en la sección de destino principal para el rendimiento y la E/S por segundo del destino para distintos tamaños de escritura. Este número debe dividirse entre dos porque cada E/S por segundo de origen genera 2 E/S por segundo en el disco de destino. Conozca los [objetivos de escalabilidad y rendimiento de Azure](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) al configurar el destino para las cuentas de Premium Storage.
+  * **Rendimiento máximo admitido por la cuenta de almacenamiento**: un origen no puede abarcar varias cuentas de almacenamiento. Dado que una cuenta de almacenamiento tiene un máximo de 20.000 solicitudes por segundo y que cada E/S por segundo de origen genera 2 E/S por segundo en el servidor de destino principal, se recomienda mantener el número de E/S por segundo en el origen a 10.000. Conozca los [objetivos de escalabilidad y rendimiento de Azure](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) al configurar el origen para las cuentas de Premium Storage.
 
 ### <a name="considerations-for-component-servers"></a>Consideraciones para servidores de componentes
 En la tabla 1 se resumen los tamaños de máquina virtual para la configuración y los servidores de destino principales.
@@ -180,7 +180,7 @@ El almacenamiento para cada servidor de destino principal incluye un disco del s
 La planificación de la capacidad del servidor de destino principal depende de:
 
 * Las limitaciones y el rendimiento de almacenamiento de Azure
-  * El número máximo de discos muy usados para una máquina virtual de nivel estándar, es de aproximadamente 40 (20.000/500 IOPS por disco) en una única cuenta de almacenamiento. Conozca los [objetivos de escalabilidad de las cuentas de almacenamiento estándar](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) y de las [cuentas de Premium Storage](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
+  * El número máximo de discos muy usados para una máquina virtual de nivel estándar, es de aproximadamente 40 (20.000/500 IOPS por disco) en una única cuenta de almacenamiento. Conozca los [objetivos de escalabilidad de las cuentas de almacenamiento estándar](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) y de las [cuentas de Premium Storage](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
 * Frecuencia de cambio de datos
 * Almacenamiento de volúmenes de retención.
 
@@ -199,7 +199,7 @@ Observe lo siguiente:
 | **Componente** | **Requisitos** | **Detalles** |
 | --- | --- | --- |
 | **Cuenta de Azure** |Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/) . Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/). | |
-| **Almacenamiento de Azure** |Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados<br/><br/> La cuenta debe ser una [cuenta de almacenamiento estándar](../storage/storage-redundancy.md#geo-redundant-storage) con redundancia geográfica o una [cuenta de Premium Storage](../storage/storage-premium-storage.md).<br/><br/> Debe estar en la misma región que el servicio Azure Site Recovery y debe estar asociado a la misma suscripción. No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.<br/><br/> Para más información, consulte [Introducción a Microsoft Azure Storage](../storage/storage-introduction.md) | |
+| **Almacenamiento de Azure** |Necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados<br/><br/> La cuenta debe ser una [cuenta de almacenamiento estándar](../storage/common/storage-redundancy.md#geo-redundant-storage) con redundancia geográfica o una [cuenta de Premium Storage](../storage/common/storage-premium-storage.md).<br/><br/> Debe estar en la misma región que el servicio Azure Site Recovery y debe estar asociado a la misma suscripción. No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/common/storage-create-storage-account.md) entre grupos de recursos.<br/><br/> Para más información, consulte [Introducción a Microsoft Azure Storage](../storage/common/storage-introduction.md) | |
 | **Red virtual de Azure** |Necesitará una red virtual en la que se implementarán el servidor de configuración y el servidor de destino principal. Debe estar en la misma región y suscripción que el almacén de Azure Site Recovery. Si desea replicar datos a través de una conexión VPN o ExpressRoute, la red virtual de Azure debe estar conectada a su red local a través de una conexión de ExpressRoute o una VPN de sitio a sitio. | |
 | **Recursos de Azure** |Asegúrese de que tiene recursos de Azure suficientes para implementar todos los componentes. Más información en [Límites de suscripción de Azure](../azure-subscription-service-limits.md). | |
 | **Máquinas virtuales de Azure** |Las máquinas virtuales que quiere proteger deben cumplir los [requisitos previos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).<br/><br/> **Recuento de disco**: se admite un máximo de 31 discos en un único servidor protegido<br/><br/> **Tamaños de disco**: la capacidad del disco individual no debe superar los 1023 GB<br/><br/> **Agrupación en clústeres**: no se admiten los servidores en clúster<br/><br/> **Arranque**: no se admite el arranque de Unified Extensible Firmware Interface (UEFI)/Extensible Firmware Interface (EFI)<br/><br/> **Volúmenes**: no se admiten los volúmenes cifrados de Bitlocker<br/><br/> **Nombres de servidor**: los nombres deben contener entre 1 y 63 caracteres (letras, números y guiones). El nombre debe comenzar con una letra o un número y terminar con una letra o un número. Después de proteger un equipo, puede modificar el nombre de Azure. | |
@@ -352,7 +352,7 @@ Observe lo siguiente:
 Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están reservadas para uso interno de Azure. Especifique cualquier dirección IP disponible.
 
 > [!NOTE]
-> Seleccione DS4 estándar al configurar la protección para cargas de trabajo que requieren sistemáticamente alto rendimiento de E/S y latencia baja para hospedar cargas de trabajo intensivas de E/S mediante [cuentas de almacenamiento premium](../storage/storage-premium-storage.md).
+> Seleccione DS4 estándar al configurar la protección para cargas de trabajo que requieren sistemáticamente alto rendimiento de E/S y latencia baja para hospedar cargas de trabajo intensivas de E/S mediante [cuentas de almacenamiento premium](../storage/common/storage-premium-storage.md).
 >
 >
 
@@ -643,10 +643,10 @@ Agregue las máquinas como sigue:
 3. En **Seleccionar máquinas virtuales** , si protege máquinas virtuales de VMware, seleccione un servidor vCenter que administre las máquinas virtuales (o el host EXSi en el que se ejecutan) y después seleccione las máquinas.
 
     ![Agregar servidor V-Center](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)    
-4. En **Especificar recursos de destino** , seleccione los servidores de destino maestros y el almacenamiento que se va a usar para la replicación y seleccione si se debe usar la configuración para todas las cargas de trabajo. Seleccione [cuenta de almacenamiento Premium](../storage/storage-premium-storage.md) al configurar la protección para las cargas de trabajo que requieren un alto rendimiento de E/S y baja latencia uniformes para hospedar cargas de trabajo intensivas de E/S. Si quiere usar una cuenta de almacenamiento premium para los discos de cargas de trabajo, necesitará utilizar el destino principal de la serie DS. No puede usar discos de almacenamiento premium con máquinas virtuales que no sean de serie DS.
+4. En **Especificar recursos de destino** , seleccione los servidores de destino maestros y el almacenamiento que se va a usar para la replicación y seleccione si se debe usar la configuración para todas las cargas de trabajo. Seleccione [cuenta de almacenamiento Premium](../storage/common/storage-premium-storage.md) al configurar la protección para las cargas de trabajo que requieren un alto rendimiento de E/S y baja latencia uniformes para hospedar cargas de trabajo intensivas de E/S. Si quiere usar una cuenta de almacenamiento premium para los discos de cargas de trabajo, necesitará utilizar el destino principal de la serie DS. No puede usar discos de almacenamiento premium con máquinas virtuales que no sean de serie DS.
 
    > [!NOTE]
-   > No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
+   > No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/common/storage-create-storage-account.md) entre grupos de recursos.
    >
    >
 

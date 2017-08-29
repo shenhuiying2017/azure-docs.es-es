@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/31/2017
 ms.author: sergkanz
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 0c4ddfe4533dc232047f0b1a0af270e7f9372c84
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b31d38fe2f7060597956a1ee9c66f43ce39d7240
 ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -203,7 +203,7 @@ public async Task Process(BrokeredMessage message)
 ```
 
 ### <a name="azure-storage-queue"></a>Cola de Azure Storage
-En el ejemplo siguiente se muestra cómo realizar el seguimiento de operaciones de [cola de Azure Storage](../storage/storage-dotnet-how-to-use-queues.md) y poner en correlación la telemetría entre el productor, el consumidor y Azure Storage. 
+En el ejemplo siguiente se muestra cómo realizar el seguimiento de operaciones de [cola de Azure Storage](../storage/queues/storage-dotnet-how-to-use-queues.md) y poner en correlación la telemetría entre el productor, el consumidor y Azure Storage. 
 
 La cola de Storage tiene una API HTTP. El recolector de dependencias de Application Insights realiza el seguimiento de todas las llamadas a la cola para las solicitudes HTTP.
 Asegúrese de que tiene `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` en `applicationInsights.config`. Si no lo tiene, agréguelo mediante programación como se describe en [Filtrado y preprocesamiento de la telemetría en el SDK de Application Insights](app-insights-api-filtering-sampling.md).
@@ -221,7 +221,7 @@ module.Initialize(TelemetryConfiguration.Active);
 // Do not forget to dispose of the module during application shutdown.
 ```
 
-Es posible que también quiera poner en correlación el identificador de operación de Application Insights con el identificador de solicitud de Storage. Para obtener información sobre cómo establecer y obtener un cliente de solicitud de Storage y un identificador de solicitud de servidor, vea [Supervisión, diagnóstico y solución de problemas de Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
+Es posible que también quiera poner en correlación el identificador de operación de Application Insights con el identificador de solicitud de Storage. Para obtener información sobre cómo establecer y obtener un cliente de solicitud de Storage y un identificador de solicitud de servidor, vea [Supervisión, diagnóstico y solución de problemas de Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
 #### <a name="enqueue"></a>Poner en cola
 Como las colas de Storage admiten la API de HTTP, Application Insights realiza el seguimiento automático de todas las operaciones en la cola. En muchos casos, esta instrumentación debería ser suficiente. Pero para poner en correlación seguimientos en el lado del consumidor con seguimientos del productor, tiene que pasar un contexto de correlación de forma similar a como se hace en el Protocolo HTTP para la correlación. 

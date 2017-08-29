@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7a2ed1c890eb22b3aff9aaadf2b420eeb21dd207
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 75676eb0ab784e2adbfd27b170c1dee5599b74ac
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -45,7 +45,7 @@ En este documento se detalla cómo usar Azure Cloud Shell en [Azure Portal](http
 > La suscripción se recordará para sesiones futuras mediante `/home/<user>/.azure/azureProfile.json`.
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
-Cree un nuevo grupo de recursos en WestUS llamado "MyRG": <br>
+Cree un nuevo grupo de recursos en la región oeste de EE. UU. llamado "MyRG": <br>
 `az group create -l westus -n MyRG` <br>
 
 ### <a name="create-a-linux-vm"></a>Creación de una máquina virtual Linux
@@ -73,4 +73,4 @@ Ejecute `az group delete -n MyRG`
 ## <a name="next-steps"></a>Pasos siguientes
 [Obtenga información sobre la persistencia del almacenamiento en Cloud Shell](persisting-shell-storage.md) <br>
 [Más información sobre la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[Información sobre Azure File Storage](../storage/storage-files-introduction.md) <br>
+[Información sobre Azure File Storage](../storage/files/storage-files-introduction.md) <br>

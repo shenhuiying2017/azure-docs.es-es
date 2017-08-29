@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: c5eda443dcd41a481ad952d8472f7f67f4517abd
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 57894bbdd9208f8c32eb65e29f04e2ae723780ca
 ms.contentlocale: es-es
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
@@ -52,7 +52,7 @@ Estos son los pasos habituales para crear una canalización de Data Factory con 
 4. Cree una canalización con la actividad de Spark que haga referencia al servicio vinculado de HDInsight creado en el paso 2. La actividad se configura con el conjunto de datos que creó en el paso anterior como un conjunto de datos de salida. El conjunto de datos de salida es lo que impulsa la programación (cada hora, cada día, etc.). Por lo tanto, debe especificar el conjunto de datos de salida aunque la actividad no produzca realmente una salida.
 
 ### <a name="prerequisites"></a>Requisitos previos
-1. Cree una **cuenta de Azure Storage de uso general** siguiendo las instrucciones del tutorial: [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account).  
+1. Cree una **cuenta de Azure Storage de uso general** siguiendo las instrucciones del tutorial: [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
 2. Cree un **clúster de Apache Spark en Azure HDInsight** siguiendo las instrucciones del tutorial: [Creación de un clúster de Apache Spark en Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Asocie la cuenta de Azure Storage creada en el paso 1 con este clúster.  
 3. Descargue y revise el archivo de script de Python **test.py** ubicado en: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
 3.  Cargue **test.py** en la carpeta **pyFiles** del contenedor **adfspark** de Azure Blob Storage. Cree el contenedor y la carpeta si no existen.
@@ -91,7 +91,7 @@ En este paso, vinculará su cuenta de Almacenamiento de Azure con su factoría d
 3. Debería ver el **script JSON** para crear un servicio vinculado de Azure Storage en el editor.
 
    ![Servicio vinculado de Almacenamiento de Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
-4. Reemplace **nombre de cuenta** y **clave de cuenta** con el nombre y la clave de acceso de la cuenta de Azure Storage. Para aprender a obtener la clave de acceso de almacenamiento, consulte la información sobre cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../storage/storage-create-storage-account.md#manage-your-storage-account).
+4. Reemplace **nombre de cuenta** y **clave de cuenta** con el nombre y la clave de acceso de la cuenta de Azure Storage. Para aprender a obtener la clave de acceso de almacenamiento, consulte la información sobre cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 5. Para implementar el servicio vinculado, haga clic en **Implementar** en la barra de comandos. Una vez que el servicio vinculado se ha implementado correctamente, la ventana **Draft-1** (Borrador 1) debería desaparecer y, en la vista de árbol de la izquierda, debería aparecer **AzureStorageLinkedService**.
 
 #### <a name="create-hdinsight-linked-service"></a>Creación del servicio vinculado de HDInsight

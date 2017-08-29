@@ -3,8 +3,8 @@ title: "Configuración de su proyecto Azure mediante varias configuraciones de s
 description: "Cambie los archivos ServiceDefinition.csdef y ServiceConfiguration.cscfg para saber cómo configurar un proyecto de servicio en la nube de Azure."
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7e720b7d1f874f83d7d2ff516704f61b5e39601d
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 24b2530b23211c654072a6edc8a31e53989bf0a8
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Configuración de su proyecto Azure mediante varias configuraciones de servicio
@@ -64,9 +65,9 @@ En la página **Configuración** , se pueden agregar valores de configuración p
 ### <a name="configuring-a-connection-string-to-a-storage-account"></a>Configuración de una cadena de conexión para una cuenta de almacenamiento
 Una cadena de conexión es un valor de configuración que proporciona información de conexión y autenticación para el emulador de almacenamiento o para una cuenta de almacenamiento de Azure. Siempre que el código deba tener acceso a datos de servicios de almacenamiento de Azure, es decir, datos de blob, cola o tabla, desde el código que se ejecuta en un rol, necesitará definir una cadena de conexión para esa cuenta de almacenamiento.
 
-Una cadena de conexión que señala a una cuenta de almacenamiento de Azure debe usar un formato específico. Para información sobre cómo crear cadenas de conexión, consulte [Configuración de cadenas de conexión de Azure Storage](storage/storage-configure-connection-string.md).
+Una cadena de conexión que señala a una cuenta de almacenamiento de Azure debe usar un formato específico. Para información sobre cómo crear cadenas de conexión, consulte [Configuración de cadenas de conexión de Azure Storage](storage/common/storage-configure-connection-string.md).
 
-Cuando esté preparado para probar su servicio con los servicios de almacenamiento de Azure o cuando lo esté para implementar su servicio en la nube en Azure, puede cambiar el valor de cualquier cadena de conexión de modo que señale a su cuenta de almacenamiento de Azure. Haga clic en (**...**), seleccione **Especificar credenciales de cuenta de almacenamiento**. Escriba la información de la cuenta, incluidos el nombre y la clave de acceso. En el cuadro de diálogo **Cadena de conexión de cuenta de almacenamiento** , puede indicar también si desea usar los extremos HTTPS predeterminados (opción predeterminada), los extremos HTTP predeterminados o extremos personalizados. Puede decidir usar extremos personalizados si ha registrado un nombre de dominio personalizado para su servicio, tal y como se describe en [Configurar un nombre de dominio personalizado para el punto de conexión de Blob Storage](storage/storage-custom-domain-name.md).
+Cuando esté preparado para probar su servicio con los servicios de almacenamiento de Azure o cuando lo esté para implementar su servicio en la nube en Azure, puede cambiar el valor de cualquier cadena de conexión de modo que señale a su cuenta de almacenamiento de Azure. Haga clic en (**...**), seleccione **Especificar credenciales de cuenta de almacenamiento**. Escriba la información de la cuenta, incluidos el nombre y la clave de acceso. En el cuadro de diálogo **Cadena de conexión de cuenta de almacenamiento** , puede indicar también si desea usar los extremos HTTPS predeterminados (opción predeterminada), los extremos HTTP predeterminados o extremos personalizados. Puede decidir usar extremos personalizados si ha registrado un nombre de dominio personalizado para su servicio, tal y como se describe en [Configurar un nombre de dominio personalizado para el punto de conexión de Blob Storage](storage/blobs/storage-custom-domain-name.md).
 
 > [!IMPORTANT]
 > Debe modificar las cadenas de conexión de modo que señalen a una cuenta de almacenamiento de Azure antes de implementar su servicio. De no hacerlo, es posible que su rol no se inicie, o pase de inicializarse a no estar disponible, para detenerse finalmente.
@@ -105,10 +106,5 @@ Para configurar los valores que se aplican a todo un proyecto de servicio en la 
 | Eventos de compilación |Desde esta página, puede establecer los eventos anteriores y posteriores a la compilación. |
 | Desarrollo |Desde esta página, puede especificar las instrucciones de la configuración de compilación y las condiciones bajos las cuales se ejecutan los eventos posteriores a la compilación. |
 | Web |Desde esta página, puede configurar los valores relacionados con el servidor web. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

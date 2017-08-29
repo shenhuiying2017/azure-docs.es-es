@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: d62a4463bb24760e5abea7a870e6987e1275d0be
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0974b9eda2cb7e3ba54a4a0fad0a768db644caf9
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -34,7 +34,7 @@ Antes de ejecutar una conmutación por error de prueba, se recomienda comprobar 
 
 ## <a name="managed-disk-considerations"></a>Consideraciones sobre discos administrados
 
-Los [discos administrados](../storage/storage-managed-disks-overview.md) simplifican la administración de los discos de las máquinas virtuales de Azure al administrar las cuentas de almacenamiento asociadas a los discos de la máquina virtual. 
+Los [discos administrados](../virtual-machines/windows/managed-disks-overview.md) simplifican la administración de los discos de las máquinas virtuales de Azure al administrar las cuentas de almacenamiento asociadas a los discos de la máquina virtual. 
 
 - Los discos administrados se crean y se asocian a la máquina virtual únicamente cuando se produce la conmutación por error a Azure. Al habilitar la protección, los datos de las máquinas virtuales locales se replican a las cuentas de almacenamiento.
 - Los discos administrados solo se pueden crear para máquinas virtuales implementadas con el modelo de implementación de Resource Manager.
@@ -66,9 +66,9 @@ Se recomienda comprobar las propiedades del servidor de origen antes de ejecutar
     ![Habilitar replicación](./media/hyper-v-site-walkthrough-test-failover/test-failover2.png)
 3. En **Compute and Network** (Proceso y red), puede:
     - Modificar el nombre de la máquina virtual de Azure. El nombre debe satisfacer los [requisitos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Especificar un [grupo de recursos](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md) posterior a la conmutación por error
+    - Especificar un [grupo de recursos] posterior a la conmutación por error.
     - Especificar un tamaño de destino para la máquina virtual de Azure
-    - Seleccione un [conjunto de disponibilidad](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Seleccione un [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md).
     - Especifique si quiere usar [discos administrados](#managed-disk-considerations). Seleccione **Sí** si quiere asociar discos administrados a la máquina al migrar a Azure.
     - Vea o modifique la configuración de red, incluida la red o subred en la que se va a ubicar la máquina virtual de Azure después de la conmutación por error y la dirección IP que se le va a asignar.
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b7e17b83afb7306b74b8769f31188642b54566ca
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -37,9 +37,9 @@ Esta ilustración muestra el cuadro de diálogo del elemento de menú de copia d
 
 Aunque esta opción suena simple y sencilla, existen algunas consideraciones. Como se mencionó antes, una máquina virtual de Azure tiene una limitación del número de discos de datos que se pueden asociar. No habrá capacidad para almacenar archivos de copia de seguridad de SAP HANA en los sistemas de archivos de la VM, según el tamaño de los requisitos de rendimiento del disco y la base de datos, que podría provocar que el RAID del software use la fragmentación en varios discos de datos. Se proporcionan más opciones para mover estos archivos de copia de seguridad y administrar las restricciones de tamaño de archivo y el rendimiento cuando se administran terabytes de datos más adelante en este artículo.
 
-Otra opción, que ofrece más libertad con respecto a la capacidad total, es Azure Blob Storage. Aunque un único blob también se restringe a 1 TB, la capacidad total de un único contenedor de blobs es actualmente de 500 TB. Además, ofrece a los clientes la opción de seleccionar el denominado almacenamiento de blobs en &quot;frío&quot;, que tiene un costo-beneficio. Vea [Azure Blob Storage: capas de almacenamiento de acceso frecuente y esporádico](../../../storage/storage-blob-storage-tiers.md) para obtener más información sobre el almacenamiento de blobs en frío.
+Otra opción, que ofrece más libertad con respecto a la capacidad total, es Azure Blob Storage. Aunque un único blob también se restringe a 1 TB, la capacidad total de un único contenedor de blobs es actualmente de 500 TB. Además, ofrece a los clientes la opción de seleccionar el denominado almacenamiento de blobs en &quot;frío&quot;, que tiene un costo-beneficio. Vea [Azure Blob Storage: capas de almacenamiento de acceso frecuente y esporádico](../../../storage/blobs/storage-blob-storage-tiers.md) para obtener más información sobre el almacenamiento de blobs en frío.
 
-Para obtener una seguridad adicional, utilice una cuenta de almacenamiento con replicación geográfica para almacenar las copias de seguridad de SAP HANA. Vea [Replicación de Azure Storage](../../../storage/storage-redundancy.md) para obtener más información sobre la replicación de la cuenta de almacenamiento.
+Para obtener una seguridad adicional, utilice una cuenta de almacenamiento con replicación geográfica para almacenar las copias de seguridad de SAP HANA. Vea [Replicación de Azure Storage](../../../storage/common/storage-redundancy.md) para obtener más información sobre la replicación de la cuenta de almacenamiento.
 
 Puede colocar VHD dedicados para copias de seguridad de SAP HANA en una cuenta de almacenamiento de copia de seguridad dedicada con replicación geográfica. También puede copiar los VHD que conserven las copias de seguridad de SAP HANA en una cuenta de almacenamiento de replicación geográfica o en una cuenta de almacenamiento que se encuentre en una región diferente.
 
@@ -51,7 +51,7 @@ Una solución alternativa es copiar primero archivos de copia de seguridad de SA
 
 ## <a name="azure-blobxfer-utility-details"></a>Detalles de la utilidad bloxfer de Azure
 
-Para almacenar directorios y archivos en Azure Storage, puede usar CLI o PowerShell, o desarrollar una herramienta mediante uno de los [Azure SDK](https://azure.microsoft.com/downloads/). También hay una utilidad lista para usar, AzCopy, para copiar datos a Azure Storage, pero es solo para Windows (vea [Transferencia de datos con la utilidad en línea de comandos AzCopy](../../../storage/storage-use-azcopy.md)).
+Para almacenar directorios y archivos en Azure Storage, puede usar CLI o PowerShell, o desarrollar una herramienta mediante uno de los [Azure SDK](https://azure.microsoft.com/downloads/). También hay una utilidad lista para usar, AzCopy, para copiar datos a Azure Storage, pero es solo para Windows (vea [Transferencia de datos con la utilidad en línea de comandos AzCopy](../../../storage/common/storage-use-azcopy.md)).
 
 Por lo tanto, se usó blobxfer para copiar los archivos de copia de seguridad de SAP HANA. Se trata de código abierto, que usan muchos clientes en entornos de producción, y que está disponible en [GitHub](https://github.com/Azure/blobxfer). Esta herramienta permite copiar datos directamente a Azure Blob Storage o al recurso compartido de archivos de Azure. También ofrece una gama de características útiles, como hash md5 o paralelismo automático al copiar un directorio con varios archivos.
 
@@ -71,7 +71,7 @@ La repetición de la misma copia de seguridad en software RAID con fragmentació
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Copia de archivos de copia de seguridad de SAP HA en Azure Blob Storage
 
-A partir de diciembre de 2016, la mejor opción para almacenar rápidamente archivos de copia de seguridad de SAP HANA es Azure Blob Storage. Un contenedor de blob único tiene un límite de 500 TB, que es suficiente para la mayoría de los sistemas de SAP HANA que se ejecutan en una VM GS5 en Azure, para mantener bastantes copias de seguridad de SAP HANA. Los clientes pueden elegir entre el almacenamiento de blobs en &quot;caliente&quot; y en &quot;frío&quot; (vea [Azure Blob Storage: capas de almacenamiento de acceso frecuente y esporádico](../../../storage/storage-blob-storage-tiers.md)).
+A partir de diciembre de 2016, la mejor opción para almacenar rápidamente archivos de copia de seguridad de SAP HANA es Azure Blob Storage. Un contenedor de blob único tiene un límite de 500 TB, que es suficiente para la mayoría de los sistemas de SAP HANA que se ejecutan en una VM GS5 en Azure, para mantener bastantes copias de seguridad de SAP HANA. Los clientes pueden elegir entre el almacenamiento de blobs en &quot;caliente&quot; y en &quot;frío&quot; (vea [Azure Blob Storage: capas de almacenamiento de acceso frecuente y esporádico](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 Con la herramienta blobxfer, es fácil copiar los archivos de copia de seguridad de SAP HANA directamente en Azure Blob Storage.
 
@@ -139,7 +139,7 @@ Por lo tanto, funciona. Sin embargo, el rendimiento no fue bueno para la prueba 
 
 ## <a name="copy-sap-hana-backup-files-to-azure-file-service"></a>Copia de archivos de copia de seguridad de SAP HA en el servicio de archivos de Azure
 
-Es posible montar un recurso compartido de archivos de Azure dentro de una VM Linux de Azure. En el artículo [Uso de Azure File Storage con Linux](../../../storage/storage-how-to-use-files-linux.md) encontrará información sobre cómo hacerlo. Tenga en cuenta que actualmente hay un límite de cuota de 5 TB de un recurso compartido de archivos de Azure y un límite de tamaño de archivo de 1 TB por cada archivo. Vea [Objetivos de escalabilidad y rendimiento de Azure Storage](../../../storage/storage-scalability-targets.md) para obtener más información sobre los límites de almacenamiento.
+Es posible montar un recurso compartido de archivos de Azure dentro de una VM Linux de Azure. En el artículo [Uso de Azure File Storage con Linux](../../../storage/files/storage-how-to-use-files-linux.md) encontrará información sobre cómo hacerlo. Tenga en cuenta que actualmente hay un límite de cuota de 5 TB de un recurso compartido de archivos de Azure y un límite de tamaño de archivo de 1 TB por cada archivo. Vea [Objetivos de escalabilidad y rendimiento de Azure Storage](../../../storage/common/storage-scalability-targets.md) para obtener más información sobre los límites de almacenamiento.
 
 Sin embargo, las pruebas demuestran que la copia de seguridad de SAP HANA no funciona hoy en día directamente con este tipo de montaje CIFS. También se estableció en la [nota 1820529 de SAP](https://launchpad.support.sap.com/#/notes/1820529) que no se recomienda CIFS.
 

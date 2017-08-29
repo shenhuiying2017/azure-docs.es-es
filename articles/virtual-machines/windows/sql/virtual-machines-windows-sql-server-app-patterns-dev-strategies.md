@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: a8740f3b78de37c09ff7a9250682d47fa9bec1e3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a716de21e21148a082f49f0f416b14ca0eaa8192
 ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure
@@ -51,7 +51,7 @@ Las capas de aplicación describen las agrupaciones lógicas de la funcionalidad
 
 Antes de empezar a leer este artículo, debe tener conocimientos sobre los conceptos básicos de SQL Server y Azure. Para obtener más información, consulte los [libros en pantalla de SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md) y [Azure.com](https://azure.microsoft.com/).
 
-Este artículo describe varios patrones de aplicación que pueden ser apropiados tanto para aplicaciones sencillas como para aplicaciones empresariales de gran complejidad. Antes entrar en el detalle de cada patrón, es aconsejable que se familiarice con los servicios de almacenamiento de datos disponibles en Azure, como [Azure Storage](../../../storage/storage-introduction.md), [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md) y [SQL Server en una máquina virtual de Azure](virtual-machines-windows-sql-server-iaas-overview.md). Para tomar las mejores decisiones de diseño para sus aplicaciones, es preciso que sepa a la perfección cuándo usar cada uno de los servicios de almacenamiento de datos.
+Este artículo describe varios patrones de aplicación que pueden ser apropiados tanto para aplicaciones sencillas como para aplicaciones empresariales de gran complejidad. Antes entrar en el detalle de cada patrón, es aconsejable que se familiarice con los servicios de almacenamiento de datos disponibles en Azure, como [Azure Storage](../../../storage/common/storage-introduction.md), [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md) y [SQL Server en una máquina virtual de Azure](virtual-machines-windows-sql-server-iaas-overview.md). Para tomar las mejores decisiones de diseño para sus aplicaciones, es preciso que sepa a la perfección cuándo usar cada uno de los servicios de almacenamiento de datos.
 
 ### <a name="choose-sql-server-in-an-azure-virtual-machine-when"></a>Elija SQL Server en una máquina virtuales de Azure cuando:
 * Necesite control sobre SQL Server y Windows. Por ejemplo, aquí se podrían incluir la versión de SQL Server, las revisiones especiales, la configuración del rendimiento, etc.
@@ -192,7 +192,7 @@ Como muestra el diagrama, el Equilibrador de carga de Azure distribuye el tráfi
 
 ![Patrones de aplicaciones con servicios en la nube](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-Otro enfoque para implementar este patrón de aplicación es usar un rol web consolidado que contenga componentes tanto del nivel de presentación como del nivel de empresa, como se muestra en el siguiente diagrama. Este patrón de aplicación es útil para aplicaciones que requieren diseño con estado. Puesto que Azure proporciona nodos de proceso sin estado en los roles web y de trabajo, se recomienda implementar una lógica para almacenar el estado de la sesión mediante una de las siguientes tecnologías: [Azure Caching](https://azure.microsoft.com/documentation/services/redis-cache/), [Azure Table Storage](../../../storage/storage-dotnet-how-to-use-tables.md) o [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md).
+Otro enfoque para implementar este patrón de aplicación es usar un rol web consolidado que contenga componentes tanto del nivel de presentación como del nivel de empresa, como se muestra en el siguiente diagrama. Este patrón de aplicación es útil para aplicaciones que requieren diseño con estado. Puesto que Azure proporciona nodos de proceso sin estado en los roles web y de trabajo, se recomienda implementar una lógica para almacenar el estado de la sesión mediante una de las siguientes tecnologías: [Azure Caching](https://azure.microsoft.com/documentation/services/redis-cache/), [Azure Table Storage](../../../cosmos-db/table-storage-how-to-use-dotnet.md) o [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md).
 
 ![Patrones de aplicaciones con servicios en la nube](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 

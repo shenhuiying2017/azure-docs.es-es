@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/31/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 08c4df6a4d7fd3d80f047192125afc9f5831999a
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 1b1a9dc960846cbc15ce09d0fd106e1492937439
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -32,7 +32,7 @@ En este tutorial, empezará por aprender los principios básicos del uso de Rasp
 
 ## <a name="what-you-do"></a>Qué debe hacer
 
-* Cree un IoT Hub.
+* Cree un Centro de IoT.
 * Registre un dispositivo para Pi en IoT Hub.
 * Configure Raspberry Pi.
 * Ejecute una aplicación de ejemplo en Pi para enviar datos de sensor a IoT Hub.
@@ -108,7 +108,7 @@ Para habilitar SSH e I2C, puede buscar más documentos de referencia en [raspber
 
 Use la placa de pruebas y los cables de puente para conectar un LED y un BME280 a Pi como se indica a continuación. Si no tiene el sensor, [omita esta sección](#connect-pi-to-the-network).
 
-![Conexión de Raspberry Pi y el sensor](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+![Conexión de Raspberry Pi y el sensor](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
 El sensor BME280 recopila datos sobre la temperatura y la humedad, y el LED parpadea si se produce comunicación entre el dispositivo y la nube. 
 
@@ -116,27 +116,27 @@ En las patillas del sensor, use el siguiente cableado:
 
 | Inicio (sensor y LED)     | Fin (placa)            | Color de cable   |
 | -----------------------  | ---------------------- | ------------: |
-| LED VDD (patilla 5G)         | GPIO 4 (patilla 7)         | Cable blanco   |
-| LED GND (patilla 6G)         | GND (patilla 6)            | Cable negro   |
-| VDD (patilla 18F)            | Potencia 3,3 V (patilla 17)      | Cable blanco   |
-| GND (patilla 20F)            | GND (patilla 20)           | Cable negro   |
-| SCK (patilla 21F)            | SPI0 SCLK (patilla 23)     | Cable naranja  |
-| SDO (patilla 22F)            | SPI0 MISO (patilla 21)     | Cable amarillo  |
-| SDI (patilla 23F)            | SPI0 MOSI (patilla 19)     | Cable verde   |
-| CS (patilla 24F)             | SPI0 CS (patilla 24)       | Cable azul    |
+| VDD (patilla 5G)             | Potencia 3,3 V (patilla 1)       | Cable blanco   |
+| GND (patilla 7G)             | GND (patilla 6)            | Cable marrón   |
+| SDI (patilla 10G)            | I2C1 SDA (patilla 3)       | Cable rojo     |
+| SCK (patilla 8G)             | I2C1 SCL (patilla 5)       | Cable naranja  |
+| LED VDD (patilla 18F)        | GPIO 24 (patilla 18)       | Cable blanco   |
+| LED GND (patilla 17F)        | GND (patilla 20)           | Cable negro   |
 
 Haga clic para ver [Raspberry Pi 2 & 3 Pin mappings (Asignaciones de patillas de Raspberry Pi 2 y 3)](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) para su referencia.
 
 Una vez que haya conectado correctamente BME280 a Raspberry Pi, su aspecto debería ser el de la imagen siguiente.
 
-![Pi y BME280 conectados](media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
+![Pi y BME280 conectados](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
 ### <a name="connect-pi-to-the-network"></a>Conexión de Pi a la red
 
 Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el cable Ethernet para conectar Pi a la red cableada o siga las [instrucciones de Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) para conectar Pi a la red inalámbrica. Después de que Pi se ha conectado correctamente a la red, debe anotar la [dirección IP de su Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Conectado a la red cableada](media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
+![Conectado a la red cableada](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
+> [!NOTE]
+> Asegúrese de que la Pi se conecta a la misma red que el equipo. Por ejemplo, si el equipo está conectado a una red inalámbrica mientras Pi está conectada a una red cableada, es posible que no vea la dirección IP en la salida de devdisco.
 
 ## <a name="run-a-sample-application-on-pi"></a>Ejecutar una aplicación de ejemplo en Pi
 
@@ -208,7 +208,7 @@ Use uno de los siguientes clientes SSH del equipo host para conectar con Raspber
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha ejecutado una aplicación de ejemplo para recopilar datos de sensor y enviarlos a IoT Hub. Para ver los mensajes que ha enviado Raspberry Pi a su centro de IoT o para enviar mensajes a Raspberry Pi en una interfaz de línea de comandos, consulte el tutorial [Administración de los mensajes de dispositivo con iothub-explorer](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+Ha ejecutado una aplicación de ejemplo para recopilar datos de sensor y enviarlos a IoT Hub. Para ver los mensajes que ha enviado Raspberry Pi a IoT Hub o para enviar mensajes a Raspberry Pi en una interfaz de la línea de comandos, consulte el tutorial [Administración de los mensajes de dispositivo con iothub-explorer](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

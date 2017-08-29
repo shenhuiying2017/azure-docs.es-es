@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 46d71ebd493004bc1ac1b7634722d2abe8b67343
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e31845f3d7aa08357b0e8a1b3b77d97302442ac3
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Ejecución de NAMD con Microsoft HPC Pack en nodos de proceso de Linux en Azure
@@ -87,7 +87,7 @@ Es fácil generar un par de claves RSA, con clave pública y clave privada, medi
 > 
 
 ## <a name="set-up-a-file-share-for-linux-nodes"></a>Configuración de un recurso compartido de archivos para nodos de Linux
-Ahora, configure un recurso compartido de archivos SMB y monte la carpeta compartida en todos los nodos de Linux para permitir que accedan a los archivos NAMD con una ruta de acceso común. Estos son los pasos para montar una carpeta compartida en el nodo principal. Se recomienda un recurso compartido para distribuciones como CentOS 6.6 que actualmente no es compatible con el servicio de archivos de Azure. Si los nodos de Linux admiten un recurso compartido de archivos de Azure, consulte [Uso de Almacenamiento de archivos de Azure con Linux](../../../storage/storage-how-to-use-files-linux.md). Para consultas las opciones de uso compartido de archivos con HPC Pack, consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](hpcpack-cluster.md).
+Ahora, configure un recurso compartido de archivos SMB y monte la carpeta compartida en todos los nodos de Linux para permitir que accedan a los archivos NAMD con una ruta de acceso común. Estos son los pasos para montar una carpeta compartida en el nodo principal. Se recomienda un recurso compartido para distribuciones como CentOS 6.6 que actualmente no es compatible con el servicio de archivos de Azure. Si los nodos de Linux admiten un recurso compartido de archivos de Azure, consulte [Uso de Almacenamiento de archivos de Azure con Linux](../../../storage/files/storage-how-to-use-files-linux.md). Para consultas las opciones de uso compartido de archivos con HPC Pack, consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](hpcpack-cluster.md).
 
 1. Cree una carpeta en el nodo principal y compártala con todos los usuarios estableciendo privilegios de lectura y escritura. En este ejemplo,\\\\CentOS66HN\Namd es el nombre de la carpeta, donde CentOS66HN es el nombre de host del nodo principal.
 2. Cree una subcarpeta denominada namd2 en la carpeta compartida. En namd2, cree otra subcarpeta denominada namdsample.

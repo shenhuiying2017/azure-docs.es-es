@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: b415141f152e88e13678c464eddc4f73df2da54e
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d878dae95d449bd4da58e8dad4daccaf07f98f66
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portales para la creación y edición de consultas de registros en Azure Log Analytics
@@ -50,6 +50,6 @@ Debido a sus características avanzadas, normalmente usará el portal de anális
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Vea un tutorial sobre el uso del [portal de búsqueda de registros](log-analytics-log-search-log-search-portal.md) o el [portal de análisis avanzado](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html) para crear consultas.
-- Consulte un [tutorial sobre cómo escribir consultas](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) mediante el nuevo lenguaje de consulta.
+- Vea un tutorial sobre el uso del [portal de búsqueda de registros](log-analytics-log-search-log-search-portal.md) o el [portal de análisis avanzado](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-the-Analytics-portal) para crear consultas.
+- Consulte un [tutorial sobre cómo escribir consultas](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries) mediante el nuevo lenguaje de consulta.
 

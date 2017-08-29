@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/22/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4ed866cf83ff1d38147c9aecf337fd05b025f01a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2bdec82891bbd61e3526bd4498f802a0de068f87
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: preguntas más frecuentes (P+F)
@@ -105,7 +105,7 @@ Site Recovery está certificado según la norma ISO 27001:2013, 27018, además d
 Sí. Al crear un almacén de Site Recovery en una región, garantizamos que todos los metadatos que necesitamos para habilitar y coordinar la replicación y la conmutación por error permanezcan dentro del límite geográfico de esa región.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>¿Site Recovery cifra la replicación?
-Al replicar máquinas virtuales y servidores físicos entre sitios locales, se admite el cifrado en tránsito. Al replicar máquinas virtuales y servidores físicos en Azure, se admite tanto el cifrado en tránsito como el cifrado en reposo (en Azure).
+Al replicar máquinas virtuales y servidores físicos entre sitios locales, se admite el cifrado en tránsito. En el caso de las máquinas virtuales y los servidores físicos que se replican en Azure, se admite tanto el cifrado en tránsito como el [cifrado en reposo (en Azure)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
 
 ## <a name="replication"></a>Replicación
 
@@ -133,7 +133,7 @@ Sí. Puede automatizar los flujos de trabajo de Site Recovery mediante la API de
 * [Replicación de máquinas virtuales de Hyper-V sin VMM en Azure PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Si se replica a Azure, ¿qué tipo de cuenta de almacenamiento se necesita?
-* **Portal de Azure clásico**: si está implementando Site Recovery en el Portal de Azure clásico, necesitará una [cuenta de almacenamiento estándar con redundancia geográfica](../storage/storage-redundancy.md#geo-redundant-storage). El Almacenamiento premium no se admite actualmente. La cuenta debe estar en la misma región que el almacén de Site Recovery.
+* **Portal de Azure clásico**: si está implementando Site Recovery en el Portal de Azure clásico, necesitará una [cuenta de almacenamiento estándar con redundancia geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage). El Almacenamiento premium no se admite actualmente. La cuenta debe estar en la misma región que el almacén de Site Recovery.
 * **Azure Portal**: si está implementando Site Recovery en Azure Portal, necesitará una cuenta de almacenamiento LRS o GRS. Se recomienda GRS para que los datos sean resistentes si se produce una interrupción regional o si no se puede recuperar la región principal. La cuenta debe estar en la misma región que el almacén de Servicios de recuperación. Premium Storage ahora es compatible con máquinas virtuales de VMware, con máquinas virtuales de Hyper-V VM y con la replicación de servidores físicos si implementa Site Recovery en Azure Portal.
 
 ### <a name="how-often-can-i-replicate-data"></a>¿Con qué frecuencia se pueden replicar los datos?

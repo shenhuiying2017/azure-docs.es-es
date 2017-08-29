@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/25/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: c3c30d047498e30164903c5884080a4db08613e3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c72f839d0a1288dccb7deb3e44fc2b20d64818f0
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -118,7 +118,7 @@ Especifique la cuenta de Azure Storage que se utilizará para la replicación y 
    ![Storage](./media/vmm-to-azure-walkthrough-source-target/gs-createstorage.png)
 
 
-   * Si desea crear una cuenta de almacenamiento mediante el modelo clásico, lo hará en Azure Portal. [Más información](../storage/storage-create-storage-account-classic-portal.md)
+   * Si desea crear una cuenta de almacenamiento mediante el modelo clásico, lo hará en Azure Portal. [Más información](../storage/common/storage-create-storage-account.md)
    * Si utiliza una cuenta de almacenamiento Premium para los datos replicados, configure una cuenta de almacenamiento Estándar adicional para los registros de replicación del almacén que capturan los cambios continuos de los datos locales.
 5. Si no ha creado una red de Azure y desea crear una con Resource Manager, haga clic en **+Red** para hacerlo directamente. En la hoja **Crear red virtual**, especifique el nombre, el intervalo de direcciones, los detalles de subred, la suscripción y la ubicación de la red. La red debe estar en la misma ubicación que el almacén de Recovery Services.
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 75685a21ce4a212638016be62640badd4870454a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6612ee61f5c50e743241b92030660cea7ae7094d
 ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="apply-resource-policies-to-storage-accounts"></a>Aplicación de directivas de recursos a cuentas de almacenamiento
@@ -27,7 +26,7 @@ En este tema se muestran varias [directivas de recursos](resource-manager-policy
 
 ## <a name="define-permitted-storage-account-types"></a>Definición de tipos de cuenta de almacenamiento permitidos
 
-La siguiente directiva restringe qué [tipos de cuenta de almacenamiento](../storage/storage-redundancy.md) se pueden implementar:
+La siguiente directiva restringe qué [tipos de cuenta de almacenamiento](../storage/common/storage-redundancy.md) se pueden implementar:
 
 ```json
 {
@@ -58,7 +57,7 @@ Una regla de directiva similar con un parámetro para aceptar las SKU permitidas
 
 ## <a name="define-permitted-access-tier"></a>Definición del nivel de acceso permitido
 
-La siguiente directiva especifica el tipo de [nivel de acceso](../storage/storage-blob-storage-tiers.md) que se puede especificar para las cuentas de almacenamiento:
+La siguiente directiva especifica el tipo de [nivel de acceso](../storage/blobs/storage-blob-storage-tiers.md) que se puede especificar para las cuentas de almacenamiento:
 
 ```json
 {
@@ -88,7 +87,7 @@ La siguiente directiva especifica el tipo de [nivel de acceso](../storage/storag
 
 ## <a name="ensure-encryption-is-enabled"></a>Comprobación de que esté habilitado el cifrado
 
-La siguiente directiva requiere que todas las cuentas de almacenamiento habiliten el [cifrado del servicio Storage](../storage/storage-service-encryption.md):
+La siguiente directiva requiere que todas las cuentas de almacenamiento habiliten el [cifrado del servicio Storage](../storage/common/storage-service-encryption.md):
 
 ```json
 {

@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: baaa7589de4d809270f66335e33b79b4fdb5e6a5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
 ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Captura de una máquina virtual Linux que se ejecuta en Azure
-Siga los pasos de este artículo para generalizar y capturar la máquina virtual (VM) Linux de Azure en el modelo de implementación de Resource Manager. Cuando se generaliza la máquina virtual, se quita la información de la cuenta personal y se prepara la máquina virtual para usarla como imagen. A continuación, se captura la imagen de un disco duro virtual (VHD) generalizado para el SO, discos duros virtuales para los discos de datos asociados y un [plantilla de Resource Manager](../../azure-resource-manager/resource-group-overview.md) para las implementaciones de nuevas máquinas virtuales. En este artículo se detalla cómo capturar una imagen de máquina virtual con la CLI de Azure 1.0 para una máquina virtual mediante discos no administrados. También puede [capturar una máquina virtual Azure Managed Disks con la CLI de Azure 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Los discos administrados se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento. Para obtener más información, consulte [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Información general sobre Azure Managed Disks). 
+Siga los pasos de este artículo para generalizar y capturar la máquina virtual (VM) Linux de Azure en el modelo de implementación de Resource Manager. Cuando se generaliza la máquina virtual, se quita la información de la cuenta personal y se prepara la máquina virtual para usarla como imagen. A continuación, se captura la imagen de un disco duro virtual (VHD) generalizado para el SO, discos duros virtuales para los discos de datos asociados y un [plantilla de Resource Manager](../../azure-resource-manager/resource-group-overview.md) para las implementaciones de nuevas máquinas virtuales. En este artículo se detalla cómo capturar una imagen de máquina virtual con la CLI de Azure 1.0 para una máquina virtual mediante discos no administrados. También puede [capturar una máquina virtual Azure Managed Disks con la CLI de Azure 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Los discos administrados se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento. Para obtener más información, consulte [Azure Managed Disks overview](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Información general sobre Azure Managed Disks). 
 
 Para crear máquinas virtuales mediante la imagen, configure los recursos de red de cada máquina virtual nueva y use la plantilla (un archivo de notación de objetos JavaScript o JSON) para implementarla a partir de las imágenes de VHD capturadas. De esta forma se puede replicar una máquina virtual con su configuración de software actual, de forma parecida a como se usan las imágenes en Azure Marketplace.
 

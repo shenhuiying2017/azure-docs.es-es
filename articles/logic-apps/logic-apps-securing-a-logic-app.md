@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: ac52924d928b293f4b1b58f0c25375f890c51837
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0528d660f590e106f61729f10f8f68da3fe58cb7
 ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -39,7 +38,7 @@ Cuando se trabaja con una aplicación lógica que se activa con una solicitud HT
 
 ### <a name="shared-access-signature"></a>Firma de acceso compartido
 
-Cada punto de conexión de la solicitud para una aplicación lógica incluye una [Firma de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAS) como parte de la dirección URL. Cada dirección URL contiene un parámetro de consulta `sp`, `sv` y `sig`. Los permisos se especifican mediante `sp` y se corresponden a los métodos HTTP permitidos, `sv` es la versión utilizada para generar y `sig` se usa para autenticar el acceso al desencadenador. La firma se genera mediante el algoritmo SHA256 con una clave secreta en todas las rutas de acceso de direcciones URL y propiedades. La clave secreta nunca se expone ni se publica, y se mantiene cifrada y almacenada como parte de la aplicación lógica. La aplicación lógica solo autoriza desencadenadores que contienen una firma válida creada con la clave secreta.
+Cada punto de conexión de la solicitud para una aplicación lógica incluye una [Firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS) como parte de la dirección URL. Cada dirección URL contiene un parámetro de consulta `sp`, `sv` y `sig`. Los permisos se especifican mediante `sp` y se corresponden a los métodos HTTP permitidos, `sv` es la versión utilizada para generar y `sig` se usa para autenticar el acceso al desencadenador. La firma se genera mediante el algoritmo SHA256 con una clave secreta en todas las rutas de acceso de direcciones URL y propiedades. La clave secreta nunca se expone ni se publica, y se mantiene cifrada y almacenada como parte de la aplicación lógica. La aplicación lógica solo autoriza desencadenadores que contienen una firma válida creada con la clave secreta.
 
 #### <a name="regenerate-access-keys"></a>Regenerar las claves de acceso
 

@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/15/2017
+ms.date: 07/22/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 509682297a3db090caa73bd9438f6434257d558f
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 023c343122f872943fb3ab3eed7b4caedfae9ac4
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -35,12 +35,12 @@ El indexador de blob puede extraer texto de los siguientes formatos de documento
 * ZIP
 * EML
 * RTF
-* Texto sin formato
-* JSON (consulte la característica [Indexación de blobs JSON](search-howto-index-json-blobs.md) en versión preliminar)
+* Archivos de texto sin formato (vea también [Indexing plain text (Indexación de texto sin formato)](#IndexingPlainText))
+* JSON (vea [Indexación de blobs JSON](search-howto-index-json-blobs.md))
 * CSV (consulte la característica [Indexación de blobs CSV](search-howto-index-csv-blobs.md) en versión preliminar)
 
 > [!IMPORTANT]
-> La compatibilidad con matrices CSV y JSON está actualmente en fase de versión preliminar. Estos formatos solo están disponibles con la versión **2015-02-28-Preview** de la API de REST o una versión preliminar 2.x del SDK de. NET. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
+> La compatibilidad con matrices CSV y JSON está actualmente en fase de versión preliminar. Estos formatos solo están disponibles con la versión **2016-09-01-Preview** de la API de REST o una versión preliminar 2.x del SDK de .NET. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
 >
 >
 
@@ -89,10 +89,10 @@ Para más información sobre la API de creación de origen de datos, consulte [C
 Puede proporcionar las credenciales para el contenedor de blobs de una de estas maneras:
 
 - **Cadena de conexión de la cuenta de almacenamiento de acceso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Para obtener la cadena de conexión del portal de Azure, vaya a la hoja de la cuenta de almacenamiento > Configuración > Claves (para las cuentas de almacenamiento del modelo clásico) o Configuración > Claves de acceso (para las cuentas de almacenamiento de Azure Resource Manager).
-- Cadena de conexión de la **firma de acceso compartido de la cuenta de almacenamiento** (SAS): `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. La firma de acceso compartido debe tener permisos de enumeración y lectura sobre los contenedores y objetos (en este caso, los blobs).
--  **Firma de acceso compartido del contenedor**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. La firma de acceso compartido debe tener permisos de enumeración y lectura sobre el contenedor.
+- **Cadena de conexión de firma de acceso compartido (SAS) de cuenta de almacenamiento**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS debería tener permisos de lectura y de lista en contenedores y objetos (blobs en este caso).
+-  **Firma de acceso compartido de contenedor**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS debería tener permisos de lista y de lectura en el contenedor.
 
-Para más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md).
+Para más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Si usa credenciales SAS, deberá actualizar las credenciales del origen de datos periódicamente con firmas renovadas para evitar que caduquen. Si las credenciales de SAS expiran, el indexador producirá un mensaje de error similar a `Credentials provided in the connection string are invalid or have expired.`.  
@@ -268,7 +268,7 @@ La lógica de extracción de documentos de Azure Search no es perfecta y, a vece
 
 Puede controlar qué partes de los blobs se indizan mediante el parámetro de configuración `dataToExtract`. Puede tomar los siguientes valores:
 
-* `storageMetadata`: especifica que solamente se indizan las [propiedades de blob estándar y los metadatos especificados por el usuario](../storage/storage-properties-metadata.md).
+* `storageMetadata`: especifica que solamente se indizan las [propiedades de blob estándar y los metadatos especificados por el usuario](../storage/blobs/storage-properties-metadata.md).
 * `allMetadata`: especifica que se indizan los metadatos almacenamiento y los [metadatos específicos del tipo de contenido](#ContentSpecificMetadata) extraídos del contenido del blob.
 * `contentAndMetadata`: especifica que se indizan todos los metadatos y el contenido textual extraído del blob. Este es el valor predeterminado.
 
@@ -340,13 +340,35 @@ La indización de blobs puede ser un proceso lento. En los casos donde hay millo
 
 - Cree un indizador correspondiente a cada origen de datos. Todos los indizadores pueden apuntar al mismo índice de búsqueda de destino.  
 
+- Una unidad de búsqueda del servicio puede ejecutar un indexador en cualquier momento dado. La creación de varios indexadores como se ha descrito arriba solo es útil si se ejecutan realmente en paralelo. Para ejecutar varios indexadores en paralelo, escale horizontalmente el servicio de búsqueda mediante la creación de un número adecuado de particiones y réplicas. Por ejemplo, si el servicio de búsqueda tiene 6 unidades de búsqueda (por ejemplo, 2 particiones x 3 réplicas), se pueden ejecutar 6 indexadores simultáneamente, lo que produce una multiplicación por seis del rendimiento de indexación. Para más información sobre la planeación de la capacidad y el escalado, vea [Scale resource levels for query and indexing workloads in Azure Search (Escalado de los niveles de recursos de las cargas de trabajo de consulta e indexación en Azure Search)](search-capacity-planning.md).
+
 ## <a name="indexing-documents-along-with-related-data"></a>Indización de los documentos con datos relacionados
 
-Los documentos pueden tener asociados metadatos. Por ejemplo, el departamento que creó el documento, que se almacena como datos estructurados en una de las siguientes ubicaciones.
--   En un almacén de datos independiente, como SQL Database o Azure Cosmos DB.
--   Asociados directamente a cada documento de Azure Blob Storage como metadatos personalizados. Para obtener más información, consulte [Setting and Retrieving Properties and Metadata for Blob Resources](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) (Configuración y recuperación de propiedades y metadatos para los recursos del blob).
+Es posible que quiera "ensamblar" documentos de varios orígenes en el índice. Por ejemplo, puede que quiera combinar texto de blobs con otros metadatos almacenados en Cosmos DB. Incluso puede usar la API de indexación de inserción junto con varios indexadores para crear documentos de búsqueda a partir de varias partes. 
 
-Puede indizar los documentos con sus metadatos asignando el mismo valor de clave único a cada documento y a sus metadatos, y especificando la acción `mergeOrUpload` en todos los indizadores. Para ver una descripción detallada de esta solución, consulte este artículo externo: [Combine documents with other data in Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Combinación de documentos con otros datos en Azure Search).
+Para que funcione, todos los indexadores y demás componentes deben coincidir con la clave del documento. Para obtener un tutorial detallado, vea este artículo externo: [Combine documents with other data in Azure Search (Combinación de documentos con otros datos en Azure Search)](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+
+<a name="IndexingPlainText"></a>
+## <a name="indexing-plain-text"></a>Indexación de texto sin formato 
+
+Si todos los blobs contienen texto sin formato con la misma codificación, puede mejorar notablemente el rendimiento de indexación mediante el **modo de análisis de texto**. Para usar el modo de análisis de texto, establezca la propiedad de configuración `parsingMode` en `text`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text" } }
+    }
+
+De forma predeterminada, se da por hecha la codificación `UTF-8`. Para especificar otra, use la propiedad de configuración `encoding`: 
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
+    }
+
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Propiedades de metadatos específicas del tipo de contenido

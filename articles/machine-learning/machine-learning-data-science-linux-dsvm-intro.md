@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 3c7db401442c41bbe1343b1adc48f4f1b7d88b49
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bc6f293db0d537990d7fb1238fe4a19c704f57a1
 ms.contentlocale: es-es
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Aprovisionamiento de Linux Data Science Virtual Machine
@@ -62,7 +62,7 @@ También hay una imagen de [Ubuntu](machine-learning-data-science-dsvm-ubuntu-in
 Antes de poder crear una Linux Data Science Virtual Machine, debe tener lo siguiente:
 
 * **Una suscripción a Azure**: para conseguir una, vea [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/free/).
-* **Una cuenta de Azure Storage**: consulte la sección sobre [creación de una cuenta de Azure Storage](../storage/storage-create-storage-account.md#create-a-storage-account) para crear una. Como alternativa, la cuenta de almacenamiento puede crearse como parte del proceso de creación de la máquina virtual si no quiere usar una cuenta existente.
+* **Una cuenta de Azure Storage**: consulte la sección sobre [creación de una cuenta de Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account) para crear una. Como alternativa, la cuenta de almacenamiento puede crearse como parte del proceso de creación de la máquina virtual si no quiere usar una cuenta existente.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Creación de su Linux Data Science Virtual Machine
 A continuación le indicamos los pasos para crear una instancia de Linux Data Science Virtual Machine:

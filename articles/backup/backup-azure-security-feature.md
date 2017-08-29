@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1400fe83bec85a7ab1b4c96fb38abdaf6c944845
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8ef9ddc345fb553b93815022dc3e6a796cae8b3a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
@@ -75,12 +74,12 @@ En el caso de los usuarios del **agente de Azure Recovery Services**:
 Para los usuarios de **Azure Backup Server**:
 
 1. Si el servidor en el que se realizaron las copias de seguridad está aún disponible, vuelva a proteger los orígenes de datos eliminados y use la característica **Recuperar datos** para realizar la recuperación desde todos los puntos de recuperación antiguos.
-2. Si este servidor no está disponible, utilice [Recuperación de datos de otra instancia de Azure Backup Server](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) para usar otra instancia de Azure Backup Server para obtener estos datos.
+2. Si este servidor no está disponible, utilice [Recuperación de datos de otra instancia de Azure Backup Server](backup-azure-alternate-dpm-server.md) para usar otra instancia de Azure Backup Server para obtener estos datos.
 
 En el caso de los usuarios de **Data Protection Manager**:
 
 1. Si el servidor en el que se realizaron las copias de seguridad está aún disponible, vuelva a proteger los orígenes de datos eliminados y use la característica **Recuperar datos** para realizar la recuperación desde todos los puntos de recuperación antiguos.
-2. Si este servidor no está disponible, utilice [Agregar DPM externo](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) para usar otro servidor Data Protection Manager para obtener estos datos.
+2. Si este servidor no está disponible, utilice [Agregar DPM externo](backup-azure-alternate-dpm-server.md) para usar otro servidor Data Protection Manager para obtener estos datos.
 
 ## <a name="prevent-attacks"></a>Prevenir ataques
 Se han agregado comprobaciones para asegurarse de que los usuarios válidos son los únicos que pueden realizar varias operaciones. Entre estas se incluyen la adición de una capa de autenticación adicional y el mantenimiento de una duración de retención mínima con fines de recuperación.

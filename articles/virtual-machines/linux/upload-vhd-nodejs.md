@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 99d18aa55ea7bd7abcb50ba32c8f6a5f130ec031
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Carga y creación de una máquina virtual Linux a partir de una imagen de disco personalizada mediante la CLI de Azure 1.0
@@ -139,7 +139,7 @@ azure group create myResourceGroup --location "WestUS"
 ```
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
-Las máquinas virtuales se almacenan como blobs en páginas dentro de una cuenta de almacenamiento. Lea más sobre [almacenamiento de blobs de Azure aquí](../../storage/storage-introduction.md#blob-storage). Creará una cuenta de almacenamiento para la imagen de disco personalizada y las máquinas virtuales. Todas las máquinas virtuales que cree desde la imagen de disco personalizada deben estar en la misma cuenta de almacenamiento que esa imagen.
+Las máquinas virtuales se almacenan como blobs en páginas dentro de una cuenta de almacenamiento. Lea más sobre [almacenamiento de blobs de Azure aquí](../../storage/common/storage-introduction.md#blob-storage). Creará una cuenta de almacenamiento para la imagen de disco personalizada y las máquinas virtuales. Todas las máquinas virtuales que cree desde la imagen de disco personalizada deben estar en la misma cuenta de almacenamiento que esa imagen.
 
 En el ejemplo siguiente se crea una cuenta de almacenamiento denominada `mystorageaccount` en el grupo de recursos que creó anteriormente:
 
@@ -149,7 +149,7 @@ azure storage account create mystorageaccount --resource-group myResourceGroup \
 ```
 
 ## <a name="list-storage-account-keys"></a>Enumerar claves de cuentas de almacenamiento
-Azure genera dos claves de acceso de 512 bits para cada cuenta de almacenamiento. Estas claves de acceso se usan al autenticar en la cuenta de almacenamiento, como la realización de operaciones de escritura. Lea más sobre [administración del acceso al almacenamiento aquí](../../storage/storage-create-storage-account.md#manage-your-storage-account). Puede ver claves de acceso con el comando `azure storage account keys list` .
+Azure genera dos claves de acceso de 512 bits para cada cuenta de almacenamiento. Estas claves de acceso se usan al autenticar en la cuenta de almacenamiento, como la realización de operaciones de escritura. Lea más sobre [administración del acceso al almacenamiento aquí](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Puede ver claves de acceso con el comando `azure storage account keys list` .
 
 Consulte las claves de acceso de la cuenta de almacenamiento que ha creado:
 

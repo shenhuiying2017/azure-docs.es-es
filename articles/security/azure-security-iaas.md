@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: barclayn
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 3123c8d780406c92f04592767e47c217c0a0ba73
-ms.lasthandoff: 03/28/2017
-
-
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b05ab20087c9bb391be7317b47d6dc2565206947
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -146,7 +144,7 @@ Cualquiera con una suscripción a Azure puede crear y usar instancias de Key Vau
 
 Para más información, consulte [Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows](azure-security-disk-encryption.md).
 
-El [cifrado del servicio Azure Storage](../storage/storage-service-encryption.md) ayuda a proteger los datos en reposo. Está habilitado en el nivel de la cuenta de almacenamiento. Cifra los datos tal y como se escriben en nuestros centros de datos y los descifra automáticamente cuando accede a ellos. Admite los siguientes escenarios:
+El [cifrado del servicio Azure Storage](../storage/common/storage-service-encryption.md) ayuda a proteger los datos en reposo. Está habilitado en el nivel de la cuenta de almacenamiento. Cifra los datos tal y como se escriben en nuestros centros de datos y los descifra automáticamente cuando accede a ellos. Admite los siguientes escenarios:
 
 - Cifrado de blobs en bloques, blobs en anexos y blobs en páginas
 - Cifrado de plantillas y VHD archivados migrados desde instalaciones locales a Azure

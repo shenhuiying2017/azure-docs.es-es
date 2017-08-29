@@ -4,7 +4,7 @@ description: "Este artículo proporciona información general de la telemetría 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: bc16ef727f0c3942b0be8c633717fd52da246c55
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 25520a447a9f2c459fd073779e4922377b6d1d4d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -74,7 +74,7 @@ Los datos de telemetría se almacenan en una tabla, TelemetryMetrics20160321, do
 Propiedad|Valor|Ejemplos y notas
 ---|---|---
 PartitionKey|{IDdeCuenta}_{IDdeEntidad}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>El identificador de cuenta se incluye en la clave de partición para simplificar los flujos de trabajo, donde se crearán varias cuentas de Media Services en la misma cuenta de almacenamiento.
-RowKey|{segundosParaLaMedianoche}_{valorAleatorio}|01688_00199<br/><br/>La clave de fila comienza con el número de segundos para la medianoche con el fin de que puedan realizarse N consultas de estilo superiores en una partición. Para obtener más información, consulte [este](../storage/storage-table-design-guide.md#log-tail-pattern) artículo. 
+RowKey|{segundosParaLaMedianoche}_{valorAleatorio}|01688_00199<br/><br/>La clave de fila comienza con el número de segundos para la medianoche con el fin de que puedan realizarse N consultas de estilo superiores en una partición. Para obtener más información, consulte [este](../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artículo. 
 Timestamp|Fecha y hora|Marca de tiempo creada automáticamente en la tabla de Azure: 2016-09-09T22:43:42.241Z.
 Tipo|El tipo de la entidad que proporciona los datos de telemetría|Channel, StreamingEndpoint y Archive<br/><br/>El tipo de evento es un valor de cadena.
 Nombre|El nombre del evento de telemetría|ChannelHeartbeat y StreamingEndpointRequestLog

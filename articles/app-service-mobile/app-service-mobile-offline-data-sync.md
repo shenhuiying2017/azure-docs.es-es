@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 15a3f9f40bdb84b939b30e33e5f2033411adc3cc
-ms.openlocfilehash: dc179f6186d501bc7c8e4ca72b2bf23e89a9443e
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 8e2bd755d14319f8c66f7ae7ec64fbd10801b39d
 ms.contentlocale: es-es
-ms.lasthandoff: 12/01/2016
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronización de datos sin conexión en Aplicaciones móviles de Azure
@@ -68,8 +68,7 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 * **Inserción**: la inserción es una operación en el contexto de sincronización que envía todos los cambios CUD realizados desde la última inserción. Tenga en cuenta que no es posible enviar solo los cambios de una tabla individual porque las operaciones se podrían enviar desordenadas. La inserción ejecuta una serie de llamadas REST al back-end de Azure Mobile App, que a su vez, modifica la base de datos del servidor.
 * **Extracción**: la extracción se realiza tabla por tabla y se puede personalizar con una consulta para recuperar solo un subconjunto de los datos del servidor. Luego, los SDK de cliente móvil de Azur insertan los datos que se obtienen en el almacén local.
 * **Inserciones implícitas**: si se ejecuta una extracción en una tabla que tiene actualizaciones locales pendientes, la extracción ejecutará primero un elemento `push()` en el contexto de sincronización. Esta inserción ayuda a minimizar los conflictos entre los cambios que ya están en cola y los datos nuevos del servidor.
-* **Sincronización incremental**: el primer parámetro de la operación de extracción es un *nombre de consulta* que solo se usa en el cliente. Si usa un nombre de consulta no nulo, Azure Mobile SDK lleva a cabo una *sincronización incremental*.
-  Cada vez que una operación de extracción devuelve un conjunto de resultados, la última marca de tiempo `updatedAt` de dicho conjunto se almacena en las tablas del sistema local del SDK. Las operaciones de extracción posteriores solo recuperarán registros después de esa marca de tiempo.
+* **Sincronización incremental**: el primer parámetro de la operación de extracción es un *nombre de consulta* que solo se usa en el cliente. Si usa un nombre de consulta no nulo, Azure Mobile SDK lleva a cabo una *sincronización incremental*. Cada vez que una operación de extracción devuelve un conjunto de resultados, la última marca de tiempo `updatedAt` de dicho conjunto se almacena en las tablas del sistema local del SDK. Las operaciones de extracción posteriores solo recuperarán registros después de esa marca de tiempo.
 
   Para usar la sincronización incremental, el servidor debe devolver valores `updatedAt` significativos y también admitir la ordenación mediante este campo. Sin embargo, puesto que el SDK agrega su propio orden en el campo updatedAt, no puede usar una consulta de extracción que tenga su propia cláusula `orderBy` .
 
@@ -101,6 +100,6 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 [Android: habilitar la sincronización sin conexión]: app-service-mobile-android-get-started-offline-data.md
 [iOS: habilitar la sincronización sin conexión]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: habilitar la sincronización sin conexión]: app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Xamarin Android: habilitar la sincronización sin conexión]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android: habilitar la sincronización sin conexión]: app-service-mobile-xamarin-android-get-started-offline-data.md
 [Plataforma universal de Windows: habilitación de la sincronización sin conexión]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 

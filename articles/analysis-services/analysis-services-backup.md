@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: db04507d50b6dfe767ede4479fe0b02af2461576
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bffa481a498b130ef1f2388a5ba856da5d164ee0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
-Realizar una copia de seguridad de bases de datos de modelo tabular en Azure Analysis Services es casi lo mismo que en Analysis Services local. La diferencia principal es el lugar donde se almacenan los archivos de copia de seguridad. Los archivos de copia de seguridad se deben guardar en un contenedor de una [cuenta de almacenamiento de Azure](../storage/storage-create-storage-account.md). Puede usar una cuenta de almacenamiento y un contenedor que ya tenga o puede crear estos al configurar el almacenamiento para el servidor.
+Realizar una copia de seguridad de bases de datos de modelo tabular en Azure Analysis Services es casi lo mismo que en Analysis Services local. La diferencia principal es el lugar donde se almacenan los archivos de copia de seguridad. Los archivos de copia de seguridad se deben guardar en un contenedor de una [cuenta de almacenamiento de Azure](../storage/common/storage-create-storage-account.md). Puede usar una cuenta de almacenamiento y un contenedor que ya tenga o puede crear estos al configurar el almacenamiento para el servidor.
 
 > [!NOTE]
 > La creación de una cuenta de almacenamiento puede dar lugar a un nuevo servicio facturable. Para más información, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -83,7 +83,7 @@ Antes de realizar copias de seguridad, debe configurar los valores de almacenami
 Use el cmdlet [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet).
 
 ## <a name="restore"></a>Restauración
-Para la restauración, el archivo de copia de seguridad debe estar en la cuenta de almacenamiento que configurada para el servidor. Si debe mover un archivo de copia de seguridad de una ubicación local a la cuenta de almacenamiento, utilice [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o la utilidad de línea de comandos [AzCopy](../storage/storage-use-azcopy.md). 
+Para la restauración, el archivo de copia de seguridad debe estar en la cuenta de almacenamiento que configurada para el servidor. Si debe mover un archivo de copia de seguridad de una ubicación local a la cuenta de almacenamiento, utilice [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o la utilidad de línea de comandos [AzCopy](../storage/common/storage-use-azcopy.md). 
 
 
 
@@ -112,7 +112,7 @@ Use el cmdlet [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-servi
 
 ## <a name="related-information"></a>Información relacionada
 
-[Cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md)  
+[Cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md)  
 [Alta disponibilidad](analysis-services-bcdr.md)     
 [Administración de Azure Analysis Services](analysis-services-manage.md)
 

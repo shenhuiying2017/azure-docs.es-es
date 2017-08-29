@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/29/2016
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
-ms.openlocfilehash: b4357150d0be21672d0b8e212c4ea1a7bec99412
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2cf765cb034725199127c547a9b8b997a4a6089c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>Creación y uso de contadores de rendimiento en una aplicación de Azure
@@ -244,7 +243,7 @@ Lleve a cabo los siguientes pasos para crear un contador de rendimiento personal
 Ahora el monitor de diagnóstico de Azure recopilará datos de contadores de rendimiento personalizados.
 
 ## <a name="step-3-query-performance-counter-data"></a>Paso 3: Consulta de datos de contadores de rendimiento
-Una vez que la aplicación se implementa y está en ejecución, el monitor de Diagnostics comenzará a recopilar contadores de rendimiento y mantendrá dichos datos en Azure Storage. Use herramientas como el Explorador de servidores de Visual Studio, el [Explorador de Azure Storage](http://azurestorageexplorer.codeplex.com/) o [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) de Cerebrata para ver los datos de contadores de rendimiento en la tabla WADPerformanceCountersTable. También puede consultar Table service mediante programación con [C#](../storage/storage-dotnet-how-to-use-tables.md), [Java](../storage/storage-java-how-to-use-table-storage.md), [Node.js](../storage/storage-nodejs-how-to-use-table-storage.md), [Python](../storage/storage-python-how-to-use-table-storage.md), [Ruby](../storage/storage-ruby-how-to-use-table-storage.md) o [PHP](../storage/storage-php-how-to-use-table-storage.md).
+Una vez que la aplicación se implementa y está en ejecución, el monitor de Diagnostics comenzará a recopilar contadores de rendimiento y mantendrá dichos datos en Azure Storage. Use herramientas como el Explorador de servidores de Visual Studio, el [Explorador de Azure Storage](http://azurestorageexplorer.codeplex.com/) o [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) de Cerebrata para ver los datos de contadores de rendimiento en la tabla WADPerformanceCountersTable. También puede consultar Table service mediante programación con [C#](../cosmos-db/table-storage-how-to-use-dotnet.md), [Java](../cosmos-db/table-storage-how-to-use-java.md), [Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md), [Python](../cosmos-db/table-storage-how-to-use-python.md), [Ruby](../cosmos-db/table-storage-how-to-use-ruby.md) o [PHP](../cosmos-db/table-storage-how-to-use-php.md).
 
 El siguiente ejemplo de C# muestra una consulta básica con respecto a la tabla WADPerformanceCountersTable y guarda los datos de diagnóstico en un archivo CSV. Una vez que los contadores de rendimiento se guardan en un archivo CSV, puede utilizar las funcionalidades de creación de gráficos de Microsoft Excel o alguna otra herramienta para visualizar los datos. Asegúrese de agregar una referencia a Microsoft.WindowsAzure.Storage.dll, que está incluido en el SDK de Azure para .NET de octubre de 2012 y posterior. El ensamblado se instala en el directorio %Program Files%\Microsoft SDKs\Microsoft Azure.NET SDK\version-num\ref\.
 

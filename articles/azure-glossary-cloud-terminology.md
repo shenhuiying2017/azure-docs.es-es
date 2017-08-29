@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/16/2017
 ms.author: monicar
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 800eadb6cc558303553a204771b18cec525a2af9
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1607ca31a81c0941895611f626d54f6fbb294a20
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma Azure
@@ -30,8 +30,8 @@ El glosario de Microsoft Azure es un breve diccionario de terminología de la nu
 * [Términos de informática en la nube](https://azure.microsoft.com/overview/cloud-computing-dictionary/): términos generales sobre informática en la nube.
 
 ## <a name="account"></a>cuenta
-Una cuenta Microsoft profesional o educativa, o personal, que se utiliza para tener acceso a una suscripción de Azure y administrarla.  
-Vea [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
+Una cuenta que se usa para acceder y administrar una suscripción de Azure. A menudo se hace referencia a ella como una cuenta de Azure, aunque una cuenta puede ser cualquiera de estas: una cuenta de Microsoft profesional, educativa o personal existente, o un nombre de usuario y una contraseña de Office 365. También puede crear una cuenta para administrar una suscripción de Azure al registrarse para la [evaluación gratuita](https://azure.microsoft.com).  
+Consulte [Registrarse para obtener una suscripción de Azure con su cuenta de Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) y las [cuentas que puede utilizar para iniciar sesión](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>Aplicación de API
 Otro nombre para [aplicación de App Service](#app-service-app).
@@ -119,11 +119,11 @@ El contrato que describe los compromisos de Microsoft en cuanto a tiempo de acti
 Vea [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>firma de acceso compartido (SAS)
-Firma que le permite otorgar acceso limitado a un recurso, sin exponer su clave de cuenta. Por ejemplo, [Azure Storage usa SAS](storage/storage-dotnet-shared-access-signature-part-1.md) para conceder acceso de cliente a objetos como blobs. [ usa SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) para conceder a los dispositivos permiso para enviar telemetría.
+Firma que le permite otorgar acceso limitado a un recurso, sin exponer su clave de cuenta. Por ejemplo, [Azure Storage usa SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) para conceder acceso de cliente a objetos como blobs. [ usa SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) para conceder a los dispositivos permiso para enviar telemetría.
 
 ## <a name="storage-account"></a>Cuenta de almacenamiento
 Cuenta que proporciona acceso a los servicios de Azure Blob, Queue, Table y File en Azure Storage. El nombre de la cuenta de almacenamiento define el espacio de nombres exclusivo para los objetos de datos de Azure Storage.  
-Consulte [Acerca de las cuentas de Azure Storage](storage/storage-create-storage-account.md)
+Consulte [Acerca de las cuentas de Azure Storage](storage/common/storage-create-storage-account.md)
 
 ## <a name="subscription"></a>suscripción
 Contrato de un cliente con Microsoft que le permite obtener servicios de Azure. Los precios de la suscripción y los términos relacionados se rigen por la oferta elegida para la suscripción.

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 07f8189d1380f5956db8614e82b8b704b152fb26
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: dd65f47a6125d5b5fe068ef6908557c679beedbc
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Descripción de las búsquedas de registros en Log Analytics
@@ -33,7 +33,7 @@ Se requiere una búsqueda de registros para recuperar los datos de Log Analytics
 
 Entre las distintas formas en que usará las búsquedas de registros en Log Analytics se incluyen las siguientes:
 
-- **Portales.** Puede realizar un análisis de datos interactivo en el repositorio con el [portal de búsqueda de registros](log-analytics-log-search-log-search-portal.md) o el [portal avanzado de análisis](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html).  Esto le permite modificar la consulta y analizar los resultados en una gran variedad de formatos y visualizaciones.  La mayoría de las consultas que cree se iniciarán en uno de los portales y, posteriormente, se copiarán una vez que compruebe que funcionan según lo previsto.
+- **Portales.** Puede realizar un análisis de datos interactivo en el repositorio con el [portal de búsqueda de registros](log-analytics-log-search-log-search-portal.md) o el [portal avanzado de análisis](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-the-Analytics-portal).  Esto le permite modificar la consulta y analizar los resultados en una gran variedad de formatos y visualizaciones.  La mayoría de las consultas que cree se iniciarán en uno de los portales y, posteriormente, se copiarán una vez que compruebe que funcionan según lo previsto.
 - **Reglas de alertas.** [Las reglas de alertas](log-analytics-alerts.md) identifican de manera proactiva los problemas de datos del área de trabajo.  Cada regla de alertas se basa en una búsqueda de registros que se ejecuta automáticamente a intervalos regulares.  Los resultados se inspeccionan para determinar si se debe crear una alerta.
 - **Vistas.**  Puede crear visualizaciones de datos que se incluyan en los paneles de usuario con el [diseñador de vistas](log-analytics-view-designer.md).  Las búsquedas de registros proporcionan los datos utilizados por [iconos](log-analytics-view-designer-tiles.md) y [elementos de visualización](log-analytics-view-designer-parts.md) en cada vista.  Puede explorar en profundidad los elementos de visualización en el portal de búsqueda de registros para realizar análisis adicionales de los datos.
 - **Exportación.**  Cuando exporte datos desde el área de trabajo de Log Analytics a Excel o [Power BI](log-analytics-powerbi.md), cree una búsqueda de registros para definir los datos que se van a exportar.
@@ -83,5 +83,5 @@ Para obtener documentación completa sobre el lenguaje de consultas de Azure Log
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información acerca de los [portales que puede utilizar para crear y editar búsquedas de registros](log-analytics-log-search-portals.md).
-- Consulte un [tutorial sobre cómo escribir consultas](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) mediante el nuevo lenguaje de consulta.
+- Consulte un [tutorial sobre cómo escribir consultas](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries) mediante el nuevo lenguaje de consulta.
 

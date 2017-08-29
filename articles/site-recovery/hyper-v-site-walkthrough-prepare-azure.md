@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: fe67a94a2b56fbc72035582f7ee1625b12b21ead
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1a30cadaab7e053184f0be133f1da5bfddc1fd91
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -52,10 +52,10 @@ Asegúrese de que ha leído los [requisitos previos](hyper-v-site-walkthrough-pr
 ## <a name="set-up-an-azure-storage-account"></a>Configurar una cuenta de almacenamiento de Azure
 
 - Site Recovery replica máquinas virtuales locales en Azure Storage. Las máquinas virtuales de Azure se crean en el almacenamiento después de producirse la conmutación por error.
-- Configurar una [cuenta de Azure Storage](../storage/storage-create-storage-account.md#create-a-storage-account) estándar o premium para almacenar los datos replicados en Azure.
-- [Premium Storage](../storage/storage-premium-storage.md) se usa normalmente para las máquinas virtuales que necesitan un alto rendimiento constante de E/S y latencia baja para hospedar cargas de trabajo intensivas de E/S.
+- Configurar una [cuenta de Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account) estándar o premium para almacenar los datos replicados en Azure.
+- [Premium Storage](../storage/common/storage-premium-storage.md) se usa normalmente para las máquinas virtuales que necesitan un alto rendimiento constante de E/S y latencia baja para hospedar cargas de trabajo intensivas de E/S.
 - Si desea utilizar una cuenta premium para almacenar los datos replicados, también necesita una cuenta de almacenamiento estándar para almacenar los registros de replicación que capturan los cambios continuos de los datos locales.
-- Según el modelo de recursos que desee usar para las máquinas virtuales de Azure conmutadas por error, configure una cuenta en [modo Resource Manager](../storage/storage-create-storage-account.md) o en [modo clásico](../storage/storage-create-storage-account-classic-portal.md).
+- Según el modelo de recursos que desee usar para las máquinas virtuales de Azure conmutadas por error, configure una cuenta en [modo Resource Manager](../storage/common/storage-create-storage-account.md) o en [modo clásico](../storage/common/storage-create-storage-account.md).
 - Es recomendable configurar una cuenta de almacenamiento antes de empezar. Si no lo hace, deberá hacerlo durante la implementación de Site Recovery. Las cuentas deben estar en la misma región que el almacén de Recovery Services.
 - No se pueden mover cuentas de almacenamiento que usa Site Recovery en grupos de recursos dentro de la misma suscripción, o bien en distintas suscripciones.
 
