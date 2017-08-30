@@ -2,7 +2,7 @@
 title: "Lógica de reintento en el SDK de Media Services para .NET | Microsoft Docs"
 description: "El tema proporciona una descripción de la lógica de reintento en el SDK de Media Services para .NET."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
