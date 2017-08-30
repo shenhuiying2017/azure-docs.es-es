@@ -1,6 +1,6 @@
 ---
 title: "Auditoría en Azure SQL Data Warehouse | Microsoft Docs"
-description: "Introducción a la auditoría en Almacenamiento de datos SQL de Azure"
+description: "Introducción a la auditoría en Azure SQL Data Warehouse"
 services: sql-data-warehouse
 documentationcenter: 
 author: ronortloff
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 10/31/2016
+ms.date: 08/21/2017
 ms.author: rortloff;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 98f9519a66b2be8634d533d4e9bc5e690c006e82
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoría en Almacenamiento de datos SQL de Azure
+# <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoría en Azure SQL Data Warehouse
 > [!div class="op_single_selector"]
 > * [Auditoría](sql-data-warehouse-auditing-overview.md)
 > * [Detección de amenazas](sql-data-warehouse-security-threat-detection.md)
@@ -37,7 +37,7 @@ Las herramientas de auditoría posibilitan y facilitan la observancia de estánd
 * [Configuración de la auditoría para su base de datos]
 * [Análisis de registros e informes de auditoría]
 
-## <a id="subheading-1"></a>Conceptos básicos de auditoría de Almacenamiento de datos SQL de Azure
+## <a id="subheading-1"></a>Conceptos básicos de auditoría de Azure SQL Data Warehouse
 La auditoría de Almacenamiento de datos SQL la permite que:
 
 * **Conservar** una traza de auditoría de eventos seleccionados. Puede definir categorías de acciones de base de datos para auditar.
@@ -56,65 +56,61 @@ Puede configurar la auditoría para las categorías de eventos siguientes:
 
 Para cada categoría de eventos, las operaciones de **aciertos** y **errores** se configuran por separado.
 
-Para obtener más detalles acerca de las actividades y eventos auditados, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Referencia de formato del registro de auditoría (descarga de archivo .doc)</a>.
+Para más información acerca de las actividades y eventos auditados, consulte la <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Referencia de formato del registro de auditoría (descarga de archivo .doc)</a>.
 
 Los registros de auditoría se almacenan en su cuenta de almacenamiento de Azure. Puede definir un período de retención de registro de auditoría.
 
-Puede definirse una directiva de auditoría para una base de datos específica o como directiva de servidor predeterminada. La directiva de auditoría de servidor predeterminada se aplicará a todas las bases de datos de un servidor que no tengan una directiva de auditoría de base de datos de reemplazo específica definida.
+Puede definirse una directiva de auditoría para una base de datos específica o como directiva de servidor predeterminada. La directiva de auditoría de servidor predeterminada se aplica a todas las bases de datos de un servidor que no tengan una directiva de auditoría de base de datos de reemplazo específica definida.
 
-Antes de configurar la auditoría, compruebe si usa un ["Cliente de nivel inferior"](sql-data-warehouse-auditing-downlevel-clients.md).
+Antes de configurar la auditoría, compruebe si usa un ["Cliente de nivel inferior"](sql-data-warehouse-auditing-downlevel-clients.md)
 
 ## <a id="subheading-2"></a>Configuración de la auditoría para su base de datos
-1. Inicie el <a href="https://portal.azure.com" target="_blank">Portal de Azure</a>.
-2. Navegue a la hoja de configuración de la base de datos de Almacenamiento de datos SQL o el servidor de SQL Server que quiera auditar. Haga clic en el botón **Configuración** situado en la parte superior y, a continuación, en la hoja Configuración, y seleccione **Auditoría**.
+1. Inicie <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
+2. Vaya a la hoja **Configuración** de la instancia de SQL Data Warehouse que quiere auditar. En la hoja **Configuración**, seleccione **Auditoría y detección de amenazas**.
    
     ![][1]
-3. En la hoja de configuración de auditoría, desactive primero la casilla **Heredar la configuración de auditoría del servidor** . Esto permite especificar la configuración de una base de datos determinada.
-   
-    ![][2]
-4. A continuación, para habilitar la auditoría, haga clic en el botón **ACTIVADO** .
+3. A continuación, para habilitar la auditoría, haga clic en el botón **ACTIVADO** .
    
     ![][3]
-5. En la hoja de configuración de auditoría, seleccione **DETALLES DE ALMACENAMIENTO** para abrir la hoja Almacenamiento de registros de auditoría. Seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros y el período de retención. **Sugerencia** : use la misma cuenta de almacenamiento para todas las bases de datos auditadas con el fin de obtener el máximo rendimiento de las plantillas de informes preconfiguradas.
+4. En la hoja de configuración de auditoría, seleccione **DETALLES DE ALMACENAMIENTO** para abrir la hoja Almacenamiento de registros de auditoría. Seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros y el período de retención. 
+>[!TIP]
+>Use la misma cuenta de almacenamiento para todas las bases de datos auditadas con el fin de obtener el máximo rendimiento de las plantillas de informes preconfiguradas.
    
     ![][4]
-6. Haga clic en el botón **Aceptar** para guardar los detalles de configuración de almacenamiento.
-7. En **REGISTRO POR EVENTO**, haga clic en **CORRECTO** y **ERROR** para registrar todos los eventos, o elija categorías individuales de eventos.
-8. Si va a configurar la auditoría para una base de datos, puede que tenga que modificar la cadena de conexión del cliente para asegurarse de que los datos de auditoría se capturan correctamente. Consulte el tema [Modificación del FDQN de servidor en la cadena de conexión](sql-data-warehouse-auditing-downlevel-clients.md) sobre conexiones de cliente de nivel inferior.
-9. Haga clic en **Aceptar**.
+5. Haga clic en el botón **Aceptar** para guardar los detalles de configuración de almacenamiento.
+6. En **REGISTRO POR EVENTO**, haga clic en **CORRECTO** y **ERROR** para registrar todos los eventos, o elija categorías individuales de eventos.
+7. Si va a configurar la auditoría para una base de datos, puede que tenga que modificar la cadena de conexión del cliente para asegurarse de que los datos de auditoría se capturan correctamente. Consulte el tema [Modificación del FDQN de servidor en la cadena de conexión](sql-data-warehouse-auditing-downlevel-clients.md) sobre conexiones de cliente de nivel inferior.
+8. Haga clic en **Aceptar**.
 
-## <a id="subheading-3">Análisis de registros e informes de auditoría</a>
+## <a id="subheading-3"></a>Análisis de registros e informes de auditoría
 Los registros de auditoría se agregan en una recopilación de tablas de Almacenamiento con el prefijo **SQLDBAuditLogs** en la cuenta de almacenamiento de Azure que eligió durante la configuración. Puede ver los archivos de registro usando una herramienta como el <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Explorador de almacenamiento de Azure</a>.
 
 Hay una plantilla de informe de panel preconfigurada disponible como <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">hoja de cálculo de Excel descargable</a> para ayudarle a analizar datos de registro rápidamente. Para utilizar la plantilla en los registros de auditoría, necesita Excel 2013 o posterior y Power Query, que puede descargar <a href="http://www.microsoft.com/download/details.aspx?id=39379">aquí</a>.
 
 La plantilla contiene datos de ejemplo ficticios y puede configurar Power Query para importar el registro de auditoría directamente desde la cuenta de almacenamiento de Azure.
 
-Para obtener instrucciones más detalladas sobre el trabajo con la plantilla de informe, lea el <a href="http://go.microsoft.com/fwlink/?LinkId=506731">documento de procedimiento (.doc descargable)</a>.
+## <a id="subheading-4"></a>Regeneración de clave de almacenamiento
+En el entorno de producción, es probable que actualice periódicamente las claves de almacenamiento. Cuando actualice las claves, debe volver a guardar la directiva. El proceso es el siguiente:
 
-![][5]
+1. En la hoja de configuración de auditoría (descrita anteriormente en la sección de configuración de auditoría), cambie la **Clave de acceso de almacenamiento** de *Principal* a *Secundaria* y haga clic en **GUARDAR**.
 
-## <a id="subheading-4">Prácticas para el uso en producción</a>
-La descripción de esta sección se refiere a las capturas de pantalla anteriores. Se puede usar tanto el <a href="https://portal.azure.com" target="_blank">Portal de Azure</a> como el <a href= "https://manage.windowsazure.com/" target="_bank">Portal de Azure clásico</a>.
-
-## <a id="subheading-5"></a>Regeneración de clave de almacenamiento
-En el entorno de producción, es probable que actualice periódicamente las claves de almacenamiento. Cuando actualice las claves deberá volver a guardar la directiva. El proceso es el siguiente:
-
-1. En la hoja de configuración de auditoría (descrita anteriormente en la sección de configuración de auditoría), cambie la **Clave de acceso de almacenamiento** de *Principal* a *Secundaria* y presione **GUARDAR**.
    ![][4]
 2. Vaya a la hoja de configuración de almacenamiento y **regenere** la *Clave de acceso primaria*.
 3. Vuelva a la hoja de configuración de auditoría, cambie el valor de **Clave de acceso de almacenamiento** de *Secundaria* a *Principal* y presione **GUARDAR**.
 4. Vuelva a la interfaz de usuario de almacenamiento y **regenere** la *Clave de acceso secundaria* (como preparación para el siguiente ciclo de actualización de las claves).
 
-## <a id="subheading-6"></a>Automatización
-Hay varios cmdlets de PowerShell que puede usar para configurar la auditoría en la base de datos de SQL de Azure. Para acceder a los cmdlets de auditoría debe ejecutar PowerShell en el modo del Administrador de recursos de Azure.
+## <a id="subheading-5"></a>Automatización (PowerShell o API de REST)
+También puede configurar la auditoría en Azure SQL Data Warehouse mediante las siguientes herramientas de automatización:
 
-> [!NOTE]
-> El módulo [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) se encuentra disponible actualmente en modo de vista previa. Puede que no ofrezca las mismas capacidades de administración que el módulo de Azure.
-> 
-> 
+* **Cmdlets de PowerShell**:
 
-Cuando esté en el modo Administrador de recursos de Azure, ejecute `Get-Command *AzureSql*` para enumerar los cmdlets disponibles.
+   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
+   * [Get-AzureRMSqlServerAuditingPolicy][102]
+   * [Remove-AzureRMSqlDatabaseAuditing][103]
+   * [Remove-AzureRMSqlServerAuditing][104]
+   * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
+   * [Set-AzureRMSqlServerAuditingPolicy][106]
+   * [Use-AzureRMSqlServerAuditingPolicy][107]
 
 <!--Anchors-->
 [Conceptos básicos de auditoría de Base de datos]: #subheading-1
@@ -131,4 +127,10 @@ Cuando esté en el modo Administrador de recursos de Azure, ejecute `Get-Command
 
 
 <!--Link references-->
-
+[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
+[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
+[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
+[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
+[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
+[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy

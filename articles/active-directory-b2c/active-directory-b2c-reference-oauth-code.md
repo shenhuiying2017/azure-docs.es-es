@@ -1,25 +1,24 @@
 ---
-title: "Azure Active Directory B2C: flujo de código de autorización | Microsoft Docs"
-description: "Aprenda a compilar aplicaciones web mediante la implementación del protocolo de autenticación OpenID Connect de Azure Active Directory."
+title: "Flujo de código de autorización - Azure AD B2C | Microsoft Docs"
+description: "Aprenda a crear aplicaciones web mediante el protocolo de autenticación de Azure AD B2C y OpenID Connect."
 services: active-directory-b2c
 documentationcenter: 
-author: dstrockis
-manager: mbaldwin
-editor: 
+author: saeedakhter-msft
+manager: krassk
+editor: parakhj
 ms.assetid: c371aaab-813a-4317-97df-b62e2f53d865
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 50ac9a0d95a581e696817364e94134abc089bfdf
+ms.date: 08/16/2017
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: dfc4f2e84704307ccbea6141c0dbc8d089733b22
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: flujo de código de autorización de OAuth 2.0
@@ -89,9 +88,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | p |Obligatorio |La directiva que se ejecuta. Es el nombre de una directiva que se crea en el directorio de Azure AD B2C. El valor del nombre de directiva debe comenzar por **b2c\_1\_**. Para obtener más información sobre las directivas, consulte [Azure Active Directory B2C: marco de directivas extensible](active-directory-b2c-reference-policies.md). |
 | símbolo del sistema |Opcional |El tipo de interacción necesaria con el usuario. Actualmente, el único valor válido es `login`, que obliga al usuario a escribir sus credenciales en esa solicitud. El inicio de sesión único no surtirá efecto. |
 
-En este punto se pedirá al usuario que complete el flujo de trabajo de la directiva. Esto puede implicar que el usuario tenga que escribir su nombre de usuario y contraseña, iniciar sesión con una identidad social, registrarse en el directorio o llevar a cabo otros pasos. Las acciones del usuario dependerán de cómo se defina la directiva.
+En este punto se pedirá al usuario que complete el flujo de trabajo de la directiva. Esto puede implicar que el usuario tenga que escribir su nombre de usuario y contraseña, iniciar sesión con una identidad social, registrarse en el directorio o realizar otros pasos. Las acciones del usuario dependerán de cómo se defina la directiva.
 
-Cuando el usuario haya completado la directiva, Azure AD devolverá una respuesta a la aplicación en el valor que usó para `redirect_uri`. Usa el método especificado en el parámetro `response_mode`. La respuesta es exactamente la misma para cada uno de los escenarios de acción del usuario, independientemente de la directiva que se haya ejecutado.
+Cuando el usuario haya completado la directiva, Azure AD devolverá una respuesta a la aplicación en el valor que ha usado para `redirect_uri`. Usa el método especificado en el parámetro `response_mode`. La respuesta es exactamente la misma para cada uno de los escenarios de acción del usuario, independientemente de la directiva que se haya ejecutado.
 
 Una respuesta correcta que usa `response_mode=query` tiene este aspecto:
 

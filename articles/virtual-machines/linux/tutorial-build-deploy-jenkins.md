@@ -15,10 +15,10 @@ ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 967cd38f0961cd11871c538d753cab9951c2f1f5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a40e26a8681df31fad664e4d1df4c1513311900d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -255,7 +255,7 @@ En este tutorial se ha automatizado la implementación de una aplicación en Azu
 > * Crear un grupo de implementación para las máquinas virtuales de Azure
 > * Crear una definición de versión que configure las máquinas virtuales e implemente la aplicación
 
-Siga este vínculo para ver ejemplos de scripts de máquina virtual creados previamente.
+Siga con el próximo tutorial para aprender a implementar una pila LAMP (Linux, Apache, MySQL y PHP).
 
 > [!div class="nextstepaction"]
-> [Ejemplos de scripts de máquina virtual Linux](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)
+> [Implementación de una pila de LAMP](tutorial-lamp-stack.md)

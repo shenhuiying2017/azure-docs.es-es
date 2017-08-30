@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 9cfdb94d1e030fe9d467389acf8894d79efd17d1
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 08141edfbc8be9bf7bf303419e1e482d5f884860
 ms.contentlocale: es-es
-ms.lasthandoff: 03/29/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificación de los recursos en un manifiesto de servicio
@@ -138,4 +138,64 @@ Este es un ejemplo ApplicationManifest que debe establecer para HTTPS. Necesitar
   </Certificates>
 </ApplicationManifest>
 ```
+
+## <a name="overriding-endpoints-in-servicemanifestxml"></a>Invalidación de Endpoints en ServiceManifest.xml
+
+En ApplicationManifest, agregue una sección denominada ResourceOverrides que será un elemento del mismo nivel que la sección ConfigOverrides. En esta sección puede especificar la invalidación de la sección Endpoints en la sección de recursos especificada en el manifiesto del servicio.
+
+Para invalidar Endpoint en ServiceManifest mediante ApplicationParameters cambie ApplicationManifest como se indica a continuación:
+
+En la sección ServiceManifestImport, agregue una nueva sección "ResourceOverrides"
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Stateless1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <ResourceOverrides>
+      <Endpoints>
+        <Endpoint Name="ServiceEndpoint" Port="[Port]" Protocol="[Protocol]" Type="[Type]" />
+        <Endpoint Name="ServiceEndpoint1" Port="[Port1]" Protocol="[Protocol1] "/>
+      </Endpoints>
+    </ResourceOverrides>
+        <Policies>
+           <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint"/>
+        </Policies>
+  </ServiceManifestImport>
+```
+
+En Parameters, agregue a continuación:
+
+```xml
+  <Parameters>
+    <Parameter Name="Port" DefaultValue="" />
+    <Parameter Name="Protocol" DefaultValue="" />
+    <Parameter Name="Type" DefaultValue="" />
+    <Parameter Name="Port1" DefaultValue="" />
+    <Parameter Name="Protocol1" DefaultValue="" />
+  </Parameters>
+```
+
+Ahora, al implementar la aplicación puede pasar estos valores como ApplicationParameters, por ejemplo:
+
+```powershell
+PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
+```
+
+Nota: Si los valores proporcionados para ApplicationParameters están vacíos se vuelve al valor predeterminado proporcionado en ServiceManifest para el EndPointName correspondiente.
+
+Por ejemplo:
+
+Si en ServiceManifest ha especificado
+
+```xml
+  <Resources>
+    <Endpoints>
+      <Endpoint Name="ServiceEndpoint1" Protocol="tcp"/>
+    </Endpoints>
+  </Resources>
+```
+
+Y el valor de Port1 y Protocol1 en ApplicationParameters es nulo o está vacío. El puerto lo decide aún Service Fabric. Y el protocolo sera TCP.
+
+Imagine que especifica un valor incorrecto. Supongamos que para el puerto ha especificado un valor de cadena "Foo" en lugar de un valor entero.  El comando New-ServiceFabricApplication producirá un error: el parámetro de invalidación con nombre 'ServiceEndpoint1', atributo 'Port1' en la sección 'ResourceOverrides' no es válido. El valor especificado es 'Foo' y se requiere 'int'.
 

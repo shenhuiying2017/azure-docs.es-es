@@ -11,14 +11,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 05/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 34cccf6a0962f72e04a90516fa7643db2533d85d
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf07c4142d025517637e31b27f1f34b6d402d6fe
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Incorporación de funcionalidad a su primera aplicación web
@@ -30,15 +30,15 @@ En [Implementación de su primera aplicación web en Azure en 5 minutos](app-ser
 
 Independientemente de qué aplicación de ejemplo implementó en el artículo anterior, puede seguir el tutorial.
 
-Las tres actividades de este tutorial son solo algunos ejemplos de las muchas funciones útiles que obtendrá al colocar la aplicación web en el Servicio de aplicaciones. Muchas de las funciones están disponibles en el nivel **Gratis** (donde se ejecuta su primera aplicación web), y puede usar sus créditos de prueba para probar las que requieren planes de tarifa superiores. Puede estar seguro de que la aplicación web permanecerá en el nivel **Gratis** a menos que la cambie explícitamente a un plan de tarifa diferente.
+Las tres actividades de este tutorial son solo algunos ejemplos de las muchas funciones útiles que obtendrá al colocar la aplicación web en App Service. Muchas de las funciones están disponibles en el nivel **Gratis** (donde se ejecuta su primera aplicación web), y puede usar sus créditos de prueba para probar las que requieren planes de tarifa superiores. Puede estar seguro de que la aplicación web permanecerá en el nivel **Gratis** a menos que la cambie explícitamente a un plan de tarifa diferente.
 
 > [!NOTE]
-> La aplicación web que creó con la CLI de Azure se ejecuta en el nivel **Gratis** , donde solo se permite una instancia de máquina virtual compartida con cuotas de recursos. Para más información sobre lo que se obtiene con el nivel **Gratis** , consulte [Límites de Servicio de aplicaciones](../azure-subscription-service-limits.md#app-service-limits).
+> La aplicación web que creó con la CLI de Azure se ejecuta en el nivel **Gratis** , donde solo se permite una instancia de máquina virtual compartida con cuotas de recursos. Para más información sobre lo que se obtiene con el nivel **Gratis**, consulte [Límites de App Service](../azure-subscription-service-limits.md#app-service-limits).
 > 
 > 
 
 ## <a name="authenticate-your-users"></a>Autenticación de los usuarios
-Ahora, veamos lo fácil que es agregar autenticación a su aplicación (lea más en [Expanding App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)[Expansión de autorización y autenticación en el Servicio de aplicaciones]).
+Ahora, veamos lo fácil que es agregar autenticación a su aplicación (lea más en [Expanding App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)[Expansión de autorización y autenticación en App Service]).
 
 1. En la hoja del portal de la aplicación que acaba de abrir, haga clic en **Configuración** > **Autenticación/autorización**.  
     ![Autenticar, hoja de configuración](./media/app-service-web-get-started/aad-login-settings.png)
@@ -57,8 +57,8 @@ Ahora, veamos lo fácil que es agregar autenticación a su aplicación (lea más
     ![Autenticar, sesión iniciada](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
     Si ahora abre una sesión sin autenticar en un explorador diferente, verá una pantalla de inicio de sesión cuando vaya a la misma dirección URL.  
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
-    Si nunca ha hecho nada con Azure Active Directory, el directorio predeterminado podría no tener ningún usuario de Azure AD. En ese caso, probablemente la única cuenta aquí es la cuenta de Microsoft con su suscripción de Azure. Por eso se inició sesión automáticamente en la aplicación en el mismo explorador antes.
-   Puede usar la misma cuenta Microsoft para iniciar sesión también en esta página de inicio de sesión.
+    Si nunca ha utilizado Azure Active Directory, es posible que el directorio predeterminado no tenga usuarios de Azure AD. En ese caso, probablemente la única cuenta aquí es la cuenta de Microsoft con su suscripción de Azure. Por eso se inició sesión automáticamente en la aplicación en el mismo explorador antes.
+    Puede usar la misma cuenta Microsoft para iniciar sesión también en esta página de inicio de sesión.
 
 Felicidades, está autenticando todo el tráfico a su sitio.
 
@@ -68,8 +68,8 @@ Quizás haya observado en la hoja **Autenticación/autorización** que se puede 
 * Habilitar varias opciones de inicio de sesión
 * Cambiar el comportamiento predeterminado cuando los usuarios navegan a su aplicación por primera vez
 
-El Servicio de aplicaciones proporciona una solución completa para algunas de las necesidades de autenticación más comunes por lo que no es necesario proporcionar la lógica de autenticación personalmente.
-Para más información, consulte [Expanding App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)(Expansión de autorización y autenticación en el Servicio de aplicaciones).
+App Service proporciona una solución completa para algunas de las necesidades de autenticación más comunes por lo que no es necesario proporcionar la lógica de autenticación personalmente.
+Para más información, consulte [Expanding App Service Authentication/Authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)(Expansión de autorización y autenticación en App Service).
 
 ## <a name="scale-your-app-automatically-based-on-demand"></a>Escalado automático de la aplicación según la demanda
 Ahora vamos a escalar automáticamente su aplicación para que ajuste su capacidad de forma automática en respuesta a la demanda de los usuarios (vea más información en [Escalado vertical de aplicaciones en Azure](web-sites-scale.md) y [Escalado del recuento de instancias de forma manual o automática](../monitoring-and-diagnostics/insights-how-to-scale.md)).
@@ -111,7 +111,7 @@ Quizás haya observado en la hoja **Configuración de escala** que puede hacer m
 * Escalado automático según una programación
 * Establecer el comportamiento del escalado automático para un evento futuro
 
-Para más información sobre el escalado vertical de su aplicación, consulte [Escalado de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md). Para más información sobre el escalado horizontal, consulte [Escalado manual o automático del número de instancias](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Para más información sobre el escalado vertical de su aplicación, consulte [Escalado de una aplicación web en Azure](web-sites-scale.md). Para más información sobre el escalado horizontal, consulte [Escalado manual o automático del número de instancias](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 ## <a name="receive-alerts-for-your-app"></a>Recepción de alertas para su aplicación
 Ahora que la aplicación tiene el escalado automático, ¿qué sucede cuando alcanza el número máximo de instancias (2) y la CPU está por encima de uso deseado (80 %)?
@@ -119,7 +119,7 @@ Puede configurar una alerta (vea más información en [Recepción de notificacio
 
 1. En la hoja del portal de su aplicación, haga clic en **Herramientas** > **Alertas**.  
     ![Alertas, hoja de configuración](./media/app-service-web-get-started/alert-settings.png)
-2. Haga clic en **Agregar alerta**. Después, en el cuadro **Recurso**, seleccione el recurso que termina con **(serverfarms)**. Ese es el plan del Servicio de aplicaciones.  
+2. Haga clic en **Agregar alerta**. Después, en el cuadro **Recurso**, seleccione el recurso que termina con **(serverfarms)**. Ese es el plan de App Service.  
     ![Alertas, agregar alerta para plan de App Service](./media/app-service-web-get-started/alert-add.png)
 3. Especifique **Nombre** como `CPU Maxed`, **Métrica** como **Porcentaje de CPU** y **Umbral** como `90`; después, seleccione **Lectores, colaboradores y propietarios de correo electrónico** y haga clic en **Aceptar**.   
     ![Alertas, configurar alertas](./media/app-service-web-get-started/alert-configure.png)
@@ -151,8 +151,8 @@ Averigüe también qué más puede hacer con la aplicación que ha implementado.
 * [Haga una copia de seguridad de la aplicación](web-sites-backup.md) : configure la copia de seguridad y la restauración para la aplicación web. Prepárese para errores inesperados y recupérese de ellos.
 * [Habilite los registros de diagnóstico](web-sites-enable-diagnostic-log.md) : lea los registros de IIS desde seguimientos de la aplicación o desde Azure. Léalos en una transmisión, descárguelos o pórtelos a [Application Insights](../application-insights/app-insights-overview.md) para realizar un análisis "llave en mano".
 * [Detecte vulnerabilidades en la aplicación](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
-  Examine la aplicación web en busca de amenazas modernas con el servicio proporcionado por [Tinfoil Security](https://www.tinfoilsecurity.com/).
+  Examine la aplicación web en busca de amenazas modernas con el servicio que proporciona [Tinfoil Security](https://www.tinfoilsecurity.com/).
 * [Ejecute trabajos en segundo plano](../azure-functions/functions-overview.md) : ejecute trabajos de procesamiento de datos, informes, etc.
-* [Obtener información acerca de cómo funciona el Servicio de aplicaciones](../app-service/app-service-how-works-readme.md)
+* [Obtener información acerca de cómo funciona App Service](../app-service/app-service-how-works-readme.md)
 
 

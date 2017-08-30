@@ -1,6 +1,6 @@
 ---
-title: Acceso al panel de Azure Portal | Microsoft Docs
-description: "En este artículo se explica cómo compartir el acceso a un panel en el Portal de Azure."
+title: Uso compartido de paneles de Azure Portal mediante RBAC | Microsoft Docs
+description: "En este artículo se explica cómo compartir un panel en Azure Portal mediante el control de acceso basado en rol."
 services: azure-portal
 documentationcenter: 
 author: tfitzmac
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a2f3252aa271c0ec6750c38c6d5060dbfe73a0e2
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 927ec9251b5231a5d9a0e8278f5dc46e9abdde0e
+ms.contentlocale: es-es
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="sharing-azure-dashboards"></a>Uso compartido de paneles de Azure
-Después de configurar un panel, puede publicarlo y compartirlo con otros usuarios de su organización. Permita que otros usuarios tengan acceso al panel mediante el [Control de acceso basado en roles](../active-directory/role-based-access-control-configure.md)de Azure. Asigne un usuario o grupo de usuarios a un rol y ese rol definirá si los usuarios pueden ver o modificar el panel publicado. 
+# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Uso compartido de paneles de Azure mediante el control de acceso basado en rol
+Después de configurar un panel, puede publicarlo y compartirlo con otros usuarios de su organización. Mediante el [control de acceso basado en rol](../active-directory/role-based-access-control-configure.md)de Azure puede permitir que otros usuarios vean su panel. Asigne un usuario o grupo de usuarios a un rol y ese rol definirá si los usuarios pueden ver o modificar el panel publicado. 
 
 Todos los paneles publicados se implementan como recursos de Azure, lo que significa que existen como elementos administrables dentro de su suscripción y se encuentran en un grupo de recursos.  Desde una perspectiva de control de acceso, los paneles no son distintos de otros recursos como una máquina virtual o una cuenta de almacenamiento.
 
@@ -76,10 +77,5 @@ Tras esto, el panel ya se ha publicado. Si son adecuados los permisos heredados 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una lista de roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
 * Para más información acerca de cómo administrar los recursos, consulte [Administración de los recursos de Azure a través del Portal](resource-group-portal.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

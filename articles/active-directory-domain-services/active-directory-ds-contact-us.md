@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/23/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddcd8baea7694d957820870b2f991a35200d0ca
-ms.lasthandoff: 12/28/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 0a4a08a58302c113405756ad7d3bb6487887a72a
+ms.contentlocale: es-es
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Azure AD Domain Services: contacto
@@ -29,7 +29,7 @@ Puede enviarnos un correo electrónico a la sección de [comentarios sobre los S
 
 Asegúrese de incluir lo siguiente para que podamos investigar el problema.
 
-* El **identificador de inquilino** de su directorio de Azure AD. El identificador del inquilino es el GUID que verá en la barra de direcciones del explorador cuando vaya a la página desde donde se habilita Azure AAD Domain Services para el directorio.
+* El **identificador de inquilino o directorio** de su directorio de Azure AD. El identificador de inquilino es el GUID que se ve en el campo del identificador de directorio en la [página de propiedades del directorio](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 * El **nombre de dominio DNS** que ha configurado para el dominio administrado de Servicios de dominio de AAD.
 
 ## <a name="provide-feedback"></a>Envío de comentarios

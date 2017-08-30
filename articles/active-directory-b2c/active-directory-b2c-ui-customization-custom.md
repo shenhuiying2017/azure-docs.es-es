@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory B2C: personalización de la interfaz de usuario con directivas personalizadas | Microsoft Docs"
+title: "Personalización de la interfaz de usuario con directivas personalizadas - Azure AD B2C | Microsoft Docs"
 description: "Información acerca de cómo personalizar una interfaz de usuario (IU) con directivas personalizadas en Azure AD B2C."
 services: active-directory-b2c
 documentationcenter: 
-author: SaeedAkhter-MSFT
+author: saeedakhter-msft
 manager: krassk
-editor: gsacavdm
+editor: parakhj
 ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
-ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: cede72e742bbea7b1d51d42609743ea574af75ed
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d5a3c0a323b31696d39e3d2b36317dec3a2337d7
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: configuración de la interfaz de usuario personalizada en una directiva personalizada
@@ -67,7 +67,7 @@ Puede crear contenido HTML con el nombre de la marca del producto en el título.
 
 Para hospedar este contenido HTML en Blob Storage, haga lo siguiente:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el menú **central**, seleccione **Nuevo** > **Almacenamiento** > **Cuenta de almacenamiento**.
 3. Escriba un **Nombre** único para la cuenta de almacenamiento.
 4. El **Modelo de implementación** puede permanecer como **Resource Manager**.

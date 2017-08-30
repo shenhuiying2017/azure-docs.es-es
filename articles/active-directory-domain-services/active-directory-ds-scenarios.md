@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/23/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b76a5c7dfd640e0a398845b6c8f6b0b35574b4ac
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 72514dabf3af0b282d1bb49c542c13f7095e03d8
+ms.contentlocale: es-es
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Escenarios y casos de uso de implementación
@@ -38,7 +38,7 @@ A medida que los servidores y otras infraestructuras alcanzan el final de su cic
 Tenga en cuenta los siguientes puntos importantes para este escenario de implementación:
 
 * Los dominios administrados que proporcionan Azure AD Domain Services solo admiten una única estructura de unidad organizativa plana. Todas las máquinas unidas a un dominio residen en una única unidad organizativa plana. Sin embargo, puede crear unidades organizativas personalizadas.
-* Los Servicios de dominio de Azure AD admiten una directiva de grupo simple en forma de un GPO integrado para cada uno de los contenedores de usuarios y equipos. No puede destinar la directiva de grupo por unidad organizativa o departamento, realizar el filtrado de WMI ni crear GPO personalizados.
+* Los Servicios de dominio de Azure AD admiten una directiva de grupo simple en forma de un GPO integrado para cada uno de los contenedores de usuarios y equipos. Puede crear GPO personalizados y dirigirlos a unidades organizativas personalizadas.
 * Los Servicios de dominio de Azure AD son compatible con el esquema base de objeto de equipo de AD. No puede extender el esquema del objeto de equipo.
 
 ## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>Subida y desplazamiento de una aplicación local que usa la autenticación de enlace LDAP a los Servicios de infraestructura de Azure
@@ -77,10 +77,8 @@ Tenga en cuenta los siguientes puntos importantes para este escenario de impleme
 * Asegúrese de que la aplicación usa nombre de usuario y contraseña para la autenticación. Los Servicios de dominio de Azure AD no admiten la autenticación basada en certificado o tarjeta inteligente.
 * No se pueden cambiar las contraseñas directamente en el dominio administrado. Los usuarios finales pueden cambiar su contraseña bien mediante el mecanismo de autoservicio de cambio de contraseña de Azure AD o en el directorio local. Estos cambios se sincronizan y están disponibles automáticamente en el dominio administrado.
 
-## <a name="azure-remoteapp"></a>Azure RemoteApp
-Azure RemoteApp permite al administrador de Contoso crear una colección unida a un dominio. Esta característica permite que las aplicaciones remotas atendidas por Azure RemoteApp puedan ejecutarse en equipos unidos a un dominio y tener acceso a otros recursos con la autenticación integrada de Windows. Contoso puede usar los Servicios de dominio de Azure AD para proporcionar un dominio administrado que se emplea en las colecciones unidas a un dominio de Azure RemoteApp.
+## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Implementaciones de Servicios de Escritorio Remoto de Windows Server en Azure
+Puede usar Azure AD Domain Services para proporcionar servicios de dominio de AD administrados a los servidores de escritorio remotos implementados en Azure.
 
-![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
-
-Para obtener más información sobre este escenario de implementación, consulte el artículo del blog de servicios de escritorio remoto titulado [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)(Elevación y desplazamiento de las cargas de trabajo con Azure RemoteApp y Azure AD Domain Services).
+Para más información acerca de este escenario de implementación, vea cómo [integrar Azure AD Domain Services con su implementación de RDS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
 

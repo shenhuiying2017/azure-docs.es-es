@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 31eeaa3df41065b65d6202f00c01ad2f706e230a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5f482a92b8fcd71a1b767fcc5741bc57605997ea
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
@@ -31,8 +31,8 @@ El cifrado de discos con el sistema operativo Linux debe desmontar la unidad del
 
 Suele ocurrir cuando se intenta el cifrado del disco del sistema operativo en un entorno de máquina virtual de destino que se ha modificado o cambiado desde su imagen de la galería admitida.  Estos son algunos ejemplos de desviaciones de la imagen admitida, que pueden interferir con la capacidad de la extensión de desmontar la unidad del sistema operativo:
 - Imágenes personalizadas que ya no coinciden con un sistema de archivos o esquema de partición compatibles.
-- Cuando se instalan aplicaciones grandes, como SAP, MongoDB o Apache Casandra, y se ejecutan en el sistema operativo antes del cifrado.  La extensión no puede cerrarlas correctamente y, si mantienen identificadores de archivos abiertos en la unidad de sistema operativo, la unidad no se puede desmontar, lo que ocasiona el error.
-- Cuando se ejecutan scripts personalizados casi al mismo tiempo que se deshabilita el cifrado, o si se hace algún otro cambio en la máquina virtual durante el proceso de cifrado.   Esto puede ocurrir cuando una plantilla de Resource Manager define varias extensiones para ejecutarse al mismo tiempo o cuando una extensión de script personalizada u otra acción se ejecutan simultáneamente que el cifrado del disco.   La serialización y el aislamiento de estos pasos pueden resolver el problema.
+- Imágenes personalizadas con aplicaciones como un antivirus, Docker, SAP, MongoDB o Apache Cassandra ejecutándose en el sistema operativo antes del cifrado.  Estas aplicaciones son difíciles de terminar y, cuando conservan los identificadores de archivos abiertos en la unidad del sistema operativo, esta no se puede desmontar, lo que provoca un error.
+- Los scripts personalizados que se ejecutan cerca del paso de cifrado pueden interferir y provocar este error. Esto puede ocurrir cuando una plantilla de Resource Manager define varias extensiones para ejecutarse al mismo tiempo o cuando una extensión de script personalizada u otra acción se ejecutan simultáneamente que el cifrado del disco.   La serialización y el aislamiento de estos pasos pueden resolver el problema.
 - Cuando no se ha deshabilitado SELinux antes de habilitar el cifrado, se produce un error en el paso de desmontaje.  SELinux puede habilitarse de nuevo después de completarse el cifrado.
 - Cuando el disco del sistema operativo usa un esquema de LVM (aunque hay compatibilidad limitada con los discos de datos LVM, no se admite el disco del sistema operativo LVM)
 - Cuando no se cumplen los requisitos mínimos de memoria (se recomiendan 7GB para el cifrado del disco de sistema operativo)
@@ -41,7 +41,7 @@ Suele ocurrir cuando se intenta el cifrado del disco del sistema operativo en un
 
 ## <a name="unable-to-encrypt"></a>No se puede cifrar
 
-En algunos casos, parece que el cifrado del disco de Linux se atasca en el mensaje que indica que se inició el cifrado de disco del sistema operativo, y SSH se deshabilita. Este proceso puede tardar entre 3 y 16 horas en completarse y puede necesitar más tiempo.  La secuencia de cifrado del disco de sistema operativo Linux desmonta temporalmente la unidad de sistema operativo y realiza el cifrado bloque a bloque de todo el disco de sistema operativo, antes de volver a montarlo cifrado.   A diferencia de Azure Disk Encryption en Windows, el cifrado del disco de Linux no permite el uso simultáneo de la máquina virtual mientras el cifrado está en curso.  Las características de rendimiento de la máquina virtual, incluido el tamaño del disco y si la cuenta de almacenamiento está respaldada por el almacenamiento Standard o Premium (SSD), pueden influir en gran medida en el tiempo necesario para completar el cifrado.
+En algunos casos, parece que el cifrado del disco de Linux se atasca en el mensaje que indica que se inició el cifrado de disco del sistema operativo, y SSH se deshabilita. En una imagen de la galería en existencias, este proceso puede tardar entre 3 y 16 horas en completarse.  Si se agregan discos de datos de varios TB, el proceso puede tardar días. La secuencia de cifrado del disco del sistema operativo Linux desmonta temporalmente la unidad de sistema operativo y realiza el cifrado bloque a bloque de todo el disco antes de volver a montarlo cifrado.   A diferencia de Azure Disk Encryption en Windows, el cifrado del disco de Linux no permite el uso simultáneo de la máquina virtual mientras el cifrado está en curso.  Las características de rendimiento de la máquina virtual, incluido el tamaño del disco y si la cuenta de almacenamiento está respaldada por el almacenamiento Standard o Premium (SSD), pueden influir en gran medida en el tiempo necesario para completar el cifrado.
 
 Para comprobar el estado, puede sondearse el campo ProgressMessage devuelto por el comando [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus).   Mientras se cifra la unidad del sistema operativo, la máquina virtual entra en estado de mantenimiento y SSH también se deshabilita para evitar cualquier interrupción en el proceso en curso.  Durante el cifrado, la mayoría de las veces se mostrará el mensaje EncryptionInProgress, seguido, varias horas después, del mensaje VMRestartPending que pregunta si se reinicia la máquina virtual.  Por ejemplo:
 
@@ -76,9 +76,42 @@ La máquina virtual debe poder tener acceso al almacén de claves. Consulte la d
 ### <a name="linux-package-management-behind-firewall"></a>Administración de paquetes de Linux detrás del firewall
 En tiempo de ejecución, Azure Disk Encryption para Linux se basa en el sistema de administración de paquetes de la distribución de destino para instalar los componentes de requisitos previos necesarios antes de habilitar el cifrado.  Si la configuración de firewall impide que la máquina virtual pueda descargar e instalar estos componentes, es previsible que produzcan errores.    Los pasos para configurar esta opción pueden variar la distribución.  En Red Hat, cuando se requiere un proxy, es vital asegurarse de que el administrador de la suscripción y yum están configurados correctamente.  Consulte [este artículo](https://access.redhat.com/solutions/189533) de soporte técnico de Red Hat sobre este tema.  
 
+## <a name="troubleshooting-windows-server-2016-server-core"></a>Solución de problemas de Windows Server 2016 Server Core
+
+En Windows Server 2016 Server Core, el componente bdehdcfg no está disponible de forma predeterminada. y Azure Disk Encryption necesita dicho componente.
+
+Para solucionar este problema, copie los cuatro archivos siguientes de una máquina virtual del centro de datos de Windows Server 2016 a la carpeta c:\windows\system32 de la imagen de Server Core:
+
+```
+bdehdcfg.exe
+bdehdcfglib.dll
+bdehdcfglib.dll.mui
+bdehdcfg.exe.mui
+```
+
+Luego, ejecute el siguiente comando:
+
+```
+bdehdcfg.exe -target default
+```
+
+Se creará una partición de sistema de 550 MB y, después, tras un reinicio, se puede usar Diskpart para comprobar los volúmenes y continuar.  
+
+Por ejemplo:
+
+```
+DISKPART> list vol
+
+  Volume ###  Ltr  Label        Fs     Type        Size     Status     Info
+  ----------  ---  -----------  -----  ----------  -------  ---------  --------
+  Volume 0     C                NTFS   Partition    126 GB  Healthy    Boot
+  Volume 1                      NTFS   Partition    550 MB  Healthy    System
+  Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
+```
 ## <a name="see-also"></a>Otras referencias
 En este documento, aprendió más acerca de algunos problemas comunes de Azure Disk Encryption y cómo solucionarlos. Para más información acerca de este servicio y su funcionalidad, lea:
 
 - [Aplicación de cifrado de discos en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Cifrado de una máquina virtual de Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Cifrado en reposo de datos de Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+

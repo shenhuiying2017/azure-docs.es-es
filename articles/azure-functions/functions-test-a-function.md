@@ -4,7 +4,7 @@ description: Pruebe las funciones de Azure con Postman, cURL y Node.js.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "funciones de Azure, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: a58bf41ec11b5826b60c1fc999240ea655be6d9d
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aca03ba4137893157fcbe6650336782ab88cd234
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
@@ -234,7 +234,7 @@ En la ventana **Registros** del portal, se registra una salida similar a la sigu
 
 
 ### <a name="test-with-a-timer-trigger"></a>Prueba con un desencadenador de temporizador
-Algunas funciones no se pueden probar correctamente con las herramientas ya mencionadas. Por ejemplo, considere una función de desencadenador de cola que se ejecuta cuando se coloca un mensaje en [Azure Queue Storage](../storage/storage-dotnet-how-to-use-queues.md). Siempre puede escribir código para colocar un mensaje en la cola, y se proporciona un ejemplo de ello en un proyecto de consola más adelante en este artículo. Sin embargo, hay otro método que sirve para probar las funciones directamente.  
+Algunas funciones no se pueden probar correctamente con las herramientas ya mencionadas. Por ejemplo, considere una función de desencadenador de cola que se ejecuta cuando se coloca un mensaje en [Azure Queue Storage](../storage/queues/storage-dotnet-how-to-use-queues.md). Siempre puede escribir código para colocar un mensaje en la cola, y se proporciona un ejemplo de ello en un proyecto de consola más adelante en este artículo. Sin embargo, hay otro método que sirve para probar las funciones directamente.  
 
 Puede usar un desencadenador de temporizador configurado con un enlace de salida de cola. Después, ese código de desencadenador de temporizador puede escribir los mensajes de prueba en la cola. Esta sección lo guía a través de un ejemplo.
 
@@ -378,11 +378,11 @@ En la ventana **Registros** del portal, se registra una salida similar a la sigu
 
 
 ### <a name="test-a-queue-trigger-function-with-code-c"></a>Prueba de una función de desencadenador de cola con código: C# #
-Ya se ha mencionado que puede probar un desencadenador de cola usando código para colocar un mensaje en la cola. El siguiente ejemplo de código se basa en el código C# que se presenta en el tutorial [Introducción a Azure Queue Storage mediante .NET](../storage/storage-dotnet-how-to-use-queues.md). También se ofrece código para otros lenguajes en ese vínculo.
+Ya se ha mencionado que puede probar un desencadenador de cola usando código para colocar un mensaje en la cola. El siguiente ejemplo de código se basa en el código C# que se presenta en el tutorial [Introducción a Azure Queue Storage mediante .NET](../storage/queues/storage-dotnet-how-to-use-queues.md). También se ofrece código para otros lenguajes en ese vínculo.
 
 Para probar este código en una aplicación de consola, debe:
 
-* [Configurar la cadena de conexión de almacenamiento en el archivo app.config](../storage/storage-dotnet-how-to-use-queues.md).
+* [Configurar la cadena de conexión de almacenamiento en el archivo app.config](../storage/queues/storage-dotnet-how-to-use-queues.md).
 * Pase `name` y `address` como parámetros a la aplicación. Por ejemplo: `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (Este código acepta el nombre y la dirección de un nuevo usuario como argumentos de la línea de comandos durante el tiempo de ejecución).
 
 Ejemplo de código C#:

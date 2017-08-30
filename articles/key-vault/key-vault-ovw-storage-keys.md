@@ -1,29 +1,33 @@
 ---
 ms.assetid: 
 title: Claves de cuenta de almacenamiento de Azure Key Vault
+description: "Las claves de cuenta de almacenamiento proporcionan una integración sin problemas entre Azure Key Vault y el acceso basado en claves a la cuenta de Azure Storage."
+ms.topic: article
+services: key-vault
 ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 06/8/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: cc00433604adefec86ac43ded9bc5f09038b6a1d
+ms.date: 07/25/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3148088c88236c64e089fd25c98eb8ac7cdcbfea
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Claves de cuenta de almacenamiento de Azure Key Vault
 
-Antes de que existieran las claves de cuenta de almacenamiento de Azure Key Vault, los desarrolladores tenían que administrar sus propias claves de cuenta de Azure Storage (ASA) y rotarlas manualmente o mediante la automatización externa. Ahora, las claves de cuenta de almacenamiento de Azure Key Vault se implementan como [secretos de Key Vault](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) para autenticar con una cuenta de Azure Storage. 
+Antes de que existieran las claves de cuenta de almacenamiento de Azure Key Vault, los desarrolladores tenían que administrar sus propias claves de cuenta de Azure Storage (ASA) y rotarlas manualmente o mediante la automatización externa. Ahora las claves de cuenta de almacenamiento de Key Vault se implementan como [secretos de Key Vault](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) para autenticar con una cuenta de Azure Storage. 
 
-La característica de clave de ASA de Key Vault agrega valor al administrar automáticamente la rotación de secreto. También elimina la necesidad de tener contacto directo con una clave de cuenta de Azure Storage, ya que ofrece como método las firmas de acceso compartido (SAS). 
+La característica de clave de ASA administra la rotación de secretos automáticamente y elimina la necesidad de tener contacto directo con una clave de ASA, ya que ofrece como método las firmas de acceso compartido (SAS). 
 
-Para obtener más información general sobre las cuentas de Azure Storage, vea [Acerca de las cuentas de almacenamiento de Azure](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+Para más información general sobre las cuentas de Azure Storage, vea [Acerca de las cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
 ## <a name="supporting-interfaces"></a>Interfaces admitidas
 
 La característica de claves de la cuenta de Azure Storage está disponible inicialmente a través de las interfaces de REST, .NET/C# y PowerShell. Para obtener más información, vea [Documentación de Key Vault](https://docs.microsoft.com/azure/key-vault/).
+
 
 ## <a name="storage-account-keys-behavior"></a>Comportamiento de las claves de cuenta de almacenamiento
 
@@ -37,7 +41,7 @@ Cuando usa las claves de la cuenta de almacenamiento, Key Vault realiza varias f
     - Los valores de clave nunca se devuelven como respuesta al autor de la llamada. 
     - Azure Key Vault administra las claves de las cuentas de almacenamiento y de las cuentas de almacenamiento clásicas. 
 2. Azure Key Vault le permite a usted, como propietario del almacén/objeto, crear definiciones de SAS (SAS de cuenta o de servicio). 
-    - El valor de SAS, creado mediante la definición de SAS, se devuelve como un secreto a través de la ruta de acceso de URI de REST.
+    - El valor de SAS, creado mediante la definición de SAS, se devuelve como un secreto a través de la ruta de acceso de URI de REST. Para más información, vea [Azure Key Vault storage account operations (Operaciones de cuenta de almacenamiento de Azure Key Vault)](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations).
 
 ### <a name="naming-guidance"></a>Instrucciones de nomenclatura
 
@@ -55,18 +59,22 @@ Anteriormente, para obtener acceso a Azure Storage, los desarrolladores debían 
 //create storage account using connection string containing account name 
 // and the storage key 
 
-var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));var blobClient = storageAccount.CreateCloudBlobClient();
+var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+var blobClient = storageAccount.CreateCloudBlobClient();
  ```
  
 ### <a name="after-azure-key-vault-storage-keys"></a>A partir de la existencia de las claves de cuenta de almacenamiento de Azure Key Vault 
 
 ```
+//Please make sure to set storage permissions appropriately on your key vault
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
+
 //Use PowerShell command to get Secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
--AccountName msak01 -Name blobsas1 -Protocol HttpsOrHttp -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
+-AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
 
-//Get SAS token from Key Vault //....
+//Get SAS token from Key Vault
 
 var secret = await kv.GetSecretAsync("SecretUri");
 
@@ -80,48 +88,49 @@ var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("htt
 
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
  
-// If SAS token is about to expire then Get sasToken again from Key Vault 
-//.... 
- 
-// and update the accountSasCredential.UpdateSASToken(sasToken); 
- ```
+// If SAS token is about to expire then Get sasToken again from Key Vault and update it.
+
+accountSasCredential.UpdateSASToken(sasToken);
+
+  ```
  
  ### <a name="developer-best-practices"></a>Procedimientos recomendados para desarrolladores 
 
-- Permita que solo Key Vault administre las claves de ASA. No intente administrarlas usted mismo, ya que la administración manual interfiere con los procesos de Key Vault. 
-- No permita que más de un objeto de almacén de claves administre las claves de ASA. 
-- Si tiene que volver a generar manualmente las claves de ASA, le recomendamos que lo haga a través de Key Vault. 
+- Permita que solo Key Vault administre las claves de ASA. No intente administrarlas usted mismo, ya que interferiría con los procesos de Key Vault. 
+- No permita que más de un objeto de Key Vault administre las claves de ASA. 
+- Si tiene que volver a generar manualmente las claves de ASA, se recomienda hacerlo a través de Key Vault. 
 
 ## <a name="getting-started"></a>Introducción
 
-### <a name="setup-for-role-based-access-control-permissions"></a>Configuración de los permisos de control de acceso basado en rol
+### <a name="setup-for-role-based-access-control-rbac-permissions"></a>Configuración de permisos de control de acceso basado en roles (RBAC)
 
-Key Vault necesita permisos para mostrar y volver a generar las claves de una cuenta de almacenamiento. Configúrelo mediante los pasos siguientes:
+Key Vault necesita permisos para *mostrar* y *volver a generar* las claves de una cuenta de almacenamiento. Configure estos permisos mediante los siguientes pasos:
 
-1. Obtenga el valor de ObjectId de Key Vault con este comando: `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`.  
- 
-2. Asigne el rol de "Operador de claves de almacenamiento" a la identidad de Azure Key Vault: `New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'`. 
+- Obtenga ObjectId de Key Vault: 
 
->[!NOTE]
-> Para una cuenta clásica, establezca el parámetro del rol en *"Rol de servicio de operador de claves de cuentas almacenamiento clásicas"*. 
+    `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
+
+- Asigne el rol Operador de claves de almacenamiento a la identidad de Azure Key Vault: 
+
+    `New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'`
+
+    >[!NOTE]
+    > Para un tipo de cuenta clásica, establezca el parámetro del rol en *"Rol de servicio de operador de claves de cuentas de almacenamiento clásicas"*.
 
 ### <a name="storage-account-onboarding"></a>Incorporación de cuentas de almacenamiento 
 
-Ejemplo de incorporación: el propietario de un objeto de Key Vault agrega un objeto de cuenta de almacenamiento en AzKV para incorporar una cuenta de almacenamiento.
+Ejemplo: como propietario de un objeto de Key Vault, agregue un objeto de cuenta de almacenamiento a Azure Key Vault para incorporar una cuenta de almacenamiento.
 
-Durante la incorporación, Key Vault debe comprobar que la identidad de la cuenta que se está incorporando tiene acceso para *enumerar* y *volver a generar* las claves de almacenamiento. Key Vault obtiene un token OBO de EvoSTS con público como Azure Resource Manager y realiza una llamada para enumerar claves a RP de almacenamiento. Si se produce un error en la llamada de enumeración, se produce un error en la creación del objeto de Key Vault con el código de estado HTTP *Prohibido*. Las claves que se muestran de esta manera se almacenan en caché con el almacenamiento de la entidad de Key Vault. 
+Durante la incorporación, Key Vault debe comprobar que la identidad de la cuenta que se está incorporando tiene permisos para *mostrar* y *volver a generar* las claves de almacenamiento. Para comprobar estos permisos, Key Vault obtiene un token OBO (del inglés On Behalf Of [en nombre de]) desde el servicio de autenticación, estable la audiencia en Azure Resource Manager y realiza una llamada de clave de *lista* al servicio Azure Storage. Si hay un error en la llamada de *lista*, se produce un error en la creación del objeto de Key Vault con un código de estado HTTP de *Prohibido*. Las claves que se muestran de esta manera se almacenan en caché con el almacenamiento de la entidad de Key Vault. 
 
 Key Vault debe comprobar que la identidad tiene permisos para *volver a generar* antes de encargarse de volver a generar las claves. Para comprobar que la identidad (a través del token OBO) y la identidad propia de Key Vault tienen estos permisos:
 
 - Key Vault enumera los permisos RBAC en el recurso de la cuenta de almacenamiento.
 - Key Vault valida la respuesta a través de la coincidencia de expresión regular de acciones y no acciones. 
 
-Algunos ejemplos auxiliares: 
+En [Key Vault - Managed Storage Account Keys Samples ](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167) (Key Vault: ejemplos de administración de claves de cuentas de Azure Storage) encontrará algunos ejemplos auxiliares.
 
-- Ejemplo de [VipSwapper](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceMan agerUtil.cs) 
-- Ejemplo de [hasPermission](https://msazure.visualstudio.com/One/_search?type=Code&lp=searchproject&text=hasPermissions&result=DefaultCollection%2FOne%2FAzureUXPortalFx%2FGBdev%2F%2Fsrc%2FSDK%2FFramework.Client%2FTypeScript%2FFxHubs%2FPermissions.ts &filters=ProjectFilters%7BOne%7DRepositoryFilters%7BAzureUX-PortalFx%7D&_a=search) 
-
-Si la identidad (a través del token OBO) no dispone de permiso para *volver a generar* o si la identidad propia de Key Vault no tiene permiso para *enumerar* o *volver a generar*, se produce un error en la solicitud de incorporación, que devuelve el código de error y el mensaje correspondientes. 
+Si la identidad no dispone de permisos para *volver a generar* o si la identidad propia de Key Vault no tiene permiso para *mostrar* o *volver a generar*, se produce un error en la solicitud de incorporación, que devuelve el código de error y el mensaje correspondientes. 
 
 El token OBO solo funcionará cuando se usen aplicaciones cliente nativas propias de PowerShell o la CLI.
 

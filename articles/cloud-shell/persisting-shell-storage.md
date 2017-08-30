@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/21/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 26428ad0d3acda959235ffa780294154ba61bca5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 61a8bfcf3704f361432400771d8fcc8b81927b53
 ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -32,8 +32,8 @@ En el primer inicio, Cloud Shell le pedirá que asocie un recurso compartido de 
 
 Al usar la configuración básica y seleccionar solo una suscripción, Cloud Shell crea tres recursos en su nombre en la región admitida que esté más próxima:
 * Grupos de recursos: `cloud-shell-storage-<region>`
-* Cuenta de almacenamiento: `cs-uniqueGuid`
-* Recurso compartido de archivos: `cs-<user>-<domain>-com-uniqueGuid`
+* Cuenta de almacenamiento: `cs<uniqueGuid>`
+* Recurso compartido de archivos: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![La configuración de la suscripción](media/basic-storage.png)
 
@@ -41,7 +41,7 @@ El recurso compartido de archivos se monta como `clouddrive` en su directorio `$
 
 ### <a name="use-existing-resources"></a>Uso de recursos existentes
 
-Mediante la opción avanzada puede asociar recursos existentes. Cuando aparezca el mensaje del programa de instalación, seleccione **Mostrar configuración avanzada** para ver otras opciones. Los recursos compartidos de archivos existentes recibirán una imagen de usuario de 5 GB para conservar el directorio `$Home`. Las listas desplegables se filtran para la región asignada de Cloud Shell y las cuentas de almacenamiento con redundancia local y de almacenamiento con redundancia geográfica.
+Mediante la opción avanzada puede asociar recursos existentes. Cuando aparezca el mensaje del programa de instalación, seleccione **Mostrar configuración avanzada** para ver otras opciones. Los recursos compartidos de archivos existentes recibirán una imagen de usuario de 5 GB para conservar el directorio `$Home`. Los menús desplegables se filtran para la región de Cloud Shell y las cuentas de almacenamiento con redundancia local y de almacenamiento con redundancia geográfica.
 
 ![La configuración de grupo de recursos](media/advanced-storage.png)
 
@@ -71,7 +71,7 @@ Si se monta un recurso compartido de archivos existente, las cuentas de almacena
 * Deben ubicarse en su región asignada. Al incorporarse, la región a la que está asignado aparece en el nombre del grupo de recursos `cloud-shell-storage-<region>`.
 
 ### <a name="supported-storage-regions"></a>Regiones de almacenamiento admitidas
-Los archivos de Azure tienen que residir en la misma región que la máquina de Cloud Shell en la que se montan. Las máquinas de Cloud Shell existen en las regiones siguientes:
+Los archivos de Azure tienen que residir en la misma región que la máquina de Cloud Shell en la que se montan. Actualmente, los clústeres de Cloud Shell existen en las regiones siguientes:
 |Ámbito|Region|
 |---|---|
 |América|Este de EE. UU., centro-sur de EE. UU. y oeste de EE. UU.|
@@ -94,7 +94,7 @@ Para ver más detalles, ejecute `clouddrive mount -h`, tal y como se muestra aqu
 ![Ejecución del comando "clouddrive"](media/mount-h.png)
 
 ## <a name="unmount-clouddrive"></a>Desmontar `clouddrive`
-Puede desmontar un recurso compartido de archivos montado en Cloud Shell en cualquier momento. Sin embargo, ya que Cloud Shell requiere un recurso compartido de archivos montado, se le pedirá que cree y monte un nuevo recurso compartido de archivos en la próxima sesión si se ha quitado.
+Puede desmontar un recurso compartido de archivos montado en Cloud Shell en cualquier momento. Una vez que el recurso compartido de archivos se desmonta, se le pedirá que monte uno nuevo antes de la siguiente sesión.
 
 Para quitar un recurso compartido de archivos de Cloud Shell:
 1. Ejecute `clouddrive unmount`.
@@ -107,7 +107,7 @@ Para ver más detalles, ejecute `clouddrive unmount -h`, tal y como se muestra a
 ![Ejecución del comando "clouddrive amount"](media/unmount-h.png)
 
 > [!WARNING]
-> Aunque la ejecución de este comando no eliminará ningún recurso, al eliminar manualmente el grupo de recursos, la cuenta de almacenamiento o el recurso compartido de archivos asignados a Cloud Shell, borrará la imagen de disco del directorio `$Home` y los archivos del recurso compartido de archivos. Esta operación no se puede deshacer.
+> Ejecutar este comando no eliminará ningún recurso. Si elimina manualmente un grupo de recursos, una cuenta de almacenamiento o un recurso compartido de archivos asignados a Cloud Shell, se borrarán permanentemente la imagen del directorio `$Home` y los demás archivos del recurso compartido de archivos. Esta operación no se puede deshacer.
 
 ## <a name="list-clouddrive-file-shares"></a>Listado de Recursos compartidos de archivos de `clouddrive`
 Para descubrir qué recurso compartido de archivos se monta como `clouddrive` ejecute el siguiente comando `df`: 
@@ -116,14 +116,14 @@ La ruta de acceso de archivo a clouddrive mostrará el recurso compartido de arc
 
 ```
 justin@Azure:~$ df
-Filesystem                                          1K-blocks   Used  Available Use% Mounted on
-overlay                                             29711408 5577940   24117084  19% /
-tmpfs                                                 986716       0     986716   0% /dev
-tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
-/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
-shm                                                    65536       0      65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
-justin@Azure:~$
+Filesystem                                               1K-blocks     Used Available Use% Mounted on
+overlay                                                   30428648 15585636  14826628  52% /
+tmpfs                                                       986704        0    986704   0% /dev
+tmpfs                                                       986704        0    986704   0% /sys/fs/cgroup
+/dev/sda1                                                 30428648 15585636  14826628  52% /etc/hosts
+shm                                                          65536        0     65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName        6291456  5242944   1048512  84% /usr/justin/clouddrive
+/dev/loop0                                                 5160576   601652   4296780  13% /home/justin
 ```
 
 ## <a name="transfer-local-files-to-cloud-shell"></a>Transferir archivos locales a Cloud Shell

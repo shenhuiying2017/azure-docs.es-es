@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: a45c65f9842cae433ae44ba4c42643e5691a20bf
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: bcdcbd9e781dc9686f4be18e16bf046de6981a9d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Introducción y arquitectura de SAP HANA en Azure (instancias grandes)
@@ -129,19 +129,22 @@ A partir de julio de 2017, SAP HANA en Azure (instancias grandes) está disponib
 
 | Solución de SAP | CPU | Memoria | Almacenamiento | Disponibilidad |
 | --- | --- | --- | --- | --- |
-| Optimizada para OLAP: SAP BW, BW/4HANA<br /> o SAP HANA para cargas de trabajo de OLAP genérico | SAP HANA en Azure S72<br /> – 2 procesadores Intel® Xeon® E7-8890 v3 |  768 GB |  3 TB | Disponible |
-| --- | SAP HANA en Azure S144<br /> – 4 procesadores Intel® Xeon® E7-8890 v3 |  1,5 TB |  6 TB | No disponible |
-| --- | SAP HANA en Azure S192<br /> – 4 procesadores Intel® Xeon® E7-8890 v4 |  2,0 TB |  8 TB | Disponible |
-| --- | SAP HANA en Azure S384<br /> – 8 procesadores Intel® Xeon® E7-8890 v4 |  4,0 TB |  16 TB | Listo para comprar |
-| Optimizada para OLTP: SAP Business Suite<br /> en SAP HANA o S/4HANA (OLTP),<br /> OLTP genérico | SAP HANA en Azure S72m<br /> – 2 procesadores Intel® Xeon® E7-8890 v3 |  1,5 TB |  6 TB | Disponible |
-|---| SAP HANA en Azure S144m<br /> – 4 procesadores Intel® Xeon® E7-8890 v3 |  3,0 TB |  12 TB | No disponible |
-|---| SAP HANA en Azure S192m<br /> – 4 procesadores Intel® Xeon® E7-8890 v4 |  4,0 TB |  16 TB | Disponible |
-|---| SAP HANA en Azure S384m<br /> – 8 procesadores Intel® Xeon® E7-8890 v4 |  6,0 TB |  18 TB | Listo para comprar |
-|---| SAP HANA en Azure S384xm<br /> – 8 procesadores Intel® Xeon® E7-8890 v4 |  8,0 TB |  22 TB |  Listo para comprar |
-|---| SAP HANA en Azure S576<br /> – 12 procesadores Intel® Xeon® E7-8890 v4 |  12,0 TB |  28 TB | Listo para comprar |
-|---| SAP HANA en Azure S768<br /> – 16 procesadores Intel® Xeon® E7-8890 v4 |  16,0 TB |  36 TB | Listo para comprar |
-|---| SAP HANA en Azure S960<br /> – 20 procesadores Intel® Xeon® E7-8890 v4 |  20,0 TB |  46 TB | Listo para comprar |
-| --- | --- | --- | --- | --- |
+| Optimizada para OLAP: SAP BW, BW/4HANA<br /> o SAP HANA para cargas de trabajo de OLAP genérico | SAP HANA en Azure S72<br /> – 2 procesadores Intel® Xeon® E7-8890 v3<br /> 36 núcleos de CPU y 72 subprocesos de CPU |  768 GB |  3 TB | Disponible |
+| --- | SAP HANA en Azure S144<br /> – 4 procesadores Intel® Xeon® E7-8890 v3<br /> 72 núcleos de CPU y 144 subprocesos de CPU |  1,5 TB |  6 TB | No disponible |
+| --- | SAP HANA en Azure S192<br /> – 4 procesadores Intel® Xeon® E7-8890 v4<br /> 96 núcleos de CPU y 192 subprocesos de CPU |  2,0 TB |  8 TB | Disponible |
+| --- | SAP HANA en Azure S384<br /> – 8 procesadores Intel® Xeon® E7-8890 v4<br /> 192 núcleos de CPU y 384 subprocesos de CPU |  4,0 TB |  16 TB | Listo para comprar |
+| Optimizada para OLTP: SAP Business Suite<br /> en SAP HANA o S/4HANA (OLTP),<br /> OLTP genérico | SAP HANA en Azure S72m<br /> – 2 procesadores Intel® Xeon® E7-8890 v3<br /> 36 núcleos de CPU y 72 subprocesos de CPU |  1,5 TB |  6 TB | Disponible |
+|---| SAP HANA en Azure S144m<br /> – 4 procesadores Intel® Xeon® E7-8890 v3<br /> 72 núcleos de CPU y 144 subprocesos de CPU |  3,0 TB |  12 TB | No disponible |
+|---| SAP HANA en Azure S192m<br /> – 4 procesadores Intel® Xeon® E7-8890 v4<br /> 96 núcleos de CPU y 192 subprocesos de CPU  |  4,0 TB |  16 TB | Disponible |
+|---| SAP HANA en Azure S384m<br /> – 8 procesadores Intel® Xeon® E7-8890 v4<br /> 192 núcleos de CPU y 384 subprocesos de CPU |  6,0 TB |  18 TB | Listo para comprar |
+|---| SAP HANA en Azure S384xm<br /> – 8 procesadores Intel® Xeon® E7-8890 v4<br /> 192 núcleos de CPU y 384 subprocesos de CPU |  8,0 TB |  22 TB |  Listo para comprar |
+|---| SAP HANA en Azure S576<br /> – 12 procesadores Intel® Xeon® E7-8890 v4<br /> 288 núcleos de CPU y 576 subprocesos de CPU |  12,0 TB |  28 TB | Listo para comprar |
+|---| SAP HANA en Azure S768<br /> – 16 procesadores Intel® Xeon® E7-8890 v4<br /> 384 núcleos de CPU y 768 subprocesos de CPU |  16,0 TB |  36 TB | Listo para comprar |
+|---| SAP HANA en Azure S960<br /> – 20 procesadores Intel® Xeon® E7-8890 v4<br /> 480 núcleos de CPU y 960 subprocesos de CPU |  20,0 TB |  46 TB | Listo para comprar |
+
+- Núcleos de CPU = suma de núcleos de CPU sin Hyper-Threading de la suma de procesadores de la unidad del servidor.
+- Subprocesos de CPU = suma de suprocesos de proceso proporcionado por núcleos de CPU con Hyper-Threading de la suma de procesadores de la unidad del servidor. Todas las unidades se configuran de forma predeterminada para utilizar la tecnología Hyper-Threading.
+
 
 Las diferentes configuraciones anteriores que están disponibles o no disponibles se documentan en [SAP Note #2316233 - SAP HANA on Microsoft Azure (Large Instances)](https://launchpad.support.sap.com/#/notes/2316233/E) (Nota de SAP 2316233: SAP HANA en Microsoft Azure [instancias grandes]). Las configuraciones, que están marcadas como "Listo para comprar" tendrán en breve su entrada en la nota de SAP. Pero las SKU de esas instancias ya se pueden pedir para las seis regiones de Azure en las que está disponible el servicio de instancias grandes de HANA.
 

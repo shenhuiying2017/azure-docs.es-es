@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
+ms.date: 8/17/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 03875b4215943a8bbabeb15610776a221cbf7b71
-
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 613f17081fcb70b126caaae7ade5739d336662a7
+ms.contentlocale: es-es
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="setting-up-named-authentication-credentials"></a>Configuración de credenciales de autenticación con nombre
-Para publicar una aplicación en Azure desde Visual Studio o supervisar un servicio en la nube existente, debe proporcionar credenciales que Visual Studio pueda usar para autenticar solicitudes a Azure. Existen varios lugares en Visual Studio donde puede iniciar sesión para proporcionar estas credenciales. Por ejemplo, desde el Explorador de servidores, abra el menú contextual para el nodo **Azure** y elija **Conectar a Azure**. Al iniciar sesión, la información de suscripción asociada con su cuenta de Azure está disponible en Visual Studio y con eso basta.
+Para publicar una aplicación en Azure desde Visual Studio o supervisar un servicio en la nube existente, debe proporcionar credenciales que Visual Studio pueda usar para autenticar solicitudes a Azure. Existen varios lugares en Visual Studio donde puede iniciar sesión para proporcionar estas credenciales. Por ejemplo, desde el Explorador de servidores, abra el menú contextual para el nodo **Azure** y elija **Conectar a la suscripción de Microsoft Azure...** Al iniciar sesión, la información de suscripción asociada con su cuenta de Azure está disponible en Visual Studio y con eso basta.
 
 Azure Tools también admite una forma anterior de proporcionar credenciales, mediante el archivo de suscripción (archivo .publishsettings). En este tema se describe este método, que todavía se admite en el SDK 2.2 de Azure.
 
@@ -49,7 +50,7 @@ Si desea crear un certificado por sí mismo, puede consultar las instrucciones d
 ## <a name="modify-or-export-authentication-credentials-in-visual-studio"></a>Modificación o exportación de las credenciales de autenticación en Visual Studio
 También puede configurar, modificar o exportar las credenciales de autenticación en el cuadro de diálogo **Nueva suscripción** , que aparece si se lleva a cabo cualquiera de las siguientes acciones:
 
-* En el **Explorador de servidores**, abra el menú contextual para el nodo **Azure**, elija **Administrar suscripciones**, elija la pestaña **Certificados** y, después, el botón **Nuevo** o **Editar**.
+* En el **Explorador de servidores**, abra el menú contextual para el nodo **Azure**, elija **Administrar y filtrar suscripciones...**, elija la pestaña **Certificados** y, después, el botón **Importar**, **Nuevo** o **Editar**.
 * Cuando publique un servicio en la nube de Azure desde el asistente **Publicar aplicación de Azure**, seleccione **Administrar** en la lista **Elija su suscripción**, elija la pestaña Certificados y después haga clic en el botón **Nuevo** o **Editar**.
 
 En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nueva suscripción** está abierto.
@@ -64,7 +65,7 @@ En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nu
    >
 3. Para cargar el certificado en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885):
 
-   1. Elija el vínculo Portal de Azure.
+   1. Elija el vínculo Azure Portal.
 
         Se abre el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) .
    2. Inicie sesión en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885)y elija el botón **Servicios en la nube** .
@@ -73,9 +74,4 @@ En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nu
        Se abre la página para el servicio.
    4. En la pestaña **Certificados**, elija el botón **Cargar**.
    5. Pegue la ruta de acceso completa del archivo .cer que acaba de crear y después escriba la contraseña que especificó.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

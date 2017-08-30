@@ -1,6 +1,6 @@
 ---
-title: Paneles de Azure Portal | Microsoft Docs
-description: "En este artículo se explica cómo crear y editar paneles en el Portal de Azure."
+title: "Creación y uso compartido de paneles en Azure Portal | Microsoft Docs"
+description: "En este artículo se explica cómo crear y editar paneles en Azure Portal."
 services: azure-portal
 documentationcenter: 
 author: sewatson
@@ -14,19 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: dc5b6f194a7e34d5061b9fa2e4a6123f54f6c14a
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
+ms.contentlocale: es-es
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="creating-and-sharing-dashboards-in-the-azure-portal"></a>Creación y uso compartido de paneles en el Portal de Azure
-Puede crear varios paneles y compartirlos con otras personas que tengan acceso a sus suscripciones de Azure.  En esta entrada explicamos los aspectos básicos en torno a la administración del acceso a los paneles, así como su creación, edición y publicación.
-
-## <a name="customizing-dashboards-versus-blades"></a>Diferencias en la personalización de paneles y hojas
-Desde que lanzamos los paneles hace unos meses, se ha producido un descenso constante de las personalizaciones de hojas y un rápido aumento de las de paneles. Esta fuerte tendencia de uso revela que prefiere personalizar paneles a hojas. Para respaldar esta tendencia, eliminaremos la característica de personalización de hojas y dedicaremos nuestros esfuerzos en mejorar las funcionalidades de los paneles. Si personalizó una hoja, la personalización desaparecerá pronto. Para conservar esa personalización, ancle los iconos personalizados a un panel. Solo tiene que hacer clic en el icono y seleccione **Anclar al panel** tal y como se muestra en la siguiente imagen.
-
-![guardar icono personalizado](./media/azure-portal-dashboards/save-customization.png)
+# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creación y uso compartido de paneles en Azure Portal
+Puede crear varios paneles y compartirlos con otras personas que tengan acceso a sus suscripciones de Azure.  En este artículo se explican los aspectos básicos de la administración del acceso a los paneles, así como de su creación, edición y publicación.
 
 ## <a name="create-a-dashboard"></a>Creación de un panel
 Para crear un panel, haga clic en el botón **Panel nuevo** situado junto al nombre del panel actual.  
@@ -98,11 +94,6 @@ Cuando se publique el panel, **Uso compartido y control de acceso** se actualice
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para administrar los recursos, consulte [Administración de los recursos de Azure a través del Portal](../azure-resource-manager/resource-group-portal.md).
-* Para implementar recursos, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
+* Para implementar recursos, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 

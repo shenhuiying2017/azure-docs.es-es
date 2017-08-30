@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/21/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 6c76bcb919b08cbd67e93f54dac216ab2aec06b0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bd58f1845dabf6afb47ce27236d14479677a8808
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-model-in-azure-portal"></a>Creación de un modelo en Azure Portal
 
-La característica Azure Analysis Services Web Designer (versión preliminar) en Azure Portal proporciona una manera rápida y sencilla de crear y editar los modelos tabulares y consultar datos del modelo directamente en el explorador. 
+La característica Azure Analysis Services Web Designer (versión preliminar) de Azure Portal proporciona una manera rápida y sencilla de crear y editar los modelos tabulares y consultar datos del modelo directamente en el explorador. 
 
-Tenga en cuenta que Web Designer es una **versión preliminar**. Mientras se agrega toda la nueva funcionalidad, en la versión preliminar, la funcionalidad es limitada. Para llevar a cabo el desarrollo y las pruebas de modelos más avanzados, es mejor usar Visual Studio (SSDT) y SQL Server Management Studio (SSMS).
+Tenga en cuenta que Web Designer está en **versión preliminar**. Mientras se agrega toda la nueva funcionalidad, en la versión preliminar, la funcionalidad es limitada. Para llevar a cabo el desarrollo y las pruebas de modelos más avanzados, es mejor usar Visual Studio (SSDT) y SQL Server Management Studio (SSMS).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

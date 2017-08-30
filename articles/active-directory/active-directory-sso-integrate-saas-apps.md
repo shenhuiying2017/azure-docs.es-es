@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 08/17/2017
 ms.author: curtand
-ms.reviewer: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
+ms.reviewer: aaronsm
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: fc0d297598c334ca8f6f8a2bd3ae948c87956342
 ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS
 > [!div class="op_single_selector"]
-> * [Portal de Azure](active-directory-enterprise-apps-manage-sso.md)
+> * [Azure Portal](active-directory-enterprise-apps-manage-sso.md)
 > * [Portal de Azure clásico](active-directory-sso-integrate-saas-apps.md)
 >
 >
@@ -33,6 +33,9 @@ ms.lasthandoff: 05/08/2017
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
 Para empezar a configurar el inicio de sesión único para una aplicación que traiga a su organización, usará un directorio existente en Azure Active Directory (Azure AD). Puede usar un directorio de Azure AD que obtenga a través de Microsoft Azure, Office 365 o Windows Intune. Si dispone de dos o más de estas aplicaciones, vea [Administración del directorio de Azure AD](active-directory-administer.md) para determinar cuál de ellas usar.
+
+> [!IMPORTANT]
+> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el Portal de Azure clásico al que se hace referencia en este artículo. Para más información sobre cómo asignar roles de administrador en el Centro de administración de Azure AD, vea [Asignación de roles de administrador en Azure Active Directory](active-directory-enterprise-apps-manage-sso.md).
 
 ## <a name="authentication"></a>Autenticación
 Para las aplicaciones que admiten SAML 2.0, WS-Federation, o protocolos OpenID Connect, usa Azure Active Directory usa la firma de certificados para establecer relaciones de confianza. Para obtener más información, consulte [Administración de certificados para inicio de sesión único federado](active-directory-sso-certs.md).
@@ -72,7 +75,7 @@ Para las aplicaciones SaaS incluidas en la galería de aplicaciones, Azure AD of
 
 Si la aplicación no está en la galería de aplicaciones, puede [agregarla a la galería de aplicaciones de Azure AD como una aplicación personalizada](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-Encontrará más información sobre todos estos problemas en la biblioteca de Azure.com, por ejemplo, [Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Encontrará más información acerca de todos estos problemas en la biblioteca de Azure.com, por ejemplo, [Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 Además, no se pierda el documento [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md).
 

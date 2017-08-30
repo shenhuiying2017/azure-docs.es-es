@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplos de la CLI de Azure: Service Fabric | Microsoft Docs'
-description: 'Ejemplos de la CLI de Azure: Service Fabric'
+title: Ejemplos de la CLI de Azure Service Fabric
+description: Ejemplos de la CLI de Azure Service Fabric
 services: service-fabric
 documentationcenter: service-fabric
 author: Thraka
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 06/26/2017
+ms.date: 08/22/2017
 ms.author: adegeo
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 6604c873fb3f9fde636dcc03a76517f645c52674
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 7489c3d0534a695c6fc39ad95890db7ba2a52f25
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="azure-powershell-samples"></a>Ejemplos de Azure PowerShell
 
-La tabla siguiente incluye vínculos a ejemplos de scripts de la [CLI de Azure](service-fabric-azure-cli-2-0.md) que administran clústeres, aplicaciones y servicios de Service Fabric.
+# <a name="azure-service-fabric-cli-samples"></a>Ejemplos de la CLI de Azure Service Fabric
+
+La tabla siguiente incluye vínculos a ejemplos de scripts de la [CLI de Service Fabric](service-fabric-cli.md) que administran clústeres, aplicaciones y servicios de Service Fabric.
 
 | | |
 |-|-|

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2017
+ms.date: 08/18/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ce6debc0832da565d24a3ca82e2fa5bf7b797f8a
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: ee334186dffaa1f88cf05717b6a5ba1e819a8cdc
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -29,21 +29,28 @@ Hay muchas preguntas que se plantean con frecuencia acerca de qué puede hacer S
 
 ## <a name="cluster-setup-and-management"></a>Instalación y administración de clústeres
 
-### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions"></a>¿Puedo crear un clúster que abarque varias regiones de Azure?
+### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>¿Puedo crear un clúster que abarque varias regiones de Azure o mis propios centros de datos?
 
-En la actualidad no, pero esta es una solicitud común y seguimos investigando en este sentido.
+Sí. 
 
-El núcleo de la tecnología de clústeres de Service Fabric no tiene conocimiento de las regiones de Azure y puede utilizarse para combinar máquinas que se ejecuten en cualquier lugar del mundo, siempre y cuando tengan conectividad de red entre sí. Sin embargo, el recurso de clúster de Service Fabric en Azure es regional, como los conjuntos de escalado de máquinas virtuales en los que el clúster está basado. Además, hay un desafío inherente en la entrega de la replicación de datos de gran coherencia entre equipos separados por grandes distancias. Antes de admitir clústeres que abarquen varias regiones queremos asegurarnos de que el rendimiento es predecible y aceptable.
+La tecnología básica de agrupación en clústeres de Service Fabric puede utilizarse para combinar máquinas que se ejecutan en cualquier lugar del mundo, siempre y cuando tengan conectividad de red entre sí. Sin embargo, compilar y ejecutar clústeres de este tipo puede resultar complicado.
+
+Si está interesado en este escenario, le animamos a que se ponga en contacto con nosotros, ya sea a través de la [lista de problemas de Service Fabric de Github](https://github.com/azure/service-fabric-issues) o a través de su representante de soporte técnico para obtener orientación adicional. El equipo de Service Fabric está trabajando para ofrecer mayor claridad, instrucciones y recomendaciones para este escenario. 
+
+Hay varias cosas que deben tenerse en cuenta: 
+
+1. En estos momentos el recurso de clúster de Service Fabric en Azure es regional, como los conjuntos de escalado de máquinas virtuales en los que el clúster está basado. Esto significa que si se produce un error regional puede perder la capacidad para administrar el clúster mediante Azure Resource Manager o Azure Portal. Esto puede ocurrir incluso aunque el clúster permanezca en ejecución y se pueda interactuar con él directamente. Además, actualmente Azure no ofrecen la capacidad de tener una única red virtual que se pueda usar en varias regiones. Esto significa que un clúster de varias regiones de Azure necesita o bien [direcciones IP públicas por cada máquina virtual en los conjuntos de escalado](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) o instancias de [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Estas opciones de red tienen efectos diferentes en los costos, el rendimiento, y hasta cierto punto, en el diseño de la aplicación, por ello es necesario realizar un análisis y un planeamiento meticuloso antes de poner en marcha un entorno así.
+2. El mantenimiento, administración y supervisión de estas máquinas puede llegar a complicarse, especialmente cuando se distribuye entre diferentes _tipos_ de entornos, como por ejemplo entre diferentes proveedores de nube o entre recursos locales y Azure. Debe tener cuidado para asegurarse de que tanto el clúster como las aplicaciones entienden las actualizaciones, supervisión, administración y diagnóstico antes de ejecutar cargas de trabajo de producción en un entorno de este tipo. Si ya tiene amplia experiencia en la resolución de estos problemas en Azure o dentro de sus propios centros de datos, es probable que esas mismas soluciones que utiliza se puedan aplicar al crear o ejecutar el clúster de Service Fabric. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>¿Los nodos de Service Fabric reciben automáticamente actualizaciones del sistema operativo?
 
-En la actualidad no, pero esta es también una solicitud común a la que pensamos responder.
+En la actualidad no, pero esta es también una solicitud común a la que Azure piensa responder.
+
+Mientras tanto, hemos [proporcionado una aplicación](service-fabric-patch-orchestration-application.md) que permite que los sistemas operativos debajo de los nodos de Service Fabric se mantengan revisados y actualizados.
 
 El desafío con las actualizaciones del sistema operativo es que normalmente requieren un reinicio de la máquina, lo que supone una pérdida temporal de disponibilidad. En sí mismo, esto no es problema, puesto que Service Fabric redirigirá automáticamente el tráfico para los servicios afectados a otros nodos. Sin embargo, si las actualizaciones del sistema operativo no se coordinan en el clúster, existe la posibilidad de que muchos nodos dejen de funcionar a la vez. Estos reinicios simultáneos pueden provocar la pérdida de disponibilidad completa para un servicio, o por lo menos para una partición específica (para un servicio con estado).
 
 En el futuro, está prevista la compatibilidad con una directiva de actualización del sistema operativo, completamente automatizada, que esté coordinada entre los dominios de actualización, asegurando con ello el mantenimiento de la disponibilidad a pesar de los reinicios y otros errores inesperados.
-
-Mientras tanto, [suministramos un script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) que el administrador de un clúster puede usar para iniciar manualmente la revisión de cada nodo de una manera segura.
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>¿Puedo usar conjuntos de escalado grandes de máquinas virtuales en el clúster SF? 
 
@@ -121,7 +128,7 @@ Teniendo en cuenta que cada objeto tiene que almacenarse tres veces (una princip
 
 Tenga en cuenta que en este cálculo también se da por supuesto:
 
-- Que la distribución de datos en las particiones es aproximadamente uniforme o que informa sobre las métricas de carga en la instancia de Resource Manager del clúster. De forma predeterminada, Service Fabric equilibra la carga según el número de réplicas. En nuestro ejemplo anterior, se pondrían 10 réplicas principales y 20 réplicas secundarias en cada nodo del clúster. Esto funciona bien para las cargas que se distribuyen uniformemente en todas las particiones. Si carga no es uniforme, tiene que informar sobre ella para que Resource Manager pueda empaquetar juntas las réplicas más pequeñas y dejar que las réplicas mayores consuman más memoria en un nodo individual.
+- Que la distribución de datos en las particiones es aproximadamente uniforme o que informa sobre las métricas de carga a Cluster Resource Manager. De forma predeterminada, Service Fabric equilibra la carga según el número de réplicas. En nuestro ejemplo anterior, se pondrían 10 réplicas principales y 20 réplicas secundarias en cada nodo del clúster. Esto funciona bien para las cargas que se distribuyen uniformemente en todas las particiones. Si carga no es uniforme, tiene que informar sobre ella para que Resource Manager pueda empaquetar juntas las réplicas más pequeñas y dejar que las réplicas mayores consuman más memoria en un nodo individual.
 
 - Que el servicio confiable en cuestión es el único que almacena estado en el clúster. Dado que puede implementar varios servicios en un clúster, tiene que prestar atención a los recursos que cada uno de ellos necesita para ejecutar y administrar su estado.
 

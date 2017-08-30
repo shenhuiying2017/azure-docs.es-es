@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: radwiv;chadmat;genli
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 7dfc5160a0ede19b4317a39187f0f864b037141b
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2e0347854b5d30c955a50a01d6f7ba08e24f94b6
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Validación del rendimiento de la VPN en una red virtual
@@ -48,11 +48,11 @@ El siguiente diagrama muestra la conectividad lógica de una red local en una re
 
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>Cálculo de la entrada/salida máxima esperada
 
-1.    Determine los requisitos de rendimiento de la línea de base de la aplicación.
-2.    Establezca los límites de rendimiento de la puerta de enlace de VPN de Azure. Para obtener ayuda, vea la sección "Rendimiento agregado por el tipo de VPN y SKU" de [Planeamiento y diseño de puerta de enlace de VPN](vpn-gateway-plan-design.md).
-3.    Determine la [Guía de rendimiento de la máquina virtual de Azure](../virtual-machines/virtual-machines-windows-sizes.md) para el tamaño de la máquina virtual.
-4.    Establezca el ancho de banda del proveedor de servicios de Internet (ISP).
-5.    Calcule el rendimiento esperado: menor ancho de banda de (VM, puerta de enlace e ISP) * 0,8.
+1.  Determine los requisitos de rendimiento de la línea de base de la aplicación.
+2.  Establezca los límites de rendimiento de la puerta de enlace de VPN de Azure. Para obtener ayuda, vea la sección "Rendimiento agregado por el tipo de VPN y SKU" de [Planeamiento y diseño de puerta de enlace de VPN](vpn-gateway-plan-design.md).
+3.  Determine la [Guía de rendimiento de la máquina virtual de Azure](../virtual-machines/virtual-machines-windows-sizes.md) para el tamaño de la máquina virtual.
+4.  Establezca el ancho de banda del proveedor de servicios de Internet (ISP).
+5.  Calcule el rendimiento esperado: menor ancho de banda de (VM, puerta de enlace e ISP) * 0,8.
 
 Si el rendimiento calculado no cumple con los requisitos de rendimiento de línea de base de la aplicación, debe aumentar el ancho de banda del recurso que identificó como el cuello de botella. Para cambiar el tamaño de una puerta de enlace de VPN de Azure, vea [Cambio de una SKU de puerta de enlace](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para cambiar el tamaño de una máquina virtual, vea [Cambio del tamaño de una VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Si no obtiene el ancho de banda de Internet previsto, también puede ponerse en contacto con su ISP.
 
@@ -89,7 +89,7 @@ Descargue [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Pa
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
     </br>
-    **Azure Linux:** Las imágenes de Azure Linux tienen firewalls permisivos. Si hay una aplicación que realiza la escucha en un puerto, se permite el tráfico. Las imágenes personalizadas que se protegen pueden necesitar puertos abiertos de forma explícita. Los firewalls de nivel de sistema operativo Linux comunes incluyen `iptables`, `ufw`, o `firewalld`.
+    **Azure Linux**: las imágenes de Azure Linux tienen firewalls permisivos. Si hay una aplicación que realiza la escucha en un puerto, se permite el tráfico. Las imágenes personalizadas que se protegen pueden necesitar puertos abiertos de forma explícita. Los firewalls de nivel de sistema operativo Linux comunes incluyen `iptables`, `ufw`, o `firewalld`.
 
 3. En el nodo de servidor, cambie al directorio donde se extrae iperf3.exe. A continuación, ejecute iPerf en el modo de servidor y configúrela para que escuche el puerto 5001 como los siguientes comandos:
 
@@ -124,7 +124,7 @@ Puede experimentar una copia de archivos lenta cuando use el Explorador de Windo
 
 - Las aplicaciones de copia de archivos, como el Explorador de Windows y RDP, no utilizan varios subprocesos al copiar archivos. Para mejorar el rendimiento, utilice una aplicación de copia de archivos de multiproceso como [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) para copiar archivos mediante 16 o 32 subprocesos. Para cambiar el número de subprocesos de copia de archivos en Richcopy, haga clic en **Acción** > **Opciones de copia** > **Copia de archivos**.<br><br>
 ![Problemas de copia de archivos lenta](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
-- Velocidad de lectura/escritura del disco de VM insuficiente. Para más información, vea [Solución de problemas de Azure Storage](../storage/storage-e2e-troubleshooting.md).
+- Velocidad de lectura/escritura del disco de VM insuficiente. Para más información, vea [Solución de problemas de Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interfaz con orientación externa del dispositivo local
 Si la dirección IP orientada a Internet del dispositivo VPN local se incluye en la definición de la [red local](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) en Azure, puede experimentar la incapacidad para ofrecer la VPN, desconexiones esporádicas o problemas de rendimiento.

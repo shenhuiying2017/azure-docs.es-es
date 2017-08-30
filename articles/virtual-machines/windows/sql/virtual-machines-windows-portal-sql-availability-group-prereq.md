@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 0def8177e124b5d3ba39f1ae65ab3b41d5827e4a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -44,7 +43,7 @@ En este tutorial se da por supuesto que tiene conocimientos básicos de grupos d
 Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas que disfrutan los suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+1. Inicie sesión en [Azure Portal](http://portal.azure.com).
 2. Haga clic en **+** para crear un nuevo objeto en el portal.
 
    ![Nuevo objeto](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -57,7 +56,7 @@ Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](/pri
 6. En la hoja **Grupo de recursos**, en **Nombre del grupo de recursos**, escriba un nombre para el grupo de recursos. Por ejemplo, escriba **sql-ha-rg**.
 7. Si tiene varias suscripciones de Azure, compruebe que la suscripción es la suscripción de Azure en la que quiere crear el grupo de disponibilidad.
 8. Seleccione una ubicación. La ubicación es la región de Azure donde desea crear el grupo de disponibilidad. Para este tutorial, vamos a crear todos los recursos en una ubicación de Azure.
-9. Compruebe que la función **Anclar al panel** está activada. Este parámetro opcional coloca un acceso directo para el grupo de recursos en el panel del Portal de Azure.
+9. Compruebe que la función **Anclar al panel** está activada. Este parámetro opcional coloca un acceso directo para el grupo de recursos en el panel de Azure Portal.
 
    ![Grupos de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
 
@@ -152,7 +151,7 @@ Configure dos conjuntos de disponibilidad según los parámetros de la tabla sig
 | **Dominios de error** |3 |3 |
 | **Dominios de actualización** |5 |3 |
 
-Después de crear los conjuntos de disponibilidad, vuelva al grupo de recursos en el Portal de Azure.
+Después de crear los conjuntos de disponibilidad, vuelva al grupo de recursos en Azure Portal.
 
 ## <a name="create-domain-controllers"></a>Creación de controladores de dominio
 Después de haber creado la red, las subredes, los conjuntos de disponibilidad y un equilibrador de carga accesible desde Internet, está preparado para crear las máquinas virtuales para los controladores de dominio.
@@ -357,7 +356,7 @@ Tenga en cuenta las siguientes decisiones de diseño antes de continuar.
 
 * **Almacenamiento: Azure Managed Disks**
 
-   Para el almacenamiento de máquina virtual, use Azure Managed Disks. Microsoft recomienda el uso de Managed Disks para máquinas virtuales de SQL Server. Managed Disks controla el almacenamiento en segundo plano. Además, cuando las máquinas virtuales con Managed Disks están en el mismo conjunto de disponibilidad, Azure distribuye los recursos de almacenamiento para proporcionar la redundancia adecuada. Para más información, consulte [Introducción a Azure Managed Disks](../../../storage/storage-managed-disks-overview.md). Para obtener información específica acerca de Managed Disks en un conjunto de disponibilidad, consulte [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Para el almacenamiento de máquina virtual, use Azure Managed Disks. Microsoft recomienda el uso de Managed Disks para máquinas virtuales de SQL Server. Managed Disks controla el almacenamiento en segundo plano. Además, cuando las máquinas virtuales con Managed Disks están en el mismo conjunto de disponibilidad, Azure distribuye los recursos de almacenamiento para proporcionar la redundancia adecuada. Para más información, consulte [Introducción a Azure Managed Disks](../managed-disks-overview.md). Para obtener información específica acerca de Managed Disks en un conjunto de disponibilidad, consulte [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Red: direcciones IP privadas en producción**
 
@@ -470,7 +469,7 @@ Repita los pasos en la otra máquina virtual con SQL Server.
 La solución requiere que los siguientes puertos TCP estén abiertos en el firewall:
 
 - **Máquina virtual con SQL Server**:<br/>
-  Puerto 1433 para una instancia predeterminada de SQL Server.
+   Puerto 1433 para una instancia predeterminada de SQL Server.
 - **Sondeo de Azure Load Balancer:**<br/>
    Cualquier puerto disponible. A menudo, los ejemplos utilizan el 59999.
 - **Punto de conexión de reflejo de la base de datos:** <br/>

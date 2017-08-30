@@ -1,6 +1,6 @@
 ---
-title: "Solución de problemas de HDFS: Azure HDInsight | Microsoft Docs"
-description: "Use las preguntas más frecuentes de HDFS para obtener respuestas a preguntas comunes sobre HDFS en la plataforma Azure HDInsight."
+title: "Solución de problemas de HDFS mediante Azure HDInsight | Microsoft Docs"
+description: "Obtenga respuestas a las preguntas comunes sobre cómo trabajar con HDFS y Azure HDInsight."
 keywords: "Azure HDInsight, HDFS, preguntas más frecuentes, guía de solución de problemas, preguntas comunes"
 services: Azure HDInsight
 documentationcenter: na
@@ -16,85 +16,86 @@ ms.topic: article
 ms.date: 7/7/2017
 ms.author: arijitt
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 09af06c2f0fa45940dbb5fb863e4c29ee895b8ee
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 58f3d160c1f2a32025b706f10863e0055d67bfcd
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
-# <a name="hdfs-troubleshooting"></a>Solución de problemas de HDFS
+# <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Solución de problemas de HDFS mediante Azure HDInsight
 
-En este artículo se describen los principales problemas y sus soluciones para trabajar con cargas de HDFS en Apache Ambari.
+Obtenga información sobre los principales problemas y sus soluciones al trabajar con cargas útiles del Sistema de archivos distribuido de Hadoop (HDFS) en Apache Ambari.
 
 ## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Cómo se accede a la instancia de HDFS local desde un clúster
 
-### <a name="issue"></a>Problema:
+### <a name="issue"></a>Problema
 
-Acceso a la instancia de HDFS local desde la línea de comandos y el código de la aplicación en lugar de desde WASB o ADLS, desde el clúster de HDInsight.   
+Acceda a la HDFS local desde la línea de comandos y el código de aplicación en lugar de con Azure Blob Storage o Azure Data Lake Store desde dentro del clúster de HDInsight.   
 
-### <a name="resolution-steps"></a>Pasos de la solución:
+### <a name="resolution-steps"></a>Pasos de la solución
 
-- Desde la línea de comandos use `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` literalmente, como en el siguiente comando:
+1. En el símbolo del sistema, use `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` literalmente, como en el siguiente comando:
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
-Found 3 items
-drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
-drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
-drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
-```
+    ```apache
+    hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
+    Found 3 items
+    drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
+    drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
+    drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
+    ```
 
-- Desde el código fuente, utilice el identificador URI `hdfs://mycluster/` literalmente, como se muestra en la siguiente aplicación de ejemplo:
+2. Desde el código fuente, utilice el identificador URI `hdfs://mycluster/` literalmente, como se muestra en la siguiente aplicación de ejemplo:
 
-```csharp
-import java.io.IOException;
-import java.net.URI;
-import org.apache.commons.io.IOUtils;
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.*;
+    ```csharp
+    import java.io.IOException;
+    import java.net.URI;
+    import org.apache.commons.io.IOUtils;
+    import org.apache.hadoop.conf.Configuration;
+    import org.apache.hadoop.fs.*;
 
-public class JavaUnitTests {
+    public class JavaUnitTests {
 
-    public static void main(String[] args) throws Exception {
+        public static void main(String[] args) throws Exception {
 
-        Configuration conf = new Configuration();
-        String hdfsUri = "hdfs://mycluster/";
-        conf.set("fs.defaultFS", hdfsUri);
-        FileSystem fileSystem = FileSystem.get(URI.create(hdfsUri), conf);
-        RemoteIterator<LocatedFileStatus> fileStatusIterator = fileSystem.listFiles(new Path("/tmp"), true);
-        while(fileStatusIterator.hasNext()) {
-            System.out.println(fileStatusIterator.next().getPath().toString());
+            Configuration conf = new Configuration();
+            String hdfsUri = "hdfs://mycluster/";
+            conf.set("fs.defaultFS", hdfsUri);
+            FileSystem fileSystem = FileSystem.get(URI.create(hdfsUri), conf);
+            RemoteIterator<LocatedFileStatus> fileStatusIterator = fileSystem.listFiles(new Path("/tmp"), true);
+            while(fileStatusIterator.hasNext()) {
+                System.out.println(fileStatusIterator.next().getPath().toString());
+            }
         }
     }
-}
-```
-- Ejecute el archivo JAR compilado (por ejemplo, denominado `java-unit-tests-1.0.jar`) en el clúster de HDInsight con el siguiente comando:
+    ```
 
-```apache
-hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
-hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
-hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
-hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
-hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
-```
+3. Ejecute el archivo .jar compilado (por ejemplo, un archivo denominado `java-unit-tests-1.0.jar`) en el clúster de HDInsight con el siguiente comando:
+
+    ```apache
+    hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
+    hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
+    hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
+    hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
+    hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
+    ```
 
 
 ## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Cómo forzar la deshabilitación del modo seguro de HDFS en un clúster
 
-### <a name="issue"></a>Problema:
+### <a name="issue"></a>Problema
 
 La instancia de HDFS local está detenida en modo seguro en el clúster de HDInsight.   
 
-### <a name="detailed-description"></a>Descripción detallada:
+### <a name="detailed-description"></a>Descripción detallada
 
-Se produce un error al ejecutar un sencillo comando de HDFS como el siguiente:
+Se produce un error al ejecutar el comando HDFS siguiente:
 
 ```apache
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 ```
 
-El error detectado al intentar ejecutar el comando anterior es el siguiente:
+Verá el siguiente error al ejecutar el comando:
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
@@ -148,97 +149,89 @@ It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode
 mkdir: Cannot create directory /temp. Name node is in safe mode.
 ```
 
-### <a name="probable-cause"></a>Causa probable:
+### <a name="probable-cause"></a>Causa probable
 
-El clúster de HDInsight se ha reducido verticalmente a muy pocos nodos por debajo o cerca del factor de replicación de HDFS.
+El clúster de HDInsight se ha reducido verticalmente hasta quedar muy pocos nodos. El número de nodos es inferior o próximo al factor de replicación de HDFS.
 
-### <a name="resolution-steps"></a>Pasos de la solución: 
+### <a name="resolution-steps"></a>Pasos de la solución 
 
-- Notifique el estado de HDFS en el clúster de HDInsight con los siguientes comandos:
+1. Obtenga el estado de HDFS en el clúster de HDInsight mediante el uso de los siguientes comandos:
 
-```apache
-hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-```
+    ```apache
+    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+    ```
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-Safe mode is ON
-Configured Capacity: 3372381241344 (3.07 TB)
-Present Capacity: 3138625077248 (2.85 TB)
-DFS Remaining: 3102710317056 (2.82 TB)
-DFS Used: 35914760192 (33.45 GB)
-DFS Used%: 1.14%
-Under replicated blocks: 0
-Blocks with corrupt replicas: 0
-Missing blocks: 0
-Missing blocks (with replication factor 1): 0
+    ```apache
+    hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+    Safe mode is ON
+    Configured Capacity: 3372381241344 (3.07 TB)
+    Present Capacity: 3138625077248 (2.85 TB)
+    DFS Remaining: 3102710317056 (2.82 TB)
+    DFS Used: 35914760192 (33.45 GB)
+    DFS Used%: 1.14%
+    Under replicated blocks: 0
+    Blocks with corrupt replicas: 0
+    Missing blocks: 0
+    Missing blocks (with replication factor 1): 0
 
--------------------------------------------------
-Live datanodes (8):
+    -------------------------------------------------
+    Live datanodes (8):
 
-Name: 10.0.0.17:30010 (10.0.0.17)
-Hostname: 10.0.0.17
-Decommission Status : Normal
-Configured Capacity: 421547655168 (392.60 GB)
-DFS Used: 5288128512 (4.92 GB)
-Non DFS Used: 29087272960 (27.09 GB)
-DFS Remaining: 387172253696 (360.58 GB)
-DFS Used%: 1.25%
-DFS Remaining%: 91.85%
-Configured Cache Capacity: 0 (0 B)
-Cache Used: 0 (0 B)
-Cache Remaining: 0 (0 B)
-Cache Used%: 100.00%
-Cache Remaining%: 0.00%
-Xceivers: 2
-Last contact: Wed Apr 05 16:22:00 UTC 2017
-...
-```
+    Name: 10.0.0.17:30010 (10.0.0.17)
+    Hostname: 10.0.0.17
+    Decommission Status : Normal
+    Configured Capacity: 421547655168 (392.60 GB)
+    DFS Used: 5288128512 (4.92 GB)
+    Non DFS Used: 29087272960 (27.09 GB)
+    DFS Remaining: 387172253696 (360.58 GB)
+    DFS Used%: 1.25%
+    DFS Remaining%: 91.85%
+    Configured Cache Capacity: 0 (0 B)
+    Cache Used: 0 (0 B)
+    Cache Remaining: 0 (0 B)
+    Cache Used%: 100.00%
+    Cache Remaining%: 0.00%
+    Xceivers: 2
+    Last contact: Wed Apr 05 16:22:00 UTC 2017
+    ...
+    ```
 
-- Compruebe la integridad de HDFS en el clúster de HDInsight con los siguientes comandos:
+2. Compruebe la integridad de HDFS en el clúster de HDInsight mediante el uso de los siguientes comandos:
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
-```
+    ```apache
+    hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+    ```
 
-```apache
-Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
-FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
-....................................................................................................
+    ```apache
+    Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
+    FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
+    ....................................................................................................
 
-....................................................................................................
-..................Status: HEALTHY
- Total size:    9330539472 B
- Total dirs:    37
- Total files:   2618
- Total symlinks:                0 (Files currently being written: 2)
- Total blocks (validated):      2535 (avg. block size 3680686 B)
- Minimally replicated blocks:   2535 (100.0 %)
- Over-replicated blocks:        0 (0.0 %)
- Under-replicated blocks:       0 (0.0 %)
- Mis-replicated blocks:         0 (0.0 %)
- Default replication factor:    3
- Average block replication:     3.0
- Corrupt blocks:                0
- Missing replicas:              0 (0.0 %)
- Number of data-nodes:          8
- Number of racks:               1
-FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
+    ....................................................................................................
+    ..................Status: HEALTHY
+    Total size:    9330539472 B
+    Total dirs:    37
+    Total files:   2618
+    Total symlinks:                0 (Files currently being written: 2)
+    Total blocks (validated):      2535 (avg. block size 3680686 B)
+    Minimally replicated blocks:   2535 (100.0 %)
+    Over-replicated blocks:        0 (0.0 %)
+    Under-replicated blocks:       0 (0.0 %)
+    Mis-replicated blocks:         0 (0.0 %)
+    Default replication factor:    3
+    Average block replication:     3.0
+    Corrupt blocks:                0
+    Missing replicas:              0 (0.0 %)
+    Number of data-nodes:          8
+    Number of racks:               1
+    FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
 
+    The filesystem under path '/' is HEALTHY
+    ```
 
-The filesystem under path '/' is HEALTHY
-```
+3. Si determina que no falta ningún bloque, no hay bloques dañados o subreplicados, o que dichos bloques se pueden ignorar, ejecute el comando siguiente para que el nodo de nombre deje de estar en modo seguro:
 
-- Si se determina que no faltan bloques ni los hay dañados o que no se hayan replicado lo suficiente (o estos se pueden ignorar), ejecute el comando siguiente para sacar el nodo de nombres del modo seguro:
-
-```apache
-hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
-```
-
-
-
-
-
-
-
+    ```apache
+    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
+    ```
 

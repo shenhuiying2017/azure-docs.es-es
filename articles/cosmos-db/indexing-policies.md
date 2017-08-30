@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 2c03b498b1530388a48db4d2925debc2e03e30aa
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
@@ -59,6 +59,10 @@ En el siguiente fragmento de código de .NET se muestra cómo establecer una dir
 > De forma predeterminada, Azure Cosmos DB indexa todas las propiedades de cadena en los documentos de forma coherente con un índice Hash y las propiedades numéricas con un índice de intervalo.  
 > 
 > 
+
+### <a name="customizing-the-indexing-policy-using-the-portal"></a>Personalización de la directiva de indexación mediante el portal
+
+Puede cambiar la directiva de indexación de una colección mediante Azure Portal. Abra su cuenta de Azure Cosmos DB en Azure Portal, seleccione la colección, en el menú de navegación izquierdo, haga clic en **Configuración** y, a continuación, haga clic en **Directiva de indexación**. En la hoja **Directiva de indexación**, cambie la directiva de indexación y, a continuación, haga clic en **Aceptar** para guardar los cambios. 
 
 ### <a id="indexing-modes"></a>Modos de indexación de bases de datos
 Azure Cosmos DB admite tres modos de indexación que se pueden configurar mediante la directiva de indexación en una colección de Azure Cosmos DB: Coherente, Diferida y Ninguna.

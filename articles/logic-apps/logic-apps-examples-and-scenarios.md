@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 08/9/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 2d45090b09d83a98cc0811dca8d6f2384d1b11ad
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50df1e3db239a6aa34ac91bfbd582625c5b0041b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="examples-and-common-scenarios-for-azure-logic-apps"></a>Ejemplos y escenarios comunes de Azure Logic Apps
@@ -31,7 +31,7 @@ Azure Logic Apps ofrece orquestación resistente e integración para los distint
 
 ## <a name="respond-to-triggers-and-extend-actions"></a>Respuesta a desencadenadores y extensión de acciones
 
-Cada aplicación lógica comienza con un desencadenador. Por ejemplo, el flujo de trabajo puede comenzar con un evento de programación, una invocación manual o un evento proveniente de un sistema externo, como el desencadenador "cuando se agrega un archivo a un servidor FTP". Azure Logic Apps admite actualmente más de 100 conectores listos para usar, que van desde SAP local hasta Azure Cognitive Services. En el caso de los sistemas y servicios que podrían no tener conectores publicados, también puede extender las aplicaciones lógicas.
+Cada aplicación lógica comienza con un desencadenador. Por ejemplo, el flujo de trabajo puede comenzar con un evento de programación, una invocación manual o un evento proveniente de un sistema externo, como el desencadenador "cuando se agrega un archivo a un servidor FTP". Azure Logic Apps admite actualmente más de 100 conectores listos para usar, que van desde SAP local hasta Microsoft Cognitive Services. En el caso de los sistemas y servicios que podrían no tener conectores publicados, también puede extender las aplicaciones lógicas.
 
 * [Creación de desencadenadores o acciones personalizadas](../logic-apps/logic-apps-create-api-app.md)
 * [Configuración de acciones de ejecución prolongada para ejecuciones de flujo de trabajo](../logic-apps/logic-apps-create-api-app.md)
@@ -75,6 +75,10 @@ Las aplicaciones lógicas también ofrecen integración con muchos servicios, co
 * [Llamada a Azure Functions desde aplicaciones lógicas](../logic-apps/logic-apps-azure-functions.md)
 * [Escenario: Desencadenamiento de aplicaciones lógicas con Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/) (Blog: Llamada a puntos de conexión SAP desde aplicaciones lógicas)
+
+## <a name="end-to-end-scenarios"></a>Escenarios de un extremo a otro
+
+* [Notas del producto: Administración de un caso completo de integración empresarial con servicios de Azure, como Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

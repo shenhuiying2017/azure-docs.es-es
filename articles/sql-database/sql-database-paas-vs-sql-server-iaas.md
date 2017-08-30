@@ -16,18 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: d7506c8abb6eca7e2681764b2bedc2f4755b768a
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: d136b71c9587d4035009a2ef2296fd93f9e984fe
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)
 Azure proporciona dos opciones para el hospedaje de las cargas de trabajo de SQL Server en Microsoft Azure:
 
-* [Base de datos SQL de Azure](https://azure.microsoft.com/services/sql-database/): una base de datos de SQL nativa en la nube, conocida también como base de datos de plataforma como servicio (PaaS) o base de datos como servicio (DBaaS), que está optimizada para el desarrollo de aplicaciones de software como servicio (SaaS). Ofrece compatibilidad con la mayoría de las características de SQL Server. Para más información acerca de PaaS, consulte [¿Qué es PaaS?](https://azure.microsoft.com/overview/what-is-paas/).
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): una base de datos de SQL nativa en la nube, conocida también como base de datos de plataforma como servicio (PaaS) o base de datos como servicio (DBaaS), que está optimizada para el desarrollo de aplicaciones de software como servicio (SaaS). Ofrece compatibilidad con la mayoría de las características de SQL Server. Para más información acerca de PaaS, consulte [¿Qué es PaaS?](https://azure.microsoft.com/overview/what-is-paas/).
 * [SQL Server en Máquinas virtuales de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server instalado y hospedado en la nube en Máquinas virtuales de Windows Server que se ejecutan en Azure, conocido también como infraestructura como servicio (IaaS).
   SQL Server en máquinas virtuales de Azure está optimizado para migrar aplicaciones existentes de SQL Server. Todas las versiones y ediciones de SQL Server están disponibles. Ofrece un 100% de compatibilidad con SQL Server, lo que le permite hospedar tantas bases de datos como necesite y ejecutar transacciones entre bases de datos. Ofrece un control total sobre SQL Server y Windows.
 
@@ -66,7 +65,7 @@ En la siguiente tabla se resumen las principales características de Base de dat
 |  |Nuevas aplicaciones diseñadas para la nube que tienen restricciones de tiempo en desarrollo y marketing. |Aplicaciones existentes que requieren una rápida migración a la nube con el mínimo de cambios. Escenarios de desarrollo rápido y pruebas cuando no se desea comprar hardware de SQL Server de no producción local. |
 |  | Equipos que requieren mecanismos integrados de alta disponibilidad, recuperación ante desastres y actualización. |Equipos que puedan configurar y administrar alta disponibilidad, recuperación ante desastres y aplicación de revisiones para SQL Server. Algunas funciones automatizadas ya incorporadas simplifican considerablemente estos aspectos. | |
 |  | Equipos que no desean administrar el sistema operativo subyacente ni los valores de configuración. |Necesita un entorno personalizado con derechos administrativos completos. | |
-|  | Bases de datos de hasta 1 TB o bases de datos mayores que pueden [particionarse de manera horizontal o vertical](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) con un patrón de escalado horizontal. |Instancias de SQL Server con hasta 64 TB de almacenamiento. La instancia puede admitir tantas bases de datos como sea necesario. | |
+|  | Bases de datos de hasta 4 TB o mayores que pueden [particionarse de manera horizontal o vertical](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) con un patrón de escalado horizontal. |Instancias de SQL Server con hasta 64 TB de almacenamiento. La instancia puede admitir tantas bases de datos como sea necesario. | |
 |  | [Compilación de aplicaciones de software como servicio (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migración y creación de aplicaciones empresariales e híbridas. | |
 |  | | |
 | **Recursos:** |No desea emplear recursos de TI para la configuración y administración de la infraestructura subyacente, sino centrarse en la capa de aplicación. |Tiene algunos recursos de TI para la configuración y administración. Algunas funciones automatizadas ya incorporadas simplifican considerablemente estos aspectos. |
@@ -140,7 +139,7 @@ Elija **Base de datos SQL de Azure** , si:
 
 Elija **SQL Server en Máquinas virtuales de Azure** si:
 
-* Tiene aplicaciones locales existentes que desea migrar o extender a la nube, o si desea crear aplicaciones empresariales de más de 1 TB. Este enfoque ofrece ventajas tales como un 100 % de compatibilidad con SQL, capacidad para bases de datos grandes, control completo sobre SQL Server y Windows, y tunelización segura a las instancias locales. Este enfoque minimiza los costos de desarrollo y modificaciones de las aplicaciones existentes.
+* Tiene aplicaciones locales existentes que desea migrar o extender a la nube, o si desea crear aplicaciones empresariales de más de 4 TB. Este enfoque ofrece ventajas tales como un 100 % de compatibilidad con SQL, capacidad para bases de datos grandes, control completo sobre SQL Server y Windows, y tunelización segura a las instancias locales. Este enfoque minimiza los costos de desarrollo y modificaciones de las aplicaciones existentes.
 * Ya dispone de recursos de TI existentes, y podría contar con aplicación de revisiones, copias de seguridad y alta disponibilidad de la base de datos. Tenga en cuenta que algunas características automatizadas simplifican considerablemente estas operaciones. 
 
 ## <a name="next-steps"></a>Pasos siguientes

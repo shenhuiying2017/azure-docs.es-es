@@ -12,22 +12,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 08/18/2017
 ms.author: masnider
-translationtype: Human Translation
-ms.sourcegitcommit: b2428f93680c12c76000fa8eb1a7138f72a8efe7
-ms.openlocfilehash: 9d67f089f4aba03e846a8fe020a91b6b1ac6ea48
-ms.lasthandoff: 02/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
+ms.contentlocale: es-es
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integración del Administrador de recursos de clúster con la administración de clústeres de Service Fabric
-Cluster Resource Manager de Service Fabric no es el componente principal de Service Fabric que controla las operaciones de administración (como las actualizaciones de aplicaciones) pero sí contribuye. Cluster Resource Manager contribuye a la administración, en primer lugar, realizando un seguimiento del estado deseado del clúster y los servicios que contiene. Además, envía informes de mantenimiento cuando no puede colocar el clúster en la configuración deseada. Por ejemplo, porque no hay capacidad suficiente o porque hay reglas en conflicto en cuanto a dónde colocar un servicio. Otro aspecto de la integración tiene que ver con el funcionamiento de las actualizaciones. Durante ellas, Cluster Resource Manager modifica ligeramente su comportamiento. Estos puntos de integración se tratan a continuación.
+Cluster Resource Manager de Service Fabric no impulsa las actualizaciones en Service Fabric, pero participa. Cluster Resource Manager contribuye a la administración, en primer lugar, realizando un seguimiento del estado deseado del clúster y los servicios que contiene. Además, envía informes de mantenimiento cuando no puede colocar el clúster en la configuración deseada. Por ejemplo, si no hay capacidad suficiente, Cluster Resource Manager envía advertencias y errores de estado que indican el problema. Otro aspecto de la integración tiene que ver con el funcionamiento de las actualizaciones. Durante ellas, Cluster Resource Manager modifica ligeramente su comportamiento.  
 
 ## <a name="health-integration"></a>Integración del mantenimiento
-Cluster Resource Manager realiza un seguimiento constante de las reglas que ha definido para los servicios y las capacidades disponibles en los nodos y el clúster. Si no puede cumplir esas reglas, o si no hay capacidad suficiente, se emiten errores y advertencias de mantenimiento. Por ejemplo, si un nodo está por encima de su capacidad y Cluster Resource Manager trata de corregir la situación moviendo servicios. Si no puede, emite una advertencia de mantenimiento que indica qué nodo está por encima de su capacidad y en qué métricas.
+Cluster Resource Manager realiza el seguimiento constante de las reglas que ha definido para la colocación de los servicios. Asimismo, rastrea la capacidad restante de cada métrica en los nodos y en el clúster y en el clúster como un todo. Si no es posible satisfacer esas reglas o si no hay capacidad suficiente, se emiten errores y advertencias de mantenimiento. Por ejemplo, si un nodo está por encima de su capacidad y Cluster Resource Manager trata de corregir la situación moviendo servicios. Si no puede, emite una advertencia de mantenimiento que indica qué nodo está por encima de su capacidad y en qué métricas.
 
-Otro ejemplo de advertencias de mantenimiento de Resource Manager son las infracciones de restricciones de ubicación. Por ejemplo, si ha definido una restricción de selección de ubicación (como `“NodeColor == Blue”`) y Resource Manager detecta una infracción de esa restricción, emitirá una advertencia de mantenimiento. Esto pasa con las restricciones personalizadas y las predeterminadas (como las restricciones de dominios de actualización y de error).
+Otro ejemplo de advertencias de mantenimiento de Resource Manager son las infracciones de restricciones de ubicación. Por ejemplo, si ha definido una restricción de colocación (como `“NodeColor == Blue”`) y Resource Manager detecta una infracción de esa restricción, emitirá una advertencia de mantenimiento. Esto pasa con las restricciones personalizadas y las predeterminadas (como las restricciones de dominios de actualización y de error).
 
 A continuación se muestra un ejemplo de un informe de mantenimiento de este tipo En este caso, el informe de mantenimiento es para una de las particiones del servicio de sistema. El mensaje de mantenimiento indica que las réplicas de esa partición se empaquetan temporalmente en demasiado pocos dominios de actualización.
 
@@ -65,7 +65,7 @@ HealthEvents          :
                         ReceivedAt            : 8/10/2015 7:53:33 PM
                         TTL                   : 00:01:05
                         Description           : The Load Balancer has detected a Constraint Violation for this Replica: fabric:/System/FailoverManagerService Secondary Partition 00000000-0000-0000-0000-000000000001 is
-                        violating the Constraint: UpgradeDomain Details: Node -- 3d1a4a68b2592f55125328cd0f8ed477  Policy -- Packing
+                        violating the Constraint: UpgradeDomain Details: UpgradeDomain ID -- 4, Replica on NodeName -- Node.8 Currently Upgrading -- false Distribution Policy -- Packing
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Ok->Warning = 8/10/2015 7:13:02 PM, LastError = 1/1/0001 12:00:00 AM
@@ -73,40 +73,63 @@ HealthEvents          :
 
 Esto es lo que nos dice este mensaje de mantenimiento:
 
-1. Todas las réplicas en sí mismas son correctas (esta es la primera prioridad de Service Fabric).
-2. La restricción de distribución de dominios de actualización se está infringiendo actualmente (lo que significa que un determinado dominio de actualización tiene más réplicas para esta partición de las que debería).
-3. El nodo que contiene la réplica que provoca la infracción (el nodo con el id.: 3d1a4a68b2592f55125328cd0f8ed477)
-4. Cuándo se produjo el informe (el 08/10/2015 a las 19:13:02).
+1. Todas las réplicas propiamente dichas son correctas: cada una muestra AggregatedHealthState: Correcto.
+2. Actualmente se está infringiendo la restricción de distribución de dominios de actualización. Esto significa que un dominio de actualización concreto tiene más réplicas de esta partición de lo que debería.
+3. El nodo que contiene la réplica que produce la infracción. En este caso, es el nodo con el nombre "Node.8".
+4. Si se está produciendo una actualización en esta partición ("Currently Upgrading -- false")
+5. La directiva de distribución de este servicio: "Distribution Policy -- Packing". Esta se rige por la `RequireDomainDistribution` [directiva de colocación](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Packing" indica que, en este caso, DomainDistribution _no_ era necesario, así que sabemos que no se especificó una directiva de colocación para este servicio. 
+6. Cuándo se produjo el informe (el 08/10/2015 a las 19:13:02).
 
-La información de este tipo genera alertas que se activan durante la producción para advertirle de que hay un problema. En este caso, queremos ver si podemos averiguar por qué Resource Manager tuvo que empaquetar las réplicas en el dominio de actualización. Esto podría deberse a que los nodos de los otros dominios de actualización estuvieran inactivos, por ejemplo.
+La información de este tipo genera alertas que se activan durante la producción para advertirle de que hay un problema, y también se usa para detectar y detener las actualizaciones incorrectas. En este caso, queremos ver si podemos averiguar por qué Resource Manager tuvo que empaquetar las réplicas en el dominio de actualización. Por lo habitual, el empaquetado es transitorio porque, por ejemplo, los nodos de los demás dominios de actualización estaban inactivos.
 
-Supongamos que quiere crear un servicio o que Resource Manager está tratando de encontrar un lugar donde colocar algunos servicios, pero no hay ninguna solución que funcione. Esto podría ser por muchos motivos, pero habitualmente se debe a una de las siguientes condiciones:
+Supongamos que Cluster Resource Manager intenta colocar algunos servicios, pero no hay soluciones que funcionen. Cuando no se pueden colocar servicios, suele ser por uno de los siguientes motivos:
 
 1. Alguna condición transitoria ha hecho que sea imposible colocar esta instancia o réplica de servicio correctamente.
-2. Los requisitos del servicio están mal configurados de forma que son imposibles de satisfacer.
+2. Los requisitos de colocación del servicio no se han satisfecho.
 
-En cada una de estas condiciones, verá un informe de mantenimiento de Cluster Resource Manager con información para ayudarlo a determinar qué es lo que pasa y por qué no se puede colocar el servicio. A este proceso lo llamamos "secuencia de eliminación de restricciones". Durante dicho proceso, el sistema recorre las restricciones configuradas que afectan al servicio y registra lo que eliminan. De esta forma, cuando los servicios no se pueden colocar, puede ver qué nodos se eliminaron y por qué.
+En estos casos, los informes de mantenimiento de Cluster Resource Manager le ayudan a determinar por qué no se puede colocar el servicio. A este proceso se le llama "secuencia de eliminación de restricciones". Durante dicho proceso, el sistema recorre las restricciones configuradas que afectan al servicio y registra lo que eliminan. De esta forma, cuando los servicios no se pueden colocar, puede ver qué nodos se eliminaron y por qué.
 
 ## <a name="constraint-types"></a>Tipos de restricción:
-Vamos a hablar sobre cada una de las diferentes restricciones que puede ver en estos informes de mantenimiento. La mayoría de las veces, estas restricciones no eliminan nodos, ya que están en el nivel suave o de optimización de manera predeterminada. Sin embargo, podría ver mensajes de mantenimiento relacionados con estas restricciones si están configuradas como restricciones fuertes o en los casos excepcionales que hacen que los nodos se puedan eliminar.
+Vamos a hablar sobre cada una de las diferentes restricciones de estos informes de mantenimiento. Verá mensajes de mantenimiento relacionados con estas restricciones cuando no se puedan colocar réplicas.
 
-* **ReplicaExclusionStatic** y **ReplicaExclusionDynamic**: estas restricciones indican que dos réplicas con estado o instancias sin estado de la misma partición se tendrían que colocar en el mismo nodo (lo cual no se permite). ReplicaExclusionStatic y ReplicaExclusionDynamic son casi la misma regla. La restricción ReplicaExclusionDynamic indica que no se ha podido colocar esa réplica en la ubicación porque la única solución propuesta ya había colocado ahí una réplica. Se diferencia de la restricción ReplicaExclusionStatic en que no indica un conflicto propuesto, sino uno real. En este caso, ya hay una réplica en el nodo. ¿Resulta confuso? Sí. ¿Importa mucho? No. Si está viendo una secuencia de eliminación de restricciones que contiene las restricciones ReplicaExclusionStatic o ReplicaExclusionDynamic, Cluster Resource Manager considera que no hay suficientes nodos. Las restricciones siguientes normalmente pueden indicar por qué estamos acabando con tan pocos nodos.
-* **PlacementConstraint**: si ve este mensaje, significa que se eliminaron algunos nodos porque no coincidían con las restricciones de selección de ubicación del servicio. Realizamos el seguimiento de las restricciones de selección de ubicación configuradas actualmente como parte de este mensaje. Esto es normal si tiene definidas restricciones de selección de ubicación. Sin embargo, si hay algún error en la restricción de selección de ubicación debido al cual se eliminan demasiados nodos, aquí es donde se daría cuenta.
-* **NodeCapacity**: esta restricción significa que Cluster Resource Manager no pudo colocar las réplicas en los nodos indicados porque, de hacerlo, el nodo habría sobrepasado su capacidad.
+* **ReplicaExclusionStatic** y **ReplicaExclusionDynamic**: estas restricciones indican que una solución se rechazó porque dos objetos de servicio de la misma partición se tendrían que colocar en el mismo nodo. Esto no está permitido porque entonces el error de ese nodo afectaría demasiado a esa partición. ReplicaExclusionStatic y ReplicaExclusionDynamic son casi la misma regla y las diferencias no importan realmente. Si está viendo una secuencia de eliminación de restricciones que contiene las restricciones ReplicaExclusionStatic o ReplicaExclusionDynamic, Cluster Resource Manager considera que no hay suficientes nodos. En esta situación, el resto de soluciones debe usar estos parámetros no válidos que no se permiten. Las otras restricciones de la secuencia nos dirán normalmente por qué los nodos se eliminan en primer lugar.
+* **PlacementConstraint**: si ve este mensaje, significa que se eliminaron algunos nodos porque no coincidían con las restricciones de selección de ubicación del servicio. Realizamos el seguimiento de las restricciones de selección de ubicación configuradas actualmente como parte de este mensaje. Esto es normal si tiene definida una restricción de colocación. Sin embargo, si la restricción de colocación está provocando que demasiados nodos se eliminen, lo que es incorrecto, puede advertir esta situación de la manera siguiente.
+* **NodeCapacity**: esta restricción significa que Cluster Resource Manager no pudo colocar las réplicas en los nodos indicados porque, de hacerlo, habrían sobrepasado su capacidad.
 * **Affinity**: esta restricción indica que no pudimos colocar la réplica en los nodos afectados porque se produciría una infracción de la restricción de afinidad. Puede obtener más información sobre la afinidad en [este artículo](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md).
 * **FaultDomain** y **UpgradeDomain**: estas restricciones eliminan nodos si el hecho de colocar la réplica en los nodos indicados provocaría el empaquetamiento en un determinado dominio de error o de actualización. En el tema sobre [las restricciones de dominio de error y de actualización y el comportamiento resultante](service-fabric-cluster-resource-manager-cluster-description.md)
-* **PreferredLocation**: lo normal es que no vea esta restricción que hace que los nodos se eliminen de la solución, dado que está configurado en el nivel de optimización de manera predeterminada. Además, la restricción de ubicación preferida suele estar presente durante las actualizaciones, y se utiliza para mover las réplicas al lugar donde se encontraban al inicio de la actualización.
+* **PreferredLocation**: lo normal es no ver esta restricción al eliminar nodos de la solución dado que, de forma predeterminada, se ejecuta como una optimización. La restricción de ubicación preferida también está presente durante las actualizaciones,  y se utiliza para mover servicios a donde estaban al inicio de la actualización.
+
+## <a name="blocklisting-nodes"></a>Lista de bloqueo de nodos
+Otro mensaje de mantenimiento que notifica Cluster Resource Manager es cuando los nodos están en la lista de bloqueo. La lista de bloqueo se puede considerar como una restricción temporal que se le aplica automáticamente. Los nodos entran en la lista de bloqueo cuando experimentan errores repetidos al iniciar instancias de ese tipo de servicio. Los nodos se incluyen en la lista de bloqueo por tipo de servicio. Un nodo puede estar en la lista de bloqueo para un servicio pero no para otro. 
+
+Las listas de bloqueo se usan con frecuencia durante el desarrollo: algunos errores provocan que su host de servicios se bloquee al inicio. Service Fabric intenta crear el host de servicios varias veces, pero el error sigue apareciendo. Después de varios intentos, el nodo pasa a la lista de bloqueo y Cluster Resource Manager intenta crear el servicio en otra parte. Si ese error se sigue produciendo en varios nodos, es posible que todos los nodos válidos del clúster acaben bloqueados. También se puede eliminar la lista de bloqueo para que muchos nodos que no son suficientes pueden iniciar correctamente el servicio para satisfacer la escala deseada. Normalmente verá errores o advertencias adicionales de Cluster Resource Manager que indican que el servicio está por debajo del número deseado de réplicas o instancias, junto con mensajes de mantenimiento que indican cuál es el error que está llevando a la lista de bloqueo como primera medida.
+
+La lista de bloqueo no es una condición permanente. Al cabo de unos minutos, el nodo se elimina de la lista de bloqueo y Service Fabric puede activar de nuevo los servicios en ese nodo. Si los servicios siguen sin funcionar bien, el nodo pasa de nuevo a la lista de bloqueo de ese tipo de servicio. 
 
 ### <a name="constraint-priorities"></a>Prioridades de restricción
-En todas estas restricciones, puede que haya estado pensando: "Creo que esas restricciones de selección de ubicación son el aspecto más importante de mi sistema. Estoy dispuesto a infringir otras restricciones, incluso cosas como afinidad y capacidad, si con ello tengo la garantía de que las restricciones de colocación no se van a infringir jamás".
 
-Bien, pues resulta que podemos hacerlo. Se pueden configurar restricciones con unos cuantos niveles diferentes de aplicación, pero se reducen a "fuerte" (0), "suave" (1), "optimización" (2) y "desactivado" (-1). Hemos definido la mayoría de las restricciones como fuertes de manera predeterminada. Por ejemplo, la mayoría de las personas no piensan normalmente en la capacidad como algo en lo que están dispuestos a bajar la guardia y casi todas son fuertes o suaves.
+> [!WARNING]
+> No se recomienda cambiar las prioridades, además de que podría tener efectos adversos sobre su clúster. La siguiente información se proporciona como referencia de las prioridades de restricción predeterminadas y su comportamiento. 
+>
 
-Las diferentes prioridades de restricción son también el motivo de que se muestren algunas advertencias de infracción de restricciones con más frecuencia que otras: hay ciertas restricciones que estamos dispuestos a dejar pasar (infringir) temporalmente. Estos niveles no significan realmente que se vaya a infringir o no una restricción determinada: solo es un orden para aplicarlas en función de las preferencias. De este modo, Cluster Resource Manager puede tomar la decisión más acertada si es imposible cumplir todas las restricciones.
+Con todas estas restricciones, puede que haya pensado: "Creo que esas restricciones de dominio de error son el aspecto más importante de mi sistema. Con el fin de garantizar que no se infringe la restricción de dominios de error, estoy dispuesto a infringir otras restricciones".
 
-En situaciones avanzadas se pueden cambiar las prioridades de restricción. Por ejemplo, supongamos que desea asegurarse de que se infringiría la afinidad para solucionar problemas de capacidad de nodo. Para lograr esto, podría establecer la prioridad de la restricción de afinidad como "suave" (1) y dejar la restricción de capacidad establecida en "fuerte" (0).
+Las restricciones se pueden configurar con diferentes niveles de prioridad: Dichos componentes son:
 
-Los valores de prioridad predeterminados de las distintas restricciones se especifican en el archivo de configuración:
+   - "alta" (0)
+   - "baja" (1)
+   - "optimización" (2)
+   - "desactivado" (-1). 
+   
+La mayoría de las restricciones se configuran de forma predeterminada como restricciones altas.
+
+No es muy frecuente cambiar la prioridad de las restricciones. Ha habido veces en que era necesario hacerlo, normalmente para solucionar algunos errores o comportamientos que estaban afectando al entorno. Por lo general, la flexibilidad de la infraestructura de prioridades de restricciones ha funcionado muy bien, pero no suele ser necesaria. La mayoría de las veces todo funciona en las prioridades predeterminadas. 
+
+Los niveles de prioridad no significan que _se vaya a_ infringir una restricción dada, ni que siempre se cumpla. Las prioridades de restricción definen el orden en el que se aplican las restricciones. Las prioridades definen los inconvenientes cuando es imposible satisfacer todas las restricciones. Normalmente se pueden satisfacer todas las restricciones a menos que suceda otra cosa en el entorno. Algunos ejemplos de escenarios que darán lugar a infracciones de restricción son las restricciones en conflicto o gran cantidad de errores simultáneos.
+
+En situaciones avanzadas, puede cambiar las prioridades de restricción. Por ejemplo, supongamos que desea asegurarse de que la afinidad siempre se infringirá cuando sea necesario resolver problemas de capacidad de nodo. Para lograr esto, podría establecer la prioridad de la restricción de afinidad como "suave" (1) y dejar la restricción de capacidad establecida en "fuerte" (0).
+
+Los valores de prioridad predeterminados de las distintas restricciones se especifican en la siguiente configuración:
 
 ClusterManifest.xml
 
@@ -158,30 +181,32 @@ a través de ClusterConfig.json para las implementaciones independientes o Templ
 ```
 
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>Restricciones de dominio de error y dominio de actualización
-Cluster Resource Manager hace realidad el deseo de mantener los servicios repartidos entre dominios de actualización y de error como una restricción dentro del motor de Resource Manager. Para obtener más información sobre cómo se utilizan, consulte el artículo sobre [configuración de clústeres](service-fabric-cluster-resource-manager-cluster-description.md).
+Cluster Resource Manager desea mantener los servicios repartidos entre dominios de error y de actualización. Y este requisito lo modela como una restricción dentro del motor de Cluster Resource Manager. Para más información sobre cómo se usan y su comportamiento específico, consulte el artículo sobre la [configuración del clúster](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
 
-En ocasiones, hemos tenido que ponernos estrictos con los dominios de error y de actualización para evitar la aparición de algún problema. También ha habido ocasiones en las que hemos tenido que pasarlos por alto completamente (aunque por poco tiempo). Por lo general, la flexibilidad de la infraestructura de prioridades de restricciones ha funcionado muy bien, pero no suele ser necesaria. La mayoría de las veces todo funciona en las prioridades predeterminadas. Los dominios de actualización mantienen una restricción suave. Cluster Resource Manager puede necesitar empaquetar un par de réplicas en un dominio de actualización para administrar una actualización, errores o infracciones de restricciones. Esto suele suceder cuando hay varios errores o cuando otra renovación en el sistema impide la ubicación correcta. Si el entorno está configurado correctamente, todas las restricciones, incluidas las de error y de actualización, se respetan completamente, incluso durante las actualizaciones. Lo que realmente importa es que Cluster Resource Manager vigila sus restricciones e informa inmediatamente si detecta una infracción.
+Cluster Resource Manager puede necesitar empaquetar un par de réplicas en un dominio de actualización para administrar actualizaciones, errores u otras infracciones de restricción. El empaquetado en dominios de error o de actualización solo sucede cuando hay varios errores u otras renovaciones en el sistema que impiden la correcta colocación. Si desea evitar el empaquetado incluso durante estas situaciones, puede usar la directiva de colocación `RequireDomainDistribution` [](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). Sin embargo, considere detenidamente esta decisión, ya que puede afectar a la disponibilidad del servicio y a la confiabilidad, como efecto secundario.
+
+Si el entorno está configurado correctamente, todas las restricciones se respetan completamente, incluso durante las actualizaciones. Lo que realmente importa es que Cluster Resource Manager vigila las restricciones y, cuando detecta una infracción, lo notifica inmediatamente e intenta corregir el problema.
 
 ## <a name="the-preferred-location-constraint"></a>La restricción de ubicación preferida
-La restricción PreferredLocation es un poco diferente, de ahí que sea la única restricción establecida en "optimización". Usamos esta restricción mientras las actualizaciones están en marcha para tratar de volver a colocar los servicios donde estaban antes de la actualización. Existen todo tipo de razones por las que esto podría no funcionar en la práctica, pero es una buena optimización.
+La restricción PreferredLocation es algo diferente, dado que tiene dos usos distintos. Uno de los usos de esta restricción es durante las actualizaciones de aplicaciones. Cluster Resource Manager administra automáticamente esta restricción durante las actualizaciones. Se usa para garantizar que cuando finalicen las actualizaciones, las réplicas vuelvan a sus ubicaciones iniciales. El otro uso de la restricción PreferredLocation es para la directiva de colocación [`PreferredPrimaryDomain`](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Ambas son optimizaciones, de ahí que la restricción PreferredLocation sea la única establecida en "Optimización" de forma predeterminada.
 
 ## <a name="upgrades"></a>Actualizaciones
 Cluster Resource Manager también es útil en las actualizaciones de clústeres y aplicaciones, durante las cuales se encarga de estas dos tareas:
 
-* Garantizar que las reglas y el rendimiento del clúster no se vean afectados
+* Garantizar que las reglas del clúster no se pongan en peligro
 * Tratar de ayudar a que la actualización se realice sin dificultades
 
 ### <a name="keep-enforcing-the-rules"></a>Aplicación continuada de las reglas
-Lo más importante a tener en cuenta en este punto es que las reglas, los controles estrictos en torno a elementos como las restricciones de selección de ubicación, se siguen aplicando durante las actualizaciones. Las restricciones de selección de ubicación garantizan que sus cargas de trabajo se ejecuten solamente donde tengan permiso para ello, incluso durante las actualizaciones. Si su entorno está muy restringido, las actualizaciones pueden tardar mucho. Esto se debe a que puede haber muy pocas opciones a las que puede acudir un servicio si este (o el nodo en el que se encuentra) deja de estar disponible temporalmente para una actualización.
+Lo más importante a tener en cuenta en este punto es que las reglas -las restricciones estrictas como las restricciones y funcionalidades de colocación- se siguen aplicando durante las actualizaciones. Las restricciones de selección de ubicación garantizan que sus cargas de trabajo se ejecuten solamente donde tengan permiso para ello, incluso durante las actualizaciones. Cuando los servicios presentan elevadas restricciones, las actualizaciones pueden tardar más. Cuando el servicio o el nodo que se ejecuta se ponen inactivos durante una actualización, puede haber pocas opciones de adónde ir.
 
 ### <a name="smart-replacements"></a>Sustituciones inteligentes
-Cuando se inicia una actualización, Resource Manager crea una instantánea de la disposición actual del clúster. A medida que se van completando los dominios de actualización, trata de colocar todo de nuevo con su disposición original. De este modo, hay dos transiciones como mucho durante la actualización (la salida del nodo afectado y el regreso al mismo). El hecho de que el clúster recupere su disposición original también garantiza que la actualización no afecte a la distribución del clúster. Si la distribución del clúster era adecuada antes de la actualización, lo seguirá siendo después, o al menos no empeorará.
+Cuando se inicia una actualización, Resource Manager crea una instantánea de la disposición actual del clúster. A medida que cada dominio de actualización finaliza, intenta devolver los servicios que estaban en ese nodo de actualización a su disposición original. Por tanto, un servicio sufre al menos dos transiciones durante la actualización. Primero sale del nodo afectado y luego regresa de nuevo. El hecho de que el clúster o servicio recuperen su disposición original también garantiza que la actualización no afecte a la distribución del clúster. 
 
 ### <a name="reduced-churn"></a>Renovación reducida
-Otra cosa que sucede durante las actualizaciones es que Cluster Resource Manager desactiva el equilibrio para la entidad que se actualiza. Esto significa que, si tiene dos instancias de aplicación diferentes e inicia una actualización en una de ellas, el equilibrio se detiene para esa instancia de aplicación, pero no para la otra. La detención del equilibrio evita respuestas innecesarias a la propia actualización, como mover servicios a nodos que se vaciaron para la actualización. Si la actualización en cuestión es una actualización de clúster, se detiene el equilibrio en todo el clúster durante la actualización. Las comprobaciones de restricción se mantienen activas, lo que garantiza la aplicación de las reglas; solo se deshabilita el reequilibrado.
+Otra cosa que sucede durante las actualizaciones es que Cluster Resource Manager desactiva el equilibrio. La detención del equilibrio evita respuestas innecesarias a la propia actualización, como mover servicios a nodos que se vaciaron para la actualización. Si la actualización en cuestión es una actualización de clúster, se detiene el equilibrio en todo el clúster durante la actualización. Las comprobaciones de restricciones permanecen activas, solo permanece deshabilitado el movimiento basado en el equilibrio proactivo de métricas.
 
-### <a name="relaxed-rules"></a>Reglas relajadas
-Por regla general, quiere que la actualización se complete, aunque el clúster esté restringido o completamente lleno. Tener la capacidad de administrar la capacidad del clúster durante las actualizaciones es más importante si cabe que de costumbre. Esto es debido a que suele haber entre un 5 y un 20 por ciento de la capacidad del clúster inactiva mientras se implementa la actualización en el clúster. Ese trabajo normalmente tiene que ir a algún sitio. Aquí es donde entra en juego el concepto de [capacidades almacenadas en búfer](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity). Aunque la capacidad almacenada en búfer se respeta durante el funcionamiento normal (dejando algo de espacio de sobrecarga), Cluster Resource Manager utiliza la capacidad total (ocupando todo el búfer) durante las actualizaciones.
+### <a name="buffered-capacity--upgrade"></a>Capacidad de búfer y actualización
+Por regla general, quiere que la actualización se complete, aunque el clúster esté restringido o casi lleno. Administrar la capacidad del clúster es incluso más importante durante las actualizaciones que de costumbre. En función del número de dominios de actualización, se debe migrar entre un 5 y un 20 por ciento de la capacidad a medida que la actualización pasa por el clúster. Ese trabajo tiene que ir a algún sitio. Aquí es donde el concepto de [capacidades almacenadas en búfer](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) resulta de utilidad. La capacidad almacenada en búfer se respeta durante el funcionamiento normal. Cluster Resource Manager puede llenar los nodos hasta su capacidad total (que consume el búfer) durante las actualizaciones en caso necesario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Empiece desde el principio y [obtenga una introducción a Cluster Resource Manager de Service Fabric](service-fabric-cluster-resource-manager-introduction.md)

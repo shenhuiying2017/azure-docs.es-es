@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 08/16/2017
 ms.author: yushwang
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ea5546a636bd567853438ae2620ae24ce2d7da23
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 93873a530ba7190de964b9f5b2e0e63371d95fcc
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configuración de conexiones VPN S2S activo-activo con Azure VPN Gateway
@@ -39,7 +39,9 @@ Este artículo proporciona instrucciones para configurar una conexión VPN activ
 Puede combinar todos estos elementos para crear una red más compleja de alta disponibilidad que satisfaga sus necesidades.
 
 > [!IMPORTANT]
-> Tenga en cuenta que el modo activo-activo solo funciona en las SKU HighPerformance
+> Tenga en cuenta que el modo activo / activo usa sólo las SKU siguientes: 
+  * VpnGw1, VpnGw2, VpnGw3
+  * Alto rendimiento (para SKU heredadas anteriores)
 > 
 > 
 
@@ -48,7 +50,7 @@ Los pasos a continuación configurarán Azure VPN Gateway en modos activo-activo
 
 * Tiene que crear dos configuraciones de IP de puerta de enlace con dos direcciones IP públicas
 * Tiene que establecer la marca EnableActiveActiveFeature
-* La SKU de puerta de enlace tiene que ser de alto rendimiento
+* La SKU de puerta de enlace debe ser VpnGw1, VpnGw2, VpnGw3 o HighPerformance (SKU heredada).
 
 Las demás propiedades son las mismas que las de las puertas de enlace que no son activo-activo. 
 
@@ -122,10 +124,10 @@ $gw1ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. Creación de la puerta de enlace VPN con una configuración activo-activo
-Cree la puerta de enlace de red virtual para TestVNet1. Tenga en cuenta que hay dos entradas de GatewayIpConfig y la marca EnableActiveActiveFeature está establecida. El modo activo-activo requiere una puerta de enlace VPN basada en enrutamiento de SKU HighPerformance. Se tardan unos 30 minutos o algo más en crear una puerta de enlace.
+Cree la puerta de enlace de red virtual para TestVNet1. Tenga en cuenta que hay dos entradas de GatewayIpConfig y la marca EnableActiveActiveFeature está establecida. Se tardan unos 45 minutos o algo más en crear una puerta de enlace.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
+New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
 ```
 
 #### <a name="3-obtain-the-gateway-public-ip-addresses-and-the-bgp-peer-ip-address"></a>3. Obtención de las direcciones IP públicas de puerta de enlace y la dirección IP del par BGP
@@ -253,15 +255,17 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupNa
 #### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. Los parámetros VPN y BGP para el segundo dispositivo VPN local
 De forma similar, a continuación se indican los parámetros que tendrá que especificar en el segundo dispositivo VPN:
 
-      - Site5 ASN            : 65050
-      - Site5 BGP IP         : 10.52.255.254
-      - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
-      - Azure VNet ASN       : 65010
-      - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
-      - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
-      - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
-                             Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
-      - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
+- Site5 ASN            : 65050
+- Site5 BGP IP         : 10.52.255.254
+- Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+- Azure VNet ASN       : 65010
+- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+- eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
 
 Una vez que se establece la conexión (túneles), tendrá dos dispositivos VPN redundantes y túneles que conectan la red local y Azure:
 
@@ -331,7 +335,7 @@ $gw2ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW2IPconf2 -Subnet
 Cree la puerta de enlace VPN con el número de AS y la marca "EnableActiveActiveFeature". Tenga en cuenta que debe reemplazar el valor predeterminado del ASN en las puertas de enlace de VPN de Azure. Los ASN para las redes virtuales conectadas deben ser diferentes para habilitar el enrutamiento de tránsito y de BGP.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet2ASN -EnableActiveActiveFeature
+New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet2ASN -EnableActiveActiveFeature
 ```
 
 ### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>Paso 2: Conecte las puertas de enlace de TestVNet1 y TestVNet2
@@ -366,8 +370,8 @@ Después de completar estos pasos, la conexión se establecerá en unos minutos 
 ## <a name ="aaupdate"></a>Parte 4: Actualización de una puerta de enlace existente entre activo-activo y activo-en espera
 La última sección describe cómo configurar una instancia de Azure VPN Gateway existente de activo-en espera a modo activo-activo o viceversa.
 
-> [!IMPORTANT]
-> Tenga en cuenta que el modo activo-activo solo funciona en las SKU HighPerformance
+> [!NOTE]
+> Esta sección incluye los pasos para cambiar el tamaño de una SKU heredada (SKU antigua) de una puerta de enlace VPN ya creada desde la versión Standard a HighPerformance. Estos pasos no actualizan una SKU heredada anterior a una de las SKU nuevas.
 > 
 > 
 
@@ -396,7 +400,7 @@ Add-AzureRmVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPc
 ```
 
 #### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3. Habilite el modo activo-activo y actualice la puerta de enlace
-Tiene que establecer el objeto de puerta de enlace en PowerShell para desencadenar la actualización real. La SKU del objeto de puerta de enlace debe cambiarse a HighPerformance puesto que se creó anteriormente como estándar.
+Tiene que establecer el objeto de puerta de enlace en PowerShell para desencadenar la actualización real. La SKU de la puerta de enlace de red virtual debe cambiarse también (modificar su tamaño) a HighPerformance puesto que se creó anteriormente como estándar.
 
 ```powershell
 Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
@@ -427,6 +431,4 @@ Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -DisableActiveActive
 Esta actualización puede tardar hasta 30 o 45 minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ver los pasos.
-
-
+Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ver los pasos.

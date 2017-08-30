@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2017
+ms.date: 08/17/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 55227c7302285c721381886c63b7cbfdc114b0bb
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 44fc8226480cafc130720fbe78aa85ee95caec6c
 ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>Tutorial: integración de Azure Active Directory con Merchlogix
@@ -109,9 +109,12 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Merchlogix](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<domain>/login.php?saml=true`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<DOMAIN>/login.php?saml=true`.
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<domain>/simplesaml/module.php/saml/sp/metadata.php/login-windows-net`
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<DOMAIN>/simplesaml/module.php/saml/sp/metadata.php/<SAML_NAME>`
+    
+    > [!NOTE]
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Merchlogix](http://www.merchlogix.com/contact/) para obtener estos valores.
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
@@ -121,7 +124,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-merchlogix-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de Merchlogix**, haga clic en **Configurar Merchlogix** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+6. En la sección **Configuración de Merchlogix**, haga clic en **Configurar Merchlogix** para abrir la ventana **Configurar inicio de sesión**. Copie los valores de **Dirección URL de cierre de sesión, SAML Entity ID** (Identificador de entidad de SAML) y **SAML Single Sign-On Service URL** (URL de servicio de inicio de sesión único de SAML) de la **sección Referencia rápida**.
 
     ![Configuración de Merchlogix](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_configure.png) 
 

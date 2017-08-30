@@ -2027,7 +2027,7 @@ SELECT LEFT("abc", 1), LEFT("abc", 2)
  El conjunto de resultados es el siguiente:  
   
 ```  
-[{"$1": "ab", "$2": "ab"}]  
+[{"$1": "a", "$2": "ab"}]  
 ```  
   
 ####  <a name="bk_length"></a> LENGTH  

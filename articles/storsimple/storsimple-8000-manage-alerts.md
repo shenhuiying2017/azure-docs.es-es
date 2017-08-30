@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/31/2017
+ms.date: 08/22/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 3b55e2f382d2ee9a1f6d459c7fdec0378f2de9d1
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: b7f9a2b7eb3dbf4cc97fac9a410359e068e67eb1
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Uso del servicio StorSimple Device Manager para ver y administrar alertas de StorSimple
@@ -202,12 +202,13 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 | No se han podido iniciar los servicios de StorSimple. |Error de ruta de datos |Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
 | Se ha detectado una dirección IP duplicada para 'Data0'. | |El sistema ha detectado un conflicto para la dirección IP '10.0.0.1'. El recurso de red 'Data0' en el dispositivo *<device1>* está sin conexión. Asegúrese de que ninguna otra entidad de esta red utilice esta dirección IP. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para resolver este problema, póngase en contacto con el administrador de red. Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
 | La dirección IPv4 (o IPv6) para 'Data0' está sin conexión. | |El recurso de red 'Data0' con la dirección IP '10.0.0.1'. El prefijo de longitud '22' en el dispositivo *<device1>* está sin conexión. Asegúrese de que los puertos de conmutador a los que está conectada esta interfaz están operativos. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| No se pudo conectar al servicio de autenticación. |Error de ruta de datos |La dirección URL que se usa para autenticar no está accesible. Asegúrese de que las reglas de firewall incluyen los patrones de dirección URL especificados para el dispositivo StorSimple. Para obtener más información sobre los patrones de dirección URL en Azure Portal, vaya a https://aka.ms/ss-8000-network-reqs. Si usa Azure Government Cloud, vaya a los modelos de dirección URL de https://aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertas de rendimiento
 
 | Texto de la alerta | Evento | Más información / acciones recomendadas |
 |:--- |:--- |:--- |
-| La carga del dispositivo ha superado el <*umbral*>. |Tiempos de respuesta más lentos que lo esperado. |El dispositivo indica su utilización con una carga elevada de entrada/salida. Esto podría provocar que el dispositivo no funcione tan bien como debería. Revise las cargas de trabajo que ha conectado al dispositivo y determine si hay alguna que se pueda mover a otro dispositivo o que ya no sea necesaria.<br>Para comprender el estado actual, vaya a [Uso del servicio StorSimple Device Manager para supervisar el dispositivo StorSimple](storsimple-monitor-device.md) |
+| La carga del dispositivo ha superado el <*umbral*>. |Tiempos de respuesta más lentos que lo esperado. |El dispositivo indica su utilización con una carga elevada de entrada/salida. Esto podría provocar que el dispositivo no funcione tan bien como debería. Revise las cargas de trabajo que ha conectado al dispositivo y determine si hay alguna que se pueda mover a otro dispositivo o que ya no sea necesaria.| No se han podido iniciar los servicios de StorSimple. |Error de ruta de datos |Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |Para conocer el estado actual, vaya a [Uso del servicio StorSimple Device Manager para supervisar el dispositivo StorSimple](storsimple-monitor-device.md) |
 
 ### <a name="security-alerts"></a>Alertas de seguridad
 

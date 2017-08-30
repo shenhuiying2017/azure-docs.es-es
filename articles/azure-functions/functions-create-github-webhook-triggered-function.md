@@ -1,26 +1,26 @@
 ---
 title: "Creación de una función en Azure desencadenada por Webhook de GitHub | Microsoft Docs"
 description: "Use Azure Functions para crear una función sin servidor que se invoca mediante Webhook de GitHub."
-services: azure-functions
+services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 038bb4cf0a9278416261c05ddaa0ee97d83b63c5
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Creación de una función desencadenada por Webhook de GitHub
@@ -52,7 +52,7 @@ Después, cree una función en la nueva Function App.
 
     ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Seleccione la plantilla **GitHubWebHook** del idioma que desee. Asigne un **nombre a la función** y seleccione **Crear**.
+2. Seleccione la plantilla **GitHub WebHook** del idioma que desee. Asigne un **nombre a la función** y seleccione **Crear**.
 
      ![Crear una función desencadenada de Webhook de GitHub en Azure Portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 

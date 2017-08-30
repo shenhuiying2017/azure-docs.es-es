@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/04/2017
+ms.date: 08/23/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 19095d65188ff935b99d1b89cefbc92ef06ebc6f
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 5574a234076797852b32631b90bb563441bbc6e7
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
@@ -60,7 +60,7 @@ Use los pasos de esta sección para saber cómo agregar un nuevo HDInsight a una
 
 1. ¿Está usando un modelo de implementación clásico o de Resource Manager para la red virtual?
 
-    HDInsight 3.4 y versiones posteriores requieren una red virtual de Resource Manager. Las versiones anteriores de HDInsight requieren una red virtual clásica, pero estas versiones se han retirado o se retirarán pronto.
+    HDInsight 3.4 y versiones posteriores requieren una red virtual de Resource Manager. Las versiones anteriores de HDInsight requieren una red virtual clásica.
 
     Si la red existente es una red virtual clásica, debe crear una red virtual de Resource Manager y después conectar las dos. [Conexión de redes virtuales clásicas a redes virtuales nuevas](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
@@ -201,7 +201,7 @@ Para conectarse a Ambari y otras páginas web a través de la red virtual, siga 
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    En la lista de nodos que se devuelve, busque el FQDN de los nodos principales y úselos para conectarse a Ambari y otros servicios web. Por ejemplo, use `http://<headnode-fqdn>:8080` para tener acceso a Ambari.
+    En la lista de nodos que se devuelve, busque el FQDN de los nodos principales y use los FQDN para conectarse a Ambari y otros servicios web. Por ejemplo, use `http://<headnode-fqdn>:8080` para tener acceso a Ambari.
 
     > [!IMPORTANT]
     > Algunos servicios hospedados en los nodos principales solo están activos en un nodo a la vez. Si intenta obtener acceso a un servicio en un nodo principal y se devuelve un error 404, cambie al otro nodo principal.
@@ -247,47 +247,60 @@ La tunelización forzada es una configuración de enrutamiento definida por el u
 
 ## <a id="hdinsight-ip"></a> Direcciones IP necesarias
 
-En la lista siguiente se incluye la dirección IP de los servicios de mantenimiento y supervisión de Azure que supervisan los clústeres de HDInsight. Esta lista solo es importante si usa grupos de seguridad de red o rutas definidas por el usuario. Para más información, vea la sección [Control del tráfico de red](#networktraffic).
+Los servicios de mantenimiento y administración de Azure deben poder comunicarse con HDInsight. Si utiliza grupos de seguridad de red o rutas definidas por el usuario, permita el tráfico de las direcciones IP a estos servicios para llegar a HDInsight.
 
-Use la tabla siguiente para buscar las direcciones IP correspondientes a la región que esté usando:
+Hay dos conjuntos de direcciones IP:
 
-| País | Region | Direcciones IP permitidas | Puerto permitido | Dirección |
-| ---- | ---- | ---- | ---- | ----- |
-| Asia | Asia oriental | 23.102.235.122</br>52.175.38.134 | 443 | Entrada |
-| Australia | Australia Oriental | 104.210.84.115</br>13.75.152.195 | 443 | Entrada |
-| Brasil | Sur de Brasil | 191.235.84.104</br>191.235.87.113 | 443 | Entrada |
-| Canadá | Este de Canadá | 52.229.127.96</br>52.229.123.172 | 443 | Entrada |
-| &nbsp; | Centro de Canadá | 52.228.37.66</br>52.228.45.222 | 443 | Entrada |
-| China | Norte de China | 42.159.96.170</br>139.217.2.219 | 443 | Entrada |
-| &nbsp; | Este de China | 42.159.198.178</br>42.159.234.157 | 443 | Entrada |
-| Europa | Europa del Norte | 52.164.210.96</br>13.74.153.132 | 443 | Entrada |
-| Alemania | Centro de Alemania | 51.4.146.68</br>51.4.146.80 | 443 | Entrada |
-| &nbsp; | Noreste de Alemania | 51.5.150.132</br>51.5.144.101 | 443 | Entrada |
-| India | India Central | 52.172.153.209</br>52.172.152.49 | 443 | Entrada |
-| Japón | Este de Japón | 13.78.125.90</br>13.78.89.60 | 443 | Entrada |
-| &nbsp; | Oeste de Japón | 40.74.125.69</br>138.91.29.150 | 443 | Entrada |
-| Corea | Corea Central | 52.231.39.142</br>52.231.36.209 | 433 | Entrada |
-| &nbsp; | Corea del Sur | 52.231.203.16</br>52.231.205.214 | 443 | Entrada
-| Reino Unido | Oeste de Reino Unido | 51.141.13.110</br>51.141.7.20 | 443 | Entrada |
-| &nbsp; | Sur del Reino Unido 2 | 51.140.47.39</br>51.140.52.16 | 443 | Entrada |
-| Estados Unidos | Central EE. UU.: | 13.67.223.215</br>40.86.83.253 | 443 | Entrada |
-| &nbsp; | Centro occidental de EE.UU. | 52.161.23.15</br>52.161.10.167 | 443 | Entrada |
-| &nbsp; | Oeste de EE. UU. 2 | 52.175.211.210</br>52.175.222.222 | 443 | Entrada |
+* Un conjunto __global__ de cuatro direcciones IP que se deben permitirse:
 
-Para más información sobre las direcciones IP que se van a usar para Azure Government, vea el documento [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) (Inteligencia y análisis de Azure Government).
+    | Dirección IP | Puerto permitido | Dirección |
+    | ---- | ----- | ----- |
+    | 168.61.49.99 | 443 | Entrada |
+    | 23.99.5.239 | 443 | Entrada |
+    | 168.61.48.131 | 443 | Entrada |
+    | 138.91.141.162 | 443 | Entrada |
 
-__Si su región no aparece en la tabla__, permita el tráfico en el puerto __443__ en las siguientes direcciones IP:
+* Direcciones IP __por región__ que deben permitirse:
 
-* 168.61.49.99
-* 23.99.5.239
-* 168.61.48.131
-* 138.91.141.162
+    > [!IMPORTANT]
+    > Si no aparece la región de Azure que está usando, use únicamente las cuatro direcciones de IP globales mencionadas anteriormente.
 
-> [!IMPORTANT]
+    | País | Region | Direcciones IP permitidas | Puerto permitido | Dirección |
+    | ---- | ---- | ---- | ---- | ----- |
+    | Asia | Asia oriental | 23.102.235.122</br>52.175.38.134 | 443 | Entrada |
+    | &nbsp; | Sudeste asiático | 13.76.245.160</br>13.76.136.249 | 443 | Entrada |
+    | Australia | Australia Oriental | 104.210.84.115</br>13.75.152.195 | 443 | Entrada |
+    | &nbsp; | Sudeste de Australia | 13.77.2.56</br>13.77.2.94 | 443 | Entrada |
+    | Brasil | Sur de Brasil | 191.235.84.104</br>191.235.87.113 | 443 | Entrada |
+    | Canadá | Este de Canadá | 52.229.127.96</br>52.229.123.172 | 443 | Entrada |
+    | &nbsp; | Centro de Canadá | 52.228.37.66</br>52.228.45.222 | 443 | Entrada |
+    | China | Norte de China | 42.159.96.170</br>139.217.2.219 | 443 | Entrada |
+    | &nbsp; | Este de China | 42.159.198.178</br>42.159.234.157 | 443 | Entrada |
+    | Europa | Europa del Norte | 52.164.210.96</br>13.74.153.132 | 443 | Entrada |
+    | &nbsp; | Europa occidental| 52.166.243.90</br>52.174.36.244 | 443 | Entrada |
+    | Alemania | Centro de Alemania | 51.4.146.68</br>51.4.146.80 | 443 | Entrada |
+    | &nbsp; | Noreste de Alemania | 51.5.150.132</br>51.5.144.101 | 443 | Entrada |
+    | India | India Central | 52.172.153.209</br>52.172.152.49 | 443 | Entrada |
+    | Japón | Este de Japón | 13.78.125.90</br>13.78.89.60 | 443 | Entrada |
+    | &nbsp; | Oeste de Japón | 40.74.125.69</br>138.91.29.150 | 443 | Entrada |
+    | Corea | Corea Central | 52.231.39.142</br>52.231.36.209 | 433 | Entrada |
+    | &nbsp; | Corea del Sur | 52.231.203.16</br>52.231.205.214 | 443 | Entrada
+    | Reino Unido | Oeste de Reino Unido | 51.141.13.110</br>51.141.7.20 | 443 | Entrada |
+    | &nbsp; | Sur del Reino Unido 2 | 51.140.47.39</br>51.140.52.16 | 443 | Entrada |
+    | Estados Unidos | Central EE. UU.: | 13.67.223.215</br>40.86.83.253 | 443 | Entrada |
+    | &nbsp; | Centro-Norte de EE. UU | 157.56.8.38</br>157.55.213.99 | 443 | Entrada |
+    | &nbsp; | Centro occidental de EE.UU. | 52.161.23.15</br>52.161.10.167 | 443 | Entrada |
+    | &nbsp; | Oeste de EE. UU. 2 | 52.175.211.210</br>52.175.222.222 | 443 | Entrada |
+
+    Para más información sobre las direcciones IP que se van a usar para Azure Government, vea el documento [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) (Inteligencia y análisis de Azure Government).
+
+> [!WARNING]
 > HDInsight no puede restringir el tráfico saliente, solo el entrante.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Si usa un servidor DNS personalizado con la red virtual, también debe permitir el acceso desde __168.63.129.16__. Esta es la dirección de la resolución recursiva de Azure. Para más información, vea el documento [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+
+Para más información, vea la sección [Control del tráfico de red](#networktraffic).
 
 ## <a id="hdinsight-ports"></a> Puertos necesarios
 
@@ -318,7 +331,7 @@ La siguiente plantilla de administración de recursos crea una red virtual que r
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Use el siguiente script de PowerShell para crear una red virtual que restringe el tráfico de entrada pero permite el tráfico desde las direcciones IP requeridas por HDInsight en la región de Europa del Norte.
+Use el siguiente script de PowerShell para crear una red virtual que restringe el tráfico de entrada y permite el tráfico de las direcciones IP para la región de Europa del Norte.
 
 > [!IMPORTANT]
 > Cambie las direcciones IP que se usan en este ejemplo para que coincidan con la región de Azure que está usando. Puede encontrar esta información en la sección [HDInsight con grupos de seguridad de red y rutas definidas por el usuario](#hdinsight-ip).
@@ -364,6 +377,50 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 301 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "hdirule2" `
+        -Description "HDI health and management 168.61.49.99" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "443" `
+        -SourceAddressPrefix "168.61.49.99" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 302 `
+        -Direction Inbound `
+    | Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "hdirule2" `
+        -Description "HDI health and management 23.99.5.239" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "443" `
+        -SourceAddressPrefix "23.99.5.239" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 303 `
+        -Direction Inbound `
+    | Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "hdirule2" `
+        -Description "HDI health and management 168.61.48.131" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "443" `
+        -SourceAddressPrefix "168.61.48.131" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 304 `
+        -Direction Inbound `
+    | Add-AzureRmNetworkSecurityRuleConfig `
+        -Name "hdirule2" `
+        -Description "HDI health and management 138.91.141.162" `
+        -Protocol "*" `
+        -SourcePortRange "*" `
+        -DestinationPortRange "443" `
+        -SourceAddressPrefix "138.91.141.162" `
+        -DestinationAddressPrefix "VirtualNetwork" `
+        -Access Allow `
+        -Priority 305 `
+        -Direction Inbound `
+    | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "blockeverything" `
         -Description "Block everything else" `
         -Protocol "*" `
@@ -390,7 +447,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 > En el siguiente ejemplo se muestra cómo habilitar el acceso de SSH desde Internet:
 >
 > ```powershell
-> Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound
+> Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 > ```
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -413,6 +470,10 @@ Use los pasos siguientes para crear una red virtual que restringe el tráfico de
     ```azurecli
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "13.74.153.132" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
@@ -442,7 +503,7 @@ Use los pasos siguientes para crear una red virtual que restringe el tráfico de
 > En el siguiente ejemplo se muestra cómo habilitar el acceso de SSH desde Internet:
 >
 > ```azurecli
-> az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
+> az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 > ```
 
 ## <a id="example-dns"></a> Ejemplo: configuración de DNS

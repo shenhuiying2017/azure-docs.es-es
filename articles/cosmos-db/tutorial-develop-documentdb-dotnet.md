@@ -115,7 +115,7 @@ Copie el URI desde el portal y péguelo en `<your endpoint URL>` en el archivo p
 Ahora, cree una instancia nueva de **DocumentClient**.
 
 ```csharp
-DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
+DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 ```
 
 ## <a id="create-database"></a>Creación de una base de datos

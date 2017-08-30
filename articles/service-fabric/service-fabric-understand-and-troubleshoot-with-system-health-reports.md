@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/18/2017
 ms.author: oanapl
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 458e14f48a329cd36d3986986724e587839b355e
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 54e20146b2f1e0ca6153b66319be70c6f7c2fb59
 ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilización de informes de mantenimiento del sistema para solucionar problemas
@@ -213,7 +213,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-El ejemplo siguiente muestra el mantenimiento de una partición que es inferior al recuento objetivo de réplicas. El paso siguiente consiste en obtener la descripción de la partición, que muestra cómo se ha configurado: **MinReplicaSetSize** es dos y **TargetReplicaSetSize** es siete. Después, obtenga el número de nodos del clúster: cinco. Así que en este caso, no se pueden colocar dos réplicas.
+El ejemplo siguiente muestra el mantenimiento de una partición que es inferior al recuento objetivo de réplicas. El paso siguiente consiste en obtener la descripción de la partición, que muestra cómo se ha configurado: **MinReplicaSetSize** es tres y **TargetReplicaSetSize** es siete. Después, obtenga el número de nodos del clúster: cinco. En este caso, por lo tanto, no se pueden colocar dos réplicas porque el número de réplicas de destino es mayor que el número de nodos disponibles.
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
@@ -388,7 +388,7 @@ PartitionLowKey        : -9223372036854775808
 PartitionHighKey       : 9223372036854775807
 PartitionStatus        : InQuorumLoss
 LastQuorumLossDuration : 00:00:13
-MinReplicaSetSize      : 2
+MinReplicaSetSize      : 3
 TargetReplicaSetSize   : 3
 HealthState            : Error
 DataLossNumber         : 130743746152927699

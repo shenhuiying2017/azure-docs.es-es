@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: db6e654de074fc6651fd0d7479ee52038f944745
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 2c5842822e347113e388d570f6ae603a313944d6
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -70,9 +70,14 @@ La aplicación de orquestación de revisiones requiere que el servicio del siste
 
 Los clústeres de Azure en el nivel de durabilidad Plata tendrán habilitado el administrador de reparaciones de forma predeterminada. Es posible que los clústeres de Azure en el nivel de durabilidad Oro tengan habilitado o no el servicio de administrador de reparaciones, dependiendo de cuándo se crearon esos clústeres. Los clústeres de Azure en el plan de durabilidad Bronce no tienen habilitado el servicio de administrador de reparaciones. Si el servicio ya está habilitado, puede ver que se ejecuta en la sección de servicios del sistema en Service Fabric Explorer.
 
-Puede usar la [plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) para habilitar el servicio de administrador de reparaciones en clústeres de Service Fabric nuevos y existentes. Obtenga la plantilla del clúster que desea implementar. Puede usar las plantillas de ejemplo o crear una plantilla personalizada de Resource Manager. 
+##### <a name="azure-portal"></a>Azure Portal
+Puede habilitar el administrador de reparaciones desde Azure Portal en el momento de la configuración del clúster. Seleccione la opción `Include Repair Manager` bajo `Add on features` en el momento de la configuración del clúster.
+![Imagen de la habilitación del administrador de reparaciones de Azure Portal](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-Para habilitar el servicio de administrador de reparaciones:
+##### <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
+También puede usar la [plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) para habilitar el servicio de administrador de reparaciones en clústeres de Service Fabric nuevos y existentes. Obtenga la plantilla del clúster que desea implementar. Puede usar las plantillas de ejemplo o crear una plantilla personalizada de Resource Manager. 
+
+Para habilitar el servicio de administrador de reparaciones mediante la [plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
 1. En primer lugar, compruebe que `apiversion` está establecido en `2017-07-01-preview` para el recurso `Microsoft.ServiceFabric/clusters`, tal y como se muestra en el siguiente fragmento de código. Si es diferente, debe actualizar `apiVersion` al valor `2017-07-01-preview`:
 
@@ -135,9 +140,11 @@ Es posible que las actualizaciones automáticas de Windows provoquen la pérdida
 
 ### <a name="optional-enable-azure-diagnostics"></a>Opcional: habilitar Azure Diagnostics
 
-Los registros de la aplicación de orquestación de revisiones se recopilan localmente en cada uno de los nodos del clúster. Además, para los clústeres que ejecutan la versión `5.6.220.9494` y superior del runtime de Service Fabric, los registros se recopilarán como parte de los registros de Service Fabric.
+Los clústeres que ejecutan la versión `5.6.220.9494`, y versiones posteriores, del entorno en tiempo de ejecución de Service Fabric, recopilan registros de aplicación de orquestación de revisiones como parte de los registros de Service Fabric.
+Puede omitir este paso si el clúster se ejecuta en la versión `5.6.220.9494`, y versiones posteriores, del entorno en tiempo de ejecución de Service Fabric.
 
-Para los clústeres que ejecutan la versión del runtime de Service Fabric inferior a `5.6.220.9494`, se recomienda configurar Azure Diagnostics para cargar los registros de todos los nodos a una ubicación central.
+Para los clústeres que ejecutan una versión del entorno en tiempo de ejecución de Service Fabric inferior a la `5.6.220.9494`, los registros de la aplicación de orquestación de revisiones se recopilan localmente en cada uno de los nodos del clúster.
+Se recomienda configurar Azure Diagnostics para cargar los registros de todos los nodos a una ubicación central.
 
 Para más información sobre Azure Diagnostics, vea [Recopilar de registros con Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
 
@@ -294,7 +301,7 @@ Para los clústeres que ejecutan una versión del runtime de Service Fabric infe
 
 #### <a name="locally-on-each-node"></a>Localmente en cada nodo
 
-Los registros se recopilan localmente en cada nodo del clúster de Service Fabric. La ubicación para tener acceso a los registros es \[Unidad\_Instalación\_Service Fabric\]:\\PatchOrchestrationApplication\\logs.
+Los registros se recopilan localmente en cada nodo de clúster de Service Fabric si la versión del entorno en tiempo de ejecución de Service Fabric es inferior a la `5.6.220.9494`. La ubicación para tener acceso a los registros es \[Unidad\_Instalación\_Service Fabric\]:\\PatchOrchestrationApplication\\logs.
 
 Por ejemplo, si se instaló Service Fabric en la unidad D, la ruta de acceso es D:\\PatchOrchestrationApplication\\logs.
 
@@ -354,6 +361,10 @@ A. El tiempo que necesita la aplicación de orquestación de revisiones depende 
 - El tiempo promedio necesario para descargar e instalar una actualización, que no debe superar un par de horas.
 - El rendimiento de la máquina virtual y ancho de banda de la red.
 
+P: **¿Por qué veo algunas actualizaciones en los resultados de Windows Update obtenidos a través de la API de REST, pero no en el historial de Windows Update en la máquina?**
+
+A. Algunas actualizaciones del producto deben comprobarse en su historial de actualizaciones o revisiones respectivo. Por ejemplo: Las actualizaciones de Windows Defender no se muestran en el historial de Windows Update en Windows Server 2016.
+
 ## <a name="disclaimers"></a>Declinación de responsabilidades
 
 - La aplicación de orquestación de revisiones acepta el acuerdo de licencia del usuario final de Windows Update en nombre del usuario. Opcionalmente se puede desactivar la configuración en la configuración de la aplicación.
@@ -391,4 +402,18 @@ En ese caso, se genera un informe de estado de nivel de advertencia en el servic
 Una actualización de Windows fallida puede desactivar el estado de una aplicación o un clúster en un nodo concreto o un dominio de actualización. La aplicación de orquestación de revisiones interrumpe las operaciones posteriores de Windows Update hasta que el estado del clúster vuelva a ser correcto.
 
 Un administrador debe intervenir y determinar por qué la aplicación o el clúster pasó a ser incorrecto debido a Windows Update.
+
+## <a name="release-notes-"></a>Notas de la versión:
+
+### <a name="version-110"></a>Versión 1.1.0
+- Versión pública
+
+### <a name="version-111"></a>Versión 1.1.1
+- Se ha corregido un error en SetupEntryPoint de NodeAgentService que impedía la instalación de NodeAgentNTService.
+
+### <a name="version-120-latest"></a>Versión 1.2.0 (más reciente)
+
+- Correcciones de errores en el flujo de trabajo de reinicio del sistema.
+- Corrección de errores en la creación de tareas de RM debido a las cuales la comprobación del estado durante la preparación de las tareas de reparación no ocurría según lo previsto.
+- Cambio en el modo de inicio del servicio de Windows POANodeSvc de automático a automático con retraso.
 

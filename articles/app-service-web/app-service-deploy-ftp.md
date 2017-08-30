@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: cephalin;dariac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 816113f7635a003e22a5172113e5039dbcc1ceac
-ms.openlocfilehash: 5dc546849bd02ccf4d02f3e6363a3e2fc3898259
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 9078abbc4ed7eff6975201443992f7bbb84bf57c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
+
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementación de la aplicación en Azure App Service mediante FTP/S
+
 En este artículo se muestra cómo usar FTP o FTPS para implementar la aplicación web, el back-end de la aplicación móvil o la aplicación de API en [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-El punto de conexión FTP/S de la aplicación ya está activo. No se necesita ninguna configuración para habilitar la implementación de FTP/S. 
+El punto de conexión FTP/S de la aplicación ya está activo. No se necesita ninguna configuración para habilitar la implementación de FTP/S.
+
+> [!IMPORTANT]
+> Continuamente se realizan acciones para mejorar la seguridad de la plataforma Microsoft Azure. Como parte de este esfuerzo, se ha planeado la actualización de Aplicaciones web para las regiones de Centro de Alemania y Noreste de Alemania. Durante dicha actualización, Web Apps deshabilitará el uso del protocolo FTP de texto sin formato para las implementaciones. A nuestros clientes les recomendamos que usen FTPS en las implementaciones. No se espera que se interrumpa el servicio durante esta actualización, que se ha planeado que se realice el 5/9. Agradecemos su apoyo en este esfuerzo.
 
 <a name="step1"></a>
 ## <a name="step-1-set-deployment-credentials"></a>Paso1: Configurar credenciales de implementación

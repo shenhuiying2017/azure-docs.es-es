@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f9272946fe4a03a732aa686680bba054c8ef1688
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 0c65ac74316421a0258f01143baa25ffecb5be3b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
@@ -28,7 +28,9 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   [Flujo de control](api-management-advanced-policies.md#choose): aplica condicionalmente instrucciones de directiva basadas en los resultados de la evaluación de [expresiones](api-management-policy-expressions.md) booleanas.  
   
--   [Reenviar solicitud](#ForwardRequest) : reenvía la solicitud al servicio back-end.  
+-   [Reenviar solicitud](#ForwardRequest): reenvía la solicitud al servicio back-end.
+
+-   [Limitar la simultaneidad](#LimitConcurrency): evita que las directivas delimitadas las ejecute simultáneamente un número de solicitudes mayor que el especificado.
   
 -   [Registro en centro de eventos](#log-to-eventhub): envía mensajes en el formato especificado a un centro de eventos definido por una entidad de registrador. 
 
@@ -266,6 +268,56 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** todos los ámbitos  
   
+##  <a name="LimitConcurrency"></a> Limitar la simultaneidad  
+ La directiva `limit-concurrency` evita que las directivas delimitadas las ejecute en un momento dado un número de solicitudes mayor que el especificado. Tras superar el umbral, las nuevas solicitudes se agregan a una cola, hasta que se logra la longitud máxima de esta. Cuando la cola se agota, al intentar agregar nuevas solicitudes se produce un error inmediatamente.
+  
+###  <a name="LimitConcurrencyStatement"></a> Declaración de la directiva  
+  
+```xml  
+<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+        <!— nested policy statements -->  
+</limit-concurrency>
+``` 
+
+### <a name="examples"></a>Ejemplos  
+  
+####  <a name="ChooseExample"></a> Ejemplo  
+ En el ejemplo siguiente se muestra cómo limitar el número de solicitudes que se reenvían a un back-end en función del valor de una variable de contexto.
+ 
+```xml  
+<policies>
+  <inbound>…</inbound>
+  <backend>
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+      <forward-request timeout="120"/>
+    <limit-concurrency/>
+  </backend>
+  <outbound>…</outbound>
+</policies>
+```
+
+### <a name="elements"></a>Elementos  
+  
+|Elemento|Descripción|Obligatorio|  
+|-------------|-----------------|--------------|    
+|límite de simultaneidad|Elemento raíz.|Sí|  
+  
+### <a name="attributes"></a>Attributes  
+  
+|Atributo|Descripción|Obligatorio|Valor predeterminado|  
+|---------------|-----------------|--------------|--------------|  
+|key|Una cadena. Expresión que se permite. Especifica el ámbito de la simultaneidad. Puede compartirse entre varias directivas.|Sí|N/D|  
+|número máximo|Un entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.|Sí|N/D|  
+|timeout|Un entero. Expresión que se permite. Especifica el número de segundos que debe esperar una solicitud para especificar un ámbito antes de que aparezca el error "403 Demasiadas solicitudes"|No|Infinity|  
+|longitud máxima de cola|Un entero. Expresión que se permite. Especifica la longitud máxima de la cola. Cuando la cola se agote, las solicitudes entrantes que intenten acceder a esta directiva se terminarán inmediatamente con el error "403 Demasiadas solicitudes".|No|Infinity|  
+  
+###  <a name="ChooseUsage"></a> Uso  
+ Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+  
+-   **Secciones de la directiva:** entrante, saliente, back-end y en caso de error  
+  
+-   **Ámbitos de la directiva:** todos los ámbitos  
+
 ##  <a name="log-to-eventhub"></a>Registro en centro de eventos  
  La directiva `log-to-eventhub` envía mensajes en el formato especificado a un centro de eventos definido por una entidad del registrador. Como su nombre indica, la directiva se usa para guardar información de contexto de respuesta o solicitud que se ha seleccionado para su análisis en línea o sin conexión.  
   
@@ -963,6 +1015,6 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo trabajar con directivas, consulte:
--    [Directivas de Administración de API de Azure](api-management-howto-policies.md) 
--    [Policy expressions (Expresiones de directiva)](api-management-policy-expressions.md)
+-   [Directivas de Administración de API de Azure](api-management-howto-policies.md) 
+-   [Policy expressions (Expresiones de directiva)](api-management-policy-expressions.md)
 

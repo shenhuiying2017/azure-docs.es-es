@@ -12,25 +12,24 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 08/18/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 41fcccae7b3d306c25f4429d47e81884d88cd83e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: da23bd9fe71a0c41bc236b55bc9f56e123a9d77a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="logic-app-limits-and-configuration"></a>Límites y configuración de Logic Apps
 
 A continuación se muestra información sobre los límites actuales y los detalles de configuración de Azure Logic Apps.
 
-## <a name="limits"></a>Límites
+## <a name="limits"></a>límites
 
 ### <a name="http-request-limits"></a>Límites de solicitudes HTTP
 
-Son los límites de una única solicitud HTTP o llamada a un conector.
+Los límites de una única solicitud HTTP o llamada a un conector son los siguientes.
 
 #### <a name="timeout"></a>Tiempo de espera
 
@@ -42,44 +41,46 @@ Son los límites de una única solicitud HTTP o llamada a un conector.
 
 |Nombre|Límite|Notas|
 |----|----|----|
-|Tamaño del mensaje|100 MB|Puede que algunos conectores y API no admitan 100 MB. |
-|Límite de evaluación de expresiones|131 072 caracteres.|`@concat()`, `@base64()` y `string` no pueden tener un valor más largo.|
+|Tamaño del mensaje|100 MB|Puede que algunos conectores y API no admitan 100 MB |
+|Límite de evaluación de expresiones|131 072 caracteres.|`@concat()`, `@base64()` y `string` no pueden superar este límite|
 
 #### <a name="retry-policy"></a>Directiva de reintentos
 
 |Nombre|Límite|Notas|
 |----|----|----|
-|Número de reintentos|4|Se puede configurar con el [parámetro de directiva de reintento](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Número de reintentos|10| El valor predeterminado es 4. Se puede configurar con el [parámetro de directiva de reintento](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Retraso máximo entre reintentos|1 hora|Se puede configurar con el [parámetro de directiva de reintento](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 |Retraso mínimo entre reintentos|5 segundos|Se puede configurar con el [parámetro de directiva de reintento](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 
 ### <a name="run-duration-and-retention"></a>Retención y duración de ejecución
 
-Son los límites de ejecución de una única aplicación lógica.
+Los límites de ejecución de una única aplicación lógica son los siguientes.
 
 |Nombre|Límite|Notas|
 |----|----|----|
 |Duración de la ejecución|90 días||
-|Retención de almacenamiento|90 días|Se cuenta a partir de la hora de inicio de la ejecución.|
+|Retención de almacenamiento|90 días|A partir de la hora de inicio de la ejecución|
 |Intervalo de periodicidad mínima|1 segundo|| 15 segundos para aplicaciones lógicas con un plan de App Service
 |Intervalo de periodicidad máxima|500 días||
+
+Si espera superar la duración de ejecución o los límites de retención de almacenamiento del flujo de procesamiento normal, [póngase en contacto con nosotros](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus necesidades.
 
 
 ### <a name="looping-and-debatching-limits"></a>Límites de bucle y anulación de procesamiento por lotes
 
-Son los límites de ejecución de una única aplicación lógica.
+Los límites de ejecución de una única aplicación lógica son los siguientes.
 
 |Nombre|Límite|Notas|
 |----|----|----|
 |Elementos ForEach|100 000|Puede usar la [acción de consulta](../connectors/connectors-native-query.md) para filtrar matrices más grandes, según sea necesario.|
 |Iteraciones Until|5.000||
 |Elementos SplitOn|100 000||
-|Paralelismo de ForEach|20 ||Puede establecerlo en un elemento foreach secuencial si agrega `"operationOptions": "Sequential"` a la acción `foreach`.|
+|Paralelismo de ForEach|50| El valor predeterminado es 20. Puede establecerlo en una instrucción foreach secuencial agregando `"operationOptions": "Sequential"` a la acción `foreach` o en un nivel específico de paralelismo mediante `runtimeConfiguration`.|
 
 
 ### <a name="throughput-limits"></a>Límites de rendimiento
 
-Son los límites de una instancia de aplicación lógica. 
+Los límites para una instancia de aplicación lógica única son los siguientes. 
 
 |Nombre|Límite|Notas|
 |----|----|----|
@@ -89,16 +90,16 @@ Son los límites de una instancia de aplicación lógica.
 |Llamadas de lectura de punto de conexión en tiempo de ejecución por 5 minutos |60 000|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
 |Llamadas de invocación de punto de conexión en tiempo de ejecución por 5 minutos |45 000|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
 
-Si espera superar este límite en el procesamiento normal o desea ejecutar una prueba de carga que puede exceder este límite durante un tiempo, [póngase en contacto con nosotros](mailto://logicappsemail@microsoft.com) para que podamos ayudarlo con sus requisitos.
+Si espera superar este límite en el procesamiento normal o desea ejecutar una prueba de carga que puede exceder este límite durante un tiempo, [póngase en contacto con nosotros](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus requisitos.
 
 ### <a name="definition-limits"></a>Límites de definición
 
-Son los límites de una definición de aplicación lógica.
+Los límites de una definición de aplicación lógica única son los siguientes.
 
 |Nombre|Límite|Notas|
 |----|----|----|
-|Acciones por flujo de trabajo|250|Puede agregar flujos de trabajo anidados para ampliar esta función, según sea necesario.|
-|Niveles de anidamiento de acciones permitidos|5|Puede agregar flujos de trabajo anidados para ampliar esta función, según sea necesario.|
+|Acciones por flujo de trabajo|500|Puede agregar flujos de trabajo anidados para ampliar este límite según sea necesario|
+|Niveles de anidamiento de acciones permitidos|8|Puede agregar flujos de trabajo anidados para ampliar este límite según sea necesario|
 |Flujos de trabajo por región y suscripción|1000||
 |Desencadenadores por flujo de trabajo|10||
 |Límite de cambio de ámbito de casos|25||
@@ -112,7 +113,7 @@ Son los límites de una definición de aplicación lógica.
 
 ### <a name="integration-account-limits"></a>Límites de cuenta de integración
 
-Hay límites para los artefactos que se agregan a la cuenta de integración
+Los límites para los artefactos agregados a la cuenta de integración son los siguientes
 
 |Nombre|Límite|Notas|
 |----|----|----|
@@ -125,13 +126,13 @@ Hay límites para los artefactos que se agregan a la cuenta de integración
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Tamaño de mensaje de protocolos B2B (AS2, X12 y EDIFACT)
 
-Son los límites de los protocolos B2B
+Los límites de los protocolos B2B son los siguientes
 
 |Nombre|Límite|Notas|
 |----|----|----|
-|AS2|50 MB|Aplicable para descodificar y codificar|
-|X12|50 MB|Aplicable para descodificar y codificar|
-|EDIFACT|50 MB|Aplicable para descodificar y codificar|
+|AS2|50 MB|Aplicable para descodificar y codificar|
+|X12|50 MB|Aplicable para descodificar y codificar|
+|EDIFACT|50 MB|Aplicable para descodificar y codificar|
 
 ## <a name="configuration"></a>Configuración
 
@@ -139,15 +140,15 @@ Son los límites de los protocolos B2B
 
 #### <a name="logic-app-service"></a>Servicio de aplicación lógica
 
-Las llamadas realizadas desde una aplicación lógica directamente (es decir, a través de [HTTP](../connectors/connectors-native-http.md) o [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) o de otras solicitudes HTTP procederán de la dirección IP especificada a continuación:
+Las llamadas realizadas directamente desde una aplicación lógica (es decir, a través de [HTTP](../connectors/connectors-native-http.md) o [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) o de otras solicitudes HTTP procederán de la dirección IP especificada en la siguiente lista:
 
 |Región de aplicación lógica|IP de salida|
 |-----|----|
 |Australia Oriental|13.75.153.66, 104.210.89.222, 104.210.89.244, 13.75.149.4, 104.210.91.55, 104.210.90.241|
 |Sudeste de Australia|13.73.115.153, 40.115.78.70, 40.115.78.237, 13.73.114.207, 13.77.3.139, 13.70.159.205|
 |Sur de Brasil|191.235.86.199, 191.235.95.229, 191.235.94.220, 191.235.82.221, 191.235.91.7, 191.234.182.26|
-|Centro de Canadá|52.233.29.92,52.228.39.241,52.228.39.244|
-|Este de Canadá|52.232.128.155,52.229.120.45,52.229.126.25|
+|Centro de Canadá|52.233.29.92, 52.228.39.241, 52.228.39.244|
+|Este de Canadá|52.232.128.155, 52.229.120.45, 52.229.126.25|
 |India Central|52.172.157.194, 52.172.184.192, 52.172.191.194, 52.172.154.168, 52.172.186.159, 52.172.185.79|
 |Central EE. UU.:|13.67.236.76, 40.77.111.254, 40.77.31.87, 13.67.236.125, 104.208.25.27, 40.122.170.198|
 |Asia oriental|168.63.200.173, 13.75.89.159, 23.97.68.172, 13.75.94.173, 40.83.127.19, 52.175.33.254|
@@ -163,18 +164,20 @@ Las llamadas realizadas desde una aplicación lógica directamente (es decir, a 
 |Europa occidental|13.95.155.53, 52.174.54.218, 52.174.49.6, 40.68.222.65, 40.68.209.23, 13.95.147.65|
 |Oeste de la India|104.211.164.112, 104.211.165.81, 104.211.164.25, 104.211.164.80, 104.211.162.205, 104.211.164.136|
 |Oeste de EE. UU.|52.160.90.237, 138.91.188.137, 13.91.252.184, 52.160.92.112, 40.118.244.241, 40.118.241.243|
+|Sur del Reino Unido 2|51.140.74.14, 51.140.73.85, 51.140.78.44|
+|Oeste de Reino Unido|51.141.54.185, 51.141.45.238, 51.141.47.136|
 
 #### <a name="connectors"></a>Conectores
 
-Las llamadas realizadas desde un [conector](../connectors/apis-list.md) procederán de la dirección IP especificada a continuación:
+Las llamadas realizadas desde un [conector](../connectors/apis-list.md) proceden de la dirección IP especificada en la siguiente lista:
 
 |Región de aplicación lógica|IP de salida|
 |-----|----|
 |Australia Oriental|40.126.251.213|
 |Sudeste de Australia|40.127.80.34|
 |Sur de Brasil|191.232.38.129|
-|Centro de Canadá|52.233.31.197,52.228.42.205,52.228.33.76,52.228.34.13|
-|Este de Canadá|52.229.123.98,52.229.120.178,52.229.126.202,52.229.120.52|
+|Centro de Canadá|52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13|
+|Este de Canadá|52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52|
 |India Central|104.211.98.164|
 |Central EE. UU.:|40.122.49.51|
 |Asia oriental|23.99.116.181|
@@ -190,11 +193,13 @@ Las llamadas realizadas desde un [conector](../connectors/apis-list.md) proceder
 |Europa occidental|40.115.50.13|
 |Oeste de la India|104.211.161.203|
 |Oeste de EE. UU.|104.40.51.248|
+|Sur del Reino Unido 2|51.140.80.51|
+|Oeste de Reino Unido|51.141.47.105|
 
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-- Para comenzar con las aplicaciones lógicas, siga el tutorial [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) .  
+- Para comenzar con las aplicaciones lógicas, siga el tutorial [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).  
 - [Ejemplos de aplicaciones lógicas y escenarios comunes](../logic-apps/logic-apps-examples-and-scenarios.md)
 - [Con las aplicaciones lógicas puede automatizar procesos empresariales.](http://channel9.msdn.com/Events/Build/2016/T694) 
 - [Obtenga información acerca de cómo integrar sus sistemas con Aplicaciones lógicas](http://channel9.msdn.com/Events/Build/2016/P462)

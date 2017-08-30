@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/21/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3ac234b27a0675f484018c357a65ab65049ceee0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e42841b126a9df9240bec3f489589d5ce4a6db80
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="limitations-of-azure-cloud-shell"></a>Limitaciones de Azure Cloud Shell
-Azure Cloud Shell tiene las limitaciones conocidas siguientes.
+Azure Cloud Shell tiene las limitaciones conocidas siguientes:
 
 ## <a name="system-state-and-persistence"></a>Persistencia y estado del sistema
 La máquina que proporciona la sesión de Cloud Shell es temporal y se recicla después de que la sesión esté inactiva durante 20 minutos. Cloud Shell requiere montar un recurso compartido de archivos. Como resultado, la suscripción debe poder configurar los recursos de almacenamiento para tener acceso a Cloud Shell. Otras consideraciones:
@@ -39,12 +39,12 @@ Aunque algunos comandos del directorio `clouddrive`, como `git clone`, no tienen
 Cloud Shell es compatible con las versiones más recientes de Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox y Safari de Apple. Safari en modo privado no es compatible.
 
 ## <a name="copy-and-paste"></a>Copiar y pegar
-Como Ctrl+C y Ctrl+V no funcionan como métodos abreviados de teclado para copiar y pegar en equipos Windows, use Ctrl+Insert y Mayús+Insert para copiar y pegar.
+Ctrl+C y Ctrl+V no funcionan como métodos abreviados de teclado para copiar y pegar en equipos Windows, use Ctrl+Insert y Mayús+Insert para copiar y pegar respectivamente.
 
 También se puede hacer clic con el botón derecho para copiar y pegar, pero dependerá del acceso al Portapapeles que tenga cada explorador.
 
 ## <a name="editing-bashrc"></a>Editar .bashrc
-Tenga cuidado al editar .bashrc, porque al hacerlo puede provocar errores inesperados en Cloud Shell.
+Tenga cuidado al editar .bashrc, ya que puede producir errores inesperados en Cloud Shell.
 
 ## <a name="bashhistory"></a>.bash_history
 El historial de comandos de Bash puede ser incoherente debido a una interrupción de la sesión de Cloud Shell o a sesiones simultáneas.
@@ -53,7 +53,7 @@ El historial de comandos de Bash puede ser incoherente debido a una interrupció
 Cloud Shell está pensado para casos de uso interactivos. Por tanto, todas las sesiones que no sean de este tipo y que se prolonguen durante mucho tiempo se finalizarán sin previo aviso.
 
 ## <a name="network-connectivity"></a>Conectividad de red
-La latencia de Cloud Shell está sujeta a la conectividad de Internet local y Cloud Shell seguirá tratando de funcionar con las instrucciones enviadas.
+La latencia de Cloud Shell está sujeta a la conectividad de Internet local, Cloud Shell seguirá tratando de ejecutar las instrucciones enviadas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Inicio rápido de Cloud Shell](quickstart.md)

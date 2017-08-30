@@ -4,23 +4,23 @@ description: "Use Azure Functions para crear una función sin servidor que se in
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/17/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 57c59273a9da55f3e357764c522b444ae2d73cb5
 ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Agregar mensajes a una cola de Azure Storage con Functions
@@ -39,7 +39,7 @@ En Azure Functions, los enlaces de entrada y salida proporcionan una manera decl
  
 1. Expanda su Function App y su función.
 
-2. Seleccione **Integrar** y **+ Nueva salida**, **Azure Queue Storage** y **Seleccionar**.
+2. Seleccione sucesivamente **Integrar**, **+ Nueva salida**, **Azure Queue Storage** y **Seleccionar**.
     
     ![Agregue un enlace de salida de Queue Storage a una función en Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -51,7 +51,7 @@ En Azure Functions, los enlaces de entrada y salida proporcionan una manera decl
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nombre de la cola**   | myqueue-items    | El nombre de la cola a la que se va a conectar en la cuenta de almacenamiento. |
     | **Conexión de la cuenta de almacenamiento** | AzureWebJobStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una nueva.  |
-    | **Nombre del parámetro de mensaje** | outQueueItem | El nombre del parámetro del enlace de salida. | 
+    | **Nombre del parámetro de mensaje** | outputQueueItem | El nombre del parámetro del enlace de salida. | 
 
 4. Haga clic en **Guardar** para agregar el enlace.
  
@@ -61,11 +61,11 @@ Ahora que tiene definido un enlace de salida, necesita actualizar el código que
 
 1. Seleccione la función para mostrar su código en el editor. 
 
-2. Para una función de C#, actualice la definición de función de la manera siguiente para agregar el parámetro de enlace de almacenamiento **outQueueItem**. Omita este paso para una función de JavaScript.
+2. Para una función de C#, actualice la definición de función de la manera siguiente para agregar el parámetro de enlace de almacenamiento **outputQueueItem**. Omita este paso para una función de JavaScript.
 
     ```cs   
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-        ICollector<string> outQueueItem, TraceWriter log)
+        ICollector<string> outputQueueItem, TraceWriter log)
     {
         ....
     }
@@ -74,12 +74,12 @@ Ahora que tiene definido un enlace de salida, necesita actualizar el código que
 3. Agregue el siguiente código a la función justo antes de que se devuelva el método. Use el fragmento de código adecuado para el lenguaje de su función.
 
     ```javascript
-    context.bindings.outQueueItem = "Name passed to the function: " + 
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
                 (req.query.name || req.body.name);
     ```
 
     ```cs
-    outQueueItem.Add("Name passed to the function: " + name);     
+    outputQueueItem.Add("Name passed to the function: " + name);     
     ```
 
 4. Seleccione **Guardar** para guardar los cambios.
@@ -100,7 +100,7 @@ Después, puede conectarse a su cuenta de almacenamiento para comprobar la cola 
 
 Omita los tres primeros pasos si ya ha instalado el Explorador de almacenamiento y lo ha conectado a su cuenta de almacenamiento.    
 
-1. En su función, seleccione **Integrar** y el nuevo enlace de salida de **Azure Queue Storage**. Después, expanda **Documentación**. Copie el **Nombre de cuenta** y la **Clave de cuenta**. Use estas credenciales para conectarse a la cuenta de almacenamiento.
+1. En su función, elija **Integrar** y en el nuevo enlace de salida de **Azure Queue Storage**. Después, expanda **Documentación**. Copie el **Nombre de cuenta** y la **Clave de cuenta**. Use estas credenciales para conectarse a la cuenta de almacenamiento.
  
     ![Obtenga las credenciales de conexión de la cuenta de almacenamiento.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
@@ -112,7 +112,7 @@ Omita los tres primeros pasos si ya ha instalado el Explorador de almacenamiento
   
     ![Pegue las credenciales de almacenamiento y conéctese.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. Expanda la cuenta de almacenamiento adjunta, haga clic con el botón derecho en **Colas** y compruebe que existe una cola denominada **myqueue-items**. También debe ver ya un mensaje en la cola.  
+4. Expanda la cuenta de almacenamiento adjunta, expanda **Colas** y compruebe que existe una cola denominada **myqueue-items**. También debe ver ya un mensaje en la cola.  
  
     ![Cree una cola de almacenamiento.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  

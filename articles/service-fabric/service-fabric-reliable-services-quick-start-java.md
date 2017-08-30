@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 35d7f6d655f53891c00ca6c736c8c12b99fdc5ef
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="get-started-with-reliable-services"></a>Introducción a los servicios de confianza
@@ -166,22 +165,17 @@ El scaffolding de Yeoman incluye un script de Gradle para compilar la aplicació
 $ gradle
 ```
 
-Esto crea un paquete de aplicación de Service Fabric que puede implementarse mediante la CLI de Azure para Service Fabric.
+Esto crea un paquete de aplicación de Service Fabric que puede implementarse mediante la CLI de Service Fabric.
 
-### <a name="deploy-with-xplat-cli"></a>Implementación con la CLI de XPlat
+### <a name="deploy-with-service-fabric-cli"></a>Implementación con la CLI de Service Fabric
 
-Si usa la CLI de XPlat, el script install.sh contiene los comandos de la CLI de Azure necesarios para implementar el paquete de aplicación. Ejecute el script install.sh para implementar la aplicación.
+El script install.sh contiene los comandos de la CLI de Service Fabric necesarios para implementar el paquete de aplicación. Ejecute el script install.sh para implementar la aplicación.
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>Implementación con la CLI de Azure 2.0
+## <a name="next-steps"></a>Pasos siguientes
 
-Si usa la CLI de Azure 2.0, consulte la documentación de referencia sobre la administración de un [ciclo de vida de aplicación mediante la CLI de Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
-
-## <a name="related-articles"></a>Artículos relacionados
-
-* [Introducción a Service Fabric y a la CLI de Azure 2.0](service-fabric-azure-cli-2-0.md)
-* [Introducción a la CLI de XPlat de Service Fabric](service-fabric-azure-cli.md)
+* [Introducción a la CLI de Service Fabric](service-fabric-cli.md)
 

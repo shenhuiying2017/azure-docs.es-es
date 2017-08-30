@@ -1,6 +1,6 @@
 ---
 title: "Carga de una aplicación web de Java personalizada en Azure"
-description: "En este tutorial se muestra cómo cargar una aplicación web de Java personalizada en Aplicaciones web del Servicio de aplicaciones de Azure."
+description: "En este tutorial se muestra cómo cargar una aplicación web de Java personalizada en Web Apps de Azure App Service."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -14,17 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: df6443bb27285e8ba719c229dd1b12114acc48c7
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9c8f9ee7780859f7640ac82d6ebce85082170ad7
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="upload-a-custom-java-web-app-to-azure"></a>Carga de una aplicación web de Java personalizada en Azure
-En este tema se explica cómo cargar una aplicación web de Java personalizada en Aplicaciones web del [Servicio de aplicaciones de Azure] . Se incluye información que se aplica a cualquier aplicación web o sitio web de Java, así como algunos ejemplos de aplicaciones específicas.
+En este tema se explica cómo cargar una aplicación web de Java personalizada en Web Apps de [Azure App Service] . Se incluye información que se aplica a cualquier aplicación web o sitio web de Java, así como algunos ejemplos de aplicaciones específicas.
 
-Tenga en cuenta que Azure permite crear aplicaciones web de Java con la interfaz de usuario de configuración del Portal de Azure y Azure Marketplace, tal y como se documenta en [Creación de una aplicación web de Java en Servicio de aplicaciones de Azure](web-sites-java-get-started.md). Este tutorial se destina a escenarios en los que no desea usar la interfaz de usuario de configuración del Portal de Azure ni Azure Marketplace.  
+Tenga en cuenta que Azure permite crear aplicaciones web de Java con la interfaz de usuario de configuración de Azure Portal y Azure Marketplace, tal y como se documenta en [Creación de una aplicación web de Java en Azure App Service](web-sites-java-get-started.md). Este tutorial se destina a escenarios en los que no desea usar la interfaz de usuario de configuración de Azure Portal ni Azure Marketplace.  
 
 ## <a name="configuration-guidelines"></a>Directrices de configuración
 A continuación se describe la configuración esperada para las aplicaciones web de Java personalizadas en Azure.
@@ -82,10 +82,10 @@ Ejemplos:
 Las aplicaciones web basadas ​​en Java se pueden implementar fácilmente a través de la mayoría de los mismos medios que se utilizan con las aplicaciones web basadas en Internet Information Services (IIS).  FTP, Git y Kudu son todas compatibles como mecanismos de implementación, así como la funcionalidad de SCM integrada para las aplicaciones web. WebDeploy funciona como un protocolo; sin embargo, debido a que Java no está desarrollado en Visual Studio, WebDeploy no se adapta a los casos de uso de la implementación de una aplicación web de Java.
 
 ## <a name="application-configuration-examples"></a>Ejemplos de configuración de aplicaciones
-Para las siguientes aplicaciones, se proporciona un archivo web.config y la configuración de la aplicación como ejemplos para mostrar cómo habilitar la aplicación Java en Aplicaciones web del Servicio de aplicaciones.
+Para las siguientes aplicaciones, se proporciona un archivo web.config y la configuración de la aplicación como ejemplos para mostrar cómo habilitar la aplicación Java en Web Apps de App Service.
 
 ### <a name="tomcat"></a>Tomcat
-Si bien hay dos variaciones en Tomcat que se suministran con Aplicaciones web del Servicio de aplicaciones, todavía es posible cargar las instancias específicas de los clientes. A continuación se muestra un ejemplo de una instalación de Tomcat con una máquina virtual Java (JVM) diferente.
+Si bien hay dos variaciones en Tomcat que se suministran con Web Apps de App Service, todavía es posible cargar las instancias específicas de los clientes. A continuación se muestra un ejemplo de una instalación de Tomcat con una máquina virtual Java (JVM) diferente.
 
     <?xml version="1.0" encoding="UTF-8"?>
     <configuration>
@@ -113,7 +113,7 @@ Por el lado de Tomcat, es necesario realizar algunos cambios en la configuració
 * Convierta en comentarios los conectores HTTPS y AJP
 * La configuración de IPv4 también se puede configurar en el archivo catalina.properties donde se puede agregar `java.net.preferIPv4Stack=true`
 
-Las llamadas Direct3D no se admiten en Aplicaciones web del Servicio de aplicaciones. Para deshabilitarlas, agregue la siguiente opción de Java si la aplicación realiza llamadas de ese tipo: `-Dsun.java2d.d3d=false`
+Las llamadas Direct3D no se admiten en Web Apps de App Service. Para deshabilitarlas, agregue la siguiente opción de Java si la aplicación realiza llamadas de ese tipo: `-Dsun.java2d.d3d=false`
 
 ### <a name="jetty"></a>Jetty
 Como es el caso de Tomcat, los clientes pueden cargar sus propias instancias de Jetty. En el caso de ejecutar la instalación completa de Jetty, la configuración sería similar a la siguiente:
@@ -194,14 +194,14 @@ Nuestra prueba utilizó war de Hudson 3.1.2 y la instancia predeterminada de Tom
 Para obtener información adicional sobre Hudson, consulte [http://hudson-ci.org](http://hudson-ci.org).
 
 ### <a name="liferay"></a>Liferay
-Liferay es compatible con Aplicaciones web del Servicio de aplicaciones. Debido a que Liferay puede requerir una importante cantidad de memoria, la aplicación web necesita ejecutarse en un trabajo dedicado mediano o grande, que puede proporcionar suficiente memoria. Liferay también tarda varios minutos en iniciarse. Por esa razón, se recomienda que configure el sitio en **Always On**.  
+Liferay es compatible con Web Apps de App Service. Debido a que Liferay puede requerir una importante cantidad de memoria, la aplicación web necesita ejecutarse en un trabajo dedicado mediano o grande, que puede proporcionar suficiente memoria. Liferay también tarda varios minutos en iniciarse. Por esa razón, se recomienda que configure el sitio en **Always On**.  
 
 Con Liferay 6.1.2 Community Edition GA3 incluido con Tomcat, se editaron los siguientes archivos después de descargar Liferay:
 
 **Server.xml**
 
 * Cambie el puerto de apagado a -1.
-* Cambie el conector HTTP a       `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
+* Cambie el conector HTTP a `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
 * Comente el conector AJP.
 
 En la carpeta **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes**, cree un archivo llamado **portal-ext.properties**. Este archivo debe contener una línea, como se muestra aquí:
@@ -241,12 +241,12 @@ Después de que realice estos cambios, reinicie la aplicación web que ejecuta L
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre Liferay, consulte [http://www.liferay.com](http://www.liferay.com).
 
-Para obtener más información sobre Java, consulte el [Centro para desarrolladores de Java](/develop/java/).
+Para más información sobre Java, visite [Azure para desarrolladores de Java](/java/azure).
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- External Links -->
-[Servicio de aplicaciones de Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 

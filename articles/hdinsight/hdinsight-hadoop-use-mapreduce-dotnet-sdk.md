@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 08/15/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: a4ba7a056faabeb88035ed28778ef7cbf826f34c
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 015435270c31bafea0ebf5303b459338755c1410
 ms.contentlocale: es-es
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Envío de trabajos de MapReduce mediante el SDK .NET de HDInsight
@@ -35,9 +34,9 @@ Aprenda a enviar trabajos de MapReduce mediante el SDK .NET de HDInsight. Los cl
 > 
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de empezar este artículo, debe tener lo siguiente:
+Antes de empezar este artículo, debe tener los siguientes elementos:
 
-* **Un clúster de Hadoop en HDInsight**. Consulte [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* **Un clúster de Hadoop en HDInsight**. Consulte [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux](./hdinsight-hadoop-linux-tutorial-get-started.md).
 * **Visual Studio 2013/2015/2017**.
 
 ## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>Envío de trabajos de MapReduce mediante el SDK .NET de HDInsight
@@ -46,7 +45,7 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 **Para enviar trabajos**
 
 1. Cree una aplicación de consola en C# mediante Visual Studio.
-2. En la Consola del administrador de paquetes Nuget, ejecute el siguiente comando.
+2. En la Consola del Administrador de paquetes NuGet, ejecute el siguiente comando:
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Use el código siguiente:
@@ -58,28 +57,33 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
         using Microsoft.Azure.Management.HDInsight.Job;
         using Microsoft.Azure.Management.HDInsight.Job.Models;
         using Hyak.Common;
-   
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Blob;
+
         namespace SubmitHDInsightJobDotNet
         {
             class Program
             {
                 private static HDInsightJobManagementClient _hdiJobManagementClient;
    
-                private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
-                private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
-                private const string ExistingClusterUsername = "<Cluster Username>";
-                private const string ExistingClusterPassword = "<Cluster User Password>";
+                private const string existingClusterName = "<Your HDInsight Cluster Name>";
+                private const string existingClusterUri = existingClusterName + ".azurehdinsight.net";
+                private const string existingClusterUsername = "<Cluster Username>";
+                private const string existingClusterPassword = "<Cluster User Password>";
    
-                private const string DefaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.windows.net
-                private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
-                private const string DefaultStorageContainerName = "<Default Blob Container Name>";
+                private const string defaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.windows.net
+                private const string defaultStorageAccountKey = "<Default Storage Account Key>";
+                private const string defaultStorageContainerName = "<Default Blob Container Name>";
+
+                private const string sourceFile = "/example/data/gutenberg/davinci.txt";  
+                private const string outputFolder = "/example/data/davinciwordcount";
    
                 static void Main(string[] args)
                 {
                     System.Console.WriteLine("The application is running ...");
    
-                    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
-                    _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+                    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = existingClusterUsername, Password = existingClusterPassword };
+                    _hdiJobManagementClient = new HDInsightJobManagementClient(existingClusterUri, clusterCredentials);
    
                     SubmitMRJob();
    
@@ -115,18 +119,47 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
                     }
    
                     // Get job output
-                    var storageAccess = new AzureStorageAccess(DefaultStorageAccountName, DefaultStorageAccountKey,
-                        DefaultStorageContainerName);
-                    var output = (jobDetail.ExitValue == 0)
-                        ? _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, storageAccess) // fetch stdout output in case of success
-                        : _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); // fetch stderr output in case of failure
-   
                     System.Console.WriteLine("Job output is: ");
-   
-                    using (var reader = new StreamReader(output, Encoding.UTF8))
+                    var storageAccess = new AzureStorageAccess(defaultStorageAccountName, defaultStorageAccountKey,
+                        defaultStorageContainerName);
+        
+                    if (jobDetail.ExitValue == 0)
                     {
-                        string value = reader.ReadToEnd();
-                        System.Console.WriteLine(value);
+                        // Create the storage account object
+                        CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=" + 
+                            defaultStorageAccountName + 
+                            ";AccountKey=" + defaultStorageAccountKey);
+        
+                        // Create the blob client.
+                        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+        
+                        // Retrieve reference to a previously created container.
+                        CloudBlobContainer container = blobClient.GetContainerReference(defaultStorageContainerName);
+        
+                        CloudBlockBlob blockBlob = container.GetBlockBlobReference(outputFolder.Substring(1) + "/part-r-00000");
+        
+                        using (var stream = blockBlob.OpenRead())
+                        {
+                            using (StreamReader reader = new StreamReader(stream))
+                            {
+                                while (!reader.EndOfStream)
+                                {
+                                    System.Console.WriteLine(reader.ReadLine());
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // fetch stderr output in case of failure
+                        var output = _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); 
+        
+                        using (var reader = new StreamReader(output, Encoding.UTF8))
+                        {
+                            string value = reader.ReadToEnd();
+                            System.Console.WriteLine(value);
+                        }
+        
                     }
                 }
             }
@@ -135,7 +168,7 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 
 Para ejecutar el trabajo de nuevo, debe cambiar el nombre de la carpeta de salida del trabajo que, en el ejemplo, es "/example/data/davinciwordcount".
 
-Si el trabajo se completa correctamente, la salida estará vacía. Para ver el resultado del trabajo de MapReduce, use Azure Portal para explorar el contenedor de almacenamiento predeterminado en Blob Storage.  El nombre de archivo es "part-r-00000".
+Cuando el trabajo se completa correctamente, la aplicación imprime el contenido del archivo de salida "part-r-00000".
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:

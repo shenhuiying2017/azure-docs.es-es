@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ddec69e57e84f33c37831a0da2c21955d78fff98
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 80eb68346dd05c256c60725eb082aa0651fe7cbd
 ms.contentlocale: es-es
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -60,7 +60,7 @@ Al cerrar un servicio sin estado, se sigue el mismo patrón, solo que en orden i
 
 1. En paralelo
     - Se cierran todos los agentes de escucha abiertos (se llama a `CommunicationListener.closeAsync()` en cada agente de escucha)
-    - Se cancela el token de cancelación pasado a `runAsync()` (la comprobación de la propiedad `isCancelled` del token de cancelación devuelve el valor true, y si se llama al elemento `throwIfCancellationRequested` del token, el método devuelve una instancia de `CancellationException`).
+    - Se cancela el token de cancelación que se pasó a `runAsync()` (la comprobación de la propiedad `isCancelled` del token de cancelación devuelve el valor True y, si se llama al método `throwIfCancellationRequested` del token, se inicia una excepción `CancellationException`).
 2. Cuando `closeAsync()` se ha completado en cada agente de escucha y también finaliza `runAsync()`, se llama al método `StatelessService.onCloseAsync()` del servicio, si está presente (de nuevo, se trata de una invalidación poco habitual).
 3. Una vez completado `StatelessService.onCloseAsync()`, se destruye el objeto de servicio.
 

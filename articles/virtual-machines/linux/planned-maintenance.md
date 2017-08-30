@@ -1,6 +1,6 @@
 ---
-title: "Mantenimiento planeado de máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "Sepa qué es el mantenimiento planeado de Azure y cómo afecta a sus máquinas virtuales Windows que se ejecutan en Azure."
+title: "Mantenimiento y actualización de máquinas virtuales Linux en Azure | Microsoft Docs"
+description: "Información general sobre el mantenimiento y las actualizaciones de las máquinas virtuales Linux que se ejecutan en Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: zivr
@@ -13,28 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 08/14/2017
 ms.author: zivr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: f5e52f4642b85a75f0c9f1892fbf0e565aa8b35b
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 6ead5f0b6a065710a70f1e44d9672c6d8cc4c1e2
 ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="planned-maintenance-for-linux-virtual-machines"></a>Mantenimiento planeado de máquinas virtuales Linux 
 
-Microsoft Azure realiza periódicamente actualizaciones en todo el planeta para mejorar la fiabilidad, el rendimiento y la seguridad de infraestructuras host que subyacen bajo las máquinas virtuales. Tales actualizaciones van desde la aplicación de revisiones a componentes de software del entorno de hospedaje (sistema operativo, hipervisor y varios agentes implementados en el host) hasta la retirada de hardware, pasando por la actualización de los componentes de red.
+[!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 
-La mayoría de estas actualizaciones se realizan sin que ello afecte a las máquinas virtuales ni a los servicios en la nube hospedados.
+## <a name="next-steps"></a>Pasos siguientes
 
-Sin embargo, hay casos en los que afectan a las máquinas virtuales hospedadas:
+[Azure Metadata Service](instance-metadata-service.md) le permite descubrir información sobre una máquina virtual hospedada en Azure. 
 
--   El mantenimiento de conservación de las máquinas virtuales mediante la migración local de máquinas virtuales describe una clase de actualizaciones en las que aquellas no se reinician.
-
--   El mantenimiento de reinicio de las máquinas virtuales que requiere un reinicio o una reimplementación de las máquinas virtuales hospedadas.
-
-Tenga en cuenta que en esta página se describe cómo realiza Microsoft Azure el mantenimiento planeado. Para más información sobre eventos no planeados (interrupciones), consulte [Administración de la disponibilidad de las máquinas virtuales](../linux/manage-availability.md).
 

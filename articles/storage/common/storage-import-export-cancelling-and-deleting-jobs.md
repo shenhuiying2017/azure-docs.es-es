@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: e0a7ff391e5a03ed563912dea54c7cfe73111bcf
-ms.lasthandoff: 03/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 1e989c72fc03697bf6d2e515ff53003703665d1a
+ms.contentlocale: es-es
+ms.lasthandoff: 08/23/2017
 
 ---
 
 # <a name="canceling-and-deleting-azure-importexport-jobs"></a>Cancelación y eliminación de trabajos de Azure Import/Export
 
-Puede solicitar la cancelación de un trabajo antes de que adquiera el estado `Packaging` llamando a la operación de [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) (Actualizar propiedades del trabajo) y establecer el elemento `CancelRequested` en `true`. El cancelará el trabajo en función de la mejor opción. Si las unidades están transfiriendo datos, es posible que estos sigan transmitiéndose incluso después de haber solicitado la cancelación.
+ Para solicitar la cancelación de un trabajo antes de que adquiera el estado `Packaging`, llame a la operación [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) (Actualizar propiedades del trabajo) y establezca el elemento `CancelRequested` en `true`. El trabajo se cancela en función de la mejor opción. Si las unidades están transfiriendo datos, es posible que estos sigan transmitiéndose incluso después de haber solicitado la cancelación.
 
- Un trabajo cancelado adquirirá el estado `Completed` y se conservará durante 90 días; transcurrido ese plazo, se eliminará.
+ Un trabajo cancelado se pasa al estado `Completed` y se mantiene durante 90 días, momento en que se elimina.
 
- Para eliminar un trabajo, llame a la operación [Eliminar trabajo](/rest/api/storageimportexport/jobs#Jobs_Delete) antes de que este se haya procesado (*es decir*, mientras el trabajo muestre el estado `Creating`). También puede eliminar un trabajo cuando se encuentra en el estado `Completed`. Una vez eliminado un trabajo, ya no se podrá acceder a su información y estado mediante la API de REST o Azure Portal.
+ Para eliminar un trabajo, llame a la operación [Delete Job](/rest/api/storageimportexport/jobs#Jobs_Delete) (Eliminar trabajo) antes de que este se haya procesado (es decir, mientras el trabajo esté en el estado `Creating`). También puede eliminar un trabajo cuando se encuentra en el estado `Completed`. Una vez eliminado un trabajo, ya no se podrá acceder a su estado mediante la API de REST o Azure Portal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
