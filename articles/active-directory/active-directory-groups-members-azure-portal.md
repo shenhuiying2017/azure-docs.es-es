@@ -1,5 +1,4 @@
 ---
-
 title: "Administración de los miembros de un grupo en Azure Active Directory | Microsoft Docs"
 description: "Cómo agregar o quitar usuarios y dispositivos de un grupo en Azure Active Directory"
 services: active-directory
@@ -13,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/28/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017;it-pro
+ms.reviewer: piotrci
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 044e88f95712e1cc5b5532f5492c78d711a8d858
 ms.contentlocale: es-es
 ms.lasthandoff: 05/08/2017
-
 
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Administración de la pertenencia a grupos de los usuarios del inquilino de Azure Active Directory

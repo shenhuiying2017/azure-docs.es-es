@@ -4,7 +4,7 @@ description: "Administre cómo usar Azure Multi-Factor Authentication, incluida 
 services: multi-factor-authentication
 keywords: "cliente de multi-factor authentication, problema de autenticación, identificador de correlación"
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: yossib
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
@@ -60,10 +60,10 @@ Es importante configurar un número de teléfono de autenticación secundario.  
 
 ## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>Requisito de nueva verificación en dos pasos en un dispositivo marcado como de confianza
 
-Dependiendo de la configuración de la organización, es posible que tenga una casilla que indica "Don't ask again for **X** days" (No volver a preguntar en X días) al realizar la verificación en dos pasos en el explorador. Si marca este cuadro y pierde el dispositivo o piensa que se ha comprometido la seguridad de su cuenta, debe restaurar la verificación en dos pasos en todos los dispositivos. 
+Dependiendo de la configuración de la organización, es posible que tenga una casilla que indica "Don't ask again for **X** days" (No volver a preguntar en X días) al realizar la verificación en dos pasos en el explorador. Si marca este cuadro y pierde el dispositivo o piensa que se ha comprometido la seguridad de su cuenta, debe restaurar la verificación en dos pasos en todos los dispositivos.
 
 1. En la página Comprobación de seguridad adicional, seleccione **Restaurar Multi-Factor Authentication en dispositivos en los que se confió anteriormente**.
-2. La próxima vez que inicie sesión en cualquier dispositivo, se le pedirá que realice la verificación en dos pasos. 
+2. La próxima vez que inicie sesión en cualquier dispositivo, se le pedirá que realice la verificación en dos pasos.
 
 ## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>¿Cómo puedo quitar Microsoft Authenticator del dispositivo anterior y moverlo a uno nuevo?
 Cuando desinstala la aplicación del dispositivo o restablece el dispositivo, no se quita la activación en el back-end. Para más información, vea [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).

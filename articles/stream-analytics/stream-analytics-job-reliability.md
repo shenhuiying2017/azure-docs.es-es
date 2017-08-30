@@ -3,7 +3,7 @@ title: Evitar interrupciones de servicio con trabajos de Azure Stream Analytics 
 description: "Guía sobre cómo realizar la actualización resistente de los trabajos de Stream Analytics."
 services: stream-analytics
 documentationCenter: 
-authors: jeffstokes72
+authors: samacha
 manager: jhubbard
 editor: cgronlun
 ms.service: stream-analytics
@@ -12,10 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
+ms.author: samacha
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
 ms.openlocfilehash: de803447ec379f35b453890d92359a91f4fd8427
+ms.contentlocale: es-es
 ms.lasthandoff: 03/06/2017
 
 ---

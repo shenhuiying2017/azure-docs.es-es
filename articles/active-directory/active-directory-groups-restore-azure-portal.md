@@ -1,5 +1,4 @@
 ---
-
 title: "Restauración de un grupo eliminado de Office 365 en Azure Active Directory | Microsoft Docs"
 description: "Restauración de un grupo eliminado, visualización de grupos restaurables y eliminación permanente de un grupo en Azure Active Directory"
 services: active-directory
@@ -13,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 08/28/2017
 ms.author: curtand
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
 ms.openlocfilehash: 795b711542c0a200b80e414397094a102213caf2
 ms.contentlocale: es-es
 ms.lasthandoff: 05/19/2017
-
 
 ---
 
@@ -43,12 +43,12 @@ Usuario | Puede restaurar cualquier grupo eliminado de Office 365 de su propieda
 ## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore"></a>Visualización de grupos eliminados de Office 365 disponibles para restauración
 Los cmdlets siguientes se pueden usar para ver los grupos eliminados y comprobar que todavía no se purgaron los que le interesan. Estos cmdlets son parte del [módulo de Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/). Puede encontrar más información sobre este módulo en el artículo sobre la [versión 2 de Azure Active Directory PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-1.    Ejecute el cmdlet siguiente para mostrar todos los grupos eliminados de Office 365 existentes en el inquilino que todavía se pueden restaurar.
+1.  Ejecute el cmdlet siguiente para mostrar todos los grupos eliminados de Office 365 existentes en el inquilino que todavía se pueden restaurar.
   ```
   Get-AzureADMSDeletedGroup
   ```
 
-2.    Como alternativa, si conoce el id. de objeto de un grupo específico (y puede obtenerlo del cmdlet del paso 1), ejecute el cmdlet siguiente para comprobar que el grupo eliminado específico todavía no se purgó de forma permanente.
+2.  Como alternativa, si conoce el id. de objeto de un grupo específico (y puede obtenerlo del cmdlet del paso 1), ejecute el cmdlet siguiente para comprobar que el grupo eliminado específico todavía no se purgó de forma permanente.
   ```
   Get-AzureADMSDeletedGroup –Id <objectId>
   ```
@@ -58,7 +58,7 @@ Los cmdlets siguientes se pueden usar para ver los grupos eliminados y comprobar
 ## <a name="how-to-restore-your-deleted-office-365-group"></a>Procedimientos para restaurar grupos eliminados de Office 365
 Una vez que haya comprobado que el grupo todavía se puede restaurar, siga uno de los pasos siguientes para restaurar el grupo eliminado. Si el grupo contiene documentos, sitios de SP u otros objetos persistentes, el proceso completo de restauración de un grupo y su contenido podría demorar hasta 24 horas.
 
-1.    Ejecute el cmdlet siguiente para restaurar el grupo y su contenido.
+1.  Ejecute el cmdlet siguiente para restaurar el grupo y su contenido.
   
   ```
   Restore-AzureADMSDeletedDirectoryObject –Id <objectId>

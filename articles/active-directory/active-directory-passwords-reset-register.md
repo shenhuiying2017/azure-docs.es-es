@@ -4,7 +4,7 @@ description: "Registro de datos de autenticación de autoservicio de restablecim
 services: active-directory
 keywords: 
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: barlanmsft
 manager: femila
 ms.reviewer: sahenry
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: joflore
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: HT
 ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
@@ -67,5 +67,4 @@ Los administradores pueden requerir que confirme los métodos de autenticación 
 * [No puede iniciar sesión en su cuenta de Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Página de registro en el restablecimiento de contraseña que muestra los métodos registrados y botón Finalizar"
-
 

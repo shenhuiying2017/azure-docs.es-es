@@ -3,7 +3,7 @@ title: "¿Cómo se utilizan las contraseñas de aplicación en Azure MFA? | Micr
 description: "Esta página ayudará a los usuarios a entender qué son las contraseñas de aplicación y para qué se utilizan con respecto a Azure MFA."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: yossib
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
@@ -36,21 +36,21 @@ Las siguientes son algunas cosas que es necesario recordar sobre el uso de contr
 
 * El usuario no crea sus propias contraseñas de aplicación. En su lugar, se generan automáticamente. Puesto que solo tiene que escribir la contraseña de aplicación una vez por aplicación, es más seguro usar una contraseña más compleja, generada automáticamente, en lugar de crear una que pueda recordar.
 * Actualmente hay un límite de 40 contraseñas por usuario. Si intenta crear más una vez que haya alcanzado el límite, se le pedirá que elimine una de las contraseñas de aplicación existentes para poder crear una nueva.
-* Debe usar una contraseña de aplicación por dispositivo, no por aplicación. Por ejemplo, puede crear una contraseña de aplicación para su equipo portátil y utilizar esa contraseña de aplicación para todas las aplicaciones de ese equipo portátil. A continuación, cree una segunda contraseña de aplicación que se usará para todas las aplicaciones del escritorio. 
+* Debe usar una contraseña de aplicación por dispositivo, no por aplicación. Por ejemplo, puede crear una contraseña de aplicación para su equipo portátil y utilizar esa contraseña de aplicación para todas las aplicaciones de ese equipo portátil. A continuación, cree una segunda contraseña de aplicación que se usará para todas las aplicaciones del escritorio.
 * La primera vez que se registre para la verificación en dos pasos, se le proporcionará una contraseña de aplicación.  Si necesita otras adicionales, puede crearlas.
 
 
 
 ## <a name="creating-and-deleting-app-passwords"></a>Creación y eliminación de contraseñas de aplicación
-Durante el inicio de sesión primero, se proporciona una contraseña de aplicación que puede utilizar.  Además, también puede crear y eliminar contraseñas de aplicación más adelante.  La forma de hacerlo depende de cómo use la autenticación multifactor. Responda a las siguientes preguntas para determinar dónde debe ir para administrar las contraseñas de aplicación: 
+Durante el inicio de sesión primero, se proporciona una contraseña de aplicación que puede utilizar.  Además, también puede crear y eliminar contraseñas de aplicación más adelante.  La forma de hacerlo depende de cómo use la autenticación multifactor. Responda a las siguientes preguntas para determinar dónde debe ir para administrar las contraseñas de aplicación:
 
 1. ¿Utiliza la verificación en dos pasos para su cuenta Microsoft personal? Si es así, consulte el artículo [Contraseñas de aplicación y verificación en dos pasos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) para obtener ayuda. En caso contrario, continúe con la pregunta dos.
 
-2. En ese caso, significa que usa la verificación en dos pasos para la cuenta profesional o educativa. ¿La usa para iniciar sesión en aplicaciones de Office 365? Si es así, consulte [Crear una contraseña de aplicación para Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) para obtener ayuda. En caso contrario, pase a la pregunta tres. 
+2. En ese caso, significa que usa la verificación en dos pasos para la cuenta profesional o educativa. ¿La usa para iniciar sesión en aplicaciones de Office 365? Si es así, consulte [Crear una contraseña de aplicación para Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) para obtener ayuda. En caso contrario, pase a la pregunta tres.
 
 3. ¿Utiliza la verificación en dos pasos con Microsoft Azure? En caso afirmativo, continúe en la sección [Administración de contraseñas de aplicación en Azure Portal](#manage-app-passwords-in-the-Azure-portal) de este artículo. En caso contrario, continúe con la pregunta cuatro.
 
-4. ¿No está seguro de donde utiliza la verificación en dos pasos? Continúe en la sección [Administración de contraseñas de aplicación con el portal de MyApps](#manage-app-passwords-with-the-myapps-portal) de este artículo. 
+4. ¿No está seguro de donde utiliza la verificación en dos pasos? Continúe en la sección [Administración de contraseñas de aplicación con el portal de MyApps](#manage-app-passwords-with-the-myapps-portal) de este artículo.
 
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Administración de contraseñas de aplicación en Azure Portal
@@ -63,7 +63,7 @@ Si utiliza la verificación en dos pasos con Azure, le interesará crear contras
 4. Haga clic en **Crear**.
 5. Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**
 6. Copie la contraseña de aplicación en el Portapapeles y péguela en la aplicación.
-   
+
    ![Nube](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
 
 
@@ -115,5 +115,5 @@ Si no está seguro de cómo usar la autenticación multifactor, siempre puede ca
 
 - [Administrar la configuración de la verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md)
 
-- Pruebe la [aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para verificar los inicios de sesión con las notificaciones de aplicación, en lugar de recibir llamadas o textos. 
+- Pruebe la [aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para verificar los inicios de sesión con las notificaciones de aplicación, en lugar de recibir llamadas o textos.
 

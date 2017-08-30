@@ -3,7 +3,7 @@ title: "Ayuda y soporte técnico para la aplicación Microsoft Authenticator | M
 description: "Proporciona una lista de las preguntas y respuestas más frecuentes relacionadas con la aplicación Microsoft Authentication y Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.translationtype: Human Translation
@@ -48,9 +48,9 @@ Si no recibe las notificaciones, compruebe los siguientes casos:
 
 - ¿El teléfono se encuentra en modo silencioso o no molestar? Ese modo puede evitar que las aplicaciones envíen notificaciones.
 - ¿Puede recibir notificaciones de otras aplicaciones? De lo contrario, puede haber un problema con las conexiones de red en su teléfono o el canal de notificaciones de Android o Apple. Puede solucionar el primer caso en la configuración del teléfono, pero puede que necesite hablar con su proveedor de servicios para obtener ayuda con el segundo caso.
-- ¿Puede recibir notificaciones de algunas cuentas en la aplicación, pero no de otras? Si es así, quite la cuenta problemática de la aplicación y agréguela de nuevo para habilitar las notificaciones push. 
+- ¿Puede recibir notificaciones de algunas cuentas en la aplicación, pero no de otras? Si es así, quite la cuenta problemática de la aplicación y agréguela de nuevo para habilitar las notificaciones push.
 
-Si ha probado estas sugerencias de solución de problemas, pero sigue teniéndolos, envíenos sus registros para el diagnóstico. Vaya a la configuración de la aplicación y seleccione **Ayuda y comentarios**, y **Enviar registros**. A continuación, vaya al [foro de la aplicación Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) y háganos saber cuál es el problema y qué pasos ha probado. 
+Si ha probado estas sugerencias de solución de problemas, pero sigue teniéndolos, envíenos sus registros para el diagnóstico. Vaya a la configuración de la aplicación y seleccione **Ayuda y comentarios**, y **Enviar registros**. A continuación, vaya al [foro de la aplicación Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) y háganos saber cuál es el problema y qué pasos ha probado.
 
 ### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>Ya uso la aplicación Microsoft Authenticator con los códigos de comprobación. ¿Cómo cambio a las notificaciones push de un solo clic?
 La aprobación de un inicio de sesión mediante notificaciones push solo está disponible para las cuentas personales, profesionales y educativas de Microsoft. No está disponible para cuentas de terceros, como Google o Facebook. Si tiene una cuenta profesional o educativa de Microsoft, su organización puede deshabilitar esta opción.
@@ -95,7 +95,7 @@ Esta es una lista completa de permisos que es posible que se le pidan y de cómo
 
 ### <a name="why-does-the-microsoft-authenticator-app-allow-you-to-approve-a-request-without-unlocking-the-device"></a>¿Por qué la aplicación Microsoft Authenticator permite aprobar una solicitud sin desbloquear el servicio?
 
-No tiene que desbloquear el dispositivo para aprobar solicitudes de comprobación porque todo lo que necesita demostrar es que lleva el teléfono encima. La verificación en dos pasos realiza dos comprobaciones: una comprobación de algo que sabe y una comprobación de algo que tiene. Lo que sabe es la contraseña. Lo que tiene es el teléfono (configurado con la aplicación Microsoft Authenticator y registrado como una prueba de MFA). Por tanto, al tener el teléfono y aprobar la solicitud, se cumplen los criterios del segundo factor de la autenticación. 
+No tiene que desbloquear el dispositivo para aprobar solicitudes de comprobación porque todo lo que necesita demostrar es que lleva el teléfono encima. La verificación en dos pasos realiza dos comprobaciones: una comprobación de algo que sabe y una comprobación de algo que tiene. Lo que sabe es la contraseña. Lo que tiene es el teléfono (configurado con la aplicación Microsoft Authenticator y registrado como una prueba de MFA). Por tanto, al tener el teléfono y aprobar la solicitud, se cumplen los criterios del segundo factor de la autenticación.
 
 ### <a name="what-does-the-lock-icon-in-the-account-list-mean"></a>¿Qué significa el icono de candado en la lista de cuentas?
 
@@ -111,5 +111,4 @@ Si no encontró aquí la respuesta a su pregunta, nos gustaría ayudarle. Acceda
 * [Acerca de la comprobación en dos pasos](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) de cuentas de Microsoft
 * [Problemas con la verificación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md) de la cuenta profesional o educativa
 * [Uso de Microsoft Authenticator para iniciar sesión desde el teléfono](microsoft-authenticator-app-phone-signin-faq.md)
-
 

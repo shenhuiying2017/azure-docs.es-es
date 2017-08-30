@@ -48,9 +48,9 @@ Siga los pasos siguientes para obtener acceso al autoservicio de restablecimient
 
    > [!NOTE]
    > Si su personal de TI no ha habilitado esta funcionalidad, aparecerá un vínculo con el texto "Póngase en contacto con el administrador" para solicitar ayuda al personal de TI mediante correo electrónico o un portal web de su propiedad.
-   > 
+   >
    > Si necesita desbloquear la cuenta, elija la opción "Conozco la contraseña, pero aún así no puedo iniciar sesión".
-   > 
+   >
 
 3. En función de cómo haya configurado el personal de TI el SSPR, verá una o varias de las siguientes opciones. El usuario o su personal de TI ya habrán rellenado parte de esta información antes de usar el artículo [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md).
 
