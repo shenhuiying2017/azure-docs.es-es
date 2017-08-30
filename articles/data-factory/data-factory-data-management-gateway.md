@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 221eadc2e93c2be0f985386277fcfab69e46416b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9e40eba285aeb1cce6b77311d1b69a6b96967a0b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
@@ -55,7 +55,7 @@ A continuación se muestra el flujo de datos genérico y el resumen de los pasos
 6. La puerta de enlace copia datos de un almacén local a un almacenamiento en nube, o viceversa, en función de cómo esté configurada la actividad de copia en la canalización de datos. En este paso, la puerta de enlace se comunica directamente con servicios de almacenamiento basados en la nube, como Azure Blob Storage, a través de un canal seguro (HTTPS).
 
 ### <a name="considerations-for-using-gateway"></a>Consideraciones a la hora de usar la puerta de enlace
-* Se puede utilizar una sola instancia de Data Management Gateway para varios orígenes de datos locales. Sin embargo, **estará asociada a una única factoría de datos de Azure** y no podrá compartirse con otra factoría de datos.
+* Se puede utilizar una sola instancia de Data Management Gateway para varios orígenes de datos locales. Sin embargo, **estará asociada a una única instancia de Azure Data Factory** y no podrá compartirse con otra factoría de datos.
 * **Solo puede haber una instancia de Data Management Gateway** instalada en un equipo. Supongamos que tiene dos factorías de datos que necesitan acceder a orígenes de datos locales. Debe instalar puertas de enlace en dos equipos locales; es decir, cada puerta de enlace estará asociada a una factoría de datos concreta.
 * La **puerta de enlace no tiene que estar en la misma máquina que el origen de datos**. Sin embargo, si se coloca cerca del origen de datos, se reducirá el tiempo que necesita la puerta de enlace para conectarse a este. Le recomendamos que instale la puerta de enlace en una máquina diferente de la que hospeda el origen de datos local. Cuando la puerta de enlace y el origen de datos estén en máquinas distintas, no emplearán los mismos recursos.
 * Puede tener **varias puertas de enlace en diferentes equipos conectados al mismo origen de datos local**. Por ejemplo, puede que tenga dos puertas de enlace que atienden a dos factorías de datos pero el mismo origen de datos local está registrado con las dos factorías de datos.
@@ -268,6 +268,7 @@ Verá el estado de la operación de actualización (manual o automática) en la 
 ### <a name="to-disableenable-auto-update-feature"></a>Para habilitar o deshabilitar la característica de actualización automática
 Se puede habilitar o deshabilitar la función de actualización automática realizando los siguientes pasos:
 
+[Para puerta de enlace de nodo único]
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
 2. Cambie a la carpeta C:\Archivos de programa\Microsoft Data Management Gateway\2.0\PowerShellScript.
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.   
@@ -280,153 +281,167 @@ Se puede habilitar o deshabilitar la función de actualización automática real
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -on  
     ```
+[[Para puerta de enlace escalable y altamente disponible de varios nodos (versión preliminar)](data-factory-data-management-gateway-high-availability-scalability.md)]
+1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
+2. Cambie a la carpeta C:\Archivos de programa\Microsoft Data Management Gateway\2.0\PowerShellScript.
+3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.   
 
-## <a name="configuration-manager"></a>Administrador de configuración
-Una vez instalada la puerta de enlace, puede iniciar el Administrador de configuración de Data Management Gateway de una de las siguientes maneras:
+    Se requiere un parámetro AuthKey adicional para la característica de puerta de enlace con alta disponibilidad (versión preliminar).
+    ```PowerShell
+    .\GatewayAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+    ```
+4. Para volver a activarla:
 
-1. En la ventana **Búsqueda**, escriba **Data Management Gateway** para tener acceso a esta utilidad.
-2. Ejecute el archivo ejecutable **ConfigManager.exe** en la carpeta **C:\Archivos de programa\Microsoft Data Management Gateway\2.0\Shared**.
+    ```PowerShell
+    .\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
 
-### <a name="home-page"></a>Página de inicio
-En la página principal puede hacer las siguientes acciones:
 
-* Ver el estado de la puerta de enlace (conectada al servicio en la nube, etc.).
-* **Registrar** con una clave desde el Portal.
-* **Detener** e iniciar el **servicio host de Data Management Gateway** en el equipo de puerta de enlace.
-* **Programar actualizaciones** en determinados momentos del día.
-* Ver la fecha en que la puerta de enlace se **actualizó por última vez**.
+## Configuration Manager
+Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways:
 
-### <a name="settings-page"></a>Página Configuración
-En la página Configuración puede hacer las siguientes acciones:
+1. In the **Search** window, type **Data Management Gateway** to access this utility.
+2. Run the executable **ConfigManager.exe** in the folder: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
-* Ver, modificar y exportar el **certificado** usado por la puerta de enlace. Este certificado se utiliza para cifrar las credenciales de orígenes de datos.
-* Cambiar el **puerto HTTPS** del punto de conexión. La puerta de enlace abre un puerto para establecer las credenciales del origen de datos.
-* **estado** del punto de conexión
-* El **certificado SSL** de visualización se utiliza para establecer la comunicación SSL entre el portal y la puerta de enlace con el fin de establecer credenciales para los orígenes de datos.  
+### Home page
+The Home page allows you to do the following actions:
 
-### <a name="diagnostics-page"></a>Página Diagnóstico
-En la página Diagnóstico puede realizar las siguientes acciones:
+* View status of the gateway (connected to the cloud service etc.).
+* **Register** using a key from the portal.
+* **Stop** and start the **Data Management Gateway Host service** on the gateway machine.
+* **Schedule updates** at a specific time of the days.
+* View the date when the gateway was **last updated**.
 
-* Habilitar un **registro**detallado, ver los registros en el visor de eventos y enviar registros a Microsoft en caso de error.
-* **Probar la conexión** a un origen de datos.  
+### Settings page
+The Settings page allows you to do the following actions:
 
-### <a name="help-page"></a>Página de ayuda
-La página Ayuda muestra la siguiente información:  
+* View, change, and export **certificate** used by the gateway. This certificate is used to encrypt data source credentials.
+* Change **HTTPS port** for the endpoint. The gateway opens a port for setting the data source credentials.
+* **Status** of the endpoint
+* View **SSL certificate** is used for SSL communication between portal and the gateway to set credentials for data sources.  
 
-* Breve descripción de la puerta de enlace
-* Número de la versión
-* Vínculos a la ayuda en línea, la declaración de privacidad y el contrato de licencia.  
+### Diagnostics page
+The Diagnostics page allows you to do the following actions:
 
-## <a name="monitor-gateway-in-the-portal"></a>Supervisión de la puerta de enlace en el portal
-En Azure Portal, puede ver una instantánea casi en tiempo real de la utilización de los recursos (CPU, memoria, red (entrada/salida), etc.) en un equipo de puerta de enlace.  
+* Enable verbose **logging**, view logs in event viewer, and send logs to Microsoft if there was a failure.
+* **Test connection** to a data source.  
 
-1. En Azure Portal, vaya a la página principal de la factoría de datos y haga clic en el icono **Servicios vinculados**. 
+### Help page
+The Help page displays the following information:  
 
-    ![Página principal de Factoría de datos](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
-2. Seleccione la **puerta de enlace** en la página **Servicios vinculados**.
+* Brief description of the gateway
+* Version number
+* Links to online help, privacy statement, and license agreement.  
 
-    ![Página Servicios vinculados](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
-3. En la página **Puerta de enlace**, puede ver el uso de memoria y CPU de la puerta de enlace.
+## Monitor gateway in the portal
+In the Azure portal, you can view near-real time snapshot of resource utilization (CPU, memory, network(in/out), etc.) on a gateway machine.  
 
-    ![Uso de CPU y memoria de la puerta de enlace](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png) 
-4. Habilite **Configuración avanzada** para ver más detalles, como el uso de la red.
+1. In Azure portal, navigate to the home page for your data factory, and click **Linked services** tile. 
+
+    ![Data factory home page](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
+2. Select the **gateway** in the **Linked services** page.
+
+    ![Linked services page](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
+3. In the **Gateway** page, you can see the memory and CPU usage of the gateway.
+
+    ![CPU and memory usage of gateway](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png) 
+4. Enable **Advanced settings** to see more details such as network usage.
     
-    ![Supervisión avanzada de la puerta de enlace](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
+    ![Advanced monitoring of gateway](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
 
-En la tabla siguiente se proporcionan las descripciones de las columnas de la lista **Nodos de la puerta de enlace**:  
+The following table provides descriptions of columns in the **Gateway Nodes** list:  
 
-Propiedad de supervisión | Descripción
+Monitoring Property | Description
 :------------------ | :---------- 
-Nombre | Nombre de la puerta de enlace lógica y de los nodos asociados a la puerta de enlace. Un nodo es una máquina de Windows local que tiene la puerta de enlace instalada. Para obtener información sobre cómo tener más de un nodo (hasta cuatro nodos) en una sola puerta de enlace lógica, consulte [Data Management Gateway: alta disponibilidad y escalabilidad](data-factory-data-management-gateway-high-availability-scalability.md).    
-Estado | Estado de la puerta de enlace lógica y de los nodos de la puerta de enlace. Ejemplo: En línea, Sin conexión, Limitado, etc. Para obtener información acerca de estos estados, consulte la sección [Estado de la puerta de enlace](#gateway-status). 
-Versión | Muestra la versión de la puerta de enlace lógica y de cada nodo de la puerta de enlace. La versión de la puerta de enlace lógica se determina basándose en la versión de la mayoría de los nodos del grupo. Si hay nodos con versiones diferentes en la configuración de la puerta de enlace lógica, solo los nodos con el mismo número de versión que la puerta de enlace lógica funcionan correctamente. Los otros están en el modo limitado y deben actualizarse manualmente (solo en caso de que se produzca un error en la actualización automática). 
-Memoria disponible | Memoria disponible en un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 
-Uso de CPU | Uso de CPU de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 
-Redes (Entrada/Salida) | Uso de red de un nodo de la puerta de enlace. Este valor es una instantánea casi en tiempo real. 
-Trabajos simultáneos (En ejecución / Límite) | Número de trabajos o tareas que se ejecutan en cada nodo. Este valor es una instantánea casi en tiempo real. Límite significa el máximo número de trabajos simultáneos para cada nodo. Este valor se define basándose en el tamaño de la máquina. Puede aumentar el límite para escalar verticalmente la ejecución de trabajos simultáneos en escenarios avanzados, donde la CPU, la memoria o la red están infrautilizadas pero se agota el tiempo de espera de las actividades. Esta funcionalidad también está disponible con una puerta de enlace de un único nodo (incluso cuando no está habilitada la característica de escalabilidad y disponibilidad).  
-Rol | Hay dos tipos de roles en una puerta de enlace de varios nodos: distribuidor y trabajo. Todos los nodos son trabajos, lo que significa que pueden usarse para ejecutar los trabajos. Hay solo un nodo distribuidor, que se usa para extraer los trabajos y tareas de los servicios en la nube y enviarlos a los diferentes nodos de trabajo (incluido él mismo).
+Name | Name of the logical gateway and nodes associated with the gateway. Node is an on-premises Windows machine that has the gateway installed on it. For information on having more than one node (up to four nodes) in a single logical gateway, see [Data Management Gateway - high availability and scalability](data-factory-data-management-gateway-high-availability-scalability.md).    
+Status | Status of the logical gateway and the gateway nodes. Example: Online/Offline/Limited/etc. For information about these statuses, See [Gateway status](#gateway-status) section. 
+Version | Shows the version of the logical gateway and each gateway node. The version of the logical gateway is determined based on version of majority of nodes in the group. If there are nodes with different versions in the logical gateway setup, only the nodes with the same version number as the logical gateway function properly. Others are in the limited mode and need to be manually updated (only in case auto-update fails). 
+Available memory | Available memory on a gateway node. This value is a near real-time snapshot. 
+CPU utilization | CPU utilization of a gateway node. This value is a near real-time snapshot. 
+Networking (In/Out) | Network utilization of a gateway node. This value is a near real-time snapshot. 
+Concurrent Jobs (Running/ Limit) | Number of jobs or tasks running on each node. This value is a near real-time snapshot. Limit signifies the maximum concurrent jobs for each node. This value is defined based on the machine size. You can increase the limit to scale up concurrent job execution in advanced scenarios, where CPU/memory/network is under-utilized, but activities are timing out. This capability is also available with a single-node gateway (even when the scalability and availability feature is not enabled).  
+Role | There are two types of roles in a multi-node gateway – Dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes (including itself).
 
-En esta página, verá que algunos valores de configuración tienen más sentido cuando hay dos o más nodos (escenario de escalado horizontal) en la puerta de enlace. Consulte [Data Management Gateway: alta disponibilidad y escalabilidad](data-factory-data-management-gateway-high-availability-scalability.md) para más información acerca de cómo configurar una puerta de enlace de varios nodos.
+In this page, you see some settings that make more sense when there are two or more nodes (scale out scenario) in the gateway. See [Data Management Gateway - high availability and scalability](data-factory-data-management-gateway-high-availability-scalability.md) for details about setting up a multi-node gateway.
 
-### <a name="gateway-status"></a>Estado de la puerta de enlace
-La tabla siguiente proporciona los estados posibles de un **nodo de la puerta de enlace**: 
+### Gateway status
+The following table provides possible statuses of a **gateway node**: 
 
-Estado  | Comentarios/Escenarios
+Status  | Comments/Scenarios
 :------- | :------------------
-En línea | Nodo conectado al servicio Data Factory.
-Sin conexión | El nodo está sin conexión.
-Actualizando | El nodo se está actualizando automáticamente.
-Limitado | Debido a un problema de conectividad. Puede ser debido a un problema en el puerto HTTP 8050, a un problema de conectividad del bus de servicio o un problema de sincronización de credenciales. 
-Inactivo | El nodo tiene una configuración diferente de la configuración de la mayoría de los otros nodos.<br/><br/> Un nodo puede estar inactivo cuando no se puede conectar a otros nodos. 
+Online | Node connected to Data Factory service.
+Offline | Node is offline.
+Upgrading | The node is being auto-updated.
+Limited | Due to Connectivity issue. May be due to HTTP port 8050 issue, service bus connectivity issue, or credential sync issue. 
+Inactive | Node is in a configuration different from the configuration of other majority nodes.<br/><br/> A node can be inactive when it cannot connect to other nodes. 
 
 
-La tabla siguiente proporciona los estados posibles de una **puerta de enlace lógica**. El estado de la puerta de enlace depende de los estados de los nodos de puerta de enlace. 
+The following table provides possible statuses of a **logical gateway**. The gateway status depends on statuses of the gateway nodes. 
 
-Estado | Comentarios
+Status | Comments
 :----- | :-------
-Debe registrarse | Aún no se ha registrado ningún nodo en esta puerta de enlace lógica
-En línea | Los nodos de la puerta de enlace están en línea
-Sin conexión | Ningún nodo está en línea.
-Limitado | No todos los nodos de la puerta de enlace están en buen estado. Este estado es una advertencia de que alguno de los nodos podría estar inactivo. <br/><br/>Podría ser debido a un problema de sincronización de credenciales en el nodo distribuidor o de trabajo. 
+Needs Registration | No node is yet registered to this logical gateway
+Online | Gateway Nodes are online
+Offline | No node in online status.
+Limited | Not all nodes in this gateway are in healthy state. This status is a warning that some node might be down! <br/><br/>Could be due to credential sync issue on dispatcher/worker node. 
 
-## <a name="scale-up-gateway"></a>Escalado vertical de la puerta de enlace
-Puede configurar el número de **trabajos de movimiento de datos simultáneos** que puede ejecutar en un nodo para escalar verticalmente la funcionalidad de mover datos entre los equipos locales y los almacenes de datos en la nube. 
+## Scale up gateway
+You can configure the number of **concurrent data movement jobs** that can run on a node to scale up the capability of moving data between on-premises and cloud data stores. 
 
-Cuando la memoria disponible y la CPU no se utilizan correctamente, pero la capacidad de inactividad es 0, debe escalar verticalmente aumentando el número de trabajos simultáneos que se pueden ejecutar en un nodo. También puede escalar verticalmente cuando se agota el tiempo de espera de las actividades porque la puerta de enlace está sobrecargada. En la configuración avanzada de un nodo de la puerta de enlace, puede aumentar la capacidad máxima para un nodo. 
+When the available memory and CPU are not utilized well, but the idle capacity is 0, you should scale up by increasing the number of concurrent jobs that can run on a node. You may also want to scale up when activities are timing out because the gateway is overloaded. In the advanced settings of a gateway node, you can increase the maximum capacity for a node. 
   
 
-## <a name="troubleshooting-gateway-issues"></a>Solución de problemas de la puerta de enlace
-Consulte el artículo [Solución de problemas de la puerta de enlace](data-factory-troubleshoot-gateway-issues.md) para información y sugerencias para solucionar problemas relacionados con el uso de Data Management Gateway.  
+## Troubleshooting gateway issues
+See [Troubleshooting gateway issues](data-factory-troubleshoot-gateway-issues.md) article for information/tips for troubleshooting issues with using the data management gateway.  
 
-## <a name="move-gateway-from-one-machine-to-another"></a>Movimiento de la puerta de enlace de un equipo a otro
-En esta sección se proporcionan pasos para mover el cliente de puerta de enlace de un equipo a otro equipo.
+## Move gateway from one machine to another
+This section provides steps for moving gateway client from one machine to another machine.
 
-1. En el portal, vaya a la **página principal de Data Factory** y haga clic en el icono **Servicios vinculados**.
+1. In the portal, navigate to the **Data Factory home page**, and click the **Linked Services** tile.
 
-    ![Vínculo de puertas de enlace de datos](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
-2. Seleccione la puerta de enlace en la sección **Puertas de enlace de datos** de la página **Servicios vinculados**.
+    ![Data Gateways Link](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+2. Select your gateway in the **DATA GATEWAYS** section of the **Linked Services** page.
 
-    ![Página Servicios vinculados con la puerta de enlace seleccionada](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
-3. En la página **Puerta de enlace de datos**, haga clic en **Descargar e instalar la puerta de enlace de datos**.
+    ![Linked Services page with gateway selected](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
+3. In the **Data gateway** page, click **Download and install data gateway**.
 
-    ![Vínculo de puerta de enlace de descarga](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
-4. En la página **Configurar**, haga clic en **Descargar e instalar la puerta de enlace de datos** y siga las instrucciones para instalarla en la máquina.
+    ![Download gateway link](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
+4. In the **Configure** page, click **Download and install data gateway**, and follow instructions to install the data gateway on the machine.
 
-    ![Página Configurar](./media/data-factory-data-management-gateway/ConfigureBlade.png)
-5. Mantenga el **Administrador de configuración de Microsoft Data Management Gateway** abierto.
+    ![Configure page](./media/data-factory-data-management-gateway/ConfigureBlade.png)
+5. Keep the **Microsoft Data Management Gateway Configuration Manager** open.
 
-    ![Administrador de configuración](./media/data-factory-data-management-gateway/ConfigurationManager.png)    
-6. En la página **Configurar** del portal, haga clic en **Volver a crear clave** en la barra de comandos y haga clic en **Sí** en el mensaje de advertencia. Haga clic en el **botón Copiar** que verá junto al texto de la clave para copiarla en el Portapapeles. La puerta de enlace en la máquina antigua deja de funcionar en cuanto se vuelve a crear la clave.  
+    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)    
+6. In the **Configure** page in the portal, click **Recreate key** on the command bar, and click **Yes** for the warning message. Click **copy button** next to key text that copies the key to the clipboard. The gateway on the old machine stops functioning as soon you recreate the key.  
 
-    ![Volver a crear clave](./media/data-factory-data-management-gateway/RecreateKey.png)
-7. Pegue la **clave** en el cuadro de texto de la página **Registrar puerta de enlace** del **Administrador de configuración de Data Management Gateway** que se está ejecutando en la máquina. (Opcional) Haga clic en la casilla **Mostrar clave de puerta de enlace** para ver el texto de la clave.
+    ![Recreate key](./media/data-factory-data-management-gateway/RecreateKey.png)
+7. Paste the **key** into text box in the **Register Gateway** page of the **Data Management Gateway Configuration Manager** on your machine. (optional) Click **Show gateway key** check box to see the key text.
 
-    ![Copiar clave y registrar](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
-8. Haga clic en **Registrar** para registrar la puerta de enlace con el servicio en la nube.
-9. En la pestaña **Configuración**, haga clic en **Cambiar** para seleccionar el mismo certificado que se ha usado con la puerta de enlace anterior, escriba la **contraseña** y haga clic en **Finalizar**.
+    ![Copy key and Register](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
+8. Click **Register** to register the gateway with the cloud service.
+9. On the **Settings** tab, click **Change** to select the same certificate that was used with the old gateway, enter the **password**, and click **Finish**.
 
-   ![Especificar certificado](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
+   ![Specify Certificate](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
 
-   Puede exportar un certificado desde la puerta de enlace anterior realizando los siguientes pasos: inicie el Administrador de configuración de puerta de enlace de administración de datos en la máquina antigua, pase a la pestaña **Certificado**, haga clic en el botón **Exportar** y siga las instrucciones.
-10. Después del registro correcto de la puerta de enlace, debe ver **Registro** establecido en **Registrado** y **Estado** establecido en **Iniciado** en la página principal del administrador de configuración de puertas de enlace.
+   You can export a certificate from the old gateway by doing the following steps: launch Data Management Gateway Configuration Manager on the old machine, switch to the **Certificate** tab, click **Export** button and follow the instructions.
+10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the Home page of the Gateway Configuration Manager.
 
-## <a name="encrypting-credentials"></a>Cifrado de credenciales
-Para cifrar las credenciales en el Editor de Data Factory, realice los siguientes pasos:
+## Encrypting credentials
+To encrypt credentials in the Data Factory Editor, do the following steps:
 
-1. Inicie el explorador web en la **máquina de la puerta de enlace**y vaya a [Azure Portal](http://portal.azure.com). Busque la factoría de datos si es necesario, ábrala en la página **Data Factory** y haga clic en **Crear e implementar** para iniciar el editor de Data Factory.   
-2. Haga clic en un **Servicio vinculado** existente en la vista de árbol para ver su definición de JSON o cree uno que requiera Data Management Gateway (por ejemplo, SQL Server u Oracle).
-3. En el editor de JSON, escriba el nombre de la puerta de enlace para la propiedad **gatewayName** .
-4. Escriba el nombre del servidor para la propiedad **Data Source** en **connectionString**.
-5. Escriba el nombre de la base de datos para la propiedad **Initial Catalog** en **connectionString**.    
-6. Haga clic en el botón **Cifrar** de la barra de comandos para iniciar la aplicación de un solo clic **Administrador de credenciales**. Se abrirá el cuadro de diálogo **Setting Credentials** (Establecer credenciales).
+1. Launch web browser on the **gateway machine**, navigate to [Azure portal](http://portal.azure.com). Search for your data factory if needed, open data factory in the **DATA FACTORY** page and then click **Author & Deploy** to launch Data Factory Editor.   
+2. Click an existing **linked service** in the tree view to see its JSON definition or create a linked service that requires a data management gateway (for example: SQL Server or Oracle).
+3. In the JSON editor, for the **gatewayName** property, enter the name of the gateway.
+4. Enter server name for the **Data Source** property in the **connectionString**.
+5. Enter database name for the **Initial Catalog** property in the **connectionString**.    
+6. Click **Encrypt** button on the command bar that launches the click-once **Credential Manager** application. You should see the **Setting Credentials** dialog box.
 
-    ![Cuadro de diálogo Establecer credenciales](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
-7. En el cuadro de diálogo **Establecer credenciales** , realice los siguientes pasos:
-   1. Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos.
-   2. Escriba el nombre del usuario que tiene acceso a la base de datos para el valor **NOMBRE DE USUARIO** .
-   3. Escriba la contraseña para el usuario para el valor **CONTRASEÑA** .  
-   4. Haga clic en **Aceptar** para cifrar las credenciales y cerrar el cuadro de diálogo.
-8. Ahora verá una propiedad **encryptedCredential** en **connectionString**.
+    ![Setting credentials dialog](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
+7. In the **Setting Credentials** dialog box, do the following steps:
+   1. Select **authentication** that you want the Data Factory service to use to connect to the database.
+   2. Enter name of the user who has access to the database for the **USERNAME** setting.
+   3. Enter password for the user for the **PASSWORD** setting.  
+   4. Click **OK** to encrypt credentials and close the dialog box.
+8. You should see a **encryptedCredential** property in the **connectionString** now.
 
     ```JSON
     {

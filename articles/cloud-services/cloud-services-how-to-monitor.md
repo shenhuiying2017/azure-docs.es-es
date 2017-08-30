@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2015
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
-ms.openlocfilehash: aab8f3233191c9b3f839e3358902f72499d93ee5
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c369b22cf068a473343b006eb1b06fdd350d31db
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-monitor-cloud-services"></a>Supervisión de servicios en la nube
@@ -39,8 +41,8 @@ La habilitación de la supervisión detallada aumentará los costos de almacenam
 Use los siguientes procedimientos para configurar la supervisión detallada o mínima en el Portal de Azure clásico. 
 
 ### <a name="before-you-begin"></a>Antes de empezar
-* Cree una cuenta de almacenamiento *clásico* para almacenar los datos de supervisión. Puede utilizar cuentas de almacenamiento diferentes para roles diferentes. Para obtener más información, vea [Cómo crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account).
-* Active Diagnósticos de Azure en sus roles de servicios en la nube. Consulte [Configuración de Diagnósticos para servicios en la nube](cloud-services-dotnet-diagnostics.md).
+* Cree una cuenta de almacenamiento *clásico* para almacenar los datos de supervisión. Puede utilizar cuentas de almacenamiento diferentes para roles diferentes. Para obtener más información, vea [Cómo crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Active Diagnósticos de Azure en sus roles de servicios en la nube. Consulte [Configuración de Diagnósticos para Cloud Services](cloud-services-dotnet-diagnostics.md).
 
 Asegúrese de que la cadena de conexión de diagnóstico está presente en la configuración de roles. No puede activar la supervisión detallada hasta que habilite Diagnósticos de Azure e incluya una cadena de conexión de diagnóstico en la configuración de roles.   
 
@@ -146,7 +148,7 @@ Para mostrar los contadores de rendimiento personalizados en el portal, es preci
 1. Abra el panel del servicio en la nube.
 2. Agregue o borre las métricas del gráfico:
    
-   * Para mostrar una nueva métrica, active la casilla de verificación de la métrica en los encabezados del gráfico. En un modo de visualización reducido, haga clic en la flecha abajo junto a ***n*métricas** para mostrar una métrica que el encabezado del gráfico no puede mostrar.
+   * Para mostrar una nueva métrica, active la casilla de verificación de la métrica en los encabezados del gráfico. En un modo de visualización reducido, haga clic en la flecha abajo junto a ***n*??metrics** para mostrar una métrica que el área del encabezado del gráfico no puede mostrar.
    * Para eliminar una métrica que se muestra en el gráfico, desmarque la casilla de verificación en su encabezado.
    
 3. Alterne entre las pantallas **Relativo** y **Absoluto**.
@@ -175,9 +177,4 @@ WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
 WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 ```
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

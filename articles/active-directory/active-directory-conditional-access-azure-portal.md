@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 0f7e00d1fe6e47e4a04eb2853f09e195a03405ce
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 20572ecbde79bc2722f3a25f297c92d8e722a3e8
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acceso condicional en Azure Active Directory
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-conditional-access-azure-portal.md)
-> * [Portal de Azure clásico](active-directory-conditional-access.md)
 
 En un mundo Mobile First, Cloud First, Azure Active Directory permite el inicio de sesión único en dispositivos, aplicaciones y servicios desde cualquier parte. Con la proliferación de dispositivos (como BYOD), el trabajo fuera de las redes corporativas y las aplicaciones SaaS de terceros, los profesionales de TI se enfrentan con dos objetivos opuestos:
 
@@ -73,11 +69,11 @@ La implementación actual de Azure Active Directory le permite configurar los si
 
 - **Multi-factor Authentication**: pude exigir autenticación fuerte mediante la autenticación multifactor. Como proveedor, puede usar la autenticación multifactor de Azure o un proveedor de autenticación multifactor de terceros, en combinación con Active Directory Federation Services (AD FS). La autenticación multifactor ayuda a proteger los recursos ante el acceso por parte de un usuario no autorizado que haya conseguido el nombre de usuario y la contraseña de un usuario válido.
 
-- **Dispositivo compatible**: puede establecer directivas de acceso condicional en el nivel de dispositivo. Podría configurar una directiva para permitir que solo los equipos compatibles, o los dispositivos móviles que estén inscritos en una aplicación de administración de dispositivos móviles, puedan acceder a los recursos de su organización. Por ejemplo, puede usar Intune para comprobar el cumplimiento del dispositivo y después notificarlo a Azure AD para que aplique la directiva cuando el usuario intente acceder a una aplicación. Para ver instrucciones detalladas sobre cómo usar Intune para proteger datos y aplicaciones, consulte Proteger aplicaciones y datos con Microsoft Intune. También puede usar Intune para aplicar la protección de datos a dispositivos perdidos o robados. Para más información, consulte Ayudar a proteger los datos con el borrado selectivo o completo mediante Microsoft Intune.
+- **Dispositivo compatible**: puede establecer directivas de acceso condicional en el nivel de dispositivo. Podría configurar una directiva para permitir que solo los equipos compatibles, o los dispositivos móviles que estén inscritos en una aplicación de administración de dispositivos móviles, puedan tener acceso a los recursos de su organización. Por ejemplo, puede usar Intune para comprobar el cumplimiento del dispositivo y después notificarlo a Azure AD para que aplique la directiva cuando el usuario intente acceder a una aplicación. Para instrucciones detalladas sobre cómo usar Intune para proteger datos y aplicaciones, consulte [Proteger aplicaciones y datos con Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune). También puede usar Intune para aplicar la protección de datos a dispositivos perdidos o robados. Para obtener más información, consulte [Ayudar a proteger los datos con el borrado selectivo o completo mediante Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
 
-- **Dispositivo unido a un dominio**: puede exigir que el dispositivo que ha usado para conectarse a Azure Active Directory sea un dispositivo unido a un dominio. Esta directiva se aplica a los escritorios, portátiles y tabletas de empresa Windows. Para más información sobre cómo configurar el registro automático de dispositivos unidos a un dominio con Azure AD, consulte [Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md).
+- **Dispositivo unido a un dominio**: puede exigir que el dispositivo que ha usado para conectarse a Azure Active Directory esté unido a un dominio en Active Directory (AD) local. Esta directiva se aplica a los escritorios, portátiles y tabletas de empresa Windows. 
 
-Si tiene más de un requisito seleccionado en una directiva de acceso condicional, también puede configurar cómo se aplicarán. Puede elegir que se exijan todos los controles seleccionados o uno de ellos.
+Si tiene varios controles seleccionados, también puede configurar si todos ellos son necesarios al procesarse su directiva.
 
 ![Control](./media/active-directory-conditional-access-azure-portal/06.png)
 
@@ -137,10 +133,19 @@ Puede utilizar el nivel calculado de riesgo de inicio de sesión como condición
 
 ### <a name="device-platforms"></a>Plataformas de dispositivo
 
-La plataforma de dispositivo se caracteriza por el sistema operativo que se ejecuta en el dispositivo (Android, iOS, Windows Phone, Windows). Puede definir las plataformas de dispositivos que se incluyen, así como las plataformas de dispositivos que se excluyen de una directiva.  
-Para usar plataformas de dispositivos en la directiva, primero cambie los conmutadores de configuración a **Sí** y, luego, seleccione las plataformas de dispositivos a las que se aplica la directiva (puede ser todas o algunas de ellas). Si selecciona algunas plataformas de dispositivos, la directiva solo afecta a estas plataformas. En este caso, la directiva no afecta a los inicios de sesión en otras plataformas compatibles.
+La plataforma de dispositivo se caracteriza por el sistema operativo que se ejecuta en el dispositivo:
+
+- Android
+- iOS
+- Windows Phone
+- Windows
+- macOS (versión preliminar). 
 
 ![Condiciones](./media/active-directory-conditional-access-azure-portal/02.png)
+
+Puede definir las plataformas de dispositivos que se incluyen, así como las plataformas de dispositivos que se excluyen de una directiva.  
+Para usar plataformas de dispositivos en la directiva, primero cambie los conmutadores de configuración a **Sí** y, luego, seleccione las plataformas de dispositivos a las que se aplica la directiva (puede ser todas o algunas de ellas). Si selecciona algunas plataformas de dispositivos, la directiva solo afecta a estas plataformas. En este caso, la directiva no afecta a los inicios de sesión en otras plataformas compatibles.
+
 
 ### <a name="locations"></a>Ubicaciones
 
@@ -198,4 +203,4 @@ Muchos clientes de Intune usan el acceso condicional para asegurarse de que solo
 
 Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
 
-Para más información sobre las cosas que debe saber y lo que se debe evitar hacer al configurar directivas de acceso condicional, consulte 
+Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md). 

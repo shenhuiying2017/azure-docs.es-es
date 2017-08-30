@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
+ms.date: 08/21/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 20aa8247a16195310a8cb03c13c34186456fd7af
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Apertura de puertos en una máquina virtual con Azure Portal
@@ -28,23 +27,23 @@ ms.lasthandoff: 05/11/2017
 ## <a name="quick-commands"></a>Comandos rápidos
 También puede [llevar a cabo estos pasos con Azure PowerShell](nsg-quickstart-powershell.md).
 
-En primer lugar, cree el grupo de seguridad de red. Seleccione un grupo de recursos en el portal, haga clic en **Agregar** y busque y seleccione "Grupo de seguridad de red":
+En primer lugar, cree el grupo de seguridad de red. Seleccione un grupo de recursos en el portal, elija **Agregar** y busque y seleccione **Grupo de seguridad de red**:
 
 ![Agregar un grupo de seguridad de red](./media/nsg-quickstart-portal/add-nsg.png)
 
-Escriba el nombre del grupo de seguridad de red, seleccione un grupo de recursos, o créelo, y seleccione una ubicación. Cuando haya terminado, haga clic en **Crear**:
+Escriba el nombre del grupo de seguridad de red, seleccione un grupo de recursos, o créelo, y seleccione una ubicación. Cuando haya terminado, seleccione **Crear**:
 
 ![Creación de un grupo de seguridad de red](./media/nsg-quickstart-portal/create-nsg.png)
 
-Seleccione el nuevo grupo de seguridad de red. Seleccione 'Reglas de seguridad de entrada' y, después, haga clic en el botón **Agregar** para crear una regla:
+Seleccione el nuevo grupo de seguridad de red. Seleccione "Reglas de seguridad de entrada" y, después, seleccione el botón **Agregar** para crear una regla:
 
 ![Agregar una regla de entrada](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Proporcione un nombre para la nueva regla. El puerto 80 aparece de forma predeterminada. En esta hoja es donde se cambia el origen, protocolo y destino cuando se agregan reglas al grupo de seguridad de red. Haga clic en **Aceptar** para crear la regla:
+Elija un **servicio** común en el menú desplegable, como *HTTP*. También puede seleccionar *Personalizado* a fin de proporcionar un puerto específico para su uso. Si lo desea, cambie la prioridad o el nombre. La prioridad afecta al orden en que se aplican las reglas (cuanto más bajo es el valor numérico, antes se aplica la regla). También puede seleccionar **Avanzado** en la parte superior de esta pantalla para especificar un intervalo de puertos o un bloque de direcciones IP de origen, por ejemplo. Cuando esté listo, seleccione **Aceptar** para crear la regla:
 
 ![Crear una regla de entrada](./media/nsg-quickstart-portal/create-inbound-rule.png)
 
-El paso final es asociar el grupo de seguridad de red a una subred o una interfaz de red específica. Vamos a asociar el grupo de seguridad de red con una subred. Seleccione 'Subredes' y haga clic en **Asociar**:
+El paso final es asociar el grupo de seguridad de red a una subred o una interfaz de red específica. Vamos a asociar el grupo de seguridad de red con una subred. Seleccione **Subredes** y elija **Asociar**:
 
 ![Asociar un grupo de seguridad de red a una subred](./media/nsg-quickstart-portal/associate-subnet.png)
 
@@ -57,15 +56,10 @@ Ahora ha creado un grupo de seguridad de red, ha creado una regla de entrada que
 ## <a name="more-information-on-network-security-groups"></a>Más información sobre los grupos de seguridad de red
 Los comandos rápidos que se describen aquí le permiten ponerse a trabajar con el flujo de tráfico a la máquina virtual. Los grupos de seguridad de red proporcionan muchas características excelentes y un gran nivel de detalle para controlar el acceso a sus recursos. Puede leer más sobre la [creación de un grupo de seguridad de red y las reglas de ACL aquí](../../virtual-network/virtual-networks-create-nsg-arm-ps.md).
 
-Los grupos de seguridad de red y las reglas de ACL también se pueden definir como parte de las plantillas de Azure Resource Manager. Más información sobre la [creación de grupos de seguridad de red con plantillas](../../virtual-network/virtual-networks-create-nsg-arm-template.md).
-
-Si necesita utilizar el enrutamiento de puerto para asignar un único puerto externo a un puerto interno de su máquina virtual, use un equilibrador de carga y las reglas de traducción de direcciones de red (NAT). Por ejemplo, puede exponer el puerto TCP 8080 externamente y dirigir el tráfico al puerto TCP 80 en una máquina virtual. Puede aprender sobre la [creación de un equilibrador de carga accesible desde Internet](../../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+Para las aplicaciones web de alta disponibilidad, debe colocar las máquinas virtuales detrás de una instancia de Azure Load Balancer. El equilibrador de carga distribuye el tráfico a las máquinas virtuales, con un grupo de seguridad de red que proporciona el filtrado del tráfico. Para más información, consulte [Equilibrio de la carga de máquinas virtuales Linux en Azure para crear una aplicación de alta disponibilidad](tutorial-load-balancer.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Puede encontrar información sobre la creación de entornos más detallados en los siguientes artículos:
 
 * [Información general sobre Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 * [¿Qué es un grupo de seguridad de red?](../../virtual-network/virtual-networks-nsg.md)
-* [Información general de Azure Resource Manager para equilibradores de carga](../../load-balancer/load-balancer-arm.md)
-
-

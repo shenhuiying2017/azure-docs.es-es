@@ -11,29 +11,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/11/2017
+ms.date: 08/21/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ad3549a9e8278c3364533ec2cd2321744ecda3b9
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6fc863010cc59e20e7d86ea9344489e574be75f2
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Conexión de HDInsight a la red local
 
-Obtenga información sobre cómo conectar HDInsight a la red local mediante redes virtuales de Azure y una puerta de enlace de VPN. En este documento se brinda la información siguiente:
+Obtenga información sobre cómo conectar HDInsight a la red local mediante redes virtuales de Azure y una puerta de enlace de VPN. En este documento se brinda información de planeación sobre:
 
-* Cómo crear una instancia de Azure Virtual Network que se conecta a la red local.
+* Uso de HDInsight en una instancia de Azure Virtual Network que se conecta con la red local.
 
-* Cómo habilitar la resolución de nombres DNS entre la red virtual y la red local.
+* Configuración de resolución de nombres DNS entre la red virtual y la red local.
 
-* Cómo usar los grupos de seguridad de red para restringir el acceso a HDInsight a través de Internet.
+* Configuración de grupos de seguridad de red para restringir acceso a HDInsight a través de Internet.
 
-* Cómo detectar los puertos que HDInsight proporciona en la red virtual.
+* Puertos que HDInsight proporciona en la red virtual.
 
 ## <a name="create-the-virtual-network-configuration"></a>Creación de la configuración de la red virtual
+
+> [!IMPORTANT]
+> Si busca guías paso a paso sobre cómo conectar HDInsight con la red local mediante una instancia de Azure Virtual Network, consulte el documento [Conexión de HDInsight a la red local](connect-on-premises-network.md).
 
 Use los documentos siguientes para obtener información sobre cómo crear una instancia de Azure Virtual Network conectada a la red local:
     
@@ -77,7 +80,7 @@ Para crear una máquina virtual Linux que usa el software DNS [Bind](https://www
 
     ![Creación de una máquina virtual Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. Introduzca la siguiente información de la hoja __Básico__:
+2. Escriba la información siguiente d la sección __Aspectos básicos__:
 
     * __Nombre__: nombre descriptivo que identifica esta máquina virtual. Por ejemplo, __DNSProxy__.
     * __Nombre de usuario__: nombre de la cuenta SSH.
@@ -89,9 +92,9 @@ Para crear una máquina virtual Linux que usa el software DNS [Bind](https://www
 
     Deje los valores predeterminados de las otras entradas y, luego, seleccione __Aceptar__.
 
-3. En la hoja __Choosing a size__ (Elegir un tamaño), seleccione el tamaño de la máquina virtual. Para este tutorial, seleccione la opción más pequeña y de menor costo. Para continuar, use el botón __Seleccionar__.
+3. En la sección __Choosing a size__ (Elegir un tamaño), seleccione el tamaño de la máquina virtual. Para este tutorial, seleccione la opción más pequeña y de menor costo. Para continuar, use el botón __Seleccionar__.
 
-4. En la hoja __Configuración__, escriba la información siguiente:
+4. Escriba la información siguiente de la sección __Configuración__:
 
     * __Red virtual__: seleccione la red virtual que creó anteriormente.
 
@@ -103,9 +106,9 @@ Para crear una máquina virtual Linux que usa el software DNS [Bind](https://www
 
     Deje los valores predeterminados de las otras entradas y, luego, seleccione __Aceptar__ para continuar.
 
-5. En la hoja __Comprar__, seleccione el botón __Comprar__ para crear la máquina virtual.
+5. En la sección __Comprar__, seleccione el botón __Comprar__ para crear la máquina virtual.
 
-6. En la máquina virtual que se crea, aparece la hoja de __información general__. En la lista que aparece a la izquierda, seleccione __Propiedades__. Guarde los valores de __dirección IP pública__ y __dirección IP privada__. Esta información se usará en la sección siguiente.
+6. En la máquina virtual que se crea, aparece la sección de __información general__. En la lista que aparece a la izquierda, seleccione __Propiedades__. Guarde los valores de __dirección IP pública__ y __dirección IP privada__. Esta información se usará en la sección siguiente.
 
     ![Direcciones IP pública y privada](./media/connect-on-premises-network/vm-ip-addresses.png)
 
@@ -120,7 +123,7 @@ Para crear una máquina virtual Linux que usa el software DNS [Bind](https://www
     Reemplace `sshuser` por la cuenta de usuario SSH que especificó cuando creó el clúster.
 
     > [!NOTE]
-    > Existen diversas formas de obtener la utilidad `ssh`. En Linux, Unix y macOS, habitualmente se proporciona como parte del sistema operativo. Si usa Windows, considere una de las opciones siguientes:
+    > Existen diversas formas de obtener la utilidad `ssh`. En Linux, Unix y macOS, se proporciona como parte del sistema operativo. Si usa Windows, considere una de las opciones siguientes:
     >
     > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
     > * [Bash en Ubuntu en Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
@@ -335,6 +338,7 @@ Para conectarse directamente a HDInsight a través de la red virtual, use los pa
 
 * Para más información sobre las redes virtuales de Azure, consulte la [información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-* Para más información sobre los grupos de seguridad de red, consulte [Grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
+* Para más información sobre los grupos de seguridad de red, vea [Grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
 
-* Para más información sobre las rutas definidas por el usuario, consulte [Rutas definidas por el usuario y reenvío IP](../virtual-network/virtual-networks-udr-overview.md).
+* Para más información sobre las rutas definidas por el usuario, vea [Rutas definidas por el usuario y reenvío IP](../virtual-network/virtual-networks-udr-overview.md).
+

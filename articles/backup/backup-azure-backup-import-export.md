@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 4/20/2017
 ms.author: saurse;nkolli;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 4f5e58713d925d2f7477dc072ecec455dec70792
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
+ms.contentlocale: es-es
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. Azure Backup permite comprimir las copias de seguridad iniciales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos comprimidos iniciales de copia de seguridad sin conexión en Azure.  
 
-El proceso de propagación sin conexión de Azure Backup se integra estrechamente con el [servicio Azure Import/Export](../storage/storage-import-export-service.md) que permite transferir datos a Azure mediante discos. Si tiene terabytes (TB) de datos de copia de seguridad inicial que se deben transferir a través de una red de latencia alta y ancho de banda de red bajo, puede usar el flujo de trabajo de propagación sin conexión para enviar la copia de seguridad inicial de una o varias unidades de disco duro a un centro de datos de Azure. Este artículo proporciona información general de los pasos necesarios para completar este flujo de trabajo.
+El proceso de propagación sin conexión de Azure Backup se integra estrechamente con el [servicio Azure Import/Export](../storage/common/storage-import-export-service.md) que permite transferir datos a Azure mediante discos. Si tiene terabytes (TB) de datos de copia de seguridad inicial que se deben transferir a través de una red de latencia alta y ancho de banda de red bajo, puede usar el flujo de trabajo de propagación sin conexión para enviar la copia de seguridad inicial de una o varias unidades de disco duro a un centro de datos de Azure. Este artículo proporciona información general de los pasos necesarios para completar este flujo de trabajo.
 
 ## <a name="overview"></a>Información general
 Con la funcionalidad de propagación sin conexión de Azure Backup y Azure Import/Export, cargar los datos sin conexión en Azure mediante discos es un proceso sencillo. En lugar de transferir la copia inicial completa a través de la red, los datos de copia de seguridad se escriben en una *ubicación de ensayo*. Una vez finalizada la copia inicial en la ubicación de ensayo mediante la herramienta Azure Import/Export, los datos se escriben en una o varias unidades SATA, según el tamaño de la copia de seguridad inicial. Estas unidades se envían finalmente al centro de datos de Azure más cercano.
@@ -42,19 +42,19 @@ Cuando finaliza la carga de los datos de copia de seguridad en Azure, el servici
 >
 
 ## <a name="prerequisites"></a>Requisitos previos
-* [Familiarícese con el flujo de trabajo de Azure Import/Export](../storage/storage-import-export-service.md).
+* [Familiarícese con el flujo de trabajo de Azure Import/Export](../storage/common/storage-import-export-service.md).
 * Antes de iniciar el flujo de trabajo, asegúrese de lo siguiente:
   * Se ha creado un almacén de Azure Backup.
   * Se han descargado las credenciales del almacén.
   * Se ha instalado el agente de Azure Backup en Windows Server o en el cliente de Windows o en el servidor de System Center Data Protection Manager y el equipo está registrado con el almacén de Azure Backup.
 * [Descargue la configuración del archivo de publicación de Azure](https://manage.windowsazure.com/publishsettings) en el equipo desde el que piensa hacer copia de seguridad de los datos.
 * Prepare una ubicación de ensayo que podría ser un recurso compartido de red o una unidad de disco adicional del equipo. La ubicación de ensayo es un almacenamiento transitorio y se utiliza temporalmente durante este flujo de trabajo. Asegúrese de que la ubicación de ensayo tiene suficiente espacio en disco para almacenar la copia inicial. Por ejemplo, si intenta realizar una copia de seguridad en un servidor de archivos de 500 GB, asegúrese de que el área de ensayo es de al menos 500 GB. (Se utilizará una cantidad menor gracias a la compresión).
-* Asegúrese de que está usando una unidad compatible. El servicio Import/Export solo admite unidades de disco duro internas SSD de 2,5 pulgadas o SATA II o III de 2,5 o 3,5 pulgadas. Puede utilizar unidades de disco duro de hasta 10 TB. Vea la [documentación del servicio Azure Import/Export](../storage/storage-import-export-service.md#hard-disk-drives) para conocer el conjunto más reciente de unidades de disco que admite el servicio.
+* Asegúrese de que está usando una unidad compatible. El servicio Import/Export solo admite unidades de disco duro internas SSD de 2,5 pulgadas o SATA II o III de 2,5 o 3,5 pulgadas. Puede utilizar unidades de disco duro de hasta 10 TB. Vea la [documentación del servicio Azure Import/Export](../storage/common/storage-import-export-service.md#hard-disk-drives) para conocer el conjunto más reciente de unidades de disco que admite el servicio.
 * Habilite BitLocker en el equipo al que está conectado el sistema de escritura de la unidad SATA.
 * [Descargue la herramienta Import/Export](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) en el equipo al que está conectado el sistema de escritura de la unidad SATA. Este paso no es necesario si ha descargado e instalado la actualización de Azure Backup de agosto de 2016 (o posterior).
 
 ## <a name="workflow"></a>Flujo de trabajo
-La información de esta sección le ayuda a completar el flujo de trabajo de copia de seguridad sin conexión, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en Azure Storage. Si tiene alguna pregunta sobre el servicio de importación o cualquier aspecto del proceso, consulte la documentación sobre la [Información general del servicio de importación](../storage/storage-import-export-service.md) a la que se ha hecho referencia anteriormente.
+La información de esta sección le ayuda a completar el flujo de trabajo de copia de seguridad sin conexión, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en Azure Storage. Si tiene alguna pregunta sobre el servicio de importación o cualquier aspecto del proceso, consulte la documentación sobre la [Información general del servicio de importación](../storage/common/storage-import-export-service.md) a la que se ha hecho referencia anteriormente.
 
 ### <a name="initiate-offline-backup"></a>Inicio de la copia de seguridad sin conexión
 1. Cuando se programa una copia de seguridad, aparece la pantalla siguiente (en Windows Server, el cliente de Windows o System Center Data Protection Manager).
@@ -208,6 +208,6 @@ Una vez completado el trabajo de importación, los datos de la copia de segurida
 Cuando los datos de la copia de seguridad inicial están disponibles en la cuenta de almacenamiento, el agente de Microsoft Azure Recovery Services copia el contenido de los datos de esta cuenta en el almacén de Backup o en el almacén de Recovery Services, según corresponda. En la siguiente copia de seguridad de programación, el agente de Azure Backup realiza la copia de seguridad incremental sobre la copia de seguridad inicial.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Si tiene dudas acerca del flujo de trabajo de Azure Import/Export, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../storage/storage-import-export-service.md).
-* Vea las [Preguntas más frecuentes](backup-azure-backup-faq.md) sobre la copia de seguridad sin conexión de Azure si tiene alguna pregunta sobre el flujo de trabajo.
+* Si tiene dudas acerca del flujo de trabajo de Azure Import/Export, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../storage/common/storage-import-export-service.md).
+* Vea las [Preguntas más frecuentes](backup-azure-backup-faq.md) sobre la copia de seguridad sin conexión de Azure Backup si tiene alguna pregunta sobre el flujo de trabajo.
 

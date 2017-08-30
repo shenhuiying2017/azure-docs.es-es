@@ -3,7 +3,7 @@ title: Historial de versiones de conectores | Microsoft Docs
 description: En este tema se incluyen todas las versiones de los conectores para Forefront Identity Manager (FIM) y Microsoft Identity Manager (MIM).
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: fimguy
 manager: femila
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: e9699abe0c1bdb6ea449c99e087ae56adb717b8d
+ms.date: 08/18/2017
+ms.author: fimguy
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 426f58a24798fd43f5079dd153b9e84d324da622
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="connector-version-release-history"></a>Historial de versiones de conectores
 Los conectores de Forefront Identity Manager (FIM) y Microsoft Identity Manager (MIM) se actualizan con frecuencia.
 
 > [!NOTE]
-> Este tema solo está disponible en FIM y MIM. Estos conectores no se admiten en Azure AD Connect.
+> Este tema solo está disponible en FIM y MIM. No se admite la instalación de estos conectores en Azure AD Connect. Los conectores publicados están preinstalados en ADDConnect al actualizarse a la compilación especificada.
 
 En este tema se muestran todas las versiones de los conectores que se han publicado.
 
@@ -38,23 +38,36 @@ Vínculos relacionados:
 * [conector PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
 * [conector Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
 
+
+## <a name="116040-aadconnect-11xxx0"></a>1.1.604.0 (AADConnect 1.1.XXX.0)
+
+
+### <a name="fixed-issues"></a>Problemas corregidos:
+
+* Servicios Web genéricos:
+  * Se corrigió un problema que impedía la creación de un proyecto SOAP cuando había dos o más puntos de conexión.
+* SQL genérico:
+  * En la operación de importación, GSQL no convertía el tiempo correctamente al guardarse en el espacio del conector. El formato de fecha y hora predeterminado para el espacio del conector de GSQL se cambió de "aaaa-MM-dd hh:mm:ssZ" a "aaaa-MM-dd HH:mm:ssZ".
+
 ## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
 
 ### <a name="fixed-issues"></a>Problemas corregidos:
 
 * Servicios Web genéricos:
-  * La herramienta Wsconfig no convirtió correctamente la matriz JSON de "solicitud de ejemplo" para el método del servicio REST. Por este motivo, se han producido problemas de serialización de esta matriz JSON para la solicitud de REST.
-  * La herramienta de configuración de conectores del servicio web no admite el uso de símbolos de espacio en los nombres de atributo JSON. Se puede agregar manualmente un patrón de sustitución al archivo WSConfigTool.exe.config, por ejemplo, ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+  * La herramienta Wsconfig no convirtió correctamente la matriz JSON de "solicitud de ejemplo" para el método del servicio REST. Esto generó problemas de serialización de esta matriz JSON para la solicitud de REST.
+  * La herramienta de configuración del conector de servicio web no admite el uso de espacios en nombres de atributo JSON 
+    * Se puede agregar manualmente un patrón de sustitución al archivo WSConfigTool.exe.config, p. ej., ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
 
 * Lotus Notes:
-  * Cuando la opción **Allow custom certifiers for Organization/Organizational Units** (Permitir certificadores personalizados para la organización/unidades organizativas) está deshabilitada, el conector produce un error durante la exportación (Actualización) Después del flujo de exportación, se exportan todos los atributos a Domino, pero en el momento de la exportación se devuelve una excepción KeyNotFoundException a Sync. Esto sucede porque se produce un error en la operación de cambio de nombre al intentar cambiar DN (atributo UserName) cambiando uno de los atributos siguientes:  
-    - Apellidos
-    - Nombre
-    - MiddleInitial
-    - AltFullName
-    - AltFullNameLanguage
-    - ou
-    - altcommonname
+  * Cuando la opción **Allow custom certifiers for Organization/Organizational Units** (Permitir certificadores personalizados para la organización/unidades organizativas) está deshabilitada, el conector produce un error durante la exportación (Actualización) Después del flujo de exportación, se exportan todos los atributos a Domino, pero en el momento de la exportación se devuelve una excepción KeyNotFoundException a Sync. 
+    * Esto sucede porque se produce un error en la operación de cambio de nombre al intentar cambiar DN (atributo UserName) cambiando uno de los atributos siguientes:  
+      - Apellidos
+      - Nombre
+      - MiddleInitial
+      - AltFullName
+      - AltFullNameLanguage
+      - ou
+      - altcommonname
 
   * Cuando la opción **Allow custom certifiers for Organization/Organizational Units** (Permitir certificadores personalizados para la organización/unidades organizativas) está habilitada pero los certificadores necesarios siguen vacíos, se produce una excepción KeyNotFoundException.
 
@@ -193,7 +206,7 @@ Antes de marzo de 2016, los conectores se publicaban como temas de soporte técn
 * [KB2875551](https://support.microsoft.com/kb/2875551) : 5.3.0534, agosto de 2013
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 

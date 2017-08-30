@@ -1,6 +1,6 @@
 ---
-title: Tutoriales del proceso de ciencia de los datos en equipos | Microsoft Docs
-description: "En los tutoriales se muestra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente."
+title: Tutoriales para ejecutar el proceso de ciencia de datos en equipo en Azure | Microsoft Docs
+description: "Cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,57 +12,40 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/17/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: c0f0ff599909234b2b43f2b8512d77f9053b8a09
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1d6ac28355752d979490b1790ad45748f56e5c84
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="team-data-science-process-walkthroughs"></a>Tutoriales del proceso de ciencia de datos en equipos
-Los **tutoriales completos** detallados aquí demuestran los pasos del proceso de ciencia de datos en equipos para **escenarios específicos**. Se ilustra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una **aplicación inteligente**. Los tutoriales se agrupan por la **plataforma** que usan: 
+# <a name="walkthroughs-executing-the-team-data-science-process"></a>Tutoriales para ejecutar el proceso de ciencia de datos en equipo en Azure
 
-- Spark con PySpark y Scala
-- HDInsight (Hadoop)
-- Azure Data Lake 
-- SQL Server
-- SQL Data Warehouse 
+Estos **tutoriales completos** demuestran los pasos del proceso de ciencia de datos en equipo para escenarios específicos. Se ilustra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una **aplicación inteligente**. Los tutoriales se agrupan por la **plataforma** que usan: El menú siguiente se vincula a estos ejemplos:
+
+[!INCLUDE [tdsp-walkthroughs-by-platform](../../includes/tdsp-walkthroughs-by-platform.md)]
 
 
-## <a name="hdinsight-spark-using-pyspark-and-scala"></a>HDInsight Spark con PySpark y Scala
+## <a name="walkthrough-descriptions"></a>Descripciones del tutorial
 
-- En el tutorial [Usar Spark en Azure HDInsight](machine-learning-data-science-spark-overview.md) se usa el proceso de ciencia de datos en equipos en un escenario con un [clúster de Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/) para almacenar y explorar los datos del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York disponible públicamente, así como para diseñar sus características.
+Las siguientes son descripciones breves de lo que proporcionan estos ejemplos de tutorial en sus respectivas plataformas:
 
-- En el tutorial [Usar Scala con Spark en Azure](machine-learning-data-science-process-scala-walkthrough.md) se muestra cómo usar Scala para realizar tareas supervisadas de aprendizaje automático con la biblioteca de aprendizaje automático de Spark (MLlib) y los paquetes de SparkML en un clúster Azure HDInsight Spark. Además, explicaremos cuáles son las tareas que constituyen el [proceso de ciencia de datos](http://aka.ms/datascienceprocess): exploración e ingesta de datos, visualización, ingeniería de características, modelado y consumo de modelos. Los modelos creados incluyen regresión logística y lineal, bosques aleatorios y árboles impulsados por gradiente:
-
-
-## <a name="hdinsight-hadoop"></a>HDInsight Hadoop 
-
-- En el tutorial [Uso de clústeres de Hadoop de Azure HDInsight](machine-learning-data-science-process-hive-walkthrough.md) se usa un [clúster de Hadoop en Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar y explorar los datos del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York disponible públicamente, así como para diseñar sus características.
-
-- En el tutorial [Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md) se presenta un escenario en el que se usa un [clúster de Hadoop de Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar, diseñar las características y reducir la muestra de datos de uno de los conjuntos de datos de [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibles públicamente.
+- [Tutoriales para HDInsight Spark mediante PySpark y Scala](data-science-process-walkthroughs-spark.md) Estos tutoriales usan PySpark y Scala en un clúster de Azure Spark para realizar análisis predictivos. 
+- [Tutoriales para HDInsight Hadoop mediante Hive](data-science-process-walkthroughs-hdinsight-hadoop.md) Estos tutoriales utilizan Hive con un clúster de HDInsight Hadoop para realizar análisis predictivos.
+- [Tutoriales para Azure Data Lake mediante U-SQL](data-science-process-walkthroughs-azure-data-lake.md) Estos tutoriales utilizan U-SQL con Azure Data Lake para realizar análisis predictivos.
+- [SQL Server](data-science-process-walkthroughs-sql-server.md) Estos tutoriales usan SQL Server, SQL Server R Services y servicios de Python de SQL Server para realizar análisis predictivos.
+- [SQL Data Warehouse](data-science-process-walkthroughs-sql-data-warehouse.md) Estos tutoriales usan SQL Data Warehouse para realizar análisis predictivos. 
 
 
-## <a name="azure-data-lake"></a>Azure Data Lake
 
-- En el tutorial [Ciencia de datos escalables en Azure Data Lake: tutorial completo](machine-learning-data-science-process-data-lake-walkthrough.md) se muestra cómo usar Azure Data Lake para realizar las tareas de exploración de datos y clasificación binaria en una muestra del conjunto de datos de taxi de la ciudad de Nueva York para predecir si el cliente dejará una propina o no. 
+## <a name="next-steps"></a>Pasos siguientes
 
+Para obtener una explicación de los componentes claves que conforman el proceso de ciencia de datos en equipo, consulte [Información general del proceso de ciencia de datos en equipo](data-science-process-overview.md).
 
-## <a name="sql-server-and-sql-data-warehouse"></a>SQL Server y SQL Data Warehouse 
+Para obtener una explicación del ciclo de vida del proceso de ciencia de datos en equipo que puede utilizar para estructurar los proyectos de ciencia de datos, consulte [Ciclo de vida del proceso de ciencia de datos en equipo](data-science-process-lifecycle.md). El ciclo de vida describe el proceso, de principio a fin, que suelen seguir los proyectos al ejecutarlos. 
 
-- En el tutorial sobre [uso de SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md) se muestra cómo crear e implementar modelos de clasificación y regresión de aprendizaje automático mediante SQL Data Warehouse (SQL DW) para un conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York disponible públicamente.
-
-- En el tutorial sobre [uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md) se muestra cómo crear e implementar modelos de clasificación y regresión de aprendizaje automático mediante SQL Server y un conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York disponible públicamente.
-
-- En el tutorial sobre [uso de SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) se proporciona a los científicos de datos una combinación de código de R, datos de SQL Server y funciones SQL personalizadas para compilar e implementar un modelo de R en SQL Server.
-
-- En el tutorial sobre [uso de T-SQL con SQL Server R Services](https://msdn.microsoft.com/library/mt683480.aspx) se proporciona a los programadores de SQL experiencia para la creación de una solución de análisis avanzada con Transact-SQL mediante SQL Server R Services para hacer operativa una solución de R.
-
-- En el tutorial sobre [uso de T-SQL con servicios de Python de SQL Server](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) se proporciona a los programadores de SQL la experiencia de crear una solución de aprendizaje automático en SQL Server. Se muestra cómo incorporar Python a una aplicación mediante la adición de código Python a los procedimientos almacenados.
-
-## <a name="whats-next"></a>Pasos siguientes
 Para ver una introducción a los temas que lo guiarán por las tareas que componen el proceso de ciencia de datos en Azure, consulte [Proceso de ciencia de los datos en equipos (TDSP)](http://aka.ms/datascienceprocess). 
 
 

@@ -13,39 +13,78 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 08/17/2017
 ms.author: genli;markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: dd4ac14a703663175bb477de587da8f4ad510c7c
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 6ed651bb8caafd18cec93e68ac70e27f92133e5c
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
-# <a name="troubleshoot-azure-backup-failure-vm-agent-unable-to-communicate-with-azure-backup"></a>Solución del error de Azure Backup: el agente de máquina virtual no puede comunicarse con Azure Backup
-## <a name="summary"></a>Resumen
-Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las cuatro condiciones puede impedir que la instantánea se desencadene, lo que a su vez puede dar lugar a errores de Backup. En este artículo se proporcionan los pasos necesarios para ayudarle a resolver errores de Backup relacionados con los errores de comunicación con el agente de la máquina virtual y la extensión.
+# <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
+
+En este artículo se proporcionan los pasos necesarios para ayudarle a resolver errores de Backup relacionados con los errores de comunicación con el agente de la máquina virtual y la extensión.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="symptom"></a>Síntoma
-Se produce un error en Azure Backup para una máquina virtual de infraestructura como servicio (IaaS) y se devuelve el siguiente mensaje de error en los detalles del error de trabajo en [Azure Portal](https://portal.azure.com/): "El agente de VM no puede comunicarse con el servicio Azure Backup ", "Se produjo un error en el funcionamiento de las instantáneas por que la máquina virtual no tiene conectividad de red".
+## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>El agente de máquina virtual no se puede comunicar con Azure Backup
+Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con el agente de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene, lo que a su vez puede dar lugar a errores de Backup. Siga los pasos para la solución de problemas que aparecen a continuación en el orden dado y reintente la operación.
+##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Causa 1: [La máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)
+##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 2: [El agente está instalado en la máquina virtual, pero no responde (para máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [El agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)
 
-## <a name="cause-1-the-vm-has-no-internet-access"></a>Causa 1: La máquina virtual no tiene acceso a Internet
+## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Error de la operación de instantánea debido a que no hay conectividad de red en la máquina virtual
+Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene, lo que a su vez puede dar lugar a errores de Backup. Siga los pasos para la solución de problemas que aparecen a continuación en el orden dado y reintente la operación.
+##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Causa 1: [La máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)
+##### <a name="cause-2-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 2: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### <a name="cause-3-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 3: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)
+
+## <a name="vmsnapshot-extension-operation-failed"></a>Error en la operación de extensión de VMSnapshot
+
+Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene, lo que a su vez puede dar lugar a errores de Backup. Siga los pasos para la solución de problemas que aparecen a continuación en el orden dado y reintente la operación.
+##### <a name="cause-1-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 1: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### <a name="cause-2-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 2: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-3-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Causa 3: [La máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)
+##### <a name="cause-4-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 4: [El agente está instalado en la máquina virtual, pero no responde (para máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### <a name="cause-5-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 5: [El agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+
+## <a name="unable-to-perform-the-operation-as-the-vm-agent-is-not-responsive"></a>No se puede realizar la operación porque el agente de la máquina virtual no está respondiendo
+
+Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene, lo que a su vez puede dar lugar a errores de Backup. Siga los pasos para la solución de problemas que aparecen a continuación en el orden dado y reintente la operación.
+##### <a name="cause-1-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 1: [El agente está instalado en la máquina virtual, pero no responde (para máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 2: [El agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+##### <a name="cause-3-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Causa 3: [La máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)
+
+## <a name="backup-failed-with-an-internal-error---please-retry-the-operation-in-a-few-minutes"></a>Error interno en la copia de seguridad. Reintente la operación en unos minutos
+
+Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene, lo que a su vez puede dar lugar a errores de Backup. Siga los pasos para la solución de problemas que aparecen a continuación en el orden dado y reintente la operación.
+##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Causa 1: [La máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)
+##### <a name="cause-2-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 2: [El agente está instalado en la máquina virtual, pero no responde (para máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [El agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)
+
+
+## <a name="causes-and-solutions"></a>Causas y soluciones
+
+### <a name="the-vm-has-no-internet-access"></a>La máquina virtual no tiene acceso a Internet
 Según los requisitos de implementación, la máquina virtual no tiene ningún acceso a Internet o tiene restricciones vigentes que impiden el acceso a la infraestructura de Azure.
 
 Para poder funcionar correctamente, la extensión de copia de seguridad requiere conectividad a las direcciones IP públicas de Azure. La extensión envía comandos a un punto de conexión de Azure Storage (dirección URL de HTTP) para administrar las instantáneas de la máquina virtual. Si la extensión no tiene acceso a Internet, se produce un error en Backup.
 
-### <a name="solution"></a>Solución
+####  <a name="solution"></a>Solución
 Para solucionar este problema, pruebe uno de los métodos siguientes:
-#### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Permitir acceso a los intervalos IP del centro de datos de Azure
+##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Permitir acceso a los intervalos IP del centro de datos de Azure
 
 1. Obtenga la lista de [IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) a la que se va a permitir el acceso.
 2. Desbloquee las direcciones IP mediante la ejecución del cmdlet **New-NetRoute** en la máquina virtual de Azure en una ventana de PowerShell con privilegios elevados. Ejecute el cmdlet como administrador.
 3. Para permitir el acceso a las direcciones IP, agregue reglas al grupo de seguridad de red, si dispone de uno.
 
-#### <a name="create-a-path-for-http-traffic-to-flow"></a>Crear una ruta de acceso para el flujo del tráfico HTTP
+##### <a name="create-a-path-for-http-traffic-to-flow"></a>Crear una ruta de acceso para el flujo del tráfico HTTP
 
 1. Si tiene alguna restricción de red implementada (por ejemplo, un grupo de seguridad de red), implemente un servidor proxy HTTP para enrutar el tráfico.
 2. Para permitir el acceso a Internet desde el servidor proxy HTTP, agregue las reglas al grupo de seguridad de red, si dispone de uno.
@@ -54,9 +93,23 @@ Para aprender a cómo configurar un proxy HTTP para las copias de seguridad de l
 
 En caso de que use Managed Disks, puede que necesite un puerto adicional (8443) que se abra en los firewalls.
 
-## <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 2: El agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)
+### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>El agente está instalado en la máquina virtual, pero no responde (para máquinas virtuales Windows)
 
-### <a name="solution"></a>Solución
+#### <a name="solution"></a>Solución
+Es posible que el agente de máquina virtual se haya dañado o que el servicio se haya detenido. Si vuelve a instalar al agente tendrá la versión más reciente y se reiniciará la comunicación.
+
+1. Compruebe si el servicio Windows Guest Agent se está ejecutando en los servicios (services.msc) de la máquina virtual. Intente reiniciar el servicio Windows Guest Agent e iniciar la copia de seguridad<br>
+2. Si no lo ve en los servicios, compruebe en Programas y características si el servicio Windows Guest Agent está instalado.
+4. Si lo ve en Programas y características, desinstale el servicio.
+5. Descargue e instale la [versión más reciente del agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para completar la instalación, necesita privilegios de administrador.
+6. A partir de ese momento debería poder ver Windows Guest Agent en los servicios
+7. Pruebe a ejecutar una copia de seguridad ad hoc o a petición, para lo que debe hacer clic en "Realizar copia de seguridad ahora" en el portal.
+
+Compruebe también que la máquina virtual tiene **[instalado .NET 4.5 en el sistema](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. ya que se requiere para que el agente de máquina virtual se comunique con el servicio.
+
+### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>El agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)
+
+#### <a name="solution"></a>Solución
 La mayoría de los errores relacionados con el agente o la extensión de máquinas virtuales de Linux están provocados por problemas que afectan a un agente VM obsoleto. Para solucionar este problema, siga estas directrices generales:
 
 1. Siga las instrucciones para [actualizar el agente de máquina virtual Linux ](../virtual-machines/linux/update-agent.md).
@@ -84,50 +137,10 @@ Si se requiere el registro detallado para waagent, siga estos pasos:
 2. Cambie el valor de **Logs.Verbose** de *n* a  *y* .
 3. Guarde los cambios y reinicie waagent siguiendo los pasos anteriores de esta sección.
 
-## <a name="cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 3: El agente está instalado en la máquina virtual, pero no responde (para máquinas virtuales de Windows)
-
-### <a name="solution"></a>Solución
-Es posible que el agente de máquina virtual se haya dañado o que el servicio se haya detenido. Si vuelve a instalar al agente tendrá la versión más reciente y se reiniciará la comunicación.
-
-1. Compruebe si puede ver el servicio Windows Guest Agent en los servicios del equipo (services.msc)
-2. Si no lo ve, compruebe en Programas y características si el servicio Windows Guest Agent está instalado.
-3. Si lo ve en Programas y características, desinstale el servicio.
-4. Descargue e instale el [MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para completar la instalación, necesita privilegios de administrador.
-5. A partir de ese momento debería poder ver Windows Guest Agent en los servicios
-6. Pruebe a ejecutar una copia de seguridad ad hoc o a petición, para lo que debe hacer clic en "Realizar copia de seguridad ahora" en el portal.
-
-Compruebe también si **.NET 4.5 está instalado en el sistema**, ya que se requiere para que el agente de máquina virtual se comunique con el servicio.
-
-## <a name="cause-4-the-backup-extension-fails-to-update-or-load"></a>Causa 4: La extensión de la copia de seguridad no se puede actualizar ni cargar
-Si no se pueden cargar las extensiones, Backup producirá un error porque no se puede tomar una instantánea.
-
-### <a name="solution"></a>Solución
-
-Para invitados de Windows:
-
-Compruebe que el servicio iaasvmprovider está habilitado y tiene un tipo de inicio *automático*. Si el servicio no está configurado de esa forma, habilítelo para determinar si se realiza correctamente la siguiente copia de seguridad.
-
-Para invitados de Linux:
-
-La versión más reciente de VMSnapshot para Linux (extensión utilizada por Backup) es 1.0.91.0.
-
-Si todavía no se puede actualizar ni cargar la extensión de copia de seguridad, puede forzar a la extensión VMSnapshot para que se vuelva a cargar mediante la desinstalación de la extensión. El siguiente intento de copia de seguridad volverá a cargar la extensión.
-
-Para desinstalar la extensión, haga lo siguiente:
-
-1. Vaya al [Portal de Azure](https://portal.azure.com/).
-2. Busque la máquina virtual que tiene problemas de copia de seguridad.
-3. Haga clic en **Configuración**.
-4. Haga clic en **Extensiones**.
-5. Haga clic en **Extensión de Vmsnapshot**.
-6. Hacer clic en **Desinstalar**.  
-
-Este procedimiento hace que la extensión se vuelva a instalar durante la siguiente copia de seguridad.
-
-## <a name="cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 5: No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas
+### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas
 La copia de seguridad de máquina virtual se basa en la emisión de comandos de instantánea para la cuenta del almacenamiento subyacente. Backup puede producir un error porque no tiene ningún acceso a la cuenta de almacenamiento o porque se retrasa la ejecución de la tarea de instantáneas.
 
-### <a name="solution"></a>Solución
+#### <a name="solution"></a>Solución
 Las siguientes condiciones pueden producir un error en la tarea de instantáneas.
 
 | Causa | Solución |
@@ -137,4 +150,28 @@ Las siguientes condiciones pueden producir un error en la tarea de instantáneas
 | Muchas máquinas virtuales del mismo servicio en la nube están configuradas para efectuar la copia de seguridad al mismo tiempo. | Se recomienda propagar las programaciones de copia de seguridad para las máquinas virtuales del mismo servicio en la nube. |
 | La máquina virtual se está ejecutando con un uso elevado de la CPU o de la memoria. | Si la máquina virtual se está ejecutando con un uso elevado de CPU (más del 90 %) o un uso elevado de memoria, la tarea de instantáneas se pone en cola y se retrasa y, en ocasiones, se agota el tiempo de espera. Pruebe la copia de seguridad a petición en estas situaciones. |
 | La máquina virtual no puede obtener la dirección de host o del tejido desde DHCP. | DHCP debe estar habilitado dentro del invitado para que la copia de seguridad de la máquina virtual de IaaS funcione.  Si la máquina virtual no puede obtener la dirección de host o del tejido de la respuesta 245 de DHCP, no podrá descargar ni ejecutar ninguna extensión. Si necesita una dirección IP privada estática, debe configurarla a través de la plataforma. La opción DHCP dentro de la máquina virtual debe continuar habilitada. Para más información, consulte el artículo sobre el [establecimiento de una dirección IP privada interna estática](../virtual-network/virtual-networks-reserved-private-ip.md). |
+
+### <a name="the-backup-extension-fails-to-update-or-load"></a>No se puede actualizar ni cargar la extensión de copia de seguridad
+Si no se pueden cargar las extensiones, Backup producirá un error porque no se puede tomar una instantánea.
+
+#### <a name="solution"></a>Solución
+
+**Para invitados de Windows:** compruebe que el servicio iaasvmprovider está habilitado y tiene un tipo de inicio *automático*. Si el servicio no está configurado de esa forma, habilítelo para determinar si se realiza correctamente la siguiente copia de seguridad.
+
+**Para agentes de Linux:** compruebe que la versión más reciente de VMSnapshot para Linux (extensión utilizada por Backup) es 1.0.91.0.<br>
+
+
+Si todavía no se puede actualizar ni cargar la extensión de copia de seguridad, puede forzar a la extensión VMSnapshot para que se vuelva a cargar mediante la desinstalación de la extensión. El siguiente intento de copia de seguridad volverá a cargar la extensión.
+
+Para desinstalar la extensión, haga lo siguiente:
+
+1. Vaya a [Azure Portal](https://portal.azure.com/).
+2. Busque la máquina virtual que tiene problemas de copia de seguridad.
+3. Haga clic en **Configuración**.
+4. Haga clic en **Extensiones**.
+5. Haga clic en **Extensión de Vmsnapshot**.
+6. Hacer clic en **Desinstalar**.
+
+Este procedimiento hace que la extensión se vuelva a instalar durante la siguiente copia de seguridad.
+
 

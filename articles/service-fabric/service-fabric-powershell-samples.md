@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 06/26/2017
+ms.date: 08/16/2017
 ms.author: ryanwi
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: bedf52a2a9b9ffc1c2546f25a09c0b1639a6e210
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: b109d1f3082fa3017f34bed685fd008ff3630394
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-powershell-samples"></a>Ejemplos de Azure PowerShell
@@ -34,6 +34,8 @@ En la tabla siguiente se incluyen vínculos a ejemplos de scripts de PowerShell 
 | **Administrar clúster** ||
 | [Adición de un certificado de la aplicación](./scripts/service-fabric-powershell-add-application-certificate.md)| Agrega un certificado X.509 de aplicación a todos los nodos de un clúster. |
 | **Administrar aplicaciones** ||
-| [Implementar una aplicación](./scripts/service-fabric-powershell-deploy-application.md)| Implementa una aplicación en un clúster.|
-| [Quitar una aplicación](./scripts/service-fabric-powershell-remove-application.md)| Quita una aplicación de un clúster.|
+| [Implementar una aplicación](./scripts/service-fabric-powershell-deploy-application.md)| Implementar una aplicación en un clúster.|
+| [Upgrade an application](./scripts/service-fabric-powershell-upgrade-application.md) (Actualización de una aplicación)| Actualizar una aplicación |
+| [Eliminar una aplicación](./scripts/service-fabric-powershell-remove-application.md)| Eliminar una aplicación de un clúster.|
+| [Open a port in the load balancer](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) (Apertura de un puerto en el equilibrador de carga) | Permite abrir un puerto de aplicación en Azure Load Balancer. |
 

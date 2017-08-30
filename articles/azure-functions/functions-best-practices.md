@@ -4,7 +4,7 @@ description: "Información acerca de los procedimientos recomendados y los patro
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, patrones, procedimientos recomendados, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"
@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 5408bf986b67d420d4d1359961ec83510c97cd05
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 645a5dd16e72619e7c2470ab8f03098f0fa6c7f8
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -46,7 +45,7 @@ Los mensajes individuales de una cola de almacenamiento tienen un límite de tam
 
 Temas de Service Bus son útiles si necesita filtrado de mensajes antes del procesamiento.
 
-Los concentradores de eventos son útiles para admitir comunicaciones de gran volumen.
+Los centros de eventos son útiles para admitir comunicaciones de gran volumen.
 
 
 ## <a name="write-functions-to-be-stateless"></a>Escritura de funciones para que no tengan estado 
@@ -88,9 +87,9 @@ No utilice el registro detallado en el código de producción. Tiene un impacto 
 
 
 
-## <a name="use-async-code-but-avoid-taskresult"></a>Usar código asincrónico pero evitar Task.Result
+## <a name="use-async-code-but-avoid-blocking-calls"></a>Uso del código asincrónico pero evitar las llamadas de bloqueo
 
-La programación asincrónica es una práctica recomendada. Sin embargo, evite siempre hacer referencia a la propiedad `Task.Result`. Este enfoque puede provocar el agotamiento de subprocesos.
+La programación asincrónica es una práctica recomendada. Sin embargo, evite siempre las referencias a la propiedad `Result` o las llamadas al método `Wait` en una instancia `Task`. Este enfoque puede provocar el agotamiento de subprocesos.
 
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]

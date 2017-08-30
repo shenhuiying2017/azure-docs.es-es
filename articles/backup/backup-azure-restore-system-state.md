@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/31/2017
+ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: c58f363035a654f60bec4efa43e0743e9a76c22f
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 320c85f8045d9b72cf7f430d2e2736ba8e5ec269
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restauración del estado del sistema a Windows Server
@@ -178,7 +178,7 @@ Una vez que haya recuperado el estado del sistema como archivos con el agente de
 La copia de seguridad del estado del sistema incluye datos de Active Directory. Siga estos pasos para restaurar Active Directory Domain Services (AD DS) de su estado actual a un estado anterior.
 
 1. Reinicie el controlador de dominio en Modo de restauración de servicios de directorio (DSRM).
-2. Siga estos pasos para usar los cmdlets de Copias de seguridad de Windows Server para recuperar AD DS.
+2. Siga los pasos que aparecen [aquí](https://technet.microsoft.com/en-us/library/cc794755(v=ws.10).aspx) para usar cmdlets de Copias de seguridad de Windows Server para recuperar AD DS.
 
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Solución de problemas en la restauración del estado del sistema

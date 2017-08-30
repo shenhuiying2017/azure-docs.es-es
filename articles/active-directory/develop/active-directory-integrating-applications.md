@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: lenalepa
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: e8cc9b790224891a0770b18fe2edb8e1bbfd5b72
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3be341bcb897a1481f145825429a1a94dfaae3b0
 ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integración de aplicaciones con Azure Active Directory
@@ -38,7 +38,7 @@ Cualquier aplicación que quiera usar las funciones de Azure AD debe registrarse
 Si está creando una aplicación web que solo necesita admitir el inicio de sesión para usuarios en Azure AD, basta con que siga las instrucciones a continuación. Si la aplicación necesita credenciales o permisos para acceder a una API web o debe permitir el acceso a usuarios de otros inquilinos de Azure AD, consulte la sección [Actualización de una aplicación](#updating-an-application) para seguir configurando la aplicación.
 
 ### <a name="to-register-a-new-application-in-the-azure-portal"></a>Para registrar una aplicación nueva en Azure Portal
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Para elegir el inquilino de Azure AD, seleccione una cuenta en la esquina superior derecha de la página.
 3. En el panel de navegación izquierdo, elija **Más servicios**, haga clic en **Registros de aplicaciones**y, luego, en **Agregar**.
 4. Siga las indicaciones y cree una nueva aplicación. Si desea ejemplos específicos de aplicaciones web o aplicaciones nativa, visite nuestras [guías de inicio rápido](active-directory-developers-guide.md).
@@ -100,7 +100,7 @@ Además, para que un cliente pueda acceder a una API web expuesta por una aplica
 > La incorporación de un permiso delegado a una aplicación no concede consentimiento automáticamente a los usuarios del inquilino, tal y como se hacía en el Portal de Azure clásico. Los usuarios todavía deben consentir manualmente los permisos delegados agregados en tiempo de ejecución, a menos que el administrador haga clic en el botón **Conceder permisos** en la sección **Permisos necesarios** de la página de aplicación en Azure Portal. 
 
 #### <a name="to-add-credentials-or-permissions-to-access-web-apis"></a>Para agregar credenciales o permisos para acceder a las API web
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Para elegir el inquilino de Azure AD, seleccione una cuenta en la esquina superior derecha de la página.
 3. En el menú superior, elija **Azure Active Directory**, haga clic en **Registros de aplicaciones** y luego haga clic en la aplicación que desee configurar. Esto le llevará a la página de inicio rápido de la aplicación y se abrirá la hoja Configuración de dicha aplicación.
 4. Para agregar una clave secreta para las credenciales de la aplicación web, haga clic en la sección "Claves" en la hoja Configuración.  
@@ -127,7 +127,7 @@ Puede desarrollar una API web y ponerla a disposición de las aplicaciones clien
 En la siguiente sección, se mostrará cómo exponer ámbitos de acceso modificando el manifiesto de la aplicación de recursos.
 
 #### <a name="adding-access-scopes-to-your-resource-application"></a>Agregar ámbitos de acceso a la aplicación de recursos
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Para elegir el inquilino de Azure AD, seleccione una cuenta en la esquina superior derecha de la página.
 3. En el menú superior, elija **Azure Active Directory**, haga clic en **Registros de aplicaciones** y luego haga clic en la aplicación que desee configurar. Esto le llevará a la página de inicio rápido de la aplicación y se abrirá la hoja Configuración de dicha aplicación.
 4. Haga clic en **Manifiesto** en la página de la aplicación para abrir el editor de manifiestos en línea. 
@@ -196,7 +196,7 @@ Si está escribiendo una aplicación que quiere poner a disposición de sus clie
 
 Para permitir que los usuarios externos accedan a la aplicación: 
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Para elegir el inquilino de Azure AD, seleccione una cuenta en la esquina superior derecha de la página.
 3. En el menú superior, elija **Azure Active Directory**, haga clic en **Registros de aplicaciones** y luego haga clic en la aplicación que desee configurar. Esto le llevará a la página de inicio rápido de la aplicación y se abrirá la hoja Configuración de dicha aplicación.
 4. En la hoja Configuración, haga clic en **Propiedades** y coloque el conmutador **Multiinquilino** en la posición **Sí**.
@@ -216,7 +216,7 @@ Las aplicaciones de una sola página (SPA) normalmente tienen una estructura con
 De forma predeterminada, la concesión implícita de OAuth 2.0 está deshabilitada para las aplicaciones. Puede habilitarla para su aplicación si configura el valor `oauth2AllowImplicitFlow` en su [manifiesto de aplicación](active-directory-application-manifest.md), que es un archivo JSON que representa la configuración de identidad de la aplicación.
 
 #### <a name="to-enable-oauth-20-implicit-grant"></a>Para habilitar la concesión implícita de OAuth 2.0
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Para elegir el inquilino de Azure AD, seleccione una cuenta en la esquina superior derecha de la página.
 3. En el menú superior, elija **Azure Active Directory**, haga clic en **Registros de aplicaciones** y luego haga clic en la aplicación que desee configurar. Esto le llevará a la página de inicio rápido de la aplicación y se abrirá la hoja Configuración de dicha aplicación.
 4. En la página de la aplicación, haga clic en **Manifiesto** para abrir el editor de manifiestos en línea.
@@ -233,14 +233,14 @@ En esta sección se describe cómo quitar una aplicación del inquilino de Azure
 Estas son las aplicaciones que se muestran con el filtro "Aplicaciones que tiene mi compañía" en la página principal de "Aplicaciones" para el inquilino de Azure AD. En términos técnicos, se trata de aplicaciones que se han registrado manualmente mediante el Portal de Azure clásico o mediante programación a través de PowerShell o la API Graph. Más específicamente, se representan mediante un objeto Application y ServicePrincipal en el inquilino. Para más información, consulte [Objetos Application y objetos ServicePrincipal](active-directory-application-objects.md) .
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Para quitar una aplicación de un solo inquilino del directorio
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Para elegir el inquilino de Azure AD, seleccione una cuenta en la esquina superior derecha de la página.
 3. En el menú superior, elija **Azure Active Directory**, haga clic en **Registros de aplicaciones** y luego haga clic en la aplicación que desee configurar. Esto le llevará a la página de inicio rápido de la aplicación y se abrirá la hoja Configuración de dicha aplicación.
 4. En la página de la aplicación, haga clic en **Eliminar**.
 5. Haga clic en **Sí** en el mensaje de confirmación.
 
 #### <a name="to-remove-a-multi-tenant-application-from-your-directory"></a>Para quitar una aplicación multiempresa de su directorio
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Para elegir el inquilino de Azure AD, seleccione una cuenta en la esquina superior derecha de la página.
 3. En el menú superior, elija **Azure Active Directory**, haga clic en **Registros de aplicaciones** y luego haga clic en la aplicación que desee configurar. Esto le llevará a la página de inicio rápido de la aplicación y se abrirá la hoja Configuración de dicha aplicación.
 4. En la hoja Configuración, elija **Propiedades** y coloque el conmutador **Multiinquilino** en la posición **No**. Esto hace que la aplicación sea de un solo inquilino, pero la aplicación seguirá estando en la organización que ya le dio su consentimiento.

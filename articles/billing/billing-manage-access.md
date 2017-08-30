@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2017
+ms.date: 08/22/2017
 ms.author: vikdesai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 247782a86a0d20486513dff0dae0c1564b5ecb72
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Administrar el acceso a la información de facturación de Azure mediante el control de acceso basado en roles
@@ -34,9 +34,13 @@ El Administrador de la cuenta debe participar en [Azure Portal](https://portal.a
 
 1. Seleccione **Facturas** y, después, **Acceso a las facturas**.
 
-1. **Active** el acceso.
+    ![Captura de pantalla muestra cómo delegar acceso a las facturas](./media/billing-manage-access/AA-optin.png)
 
-La participación permite al Administrador de servicios, Coadministrador, Propietario, Colaborador, Lector y Lector de facturación en la suscripción descargar facturas PDF en Azure Portal. Por ahora, las facturas anteriores a diciembre de 2016 solo están disponibles para el administrador de la cuenta.
+1. **Active** el acceso y luego guarde los cambios para permitir que los usuarios en roles con ámbito de suscripción descarguen la factura.
+
+    ![Captura de pantalla muestra cómo activar o desactivar la delegación de acceso a la factura](./media/billing-manage-access/AA-optinAllow.png)
+
+La participación permite al Administrador de servicios, Coadministrador, Propietario, Colaborador, Lector y Lector de facturación en la suscripción descargar facturas PDF en Azure Portal. Por ahora, las facturas anteriores a diciembre de 2016 solo están disponibles para el administrador de cuenta.
 
 El administrador de la cuenta también puede configurar que las facturas se envíen por correo electrónico. Para obtener más información, vea [Obtención de la factura por correo electrónico](billing-download-azure-invoice-daily-usage-date.md).
 

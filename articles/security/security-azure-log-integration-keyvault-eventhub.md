@@ -12,27 +12,29 @@ ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 4503234080e0bf737dad2e18907b47c3bf39d9da
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 02dde6366a8897a060df451c7f514f79e6733681
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integración de registros de Azure: Procesamiento de eventos de Azure Key Vault mediante Event Hubs
 
-Azure Log Integration (AzLog) permite recuperar los eventos registrados y hacer que estén disponibles en su sistema de información de seguridad y administración de eventos (SIEM). El propósito de este tutorial es guiarlo a través de un ejemplo de cómo se puede usar Azure Log Integration para procesar registros adquiridos a través de Event Hubs. Use el artículo para familiarizarse con el modo en que Azure Log Integration y Event Hubs funcionan conjuntamente siguiendo los pasos del ejemplo y entendiendo el modo en que cada paso se encamina hacia la solución. A continuación, puede aprovechar lo que ha aprendido aquí para crear sus propios pasos según los requisitos únicos de su empresa.
+Puede usar Azure Log Integration para recuperar los eventos registrados y hacer que estén disponibles en su sistema de información de seguridad y administración de eventos (SIEM). En este tutorial se muestra un ejemplo de cómo se puede usar Azure Log Integration para procesar registros adquiridos a través de Azure Event Hubs.
+ 
+Utilícelo para familiarizarse con el modo en que Azure Log Integration y Event Hubs funcionan conjuntamente siguiendo los pasos del ejemplo y entendiendo cómo cada paso se encamina hacia la solución. A continuación, puede aprovechar lo que ha aprendido aquí para crear sus propios pasos según los requisitos únicos de su empresa.
 
 >[!WARNING]
-Los pasos y los comandos que se utilizan en este tutorial no están diseñados para copiarse y pegarse; se proporcionan únicamente como ejemplos. No use los comandos de PowerShell tal cual en su entorno activo. Deben personalizarse en función de su entorno específico.
+Los pasos y los comandos de este tutorial no están diseñados para copiarse y pegarse. Tan solo son ejemplos. No use los comandos de PowerShell tal cual en el entorno activo. Deben personalizarse en función del entorno específico.
 
 
 Este tutorial le guiará por el proceso de registrar la actividad de Azure Key Vault en un centro de eventos y hacer que esté disponible como archivos JSON en el sistema SIEM. Después, puede configurar el sistema SIEM para que procese los archivos JSON.
 
 >[!NOTE]
->La mayoría de los pasos de este tutorial conllevan la configuración de almacenes de claves, cuentas de almacenamiento y centros de eventos. Los pasos específicos de la integración de registros de Azure están al final de este tutorial. No lleve a cabo estos pasos en un entorno de producción: están diseñados solo para un entorno de laboratorio. Los pasos deben personalizarse antes de usarlos en un entorno de producción.
+>La mayoría de los pasos de este tutorial conllevan la configuración de almacenes de claves, cuentas de almacenamiento y centros de eventos. Los pasos específicos de la integración de registros de Azure están al final de este tutorial. No realice estos pasos en un entorno de producción, ya que se han diseñado exclusivamente para un entorno de laboratorio. Los pasos deben personalizarse antes de usarlos en un entorno de producción.
 
-La información proporcionada en el proceso le ayudará a comprender los motivos detrás de cada paso. Los vínculos a otros artículos proporcionan más detalles sobre determinados temas.
+La información proporcionada en el proceso lo ayudará a comprender los motivos detrás de cada paso. Los vínculos a otros artículos proporcionan más detalles sobre determinados temas.
 
 Para más información sobre los servicios que se mencionan en este tutorial, vea: 
 
@@ -50,20 +52,22 @@ Necesita lo siguiente para completar los pasos de este artículo:
 2. Un sistema con acceso a Internet que cumpla los requisitos para la instalación de la integración de registros de Azure. El sistema puede estar en un servicio en la nube u hospedado en una ubicación local.
 
 3. La [integración de registros de Azure](https://www.microsoft.com/download/details.aspx?id=53324) instalada. Para instalarla:
-   1. Use Escritorio remoto para conectarse al sistema mencionado en el paso 2.
-   2. Copie el instalador de la integración de registros de Azure en el sistema. Puede [descargar los archivos de instalación](https://www.microsoft.com/download/details.aspx?id=53324).
-   3. Inicie el instalador y acepte los Términos de licencia del software de Microsoft.
-   4. Si va a proporcionar información de telemetría, deje activada la casilla. Si prefiere no enviar información de uso a Microsoft, desactive la casilla.
+
+   a. Use Escritorio remoto para conectarse al sistema mencionado en el paso 2.   
+   b. Copie el instalador de la integración de registros de Azure en el sistema. Puede [descargar los archivos de instalación](https://www.microsoft.com/download/details.aspx?id=53324).   
+   c. Inicie el instalador y acepte los Términos de licencia del software de Microsoft.   
+   d. Si va a proporcionar información de telemetría, deje activada la casilla. Si prefiere no enviar información de uso a Microsoft, desactive la casilla.
    
-   Para más información sobre la integración de registros de Azure y cómo instalarla, vea [Integración de registros de Azure en registros de Azure Diagnostics y reenvío de eventos de Windows](security-azure-log-integration-get-started.md).
+   Para obtener más información sobre Azure Log Integration y cómo instalar este servicio, consulte [Azure Log Integration en registros de Azure Diagnostics y reenvío de eventos de Windows](security-azure-log-integration-get-started.md).
 
 4. La versión más reciente de PowerShell.
  
    Si tiene instalado Windows Server 2016, entonces tiene al menos PowerShell 5.0. Si usa otra versión de Windows Server, es posible que tenga instalada una versión anterior de PowerShell. Puede comprobar la versión escribiendo ```get-host``` en una ventana de PowerShell. Si no tiene PowerShell 5.0 instalado, puede [descargarlo](https://www.microsoft.com/download/details.aspx?id=50395).
 
    Después de que disponga al menos de PowerShell 5.0, puede continuar con la instalación de la versión más reciente:
-   1. En una ventana de PowerShell, escriba ```Install-Module Azure``` y presione Entrar. Complete los pasos de instalación. 
-   2. Escriba ```Install-Module AzureRM``` y presione Entrar. Complete los pasos de instalación.
+   
+   a. En una ventana de PowerShell, escriba el comando ```Install-Module Azure```. Complete los pasos de instalación.    
+   b. Escriba el comando ```Install-Module AzureRM```. Complete los pasos de instalación.
 
    Para más información, vea [Instalar Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
 
@@ -71,12 +75,11 @@ Necesita lo siguiente para completar los pasos de este artículo:
 ## <a name="create-supporting-infrastructure-elements"></a>Crear los elementos de la infraestructura de soporte
 
 1. Abra una ventana de PowerShell con privilegios elevados y vaya a **C:\Archivos de programa\Microsoft Azure Log Integration**.
-2. Importe los cmdlets de AzLog mediante la ejecución del script LoadAzLogModule.ps1. (Observe ".\" en el siguiente comando). Escriba `.\LoadAzLogModule.ps1` y presione Entrar.
-Puede ver algo así:</br>
+2. Importe los cmdlets de AzLog mediante la ejecución del script LoadAzLogModule.ps1. Escriba el comando `.\LoadAzLogModule.ps1`. Observe la parte ".\" en el comando. Debería ver algo así:</br>
 
    ![Lista de módulos cargados](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. Escriba `Login-AzureRmAccount` y presione Entrar. En la ventana de inicio de sesión, escriba la información de credenciales de la suscripción que va a usar para este tutorial.
+3. Escriba el comando `Login-AzureRmAccount`. En la ventana de inicio de sesión, escriba la información de credenciales de la suscripción que va a usar para este tutorial.
 
    >[!NOTE]
    >Si se trata de la primera vez que inicia sesión en Azure desde este equipo, verá un mensaje que le pregunta si quiere permitir a Microsoft recopilar datos de uso de PowerShell. Es recomendable que habilite esta recopilación de datos ya que se usará para mejorar Azure PowerShell.
@@ -84,9 +87,9 @@ Puede ver algo así:</br>
 4. Tras la autenticación correcta, iniciará sesión y verá la información de la captura de pantalla siguiente. Tome nota del identificador y el nombre de la suscripción, ya que los necesitará para completar los pasos posteriores.
 
    ![Ventana de PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
-5. Cree variables para almacenar valores que se usarán más adelante. Escriba todas las líneas de PowerShell siguientes y presione Entrar después de cada una. Es posible que necesite ajustar los valores para que se adapten a su entorno.
+5. Cree variables para almacenar valores que se usarán más adelante. Escriba cada una de las siguientes líneas de PowerShell. Es posible que necesite ajustar los valores para que se adapten a su entorno.
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (El nombre de la suscripción puede ser diferente. Puede verlo como parte de la salida del comando anterior).
-    - ```$location = 'West US'``` (Se utilizará esta variable para pasar la ubicación donde se deben crear los recursos. Puede cambiar esta variable para que sea cualquier otra ubicación de su elección).
+    - ```$location = 'West US'``` (Se utilizará esta variable para pasar la ubicación donde se deben crear los recursos. Puede cambiar esta variable para que sea cualquier otra ubicación que elija).
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` (El nombre puede ser de cualquier tipo, pero solo debe incluir números y letras en minúsculas).
     - ``` $storageName = $name``` (Esta variable se usará para el nombre de la cuenta de almacenamiento).
@@ -99,7 +102,7 @@ Puede ver algo así:</br>
     
     ```$rg = New-AzureRmResourceGroup -Name $rgname -Location $location```
     
-   Si escribe `$rg` y presiona Entrar en este momento, deberá ver un resultado similar al de esta captura de pantalla:
+   Si escribe `$rg` en este punto, deberá ver un resultado similar al de esta captura de pantalla:
 
    ![Salida después de la creación de un grupo de recursos](./media/security-azure-log-integration-keyvault-eventhub/create-rg.png)
 8. Cree una cuenta de almacenamiento que se usará para realizar el seguimiento de la información de estado:
@@ -113,22 +116,22 @@ Puede ver algo así:</br>
     ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
 11. Obtenga todas las ubicaciones posibles de Azure y agregue los nombres a una variable que se puede usar en un paso posterior:
     
-    1. ```$locationObjects = Get-AzureRMLocation```    
-    2. ```$locations = @('global') + $locationobjects.location```
+    a. ```$locationObjects = Get-AzureRMLocation```    
+    b. ```$locations = @('global') + $locationobjects.location```
     
-    Si escribe `$locations` y presiona Entrar en este momento, verá los nombres de las ubicaciones sin la información adicional que devuelve Get-AzureRmLocation.
+    Si escribe `$locations` en este punto, verá los nombres de las ubicaciones sin la información adicional que devuelve Get-AzureRmLocation.
 12. Cree un perfil de registro de Azure Resource Manager: 
     
     ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
     Para más información sobre el perfil de registro de Azure, vea [Información general sobre el registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
->[!NOTE]
->Es posible que reciba un mensaje de error al intentar crear un perfil de registro. Revise la documentación de Get-AzureRmLogProfile y Remove-AzureRmLogProfile. Si ejecuta Get-AzureRmLogProfile, verá información sobre el perfil de registro. Puede eliminar el perfil de registro existente si escribe ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` y presiona Entrar.
+> [!NOTE]
+> Es posible que reciba un mensaje de error al intentar crear un perfil de registro. Revise la documentación de Get-AzureRmLogProfile y Remove-AzureRmLogProfile. Si ejecuta Get-AzureRmLogProfile, verá información sobre el perfil de registro. Puede eliminar el perfil de registro actual escribiendo el comando ```Remove-AzureRmLogProfile -name 'Log Profile Name' ```.
 >
 >![Error de perfil de Resource Manager](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
-## <a name="create-a-key-vault"></a>Creación de un Almacén de claves
+## <a name="create-a-key-vault"></a>Creación de un almacén de claves
 
 1. Cree el almacén de claves:
 
@@ -153,8 +156,7 @@ Las solicitudes se deben enviar a Key Vault para generar actividades de registro
    ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 4. Establezca y lea un secreto para generar entradas de registro adicionales:
     
-   1. ```Set-AzureKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```    
-   2. ```(Get-AzureKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzureKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzureKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Secreto devuelto](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 

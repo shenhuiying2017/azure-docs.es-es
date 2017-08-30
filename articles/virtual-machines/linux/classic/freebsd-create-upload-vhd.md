@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kyliel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 7a92105f9d7be88311f2ecd89b22e35f3ad3bbac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 918f454784a9676297077c2e94c3e49ab2872d2f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Creación y carga de un VHD de FreeBSD en Azure
@@ -126,9 +125,9 @@ Necesita una cuenta de almacenamiento de Azure para cargar un archivo .vhd, que 
     ![Crear rápidamente una cuenta de almacenamiento](./media/freebsd-create-upload-vhd/Storage-quick-create.png)
 4. Rellene los campos de la manera siguiente:
 
-   * En el campo **URL** , escriba un nombre de subdominio que vaya a usar en la URL de la cuenta de almacenamiento. Esta entrada puede contener de 3 a 24 números y letras minúsculas. Este nombre se convierte en el nombre del host dentro de la dirección URL que se usó para direccionar el Almacenamiento de blobs de Azure, el Almacenamiento en cola de Azure o los recursos de Almacenamiento de tablas de Azure de la suscripción.
+   * En el campo **URL** , escriba un nombre de subdominio que vaya a usar en la URL de la cuenta de almacenamiento. Esta entrada puede contener de 3 a 24 números y letras minúsculas. Este nombre se convierte en el nombre del host dentro de la dirección URL que se usó para direccionar los recursos de Azure Blob Storage, Azure Queue Storage o Azure Table Storage de la suscripción.
    * En la lista desplegable **Ubicación/grupo de afinidad**, seleccione una **ubicación o grupo de afinidad** para la cuenta de almacenamiento. Un grupo de afinidad le permite colocar sus servicios y almacenamiento en la nube en el mismo centro de datos.
-   * En el campo **Replicación**, decida si va a usar la replicación **Redundancia geográfica** para la cuenta de almacenamiento. La replicación geográfica está activada de forma predeterminada. Esta opción replica los datos en una ubicación secundaria, sin coste, por lo que su almacenamiento conmuta por error a esa ubicación si se produce un error importante en la ubicación principal. La ubicación secundaria se asigna automáticamente y no se puede cambiar. Si necesita más control sobre la ubicación del almacenamiento en la nube debido a requisitos legales o las directivas de su organización, puede desactivar la replicación geográfica. Sin embargo, tenga en cuenta que si más tarde activa la replicación geográfica, deberá pagar una cuota de transferencia de datos puntual para replicar los datos existentes en la ubicación secundaria. Los servicios de almacenamiento sin replicación geográfica se ofrecen con descuento. Puede encontrar más información sobre la administración de la replicación geográfica de cuentas de almacenamiento aquí: [Replicación de Azure Storage](../../../storage/storage-redundancy.md).
+   * En el campo **Replicación**, decida si va a usar la replicación **Redundancia geográfica** para la cuenta de almacenamiento. La replicación geográfica está activada de forma predeterminada. Esta opción replica los datos en una ubicación secundaria, sin coste, por lo que su almacenamiento conmuta por error a esa ubicación si se produce un error importante en la ubicación principal. La ubicación secundaria se asigna automáticamente y no se puede cambiar. Si necesita más control sobre la ubicación del almacenamiento en la nube debido a requisitos legales o las directivas de su organización, puede desactivar la replicación geográfica. Sin embargo, tenga en cuenta que si más tarde activa la replicación geográfica, deberá pagar una cuota de transferencia de datos puntual para replicar los datos existentes en la ubicación secundaria. Los servicios de almacenamiento sin replicación geográfica se ofrecen con descuento. Puede encontrar más información sobre la administración de la replicación geográfica de cuentas de almacenamiento aquí: [Replicación de Azure Storage](../../../storage/common/storage-redundancy.md).
 
      ![Escribir los detalles de la cuenta de almacenamiento](./media/freebsd-create-upload-vhd/Storage-create-account.png)
 5. Haga clic en **Crear cuenta de almacenamiento**. La cuenta aparece ahora en **Almacenamiento**.
@@ -164,22 +163,22 @@ Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el e
 
 ### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Uso del método del certificado para cargar un archivo .vhd
 1. Abra la consola de Azure PowerShell.
-2. Escriba:  `Get-AzurePublishSettingsFile`.
+2. Escriba: `Get-AzurePublishSettingsFile`.
 3. Se abre una ventana del explorador que le solicita que descargue el archivo .publishsettings. Este archivo contiene información y un certificado para su suscripción de Azure.
 
     ![Página de descarga del explorador](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. Guarde el archivo .publishsettings.
-5. Escriba:  `Import-AzurePublishSettingsFile <PathToFile>`, donde `<PathToFile>` es la ruta completa al archivo .publishsettings.
+5. Escriba: `Import-AzurePublishSettingsFile <PathToFile>`, donde `<PathToFile>` es la ruta de acceso completa al archivo .publishsettings.
 
    Para obtener información, consulte [Get started with Azure cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)(Introducción a los cmdlets de Azure).
 
    Para más información sobre cómo instalar Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="step-4-upload-the-vhd-file"></a>Paso 4: Carga del archivo .vhd
-Cuando carga el archivo .vhd, puede colocarlo en cualquier parte del Almacenamiento de blobs. A continuación se muestran algunos términos que se van a usar al cargar el archivo:
+Cuando carga el archivo .vhd, puede colocarlo en cualquier parte de Blob Storage. A continuación se muestran algunos términos que se van a usar al cargar el archivo:
 
-* **URLAlmacenamientoDeBlobs** es la dirección URL de la cuenta de almacenamiento que ha creado en el paso 2.
-* **SuCarpetaDeImágenes** es el contenedor de Almacenamiento de blobs en el que desea almacenar las imágenes.
+* **URLBlobStorage** es la dirección URL de la cuenta de almacenamiento que ha creado en el paso 2.
+* **SuCarpetaDeImágenes** es el contenedor de Blob Storage en el que desea almacenar las imágenes.
 * **VHDName** es la etiqueta que aparece en el Portal de Azure clásico para identificar el disco duro virtual.
 * **PathToVHDFile** es la ruta de acceso completa y el nombre del archivo .vhd.
 

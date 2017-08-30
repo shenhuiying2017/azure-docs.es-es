@@ -5,23 +5,24 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/10/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: f4d72d4d11ee64e3431879f6ad1b5d8d091a0c87
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 9e28c89d8f64f0ae3d4150017ca544e606075c45
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 08/24/2017
 
 ---
+
 # <a name="silently-install-the-azure-ad-application-proxy-connector"></a>Instalación silenciosa del conector del proxy de la aplicación de Azure AD
 Quiere poder enviar un script de instalación a varios servidores de Windows o servidores de Windows Server que no tienen habilitada la interfaz de usuario. Este tema le ayuda a crear un script de Windows PowerShell que hace posible la instalación desatendida y el registro para el conector del proxy de la aplicación de Azure AD.
 
@@ -32,13 +33,13 @@ Esta capacidad resulta útil cuando desea hacer lo siguiente:
 * Integrar la instalación del conector y el registro como parte de otro procedimiento.
 * Crear una imagen de servidor estándar que contiene los bits de conector, pero no está registrada.
 
-El proxy de la aplicación funciona mediante la instalación de un pequeño servicio de Windows Server denominado conector dentro de la red. Para que el conector de Proxy de aplicación funcione debe estar registrado con el directorio de Azure AD mediante un administrador global y una contraseña. Normalmente esta información se especifica durante la instalación del conector en un cuadro de diálogo emergente. Sin embargo, puede usar Windows PowerShell para crear un objeto de credenciales para escribir la información de registro, o bien puede crear su propio token y usarlo con esta finalidad.
+El proxy de la aplicación funciona mediante la instalación de un pequeño servicio de Windows Server denominado conector dentro de la red. Para que el conector de Proxy de aplicación funcione debe estar registrado con el directorio de Azure AD mediante un administrador global y una contraseña. Normalmente esta información se especifica durante la instalación del conector en un cuadro de diálogo emergente. Sin embargo, puede usar Windows PowerShell para crear un objeto de credencial a fin de especificar la información de registro. O bien, puede crear su propio token y usarlo para escribir la información de registro.
 
 ## <a name="install-the-connector"></a>Instalación del conector
 Instale los MSI del conector sin registrar el conector de la siguiente manera:
 
 1. Abra el símbolo del sistema.
-2. Ejecute el siguiente comando en el que el modificador /q significa instalación desatendida (la instalación no le pedirá que acepte el contrato de licencia de usuario final).
+2. Ejecute el siguiente comando en el que el modificador /q significa instalación desatendida (la instalación no le pide que acepte el contrato de licencia de usuario final).
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
@@ -49,7 +50,7 @@ Hay dos métodos posibles para registrar el conector:
 * Registro del conector mediante un token creado sin conexión
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registro del conector mediante un objeto de credenciales de Windows PowerShell
-1. Ejecute el siguiente comando para crear el objeto de credenciales de Windows PowerShell. Reemplace *\<username\>* y *\<password\>* por el nombre de usuario y la contraseña para el directorio:
+1. Ejecute este comando para crear el objeto de credenciales de Windows PowerShell. Reemplace *\<username\>* y *\<password\>* por el nombre de usuario y la contraseña para el directorio:
    
         $User = "<username>"
         $PlainPassword = '<password>'

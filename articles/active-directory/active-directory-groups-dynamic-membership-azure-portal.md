@@ -1,5 +1,4 @@
 ---
-
 title: "Pertenencia a grupos dinámicos basada en atributos en Azure Active Directory | Microsoft Docs"
 description: "Procedimientos para crear reglas avanzadas para la pertenencia dinámica a grupos, con operadores y parámetros de reglas de expresión admitidos."
 services: active-directory
@@ -13,29 +12,38 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/18/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2f1d68c7127324477cfc8b87df0fd82dee7cd1d6
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: f4d9a08551d616ff98bc8734cbeec01d6e0d04ca
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creación de reglas de pertenencia dinámica a grupos basadas en atributos en Azure Active Directory
-En Azure Active Directory (Azure AD), puede crear reglas avanzadas para habilitar la pertenencia dinámica a grupos basada en atributos complejos. En este artículo se detallan los atributos y la sintaxis para crear reglas de pertenencia dinámica.
+En Azure Active Directory (Azure AD), puede crear reglas avanzadas para habilitar la pertenencia dinámica a grupos basada en atributos complejos. En este artículo se detallan los atributos y la sintaxis para crear reglas de pertenencia dinámica para usuarios o dispositivos.
 
-## <a name="to-create-the-advanced-rule"></a>Para crear la regla avanzada
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
+Cuando cambia cualquier atributo de un usuario, el sistema evalúa todas las reglas de grupos dinámicos de un directorio para ver si la modificación desencadenaría adiciones o retiradas en el grupo. Si un usuario o dispositivo cumple una regla de un grupo, se agrega a este como miembro. Cuando ya no cumple la regla, se quita.
 
-   ![Apertura de Administración de usuarios](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
-3. En la hoja **Usuarios y grupos**, seleccione **Todos los grupos**.
+> [!NOTE]
+> - Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365.
+>
+> - Esta característica requiere una licencia de Azure AD Premium P1 para cada miembro de usuario agregado a al menos un grupo dinámico.
+>
+> - Puede crear un grupo dinámico para dispositivos o usuarios, pero no se puede crear una regla que contenga tanto objetos de usuario como de dispositivo.
+
+> - En este momento no es posible crear un grupo de dispositivos basado en atributos de usuario propietario. Las reglas de pertenencia de dispositivo solo pueden hacer referencia a atributos inmediatos de objetos de dispositivo del directorio.
+
+## <a name="to-create-an-advanced-rule"></a>Para crear una regla avanzada
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que sea administrador global o administrador de cuentas de usuario.
+2. Seleccione **Usuarios y grupos**.
+3. Seleccione **Todos los grupos**.
 
    ![Apertura de la hoja Grupos](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. En la hoja **Usuarios y grupos - Todos los grupos**, seleccione el comando **Agregar**.
+4. En **Todos los grupos**, seleccione **Nuevo grupo**.
 
    ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 5. En la hoja **Grupo** , escriba un nombre y una descripción para el nuevo grupo. En **Tipo de pertenencia**, seleccione **Usuario dinámico** o **Dispositivo dinámico**, dependiendo de si quiere crear una regla para usuarios o dispositivos y, a continuación, seleccione **Agregar una consulta dinámica**. En el caso de atributos usados para reglas de dispositivo, consulte [Uso de atributos para crear reglas para los objetos de dispositivo](#using-attributes-to-create-rules-for-device-objects).
@@ -65,8 +73,6 @@ La longitud total del cuerpo de la regla avanzada no puede superar los 2048 cara
 > [!NOTE]
 > Las operaciones de cadena y regex no distinguen mayúsculas de minúsculas. También puede realizar comprobaciones Null, usando $null como constante; por ejemplo, user.department -eq $null.
 > Las cadenas que contienen comillas " deben convertirse en escape con caracteres '; por ejemplo, user.department -eq \`"Sales".
->
->
 
 ## <a name="supported-expression-rule-operators"></a>Operadores de regla de expresión admitidos
 En la tabla siguiente se enumeran todos los operadores de regla de expresión admitidos y su sintaxis para su uso en el cuerpo de la regla avanzada:
@@ -86,11 +92,16 @@ En la tabla siguiente se enumeran todos los operadores de regla de expresión ad
 
 ## <a name="operator-precedence"></a>Precedencia de operadores
 
-Todos los operadores se enumeran a continuación por orden de precedencia, de menor a mayor, los operadores en la misma línea tienen la misma prioridad -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
-
-Todos los operadores se pueden utilizar con o sin prefijo de guión.
-
-Tenga en cuenta que no siempre se necesitan paréntesis, solo necesita agregar paréntesis si la precedencia no cumple sus requisitos como, por ejemplo:
+Todos los operadores se enumeran a continuación por orden de precedencia, de menor a mayor. Los operadores en la misma línea tienen la misma prioridad:
+````
+-any -all
+-or
+-and
+-not
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+````
+Todos los operadores se pueden utilizar con o sin el prefijo de guion. Los paréntesis son necesarios solo si la precedencia no cumple sus requisitos.
+Por ejemplo:
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
@@ -150,7 +161,7 @@ Operadores permitidos
 | --- | --- | --- |
 | city |Cualquier valor de cadena o $null |(user.city -eq "value") |
 | country |Cualquier valor de cadena o $null |(user.country -eq "value") |
-| CompanyName | Cualquier valor de cadena o $null | (user.CompanyName -eq "value") |
+| companyName | Cualquier valor de cadena o $null | (user.companyName -eq "value") |
 | department |Cualquier valor de cadena o $null |(user.department -eq "value") |
 | DisplayName |Cualquier valor de cadena |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |Cualquier valor de cadena o $null |(user.facsimileTelephoneNumber -eq "value") |
@@ -193,7 +204,7 @@ Operadores permitidos
 
 | Propiedades | Valores | Uso |
 | --- | --- | --- |
-| assigendPlans |Cada objeto de la colección expone las siguientes propiedades de cadena: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| assignedPlans |Cada objeto de la colección expone las siguientes propiedades de cadena: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 
 Las propiedades de varios valores son colecciones de objetos del mismo tipo. Puede usar los operadores -any y -all para aplicar una condición a uno o todos los elementos de la colección, respectivamente. Por ejemplo:
 
@@ -232,7 +243,7 @@ Un ejemplo de una regla que utiliza un atributo de extensión sería
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Los atributos personalizados se sincronizan desde Windows Server AD local o desde una aplicación de SaaS conectada y el formato es "user.extension[GUID]\___[Attribute]", donde [GUID] es el identificador único de AAD para la aplicación que creó el atributo en AAD y [Attribute] es el nombre del atributo que se creó.
+Los atributos personalizados se sincronizan desde Windows Server AD local o desde una aplicación SaaS conectada y el formato es "user.extension[GUID]\___[Attribute]", donde [GUID] es el identificador único de AAD para la aplicación que creó el atributo en AAD y [Attribute] es el nombre del atributo cuando se creó.
 Un ejemplo de una regla que utiliza un atributo personalizado es
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
@@ -261,25 +272,25 @@ Puede crear un grupo con todos los subordinados directos de un administrador. Cu
 3. Después de guardar la regla, todos los usuarios con el valor de identificador de administrador especificado se agregarán al grupo.
 
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Uso de atributos para crear reglas para los objetos de dispositivo
-También puede crear una regla que selecciona objetos de dispositivo para la pertenencia de un grupo. Pueden utilizarse los siguientes atributos del dispositivo:
+También puede crear una regla que selecciona objetos de dispositivo para la pertenencia de un grupo. Pueden utilizarse los siguientes atributos del dispositivo.
 
-| Propiedades              | Valores permitidos                  | Uso                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
-| DisplayName             | Cualquier valor de cadena                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | Cualquier valor de cadena                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | Cualquier valor de cadena                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | Cualquier valor de cadena                | (device.deviceCategory -eq "")                              |
-| deviceManufacturer      | Cualquier valor de cadena                | (device.deviceManufacturer - eq "Microsoft")                 |
-| deviceModel             | Cualquier valor de cadena                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | Cualquier valor de cadena                | (device.deviceOwnership -eq "")                             |
-| domainName              | Cualquier valor de cadena                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | Cualquier valor de cadena                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
-| managementType          | Cualquier valor de cadena                | (device.managementType -eq "")                              |
-| organizationalUnit      | Cualquier valor de cadena                | (device.organizationalUnit -eq "")                          |
-| deviceId                | un valor válido de deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | un valor de objectId de AAD válido            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+ Atributo de dispositivo  | Valores | Ejemplo
+ ----- | ----- | ----------------
+ accountEnabled | true false | (device.accountEnabled -eq true)
+ DisplayName | Cualquier valor de cadena |(device.displayName -eq "Rob Iphone”)
+ deviceOSType | Cualquier valor de cadena | (device.deviceOSType -eq "IOS")
+ deviceOSVersion | Cualquier valor de cadena | (device.OSVersion -eq "9.1")
+ deviceCategory | un nombre de la categoría de dispositivo válido | (device.deviceCategory -eq "BYOD")
+ deviceManufacturer | Cualquier valor de cadena | (device.deviceManufacturer -eq "Samsung")
+ deviceModel | Cualquier valor de cadena | (device.deviceModel -eq "iPad Air")
+ deviceOwnership | Personal, empresa | (device.deviceOwnership -eq "Company")
+ domainName | Cualquier valor de cadena | (device.domainName -eq "contoso.com")
+ enrollmentProfileName | Nombre de perfil de inscripción de dispositivo de Apple | (device.enrollmentProfileName -eq "DEP iPhones")
+ isRooted | true false | (device.isRooted -eq true)
+ managementType | MDM (para dispositivos móviles)<br>PC (para equipos administrados por el agente de PC de Intune) | (device.managementType -eq "MDM")
+ organizationalUnit | cualquier valor de cadena que coincida con el nombre de la unidad organizativa establecido por Active Directory local | (device.organizationalUnit -eq "US PCs")
+ deviceId | un id. de dispositivo de Azure AD válido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ objectId | un id. de objeto de Azure AD válido |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
 
 

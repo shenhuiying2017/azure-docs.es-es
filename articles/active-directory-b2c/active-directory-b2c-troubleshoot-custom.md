@@ -1,9 +1,9 @@
 ---
-title: 'Azure Active Directory B2C: uso de Application Insights para resolver problemas de las directivas personalizadas | Microsoft Docs'
+title: 'Application Insights para resolver problemas de las directivas personalizadas: Azure AD B2C | Microsoft Docs'
 description: "cómo configurar Application Insights para realizar el seguimiento de la ejecución de las directivas personalizadas"
 services: active-directory-b2c
 documentationcenter: 
-author: saeeda
+author: saeedakhter-msft
 manager: krassk
 editor: parakhj
 ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
-ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: db658319637f1a45616091e034a0fc4db44885d4
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ad31e5f4ef3be78d8d2dd6b9c7d83e447d9ef776
 ms.contentlocale: es-es
-ms.lasthandoff: 05/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -32,7 +32,7 @@ Azure AD B2C admite una característica para enviar datos a Application Insights
 
 ### <a name="setup-application-insights"></a>Configuración de Application Insights
 
-1. Vaya al [Portal de Azure](https://portal.azure.com). Asegúrese de que se encuentra en el inquilino con su suscripción de Azure (no su inquilino de Azure AD B2C).
+1. Vaya a [Azure Portal](https://portal.azure.com). Asegúrese de que se encuentra en el inquilino con su suscripción de Azure (no su inquilino de Azure AD B2C).
 1. Haga clic en **+ Nuevo** en el menú de navegación izquierdo.
 1. Busque y seleccione **Application Insights** y, a continuación, haga clic en **Crear**.
 1. Complete el formulario y haga clic en **Crear**. Seleccione **General** para el **Tipo de aplicación**.

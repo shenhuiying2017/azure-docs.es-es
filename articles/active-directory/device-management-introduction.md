@@ -1,0 +1,153 @@
+---
+title: "Introducción a la administración de dispositivos en Azure Active Directory | Microsoft Docs"
+description: "Obtenga más información sobre cómo la administración de dispositivos puede ayudarle a tener bajo control a los dispositivos que acceden a los recursos de su entorno."
+services: active-directory
+documentationcenter: 
+author: MarkusVi
+manager: femila
+editor: 
+ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/21/2017
+ms.author: markvi
+ms.reviewer: jairoc
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: c8b8408f76534a808fd60e331282f8191905df58
+ms.contentlocale: es-es
+ms.lasthandoff: 08/23/2017
+
+---
+# <a name="introduction-to-device-management-in-azure-active-directory"></a>Introducción a la administración de dispositivos en Azure Active Directory
+
+En un mundo donde la nube y la movilidad son prioritarias, Azure Active Directory (Azure AD) permite el inicio de sesión único en dispositivos, aplicaciones y servicios desde cualquier parte. Con la proliferación de dispositivos, como Bring Your Own Device (BYOD), los profesionales de TI se enfrentan con dos objetivos opuestos:
+
+- Permitir que los usuarios finales sean productivos en cualquier lugar y en cualquier momento.
+- Proteger los activos corporativos en todo momento.
+
+A través de dispositivos, los usuarios obtienen acceso a los recursos corporativos. Para proteger los recursos corporativos, como administrador de TI, desea tener control sobre estos dispositivos. De esta forma, se asegura de que los usuarios acceden a los recursos desde dispositivos que cumplen los estándares de seguridad y cumplimiento. 
+
+En este tema se explica cómo la administración de dispositivos en Azure AD le ayuda a lograr este objetivo.
+
+## <a name="getting-devices-under-the-control-of-azure-ad"></a>Dispositivos bajo el control de Azure AD
+
+Para que un dispositivo esté bajo el control de Azure AD, tiene las dos opciones siguientes:
+
+- Registro 
+- Unión
+
+El **registro** de un dispositivo en Azure AD le permite administrar la identidad de un dispositivo. Cuando se registra un dispositivo, el Registro de dispositivos de Azure AD le proporciona una identidad que se utiliza para autenticar el dispositivo cuando el usuario inicia sesión en Azure AD. Puede utilizar esta identidad para habilitar o deshabilitar un dispositivo.
+
+Cuando se combina con una solución de administración de dispositivos móviles (MDM) como Microsoft Intune, los atributos del dispositivo en Azure AD se actualizan con información adicional sobre este. Esto le permite crear reglas de acceso condicional que obligan a que el acceso desde dispositivos cumpla con las normas de seguridad y cumplimiento. Para más información sobre la inscripción de dispositivos de Microsoft Intune, consulte el artículo sobre cómo inscribir dispositivos para su administración en Intune.
+
+La **unión** de un dispositivo es una extensión para registrar ese dispositivo. Esto significa que ofrece todas las ventajas de registrar un dispositivo y, además, también cambia el estado local de un dispositivo. El cambio del estado local permite a los usuarios iniciar sesión en un dispositivo mediante una cuenta profesional o educativa en lugar de con una cuenta personal.
+
+## <a name="azure-ad-registered-devices"></a>Dispositivos registrados en Azure AD   
+
+El objetivo de los dispositivos registrados en Azure AD es proporcionar soporte técnico al escenario **Bring Your Own Device (BYOD)**. En este escenario, el usuario puede acceder a los recursos controlados de Azure Active Directory de su organización con un dispositivo personal.  
+
+![Dispositivos registrados en Azure AD](./media/device-management-introduction/03.png)
+
+El acceso se basa en una cuenta profesional o educativa que se ha introducido en el dispositivo.  
+Por ejemplo, Windows 10 permite a los usuarios agregar una cuenta profesional o educativa en un equipo, una tableta o un teléfono.  
+Cuando el usuario ha agregado una cuenta profesional o educativa, el dispositivo se registra con Azure AD y, opcionalmente, se inscribe en el sistema de administración de dispositivos móviles (MDM) que la organización ha configurado. Los usuarios de su organización pueden agregar un cuenta profesional o educativa a un dispositivo personal de forma cómoda:
+
+- Al acceder a una aplicación de trabajo por primera vez
+- Manualmente a través del menú **Configuración**, en el caso de Windows 10 
+
+Puede configurar dispositivos registrados en Azure AD para Windows 10, iOS, Android y macOS.
+
+## <a name="azure-ad-joined-devices"></a>Dispositivos unidos a Azure AD
+
+El objetivo de los dispositivos unidos a Azure AD es simplificar:
+
+- Las implementaciones de Windows de los dispositivos de trabajo 
+- El acceso a recursos y aplicaciones de la organización desde cualquier dispositivo de Windows
+
+![Dispositivos registrados en Azure AD](./media/device-management-introduction/02.png)
+
+
+Estos objetivos se llevan a cabo proporcionando a los usuarios una experiencia de autoservicio para dispositivos propiedad del trabajo bajo el control de Azure AD.  
+La **unión a Azure AD** está pensada para aquellas organizaciones en las que la nube es prioritaria y exclusiva. Son por lo general pequeñas y medianas empresas que carecen de una infraestructura de Windows Server Active Directory local. 
+
+La implementación de dispositivos unidos a Azure AD ofrece las siguientes ventajas:
+
+- **Inicio de sesión único (SSO)** a las aplicaciones y servicios SaaS administrados por Azure. Los usuarios no ven mensajes de autenticación adicionales al acceder a los recursos de trabajo. Cuentan con la funcionalidad SSO incluso cuando no están conectados a la red de dominios disponible.
+
+- **Itinerancia de las configuraciones de usuario** conforme a la empresa entre dispositivos unidos. Los usuarios no necesitan conectarse a una cuenta de Microsoft (por ejemplo, Hotmail) para ver la configuración en todos los dispositivos.
+
+- **Acceso a la Tienda Windows para empresas** mediante la cuenta de AD. Los usuarios pueden elegir entre un inventario de aplicaciones ya seleccionadas por la organización.
+
+- Compatibilidad con **Windows Hello** para un acceso cómodo y seguro a los recursos de trabajo.
+
+- **Restricción del acceso** a las aplicaciones únicamente desde aquellos dispositivos que cumplen las directivas de cumplimiento.
+
+Aunque la unión a Azure AD está pensada principalmente para aquellas organizaciones que no tienen una infraestructura de Windows Server Active Directory local, aunque puede utilizarla en escenarios donde:
+
+- No puede usar una unión a un dominio local, por ejemplo, si tiene que controlar dispositivos móviles como tabletas y teléfonos.
+
+- Los usuarios necesitan acceder sobre todo a Office 365 u otras aplicaciones de SaaS integradas con Azure AD.
+
+- Desea administrar un grupo de usuarios en Azure AD en lugar de en Active Directory. Esto se puede aplicar, por ejemplo, a trabajadores temporales, contratistas o alumnos.
+
+- Desea proporcionar capacidades de unión a los trabajadores de sucursales remotas con infraestructura local limitada.
+
+Puede configurar dispositivos unidos a Azure AD unido para dispositivos Windows 10.
+
+
+## <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos unidos a Azure AD híbrido
+
+Durante más de una década, muchas organizaciones han usado la unión a un dominio en su instancia de Active Directory local para permitir:
+
+- A los departamentos de TI administrar dispositivos propiedad de trabajo desde una ubicación central.
+
+- A los usuarios iniciar sesión en sus dispositivos con sus cuentas profesionales o educativas de Active Directory. 
+
+Normalmente, las organizaciones con un uso local confían en los métodos de creación de imágenes para aprovisionar los dispositivos y suelen usar **System Center Configuration Manager (SCCM)** o la **directiva de grupo** para administrarlos.
+
+Si su entorno tiene un uso local de AD y también desea aprovechar las funcionalidades proporcionadas por Azure Active Directory, puede implementar dispositivos unidos a Azure AD híbrido. Se trata de dispositivos que están unidos tanto al entorno local de Active Directory como a Azure Active Directory.
+
+![Dispositivos registrados en Azure AD](./media/device-management-introduction/01.png)
+
+
+Debe usar dispositivos unidos a Azure AD híbrido si:
+
+- Tiene las aplicaciones Win32 implementadas en estos dispositivos que usan NTLM o Kerberos.
+
+- Requiere GP o SCCM/DCM para administrar dispositivos.
+
+- Desea seguir usando las soluciones de creación de imágenes para configurar los dispositivos de los empleados.
+
+Puede configurar dispositivos unidos a Azure AD híbrido para Windows 10 y dispositivos de nivel inferior como Windows 8 y Windows 7.
+
+## <a name="summary"></a>Resumen
+
+Con la administración de dispositivos en Azure AD, puede: 
+
+- Simplificar el proceso de volver a poner los dispositivos bajo control de Azure AD
+
+- Proporcionar a los usuarios un acceso fácil de usar a los recursos de la organización basados en la nube
+
+Como regla general, debe utilizar:
+
+- Dispositivos registrados en Azure AD para dispositivos personales
+
+- Dispositivos unidos a Azure AD para dispositivos que no están unidos a un entorno local de AD 
+
+- Dispositivos unidos a Azure AD híbrido para dispositivos que están unidos a un entorno local de AD     
+
+
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Para más información sobre el acceso condicional basado en dispositivo, consulte las [directivas de acceso condicional basado en dispositivos para Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+
+- Para configurar dispositivos unidos a Azure AD híbrido, consulte [How to configure hybrid Azure Active Directory joined devices](device-management-hybrid-azuread-joined-devices-setup.md) (Configuración de dispositivos unidos a Azure Active Directory híbrido).
+
+
+

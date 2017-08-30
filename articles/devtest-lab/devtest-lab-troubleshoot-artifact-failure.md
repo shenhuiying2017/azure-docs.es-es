@@ -1,0 +1,68 @@
+---
+title: "Diagnóstico de errores de artefactos en la máquina virtual de Azure DevTest Labs | Microsoft Docs"
+description: "Obtenga información sobre cómo solucionar problemas de errores de artefactos en DevTest Labs"
+services: devtest-lab,virtual-machines
+documentationcenter: na
+author: tomarcher
+manager: douge
+editor: 
+ms.assetid: 115e0086-3293-4adf-8738-9f639f31f918
+ms.service: devtest-lab
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/18/2017
+ms.author: tarcher
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: e4f2946d0ba0756f36622aded0e8594acabb9527
+ms.contentlocale: es-es
+ms.lasthandoff: 08/24/2017
+
+---
+# <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnóstico de errores de artefactos en el laboratorio 
+Después de crear un artefacto, también puede comprobar si se realizó correctamente o no. Los registros de artefactos de DevTest Labs proporcionan información que puede utilizar para diagnosticar un error de artefacto. Hay un par de formas diferentes para ver la información del registro de artefactos para una máquina virtual Windows.
+
+> [!NOTE]
+> Para asegurarse de que los errores se han identificado y explicado correctamente, es importante que el artefacto está bien estructurado. Para más información sobre cómo crear correctamente un artefacto, consulte el artículo sobre cómo [crear artefactos personalizados](devtest-lab-artifact-author.md). Y para ver un ejemplo de un artefacto correctamente estructurado, consulte el artefacto [tipos de parámetros de prueba](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+
+## <a name="troubleshoot-artifact-failures-using-the-azure-portal"></a>Solución de problemas de errores de artefacto mediante Azure Portal
+Para usar Azure Portal para diagnosticar errores durante la creación del artefacto, siga estos pasos:
+
+1. En la lista de recursos, seleccione el laboratorio.
+
+2. Elija la máquina virtual Windows que incluye el artefacto que desea investigar.
+
+3. En el panel izquierdo bajo **GENERAL**, elija **Artefactos**. Aparece una lista de artefactos asociados a esa máquina virtual, que indica el nombre del artefacto y su estado.
+
+   ![Ejemplo de repositorio de Git de artefacto](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
+
+4. Elija un artefacto que muestre un estado de **Con error**. El artefacto se abre y muestra un mensaje de extensión que incluye detalles sobre el error del artefacto.
+
+   ![Ejemplo de repositorio de Git de artefacto](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
+
+
+## <a name="troubleshoot-artifact-failures-from-within-the-vm"></a>Solución de problemas de errores de artefactos en la máquina virtual
+Para ver los registros de artefactos desde la máquina virtual, siga estos pasos:
+
+1. Inicie sesión en la máquina virtual que contiene el artefacto que desee diagnosticar.
+
+2. Vaya a C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.9\Status donde "1.9 es el número de versión de CSE.
+
+   ![Ejemplo de repositorio de Git de artefacto](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
+
+3. Abra el archivo de **estado** para ver la información que ayuda a diagnosticar errores de artefactos para esa máquina virtual.
+
+
+
+
+[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
+## <a name="related-blog-posts"></a>Entradas blogs relacionadas
+* [Join a VM to existing AD Domain using a resource manager template in Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Unión de una máquina virtual al dominio de AD existente mediante la plantilla de Resource Manager en Azure DevTest Labs)
+
+## <a name="next-steps"></a>Pasos siguientes
+* Aprenda cómo [agregar un repositorio Git a un laboratorio](devtest-lab-add-artifact-repo.md).
+
+

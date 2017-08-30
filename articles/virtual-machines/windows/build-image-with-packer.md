@@ -12,13 +12,13 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 06/13/2017
+ms.date: 08/18/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 035286e74e66cf1eb12a51551fa55a2a0ea5517c
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 11a4a4d65be09e6c518836c25bb455a6df738dcb
 ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -26,10 +26,10 @@ ms.lasthandoff: 06/15/2017
 Cada máquina virtual (VM) en Azure se crea a partir de una imagen que define la distribución de Windows y la versión del sistema operativo. Las imágenes pueden incluir configuraciones y aplicaciones preinstaladas. Azure Marketplace proporciona muchas imágenes propias y de terceros para los entornos de aplicaciones y sistemas operativos más comunes, pero también puede crear sus propias imágenes personalizadas adaptadas a sus necesidades. En este artículo se detalla cómo utilizar la herramienta de código abierto [Packer](https://www.packer.io/) para definir y crear imágenes personalizadas en Azure.
 
 
-## <a name="create-supporting-azure-resources"></a>Creación de recursos de Azure de apoyo
-Durante el proceso de compilación, Packer crea recursos de Azure temporales mientras genera la máquina virtual de origen. Para capturar dicha máquina virtual para usarla como imagen, debe definir un grupo de recursos y una cuenta de almacenamiento. La salida del proceso de compilación de Packer se almacena en esta cuenta de almacenamiento y este grupo de recursos.
+## <a name="create-azure-resource-group"></a>Creación del grupo de recursos de Azure
+Durante el proceso de compilación, Packer crea recursos de Azure temporales mientras genera la máquina virtual de origen. Para capturar dicha máquina virtual para usarla como imagen, debe definir un grupo de recursos. La salida del proceso de compilación de Packer se almacena en este grupo de recursos.
 
-En primer lugar, cree un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Cree un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -37,24 +37,13 @@ $location = "East US"
 New-AzureRmResourceGroup -Name $rgName -Location $location
 ```
 
-A continuación, cree una cuenta de almacenamiento con [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). Los nombres de las cuentas de almacenamiento deben ser únicos, tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas. En el ejemplo siguiente se crea una cuenta de almacenamiento denominada *mystorageaccount*:
-
-```powershell
-$storageAccountName = "mystorageaccount"
-New-AzureRmStorageAccount -ResourceGroupName $rgName `
-    -Name $storageAccountName `
-    -Location $location `
-    -SkuName "Standard_LRS"
-```
-
-
 ## <a name="create-azure-credentials"></a>Creación de credenciales de Azure
 Packer se autentica con Azure mediante una entidad de servicio. Las entidades de servicio de Azure son identidades de seguridad que pueden usarse con aplicaciones, servicios y herramientas de automatización como Packer. El usuario controla los permisos y los define con respecto a cuáles son las operaciones que la entidad de servicio puede realizar en Azure.
 
 Cree una entidad de servicio con [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) y asigne permisos para que la entidad de servicio cree y administre recursos con [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
 ```powershell
-$sp = New-AzureRmADServicePrincipal -DisplayName "Azure Packer" -Password "P@ssw0rd!"
+$sp = New-AzureRmADServicePrincipal -DisplayName "Azure Packer IKF" -Password "P@ssw0rd!"
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
@@ -75,14 +64,15 @@ Para crear imágenes, es preciso crear una plantilla en forma de archivo JSON. E
 
 Cree un archivo denominado *windows.json* y pegue el siguiente contenido. Escriba sus propios valores para los siguientes elementos:
 
-| Parámetro       | Dónde se obtiene |
-|-----------------|----------------------------------------------------|
-| *client_id*      | Vea el identificador de la entidad de servicio con `$sp.applicationId` |
-| *client_secret*  | La contraseña que especificó en `$securePassword` |
-| *tenant_id*      | Salida del comando `$sub.TenantId` |
-| *subscription_id* | Salida del comando `$sub.SubscriptionId` |
-| *object_id*       | Vea el identificador del objeto de la entidad de servicio con `$sp.Id` |
-| *storage_account* | El nombre que especificó en `$storageAccountName` |
+| Parámetro                           | Dónde se obtiene |
+|-------------------------------------|----------------------------------------------------|
+| *client_id*                         | Vea el identificador de la entidad de servicio con `$sp.applicationId` |
+| *client_secret*                     | La contraseña que especificó en `$securePassword` |
+| *tenant_id*                         | Salida del comando `$sub.TenantId` |
+| *subscription_id*                   | Salida del comando `$sub.SubscriptionId` |
+| *object_id*                         | Vea el identificador del objeto de la entidad de servicio con `$sp.Id` |
+| *managed_image_resource_group_name* | Nombre del grupo de recursos que creó en el primer paso |
+| *managed_image_name*                | Nombre de la imagen de disco administrado que se crea |
 
 ```json
 {
@@ -95,11 +85,8 @@ Cree un archivo denominado *windows.json* y pegue el siguiente contenido. Escrib
     "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "object_id": "a7dfb070-0d5b-47ac-b9a5-cf214fff0ae2",
 
-    "resource_group_name": "myResourceGroup",
-    "storage_account": "mystorageaccount",
-
-    "capture_container_name": "images",
-    "capture_name_prefix": "packer",
+    "managed_image_resource_group_name": "myResourceGroup",
+    "managed_image_name": "myPackerImage",
 
     "os_type": "Windows",
     "image_publisher": "MicrosoftWindowsServer",
@@ -151,94 +138,73 @@ azure-arm output will be in this color.
 ==> azure-arm: Running builder ...
     azure-arm: Creating Azure Resource Manager (ARM) client ...
 ==> azure-arm: Creating resource group ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-bxpchwtl43'
-==> azure-arm:  -> Location          : 'East US'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
+==> azure-arm:  -> Location          : ‘East US’
 ==> azure-arm:  -> Tags              :
-==> azure-arm:  ->> dept : Engineering
 ==> azure-arm:  ->> task : Image deployment
+==> azure-arm:  ->> dept : Engineering
 ==> azure-arm: Validating deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-bxpchwtl43'
-==> azure-arm:  -> DeploymentName    : 'pkrdpbxpchwtl43'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
+==> azure-arm:  -> DeploymentName    : ‘pkrdppq0mthtbtt’
 ==> azure-arm: Deploying deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-bxpchwtl43'
-==> azure-arm:  -> DeploymentName    : 'pkrdpbxpchwtl43'
-==> azure-arm: Getting the certificate's URL ...
-==> azure-arm:  -> Key Vault Name        : 'pkrkvbxpchwtl43'
-==> azure-arm:  -> Key Vault Secret Name : 'packerKeyVaultSecret'
-==> azure-arm:  -> Certificate URL       : 'https://pkrkvbxpchwtl43.vault.azure.net/secrets/packerKeyVaultSecret/6c12261b552c48ebadb7d4a88d99d011'
-==> azure-arm: Setting the certificate's URL ...
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
+==> azure-arm:  -> DeploymentName    : ‘pkrdppq0mthtbtt’
+==> azure-arm: Getting the certificate’s URL ...
+==> azure-arm:  -> Key Vault Name        : ‘pkrkvpq0mthtbtt’
+==> azure-arm:  -> Key Vault Secret Name : ‘packerKeyVaultSecret’
+==> azure-arm:  -> Certificate URL       : ‘https://pkrkvpq0mthtbtt.vault.azure.net/secrets/packerKeyVaultSecret/8c7bd823e4fa44e1abb747636128adbb'
+==> azure-arm: Setting the certificate’s URL ...
 ==> azure-arm: Validating deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-bxpchwtl43'
-==> azure-arm:  -> DeploymentName    : 'pkrdpbxpchwtl43'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
+==> azure-arm:  -> DeploymentName    : ‘pkrdppq0mthtbtt’
 ==> azure-arm: Deploying deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-bxpchwtl43'
-==> azure-arm:  -> DeploymentName    : 'pkrdpbxpchwtl43'
-==> azure-arm: Getting the VM's IP address ...
-==> azure-arm:  -> ResourceGroupName   : 'packer-Resource-Group-bxpchwtl43'
-==> azure-arm:  -> PublicIPAddressName : 'packerPublicIP'
-==> azure-arm:  -> NicName             : 'packerNic'
-==> azure-arm:  -> Network Connection  : 'PublicEndpoint'
-==> azure-arm:  -> IP Address          : '40.121.160.214'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
+==> azure-arm:  -> DeploymentName    : ‘pkrdppq0mthtbtt’
+==> azure-arm: Getting the VM’s IP address ...
+==> azure-arm:  -> ResourceGroupName   : ‘packer-Resource-Group-pq0mthtbtt’
+==> azure-arm:  -> PublicIPAddressName : ‘packerPublicIP’
+==> azure-arm:  -> NicName             : ‘packerNic’
+==> azure-arm:  -> Network Connection  : ‘PublicEndpoint’
+==> azure-arm:  -> IP Address          : ‘40.76.55.35’
 ==> azure-arm: Waiting for WinRM to become available...
 ==> azure-arm: Connected to WinRM!
 ==> azure-arm: Provisioning with Powershell...
-==> azure-arm: Provisioning with shell script: /tmp/packer-powershell-provisioner759984171
+==> azure-arm: Provisioning with shell script: /var/folders/h1/ymh5bdx15wgdn5hvgj1wc0zh0000gn/T/packer-powershell-provisioner902510110
     azure-arm: #< CLIXML
     azure-arm:
     azure-arm: Success Restart Needed Exit Code      Feature Result
     azure-arm: ------- -------------- ---------      --------------
     azure-arm: True    No             Success        {Common HTTP Features, Default Document, D...
-    azure-arm: <Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04"><Obj S="progress" RefId="0"><TN RefId="0"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N="SourceId">1</
-I64><PR N="Record"><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>
-==> azure-arm: Querying the machine's properties ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-bxpchwtl43'
-==> azure-arm:  -> ComputeName       : 'pkrvmbxpchwtl43'
-==> azure-arm:  -> OS Disk           : 'https://mystorageaccount.blob.core.windows.net/images/pkrosbxpchwtl43.vhd'
+    azure-arm: <Objs Version=“1.1.0.1” xmlns=“http://schemas.microsoft.com/powershell/2004/04"><Obj S=“progress” RefId=“0"><TN RefId=“0”><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N=“SourceId”>1</I64><PR N=“Record”><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>
+==> azure-arm: Querying the machine’s properties ...
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
+==> azure-arm:  -> ComputeName       : ‘pkrvmpq0mthtbtt’
+==> azure-arm:  -> Managed OS Disk   : ‘/subscriptions/guid/resourceGroups/packer-Resource-Group-pq0mthtbtt/providers/Microsoft.Compute/disks/osdisk’
 ==> azure-arm: Powering off machine ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-bxpchwtl43'
-==> azure-arm:  -> ComputeName       : 'pkrvmbxpchwtl43'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
+==> azure-arm:  -> ComputeName       : ‘pkrvmpq0mthtbtt’
 ==> azure-arm: Capturing image ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-bxpchwtl43'
-==> azure-arm:  -> ComputeName       : 'pkrvmbxpchwtl43'
+==> azure-arm:  -> Compute ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
+==> azure-arm:  -> Compute Name              : ‘pkrvmpq0mthtbtt’
+==> azure-arm:  -> Compute Location          : ‘East US’
+==> azure-arm:  -> Image ResourceGroupName   : ‘myResourceGroup’
+==> azure-arm:  -> Image Name                : ‘myPackerImage’
+==> azure-arm:  -> Image Location            : ‘eastus’
 ==> azure-arm: Deleting resource group ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-bxpchwtl43'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
 ==> azure-arm: Deleting the temporary OS disk ...
-==> azure-arm:  -> OS Disk : 'https://mystorageaccount.blob.core.windows.net/images/pkrosbxpchwtl43.vhd'
-Build 'azure-arm' finished.
+==> azure-arm:  -> OS Disk : skipping, managed disk was used...
+Build ‘azure-arm’ finished.
 
 ==> Builds finished. The artifacts of successful builds are:
 --> azure-arm: Azure.ResourceManagement.VMImage:
 
-StorageAccountLocation: eastus
-OSDiskUri: https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-osDisk.5b77b243-26d2-425c-9c57-0ba6b99ef968.vhd
-OSDiskUriReadOnlySas: https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-osDisk.5b77b243-26d2-425c-9c57-0ba6b99ef968.vhd?se=2017-07-13T22%3A25%3A02Z&sig=BYAbOXakavYV%2FbdWYfGqUIdsz2GXivbk0hxG0
-5Mc09k%3D&sp=r&sr=b&sv=2015-02-21
-TemplateUri: https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-vmTemplate.5b77b243-26d2-425c-9c57-0ba6b99ef968.json
-TemplateUriReadOnlySas: https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-vmTemplate.5b77b243-26d2-425c-9c57-0ba6b99ef968.json?se=2017-07-13T22%3A25%3A02Z&sig=wDMO3aSifbWLSISwoUOfkDMc5z7iKbGV
-3us64gGvvlw%3D&sp=r&sr=b&sv=2015-02-21
+ManagedImageResourceGroupName: myResourceGroup
+ManagedImageName: myPackerImage
+ManagedImageLocation: eastus
 ```
 
 Packer tarda unos minutos en crear la máquina virtual, ejecutar los aprovisionadores y limpiar la implementación.
-
-
-## <a name="create-azure-image"></a>Creación de imágenes de Azure
-El resultado del proceso de compilación de Packer es un disco duro virtual (VHD) en la cuenta de almacenamiento especificado. Cree una imagen de Azure desde este disco duro virtual con [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage) y especifique la ruta de acceso de `OSDiskUri` anotada al final de la salida de la creación de Packer. En el ejemplo siguiente se crea una imagen denominada `myImage`:
-
-```powershell
-$osVhdUri = "https://mystorageaccount.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-osDisk.5b77b243-26d2-425c-9c57-0ba6b99ef968.vhd"
-$imageName = "myImage"
-
-$imageConfig = New-AzureRmImageConfig -Location $location
-$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig `
-    -OsType "Windows" `
-    -OsState "Generalized" `
-    -BlobUri $osVhdUri
-$image = New-AzureRmImage -ImageName $imageName `
-    -ResourceGroupName $rgName `
-    -Image $imageConfig
-```
-
-Esta imagen se puede usar para crear máquinas virtuales en su suscripción de Azure. No está limitado a crear una máquina virtual en el mismo grupo de recursos que la imagen de origen.
 
 
 ## <a name="create-vm-from-azure-image"></a>Creación de una máquina virtual desde una imagen de Azure
@@ -248,7 +214,7 @@ Establezca el nombre de usuario y la contraseña del administrador para las máq
 $cred = Get-Credential
 ```
 
-Ya puede crear una máquina virtual a partir de la imagen con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). En el ejemplo siguiente se crea una máquina virtual denominada *myVM* a partir de *myImage*.
+Ya puede crear una máquina virtual a partir de la imagen con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). En el ejemplo siguiente se crea una máquina virtual denominada *myVM* a partir de *myPackerImage*.
 
 ```powershell
 # Create a subnet configuration
@@ -299,6 +265,9 @@ $nic = New-AzureRmNetworkInterface `
     -SubnetId $vnet.Subnets[0].Id `
     -PublicIpAddressId $publicIP.Id `
     -NetworkSecurityGroupId $nsg.Id
+
+# Define the image created by Packer
+$image = Get-AzureRMImage -ImageName myPackerImage -ResourceGroupName $rgName
 
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `

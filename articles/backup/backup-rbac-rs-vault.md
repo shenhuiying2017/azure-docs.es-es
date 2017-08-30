@@ -12,19 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 8/22/2017
 ms.author: trinadhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4bf4814c25f09c4c8637f13753316cd9f200fc42
-ms.openlocfilehash: f7e090916dbe6c6db84c1a110a6627feeb7e20ab
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: d0b6eb8eea8971eb8f80c6623f9a41a3692241b3
 ms.contentlocale: es-es
-ms.lasthandoff: 02/23/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 
-# Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
-<a id="use-role-based-access-control-to-manage-azure-backup-recovery-points" class="xliff"></a>
+# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 > [!IMPORTANT]
@@ -40,8 +38,7 @@ Si quiere definir sus propios roles para tener un mayor control, consulte cómo 
 
 
 
-## Asignación de roles integrados de Backup a las acciones de administración de copia de seguridad
-<a id="mapping-backup-built-in-roles-to-backup-management-actions" class="xliff"></a>
+## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Asignación de roles integrados de Backup a las acciones de administración de copia de seguridad
 En la tabla siguiente se capturan acciones de administración de Backup y el rol RBAC mínimo correspondiente necesario para realizar esa operación.
 
 | Operación de administración | Rol RBAC mínimo necesario |
@@ -49,7 +46,7 @@ En la tabla siguiente se capturan acciones de administración de Backup y el rol
 | Crear almacén de Recovery Services | Colaborador en el grupo de recursos del almacén |
 | Habilitar la copia de seguridad de VM de Azure | Operador de copia de seguridad en el almacén, colaborador de máquina virtual en VM |
 | Copia de seguridad a petición de VM | Operador de copia de seguridad |
-| Restaurar VM | Operador de copia de seguridad, colaborador de grupo de recursos|en cuya VM y redes virtuales se va a implementar |
+| Restaurar VM | Operador de copia de seguridad, colaborador de grupo de recursos donde se implementa la máquina virtual y las redes virtuales |
 | Restaurar discos y archivos individuales a partir de la copia de seguridad de VM | Operador de copia de seguridad |
 | Crear directiva de copia de seguridad para copia de seguridad de VM de Azure | Colaborador de copia de seguridad |
 | Modificar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copia de seguridad |
@@ -58,9 +55,8 @@ En la tabla siguiente se capturan acciones de administración de Backup y el rol
 | Registrar Windows Server, cliente o SCDPM local o Azure Backup Server | Operador de copia de seguridad |
 | Eliminar Windows Server, cliente o SCDPM local registrado o Azure Backup Server | Colaborador de copia de seguridad |
 
-## Pasos siguientes
-<a id="next-steps" class="xliff"></a>
-* [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure.
+## <a name="next-steps"></a>Pasos siguientes
+* [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md): introducción a RBAC en Azure Portal.
 * Aprenda a administrar el acceso con:
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   * [CLI de Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)

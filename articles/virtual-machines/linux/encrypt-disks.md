@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/05/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3dc48f5dcb50db81d9f461c41570640839fcce26
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Cifrado de discos virtuales en una VM de Linux
@@ -273,15 +273,13 @@ El estado ahora debería indicar que tanto el disco del SO como el disco de dato
 
 
 ## <a name="add-additional-data-disks"></a>Adición de discos de datos adicionales
-Una vez cifrados los discos de datos, más adelante podrá agregar más discos virtuales a la máquina virtual, y también cifrarlos. Al ejecutar el comando `az vm encryption enable`, se incrementa la versión de la secuencia mediante el parámetro `--sequence-version`. Este parámetro de versión de secuencia permite realizar operaciones repetidas en la misma máquina virtual.
-
-Por ejemplo, vamos a agregar un segundo disco virtual a la máquina virtual de la siguiente manera:
+Una vez cifrados los discos de datos, más adelante podrá agregar más discos virtuales a la máquina virtual, y también cifrarlos. Por ejemplo, vamos a agregar un segundo disco virtual a la máquina virtual de la siguiente manera:
 
 ```azurecli
 az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
-Vuelva a ejecutar el comando para cifrar los discos virtuales, esta vez con el parámetro `--sequence-version`, e incremente el valor de la primera ejecución de la siguiente manera:
+Vuelva a ejecutar el comando para cifrar los discos virtuales como sigue:
 
 ```azurecli
 az vm encryption enable \
@@ -291,8 +289,7 @@ az vm encryption enable \
     --aad-client-secret $sp_password \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
-    --volume-type all \
-    --sequence-version 2
+    --volume-type all
 ```
 
 

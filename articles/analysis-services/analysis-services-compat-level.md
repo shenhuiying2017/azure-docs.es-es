@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/07/2016
+ms.date: 08/16/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: acb69621babf0f562bfafedfe5547e16e8f2c8af
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: b11ba54c2cdc2675ec535368e7076613a5290212
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -29,7 +29,7 @@ El *nivel de compatibilidad* hace referencia a los comportamientos específicos 
 
 Azure Analysis Services admite modelos tabulares en los niveles de compatibilidad 1200 y 1400.
 
-El nivel de compatibilidad más reciente es el 1400 (versión preliminar). Este nivel se corresponde a SQL Server 2017 Analysis Services. Entre las características principales del nivel de compatibilidad 1400 cabe destacar:
+El nivel de compatibilidad más reciente es el 1400. Este nivel se corresponde a SQL Server 2017 Analysis Services. Entre las características principales del nivel de compatibilidad 1400 cabe destacar:
 
 *  Nueva infraestructura para la conectividad de datos y la importación en los modelos tabulares con compatibilidad con las API de TOM y el scripting de TMSL. Esta nueva característica habilita la compatibilidad con orígenes de datos adicionales como Azure Blob Storage.
 *  Funcionalidades de transformación de datos y mashup de datos mediante el uso de expresiones Get Data y M.
@@ -37,11 +37,6 @@ El nivel de compatibilidad más reciente es el 1400 (versión preliminar). Este 
 *  Seguridad en el nivel de objeto para los nombres de tablas y columnas, además de para los datos dentro de ellas.
 *  Compatibilidad mejorada para las jerarquías desiguales.
 *  Mejoras en el rendimiento y la supervisión.
-
-
-
-> [!IMPORTANT]
-> El nivel de compatibilidad 1400 aún está en la versión preliminar. Es posible que algunas características no estén totalmente operativas. Se recomienda que no use los modelos tabulares 1400 en entornos de producción. 
   
 ## <a name="set-compatibility-level"></a>Establecimiento del nivel de compatibilidad 
  Al crear un nuevo proyecto de modelo tabular en SSDT, puede especificar el nivel de compatibilidad en el cuadro de diálogo **Diseñador de modelos tabulares**. 
@@ -63,3 +58,4 @@ El nivel de compatibilidad más reciente es el 1400 (versión preliminar). Este 
 ## <a name="next-steps"></a>Pasos siguientes
   [Creación de un modelo en Azure Portal](analysis-services-create-model-portal.md)   
   [Administración de Analysis Services](analysis-services-manage.md)  
+

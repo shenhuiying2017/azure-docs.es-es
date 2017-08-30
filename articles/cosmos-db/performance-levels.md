@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 38afe40cf45cf13d587faf13cc5216e4326b84a0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c8d4733e57eb760dbb8e8ca96f6ba55671d1742f
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retirada de los niveles de rendimiento S1, S2 y S3
@@ -59,7 +58,7 @@ En la tabla siguiente se comparan las opciones de rendimiento y almacenamiento d
 |Rendimiento máximo|Ilimitado|10 000 RU/s|250 RU/s|1000 RU/s|2500 RU/s|
 |Rendimiento mínimo|2500 RU/s|400 RU/s|250 RU/s|1000 RU/s|2500 RU/s|
 |Almacenamiento máximo|Ilimitado|10 GB|10 GB|10 GB|10 GB|
-|Precio|Rendimiento: 6 USD / 100 RU/s<br><br>Almacenamiento: 0,25 USD/GB|Rendimiento: 6 USD / 100 RU/s<br><br>Almacenamiento: 0,25 USD/GB|25 USD|50 USD|100 USD|
+|Precio (mensual)|Rendimiento: 6 USD / 100 RU/s<br><br>Almacenamiento: 0,25 USD/GB|Rendimiento: 6 USD / 100 RU/s<br><br>Almacenamiento: 0,25 USD/GB|25 USD|50 USD|100 USD|
 
 ¿Es un cliente de EA? Si es así, consulte [¿Cómo me afecta si soy un cliente de EA?](#ea-customer)
 

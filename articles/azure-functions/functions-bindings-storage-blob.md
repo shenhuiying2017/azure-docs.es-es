@@ -1,6 +1,6 @@
 ---
 title: Enlaces de Blob Storage en Azure Functions | Microsoft Docs
-description: "Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Azure en funciones de Azure."
+description: "Descubra cómo utilizar desencadenadores y enlaces de Azure Storage en Azure Functions."
 services: functions
 documentationcenter: na
 author: lindydonna
@@ -15,13 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
-ms.author: donnam, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b819bf4461f14033dd2c00331e3c3e4d0fbafde6
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 24ca844007acf445455714c9a530bfe1ad9a9c32
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Enlaces de Blob Storage en Azure Functions
@@ -32,7 +31,7 @@ En este artículo se explica cómo configurar enlaces de Azure Blob Storage y tr
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> No se admite una [cuenta de almacenamiento solo de blob](../storage/storage-create-storage-account.md#blob-storage-accounts). Los desencadenadores y enlaces de Blob Storage necesitan una cuenta de almacenamiento de uso general. 
+> No se admite una [cuenta de almacenamiento solo de blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts). Los desencadenadores y enlaces de Blob Storage necesitan una cuenta de almacenamiento de uso general. 
 > 
 
 <a name="trigger"></a>
@@ -116,7 +115,7 @@ El desencadenador de blobs proporciona varias propiedades de metadatos. Estas pr
 ### <a name="blob-receipts"></a>Recepciones de blobs
 El entorno en tiempo de ejecución de Azure Functions garantiza que no se llame más de una vez a ninguna función de desencadenador de blobs para un mismo blob, ya sea nuevo o actualizado. Mantiene *recepciones de blobs* para determinar si se ha procesado una determinada versión de blob.
 
-Azure Functions almacena confirmaciones de blobs en un contenedor llamado *azure-webjobs-hosts* en la cuenta de almacenamiento de Azure de la aplicación de función (que se especifica mediante la configuración de la aplicación `AzureWebJobsStorage`). Una recepción de blobs tiene la información siguiente:
+Azure Functions almacena confirmaciones de blobs en un contenedor llamado *azure-webjobs-hosts* en la cuenta de Azure Storage de la aplicación de función (que se especifica mediante la configuración de la aplicación `AzureWebJobsStorage`). Una recepción de blobs tiene la información siguiente:
 
 * La función desencadenada ("*&lt;nombre de aplicación de función>*.Functions.*&lt;nombre de función>*", por ejemplo: "MyFunctionApp.Functions.CopyBlob")
 * El nombre del contenedor
@@ -140,8 +139,7 @@ Si se produce un error en los 5 intentos, Azure Functions agregará un mensaje a
 * ETag (un identificador de la versión del blob, por ejemplo: "0x8D1DC6E70A277EF")
 
 ### <a name="blob-polling-for-large-containers"></a>Sondeo de blobs en contenedores grandes
-Si el contenedor de blobs supervisado contiene más de 10 000 blobs, el entorno en tiempo de ejecución de Functions examinará los archivos de registro para detectar blobs nuevos o modificados. Este proceso no se lleva a cabo en tiempo real. Una función podría tardar en desencadenarse varios minutos o más después de crear el blob. Además, [se crean registros de almacenamiento basados en el principio del "mejor esfuerzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). No hay ninguna garantía de que todos los eventos se capturen. En algunos casos, podrían faltar registros. Si necesita un procesamiento de blobs más rápido o confiable, considere crear un [mensaje de cola](../storage/storage-dotnet-how-to-use-queues.md) 
- al crear el blob. A continuación, use un [desencadenador de cola](functions-bindings-storage-queue.md) en lugar de un desencadenador de blob para procesar el blob.
+Si el contenedor de blobs supervisado contiene más de 10 000 blobs, el entorno en tiempo de ejecución de Functions examinará los archivos de registro para detectar blobs nuevos o modificados. Este proceso no se lleva a cabo en tiempo real. Una función podría tardar en desencadenarse varios minutos o más después de crear el blob. Además, [se crean registros de almacenamiento basados en el principio del "mejor esfuerzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). No hay ninguna garantía de que todos los eventos se capturen. En algunos casos, podrían faltar registros. Si necesita un procesamiento de blobs más rápido o confiable, considere crear un [mensaje de cola](../storage/queues/storage-dotnet-how-to-use-queues.md) al crear el blob. A continuación, use un [desencadenador de cola](functions-bindings-storage-queue.md) en lugar de un desencadenador de blob para procesar el blob.
 
 <a name="triggerusage"></a>
 
