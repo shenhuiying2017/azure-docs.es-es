@@ -18,10 +18,10 @@ ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: d5c23c7b75d7eab563b223bc6eccfc158e9274db
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 5a2131659903e79b28f4d1b795d25a31d8d4ce8d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -108,7 +108,7 @@ k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 
 Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se deben ejecutar. En este ejemplo, se usa un manifiesto para crear todos los objetos necesarios para ejecutar la aplicación Azure Vote. 
 
-Cree un archivo denominado `azure-vote.yaml` y copie el siguiente código YAML. Si está trabajando en Azure Cloud Shell, este archivo se puede crear mediante vi o Nano, como si trabajara en un sistema físico o virtual.
+Cree un archivo denominado `azure-vote.yml` y copie el siguiente código YAML. Si está trabajando en Azure Cloud Shell, este archivo se puede crear mediante vi o Nano, como si trabajara en un sistema físico o virtual.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -174,7 +174,7 @@ spec:
 Use el comando [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) para ejecutar la aplicación.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl create -f azure-vote.yml
 ```
 
 Salida:

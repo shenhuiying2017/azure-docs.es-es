@@ -16,10 +16,10 @@ ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 16543c7bb7b6b236dcc24093c9963bc218ca1fa6
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: d86e47507f7a578e8a0affb690b6d96673b6b69a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>No puede llegar ahí desde aquí en un dispositivo Windows
@@ -47,7 +47,7 @@ Es fácil identificar si no se puede acceder a un recurso debido a que el explor
 
 ![Mensaje "No se puede llegar allí desde aquí" para exploradores no admitidos](./media/active-directory-conditional-access-device-remediation/02.png "Escenario")
 
-La única solución es utilizar un explorador compatible con la aplicación de la plataforma del dispositivo. Para obtener una lista completa de los exploradores compatibles, consulte la sección [Exploradores compatibles](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies).  
+La única solución es utilizar un explorador compatible con la aplicación de la plataforma del dispositivo. Para obtener una lista completa de los exploradores compatibles, consulte la sección [Exploradores compatibles](active-directory-conditional-access-supported-apps.md).  
 
 
 ## <a name="supported-versions-of-windows"></a>Versiones compatibles de Windows

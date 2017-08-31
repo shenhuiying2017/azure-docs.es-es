@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/05/2017
 ms.author: mihauss
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 9f8648b0d6774bd45b57f50a4810535a8dacbab6
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 544b11d74a926fe62b8ceca51570ce9d2ee7e6e7
 ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-preview-storage-tiers"></a>Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente (versión preliminar)
@@ -31,12 +31,12 @@ Hoy en día, los datos almacenados en la nube está creciendo a un ritmo exponen
 
 Cada uno de los escenarios de acceso a los datos se beneficia de un nivel de almacenamiento diferenciado que se optimiza para un patrón de acceso concreto. Con los niveles de almacenamiento de archivo, esporádico y frecuente, Azure Blob Storage satisface la necesidad de que haya niveles de almacenamiento diferenciados con modelos de fijación de precios independientes.
 
-## <a name="blob-storage-accounts"></a>Cuentas de Blob Storage
+## <a name="blob-storage-accounts"></a>Cuentas de Almacenamiento de blobs
 
-**Cuentas de Blob Storage** son cuentas de almacenamiento especiales para almacenar los datos no estructurados como blobs (objetos) en Azure Storage. Con las cuentas de Blob Storage, ahora puede elegir entre los niveles de almacenamiento esporádico y frecuente en el nivel de cuenta, y los niveles de almacenamiento espóradico, frecuente y de archivo en el nivel de blobs, según los patrones de acceso. Almacene con el menor costo de almacenamiento aquellos datos esporádicos a los que rara vez acceda, con un menor costo de almacenamiento aquellos datos esporádicos con acceso menos frecuente que los datos frecuentes y almacene con el menor costo de todos los datos frecuentes a los que se acceda con más frecuencia. Las cuentas de Blob Storage son similares a las de almacenamiento de uso general existentes y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API para blobs en bloques y blobs en anexos.
+**Cuentas de Almacenamiento de blobs** son cuentas de almacenamiento especiales para almacenar los datos no estructurados como blobs (objetos) en Almacenamiento de Azure. Con las cuentas de Blob Storage, ahora puede elegir entre los niveles de almacenamiento esporádico y frecuente en el nivel de cuenta, y los niveles de almacenamiento espóradico, frecuente y de archivo en el nivel de blobs, según los patrones de acceso. Almacene con el menor costo de almacenamiento aquellos datos esporádicos a los que rara vez acceda, con un menor costo de almacenamiento aquellos datos esporádicos con acceso menos frecuente que los datos frecuentes y almacene con el menor costo de todos los datos frecuentes a los que se acceda con más frecuencia. Las cuentas de Blob Storage son similares a las de almacenamiento de uso general existentes y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API para blobs en bloques y blobs en anexos.
 
 > [!NOTE]
-> Las cuentas de Blob Storage solo admiten blobs en bloques y en anexos, pero no blobs en páginas.
+> Las cuentas de Almacenamiento de blobs solo admiten blobs en bloques y en anexos, pero no blobs en páginas.
 
 Las cuentas de Blob Storage exponen el atributo **Access Tier**, que permite especificar la capa de almacenamiento como **Frecuente** o **Esporádico**, en función de los datos almacenados en la cuenta. Si hay un cambio en el patrón de uso de los datos, también se puede cambiar de capa de almacenamiento en cualquier momento. El nivel de archivo (versión preliminar) solo puede aplicarse en el nivel de blob.
 
@@ -76,13 +76,13 @@ Entre los ejemplos de escenarios de uso del nivel de almacenamiento de archivo s
 
 Para más información sobre las cuentas de almacenamiento, consulte [Acerca de las cuentas de almacenamiento de Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) .
 
-Para las aplicaciones que requieren solo el almacenamiento de blobs en bloques o en anexos, se recomienda utilizar cuentas de Blob Storage para poder aprovechar el modelo de precios diferenciado del almacenamiento en niveles. Sin embargo, sabemos que esto puede no ser posible en determinadas circunstancias, donde la mejor solución es usar cuentas de almacenamiento de uso general, como:
+Para las aplicaciones que requieren silo el almacenamiento blobs en bloques o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs, con el fin de aprovechar el modelo de precios diferenciado de almacenamiento en niveles. Sin embargo, sabemos que esto puede no ser posible en determinadas circunstancias, donde la mejor solución es usar cuentas de almacenamiento de uso general, como:
 
 * Necesita usar tablas, colas o archivos, y desea que los blobs se almacenen en la misma cuenta de almacenamiento. Tenga en cuenta que la única ventaja técnica de almacenarlos en la misma cuenta es que tienen las mismas claves compartidas.
 
-* Necesita usar el modelo de implementación clásico. Las cuentas de Blob Storage solo están disponibles a través del modelo de implementación de Azure Resource Manager.
+* Necesita usar el modelo de implementación clásico. Las cuentas de Almacenamiento de blobs solo están disponibles a través del modelo de implementación de Azure Resource Manager.
 
-* Necesita usar blobs en páginas. Las cuentas de Blob Storage no admiten los blobs en páginas. Por lo general, se recomienda usar blobs en bloques, salvo que se necesiten específicamente blobs en páginas.
+* Necesita usar blobs en páginas. Las cuentas de Almacenamiento de blobs no admiten los blobs en páginas. Por lo general, se recomienda usar blobs en bloques, salvo que se necesiten específicamente blobs en páginas.
 
 * Usa una versión de la [API de REST de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/dd894041.aspx) anterior al 14-02-2014 o una biblioteca de cliente con una versión inferior a la 4.x y no puede actualizar la aplicación.
 
@@ -123,11 +123,11 @@ En la tabla siguiente se muestra una comparación de los niveles de almacenamien
 | **Objetivos de escalabilidad y rendimiento** | Igual que las cuentas de almacenamiento de uso general | Igual que las cuentas de almacenamiento de uso general |
 
 > [!NOTE]
-> Las cuentas de Blob Storage admiten los mismos objetivos de rendimiento y escalabilidad que las cuentas de almacenamiento de uso general. Consulte [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obtener más información.
+> Las cuentas de Almacenamiento de blobs admiten los mismos objetivos de rendimiento y escalabilidad que las cuentas de almacenamiento de uso general. Consulte [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obtener más información.
 
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
-Las cuentas de Blob Storage usan un modelo de fijación de precios para el almacenamiento de blobs que se basa en el nivel de almacenamiento. Si se usa una cuenta de Blob Storage, se aplicarán las siguientes consideraciones de facturación:
+Las cuentas de Blob Storage usan un modelo de fijación de precios para el almacenamiento de blobs que se basa en el nivel de almacenamiento. Si se usa una cuenta de Almacenamiento de blobs, se aplicarán las siguientes consideraciones de facturación:
 
 * **Costos de almacenamiento**: además de la cantidad de datos almacenados, el costo varía en función de la capa de almacenamiento. El costo por gigabyte es inferior en la capa de almacenamiento de acceso esporádico que en la de acceso frecuente.
 
@@ -148,14 +148,14 @@ Las cuentas de Blob Storage usan un modelo de fijación de precios para el almac
 
 En esta sección se muestran los siguientes escenarios con Azure Portal:
 
-* Cómo crear una cuenta de Blob Storage.
-* Cómo administrar una cuenta de Blob Storage.
+* Cómo crear una cuenta de Almacenamiento de blobs.
+* Cómo administrar una cuenta de Almacenamiento de blobs.
 
 No se puede establecer el nivel de acceso de archivo en los ejemplos siguientes porque esta configuración se aplica a la cuenta de almacenamiento completa. El nivel de acceso de archivo solo puede establecerse en un blob concreto.
 
-### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Creación de una cuenta de Blob Storage mediante Azure Portal
+### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Creación de una cuenta de Almacenamiento de blobs mediante el Portal de Azure
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 2. En el menú del concentrador, seleccione **Nuevo** > **Datos y almacenamiento** > **Cuenta de almacenamiento**.
 
@@ -167,9 +167,9 @@ No se puede establecer el nivel de acceso de archivo en los ejemplos siguientes 
    
     El almacenamiento en capas solo puede utilizarse con cuentas de almacenamiento de Resource Manager, que es el modelo de implementación recomendado para nuevos recursos. Para más información, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).  
 
-5. En la lista desplegable Account Kind (Tipo de cuenta), seleccione **Blob Storage**.
+5. En la lista desplegable Account Kind (Tipo de cuenta), seleccione **Almacenamiento de blobs**.
    
-    Aquí seleccionará el tipo de cuenta de almacenamiento. El almacenamiento en capas no está disponible en cuentas de almacenamiento de uso general, solo está disponible en cuentas de Blob Storage.     
+    Aquí seleccionará el tipo de cuenta de almacenamiento. El almacenamiento en capas no está disponible en cuentas de almacenamiento de uso general, solo está disponible en cuentas de Almacenamiento de blobs.     
    
     Tenga en cuenta que, cuando se selecciona esta opción, se establece el nivel de rendimiento Estándar. El almacenamiento en capas no está disponible con el nivel de rendimiento Premium.
 
@@ -177,7 +177,7 @@ No se puede establecer el nivel de acceso de archivo en los ejemplos siguientes 
    
     LRS = almacenamiento con redundancia local; GRS = almacenamiento con redundancia geográfica (dos regiones); RA-GRS = almacenamiento con redundancia geográfica con acceso de lectura (dos regiones con acceso de lectura a la región secundaria).
    
-    Para más información sobre las opciones de replicación de Azure Storage, consulte [Replicación de Azure Storage](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+    Para más información sobre las opciones de replicación del Almacenamiento de Azure, consulte [Replicación de Almacenamiento de Azure](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 7. Seleccione la capa de almacenamiento que más se ajuste a sus necesidades: en **Nivel de acceso** seleccione **Esporádico** o **Frecuente**. El valor predeterminado es **Frecuente**. 
 
@@ -189,9 +189,9 @@ No se puede establecer el nivel de acceso de archivo en los ejemplos siguientes 
 
 11. Haga clic en **Crear** para crear la cuenta de almacenamiento.
 
-### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>Cambio del nivel de almacenamiento de una cuenta de Blob Storage mediante Azure Portal
+### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>Cambio del nivel de almacenamiento de una cuenta de Almacenamiento de blobs mediante el Portal de Azure
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 2. Para desplazarse a su cuenta de almacenamiento, seleccione Todos los recursos y, después, seleccione la cuenta de almacenamiento.
 
@@ -205,15 +205,15 @@ No se puede establecer el nivel de acceso de archivo en los ejemplos siguientes 
 > El cambio de la capa de almacenamiento puede conllevar cargos adicionales. Para más información, consulte la sección [Precios y facturación](#pricing-and-billing).
 
 
-## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Evaluación y migración a cuentas de Blob Storage
-El objetivo de esta sección es ayudar a los usuarios a realizar una transición sin problemas al uso de cuentas de Blob Storage. Hay dos escenarios de usuario:
+## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Evaluación y migración a cuentas de Almacenamiento de blobs
+El objetivo de esta sección es ayudar a los usuarios a realizar una transición sin problemas al uso de cuentas de Almacenamiento de blobs. Hay dos escenarios de usuario:
 
-* Tiene una cuenta de almacenamiento de uso general y desea evaluar un cambio en una cuenta de Blob Storage con la capa de almacenamiento correcta.
-* Ha decidido usar una cuenta de Blob Storage o ya tiene una y desea evaluar si debe utilizar la capa de almacenamiento de acceso frecuente o esporádico.
+* Tiene una cuenta de almacenamiento de uso general y desea evaluar un cambio en una cuenta de Almacenamiento de blobs con la capa de almacenamiento correcta.
+* Ha decidido usar una cuenta de Almacenamiento de blobs o ya tiene una y desea evaluar si debe utilizar la capa de almacenamiento de acceso frecuente o esporádico.
 
-En ambos casos, la primera regla de negocio es calcular el costo de almacenar y acceder a los datos almacenados en una cuenta de Blob Storage y compararlo con los costos actuales.
+En ambos casos, la primera regla de negocio es calcular el costo de almacenar y acceder a los datos almacenados en una cuenta de Almacenamiento de blobs y compararlo con los costos actuales.
 
-## <a name="evaluating-blob-storage-account-tiers"></a>Evaluación de los niveles de la cuenta de Blob Storage
+## <a name="evaluating-blob-storage-account-tiers"></a>Evaluación de los niveles de la cuenta de Almacenamiento de blobs
 
 Para calcular el costo de almacenar y acceder a los datos almacenados en una cuenta de Blob Storage, es preciso evaluar el patrón de uso existente o realizar una aproximación al patrón de uso esperado. En general, será preciso conocer:
 
@@ -223,12 +223,12 @@ Para calcular el costo de almacenar y acceder a los datos almacenados en una cue
 
 ## <a name="monitoring-existing-storage-accounts"></a>Supervisión de las cuentas de almacenamiento existentes
 
-Para supervisar las cuentas de almacenamiento existentes y recopilar estos datos, se puede usar Análisis de almacenamiento de Azure, que realiza el registro y proporciona los datos de métricas de una cuenta de almacenamiento. El análisis de almacenamiento puede almacenar métricas que incluyen las estadísticas de transacciones agregadas y los datos de capacidad de las solicitudes al servicio de Blob Storage tanto de cuentas de almacenamiento de uso general como cuentas de Blob Storage. Estos datos se almacenan en tablas conocidas de la misma cuenta de almacenamiento.
+Para supervisar las cuentas de almacenamiento existentes y recopilar estos datos, se puede usar Análisis de almacenamiento de Azure, que realiza el registro y proporciona los datos de métricas de una cuenta de almacenamiento. Análisis de almacenamiento puede almacenar métricas que incluyen las estadísticas de transacciones agregadas y los datos de capacidad de las solicitudes al servicio de Almacenamiento de blobs tanto de cuentas de almacenamiento de uso general como cuentas de Almacenamiento de blobs. Estos datos se almacenan en tablas conocidas de la misma cuenta de almacenamiento.
 
 Para más información, consulte [Acerca de las métricas de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx) y [Esquema de tabla de métricas de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Las cuentas de Blob Storage exponen el punto de conexión de Table Service solo para almacenar y acceder a los datos de métricas de dicha cuenta.
+> Las cuentas de Almacenamiento de blobs exponen el punto de conexión de servicio de tabla solo para almacenar y acceder a los datos de métricas de dicha cuenta.
 
 Para supervisar el consumo de almacenamiento de información del servicio Blob Storage, es preciso que habilite las métricas de capacidad.
 Con esta opción habilitada, se registran diariamente los datos de capacidad de Blob service de una cuenta de almacenamiento y se registran como una entrada de tabla que se escribe en la tabla *$MetricsCapacityBlob* dentro de la misma cuenta de almacenamiento.
@@ -251,7 +251,7 @@ Para más información acerca de cómo habilitar, recopilar y visualizar datos d
 
 La entrada más reciente de la tabla de métricas de capacidad *$MetricsCapacityBlob* con la clave de fila *'data'* muestra la capacidad de almacenamiento que han consumido los datos del usuario. La entrada más reciente de la tabla de métricas de capacidad *$MetricsCapacityBlob* con la clave de fila *'analytics'* muestra la capacidad de almacenamiento que han consumido los registros de análisis.
 
-Posteriormente, esta capacidad total consumida por los datos del usuario y los registros de análisis (si está habilitado) se puede utilizar para calcular el costo del almacenamiento de datos en la cuenta de almacenamiento. Este mismo método también se puede utilizar para calcular los costos de almacenamiento de blobs en bloques y anexos en las cuentas de uso general.
+Posteriormente, esta capacidad total consumida por los datos del usuario y los registros de análisis (si está habilitado) se puede utilizar para calcular el costo del almacenamiento de datos en la cuenta de almacenamiento. Este mismo método también se puede utilizar para calcular los costos de almacenamiento de los blobs de bloques y anexos en las cuentas de uso general.
 
 ### <a name="transaction-costs"></a>Costos de transacciones
 
@@ -278,31 +278,31 @@ Para calcular los costos de acceso a los datos en las cuentas de Blob Storage, e
 El costo de transferencia de datos de replicación geográfica para cuentas de Blob Storage también puede calcularse mediante la valoración de la cantidad de datos escritos cuando se usa una cuenta de almacenamiento GRS o RA-GRS.
 
 > [!NOTE]
-> Para ver un ejemplo más detallado sobre cómo calcular los costos del uso de la capa de almacenamiento frecuente o esporádico, eche un vistazo a la pregunta *'¿Qué son los niveles de acceso frecuente y esporádico y cómo se puede determinar el que debe usarse?'* de la página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+> Para ver un ejemplo más detallado sobre cómo calcular los costos del uso de la capa de almacenamiento frecuente o esporádico, eche un vistazo a la pregunta *'¿Qué son los niveles de acceso frecuente y esporádico y cómo se puede determinar el que debe usarse?'* de la página [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/).
  
 ## <a name="migrating-existing-data"></a>Migración de datos existentes
 
-Las cuentas de Blob Storage son especiales para almacenar solo blobs en bloques y anexos. Las cuentas de almacenamiento de uso general existentes, que permiten almacenar tablas, colas, archivos y discos, así como blobs, no se pueden convertir en cuentas de Blob Storage. Para utilizar los niveles de almacenamiento, debe crear nuevas cuentas de Blob Storage y migrar los datos existentes a las cuentas recién creadas.
+Las cuentas de Almacenamiento de blobs son especiales para almacenar solo blobs y anexar blobs. Las cuentas de almacenamiento de uso general existentes, que permiten almacenar tablas, colas, archivos y discos, así como blobs, no se pueden convertir en cuentas de Blob Storage. Para utilizar los niveles de almacenamiento, debe crear nuevas cuentas de Blob Storage y migrar los datos existentes a las cuentas recién creadas.
 
 Puede utilizar los métodos siguientes para migrar los datos existentes a cuentas de Blob Storage desde un dispositivos de almacenamiento local, desde proveedores de almacenamiento en la nube de terceros o desde sus cuentas existentes de almacenamiento de uso general en Azure:
 
 ### <a name="azcopy"></a>AzCopy
 
-AzCopy es una utilidad de línea de comandos de Windows diseñada para la copia de datos de alto rendimiento hacia y desde Azure Storage. AzCopy se puede usar para copiar datos en una cuenta de Blob Storage desde cuentas de almacenamiento de uso general existentes o para cargar datos desde un sistema de dispositivos de almacenamiento local en una cuenta de Blob Storage.
+AzCopy es una utilidad de línea de comandos de Windows diseñada para la copia de datos de alto rendimiento a y desde Almacenamiento de Azure. AzCopy se puede usar para copiar datos en una cuenta de Almacenamiento de blobs desde cuentas de almacenamiento de uso general existentes o para cargar datos desde un sistema de dispositivos de almacenamiento local en una cuenta de Almacenamiento de blobs.
 
 Para más información, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="data-movement-library"></a>Data Movement Library
 
-La biblioteca de movimiento de datos de Azure Storage para .NET se basa en el marco de movimiento de datos principal que se utiliza con AzCopy. La biblioteca está diseñada para operaciones de transferencia de datos de alto rendimiento, confiables y fáciles similares a AzCopy. Esto permite sacar todo el partido a las características que proporciona AzCopy en su aplicación nativa sin tener que ejecutar y supervisar instancias externas de AzCopy.
+La biblioteca de movimiento de datos de Almacenamiento de Azure para .NET se basa en el marco de movimiento de datos principal que se utiliza con AzCopy. La biblioteca está diseñada para operaciones de transferencia de datos de alto rendimiento, confiables y fáciles similares a AzCopy. Esto permite sacar todo el partido a las características que proporciona AzCopy en su aplicación nativa sin tener que ejecutar y supervisar instancias externas de AzCopy.
 
 Para más información, consulte [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
 
 ### <a name="rest-api-or-client-library"></a>API de REST o biblioteca de cliente
 
-Puede crear una aplicación personalizada para migrar sus datos a una cuenta de Blob Storage con una de las bibliotecas de cliente de Azure o la API de REST de servicios de Azure Storage. Azure Storage proporciona bibliotecas de cliente enriquecidas para varios lenguajes y aplicaciones como .NET, Java, C++, Node.JS, PHP, Ruby y Python. Las bibliotecas de cliente ofrecen capacidades avanzadas, como lógica de reintentos, registro y cargas paralelas. También se puede desarrollar directamente en la API de REST, a la que se puede llamar con cualquier lenguaje que genere solicitudes HTTP/HTTPS.
+Puede crear una aplicación personalizada para migrar sus datos a una cuenta de Almacenamiento de blobs con una de las bibliotecas de cliente de Azure o la API de REST de servicios de almacenamiento de Azure. Almacenamiento de Azure proporciona bibliotecas de cliente enriquecidas para varios lenguajes y aplicaciones como .NET, Java, C++, Node.JS, PHP, Ruby y Python. Las bibliotecas de cliente ofrecen capacidades avanzadas, como lógica de reintentos, registro y cargas paralelas. También se puede desarrollar directamente en la API de REST, a la que se puede llamar con cualquier lenguaje que genere solicitudes HTTP/HTTPS.
 
-Para más información, consulte [Introducción a Azure Blob Storage mediante .NET](storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para más información, consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md).
 
 > [!NOTE]
 > BLOB cifrado mediante el cifrado de cliente para almacenar metadatos relacionados con el cifrado almacenados con el blob. Es absolutamente crítico que cualquier mecanismo de copia se asegure de que los metadatos de blob, y especialmente los metadatos relacionados con el cifrado, se preserven. Si copia los blobs sin estos metadatos, su contenido no puede volver a recuperarse. Para más información acerca de los metadatos relacionados con el cifrado, consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
@@ -313,9 +313,9 @@ Para más información, consulte [Introducción a Azure Blob Storage mediante .N
    
     Sí, las cuentas de almacenamiento existentes siguen estando disponibles y no se han cambiado sus precios ni sus funciones.  No tienen la capacidad de elegir una capa de almacenamiento y no tendrán funcionalidades de organización en capas en el futuro.
 
-2. **¿Por qué y cuándo conviene empezar a usar cuentas de Blob Storage?**
+2. **¿Por qué y cuándo conviene empezar a usar cuentas de Almacenamiento de blobs?**
    
-    Las cuentas de Blob Storage están especializadas en el almacenamiento de blobs y nos permiten introducir nuevas características centradas en los blobs. Es más, las cuentas de Blob Storage son el método recomendado para el almacenamiento de blobs, ya que se introducirán funcionalidades futuras como el almacenamiento jerárquico y la organización en niveles basadas en este tipo de cuenta. Sin embargo, cada usuario debe decidir en qué momento desea realizar la migración en función de sus requisitos empresariales.
+    Las cuentas de Almacenamiento de blobs están especializadas en el almacenamiento de blobs y nos permiten introducir nuevas características centradas en los blobs. Es más, las cuentas de Almacenamiento de blobs son el método recomendado para el almacenamiento de blobs, ya que se introducirán funcionalidades futuras como el almacenamiento jerárquico y la organización en niveles basadas en este tipo de cuenta. Sin embargo, cada usuario debe decidir en qué momento desea realizar la migración en función de sus requisitos empresariales.
 
 3. **¿Se puede convertir una cuenta de almacenamiento existente en una cuenta de Almacenamiento de blogs?**
    
@@ -325,11 +325,11 @@ Para más información, consulte [Introducción a Azure Blob Storage mediante .N
    
     El atributo *'Access Tier'* que indica el valor del nivel de almacenamiento se establece en las cuentas y se aplica a todos los objetos de dicha cuenta. Sin embargo, la característica de asignación de niveles en blobs (versión preliminar) le permite establecer los niveles de acceso en blobs específicos, y reemplazará la configuración del nivel de acceso en la cuenta. 
 
-5. **¿Se puede cambiar la capa de almacenamiento de una cuenta de Blob Storage?**
+5. **¿Se puede cambiar la capa de almacenamiento de una cuenta de Almacenamiento de blobs?**
    
     Sí. Puede cambiar el nivel de almacenamiento estableciendo el atributo *'Access Tier'* en la cuenta de almacenamiento. El cambio del nivel de almacenamiento se aplica a todos los objetos almacenados en la cuenta. El cambio del nivel de almacenamiento de frecuente a esporádico no supone ningún gasto, mientras que el cambio de esporádico a frecuente tiene un costo por GB por la lectura de todos los datos de la cuenta.
 
-6. **¿Con qué frecuencia se puede cambiar la capa de almacenamiento de una cuenta de Blob Storage?**
+6. **¿Con qué frecuencia se puede cambiar la capa de almacenamiento de una cuenta de Almacenamiento de blobs?**
    
     Aunque no hay ningún límite en la frecuencia con que se puede cambiar el nivel de almacenamiento, tenga en cuenta que el cambio del nivel de almacenamiento de esporádico a frecuente supone unos gastos significativos. Se recomienda no cambiar la capa de almacenamiento con frecuencia.
 
@@ -339,35 +339,35 @@ Para más información, consulte [Introducción a Azure Blob Storage mediante .N
    
     Los blobs del nivel de almacenamiento esporádico tienen un Acuerdo de Nivel de Servicio (SLA) de disponibilidad ligeramente inferior a los almacenados en el nivel de almacenamiento frecuente. Para más información, consulte [Acuerdo de Nivel de Servicio para Almacenamiento](https://azure.microsoft.com/support/legal/sla/storage).
 
-8. **¿Puedo almacenar blobs en páginas y discos de máquinas virtuales en las cuentas de Blob Storage?**
+8. **¿Puedo almacenar blobs en páginas y discos de máquinas virtuales en las cuentas de Almacenamiento de blobs?**
    
-    Las cuentas de Blob Storage solo admiten blobs en bloques y en anexos, pero no blobs en páginas. Los discos de máquinas virtuales de Azure están respaldados por blobs en páginas y, por tanto, no se pueden utilizar cuentas de Blob Storage para almacenar discos de máquinas virtuales. Sin embargo, es posible almacenar copias de seguridad de los discos de máquinas virtuales como blobs en bloques en una cuenta de Blob Storage.
+    Las cuentas de Almacenamiento de blobs solo admiten blobs en bloques y en anexos, pero no blobs en páginas. Los discos de máquinas virtuales de Azure están respaldados por blobs en páginas y, por tanto, no se pueden utilizar cuentas de Almacenamiento de blobs para almacenar discos de máquinas virtuales. Sin embargo, es posible almacenar copias de seguridad de los discos de máquinas virtuales como blobs en bloques en una cuenta de Almacenamiento de blobs.
 
 9. **¿Es preciso cambiar las aplicaciones existentes para usar las cuentas de Blosb Storage?**
    
-    Las cuentas de Blob Storage tienen una coherencia del 100 % con la API con las cuentas de almacenamiento de uso general para blobs en bloques y en anexos. Si la aplicación usa blobs en bloques o blobs en anexos y el usuario utiliza la versión 2014-02-14 de la [API de REST de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/dd894041.aspx), u otra versión superior, la aplicación debería funcionar. Si se utiliza una versión anterior del protocolo, es preciso actualizar la aplicación para que use la nueva versión, con el fin de poder trabajar sin problemas con ambos tipos de cuentas de almacenamiento. En general, siempre se recomienda utilizar la versión más reciente, independientemente del tipo de cuenta de almacenamiento que se use.
+    Las cuentas de almacenamiento de blobs tienen una coherencia del 100 % con la API con las cuentas de almacenamiento de uso general para blobs en bloques y en anexos. Si la aplicación usa blobs en bloques o blobs en anexos y el usuario utiliza la versión 2014-02-14 de la [API de REST de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/dd894041.aspx), u otra versión superior, la aplicación debería funcionar. Si se utiliza una versión anterior del protocolo, es preciso actualizar la aplicación para que use la nueva versión, con el fin de poder trabajar sin problemas con ambos tipos de cuentas de almacenamiento. En general, siempre se recomienda utilizar la versión más reciente, independientemente del tipo de cuenta de almacenamiento que se use.
 
 10. **¿Hay un cambio en la experiencia del usuario?**
     
-    Las cuentas de Blob Storage son muy similares a una cuenta de almacenamiento de uso general para almacenar y anexar blobs, y admite todas las características claves de Azure Storage, incluidos un gran rendimiento, durabilidad y disponibilidad, escalabilidad y seguridad. Aparte de las características y restricciones concretas de las cuentas de Blob Storage y sus capas de almacenamiento ya indicadas, el resto es igual.
+    Las cuentas de Almacenamiento de blobs son muy similares a una cuenta de almacenamiento de uso general para almacenar y anexar blobs, y admite todas las características claves de Almacenamiento de Azure, incluidos un gran rendimiento, durabilidad y disponibilidad, escalabilidad y seguridad. Aparte de las características y restricciones concretas de las cuentas de Almacenamiento de blobs y sus capas de almacenamiento ya indicadas, el resto es igual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-### <a name="evaluate-blob-storage-accounts"></a>Evaluación de cuentas de Blob Storage
+### <a name="evaluate-blob-storage-accounts"></a>Evaluación de cuentas de Almacenamiento de blobs
 
-[Comprobación de la disponibilidad de las cuentas de Blob Storage por región](https://azure.microsoft.com/regions/#services)
+[Comprobación de la disponibilidad de las cuentas de Almacenamiento de blobs por región](https://azure.microsoft.com/regions/#services)
 
-[Evaluación del uso de las cuentas de almacenamiento actuales mediante la habilitación de las métricas de Azure Storage](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+[Evaluación del uso de las cuentas de almacenamiento actuales mediante la habilitación de las métricas de Almacenamiento de Azure](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-[Comprobación de los precios de Blob Storage por región](https://azure.microsoft.com/pricing/details/storage/)
+[Comprobación de los precios de almacenamiento de blobs por región](https://azure.microsoft.com/pricing/details/storage/)
 
 [Detalles de precios de Transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-### <a name="start-using-blob-storage-accounts"></a>Empezar a utilizar cuentas de Blob Storage
+### <a name="start-using-blob-storage-accounts"></a>Empezar a utilizar cuentas de Almacenamiento de blobs
 
-[Introducción a Azure Blob Storage](storage-dotnet-how-to-use-blobs.md)
+[Introducción al Almacenamiento de blobs de Azure mediante .NET](storage-dotnet-how-to-use-blobs.md)
 
-[Movimiento de datos hacia y desde Azure Storage](../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+[Movimiento de datos hacia y desde Almacenamiento de Azure](../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 [Transferencia de datos con la utilidad en línea de comandos AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
