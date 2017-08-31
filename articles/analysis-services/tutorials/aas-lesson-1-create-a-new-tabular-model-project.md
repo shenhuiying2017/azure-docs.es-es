@@ -3,7 +3,7 @@ title: "Lección 1 del tutorial de Azure Analysis Services: Creación de un nuev
 description: "Describe cómo crear un proyecto del tutorial de Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

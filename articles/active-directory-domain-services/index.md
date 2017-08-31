@@ -2,7 +2,7 @@
 title: "Documentación sobre Azure Active Directory Domain Services: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda cómo usar Active Directory Domain Services para unir máquinas virtuales de Azure a un dominio sin usar controladores de dominio y cómo administrarlas con directivas de grupo."
 services: active-directory-ds
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ca9fd58260f97836c08e71a50d8411d1862fd650
 ms.openlocfilehash: 9654ec8791de56c33e4973e8ba20ef6e52780955
+ms.contentlocale: es-es
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Documentación acerca de Active Directory Domain Services
@@ -167,10 +169,5 @@ Aprenda cómo usar Active Directory Domain Services para unir máquinas virtuale
         </a>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

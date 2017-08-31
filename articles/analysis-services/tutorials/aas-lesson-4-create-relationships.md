@@ -3,7 +3,7 @@ title: "Lección 4 del tutorial de Azure Analysis Services: creación de roles |
 description: "En este artículo se describe cómo crear relaciones en el proyecto del tutorial de Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

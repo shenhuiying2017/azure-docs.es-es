@@ -3,7 +3,7 @@ title: "Lección 3 del tutorial de Azure Analysis Services: Marcar como tabla de
 description: "Se describe cómo marcar una tabla de fechas en el proyecto del tutorial de Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -3,7 +3,7 @@ title: "Lección 9 del tutorial de Azure Analysis Services: Creación de jerarqu
 description: 
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

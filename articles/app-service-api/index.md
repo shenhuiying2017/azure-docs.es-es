@@ -1,20 +1,22 @@
 ---
 title: "Documentación sobre API Apps en Azure App Service: tutoriales | Microsoft Docs"
 description: "Aprenda a usar API Apps en Azure App Service para desarrollar, alojar y consumir API en la nube y de forma local. Tutoriales, vídeos y otra documentación."
-services: app-service\api
-author: carolz
+services: app-service-api
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\api
+ms.service: app-service-api
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 741a6f2be3c8c689884cdeb180ff10dac046032b
 ms.openlocfilehash: b1a568d7a8f856c7d17aa7ebd14148452c1d29db
+ms.contentlocale: es-es
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="app-service---api-apps-documentation"></a>App Service: documentación de API Apps
@@ -132,10 +134,5 @@ Aprenda a usar API Apps en Azure App Service para desarrollar, alojar y consumir
     </li>     
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

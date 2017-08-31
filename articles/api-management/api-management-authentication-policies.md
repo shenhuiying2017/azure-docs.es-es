@@ -3,7 +3,7 @@ title: "Directivas de autenticación de Azure API Management | Microsoft Docs"
 description: "Aprenda sobre las directivas de autenticación disponibles para su uso en Azure API Management."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
@@ -14,21 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: f447e43799e56114d52b0dc0f5c36265f2870c8e
+ms.contentlocale: es-es
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-authentication-policies"></a>Directivas de autenticación de Azure API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameauthenticationpoliciesa-authentication-policies"></a><a name="AuthenticationPolicies"></a> Directivas de autenticación  
+##  <a name="AuthenticationPolicies"></a> Directivas de autenticación  
   
 -   [Autenticar con opción básica](api-management-authentication-policies.md#Basic) : autenticar con un servicio de back-end mediante la autenticación básica.  
   
 -   [Autenticar con certificado de cliente](api-management-authentication-policies.md#ClientCertificate) : autenticar con un servicio de back-end mediante certificados de cliente.  
   
-##  <a name="a-namebasica-authenticate-with-basic"></a><a name="Basic"></a> Authenticate with Basic  
+##  <a name="Basic"></a> Authenticate with Basic  
  Use la directiva `authentication-basic` para realizar la autenticación con upolicy to authenticate with a n servicio de back-end mediante autenticación Básica. Esta directiva establece eficazmente el encabezado de autorización HTTP en el valor correspondiente a las credenciales proporcionadas en la directiva.  
   
 ### <a name="policy-statement"></a>Declaración de directiva  
@@ -63,7 +65,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** API  
   
-##  <a name="a-nameclientcertificatea-authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Autenticación Básica  
+##  <a name="ClientCertificate"></a> Autenticación Básica  
  Use la directiva `authentication-certificate` para realizar la autenticación con un servicio de back-end mediante un certificado de cliente. El certificado se debe [instalar primero en API Management](http://go.microsoft.com/fwlink/?LinkID=511599) y se identifica mediante su huella digital.  
   
 ### <a name="policy-statement"></a>Declaración de directiva  
@@ -100,8 +102,3 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo trabajar con directivas, consulte a [Directivas de API Management](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

@@ -3,7 +3,7 @@ title: "Lección 2 del tutorial de Azure Analysis Services: Obtención de datos 
 description: "Describe cómo obtener e importar datos en el proyecto del tutorial de Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: "Documentación sobre Azure Data Catalog: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a configurar un catálogo de datos donde su organización pueda encontrar, comprender y consumir orígenes de datos. Tutoriales, referencia de API y otra documentación."
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

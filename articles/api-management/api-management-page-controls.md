@@ -3,7 +3,7 @@ title: "Controles de página de Azure API Management | Microsoft Docs"
 description: "Aprenda sobre los controles de página disponibles para su uso en las plantillas del portal para desarrolladores de Azure API Management."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 925aff209056f5a63b927dcb95ef6621967a0ffb
+ms.contentlocale: es-es
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página de Azure API Management
@@ -50,7 +52,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
   
 -   [subscription-cancel](#subscription-cancel)  
   
-##  <a name="a-nameapp-actionsa-app-actions"></a><a name="app-actions"></a> app-actions  
+##  <a name="app-actions"></a> app-actions  
  El control `app-actions` proporciona una interfaz de usuario para la interacción con aplicaciones en la página del perfil de usuario del portal para desarrolladores.  
   
  ![app&#45;actions control](./media/api-management-page-controls/APIM-app-actions-control.png "Control app-actions de APIM")  
@@ -72,7 +74,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
   
 -   [Applications](api-management-user-profile-templates.md#Applications)  
   
-##  <a name="a-namebasic-signina-basic-signin"></a><a name="basic-signin"></a> basic-signin  
+##  <a name="basic-signin"></a> basic-signin  
  El control `basic-signin` ofrece un control para la recolección de información de inicio de sesión del usuario en la página de inicio de sesión del portal para desarrolladores.  
   
  ![basic&#45;signin control](./media/api-management-page-controls/APIM-basic-signin-control.png "Control basic-signin de APIM")  
@@ -91,7 +93,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
   
 -   [Sign in](api-management-page-templates.md#SignIn)  
   
-##  <a name="a-namepaging-controla-paging-control"></a><a name="paging-control"></a> paging-control  
+##  <a name="paging-control"></a> paging-control  
  El control `paging-control` proporciona funcionalidad de paginación en las páginas del portal para desarrolladores que muestran una lista de elementos.  
   
  ![paging control](./media/api-management-page-controls/APIM-paging-control.png "Paging control de APIM ")  
@@ -114,7 +116,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
   
 -   [Product list](api-management-product-templates.md#ProductList)  
   
-##  <a name="a-nameprovidersa-providers"></a><a name="providers"></a> providers  
+##  <a name="providers"></a> providers  
  El control `providers` proporciona un control para la selección de proveedores de autenticación en la página de inicio de sesión del portal para desarrolladores.  
   
  ![control providers](./media/api-management-page-controls/APIM-providers-control.png "Control providers de APIM")  
@@ -133,7 +135,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
   
 -   [Sign in](api-management-page-templates.md#SignIn)  
   
-##  <a name="a-namesearch-controla-search-control"></a><a name="search-control"></a> search-control  
+##  <a name="search-control"></a> search-control  
  El control `search-control` proporciona funcionalidad de búsqueda en las páginas del portal para desarrolladores que muestran una lista de elementos.  
   
  ![search control](./media/api-management-page-controls/APIM-search-control.png "Search control de APIM")  
@@ -154,7 +156,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
   
 -   [Product list](api-management-product-templates.md#ProductList)  
   
-##  <a name="a-namesign-upa-sign-up"></a><a name="sign-up"></a> sign-up  
+##  <a name="sign-up"></a> sign-up  
  El control `sign-up` proporciona un control para la recolección de información de perfil de usuario en la página de inicio de sesión del portal para desarrolladores.  
   
  ![sign&#45;up control](./media/api-management-page-controls/APIM-sign-up-control.png "Sign-up control de APIM")  
@@ -173,7 +175,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
   
 -   [Sign up](api-management-page-templates.md#SignUp)  
   
-##  <a name="a-namesubscribe-buttona-subscribe-button"></a><a name="subscribe-button"></a> subscribe-button  
+##  <a name="subscribe-button"></a> subscribe-button  
  El control `subscribe-button` proporciona un control para la suscripción de un usuario a un producto.  
   
  ![subscribe&#45;button control](./media/api-management-page-controls/APIM-subscribe-button-control.png "Control subscribe-button de APIM")  
@@ -192,7 +194,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
   
 -   [Producto](api-management-product-templates.md#Product)  
   
-##  <a name="a-namesubscription-cancela-subscription-cancel"></a><a name="subscription-cancel"></a> subscription-cancel  
+##  <a name="subscription-cancel"></a> subscription-cancel  
  El control `subscription-cancel` proporciona un control para la cancelación de una suscripción a un producto en la página de perfil de usuario del portal para desarrolladores.  
   
  ![subscription&#45;cancel control](./media/api-management-page-controls/APIM-subscription-cancel-control.png "Control subscription-cancel de APIM")  
@@ -219,8 +221,3 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

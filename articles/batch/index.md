@@ -2,7 +2,7 @@
 title: "Documentación sobre Azure Batch: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a usar Batch para ejecutar de manera eficaz aplicaciones de informática de alto rendimiento en paralelo y a gran escala. Tutoriales, referencias de API y otra documentación."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

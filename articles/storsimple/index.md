@@ -2,7 +2,7 @@
 title: "Documentación sobre Azure StorSimple: tutoriales | Microsoft Docs"
 description: "Aprenda a usar Azure StorSimple, una solución de almacenamiento integrada que administra tareas de almacenamiento entre dispositivos locales y el almacenamiento en la nube de Azure."
 services: storsimple
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

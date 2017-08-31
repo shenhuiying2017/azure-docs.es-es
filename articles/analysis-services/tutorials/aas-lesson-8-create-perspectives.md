@@ -3,7 +3,7 @@ title: "Lección 8 del tutorial de Azure Analysis Services: Creación de perspec
 description: "Se describe cómo crear perspectivas en el proyecto del tutorial de Analysis Services de Azure."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

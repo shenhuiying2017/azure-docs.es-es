@@ -2,7 +2,7 @@
 title: "Documentación sobre la facturación de Azure: tutoriales y referencia de API | Microsoft Docs"
 description: "Obtenga información acerca de la facturación de Azure, así como a administrar y supervisar el uso y los costes. Tutoriales, preguntas más frecuentes, referencias de API y otra documentación."
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

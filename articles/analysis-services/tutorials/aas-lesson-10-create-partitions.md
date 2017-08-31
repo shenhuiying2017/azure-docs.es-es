@@ -3,7 +3,7 @@ title: "Lección 10 del tutorial de Azure Analysis Services: Creación de partic
 description: "Describe cómo crear particiones en el proyecto del tutorial de Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -3,7 +3,7 @@ title: "Directivas de almacenamiento en caché de Azure API Management | Microso
 description: "Aprenda sobre las directivas de almacenamiento en caché disponibles para su uso en Azure API Management."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
+ms.contentlocale: es-es
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-namecachingpoliciesa-caching-policies"></a><a name="CachingPolicies"></a> Directivas de almacenamiento en caché  
+##  <a name="CachingPolicies"></a> Directivas de almacenamiento en caché  
   
 -   Directivas de almacenamiento en caché de respuesta  
   
@@ -38,7 +40,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
     -   [Quitar valor de caché](#RemoveCacheByKey); quita un elemento de la memoria caché por clave.  
   
-##  <a name="a-namegetfromcachea-get-from-cache"></a><a name="GetFromCache"></a> Get from cache  
+##  <a name="GetFromCache"></a> Get from cache  
  Use la directiva `cache-lookup` para realizar una consulta en la caché y devolver una respuesta en caché válida cuando esté disponible. Esta directiva se puede aplicar en aquellos casos en los que el contenido de respuesta permanezca estático durante un período de tiempo. El almacenamiento en caché de respuesta reduce el ancho de banda y los requisitos de procesamiento impuestos sobre el servidor web de back-end y disminuye la latencia percibida por los consumidores de API.  
   
 > [!NOTE]
@@ -128,7 +130,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de directiva:** API, operation, product  
   
-##  <a name="a-namestoretocachea-store-to-cache"></a><a name="StoreToCache"></a> Store to cache (Almacenar en la caché)  
+##  <a name="StoreToCache"></a> Store to cache (Almacenar en la caché)  
  La directiva `cache-store` almacena en caché las respuestas según la configuración de caché especificada. Esta directiva se puede aplicar en aquellos casos en los que el contenido de respuesta permanezca estático durante un período de tiempo. El almacenamiento en caché de respuesta reduce el ancho de banda y los requisitos de procesamiento impuestos sobre el servidor web de back-end y disminuye la latencia percibida por los consumidores de API.  
   
 > [!NOTE]
@@ -201,7 +203,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de directiva:** API, operation, product  
   
-##  <a name="a-namegetfromcachebykeya-get-value-from-cache"></a><a name="GetFromCacheByKey"></a> Get value from cache (Obtener valor de la caché)  
+##  <a name="GetFromCacheByKey"></a> Get value from cache (Obtener valor de la caché)  
  Use la directiva `cache-lookup-value` para realizar la búsqueda en la caché por clave y devolver un valor almacenado en caché. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva.  
   
 > [!NOTE]
@@ -246,7 +248,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, API, operación, producto  
   
-##  <a name="a-namestoretocachebykeya-store-value-in-cache"></a><a name="StoreToCacheByKey"></a> Store value in cache (Almacenar valor en la caché)  
+##  <a name="StoreToCacheByKey"></a> Store value in cache (Almacenar valor en la caché)  
  La directiva `cache-store-value` realiza el almacenamiento en caché mediante una clave. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva.  
   
 > [!NOTE]
@@ -289,7 +291,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   **Ámbitos de la directiva:** global, API, operación, producto  
   
-###  <a name="a-nameremovecachebykeya-remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Remove value from cache (Quitar valor de la caché)  
+###  <a name="RemoveCacheByKey"></a> Remove value from cache (Quitar valor de la caché)  
  La directiva `cache-remove-value` elimina un elemento almacenado en caché identificado por su clave. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva.  
   
 #### <a name="policy-statement"></a>Declaración de directiva  
@@ -330,8 +332,3 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo trabajar con directivas, consulte a [Directivas de API Management](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

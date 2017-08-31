@@ -2,7 +2,7 @@
 title: H264 Single Bitrate 720p for Android | Microsoft Docs
 description: "El tema proporciona información general sobre el valor predeterminado de tarea **H264 Single Bitrate 720p SD for Android**."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

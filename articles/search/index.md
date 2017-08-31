@@ -2,7 +2,7 @@
 title: "Documentación sobre Azure Search: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda cómo agregar funcionalidades de búsqueda eficaces, incluidas la supervisión de actividades o las aplicaciones web personalizadas o móviles. Referencias de API y otra documentación."
 services: search
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

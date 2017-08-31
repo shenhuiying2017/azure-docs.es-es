@@ -3,7 +3,7 @@ title: "Lección complementaria del tutorial de Azure Analysis Services: Jerarqu
 description: "Describe cómo corregir las jerarquías desiguales en el tutorial de Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

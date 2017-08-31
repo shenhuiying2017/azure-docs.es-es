@@ -2,7 +2,7 @@
 title: "Documentación sobre Azure IoT Hub: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a usar IoT Hub para conectar, supervisar y controlar millones de recursos de Internet de las cosas. Tutoriales, referencias de API, vídeos y otra documentación."
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

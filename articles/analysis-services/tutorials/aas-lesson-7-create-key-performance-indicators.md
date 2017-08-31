@@ -3,7 +3,7 @@ title: "Lección 7 del tutorial de Azure Analysis Services: Creación de indicad
 description: "Se describe cómo crear indicadores clave de rendimiento en el proyecto del tutorial de Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

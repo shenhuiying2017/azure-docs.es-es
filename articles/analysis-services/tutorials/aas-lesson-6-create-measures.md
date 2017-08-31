@@ -3,7 +3,7 @@ title: "Lección 6 del tutorial de Analysis Services Azure: Creación de medidas
 description: "Describe cómo crear medidas en el proyecto del tutorial de Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: "Documentación sobre Azure Site Recovery: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a configurar la recuperación ante desastres y la continuidad del negocio en la nube para servidores físicos y máquinas virtuales mediante la implementación y administración de la replicación."
 services: site-recovery
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

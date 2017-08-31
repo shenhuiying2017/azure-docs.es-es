@@ -3,7 +3,7 @@ title: "Lección complementaria del tutorial de Azure Analysis Services: segurid
 description: "En este artículo se describe cómo usar la seguridad dinámica mediante los filtros de fila del tutorial de Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

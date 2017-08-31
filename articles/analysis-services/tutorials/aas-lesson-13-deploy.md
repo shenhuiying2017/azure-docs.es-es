@@ -3,7 +3,7 @@ title: "Lección 13 del tutorial de Analysis Services: Implementación | Microso
 description: "Se describe cómo implementar el proyecto del tutorial en Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

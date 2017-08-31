@@ -8,7 +8,7 @@ author: op-ravi
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -33,8 +33,8 @@ Los entornos de Time Series Insights tienen dos tipos independientes de directiv
 Ambas directivas conceden a las entidades de Azure Active Directory (usuarios y aplicaciones) distintos permisos en un entorno concreto. Las entidades (usuarios y aplicaciones) deben pertenecer al directorio activo (o "inquilino de Azure") asociado a la suscripción que contiene el entorno.
 
 Las directivas de acceso de administración conceden permisos relacionados con la configuración del entorno, tales como:
-*    La creación y eliminación del entorno, orígenes de eventos, conjuntos de datos de referencia.
-*    Administración de las directivas de acceso a datos.
+*   La creación y eliminación del entorno, orígenes de eventos, conjuntos de datos de referencia.
+*   Administración de las directivas de acceso a datos.
 
 Las directivas de acceso a datos conceden permisos para emitir consultas de datos, manipular datos de referencia en el entorno y compartir consultas guardadas y perspectivas asociadas con el entorno.
 
@@ -43,30 +43,30 @@ Los dos tipos de directivas permiten una separación clara entre el acceso a la 
 ## <a name="grant-data-access"></a>Concesión de acceso a datos
 Los pasos siguientes muestran cómo conceder acceso a datos a una entidad de usuario:
 
-1.    Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2.    Haga clic en "Todos los recursos" en el menú izquierdo de Azure Portal.
-3.    Seleccione el entorno de Time Series Insights.
+1.  Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2.  Haga clic en "Todos los recursos" en el menú izquierdo de Azure Portal.
+3.  Seleccione el entorno de Time Series Insights.
 
   ![Administración del origen de Time Series Insights: entorno](media/data-access/getstarted-grant-data-access1.png)
 
-4.    Seleccione “Acceso a plano de datos” y haga clic en “Agregar”.
+4.  Seleccione “Acceso a plano de datos” y haga clic en “Agregar”.
 
   ![Administración del origen de Time Series Insights: agregar](media/data-access/getstarted-grant-data-access2.png)
 
-5.    Haga clic en "Seleccionar usuario".
-6.    Busque y seleccione el usuario por correo electrónico.
-7.    Haga clic en "Seleccionar" en la hoja "Seleccionar usuarios".
+5.  Haga clic en "Seleccionar usuario".
+6.  Busque y seleccione el usuario por correo electrónico.
+7.  Haga clic en "Seleccionar" en la hoja "Seleccionar usuarios".
 
   ![Administración del origen de Time Series Insights: seleccionar usuario](media/data-access/getstarted-grant-data-access3.png)
 
-8.    Haga clic en "Seleccionar rol".
-9.    Seleccione "Colaborador" si desea permitir al usuario cambiar los datos de referencia y compartir las consultas almacenadas y las perspectivas con otros usuarios del entorno. En caso contrario, seleccione "Lector" para permitir al usuario consultar los datos del entorno y guardar consultas personales (no compartidas) en el entorno.
-10.    Haga clic en "Aceptar" en la hoja "Seleccionar rol".
+8.  Haga clic en "Seleccionar rol".
+9.  Seleccione "Colaborador" si desea permitir al usuario cambiar los datos de referencia y compartir las consultas almacenadas y las perspectivas con otros usuarios del entorno. En caso contrario, seleccione "Lector" para permitir al usuario consultar los datos del entorno y guardar consultas personales (no compartidas) en el entorno.
+10. Haga clic en "Aceptar" en la hoja "Seleccionar rol".
 
   ![Administración del origen de Time Series Insights: seleccionar rol](media/data-access/getstarted-grant-data-access4.png)
 
-11.    Haga clic en "Aceptar" en la hoja "Seleccionar rol de usuario".
-12.    Debería ver lo siguiente:
+11. Haga clic en "Aceptar" en la hoja "Seleccionar rol de usuario".
+12. Debería ver lo siguiente:
 
   ![Administración del origen de Time Series Insights: resultados](media/data-access/getstarted-grant-data-access5.png)
 

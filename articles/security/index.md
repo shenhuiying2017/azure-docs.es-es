@@ -2,7 +2,7 @@
 title: "Documentación sobre la seguridad de Azure: tutoriales y referencia de API | Microsoft Docs"
 description: Aprenda a personalizar las opciones de seguridad de los servicios de Azure para cumplir los requisitos de las implementaciones de servicios y datos en la nube.
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

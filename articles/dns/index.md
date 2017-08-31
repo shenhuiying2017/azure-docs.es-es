@@ -2,7 +2,7 @@
 title: "Documentación sobre Azure DNS: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a administrar sus registros DNS con el Sistema de nombres de dominio de Azure. En la documentación, se muestra cómo configurar y administrar zonas y registros DNS para los nombres de dominio."
 services: dns
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 659e0989e3a1f7114796c2211606e5d629cf68fd
+ms.contentlocale: es-es
 ms.lasthandoff: 03/22/2017
 
 ---

@@ -3,7 +3,7 @@ title: P+F de API Management de Azure | Microsoft Docs
 description: "Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas en API Management de Azure."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23

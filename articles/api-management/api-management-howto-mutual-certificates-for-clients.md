@@ -3,7 +3,7 @@ title: "Protección de API mediante la autenticación de certificados de cliente
 description: "Obtenga información acerca de cómo proteger el acceso a las API mediante certificados de cliente."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.service: api-management

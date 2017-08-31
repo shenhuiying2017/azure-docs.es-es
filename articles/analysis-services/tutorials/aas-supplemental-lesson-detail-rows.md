@@ -3,7 +3,7 @@ title: "Lección complementaria del tutorial de Azure Analysis Services:Filas de
 description: "Se describe cómo crear una expresión de filas de detalle en el tutorial de Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

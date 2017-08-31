@@ -2,7 +2,7 @@
 title: "Documentación sobre Azure Logic Apps: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a desarrollar aplicaciones lógicas que automatizan y simplifican los flujos de trabajo empresariales entre servidores locales y en la nube. Tutoriales, plantillas y referencias de API."
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

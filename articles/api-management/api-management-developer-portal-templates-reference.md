@@ -3,7 +3,7 @@ title: Plantillas del portal para desarrolladores de Azure API Management | Micr
 description: "Aprenda a personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas en Azure API Management."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 5189f3d8-2a4c-4dc8-ab19-11c7df0114d4
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 090f724c3ea569d226622c7d57fec74549260f4e
+ms.contentlocale: es-es
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="azure-api-management-developer-portal-templates"></a>Plantillas del portal para desarrolladores de Azure API Management
@@ -27,7 +29,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 
 
   
-##  <a name="a-namedeveloperportaltemplatesa-developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a>Plantillas del portal para desarrolladores  
+##  <a name="DeveloperPortalTemplates"></a>Plantillas del portal para desarrolladores  
   
 -   [API](api-management-api-templates.md)  
     -   [API list](api-management-api-templates.md#APIList)  
@@ -65,8 +67,3 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 -   [Data model reference](api-management-template-data-model-reference.md)  
 -   [Controles de página](api-management-page-controls.md)  
 -   [Template resources](api-management-template-resources.md)
-
-
-<!--HONumber=Jan17_HO2-->
-
-

@@ -8,7 +8,7 @@ author: venkatgct
 manager: almineev
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -23,15 +23,11 @@ ms.lasthandoff: 07/04/2017
 
 ---
 
-<a id="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
-
-# Creación de un conjunto de datos de referencia para el entorno de Time Series Insights mediante el portal Ibiza
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Creación de un conjunto de datos de referencia para el entorno de Time Series Insights mediante el portal Ibiza
 
 Un conjunto de datos de referencia es una colección de elementos que aumentan con los eventos de un origen de eventos. El motor de entrada de Time Series Insights une a un evento del origen de eventos con un elemento en el conjunto de datos de referencia. A partir de ese momento, este evento aumentado está disponible para consultas. Esta combinación se basa en las claves definidas en el conjunto de datos de referencia.
 
-<a id="steps-to-add-a-reference-data-set-to-your-environment" class="xliff"></a>
-
-## Pasos para agregar un conjunto de datos de referencia a un entorno
+## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Pasos para agregar un conjunto de datos de referencia a un entorno
 
 1. Inicie sesión en el [portal Ibiza](https://portal.azure.com).
 2. Haga clic en "Todos los recursos" en el menú izquierdo del portal Ibiza.
@@ -50,9 +46,7 @@ Un conjunto de datos de referencia es una colección de elementos que aumentan c
 
 7. Haga clic en "Crear".
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Administración de datos de referencia](time-series-insights-manage-reference-data-csharp.md) mediante programación.
 * Para obtener una referencia completa a la API, consulte el documento [API de datos de referencia](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

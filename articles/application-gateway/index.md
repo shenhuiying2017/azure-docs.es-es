@@ -2,7 +2,7 @@
 title: "Documentación sobre Azure Application Gateway: tutoriales y referencia de API | Microsoft Docs"
 description: "Obtenga información acerca de cómo implementar un controlador de entrega de aplicaciones en la nube. La documentación muestra cómo configurar el enrutamiento de nivel de aplicación y equilibrio de carga para un servidor front-end web."
 services: application-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: 535364a9da46b137c4d32e1c3049a5be3496e5d2
+ms.contentlocale: es-es
 ms.lasthandoff: 03/15/2017
 
 ---
@@ -161,7 +162,7 @@ Obtenga información acerca de cómo implementar Application Gateway, un control
             </div>
         </div>
     </li>
-</ul>    
+</ul>   
 
 
 

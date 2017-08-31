@@ -3,7 +3,7 @@ title: "Restricciones y problemas conocidos en la importación de la API Azure A
 description: "Detalles de los problemas conocidos y las restricciones en la importación en Azure API Management con los formatos de Open API, WSDL o WADL."
 services: api-management
 documentationcenter: 
-author: mattfarm
+author: vladvino
 manager: vlvinogr
 editor: 
 ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: apipm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
 ms.openlocfilehash: ac799d66b5038c207413086b0fa71239ff2a332f
+ms.contentlocale: es-es
 ms.lasthandoff: 03/15/2017
-
 
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restricciones de importación de API y problemas conocidos

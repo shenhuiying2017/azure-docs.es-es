@@ -2,7 +2,7 @@
 title: "Documentación sobre Azure DevTest Labs: tutoriales y referencia de API | Microsoft Docs"
 description: "Aprenda a crear rápidamente entornos de prueba de aplicaciones mediante artefactos reutilizables. Tutoriales, vídeos y muchas otras fuentes le muestran cómo crear, administrar y proteger laboratorios."
 services: devtest-lab
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

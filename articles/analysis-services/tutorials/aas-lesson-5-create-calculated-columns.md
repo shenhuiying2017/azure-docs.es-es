@@ -3,7 +3,7 @@ title: "Lección 5 del tutorial de Azure Analysis Services: Creación de columna
 description: "Describe cómo crear columnas calculadas en el proyecto del tutorial de Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

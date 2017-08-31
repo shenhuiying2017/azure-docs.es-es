@@ -3,7 +3,7 @@ title: Plantillas de perfil de usuario en Azure API Management | Microsoft Docs
 description: "Aprenda a personalizar el contenido de las páginas de perfil de usuario del portal para desarrolladores en Azure API Management."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 2e3b73ef-d223-44fe-9280-c3af3fd4a030
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: cd6cfe3fde93624faec844f91ea9193527495df4
+ms.contentlocale: es-es
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Plantillas de perfil de usuario en Azure API Management
@@ -35,7 +37,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 > [!NOTE]
 >  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
-##  <a name="a-nameprofilea-profile"></a><a name="Profile"></a> Perfil  
+##  <a name="Profile"></a> Perfil  
  La plantilla de **perfil** le permite personalizar la sección de perfil de usuario de la página de perfil de usuario en el portal para desarrolladores.  
   
  ![Página de perfil de usuario](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Página de perfil de usuario de APIM")  
@@ -180,7 +182,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }  
 ```  
   
-##  <a name="a-namesubscriptionsa-subscriptions"></a><a name="Subscriptions"></a> Suscripciones  
+##  <a name="Subscriptions"></a> Suscripciones  
  La plantilla de **suscripciones** le permite personalizar la sección de suscripciones de la página de perfil de usuario en el portal para desarrolladores.  
   
  ![Página de suscripción de usuario](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Página de suscripción de usuario de APIM")  
@@ -401,7 +403,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }  
 ```  
   
-##  <a name="a-nameapplicationsa-applications"></a><a name="Applications"></a> Aplicaciones  
+##  <a name="Applications"></a> Aplicaciones  
  La plantilla de **aplicaciones** le permite personalizar la sección de suscripciones de la página de perfil de usuario en el portal para desarrolladores.  
   
  ![Página de aplicaciones de cuenta de usuario](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Página de aplicaciones de cuenta de usuario de APIM")  
@@ -564,7 +566,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }  
 ```  
   
-##  <a name="a-nameupdateaccountinfoa-update-account-info"></a><a name="UpdateAccountInfo"></a> Update account info  
+##  <a name="UpdateAccountInfo"></a> Update account info  
  La plantilla para **actualizar información de cuenta** le permite personalizar la página **Actualizar información de cuenta** en el portal para desarrolladores.  
   
  ![Plantillas del portal para desarrolladores de la página de información de cuenta de usuario](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Plantillas del portal para desarrolladores de la página de información de cuenta de usuario de APIM")  
@@ -623,8 +625,3 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-
