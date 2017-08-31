@@ -463,7 +463,7 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
 
 ## <a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

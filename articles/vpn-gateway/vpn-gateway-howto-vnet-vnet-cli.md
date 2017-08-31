@@ -366,7 +366,7 @@ Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]**
 [!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

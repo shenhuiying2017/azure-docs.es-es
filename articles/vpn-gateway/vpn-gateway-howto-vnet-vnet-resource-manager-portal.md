@@ -187,7 +187,7 @@ Puede hacer doble clic en las conexiones por separado para más información ace
 ## <a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
 Vea los detalles de preguntas más frecuentes para más información acerca de las conexiones de red virtual a red virtual.
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [documentación sobre máquinas virtuales](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) para más información.

@@ -53,7 +53,7 @@ Puede crear una directiva de IPsec o IKE y aplicarla a una conexión nueva o exi
 
 ## <a name="ipsecike-policy-faq"></a>P+F sobre directivas de IPsec o IKE
 
-[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
 ## <a name="next-steps"></a>Pasos siguientes
