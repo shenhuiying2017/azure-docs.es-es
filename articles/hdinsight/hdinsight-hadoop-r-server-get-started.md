@@ -22,7 +22,7 @@ ms.contentlocale: es-es
 ms.lasthandoff: 08/31/2017
 
 ---
-# <a name="get-started-using-r-server-on-hdinsight"></a>Introducción al uso del servidor de R en HDInsight
+# <a name="get-started-using-r-server-on-hdinsight"></a>Introducción al uso de R Server en HDInsight
 
 HDInsight incluye una opción de R Server que se integra en el clúster de HDInsight. Esta opción permite que los scripts de R usen Spark y MapReduce para ejecutar cálculos distribuidos. En este documento, se ofrece información sobre cómo crear un R Server en el clúster de HDInsight y después ejecutar un script de R que demuestre cómo usar Spark para cálculos de R distribuidos.
 
@@ -206,7 +206,7 @@ Al crear un clúster de HDInsight, es preciso especificar dos usuarios, un usuar
 - **Nombre de usuario de inicio de sesión del clúster**: un usuario HTTP para la autenticación a través de la puerta de enlace de HDInsight que se usa para proteger los clústeres de HDInsight que ha creado. Este usuario HTTP se utiliza para acceder a la interfaz de usuario de Ambari, a la interfaz de usuario de YARN y a otros componentes de la interfaz de usuario.
 - **Nombre de usuario de Secure Shell (SSH)**: un usuario SSH para acceder al clúster a través de Secure Shell. Este es un usuario del sistema Linux para todos los nodos principales, nodos de trabajo y nodos perimetrales. Por consiguiente, puede usar Secure Shell para acceder a cualquiera de los nodos de un clúster remoto.
 
-La versión de comunidad de Servidor de R Studio que se usa en Microsoft R Server en un clúster del tipo HDInsight acepta únicamente el nombre de usuario y la contraseña de Linux como mecanismo de inicio de sesión. No admite tokens de paso. Por consiguiente, si ha creado un nuevo clúster y desea usar R Studio para acceder a él, es preciso que inicie sesión dos veces.
+La versión R Studio Server Community que se usa en Microsoft R Server en un clúster del tipo HDInsight acepta únicamente el nombre de usuario y la contraseña de Linux como mecanismo de inicio de sesión. No admite tokens de paso. Por consiguiente, si ha creado un nuevo clúster y desea usar R Studio para acceder a él, es preciso que inicie sesión dos veces.
 
 - Primero inicie sesión con las credenciales de usuario HTTP a través de la puerta de enlace de HDInsight: 
 
@@ -366,7 +366,7 @@ Tenga en cuenta también que los usuarios recién agregados no tienen privilegio
     Escriba 'readme()' para leer las notas de la versión.
     >
 
-3. Desde el símbolo de sistema de `>` , puede escribir el código de R. El servidor de R incluye paquetes que le permiten interactuar con Hadoop y ejecutar cálculos distribuidos fácilmente. Por ejemplo, use el siguiente comando para ver la raíz del sistema de archivos predeterminado del clúster de HDInsight:
+3. Desde el símbolo de sistema de `>` , puede escribir el código de R. El R Server incluye paquetes que le permiten interactuar con Hadoop y ejecutar cálculos distribuidos fácilmente. Por ejemplo, use el siguiente comando para ver la raíz del sistema de archivos predeterminado del clúster de HDInsight:
 
         rxHadoopListFiles("/")
 
@@ -599,7 +599,7 @@ Si quiere instalar más paquetes de R en el nodo perimetral, puede usar `install
 Las acciones de script son scripts de Bash que se usan para realizar cambios en la configuración del clúster de HDInsight o para instalar software adicional, como paquetes de R adicionales. Para instalar paquetes adicionales con una Acción de script, use los pasos siguientes:
 
 > [!IMPORTANT]
-> Usar Acciones de script para instalar paquetes de R adicionales solo se permite una vez creado el clúster. No use este procedimiento durante la creación del clúster, ya que el script cuenta con que el servidor de R esté completamente configurado e instalado.
+> Usar Acciones de script para instalar paquetes de R adicionales solo se permite una vez creado el clúster. No use este procedimiento durante la creación del clúster, ya que el script cuenta con que el R Server esté completamente configurado e instalado.
 >
 >
 
@@ -628,7 +628,7 @@ Las acciones de script son scripts de Bash que se usan para realizar cambios en 
    * **Persist this script...** (Continuar con este script…): debe estar **activado**.  
 
    > [!NOTE]
-   > 1. De forma predeterminada, todos los paquetes de R se instalan desde una instantánea del repositorio Microsoft MRAN coherente con la versión del servidor R que se ha instalado. Si desea instalar las versiones más recientes de los paquetes, corre el riesgo de que se produzca incompatibilidad. Sin embargo, para realizar este tipo de instalación es preciso especificar `useCRAN` como primer elemento de la lista de paquetes, por ejemplo `useCRAN bitops, stringr, arules`.  
+   > 1. De forma predeterminada, todos los paquetes de R se instalan desde una instantánea del repositorio Microsoft MRAN coherente con la versión del R Server que se ha instalado. Si desea instalar las versiones más recientes de los paquetes, corre el riesgo de que se produzca incompatibilidad. Sin embargo, para realizar este tipo de instalación es preciso especificar `useCRAN` como primer elemento de la lista de paquetes, por ejemplo `useCRAN bitops, stringr, arules`.  
    > 2. Algunos paquetes de R requieren otras bibliotecas de sistema de Linux. Por comodidad, hemos instalado previamente las dependencias que necesitan los 100 paquetes de R más populares. Sin embargo, si los paquetes de R que instale necesitan otras bibliotecas, debe descargar el script base usado aquí y realizar los pasos para instalar las bibliotecas del sistema. A continuación, debe cargar el script modificado a un contenedor de blobs público en Azure Storage y usar el script modificado para instalar los paquetes.
    >    Para más información sobre cómo desarrollar acciones de script, consulte [Desarrollo de acciones de script](hdinsight-hadoop-script-actions-linux.md).  
    >
