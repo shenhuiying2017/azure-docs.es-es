@@ -39,6 +39,8 @@
       href: tutorial-azure-security.md
     - name: 12 - CI/CD de Team Services
       href: tutorial-vsts-iis-cicd.md
+    - name: 13 - Protección de servidor web con SSL
+      href: tutorial-secure-web-server.md
 - name: Muestras
   items:
     - name: PowerShell
@@ -50,7 +52,7 @@
     - name: Regiones y disponibilidad
       href: regions-and-availability.md
     - name: Almacenamiento
-      href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: about-disks-and-vhds.md
     - name: Redes
       href: network-overview.md
     - name: Conjuntos de escalas de máquina virtual
@@ -106,6 +108,10 @@
           href: csharp.md
         - name: 'Uso de una plantilla con C#'
           href: csharp-template.md
+        - name: Creación de una máquina virtual con Chef
+          href: chef-automation.md
+        - name: Uso de Java
+          href: java.md
         - name: Uso de Python
           href: python.md
         - name: Uso de una plantilla
@@ -205,6 +211,10 @@
               href: excel-cluster-hpcpack.md
     - name: Administración del almacenamiento
       items:
+        - name: Más información sobre Managed Disks
+          href: managed-disks-overview.md
+        - name: Preguntas más frecuentes de discos
+          href: faq-for-disks.md
         - name: Agregar un disco
           items:
             - name: Azure PowerShell
@@ -217,12 +227,14 @@
           href: expand-os-disk.md
         - name: Instantánea de un disco
           href: snapshot-copy-managed-disk.md
+        - name: Copia de seguridad de discos no administrados
+          href: incremental-snapshots.md
         - name: Conversión de disco entre Estándar y Premium
           href: convert-disk-storage.md
-        - name: Preguntas más frecuentes de discos
-          href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Uso de File Storage
           href: mount-azure-file-storage.md
+        - name: Implementación de discos con plantilla
+          href: using-managed-disks-template-deployments.md
         - name: Migración a Managed Disks
           href: migrate-to-managed-disks.md
           items:

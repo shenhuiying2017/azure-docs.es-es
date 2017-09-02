@@ -29,11 +29,13 @@
           href: connect-cpp.md
         - name: Go
           href: connect-go.md
+        - name: MySQL Workbench
+          href: connect-workbench.md
 - name: Tutoriales
   items:
     - name: 1 - Diseño de una base de datos
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-cli.md
@@ -85,17 +87,17 @@
   items:
     - name: Administración de un servicio
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-create-manage-server-portal.md
     - name: Reglas de firewall
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-manage-firewall-using-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Restauración de un servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-restore-server-portal.md
     - name: Conexión de aplicaciones
       items:
@@ -107,7 +109,7 @@
           href: howto-connect-webapp.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-server-parameters.md
 - name: Referencia
   items:

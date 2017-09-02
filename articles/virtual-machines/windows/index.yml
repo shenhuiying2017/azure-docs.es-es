@@ -4,7 +4,7 @@ title: Documentación sobre máquinas virtuales Windows
 metadata:
   document_id: 1d98d530-28c7-635f-d41b-8da3ae02970c
   title: 'Documentación sobre las máquinas virtuales Windows de Azure: tutoriales y referencia de API'
-  meta.description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
+  meta.description: 'Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.'
   services: virtual-machines\windows
   author: czeumault
   manager: carolz
@@ -18,89 +18,90 @@ abstract:
   description: 'Máquinas virtuales Windows de Azure proporciona una infraestructura bajo demanda, a gran escala, segura y virtualizada con Windows Server. Aprenda a crear, configurar, administrar y escalar máquinas virtuales Windows con nuestros inicios rápidos, tutoriales y ejemplos.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
-      src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/create-windows-server-virtual-machine.png
-      width: 250  
+      src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/create-windows-server-virtual-machine.png'
+      width: 250
     title: 'Creación de una máquina virtual con Windows Server. (3:58)'
-    href: https://azure.microsoft.com/en-us/resources/videos/create-windows-server-virtual-machine/
+    href: 'https://azure.microsoft.com/en-us/resources/videos/create-windows-server-virtual-machine/'
     width: 250
 sections:
-- title: Inicios rápidos en 5 minutos
-  items:
-  - type: paragraph
-    text: 'Aprenda a implementar un servidor web IIS dentro de una máquina virtual que ejecuta Windows Server 2016:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/portal.svg
-      text: Portal de Azure
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/cli.svg
-      text: CLI de Azure
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-- title: Tutoriales detallados
-  items:
-  - type: paragraph
-    text: 'Aprenda a implementar, administrar y supervisar máquinas virtuales Windows en Azure'
-  - type: list
-    style: ordered
+  - title: Inicios rápidos en 5 minutos
     items:
-    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-vm">Creación y administración de máquinas virtuales Windows</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Creación y administración de discos de máquinas virtuales</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automatización de la configuración de máquinas virtuales</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-custom-images">Creación de imágenes personalizadas de máquinas virtuales</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-availability-sets">Creación de máquinas virtuales de alta disponibilidad</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-create-vmss">Creación de un conjunto de escalado de máquinas virtuales</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-load-balancer">Equilibrio de carga de máquinas virtuales</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-virtual-network">Administración de máquinas virtuales con redes virtuales</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-backup-vms">Copia de seguridad de máquinas virtuales</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Supervisión de máquinas virtuales</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Administración de seguridad en máquinas virtuales</a>
-    - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Creación de una canalización de integración continua con Visual Studio</a>
-- title: Vídeo gratuito de aprendizaje de PluralSight
-  items:
-  - type: list
-    style: cards
-    className: cardsW
+      - type: paragraph
+        text: 'Aprenda a implementar un servidor web IIS dentro de una máquina virtual que ejecuta Windows Server 2016:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/portal.svg'
+            text: Azure Portal
+            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/cli.svg'
+            text: CLI de Azure
+            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json'
+  - title: Tutoriales detallados
     items:
-    - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Administración de la infraestructura</a></p>'
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-infrastructure.png
-        href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Introducción a Virtual Machines</a></p>'
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-vms.png
-        href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Introducción a la supervisión de IaaS</a></p>'
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-iaas-monitoring.png
-        href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-- title: Muestras
-  items:
-  - type: paragraph
-    text: Implemente su primera aplicación en Azure.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Aprenda a implementar, administrar y supervisar máquinas virtuales Windows en Azure'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/virtual-machines/windows/tutorial-manage-vm">Creación y administración de máquinas virtuales Windows</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Creación y administración de discos de máquinas virtuales</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">Automatización de la configuración de máquinas virtuales</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-custom-images">Creación de imágenes personalizadas de máquinas virtuales</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-availability-sets">Creación de máquinas virtuales de alta disponibilidad</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-create-vmss">Creación de un conjunto de escalado de máquinas virtuales</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-load-balancer">Equilibrio de carga de máquinas virtuales</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-virtual-network">Administración de máquinas virtuales con redes virtuales</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-backup-vms">Copia de seguridad de máquinas virtuales</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-monitoring">Supervisión de máquinas virtuales</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Administración de seguridad en máquinas virtuales</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Creación de una canalización de integración continua con Visual Studio</a>
+          - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">Protección de un servidor web con SSL</a>
+  - title: Vídeo gratuito de aprendizaje de PluralSight
     items:
-    - html: <a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">CLI de Azure</a>
-    - html: <a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a>
-- title: Referencia
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsW
+        items:
+          - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Administración de la infraestructura</a></p>'
+            image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-infrastructure.png'
+              href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+          - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Introducción a Virtual Machines</a></p>'
+            image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-vms.png'
+              href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+          - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Introducción a la supervisión de IaaS</a></p>'
+            image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-iaas-monitoring.png'
+              href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+  - title: Muestras
     items:
-    - title: Línea de comandos
-      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/vm">CLI de Azure</a></p>
-    - title: Idiomas
-      html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
-    - title: REST
-      html: <p><a href="/rest/api/compute">Referencia de API de REST de Compute</a></p>
+      - type: paragraph
+        text: Implemente su primera aplicación en Azure.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">CLI de Azure</a>
+          - html: <a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a>
+  - title: Referencia
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Línea de comandos
+            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/vm">CLI de Azure</a></p>
+          - title: Idiomas
+            html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/compute">Referencia de API de REST de Compute</a></p>

@@ -8,6 +8,7 @@
 ## [Seguridad de Service Fabric](azure-service-fabric-security-overview.md)
 ## [Administración de identidades](security-identity-management-overview.md)
 ## [Seguridad de IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Información general del cifrado de Azure](security-azure-encryption-overview.md)
 ## [Arquitectura de seguridad](azure-security-architecture-overview.md)
 ### [Habilitación de la seguridad operativa](azure-operational-security.md)
 ### [Detección de amenazas avanzada](azure-threat-detection.md)
@@ -30,7 +31,7 @@
 
 ## Seguridad para almacenamiento
 ### [Procedimientos recomendados de seguridad de datos y cifrado](azure-security-data-encryption-best-practices.md)
-### [Guía de seguridad de Storage](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Guía de seguridad de Storage](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Seguridad de Compute
 ### [Procedimientos recomendados para máquinas virtuales de Azure](azure-security-best-practices-vms.md)
@@ -63,11 +64,12 @@
 
 ## Servicios de PaaS
 ### [Protección de implementaciones de PaaS](security-paas-deployments.md)
-#### [Protección de aplicaciones web y móviles PaaS con SQL](security-paas-applications-using-sql.md)
-#### [Procedimientos recomendados para la seguridad de SQL Database](azure-database-security-best-practices.md)
-#### [Lista de comprobación de seguridad de SQL Database](azure-database-security-checklist.md)
 #### [Protección de aplicaciones web y móviles PaaS con App Services](security-paas-applications-using-app-services.md)
+#### [Protección de aplicaciones web y móviles PaaS con SQL](security-paas-applications-using-sql.md)
+##### [Procedimientos recomendados para la seguridad de SQL Database](azure-database-security-best-practices.md)
+##### [Lista de comprobación de seguridad de SQL Database](azure-database-security-checklist.md)
 ####[Lista de comprobación de seguridad operativa](azure-operational-security-checklist.md)
+#### [Protección de aplicaciones web y móviles PaaS con Azure Storage](security-paas-applications-using-storage.md)
 
 ## Internet de las cosas
 ### [Protección de su implementación de IoT](../iot-suite/iot-suite-security-deployment.md)
@@ -97,13 +99,17 @@
 ## [Cursos sobre seguridad de Academia virtual](security-microsoft-virtual-academy.md)
 ## [Vídeos sobre seguridad de Channel 9](security-channel-nine.md)
 ## [Herramienta de modelado de amenazas](azure-security-threat-modeling-tool.md)
-###[Auditoría y registro](azure-security-threat-modeling-tool-auditing-and-logging.md)
-###[Autenticación](azure-security-threat-modeling-tool-authentication.md)
-###[Autorización](azure-security-threat-modeling-tool-authorization.md)
-###[Seguridad en las comunicaciones](azure-security-threat-modeling-tool-communication-security.md)
-###[Administración de configuración](azure-security-threat-modeling-tool-configuration-management.md)
-###[Criptografía](azure-security-threat-modeling-tool-cryptography.md)
-###[Administración de excepciones](azure-security-threat-modeling-tool-exception-management.md)
-###[Validación de entradas](azure-security-threat-modeling-tool-input-validation.md)
-###[Información confidencial](azure-security-threat-modeling-tool-sensitive-data.md)
-###[Administración de sesiones](azure-security-threat-modeling-tool-session-management.md)
+### [Introducción](azure-security-threat-modeling-tool-getting-started.md)
+### [Descripción de las características](azure-security-threat-modeling-tool-feature-overview.md)
+### [Amenazas](azure-security-threat-modeling-tool-threats.md)
+### [Mitigaciones](azure-security-threat-modeling-tool-mitigations.md)
+#### [Auditoría y registro](azure-security-threat-modeling-tool-auditing-and-logging.md)
+#### [Autenticación](azure-security-threat-modeling-tool-authentication.md)
+#### [Autorización](azure-security-threat-modeling-tool-authorization.md)
+#### [Seguridad en las comunicaciones](azure-security-threat-modeling-tool-communication-security.md)
+#### [Administración de configuración](azure-security-threat-modeling-tool-configuration-management.md)
+#### [Criptografía](azure-security-threat-modeling-tool-cryptography.md)
+#### [Administración de excepciones](azure-security-threat-modeling-tool-exception-management.md)
+#### [Validación de entradas](azure-security-threat-modeling-tool-input-validation.md)
+#### [Información confidencial](azure-security-threat-modeling-tool-sensitive-data.md)
+#### [Administración de sesiones](azure-security-threat-modeling-tool-session-management.md)

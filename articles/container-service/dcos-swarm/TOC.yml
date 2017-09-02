@@ -59,7 +59,7 @@
               href: container-service-monitoring-dynatrace.md
     - name: Docker Swarm
       items:
-        - name: Inicio rápido del modo Swarm
+        - name: Inicio rápido de Docker CE
           href: container-service-swarm-mode-walkthrough.md
         - name: Docker y Docker Compose
           href: container-service-docker-swarm.md

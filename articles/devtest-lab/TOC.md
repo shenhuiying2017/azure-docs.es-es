@@ -42,8 +42,11 @@
 ## Administración de plantillas reutilizables
 ### [Adición de un repositorio de Git de artefactos y plantillas](devtest-lab-add-artifact-repo.md)
 ### [Uso de una plantilla de Resource Manager](devtest-lab-use-resource-manager-template.md)
-### [Creación de artefactos personalizados](devtest-lab-artifact-author.md)
 ### [Administración de fórmulas](devtest-lab-manage-formulas.md)
+
+## Administración de artefactos
+### [Creación de artefactos personalizados](devtest-lab-artifact-author.md)
+### [Diagnóstico de errores de artefactos](devtest-lab-troubleshoot-artifact-failure.md)
 
 ## Administración de redes virtuales
 ### [Configuración de redes virtuales](devtest-lab-configure-vnet.md)
