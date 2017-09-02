@@ -1,4 +1,3 @@
-
 ---
 title: "Protección de un servidor web con certificados SSL en Azure | Microsoft Docs"
 description: "Aprenda a proteger el servidor web NGINX con certificados SSL en una máquina virtual Linux en Azure"
@@ -11,7 +10,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/17/2017

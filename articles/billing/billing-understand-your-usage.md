@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 0d4f2e19ec3417b7ca111f777e34b1ce66ddb32d
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Descripción de los términos de los cargos de uso detallados de Microsoft Azure 
@@ -29,6 +28,11 @@ Para obtener el archivo de uso detallado, consulte [Obtención de los datos de u
 Está disponible en un formato de archivo de valores separados por comas (.csv) que se puede abrir en una aplicación de hoja de cálculo. Si ve dos versiones disponibles, descargue la versión 2. Este es el formato de archivo más reciente.
 
 Los cargos de uso son los cargos **mensuales** totales de una suscripción. Los cargos de uso no tienen en cuenta los créditos o descuentos.
+
+
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Términos y descripciones detallados del archivo de uso detallado
 En las secciones siguientes se describen los términos importantes que se muestran en la versión 2 del archivo de uso detallado.

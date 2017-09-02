@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: a5be3c9bcdd99128217e441d62ce9650c9764580
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Descripción de los términos en su factura de Microsoft Azure
@@ -32,6 +31,10 @@ Puntos a tener en cuenta:
 -   En la factura actual pueden aparecer hasta 24 horas de uso al final del período de facturación anterior.
 
 -   Los cargos enumerados en los extractos de facturación para clientes internacionales tienen únicamente carácter estimativo. Los bancos pueden tener costes diferentes para los tipos de conversión.
+
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>Términos y descripciones detallados de la factura
 Las siguientes secciones enumeran los términos importantes que ve en la factura y las descripciones de cada uno.
