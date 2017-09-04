@@ -1,0 +1,16 @@
+- name: Información general
+  items:
+    - name: Introducción
+      href: ./common/storage-introduction.md
+    - name: 'Elección de blobs, archivos o discos de datos'
+      href: ./common/storage-decide-blobs-files-disks.md
+- name: Blobs
+  href: ./blobs/storage-blobs-introduction.md
+- name: Archivos
+  href: ./files/storage-files-introduction.md
+- name: Colas
+  href: ./queues/storage-queues-introduction.md
+- name: Tablas
+  href: ../cosmos-db/table-storage-overview.md
+- name: Discos
+  href: ../virtual-machines/windows/managed-disks-overview.md

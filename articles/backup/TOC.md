@@ -7,10 +7,28 @@
 ## [Copias de seguridad de equipos con Windows Server o Windows](backup-try-azure-backup-in-10-mins.md)
 ## [Copias de seguridad de servidores VMware](backup-azure-backup-server-vmware.md)
 
-# Procedimientos
+# Cómo
+
+## Azure Backup Server
+### [Matriz de protección de Azure Backup Server](backup-mabs-protection-matrix.md)
+### Instalación o actualización
+#### [Preparación de cargas de trabajo del Azure Backup Server en Azure Portal](backup-azure-microsoft-azure-backup.md)
+#### [Preparación de cargas de trabajo del Azure Backup Server en el portal clásico](backup-azure-microsoft-azure-backup-classic.md)
+#### [Adición de almacenamiento a Azure Backup Server](backup-mabs-add-storage.md)
+#### [Actualización de Azure Backup Server a v.2](backup-mabs-upgrade-to-v2.md)
+#### [Instalación desatendida de Azure Backup Server](backup-mabs-unattended-install.md)
+### Protección de cargas de trabajo
+#### [Uso de Azure Backup Server para hacer copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md)
+#### [Uso del Azure Backup Server para hacer copia de seguridad de Exchange](backup-azure-exchange-mabs.md)
+#### [Uso del Azure Backup Server para hacer copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint-mabs.md)
+#### [Uso del Azure Backup Server para hacer copia de seguridad de SQL](backup-azure-sql-mabs.md)
+#### [Protección del estado del sistema y reconstrucción completa](backup-mabs-system-state-and-bmr.md)
+### [Recuperación de datos de Azure Backup Server](backup-azure-alternate-dpm-server.md)
+
 ## Máquinas virtuales de Azure
 ### Preparación de la VM
 #### [Preparación de máquinas virtuales implementadas según el modelo de Resource Manager](backup-azure-arm-vms-prepare.md)
+#### [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux](backup-azure-linux-app-consistent.md)
 #### [Preparación de máquinas virtuales de Azure](backup-azure-vms-prepare.md)
 ### Planeamiento del entorno
 #### [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](backup-azure-vms-introduction.md)
@@ -29,6 +47,32 @@
 #### [Restauración de máquinas virtuales en Azure](backup-azure-restore-vms.md)
 #### [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas](backup-azure-restore-key-secret.md)
 
+## Configuración de informes de Azure Backup
+### [Configuración de informes de Azure Backup](backup-azure-configure-reports.md)
+### [Modelo de datos para informes de Azure Backup](backup-azure-reports-data-model.md)
+### [Modelo de datos de Log Analytics para Azure Backup](backup-azure-log-analytics-data-model.md)
+
+## Data Protection Manager
+### [Preparación de cargas de trabajo DPM en Azure Portal](backup-azure-dpm-introduction.md)
+### [Preparación de cargas de trabajo DPM en el portal clásico](backup-azure-dpm-introduction-classic.md)
+### [Uso de System Center DPM para hacer copias de seguridad de un servidor Exchange](backup-azure-backup-exchange-server.md)
+### [Recuperación de datos en un servidor DPM alternativo](backup-azure-alternate-dpm-server.md)
+### [Uso de DPM para hacer copias de seguridad de cargas de trabajo de SQL Server](backup-azure-backup-sql.md)
+### [Uso de DPM para hacer copias de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
+
+## Uso de PowerShell
+### [Máquinas virtuales de Azure en Azure Portal](backup-azure-vms-automation.md)
+### [Máquinas virtuales de Azure en el portal clásico](backup-azure-vms-classic-automation.md)
+### [DPM en Azure Portal](backup-dpm-automation.md)
+### [DPM en el portal clásico](backup-dpm-automation-classic.md)
+### [Windows Server en Azure Portal](backup-client-automation.md)
+### [Windows Server en el portal clásico](backup-client-automation-classic.md)
+
+## Azure SQL Database
+### [Configuración de la retención de copia de seguridad a largo plazo](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Visualización de copias de seguridad en un almacén de Recovery Services](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Restauración de la retención de copia de seguridad a largo plazo](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Eliminación de copias de seguridad a largo plazo de Azure SQL](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
 
 ## Windows Server
 ### [Copia de seguridad de carpetas y archivos de Windows Server](backup-configure-vault.md)
@@ -41,47 +85,10 @@
 #### [Administración de almacenes de copia de seguridad mediante el modelo de implementación clásica](backup-azure-manage-windows-server-classic.md)
 #### [Recuperación de archivos en Windows Server mediante el modelo de implementación clásica](backup-azure-restore-windows-server-classic.md)
 
-## Azure Backup Server
-### [Matriz de protección de Azure Backup Server](backup-mabs-protection-matrix.md)
-### Instalación o actualización
-#### [Preparación de cargas de trabajo del Azure Backup Server en Azure Portal](backup-azure-microsoft-azure-backup.md)
-#### [Preparación de cargas de trabajo del Azure Backup Server en el portal clásico](backup-azure-microsoft-azure-backup-classic.md)
-#### [Adición de almacenamiento a Azure Backup Server](backup-mabs-add-storage.md)
-#### [Actualización de Azure Backup Server a v.2](backup-mabs-upgrade-to-v2.md)
-#### [Instalación desatendida de Azure Backup Server](backup-mabs-unattended-install.md)
-### Protección de cargas de trabajo
-#### [Uso de Azure Backup Server para hacer copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md)
-#### [Uso del Azure Backup Server para hacer copia de seguridad de Exchange](backup-azure-exchange-mabs.md)
-#### [Uso del Azure Backup Server para hacer copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint-mabs.md)
-#### [Uso del Azure Backup Server para hacer copia de seguridad de SQL](backup-azure-sql-mabs.md)
-#### [Protección del estado del sistema y reconstrucción completa](backup-mabs-system-state-and-bmr.md)
-
-## Data Protection Manager
-### [Preparación de cargas de trabajo DPM en Azure Portal](backup-azure-dpm-introduction.md)
-### [Preparación de cargas de trabajo DPM en el portal clásico](backup-azure-dpm-introduction-classic.md)
-### [Uso de System Center DPM para hacer copias de seguridad de un servidor Exchange](backup-azure-backup-exchange-server.md)
-### [Recuperación de datos en un servidor DPM alternativo](backup-azure-alternate-dpm-server.md)
-### [Uso de DPM para hacer copias de seguridad de cargas de trabajo de SQL Server](backup-azure-backup-sql.md)
-### [Uso de DPM para hacer copias de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
-
-## Base de datos SQL de Azure
-### [Configuración de la retención de copia de seguridad a largo plazo](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
-### [Visualización de copias de seguridad en un almacén de Recovery Services](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
-### [Restauración de la retención de copia de seguridad a largo plazo](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
-### [Eliminación de copias de seguridad a largo plazo de Azure SQL](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
-
-## Uso de PowerShell
-### [Máquinas virtuales de Azure en Azure Portal](backup-azure-vms-automation.md)
-### [Máquinas virtuales de Azure en el portal clásico](backup-azure-vms-classic-automation.md)
-### [DPM en Azure Portal](backup-dpm-automation.md)
-### [DPM en el portal clásico](backup-dpm-automation-classic.md)
-### [Windows Server en Azure Portal](backup-client-automation.md)
-### [Windows Server en el portal clásico](backup-client-automation-classic.md)
-
-## Preguntas más frecuentes
-### [Preguntas más frecuentes sobre el almacén de Recovery Services](backup-azure-backup-faq.md)
-### [Preguntas más frecuentes sobre la copia de seguridad de máquina virtual de Azure](backup-azure-vm-backup-faq.md)
-### [Preguntas más frecuentes sobre la copia de seguridad de archivos y carpetas con Azure Backup Agent](backup-azure-file-folder-backup-faq.md)
+## Almacén de Recovery Services
+### [Introducción a los almacenes de Recovery Services](backup-azure-recovery-services-vault-overview.md)
+### [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md)
+### [Eliminación de un almacén de Recovery Services](backup-azure-delete-vault.md)
 
 ## Solución de problemas
 ### [Problemas de copia de seguridad de máquinas virtuales de Azure en Azure Portal](backup-azure-vms-troubleshoot.md)
@@ -91,17 +98,17 @@
 ### [Solución de problemas de Azure Backup Server](backup-azure-mabs-troubleshoot.md)
 
 # Conceptos
-## [Introducción a los almacenes de Recovery Services](backup-azure-recovery-services-vault-overview.md)
-## [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Eliminación de un almacén de Recovery Services](backup-azure-delete-vault.md)
+
+## P+F
+### [Preguntas más frecuentes sobre el almacén de Recovery Services](backup-azure-backup-faq.md)
+### [Preguntas más frecuentes sobre la copia de seguridad de máquina virtual de Azure](backup-azure-vm-backup-faq.md)
+### [Preguntas más frecuentes sobre la copia de seguridad de archivos y carpetas con Azure Backup Agent](backup-azure-file-folder-backup-faq.md)
+
 ## [Control de acceso basado en roles](backup-rbac-rs-vault.md)
 ## [Seguridad para copias de seguridad híbridas](backup-azure-security-feature.md)
-## [Configuración de informes de Azure Backup](backup-azure-configure-reports.md)
-## [Modelo de datos para informes de Azure Backup](backup-azure-reports-data-model.md)
-## [Modelo de datos de Log Analytics para Azure Backup](backup-azure-log-analytics-data-model.md)
 ## [Configuración de copias de seguridad sin conexión](backup-azure-backup-import-export.md)
 ## [Reemplazo de la biblioteca de cintas](backup-azure-backup-cloud-as-tape.md)
-## [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux](backup-azure-linux-app-consistent.md)
+
 
 # Referencia
 ## [PowerShell](/powershell/module/azurerm.recoveryservices.backup)
