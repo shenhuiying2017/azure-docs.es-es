@@ -2,7 +2,7 @@
 title: "Administración de activos y entidades relacionadas con el SDK de Servicios multimedia para .NET"
 description: "Obtenga información acerca de cómo administrar los recursos y las entidades relacionadas con el SDK de Servicios multimedia para .NET."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e3de7c26af5cbc930defe542727a1250825fb1f8
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Administración de activos y entidades relacionadas con el SDK de Servicios multimedia para .NET
@@ -38,8 +38,7 @@ En este tema se muestra cómo administrar entidades de Azure Media Services con.
 Configure el entorno de desarrollo y rellene el archivo app.config con la información de la conexión, como se describe en [Desarrollo de Media Services con .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Obtención de una referencia de recurso
-Una tarea frecuente es obtener una referencia a un recurso existente en Servicios multimedia. En el ejemplo de código siguiente se muestra cómo puede obtener una referencia de recurso de la colección de recursos en el objeto de contexto del servidor mediante un Id. de recurso.
-En el ejemplo de código siguiente se usa una consulta Linq para obtener una referencia a un objeto IAsset existente.
+Una tarea frecuente es obtener una referencia a un recurso existente en Servicios multimedia. En el ejemplo de código siguiente se muestra cómo puede obtener una referencia de recurso de la colección de recursos en el objeto de contexto del servidor mediante un Id. de recurso. En el ejemplo de código siguiente se usa una consulta Linq para obtener una referencia a un objeto IAsset existente.
 
     static IAsset GetAsset(string assetId)
     {

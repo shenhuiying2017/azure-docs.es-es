@@ -4,7 +4,7 @@ description: "Cómo desarrollar funciones de Azure con C#."
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: donnam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 1d0143d72ab18deeba7a32cc732445cc7ba64019
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 25c5f72be8dc79d8b33a598c7be494bd955eb850
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Referencia para desarrolladores de scripts de C# de Azure Functions
@@ -152,7 +151,7 @@ Los siguientes espacios de nombres se importan automáticamente y, por tanto, so
 * `System.Net.Http`
 * `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
-* `Microsoft.Azure.WebJobs.Host`.
+* `Microsoft.Azure.WebJobs.Host`
 
 ## <a name="referencing-external-assemblies"></a>Referencia a ensamblados externos
 Para los ensamblados de marco, agregue referencias mediante la directiva `#r "AssemblyName"` .
@@ -178,7 +177,7 @@ El entorno de hospedaje de las Funciones de Azure agrega automáticamente los si
 * `Microsoft.Azure.WebJobs.Host`
 * `Microsoft.Azure.WebJobs.Extensions`
 * `System.Web.Http`
-* `System.Net.Http.Formatting`.
+* `System.Net.Http.Formatting`
 
 Se puede hacer referencia a los ensamblados siguientes con nombre simple (por ejemplo, `#r "AssemblyName"`):
 
@@ -446,3 +445,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 
 [host\.json]: https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json
+

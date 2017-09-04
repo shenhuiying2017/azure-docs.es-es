@@ -3,7 +3,7 @@ title: Referencia de modelo de datos de la plantilla de Azure API Management | M
 description: Aprenda sobre las representaciones de entidad y tipo de elementos comunes que se usan en los modelos de datos en las plantillas de portal para desarrolladores de Azure API Management.
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 080ac72246e62948c3defe329028f27751e8c78d
-ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
+ms.contentlocale: es-es
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referencia de modelo de datos de la plantilla de Azure API Management
@@ -49,7 +51,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 -   [Inicio de sesión de usuario](#UseSignIn)  
 -   [Suscripción de usuario](#UserSignUp)  
   
-##  <a name="a-nameapia-api"></a><a name="API"></a> API  
+##  <a name="API"></a> API  
  La entidad `API` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -63,7 +65,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |authenticationSettings|[Configuración de autenticación del servidor de autorización](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Colección de ajustes de autenticación que se incluyen en esta API.|  
 |subscriptionKeyParameterNames|objeto|Propiedad opcional que puede utilizarse para especificar nombres personalizados para los parámetros de la consulta o encabezado que contiene la clave de suscripción. Cuando esta propiedad está presente debe contener al menos una de las dos propiedades siguientes.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="a-nameapisummarya-api-summary"></a><a name="APISummary"></a> Resumen de API  
+##  <a name="APISummary"></a> Resumen de API  
  La entidad `API summary` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -72,7 +74,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |name|string|Nombre de la API. No debe estar vacía. La longitud máxima es de 100 caracteres.|  
 |Description|string|Descripción de la API. No debe estar vacía. Puede incluir etiquetas de formato HTML. La longitud máxima es de 1000 caracteres.|  
   
-##  <a name="a-nameapplicationa-application"></a><a name="Application"></a> Application  
+##  <a name="Application"></a> Application  
  La entidad `application` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -90,7 +92,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Datos adjuntos|Colección de entidades [Attachment](#Attachment).|Cualquier tipo de datos adjuntos de la aplicación, como capturas de pantalla o iconos.|  
 |Icono|[Datos adjuntos](#Attachment)|Icono de la aplicación.|  
   
-##  <a name="a-nameattachmenta-attachment"></a><a name="Attachment"></a> Datos adjuntos  
+##  <a name="Attachment"></a> Datos adjuntos  
  La entidad `attachment` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -100,7 +102,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Escriba|string|Tipo de datos adjuntos.|  
 |ContentType|string|Tipo de medios de los datos adjuntos.|  
   
-##  <a name="a-namesamplea-code-sample"></a><a name="Sample"></a> Código de ejemplo  
+##  <a name="Sample"></a> Código de ejemplo  
   
 |Propiedad|Escriba|Descripción|  
 |--------------|----------|-----------------|  
@@ -117,7 +119,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Encabezados|Colección de entidades [Header](#Header).|Encabezados de esta operación.|  
 |parameters|Colección de entidades [Parameter](#Parameter).|Los parámetros definidos para esta operación.|  
   
-##  <a name="a-namecommenta-comment"></a><a name="Comment"></a> Comment  
+##  <a name="Comment"></a> Comment  
  La entidad `API` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -127,7 +129,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |DeveloperCompany|string|Nombre de la empresa del desarrollador.|  
 |PostedOn|DateTime|Fecha y hora de publicación del comentario.|  
   
-##  <a name="a-nameissuea-issue"></a><a name="Issue"></a> Issue  
+##  <a name="Issue"></a> Issue  
  La entidad `issue` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -143,7 +145,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Datos adjuntos|Colección de entidades [Attachment](api-management-template-data-model-reference.md#Attachment).|Datos adjuntos al problema.|  
 |Servicios|Colección de entidades [API](#API).|Las API a las que está suscrito el usuario que archivó el problema.|  
   
-##  <a name="a-namefilteringa-filtering"></a><a name="Filtering"></a> Filtrado  
+##  <a name="Filtering"></a> Filtrado  
  La entidad `filtering` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -151,7 +153,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Patrón|string|El término de búsqueda actual; o `null` si no hay ningún término de búsqueda.|  
 |Placeholder|string|Texto que se muestra en el cuadro de búsqueda cuando no hay ningún término de búsqueda especificado.|  
   
-##  <a name="a-nameheadera-header"></a><a name="Header"></a> Header  
+##  <a name="Header"></a> Header  
  Esta sección describe la representación de `parameter`.  
   
 |Propiedad|Descripción|Escriba|  
@@ -164,7 +166,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |requerido|boolean|Especifica si el encabezado es necesario.|  
 |readOnly|boolean|Especifica si el encabezado es de solo lectura.|  
   
-##  <a name="a-namehttprequesta-http-request"></a><a name="HTTPRequest"></a> HTTP Request  
+##  <a name="HTTPRequest"></a> HTTP Request  
  Esta sección describe la representación de `request`.  
   
 |Propiedad|Escriba|Descripción|  
@@ -174,7 +176,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |parameters|matriz de [Parameter](#Parameter)|Colección de parámetros de solicitud de operación.|  
 |representations|matriz de [Representation](#Representation)|Colección de representaciones de solicitud de operación.|  
   
-##  <a name="a-namehttpresponsea-http-response"></a><a name="HTTPResponse"></a> HTTP Response  
+##  <a name="HTTPResponse"></a> HTTP Response  
  Esta sección describe la representación de `response`.  
   
 |Propiedad|Escriba|Descripción|  
@@ -183,7 +185,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Description|string|Descripción de la respuesta de la operación.|  
 |representations|matriz de [Representation](#Representation)|Colección de representaciones de respuesta de operación.|  
   
-##  <a name="a-nameoperationa-operation"></a><a name="Operation"></a> Operation  
+##  <a name="Operation"></a> Operation  
  La entidad `operation` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -198,7 +200,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |request|[Solicitud HTTP](#HTTPRequest)|Una entidad que contiene los detalles de la solicitud.|  
 |responses|matriz de [HTTP Response](#HTTPResponse)|Matriz de entidades [HTTP Response](#HTTPResponse) de la operación.|  
   
-##  <a name="a-namemenua-operation-menu"></a><a name="Menu"></a> Menú de operaciones  
+##  <a name="Menu"></a> Menú de operaciones  
  La entidad `operation menu` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -208,7 +210,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Acción|string|Tipo de menú.|  
 |MenuItems|Colección de entidades [Operation menu item](#MenuItem).|Operaciones de la API actual.|  
   
-##  <a name="a-namemenuitema-operation-menu-item"></a><a name="MenuItem"></a> Elemento de menú de operaciones  
+##  <a name="MenuItem"></a> Elemento de menú de operaciones  
  La entidad `operation menu item` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -217,7 +219,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Título|string|Descripción de la operación.|  
 |HttpMethod|string|Método HTTP de la operación.|  
   
-##  <a name="a-namepaginga-paging"></a><a name="Paging"></a> Paginación  
+##  <a name="Paging"></a> Paginación  
  La entidad `paging` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -228,7 +230,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |ShowAll|boolean|Especifica si se deben mostrar todos los resultados en una misma página.|  
 |PageCount|número|Número de páginas de resultados.|  
   
-##  <a name="a-nameparametera-parameter"></a><a name="Parameter"></a> Parameter  
+##  <a name="Parameter"></a> Parameter  
  Esta sección describe la representación de `parameter`.  
   
 |Propiedad|Descripción|Escriba|  
@@ -241,7 +243,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |kind|número|Determina si este parámetro es un parámetro de ruta de acceso (1) o un parámetro de cadena de consulta (2).|  
 |typeName|string|Tipo de parámetro.|  
   
-##  <a name="a-nameproducta-product"></a><a name="Product"></a> Product  
+##  <a name="Product"></a> Product  
  La entidad `product` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -254,7 +256,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |AllowMultipleSubscriptions|boolean|Especifica si un usuario puede tener varias suscripciones a este producto al mismo tiempo.|  
 |MultipleSubscriptionsCount|número|Número de suscripciones a este producto del usuario actual.|  
   
-##  <a name="a-nameprovidera-provider"></a><a name="Provider"></a> Provider  
+##  <a name="Provider"></a> Provider  
  La entidad `provider` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -263,7 +265,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |AuthenticationType|string|Tipo de proveedor. (Azure Active Directory, inicio de sesión de Facebook, cuenta de Google, cuenta de Microsoft, Twitter).|  
 |Caption|string|Nombre para mostrar del proveedor.|  
   
-##  <a name="a-namerepresentationa-representation"></a><a name="Representation"></a> Representación  
+##  <a name="Representation"></a> Representación  
  En esta sección se describe `representation`.  
   
 |Propiedad|Escriba|Descripción|  
@@ -271,7 +273,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |contentType|string|Especifica un tipo de contenido personalizado o registrado para esta representación, por ejemplo, `application/xml`.|  
 |de Pi|string|Un ejemplo de la representación.|  
   
-##  <a name="a-namesubscriptiona-subscription"></a><a name="Subscription"></a> Subscription  
+##  <a name="Subscription"></a> Subscription  
  La entidad `subscription` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -297,7 +299,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |CancelUrl|string|La dirección URL relativa para cancelar la suscripción.|  
 |RenewUrl|string|La dirección URL relativa para renovar la suscripción.|  
   
-##  <a name="a-namesubscriptionsummarya-subscription-summary"></a><a name="SubscriptionSummary"></a> Resumen de suscripción  
+##  <a name="SubscriptionSummary"></a> Resumen de suscripción  
  La entidad `subscription summary` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -305,7 +307,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |Id|string|Identificador de recursos. Identifica de forma única la suscripción de la instancia actual del servicio API Management. El valor es una dirección URL relativa válida con el formato `subscriptions/{sid}`, donde `{sid}` es un identificador de suscripción. Esta propiedad es de solo lectura.|  
 |DisplayName|string|Nombre para mostrar de la suscripción.|  
   
-##  <a name="a-nameuseraccountinfoa-user-account-info"></a><a name="UserAccountInfo"></a> Información de cuenta de usuario  
+##  <a name="UserAccountInfo"></a> Información de cuenta de usuario  
  La entidad `user account info` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -318,7 +320,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |ProviderName|string|Nombre del proveedor de autenticación.|  
 |IsBasicAccount|boolean|Es True si esta cuenta se registró mediante un correo electrónico y una contraseña; False si la cuenta se registró con un proveedor.|  
   
-##  <a name="a-nameusesignina-user-sign-in"></a><a name="UseSignIn"></a> Inicio de sesión de usuario  
+##  <a name="UseSignIn"></a> Inicio de sesión de usuario  
  La entidad `user sign in` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -336,7 +338,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |UserRegistrationTerms|string|Condiciones que un usuario debe aceptar para poder iniciar sesión.|  
 |UserRegistrationTermsEnabled|boolean|Especifica si las condiciones están habilitadas.|  
   
-##  <a name="a-nameusersignupa-user-sign-up"></a><a name="UserSignUp"></a> Suscripción de usuario  
+##  <a name="UserSignUp"></a> Suscripción de usuario  
  La entidad `user sign up` tiene las siguientes propiedades.  
   
 |Propiedad|Escriba|Descripción|  
@@ -356,9 +358,4 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte;bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9fc2380dd5db816144995fcb61cd1ac356540b36
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>Actualización del área de trabajo de Azure Log Analytics para la nueva búsqueda de registros
 
 > [!NOTE]
-> La actualización al nuevo lenguaje de consulta de Log Analytics es opcional actualmente, a fin de dar tiempo para [prepararse para el nuevo lenguaje](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).  
+> La actualización al nuevo lenguaje de consulta de Log Analytics es opcional actualmente, a fin de dar tiempo para [prepararse para el nuevo lenguaje](https://go.microsoft.com/fwlink/?linkid=856078).  
 
 El nuevo lenguaje de consulta de Log Analytics ya está aquí, y es necesario actualizar el área de trabajo para aprovechar sus ventajas.  En este artículo se describen las ventajas del nuevo lenguaje y cómo convertir el área de trabajo.  Si decide no actualizar ahora, el área de trabajo funcionará como de costumbre, pero se realizará una conversión automática en una fecha posterior.  Recibirá una notificación con el tiempo suficiente cuando se fije dicha fecha.
 
@@ -71,7 +71,7 @@ Puede actualizar el área de trabajo cuando vea el banner de color púrpura en l
 Si se produce un problema que provoca un error en la actualización, puede ir al [foro de debate](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) y publicar su pregunta o [crear una solicitud de soporte técnico](../azure-supportability/how-to-create-azure-support-request.md) desde Azure Portal.
 
 ## <a name="how-do-i-learn-the-new-language"></a>¿Cómo se puede aprender el nuevo lenguaje?
-Puesto que se trata de un lenguaje que usan varios servicios, se ha creado un [sitio externo para hospedar la documentación](https://docs.loganalytics.io/) de este nuevo lenguaje.  Incluye tutoriales, ejemplos y una referencia completa para facilitar su aprendizaje. Puede comenzar con un tutorial sobre el nuevo lenguaje en [Getting Started with Queries](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries) (Introducción a las consultas) y acceder a la referencia del lenguaje en [Log Analytics query language](https://docs.loganalytics.io/docs/Language-Reference) (Lenguaje de consulta de Log Analytics).  
+Puesto que se trata de un lenguaje que usan varios servicios, se ha creado un [sitio externo para hospedar la documentación](https://docs.loganalytics.io/) de este nuevo lenguaje.  Incluye tutoriales, ejemplos y una referencia completa para facilitar su aprendizaje. Puede comenzar con un tutorial sobre el nuevo lenguaje en [Getting Started with Queries](https://go.microsoft.com/fwlink/?linkid=856078) (Introducción a las consultas) y acceder a la referencia del lenguaje en [Log Analytics query language](https://go.microsoft.com/fwlink/?linkid=856079) (Lenguaje de consulta de Log Analytics).  
 
 Si ya está familiarizado con el lenguaje de consulta heredado de Log Analytics, puede usar el convertidor de lenguaje agregado al área de trabajo como parte de la actualización.
 
@@ -81,7 +81,7 @@ Solo tiene que escribir la consulta heredada y luego hacer clic en **Convertir**
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Consulte un [tutorial sobre el nuevo lenguaje](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-queries).
+- Consulte un [tutorial sobre el nuevo lenguaje](https://go.microsoft.com/fwlink/?linkid=856078).
 - Consulte un [tutorial sobre cómo usar el portal de la búsqueda de registros](log-analytics-log-search-log-search-portal.md) con el nuevo lenguaje de consulta.
-- Obtenga una introducción al nuevo [Portal de análisis avanzado](https://docs.loganalytics.io/docs/Learn/Tutorials/Getting-started-with-the-Analytics-portal).
+- Obtenga una introducción al nuevo [Portal de análisis avanzado](https://go.microsoft.com/fwlink/?linkid=856587).
 

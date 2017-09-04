@@ -4,7 +4,7 @@ description: "Creación de un trabajo de procesamiento de análisis de datos par
 keywords: "procesamiento de análisis de datos"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 2e989ab0cb95a1caef44b2f235b162f2c12a79cc
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 05fdf1e20efd129cdfc27e1d37bc9e124edf5dcd
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Creación de un trabajo de procesamiento de análisis de datos para Análisis de transmisiones
@@ -44,21 +43,21 @@ Para empezar a usar Análisis de transmisiones, cree un trabajo de Análisis de 
    
    ![Centro de notificaciones del trabajo de procesamiento de análisis de datos](./media/stream-analytics-create-a-job/2-stream-analytics-create-a-job.png)  
    
-   ![Trabajo de procesamiento de análisis de datos en el Portal de Azure: Crear trabajo](./media/stream-analytics-create-a-job/5-stream-analytics-create-a-job.png)  
-5. Se mostrará el nuevo trabajo con el estado **Creado**. Tenga en cuenta que el botón **Iniciar** está deshabilitado. Debe configurar la entrada, la salida y la consulta del trabajo para poder iniciar el trabajo.
+   ![Trabajo de procesamiento de análisis de datos en Azure Portal: creación del trabajo](./media/stream-analytics-create-a-job/5-stream-analytics-create-a-job.png)  
+5. Se mostrará el nuevo trabajo con el estado **Creado**. Tenga en cuenta que el botón **Iniciar** está deshabilitado. Configure la entrada, la salida y la consulta del trabajo para poder iniciar el trabajo.
    
-   ![Trabajo de procesamiento de análisis de datos - estado del trabajo](./media/stream-analytics-create-a-job/3-stream-analytics-create-a-job.png)  
+   ![Trabajo de procesamiento de análisis de datos: estado del trabajo](./media/stream-analytics-create-a-job/3-stream-analytics-create-a-job.png)  
    
-   ![Trabajo de procesamiento de análisis de datos en el Portal de Azure: Estado del trabajo](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
+   ![Trabajo de procesamiento de análisis de datos en Azure Portal: estado del trabajo](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
+* [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 

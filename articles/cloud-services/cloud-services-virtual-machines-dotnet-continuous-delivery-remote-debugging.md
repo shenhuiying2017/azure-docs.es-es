@@ -3,8 +3,8 @@ title: "Habilitación de la depuración remota con entrega continua | Microsoft 
 description: "Sepa cómo habilitar la depuración remota cuando se usa entrega continua para implementar en Azure."
 services: cloud-services
 documentationcenter: .net
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 7d423639-3b2f-4ca5-ac5a-9ac19a217c29
 ms.service: cloud-services
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7a9ef4098fec7b464e654a429c8c854ed4bb73fd
-ms.lasthandoff: 04/27/2017
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: a10b142283cf19295330238ac7289329b2d1f70e
+ms.contentlocale: es-es
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>Habilitación de la depuración remota al usar la entrega continua para publicar en Azure

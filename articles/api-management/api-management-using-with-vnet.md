@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 69fd656ee9ae440d5769aca82ff8d49fb59d7780
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: c733c61132a79381d5e025819ff944507fc3fb9b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
@@ -108,7 +108,7 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 | * / 11000 - 11999 |Salida |TCP |Dependencia de Azure SQL V12 |VIRTUAL_NETWORK/INTERNET |Externa e interna |
 | * / 14000 - 14999 |Salida |TCP |Dependencia de Azure SQL V12 |VIRTUAL_NETWORK/INTERNET |Externa e interna |
 | * / 5671 |Salida |AMQP |Dependencia de la directiva de registro en el centro de eventos y el agente de supervisión |VIRTUAL_NETWORK/INTERNET |Externa e interna |
-| 6381 - 6383 / 6381 - 6383 |Entrada y salida |UDP |Dependencia de Redis Cache |VIRTUAL_NETWORK/VIRTUAL_NETWORK |Externa e interna |-
+| 6381 - 6383 / 6381 - 6383 |Entrada y salida |TCP |Dependencia de Redis Cache |VIRTUAL_NETWORK/VIRTUAL_NETWORK |Externa e interna |-
 | * / 445 |Salida |TCP |Dependencia del recurso compartido de archivos de Azure para Git |VIRTUAL_NETWORK/INTERNET |Externa e interna |
 | * / * | Entrada |TCP |Equilibrador de carga de la infraestructura de Azure | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |Externa e interna |
 

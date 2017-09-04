@@ -4,7 +4,7 @@ description: "Aprenda cómo funciona Stream Analytics con eventos desordenados o
 keywords: desordenados, atrasados, eventos
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: d7a5620aef1f28ea065ec10ce095f7f3904a8060
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 5089dda48ea829902663ef9d09fe83177df6f220
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-stream-analytics-event-order-handling"></a>Control del orden de los eventos de Azure Stream Analytics
@@ -65,7 +64,7 @@ Para permitir que Stream Analytics corrija un desorden de eventos, puede especif
 Un efecto secundario del almacenamiento en búfer es que la salida se **retrasa la misma cantidad de tiempo**. Puede ajustar el valor para reducir el número de eventos desordenados y mantener la latencia del trabajo baja.
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [¿Qué es Stream Analytics?](stream-analytics-introduction.md)

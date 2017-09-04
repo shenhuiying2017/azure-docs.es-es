@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 486405aca760922ebed5f413495d3a0e1e339229
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 63fe3f165864f06228604cac56d06cc061ab25f5
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -71,6 +71,32 @@ az vm availability-set create \
 
 Los conjuntos de disponibilidad permiten aislar los recursos en dominios de error y dominios de actualización. Un **dominio de error** representa una colección aislada de recursos de almacenamiento, red y servidor. En el ejemplo anterior, indicamos que deseamos que nuestro conjunto de disponibilidad se distribuya entre, al menos, dos dominios de error cuando se implementen nuestro máquinas virtuales. También especificamos que queremos que nuestro conjunto de disponibilidad se distribuya entre dos **dominios de actualización**.  Dos dominios de actualización garantizan que cuando Azure lleve a cabo actualizaciones de software nuestros recursos de máquina virtual estén aislados, lo que evita que todo el software que se ejecuta en nuestra máquina virtual se actualice al mismo tiempo.
 
+## <a name="configure-virtual-network"></a>Configuración de una red virtual
+Antes de implementar algunas máquinas virtuales y poder probar el equilibrador, cree los recursos de red virtual auxiliares. Para más información sobre las redes virtuales, consulte el tutorial [Administración de Azure Virtual Networks](tutorial-virtual-network.md).
+
+### <a name="create-network-resources"></a>Crear recursos de red
+Cree la red virtual con el comando [az network vnet create](/cli/azure/network/vnet#create). En el ejemplo siguiente se crea una red virtual denominada *myVnet* con una subred *mySubnet*:
+
+```azurecli-interactive 
+az network vnet create \
+    --resource-group myResourceGroupAvailability \
+    --name myVnet \
+    --subnet-name mySubnet
+```
+Las NIC virtuales se crean con el comando [az network nic create](/cli/azure/network/nic#create). En el ejemplo siguiente se crean tres NIC. (Una NIC virtual para cada máquina virtual que cree para la aplicación en los pasos siguientes). Puede crear NIC virtuales y máquinas virtuales adicionales en cualquier momento y agregarlas al equilibrador de carga:
+
+```bash
+for i in `seq 1 3`; do
+    az network nic create \
+        --resource-group myResourceGroupAvailability \
+        --name myNic$i \
+        --vnet-name myVnet \
+        --subnet mySubnet \
+        --lb-name myLoadBalancer \
+        --lb-address-pools myBackEndPool
+done
+```
+
 ## <a name="create-vms-inside-an-availability-set"></a>Creación de VM dentro de un conjunto de disponibilidad
 
 Las máquinas virtuales deben crearse en el conjunto de disponibilidad para asegurarse de que se distribuyan correctamente en el hardware. No se puede agregar una máquina virtual existente a un conjunto de disponibilidad después de crearla. 
@@ -83,6 +109,7 @@ for i in `seq 1 2`; do
      --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
+     --nics myNic$i \
      --size Standard_DS1_v2  \
      --image Canonical:UbuntuServer:14.04.4-LTS:latest \
      --admin-username azureuser \

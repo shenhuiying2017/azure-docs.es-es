@@ -1,10 +1,10 @@
 ---
 title: Enlaces de Blob Storage en Azure Functions | Microsoft Docs
-description: "Descubra cómo utilizar desencadenadores y enlaces de Azure Storage en Azure Functions."
+description: "Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Azure en funciones de Azure."
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 24ca844007acf445455714c9a530bfe1ad9a9c32
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b123578dbac48018f674f85ec923e4c6e65fb9f8
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Enlaces de Blob Storage en Azure Functions
@@ -115,7 +115,7 @@ El desencadenador de blobs proporciona varias propiedades de metadatos. Estas pr
 ### <a name="blob-receipts"></a>Recepciones de blobs
 El entorno en tiempo de ejecución de Azure Functions garantiza que no se llame más de una vez a ninguna función de desencadenador de blobs para un mismo blob, ya sea nuevo o actualizado. Mantiene *recepciones de blobs* para determinar si se ha procesado una determinada versión de blob.
 
-Azure Functions almacena confirmaciones de blobs en un contenedor llamado *azure-webjobs-hosts* en la cuenta de Azure Storage de la aplicación de función (que se especifica mediante la configuración de la aplicación `AzureWebJobsStorage`). Una recepción de blobs tiene la información siguiente:
+Azure Functions almacena confirmaciones de blobs en un contenedor llamado *azure-webjobs-hosts* en la cuenta de almacenamiento de Azure de la aplicación de función (que se especifica mediante la configuración de la aplicación `AzureWebJobsStorage`). Una recepción de blobs tiene la información siguiente:
 
 * La función desencadenada ("*&lt;nombre de aplicación de función>*.Functions.*&lt;nombre de función>*", por ejemplo: "MyFunctionApp.Functions.CopyBlob")
 * El nombre del contenedor
@@ -214,7 +214,8 @@ module.exports = function(context) {
     context.done();
 };
 ```
-<a name="outputusage"></a> <a name=storage-blob-output-binding"></a>
+<a name="outputusage"></a>
+<a name="storage-blob-output-binding"></a>
 
 ## <a name="using-a-blob-output-binding"></a>Uso de un enlace de salida de blob
 

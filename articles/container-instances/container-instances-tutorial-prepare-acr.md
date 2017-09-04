@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/24/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 7ec6c7fd2125293ba47a48feb83250eeb667d1a6
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: cc96ba9f5abd45a7503ba3327b30e1f809391384
 ms.contentlocale: es-es
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -60,32 +60,12 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 En el resto de este tutorial, usamos `<acrname>` como un marcador de posición para el nombre del registro de contenedor que eligió.
 
-## <a name="get-azure-container-registry-information"></a>Obtención de información sobre Azure Container Registry
+## <a name="container-registry-login"></a>Inicio de sesión en Container Registry
 
-Una vez que se crea el registro de contenedor, puede consultar su servidor de inicio de sesión y contraseña. El código siguiente devuelve estos valores. Apunte cada valor de la contraseña y del servidor de inicio de sesión, como se mencionan en este tutorial.
-
-Servidor de inicio de sesión en el registro de contenedor (actualice con su nombre de registro):
+Debe iniciar sesión en la instancia de ACR antes de insertar imágenes en ella. Use el comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) para completar la operación. Debe proporcionar el nombre único que se especificó para el registro de contenedor cuando se creó.
 
 ```azurecli
-az acr show --name <acrName> --query loginServer
-```
-
-En el resto de este tutorial, usamos `<acrLoginServer>` como un marcador de posición para el valor del servidor del inicio de sesión del registro de contenedor.
-
-Contraseña del registro de contenedor:
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
-En el resto de este tutorial, usamos `<acrPassword>` como un marcador de posición para el valor de la contraseña del registro de contenedor.
-
-## <a name="login-to-the-container-registry"></a>Inicio de sesión en el registro de contenedor
-
-Debe iniciar sesión en la instancia del registro de contenedor antes de insertar imágenes en ella. Use el comando [docker login](https://docs.docker.com/engine/reference/commandline/login/) para completar la operación. Al ejecutar el inicio de sesión de Docker, tiene que proporcionar el nombre del servidor de inicio de sesión de registro y las credenciales.
-
-```bash
-docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
+az acr login --name <acrName>
 ```
 
 Al finalizar, el comando devuelve un mensaje que indica que el inicio de sesión se ha realizado correctamente.
@@ -105,6 +85,12 @@ Salida:
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
+```
+
+Para obtener el nombre de loginServer, ejecute el comando siguiente.
+
+```azurecli
+az acr show --name <acrName> --query loginServer --output table
 ```
 
 Etiquete la imagen *aci-tutorial-app* con el loginServer del registro de contenedor. Además, agregue `:v1` al final del nombre de la imagen. Esta etiqueta indica el número de versión de la imagen.
@@ -142,7 +128,7 @@ docker push <acrLoginServer>/aci-tutorial-app:v1
 Para que se devuelva una lista de las imágenes que se han insertado en la instancia de Azure Container Registry, el usuario debe usar el comando [az acr repository list](/cli/azure/acr/repository#list). Actualice el comando con el nombre del registro de contenedor.
 
 ```azurecli
-az acr repository list --name <acrName> --username <acrName> --password <acrPassword> --output table
+az acr repository list --name <acrName> --output table
 ```
 
 Salida:
@@ -156,7 +142,7 @@ aci-tutorial-app
 Luego, para ver las etiquetas de una imagen concreta, use el comando [az acr repository show-tags](/cli/azure/acr/repository#show-tags).
 
 ```azurecli
-az acr repository show-tags --name <acrName> --username <acrName> --password <acrPassword> --repository aci-tutorial-app --output table
+az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
 Salida:

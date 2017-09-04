@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 964b39053cf91285202f3af165f4313a15e9f9ee
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: feee7a5c91d213a6b0bfdaf264a4da4d9e79cbe7
 ms.contentlocale: es-es
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Compatibilidad con SSH para Web App on Linux de Azure
@@ -111,7 +111,6 @@ Estos pasos se indican en el repositorio de Azure App Service, como en [este](ht
 ## <a name="next-steps"></a>Pasos siguientes
 Visite los siguientes vínculos para obtener más información acerca de Web App on Linux. Puede publicar preguntas y problemas en [nuestro foro](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Creación de aplicaciones en Web App on Linux de Azure](app-service-linux-how-to-create-web-app.md)
 * [Uso de una imagen personalizada de Docker para Web App on Linux de Azure](app-service-linux-using-custom-docker-image.md)
 * [Uso de la configuración de PM2 para Node.js en Web App on Linux de Azure](app-service-linux-using-nodejs-pm2.md)
 * [Uso de .NET Core en Web App on Linux de Azure](app-service-linux-using-dotnetcore.md)

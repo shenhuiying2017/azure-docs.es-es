@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9d45f5cb1a7d15a69516faf2ffaa5f1ec25c3a43
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 27ab2084cdb6506cbb807fc9c35b0e67630ad85f
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegación y paneles en el portal de Application Insights
@@ -63,7 +63,7 @@ El gráfico se actualiza automáticamente con una frecuencia que depende del int
 * Tiempo de intervalo superior a 24 horas: (intervalo de tiempo)/60.
 
 ### <a name="pin-any-query-in-analytics"></a>Ancle cualquier consulta en Analytics
-También puede [anclar gráficos de Analytics](app-insights-analytics-using.md#pin-to-dashboard) a un panel [compartido](#share-dashboards-with-your-team). Esto permite agregar gráficos de cualquier consulta arbitraria junto con las métricas estándares. (Esta característica se cobra).
+También puede [anclar gráficos de Analytics](app-insights-analytics-using.md#pin-to-dashboard) a un panel [compartido](#share-dashboards-with-your-team). Esto permite agregar gráficos de cualquier consulta arbitraria junto con las métricas estándares. 
 
 Los resultados se recalculan automáticamente cada hora. Haga clic en el icono de actualización en el gráfico para recalcular inmediatamente. (Cuando el explorador se actualiza, no se recalculan los resultados).
 

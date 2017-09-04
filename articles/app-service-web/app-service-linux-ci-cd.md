@@ -1,6 +1,6 @@
 ---
 title: "Implementación continua con Aplicación web de Azure en Linux | Microsoft Docs"
-description: "En este artículo se describe cómo configurar una implementación continua en Aplicación web de Azure en Linux."
+description: "En este artículo se describe cómo configurar una implementación continua en Azure Web App en Linux."
 keywords: azure app service, linux, oss, acr
 services: app-service
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 026c4491818c8719c68a759ee9595ad9c765d526
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: f8f7d51003f8a55b7f51e8cc2cea838e8e5a6196
 ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-on-linux"></a>Implementación continua con Aplicación web de Azure en Linux
@@ -87,14 +87,13 @@ Para la dirección URL de webhook, deberá proporcionar la dirección URL que se
 Cuando se actualiza la imagen, la aplicación web se actualizan automáticamente con la nueva imagen.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [¿Qué es Aplicación web de Azure en Linux?](./app-service-linux-intro.md)
-* [Creación de aplicaciones en Aplicación web de Azure en Linux](./app-service-linux-how-to-create-web-app.md)
+* [¿Qué es Web App on Linux de Azure?](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
-* [Uso de la configuración de PM2 para Node.js en Aplicación web de Azure en Linux](app-service-linux-using-nodejs-pm2.md)
-* [Uso de .NET Core en Aplicación web de Azure en Linux](app-service-linux-using-dotnetcore.md)
-* [Uso de Ruby en Aplicación web de Azure en Linux](app-service-linux-ruby-get-started.md)
-* [Uso de una imagen personalizada de Docker para Aplicación web de Azure en Linux](./app-service-linux-using-custom-docker-image.md)
-* [Preguntas más frecuentes sobre Aplicación web en Linux de Azure App Service](./app-service-linux-faq.md) 
+* [Uso de la configuración de PM2 para Node.js en Web App on Linux de Azure](app-service-linux-using-nodejs-pm2.md)
+* [Uso de .NET Core en Web App on Linux de Azure](app-service-linux-using-dotnetcore.md)
+* [Uso de Ruby en Web App on Linux de Azure](app-service-linux-ruby-get-started.md)
+* [Uso de una imagen personalizada de Docker para Web App on Linux de Azure](./app-service-linux-using-custom-docker-image.md)
+* [Preguntas más frecuentes sobre Web App on Linux de Azure App Service](./app-service-linux-faq.md) 
 * [Administración de Aplicación web en Linux mediante la CLI de Azure 2.0](./app-service-linux-cli.md)
 
 

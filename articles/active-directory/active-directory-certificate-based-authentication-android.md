@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/28/2017
+ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: d37f0fcf4c91879c31b04dfd19cadee00e98ba91
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 239d2e1724f2759a52cccdac11fc781d57393125
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticación basada en certificados de Azure Active Directory en Android
@@ -41,15 +41,15 @@ Esta característica se encuentra disponible como versión preliminar en los pla
 ## <a name="office-mobile-applications-support"></a>Compatibilidad con aplicaciones móviles de Office
 | Aplicaciones | Soporte técnico |
 | --- | --- |
-| Word, Excel y PowerPoint |![Comprobar][1] |
+| Aplicación Azure Information Protection |![Comprobar][1] |
+| Equipos de Microsoft |![Comprobar][1] |
 | OneNote |![Comprobar][1] |
 | OneDrive |![Comprobar][1] |
 | Outlook |![Comprobar][1] |
-| Yammer |![Comprobar][1] |
+| Power BI |![Comprobar][1] |
 | Skype Empresarial |![Comprobar][1] |
-| Aplicación Azure Information Protection |![Comprobar][1] |
-| Equipos de Microsoft |![Comprobar][1] |
-
+| Word, Excel y PowerPoint |![Comprobar][1] |
+| Yammer |![Comprobar][1] |
 
 
 ### <a name="implementation-requirements"></a>Requisitos de implementación

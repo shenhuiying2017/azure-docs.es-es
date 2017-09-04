@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 08/24/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: bc8ca9bb349f41a6ae7371b4fc33cc09fb179c11
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
 ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="pen-testing"></a>Pruebas de penetración
@@ -43,5 +43,5 @@ Entre las pruebas estándar que puede realizar se incluyen:
 
 Un tipo de prueba que no puede realizar es ningún tipo de ataque [de denegación de servicio (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . Esto incluye iniciar un ataque de denegación de servicio o la realización de pruebas relacionadas que puedan determinar, demostrar o simular cualquier tipo de ataque de denegación de servicio.
 
-¿Está listo para empezar a realizar pruebas de penetración de sus aplicaciones hospedadas en Microsoft Azure? Si es así, diríjase a la página [Penetration Test Overview](https://security-forms.azure.com/penetration-testing/terms) (Información general de pruebas de penetración) y haga clic en el botón Create a Testing Request (Crear una solicitud de prueba) en la parte inferior de la página. También encontrará más información sobre los términos y condiciones de las pruebas de penetración, así como vínculos útiles sobre cómo informar de problemas de seguridad relacionados con Azure o cualquier otro servicio de Microsoft.
+¿Está listo para empezar a realizar pruebas de penetración de sus aplicaciones hospedadas en Microsoft Azure? Si es así, diríjase a la página [Penetration Test Overview](https://technet.microsoft.com/library/mt784683.aspx) (Información general de pruebas de penetración) y haga clic en el botón Create a Testing Request (Crear una solicitud de prueba) en la parte inferior de la página. También encontrará más información sobre los términos y condiciones de las pruebas de penetración, así como vínculos útiles sobre cómo informar de problemas de seguridad relacionados con Azure o cualquier otro servicio de Microsoft.
 

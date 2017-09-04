@@ -3,7 +3,7 @@ title: Uso de API Management con red virtual interna | Microsoft Docs
 description: "Obtenga información acerca de cómo instalar y configurar Azure API Management en una red virtual interna."
 services: api-management
 documentationcenter: 
-author: solankisamir
+author: vladvino
 manager: kjoshi
 editor: 
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b9df2c3e7f49a47bfd714f28c5ab53590ca9a719
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: a4c2bda1226ca05c775d011fba7bc59d4dab8998
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="using-azure-api-management-service-with-internal-virtual-network"></a>Uso de Azure API Management con una red virtual interna
@@ -64,13 +63,13 @@ Cuando se usa API Management en el modo de red virtual externa, DNS está admini
 ### <a name="access-on-default-host-names"></a>Acceso en nombres de host predeterminados:
 Cuando se crea un servicio de API Management en la nube pública de Azure, denominada por ejemplo "contoso", los siguientes punto de conexión de servicio se configuran de forma predeterminada.
 
->    Puerta de enlace o proxy: contoso.azure-api.net
+>   Puerta de enlace o proxy: contoso.azure-api.net
 
 > Portal para desarrolladores y portal para editores: contoso.portal.azure-api.net
 
 > Punto de conexión de administración directa: contoso.management.azure-api.net
 
->    GIT: contoso.scm.azure-api.net
+>   GIT: contoso.scm.azure-api.net
 
 Para obtener acceso a estos puntos de conexión de servicio de API Management, puede crear una máquina virtual en una subred conectada a la red virtual en el que se implementa API Management. Suponiendo que la dirección IP virtual interna para el servicio sea 10.0.0.5, puede realizar la asignación de archivos de host (%SystemDrive%\drivers\etc\hosts) del modo siguiente:
 

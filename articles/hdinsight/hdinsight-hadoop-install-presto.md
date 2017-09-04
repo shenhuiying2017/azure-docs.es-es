@@ -12,14 +12,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 406ef84e72d253fec51a0b37c48f326dafd511b6
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: fb5e500b922522e4cdfa7dd07b5233688b916b3e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Instalación y uso de Presto en clústeres de Hadoop para HDInsight
@@ -35,7 +34,7 @@ En este tema aprenderá a instalar Presto en clústeres de Hadoop para HDInsight
 > [!WARNING]
 > Los componentes ofrecidos con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
 > 
-> Los componentes personalizados, como Presto, reciben un soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org) (por ejemplo, [Hadoop](http://hadoop.apache.org/)).
+> Los componentes personalizados, como Presto, reciben un soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org) (por ejemplo, [Hadoop](http://hadoop.apache.org/)).
 > 
 > 
 
@@ -113,11 +112,11 @@ En esta sección, veremos cómo **instalar Airpal en el nodo perimetral** de un 
     Debe ver algo parecido a lo siguiente:
 
         {
-              "coordinator_address" : [ {
+            "coordinator_address" : [ {
                 "value" : "10.0.0.12:9090",
                 "level" : "application",
                 "updatedTime" : "Mon Apr 03 20:13:41 UTC 2017"
-          } ]
+        } ]
 
 3. De esta salida, anote el valor de la propiedad **value**. Va a necesitar este valor durante la instalación de Airpal en el nodo perimetral del clúster. En la salida anterior, el valor que necesita es **10.0.0.12:9090**.
 

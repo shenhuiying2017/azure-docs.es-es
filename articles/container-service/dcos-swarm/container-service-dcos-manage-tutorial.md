@@ -18,10 +18,10 @@ ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 2b4ebe3d026b38916dd127312ad684b7c973ac0d
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: e93f782c26c32f97749e817ec59ee3c2ecb7e119
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -45,10 +45,10 @@ Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI 
 
 En primer lugar, cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
-En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
+En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *westeurope*.
 
 ```azurecli
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westeurope
 ```
 
 A continuación, cree un clúster de DC/OS con el comando [az acs create](/cli/azure/acs#create).

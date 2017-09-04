@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: ac11c6c8532007ee40db128dd9933c99a32a9420
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: c8f731502d6589bfa908aa26cf418a65b18be635
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usar el servicio Administrador de dispositivos de StorSimple para supervisar el dispositivo StorSimple
 ## <a name="overview"></a>Información general
-Puede usar el servicio Administrador de dispositivos de StorSimple para supervisar dispositivos específicos dentro de la solución StorSimple. Puede crear gráficos personalizados basados en el rendimiento de E/S, el uso de la capacidad, el rendimiento de la red y las métricas de rendimiento del dispositivo, y anclarlos al panel. Para más información, vaya a [personalizar el panel del portal](/articles/azure-portal/azure-portal-dashboards.md).
+Puede usar el servicio Administrador de dispositivos de StorSimple para supervisar dispositivos específicos dentro de la solución StorSimple. Puede crear gráficos personalizados basados en el rendimiento de E/S, el uso de la capacidad, el rendimiento de la red y las métricas de rendimiento del dispositivo, y anclarlos al panel. Para más información, vaya a [personalizar el panel del portal](../azure-portal/azure-portal-dashboards.md).
 
 Para ver la información de supervisión de un dispositivo específico, en Azure Portal, seleccione el servicio Administrador de dispositivos de StorSimple. En la lista de dispositivos, seleccione el dispositivo y, después, vaya a **Supervisar**. Podrá ver los gráficos **Capacidad**, **Uso** y **Rendimiento** para el dispositivo seleccionado.
 

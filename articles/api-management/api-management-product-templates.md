@@ -3,7 +3,7 @@ title: Plantillas de producto de Azure API Management | Microsoft Docs
 description: "Aprenda a personalizar el contenido de las páginas de producto en el portal para desarrolladores de Azure API Management."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 49f9254c-4c5f-4ed4-9c8d-798f44e805ee
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 393b10042f35afabf00672f9015f714e211a9d43
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: dae757231d8f2ff7fcd8e032d941c0fa9f192796
+ms.contentlocale: es-es
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="product-templates-in-azure-api-management"></a>Plantillas de producto en Azure API Management
@@ -31,7 +33,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 > [!NOTE]
 >  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
-##  <a name="a-nameproductlista-product-list"></a><a name="ProductList"></a> Product list  
+##  <a name="ProductList"></a> Product list  
  La plantilla **Product list** le permite personalizar el cuerpo de la página de lista de productos en el portal para desarrolladores.  
   
  ![Products list](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
@@ -117,7 +119,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }  
 ```  
   
-##  <a name="a-nameproducta-product"></a><a name="Product"></a> Product  
+##  <a name="Product"></a> Product  
  La plantilla **Product list** le permite personalizar el cuerpo de la página de producto en el portal para desarrolladores.  
   
  ![Página de producto del portal para desarrolladores](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
@@ -202,7 +204,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 |--------------|----------|-----------------|  
 |Producto|[Producto](api-management-template-data-model-reference.md#Product)|El producto especificado.|  
 |IsDeveloperSubscribed|boolean|Si el usuario actual está suscrito a este producto.|  
-|SubscriptionState|número|El estado de la suscripción. Los estados posibles son:<br /><br /> -   `0 - suspended`: la suscripción está bloqueada y el suscriptor no puede llamar a las API del producto.<br />-   `1 - active`: la suscripción está activa.<br />-   `2 - expired`: la suscripción ha alcanzado su fecha de expiración y se ha desactivado.<br />-   `3 - submitted`: el desarrollador ha realizado una solicitud de suscripción, pero esta aún no se ha aprobado ni rechazado.<br />-   `4 - rejected`: un administrador ha rechazado la solicitud de suscripción.<br />-   `5 - cancelled`: el desarrollador o el administrador han cancelado la suscripción.|  
+|SubscriptionState|número|El estado de la suscripción. Los estados posibles son:<br /><br /> -   `0 - suspended`: la suscripción está bloqueada y el suscriptor no puede llamar a ninguna API del producto.<br />-   `1 - active`: la suscripción está activa.<br />-   `2 - expired`: la suscripción ha alcanzado su fecha de expiración y se ha desactivado.<br />-   `3 - submitted`: el desarrollador ha realizado una solicitud de suscripción, pero esta aún no se ha aprobado ni rechazado.<br />-   `4 - rejected`: un administrador ha rechazado la solicitud de suscripción.<br />-   `5 - cancelled`: el desarrollador o el administrador han cancelado la suscripción.|  
 |límites|array|Esta propiedad está en desuso y no debe utilizarse.|  
 |DelegatedSubscriptionEnabled|boolean|Si la [delegación](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está habilitada para esta suscripción.|  
 |DelegatedSubscriptionUrl|string|Si la delegación está habilitada, la dirección URL de la suscripción delegada.|  
@@ -258,8 +260,3 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

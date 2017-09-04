@@ -6,21 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 4bbfbbe41eb3f70c27f0721a6b35a8f7f1831af4
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 60d35b230534ca5721a49a770ea81cc79d52ec02
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -32,14 +32,14 @@ Si tiene problemas con el autoservicio de restablecimiento de contraseña, los e
 
 | Error | Detalles | Detalles técnicos |
 | --- | --- | --- |
-| TenantSSPRFlagDisabled = 9 | Lo sentimos <br> En este momento no se puede restablecer la contraseña porque el administrador ha deshabilitado el restablecimiento de contraseña en su organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que habilite esta característica. Para más información, lea [Ayuda, he olvidado mi contraseña de Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: Se ha detectado que el administrador no ha habilitado el restablecimiento de contraseña. Póngase en contacto con el administrador y pídale que habilite el restablecimiento de contraseña en su organización. |
-| WritebackNotEnabled = 10 |Lo sentimos <br> En este momento no se puede restablecer la contraseña porque el administrador no ha habilitado un servicio necesario en su organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que compruebe la configuración de su organización. Para más información sobre este servicio necesario, lea [Configuración de la escritura diferida de contraseñas](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-writeback#configuring-password-writeback). | SSPR_0010: Se ha detectado que no se ha habilitado la escritura diferida de contraseñas. Póngase en contacto con el administrador y pídale que habilite la escritura diferida de contraseñas. |
-| SsprNotEnabledInUserPolicy = 11 | Lo sentimos  <br> En este momento no se puede restablecer la contraseña porque el administrador no ha configurado el restablecimiento de contraseña en su organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que configure el restablecimiento de contraseña. Para más información sobre la configuración del restablecimiento de contraseña, lea el artículo [Inicio rápido: Autoservicio de restablecimiento de contraseña de Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-getting-started). | SSPR_0011: Su organización no ha definido una directiva de restablecimiento de contraseña. Póngase en contacto con el administrador y pídale que defina una directiva de restablecimiento de contraseña. |
-| UserNotLicensed = 12 | Lo sentimos <br> En este momento no se puede restablecer la contraseña porque faltan licencias necesarias en su organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que compruebe la asignación de licencias. Para más información sobre licencias, lea el artículo [Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-licensing). | SSPR_0012: Su organización no tiene las licencias necesarias para realizar el restablecimiento de contraseña. Póngase en contacto con el administrador y pídale que revise las asignaciones de licencia. |
-| UserNotMemberOfScopedAccessGroup = 13 | Lo sentimos <br> En este momento no se puede restablecer la contraseña porque el administrador no ha configurado la cuenta para que use el restablecimiento de contraseña. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que configure su cuenta con el restablecimiento de contraseña. Para más información sobre la configuración de cuentas en cuanto a restablecimiento de contraseña, lea el artículo [Lanzamiento del restablecimiento de contraseña para los usuarios](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-best-practices). | SSPR_0012: No es miembro de un grupo habilitado para restablecer contraseñas. Póngase en contacto con el administrador y pídale que lo agregue al grupo. |
-| UserNotProperlyConfigured = 14 | Lo sentimos <br> En este momento no se puede restablecer la contraseña porque falta información necesaria de su cuenta. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que restablezca la contraseña por usted. Después de tener acceso a su cuenta de nuevo, puede aprender a registrar la información necesaria siguiendo los pasos descritos en el artículo [Registro para el autoservicio de restablecimiento de contraseñas](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-reset-register). | SSPR_0014: Se necesita información de seguridad adicional para restablecer la contraseña. Para continuar, póngase en contacto con el administrador y pídale que restablezca la contraseña. Después de tener acceso a la cuenta, puede registrar información de seguridad adicional en https://aka.ms/ssprsetup. El administrador puede agregar información de seguridad adicional a su cuenta siguiendo los pasos de [Establecimiento y lectura de datos de autenticación mediante PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-data#set-and-read-authentication-data-using-powershell). |
-| OnPremisesAdminActionRequired = 29 | Lo sentimos <br> En este momento no se puede restablecer la contraseña debido a un problema con la configuración del restablecimiento de contraseña de su organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que lo investigue. Para más información sobre el posible problema, lea el artículo [Solución de problemas de escritura diferida de contraseñas](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: No se puede restablecer la contraseña debido a un error en la configuración local. Póngase en contacto con el administrador y pídale que lo investigue. |
-| OnPremisesConnectivityError = 30 | Lo sentimos <br> En este momento no se puede restablecer la contraseña debido a problemas de conectividad con su organización. No hay ninguna acción que puede realizar ahora mismo, pero puede que el problema se resuelva si lo intenta más tarde. Si el problema continúa, póngase en contacto con el administrador y pídale que lo investigue. Para más información sobre problemas de conectividad, lea [Solución de problemas con la conectividad de la escritura diferida de contraseñas](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: No se puede restablecer la contraseña debido a una mala conexión con el entorno local. Póngase en contacto con el administrador y pídale que lo investigue.|
+| TenantSSPRFlagDisabled = 9 | Lo sentimos <br> En este momento no se puede restablecer la contraseña porque el administrador ha deshabilitado el restablecimiento de contraseña en su organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que habilite esta característica. Para más información, lea [Ayuda, he olvidado mi contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: Se ha detectado que el administrador no ha habilitado el restablecimiento de contraseña. Póngase en contacto con el administrador y pídale que habilite el restablecimiento de contraseña en su organización. |
+| WritebackNotEnabled = 10 |Lo sentimos <br> En este momento no se puede restablecer la contraseña porque el administrador no ha habilitado un servicio necesario en su organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que compruebe la configuración de su organización. Para más información sobre este servicio necesario, lea [Configuración de la escritura diferida de contraseñas](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-writeback#configuring-password-writeback). | SSPR_0010: Se ha detectado que no se ha habilitado la escritura diferida de contraseñas. Póngase en contacto con el administrador y pídale que habilite la escritura diferida de contraseñas. |
+| SsprNotEnabledInUserPolicy = 11 | Lo sentimos  <br> En este momento no se puede restablecer la contraseña porque el administrador no ha configurado el restablecimiento de contraseña en su organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que configure el restablecimiento de contraseña. Para más información sobre la configuración del restablecimiento de contraseña, lea el artículo [Inicio rápido: Autoservicio de restablecimiento de contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started). | SSPR_0011: Su organización no ha definido una directiva de restablecimiento de contraseña. Póngase en contacto con el administrador y pídale que defina una directiva de restablecimiento de contraseña. |
+| UserNotLicensed = 12 | Lo sentimos <br> En este momento no se puede restablecer la contraseña porque faltan licencias necesarias en su organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que compruebe la asignación de licencias. Para más información sobre licencias, lea el artículo [Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-licensing). | SSPR_0012: Su organización no tiene las licencias necesarias para realizar el restablecimiento de contraseña. Póngase en contacto con el administrador y pídale que revise las asignaciones de licencia. |
+| UserNotMemberOfScopedAccessGroup = 13 | Lo sentimos <br> En este momento no se puede restablecer la contraseña porque el administrador no ha configurado la cuenta para que use el restablecimiento de contraseña. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que configure su cuenta con el restablecimiento de contraseña. Para más información sobre la configuración de cuentas en cuanto a restablecimiento de contraseña, lea el artículo [Lanzamiento del restablecimiento de contraseña para los usuarios](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-best-practices). | SSPR_0012: No es miembro de un grupo habilitado para restablecer contraseñas. Póngase en contacto con el administrador y pídale que lo agregue al grupo. |
+| UserNotProperlyConfigured = 14 | Lo sentimos <br> En este momento no se puede restablecer la contraseña porque falta información necesaria de su cuenta. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que restablezca la contraseña por usted. Después de tener acceso a su cuenta de nuevo, puede aprender a registrar la información necesaria siguiendo los pasos descritos en el artículo [Registro para el autoservicio de restablecimiento de contraseñas](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register). | SSPR_0014: Se necesita información de seguridad adicional para restablecer la contraseña. Para continuar, póngase en contacto con el administrador y pídale que restablezca la contraseña. Después de tener acceso a la cuenta, puede registrar información de seguridad adicional en https://aka.ms/ssprsetup. El administrador puede agregar información de seguridad adicional a su cuenta siguiendo los pasos de [Establecimiento y lectura de datos de autenticación mediante PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-data#set-and-read-authentication-data-using-powershell). |
+| OnPremisesAdminActionRequired = 29 | Lo sentimos <br> En este momento no se puede restablecer la contraseña debido a un problema con la configuración del restablecimiento de contraseña de su organización. No hay ninguna otra acción que puede realizar para resolver esta situación. Póngase en contacto con el administrador y pídale que lo investigue. Para más información sobre el posible problema, lea el artículo [Solución de problemas de escritura diferida de contraseñas](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: No se puede restablecer la contraseña debido a un error en la configuración local. Póngase en contacto con el administrador y pídale que lo investigue. |
+| OnPremisesConnectivityError = 30 | Lo sentimos <br> En este momento no se puede restablecer la contraseña debido a problemas de conectividad con su organización. No hay ninguna acción que puede realizar ahora mismo, pero puede que el problema se resuelva si lo intenta más tarde. Si el problema continúa, póngase en contacto con el administrador y pídale que lo investigue. Para más información sobre problemas de conectividad, lea [Solución de problemas con la conectividad de la escritura diferida de contraseñas](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: No se puede restablecer la contraseña debido a una mala conexión con el entorno local. Póngase en contacto con el administrador y pídale que lo investigue.|
 
 
 ## <a name="troubleshoot-password-reset-configuration-in-the-azure-portal"></a>Solución de problemas de configuración de restablecimiento de contraseña en Azure Portal
@@ -213,24 +213,24 @@ Estos pasos restablecen la conexión con el servicio en la nube y resuelven las 
 
 Si con la instalación de la última versión del servidor de Azure AD Connect no se resuelve el problema, le recomendamos que intente deshabilitar y volver a habilitar la escritura diferida de contraseñas como último paso después de instalar la versión más reciente.
 
-## <a name="verify-whether-azure-ad-connect-has-the-required-permission-for-password-writeback"></a>Compruebe si Azure AD Connect dispone del permiso necesario para la escritura diferida de contraseñas 
+## <a name="verify-whether-azure-ad-connect-has-the-required-permission-for-password-writeback"></a>Compruebe si Azure AD Connect dispone del permiso necesario para la escritura diferida de contraseñas
 Azure AD Connect requiere el permiso de AD **restablecer contraseña** para realizar la escritura diferida de contraseñas. Para averiguar si Azure AD Connect tiene el permiso para una cuenta de usuario de AD local determinada, puede usar la característica Permiso efectivo de Windows:
 
 1. Inicie sesión en el servidor Azure AD Connect e inicie **Synchronization Service Manager** (Inicio → Servicio Synchronization).
 2. En la pestaña **Conectores**, seleccione el **conector AD** local y haga clic en **Propiedades**.  
 ![Permiso efectivo: paso 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
 3. En el cuadro de diálogo emergente, seleccione la pestaña **Connect to Active Directory Forest** (Conectar con el bosque de Active Directory) y anote el valor de la propiedad **Nombre de usuario**. Se trata de la cuenta de AD DS que Azure AD Connect usa para realizar la sincronización de directorios. Para que Azure AD Connect realice la escritura diferida de contraseñas, la cuenta de AD DS debe tener permiso para restablecer la contraseña.  
-![Permiso efectivo: paso 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png)  
+![Permiso efectivo: paso 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
 4. Inicie sesión en un controlador de dominio local e inicie la aplicación **Usuarios y equipos de Active Directory**.
 5. Haga clic en **Vista** y asegúrese de que la opción **Características avanzadas** está habilitada.  
-![Permiso efectivo: paso 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png)  
+![Permiso efectivo: paso 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
 6. Busque la cuenta de usuario de AD que desea comprobar. Haga clic con el botón derecho en la cuenta y seleccione **Propiedades**.  
-![Permiso efectivo: paso 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png)  
+![Permiso efectivo: paso 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 7. En el cuadro de diálogo emergente, vaya a la pestaña **Seguridad** y haga clic en **Avanzada**.  
-![Permiso efectivo: paso 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png)  
+![Permiso efectivo: paso 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
 8. En el cuadro de diálogo emergente de configuración Seguridad avanzada, vaya a la pestaña **Acceso efectivo**.
 9. Haga clic en **Seleccionar un usuario** y seleccione la cuenta de AD DS que usa Azure AD Connect (vea el paso 3). A continuación, haga clic en **Ver acceso efectivo**.  
-![Permiso efectivo: paso 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png)  
+![Permiso efectivo: paso 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
 10. Desplácese hacia abajo y busque **Restablecer contraseña**. Si la entrada está activada, significa que la cuenta de AD DS tiene permiso para restablecer la contraseña de la cuenta de usuario de AD seleccionada.  
 ![Permiso efectivo: paso 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -246,7 +246,7 @@ Para que reciba la ayuda correcta, le pedimos que proporcione la mayor cantidad 
 
 * **Descripción general del error**: ¿cuál es el error? ¿Qué comportamiento observó? ¿Cómo podemos reproducir el error? Proporcione tantos detalles como sea posible.
 * **Página**: ¿en qué página estaba cuando se detectó el error? Incluya la dirección URL si es posible y una captura de pantalla.
-* **Código de soporte técnico**: ¿qué código de soporte técnico se generó cuando el usuario vio el error? 
+* **Código de soporte técnico**: ¿qué código de soporte técnico se generó cuando el usuario vio el error?
     * Para encontrarlo, reproduzca el error, haga clic en el vínculo del código de soporte técnico en la parte inferior de la pantalla y envíe al ingeniero de soporte técnico el GUID resultante.
     ![Busque el código de soporte técnico en la parte inferior de la pantalla][Support Code]
     * Si se encuentra en una página sin código de soporte en la parte inferior, presione F12 y busque el SID y CID y envíe estos dos resultados al ingeniero de soporte.
@@ -258,7 +258,7 @@ Para que reciba la ayuda correcta, le pedimos que proporcione la mayor cantidad 
 * **Licencia**: ¿tiene el usuario asignada una licencia de Azure AD Premium o Azure AD Básico?
 * **Registro de eventos de aplicación**: si usa la escritura diferida de contraseñas y el error se produce en la infraestructura local, comprima una copia del registro de eventos de la aplicación desde el servidor de Azure AD Connect y envíela cuando se ponga en contacto con el soporte técnico.
 
-    
+
 
 [Service Restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Reinicio del servicio Azure AD Sync"
 [Support Code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "El código de soporte técnico se encuentra en la parte inferior derecha de la ventana"
@@ -267,7 +267,7 @@ Para que reciba la ayuda correcta, le pedimos que proporcione la mayor cantidad 
 
 Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
 
-* [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para el autoservicio de administración de contraseñas de Azure AD 
+* [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para el autoservicio de administración de contraseñas de Azure AD
 * [**Licencias**](active-directory-passwords-licensing.md): configuración de licencias de Azure AD
 * [**Datos**](active-directory-passwords-data.md): información sobre los datos necesarios y cómo se usan para administrar contraseñas
 * [**Implementación**](active-directory-passwords-best-practices.md): planee e implemente SSPR en sus usuarios mediante las instrucciones que se encuentran aquí.

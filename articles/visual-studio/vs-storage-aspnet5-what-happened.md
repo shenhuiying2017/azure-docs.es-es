@@ -3,8 +3,8 @@ title: "¿Qué le ha ocurrido a mi proyecto ASP.NET 5 (servicios conectados a Vi
 description: "Describe lo que sucede después de conectarse a una cuenta de almacenamiento de Azure en un proyecto de ASP.NET 5 de Visual Studio mediante los servicios conectados de Visual Studio"
 services: storage
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: e7caa9fa-c780-45eb-a546-299fc1c68455
 ms.service: storage
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a5c0c7bdc6ad699be04c8ca803c18ad4e8126ce5
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 2a25c24fd7625374d269622a805f386fcd52bb5f
+ms.contentlocale: es-es
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>¿Qué le ha ocurrido a mi proyecto ASP.NET 5 (servicios conectados a Almacenamiento de Azure de Visual Studio)?
@@ -40,10 +41,5 @@ Además, se agregó el paquete NuGet **Microsoft.Framework.Configuration.Json** 
 En el archivo config.json de su proyecto, se ha creado un elemento con la cadena y la clave de conexión de la cuenta de almacenamiento seleccionada.
 
 Para más información, vea [ASP.NET 5](http://www.asp.net/vnext).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

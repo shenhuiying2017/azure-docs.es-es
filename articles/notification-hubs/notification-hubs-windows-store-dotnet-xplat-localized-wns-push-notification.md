@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e864e832b4c50644bf4062dee29d34ff9fe2774e
-
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 8f205188bd68e53b187b71981ed36dcf9129ec62
+ms.contentlocale: es-es
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news"></a>Uso de los Centros de notificaciones para enviar noticias de última hora localizadas
@@ -182,38 +183,33 @@ Modifique el archivo MainPage.xaml para que incluya un cuadro combinado de confi
 [!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
 <!-- Anchors. -->
-[Conceptos de plantilla]: #concepts
-[Interfaz de usuario de la aplicación]: #ui
-[Compilación de la aplicación cliente de la Tienda Windows]: #building-client
-[Envío de notificaciones desde su back-end]: #send
+[Template concepts]: #concepts
+[The app user interface]: #ui
+[Building the Windows Store client app]: #building-client
+[Send notifications from your back-end]: #send
 [Next Steps]:#next-steps
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Servicio móvil]: /develop/mobile/tutorials/get-started
-[Notificación a los usuarios con los Centros de notificaciones de Azure: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Notificación a los usuarios con los Centros de notificaciones de Azure: Servicios móviles]: /manage/services/notification-hubs/notify-users
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: /manage/services/notification-hubs/breaking-news-dotnet
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
+[Uso de los Centros de notificaciones para enviar noticias de última hora]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
 
-[Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introducción a Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
-[Introducción a los datos]: /develop/mobile/tutorials/get-started-with-data-dotnet
-[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-dotnet
-[Introducción a las notificaciones push]: /develop/mobile/tutorials/get-started-with-push-dotnet
-[Notificaciones push para usuarios de la aplicación]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
-[Autorización de usuarios con scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript y HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
-[objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
-[Procedimientos de los Centros de notificaciones para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Procedimientos de Notification Hubs para la Tienda Windows]: http://msdn.microsoft.com/library/jj927172.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
