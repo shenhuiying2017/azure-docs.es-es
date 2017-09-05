@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 76413d6e9c619a66ae34f032eb0b8f9d42c27c9d
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 04f15384a7cd0fa03300acdf159d371569ecf9fc
 ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Informe de seguridad de usuarios marcados en riesgo en el portal de Azure Active Directory
@@ -62,6 +62,16 @@ Al seleccionar un usuario, se abre la hoja de datos del usuario relacionada.
 En el caso de usuarios que están en riesgo, puede revisar el historial de inicios de sesión del usuario y restablecer la contraseña, en caso de que sea necesario.
 
 ![Inicios de sesión no seguros](./media/active-directory-reporting-security-user-at-risk/46.png)
+
+
+Este cuadro de diálogo proporciona una opción para:
+
+- Descargar el informe
+
+- Búsqueda de usuarios
+
+![Inicios de sesión no seguros](./media/active-directory-reporting-security-user-at-risk/16.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Ediciones Azure Active Directory Premium
 

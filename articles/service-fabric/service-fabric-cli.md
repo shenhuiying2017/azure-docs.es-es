@@ -9,10 +9,10 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5ce9adf6c82e3a5521883c5de1e0689d5bf0d94e
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 2faca2887f25b45d833dea7b2259277466290670
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-service-fabric-command-line"></a>Línea de comandos de Azure Service Fabric
@@ -23,17 +23,75 @@ La CLI de Azure Service Fabric (sfctl) es una utilidad de línea de comandos par
 
 Antes de la instalación, asegúrese de que el entorno tiene python y pip instalado. Para más información, eche un vistazo a la [documentación de inicio rápido de pip](https://pip.pypa.io/en/latest/quickstart/) y a la [documentación oficial de instalación de python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-Aunque se admite python 2.7 y 3.6, se recomienda utilizar python 3.6.
+Aunque se admite python 2.7 y 3.6, se recomienda utilizar python 3.6. En la siguiente sección se indica cómo instalar todos los requisitos previos y la CLI.
 
-## <a name="install"></a>Instalación
+## <a name="install-pip-python-and-sfctl"></a>Instalar pip, python y sfctl
 
-La CLI de Azure Service Fabric (sfctl) se empaqueta como un paquete de python. Para instalar la versión más reciente, ejecute:
+Aunque hay muchas maneras de instalar pip y python en la plataforma, aquí se describen algunos pasos para configurar la aplicación rápidamente con python 3.6 y pip para los sistemas operativos principales:
 
-```bash
-pip install sfctl
+### <a name="windows"></a>Windows
+
+Para Windows 10, Server 2016 y Server 2012 R2, puede usar las instrucciones de instalación oficiales estándar. El programa de instalación de python también instala pip de forma predeterminada.
+
+- Vaya a la [página de descargas de python](https://www.python.org/downloads/) oficial y descargue la versión más reciente de python 3.6.
+- Inicie el programa de instalación.
+- Seleccione la opción situada en la parte inferior del aviso `Add Python 3.6 to PATH`.
+- Seleccionar `Install Now`
+- Termine la instalación.
+
+Ahora ya puede abrir una nueva ventana de comandos y obtener la versión de python y pip:
+
+```bat
+python --version
+pip --version
 ```
 
-Después de la instalación, ejecute `sfctl -h` para obtener información acerca de los comandos disponibles.
+A continuación, ejecute lo siguiente para instalar la CLI de Service Fabric
+
+```
+pip install sfctl
+sfctl -h
+```
+
+### <a name="ubuntu"></a>Ubuntu
+
+Para Ubuntu 16.04 Desktop, puede instalar python 3.6 mediante un PPA de terceros:
+
+En el terminal, ejecute los siguientes comandos:
+
+```bash
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6
+sudo apt-get install python3-pip
+```
+
+A continuación, para instalar sfctl solo para la instalación de python 3.6 ejecute el siguiente comando:
+
+```bash
+python3.6 -m pip install sfctl
+sfctl -h
+```
+
+Estos pasos no afectan a las versiones de python 3.5 y 2.7 instaladas en el sistema. No intente modificar estas instalaciones, a menos que esté familiarizado con Ubuntu.
+
+### <a name="macos"></a>MacOS
+
+Para MacOS, se recomienda utilizar el [administrador de paquetes de HomeBrew](https://brew.sh). Instale HomeBrew si no está ya instalado, ejecutando el comando siguiente:
+
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+A continuación, desde el terminal, instale python 3.6, pip y sfctl
+
+```bash
+brew install python3
+pip3 install sfctl
+sfctl -h
+```
+
+Estos pasos no modifican la instalación del sistema de python 2.7.
 
 ## <a name="cli-syntax"></a>Sintaxis de la CLI
 

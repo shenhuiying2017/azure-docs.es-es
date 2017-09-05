@@ -13,14 +13,14 @@ ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/30/2017
+ms.topic: quickstart
+ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: a863cf3ad08040906850f64db6505f30bcfa72eb
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 6bf1b94b38fffe31dd67a5146c3c9c5e9367084e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Creación de una instancia de Azure SQL Database en Azure Portal
@@ -41,7 +41,7 @@ Siga estos pasos para crear una base de datos SQL que contenga los datos de ejem
 
 1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
 
-2. En la página **Nuevo**, seleccione **Bases de datos** y, en la página **Bases de datos**, seleccione **SQL Database**.
+2. Seleccione **Bases de datos** en la página **Nuevo** y seleccione **Crear** en **SQL Database** en la página **Nuevo**.
 
    ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -77,17 +77,33 @@ Siga estos pasos para crear una base de datos SQL que contenga los datos de ejem
 
 5. Cuando haya completado el formulario, haga clic en **Seleccionar**.
 
-6. Haga clic en **Plan de tarifa** para especificar el tanto el nivel de rendimiento como el nivel de servicio de la nueva base de datos. Utilice el control deslizante para seleccionar **20 DTU** y **250** GB de almacenamiento. Para más información acerca de las DTU, consulte [¿Qué es una DTU?](sql-database-what-is-a-dtu.md).
+6. Haga clic en **Plan de tarifa** para especificar el nivel de servicio, el número de DTU y la cantidad de almacenamiento. Explore las opciones de cantidad de almacenamiento y de DTU que están a su disposición para cada nivel de servicio. 
+
+   > [!IMPORTANT]
+   > \* Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de bases de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >
+   >\* En el nivel Premium, más de 1 TB de almacenamiento se encuentra actualmente disponible en las siguientes regiones: este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU., Europa Occidental, centro de Alemania, Asia Suroriental, Japón Oriental, este de Australia, centro de Canadá y este de Canadá. Consulte [Limitaciones actuales P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > 
+
+7. Para este tutorial de inicio rápido, seleccione el nivel de servicio **Estándar** y, a continuación, utilice el control deslizante para seleccionar **100 DTU (S3)** y **400** GB de almacenamiento.
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. Después de seleccionar la cantidad de DTU, haga clic en **Aplicar**.  
+8. Acepte los términos de la versión preliminar para usar la opción de **almacenamiento de complementos**. 
 
-8. Una vez completado el formulario de SQL Database, haga clic en **Crear** para aprovisionar la base de datos. El aprovisionamiento tarda unos minutos. 
+   > [!IMPORTANT]
+   > \* Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de bases de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >
+   >\* En el nivel Premium, más de 1 TB de almacenamiento se encuentra actualmente disponible en las siguientes regiones: este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU., Europa Occidental, centro de Alemania, Asia Suroriental, Japón Oriental, este de Australia, centro de Canadá y este de Canadá. Consulte [Limitaciones actuales P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > 
 
-9. En la barra de herramientas, haga clic en **Notificaciones** para supervisar el proceso de implementación.
+9. Después de seleccionar el nivel del servidor, el número de DTU y la cantidad de almacenamiento, haga clic en **Aplicar**.  
 
-   ![notificación](./media/sql-database-get-started-portal/notification.png)
+10. Una vez completado el formulario de SQL Database, haga clic en **Crear** para aprovisionar la base de datos. El aprovisionamiento tarda unos minutos. 
+
+11. En la barra de herramientas, haga clic en **Notificaciones** para supervisar el proceso de implementación.
+    
+     ![notificación](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Crear una regla de firewall de nivel de servidor
 
@@ -97,25 +113,21 @@ El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide
 > SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
 >
 
-1. Cuando se haya finalizado la implementación, haga clic en **Bases de datos SQL** en el menú de la izquierda y, después, haga clic en **mySampleDatabase** en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver20170313.database.windows.net**) y proporciona opciones para configurarlo aún más. Copie dicho nombre, ya que lo tendrá que usar más adelante,
+1. Cuando se haya finalizado la implementación, haga clic en **Bases de datos SQL** en el menú de la izquierda y, después, haga clic en **mySampleDatabase** en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver-20170824.database.windows.net**) y proporciona opciones para otras configuraciones. 
 
-   > [!IMPORTANT]
-   > lo necesitará para conectarse a su servidor y a sus bases de datos en los inicios rápidos posteriores.
-   > 
+2. Copie este nombre para conectarse a su servidor y a sus bases de datos en los inicios rápidos posteriores. 
 
-   ![nombre del servidor](./media/sql-database-connect-query-dotnet/server-name.png) 
+   ![nombre del servidor](./media/sql-database-get-started-portal/server-name.png) 
 
-2. Haga clic en **Establecer el firewall del servidor** en la barra de herramientas, como se muestra en la imagen anterior. Se abrirá la página **Configuración del firewall** del servidor de SQL Database. 
+3. Haga clic en **Establecer el firewall del servidor** en la barra de herramientas, como se muestra en la imagen anterior. Se abrirá la página **Configuración del firewall** del servidor de SQL Database. 
 
    ![regla de firewall del servidor](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-3. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
+4. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
-4. Haga clic en **Guardar**. Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
+5. Haga clic en **Guardar**. Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
 
-   ![establecer regla de firewall del servidor](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
-
-4. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall**.
+6. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall**.
 
 Ahora puede conectarse al servidor de SQL Database y a sus bases de datos mediante SQL Server Management Studio o cualquier otra herramienta que elija desde esta dirección IP usando la cuenta de administrador del servidor creada con anterioridad.
 
@@ -127,19 +139,19 @@ Ahora puede conectarse al servidor de SQL Database y a sus bases de datos median
 
 Ahora que ha creado una base de datos de ejemplo en Azure, vamos a usar la herramienta de consulta integrada en Azure Portal para confirmar que puede conectarse a la base de datos y consultar los datos. 
 
-1. En la barra de herramientas de la página SQL Database de la base de datos, haga clic en **Herramientas**. Se abre la página **Herramientas**.
+1. En la barra de herramientas de la página SQL Database de la base de datos, haga clic en **Herramientas** y, después, en **Editor de consultas (versión preliminar)**.
 
    ![menú herramientas](./media/sql-database-get-started-portal/tools-menu.png) 
 
-2. Haga clic en **Editor de consultas (versión preliminar)**, en la casilla de verificación **Términos de vista previa** y en **Aceptar**. Se abre la página Editor de consultas.
+2. Haga clic en la casilla **Términos de vista** previa y en **Aceptar**. Se abre la página Editor de consultas.
 
-3. Haga clic en **Inicio de sesión** y después, cuando se le solicite, seleccione **Autenticación de servidor SQL Server** y especifique el inicio de sesión y la contraseña de administrador de servidor que creó antes.
+3. Haga clic en **Inicio de sesión**, revise la información de inicio de sesión y, a continuación, haga clic en **Aceptar** para iniciar sesión mediante la autenticación de SQL Server con el inicio de sesión y la contraseña de administrador de servidor que creó anteriormente.
 
    ![login](./media/sql-database-get-started-portal/login.png) 
 
 4. Haga clic en **Aceptar** para iniciar sesión.
 
-5. Una vez autenticado, escriba la siguiente consulta en el panel del editor de consultas.
+5. Una vez autenticado como **ServerAdmin**, escriba la siguiente consulta en el panel del editor de consultas.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -152,11 +164,11 @@ Ahora que ha creado una base de datos de ejemplo en Azure, vamos a usar la herra
 
    ![resultados del editor de consultas](./media/sql-database-get-started-portal/query-editor-results.png)
 
-7. Cierre la página **Editor de consultas** y la página **Herramientas**.
+7. Cierre la página del **editor de consultas**, haga clic en **Aceptar** para descartar los cambios no guardados y, a continuación, cierre la página **Herramientas**.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si no necesita estos recursos para otro inicio rápido o tutorial (consulte [Pasos siguientes](#next-steps)), puede eliminarlos de la siguiente manera:
+Guarde estos recursos si desea volver a la sección [Pasos siguientes](#next-steps) y aprender a conectarse y consultar la base de datos mediante una serie de métodos diferentes. Si desea eliminar los recursos que ha creado en este inicio rápido, siga estos pasos. 
 
 
 1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en **myResourceGroup**. 

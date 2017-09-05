@@ -1,6 +1,6 @@
 ---
-title: "Introducción a Aplicaciones móviles con el uso de Xamarin.Forms"
-description: "Siga este tutorial para empezar a usar Aplicaciones móviles de Azure para el desarrollo de Xamarin.Forms."
+title: "Introducción a Mobile Apps mediante Xamarin.Forms"
+description: Siga este tutorial para empezar a usar Mobile Apps para el desarrollo de Xamarin.Forms.
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -15,151 +15,177 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: cb959867ccfc85993694bd810f08e2f8150b44f3
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: ee12caaad4095cff6dae3282f747ae804f93db81
 ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-a-xamarinforms-app"></a>Creación de una aplicación Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Información general
-En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube a una aplicación móvil Xamarin.Forms con un back-end de Aplicaciones móviles de Azure. Creará tanto un back-end de aplicación móvil nuevo como una aplicación Xamarin.Forms simple de la *lista de tareas pendientes* que almacene los datos de la aplicación en Azure.
+En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube a una aplicación móvil Xamarin.Forms mediante la característica Mobile Apps de Azure App Service como back-end. Va a crear tanto un back-end de Mobile Apps nuevo como una aplicación Xamarin.Forms simple de la lista de tareas pendientes que almacene los datos de la aplicación en Azure.
 
 Completar este tutorial es un requisito previo para todos los tutoriales de aplicaciones móviles para aplicaciones Xamarin.Forms.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio con Xamarin. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) para obtener instrucciones.
-* Un equipo Mac con Xcode v7.0 o versiones posteriores y Xamarin Studio Community instalados. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) y [Configuración, instalación y comprobaciones para usuarios de Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para más información, consulte [Obtener una evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="create-a-new-azure-mobile-app-backend"></a>Creación de un nuevo back-end de Aplicaciones móviles de Azure
-Siga estos pasos para crear un nuevo back-end de aplicación móvil.
+* Visual Studio con Xamarin. Para más información, consulte la página [Configuración e instalación de Visual Studio y Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
+
+* Un equipo Mac con Xcode v7.0 o versiones posteriores y Xamarin Studio Community instalados. Para más información, consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) de Visual Studio y Xamarin, y [Configuración, instalación y comprobaciones para usuarios de Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+
+## <a name="create-a-new-mobile-apps-back-end"></a>Creación de un back-end de Mobile Apps
+
+Para crear un nuevo back-end de Mobile Apps, haga lo siguiente:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usarse por las aplicaciones del cliente móvil. Después, descargará un proyecto de servidor para un back-end de "lista de tareas" sencillo y lo publicará en Azure.
+Ya ha configurado un back-end de Mobile Apps que puede usar con las aplicaciones cliente móviles. Después, va a descargar un proyecto de servidor para un back-end de lista de tareas sencillo y lo publicará en Azure.
 
 ## <a name="configure-the-server-project"></a>Configuración del proyecto de servidor
-Para configurar el proyecto de servidor para que use el back-end de Node.js o. NET, siga los pasos que se indican a continuación.
+
+Para configurar el proyecto de servidor para que use el back-end de Node.js o. NET, haga lo siguiente:
 
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-xamarinforms-solution"></a>Descarga y ejecución de la solución Xamarin.Forms
-Estas son algunas opciones. Puede descargar la solución en un equipo Mac y abrirla en Xamarin Studio, o descargarla en un equipo Windows y abrirla en Visual Studio usando un equipo Mac en red para crear la aplicación iOS. Consulte [Configuración e instalación de Visual Studio y Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) si necesita instrucciones más detalladas sobre los escenarios de instalación de Xamarin.
 
-Vamos a continuar:
+Puede descargar la solución en cualquiera de estas dos maneras. Descárguela en un equipo Mac y ábrala en Xamarin Studio, o descárguela en un equipo Windows y ábrala en Visual Studio usando un equipo Mac en red para crear la aplicación iOS. Para más información, consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) de Visual Studio y Xamarin.
 
-1. En el equipo Mac o el equipo Windows, abra el [Portal de Azure] en una ventana del explorador.
-2. En la hoja Configuración de la aplicación móvil, haga clic en **Introducción** (en Móvil) > **Xamarin.Forms**. En el paso 3, haga clic en **Crear una nueva aplicación** en caso de que no esté seleccionado.  A continuación, haga clic en el botón **Descargar** .
+En un equipo Mac o Windows, haga lo siguiente:
 
-   De este modo, se descarga un proyecto que contiene la aplicación cliente que está conectada a la aplicación móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
-3. Extraiga el proyecto descargado y, después, ábralo en Xamarin Studio o Visual Studio.
+1. Vaya a [Azure Portal].
 
-   ![][9]
+2. En la hoja **Configuración** de la aplicación móvil, en **Móvil**, seleccione **Introducción** > **Xamarin.Forms**. En el **paso 3**, seleccione **Crear aplicación** y, después, seleccione **Descargar**.
 
-   ![][8]
+   Esta acción permite descargar un proyecto que contiene la aplicación cliente que está conectada a la aplicación móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
+
+3. Extraiga el proyecto descargado y, después, ábralo en Xamarin Studio (Mac) o Visual Studio (Windows).
+
+   ![Proyecto extraído en Xamarin Studio][9]
+
+   ![Proyecto extraído en Visual Studio][8]
 
 ## <a name="optional-run-the-ios-project"></a>(Opcional) Ejecución del proyecto de iOS
-Esta sección trata de la ejecución del proyecto de iOS de Xamarin para dispositivos iOS. Puede omitir esta sección si no está trabajando con dispositivos iOS.
+En esta sección va a ejecutar el proyecto de iOS de Xamarin para dispositivos iOS. Puede omitir esta sección si no está trabajando con dispositivos iOS.
 
 #### <a name="in-xamarin-studio"></a>En Xamarin Studio
-1. Haga clic con el botón derecho en el proyecto de iOS y, después, haga clic en **Establecer como proyecto de inicio**.
-2. En el menú **Ejecutar**, haga clic en **Iniciar depuración** para compilar el proyecto e iniciar la aplicación en el emulador de iPhone.
+1. Haga clic con el botón derecho en el proyecto de iOS y, después, seleccione **Establecer como proyecto de inicio**.
+
+2. En el menú **Ejecutar**, seleccione **Iniciar depuración** para compilar el proyecto e iniciar la aplicación en el emulador de iPhone.
 
 #### <a name="in-visual-studio"></a>En Visual Studio
-1. Haga clic con el botón derecho en el proyecto de iOS y, después, haga clic en **Establecer como proyecto de inicio**.
-2. En el menú **Compilar**, haga clic en **Administrador de configuración**.
-3. En el cuadro de diálogo **Administrador de configuración**, active las casillas **Compilar** e **Implementar** del proyecto de iOS.
-4. Presione la tecla **F5** para compilar el proyecto e iniciar la aplicación en el emulador de iPhone.
+1. Haga clic con el botón derecho en el proyecto de iOS y, después, seleccione **Establecer como proyecto de inicio**.
+
+2. En el menú **Compilar**, seleccione **Administrador de configuración**.
+
+3. En el cuadro de diálogo **Administrador de configuración**, active las casillas **Compilar** e **Implementar** junto al proyecto de iOS.
+
+4. Para compilar el proyecto e iniciar la aplicación en el emulador de iPhone, seleccione la tecla **F5**.
 
    > [!NOTE]
-   > Si tiene problemas en la compilación, ejecute el Administrador de paquetes NuGet y actualice a la versión más reciente de los paquetes de soporte de Xamarin. A veces, la actualización de los proyectos de inicio rápido a la versión más reciente puede retrasarse.    
+   > Si tiene problemas al compilar el proyecto, ejecute el Administrador de paquetes NuGet y actualice a la versión más reciente de los paquetes de soporte de Xamarin. Los proyectos de la guía de inicio rápido pueden tardar en actualizarse a las versiones más recientes.    
    >
    >
 
-En la aplicación, escriba texto significativo, como *Aprender Xamarin*, y haga clic en el botón **+**.
+5. En la aplicación, escriba un texto significativo, como *Aprender Xamarin*, y seleccione el botón del signo más (**+**).
 
-![][10]
+    ![][10]
 
-Esta acción envía una solicitud POST al nuevo back-end de aplicación móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de aplicación móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
+    Esta acción envía una solicitud POST al nuevo back-end Mobile Apps hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de Mobile Apps devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
 
-> [!NOTE]
-> Encontrará el código con el que se accede al back-end de la aplicación móvil en el archivo de C# TodoItemManager.cs del proyecto de biblioteca de clases portable de la solución.
->
->
+    > [!NOTE]
+    > Encontrará el código con el que se accede al back-end de Mobile Apps en el archivo de C# TodoItemManager.cs del proyecto de biblioteca de clases portable de la solución.
+    >
+    >
 
 ## <a name="optional-run-the-android-project"></a>(Opcional) Ejecución del proyecto de Android
-Esta sección trata de la ejecución del proyecto de Android de Xamarin para Android. Puede omitir esta sección si no está trabajando con dispositivos Android.
+Esta sección va a ejecutar el proyecto droid de Xamarin para Android. Puede omitir esta sección si no está trabajando con dispositivos Android.
 
 #### <a name="in-xamarin-studio"></a>En Xamarin Studio
-1. Haga clic con el botón derecho en el proyecto de Android y, después, haga clic en **Establecer como proyecto de inicio**.
-2. En el menú **Ejecutar**, haga clic en **Iniciar depuración** para compilar el proyecto e iniciar la aplicación en un emulador de Android.
+
+1. Haga clic con el botón derecho en el proyecto de Android y, después, seleccione **Establecer como proyecto de inicio**.
+
+2. Para compilar el proyecto e iniciar la aplicación en un emulador de Android, en el menú **Ejecutar**, seleccione **Iniciar depuración**.
 
 #### <a name="in-visual-studio"></a>En Visual Studio
-1. Haga clic con el botón derecho en el proyecto de Android (Droid) y, después, haga clic en **Establecer como proyecto de inicio**.
-2. En el menú **Compilar**, haga clic en **Administrador de configuración**.
-3. En el cuadro de diálogo **Administrador de configuración**, active las casillas **Compilar** e **Implementar** del proyecto de Android.
-4. Presione la tecla **F5** para compilar el proyecto e iniciar la aplicación en un emulador de Android.
+
+1. Haga clic con el botón derecho en el proyecto de Android (Droid) y, después, seleccione **Establecer como proyecto de inicio**.
+
+2. En el menú **Compilar**, seleccione **Administrador de configuración**.
+
+3. En el cuadro de diálogo **Administrador de configuración**, active las casillas **Compilar** e **Implementar** junto al proyecto de Android.
+
+4. Para compilar el proyecto e iniciar la aplicación en un emulador de Android, presione la tecla **F5**.
 
    > [!NOTE]
-   > Si tiene problemas en la compilación, ejecute el Administrador de paquetes NuGet y actualice a la versión más reciente de los paquetes de soporte de Xamarin. A veces, la actualización de los proyectos de inicio rápido a la versión más reciente puede retrasarse.    
+   > Si tiene problemas al compilar el proyecto, ejecute el Administrador de paquetes NuGet y actualice a la versión más reciente de los paquetes de soporte de Xamarin. Los proyectos de la guía de inicio rápido pueden tardar en actualizarse a las versiones más recientes.    
    >
    >
 
-En la aplicación, escriba texto significativo, como *Aprender Xamarin*, y haga clic en el botón **+**.
+5. En la aplicación, escriba un texto significativo, como *Aprender Xamarin*, y seleccione el botón del signo más (**+**).
 
-![][11]
-
-Esta acción envía una solicitud POST al nuevo back-end de aplicación móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de aplicación móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
-
-> [!NOTE]
-> Encontrará el código con el que se accede al back-end de la aplicación móvil en el archivo de C# TodoItemManager.cs del proyecto de biblioteca de clases portable de la solución.
->
->
+    ![][11]
+    
+    Esta acción envía una solicitud POST al nuevo back-end Mobile Apps hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de Mobile Apps devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
+    
+    > [!NOTE]
+    > Encontrará el código con el que se accede al back-end de Mobile Apps en el archivo de C# TodoItemManager.cs del proyecto de biblioteca de clases portable de la solución.
+    >
+    >
 
 ## <a name="optional-run-the-windows-project"></a>(Opcional) Ejecución del proyecto de Windows
-Esta sección trata de la ejecución del proyecto de WinApp de Xamarin para dispositivos Windows. Puede omitir esta sección si no está trabajando con dispositivos Windows.
+
+En esta sección va a ejecutar el proyecto de WinApp de Xamarin para dispositivos Windows. Puede omitir esta sección si no está trabajando con dispositivos Windows.
 
 #### <a name="in-visual-studio"></a>En Visual Studio
-1. Haga clic con el botón derecho en cualquiera de los proyectos de Windows y, después, haga clic en **Establecer como proyecto de inicio**.
-2. En el menú **Compilar**, haga clic en **Administrador de configuración**.
-3. En el cuadro de diálogo **Administrador de configuración**, active las casillas **Compilar** e **Implementar** del proyecto de Windows que haya elegido.
-4. Presione la tecla **F5** para compilar el proyecto e iniciar la aplicación en un emulador de Windows.
+
+1. Haga clic con el botón derecho en cualquiera de los proyectos de Windows y, después, seleccione **Establecer como proyecto de inicio**.
+
+2. En el menú **Compilar**, seleccione **Administrador de configuración**.
+
+3. En el cuadro de diálogo **Administrador de configuración**, active las casillas **Compilar** e **Implementar** junto al proyecto de Windows que haya elegido.
+
+4. Para compilar el proyecto e iniciar la aplicación en un emulador de Windows, presione la tecla **F5**.
 
    > [!NOTE]
-   > Si tiene problemas en la compilación, ejecute el Administrador de paquetes NuGet y actualice a la versión más reciente de los paquetes de soporte de Xamarin. A veces, la actualización de los proyectos de inicio rápido a la versión más reciente puede retrasarse.    
+   > Si tiene problemas al compilar el proyecto, ejecute el Administrador de paquetes NuGet y actualice a la versión más reciente de los paquetes de soporte de Xamarin. Los proyectos de la guía de inicio rápido pueden tardar en actualizarse a las versiones más recientes.    
    >
    >
 
-En la aplicación, escriba texto significativo, como *Aprender Xamarin*, y haga clic en el botón **+**.
+5. En la aplicación, escriba un texto significativo, como *Aprender Xamarin*, y seleccione el botón del signo más (**+**).
 
-Esta acción envía una solicitud POST al nuevo back-end de aplicación móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de aplicación móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
-
-![][12]
-
-> [!NOTE]
-> Encontrará el código con el que se accede al back-end de la aplicación móvil en el archivo de C# TodoItemManager.cs del proyecto de biblioteca de clases portable de la solución.
->
->
+    Esta acción envía una solicitud POST al nuevo back-end Mobile Apps hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de Mobile Apps devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
+    
+    ![][12]
+    
+    > [!NOTE]
+    > Encontrará el código con el que se accede al back-end de Mobile Apps en el archivo de C# TodoItemManager.cs del proyecto de biblioteca de clases portable de la solución.
+    >
+    >
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Incorporación de autenticación a la aplicación](app-service-mobile-xamarin-forms-get-started-users.md)  
   Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+
 * [Incorporación de notificaciones push a su aplicación](app-service-mobile-xamarin-forms-get-started-push.md)  
-  : aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar centros de notificaciones de Azure para enviar notificaciones push.
-* [Habilitación de la sincronización sin conexión para su aplicación](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
-  : aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos) aun cuando no haya conexión de red.
-* [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md)  
+  Aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de Mobile Apps para usar Azure Notification Hubs para enviar notificaciones push.
+
+* [Activación de la sincronización sin conexión para la aplicación de Windows](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
+  Aprenda a agregar compatibilidad sin conexión para la aplicación mediante un back-end de Mobile Apps. Con la sincronización sin conexión, podrá ver, agregar o modificar los datos en la aplicación móvil, incluso cuando no hay ninguna conexión de red.
+
+* [Uso del cliente administrado para Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
   : aprenda a trabajar con el SDK de cliente administrado en la aplicación Xamarin.
 
 <!-- Anchors. -->
-[Getting started with mobile app backends]:#getting-started
-[Create a new mobile app backend]:#create-new-service
-[Next Steps]:#next-steps
+[Get started with Mobile Apps back ends]:#getting-started
+[Create a new Mobile Apps back end]:#create-new-service
+[Next steps]:#next-steps
 
 
 <!-- Images. -->
@@ -174,5 +200,5 @@ Esta acción envía una solicitud POST al nuevo back-end de aplicación móvil h
 <!-- URLs. -->
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Portal de Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 

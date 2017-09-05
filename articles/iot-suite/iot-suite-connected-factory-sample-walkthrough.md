@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
 ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Tutorial de la solución de fábrica preconfigurada conectada
 
 La solución de fábrica [preconfigurada][lnk-preconfigured-solutions] conectada del conjunto de aplicaciones de IoT es una implementación de una solución industrial completa que:
 
-* Se conecta a dispositivos industriales simulados que ejecutan servidores OPC UA en líneas de producción de fábrica simuladas y en dispositivos de servidor OPC UA reales. Para más información acerca de OPC UA, consulte las [preguntas frecuentes][lnk-faq].
+* Se conecta a dispositivos industriales simulados que ejecutan servidores OPC UA en líneas de producción de fábrica simuladas y en dispositivos de servidor OPC UA reales. Para más información acerca de OPC UA, consulte las [preguntas frecuentes sobre la fábrica conectada](iot-suite-faq-cf.md).
 * Muestra las claves KPI operativas y el OEE de esos servicios y líneas de producción.
 * Demuestra cómo se podría usar una aplicación basada en la nube para interactuar con sistemas de servidores OPC UA.
 * Le permite conectar sus propios dispositivos de servidor OPC UA.
@@ -40,6 +40,8 @@ Este artículo le guía a través de algunos de los elementos clave de la soluci
 * Solucionar problemas de la solución.
 * Planear cómo personalizar la solución para satisfacer sus propios requisitos específicos.
 * Diseñar una solución de IoT propia que utilice servicios de Azure.
+
+Para más información, consulte las [preguntas frecuentes sobre la fábrica conectada](iot-suite-faq-cf.md).
 
 ## <a name="logical-architecture"></a>Arquitectura lógica
 
@@ -128,6 +130,7 @@ La aplicación web implementada como parte de la solución preconfigurada consta
 Puede continuar su introducción al Conjunto de aplicaciones de IoT con la lectura de los siguientes artículos:
 
 * [Permisos en el sitio azureiotsuite.com][lnk-permissions]
+* [Implementación de una puerta de enlace en Windows o Linux para la solución preconfigurada de fábrica conectada](iot-suite-connected-factory-gateway-deployment.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
@@ -138,4 +141,4 @@ Puede continuar su introducción al Conjunto de aplicaciones de IoT con la lectu
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+

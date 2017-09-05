@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
+ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 98c5bacd0a040d3a2d83bfe088b11d0f15449ed9
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -28,7 +28,7 @@ Un [clúster de Service Fabric](service-fabric-deploy-anywhere.md) es un conjunt
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 
-## <a name="use-the-azure-portal"></a>Uso de Azure Portal
+## <a name="use-the-azure-portal"></a>Uso del Portal de Azure
 
 Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
 
@@ -40,9 +40,11 @@ Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.
 
     ![Salida de instalación de clúster][cluster-setup-basics]
 
-4. Rellene el formulario **Configuración de clúster**.  Para **Número de tipos de nodos**, escriba "1" y establezca [Nivel de durabilidad](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) en "Bronce".
+4. Rellene el formulario **Configuración de clúster**.  En **Número de tipos de nodos**, escriba "1".
 
-5. Seleccione **Configurar cada tipo de nodo** y rellene el formulario **Configuración del tipo de nodo**. Los tipos de nodo definen el tamaño de las máquinas virtuales, número de máquinas virtuales, los puntos de conexión personalizados y otras opciones para las máquinas virtuales de ese tipo. Cada tipo de nodo definido se configura como un conjunto de escalado de máquinas virtuales independiente, que se usa para implementar y administrar máquinas virtuales como un conjunto. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente. Cada uno tiene diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad.  El primer tipo de nodo, o nodo principal, es donde los servicios del sistema de Service Fabric se hospedan y tienen que tener cinco o más máquinas virtuales.
+5. Seleccione **Tipo de nodo 1 (Principal)** y rellene el formulario **Configuración del tipo de nodo**.  Escriba un nombre de tipo de nodo y establezca el [nivel de durabilidad](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) en "Bronce".  Seleccione un tamaño de máquina virtual.
+
+    Los tipos de nodo definen el tamaño de las máquinas virtuales, número de máquinas virtuales, los puntos de conexión personalizados y otras opciones para las máquinas virtuales de ese tipo. Cada tipo de nodo definido se configura como un conjunto de escalado de máquinas virtuales independiente, que se usa para implementar y administrar máquinas virtuales como un conjunto. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente. Cada uno tiene diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad.  El primer tipo de nodo, o nodo principal, es donde los servicios del sistema de Service Fabric se hospedan y tienen que tener cinco o más máquinas virtuales.
 
     En cualquier implementación de producción, el [planeamiento de capacidad](service-fabric-cluster-capacity.md) es un paso importante.  Para este inicio rápido, sin embargo, no está ejecutando aplicaciones así que seleccione un tamaño de máquina virtual *DS1_v2 Estándar*.  Seleccione "Plata" para el [nivel de confiabilidad](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) y un capacidad de conjunto de escalado de máquinas virtuales inicial de 5.  
 
@@ -84,20 +86,20 @@ El panel del clúster proporciona información general del clúster, incluido un
 Compruebe que el clúster se está ejecutando a través de una conexión usando PowerShell.  El módulo ServiceFabric PowerShell se instala con el [SDK de Service Fabric](service-fabric-get-started.md).  El cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) establece una conexión con el clúster.   
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
+Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloudapp.azure.com:19000
 ```
 Consulte [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md) para ver ejemplos de conexión a un clúster. Después de conectarse al clúster, use el cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para mostrar una lista de nodos en el clúster e información sobre el estado de cada uno. **HealthState** debe ser *OK* para cada nodo.
 
 ```powershell
-PS C:\> Get-ServiceFabricNode |Format-Table
+PS C:\Users\sfuser> Get-ServiceFabricNode |Format-Table
 
-NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
--------------------- --------     --------------- --------  ----------- ------------- ---------- ---------- ------------ -----------
-                     _nodetype1_2 10.0.0.6        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_1 10.0.0.5        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_0 10.0.0.4        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_4 10.0.0.8        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_3 10.0.0.7        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
+NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
+-------------------- --------     --------------- --------  -----------  ------------- ---------- ---------- ------------ -----------
+                     _nodetype1_2 10.0.0.6        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_1 10.0.0.5        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_0 10.0.0.4        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_4 10.0.0.8        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_3 10.0.0.7        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
 ```
 
 ### <a name="remove-the-cluster"></a>Eliminación del clúster
@@ -106,65 +108,58 @@ Un clúster de Service Fabric está formado por muchos otros recursos de Azure, 
 Eliminación de un grupo de recursos en Azure Portal:
 1. Desplácese hasta el clúster de Service Fabric que quiere eliminar.
 2. Haga clic en el nombre del **Grupo de recursos** en la página de información básica del clúster.
-3. En la página **Resource Group Essentials** (Información básica del grupo de recursos) haga clic en **Eliminar** y siga las instrucciones que se indican en esa página para completar la eliminación del grupo de recursos.
+3. En la página **Resource Group Essentials** (Información básica del grupo de recursos) haga clic en **Eliminar grupo de recursos** y siga las instrucciones que se indican en esa página para completar la eliminación del grupo de recursos.
     ![Eliminación del grupo de recursos][cluster-delete]
 
 
 ## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Uso de Azure PowerShell para implementar un clúster seguro
+1. Descargue la [versión 4.0 del módulo Azure PowerShell, o cualquier versión posterior](https://docs.microsoft.com/powershell/azure/install-azurerm-ps), en el equipo.
 
-
-1) Descargue la [versión 4.0 del módulo Azure PowerShell, o cualquier versión posterior](https://docs.microsoft.com/powershell/azure/install-azurerm-ps), en el equipo.
-
-2) Abra una ventana de Windows PowerShell y ejecute el comando siguiente. 
+2. Abra una ventana de Windows PowerShell y ejecute el comando siguiente. 
     
-```powershell
+    ```powershell
 
-Get-Command -Module AzureRM.ServiceFabric 
-```
+    Get-Command -Module AzureRM.ServiceFabric 
+    ```
 
-Debería ver una salida similar a la siguiente.
+    Debería ver una salida similar a la siguiente.
 
-![ps-list][ps-list]
+    ![ps-list][ps-list]
 
-3) Inicie sesión en Azure y seleccione la suscripción en la que desea crear el clúster
+3. Inicie sesión en Azure y seleccione la suscripción en la que desea crear el clúster
 
-```powershell
+    ```powershell
 
-Login-AzureRmAccount
+    Login-AzureRmAccount
 
-Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    ```
 
-```
+4. Ejecute el siguiente comando para crear un clúster seguro. No olvide personalizar los parámetros. 
 
-4) Ejecute el siguiente comando para crear un clúster seguro. No olvide personalizar los parámetros. 
+    ```powershell
+    $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+    $RDPuser="vmadmin"
+    $RGname="mycluster" # this is also the name of your cluster
+    $clusterloc="SouthCentralUS"
+    $subname="$RGname.$clusterloc.cloudapp.azure.com"
+    $certfolder="c:\mycertificates\"
+    $clustersize=1 # can take values 1, 3-99
 
+    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    ```
 
-````powershell
+    El comando puede tardar entre 10 y 30 minutos en completarse y su resultado debe ser similar al siguiente. Dicho resultado tiene información acerca del certificado, el valor de KeyVault en que se cargó y la carpeta local donde se copia el certificado. 
 
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-$RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-$RDPuser="vmadmin"
-$RGname="mycluster" # this is also the name of your cluster
-$clusterloc="SouthCentralUS"
-$subname="$RGname.$clusterloc.cloudapp.azure.com"
-$certfolder="c:\mycertificates\"
-$clustersize=1 # can take values 1, 3-99
+    ![ps-out][ps-out]
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+5. Copie todo el resultado y guárdelo como archivo de texto, ya que tenemos que hacer referencia a él. Tome nota de la siguiente información del resultado. 
 
-````
-
-El comando puede tardar entre 10 y 30 minutos en completarse y su resultado debe ser similar al siguiente. Dicho resultado tiene información acerca del certificado, el valor de KeyVault en que se cargó y la carpeta local donde se copia el certificado. 
-
-![ps-out][ps-out]
-
-5) Copie todo el resultado y guárdelo como archivo de texto, ya que tenemos que hacer referencia a él. Tome nota de la siguiente información del resultado.
- 
-
-- **CertificateSavedLocalPath**: c:\mycertificates\mycluster20170504141137.pfx
-- **CertificateThumbprint**: C4C1E541AD512B8065280292A8BA6079C3F26F10
-- **ManagementEndpoint**: https://mycluster.southcentralus.cloudapp.azure.com:19080
-- **ClientConnectionEndpointPort**: 19000
+    - **CertificateSavedLocalPath**: c:\mycertificates\mycluster20170504141137.pfx
+    - **CertificateThumbprint**: C4C1E541AD512B8065280292A8BA6079C3F26F10
+    - **ManagementEndpoint**: https://mycluster.southcentralus.cloudapp.azure.com:19080
+    - **ClientConnectionEndpointPort**: 19000
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>Instalación del certificado en un equipo local
   

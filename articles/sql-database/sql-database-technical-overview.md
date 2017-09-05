@@ -9,18 +9,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview
+ms.custom: overview, mvc
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/30/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 54aa8c2f738ef92c211462498103d368e4cb4c5c
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 28aa6d79f999fe9b247d9bb2c61a149a21e72a4a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>¿Qué es el servicio Azure SQL Database? 
@@ -146,6 +146,14 @@ SQL Database facilita la creación y el mantenimiento de aplicaciones y aumenta 
 - **[Visual Studio Code](https://code.visualstudio.com/docs)**: un editor de código de código abierto, gratuito y que se puede descargar para Windows, macOS y Linux que admite extensiones, entre las que se incluye la [extensión mssql](https://aka.ms/mssql-marketplace), para realizar consultas en Microsoft SQL Server, Azure SQL Database y SQL Data Warehouse.
 
 SQL Database admite la compilación de aplicaciones con Python, Java, Node.js, PHP, Ruby y .NET en MacOS, Linux y Windows. SQL Database admite las mismas [bibliotecas de conexiones](sql-database-libraries.md) como SQL Server.
+
+## <a name="engage-with-the-sql-server-engineering-team"></a>Contactar con el equipo de ingeniería de SQL Server
+
+- [Cambio de pila de DBA](https://dba.stackexchange.com/questions/tagged/sql-server): formule preguntas sobre administración de base de datos
+- [Desbordamiento de pila](http://stackoverflow.com/questions/tagged/sql-server): formule preguntas sobre desarrollo
+- [Foros de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): formule preguntas técnicas
+- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): informe de errores y características de la solicitud
+- [Reddit](https://www.reddit.com/r/SQLServer/): analice SQL Server
 
 ## <a name="next-steps"></a>Pasos siguientes
 

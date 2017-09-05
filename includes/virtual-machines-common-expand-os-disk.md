@@ -1,5 +1,5 @@
 ## <a name="overview"></a>Información general
-Cuando cree una nueva máquina virtual (VM) en un grupo de recursos mediante la implementación de una imagen desde [Azure Marketplace](https://azure.microsoft.com/marketplace/), la unidad del sistema operativo predeterminada es de 127 GB. Aunque es posible agregar discos de datos a la máquina virtual (la cantidad depende de la SKU que haya elegido) y, además, se recomienda instalar aplicaciones y cargas de trabajo intensivas de CPU en estos discos de anexo, a menudo los clientes necesitan expandir la unidad del sistema operativo para admitir determinados escenarios, como los siguientes:
+Cuando se crea una nueva máquina virtual (VM) en un grupo de recursos mediante la implementación de una imagen de [Azure Marketplace](https://azure.microsoft.com/marketplace/), la unidad del sistema operativo predeterminada suele tener 127 GB (algunas imágenes son más pequeñas de manera predeterminada). Aunque es posible agregar discos de datos a la máquina virtual (la cantidad depende de la SKU que haya elegido) y, además, se recomienda instalar aplicaciones y cargas de trabajo intensivas de CPU en estos discos de anexo, a menudo los clientes necesitan expandir la unidad del sistema operativo para admitir determinados escenarios, como los siguientes:
 
 1. Compatibilidad con aplicaciones heredadas que instalan componentes en la unidad del sistema operativo.
 2. Migración de una máquina virtual o un equipo físico desde local con una unidad del sistema operativo más grande.
@@ -42,7 +42,7 @@ En este artículo se va a realizar la tarea de cambiar el tamaño de la unidad d
    ```
    
    > [!WARNING]
-   > El nuevo tamaño debe ser mayor que el tamaño de disco existente. El máximo permitido es de 1023 GB.
+   > El nuevo tamaño debe ser mayor que el tamaño de disco existente. El máximo permitido es 2048 GB (el blob de VHD se puede expandir más, pero el sistema operativo solo podrá trabajar con los primeros 2048 GB).
    > 
    > 
 6. La actualización de la máquina virtual puede tardar unos segundos. Una vez que el comando acabe de ejecutarse, reinicie la máquina virtual de la siguiente forma:

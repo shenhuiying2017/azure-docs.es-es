@@ -4,7 +4,7 @@ description: "Flujos de datos y SensorTags de IoT con análisis de transmisiones
 keywords: "solución de IoT, introducción a IoT"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
-ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
-ms.lasthandoff: 01/24/2017
-
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
+ms.contentlocale: es-es
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introducción a Análisis de transmisiones de Azure para el procesamiento de datos desde dispositivos de IoT
@@ -65,7 +65,7 @@ Para facilitar su uso, esta guía de introducción proporciona un archivo con da
 4. Active la casilla para colocar el trabajo en el panel y haga clic en **CREAR**.
    
     ![creación de trabajo en curso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
-5. Debería ver el mensaje "Implementación iniciada…" en la parte superior derecha de la ventana del explorador. Pronto cambiará a una ventana completada, tal como se muestra a continuación.
+5. Debería ver un mensaje de "La implementación empezó..." en la parte superior derecha de la ventana del explorador. Pronto cambiará a una ventana completada, tal como se muestra a continuación.
    
     ![creación de trabajo en curso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
@@ -106,12 +106,12 @@ Tenga en cuenta que la consulta que distingue mayúsculas de minúsculas compara
 ### <a name="query-alert-to-trigger-a-business-workflow"></a>Consulta: alerta para desencadenar un flujo de trabajo de negocio
 Aumentemos el grado de detalle de la consulta. En cada tipo de sensor, deseamos supervisar la temperatura media por ventana de 30 segundos y mostrar los resultados solo si la temperatura media supera los 100 grados. Escribiremos la consulta siguiente y, luego, haremos clic en **Probar** para ver los resultados. La consulta se encuentra en el archivo ThresholdAlerting.txt.
 
-![Consulta de filtro de&30; segundos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
+![Consulta de filtro de 30 segundos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
 Ahora debe ver los resultados que contienen solo las 245 filas y nombres de sensores en los que la temperatura promedio supera los 100 grados. Esta consulta agrupa el flujo de eventos por **dspl**, que es el nombre del sensor y con respecto a una **ventana de saltos de tamaño constante** de 30 segundos. Las consultas temporales deben indicar cómo deseamos que transcurra el tiempo. Mediante la cláusula **TIMESTAMP BY**, hemos especificado la columna **OUTPUTTIME** para asociar los tiempos con todos los cálculos temporales. Para obtener información detallada, lea los artículos de MSDN sobre las funciones de [Administración del tiempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) y [Ventana](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 ### <a name="query-detect-absence-of-events"></a>Consulta: detección de la ausencia de eventos
-¿Cómo podemos escribir una consulta que busque una falta de eventos de entrada? Busquemos la última vez que un sensor envió datos y luego no envió ningún evento en el minuto posterior. La consulta se encuentra en el archivo AbsenseOfEvent.txt.
+¿Cómo podemos escribir una consulta que busque una falta de eventos de entrada? Busquemos la última vez que un sensor envió datos y luego no envió ningún evento en los 5 segundos posteriores. La consulta se encuentra en el archivo AbsenseOfEvent.txt.
 
 ![Detección de la ausencia de eventos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 

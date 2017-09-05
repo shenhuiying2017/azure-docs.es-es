@@ -12,21 +12,21 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/07/2017
+ms.topic: quickstart
+ms.date: 08/24/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: f29e9dcc2bed968937627d48f1a98e3b084853b9
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 0273072c7c10e219ab8d6c85eb252badafc17147
 ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: creación una base de datos de grafos mediante Java y Azure Portal
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-Este tutorial rápido crea una base de datos de grafos mediante las herramientas de Azure Portal para Azure Cosmos DB. Este tutorial rápido también muestra cómo crear rápidamente una aplicación de consola Java usando una base de datos de grafos mediante el controlador [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) de OSS. Las instrucciones que se indican en este tutorial rápido se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Java. Al completar este tutorial rápido aprenderá a crear y modificar los recursos de base de datos de grafos en la interfaz de usuario o mediante programación, lo que prefiera. 
+Este tutorial rápido crea una base de datos de grafos mediante las herramientas de Azure Portal para Azure Cosmos DB. Este tutorial rápido también muestra cómo crear rápidamente una aplicación de consola Java usando una base de datos de grafos mediante el controlador [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) de OSS. Las instrucciones que se indican en este tutorial rápido se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Java. Con esta guía de inicio rápido se familiarizará con la creación y modificación de los recursos de grafos en la interfaz de usuario o mediante programación, lo que prefiera. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -51,7 +51,7 @@ Para poder crear una base de datos de grafos, debe crear una cuenta de base de d
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos de grafos. 
 
 1. En Azure Portal, en el menú de navegación izquierdo, haga clic en **Explorador de datos (versión preliminar)**. 
-2. En la hoja **Explorador de datos (Vista previa)**, haga clic en **New Graph** (Nuevo grafo) y rellene la página con la información siguiente.
+2. En la hoja **Explorador de datos (versión preliminar)**, haga clic en **New Graph** (Nuevo grafo) y rellene la página con la información siguiente:
 
     ![Explorador de datos en Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer.png)
 
@@ -61,7 +61,6 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
     Identificador de grafo|sample-graph|Identificador del nuevo grafo. Los nombres de grafo tienen los mismos requisitos de caracteres que los identificadores de base de datos.
     Capacidad de almacenamiento| 10 GB|Deje el valor predeterminado. Se trata de la capacidad de almacenamiento de la base de datos.
     Rendimiento|400 RU|Deje el valor predeterminado. Se puede escalar el rendimiento más adelante si quiere reducir la latencia.
-    RU/m|Off|Deje el valor predeterminado.
     Clave de partición|Déjelo en blanco|Para este tutorial rápido, deje en blanco la clave de partición.
 
 3. Una vez que haya rellenado el formulario, haga clic en **Aceptar**.

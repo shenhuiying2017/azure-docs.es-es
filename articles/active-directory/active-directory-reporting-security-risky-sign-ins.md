@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: f31482a8b37858b93391afc561223a1b1110a1a9
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 45a6f63bd920c9a70c25b8dfae084ea030256cf4
 ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Informe de inicios de sesión poco seguros del portal de Azure Active Directory
@@ -52,7 +52,7 @@ Sin embargo, el nivel de granularidad del informe varía según la edición:
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Edición gratuita y básica de Azure Active Directory
 
-Las ediciones gratuita y básica de Azure Active Directory proporcionan una lista de inicios de sesión peligrosos que se han detectado para los usuarios. En el informe de eventos de riesgo se especifican:
+Las ediciones gratuita y básica de Azure Active Directory proporcionan una lista de inicios de sesión peligrosos que se han detectado para los usuarios. Este informe muestra:
 
 - **Usuario**: el nombre del usuario que se utilizó durante la operación de inicio de sesión
 - **IP**: la dirección IP del dispositivo que se usó para conectarse a Azure Active Directory
@@ -60,7 +60,6 @@ Las ediciones gratuita y básica de Azure Active Directory proporcionan una list
 - **Hora de inicio de sesión**: la hora en que se realizó el inicio de sesión
 - **Estado**: el estado del inicio de sesión
 
-Este informe proporciona una opción para descargar los datos del informe.
 
 ![Inicios de sesión no seguros](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
@@ -74,6 +73,15 @@ Con los datos derivados de la investigación del inicio de sesión no seguro, pu
 ![Inicios de sesión no seguros](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 Para más información, consulte [Cierre manual de eventos de riesgo](active-directory-identityprotection.md#closing-risk-events-manually).
+
+Este informe proporciona una opción para:
+
+- Buscar recursos
+- Descargar los datos de informe
+
+
+![Inicios de sesión no seguros](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Ediciones Azure Active Directory Premium
 

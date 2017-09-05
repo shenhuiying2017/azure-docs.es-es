@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/29/2017
+ms.date: 08/28/2017
 ms.author: nisoneji
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
 ms.contentlocale: es-es
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
@@ -67,7 +67,7 @@ La herramienta tiene dos fases principales: la generación de perfiles y la gene
 
 | Requisito del servidor | Descripción|
 |---|---|
-|Generación de perfiles y medición de rendimiento| <ul><li>Sistema operativo: Microsoft Windows Server 2012 R2<br>(lo ideal es que coincida al menos con las [recomendaciones de tamaño del servidor de configuración](https://aka.ms/asr-v2a-on-prem-components)).</li><li>Configuración del equipo: 8 vCPU, 16 GB de RAM y 300 GB de HDD</li><li>[Microsoft .NET 4.5 Framework](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acceso a través de Internet a Azure desde este servidor</li><li>Cuenta de almacenamiento de Azure</li><li>Acceso de administrador en el servidor</li><li>Mínimo de 100 GB de espacio libre en disco (asumiendo 1000 máquinas virtuales con un promedio de tres discos cada una, con perfil para 30 días)</li><li>La configuración del nivel de las estadísticas de VMware vCenter debe establecerse en 2, o en un nivel superior</li></ul>|
+|Generación de perfiles y medición de rendimiento| <ul><li>Sistema operativo: Microsoft Windows Server 2012 R2<br>(lo ideal es que coincida al menos con las [recomendaciones de tamaño del servidor de configuración](https://aka.ms/asr-v2a-on-prem-components)).</li><li>Configuración del equipo: 8 vCPU, 16 GB de RAM y 300 GB de HDD</li><li>[Microsoft .NET 4.5 Framework](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acceso a través de Internet a Azure desde este servidor</li><li>Cuenta de almacenamiento de Azure</li><li>Acceso de administrador en el servidor</li><li>Mínimo de 100 GB de espacio libre en disco (asumiendo 1000 máquinas virtuales con un promedio de tres discos cada una, con perfil para 30 días)</li><li>La configuración del nivel de las estadísticas de VMware vCenter debe establecerse en 2, o en un nivel superior</li><li>Permitir el puerto 443: ASR Deployment Planner utiliza este puerto para conectarse al servidor de vCenter o host ESXi</ul></ul>|
 | Generación de informes | Un PC con Windows o Windows Server con Microsoft Excel 2013, o cualquier versión posterior |
 | Permisos de usuario | El permiso de solo lectura para la cuenta de usuario que se utiliza para acceder al servidor de VMware vCenter o host de VMware vSphere ESXi durante la generación de perfiles |
 
@@ -119,14 +119,18 @@ En primer lugar, se necesita una lista de las máquinas virtuales cuyo perfil se
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Para obtener todos los nombres de las máquinas virtuales en un servidor vCenter/host de vSphere ESXi y almacenar la lista en un archivo .txt, ejecute los dos comandos que se enumeran aquí.
+4. Opcionalmente, es posible que necesite ejecutar el siguiente comando si no se reconoce al servidor de Connect-VI como nombre del cmdlet.
+ 
+            Add-PSSnapin VMware.VimAutomation.Core 
+
+5. Para obtener todos los nombres de las máquinas virtuales en un servidor vCenter/host de vSphere ESXi y almacenar la lista en un archivo .txt, ejecute los dos comandos que se enumeran aquí.
 Reemplace &lsaquo;server name&rsaquo; (nombre del servidor), &lsaquo;user name&rsaquo; (nombre de usuario), &lsaquo;password&rsaquo; (contraseña), &lsaquo;outputfile.txt&rsaquo;; (archivo de salida.txt) por sus entradas.
 
             Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-5. Abra el archivo de salida en el Bloc de notas y, después, copie en otro archivo los nombres de todas las máquinas virtuales cuyo perfil desea generar (por ejemplo, ProfileVMList.txt), un nombre de máquina virtual por línea. Este archivo se usa como entrada para el parámetro *-VMListFile* de la herramienta de línea de comandos.
+6. Abra el archivo de salida en el Bloc de notas y, después, copie en otro archivo los nombres de todas las máquinas virtuales cuyo perfil desea generar (por ejemplo, ProfileVMList.txt), un nombre de máquina virtual por línea. Este archivo se usa como entrada para el parámetro *-VMListFile* de la herramienta de línea de comandos.
 
     ![Lista de nombres de máquinas virtuales en Deployment Planner](./media/site-recovery-deployment-planner/profile-vm-list.png)
 

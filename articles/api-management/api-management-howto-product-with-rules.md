@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 9dba928b78c11213d4b0098986561b09678444eb
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 5553bcb8f9fd38630f694151dc644a684266387c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Protección de su API con límites de frecuencia mediante Azure API Management
@@ -110,7 +110,7 @@ Las directivas de límite de tasa y de cuota son directivas de entrada, por lo q
 
 ![Policy editor][api-management-policy-editor-inbound]
 
-Desplácese por la lista de directivas y busque la entrada de directiva **Limitar la frecuencia de llamadas por suscripción**.
+Desplácese por la lista de directivas y busque la entrada de directiva para **limitar la frecuencia de llamadas por suscripción**.
 
 ![Policy statements][api-management-limit-policies]
 

@@ -3,5 +3,6 @@ Análisis de Data Lake facilita la compleja tarea de administrar infraestructura
 | **Recurso** | **Límite predeterminado** | **Comentarios** |
 | --- | --- | --- |
 | Número máximo de trabajos simultáneos |20 | | |
-| Paralelismo máximo por cuenta |250 |Utilice cualquier combinación de hasta 60 unidades como máximo de paralelismo entre los tres trabajos. |
+| Número máximo de unidades de análisis por cuenta |250 | Use cualquier combinación de hasta un máximo de 250 unidades de análisis entre 20 trabajos. |
+| Tamaño máximo del script para el envío de trabajos | 3 MB | |
 

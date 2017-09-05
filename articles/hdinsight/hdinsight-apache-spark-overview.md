@@ -15,21 +15,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: acb80aa98cc978a906ccd6e4b4132a439e505bc8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b8955acc83b0fbb0612e7042d62170ae8078b9ad
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Introducción a Spark en HDInsight
 
-En este artículo se proporciona una introducción a Spark en HDInsight. <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> es un marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones analíticas de Big Data. Un clúster de Spark en HDInsight es compatible con Azure Storage (WASB), así como con Azure Data Lake Store, por lo que los datos existentes almacenados en Azure pueden procesarse fácilmente por medio de un clúster de Spark.
+En este artículo se proporciona una introducción a Spark en HDInsight. <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> es un marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones analíticas de Big Data. El clúster de Spark en HDInsight es compatible con Azure Storage (WASB), así como con Azure Data Lake Store. Por lo tanto, los datos existentes almacenados en Azure se pueden procesar fácilmente a través de un clúster de Spark.
 
-Cuando crea un clúster de Spark en HDInsight, aprovisiona recursos de proceso de Azure con Spark instalado y configurado. Solamente se tardan unos diez minutos en crear un clúster Spark en HDInsight. Los datos que se van a procesar se almacenan en Azure Storage o Azure Data Lake Store. Consulte [Uso de Azure Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md).
+Cuando crea un clúster de Spark en HDInsight, aprovisiona recursos de proceso de Azure con Spark instalado y configurado. Apenas se tardan unos diez minutos en crear un clúster Spark en HDInsight. Los datos que se van a procesar se almacenan en Azure Storage o Azure Data Lake Store. Consulte [Uso de Azure Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 **Para crear un clúster de Spark en HDInsight**, consulte el [inicio rápido sobre cómo crear un clúster de Spark en HDInsight y ejecutar consultas interactivas mediante Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
@@ -40,7 +39,7 @@ Los clústeres de Spark en HDInsight ofrecen un servicio de Spark completamente 
 | Característica | Descripción |
 | --- | --- |
 | Facilidad de creación de clústeres de Spark |Puede crear un clúster de Spark en HDInsight en cuestión de minutos mediante Azure Portal, Azure PowerShell o el SDK de .NET de HDInsight. Consulte [Introducción al clúster de Spark en HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
-| Facilidad de uso |El clúster de Spark en HDInsight incluye notebooks de Jupyter y Zeppelin. Puede usarlos para el procesamiento y la visualización de datos interactivos.|
+| Facilidad de uso |El clúster de Spark en HDInsight incluye notebooks de Jupyter y Zeppelin. Puede usar estos notebooks para el procesamiento y la visualización de datos interactivos.|
 | API de REST |Los clústeres de Spark en HDInsight incluyen [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), un servidor de trabajos de Spark basado en una API de REST para enviar y supervisar trabajos de forma remota. |
 | Compatibilidad con Almacén de Azure Data Lake | Se puede configurar un clúster de Spark en HDInsight para que utilice Azure Data Lake Store como almacenamiento adicional, además de como almacenamiento principal (solo con clústeres de HDInsight 3.5). Para más información acerca del Almacén de Data Lake, consulte la página con [información general del Almacén de Azure Data Lake](../data-lake-store/data-lake-store-overview.md). |
 | Integración con servicios de Azure |Un clúster de Spark en HDInsight incluye un conector a Azure Event Hubs. Los clientes pueden compilar aplicaciones de streaming con los Centros de eventos, además de con [Kafka](http://kafka.apache.org/), que ya está disponible como parte de Spark. |

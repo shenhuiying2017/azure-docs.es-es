@@ -12,23 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ed72325ca9db99405c6173eb882a92f80cd77f47
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e3f8dd4b820da8a14437aa313e4296dc17111674
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
-<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Habilitación de Azure Active Directory Domain Services mediante el Portal de Azure clásico
 
-# Habilitación de Azure Active Directory Domain Services mediante el Portal de Azure clásico
+> [!IMPORTANT]
+> La experiencia del Portal de Azure clásico para habilitar Azure Active Directory Domain Services que se muestra en este artículo se retirará pronto. Para las nuevas implementaciones, [**utilice en su lugar la nueva experiencia de Azure Portal (versión preliminar)**](active-directory-ds-getting-started.md).
+>
 
-<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
-
-## Tarea 3: Habilitación de Azure Active Directory Domain Services
+## <a name="task-3-enable-azure-active-directory-domain-services"></a>Tarea 3: Habilitación de Azure Active Directory Domain Services
 En esta tarea, habilitará Azure Active Directory Domain Services (Azure AD DS) para su directorio mediante los pasos siguientes:
 
 1. Vaya al [Portal de Azure clásico](https://manage.windowsazure.com).
@@ -99,8 +98,6 @@ En esta tarea, habilitará Azure Active Directory Domain Services (Azure AD DS) 
 >
 >
 
-<a id="next-step" class="xliff"></a>
-
-## Paso siguiente
-[Tarea 4: Actualización de la configuración DNS en la red virtual de Azure](active-directory-ds-getting-started-update-dns.md)
+## <a name="next-step"></a>Paso siguiente
+[Tarea 4: Actualización de la configuración DNS en Azure Virtual Network](active-directory-ds-getting-started-update-dns.md)
 
