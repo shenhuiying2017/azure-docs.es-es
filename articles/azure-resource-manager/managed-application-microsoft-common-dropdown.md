@@ -3,7 +3,7 @@ title: "Elemento de interfaz de usuario DropDown de una aplicación administrada
 description: Describe el elemento de la interfaz de usuario Microsoft.Common.DropDown para aplicaciones administradas de Azure
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
@@ -12,13 +12,12 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: a769e14efbae928b811fa1f1b1c2d4fba3c7692b
 ms.contentlocale: es-es
 ms.lasthandoff: 05/12/2017
-
 
 ---
 

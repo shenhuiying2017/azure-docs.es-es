@@ -386,7 +386,8 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
       -ServerName $mydrservername
    $fileovergroup.ReplicationRole
    ```
-## <a name="next-steps"></a>Pasos siguientes 
+
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, vea [Grupos de conmutación por error y replicación geográfica activa](sql-database-geo-replication-overview.md).
 
