@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
 ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Uso compartido del estado en y desde las plantillas de Azure Resource Manager
@@ -32,139 +33,143 @@ Con objetos complejos, puede crear las variables que contengan colecciones de da
 
 En el ejemplo siguiente se muestra cómo definir variables que contienen objetos complejos para representar colecciones de datos. Las colecciones definen valores que se usan para el tamaño de la máquina virtual, la configuración de red, la configuración del sistema operativo y la configuración de disponibilidad.
 
-    "variables": {
-      "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
-      "tshirtSizeSmall": {
-        "vmSize": "Standard_A1",
-        "diskSize": 1023,
-        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
-        "vmCount": 2,
-        "storage": {
-          "name": "[parameters('storageAccountNamePrefix')]",
-          "count": 1,
-          "pool": "db",
-          "map": [0,0],
-          "jumpbox": 0
-        }
+```json
+"variables": {
+  "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
+  "tshirtSizeSmall": {
+    "vmSize": "Standard_A1",
+    "diskSize": 1023,
+    "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
+    "vmCount": 2,
+    "storage": {
+      "name": "[parameters('storageAccountNamePrefix')]",
+      "count": 1,
+      "pool": "db",
+      "map": [0,0],
+      "jumpbox": 0
+    }
+  },
+  "tshirtSizeMedium": {
+    "vmSize": "Standard_A3",
+    "diskSize": 1023,
+    "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-8disk-resources.json')]",
+    "vmCount": 2,
+    "storage": {
+      "name": "[parameters('storageAccountNamePrefix')]",
+      "count": 2,
+      "pool": "db",
+      "map": [0,1],
+      "jumpbox": 0
+    }
+  },
+  "tshirtSizeLarge": {
+    "vmSize": "Standard_A4",
+    "diskSize": 1023,
+    "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
+    "vmCount": 3,
+    "slaveCount": 2,
+    "storage": {
+      "name": "[parameters('storageAccountNamePrefix')]",
+      "count": 2,
+      "pool": "db",
+      "map": [0,1,1],
+      "jumpbox": 0
+    }
+  },
+  "osSettings": {
+    "scripts": [
+      "[concat(variables('templateBaseUrl'), 'install_postgresql.sh')]",
+      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
+    ],
+    "imageReference": {
+      "publisher": "Canonical",
+      "offer": "UbuntuServer",
+      "sku": "14.04.2-LTS",
+      "version": "latest"
+    }
+  },
+  "networkSettings": {
+    "vnetName": "[parameters('virtualNetworkName')]",
+    "addressPrefix": "10.0.0.0/16",
+    "subnets": {
+      "dmz": {
+        "name": "dmz",
+        "prefix": "10.0.0.0/24",
+        "vnet": "[parameters('virtualNetworkName')]"
       },
-      "tshirtSizeMedium": {
-        "vmSize": "Standard_A3",
-        "diskSize": 1023,
-        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-8disk-resources.json')]",
-        "vmCount": 2,
-        "storage": {
-          "name": "[parameters('storageAccountNamePrefix')]",
-          "count": 2,
-          "pool": "db",
-          "map": [0,1],
-          "jumpbox": 0
-        }
-      },
-      "tshirtSizeLarge": {
-        "vmSize": "Standard_A4",
-        "diskSize": 1023,
-        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
-        "vmCount": 3,
-        "slaveCount": 2,
-        "storage": {
-          "name": "[parameters('storageAccountNamePrefix')]",
-          "count": 2,
-          "pool": "db",
-          "map": [0,1,1],
-          "jumpbox": 0
-        }
-      },
-      "osSettings": {
-        "scripts": [
-          "[concat(variables('templateBaseUrl'), 'install_postgresql.sh')]",
-          "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
-        ],
-        "imageReference": {
-          "publisher": "Canonical",
-          "offer": "UbuntuServer",
-          "sku": "14.04.2-LTS",
-          "version": "latest"
-        }
-      },
-      "networkSettings": {
-        "vnetName": "[parameters('virtualNetworkName')]",
-        "addressPrefix": "10.0.0.0/16",
-        "subnets": {
-          "dmz": {
-            "name": "dmz",
-            "prefix": "10.0.0.0/24",
-            "vnet": "[parameters('virtualNetworkName')]"
-          },
-          "data": {
-            "name": "data",
-            "prefix": "10.0.1.0/24",
-            "vnet": "[parameters('virtualNetworkName')]"
-          }
-        }
-      },
-      "availabilitySetSettings": {
-        "name": "pgsqlAvailabilitySet",
-        "fdCount": 3,
-        "udCount": 5
+      "data": {
+        "name": "data",
+        "prefix": "10.0.1.0/24",
+        "vnet": "[parameters('virtualNetworkName')]"
       }
     }
+  },
+  "availabilitySetSettings": {
+    "name": "pgsqlAvailabilitySet",
+    "fdCount": 3,
+    "udCount": 5
+  }
+}
+```
 
 Tenga en cuenta que la variable **tshirtSize** concatena el tamaño de la camiseta que proporcionó mediante un parámetro (**Small**, **Medium**, **Large**) en el texto **tshirtSize**. Use esta variable para recuperar la variable asociada del objeto complejo para ese tamaño de camiseta.
 
 Luego, puede hacer referencia a estas variables más adelante en la plantilla. La posibilidad de hacer referencia a variables con nombre y sus propiedades simplifica la sintaxis de la plantilla y facilita la comprensión del contexto. En el ejemplo siguiente se define un recurso para implementar mediante los objetos mostrados anteriormente para definir los valores. Por ejemplo, el tamaño de VM se establece al recuperar el valor de `variables('tshirtSize').vmSize` mientras que el valor del tamaño del disco se recupera de `variables('tshirtSize').diskSize`. Además, el URI de una plantilla vinculada se establece con el valor de `variables('tshirtSize').vmTemplate`.
 
-    "name": "master-node",
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2015-01-01",
-    "dependsOn": [
-        "[concat('Microsoft.Resources/deployments/', 'shared')]"
-    ],
-    "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[variables('tshirtSize').vmTemplate]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "adminPassword": {
-            "value": "[parameters('adminPassword')]"
-          },
-          "replicatorPassword": {
-            "value": "[parameters('replicatorPassword')]"
-          },
-          "osSettings": {
-            "value": "[variables('osSettings')]"
-          },
-          "subnet": {
-            "value": "[variables('networkSettings').subnets.data]"
-          },
-          "commonSettings": {
-            "value": {
-              "region": "[parameters('region')]",
-              "adminUsername": "[parameters('adminUsername')]",
-              "namespace": "ms"
-            }
-          },
-          "storageSettings": {
-            "value":"[variables('tshirtSize').storage]"
-          },
-          "machineSettings": {
-            "value": {
-              "vmSize": "[variables('tshirtSize').vmSize]",
-              "diskSize": "[variables('tshirtSize').diskSize]",
-              "vmCount": 1,
-              "availabilitySet": "[variables('availabilitySetSettings').name]"
-            }
-          },
-          "masterIpAddress": {
-            "value": "0"
-          },
-          "dbType": {
-            "value": "MASTER"
-          }
+```json
+"name": "master-node",
+"type": "Microsoft.Resources/deployments",
+"apiVersion": "2015-01-01",
+"dependsOn": [
+    "[concat('Microsoft.Resources/deployments/', 'shared')]"
+],
+"properties": {
+    "mode": "Incremental",
+    "templateLink": {
+      "uri": "[variables('tshirtSize').vmTemplate]",
+      "contentVersion": "1.0.0.0"
+    },
+    "parameters": {
+      "adminPassword": {
+        "value": "[parameters('adminPassword')]"
+      },
+      "replicatorPassword": {
+        "value": "[parameters('replicatorPassword')]"
+      },
+      "osSettings": {
+        "value": "[variables('osSettings')]"
+      },
+      "subnet": {
+        "value": "[variables('networkSettings').subnets.data]"
+      },
+      "commonSettings": {
+        "value": {
+          "region": "[parameters('region')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "namespace": "ms"
         }
+      },
+      "storageSettings": {
+        "value":"[variables('tshirtSize').storage]"
+      },
+      "machineSettings": {
+        "value": {
+          "vmSize": "[variables('tshirtSize').vmSize]",
+          "diskSize": "[variables('tshirtSize').diskSize]",
+          "vmCount": 1,
+          "availabilitySet": "[variables('availabilitySetSettings').name]"
+        }
+      },
+      "masterIpAddress": {
+        "value": "0"
+      },
+      "dbType": {
+        "value": "MASTER"
       }
     }
+  }
+}
+```
 
 ## <a name="pass-state-to-a-template"></a>Pasar el estado a una plantilla
 Comparte el estado en una plantilla mediante parámetros que proporciona directamente durante la implementación.
@@ -184,21 +189,22 @@ En la tabla siguiente se enumeran los parámetros usados normalmente en las plan
 
 El parámetro **tshirtSize** usado en la sección anterior se define como:
 
-    "parameters": {
-      "tshirtSize": {
-        "type": "string",
-        "defaultValue": "Small",
-        "allowedValues": [
-          "Small",
-          "Medium",
-          "Large"
-        ],
-        "metadata": {
-          "Description": "T-shirt size of the MongoDB deployment"
-        }
-      }
+```json
+"parameters": {
+  "tshirtSize": {
+    "type": "string",
+    "defaultValue": "Small",
+    "allowedValues": [
+      "Small",
+      "Medium",
+      "Large"
+    ],
+    "metadata": {
+      "Description": "T-shirt size of the MongoDB deployment"
     }
-
+  }
+}
+```
 
 ## <a name="pass-state-to-linked-templates"></a>Pasar el estado a las plantillas vinculadas
 Al conectarse a plantillas vinculadas, a menudo usa una combinación de variables estáticas y generadas.
@@ -210,24 +216,26 @@ En el siguiente fragmento de la plantilla, `templateBaseUrl` especifica la ubica
 
 La ventaja de este enfoque es que si cambia la ubicación de la plantilla, solo tendrá que cambiar la variable estática en un lugar, que la pase a todas las plantillas vinculadas.
 
-    "variables": {
-      "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
-      "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
-      "tshirtSizeSmall": {
-        "vmSize": "Standard_A1",
-        "diskSize": 1023,
-        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
-        "vmCount": 2,
-        "slaveCount": 1,
-        "storage": {
-          "name": "[parameters('storageAccountNamePrefix')]",
-          "count": 1,
-          "pool": "db",
-          "map": [0,0],
-          "jumpbox": 0
-        }
-      }
+```json
+"variables": {
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
+  "tshirtSizeSmall": {
+    "vmSize": "Standard_A1",
+    "diskSize": 1023,
+    "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
+    "vmCount": 2,
+    "slaveCount": 1,
+    "storage": {
+      "name": "[parameters('storageAccountNamePrefix')]",
+      "count": 1,
+      "pool": "db",
+      "map": [0,0],
+      "jumpbox": 0
     }
+  }
+}
+```
 
 ### <a name="generated-variables"></a>Variables generadas
 Además de las variables estáticas, hay varias variables que se generan dinámicamente. En esta sección se identifican algunos de los tipos comunes de variables generadas.
@@ -240,71 +248,81 @@ En una plantilla de solución de capacidad o con ámbito completo, las plantilla
 
 A continuación puede verse un ejemplo de comunicación de la configuración de red.
 
-    "networkSettings": {
-      "vnetName": "[parameters('virtualNetworkName')]",
-      "addressPrefix": "10.0.0.0/16",
-      "subnets": {
-        "dmz": {
-          "name": "dmz",
-          "prefix": "10.0.0.0/24",
-          "vnet": "[parameters('virtualNetworkName')]"
-        },
-        "data": {
-          "name": "data",
-          "prefix": "10.0.1.0/24",
-          "vnet": "[parameters('virtualNetworkName')]"
-        }
-      }
+```json
+"networkSettings": {
+  "vnetName": "[parameters('virtualNetworkName')]",
+  "addressPrefix": "10.0.0.0/16",
+  "subnets": {
+    "dmz": {
+      "name": "dmz",
+      "prefix": "10.0.0.0/24",
+      "vnet": "[parameters('virtualNetworkName')]"
+    },
+    "data": {
+      "name": "data",
+      "prefix": "10.0.1.0/24",
+      "vnet": "[parameters('virtualNetworkName')]"
     }
+  }
+}
+```
 
 #### <a name="availabilitysettings"></a>availabilitySettings
 Los recursos creados en las plantillas vinculadas a menudo se colocan en un conjunto de disponibilidad. En el ejemplo siguiente, se especifica el nombre del conjunto de disponibilidad y también el número de dominios de error y dominios de actualización que se van a usar.
 
-    "availabilitySetSettings": {
-      "name": "pgsqlAvailabilitySet",
-      "fdCount": 3,
-      "udCount": 5
-    }
+```json
+"availabilitySetSettings": {
+  "name": "pgsqlAvailabilitySet",
+  "fdCount": 3,
+  "udCount": 5
+}
+```
 
 Si necesita varios conjuntos de disponibilidad (por ejemplo, uno para los nodos principales y otro para los nodos de datos), puede usar un nombre como prefijo, especificar varios conjuntos de disponibilidad o seguir el modelo mostrado anteriormente para la creación de una variable para un tamaño de camiseta específico.
 
 #### <a name="storagesettings"></a>storageSettings
 Los detalles de almacenamiento a menudo se comparten con las plantillas vinculadas. En el ejemplo siguiente, un objeto *storageSettings* proporciona detalles sobre los nombres del contenedor y la cuenta de almacenamiento.
 
-    "storageSettings": {
-        "vhdStorageAccountName": "[parameters('storageAccountName')]",
-        "vhdContainerName": "[variables('vmStorageAccountContainerName')]",
-        "destinationVhdsContainer": "[concat('https://', parameters('storageAccountName'), variables('vmStorageAccountDomain'), '/', variables('vmStorageAccountContainerName'), '/')]"
-    }
+```json
+"storageSettings": {
+    "vhdStorageAccountName": "[parameters('storageAccountName')]",
+    "vhdContainerName": "[variables('vmStorageAccountContainerName')]",
+    "destinationVhdsContainer": "[concat('https://', parameters('storageAccountName'), variables('vmStorageAccountDomain'), '/', variables('vmStorageAccountContainerName'), '/')]"
+}
+```
 
 #### <a name="ossettings"></a>osSettings
 Con las plantillas vinculadas, tendrá que pasar la configuración del sistema operativo a varios tipos de nodos a través de diferentes tipos de configuración conocidos. Un objeto complejo es una forma sencilla de almacenar y compartir información del sistema operativo y también facilita la compatibilidad con varias opciones de sistema operativo en la implementación.
 
 En el ejemplo siguiente se muestra un objeto de *osSettings*:
 
-    "osSettings": {
-      "imageReference": {
-        "publisher": "Canonical",
-        "offer": "UbuntuServer",
-        "sku": "14.04.2-LTS",
-        "version": "latest"
-      }
-    }
+```json
+"osSettings": {
+  "imageReference": {
+    "publisher": "Canonical",
+    "offer": "UbuntuServer",
+    "sku": "14.04.2-LTS",
+    "version": "latest"
+  }
+}
+```
 
 #### <a name="machinesettings"></a>machineSettings
 Una variable generada, *machineSettings* es un objeto complejo que contiene una combinación de variables principales para crear una VM. Las variables incluyen el nombre de usuario y la contraseña de administrador, un prefijo para los nombres de VM y una referencia de imagen del sistema operativo.
 
-    "machineSettings": {
-        "adminUsername": "[parameters('adminUsername')]",
-        "adminPassword": "[parameters('adminPassword')]",
-        "machineNamePrefix": "mongodb-",
-        "osImageReference": {
-            "publisher": "[variables('osFamilySpec').imagePublisher]",
-            "offer": "[variables('osFamilySpec').imageOffer]",
-            "sku": "[variables('osFamilySpec').imageSKU]",
-            "version": "latest"
-        }
-    },
+```json
+"machineSettings": {
+    "adminUsername": "[parameters('adminUsername')]",
+    "adminPassword": "[parameters('adminPassword')]",
+    "machineNamePrefix": "mongodb-",
+    "osImageReference": {
+        "publisher": "[variables('osFamilySpec').imagePublisher]",
+        "offer": "[variables('osFamilySpec').imageOffer]",
+        "sku": "[variables('osFamilySpec').imageSKU]",
+        "version": "latest"
+    }
+},
+```
 
 Tenga en cuenta que *osImageReference* recupera los valores de la variable *osSettings* definida en la plantilla principal. Eso significa que puede cambiar fácilmente el sistema operativo de una máquina virtual, por completo, o en función de la preferencia de un consumidor de plantilla.
 
@@ -318,28 +336,31 @@ Este ejemplo es de una plantilla que se usa para implementar MongoDB, lo que req
 
 En la sección de variables es donde encuentra las variables que definen el texto específico para ejecutar el script con los valores adecuados.
 
-    "vmScripts": {
-        "scriptsToDownload": [
-            "[concat(variables('scriptUrl'), 'mongodb-', variables('osFamilySpec').osName, '-install.sh')]",
-            "[concat(variables('sharedScriptUrl'), 'vm-disk-utils-0.1.sh')]"
-        ],
-        "regularNodeInstallCommand": "[variables('installCommand')]",
-        "lastNodeInstallCommand": "[concat(variables('installCommand'), ' -l')]",
-        "arbiterNodeInstallCommand": "[concat(variables('installCommand'), ' -a')]"
-    },
-
+```json
+"vmScripts": {
+    "scriptsToDownload": [
+        "[concat(variables('scriptUrl'), 'mongodb-', variables('osFamilySpec').osName, '-install.sh')]",
+        "[concat(variables('sharedScriptUrl'), 'vm-disk-utils-0.1.sh')]"
+    ],
+    "regularNodeInstallCommand": "[variables('installCommand')]",
+    "lastNodeInstallCommand": "[concat(variables('installCommand'), ' -l')]",
+    "arbiterNodeInstallCommand": "[concat(variables('installCommand'), ' -a')]"
+},
+```
 
 ## <a name="return-state-from-a-template"></a>Devolver el estado de una plantilla
 No solo puede pasar datos a una plantilla, también puede compartir datos de nuevo con la plantilla de llamada. En la sección **Salidas** de una plantilla vinculada, puede proporcionar pares de clave/valor que pueden usarse en la plantilla de origen.
 
 En el ejemplo siguiente se muestra cómo pasar la dirección IP privada generada en una plantilla vinculada.
 
-    "outputs": {
-        "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
-            "type": "string"
-         }
-    }
+```json
+"outputs": {
+    "masterip": {
+        "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
+        "type": "string"
+     }
+}
+```
 
 Dentro de la plantilla principal, puede usar esos datos con la sintaxis siguiente:
 
@@ -347,74 +368,76 @@ Dentro de la plantilla principal, puede usar esos datos con la sintaxis siguient
 
 Puede usar esta expresión en la sección de salidas o en la sección de recursos de la plantilla principal. No puede usar la expresión en la sección de variables porque se basa en el estado de tiempo de ejecución. Para devolver este valor desde la plantilla principal, use:
 
-    "outputs": {
-      "masterIpAddress": {
-        "value": "[reference('master-node').outputs.masterip.value]",
-        "type": "string"
-      }
+```json
+"outputs": {
+  "masterIpAddress": {
+    "value": "[reference('master-node').outputs.masterip.value]",
+    "type": "string"
+  }
+```
 
 Para obtener un ejemplo de cómo usar la sección de salidas de una plantilla vinculada para devolver discos de datos para una máquina virtual, consulte [Crear varios discos de datos para una máquina virtual](resource-group-create-multiple.md).
 
 ## <a name="define-authentication-settings-for-virtual-machine"></a>Definir la configuración de autenticación de una máquina virtual
 Puede usar el mismo patrón que se mostró anteriormente para las opciones de configuración para especificar la configuración de autenticación de una máquina virtual. Cree un parámetro para pasarlo en el tipo de autenticación.
 
-    "parameters": {
-      "authenticationType": {
-        "allowedValues": [
-          "password",
-          "sshPublicKey"
-        ],
-        "defaultValue": "password",
-        "metadata": {
-          "description": "Authentication type"
-        },
-        "type": "string"
-      }
-    }
+```json
+"parameters": {
+  "authenticationType": {
+    "allowedValues": [
+      "password",
+      "sshPublicKey"
+    ],
+    "defaultValue": "password",
+    "metadata": {
+      "description": "Authentication type"
+    },
+    "type": "string"
+  }
+}
+```
 
 Agregue variables para los diferentes tipos de autenticación, y una variable para almacenar qué tipo se usa en esta implementación basándose en el valor del parámetro.
 
-    "variables": {
-      "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
-      "osProfilepassword": {
-        "adminPassword": "[parameters('adminPassword')]",
-        "adminUsername": "notused",
-        "computerName": "[parameters('vmName')]",
-        "customData": "[base64(variables('customData'))]"
-      },
-      "osProfilesshPublicKey": {
-        "adminUsername": "notused",
-        "computerName": "[parameters('vmName')]",
-        "customData": "[base64(variables('customData'))]",
-        "linuxConfiguration": {
-          "disablePasswordAuthentication": "true",
-          "ssh": {
-            "publicKeys": [
-              {
-                "keyData": "[parameters('sshPublicKey')]",
-                "path": "/home/notused/.ssh/authorized_keys"
-              }
-            ]
+```json
+"variables": {
+  "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
+  "osProfilepassword": {
+    "adminPassword": "[parameters('adminPassword')]",
+    "adminUsername": "notused",
+    "computerName": "[parameters('vmName')]",
+    "customData": "[base64(variables('customData'))]"
+  },
+  "osProfilesshPublicKey": {
+    "adminUsername": "notused",
+    "computerName": "[parameters('vmName')]",
+    "customData": "[base64(variables('customData'))]",
+    "linuxConfiguration": {
+      "disablePasswordAuthentication": "true",
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": "[parameters('sshPublicKey')]",
+            "path": "/home/notused/.ssh/authorized_keys"
           }
-        }
+        ]
       }
     }
+  }
+}
+```
 
 Al definir la máquina virtual, establece **osProfile** a la variable que creó.
 
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      ...
-      "osProfile": "[variables('osProfile')]"
-    }
-
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  ...
+  "osProfile": "[variables('osProfile')]"
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener información sobre las secciones de la plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md)
 * Para ver las funciones que están disponibles en una plantilla, consulte [Funciones de plantillas de Azure Resource Manager](resource-group-template-functions.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
