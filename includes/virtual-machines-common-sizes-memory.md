@@ -51,8 +51,8 @@ ACU: 160-180
 
 | Tamaño            | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento de almacenamiento temporal en caché y máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Nº máx. NIC / rendimiento de red esperado (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M64ms  | 64   | 1792        | 2048           | 32             | 80,000 / 800 (6348)       | 40 000 / 1000                            | 8 / 16000          |
 | Standard_M64s  | 64   | 1024        | 2048           | 32             | 80,000 / 800 (6348)       | 40 000 / 1000                            | 8 / 16000          |
+| Standard_M64ms  | 64   | 1792        | 2048           | 32             | 80,000 / 800 (6348)       | 40 000 / 1000                            | 8 / 16000          |
 | Standard_M128s** | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80 000 / 2000                            | 8 / 25000          |
 
 
