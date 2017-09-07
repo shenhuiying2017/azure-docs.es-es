@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d77dd2b44dca8cee6fa2e93e79cda76c80ccfe1a
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 9eb32e545bdefb8cc0a8ae05bd58d750afeb469e
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -203,7 +203,7 @@ exit
 
 Una vez que se ha implementado una máquina virtual, se puede aumentar el tamaño del disco del sistema operativo o de los discos de datos conectados. Aumentar el tamaño del disco resulta beneficioso cuando se necesita más espacio de almacenamiento o un nivel más alto de rendimiento (P10, P20, P30). Cabe mencionar que no se puede reducir el tamaño de los discos.
 
-Antes de aumentar el tamaño del disco, se necesita el identificador o el nombre del disco. Use el comando [az disk list](/cli/azure/vm/disk#list) para devolver todos los discos de un grupo de recursos. Anote el nombre del disco que quiere cambiar de tamaño.
+Antes de aumentar el tamaño del disco, se necesita el identificador o el nombre del disco. Use el comando [az disk list](/cli/azure/disk#az_disk_list) para devolver todos los discos de un grupo de recursos. Anote el nombre del disco que quiere cambiar de tamaño.
 
 ```azurecli-interactive 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table

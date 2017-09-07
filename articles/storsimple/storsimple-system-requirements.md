@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 9fb4d440fad8e4c5af8030c91e6871c6418ab9be
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 55e1cd90df0e4413ce027361c636257d823a50d6
 ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="storsimple-software-high-availability-and-networking-requirements"></a>Software de StorSimple, alta disponibilidad y requisitos de red
@@ -93,7 +92,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 #### <a name="url-patterns-for-azure-portal"></a>Patrones de dirección URL del Portal de Azure
 | Patrón de URL | Componente o funcionalidad | Direcciones IP del dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |Servicio StorSimple Manager<br>Access Control Service<br>Bus de servicio |Interfaces de red habilitadas para la nube |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Bus de servicio<br>Servicio de autenticación |Interfaces de red habilitadas para la nube |
 | `https://*.backup.windowsazure.com` |Registro de dispositivos |Solo DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revocación de certificados |Interfaces de red habilitadas para la nube |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Supervisión y cuentas de Almacenamiento de Azure |Interfaces de red habilitadas para la nube |
@@ -104,7 +103,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 #### <a name="url-patterns-for-azure-government-portal"></a>Patrones de dirección URL para el Portal de Azure Government
 | Patrón de URL | Componente o funcionalidad | Direcciones IP del dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` |Servicio StorSimple Manager<br>Access Control Service<br>Bus de servicio |Interfaces de red habilitadas para la nube |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` <br>`https://login-us.microsoftonline.com` |Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Bus de servicio<br>Servicio de autenticación |Interfaces de red habilitadas para la nube |
 | `https://*.backup.windowsazure.us` |Registro de dispositivos |Solo DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revocación de certificados |Interfaces de red habilitadas para la nube |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Supervisión y cuentas de Almacenamiento de Azure |Interfaces de red habilitadas para la nube |

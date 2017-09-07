@@ -3,7 +3,7 @@ title: "Personalización de la página de inicio de sesión de Azure Active Dire
 description: "Aprenda a agregar una personalización de marca de empresa a la página de inicio de sesión de Azure"
 services: active-directory
 documentationcenter: 
-author: jeffgilb
+author: curtand
 manager: femila
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: jeffgilb
+ms.date: 09/06/2017
+ms.author: curtand
+ms.reviewer: kexia
 custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: bddf2542eecce8bdeccda6053203bf2c2ba0ffb2
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
 ms.contentlocale: es-es
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Guía de inicio rápido: Incorporación de personalización de marca de empresa a su página de inicio de sesión de Azure AD
@@ -62,7 +63,7 @@ Esto aparece en la parte inferior del formulario de inicio de sesión y se puede
 ### <a name="sign-in-page-image"></a>Imagen de la página de inicio de sesión  
 Descripción | Restricciones | Recomendaciones
 ------- | ------- | ----------
-Esto aparece en el fondo de la página de inicio de sesión, está anclado en el centro del espacio visible y se escalará y recortará para rellenar la ventana del explorador.    <br>En las pantallas estrechas, como las de teléfonos móviles, no se muestra esta imagen.<br>Nuestro código aplicará una máscara gruesa con una opacidad de 0,55 sobre esta imagen al cargarse la página. | JPG o PNG<br>Dimensiones de la imagen: 1920 x 1080 px<br>Tamaño de archivo: &gt; 300 KB | <br>Use imágenes allí donde no haya un enfoque del asunto sólido. El formulario de inicio de sesión opaco aparece sobre el centro de esta imagen y puede cubrir cualquier parte de la imagen según el tamaño de la ventana del explorador.<br>Mantenga el tamaño de archivo lo más pequeño posible para garantizar tiempos de carga rápidos. 
+Esto aparece en el fondo de la página de inicio de sesión, está anclado en el centro del espacio visible y se escalará y recortará para rellenar la ventana del explorador.    <br>En las pantallas estrechas, como las de teléfonos móviles, no se muestra esta imagen.<br>Nuestro código aplicará una máscara gruesa con una opacidad de 0,55 sobre esta imagen al cargarse la página. | JPG o PNG<br>Dimensiones de la imagen: 1920 x 1080 px<br>Tamaño de archivo: &lt; 300 KB | <br>Use imágenes allí donde no haya un enfoque del asunto sólido. El formulario de inicio de sesión opaco aparece sobre el centro de esta imagen y puede cubrir cualquier parte de la imagen según el tamaño de la ventana del explorador.<br>Mantenga el tamaño de archivo lo más pequeño posible para garantizar tiempos de carga rápidos. 
 
 ### <a name="background-color"></a>Color de fondo
 Descripción | Restricciones | Recomendaciones

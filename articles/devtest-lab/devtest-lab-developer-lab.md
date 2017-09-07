@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: c187819e9392908c8979556f80e8c94739eb14d5
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: b829ebd90034031721dfe2e97427e624306da1e9
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Uso de Azure DevTest Labs para desarrolladores
@@ -49,7 +48,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    
     Puede elegir imágenes listas para usar a partir de una gran variedad de imágenes de Azure Marketplace y hacer que estas estén disponibles en el laboratorio. Si estas imágenes no satisfacen sus necesidades, puede crear una imagen personalizada mediante la creación de una máquina virtual de laboratorio con una imagen lista para usar de Azure Marketplace. Para ello, instale todo el software que necesite y guarde la máquina virtual como imagen personalizada en el laboratorio.
 
-    Si va a utilizar imágenes personalizadas, considere la posibilidad de usar un generador de imágenes para crear y distribuir imágenes. Un generador de imágenes es una solución de configuración como código que crea y distribuye periódicamente las imágenes configuradas de forma automática. Esto reduce el tiempo necesario para configurar manualmente el sistema después de que se haya creado una máquina virtual con el sistema operativo base.
+    Si va a usar imágenes personalizadas, considere la posibilidad de usar un generador de imágenes para crear y distribuir imágenes. Un generador de imágenes es una solución de configuración como código que crea y distribuye periódicamente las imágenes configuradas de forma automática. Así se reduce el tiempo necesario para configurar manualmente el sistema después de que se haya creado una máquina virtual con el sistema operativo base.
   
     Para más información, haga clic en los vínculos de la tabla siguiente:
    
@@ -83,8 +82,8 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    
    | Tarea | Conocimientos que adquirirá |
    | --- | --- |
-   | [Creación de artefactos personalizados para la máquina virtual de DevTest Labs](devtest-lab-artifact-author.md) |Creación de sus propios artefactos personalizados para las máquinas virtuales en el laboratorio.|
-   | [Agregar un repositorio de Git para almacenar artefactos personalizados y plantillas de Azure Resource Manager para su uso en Azure DevTest Labs](devtest-lab-add-artifact-repo.md) |Aprenda a almacenar los artefactos personalizados en su propio repositorio de Git privado.|
+   | [Creación de artefactos personalizados para la máquina virtual de DevTest Labs](devtest-lab-artifact-author.md) |Cree sus propios artefactos personalizados para las máquinas virtuales de su laboratorio.|
+   | [Agregar un repositorio de Git para almacenar artefactos personalizados y plantillas de Azure Resource Manager para su uso en Azure DevTest Labs](devtest-lab-add-artifact-repo.md) |Aprenda a almacenar los artefactos personalizados en su propio repositorio privado de Git.|
 
 5. **Control de los costos**
    
@@ -99,7 +98,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    | Tarea | Conocimientos que adquirirá |
    | --- | --- |
    | [Definición de directivas de laboratorio](devtest-lab-set-lab-policy.md) |Controle los costos mediante el establecimiento de directivas en el laboratorio. |
-   | [Eliminación de todas las máquinas virtuales del laboratorio mediante un script de PowerShell](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Elimine todos los laboratorios en una sola operación al finalizar el desarrollo.|
+   | [Eliminación de todas las máquinas virtuales del laboratorio mediante un script de PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Elimine todos los laboratorios en una sola operación al finalizar el desarrollo.|
 
 1. **Incorporación de una red virtual a una máquina virtual** 
    
@@ -133,7 +132,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    
    | Tarea | Conocimientos que adquirirá |
    | --- | --- |
-   | [Creación de un laboratorio mediante una plantilla de Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Cree laboratorios en Azure DevTest Labs mediante plantillas de Resource Manager. |
+   | [Creación de un laboratorio mediante una plantilla de Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Cree laboratorios en Azure DevTest Labs mediante plantillas de Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

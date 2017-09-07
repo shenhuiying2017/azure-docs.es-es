@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 26fb0914de571aa0e398f0e2a2f8e439d3d27680
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>Movimiento de datos con la actividad de copia
@@ -109,11 +109,13 @@ Si los almacenes de datos del origen y del receptor residen en la nube, Data Fac
 | &nbsp; | Asia oriental | Sudeste asiático |
 | Australia | Australia Oriental | Australia Oriental |
 | &nbsp; | Sudeste de Australia | Sudeste de Australia |
-| Japón | Este de Japón | Este de Japón |
-| &nbsp; | Oeste de Japón | Este de Japón |
 | India | India Central | India Central |
 | &nbsp; | Oeste de la India | India Central |
 | &nbsp; | Sur de la India | India Central |
+| Japón | Este de Japón | Este de Japón |
+| &nbsp; | Oeste de Japón | Este de Japón |
+| Corea | Corea Central | Corea Central |
+| &nbsp; | Corea del Sur | Corea Central |
 
 También puede indicar explícitamente la región del servicio de Data Factory que se usará para realizar la copia especificando la propiedad `executionLocation` en la actividad de copia `typeProperties`. Los valores admitidos para esta propiedad se muestran en la columna **Región usada para el movimiento de datos** anterior. Tenga en cuenta que los datos se transmitirán por Internet por esa región durante la copia. Por ejemplo, para realizar copias entre almacenes de Azure de Corea, puede especificar `"executionLocation": "Japan East"` para redirigir los datos a través de la región de Japón (consulte el [ejemplo de JSON](#by-using-json-scripts) como referencia).
 

@@ -1,10 +1,10 @@
 ---
-title: "Instrucciones de inicio de sesión del kit de herramientas de Azure para IntelliJ | Microsoft Docs"
+title: "Instrucciones de inicio de sesión del kit de herramientas de Azure para IntelliJ"
 description: "Obtenga información sobre cómo iniciar sesión en Microsoft Azure con el kit de herramientas de Azure para IntelliJ."
 services: 
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: 
 ms.assetid: 
 ms.service: multiple
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 08/20/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 4e2ed072bdaea0a71fef042c0c72b7656a42bbe8
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: def5957b2ed58aee2e03c879ba9fd3d6c714e358
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -27,46 +26,12 @@ ms.lasthandoff: 05/15/2017
 
 El kit de herramientas de Azure para IntelliJ proporciona dos métodos para iniciar sesión en su cuenta de Azure:
 
-  * **Interactivo**: escriba sus credenciales de Azure cada vez que inicie sesión su cuenta de Azure.
   * **Automatizado**: cree un archivo de credenciales que puede usar para iniciar sesión automáticamente en su cuenta de Azure.
+  * **Interactivo**: escriba sus credenciales de Azure cada vez que inicie sesión su cuenta de Azure.
 
 Los pasos descritos en las secciones siguientes explican cómo utilizar cada método.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
-
-## <a name="sign-in-to-your-azure-account-interactively"></a>Inicio de sesión en la cuenta de Azure de forma interactiva
-
-En los pasos siguientes se explica cómo iniciar sesión en Azure especificando manualmente las credenciales de Azure:
-
-1. Abra el proyecto con IntelliJ IDEA.
-
-2. Haga clic en **Herramientas**, seleccione **Azure** y, luego, haga clic en **Inicio de sesión en Microsoft Azure**.
-
-   ![El comando de inicio de sesión en Azure IntelliJ][I01]
-
-3. En la ventana **Inicio de sesión en Microsoft Azure**, seleccione **Interactivo** y, luego, haga clic en **Iniciar sesión**.
-
-   ![La ventana Inicio de sesión en Microsoft Azure con el modo Interactivo seleccionado][I02]
-
-4. Cuando se muestre el cuadro de diálogo **Inicio de sesión en Microsoft Azure**, escriba sus credenciales de Azure y, luego, haga clic en **Iniciar sesión**.
-
-   ![El cuadro de diálogo Inicio de sesión en Microsoft Azure][I03]
-
-5. En el cuadro de diálogo **Seleccionar suscripciones**, elija las suscripciones que desea usar y, luego, haga clic en **Aceptar**.
-
-   ![Cuadro de diálogo Seleccionar suscripciones][I04]
-
-## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-interactively"></a>Cierre de sesión de la cuenta de Azure al iniciar sesión de forma interactiva
-
-Después de haber configurado la cuenta con los pasos anteriores, se cerrará automáticamente la sesión de su cuenta de Azure cada vez que reinicie IntelliJ IDEA. Sin embargo, si desea cerrar sesión de su cuenta de Azure *sin* tener que reiniciar IntelliJ IDEA, siga estos pasos.
-
-1. En IntelliJ IDEA, haga clic en **Herramientas**, seleccione **Azure** y, luego, haga clic en **Cierre de sesión en Microsoft Azure**.
-
-   ![El comando de cierre de sesión en Azure IntelliJ][L01]
-
-2. En la ventana confirmación **Cierre de sesión en Microsoft Azure**, haga clic en **Sí**.
-
-   ![La ventana de confirmación Cierre de sesión en Microsoft Azure][L02]
 
 ## <a name="sign-in-to-your-azure-account-automatically"></a>Inicio sesión en la cuenta de Azure de forma automática
 
@@ -140,36 +105,58 @@ Si cierra la sesión de su cuenta de Azure mientras utiliza IntelliJ IDEA, debe 
 
    ![Cuadro de diálogo Seleccionar suscripciones][A07]
 
+## <a name="sign-in-to-your-azure-account-interactively"></a>Inicio de sesión en la cuenta de Azure de forma interactiva
+
+En los pasos siguientes se explica cómo iniciar sesión en Azure especificando manualmente las credenciales de Azure:
+
+1. Abra el proyecto con IntelliJ IDEA.
+
+2. Haga clic en **Herramientas**, seleccione **Azure** y, luego, haga clic en **Inicio de sesión en Microsoft Azure**.
+
+   ![El comando de inicio de sesión en Azure IntelliJ][I01]
+
+3. En la ventana **Inicio de sesión en Microsoft Azure**, seleccione **Interactivo** y, luego, haga clic en **Iniciar sesión**.
+
+   ![La ventana Inicio de sesión en Microsoft Azure con el modo Interactivo seleccionado][I02]
+
+4. Cuando se muestre el cuadro de diálogo **Inicio de sesión en Microsoft Azure**, escriba sus credenciales de Azure y, luego, haga clic en **Iniciar sesión**.
+
+   ![El cuadro de diálogo Inicio de sesión en Microsoft Azure][I03]
+
+5. En el cuadro de diálogo **Seleccionar suscripciones**, elija las suscripciones que desea usar y, luego, haga clic en **Aceptar**.
+
+   ![Cuadro de diálogo Seleccionar suscripciones][I04]
+
+## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-interactively"></a>Cierre de sesión de la cuenta de Azure al iniciar sesión de forma interactiva
+
+Después de haber configurado la cuenta con los pasos anteriores, se cerrará automáticamente la sesión de su cuenta de Azure cada vez que reinicie IntelliJ IDEA. Sin embargo, si desea cerrar sesión de su cuenta de Azure *sin* tener que reiniciar IntelliJ IDEA, siga estos pasos.
+
+1. En IntelliJ IDEA, haga clic en **Herramientas**, seleccione **Azure** y, luego, haga clic en **Cierre de sesión en Microsoft Azure**.
+
+   ![El comando de cierre de sesión en Azure IntelliJ][L01]
+
+2. En la ventana confirmación **Cierre de sesión en Microsoft Azure**, haga clic en **Sí**.
+
+   ![La ventana de confirmación Cierre de sesión en Microsoft Azure][L02]
+
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de los kits de herramientas de Azure para los IDE de Java, vea los siguientes vínculos:
 
-* [Kit de herramientas de Azure para Eclipse]
-  * [Novedades del kit de herramientas de Azure para Eclipse]
-  * [Instalación del Kit de herramientas de Azure para Eclipse]
-  * [Instrucciones de inicio de sesión del kit de herramientas de Azure para Eclipse]
-  * [Creación de una aplicación web Hello World para Azure en Eclipse]
-* [Kit de herramientas de Azure para IntelliJ]
-  * [Novedades del kit de herramientas de Azure para IntelliJ]
-  * [Instalación del kit de herramientas de Azure para IntelliJ]
-  * *Instrucciones de inicio de sesión del kit de herramientas de Azure para IntelliJ* (este artículo)
-  * [Creación de una aplicación web Hello World para Azure en IntelliJ]
-
-Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure] y [Java Tools for Visual Studio Team Services] (Herramientas de Java para Visual Studio Team Services).
+[!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
 <!-- URL List -->
 
-[Kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse.md
-[Kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij.md
-[Creación de una aplicación web Hello World para Azure en Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[Creación de una aplicación web Hello World para Azure en IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Instalación del Kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[Instalación del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Instrucciones de inicio de sesión del kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World web app for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Sign-in instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
 [Sign-in instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Novedades del kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[Novedades del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[What's new in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's new in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[Centro para desarrolladores de Java de Azure]: https://azure.microsoft.com/develop/java/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 <!-- IMG List -->

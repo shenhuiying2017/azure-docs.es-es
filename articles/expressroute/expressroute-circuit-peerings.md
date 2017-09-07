@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/03/2017
-ms.author: cherylmc
+ms.date: 09/01/2017
+ms.author: ganesr,cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 3742fb37016db5e6230bc2b7ce11f0270d9d58b3
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: d98b08a93d9d620971cfc8402a0cf12f10f488b1
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos ExpressRoute y dominios de enrutamiento
@@ -51,7 +51,7 @@ Puede conectar más de una red virtual al dominio de emparejamiento privado. Rev
 ### <a name="public-peering"></a>Emparejamiento público
 Se ofrecen servicios como Azure Storage, SQL Databases, y Websites en direcciones IP públicas. Puede conectarse de forma privada a servicios hospedados en direcciones IP públicas (incluida las VIP de servicios en la nube) a través del dominio de enrutamiento de emparejamiento público. Puede conectar el dominio de emparejamiento público a la red perimetral y conectarse a todos los servicios de Azure en sus direcciones IP públicas desde la WAN sin tener que conectarse a través de Internet. 
 
-La conectividad siempre se inicia desde la WAN a los servicios de Microsoft Azure. Servicios de Microsoft Azure no podrá iniciar conexiones en la red a través de este dominio de enrutamiento. Una vez que se habilita el emparejamiento público, podrá conectarse a todos los servicios de Azure. No se permite elegir de forma selectiva servicios para los que anunciemos rutas. Puede revisar la lista de prefijos que anunciamos mediante este emparejamiento en la página [Intervalos de direcciones IP de centro de datos de Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653) . La página se actualiza semanalmente.
+La conectividad siempre se inicia desde la WAN a los servicios de Microsoft Azure. Servicios de Microsoft Azure no podrá iniciar conexiones en la red a través de este dominio de enrutamiento. Una vez que se habilita el emparejamiento público, podrá conectarse a todos los servicios de Azure. No se permite elegir de forma selectiva servicios para los que anunciemos rutas.
 
 Puede definir filtros de ruta personalizados dentro de la red para usar solo las rutas que necesita. Consulte la página [Enrutamiento](expressroute-routing.md) para obtener información detallada sobre la configuración de enrutamiento. 
 

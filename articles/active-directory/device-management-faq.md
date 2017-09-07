@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 2934b64c693f6505ddb389766374e31a5e6f249b
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 1ab6a2b949101f60d6eef1ba7603d1c2cf81f90a
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
@@ -146,9 +146,9 @@ Para otras plataformas de Windows unidas a un dominio AD local:
 
 **R:** Para consultar información sobre solución de problemas, vea:
 
-- [Solución de problemas de registro automático de equipos unidos a un dominio en Azure AD: Windows 10 y Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+- [Solución de problemas de registro automático de equipos unidos a un dominio en Azure AD: Windows 10 y Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
 
-- [Solución de problemas de registro automático de equipos unidos a un dominio en Azure AD para clientes de nivel inferior de Windows](active-directory-device-registration-troubleshoot-windows-legacy.md)
+- [Solución de problemas de registro automático de equipos unidos a un dominio en Azure AD para clientes de nivel inferior de Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
 ---
 
