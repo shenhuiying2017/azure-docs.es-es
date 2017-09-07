@@ -1,6 +1,6 @@
 ---
 title: "Métodos abreviados de teclado de Azure Portal | Microsoft Docs"
-description: "Este artículo será siempre una lista actualizada de los métodos abreviados de teclado que funcionan en el Portal de Azure. Los servicios individuales podrían tener sus propios métodos abreviados de teclado especializados."
+description: "Información acerca de los métodos abreviados de teclado que funcionan en Azure Portal."
 services: azure-portal
 documentationcenter: 
 author: flanakin
@@ -12,43 +12,39 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/07/2016
+ms.date: 08/24/2017
 ms.author: micflan
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 764bcf22809a2d613b405f6fb75c7a148a1b3fb9
-
+ms.custom: accessibility
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: d5f837d0017ca885144b91d35f489a6fc0e5670e
+ms.contentlocale: es-es
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="azure-portal-keyboard-shortcuts"></a>Métodos abreviados de teclado del Portal de Azure
-## <a name="open-hubs"></a>Abrir centros
-| Método abreviado | Acción |
+# <a name="keyboard-shortcuts-in-the-azure-portal"></a>Métodos abreviados de teclado de Azure Portal
+Este artículo muestra los métodos abreviados de teclado que funcionan en Azure Portal. Los servicios individuales pueden tener sus propios métodos abreviados de teclado.
+
+## <a name="actions"></a>Acciones
+|Para hacer esto |Presione |
 | --- | --- |
-| N |Notificaciones |
-| / |Examinar servicios |
-| Encontrará |Sesiones activas |
-| B |Facturación |
-| C |Crear |
+|Crear un nuevo recurso|G + N|
+|Abrir el panel "Más servicios"|G + B|
+|Búsqueda de recursos|G + /| 
+|Buscar elementos del menú de recursos|CTRL + / |
+|Subir el elemento del panel izquierdo seleccionado |ALT + MAYÚS + Flecha arriba|
+|Bajar el elemento del panel izquierdo seleccionado |ALT + MAYÚS + Flecha abajo|
 
 ## <a name="navigation"></a>Navegación
-| Método abreviado | Acción |
+|Para hacer esto |Presione |
 | --- | --- |
-| H |Panel de inicio de Azure |
-| F |Primera hoja abierta |
-| J |Hoja abierta anterior |
-| K |Siguiente hoja abierta |
-| L |Última hoja abierta |
-| - |Minimizar la hoja o restaurar desde maximizada |
-| + |Maximizar la hoja o restaurar desde minimizada |
-| # |Cerrar hoja actual |
-| ¦ |Cerrar todas las hojas |
-| . |Mover enfoque a la barra de comandos |
-| . |Mover el foco a la barra de navegación |
-| ? |Ver métodos abreviados de teclado |
+|Mover enfoque a la barra de comandos |G + , |
+|Alternar el foco entre la barra superior y la barra lateral | G + . |
 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+## <a name="go-to"></a>Ir a
+|Para hacer esto |Presione |
+| --- | --- |
+|Ir al panel |G + D |
+|Ir a Todos los recursos|G + A |
+|Ir a grupos de recursos|G + R |
+|Abrir el elemento del panel izquierdo en esta posición |G + número|

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: c8b8408f76534a808fd60e331282f8191905df58
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
 ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introducción a la administración de dispositivos en Azure Active Directory
@@ -31,7 +31,9 @@ En un mundo donde la nube y la movilidad son prioritarias, Azure Active Director
 
 A través de dispositivos, los usuarios obtienen acceso a los recursos corporativos. Para proteger los recursos corporativos, como administrador de TI, desea tener control sobre estos dispositivos. De esta forma, se asegura de que los usuarios acceden a los recursos desde dispositivos que cumplen los estándares de seguridad y cumplimiento. 
 
-En este tema se explica cómo la administración de dispositivos en Azure AD le ayuda a lograr este objetivo.
+La administración de dispositivos también es la base del [acceso condicional basado en dispositivos](active-directory-conditional-access-policy-connected-applications.md). Con el acceso condicional basado en dispositivos, puede asegurarse de que el acceso a los recursos del entorno solo es posible con dispositivos de confianza.   
+
+En este tema se explica cómo funciona la administración de dispositivos en Azure Active Directory.
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Dispositivos bajo el control de Azure AD
 
@@ -99,7 +101,7 @@ Aunque la unión a Azure AD está pensada principalmente para aquellas organizac
 Puede configurar dispositivos unidos a Azure AD unido para dispositivos Windows 10.
 
 
-## <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos unidos a Azure AD híbrido
+## <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos híbridos unidos a Azure AD
 
 Durante más de una década, muchas organizaciones han usado la unión a un dominio en su instancia de Active Directory local para permitir:
 
@@ -109,12 +111,12 @@ Durante más de una década, muchas organizaciones han usado la unión a un domi
 
 Normalmente, las organizaciones con un uso local confían en los métodos de creación de imágenes para aprovisionar los dispositivos y suelen usar **System Center Configuration Manager (SCCM)** o la **directiva de grupo** para administrarlos.
 
-Si su entorno tiene un uso local de AD y también desea aprovechar las funcionalidades proporcionadas por Azure Active Directory, puede implementar dispositivos unidos a Azure AD híbrido. Se trata de dispositivos que están unidos tanto al entorno local de Active Directory como a Azure Active Directory.
+Si su entorno tiene un uso local de AD y también desea aprovechar las funcionalidades proporcionadas por Azure Active Directory, puede implementar dispositivos híbridos unidos a Azure AD. Se trata de dispositivos que están unidos tanto al entorno local de Active Directory como a Azure Active Directory.
 
 ![Dispositivos registrados en Azure AD](./media/device-management-introduction/01.png)
 
 
-Debe usar dispositivos unidos a Azure AD híbrido si:
+Debe usar dispositivos híbridos unidos a Azure AD si:
 
 - Tiene las aplicaciones Win32 implementadas en estos dispositivos que usan NTLM o Kerberos.
 
@@ -122,7 +124,7 @@ Debe usar dispositivos unidos a Azure AD híbrido si:
 
 - Desea seguir usando las soluciones de creación de imágenes para configurar los dispositivos de los empleados.
 
-Puede configurar dispositivos unidos a Azure AD híbrido para Windows 10 y dispositivos de nivel inferior como Windows 8 y Windows 7.
+Puede configurar dispositivos híbridos unidos a Azure AD para Windows 10 y dispositivos de nivel inferior como Windows 8 y Windows 7.
 
 ## <a name="summary"></a>Resumen
 
@@ -138,16 +140,21 @@ Como regla general, debe utilizar:
 
 - Dispositivos unidos a Azure AD para dispositivos que no están unidos a un entorno local de AD 
 
-- Dispositivos unidos a Azure AD híbrido para dispositivos que están unidos a un entorno local de AD     
+- Dispositivos híbridos unidos a Azure AD para dispositivos que están unidos a un entorno local de AD     
 
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Para obtener información general sobre cómo administrar dispositivos en Azure Portal, vea [Managing devices using the Azure portal (Administración de dispositivos con Azure Portal)](device-management-azure-portal.md)
+
 - Para más información sobre el acceso condicional basado en dispositivo, consulte las [directivas de acceso condicional basado en dispositivos para Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
-- Para configurar dispositivos unidos a Azure AD híbrido, consulte [How to configure hybrid Azure Active Directory joined devices](device-management-hybrid-azuread-joined-devices-setup.md) (Configuración de dispositivos unidos a Azure Active Directory híbrido).
+- Para configurar:
+    - Dispositivos Windows 10 registrados en Azure Active Directory, vea [How to configure Azure Active Directory registered Windows 10 devices (Configuración de dispositivos Windows 10 registrados en Azure Active Directory)](device-management-azuread-registered-devices-windows10-setup.md)
+    - Dispositivos unidos a Azure Active Directory, vea [How to configure Azure Active Directory joined devices (Configuración de dispositivos unidos a Azure Active Directory)](device-management-azuread-joined-devices-setup.md)
+    - Dispositivos híbridos unidos a Azure AD, vea [How to configure hybrid Azure Active Directory joined devices (Configuración de dispositivos híbridos unidos a Azure Active Directory)](device-management-hybrid-azuread-joined-devices-setup.md).
 
 
 

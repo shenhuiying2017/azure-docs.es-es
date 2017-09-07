@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 58c5b984c677bf9119db52d5721d5687c00a83fa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e7f85aaf2d940f114248d5925a1e97fe0f6bda6c
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment #
@@ -182,12 +182,15 @@ Para cargar sus propios certificados y probar el acceso:
 
     ![Dirección IP del ILB][5]
 
-### <a name="functions-and-the-ilb-ase"></a>Functions y el ASE con un ILB
+## <a name="web-jobs-functions-and-the-ilb-ase"></a>Trabajos web, Functions y ASE de ILB ##
 
-Al usar Azure Functions en un ASE con un ILB, puede recibir un mensaje de error que dice "No se han podido recuperar sus funciones ahora. Inténtelo de nuevo más tarde." Este error se produce porque la interfaz de usuario de Functions tiene acceso al sitio del scm a través de HTTPS. Si utiliza un certificado HTTP para el ASE que no tiene un certificado raíz que se encuentre en el explorador, puede producirse esta situación. Además, los exploradores Internet Explorer y Edge no comparten la opción *accept-invalid-cert* entre distintas pestañas. Así pues, puede realizar una de estas dos acciones:
+Functions y los trabajos web se admiten en un ASE de ILB, pero para que el portal funcione con ellos, debe tener acceso a la red para el sitio de SCM.  Esto significa que el explorador debe estar en un host que se encuentre en la red virtual o conectado a ella.  
 
-- Agregue el certificado a su almacén de certificados de confianza. 
-- Utilice Chrome. Sin embargo, debe ir al sitio del scm primero y aceptar el certificado que no sea de confianza. A continuación, vaya al portal.
+Al usar Azure Functions en un ASE con un ILB, puede recibir un mensaje de error que dice "No se han podido recuperar sus funciones ahora. Inténtelo de nuevo más tarde." Este error se produce porque la interfaz de usuario de Functions aprovecha el sitio de SCM a través de HTTPS y el certificado raíz no está en la cadena de confianza del explorador. Los trabajos web tienen un problema similar. Para evitar este problema puede hacer cualquiera de las siguientes acciones:
+
+- Agregue el certificado a su almacén de certificados de confianza. Esto desbloquea Edge e Internet Explorer.
+- Use Chrome y primero vaya al sitio de SCM, acepte el certificado que no es de confianza y luego vaya al portal.
+- Use un certificado comercial que se encuentre en la cadena de confianza del explorador.  Esta es la mejor opción.  
 
 ## <a name="dns-configuration"></a>Configuración de DNS ##
 

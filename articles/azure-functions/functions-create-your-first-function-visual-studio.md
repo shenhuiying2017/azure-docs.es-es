@@ -1,11 +1,10 @@
-
 ---
 title: "Creación de la primera función en Azure mediante Visual Studio | Microsoft Docs"
 description: "Cree y publique una función simple desencadenada por HTTP en Azure mediante Herramientas de Azure Functions para Visual Studio."
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: azure functions, funciones, procesamiento de eventos, proceso, arquitectura sin servidor
@@ -19,10 +18,10 @@ ms.date: 07/05/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7e1fcecbf77da402b8c223caf6a2e81c704c3219
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 8291986b123ed98b9c2bd4ec915e1a18b6e0cbb7
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Creación de la primera función mediante Visual Studio
@@ -60,6 +59,10 @@ Ahora que ha creado el proyecto, puede crear la primera función.
 
     ![Crear una nueva función de Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
+    Un archivo de código se agrega al proyecto que contiene una clase que implementa el código de función. Este código se basa en una plantilla, que recibe un valor de nombre y lo transmite de nuevo. El atributo **FunctionName** establece el nombre de la función. El atributo **HttpTrigger** indica el mensaje que desencadena la función. 
+
+    ![Archivo de código de función](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+
 Ahora que ha creado una función desencadenada por HTTP, puede probarla en el equipo local.
 
 ## <a name="test-the-function-locally"></a>Prueba local de la función
@@ -72,7 +75,7 @@ Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en
 
     ![Runtime local de Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-3. Pegue la dirección URL de la solicitud HTTP en la barra de direcciones del explorador. Agregue la cadena de consulta `&name=<yourname>` a esta dirección URL y ejecute la solicitud. A continuación se muestra la respuesta en el explorador para la solicitud GET local devuelta por la función: 
+3. Pegue la dirección URL de la solicitud HTTP en la barra de direcciones del explorador. Agregue la cadena de consulta `?name=<yourname>` a esta dirección URL y ejecute la solicitud. A continuación se muestra la respuesta en el explorador para la solicitud GET local devuelta por la función: 
 
     ![Respuesta de localhost de la función en el explorador](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
@@ -88,7 +91,7 @@ Debe tener una aplicación de función en la suscripción de Azure para poder pu
 
 ## <a name="test-your-function-in-azure"></a>Prueba de una función en Azure
 
-1. Copie la URL base de la aplicación de función de la página de perfil de publicación. Reemplace la parte `localhost:port` de la dirección URL que usó al probar la función localmente por la nueva URL base. Como antes, asegúrese de que agrega la cadena de consulta `&name=<yourname>` a esta dirección URL y ejecute la solicitud.
+1. Copie la URL base de la aplicación de función de la página de perfil de publicación. Reemplace la parte `localhost:port` de la dirección URL que usó al probar la función localmente por la nueva URL base. Como antes, asegúrese de que agrega la cadena de consulta `?name=<yourname>` a esta dirección URL y ejecute la solicitud.
 
     La dirección URL que llama a la función desencadenada por HTTP es similar a la siguiente:
 

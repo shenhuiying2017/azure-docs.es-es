@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/08/2017
+ms.date: 08/30/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0209124a088cbaa20c01492112cbd18af56c719d
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 414fb9adaa1535d82b1bc385ff0864394efb837c
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Uso de los cmdlets AzureRM.RecoveryServices.Backup para realizar copias de seguridad de máquinas virtuales
@@ -200,6 +200,14 @@ PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
+Para habilitar la protección en máquinas virtuales cifradas (cifradas solo mediante BEK), debe conceder permiso al servicio Azure Backup para que lea los secretos del almacén de claves.
+
+```
+PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToSecrets backup,get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
+PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
+```
+
 > [!NOTE]
 > Si está usando la nube de Azure Government, use el valor ff281ffe-705c-4f53-9f37-a40e6f2c68f3 para el parámetro **-ServicePrincipalName** en el cmdlet [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 >
@@ -372,7 +380,7 @@ Tras haber restaurado los discos, siga estos pasos para crear y configurar la m�
    PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.'properties.hardwareProfile'.vmSize -VMName "testrestore"
     ```
 
-4. Conecte el disco del sistema operativo y los discos de datos.
+4. Conecte el disco del sistema operativo y los discos de datos. Según la configuración de las máquinas virtuales, vea la sección correspondiente para ver los cmdlets respectivos:
 
     #### <a name="non-managed-non-encrypted-vms"></a>Máquinas virtuales no administradas y no cifradas
 
@@ -387,9 +395,24 @@ Tras haber restaurado los discos, siga estos pasos para crear y configurar la m�
     }
     ```
 
-    #### <a name="non-managed-encrypted-vms"></a>Máquinas virtuales no administradas y cifradas
+    #### <a name="non-managed-encrypted-vms-bek-only"></a>Máquinas virtuales cifradas no administradas (solo BEK)
 
-    Para las máquinas virtuales sin administrar y sin cifrar, debe restaurar la clave y el secreto en el almacén de claves para poder adjuntar discos. Para obtener más información, vea el artículo [Restauración de una máquina virtual de Azure desde un punto de recuperación de Azure Backup](backup-azure-restore-key-secret.md). En el ejemplo siguiente se muestra cómo adjuntar discos del sistema operativo y de datos para máquinas virtuales cifradas.
+    En el caso de las máquinas virtuales cifradas no administradas (cifradas solo mediante BEK), debe restaurar el secreto en el almacén de claves para poder asociar discos. Para obtener más información, vea el artículo [Restauración de una máquina virtual de Azure desde un punto de recuperación de Azure Backup](backup-azure-restore-key-secret.md). En el ejemplo siguiente se muestra cómo adjuntar discos del sistema operativo y de datos para máquinas virtuales cifradas.
+
+    ```
+    PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+    PS C:\> $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
+    PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.'properties.storageProfile'.osDisk.osType
+    PS C:\> foreach($dd in $obj.'properties.storageProfile'.dataDisks)
+     {
+     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+     }
+    ```
+
+    #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>Máquinas virtuales cifradas no administradas (BEK y KEK)
+
+    En el caso de las máquinas virtuales cifradas no administradas (cifradas mediante BEK y KEK), debe restaurar la clave y el secreto en el almacén de claves para poder asociar discos. Para obtener más información, vea el artículo [Restauración de una máquina virtual de Azure desde un punto de recuperación de Azure Backup](backup-azure-restore-key-secret.md). En el ejemplo siguiente se muestra cómo adjuntar discos del sistema operativo y de datos para máquinas virtuales cifradas.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -410,6 +433,7 @@ Tras haber restaurado los discos, siga estos pasos para crear y configurar la m�
     ```
     PS C:\> $storageType = "StandardLRS"
     PS C:\> $osDiskName = $vm.Name + "_osdisk"
+    PS C:\> $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
     PS C:\> $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
     PS C:\> $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk $diskConfig -ResourceGroupName "test"
     PS C:\> Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -CreateOption "Attach" -Windows
@@ -423,9 +447,9 @@ Tras haber restaurado los discos, siga estos pasos para crear y configurar la m�
     }
     ```
 
-    #### <a name="managed-encrypted-vms"></a>Máquinas virtuales administradas y cifradas
+    #### <a name="managed-encrypted-vms-bek-and-kek"></a>Máquinas virtuales cifradas administradas (BEK y KEK)
 
-    En el caso de máquinas virtuales administradas y cifradas, deberá crear discos administrados desde Blob Storage y, después, adjuntar los discos. Para obtener información detallada, vea el artículo [Adjuntar un disco de datos a una máquina virtual de Windows mediante PowerShell](../virtual-machines/windows/attach-disk-ps.md). En el ejemplo de código siguiente se muestra cómo adjuntar discos de datos para máquinas virtuales administradas y cifradas.
+    En el caso de las máquinas virtuales administradas y cifradas (cifradas mediante BEK y KEK), debe crear discos administrados desde Blob Storage y luego asociar los discos. Para obtener información detallada, vea el artículo [Adjuntar un disco de datos a una máquina virtual de Windows mediante PowerShell](../virtual-machines/windows/attach-disk-ps.md). En el ejemplo de código siguiente se muestra cómo adjuntar discos de datos para máquinas virtuales administradas y cifradas.
 
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -433,6 +457,7 @@ Tras haber restaurado los discos, siga estos pasos para crear y configurar la m�
     PS C:\> $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
     PS C:\> $storageType = "StandardLRS"
     PS C:\> $osDiskName = $vm.Name + "_osdisk"
+    PS C:\> $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
     PS C:\> $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
     PS C:\> $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk $diskConfig -ResourceGroupName "test"
     PS C:\> Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows

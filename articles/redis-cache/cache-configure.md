@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 07/13/2017
+ms.date: 08/22/2017
 ms.author: sdanie
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c1de192c405f2e93483527569c65d368cac40a9b
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Configuración de Caché en Redis de Azure
@@ -224,29 +224,13 @@ Para modificar el tamaño del clúster, utilice el control deslizante o especifi
 
 
 ### <a name="redis-data-persistence"></a>Persistencia de datos de Redis
-Haga clic en **Persistencia de los datos en Redis** para habilitar, deshabilitar o configurar la persistencia de los datos para la caché premium.
+Haga clic en **Persistencia de los datos en Redis** para habilitar, deshabilitar o configurar la persistencia de los datos para la caché premium. Azure Redis Cache ofrece persistencia de Redis mediante [persistencia de RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) o [persistencia de AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
-![Persistencia de datos de Redis](./media/cache-configure/redis-cache-persistence-settings.png)
+Para más información, vea [Cómo configurar la persistencia para una instancia Premium de Azure Redis Cache](cache-how-to-premium-persistence.md).
 
-Para habilitar la persistencia en Redis, haga clic en **Habilitada** para habilitar la copia de seguridad RDB (base de datos de Redis). Para deshabilitar la persistencia en Redis, haga clic en **Deshabilitada**.
-
-Para configurar el intervalo de copia de seguridad, seleccione una de las siguientes entradas de **frecuencia de copia de seguridad** de la lista desplegable. 
-
-- **15 minutos**
-- **30 minutos**
-- **60 minutos**
-- **6 horas**
-- **12 horas**
-- **24 horas**
-
-Este intervalo empieza la cuenta atrás cuando se completa correctamente la operación de copia de seguridad anterior y se inicia cuando se produce una nueva copia de seguridad.
-
-Haga clic en **Cuenta de almacenamiento** para seleccionar la cuenta de almacenamiento que quiere usar y, en el cuadro desplegable **Clave de almacenamiento**, elija la **clave principal** o la **clave secundaria** que se va a utilizar. Debe elegir una cuenta de almacenamiento en la misma región que la memoria caché y se recomienda una cuenta de **Almacenamiento Premium** porque el almacenamiento premium tiene un mayor rendimiento. En cualquier momento que se vuelva a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a elegir la clave que quiera en la lista desplegable **Clave de almacenamiento**.
-
-Haga clic en **Aceptar** para guardar la configuración de persistencia.
 
 > [!IMPORTANT]
-> La persistencia de los datos en Redis solo está disponible para las memorias cachés premium. Para más información, vea [Cómo configurar la persistencia para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md).
+> La persistencia de los datos en Redis solo está disponible para las memorias cachés premium. 
 > 
 > 
 

@@ -4,7 +4,7 @@ description: "Ejemplo de script de la CLI de Azure: asignación de un dominio pe
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: d127e347-7581-47d7-b289-e0f51f2fbfbc
@@ -16,11 +16,11 @@ ms.topic: sample
 ms.date: 06/01/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 6fcea6d32f9dd25b0fafb4f895f60d8320ac9df8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 5a17830ad3b879382b7e82d435f1286c7ecdf7c5
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Asignación de un dominio personalizado a una aplicación de función
@@ -31,7 +31,7 @@ Este script de ejemplo crea una aplicación de función con recursos relacionado
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, debe usar la versión 2.0 de la CLI de Azure o una posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="sample-script"></a>Script de ejemplo
@@ -42,7 +42,7 @@ Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecu
 
 ## <a name="script-explanation"></a>Explicación del script
 
-Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
+Cada script utiliza los comandos siguientes: cada comando de la tabla crea un vínculo a documentación específica del comando.
 
 | Comando | Notas |
 |---|---|

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/28/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 8306c1ff72d348f5f327b79617e1422a78e26bdb
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 08ea5f557498f64825da8fe03d146cace0c53526
 ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Consideraciones de red de Azure AD Domain Services
@@ -26,9 +26,9 @@ ms.lasthandoff: 08/05/2017
 Las siguientes directrices le ayudan a seleccionar una red virtual para usarla con Azure AD Domain Services.
 
 ### <a name="type-of-azure-virtual-network"></a>Tipo Azure Virtual Network
-* Azure AD Domain Services se puede habilitar en una instancia clásica de Azure Virtual Network.
-* Azure AD Domain Services **no se puede habilitar en las redes virtuales creadas mediante Azure Resource Manager**.
-* Una red virtual basada en Resource Manager se puede conectar a una red virtual clásica en la que Azure AD Domain Services está habilitado. A partir de ahí, Azure AD Domain Services se puede usar en la instancia de Virtual Network basada en Resource Manager. Para más información, consulte la sección [Conectividad de red](active-directory-ds-networking.md#network-connectivity).
+* Azure AD Domain Services se puede habilitar en una instancia clásica de Azure Virtual Network. De todas formas, la compatibilidad con las redes virtuales clásicas dejará de utilizarse pronto. Se recomienda usar redes virtuales del administrador de recursos para los dominios administrados recién creados.
+* Azure AD Domain Services se puede habilitar en las redes virtuales creadas mediante Azure Resource Manager.
+* Se pueden conectar otras redes virtuales a la red virtual en la que Azure AD Domain Services está habilitado. Para más información, consulte la sección [Conectividad de red](active-directory-ds-networking.md#network-connectivity).
 * **Redes virtuales regionales**: si planea usar una red virtual existente, asegúrese de que sea una red virtual regional.
 
   * Las redes virtuales que usan el mecanismo de grupos de afinidad heredados no se puede usar con Azure AD Domain Services.
@@ -40,8 +40,8 @@ Las siguientes directrices le ayudan a seleccionar una red virtual para usarla c
 * Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para saber en qué regiones de Azure está disponible Azure AD Domain Services.
 
 ### <a name="requirements-for-the-virtual-network"></a>Requisitos de la red virtual
-* **Proximidad a las cargas de trabajo de Azure**: seleccione la red virtual que hospeda, o va a hospedar, las máquinas virtuales que necesitan acceso a Azure AD Domain Services.
-* **Servidores DNS personalizados o propios**: asegúrese de que no haya ningún servidor DNS personalizado configurado para la red virtual.
+* **Proximidad a las cargas de trabajo de Azure**: seleccione la red virtual que hospeda, o va a hospedar, las máquinas virtuales que necesitan acceso a Azure AD Domain Services. También puede conectar redes virtuales si las cargas de trabajo están implementadas en una red virtual diferente a la del dominio administrado.
+* **Servidores DNS personalizados o propios**: asegúrese de que no haya ningún servidor DNS personalizado configurado para la red virtual. Un ejemplo de un servidor DNS personalizado es una instancia de Windows Server DNS que se ejecuta en una máquina virtual de Windows Server que haya implementado en la red virtual. Azure AD Domain Services no se integra con ningún servidor DNS personalizado que esté implementado en la red virtual.
 * **Dominios existentes con el mismo nombre de dominio**: asegúrese de que no tiene un dominio existente con el mismo nombre de dominio disponible en esa red virtual. Por ejemplo, supongamos que tiene un dominio llamado 'contoso.com' ya disponible en la red virtual seleccionada. Posteriormente, intenta habilitar un dominio administrado de Azure AD Domain Services con el mismo nombre de dominio (es decir, "contoso.com") en esa red virtual. Al intentar habilitar Azure AD Domain Services, aparece un error, que se debe a los conflictos de nombre en el nombre de dominio de la red virtual. En esta situación, debe utilizar un nombre diferente para configurar el dominio administrado de los Servicios de dominio de Azure AD. Como alternativa, puede aprovisionar el dominio existente y luego proceder a habilitar los Servicios de dominio de Azure AD.
 
 > [!WARNING]
@@ -86,13 +86,13 @@ Además, el NSG muestra también cómo bloquear el acceso LDAP seguro a través 
 
 
 ## <a name="network-connectivity"></a>Conectividad de red
-Un dominio administrado de Azure AD Domain Services solo se puede habilitar dentro de una única instancia de clásica de Azure Virtual Network. No se admiten las redes virtuales creadas mediante Azure Resource Manager.
+Un dominio administrado de Azure AD Domain Services solo se puede habilitar dentro de una única red virtual en Azure.
 
 ### <a name="scenarios-for-connecting-azure-networks"></a>Escenarios para la conexión de Azure Networks
 Conecte instancias de Azure Virtual Network para usar el dominio administrado en cualquiera de los siguientes escenarios de implementación:
 
-#### <a name="use-the-managed-domain-in-more-than-one-azure-classic-virtual-network"></a>Utilice el dominio administrado en más de una instancia clásica de Azure Virtual Network
-Puede conectar otras instancias clásicas de Azure Virtual Network a la red virtual la que ha habilitado Azure AD Domain Services. Esta conexión VPN le permite usar el dominio administrado con sus cargas de trabajo implementadas en otras redes virtuales.
+#### <a name="use-the-managed-domain-in-more-than-one-azure-virtual-network"></a>Utilice el dominio administrado en más de una red virtual de Azure
+Puede conectar otras redes virtuales de Azure a la red virtual de Azure en la que ha habilitado Azure AD Domain Services. Esta conexión VPN/emparejamiento de VNet le permite usar el dominio administrado con sus cargas de trabajo implementadas en otras redes virtuales.
 
 ![Conectividad de red virtual clásica](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
 
@@ -102,16 +102,17 @@ Una red virtual basada en Resource Manager se puede conectar a una instancia cl�
 ![Conectividad de Resource Manager a una instancia clásica de Virtual Network](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
 
 ### <a name="network-connection-options"></a>Opciones de conexión de red
-* **Conexiones de red virtual a red virtual mediante conexiones VPN de sitio a sitio**: la conexión de una red virtual a otra (de red virtual a red virtual) es parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una instancia de VPN Gateway para proporcionar un túnel seguro con IPsec/IKE.
-
-    ![Conectividad de Virtual Network mediante VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
-
-    [Más información: conectar redes virtuales mediante VPN Gateway](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * **Conexiones de red virtual a red virtual mediante el emparejamiento de red virtual**: el emparejamiento de Virtual Network es un mecanismo que conecta dos redes virtuales de la misma región mediante la red troncal de Azure. Una vez emparejadas, las dos redes virtuales aparecen como una sola a efectos de conectividad. No obstante, se administran como recursos independientes, pero las máquinas virtuales de estas redes virtuales pueden comunicarse entre sí directamente mediante sus direcciones IP privadas.
 
     ![Conectividad de Virtual Network mediante emparejamiento](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [Más información: emparejamiento de Virtual Network](../virtual-network/virtual-network-peering-overview.md)
+    
+* **Conexiones de red virtual a red virtual mediante conexiones VPN de sitio a sitio**: la conexión de una red virtual a otra (de red virtual a red virtual) es parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una instancia de VPN Gateway para proporcionar un túnel seguro con IPsec/IKE.
+
+    ![Conectividad de Virtual Network mediante VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
+
+    [Más información: conectar redes virtuales mediante VPN Gateway](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 
 <br>
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 43bb5a1aa246004346765d1be4aea236ca17abd2
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Administración de Azure Data Lake Analytics con el portal de Azure
@@ -146,6 +146,24 @@ Emplee el rol de desarrollador de Data Lake Analytics para permitir que los desa
 1. En Azure Portal, vaya a la cuenta de Data Lake Analytics.
 2. Haga clic en **Ver todos los trabajos**. Se muestra una lista de todos los trabajos activos y finalizados recientemente en la cuenta.
 3. De forma opcional, haga clic en **Filtrar** para encontrar los trabajos por los valores **Intervalo de tiempo**, **Nombre del trabajo** y **Autor**. 
+
+### <a name="monitoring-pipeline-jobs"></a>Supervisión de trabajos de canalización
+Los trabajos que forman parte de un trabajo de canalización actúan juntos, normalmente de forma secuencial, para lograr un escenario concreto. Por ejemplo, puede tener una canalización que limpia, extrae, transforma y agrega el uso para información del cliente. Los trabajos de canalización se identifican mediante la propiedad "Pipeline" al enviar el trabajo. En los trabajos programados con ADF V2 esta propiedad se rellena de forma automática. 
+
+Para ver una lista de trabajos de U-SQL que forman parte de canalizaciones: 
+
+1. En Azure Portal, vaya a las cuentas de Data Lake Analytics.
+2. Haga clic en **Información de trabajos**. La pestaña "Todos los trabajos" aparece de forma predeterminada y muestra una lista de trabajos en ejecución, en cola y finalizados.
+3. Haga clic en la pestaña **Trabajos de canalización**. Se muestra una lista de trabajos de canalización junto con estadísticas agregadas de cada canalización.
+
+### <a name="monitoring-recurring-jobs"></a>Supervisión de trabajos periódicos
+Un trabajo periódico es aquel que tiene la misma lógica de negocios pero usa distintos datos de entrada cada vez que se ejecuta. Lo ideal sería que los trabajos periódicos siempre fueran correctos y tuvieran un tiempo de ejecución relativamente estable; la supervisión de estos comportamientos ayuda a garantizar que el trabajo sea correcto. Los trabajos periódicos se identifican mediante la propiedad "Recurrence". En los trabajos programados con ADF V2 esta propiedad se rellena de forma automática.
+
+Para ver una lista de trabajos de U-SQL que son periódicos: 
+
+1. En Azure Portal, vaya a las cuentas de Data Lake Analytics.
+2. Haga clic en **Información de trabajos**. La pestaña "Todos los trabajos" aparece de forma predeterminada y muestra una lista de trabajos en ejecución, en cola y finalizados.
+3. Haga clic en la pestaña **Trabajos periódicos**. Se muestra una lista de trabajos periódicos junto con estadísticas agregadas de cada uno de ellos.
 
 ## <a name="manage-policies"></a>Administración de directivas
 

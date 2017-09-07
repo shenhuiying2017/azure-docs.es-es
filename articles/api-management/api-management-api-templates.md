@@ -3,7 +3,7 @@ title: Plantillas de API en Azure API Management | Microsoft Docs
 description: "Aprenda a personalizar el contenido de las páginas de API en el portal para desarrolladores en Azure API Management."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: cfd0dcba9572fba6ba75893e1a84fd10cd75290d
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 9055c7fc0b562fa02aa2f2ec8425a4a41b69e600
+ms.contentlocale: es-es
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-templates-in-azure-api-management"></a>Plantillas de API en Azure API Management
@@ -39,7 +41,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 > [!NOTE]
 >  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
-##  <a name="a-nameapilista-api-list"></a><a name="APIList"></a> API list  
+##  <a name="APIList"></a> API list  
  La plantilla **API list** le permite personalizar el cuerpo de la página de lista de API en el portal para desarrolladores.  
   
  ![Lista de API del portal para desarrolladores](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Plantillas de lista de API del portal para desarrolladores")  
@@ -107,7 +109,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }  
 ```  
   
-##  <a name="a-nameproducta-operation"></a><a name="Product"></a> Operation  
+##  <a name="Product"></a> Operation  
  La plantilla **Operation** le permite personalizar el cuerpo de la página de operación en el portal para desarrolladores.  
   
  ![Página de operación del portal para desarrolladores](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operación de las plantillas del portal para desarrolladores")  
@@ -637,7 +639,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }  
 ```  
   
-##  <a name="a-namecodesamplesa-code-samples"></a><a name="CodeSamples"></a> Ejemplos de código  
+##  <a name="CodeSamples"></a> Ejemplos de código  
  Las siguientes plantillas le permiten personalizar el cuerpo de los ejemplos de código individuales en la página de operación.  
   
  ![Ejemplos de código de plantillas del portal para desarrolladores](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Ejemplos de código de las plantillas del portal para desarrolladores de APIM")  
@@ -658,7 +660,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 -   [Ruby](#Ruby)  
   
-###  <a name="a-namecurla-curl"></a><a name="Curl"></a> Curl  
+###  <a name="Curl"></a> Curl  
  La plantilla **DocumentationSamplesCurl** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
@@ -711,7 +713,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <a name="a-namecsharpa-c"></a><a name="CSharp"></a> C#  
+###  <a name="CSharp"></a> C#  
  La plantilla **DocumentationSamplesCsharp** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
@@ -890,7 +892,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <a name="a-namestuba-java"></a><a name="Stub"></a> Java  
+###  <a name="Stub"></a> Java  
  La plantilla **DocumentationSamplesJava** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
@@ -986,7 +988,7 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="a-namejavascripta-javascript"></a><a name="JavaScript"></a> JavaScript  
+###  <a name="JavaScript"></a> JavaScript  
  La plantilla **DocumentationSamplesJs** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
@@ -1075,7 +1077,7 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="a-nameobjectiveca-objective-c"></a><a name="ObjectiveC"></a> Objective C  
+###  <a name="ObjectiveC"></a> Objective C  
  La plantilla **DocumentationSamplesObjc** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
@@ -1187,7 +1189,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <a name="a-namephpa-php"></a><a name="PHP"></a> PHP  
+###  <a name="PHP"></a> PHP  
  La plantilla **DocumentationSamplesPhp** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
@@ -1277,7 +1279,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <a name="a-namepythona-python"></a><a name="Python"></a> Python  
+###  <a name="Python"></a> Python  
  La plantilla **DocumentationSamplesPython** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
@@ -1395,7 +1397,7 @@ except Exception as e:
 }  
 ```  
   
-###  <a name="a-namerubya-ruby"></a><a name="Ruby"></a> Ruby  
+###  <a name="Ruby"></a> Ruby  
  La plantilla **DocumentationSamplesRuby** le permite personalizar ese ejemplo de código en la sección de ejemplos de código de la página de operación.  
   
 #### <a name="default-template"></a>Plantilla predeterminada  
@@ -1468,8 +1470,3 @@ puts response.body
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

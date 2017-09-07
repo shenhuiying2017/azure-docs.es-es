@@ -18,10 +18,10 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 70e77e09b2e2116153159167af61776398904a3c
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 0e677fb35279d155241a95cd5f33b63e8294fad2
 ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-functions-consumption-and-app-service-plans"></a>Plan de consumo y plan de App Service de Azure Functions 
@@ -60,9 +60,10 @@ En el plan de App Service, las aplicaciones de función se ejecutan en máquinas
 
 Considere el plan de App Service en los casos siguientes:
 - Tiene máquinas virtuales infrautilizadas que ya ejecutan otras instancias de App Service.
-- Espera que la aplicación de función se ejecute de forma continua, o casi continua.
+- Espera que la aplicación de función se ejecute de forma continua, o casi continua. En este caso, un plan de App Service puede ser más rentable.
 - Necesita más opciones de CPU o memoria que las que proporciona el plan de consumo.
 - Necesita ejecuciones que superan el tiempo de ejecución máximo permitido en el plan de consumo.
+- Necesita características que solo están disponibles en un plan de App Service, como la compatibilidad con el entorno de App Service, la conectividad VNET/VPN y mayores tamaños de máquina virtual. 
 
 Una máquina virtual desvincula el costo del tiempo de ejecución y el tamaño de la memoria. Como resultado, no tendrá que pagar más que el coste de la instancia de máquina virtual que asigna. Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 

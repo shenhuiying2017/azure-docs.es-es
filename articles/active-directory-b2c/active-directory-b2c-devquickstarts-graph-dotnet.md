@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: uso de API Graph | Microsoft Docs'
+title: 'Uso de la API Graph: Azure AD B2C | Microsoft Docs'
 description: "Cómo llamar a la API Graph para un inquilino de B2C mediante una identidad de aplicación para automatizar el proceso."
 services: active-directory-b2c
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c838fcad21875c4f813159ad78d4c87129a40a86
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 1e6748f40c7b825615b3f58243afd9d50348214d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: uso de la API Graph
@@ -38,25 +38,25 @@ Antes de crear aplicaciones, usuarios o interactuar con Azure AD, necesitará un
 Una vez que tenga un inquilino B2C, debe registrar la aplicación a través de [Azure Portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Para usar la API Graph con el inquilino B2C, deberá registrar una aplicación dedicada mediante la hoja *Registros de aplicaciones* genérica en Azure Portal, **NO** mediante la hoja *Aplicaciones* de Azure AD B2C. No puede volver a usar las aplicaciones B2C ya existentes que registró en la hoja *Aplicaciones* de Azure AD B2C.
+> Para usar la API Graph con el inquilino B2C, debe registrar una aplicación dedicada mediante el menú genérico *Registros de aplicaciones* en Azure Portal, **NO** mediante el menú *Aplicaciones* de Azure AD B2C. No puede volver a usar las aplicaciones B2C ya existentes que registró en el menú *Aplicaciones* de Azure AD B2C.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Para elegir el inquilino de Azure AD B2C, seleccione una cuenta en la esquina superior derecha de la página.
 3. En el panel de navegación izquierdo, elija **Más servicios**, haga clic en **Registros de aplicaciones**y, luego, en **Agregar**.
 4. Siga las indicaciones y cree una nueva aplicación. 
     1. Seleccione **Aplicación web o API** como Tipo de aplicación.    
     2. Proporcione **cualquier URI de redirección** (p. ej., https://B2CGraphAPI), ya que no es relevante para este ejemplo.  
 5. La aplicación aparecerá ahora en la lista de aplicaciones. Haga clic en ella para obtener el **Identificador de aplicación** (también conocido como id. de cliente). Cópielo, pues lo necesitará en una sección posterior.
-6. En la hoja Configuración, haga clic en **Claves** y agregue una nueva clave (también conocida como secreto de cliente). Cópiela también para usarla en una sección posterior.
+6. En el menú Configuración, haga clic en **Claves** y agregue una nueva clave (también conocida como secreto de cliente). Cópiela también para usarla en una sección posterior.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configuración de permisos de creación, lectura y actualización para la aplicación
 Ahora debe configurar la aplicación para obtener todos los permisos necesarios para crear, leer, actualizar y eliminar usuarios.
 
-1. Aún en la hoja Registros de aplicaciones de Azure Portal, seleccione la aplicación.
-2. En la hoja Configuración, haga clic en **Permisos necesarios**.
+1. Continuando en el menú Registros de aplicaciones de Azure Portal, seleccione su aplicación.
+2. En el menú Configuración, haga clic en **Permisos necesarios**.
 3. En la hoja Permisos necesarios, haga clic en **Microsoft Azure Active Directory**.
-4. En la hoja Habilitar el acceso, seleccione el permiso **Leer y escribir en datos de directorio** en **Permisos de la aplicación** y haga clic en **Guardar**.
-5. Por último, de nuevo en la hoja Permisos necesarios, haga clic en el botón **Conceder permisos**.
+4. En el menú Habilitar el acceso, seleccione el permiso **Leer y escribir datos de directorio** en **Permisos de la aplicación** y haga clic en **Guardar**.
+5. Por último, de nuevo en el menú Permisos necesarios, haga clic en el botón **Conceder permisos**.
 
 Ahora tiene una aplicación con permiso para crear, leer y actualizar usuarios en el inquilino B2C.
 

@@ -14,24 +14,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: c47dabd7c4aa4ba0be08c419989e536711f03677
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 3522cae228e92b47023cfca217e09c2e2104190b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Administración de clústeres de Hadoop en HDInsight con PowerShell de Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. En este artículo, aprenderá a administrar clústeres de Hadoop en HDInsight de Azure con una consola local de PowerShell de Azure mediante el uso de Windows PowerShell. Para obtener más información sobre los cmdlets de PowerShell de HDInsight, consulte [Documentación de referencia de los cmdlets de HDInsight][hdinsight-powershell-reference].
+Se puede usar Azure PowerShell para controlar y automatizar la implementación y la administración de las cargas de trabajo en Azure. En este artículo aprenderá a administrar clústeres de Hadoop en Azure HDInsight mediante Azure PowerShell. Para obtener más información sobre los cmdlets de PowerShell de HDInsight, consulte [Documentación de referencia de los cmdlets de HDInsight][hdinsight-powershell-reference].
 
 **Requisitos previos**
 
-Antes de empezar este artículo, debe tener lo siguiente:
+Antes de empezar este artículo, debe tener los siguientes elementos:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -42,7 +41,9 @@ Si ha instalado la versión 0.9 x de Azure PowerShell, debe desinstalarla antes 
 
 Para comprobar la versión del PowerShell instalado:
 
-    Get-Module *azure*
+```powershell
+Get-Module *azure*
+```
 
 Para desinstalar la versión anterior, ejecute Programas y características en el panel de control.
 
@@ -52,21 +53,29 @@ Consulte [Crear clústeres basados en Linux en HDInsight con Azure PowerShell](h
 ## <a name="list-clusters"></a>Enumeración de clústeres
 Use el comando siguiente para enumerar todos los clústeres de la suscripción actual:
 
-    Get-AzureRmHDInsightCluster
+```powershell
+Get-AzureRmHDInsightCluster
+```
 
 ## <a name="show-cluster"></a>Presentación de clústeres
 Use el comando siguiente para mostrar los detalles de un clúster específico de la suscripción actual:
 
-    Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```powershell
+Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```
 
 ## <a name="delete-clusters"></a>Eliminación de clústeres
 Use el comando siguiente para eliminar un clúster:
 
-    Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```powershell
+Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```
 
-También puede eliminar un clúster quitando el grupo de recursos que contiene el clúster. Tenga en cuenta que esto eliminará todos los recursos del grupo, incluida la cuenta de almacenamiento predeterminada.
+También puede eliminar un clúster quitando el grupo de recursos que contiene el clúster. La eliminación de un grupo de recursos supone la eliminación de todos los recursos del grupo, incluida la cuenta de almacenamiento predeterminada.
 
-    Remove-AzureRmResourceGroup -Name <Resource Group Name>
+```powershell
+Remove-AzureRmResourceGroup -Name <Resource Group Name>
+```
 
 ## <a name="scale-clusters"></a>Escalado de clústeres
 La característica de escalado de clústeres permite cambiar la cantidad de nodos de trabajo que usa un clúster que se ejecuta en HDInsight de Azure sin necesidad de volver a crear el clúster.
@@ -82,14 +91,17 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
     Puede aumentar sin ningún problema la cantidad de nodos de trabajo en un clúster de Hadoop que se encuentre en ejecución, sin que afecte a ningún trabajo pendiente o en ejecución. También se pueden enviar trabajos nuevos mientras la operación está en curso. Los errores que puedan surgir en una operación de escalado se enfrentan oportunamente, por lo que el clúster siempre queda en estado funcional.
 
-    Cuando se realiza la reducción vertical de un clúster de Hadoop al disminuir la cantidad de nodos de datos, se reinician algunos de los servicios del clúster. Esto provoca que todos los trabajos pendientes y en ejecución fallen al completarse la operación de escalado. Sin embargo, puede volver a enviar los trabajos una vez finalizada la operación.
+    Cuando se realiza la reducción vertical de un clúster de Hadoop al disminuir la cantidad de nodos de datos, se reinician algunos de los servicios del clúster. El reinicio de los servicios provoca que todos los trabajos pendientes y en ejecución experimenten un error al completarse la operación de escalado. Sin embargo, puede volver a enviar los trabajos una vez finalizada la operación.
 * HBase
 
-    Puede agregar nodos sin problemas al clúster de HBase mientras se encuentra en ejecución, así como eliminarlos. Los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Sin embargo, puede equilibrar manualmente los servidores regionales iniciando sesión en el nodo principal del clúster y ejecutando los comandos siguientes desde una ventana del símbolo del sistema:
+    Puede agregar nodos sin problemas al clúster de HBase mientras se encuentra en ejecución, así como eliminarlos. Los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Pero también puede equilibrar manualmente los servidores regionales si inicia sesión en el nodo principal del clúster y luego ejecuta los comandos siguientes desde una ventana del símbolo del sistema:
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
+
 * Storm
 
     Puede agregar o quitar sin problemas nodos de datos de su clúster de Storm mientras se encuentra en ejecución. Sin embargo, después de finalizar correctamente la operación de escalado, deberá volver a equilibrar la topología.
@@ -107,14 +119,18 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
     El siguiente es un ejemplo de cómo usar el comando CLI para volver a equilibrar la topología de Storm:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 Para cambiar el tamaño del clúster de Hadoop con Azure PowerShell, ejecute el siguiente comando desde un equipo cliente:
 
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+```powershell
+Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+```
 
 
 ## <a name="grantrevoke-access"></a>Concesión o revocación del acceso
@@ -128,52 +144,73 @@ Los clústeres de HDInsight tienen los siguientes servicios web HTTP (todos esto
 
 De manera predeterminada, estos servicios se conceden para el acceso. Puede revocar/conceder el acceso. Para revocar:
 
-    Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+```powershell
+Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+```
 
 Para conceder:
 
-    $clusterName = "<HDInsight Cluster Name>"
+```powershell
+$clusterName = "<HDInsight Cluster Name>"
 
-    # Credential option 1
-    $hadoopUserName = "admin"
-    $hadoopUserPassword = "<Enter the Password>"
-    $hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
+# Credential option 1
+$hadoopUserName = "admin"
+$hadoopUserPassword = "<Enter the Password>"
+$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
 
-    # Credential option 2
-    #$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
+# Credential option 2
+#$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
 
-    Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
+Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
+```
 
 > [!NOTE]
-> Al conceder/revocar el acceso, restablecerá el nombre de usuario y la contraseña del clúster.
+> Al conceder o revocar el acceso, se restablece el nombre de usuario y la contraseña del clúster.
 >
 >
 
-Esto también se puede hacer a través del Portal. Consulte [Administración de HDInsight mediante Azure Portal][hdinsight-admin-portal].
+También es posible conceder y revocar el acceso a través del portal. Consulte [Administración de HDInsight mediante Azure Portal][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>Actualización de las credenciales de usuario HTTP
-Es el mismo procedimiento que [Concesión o revocación del acceso HTTP](#grant/revoke-access). Si al clúster se le ha concedido el acceso HTTP, primero debe revocarlo.  Y después conceda el acceso con nuevas credenciales de usuario HTTP.
+Es el mismo procedimiento que la [concesión o la revocación del acceso HTTP](#grant/revoke-access). Si se ha concedido al clúster el acceso HTTP, primero debe revocarlo.  Y después conceda el acceso con nuevas credenciales de usuario HTTP.
 
 ## <a name="find-the-default-storage-account"></a>Búsqueda de la cuenta de almacenamiento predeterminada
-El siguiente script de Powershell muestra cómo obtener el nombre y la clave de la cuenta de almacenamiento predeterminada  para un clúster.
+El siguiente script de PowerShell muestra cómo obtener el nombre de la cuenta de almacenamiento predeterminada y la información relacionada:
 
-    $clusterName = "<HDInsight Cluster Name>"
+```powershell
+#Login-AzureRmAccount
+$clusterName = "<HDInsight Cluster Name>"
 
-    $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroupName = $cluster.ResourceGroup
-    $defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
+$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
+$defaultStoreageType = $storageInfo[1]
+$defaultStorageName = $storageInfo[0]
+
+echo "Default Storage account name: $defaultStorageName"
+echo "Default Storage account type: $defaultStoreageType"
+
+if ($defaultStoreageType -eq "blob")
+{
     $defaultBlobContainerName = $cluster.DefaultStorageContainer
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
     $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
 
+    echo "Default Blob container name: $defaultBlobContainerName"
+    echo "Default Storage account key: $defaultStorageAccountKey"
+}
+```
+
+
 ## <a name="find-the-resource-group"></a>Búsqueda del grupo de recursos
 En el modo de Resource Manager, cada clúster de HDInsight pertenece a un grupo de recursos de Azure.  Para buscar el grupo de recursos:
 
-    $clusterName = "<HDInsight Cluster Name>"
+```powershell
+$clusterName = "<HDInsight Cluster Name>"
 
-    $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroupName = $cluster.ResourceGroup
+$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$resourceGroupName = $cluster.ResourceGroup
+```
 
 
 ## <a name="submit-jobs"></a>Envío de trabajos

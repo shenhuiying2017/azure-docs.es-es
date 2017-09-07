@@ -3,7 +3,7 @@ title: Expresiones de las directivas de Azure API Management | Microsoft Docs
 description: "Obtenga información acerca de las expresiones de las directivas de Azure API Management."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: d96dde8c74141d000c1f7c5fd9ef624ff5e46953
-ms.lasthandoff: 04/07/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
+ms.contentlocale: es-es
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-management-policy-expressions"></a>Expresiones de las directivas de API Management
@@ -172,7 +173,7 @@ La sintaxis de las expresiones de las directivas es C# 6.0. Cada expresión tien
   
 |Variable de contexto|Métodos, propiedades y valores de parámetro admitidos|  
 |----------------------|-------------------------------------------------------|  
-|contexto|Api: IApi<br /><br /> Implementación<br /><br /> LastError<br /><br /> Operación<br /><br /> Producto<br /><br /> Solicitud<br /><br /> RequestId: cadena<br /><br /> Response<br /><br /> La suscripción<br /><br /> Tracing: bool<br /><br /> Usuario<br /><br /> Variables:IReadOnlyDictionary<cadena, objeto><br /><br /> void Trace(message: cadena)|  
+|contexto|Api: IApi<br /><br /> Implementación<br /><br /> LastError<br /><br /> Operación<br /><br /> Producto<br /><br /> Solicitud<br /><br /> RequestId: Guid<br /><br /> Response<br /><br /> La suscripción<br /><br /> Tracing: bool<br /><br /> Usuario<br /><br /> Variables:IReadOnlyDictionary<cadena, objeto><br /><br /> void Trace(message: cadena)|  
 |context.Api|Id: cadena<br /><br /> Name: cadena<br /><br /> Path: cadena<br /><br /> ServiceUrl: IUrl|  
 |context.Deployment|Region: cadena<br /><br /> ServiceName: cadena|  
 |context.LastError|Source: cadena<br /><br /> Reason: cadena<br /><br /> Message: cadena<br /><br /> Scope: cadena<br /><br /> Section: cadena<br /><br /> Path: cadena<br /><br /> PolicyId: cadena<br /><br /> Para obtener más información sobre context.LastError, consulte [Error handling in API Management policies](api-management-error-handling-policies.md) (Control de errores en directivas de API Management).|  

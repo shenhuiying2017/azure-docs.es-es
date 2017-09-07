@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: shlo
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 66d3b5532e602ef3ef160740c0f6752ebbdff7a2
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: da7110614e684656da3ef9830780606e1576684d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
@@ -99,7 +99,7 @@ En este tipo de configuración, el entorno de procesos está totalmente administ
 > 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Servicio vinculado a petición de HDInsight de Azure
-El servicio Factoría de datos de Azure crea automáticamente un clúster de HDInsight basado en Windows/Linux a petición para procesar los datos. El clúster se crea en la misma región que la cuenta de almacenamiento (propiedad linkedServiceName en JSON) asociada al clúster.
+El servicio Factoría de datos de Azure crea automáticamente un clúster de HDInsight basado en Windows/Linux a petición para procesar los datos. El clúster se crea en la misma región que la cuenta de almacenamiento (propiedad linkedServiceName en JSON) asociada al clúster. La cuenta de almacenamiento debe ser una cuenta de almacenamiento estándar de uso general de Azure. 
 
 Tenga en cuenta los siguientes puntos **importantes** acerca del servicio vinculado de HDInsight a petición:
 

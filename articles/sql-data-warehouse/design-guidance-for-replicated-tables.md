@@ -15,10 +15,10 @@ ms.custom: tables
 ms.date: 07/14/2017
 ms.author: rortloff;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: efb5361496a2199a960564f6213f509b693e3cfa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 437a4f628a343312984d1fa2981df7fa01459e26
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -130,11 +130,11 @@ WHERE d.FiscalYear = 2004
 ```
 Se vuelve a crear `DimDate` y `DimSalesTerritory` como tablas Round Robin. Como resultado, la consulta muestra el plan de consulta siguiente, que tiene varias operaciones de movimiento de difusión: 
  
-![Plan de consulta de Round Robin](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "plan de consulta de Round Robin") 
+![Plan de consulta de round robin](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg) 
 
 Se vuelve a crear `DimDate` y `DimSalesTerritory` como tablas replicadas y se ejecuta la consulta de nuevo. El plan de consulta resultante es mucho más corto y no tiene ningún movimiento de difusión.
 
-![Plan de consulta replicada](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "plan de consulta de Round Robin") 
+![Plan de consulta replicado](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg) 
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Consideraciones de rendimiento para modificar tablas replicadas

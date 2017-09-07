@@ -4,7 +4,7 @@ description: Uso de enlaces de tablas externas en Azure Functions
 services: functions
 documentationcenter: 
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: functions
@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 716438e5ea490f6716999813112305499dbe61a8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Enlaces de tablas externas de Azure Functions (versión preliminar)

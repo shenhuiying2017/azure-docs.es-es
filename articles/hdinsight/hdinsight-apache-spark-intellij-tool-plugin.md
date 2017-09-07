@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/24/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 97414ee55663662fb40a91b930d61634c83e30fa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 19cb8f436fa4d86f323013a5d4b3b50bf6c80a1a
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Uso del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark para un clúster de HDInsight
@@ -39,7 +39,7 @@ Para crear el proyecto, vea el vídeo [Create Spark Applications with the Azure 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Un clúster Apache Spark en HDInsight Linux. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+- Un clúster Apache Spark en HDInsight Linux. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 - Kit de desarrollo de Oracle Java. Puede instalarlo desde el [sitio web de Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - IntelliJ IDEA. En este artículo se usa la versión 2017.1. Puede instalarlo desde el [sitio web de JetBrains](https://www.jetbrains.com/idea/download/).
 
@@ -79,7 +79,7 @@ Para obtener instrucciones de instalación, consulte [Instalación del kit de he
    b. En la lista de **herramientas de compilación**, seleccione cualquiera de las siguientes, según sus necesidades:
 
       * **Maven**, para la compatibilidad con el asistente para crear un proyecto de Scala
-      * **SBT**, para administrar las dependencias y crear el proyecto de Scala
+      * **SBT**, para administrar las dependencias y compilar el proyecto de Scala
 
     ![Cuadro de diálogo Nuevo proyecto](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
@@ -172,15 +172,6 @@ Para obtener instrucciones de instalación, consulte [Instalación del kit de he
 ## <a name="run-or-debug-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Ejecución o depuración de una aplicación Spark en Scala en un clúster de HDInsight Spark
 También se recomienda otra manera de enviar la aplicación Spark al clúster. Puede hacerlo estableciendo los parámetros del IDE de **configuraciones de ejecución o depuración**. Para obtener más información, consulte [Depuración de aplicaciones de Spark de forma remota en un clúster de HDInsight con el kit de herramientas de Azure para IntelliJ mediante SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
-## <a name="choose-azure-data-lake-store-as-spark-scala-application-storage"></a>Selección de Azure Data Lake Store como almacenamiento para la aplicación Spark en Scala
-Para enviar una aplicación a Azure Data Lake Store, elija el modo **Interactivo** durante el proceso de inicio de sesión en Azure. 
-
-![Opción de modo interactivo en el inicio de sesión](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-interactive.png)
-
-Si selecciona el modo **Automatizado**, obtendrá el siguiente error:
-
-![Error de inicio de sesión](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-error.png)
-
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Acceso y administración de clústeres de HDInsight Spark mediante el uso del kit de herramientas de Azure para IntelliJ
 Puede realizar varias operaciones mediante el Kit de herramientas de Azure para IntelliJ.
 
@@ -240,7 +231,7 @@ Para solucionar este error, [descargue el archivo ejecutable](http://public-repo
     b. En la lista de **herramientas de compilación**, seleccione cualquiera de las siguientes, según sus necesidades:
 
       * **Maven**, para la compatibilidad con el asistente para crear un proyecto de Scala
-      * **SBT**, para administrar las dependencias y crear el proyecto de Scala
+      * **SBT**, para administrar las dependencias y compilar el proyecto de Scala
 
     ![Cuadro de diálogo Nuevo proyecto](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
 
@@ -307,13 +298,20 @@ Estos errores se producen porque el tamaño del montón no es lo suficientemente
 
 ![Incorporación de opciones a la casilla de opciones de máquina virtual en IntelliJ](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
 
+## <a name="faq"></a>P+F
+Para enviar una aplicación a Azure Data Lake Store, elija el modo **Interactivo** durante el proceso de inicio de sesión en Azure. Si selecciona el modo **Automatizado**, puede aparecer un error.
+
+![inicio de sesión interactivo](./media/hdinsight-apache-spark-intellij-tool-plugin/interative-signin.png)
+
+Ahora se ha resuelto. Puede elegir un clúster de Azure Data Lake para enviar la aplicación con cualquier método de inicio de sesión.
+
 ## <a name="feedback-and-known-issues"></a>Comentarios y problemas conocidos
 Actualmente, la visualización de salidas de Spark directamente no se admite.
 
 Si tiene sugerencias o comentarios, o si se le presenta algún problema al usar este complemento, no dude en enviarnos un correo electrónico a la dirección hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Pasos siguientes
-* [Introducción a Apache Spark en Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 
 ### <a name="demo"></a>Demostración
 * Creación del proyecto Scala (vídeo): [Creación de aplicaciones Scala de Spark](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (en inglés)
@@ -322,7 +320,7 @@ Si tiene sugerencias o comentarios, o si se le presenta algún problema al usar 
 ### <a name="scenarios"></a>Escenarios
 * [Spark con BI: realización del análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark con Machine Learning: uso de Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 * [Análisis del registro del sitio web con Spark en HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -341,7 +339,7 @@ Si tiene sugerencias o comentarios, o si se le presenta algún problema al usar 
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="managing-resources"></a>Administración de recursos
-* [Administración de recursos para el clúster Apache Spark en Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
 
 

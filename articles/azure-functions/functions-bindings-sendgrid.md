@@ -4,20 +4,19 @@ description: Referencia de enlaces de SendGrid de Azure Functions
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 08/26/2017
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 0cd7e7c55e77863c142800cdc11d6ea144c38293
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: bcdbb6aee49d230a4cb0ba08d836facacb64de7f
 ms.contentlocale: es-es
-ms.lasthandoff: 03/18/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces de SendGrid de Azure Functions
@@ -35,14 +34,16 @@ Azure Functions proporciona un enlace de salida para SendGrid. El enlace de sali
 
 El enlace de SendGrid admite las siguientes propiedades:
 
-- `name` (requerido): el nombre de variable que se usa en el código de función para la solicitud o el cuerpo de la solicitud. Este valor es ```$return``` cuando hay solo un valor de devuelto. 
-- `type` (requerido): se debe establecer en "sendGrid".
-- `direction` (requerido): se debe establecer en "out".
-- `apiKey` (requerido): se debe establecer en el nombre de la clave de API almacenada en la configuración de aplicación de Function App.
-- `to`: dirección de correo electrónico del destinatario.
-- `from`: dirección de correo electrónico del remitente.
-- `subject` : el asunto del correo electrónico.
-- `text` : el contenido del correo electrónico.
+|Propiedad  |Descripción  |
+|---------|---------|
+|**name**| Requerida: nombre de variable que se usa en el código de la función para la solicitud o el cuerpo de la solicitud. Este valor es ```$return``` cuando hay solo un valor de devuelto. |
+|**type**| Requerida: se debe establecer en `sendGrid`.|
+|**dirección**| Requerida: se debe establecer en `out`.|
+|**apiKey**| Requerida: se debe establecer en el nombre de la clave de API almacenada en la configuración de aplicación de Function App. |
+|**to**| Dirección de correo electrónico del destinatario. |
+|**from**| Dirección de correo electrónico del remitente. |
+|**subject**| Asunto del correo electrónico. |
+|**text**| Contenido del correo electrónico. |
 
 Ejemplo de **function.json**:
 

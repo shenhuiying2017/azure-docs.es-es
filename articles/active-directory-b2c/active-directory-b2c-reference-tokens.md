@@ -1,43 +1,44 @@
 ---
-title: 'Azure Active Directory B2C: referencia de tokens | Microsoft Docs'
+title: 'Referencia de tokens: Azure AD B2C | Microsoft Docs'
 description: Tipos de tokens emitidos en Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
-author: dstrockis
-manager: mbaldwin
-editor: 
+author: parakhj
+manager: krassk
+editor: parakhj
 ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
-ms.author: dastrock
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 39cfbc1c6dea138fe2f1eb3190770606f3895d40
+ms.date: 08/16/2017
+ms.author: parakhj
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 7f98637264d1acb209d0379e4800e542fc91955b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: referencia de tokens
+
 Azure Active Directory B2C (Azure AD B2C) emite varios tipos de tokens de seguridad a medida que procesa cada [flujo de autenticación](active-directory-b2c-apps.md). Este documento describe el formato, las características de seguridad y el contenido de cada tipo de token.
 
 ## <a name="types-of-tokens"></a>Tipos de tokens
 Azure AD B2C admite el [protocolo de autorización de OAuth 2.0](active-directory-b2c-reference-protocols.md), que usa tanto tokens de acceso como tokens de actualización. También admite la autenticación y el inicio de sesión a través de [OpenID Connect](active-directory-b2c-reference-protocols.md), que introduce un tercer tipo de token, token de identificador. Todos estos tokens se representan como un token de portador.
 
-Un token de portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. El "portador" es cualquier parte que pueda presentar el token. Para que una parte pueda recibir un token de portador, es necesario que Azure AD la autentique previamente. Pero si no se realizan los pasos necesarios para proteger el token durante la transmisión y el almacenamiento, puede ser interceptado y usado por usuarios no previstos. Algunos tokens de seguridad disponen de un mecanismo integrado para evitar que usuarios no autorizados puedan usarlos, pero los tokens de portador no tienen este mecanismo. Deberán ser transportados en un canal seguro, como Seguridad de la capa de transporte (HTTPS).
+Un token de portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. El "portador" es cualquier parte que pueda presentar el token. Para que una parte pueda recibir un token de portador, es necesario que Azure AD B2C la autentique previamente. Pero si no se realizan los pasos necesarios para proteger el token durante la transmisión y el almacenamiento, puede ser interceptado y usado por usuarios no previstos. Algunos tokens de seguridad disponen de un mecanismo integrado para evitar que usuarios no autorizados puedan usarlos, pero los tokens de portador no tienen este mecanismo. Deberán ser transportados en un canal seguro, como Seguridad de la capa de transporte (HTTPS).
 
 Si un token de portador se transmite fuera de un canal seguro, un usuario malintencionado puede utilizar un ataque de tipo "man in the middle" para adquirir el token y usarlo para obtener acceso sin autorización a un recurso protegido. Los mismos principios de seguridad se aplican cuando los tokens de portador se almacenan o guardan en caché para su uso posterior. Asegúrate siempre de que la aplicación transmite y almacena los tokens de portador de manera segura.
 
 Para ver más consideraciones de seguridad relativas a los tokens de portador, consulte la [sección 5 de RFC 6750](http://tools.ietf.org/html/rfc6750).
 
-Muchos de los tokens emitidos por Azure AD B2C se implementan como tokens web JSON (JWT). Un JWT es un medio compacto y seguro de la dirección URL para transferir información entre dos partes. Los JWT contienen información conocida como notificaciones. Se trata de aserciones de información sobre el portador y el sujeto del token. En JWT, las notificaciones son objetos JSON que se codifican y serializan para su transmisión. Como los JWT emitidos por Azure AD B2C están firmados pero no cifrados, puede inspeccionar fácilmente el contenido de un JWT para depurarlo. Hay varias herramientas para hacerlo, entre ellas [calebb.net](http://calebb.net). Para más información acerca de los JWT, consulte las [especificaciones de JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Muchos de los tokens emitidos por Azure AD B2C se implementan como tokens web JSON (JWT). Un JWT es un medio compacto y seguro de la dirección URL para transferir información entre dos partes. Los JWT contienen información conocida como notificaciones. Se trata de aserciones de información sobre el portador y el sujeto del token. En JWT, las notificaciones son objetos JSON que se codifican y serializan para su transmisión. Como los JWT emitidos por Azure AD B2C están firmados pero no cifrados, puede inspeccionar fácilmente el contenido de un JWT para depurarlo. Hay varias herramientas para hacerlo, entre ellas [jwt.ms](https://jwt.ms). Para más información acerca de los JWT, consulte las [especificaciones de JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### <a name="id-tokens"></a>Tokens de identificador
-Los tokens de identificador son una forma de token de seguridad que la aplicación recibe de los puntos de conexión `authorize` y `token` de Azure AD B2C. Los tokens de identificador se representan como si fueran [JWT](#types-of-tokens)y contienen notificaciones que se pueden usar para identificar a los usuarios de la aplicación. Cuando los tokens de identificador se adquieren desde el punto de conexión `authorize` , a menudo se usan para que los usuarios inicien sesión en las aplicaciones web. Cuando los tokens de identificador se adquieren desde el punto de conexión `token` , se pueden enviar en solicitudes HTTP durante la comunicación entre dos componentes de la misma aplicación o servicio. Puede usar las notificaciones en un token de identificador como considere oportuno. Normalmente se suelen usar para mostrar información sobre la cuenta o para tomar decisiones sobre control de acceso en una aplicación.  
+
+Los tokens de identificador son una forma de token de seguridad que la aplicación recibe de los puntos de conexión `/authorize` y `/token` de Azure AD B2C. Los tokens de identificador se representan como si fueran [JWT](#types-of-tokens)y contienen notificaciones que se pueden usar para identificar a los usuarios de la aplicación. Cuando se adquieren los tokens de identificador del punto de conexión `/authorize`, el procedimiento se realizan utilizando el [flujo implícito](active-directory-b2c-reference-spa.md), que se usa a menudo para que los usuarios inicien sesión en aplicaciones web basadas en javascript. Cuando se adquieren los tokens de identificador del punto de conexión `/token`, el procedimiento se realizan utilizando el [flujo de código confidencial](active-directory-b2c-reference-oidc.md), que mantiene el token oculto al explorador. Esto permite que el token se envíe de forma segura en las solicitudes HTTP para la comunicación entre dos componentes de la misma aplicación o servicio. Puede usar las notificaciones en un token de identificador como considere oportuno. Normalmente se suelen usar para mostrar información sobre la cuenta o para tomar decisiones sobre control de acceso en una aplicación.  
 
 Los tokens de identificador están firmados, pero actualmente no están cifrados. Cuando una aplicación o API recibe un token de identificador, debe [validar la firma](#token-validation) para demostrar que es auténtico. La aplicación o la API también debe validar algunas notificaciones del token para demostrar que es válido. En función de los requisitos del escenario, las notificaciones validadas por una aplicación varían, pero la aplicación debe realizar algunas [validaciones de notificación comunes](#token-validation) en todos los escenarios.
 
@@ -60,14 +61,16 @@ CQhoFA
 ```
 
 ### <a name="access-tokens"></a>Tokens de acceso
-Los tokens de acceso también son una forma de token de seguridad que la aplicación recibe de los puntos de conexión `authorize` y `token` de Azure AD B2C. Los tokens de acceso también se representan como [JWT](#types-of-tokens) y contienen notificaciones que puede usar para identificar los permisos concedidos a las API. Los tokens de acceso están firmados, pero actualmente no están cifrados. Los tokens de acceso se deberían utilizar para proporcionar acceso a servidores de recursos y API. Obtenga más información sobre cómo [usar los tokens de acceso](active-directory-b2c-access-tokens.md). 
+
+Los tokens de acceso también son una forma de token de seguridad que la aplicación recibe de los puntos de conexión `/authorize` y `/token` de Azure AD B2C. Los tokens de acceso también se representan como [JWT](#types-of-tokens) y contienen notificaciones que puede usar para identificar los permisos concedidos a las API. Los tokens de acceso están firmados, pero actualmente no están cifrados. Los tokens de acceso se deberían utilizar para proporcionar acceso a servidores de recursos y API. Obtenga más información sobre cómo [usar los tokens de acceso](active-directory-b2c-access-tokens.md). 
 
 Cuando una API recibe un token de acceso, debe [validar la firma](#token-validation) para demostrar que es auténtico. La API también debe validar algunas notificaciones del token para demostrar que es válido. En función de los requisitos del escenario, las notificaciones validadas por una aplicación varían, pero la aplicación debe realizar algunas [validaciones de notificación comunes](#token-validation) en todos los escenarios.
 
 ### <a name="claims-in-id-and-access-tokens"></a>Notificaciones en los tokens de identificador y de acceso
+
 Con Azure AD B2C, tendrá un control preciso sobre el contenido de los tokens. Se puede configurar [directivas](active-directory-b2c-reference-policies.md) para enviar ciertos conjuntos de datos de usuario en las notificaciones que la aplicación necesita para sus operaciones. Dichas notificaciones pueden incluir propiedades estándar, tales como los valores de `displayName` y `emailAddress` del usuario. También pueden incluir [atributos de usuario personalizados](active-directory-b2c-reference-custom-attr.md) que se pueden definir en el directorio de B2C. Todos los tokens de identificador y de acceso que reciba contienen un conjunto concreto de notificaciones relacionadas con la seguridad. Las aplicaciones pueden usar estas notificaciones para autenticar usuarios y solicitudes de manera segura.
 
-Tenga en cuenta que  las notificaciones de los tokens de identificador no se devuelven en ningún orden concreto. Además, se pueden agregar nuevas notificaciones en tokens de identificador en cualquier momento. No se debe interrumpir la aplicación cuando se agreguen nuevas notificaciones. Estas son las notificaciones que se espera que existan en los tokens de identificador y de acceso que emite Azure AD B2C. Las directivas determinan otras notificaciones adicionales. Para la práctica, intente inspeccionar las notificaciones del token de identificador de ejemplo pegándolo en [calebb.net](http://calebb.net). Puede encontrar más información al respecto en la [especificación OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
+Tenga en cuenta que  las notificaciones de los tokens de identificador no se devuelven en ningún orden concreto. Además, se pueden agregar nuevas notificaciones en tokens de identificador en cualquier momento. No se debe interrumpir la aplicación cuando se agreguen nuevas notificaciones. Estas son las notificaciones que se espera que existan en los tokens de identificador y de acceso que emite Azure AD B2C. Las directivas determinan otras notificaciones adicionales. Para practicar, intente inspeccionar las notificaciones del token de identificador de ejemplo, pegándolo en [jwt.ms](https://jwt.ms). Puede encontrar más información al respecto en la [especificación OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
 
 | Name | Notificación | Valor de ejemplo | Descripción |
 | --- | --- | --- | --- |

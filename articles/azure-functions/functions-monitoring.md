@@ -4,7 +4,7 @@ description: Aprenda a supervisar Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b01ffb52f75fd23901f4bb245396f649e14c0389
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 3ab6123b6acfdec57f1ca71b404c9e1123d1ff6d
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -35,14 +35,12 @@ La pestaña **Monitor** (Supervisar) en cada función le permite revisar cada ej
 
 Al hacer clic en una ejecución puede revisar la duración, los datos de entrada, los errores y los archivos de registro asociados. Esto resulta de utilidad con vistas a la depuración y la optimización del rendimiento de sus funciones.
 
-
 > [!IMPORTANT]
-> Al usar el [plan de hospedaje de consumo](functions-overview.md#pricing) para Azure Functions, el icono **Monitoring** (Supervisión) de la hoja de información general de Function App no muestra ningún dato. Esto se debe a que la plataforma escala y administra las instancias de proceso de manera dinámica sin intervención del usuario, por lo que estas métricas no son significativas en un plan de consumo. Para supervisar el uso de las aplicaciones de función, debe guiarse por los pasos que se indican en este artículo.
+> Al usar el [plan de hospedaje de consumo](functions-overview.md#pricing) para Azure Functions, el icono **Monitoring** (Supervisión) de Function App no muestra ningún dato. Esto se debe a que la plataforma escala y administra de forma dinámica las instancias de proceso. Estas métricas no son significativas en un plan de consumo. Para supervisar el uso de las aplicaciones de función, debe guiarse por los pasos que se indican en este artículo.
 > 
 > La siguiente captura de pantalla muestra un ejemplo:
 > 
-> ![Hoja de supervisión del recurso principal](./media/functions-monitoring/app-service-overview-monitoring.png)
-
+> ![Supervisión de la función](./media/functions-monitoring/app-service-overview-monitoring.png)
 
 
 ## <a name="real-time-monitoring"></a>Supervisión en tiempo real
@@ -51,7 +49,7 @@ La supervisión en tiempo real está disponible cuando se hace clic en **secuenc
 
 ![Opción de secuencia de eventos en directo de la pestaña de supervisión](./media/functions-monitoring/monitor-tab-live-event-stream.png)
 
-La secuencia de eventos en directo se representa gráficamente en una nueva pestaña de explorador, como se muestra a continuación. 
+El flujo de eventos en directo se muestra en un gráfico en una nueva pestaña del explorador, como en el ejemplo siguiente: 
 
 ![Ejemplo de secuencia de eventos en directo](./media/functions-monitoring/live-event-stream.png)
 
@@ -69,24 +67,19 @@ La secuencia de eventos en directo representará gráficamente las siguientes es
 Estas estadísticas son en tiempo real, pero el gráfico real de los datos de ejecución puede tener alrededor de 10 segundos de latencia.
 
 
-
-
-
-
 ## <a name="monitoring-log-files-from-a-command-line"></a>Supervisión de archivos de registro desde una línea de comandos
 
+Puede transmitir archivos de registro a una sesión de línea de comandos en una estación de trabajo local mediante la interfaz de la línea de comandos (CLI) de Azure 1.0 o PowerShell.
 
-Puede transmitir archivos de registro a una sesión de línea de comandos en una estación de trabajo local mediante la interfaz de la línea de comandos (CLI) de Azure o PowerShell.
+### <a name="monitoring-function-app-log-files-with-the-azure-cli-10"></a>Supervisión de archivos de registro de la aplicación de función con la CLI de Azure 1.0
 
-### <a name="monitoring-function-app-log-files-with-the-azure-cli"></a>Supervisión de archivos de registro de aplicación de función con la CLI de Azure
+Para comenzar, [instale la CLI de Azure 1.0](../cli-install-nodejs.md)
 
-Para comenzar, [instale la CLI de Azure](../cli-install-nodejs.md).
-
-Inicie sesión en su cuenta de Azure mediante el siguiente comando, o cualquiera de las otras opciones que se tratan en [Inicio de sesión en Azure desde la CLI de Azure](../xplat-cli-connect.md).
+Inicie sesión en la cuenta de Azure mediante el siguiente comando o cualquiera de las otras opciones tratadas en [Inicio de sesión en Azure desde la CLI de Azure 1.0](../xplat-cli-connect.md).
 
     azure login
 
-Use el siguiente comando para habilitar el modo de administración de servicios de la CLI de Azure (ASM).
+Use el siguiente comando para habilitar la CLI de Azure 1.0 en modo clásico de administración de servicios:
 
     azure config mode asm
 
@@ -95,7 +88,7 @@ Si tiene varias suscripciones, use los siguientes comandos para mostrar las susc
     azure account list
     azure account set <subscriptionNameOrId>
 
-El siguiente comando transmitirá los archivos de registro de la aplicación de función a la línea de comandos:
+El siguiente comando transmite los archivos de registro de la aplicación de función a la línea de comandos:
 
     azure site log tail -v <function app name>
 
@@ -119,7 +112,7 @@ Transmita los registros a la sesión de PowerShell con el siguiente comando:
 
     PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
 
-Para más información, consulte [Transmisión de registros para aplicaciones web](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
+Para más información, vea [How to: Stream logs for web apps (Cómo: Transmitir registros para aplicaciones web)](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los siguientes recursos:

@@ -1,6 +1,6 @@
 ---
 title: "Simultaneidad y administración de cargas de trabajo en SQL Data Warehouse | Microsoft Docs"
-description: "Obtenga información sobre la simultaneidad y la administración de cargas de trabajo en Azure SQL Data Warehouse para el desarrollo de soluciones."
+description: "Obtenga información sobre la simultaneidad y la administración de cargas de trabajo en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones."
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
@@ -16,14 +16,14 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1ab2a8253684c62be650eed2ea5f69c62188a22
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
 ms.contentlocale: es-es
 ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL
-Para proporcionar un rendimiento predecible a escala, Azure SQL Data Warehouse le permite controlar los niveles de simultaneidad y las asignaciones de recursos, como la asignación de prioridades de CPU y memoria. En este artículo se presentan los conceptos de simultaneidad y administración de cargas de trabajo, y se explica cómo se han implementado ambas características y cómo puede controlarlas en su almacenamiento de datos. La administración de cargas de trabajo de Almacenamiento de datos SQL está diseñada para admitir entornos de varios usuarios. No está diseñada para cargas de trabajo de multiinquilino.
+Para proporcionar un rendimiento predecible a escala, Almacenamiento de datos SQL de Microsoft Azure le permite controlar los niveles de simultaneidad y las asignaciones de recursos, como la asignación de prioridades de CPU y memoria. En este artículo se presentan los conceptos de simultaneidad y administración de cargas de trabajo, y se explica cómo se han implementado ambas características y cómo puede controlarlas en su almacenamiento de datos. La administración de cargas de trabajo de Almacenamiento de datos SQL está diseñada para admitir entornos de varios usuarios. No está diseñada para cargas de trabajo de multiinquilino.
 
 ## <a name="concurrency-limits"></a>Límites de simultaneidad
 Almacenamiento de datos SQL permite hasta 1.024 conexiones simultáneas. Todas las 1.024 conexiones pueden enviar consultas al mismo tiempo. Sin embargo, para optimizar el rendimiento, Almacenamiento de datos SQL puede poner en cola algunas consultas para asegurarse de que cada una de ellas tiene garantizado un mínimo de memoria. Durante el tiempo de ejecución de las consultas, estas se empiezan a poner en cola. Al iniciar una cola con las consultas cuando se alcanzan los límites de simultaneidad, Almacenamiento de datos SQL puede aumentar el rendimiento total, asegurándose de que las consultas activas obtienen el acceso a los recursos de la memoria que tanto necesitan.  
@@ -152,7 +152,7 @@ El mismo cálculo se aplica a las clases de recursos estáticos.
 ## <a name="concurrency-slot-consumption"></a>Consumo de ranuras de simultaneidad  
 Almacenamiento de datos SQL concederá más memoria a las consultas que se ejecutan en clases de recursos superiores. La memoria es un recurso fijo.  Por lo tanto, cuanta más memoria asignada por consulta, menos consultas simultáneas se pueden ejecutar. En la tabla siguiente se reiteran todos los conceptos anteriores en una vista única donde se muestra el número de intervalos de simultaneidad disponibles por DWU, así como los espacios que consume cada clase de recurso.  
 
-### <a name="allocation-and-consumption-of-concurrency-slots"></a>Asignación y consumo de espacios de simultaneidad  
+### <a name="allocation-and-consumption-of-concurrency-slots-for-dynamic-resource-classes"></a>Asignación y consumo de espacios de simultaneidad para las clases de recursos dinámicos  
 | DWU | N.º máximo de consultas simultáneas | Espacios de simultaneidad asignados | Ranuras utilizadas por smallrc | Ranuras utilizadas por mediumrc | Ranuras utilizadas por largerc | Ranuras utilizadas por xlargerc |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |1 |2 |4 |
@@ -168,7 +168,7 @@ Almacenamiento de datos SQL concederá más memoria a las consultas que se ejecu
 | DW3000 |32 |120 |1 |16 |32 |64 |
 | DW6000 |32 |240 |1 |32 |64 |128 |
 
-### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>Asignación y consumo de espacios de simultaneidad para las clases de recursos estáticos
+### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>Asignación y consumo de espacios de simultaneidad para las clases de recursos estáticos  
 | DWU | N.º máximo de consultas simultáneas | Espacios de simultaneidad asignados |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |2 |4 |4 |4 |4 |4 |4 |
@@ -692,7 +692,7 @@ Removed as these two are not confirmed / supported under SQLDW
     ```
    
    > [!NOTE]
-   > Es una buena idea crear un usuario en la base de datos maestra para los usuarios Azure SQL Data Warehouse. La creación de un usuario en la base de datos maestra posibilita el inicio de sesión mediante herramientas como SSMS sin especificar un nombre de base de datos.  También permite el uso del Explorador de objetos para ver todas las bases de datos en un servidor SQL Server.  Para obtener más información sobre cómo crear y administrar usuarios, consulte [Proteger una base de datos en SQL Data Warehouse][Secure a database in SQL Data Warehouse].
+   > Es una buena idea crear un usuario en la base de datos maestra para los usuarios de Almacenamiento de datos SQL de Azure. La creación de un usuario en la base de datos maestra posibilita el inicio de sesión mediante herramientas como SSMS sin especificar un nombre de base de datos.  También permite el uso del Explorador de objetos para ver todas las bases de datos en un servidor SQL Server.  Para obtener más información sobre cómo crear y administrar usuarios, consulte [Proteger una base de datos en SQL Data Warehouse][Secure a database in SQL Data Warehouse].
    > 
    > 
 2. **Cree un usuario de SQL Data Warehouse**: abra una conexión con la base de datos de **SQL Data Warehouse** y ejecute el comando siguiente.

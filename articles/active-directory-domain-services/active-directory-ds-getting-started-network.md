@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 08/28/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7f420d60862adf61e4f21e5abac2932a742bd55d
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: dd4a45c4eae6832026bce82670e914f5a02bbff7
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal (versión preliminar)
@@ -33,12 +33,12 @@ La siguiente tarea de configuración es crear una red virtual de Azure y una sub
 
 1. Haga clic en **Red virtual** para seleccionar una red virtual.
 2. En la hoja **Elegir red virtual**, se ven todas las redes virtuales existentes. Solo se ven las redes virtuales que pertenecen al grupo de recursos y la ubicación de Azure que ha seleccionado en la página **Conceptos básicos** del asistente.
-
-3. Elija la red virtual en la que Azure AD Domain Services debe habilitarse. Haga clic en **Crear nuevo** si prefiere crear una nueva red virtual. Se recomienda usar una subred dedicada para Azure AD Domain Services. Si elige una red virtual existente, [cree una subred dedicada con la extensión de redes virtuales](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) y después selecciónela. 
+3. Elija la red virtual en la que Azure AD Domain Services debe habilitarse. Puede seleccionar una red virtual existente o crear una nueva.
+4. **Crear una red virtual:** haga clic en **Crear nueva** para crear una nueva red virtual. Se recomienda usar una subred dedicada para Azure AD Domain Services. Por ejemplo, cree una subred llamada 'DomainServices', lo que facilitará que otros administradores sepan lo que se implementa en la subred. Cuando haya terminado, haga clic en **Aceptar**.
 
     ![Seleccionar una red virtual](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
-4. Haga clic en **Subred** para seleccionar la subred dedicada en esta red virtual, en la que va a habilitar su nuevo dominio administrado. En la hoja **Crear subred**, especifique el nombre de la subred y haga clic en **Aceptar** cuando haya terminado. Por ejemplo, cree una subred llamada 'DomainServices', lo que facilitará que otros administradores sepan lo que se implementa en la subred.
+5. **Red virtual existente:** si piensa seleccionar una red virtual ya existente, [cree una subred dedicada con la extensión de redes virtuales](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) y después selecciónela. Haga clic en **Red virtual** para seleccionar la red virtual existente. Haga clic en **Subred** para seleccionar la subred dedicada en la red virtual existente, dentro de la que va a habilitar su nuevo dominio administrado. Cuando haya terminado, haga clic en **Aceptar**.
 
     ![Elegir una subred en la red virtual](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 
@@ -49,7 +49,7 @@ La siguiente tarea de configuración es crear una red virtual de Azure y una sub
   3. Asegúrese de que la subred que ha seleccionado tiene suficiente espacio de direcciones disponible (al menos entre 3 y 5 direcciones IP disponibles).
   >
 
-5. Cuando haya terminado, haga clic en **Aceptar** para ir a la página **Grupo de administradores** del asistente.
+6. Cuando haya terminado, haga clic en **Aceptar** para ir a la página **Grupo de administradores** del asistente.
 
 
 ## <a name="next-step"></a>Paso siguiente

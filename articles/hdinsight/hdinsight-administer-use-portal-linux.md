@@ -1,6 +1,6 @@
 ---
-title: "Administración de clústeres de Hadoop en HDInsight con Azure Portal | Microsoft Azure"
-description: "Aprenda a crear y administrar clústeres de HDInsight mediante Azure Portal."
+title: "Administración de clústeres de Hadoop en HDInsight con el portal de Azure | Microsoft Azure"
+description: "Aprenda a crear y administrar clústeres de HDInsight mediante el portal de Azure."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -14,19 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 08/25/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 72c02eac9d627ad642d3e66492c314a2276e9c0a
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 736e1a52f55560dfded7a21eaeb1cbac7602f8d6
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/29/2017
 
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop en HDInsight mediante Azure Portal
+# <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-En [Azure Portal][azure-portal], puede administrar clústeres de Hadoop en Azure HDInsight. Use el selector de pestañas para obtener información sobre cómo administrar clústeres de Hadoop en HDInsight con otras herramientas.
+En el [portal de Azure][azure-portal], puede administrar clústeres de Hadoop en Azure HDInsight. Use el selector de pestañas para obtener información sobre cómo administrar clústeres de Hadoop en HDInsight con otras herramientas.
 
 **Requisitos previos**
 
@@ -43,7 +43,7 @@ Antes de empezar este artículo, debe tener los siguientes elementos:
        ![botón nuevo clúster de HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
    * Hacer clic en **Clústeres de HDInsight** en el menú izquierdo para mostrar los clústeres existentes
 
-       ![Botón clúster de HDInsight de Azure Portal](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
+       ![Portal de Azure botón clúster de HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
        Si no ve el clúster de HDInsight, haga clic en **Más servicios** en la parte inferior de la lista y, a continuación, haga clic en **Clústeres de HDInsight** en la sección **Inteligencia y análisis**.
 
@@ -59,14 +59,14 @@ Debe especificar una suscripción de Azure cuando cree un clúster de HDInsight.
 
 - Para usar un grupo de recursos existente.
 
-    1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+    1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
     2. Haga clic en **Grupos de recursos** en el menú izquierdo para ver los grupos de recursos.
     3. Haga clic en el grupo de recursos que desee usar para crear el clúster de HDInsight.
     4. Haga clic en **Control de acceso (IAM)** y compruebe que usted (o un grupo al que pertenezca) tenga al menos acceso de colaborador al grupo de recursos.
 
 - Para crear un nuevo grupo de recursos
 
-    1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+    1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
     2. Haga clic en **Suscripción** en el menú izquierdo. Tiene un icono amarillo de una llave amarilla. Verá una lista de suscripciones.
     3. Haga clic en la suscripción que usa para crear clústeres. 
     4. Haga clic en **Mis permisos**.  Muestra el [rol](../active-directory/role-based-access-control-what-is.md#built-in-roles) en la suscripción. Debe tener al menos acceso de colaborador para crear un clúster de HDInsight.
@@ -156,11 +156,14 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
     Puede agregar nodos sin problemas al clúster de HBase mientras se encuentra en ejecución, así como eliminarlos. Los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Sin embargo, puede equilibrar manualmente los servidores regionales iniciando sesión en el nodo principal del clúster y ejecutando los comandos siguientes desde una ventana del símbolo del sistema:
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
 
-    Para más información sobre el uso del shell HBase, consulte []
+    Para más información sobre el uso del shell de HBase, vea [Introducción a un ejemplo de Apache HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+
 * Storm
 
     Puede agregar o quitar sin problemas nodos de datos de su clúster de Storm mientras se encuentra en ejecución. Sin embargo, después de finalizar correctamente la operación de escalado, deberá volver a equilibrar la topología.
@@ -178,10 +181,12 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
     El siguiente es un ejemplo de cómo usar el comando CLI para volver a equilibrar la topología de Storm:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 **Para escalar clústeres**
 
@@ -195,17 +200,25 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
 ## <a name="pauseshut-down-clusters"></a>Pausa o apagado de clústeres
 
-La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan solo ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no está en uso.
+La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan solo ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Almacenamiento de Azure, por lo que puede eliminar un clúster de forma segura cuando no está en uso.
 También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso.
 
 Hay muchas maneras de programar el proceso:
 
-* Usar Azure Data Factory. Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight a petición con Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) para crear servicios vinculados a HDInsight a petición.
+* Usar Factoría de datos de Azure. Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight a petición con Data Factory de Azure](hdinsight-hadoop-create-linux-clusters-adf.md) para crear servicios vinculados a HDInsight a petición.
 * Usar Azure PowerShell.  Vea [Análisis de datos de retrasos de vuelos](hdinsight-analyze-flight-delay-data.md).
 * Uso de CLI de Azure. Consulte [Administrar clústeres de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md).
 * Usar .NET SDK de HDInsight. Vea [Envío de trabajos de Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md).
 
 Para información sobre precios, vea [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Para eliminar un clúster desde el portal, vea [Eliminación de clústeres](#delete-clusters)
+
+## <a name="move-cluster"></a>Movimiento de un clúster
+
+Puede mover un clúster de HDInsight a otro grupo de recursos de Azure u otra suscripción.  Consulte [Enumeración y visualización de clústeres](#list-and-show-clusters).
+
+## <a name="upgrade-clusters"></a>Actualización de clústeres
+
+Vea [Actualización del clúster de HDInsight a una versión más reciente](./hdinsight-upgrade-cluster.md).
 
 ## <a name="change-passwords"></a>Cambio de contraseñas
 Un clúster de HDInsight puede tener dos cuentas de usuario. La cuenta de usuario del clúster de HDInsight (también conocida como cuenta de usuario HTTP) y la cuenta de usuario SSH se crean durante el proceso de creación. Puede usar la interfaz de usuario web de Ambari para cambiar el nombre de usuario y la contraseña de la cuenta de usuario del clúster y las acciones de script para cambiar la cuenta de usuario de SSH
@@ -229,17 +242,17 @@ A continuación, Ambari cambia la contraseña en todos los nodos del clúster.
 ### <a name="change-the-ssh-user-password"></a>Cambio de la contraseña de usuario de SSH
 1. Con un editor de texto, guarde el texto siguiente como un archivo llamado **changepassword.sh**.
 
-   > [!IMPORTANT]
-   > Debe utilizar un editor que use LF como final de líneas. Si el editor utiliza CRLF, el script no funcionará.
-   >
-   >
+    > [!IMPORTANT]
+    > Debe utilizar un editor que use LF como final de líneas. Si el editor utiliza CRLF, el script no funcionará.
 
-        #! /bin/bash
-        USER=$1
-        PASS=$2
+    ```bash
+    #! /bin/bash
+    USER=$1
+    PASS=$2
+    usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+    ```
 
-        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
-2. Cargue el archivo en una ubicación de almacenamiento a la que pueda accederse desde HDInsight con una dirección HTTP o HTTPS. Por ejemplo, un almacén de archivos público como OneDrive o Azure Blob Storage. Guarde el identificador URI (dirección HTTP o HTTPS) en el archivo, ya que este URI se necesitará en el paso siguiente.
+2. Cargue el archivo en una ubicación de almacenamiento a la que pueda accederse desde HDInsight con una dirección HTTP o HTTPS. Por ejemplo, un almacén de archivos público como OneDrive o Almacenamiento de blobs de Azure. Guarde el identificador URI (dirección HTTP o HTTPS) en el archivo, ya que este URI se necesitará en el paso siguiente.
 3. En Azure Portal, haga clic en **clústeres de HDInsight**.
 4. Haga clic en el clúster de HDInsight.
 4. Haga clic en **Acciones de scripts**.
@@ -280,13 +293,20 @@ En el modo de Azure Resource Manager, cada clúster de HDInsight se crea con un 
 * La lista de clústeres tiene una columna **Grupo de recursos** .
 * Icono **Esencial** del clúster.  
 
-Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
+Consulte [Enumeración y visualización de clústeres](#list-and-show-clusters).
 
-## <a name="find-the-default-storage-account"></a>Búsqueda de la cuenta de almacenamiento predeterminada
-Cada clúster de HDInsight tiene una cuenta de almacenamiento predeterminada. La cuenta de almacenamiento predeterminada y sus claves para un clúster aparecen en **Cuentas de almacenamiento**. Consulte [Enumeración y visualización de clústeres](#list-and-show-clusters).
+## <a name="find-the-storage-accounts"></a>Búsqueda de las cuentas de almacenamiento
+
+Los clústeres de HDInsight usan una cuenta de Azure Storage o Azure Data Lake Store para almacenar datos. Cada clúster de HDInsight puede tener una cuenta de almacenamiento predeterminada y una serie de cuentas de almacenamiento vinculadas. Para enumerar las cuentas de almacenamiento, primero abra el clúster desde el portal y luego haga clic en **Cuentas de almacenamiento**:
+
+![Cuentas de almacenamiento de clúster de HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
+
+En la captura de pantalla anterior hay una columna __Default__ que indica si la cuenta es la cuenta de almacenamiento predeterminada.
+
+Para enumerar las cuentas de Data Lake Store, haga clic en **Acceso a Data Lake Store** en la captura de pantalla anterior.
 
 ## <a name="run-hive-queries"></a>Ejecución de consultas de Hive
-No puede ejecutar un trabajo de Hive directamente desde Azure Portal, pero puede usar la vista de Hive en la IU web de Ambari.
+No puede ejecutar un trabajo de Hive directamente desde el Portal de Azure, pero puede usar la vista de Hive en la IU web de Ambari.
 
 **Para ejecutar las consultas de Hive mediante la vista de Hive de Ambari**
 
@@ -294,6 +314,7 @@ No puede ejecutar un trabajo de Hive directamente desde Azure Portal, pero puede
 2. Abra la vista de Hive como se muestra en la siguiente captura de pantalla:  
 
     ![Vista de hive de HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
+
 3. Haga clic en **Query** (Consulta) en el menú superior.
 4. Escriba una consulta de Hive en el **Editor de consultas** y haga clic en **Execute** (Ejecutar).
 
@@ -301,7 +322,7 @@ No puede ejecutar un trabajo de Hive directamente desde Azure Portal, pero puede
 Consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md#monitoring).
 
 ## <a name="browse-files"></a>Examinar archivos
-Con Azure Portal, puede examinar el contenido del contenedor predeterminado.
+Con el Portal de Azure, puede examinar el contenido del contenedor predeterminado.
 
 1. Inicie sesión en [https://portal.azure.com/](https://portal.azure.com).
 2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda para mostrar los clústeres existentes.
@@ -316,8 +337,6 @@ La sección **Uso** de la hoja del clúster de HDInsight muestra información so
 
 > [!IMPORTANT]
 > Para supervisar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para obtener más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md)
->
->
 
 ## <a name="connect-to-a-cluster"></a>Conectarse a un clúster
 
@@ -325,9 +344,9 @@ La sección **Uso** de la hoja del clúster de HDInsight muestra información so
 * [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo ha aprendido algunas funciones básicas administrativas. Para obtener más información, consulte los artículos siguientes:
+En este artículo ha aprendido algunas funciones administrativas básicas. Para obtener más información, consulte los artículos siguientes:
 
-* [Administración de HDInsight con Azure PowerShell](hdinsight-administer-use-powershell.md)
+* [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md)
 * [Administración de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md)
 * [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Uso de Hive en HDInsight](hdinsight-use-hive.md)

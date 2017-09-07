@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 08/30/2017
 ms.author: sethm;clemensv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5abdbf70d4fdb2c7feb0f3537ecc0f2abf0775a0
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Introducción al modelo de autenticación y seguridad de los Centros de eventos
+
 El modelo de seguridad de Azure Event Hubs cumple los siguientes requisitos:
 
 * Solo los clientes que tengan credenciales válidas pueden enviar datos a un centro de eventos.
@@ -30,6 +30,7 @@ El modelo de seguridad de Azure Event Hubs cumple los siguientes requisitos:
 * Se puede bloquear el envío de datos por parte de un cliente no autorizado a un centro de eventos.
 
 ## <a name="client-authentication"></a>Autenticación de clientes
+
 El modelo de seguridad de Event Hubs se basa en una combinación de tokens de [firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md) y *publicadores de eventos*. Un publicador de eventos define un punto de conexión virtual para un centro de eventos. El publicador solo puede usarse para enviar mensajes a un centro de eventos. No es posible recibir mensajes desde un publicador.
 
 Normalmente, un centro de eventos emplea a un publicador por cliente. Todos los mensajes que se envíen a cualquiera de los publicadores de un centro de eventos se ponen en cola dentro de ese centro de eventos. Los publicadores permiten control de acceso y limitación avanzados.
@@ -42,7 +43,7 @@ Todos los tokens se firman con una clave de SAS. Normalmente, todos los tokens s
 
 ### <a name="create-the-sas-key"></a>Creación de la clave SAS
 
-Cuando se crea un espacio de nombres de Event Hubs, el servicio genera una clave SAS de 256 bits llamada **RootManageSharedAccessKey**. Esta clave permite enviar, escuchar y administrar los derechos del espacio de nombres. También puede crear claves adicionales. Se recomienda que genere una clave que conceda permisos de envío para el centro de eventos concreto. En el resto de este tema, se presupone que esta clave tiene el nombre **EventHubSendKey**.
+Al crear un espacio de nombres de Event Hubs, el servicio genera automáticamente una clave SAS de 256 bits denominada **RootManageSharedAccessKey**. Esta regla tiene un par asociado de claves primaria y secundaria que conceden derechos de envío, escucha y administración al espacio de nombres. También puede crear claves adicionales. Se recomienda que genere una clave que conceda permisos de envío para el centro de eventos concreto. En el resto de este tema, se presupone que esta clave tiene el nombre **EventHubSendKey**.
 
 En el ejemplo siguiente se crea una clave solo de envío cuando se crea el centro de eventos:
 
@@ -89,11 +90,13 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 Normalmente, los tokens tienen una duración que se parece o supera la duración del cliente. Si el cliente tiene la capacidad de obtener un nuevo token, pueden usarse tokens con una duración más corta.
 
 ### <a name="sending-data"></a>Envío de datos
+
 Cuando se han creado los tokens, cada cliente se aprovisiona con su propio token único.
 
 Cuando el cliente envía datos a un centro de eventos, se etiqueta la solicitud de envío con el token. Para evitar que un atacante use la técnica de eavesdropping y robe el token, la comunicación entre el cliente y el centro de eventos debe realizarse a través de un canal cifrado.
 
 ### <a name="blacklisting-clients"></a>Incorporación de clientes a la lista negra
+
 Si un atacante roba un token, el atacante puede suplantar el cliente al que se ha robado el token. Al incorporar al cliente a la lista negra el cliente queda inutilizable hasta que recibe un token nuevo que usa un publicador diferente.
 
 ## <a name="authentication-of-back-end-applications"></a>Autenticación de aplicaciones de back-end
@@ -105,6 +108,7 @@ La versión actual de Bus de servicio no admite reglas SAS para suscripciones in
 En ausencia de autenticación SAS para grupos de consumidores individuales, puede usar claves SAS para proteger todos los grupos de consumidores con una clave común. Este enfoque permite que una aplicación consuma datos desde cualquiera de los grupos de consumidores de un centro de eventos.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para más información sobre Centros de eventos, visite los siguientes temas:
 
 * [Información general de Event Hubs]

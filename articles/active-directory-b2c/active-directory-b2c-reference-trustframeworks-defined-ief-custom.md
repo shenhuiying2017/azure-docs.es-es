@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/25/2017
+ms.date: 08/04/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 70922ec4813d32580acdd20bf43521fcc2d24081
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 4e2de9c4d1c0f92970911e132fffaacbd01d9ad0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/24/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir marcos de confianza con el marco de experiencia de identidad de Azure AD B2C
 
-Las directivas personalizadas de Azure Active Directory B2C (Azure AD B2C) que aprovechan el marco de experiencia de identidad proporcionan a la organización un servicio centralizado. Este servicio reduce la complejidad de la federación de identidades en una comunidad grande de interés dando lugar a una única relación de confianza y un único intercambio de metadatos.
+Las directivas personalizadas de Azure Active Directory B2C (Azure AD B2C) que utilizan el marco de experiencia de identidad proporcionan a la organización un servicio centralizado. Este servicio reduce la complejidad de la federación de identidades en una gran comunidad de interés. La complejidad se reduce a una relación de confianza única y un intercambio de metadatos único.
 
-Las directivas personalizadas de Azure AD B2C que aprovechan el marco de experiencia de identidad le permiten responder a las siguientes preguntas:
+Las directivas personalizadas de Azure AD B2C que utilizan el marco de experiencia de identidad le permiten responder a las siguientes preguntas:
 
 - ¿Cuáles son las directivas de seguridad, privacidad, legales y de protección de datos que es necesario cumplir?
 - ¿Quiénes son los contactos y cuáles son los procesos para convertirse en un participante acreditado?
@@ -36,7 +35,7 @@ Las directivas personalizadas de Azure AD B2C que aprovechan el marco de experie
 - ¿Cuáles son los requisitos técnicos de interoperabilidad en la red para los participantes?
 - ¿Cuáles son las reglas de "tiempo de ejecución" operativas que se deben aplicar para intercambiar información de identidad digital?
 
-Para responder a estas preguntas, las directivas personalizadas de Azure AD B2C que aprovechan el marco de experiencia de identidad usan la construcción del marco de confianza (TF). Vamos a considerar esta construcción y lo que proporciona.
+Para responder a estas preguntas, las directivas personalizadas de Azure AD B2C que utilizan el marco de experiencia de identidad usan la construcción del marco de confianza (TF). Vamos a considerar esta construcción y lo que proporciona.
 
 ## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Descripción del marco de confianza y la base de administración de federación
 
@@ -77,7 +76,7 @@ En otras palabras, una especificación de TF define las reglas para la creación
 
 Actualmente, existe un consenso generalizado sobre el beneficio de este enfoque. No hay duda de que las especificaciones del marco de confianza facilitan el desarrollo de ecosistemas de identidad digital con características comprobables de seguridad, garantía y privacidad, de forma que se puedan reutilizar en varias comunidades de interés.
 
-Por este motivo, las directivas personalizadas de Azure AD B2C que aprovechan el marco de experiencia de identidad usan la especificación como base de su representación de datos de un TF a fin de facilitar la interoperabilidad.  
+Por este motivo, las directivas personalizadas de Azure AD B2C que utilizan el marco de experiencia de identidad usan la especificación como base de su representación de datos de un TF a fin de facilitar la interoperabilidad.  
 
 Las directivas personalizadas de Azure AD B2C que aprovechan el marco de experiencia de identidad representan una especificación de TF como una combinación de datos que pueden leer un usuario y una máquina. Algunas secciones de este modelo (normalmente, las que están más orientadas a la regulación) se representan como referencias a la documentación publicada sobre la directiva de seguridad y privacidad junto con los procedimientos relacionados (si existen). Otras secciones describen en detalle las reglas de configuración de metadatos y en tiempo de ejecución que facilitan la automatización de las operaciones.
 
@@ -114,9 +113,9 @@ En términos de implementación, la especificación de TF consta de un conjunto 
 > [!NOTE]
 > Nos referimos en conjunto a todos los tipos posibles de información de identidad que se pueden intercambiar como "notificaciones": notificaciones sobre las credenciales de autenticación de un usuario final, examen de identidades, dispositivo de comunicación, ubicación física, atributos de identificación personal, etc.  
 >
-> Usamos el término "notificaciones" (en lugar de "atributos") porque, en el caso de las transacciones en línea, no son hechos que el usuario de confianza pueda comprobar directamente. Más bien se trata de aserciones, o notificaciones, sobre hechos para los que el usuario de confianza debe desarrollar la suficiente confianza antes de conceder la transacción solicitada por el usuario final.  
+> Usamos el término "notificaciones" (en lugar de "atributos") porque, en las transacciones en línea, estos artefactos de datos no son hechos que el usuario de confianza pueda comprobar directamente. Más bien se trata de aserciones, o notificaciones, sobre hechos para los que el usuario de confianza debe desarrollar la suficiente confianza antes de conceder la transacción solicitada por el usuario final.  
 >
-> El término "notificaciones" también se usa porque las directivas personalizadas de Azure AD B2C que aprovechan el marco de experiencia de identidad están diseñadas para simplificar el intercambio de todos los tipos de información de identidad digital de una manera coherente, sin importar si el protocolo subyacente está definido para la autenticación de usuarios o la recuperación de atributos.  Del mismo modo, el término "proveedor de notificaciones" se usa para hacer referencia en conjunto a proveedores de identidades, proveedores de atributos y comprobadores de atributos cuando no queremos distinguir entre sus funciones específicas.   
+> El término "notificaciones" también se usa porque las directivas personalizadas de Azure AD B2C que usan el marco de experiencia de identidad están diseñadas para simplificar el intercambio de todos los tipos de información de identidad digital de una manera coherente, sin importar si el protocolo subyacente está definido para la autenticación de usuarios o la recuperación de atributos.  Del mismo modo, el término "proveedor de notificaciones" se usa para hacer referencia en conjunto a proveedores de identidades, proveedores de atributos y comprobadores de atributos cuando no queremos distinguir entre sus funciones específicas.   
 
 Por lo tanto, estas determinan cómo la información se intercambia entre un usuario de confianza, los proveedores de identidades y atributos y los comprobadores de atributos. Controlan qué proveedores de identidades y atributos se requieren para la autenticación de un usuario de confianza. Se deben considerar como un lenguaje específico del dominio (DSL), es decir, un lenguaje informático especializado para un dominio de aplicación particular con herencia, instrucciones *if* y polimorfismo.
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2017
 ms.author: ganesr;cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: def88b869b82d2d675ef7e071ee58b08278321d7
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: f17bf3e475a33cfc617e8a026e9606b3792101f3
 ms.contentlocale: es-es
 ms.lasthandoff: 08/24/2017
 
@@ -133,17 +133,17 @@ Puede actualizar la lista de valores de la comunidad de BGP adjunta a un circuit
 
 ## <a name="detach"></a>Desasociación de un filtro de ruta de un circuito ExpressRoute
 
-**Solo se puede realizar esta operación en PowerShell.**
+Para desasociar un circuito del filtro de ruta, haga clic con el botón derecho en el circuito y haga clic en "desasociar".
 
-Una vez que un filtro de ruta se desasocia del circuito ExpressRoute, no se anuncia ningún prefijo mediante la sesión BGP. Puede desasociar un filtro de ruta de un circuito ExpressRoute con el comando siguiente:
-  
-```powershell
-$ckt.Peerings[0].RouteFilter = $null
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
+![Creación de un filtro de ruta](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
+
 
 ## <a name="delete"></a>Eliminación de un filtro de ruta
 
 Para eliminar un filtro de ruta, seleccione el botón Eliminar. 
 
 ![Creación de un filtro de ruta](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).

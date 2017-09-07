@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/28/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 5ed0125e05928cf0f6d9941e099b433ecb46e6e2
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 22e311b530b32504931c39491dc8324894ab4091
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Habilitación de Azure Active Directory Domain Services mediante el Portal de Azure clásico
-Este artículo describe y le guía por las tareas de configuración que son necesarias para habilitar Azure Active Directory Domain Services (Azure AD DS) para su inquilino de Azure Active Directory (Azure AD).
-
-> [!NOTE]
-> [**Pruebe la nueva experiencia de Azure Portal (versión preliminar) en su lugar**](active-directory-ds-getting-started.md). 
+> [!IMPORTANT]
+> La experiencia del Portal de Azure clásico para habilitar Azure AD Domain Services que se muestra en este artículo se retirará pronto. Para las nuevas implementaciones, [**utilice en su lugar la nueva experiencia de Azure Portal (versión preliminar)**](active-directory-ds-getting-started.md).
 >
+
+Este artículo le ayuda a habilitar Azure Active Directory Domain Services (Azure AD DS) en un inquilino de Azure Active Directory (Azure AD) mediante el Portal de Azure clásico.
+
 
 ## <a name="task-1-create-the-azure-ad-dc-administrators-group"></a>Tarea 1: Creación del grupo de administradores de controlador de dominio de Azure AD
 Esta primera tarea consiste en crear un grupo administrativo en el inquilino de Azure AD. Este grupo administrativo especial se llama *Administradores de DC de AAD*. A los miembros de este grupo se les concederán permisos administrativos en los equipos unidos al domino administrado en Azure Active Directory Domain Services. En equipos unidos a un dominio, este grupo se agrega al grupo de administradores. Además, los miembros de este grupo también podrá usar Escritorio remoto para conectarse de forma remota a las máquinas unidas a un dominio.  

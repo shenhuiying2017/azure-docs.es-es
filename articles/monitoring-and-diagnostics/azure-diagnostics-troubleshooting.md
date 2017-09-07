@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: df53e92b877b4790bb700f176a1988d265ec4678
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: a0cb529836b14df71e83616f4f625a002c535b7b
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solución de problemas de Diagnósticos de Azure
@@ -56,6 +56,34 @@ Estas son las rutas de acceso a algunos de registros y artefactos más important
 | **Ruta de acceso a la utilidad de recopilación de registros** | C:\WindowsAzure\Packages |
 | **Archivo de registro de MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
+## <a name="metric-data-doesnt-show-in-azure-portal"></a>Los datos de métrica no se muestran en Azure Portal
+Azure Diagnostics proporciona una serie de datos de métrica, que se pueden mostrar en Azure Portal. Si tiene problemas al ver estos datos en el portal, compruebe la tabla de la cuenta de almacenamiento de diagnósticos -> WADMetrics\* para ver si existen los registros correspondientes de métrica. En este caso, el valor de PartitionKey de la tabla es el identificador de recurso de la máquina virtual o un conjunto de escalas de máquina virtual, y RowKey es el nombre de la métrica, es decir, el nombre del contador de rendimiento.
+
+Si el identificador de recurso es incorrecto, compruebe Diagnostics Configuration (Configuración de diagnóstico) -> Metrics (Métricas) -> ResourceId (IdRecurso) para ver si el identificador de recurso está configurado correctamente.
+
+Si no hay ningún dato para la métrica específica, compruebe Diagnostics Configuration (Configuración de diagnóstico) -> PerformanceCounter (ContadorRendimiento) para ver si se incluye la métrica (contador de rendimiento). Los siguientes contadores se habilitan de forma predeterminada.
+- \Processor(_Total)\% Processor Time
+- \Memoria\Bytes disponibles
+- \ASP.NET Applications(__Total__)\Requests/Sec [\Aplicaciones ASP.NET(Total)\Solicitudes/s]
+- \ASP.NET Applications(__Total__)\Errors Total/Sec [\Aplicaciones ASP.NET(Total)\Total de errores/s]
+- \ASP.NET\Requests Queued (\ASP.NET\Solicitudes en cola)
+- \ASP.NET\Requests Rejected (\ASP.NET\Solicitudes rechazadas)
+- \Processor(w3wp)\% Processor Time [\Procesador(w3wp) Tiempo de procesador]
+- \Process(w3wp)\Private Bytes [\Proceso(w3wp)\Bytes privados]
+- \Process(WaIISHost)\% Processor Time [\Proceso(WaIISHost) Tiempo de procesador]
+- \Process(WaIISHost)\Private Bytes [\Proceso(WallSHost)\Bytes privados]
+- \Process(WaWorkerHost)\% Processor Time [\Proceso(WaWorkerHost) Tiempo de procesador]
+- \Process(WaWorkerHost)\Private Bytes (\Proceso(WaWorkerHost)\Bytes privados)
+- \Memory\Page Faults/sec (\Memoria\Errores de página/s)
+- \.NET CLR Memory(_Global_)\% Time in GC [Memoria CLR NET(Global) Tiempo en GC]
+- \LogicalDisk(C:)\Disk Write Bytes/sec [\DiscoLógico(C:)\Bytes de escritura en disco/segundo]
+- \LogicalDisk(C:)\Disk Read Bytes/sec [\DiscoLógico(C:)\Bytes de lectura en disco/s]
+- \LogicalDisk(D:)\Disk Write Bytes/sec [\DiscoLógico(D:)\Bytes de escritura en disco/s]
+- \LogicalDisk(D:)\Disk Read Bytes/sec [\DiscoLógico(D:)\Bytes de lectura en disco/s]
+
+Si la configuración se ha establecido correctamente, pero todavía no puede ver los datos de métrica, siga las instrucciones a continuación para la investigación adicional.
+
+
 ## <a name="azure-diagnostics-is-not-starting"></a>Diagnósticos de Azure no se inicia
 Examine los archivos **DiagnosticsPluginLauncher.log** y **DiagnosticsPlugin.log** en la ubicación de los archivos de registro proporcionada anteriormente para obtener información sobre el motivo de que los diagnósticos no se consigan iniciar. 
 
@@ -72,14 +100,14 @@ Si encuentra un código de salida **negativo**, consulte la [tabla de códigos d
 Determine si no se muestra ningún dato o solo no se muestran algunos datos.
 
 ### <a name="diagnostics-infrastructure-logs"></a>Registros de infraestructura de diagnóstico
-Los registros de infraestructura de diagnóstico es donde Azure Diagnostics registra los errores encontrados. Asegúrese de que ha habilitado ([¿cómo?](#how-to-check-diagnostics-extension-configuration)) la captura de registros de infraestructura de diagnóstico en la configuración y busque rápidamente los errores de interés que se muestran en la tabla `DiagnosticInfrastructureLogsTable` en la cuenta de almacenamiento configurada.
+Los registros de infraestructura de diagnóstico es donde Azure Diagnostics registra los errores encontrados. Asegúrese de que ha habilitado ([¿cómo?](#how-to-check-diagnostics-extension-configuration)) la captura de registros de infraestructuras de diagnóstico en la configuración y busque rápidamente los errores de interés que se muestran en la tabla `DiagnosticInfrastructureLogsTable` en la cuenta de almacenamiento configurada.
 
 ### <a name="no-data-is-showing-up"></a>No se muestra ningún dato
 La causa más común de que falten datos de eventos enteros es una información de cuenta de almacenamiento definida incorrectamente.
 
 Solución: corrija la configuración de Diagnostics y vuelva a instalar esta extensión.
 
-Si la cuenta de almacenamiento está configurada correctamente, conéctese a la máquina mediante Escritorio remoto y asegúrese de que DiagnosticsPlugin.exe y MonAgentCore.exe se están ejecutando. En caso negativo, siga las instrucciones de la sección [Azure Diagnostics no se inicia](#azure-diagnostics-is-not-starting). Si los procesos están en ejecución, vaya a [¿Se capturan los datos localmente?](#is-data-getting-captured-locally) y siga en adelante esta guía desde allí.
+Si la cuenta de almacenamiento está configurada correctamente, conéctese a la máquina mediante Escritorio remoto y asegúrese de que DiagnosticsPlugin.exe y MonAgentCore.exe se están ejecutando. Si no se están ejecutando, siga las instrucciones de la sección [Azure Diagnostics no se inicia](#azure-diagnostics-is-not-starting). Si los procesos están en ejecución, vaya a [¿Se capturan los datos localmente?](#is-data-getting-captured-locally) y siga en adelante esta guía desde allí.
 
 ### <a name="part-of-the-data-is-missing"></a>No están todos los datos
 Si quiere obtener algunos datos pero no otros. Esto significa que la recopilación de datos o canalización de transferencia se ha establecido correctamente. Siga las subsecciones que se muestran aquí para acotar el problema:
@@ -87,7 +115,7 @@ Si quiere obtener algunos datos pero no otros. Esto significa que la recopilaci�
 La configuración de diagnóstico contiene la parte que indica que se recopile un tipo determinado de datos. [Revise la configuración](#how-to-check-diagnostics-extension-configuration) para asegurarse de que no está buscando datos que no se han configurado para la recopilación.
 #### <a name="is-the-host-generating-data"></a>¿Genera datos el host?
 - **Contadores de rendimiento**: abra el Monitor de rendimiento y compruebe el contador.
-- **Registros de seguimiento**: conéctese a la máquina virtual mediante Escritorio remoto y agregue TextWriterTraceListener al archivo de configuración de la aplicación.  Consulte http://msdn.microsoft.com/en-us/library/sk36c28t.aspx para configurar el agente de escucha de texto.  Asegúrese de que el elemento `<trace>` tenga `<trace autoflush="true">`.<br />
+- **Registros de seguimiento**: conéctese a la máquina virtual mediante Escritorio remoto y agregue TextWriterTraceListener al archivo de configuración de la aplicación.  Consulte http://msdn.microsoft.com/library/sk36c28t.aspx para configurar el agente de escucha de texto.  Asegúrese de que el elemento `<trace>` tenga `<trace autoflush="true">`.<br />
 Si no ve que se generen registros de seguimiento, consulte [Más sobre registros de seguimiento que faltan](#more-about-trace-logs-missing).
 - **Seguimientos de ETW**: conéctese a la máquina virtual mediante Escritorio remoto e instale PerfView.  En PerfView, ejecute File (Archivo) -> User Command (Comando de usuario) -> Listen (Escuchar) etwprovder1, etwprovider2, etc.  Tenga en cuenta que el comando de escucha distingue mayúsculas de minúsculas y no puede haber espacios entre la lista de proveedores de ETW separados por coma.  Si no se puede ejecutar el comando, puede hacer clic en el botón "Log" (Registrar) en la esquina inferior derecha de la herramienta Perfview para ver lo que se intentó ejecutar y cuál fue el resultado.  Suponiendo que la entrada sea correcta, aparece una nueva ventana y en unos segundos comenzará a ver seguimientos de ETW.
 - **Registros de eventos**: conéctese a la máquina virtual mediante Escritorio remoto. Abra `Event Viewer` y asegurarse de que los eventos existan.
@@ -103,7 +131,7 @@ Si ha comprobado que los datos se capturan localmente pero sigue sin verlos en s
 - Por último, intente ver qué errores notifica el agente de supervisión. El agente de supervisión escribe sus registros en `maeventtable.tsf` que se encuentra en [el almacén local de datos de diagnóstico](#log-artifacts-path). Siga las instrucciones de [Extracción de registros locales](#local-log-extraction) para abrir este archivo y pruebe y determine si hay `errors` que indiquen la imposibilidad de leer archivos locales o de escribir en el almacenamiento.
 
 ### <a name="capturing--archiving-logs"></a>Captura y archivo de registros
-Ha realizado los pasos anteriores pero no ha podido determinar qué ha funcionado mal y está pensando en ponerse en contacto con el soporte técnico. Lo primero que podrían pedirle es que recopilara registros de su máquina. Para ahorrar tiempo, hágalo usted mismo. Ejecute la utilidad `CollectGuestLogs.exe` en [Ruta de acceso a la utilidad de recopilación de registros](#log-artifacts-path) y se generará un archivo comprimido con todos los registros de Azure pertinentes en la misma carpeta.
+Ha realizado los pasos anteriores pero no ha podido determinar qué ha funcionado mal y está pensando en ponerse en contacto con el soporte técnico. Lo primero que podrían pedirle es que recopilara registros de su máquina. Para ahorrar tiempo, hágalo usted mismo. Ejecute la utilidad `CollectGuestLogs.exe` en [Ruta de acceso a la utilidad de recopilación de registros](#log-artifacts-path) y se genera un archivo comprimido con todos los registros de Azure pertinentes en la misma carpeta.
 
 ## <a name="diagnostics-data-tables-not-found"></a>Tablas de datos de diagnóstico no encontradas
 Las tablas de Azure Storage que contienen eventos de ETW se nombran mediante el código siguiente:
@@ -122,13 +150,13 @@ Las tablas de Azure Storage que contienen eventos de ETW se nombran mediante el 
 Este es un ejemplo:
 
 ```XML
-        <EtwEventSourceProviderConfiguration provider=”prov1”>
-          <Event id=”1” />
-          <Event id=”2” eventDestination=”dest1” />
+        <EtwEventSourceProviderConfiguration provider="prov1">
+          <Event id="1" />
+          <Event id="2" eventDestination="dest1" />
           <DefaultEvents />
         </EtwEventSourceProviderConfiguration>
-        <EtwEventSourceProviderConfiguration provider=”prov2”>
-          <DefaultEvents eventDestination=”dest2” />
+        <EtwEventSourceProviderConfiguration provider="prov2">
+          <DefaultEvents eventDestination="dest2" />
         </EtwEventSourceProviderConfiguration>
 ```
 ```JSON
@@ -244,3 +272,4 @@ La experiencia del portal de las máquinas virtuales muestra de forma predetermi
 - Si usa caracteres comodín (\*) en los nombres de los contadores de rendimiento, el portal no podrá correlacionar el contador configurado y recopilado.
 
 **Mitigación**: cambiar el idioma de la máquina a inglés en las cuentas del sistema. Panel de control -> Región -> Administrativa -> Configuración de la copia ->, desactive "Pantalla de inicio de sesión y cuentas del sistema" para que el idioma personalizado no se aplique a la cuenta del sistema. Además, asegúrese de que no usa caracteres comodín si quiere que el portal sea su experiencia de consumo principal.
+

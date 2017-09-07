@@ -4,7 +4,7 @@ description: "Descubra cómo utilizar enlaces de Cosmos DB en Azure Functions."
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/18/2016
+ms.date: 08/26/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2c0cb8ee1690f9b36b76c87247e3c7223876b269
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: fb79e2ad7514ae2cf48b9a5bd486e54b9b407bee
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-cosmos-db-bindings"></a>Enlaces de Cosmos DB en Azure Functions
@@ -39,16 +39,18 @@ El enlace de entrada de API de DocumentDB recupera un documento de Cosmos DB y l
 
 El enlace de entrada de API de DocumentDB tiene las siguientes propiedades en *function.json*:
 
-- `name`: nombre del identificador que se usa en el código de la función para el documento
-- `type`: se debe establecer en "documentdb"
-- `databaseName`: base de datos que contiene el documento
-- `collectionName`: colección que contiene el documento
-- `id` : el identificador del documento que se debe recuperar. Esta propiedad admite parámetros de enlaces; vea [Bind to custom input properties in a binding expression](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) (Enlace a propiedades de entrada personalizadas en una expresión de enlace) en el artículo [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md) (Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions).
-- `sqlQuery`: consulta SQL de Cosmos DB que se usa para recuperar varios documentos. La consulta admite enlaces en tiempo de ejecución. Por ejemplo: `SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection`: nombre de la configuración de aplicación que contiene la cadena de conexión de Cosmos DB
-- `direction`: se debe establecer en `"in"`.
+|Propiedad  |Descripción  |
+|---------|---------|
+|**name**     | Nombre del parámetro de enlace que representa al documento en la función.  |
+|**type**     | Se debe establecer en `documentdb`.        |
+|**databaseName** | Base de datos que contiene el documento.        |
+|**collectionName**  | Nombre de la colección que contiene el documento. |
+|**id**     | Identificador del documento que se va a recuperar. Esta propiedad admite parámetros de enlaces. Para más información, vea [Enlace a propiedades de entrada personalizadas en una expresión de enlace](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). |
+|**sqlQuery**     | Consulta SQL de Cosmos DB que se usa para recuperar varios documentos. La consulta admite enlaces en tiempo de ejecución, como en el ejemplo: `SELECT * FROM c where c.departmentId = {departmentId}`.        |
+|**conexión**     |Nombre de la configuración de aplicación que contiene la cadena de conexión de Cosmos DB.        |
+|**dirección**     | Se debe establecer en `in`.         |
 
-No se pueden establecer las propiedades `id` y `sqlQuery` al mismo tiempo. Si no están establecidas `id` ni `sqlQuery`, se recupera toda la colección.
+No se pueden establecer las propiedades **id** y **sqlQuery** a la vez. Si ninguna está establecida, se recupera toda la colección.
 
 ## <a name="using-a-documentdb-api-input-binding"></a>Uso de un enlace de entrada de API de DocumentDB
 
@@ -180,18 +182,20 @@ module.exports = function (context, input) {
 ## <a id="docdboutput"></a>Enlace de salida de API de DocumentDB
 El enlace de salida de API de DocumentDB permite escribir un nuevo documento en una base de datos de Azure Cosmos DB. Tiene las siguientes propiedades en *function.json*:
 
-- `name`: identificador que se usa en el código de la función para el nuevo documento
-- `type`: se debe establecer en `"documentdb"`
-- `databaseName` : la base de datos que contiene la colección en la que se creará el nuevo documento.
-- `collectionName` : la colección en la que se creará el nuevo documento.
-- `createIfNotExists`: valor booleano que indica si la colección se creará si no existe. El valor predeterminado es *false*. Esto se debe a que se crean nuevas colecciones con rendimiento reservado, lo cual tiene implicaciones de precios. Para obtener más información, visite la [página de precios](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection`: nombre de la configuración de aplicación que contiene la cadena de conexión de Cosmos DB
-- `direction`: se debe establecer en `"out"`
+|Propiedad  |Descripción  |
+|---------|---------|
+|**name**     | Nombre del parámetro de enlace que representa al documento en la función.  |
+|**type**     | Se debe establecer en `documentdb`.        |
+|**databaseName** | Base de datos que contiene la colección en la que se ha creado el documento.     |
+|**collectionName**  | Nombre de la colección en la que se ha creado el documento. |
+|**createIfNotExists**     | Valor booleano que indica si la colección se ha creado si no existía. El valor predeterminado es *false*. Esto se debe a que las nuevas colecciones se crean con rendimiento reservado, lo cual afecta al costo. Para obtener más información, visite la [página de precios](https://azure.microsoft.com/pricing/details/documentdb/).  |
+|**conexión**     |Nombre de la configuración de aplicación que contiene la cadena de conexión de Cosmos DB.        |
+|**dirección**     | Se debe establecer en `out`.         |
 
 ## <a name="using-a-documentdb-api-output-binding"></a>Uso de un enlace de salida de API de DocumentDB
 En esta sección se muestra cómo utilizar el enlace de salida de API de DocumentDB en el código de función.
 
-Cuando se escribe en el parámetro de salida en la función, de forma predeterminada se genera un nuevo documento en la base de datos, con un GUID generado automáticamente como el identificador de documento. Puede especificar el identificador de documento del documento de salida mediante la especificación de la propiedad JSON `id` en el parámetro de salida. 
+De forma predeterminada, cuando se escribe en el parámetro de salida de la función, se crea un documento en la base de datos. Este documento tiene un GUID generado automáticamente como identificador de documento. Puede especificar el identificador de documento del documento de salida si especifica la propiedad `id` en el objeto JSON pasado al parámetro de salida. 
 
 >[!Note]  
 >Cuando especifica el identificador de un documento existente, se sobrescribe con el nuevo documento de salida. 

@@ -12,18 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 08/28/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 128e70e4abc68ed8c9589dd08a9aec3a52fa49be
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: d2d570bc2bab3bfd28282cd95b0a1be65e96743d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal (versión preliminar)
 En este artículo se muestra cómo habilitar Azure Active Directory Domain Services (Azure AD DS) mediante Azure Portal.
-
 
 Para iniciar el Asistente para **habilitar Azure AD Domain Services**, complete los pasos siguientes:
 
@@ -64,13 +63,15 @@ En la página **Conceptos básicos** del asistente, puede especificar el nombre 
 
    * Si ya dispone de un servicio en la nube con ese nombre en la red virtual.
 
-3. Seleccione la **suscripción** de Azure en la que desea crear el dominio administrado.
+3. Elija el **tipo de red virtual**. De forma predeterminada, el tipo de red virtual del **Administrador de recursos** está seleccionado. Se recomienda usar este tipo de red virtual para los dominios administrados recién creados.
 
-4. Seleccione el **grupo de recursos** al que debería pertenecer el dominio administrado. Puede elegir las opciones **Crear nuevo** o **Utilizar existente** para seleccionar el grupo de recursos.
+4. Seleccione la **suscripción** de Azure en la que desea crear el dominio administrado.
 
-5. Elija la **ubicación** de Azure en que se debe crear el dominio administrado. En la página **Red** del asistente, verá solo las redes virtuales que pertenecen a la ubicación que ha seleccionado.
+5. Seleccione el **grupo de recursos** al que debería pertenecer el dominio administrado. Puede elegir las opciones **Crear nuevo** o **Utilizar existente** para seleccionar el grupo de recursos.
 
-6. Cuando haya terminado, haga clic en **Aceptar** para ir a la página **Red** del asistente.
+6. Elija la **ubicación** de Azure en que se debe crear el dominio administrado. En la página **Red** del asistente, verá solo las redes virtuales que pertenecen a la ubicación que ha seleccionado.
+
+7. Cuando haya terminado, haga clic en **Aceptar** para ir a la página **Red** del asistente.
 
 
 ## <a name="next-step"></a>Paso siguiente

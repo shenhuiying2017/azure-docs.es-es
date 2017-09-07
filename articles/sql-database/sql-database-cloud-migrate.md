@@ -16,12 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9fb1d12f5895e27929b2698edbf8c207aa2ee377
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
 ms.contentlocale: es-es
-ms.lasthandoff: 04/17/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migración de una base de datos de SQL Server a una Base de datos SQL en la nube
@@ -65,7 +64,7 @@ En la lista siguiente se incluyen recomendaciones para mejorar el rendimiento du
 
 ## <a name="method-2-use-transactional-replication"></a>Método 2: Uso de la replicación transaccional
 
-Si no se puede permitir quitar la base de datos de SQL Server de producción mientras se lleva a cabo la migración, puede usar la replicación transaccional de SQL Server como solución de migración. Para usar este método, la base de datos de origen debe cumplir los [requisitos para la replicación transaccional](https://msdn.microsoft.com/library/mt589530.aspx) y ser compatible con Azure SQL Database. 
+Si no se puede permitir quitar la base de datos de SQL Server de producción mientras se lleva a cabo la migración, puede usar la replicación transaccional de SQL Server como solución de migración. Para usar este método, la base de datos de origen debe cumplir los [requisitos para la replicación transaccional](https://msdn.microsoft.com/library/mt589530.aspx) y ser compatible con Azure SQL Database. Para más información acerca de la replicación de SQL con AlwaysOn, consulte [Configurar la replicación para grupos de disponibilidad AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
 Para utilizar esta solución, configurará su instancia de Azure SQL Database como suscriptor de la instancia de SQL Server que quiere migrar. El distribuidor de la replicación transaccional sincroniza los datos de la base de datos de modo que estén sincronizados (el publicador) mientras se siguen produciendo nuevas transacciones. 
 

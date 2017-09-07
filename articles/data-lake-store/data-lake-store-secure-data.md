@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 337c6142c27314150a21f1c80a17aae17cd0d67f
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 70483cc7edf0aa9eaac03bbd0dc9b7e8b946a7ef
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Protección de los datos almacenados en el Almacén de Azure Data Lake
 Para proteger los datos en el Almacén de Azure Data Lake, se adopta un enfoque de tres pasos.
 
-1. Comience creando grupos de seguridad en Azure Active Directory (AAD). Estos grupos de seguridad se usan para implementar el control de acceso basado en roles (RBAC) en el Portal de Azure. Para obtener más información, consulte [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md).
+1. Comience creando grupos de seguridad en Azure Active Directory (AAD). Estos grupos de seguridad se usan para implementar el control de acceso basado en roles (RBAC) en Azure Portal. Para más información, vea [Control de acceso basado en roles en Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 2. Asigne los grupos de seguridad de AAD a la cuenta de Almacén de Azure Data Lake. Esto controla el acceso a la cuenta de Almacén de Data Lake desde el portal y las operaciones de administración desde el portal o las API.
 3. Asigne los grupos de seguridad de AAD como listas de control de acceso (ACL) en el sistema de archivos del Almacén de Data Lake.
 4. Además, también puede establecer un intervalo de direcciones IP para los clientes que pueden acceder a los datos en el Almacén de Data Lake.
@@ -41,7 +41,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 Para obtener instrucciones sobre cómo crear grupos de seguridad de AAD y cómo agregar usuarios al grupo, consulte [Administración de grupos de seguridad en Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
 > [!NOTE] 
-> Puede agregar usuarios y otros grupos a un grupo de Azure AD mediante Azure Portal. Sin embargo, para agregar una entidad de servicio a un grupo, use [módulo Azure AD’s PowerShell](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+> Puede agregar usuarios y otros grupos a un grupo de Azure AD mediante Azure Portal. Pero para agregar una entidad de servicio a un grupo, use el [módulo PowerShell de Azure AD](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 > 
 > ```powershell
 > # Get the desired group and service principal and identify the correct object IDs

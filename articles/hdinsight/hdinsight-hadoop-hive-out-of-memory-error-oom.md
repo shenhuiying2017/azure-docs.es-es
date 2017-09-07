@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
+ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: ab463eac7eba2b0abf2da7b2ae56b6e2c05baefb
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: da1247070ade11f78b505524f5e970e18eb16d10
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrección de un error de memoria insuficiente de Hive en Azure HDInsight
 
 Obtenga información acerca de cómo corregir un error de memoria insuficiente cuando procese tablas de gran tamaño configurando ajustes de memoria de Hive.
 
-## <a name="scenario-run-a-hive-query-against-large-tables"></a>Escenario: Ejecución de una consulta de Hive en tablas de gran tamaño
+## <a name="run-hive-query-against-large-tables"></a>Ejecución de una consulta de Hive en tablas de gran tamaño
 
 Un cliente ejecutó una consulta de Hive:
 
@@ -124,10 +123,6 @@ Como una máquina D12 tiene 28 GB de memoria, se optó por usar un tamaño de c
 
 Con estos nuevos valores, la consulta se ejecutó correctamente en menos de 10 minutos.
 
-## <a name="conclusion-oom-errors-and-container-size"></a>Conclusión: Errores de memoria insuficiente y tamaño del contenedor
-
-Recibir un error de memoria insuficiente no significa necesariamente que el tamaño del contenedor sea demasiado pequeño. En su lugar, debe configurar las opciones de memoria para que aumente el tamaño del montón y sea de al menos el 80% del tamaño de memoria del contenedor.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para optimizar las consultas de Hive, vea [Optimizar consultas de Hive para Hadoop en HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+Recibir un error de memoria insuficiente no significa necesariamente que el tamaño del contenedor sea demasiado pequeño. En su lugar, debe configurar las opciones de memoria para que aumente el tamaño del montón y sea de al menos el 80% del tamaño de memoria del contenedor. Para optimizar las consultas de Hive, vea [Optimizar consultas de Hive para Hadoop en HDInsight](hdinsight-hadoop-optimize-hive-query.md).

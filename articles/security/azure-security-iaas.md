@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/29/2017
 ms.author: barclayn
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b05ab20087c9bb391be7317b47d6dc2565206947
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: f93211d289553b7a8afbe8c17fa4847f3d4585a8
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/30/2017
 
 ---
-
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 
 Cuando empezó a pensar en mover cargas de trabajo a la infraestructura como servicio (IaaS) de Azure, es probable que se diera cuenta de que algunas de las consideraciones le eran familiares. Puede que ya tenga experiencia en la protección de entornos virtuales. El movimiento a IaaS de Azure le permite aplicar sus conocimientos de protección de entornos virtuales, además de usar un nuevo conjunto de opciones que le ayudan a proteger sus recursos.
@@ -40,11 +39,11 @@ Se analizarán algunas de las opciones disponibles en Azure que pueden ayudarle 
 
 A menudo, las organizaciones son víctima de ciberataques porque los administradores realizan ciertas acciones en las que usan cuentas con derechos elevados. Normalmente, no lo hacen de forma malintencionada, sino porque la configuración y los procesos existentes lo permiten. La mayoría de estos usuarios entiende el riesgo de estas acciones desde un punto de vista conceptual, pero no por eso dejan de hacerlo.
 
-Cosas como comprobar el correo electrónico y explorar Internet parecen muy inofensivas. Sin embargo, pueden exponer cuentas con privilegios elevados que actores malintencionados pueden comprometer mediante actividades de exploración, mensajes de correo electrónico especialmente diseñados u otras técnicas para obtener acceso a su empresa. Se recomienda encarecidamente el uso de estaciones de trabajo de administración seguras para realizar todas las tareas de administración de Azure como una manera de reducir la exposición a riesgos accidentales.
+Cosas como comprobar el correo electrónico y explorar Internet parecen muy inofensivas. Pero pueden exponer las cuentas con privilegios elevados y ponerse en peligro por parte de actores malintencionados. Se puede examinar las actividades, usar mensajes de correo electrónico diseñados especialmente o poner en práctica otras técnicas para obtener acceso a su empresa. Se recomienda encarecidamente el uso de estaciones de trabajo de administración seguras (SAW) para realizar todas las tareas de administración de Azure. Constituye una manera de reducir la exposición a riesgos accidentales.
 
-Las estaciones de trabajo con privilegios de acceso (PAW) proporcionan un sistema operativo dedicado para tareas delicadas, que está protegido contra ataques de Internet y vectores de amenazas. La separación de estas tareas y cuentas delicadas de las estaciones de trabajo y dispositivos de uso diario proporciona una protección muy eficaz contra ataques de suplantación de identidad (phishing), las vulnerabilidades de las aplicaciones o del sistema operativo, diversos ataques de suplantación y ataques de robo de credenciales, como registro de pulsaciones de teclas, y ataques pass-the-hash y pass-the-ticket.
+Las estaciones de trabajo con privilegios de acceso (PAW) proporcionan un sistema operativo dedicado para tareas delicadas, que está protegido contra ataques de Internet y vectores de amenazas. La separación de estas tareas especiales y las cuentas de los dispositivos y las estaciones de trabajo de uso diario proporciona una protección segura. Esta separación limita el impacto de los ataques de suplantación de identidad, las vulnerabilidades del sistema operativo y de las aplicaciones, diversos ataques de suplantación y ataques de robo de credenciales. (registro de pulsaciones de teclas, Pass-the-Hash y Pass-the-Ticket)
 
-El enfoque PAW es una extensión de la práctica recomendada y establecida de usar una cuenta administrativa asignada individualmente que está separada de la cuenta de usuario estándar. Un PAW proporciona una estación de trabajo de confianza para esas cuentas confidenciales.
+El enfoque PAW es una extensión de la práctica recomendada y establecida de usar una cuenta administrativa asignada individualmente. La cuenta administrativa es independiente de una cuenta de usuario estándar. Un PAW proporciona una estación de trabajo de confianza para esas cuentas confidenciales.
 
 Para más información y para obtener una guía de implementación, consulte [Estaciones de trabajo con privilegios de acceso](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations).
 
@@ -66,7 +65,7 @@ La captura de pantalla siguiente muestra algunas de las opciones disponibles par
 
 ## <a name="limit-and-constrain-administrative-access"></a>Limitación y restricción del acceso administrativo
 
-La protección de las cuentas que pueden administrar su suscripción de Azure es muy importante. Poner en riesgo cualquiera de esas cuentas niega el valor de los restantes pasos que puede dar para garantizar la confidencialidad y la integridad de los datos. Como ha demostrado recientemente la fuga de información confidencial de [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden), los ataques internos suponen una amenaza enorme amenaza a la seguridad global de cualquier organización.
+La protección de las cuentas que pueden administrar su suscripción de Azure es muy importante. Poner en riesgo cualquiera de esas cuentas niega el valor de los restantes pasos que puede dar para garantizar la confidencialidad y la integridad de los datos. Como ha demostrado recientemente [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden), los ataques internos suponen una amenaza enorme para la seguridad global de cualquier organización.
 
 Evalúe los derechos administrativos de los individuos siguiendo criterios similares a los siguientes:
 
@@ -226,10 +225,7 @@ En la siguiente captura de pantalla se muestra un ejemplo de la información que
 
 ![Líneas de base de seguridad de Operations Management Suite](./media/azure-security-iaas/oms-security-baseline.png)
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
-
 
 * [Blog del equipo de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)

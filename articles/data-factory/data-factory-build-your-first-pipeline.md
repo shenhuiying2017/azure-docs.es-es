@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: b01a03fa362f8a9677e625945a2864c77d49f1bb
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 08e2988d455cca21726162d9fb128e91fd51f463
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop
@@ -81,7 +81,7 @@ De las líneas de ejemplo mostradas anteriormente, la primera de ellas (con 2016
 Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 1. **Suscripción de Azure** : si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Consulte el artículo [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) sobre cómo puede obtener una cuenta de evaluación gratuita.
-2. **Almacenamiento de Azure** : para almacenar los datos de este tutorial usará una cuenta de Almacenamiento de Azure. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) . Después de haber creado la cuenta de almacenamiento, anote el **nombre de la cuenta** y la **clave de acceso**. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+2. **Azure Storage**: se usa una cuenta de almacenamiento estándar de uso general de Azure para almacenar los datos de este tutorial. Si no dispone de una cuenta de almacenamiento estándar de uso general de Azure, vea el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account). Después de haber creado la cuenta de almacenamiento, anote el **nombre de la cuenta** y la **clave de acceso**. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 3. Descargue y revise el archivo de consulta de Hive (**HQL**), que se encuentra en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta consulta transforma los datos de entrada para generar datos de salida. 
 4. Descargue y revise el archivo de entrada de ejemplo (**input.log**), que se encuentra en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log).
 5. Crear un contenedor de blobs denominado **adfgetstarted** en Azure Blob Storage. 

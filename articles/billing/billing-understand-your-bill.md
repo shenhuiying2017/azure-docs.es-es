@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 547b035646ccb80d1001591ae59e6a0871d1ed2c
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 2bf75dc55d190522597eb8958d378aa1469027b7
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprender la factura de Microsoft Azure
@@ -31,8 +31,11 @@ Para términos y descripciones detallados de su factura y el archivo de uso diar
 
 Para obtener información sobre los informes de administración de costes, vea [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started) (Administración de costos de Azure Portal).
 
-
 ## <a name="charges"></a>¿Cómo puedo asegurarme de que los cargos de mi factura son correctos?
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
+</div>
+
 Si hay un cargo en la factura del que quiera tener más detalles, hay un par de opciones.
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Opción 1: Revisión de la factura y comparación del uso y los costos con el archivo CSV de uso detallado
@@ -72,7 +75,7 @@ Para más información sobre cada una de las columnas del archivo CSV, consulte 
 
 ### <a name="option-2-review-your-invoice-and-compare-with-the-usage-and-costs-in-the-azure-portal"></a>Opción 2: Revisión de la factura y comparación con el uso y los costos en Azure Portal
 
-Azure Portal también puede ayudarle a comprobar los cargos. Azure Portal proporciona gráficos de administración de costos para información general rápida del uso y los cargos en su factura.
+Azure Portal también puede ayudar a comprobar los costos, ya que proporciona gráficos de administración de costos para una visualización rápida del uso y de los cargos de la factura.
 
 Para continuar con el ejemplo anterior, visite la [página de suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), seleccione su suscripción y, a continuación, elija **Análisis de costos**. Desde allí, puede especificar el intervalo de tiempo y ver los cargos por uso para el servicio Azure Scheduler.
 

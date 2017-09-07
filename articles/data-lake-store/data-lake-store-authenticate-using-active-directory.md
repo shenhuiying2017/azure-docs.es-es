@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 1d712ef6987a4af2014bedb54378f288bcf535a8
-ms.lasthandoff: 04/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 69a860f89601fce7614d77f1bcd839b6ca540b88
+ms.contentlocale: es-es
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticación entre servicios con Data Lake Store mediante Azure Active Directory
@@ -28,14 +28,14 @@ ms.lasthandoff: 04/22/2017
 > 
 > 
 
-Azure Data Lake Store usa Azure Active Directory para la autenticación. Antes de crear una aplicación que funcione con Azure Data Lake Store o Azure Data Lake Analytics, debe determinar cómo desea autenticar la aplicación con Azure Active Directory (Azure AD). Las dos principales opciones disponibles son:
+Azure Data Lake Store usa Azure Active Directory para la autenticación. Antes de crear una aplicación que funcione con Azure Data Lake Store o Azure Data Lake Analytics, debe decidir cómo autenticar la aplicación con Azure Active Directory (Azure AD). Las dos principales opciones disponibles son:
 
 * Autenticación de usuario final 
 * Autenticación entre servicios (este artículo) 
 
 Con ambas opciones, la aplicación recibe un token de OAuth 2.0 que se adjunta a cada solicitud realizada a Azure Data Lake Store o Azure Data Lake Analytics.
 
-En este artículo se habla de cómo crear una **aplicación web de Azure AD para la autenticación entre servicios**. Para obtener instrucciones sobre la configuración de la aplicación de Azure AD para la autenticación entre servicios, vea [Autenticación de usuario final con Data Lake Store mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+En este artículo se habla de cómo crear una **aplicación web de Azure AD para la autenticación entre servicios**. Para obtener instrucciones sobre la configuración de la aplicación de Azure AD para la autenticación de usuario final, vea [Autenticación de usuario final con Data Lake Store mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -44,12 +44,12 @@ En este artículo se habla de cómo crear una **aplicación web de Azure AD para
 
 Cree y configure una aplicación web de Azure AD para la autenticación entre servicios con Azure Data Lake Store mediante Azure Active Directory. Para obtener instrucciones, vea cómo [crear una aplicación de Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
-Al seguir las instrucciones que aparecen en el vínculo anterior, asegúrese de seleccionar **Aplicación web/API** para el tipo de aplicación, como se muestra en la captura de pantalla siguiente.
+Al seguir las instrucciones del vínculo, asegúrese de seleccionar **Aplicación web o API** como tipo de aplicación, como se muestra en la captura de pantalla siguiente.
 
 ![Crear aplicación web](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "Crear aplicación web")
 
-## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Paso 2: obtención del identificador, la clave de autenticación y el identificador de inquilino de la aplicación
-Al iniciar sesión mediante programación, necesitará el identificador de la aplicación. Si esta se ejecuta con sus propias credenciales, también precisará una clave de autenticación.
+## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Paso 2: Obtener el identificador de aplicación, la clave de autenticación y el identificador de inquilino
+Al iniciar sesión mediante programación, necesita el identificador de la aplicación. Si esta se ejecuta con sus propias credenciales, también necesitará una clave de autenticación.
 
 * Para obtener instrucciones sobre cómo recuperar el identificador y la clave de autenticación de la aplicación, consulte [Obtención del id. y la clave de autenticación de la aplicación](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 

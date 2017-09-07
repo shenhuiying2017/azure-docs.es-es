@@ -14,23 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/16/2017
+ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 823508c0bd9e379361dd26f70b3960259a8d4292
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: ccd3a0c777510e0694170b2f9acc8da0e7dcde9b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Crear clústeres basados en Linux en HDInsight con el SDK de .NET
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan el trabajo con HDInsight desde una aplicación .NET Framework. En este artículo se muestra cómo crear un clúster de HDInsight basado en Linux mediante el SDK de .NET.
+
+Aprenda a crear un clúster de Hadoop en un clúster de HDInsight de Azure mediante el SDK de .NET.
 
 > [!IMPORTANT]
-> Los pasos descritos en este documento crean un clúster con un nodo de trabajo. Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+> Los pasos descritos en este documento crean un clúster con un nodo de trabajo. Si piensa crear más de 32 nodos de trabajo, ya sea al crear el clúster o al escalar el clúster después de crearlo, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
 >
 > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -39,14 +40,14 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Una **cuenta de almacenamiento de Azure**. Vea [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account).
+* Una **cuenta de almacenamiento de Azure**. Vea [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * **Visual Studio 2013, Visual Studio 2015 o Visual Studio 2017**.
 
 ## <a name="create-clusters"></a>Creación de clústeres
 
 1. Abra Visual Studio 2017.
 2. Cree una aplicación de consola nueva de Visual C#.
-3. En el menú **Herramientas**, haga clic en **Administrador de paquetes NuGet** y luego haga clic en **Consola del administrador de paquetes**.
+3. En el menú **Herramientas**, haga clic en **Administrador de paquetes NuGet** y luego en **Consola del Administrador de paquetes**.
 4. Ejecute el siguiente comando en la consola para instalar los paquetes:
 
     ```powershell
@@ -192,7 +193,7 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
     ```
 
 6. Reemplace los valores de miembro de clase.
-7. Presione **F5** para ejecutar la aplicación. Una ventana de consola se abrirá y mostrará el estado de la aplicación. También se le pedirá que escriba las credenciales de la cuenta de Azure. La creación del clúster de HDInsight puede durar varios minutos, normalmente unos 15.
+7. Presione **F5** para ejecutar la aplicación. Una ventana de consola se abrirá y mostrará el estado de la aplicación. Se le pedirá que escriba las credenciales de la cuenta de Azure. La creación del clúster de HDInsight puede durar varios minutos, normalmente unos 15.
 
 ## <a name="use-bootstrap"></a>Uso de bootstrap
 
@@ -325,7 +326,7 @@ static void Main(string[] args)
 
 ## <a name="use-script-action"></a>Uso de la acción de scripts
 
-Con la acción de scripts puede configurar opciones adicionales durante las operaciones de creación de clúster.  Para más información, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
+Con la acción de scripts puede configurar opciones adicionales durante las operaciones de creación de clúster.  Para más información, vea [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
 Modifique el ejemplo para [crear clústeres](#create-clusters) a fin de llamar a una acción de scripts para instalar R:
 

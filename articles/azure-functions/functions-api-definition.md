@@ -4,7 +4,7 @@ description: "Introducción a la compatibilidad con OpenAPI en Azure Functions"
 services: functions
 documentationcenter: 
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: functions
@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: c144e22654629f600b8f630363239efc82ac79d7
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e9499d036c8c5ef5a56a70f7e7ecf9afbff4e6b0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Compatibilidad con metadatos de OpenAPI 2.0 en Azure Functions (versión preliminar)
@@ -33,9 +32,9 @@ La compatibilidad con metadatos de OpenAPI 2.0 (anteriormente Swagger) en Azure 
 >Se recomienda empezar por el [tutorial de introducción](./functions-api-definition-getting-started.md) y, luego, volver a este documento para obtener más información sobre características específicas.
 
 ## <a name="enable"></a>Habilitar la compatibilidad con definiciones de OpenAPI
-Puede configurar todas las opciones de OpenAPI en la página **Definición de la API (versión preliminar)** en la configuración de la aplicación de función.
+Puede configurar todas las opciones de OpenAPI en la página **Definición de la API** de **Características de la plataforma** de la aplicación de función.
 
-Para habilitar la generación de una definición de OpenAPI hospedada y una definición de inicio rápido, establezca **Origen de la definición de API** en **Función**. **Dirección URL externa** permite que su función utilice una definición de OpenAPI hospedada en otro lugar.
+Para habilitar la generación de una definición de OpenAPI hospedada y una definición de inicio rápido, establezca **Origen de definición de API** en **Functions (versión preliminar)**. **Dirección URL externa** permite que su función utilice una definición de OpenAPI hospedada en otro lugar.
 
 ## <a name="generate-definition"></a>Generación de un esqueleto de Swagger a partir de los metadatos de la función.
 Una plantilla puede ayudarle a empezar a escribir la primera definición de OpenAPI. La característica de plantilla de definición crea una definición de OpenAPI dispersa con todos los metadatos del archivo function.json para cada una de las funciones de desencadenador HTTP. Necesitará rellenar más información sobre la API con la [especificación de OpenAPI](http://swagger.io/specification/), como las plantillas de solicitud y respuesta.

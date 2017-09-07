@@ -4,7 +4,7 @@ description: "Entender cómo usar enlaces de Twilio con Azure Functions."
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "funciones de azure, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 9355aae6e3fbf70aae08cc829d7addd2decc44fd
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e8c5e8f2dfedae26486e1c8afbe0cec3f3228e86
 ms.contentlocale: es-es
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="send-sms-messages-from-azure-functions-using-the-twilio-output-binding"></a>Envío de mensajes SMS desde Azure Functions mediante el enlace de salida de Twilio
@@ -36,14 +36,16 @@ Azure Functions admite enlaces de salida de Twilio para permitir a sus funciones
 ## <a name="functionjson-for-the-twilio-output-binding"></a>function.json para el enlace de salida de Twilio
 El archivo function.json ofrece las siguientes propiedades:
 
-* `name`: nombre de variable usado en el código de función para el mensaje de texto SMS de Twilio.
-* `type`: se debe establecer en *"twilioSms"*.
-* `accountSid`: este valor debe establecerse en el nombre de una configuración de aplicación que contiene al SID de la cuenta de Twilio.
-* `authToken`: este valor debe establecerse en el nombre de una configuración de aplicación que contiene el token de autenticación de Twilio.
-* `to`: este valor se establece en el número de teléfono al que se envía el texto SMS.
-* `from`: este valor se establece en el número de teléfono desde el que se envía el texto del SMS.
-* `direction` : debe establecerse en *out*.
-* `body`: este valor se puede usar para codificar el mensaje de texto SMS si no necesita establecerlo dinámicamente en el código de la función. 
+|Propiedad  |Descripción  |
+|---------|---------|
+|**name**| Nombre de variable usado en el código de función para el mensaje de texto SMS de Twilio. |
+|**type**| Se debe establecer en `twilioSms`.|
+|**accountSid**| Este valor debe establecerse en el nombre de una configuración de aplicación que contenga el SID de la cuenta de Twilio.|
+|**authToken**| Este valor debe establecerse en el nombre de una configuración de aplicación que contenga el token de autenticación de Twilio.|
+|**to**| Este valor se establece en el número de teléfono al que se envía el mensaje de texto SMS.|
+|**from**| Este valor se establece en el número de teléfono desde el que se envía el mensaje de texto SMS.|
+|**dirección**| Se debe establecer en `out`.|
+|**body**| Este valor se puede usar para codificar el mensaje de texto SMS si no necesita establecerlo dinámicamente en el código de la función. |
 
 Function.json de ejemplo:
 

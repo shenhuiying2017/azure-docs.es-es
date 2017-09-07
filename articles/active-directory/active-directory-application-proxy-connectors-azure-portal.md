@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: a65216e79b7e89da1c9ccd6d002cb7ab6b18190f
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
 ms.contentlocale: es-es
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -76,13 +76,13 @@ Los grupos de conectores permiten instalar conectores específicos en aquellas r
 
 ### <a name="applications-installed-on-iaas"></a>Aplicaciones instaladas en IaaS 
 
-En lo que respecta a las aplicaciones instaladas en IaaS para el acceso a la nube, los grupos de conectores proporcionan un servicio común para proteger el acceso a todas las aplicaciones. Los grupos de conectores no crean dependencia adicional en la red corporativa ni fragmentan la experiencia de la aplicación. Los conectores se pueden instalarse en cada centro de datos en la nube y servir solo las aplicaciones que residen en esta red. Puede instalar varios conectores para lograr alta disponibilidad.
+En lo que respecta a las aplicaciones instaladas en IaaS para el acceso a la nube, los grupos de conectores proporcionan un servicio común para proteger el acceso a todas las aplicaciones. Los grupos de conectores no crean dependencia adicional en la red corporativa ni fragmentan la experiencia de la aplicación. Los conectores se pueden instalar en todos los centros de datos en la nube y servir solo a las aplicaciones que residen en esa red. Puede instalar varios conectores para lograr alta disponibilidad.
 
-En este caso, la organización tiene numerosas máquinas virtuales conectadas a su propia red virtual hospedada en IaaS. Para permitir que los empleados usen estas aplicaciones, estas redes privadas están conectadas a la red corporativa mediante VPN de sitio a sitio. De este modo, los empleados que trabajan en un entorno local podrán usarlas sin ningún problema. Sin embargo, puede que este enfoque no sea el ideal para los empleados remotos, ya que requiere contar con otra infraestructura local, como puede ver en el diagrama siguiente:
+Sirva como ejemplo una organización que tiene varias máquinas virtuales conectadas a su propia red virtual hospedada en IaaS. Para permitir que los empleados usen estas aplicaciones, estas redes privadas están conectadas a la red corporativa mediante VPN de sitio a sitio. De este modo, los empleados que trabajan en un entorno local podrán usarlas sin ningún problema. Sin embargo, puede que este enfoque no sea el ideal para los empleados remotos, ya que requiere contar con otra infraestructura local para enrutar el acceso, como puede ver en el diagrama siguiente:
 
 ![Red Iaas de Azure AD](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
-Esto puede convertirse en un problema a medida que muchas organizaciones usen varios proveedores de nube, ya que sus aplicaciones se encuentran en varios centros de datos. Con los grupos de conectores de proxy de aplicación de Azure AD, puede habilitar un servicio común para proteger el acceso a todas las aplicaciones sin necesidad de crear otra dependencia de la red corporativa:
+Con los grupos de conectores de proxy de aplicación de Azure AD, puede habilitar un servicio común para proteger el acceso a todas las aplicaciones sin necesidad de crear otra dependencia de la red corporativa:
 
 ![Varios proveedores de nube (IaaS de Azure AD)](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 

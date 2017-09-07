@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/17/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: d790eec30b669469a0837ccdc14b771d1953829b
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: a74d767d57eb5ce2b3a716f9ba908a451f25f538
 ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -54,7 +54,7 @@ No tiene que crear nombres de publicador con antelación, pero deben coincidir c
 
 ## <a name="capture"></a>Capture
 
-[Event Hubs Capture](event-hubs-capture-overview.md) permite capturar automáticamente los datos de streaming en Event Hubs y archivarlos en la cuenta de Blob Storage que prefiera. Puede habilitar Capture desde Azure Portal y especificar una ventana de tiempo y de tamaño mínimos para realizar la captura. El uso de Event Hubs Capture le permite especificar su propia cuenta de Azure Blob Storage y el contenedor que se usa para almacenar los datos capturados. Los datos capturados se escriben en el formato de Apache Avro.
+[Event Hubs Capture](event-hubs-capture-overview.md) permite capturar automáticamente los datos de transmisión de Event Hubs y guardarlos en una cuenta de Blob Storage o en una cuenta de servicio de Azure Data Lake. Puede habilitar Capture desde Azure Portal y especificar una ventana de tiempo y de tamaño mínimos para realizar la captura. Event Hubs Capture permite especificar una cuenta y un contenedor propios de Azure Blob Storage, o una cuenta de servicio de Azure Data Lake, que se usan para almacenar los datos capturados. Los datos capturados se escriben en el formato de Apache Avro.
 
 ## <a name="partitions"></a>Particiones
 
