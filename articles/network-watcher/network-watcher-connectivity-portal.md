@@ -3,7 +3,7 @@ title: "Comprobación de la conectividad con Azure Network Watcher: Azure Portal
 description: "Esta página explica cómo usar la comprobación de conectividad con Network Watcher usando Azure Portal"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 84774d0f40e06a819ca6de6cf0be68e17ba474e4

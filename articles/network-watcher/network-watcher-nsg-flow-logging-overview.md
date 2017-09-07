@@ -3,7 +3,7 @@ title: "Introducción a los registros de flujo de grupos de seguridad de red con
 description: "Esta página explica cómo usar los registros de flujo de los grupos de seguridad de red, una característica de Azure Network Watcher."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: jdial
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
 ms.openlocfilehash: c24c2c4e297497e106691d62be76ad0591bb33de
+ms.contentlocale: es-es
 ms.lasthandoff: 03/04/2017
-
 
 ---
 

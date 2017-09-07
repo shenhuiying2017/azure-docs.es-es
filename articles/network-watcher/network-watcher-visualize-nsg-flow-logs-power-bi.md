@@ -3,7 +3,7 @@ title: "Visualización de registros de flujo del grupo de seguridad de red de Az
 description: "En esta página se describe cómo utilizar Power BI para visualizar los registros de flujo del grupo de seguridad de red (NSG)."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: jdial
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: 7cac733717b4af048e58cf3d574c5743889100c1
+ms.contentlocale: es-es
 ms.lasthandoff: 03/22/2017
 
 ---
@@ -64,7 +65,7 @@ También tiene que tener el cliente de Power BI Desktop instalado en su equipo y
 
     ![Clave de acceso 2][4]
 
-4.    Los registros se descargan y analizan, y ahora ya puede usar los objetos visuales creados previamente.
+4.  Los registros se descargan y analizan, y ahora ya puede usar los objetos visuales creados previamente.
 
 ## <a name="understanding-the-visuals"></a>Descripción de los objetos visuales
 

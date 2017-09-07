@@ -3,7 +3,7 @@ title: "Búsqueda de Next Hop con Azure Network Watcher (REST) | Microsoft Docs"
 description: "En este artículo se describe cómo encontrar el tipo del próximo salto y la dirección IP usando la funcionalidad Next Hop con la API de REST de Azure."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 2216c059-45ba-4214-8304-e56769b779a6
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 644713d365191bf5e51517d0cc565efbc2abc144

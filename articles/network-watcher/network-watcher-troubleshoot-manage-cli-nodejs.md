@@ -3,7 +3,7 @@ title: "Solución de problemas de puerta de enlace y conexiones de Azure Virtual
 description: "En esta página se explica cómo usar Azure Network Watcher para solucionar problemas con la CLI de Azure 1.0."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 2838bc61-b182-4da8-8533-27db8fdbd177
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 9de4b2a0bdda7ffbd269883877a708d67312092f
