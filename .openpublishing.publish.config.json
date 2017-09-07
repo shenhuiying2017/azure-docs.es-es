@@ -22,7 +22,8 @@
   "notification_subscribers": [],
   "branches_to_filter": [
     "master",
-    "master-sync-work"
+    "master-sync-work",
+    "live-sxs"
   ],
   "git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs.es-es",
   "git_repository_branch_open_to_public_contributors": "live",
@@ -76,5 +77,5 @@
       "template_folder": "_themes.pdf"
     }
   },
-  "continue_with_document_error": true 
+  "continue_with_document_error": true
 }
