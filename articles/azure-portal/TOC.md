@@ -6,11 +6,13 @@
 ## [Administrador de recursos de Azure](../azure-resource-manager/resource-group-overview.md)
 ## [Métodos abreviados de teclado](azure-portal-keyboard-shortcuts.md)
 ## [Exploradores y dispositivos compatibles](../azure-preview-portal-supported-browsers-devices.md)
+## [La estructura de los paneles de Azure](azure-portal-dashboards-structure.md)
 # Guías de procedimientos
 ## Implementación
 ### [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 ### [Implementación con una plantilla de Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Creación y uso compartido de paneles de Azure](azure-portal-dashboards.md)
+### [Creación mediante programación de paneles de Azure](azure-portal-dashboards-create-programmatically.md)
 ## Administrar
 ### [Activación del contraste alto o cambio de tema](azure-portal-change-theme-high-contrast.md)
 ### [Uso del portal para administrar recursos](../azure-resource-manager/resource-group-portal.md)

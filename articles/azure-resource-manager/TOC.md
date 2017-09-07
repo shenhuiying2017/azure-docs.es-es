@@ -5,9 +5,9 @@
 ## [Gobierno de suscripción](resource-manager-subscription-governance.md)
 ## [Aplicaciones administradas](managed-application-overview.md)
 
-# Introducción
-## [Exportación de la plantilla](resource-manager-export-template.md)
+# Primeros pasos
 ## [Creación e implementación de una plantilla](resource-manager-create-first-template.md)
+## [Extensión de VS Code para plantillas](resource-manager-vscode-extension.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Muestras
@@ -20,8 +20,8 @@
 
 # Procedimientos
 ## Crear plantillas
-### [Procedimientos recomendados para las plantillas](resource-manager-template-best-practices.md)
 ### [Secciones de plantilla](resource-group-authoring-templates.md)
+### [Procedimientos recomendados para las plantillas](resource-manager-template-best-practices.md)
 ### [Vínculo a otras plantillas](resource-group-linked-templates.md)
 ### [Definición de las dependencias entre recursos](resource-group-define-dependencies.md)
 ### [Creación de varias instancias](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [Compartición del estado entre plantillas vinculadas](best-practices-resource-manager-state.md)
 ### [Patrones para diseñar plantillas](best-practices-resource-manager-design-templates.md)
 
+
 ## Implementación
 ### PowerShell
 #### [Implementación de la plantilla](resource-group-template-deploy.md)
@@ -42,8 +43,10 @@
 #### [Implementación de la plantilla](resource-group-template-deploy-cli.md)
 #### [Implementación de una plantilla privada con el token de SAS](resource-manager-cli-sas-token.md)
 #### [Exportación de la plantilla y reimplementación](resource-manager-export-template-cli.md)
-### [Portal](resource-group-template-deploy-portal.md)
-### [API de REST](resource-group-template-deploy-rest.md)
+### Portal
+#### [Implementación de recursos](resource-group-template-deploy-portal.md)
+#### [Exportación de la plantilla](resource-manager-export-template.md)
+### [API DE REST](resource-group-template-deploy-rest.md)
 ### [Implementación en varios grupos de recursos](resource-manager-cross-resource-group-deployment.md)
 ### [Integración continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md)
