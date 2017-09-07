@@ -1183,7 +1183,7 @@ Procesa todos los valores de un atributo de valor múltiple (o el resultado de u
 * condition: cualquier función que pueda procesar un elemento en el atributo
 
 **Ejemplos:**  
-`Select($item,[otherPhone],Replace($item,“-”,“”))`  
+`Select($item,[otherPhone],Replace($item,"-",""))`  
 Devuelva todos los valores del atributo de valor múltiple otherPhone una vez que se han quitado los guiones (-).
 
 - - -

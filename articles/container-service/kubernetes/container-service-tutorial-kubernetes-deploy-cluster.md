@@ -53,7 +53,7 @@ Cree un clúster de Kubernetes en Azure Container Service con el comando [az acs
 En el ejemplo siguiente, se crea un clúster denominado *myK8sCluster* con un nodo maestro de Linux y tres nodos de agente de Linux.
 
 ```azurecli-interactive 
-az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8SCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
 Después de varios minutos, el comando se completa y devuelve información en formato json sobre la implementación de ACS.
@@ -77,7 +77,7 @@ En Windows, la instalación predeterminada es *c:\program files (x86)\kubectl.ex
 Para configurar `kubectl` para conectarse al clúster de Kubernetes, ejecute el comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials).
 
 ```azurecli-interactive 
-az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8SCluster
+az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster
 ```
 
 Para comprobar la conexión al clúster, ejecute el comando [kubectl get nodes](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get).
