@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 08/29/2017
 ms.author: juanpere
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: abb7f80662650efa8f158f32125ebc5350cb4f62
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 6e4ca8ad0c444930f5e45eed0a024412de82dbb1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programación de trabajos en varios dispositivos
@@ -27,7 +26,7 @@ ms.lasthandoff: 05/31/2017
 Como se describe en artículos anteriores, Azure IoT Hub permite un número de bloques de creación ([etiquetas y propiedades de dispositivos gemelos][lnk-twin-devguide] y [métodos directos][lnk-dev-methods]).  Normalmente, las aplicaciones de back-end permiten a los administradores y operadores de dispositivos actualizar e interactuar con dispositivos de IoT de forma masiva y a la hora programada.  Los trabajos encapsulan la ejecución de actualizaciones del dispositivo gemelo y métodos directos con un conjunto de dispositivos a la hora programada.  Por ejemplo, un operador usaría una aplicación de back-end que se iniciaría y realizaría un seguimiento de un trabajo para reiniciar un conjunto de dispositivos en la creación del piso 43 y 3 en un momento en que no sería problemático para las operaciones del edificio.
 
 ### <a name="when-to-use"></a>Cuándo se deben usar
-Considere la posibilidad de usar trabajos cuando: solución back end necesite programar y realizar un seguimiento del progreso de cualquiera de las siguientes actividades en un conjunto de dispositivos:
+Considere la posibilidad de usar trabajos cuando una solución back end necesite programar y realizar un seguimiento del progreso de cualquiera de las siguientes actividades en un conjunto de dispositivos:
 
 * Actualizar las propiedades deseadas
 * Actualizar etiquetas
@@ -147,7 +146,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 
 * En [Puntos de conexión de IoT Hub][lnk-endpoints], se describen los diferentes puntos de conexión que expone cada centro de IoT Hub para las operaciones en tiempo de ejecución y de administración.
 * En [Cuotas y limitación][lnk-quotas], se describen las cuotas que se aplican al servicio IoT Hub y el comportamiento de limitación que se espera al usar el servicio.
-* En [SDK de dispositivo y servicio IoT de Azure][lnk-sdks], se muestran los diversos SDK de lenguaje que puede usar para desarrollar aplicaciones para dispositivo y de servicio que interactúen con IoT Hub.
+* En [SDK de dispositivo y servicio IoT de Azure][lnk-sdks] se muestran los diversos SDK de lenguaje que puede usar para desarrollar aplicaciones para dispositivo y de servicio que interactúen con IoT Hub.
 * En [Referencia: Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes][lnk-query], se describe el lenguaje de consulta de IoT Hub que se puede usar para recuperar información de IoT Hub sobre los dispositivos gemelos y trabajos.
 * En [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 

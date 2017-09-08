@@ -14,14 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/15/2017
+ms.date: 08/25/2017
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 88ca437b84298d0c008076f78e0699d36c1a23c2
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 4963598837b71e812ad3750aad9d20c8460111d9
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Base de datos SQL de Azure
@@ -92,7 +91,7 @@ Nadie es perfecto. Un usuario podría eliminar de forma involuntaria algunos dat
 Estas son las opciones de recuperación que tiene para este caso.
 
 ### <a name="perform-a-point-in-time-restore"></a>Realización de una restauración a un momento dado
-Puede utilizar las copias de seguridad automatizadas para restaurar la base de datos a un momento dado conocido y sin problemas, siempre que sea dentro del periodo de retención de la base de datos. Después de restaurar la base de datos, puede reemplazar la original por la restaurada o copiar la información que necesite de los datos restaurados en la base de datos original. Si la base de datos utiliza la replicación geográfica activa, se recomienda copiar los datos que precise de la copia restaurada en la original. Si reemplaza la base de datos original por la restaurada, debe volver a configurar y sincronizar la replicación geográfica activa (proceso que puede llevar bastante tiempo en bases de datos de gran tamaño).
+Puede utilizar las copias de seguridad automatizadas para restaurar la base de datos a un momento dado conocido y sin problemas, siempre que sea dentro del periodo de retención de la base de datos. Después de restaurar la base de datos, puede reemplazar la original por la restaurada o copiar la información que necesite de los datos restaurados en la base de datos original. Si la base de datos utiliza la replicación geográfica activa, se recomienda copiar los datos que precise de la copia restaurada en la original. Si reemplaza la base de datos original por la restaurada, debe volver a configurar y sincronizar la replicación geográfica activa (proceso que puede llevar bastante tiempo en bases de datos de gran tamaño). Aunque esto permite restaurar una base de datos hasta el último punto disponible en el tiempo, la restauración de una base de datos geográfica secundaria a cualquier punto en el tiempo no se admite actualmente.
 
 Para más información y ver los pasos detallados de cómo restaurar una base de datos a un momento dado mediante el Portal de Azure o PowerShell, consulte el artículo sobre [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore). Transact-SQL no se puede utilizar para este fin.
 
@@ -138,7 +137,7 @@ Si usa grupos de conmutación automática por error (versión preliminar) y la r
 > 
 
 ### <a name="perform-a-geo-restore"></a>Realización de restauraciones geográficas
-Si utiliza copias de seguridad automatizadas con replicación de almacenamiento con redundancia geográfica como mecanismo de recuperación, [inicie una recuperación de base de datos mediante la restauración geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore). El proceso de recuperación suele durar 12 horas y hay una pérdida de datos de hasta una hora en función de cuándo se realizó y replicó la última copia de seguridad diferencial que se ejecuta cada hora. Hasta que no se complete la recuperación, la base de datos no puede registrar transacciones ni responder a las consultas.
+Si utiliza copias de seguridad automatizadas con replicación de almacenamiento con redundancia geográfica como mecanismo de recuperación, [inicie una recuperación de base de datos mediante la restauración geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore). El proceso de recuperación suele durar 12 horas y hay una pérdida de datos de hasta una hora en función de cuándo se realizó y replicó la última copia de seguridad diferencial que se ejecuta cada hora. Hasta que no se complete la recuperación, la base de datos no puede registrar transacciones ni responder a las consultas. Aunque esto permite restaurar una base de datos hasta el último punto disponible en el tiempo, la restauración de una base de datos geográfica secundaria a cualquier punto en el tiempo no se admite actualmente.
 
 > [!NOTE]
 > Si el centro de datos vuelve a estar en línea antes de cambiar la aplicación en la base de datos recuperada, puede cancelar el proceso de recuperación.  

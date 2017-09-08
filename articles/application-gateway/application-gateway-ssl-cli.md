@@ -1,6 +1,6 @@
 ---
 title: "Configuración de la descarga SSL para Azure Application Gateway mediante la CLI 2.0 de Azure | Microsoft Docs"
-description: "En esta página se ofrecen instrucciones para crear una puerta de enlace de aplicaciones con descarga SSL mediante la CLI de Azure 2.0"
+description: "Este artículo contiene instrucciones para crear una puerta de enlace de aplicaciones con descarga SSL mediante la CLI de Azure 2.0."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: e8c1ba09daef09ef5002e33345905772961c1d93
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 032a514ddab625e4f7c5ef23a1da03a0162f43e3
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL la CLI de Azure 2.0
@@ -25,7 +25,7 @@ ms.lasthandoff: 08/04/2017
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-ssl-portal.md)
 > * [PowerShell de Azure Resource Manager](application-gateway-ssl-arm.md)
-> * [Azure Classic PowerShell](application-gateway-ssl.md)
+> * [PowerShell clásico de Azure](application-gateway-ssl.md)
 > * [CLI de Azure 2.0](application-gateway-ssl-cli.md)
 
 Azure Application Gateway puede configurarse para terminar la sesión Capa de sockets seguros (SSL) en la puerta de enlace para evitar las costosas tareas de descifrado SSL que tienen lugar en la granja de servidores web. La descarga SSL también simplifica la administración de certificados en el servidor front-end.
@@ -36,19 +36,21 @@ Para seguir los pasos de este artículo, es preciso [instalar la interfaz de la 
 
 ## <a name="required-components"></a>Componentes necesarios
 
-* **Grupo de servidores back-end:** lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la subred de la red virtual o ser una IP/VIP pública.
+* **Grupo de servidores back-end:** lista de direcciones IP de los servidores back-end. Las direcciones IP de la lista deben pertenecer a la subred de la red virtual o ser una dirección IP pública o una dirección IP virtual (VIP).
 * **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
 * **Puerto front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
-* **Agente de escucha:** tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
-* **Regla:** enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se dirigirá el tráfico cuando llega a un agente de escucha concreto. Actualmente, solo se admite la regla *básica* . La regla *básica* es la distribución de carga round robin.
+* **Agente de escucha:** tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga SSL).
+* **Regla:** la regla enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se va a dirigir el tráfico cuando llegue a un determinado agente de escucha. Actualmente, solo se admite la regla *básica* . La regla *básica* es la distribución de carga round robin.
 
 **Notas de configuración adicionales**
 
-Para la configuración de certificados SSL, el protocolo de **HttpListener** debería cambiar a *Https* (con distinción entre mayúsculas y minúsculas). El elemento **SslCertificate** se agrega a **HttpListener** con el valor de la variable configurado para el certificado SSL. El puerto front-end debe actualizarse al 443.
+Para la configuración de certificados SSL, el protocolo de **HttpListener** debería cambiar a *Https* (con distinción entre mayúsculas y minúsculas). Agregue el elemento **SslCertificate** a **HttpListener** con el valor de la variable configurado para el certificado SSL. El puerto front-end debe actualizarse al **443**.
 
-**Para habilitar la afinidad basada en cookies**: se puede configurar una puerta de enlace de aplicaciones para asegurarse de que las solicitudes de una sesión de cliente siempre se dirigen a la misma máquina virtual de la granja de servidores web. Este escenario se realiza mediante la inyección de una cookie de la sesión que permita a la puerta de enlace dirigir el tráfico de forma adecuada. Para habilitar la afinidad basada en cookies, establezca **CookieBasedAffinity** en *Habilitado* en el elemento **BackendHttpSettings**.
+**Para habilitar la afinidad basada en cookies:** puede configurar una puerta de enlace de aplicaciones para asegurarse de que las solicitudes de una sesión de cliente siempre se dirigen a la misma máquina virtual de la granja de servidores web. Para conseguirlo, inserte una cookie de sesión que permita a la puerta de enlace dirigir el tráfico de forma adecuada. Para habilitar la afinidad basada en cookies, establezca **CookieBasedAffinity** en *Habilitado* en el elemento **BackendHttpSettings**.
 
 ## <a name="configure-ssl-offload-on-an-existing-application-gateway"></a>Configuración de la descarga de SSL en una puerta de enlace de aplicaciones existente
+
+Escriba los comandos siguientes para configurar la descarga SSL en una puerta de enlace de aplicaciones existente:
 
 ```azurecli-interactive
 #!/bin/bash
@@ -105,9 +107,9 @@ az network application-gateway rule create \
 
 ```
 
-## <a name="create-an-application-gateway-with-ssl-offload"></a>Creación de una puerta de enlace de aplicaciones con la descarga de SSL
+## <a name="create-an-application-gateway-with-ssl-offload"></a>Creación de una puerta de enlace de aplicaciones con descarga SSL
 
-En el ejemplo siguiente se crea una puerta de enlace de aplicaciones con descarga de SSL.  El certificado y la contraseña de este se deben actualizar a una clave privada válida.
+En el ejemplo siguiente se crea una puerta de enlace de aplicaciones con descarga de SSL. El certificado y la contraseña de este se deben actualizar a una clave privada válida.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -136,9 +138,11 @@ az network application-gateway create \
   --public-ip-address-allocation "dynamic"
 ```
 
-## <a name="get-application-gateway-dns-name"></a>Obtención del nombre DNS de una puerta de enlace de aplicaciones
+## <a name="get-an-application-gateway-dns-name"></a>Obtención de un nombre DNS de una puerta de enlace de aplicaciones
 
-Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la Application Gateway, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la Application Gateway. [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para configurar un alias, recupere los detalles de la puerta de enlace de aplicaciones y su nombre de IP o DNS asociado mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
+Una vez que se crea la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación.  La puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo, cuando se utiliza una dirección IP pública. Para asegurarse de que los usuarios finales puedan llegar a la puerta de enlace de aplicaciones, puede utilizar un registro CNAME para que apunte al punto de conexión público de dicha puerta. Para más información, consulte [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+
+Para configurar un alias, recupere los detalles de la puerta de enlace de aplicaciones y su nombre de IP o DNS asociado mediante el elemento **PublicIPAddress** asociado a dicha puerta. Utilice el nombre DNS de la puerta de enlace de aplicaciones para crear un registro CNAME, que hace que las dos aplicaciones web apunten a este nombre DNS. No se recomienda el uso de registros A, ya que la IP virtual puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
 
 
 ```azurecli-interactive
@@ -183,9 +187,9 @@ az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea configurar una puerta de enlace de aplicaciones para usarla con el equilibrador de carga interno (ILB), consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
+Si quiere configurar una puerta de enlace de aplicaciones para usarla con el equilibrador de carga interno, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno](application-gateway-ilb.md).
 
-Si desea obtener más información acerca de opciones de equilibrio de carga en general, vea:
+Para más información sobre las opciones de equilibrio de carga en general, consulte:
 
 * [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)

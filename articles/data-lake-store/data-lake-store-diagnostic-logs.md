@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
-ms.openlocfilehash: f139674f96793b8486c541c9e3f1ead751b97232
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 73d0dabe5b8b179cbc0847c2819947febd6ef4d8
 ms.contentlocale: es-es
-ms.lasthandoff: 02/07/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Acceso a los registros de diagnóstico de Azure Data Lake Store
@@ -32,7 +31,7 @@ Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas 
 * **Cuenta del Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md).
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Habilitar el registro de diagnósticos en la cuenta de Data Lake Store
-1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el nuevo [Azure Portal](https://portal.azure.com).
 2. Abra la cuenta de Data Lake Store y, en la hoja de la cuenta de Data Lake Store, haga clic en **Configuración** y en **Registros de diagnóstico**.
 3. En la hoja **Registros de diagnóstico**, haga clic en **Activar diagnósticos**.
 
@@ -42,7 +41,7 @@ Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas 
    
     ![Habilitar el registro de diagnóstico](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Habilitar registros de diagnóstico")
    
-   * Establezca el **Estado** en **Activado** para habilitar el registro de diagnóstico.
+   * En el **Nombre**, escriba un valor para la configuración del registro de diagnóstico.
    * Puede optar por almacenar o procesar los datos de maneras diferentes.
      
         * Seleccione la opción **Archive to a storage account** (Archivar en cuenta de almacenamiento) para almacenar los registros en una cuenta de Azure Storage. Use esta opción si quiere archivar los datos que se procesarán por lotes más adelante. Si selecciona esta opción, debe proporcionar una cuenta de almacenamiento de Azure para guardar los registros.
@@ -71,7 +70,7 @@ Existen dos formas de ver los datos de registro para la cuenta de Data Lake Stor
    
    * Los registros de solicitudes capturan todas las solicitudes API realizadas en la cuenta de Data Lake Store.
    * Los registros de auditoría son parecidos a los de solicitud, pero proporcionan un desglose mucho más detallado de las operaciones que tienen lugar en la cuenta de Data Lake Store. Por ejemplo, una llamada de API de carga única en los registros de solicitud podría producir varias operaciones "Append" en los registros de auditoría.
-3. Haga clic en el vínculo **Descargar** de cada entrada de registro para descargar los registros.
+3. Para descargar los registros, haga clic en el vínculo **Descargar** de cada entrada de registro.
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>En la cuenta de Almacenamiento de Azure que contiene los datos de registro
 1. Abra la hoja de la cuenta de Almacenamiento de Azure asociada con Data Lake Store para el registro y haga clic en Blobs. La hoja **Servicio Blob** muestra dos contenedores.

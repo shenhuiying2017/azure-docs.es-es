@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 08/29/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3470473e1b2aa107c32643a66092b68bfafd1a37
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 05006a78cc7d82bc048ec5706465f7140eb40e94
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 05/31/2017
 | Cargas de archivos | IoT Hub no mide el uso de la transferencia de archivos a Azure Storage. Los mensajes de inicio y finalización de transferencia de archivos se cobran como mensajes medidos en incrementos de 4 KB. Por ejemplo, por transferir un archivo de 10 MB se cobra el precio de dos mensajes, además del costo de Azure Storage. |
 | Métodos directos | Las solicitudes de métodos correctas se cobrarán en fragmentos de 4 KB; las respuestas con cuerpos no vacíos se cobran en fragmentos de 4 KB como mensajes adicionales. Las solicitudes a dispositivos desconectados se cobran como mensajes en fragmentos de 4 KB. Por ejemplo, un método con un cuerpo de 6 KB que da como resultado una respuesta sin cuerpo desde el dispositivo se cobra como dos mensajes; un método con un cuerpo de 6 KB que da como resultado una respuesta de 1 KB desde el dispositivo se cobra como dos mensajes para la solicitud más otro mensaje para la respuesta. |
 | Lecturas de dispositivos gemelos | Las lecturas de dispositivos gemelos desde el dispositivo y desde el back-end de solución se cobran como mensajes en fragmentos de 512 bytes. Por ejemplo, la lectura de un dispositivo gemelo de 6 KB se cobra como 12 mensajes. |
-| Actualizaciones de dispositivos gemelos (etiquetas y propiedades) | Las actualizaciones de dispositivos gemelos desde el dispositivo y desde el dispositivo cobran como mensajes en fragmentos de 512 bytes. Por ejemplo, la lectura de un dispositivo gemelo de 6 KB se cobra como 12 mensajes. |
+| Actualizaciones de dispositivos gemelos (etiquetas y propiedades) | Las actualizaciones de dispositivos gemelos desde el dispositivo y desde el back-end de solución se cobran como mensajes en fragmentos de 512 bytes. Por ejemplo, la lectura de un dispositivo gemelo de 6 KB se cobra como 12 mensajes. |
 | Consultas de dispositivos gemelos | Las consultas se cobran como mensajes según el tamaño de los resultados en fragmentos de 512 bytes. |
 | Operaciones de trabajos <br/> (crear, actualizar, enumerar, eliminar) | No se aplicará ningún cargo. |
 | Operaciones por dispositivo de trabajos | Las operaciones de trabajos (como actualizaciones de dispositivos gemelos y métodos) se cobran del modo habitual. Por ejemplo, un trabajo que dé como resultado 1000 llamadas de método con solicitudes de 1 KB y respuestas con cuerpo vacío se cobra como 1000 mensajes. |
@@ -55,10 +54,10 @@ El dispositivo consume 1 mensaje * 60 minutos * 24 horas = 1440 mensajes por dí
 
 Un dispositivo envía un mensaje del dispositivo a la nube de 100 KB cada hora. También actualiza su dispositivo gemelo con cargas útiles de 1 KB cada cuatro horas. El back-end de solución, una vez al día, lee el dispositivo gemelo de 14 KB y lo actualiza con cargas útiles de 512 bytes para cambiar las configuraciones.
 
-El dispositivo consume 25 mensajes (100 KB / 4 KB) * 24 horas para los mensajes del dispositivo a la nube, además de 1 mensaje * 6 veces al día para las actualizaciones del dispositivo gemelo, con un total de 156 mensajes al día.
+El dispositivo consume 25 mensajes (100 KB / 4 KB) * 24 horas para los mensajes de dispositivos en la nube, además de 2 mensajes (1 KB / 0,5 KB) * 6 veces al día para las actualizaciones de dispositivos gemelos, con un total de 612 mensajes al día.
 El back-end de solución consume 28 mensajes (14 kB/0,5 kB) para leer el dispositivo gemelo, además de 1 mensaje para actualizarlo, con un total de 29 mensajes.
 
-En total, el dispositivo y el back-end de solución consumen 185 mensajes al día.
+En total, el dispositivo y el back-end de solución consumen 641 mensajes al día.
 
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

@@ -15,21 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: corywink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 9f850175be843b29432c4803a150ddb2ec79780d
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 85867fb8d18377637b3aa848555831a8d9b53512
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT
+
+Consulte también, la sección [preguntas más frecuentes](iot-suite-faq-cf.md) de la fábrica conectada específica.
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>¿Dónde se puede encontrar el código fuente de la solución preconfigurada?
 
 El código fuente se almacena en los siguientes repositorios de GitHub:
 * [Solución preconfigurada de supervisión remota][lnk-remote-monitoring-github]
 * [Solución preconfigurada de mantenimiento predictivo][lnk-predictive-maintenance-github]
+* [Solución preconfigurada de fábrica conectada](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>¿Cómo puedo actualizar a la versión más reciente de la solución preconfigurada de supervisión remota que usa las características de administración de dispositivos de IoT Hub?
 
@@ -95,22 +97,14 @@ En este momento, no se puede crear una solución preconfigurada con una suscripc
 
 Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Tutorial para la eliminación de inquilinos de Azure AD).
 
-### <a name="what-is-opc-ua"></a>¿Qué es OPC UA?
-
-OPC Unified Architecture (UA), lanzado en 2008, es un estándar de interoperabilidad independiente de la plataforma y orientado a servicios que utilizan varios sistemas industriales y dispositivos como equipos, PLC y sensores del sector. OPC UA integra toda la funcionalidad de las especificaciones de OPC Classic individuales en un solo marco extensible con seguridad integrada. Es un estándar controlado por OPC Foundation. [OPC Foundation][lnk-opc-foundation] es una organización sin ánimo de lucro cuyos más de 440 miembros comparten el objetivo común de proporcionar infraestructura, especificaciones, tecnología y procesos para facilitar una interoperabilidad multiproveedor, multiplataforma, segura y confiable gracias a las especificaciones de OPC.
-
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>¿Por qué Microsoft ha elegido a OPC UA para la solución preconfigurada de fábrica conectada?
-
-Microsoft ha elegido OPC UA porque es un estándar abierto, independiente de la plataforma, no es de propiedad, es reconocido por el sector y está probado. Es un requisito para las soluciones de arquitectura de referencia de Industrie 4.0 (RAMI4.0), que garantiza la interoperabilidad entre un amplio conjunto de procesos y equipos de fabricación. Microsoft ha detectado una demanda por parte de sus clientes para crear soluciones de Industrie 4.0. La compatibilidad con OPC UA ayuda a reducir las barreras para que los clientes puedan lograr sus objetivos y les proporciona un valor de negocio inmediato.
-
 ### <a name="next-steps"></a>Pasos siguientes
 
 También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 
 * [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-overview]
+* [Introducción a la solución preconfigurada de fábrica conectada](iot-suite-connected-factory-overview.md)
 * [Seguridad de Internet de las cosas desde el principio][lnk-security-groundup]
 
-[lnk-opc-foundation]: http://opcfoundation.org/
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 

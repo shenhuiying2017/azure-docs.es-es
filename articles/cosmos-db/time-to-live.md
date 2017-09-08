@@ -13,14 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 08/29/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 6f1c43ca0113dc7579b0fc3743d3314c16ce78a4
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: c407152f54a6e7eb25a580491bd27ad291410d86
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Hacer que caduquen automáticamente los datos de colecciones de Azure Cosmos DB con período de vida
@@ -54,7 +53,7 @@ La lógica anterior se puede mostrar en la siguiente matriz:
 | TTL = n en documentos |No hay nada que invalidar en el nivel de documento. El sistema no interpreta el TTL de un documento. |El documento con TTL = n caducará después del intervalo n, en segundos. Otros documentos heredarán el intervalo de -1 y no caducarán nunca. |El documento con TTL = n caducará después del intervalo n, en segundos. Otros documentos heredarán el intervalo "n" de la colección. |
 
 ## <a name="configuring-ttl"></a>Configuración de TTL
-De forma predeterminada, el período de vida está deshabilitado en todas las colecciones de Cosmos DB y en todos los documentos.
+De forma predeterminada, el período de vida está deshabilitado en todas las colecciones de Cosmos DB y en todos los documentos. TTL puede establecerse mediante programación o en Azure Portal, en la sección **Configuración** de la colección. 
 
 ## <a name="enabling-ttl"></a>Habilitación del TTL
 Para habilitar el TTL en una colección, o en los documentos de una colección, debe establecer la propiedad DefaultTTL de una colección en -1 o un número positivo distinto de cero. Establecer el valor de DefaultTTL en -1 significa que todos los documentos de la colección no caducarán nunca de forma predeterminada, pero el servicio Cosmos DB debe supervisar esta colección para ver los documentos que tienen invalidado este valor predeterminado.

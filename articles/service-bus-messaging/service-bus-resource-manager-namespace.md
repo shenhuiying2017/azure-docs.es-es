@@ -14,17 +14,17 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: efd0ec90a1c0775661069faa323e56914dd4e032
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
 ms.contentlocale: es-es
-ms.lasthandoff: 04/13/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres del Bus de servicio mediante una plantilla de Azure Resource Manager
 
-En este artículo se describe cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Service Bus del tipo **Mensajería** con una SKU de nivel básico o estándar. El artículo también define los parámetros que se especifican para la ejecución de la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
+En este artículo se describe cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Service Bus del tipo **Mensajería** con una SKU de nivel estándar. El artículo también define los parámetros que se especifican para la ejecución de la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 Para más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Creación de plantillas de Azure Resource Manager).
 
@@ -43,7 +43,7 @@ Para ver la plantilla completa, consulte la [plantilla de espacio de nombres de 
 > 
 
 ## <a name="what-will-you-deploy"></a>¿Qué va a implementar?
-Con esta plantilla, implementará un espacio de nombres de Service Bus con una SKU de nivel [básico, estándar o premium](https://azure.microsoft.com/pricing/details/service-bus/).
+Con esta plantilla, implementará un espacio de nombres de Service Bus con una SKU de nivel [estándar o premium](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
@@ -73,7 +73,6 @@ El nombre de la [SKU](https://azure.microsoft.com/pricing/details/service-bus/) 
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
-        "Basic", 
         "Standard",
         "Premium" 
     ], 
@@ -84,7 +83,7 @@ El nombre de la [SKU](https://azure.microsoft.com/pricing/details/service-bus/) 
 
 ```
 
-La plantilla define los valores permitidos para este parámetro (Básico, Estándar o Premium) y asigna un valor predeterminado (Estándar) si no se especifica ningún valor.
+La plantilla define los valores permitidos para este parámetro (Estándar o Premium) y asigna un valor predeterminado (Estándar) si no se especifica ningún valor.
 
 Para más información sobre los precios de Service Bus, consulte [Precios y facturación de Service Bus][Service Bus pricing and billing].
 

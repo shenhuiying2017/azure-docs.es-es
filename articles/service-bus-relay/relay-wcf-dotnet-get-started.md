@@ -12,28 +12,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 08/23/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 670f23ec1dbcec3ac8c926992eb44350d8e1f1b6
-ms.lasthandoff: 03/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 1af1ac78398d65e6a87f0d24d6198f3dfbc82ffd
+ms.contentlocale: es-es
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Uso de las retransmisiones WCF de Azure Relay con .NET
-En este artículo se describe cómo usar el servicio Service Bus Relay. Los ejemplos se escriben en C# y usan la API de Windows Communication Foundation (WCF) con extensiones contenidas en el conjunto del bus de servicio. Para obtener más información sobre Service Bus Relay, consulte la sección [Introducción a Azure Relay](relay-what-is-it.md).
+En este artículo se describe cómo usar el servicio Azure Relay. Los ejemplos se escriben en C# y usan la API de Windows Communication Foundation (WCF) con extensiones contenidas en el conjunto del bus de servicio. Para obtener más información sobre Azure Relay, consulte la sección [Introducción a Azure Relay](relay-what-is-it.md).
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="what-is-service-bus-wcf-relay"></a>Qué es WCF Relay de Service Bus
-El servicio WCF [*Relay*](relay-what-is-it.md) de Azure Service Bus permite crear aplicaciones híbridas que se pueden ejecutar en los centros de datos de Azure y en un entorno empresarial local. La retransmisión de bus de servicio facilita esta posibilidad, ya que le permite exponer de forma segura los servicios Windows Communication Foundation (WCF) que se encuentran en una red corporativa en la nube pública sin tener que abrir una conexión de firewall ni realizar cambios intrusivos en una infraestructura de red corporativa.
+## <a name="what-is-wcf-relay"></a>¿Qué es Retransmisión de WCF?
+
+El servicio [*Retransmisión de WCF*](relay-what-is-it.md) de Azure permite crear aplicaciones híbridas que se pueden ejecutar en los centros de datos de Azure y en un entorno empresarial local. El servicio de retransmisión facilita esta posibilidad, ya que le permite exponer de forma segura los servicios Windows Communication Foundation (WCF) que se encuentran en una red corporativa en la nube pública sin tener que abrir una conexión de firewall ni realizar cambios intrusivos en una infraestructura de red corporativa.
 
 ![Conceptos del relé WCF](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
-Service Bus Relay permite hospedar servicios WCF en su entorno empresarial existente. A continuación, puede delegar la escucha de las sesiones entrantes y las solicitudes a esos servicios WCF al bus de servicio que se ejecuta en Azure. Esto le permite exponer esos servicios en el código de aplicación que se ejecuta en Azure o en entornos móviles de trabajo o asociados de extranet. El Bus de servicio permite controlar de forma segura quién puede obtener acceso a estos servicios en un nivel específico. Proporciona una forma segura y eficaz de exponer los datos y la funcionalidad de aplicaciones de las soluciones empresariales existentes y aprovecharlos desde la nube.
+Azure Relay permite hospedar servicios WCF en su entorno empresarial existente. A continuación, puede delegar la escucha de las sesiones entrantes y las solicitudes a esos servicios WCF al servicio de retransmisión que se ejecuta en Azure. Esto le permite exponer esos servicios en el código de aplicación que se ejecuta en Azure o en entornos móviles de trabajo o asociados de extranet. Relay permite controlar de forma segura quién puede obtener acceso a estos servicios en un nivel específico. Proporciona una forma segura y eficaz de exponer los datos y la funcionalidad de aplicaciones de las soluciones empresariales existentes y aprovecharlos desde la nube.
 
-En este artículo se muestra cómo usar Service Bus Relay para crear un servicio web de WCF, expuesto mediante el enlace de canales TCP, que implementa una conversación segura entre dos partes.
+En este artículo se muestra cómo usar Azure Relay para crear un servicio web de WCF, expuesto mediante el enlace de canales TCP, que implementa una conversación segura entre dos partes.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -45,21 +47,21 @@ El [paquete NuGet del bus de servicio](https://www.nuget.org/packages/WindowsAzu
    
    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
-## <a name="use-service-bus-to-expose-and-consume-a-soap-web-service-with-tcp"></a>Uso de Bus de servicio para exponer y consumir un servicio web SOAP con TCP
-Para exponer un servicio web WCF (SOAP) para consumo externo, debe realizar cambios en las direcciones y enlaces de los servicios. Esto puede requerir cambios en el archivo de configuración o en el código, según la forma en la que se hayan establecido y configurado los servicios WCF. Tenga en cuenta que WCF le permite disponer de varios extremos de red en el mismo servicio, por lo que puede retener los extremos internos existentes mientras agrega extremos del bus de servicio para el acceso externo al mismo tiempo.
+## <a name="expose-and-consume-a-soap-web-service-with-tcp"></a>Exponga y consuma un servicio web SOAP con TCP
+Para exponer un servicio web WCF (SOAP) para consumo externo, debe realizar cambios en las direcciones y enlaces de los servicios. Esto puede requerir cambios en el archivo de configuración o en el código, según la forma en la que se hayan establecido y configurado los servicios WCF. Tenga en cuenta que WCF le permite disponer de varios puntos de conexión de red en el mismo servicio, por lo que puede retener los puntos de conexión internos existentes mientras agrega puntos de conexión de retransmisión para el acceso externo al mismo tiempo.
 
-En esta tarea, creará un servicio WCF simple y le agregará un agente de escucha del bus de servicio. En este ejercicio se presupone que está familiarizado con Visual Studio y, por lo tanto, no se proporcionarán todos los detalles relacionados con la creación de un proyecto. El ejercicio se centra en el código.
+En esta tarea, crea un servicio WCF simple y le agrega un agente de escucha de retransmisión. En este ejercicio se presupone que está familiarizado con Visual Studio y, por lo tanto, no se proporcionarán todos los detalles relacionados con la creación de un proyecto. El ejercicio se centra en el código.
 
 Antes comenzar a realizar estos pasos, complete el procedimiento que aparece a continuación para configurar su entorno:
 
 1. En Visual Studio, cree una aplicación de consola que contenga dos proyectos en la solución: "Client" y "Service".
-2. Agregue el paquete NuGet de Bus de servicio de Microsoft Azure a ambos proyectos. Este paquete agrega a los proyectos todas las referencias al conjunto necesarias.
+2. Agregue el paquete NuGet de Service Bus a ambos proyectos. Este paquete agrega a los proyectos todas las referencias al conjunto necesarias.
 
 ### <a name="how-to-create-the-service"></a>Creación del servicio
 Primero cree el servicio. Los servicios WCF cuentan con al menos tres partes distintas:
 
 * Definición de un contrato que describe qué mensajes se intercambian y qué operaciones se van a invocar.
-* Implementación del contrato establecido.
+* Implementación de dicho contrato.
 * Host que hospeda el servicio WCF y expone varios puntos de conexión.
 
 Los ejemplos de código de esta sección están relacionados con cada uno de estos componentes.
@@ -79,7 +81,7 @@ interface IProblemSolver
 interface IProblemSolverChannel : IProblemSolver, IClientChannel {}
 ```
 
-Con el contrato en su lugar, la implementación es trivial:
+Con el contrato en su lugar, la implementación se realiza de la manera siguiente:
 
 ```csharp
 class ProblemSolver : IProblemSolver
@@ -92,7 +94,7 @@ class ProblemSolver : IProblemSolver
 ```
 
 ### <a name="configure-a-service-host-programmatically"></a>Configuración de un host de servicio mediante programación
-Con el contrato y la implementación en su lugar, puede hospedar el servicio. El hospedaje se produce dentro de un objeto [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/system.servicemodel.servicehost.aspx), que se encarga de administrar las instancias del servicio y hospeda los extremos que escuchan mensajes. El código siguiente configura el servicio con un punto de conexión local normal y un punto de conexión del Bus de servicio para mostrar la apariencia, en paralelo, de los puntos de conexión internos y externos. Reemplace la cadena *namespace* por el nombre del espacio de nombres y *yourKey* por la clave SAS obtenida en el paso anterior de la configuración.
+Con el contrato y la implementación en su lugar, puede hospedar el servicio. El hospedaje se produce dentro de un objeto [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/system.servicemodel.servicehost.aspx), que se encarga de administrar las instancias del servicio y hospeda los extremos que escuchan mensajes. El código siguiente configura el servicio con un punto de conexión local normal y un punto de conexión de retransmisión para mostrar la apariencia, en paralelo, de los puntos de conexión internos y externos. Reemplace la cadena *namespace* por el nombre del espacio de nombres y *yourKey* por la clave SAS obtenida en el paso anterior de la configuración.
 
 ```csharp
 ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
@@ -115,7 +117,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-En el ejemplo, se crean dos extremos que se encuentran en la misma implementación del contrato. Uno es local y el otro se proyecta a través del Bus de servicio. Las principales diferencias entre ellos son los enlaces; [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) para el local y [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) para el extremo de Service Bus y las direcciones. El extremo local dispone de una dirección de red local con un puerto distinto. El extremo del Bus de servicio cuenta con una dirección del extremo compuesta por la cadena `sb`, el nombre del espacio de nombres y la ruta "solver". Esto genera el URI `sb://[serviceNamespace].servicebus.windows.net/solver`, que identifica el extremo de servicio como extremo TCP del Bus de servicio con un nombre de DNS externo completo. Si coloca el código que reemplaza a los marcadores de posición en la función `Main` de la aplicación **Service**, tendrá un servicio funcional. Si quiere que el servicio escuche exclusivamente en el bus de servicio, quite la declaración del extremo local.
+En el ejemplo, se crean dos extremos que se encuentran en la misma implementación del contrato. Uno es local y el otro se proyecta a través de Azure Relay. Las principales diferencias entre ellos son los enlaces; [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) para el local y [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) para el punto de conexión de retransmisión y las direcciones. El extremo local dispone de una dirección de red local con un puerto distinto. El punto de conexión de retransmisión cuenta con una dirección del punto de conexión compuesta por la cadena `sb`, el nombre del espacio de nombres y la ruta "solver". Esto genera el URI `sb://[serviceNamespace].servicebus.windows.net/solver`, que identifica el punto de conexión de servicio como punto de conexión TCP de Service Bus (retransmisión) con un nombre de DNS externo completo. Si coloca el código que reemplaza a los marcadores de posición en la función `Main` de la aplicación **Service**, tendrá un servicio funcional. Si quiere que el servicio escuche exclusivamente en la retransmisión, quite la declaración del punto de conexión local.
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>Configuración de un host de servicio en el archivo App.config
 También puede configurar el host con el archivo App.config. El servicio que aloja el código en este caso aparece en el ejemplo siguiente.
@@ -128,8 +130,8 @@ Console.ReadLine();
 sh.Close();
 ```
 
-Las definiciones del extremo se trasladan al archivo App.config. El paquete NuGet ya agregó un rango de definiciones al archivo App.config, que son las extensiones de configuración requeridas para Service Bus. El siguiente ejemplo, que es el equivalente exacto del ejemplo anterior, debe aparecer directamente debajo del elemento **system.serviceModel**. Este ejemplo de código presupone que el espacio de nombres C# del proyecto tiene el nombre de **Service**.
-Reemplace los marcadores de posición por el espacio de nombres del servicio de Bus de servicio y la clave SAS.
+Las definiciones del extremo se trasladan al archivo App.config. El paquete NuGet ya agregó un rango de definiciones al archivo App.config, que son las extensiones de configuración requeridas para Azure Relay. El siguiente ejemplo, que es el equivalente exacto del ejemplo anterior, debe aparecer directamente debajo del elemento **system.serviceModel**. Este ejemplo de código presupone que el espacio de nombres C# del proyecto tiene el nombre de **Service**.
+Reemplace los marcadores de posición por el nombre del espacio de nombres de retransmisión y la clave SAS.
 
 ```xml
 <services>
@@ -139,7 +141,7 @@ Reemplace los marcadores de posición por el espacio de nombres del servicio de 
                   address="net.tcp://localhost:9358/solver"/>
         <endpoint contract="Service.IProblemSolver"
                   binding="netTcpRelayBinding"
-                  address="sb://namespace.servicebus.windows.net/solver"
+                  address="sb://<namespaceName>.servicebus.windows.net/solver"
                   behaviorConfiguration="sbTokenProvider"/>
     </service>
 </services>
@@ -164,12 +166,12 @@ Para consumir el servicio, puede construir un cliente WCF mediante un objeto [Ch
 
 Primero, haga referencia al código del contrato `IProblemSolver` o cópielo del servicio en el proyecto del cliente.
 
-A continuación, reemplace el código del método `Main` del cliente, y vuelva a reemplazar el texto del marcador de posición por el espacio de nombres del Bus de servicio y la clave SAS.
+A continuación, reemplace el código del método `Main` del cliente y vuelva a reemplazar el texto del marcador de posición por el espacio de nombres de retransmisión y la clave SAS.
 
 ```csharp
 var cf = new ChannelFactory<IProblemSolverChannel>(
     new NetTcpRelayBinding(),
-    new EndpointAddress(ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver")));
+    new EndpointAddress(ServiceBusEnvironment.CreateServiceUri("sb", "<namespaceName>", "solver")));
 
 cf.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior
             { TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey","<yourKey>") });
@@ -193,13 +195,13 @@ using (var ch = cf.CreateChannel())
 }
 ```
 
-Las definiciones del extremo se trasladan al archivo App.config. El siguiente ejemplo, que es el mismo que el código anterior, debe aparecer directamente debajo del elemento `<system.serviceModel>`. Aquí, como antes, debe reemplazar los marcadores de posición por el espacio de nombres del Bus de servicio y la clave SAS.
+Las definiciones del extremo se trasladan al archivo App.config. El siguiente ejemplo, que es el mismo que el código anterior, debe aparecer directamente debajo del elemento `<system.serviceModel>`. Aquí, como antes, debe reemplazar los marcadores de posición por el espacio de nombres de retransmisión y la clave SAS.
 
 ```xml
 <client>
     <endpoint name="solver" contract="Service.IProblemSolver"
               binding="netTcpRelayBinding"
-              address="sb://namespace.servicebus.windows.net/solver"
+              address="sb://<namespaceName>.servicebus.windows.net/solver"
               behaviorConfiguration="sbTokenProvider"/>
 </client>
 <behaviors>
@@ -216,7 +218,7 @@ Las definiciones del extremo se trasladan al archivo App.config. El siguiente ej
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que conoce los fundamentos de los temas de Service Bus Relay, siga estos vínculos para obtener más información.
+Ahora que conoce los fundamentos de los temas de Azure Relay, siga estos vínculos para obtener más información.
 
 * [¿Qué es Relay de Azure?](relay-what-is-it.md)
 * [Información general sobre la arquitectura de Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)

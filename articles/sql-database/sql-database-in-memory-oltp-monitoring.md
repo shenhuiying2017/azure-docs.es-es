@@ -13,32 +13,31 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 07/25/2017
 ms.author: jodebrui
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
-ms.openlocfilehash: f53fa3763edb1d9164278d1e3c418e200d7ada89
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: e953b60493c5a7c7a7ad74533471bd321d42abef
 ms.contentlocale: es-es
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Supervisión del almacenamiento OLTP en memoria
-Cuando se usa [OLTP en memoria](sql-database-in-memory.md), los datos de tablas con optimización de memoria y las variables de tabla residen en el almacenamiento OLTP en memoria. Cada nivel de servicio Premium tiene un tamaño máximo de almacenamiento OLTP en memoria, que se documenta en el artículo [Niveles de servicio de SQL Database](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Una vez que se supera ese límite, las operaciones de inserción y actualización pueden empezar a producir errores (con el error 41823). En ese momento se necesita eliminar los datos para reclamar memoria o actualizar el nivel de rendimiento de la base de datos.
+Cuando se usa [OLTP en memoria](sql-database-in-memory.md), los datos de tablas con optimización de memoria y las variables de tabla residen en el almacenamiento OLTP en memoria. Cada nivel de servicio Premium tiene un tamaño máximo de almacenamiento OLTP en memoria, que se documenta en [Límites de recursos de bases de datos únicas](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) y [Límites de recursos de grupos de bases de datos elásticas](sql-database-resource-limits.md#elastic-pool-change-storage-size). Una vez que se supera ese límite, las operaciones de inserción y actualización pueden empezar a producir errores (con el error 41823). En ese momento se necesita eliminar los datos para reclamar memoria o actualizar el nivel de rendimiento de la base de datos.
 
 ## <a name="determine-whether-data-will-fit-within-the-in-memory-storage-cap"></a>Determinación de si los datos se ajustan dentro del límite de almacenamiento en memoria
-Determine el extremo de almacenamiento: consulte en el artículo [Niveles de servicio de SQL Database](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) los extremos de almacenamiento de los diferentes niveles de servicio Premium.
+Determine los extremos de almacenamiento de los diferentes niveles de servicio Premium. Consulte [Límites de recursos de base de datos únicas](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) y [Límites de recursos de grupos de bases de datos elásticas](sql-database-resource-limits.md#elastic-pool-change-storage-size).
 
 La estimación de los requisitos de memoria para una tabla optimizada en memoria funciona de la misma manera para SQL Server tal y como se hace en la base de datos SQL de Azure. Dedique algunos minutos a revisar ese tema en [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
 Tenga en cuenta que la tabla y las filas de variables de tabla, así como los índices, se contarán para el tamaño de datos de usuario máx. Además, ALTER TABLE necesita suficiente espacio para crear una nueva versión de toda la tabla y sus índices.
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
-Puede supervisar el uso del almacenamiento en memoria como un porcentaje del [extremo de almacenamiento para su nivel de rendimiento](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) en [Azure Portal](https://portal.azure.com/): 
+Puede supervisar el uso del almacenamiento en memoria como un porcentaje del extremo de almacenamiento para su nivel de rendimiento en [Azure Portal](https://portal.azure.com/): 
 
-* En la hoja Base de datos, busque el cuadro de uso de recursos y haga clic en Editar.
-* A continuación, seleccione la métrica `In-Memory OLTP Storage percentage`.
-* Para agregar una alerta, haga clic en el cuadro Uso de recursos para abrir la hoja de métricas y después haga clic en Agregar alerta.
+1. En la hoja Base de datos, busque el cuadro de uso de recursos y haga clic en Editar.
+2. Seleccione la métrica `In-Memory OLTP Storage percentage`.
+3. Para agregar una alerta, haga clic en el cuadro Uso de recursos para abrir la hoja de métricas y después haga clic en Agregar alerta.
 
 O bien, use la siguiente consulta para mostrar el uso del almacenamiento en memoria:
 

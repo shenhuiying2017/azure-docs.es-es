@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 3401c0af776691d22e51906eefaf895d684fdfd1
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 246f5958478fd6d9afc9ba990413ab08429bd25d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Aplicar directivas a máquinas virtuales con Windows con Azure Resource Manager
@@ -60,7 +60,7 @@ Para asegurarse de que las máquinas virtuales de la organización son compatibl
             {
               "field": "Microsoft.Compute/imageSku",
               "in": [
-                "2012-Datacenter"
+                "2012-R2-Datacenter"
               ]
             },
             {
@@ -86,6 +86,23 @@ Use un carácter comodín para modificar la directiva anterior para permitir cua
 {
   "field": "Microsoft.Compute/imageSku",
   "like": "*Datacenter"
+}
+```
+
+Use anyOf para modificar la directiva anterior para permitir cualquier imagen de Windows Server 2012 R2 Datacenter o superior:
+
+```json
+{
+  "anyOf": [
+    {
+      "field": "Microsoft.Compute/imageSku",
+      "like": "2012-R2-Datacenter*"
+    },
+    {
+      "field": "Microsoft.Compute/imageSku",
+      "like": "2016-Datacenter*"
+    }
+  ]
 }
 ```
 

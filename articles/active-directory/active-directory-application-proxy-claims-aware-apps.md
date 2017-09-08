@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: kgremban
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: cfe528021f2d069146fc7a34d9ea83b2681ffbf2
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 5784222608b01509fc4ff84b1a8792cbcfea89e6
 ms.contentlocale: es-es
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabajo con aplicaciones para notificaciones en Proxy de aplicación
@@ -39,7 +39,7 @@ Puede configurar AD FS en aplicaciones para notificaciones de alguna de estas do
 
 ### <a name="option-1-custom-domains"></a>Opción 1: dominios personalizados
 
-Si todas las direcciones URL internas de las aplicaciones son nombres de dominio completos, entonces puede configurar los [dominios personalizados](active-directory-application-proxy-custom-domains.md) de las aplicaciones. Use los dominios personalizados para crear direcciones URL externas que sean las mismas que las direcciones URL internas. Con esta configuración, los redireccionamientos que el STS crea funcionan de la misma forma que si los usuarios estuvieran en entornos locales o remotos. 
+Si todas las direcciones URL internas de las aplicaciones son nombres de dominio completos, entonces puede configurar los [dominios personalizados](active-directory-application-proxy-custom-domains.md) de las aplicaciones. Use los dominios personalizados para crear direcciones URL externas que sean las mismas que las direcciones URL internas. Cuando las direcciones URL externas coinciden con las direcciones URL internas, las redirecciones de STS funcionan independientemente de que los usuarios estén en una ubicación local o remota. 
 
 ### <a name="option-2-ws-federation"></a>Opción 2: WS-Federation
 

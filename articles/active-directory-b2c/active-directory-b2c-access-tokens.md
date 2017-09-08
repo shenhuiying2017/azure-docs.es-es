@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: solicitud de tokens de acceso | Microsoft Docs'
+title: 'Solicitud de tokens de acceso: Azure AD B2C | Microsoft Docs'
 description: "En este artículo se mostrará cómo configurar una aplicación cliente y adquirir un token de acceso."
 services: active-directory-b2c
 documentationcenter: android
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 4b361a8e69f885d5b89ac9b2086e2731ee4d8b48
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 7202be4e0e9b8b28b5ec1443d6d248c1738da6fb
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: solicitud de tokens de acceso
@@ -40,8 +40,8 @@ Antes de solicitar un token de acceso, debe registrar una API web y publicar los
 
 ### <a name="register-a-web-api"></a>Registro de una API web
 
-1. En la hoja de características B2C de Azure Portal, haga clic en **Aplicaciones**.
-1. Haga clic en **+Agregar** en la parte superior de la hoja.
+1. En el menú de características de Azure AD B2C, haga clic en **Aplicaciones**.
+1. Haga clic en **+Agregar** en la parte superior del menú.
 1. Escriba un **Nombre** para la aplicación que la describa a los consumidores. Por ejemplo, puede escribir "API Contoso".
 1. Cambie el conmutador **Include web app / web API** (Incluir aplic. web/API web) a **Yes** (Sí).
 1. Escriba un valor arbitrario para las **Direcciones URL de respuesta**. Por ejemplo, escriba: `https://localhost:44316/`. El valor no importa, ya que una API no debe recibir el token directamente de Azure AD B2C.
@@ -53,7 +53,7 @@ Antes de solicitar un token de acceso, debe registrar una API web y publicar los
 
 Los ámbitos, que son análogos a los permisos, son necesarios si la aplicación llama a una API. Algunos ejemplos de ámbitos son "lectura" o "escritura". Imagine que quiere su aplicación web o nativa para "leer" desde una API. Su aplicación llamaría a Azure AD B2C y solicitaría un token de acceso que proporcionara acceso al ámbito "lectura". Para que Azure AD B2C emita semejante token de acceso, debe concederse permiso a la aplicación para "leer" desde la API específica. Para ello, lo primero que debe hacer su API es publicar el ámbito "lectura".
 
-1. En la hoja **Aplicaciones** de Azure AD B2C, abra la aplicación de API web ("API Contoso").
+1. En el menú **Aplicaciones** de Azure AD B2C, abra la aplicación de API web ("API Contoso").
 1. Haga clic en **Ámbitos publicados**. Esto es donde se definen los permisos (ámbitos) que se pueden conceder a otras aplicaciones.
 1. Agregue **Valores de ámbito** según sea necesario (por ejemplo, "lectura"). De forma predeterminada, se definirá el ámbito de "user_impersonation". Puede omitir esto si lo desea. Escriba una descripción del ámbito en la columna **Nombre de ámbito**.
 1. Haga clic en **Guardar**.
@@ -65,7 +65,7 @@ Los ámbitos, que son análogos a los permisos, son necesarios si la aplicación
 
 Una vez configurada una API para publicar ámbitos, es necesario que se concedan a la aplicación cliente esos ámbitos a través de Azure Portal.
 
-1. Vaya al menú **Aplicaciones** en la hoja de características de B2C.
+1. Vaya al menú **Aplicaciones** en el menú de características de Azure AD B2C.
 1. Registre una aplicación cliente ([aplicación web](active-directory-b2c-app-registration.md#register-a-web-app) o [cliente nativo](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app)) si no tiene una todavía. Si sigue esta guía como punto de partida, deberá registrar una aplicación cliente.
 1. Haga clic en **Acceso de API**.
 1. Haga clic en **Agregar**.

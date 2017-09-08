@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 7f56f6d89a9990ab7e7f50a86993e9e22b73d646
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 03127c9d35b8dd0fe54310c84ff89ea087f175b7
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Tutorial de Power BI para Azure Cosmos DB: visualización de datos mediante el conector de Power BI
@@ -37,6 +37,9 @@ Después de completar este tutorial de Power BI, podrá responder a las pregunta
 
 > [!NOTE]
 > El conector de Power BI para Azure Cosmos DB se conecta a Power BI Desktop para la extracción y transformación de datos. A continuación, en Power BI Desktop se pueden publicar los informes creados en PowerBI.com. No se puede realizar la extracción directa y la transformación de datos de Azure Cosmos DB en PowerBI.com. 
+
+> [!NOTE]
+> Para conectar Azure Cosmos DB a Power BI mediante la API de MongoDB, debe usar el [controlador ODBC de MongoDB de Simba](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de seguir las instrucciones de este tutorial de Power BI, asegúrese de que tiene acceso a los siguientes recursos:

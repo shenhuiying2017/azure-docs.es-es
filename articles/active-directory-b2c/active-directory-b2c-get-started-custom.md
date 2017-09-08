@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/04/2017
+ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1cc36d1fd40121fed23ab6a84429a303690c2726
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 4f14dbf4b66f10290cd4f98d56a005f97cc6a207
 ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introducción a las directivas personalizadas
@@ -31,7 +31,8 @@ Después de completar los pasos de este artículo, la directiva personalizada ad
 
 Antes de comenzar, asegúrese de que tiene un inquilino de Azure AD B2C, que es un contenedor para todos los usuarios, las aplicaciones, las directivas y mucho más. Si todavía no tiene uno, debe [crear un inquilino de Azure AD B2C](active-directory-b2c-get-started.md). Se recomienda encarecidamente a todos los desarrolladores que completen los tutoriales de las directivas integradas de Azure AD B2C y que configuren las aplicaciones con directivas integradas antes de continuar. Las aplicaciones funcionarán con ambos tipos de directivas una vez que se realice un pequeño cambio en el nombre de la directiva para invocar la directiva personalizada.
 
-Para obtener acceso a la edición de directivas personalizadas, necesita una suscripción válida a Azure vinculada al inquilino.
+>[!NOTE]
+>Para obtener acceso a la edición de directivas personalizadas, necesita una suscripción válida a Azure vinculada al inquilino. Si no ha [vinculado su inquilino de Azure AD B2C a una suscripción de Azure](active-directory-b2c-how-to-enable-billing.md) o su suscripción de Azure está deshabilitada, el botón Marco de experiencia de identidad no estará disponible.
 
 ## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>Agregar claves de firma y de cifrado a un inquilino de B2C para que las usen directivas personalizadas
 
@@ -83,8 +84,8 @@ Azure AD B2C requiere que registre dos aplicaciones adicionales que el motor usa
    * En **Dirección URL de inicio de sesión**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, donde `yourtenant` es el nombre de dominio del inquilino de Azure AD B2C.
 5. Seleccione **Crear**.
 6. Una vez que se ha creado, seleccione la aplicación **IdentityExperienceFramework** recién creada.<br>
-   a. Seleccione **Propiedades**.<br>
-   b. Copie el identificador de aplicación y guárdelo para más tarde.
+   * Seleccione **Propiedades**.<br>
+   * Copie el identificador de aplicación y guárdelo para más tarde.
 
 ### <a name="create-the-proxyidentityexperienceframework-application"></a>Crear la aplicación ProxyIdentityExperienceFramework
 
@@ -95,8 +96,8 @@ Azure AD B2C requiere que registre dos aplicaciones adicionales que el motor usa
    * En **URI de redirección**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, donde `yourtenant` es el inquilino de Azure AD B2C.
 1. Seleccione **Crear**.
 1. Una vez que se ha creado, seleccione la aplicación **ProxyIdentityExperienceFramework**.<br>
-   a. Seleccione **Propiedades**. <br>
-   b. Copie el identificador de aplicación y guárdelo para más tarde.
+   * Seleccione **Propiedades**. <br>
+   * Copie el identificador de aplicación y guárdelo para más tarde.
 1. Seleccione **Permisos necesarios**.
 1. Seleccione **Agregar**.
 1. Seleccione **Seleccionar una API**.
@@ -110,17 +111,17 @@ Azure AD B2C requiere que registre dos aplicaciones adicionales que el motor usa
 Las directivas personalizadas son un conjunto de archivos XML que se deben cargar al inquilino de Azure AD B2C. Se proporcionan paquetes de inicio para poder ponerse en marcha con rapidez. Cada paquete de inicio de la lista siguiente contiene el menor número de perfiles técnicos y recorridos del usuario necesarios para lograr los escenarios descritos:
  * LocalAccounts. Habilita el uso solo de cuentas locales.
  * SocialAccounts. Habilita el uso solo de cuentas sociales (o federadas).
- * **SocialAndLocalAccounts**. Este archivo se usará para el tutorial.
+ * **SocialAndLocalAccounts**. Este archivo se usa para el tutorial.
  * SocialAndLocalAccountsWithMFA. Aquí se incluyen otras opciones sociales, locales y de Multi-Factor Authentication.
 
 Cada paquete de inicio contiene lo siguiente:
 
 * El [archivo base](active-directory-b2c-overview-custom.md#policy-files) de la directiva. Se requieren algunas modificaciones en el archivo base.
 * El [archivo de extensión](active-directory-b2c-overview-custom.md#policy-files) de la directiva.  Este archivo es donde se hace la mayoría de los cambios de configuración.
-* [Archivos del usuario de confianza](active-directory-b2c-overview-custom.md#policy-files). Se trata de archivos específicos de la tarea a los que llama la aplicación.
+* Los [archivos de usuario de confianza](active-directory-b2c-overview-custom.md#policy-files) son archivos específicos de la tarea a los que llama la aplicación.
 
 >[!NOTE]
->Si el editor XML admite la validación, es posible que le interese validar los archivos con el archivo de esquema XML TrustFrameworkPolicy_0.3.0.0.xsd que se encuentra en el directorio raíz del paquete de inicio. La validación del esquema XML identifica los errores antes de realizar la carga.
+>Si el editor XML admite la validación, valide los archivos con el archivo de esquema XML TrustFrameworkPolicy_0.3.0.0.xsd que se encuentra en el directorio raíz del paquete de inicio. La validación del esquema XML identifica los errores antes de realizar la carga.
 
  Comencemos:
 
@@ -143,7 +144,7 @@ Cada paquete de inicio contiene lo siguiente:
     PublicPolicyUri="http://yourtenant.onmicrosoft.com">
     ```
    >[!NOTE]
-   >`PolicyId` es el nombre de la directiva que verá en el portal y el nombre que otros archivos de directiva usarán para referirse a este archivo de directiva.
+   >`PolicyId` es el nombre de la directiva que ve en el portal y el nombre que otros archivos de directiva usan para referirse a este archivo de directiva.
 
 5. Guarde el archivo .
 6. Abra TrustFrameworkExtensions.xml. Realice los dos mismos cambios reemplazando `yourtenant.onmicrosoft.com` por el inquilino de Azure AD B2C. Realice la misma sustitución en el elemento `<TenantId>`, con lo que el total de cambios serán tres. Guarde el archivo .
@@ -166,7 +167,7 @@ Agregue los identificadores de aplicación al archivo de extensiones (`TrustFram
 
 1. En [Azure Portal](https://portal.azure.com), cambie al [contexto del inquilino de Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) y abra la hoja **Azure AD B2C**.
 2. Seleccione **Marco de experiencia de identidad**.
-3. Seleccione **Cargar directiva** para cargar archivos de directiva.
+3. Seleccione **Cargar directiva**.
 
     >[!WARNING]
     >Los archivos de directivas personalizadas se deben cargar en el orden siguiente:

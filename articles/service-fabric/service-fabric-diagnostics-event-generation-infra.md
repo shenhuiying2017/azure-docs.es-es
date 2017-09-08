@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 08/24/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2e320339f60b593c1cff68ca047c95f9cb7b33e2
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -31,7 +31,9 @@ Es importante supervisar en el nivel de infraestructura para determinar si el ha
 Service Fabric incluye de forma predeterminada cinco canales de registro que generan los eventos siguientes:
 
 * Canal operativo: operaciones de alto nivel realizadas por Service Fabric y el clúster, incluidos eventos para un nodo próximo, una nueva aplicación que se implementa o la reversión de una actualización de SF, etc.
-* Canal de información a cliente: informes de estado y decisiones para el equilibrio de carga
+* Canal operativo: detallado: informes de estado y decisiones para el equilibrio de carga
+* Canal de datos y mensajería: registros y eventos críticos generados en nuestra ruta de acceso a mensajería (actualmente solo ReverseProxy) y datos (modelos de servicios confiables)
+* Canal de datos y mensajería: detallado: canal detallado que contiene todos los registros no críticos de datos y mensajería del clúster (este canal tiene un volumen de eventos muy alto)   
 * [Eventos de Reliable Services](service-fabric-reliable-services-diagnostics.md): eventos específicos del modelo de programación
 * [Eventos de Reliable Actors](service-fabric-reliable-actors-diagnostics.md): contadores de rendimiento y eventos específicos del modelo de programación
 * Registros de soporte técnico: registros del sistema que genera Service Fabric únicamente para que los usemos al proporcionar soporte técnico
@@ -79,9 +81,9 @@ Si tiene que ponerse en contacto con el soporte técnico de Microsoft para que l
 
 ## <a name="enabling-diagnostics-for-a-cluster"></a>Habilitar Diagnostics para un clúster
 
-Para sacar provecho de estos registros, se recomienda encarecidamente habilitar Diagnostics durante la creación del clúster. Al activar los diagnósticos, cuando se implementa el clúster, Windows Azure Diagnostics puede reconocer los canales operativo, de Reliable Services y de Reliable Actors y almacenar los datos como se explica **aquí** con mayor detalle.
+Para sacar provecho de estos registros, se recomienda encarecidamente habilitar Diagnostics durante la creación del clúster. Al activar los diagnósticos, cuando se implementa el clúster, Microsoft Azure Diagnostics puede reconocer los canales operativo, de Reliable Services y de Reliable Actors y almacenar los datos como se explica en [Agregación de eventos con Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).
 
-Como ya se ha visto, también hay un campo opcional para agregar una clave de instrumentación de Application Insights (AppInsights). Si decide usar AppInsights para los análisis de eventos (obtenga más información **aquí**), incluya la clave de instrumentación de recursos de AppInsights (GUID).
+Como ya se ha visto, también hay un campo opcional para agregar una clave de instrumentación de Application Insights (AI). Si decide usar AI para los análisis de eventos (obtenga más información en [Análisis de eventos con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)), incluya la clave de instrumentación de recursos de AppInsights (GUID).
 
 
 Si va a implementar contenedores en el clúster, habilite WAD para recopilar estadísticas de Docker. Para ello, agregue lo siguiente a "WadCfg > DiagnosticMonitorConfiguration":

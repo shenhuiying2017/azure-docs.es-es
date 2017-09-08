@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: cd498198e0f206ddca2e3396813b2f2093ec3731
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 3be0d7a202ff53f5532fd7169a50a04cfaf88832
 ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
@@ -104,13 +104,13 @@ Además de las dependencias funcionales de un ASE, hay algunos elementos adicion
 
 -   Trabajos web
 -   Functions
--   Logstream
+-   Secuencias de registro
 -   Kudu
 -   Extensiones
 -   Explorador de procesos
 -   Consola
 
-Cuando se usa una ASE de ILB, el sitio SCM no está accesible en Internet desde fuera de la red virtual. Cuando la aplicación se hospeda en un ASE de ILB, las funcionalidades que no pueden llegar al sitio SCM aparecen atenuadas en Azure Portal.
+Cuando se usa una ASE de ILB, el sitio SCM no está accesible en Internet desde fuera de la red virtual. Cuando la aplicación se hospeda en un ASE de ILB, algunas funcionalidades no se podrán usar desde el portal.  
 
 Muchas de estas funcionalidades que dependen del sitio SCM también están disponibles directamente en la consola Kudu. Puede conectarse directamente, en lugar de utilizar el portal. Si la aplicación se hospeda en un ASE de ILB, use las credenciales de publicación para iniciar sesión. La dirección URL para acceder al sitio SCM de una aplicación hospedada en un ASE de ILB tiene el formato siguiente: 
 
@@ -120,9 +120,13 @@ Muchas de estas funcionalidades que dependen del sitio SCM también están dispo
 
 Si su ASE ILB es el nombre de dominio *contoso.net* y el nombre de la aplicación es *aplicacionprueba*, la aplicación está accesible en *aplicacionprueba.contoso.net*. El sitio SCM que lo acompaña está accesible en *aplicacionprueba.scm.contoso.net*.
 
+## <a name="functions-and-web-jobs"></a>Trabajos web y de funciones ##
+
+Tanto los trabajos de funciones como los trabajos web dependen del sitio de SCM, pero se pueden usar en el portal, incluso si las aplicaciones se encuentran en un ASE de ILB, siempre y cuando el explorador pueda llegar al sitio de SCM.  Si usa un certificado autofirmado con su ASE de ILB, debe habilitar el explorador para que confíe en ese certificado.  En el caso de IE y Edge, esto significa que el certificado debe estar en el almacén de confianza del equipo.  Si usa Chrome, esto significa que aceptó el certificado en el explorador anteriormente al pulsar directamente en el sitio de SCM.  La mejor solución es usar un certificado comercial que se encuentre en la cadena de confianza del explorador.  
+
 ## <a name="ase-ip-addresses"></a>Direcciones IP de ASE ##
 
-Un ASE tiene unas cuantas direcciones IP que es necesario tener en cuenta. Son las siguientes:
+Un ASE tiene algunas direcciones IP que es necesario tener en cuenta. Son las siguientes:
 
 - **Dirección IP pública de entrada**: se usa para el tráfico de la aplicación en un ASE externo y para el tráfico de administración tanto en un ASE externo como en un ASE de ILB.
 - **Dirección IP pública de salida**: se usa como dirección IP "desde" para las conexiones de salida desde el ASE que dejan la red virtual y que no se enrutan hacia una VPN.
@@ -173,7 +177,7 @@ Las rutas presentan problemas sobre todo cuando la red virtual se configura con 
 
 Las rutas BGP reemplazan a las rutas del sistema. Las UDR reemplazan a las rutas BGP. Para más información acerca de las rutas en las redes virtuales de Azure, consulte la [Introducción a las rutas definidas por el usuario][UDRs].
 
-La base de datos Azure SQL Database que ASE utiliza para administrar el sistema tiene un firewall. Necesita una comunicación que se origine desde la VIP pública del ASE. Las conexiones con la base de datos SQL Database desde el ASE se denegarán si se envían a través de la conexión ExpressRoute y fuera de otra dirección IP.
+La base de datos SQL de Azure que ASE utiliza para administrar el sistema tiene un firewall. Necesita una comunicación que se origine desde la VIP pública del ASE. Las conexiones con la base de datos SQL desde el ASE se denegarán si se envían a través de la conexión ExpressRoute y fuera de otra dirección IP.
 
 Si las respuestas a solicitudes entrantes de administración se envían a través de ExpressRoute, la dirección de respuesta es distinta del destino original. Esta falta de coincidencia interrumpe la comunicación TCP.
 
@@ -187,8 +191,7 @@ Si realiza estos dos cambios, el tráfico destinado a Internet, que se origina e
 > [!IMPORTANT]
 > Las rutas definidas en una UDR tienen que ser lo suficientemente específicas para que tengan prioridad sobre cualquier otra ruta anunciada por la configuración de ExpressRoute. En el ejemplo anterior se utiliza el intervalo de direcciones amplio 0.0.0.0/0. Puede reemplazarse accidentalmente por los anuncios de ruta con intervalos de direcciones más específicos.
 >
-
-Las instancias de ASE no son compatibles con las configuraciones de ExpressRoute que anuncian rutas entre la ruta de acceso de emparejamiento público y la ruta de acceso de emparejamiento privado. Las configuraciones de ExpressRoute con el emparejamiento público configurado reciben anuncios de ruta de Microsoft. Los anuncios contienen un gran conjunto de intervalos de direcciones IP de Microsoft Azure. Si estos intervalos de direcciones se anuncian en la ruta de acceso de emparejamiento privado, la tunelización de todos los paquetes de red salientes se debe realizar desde la subred de ASE a la infraestructura de red local de un cliente. Actualmente, este flujo de red no es compatible con las instancias de ASE. Una solución a este problema es dejar de anunciar las rutas entre la ruta de acceso de emparejamiento público y la de emparejamiento privado.
+> Las instancias de ASE no son compatibles con las configuraciones de ExpressRoute que anuncian rutas entre la ruta de acceso de emparejamiento público y la ruta de acceso de emparejamiento privado. Las configuraciones de ExpressRoute con el emparejamiento público configurado reciben anuncios de ruta de Microsoft. Los anuncios contienen un gran conjunto de intervalos de direcciones IP de Microsoft Azure. Si estos intervalos de direcciones se anuncian en la ruta de acceso de emparejamiento privado, la tunelización de todos los paquetes de red salientes se debe realizar desde la subred de ASE a la infraestructura de red local de un cliente. Actualmente, este flujo de red no es compatible con las instancias de ASE. Una solución a este problema es dejar de anunciar las rutas entre la ruta de acceso de emparejamiento público y la de emparejamiento privado.
 
 Para crear un UDR, siga estos pasos:
 

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: a0414648dc6cecf4a502f7efa75adbcb1456a8b4
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-relay-exceptions"></a>Excepciones de Azure Relay
@@ -77,7 +76,8 @@ Para Relay, puede que reciba excepciones de tiempo de espera al abrir por primer
 Ejemplo:
 
 ```
-'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10. The time allotted to this operation may have been a portion of a longer timeout.
+'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10.
+The time allotted to this operation may have been a portion of a longer timeout.
 ```
 
 ### <a name="common-causes"></a>Causas comunes
@@ -88,7 +88,7 @@ Hay dos causas comunes de este error:
     El tiempo de espera de la operación podría ser demasiado pequeño para la condición operativa. El valor predeterminado para el tiempo de espera de la operación en el SDK de cliente es 60 segundos. Compruebe si su código tiene el valor establecido en algo demasiado pequeño. Tenga en cuenta que el uso de CPU y el estado de la red pueden afectar al tiempo necesario para que se complete una operación. Se recomienda no establecer el tiempo de espera de la operación en un valor muy bajo.
 *   **Error temporal del servicio**
 
-    En ocasiones, Relay podría experimentar retrasos en el procesamiento de solicitudes. Esto puede ocurrir, por ejemplo, durante los períodos de mucho tráfico. Si esto ocurre, vuelva a intentar la operación después de un retraso hasta que la operación sea correcta. Si la misma operación aún experimenta errores después de varios intentos, visite el [sitio de estado del servicio de Azure](https://azure.microsoft.com/status/) para ver si hay interrupciones del servicio conocidas.
+    En ocasiones, el servicio Relay podría experimentar retrasos en el procesamiento de solicitudes. Esto puede ocurrir, por ejemplo, durante los períodos de mucho tráfico. Si esto ocurre, vuelva a intentar la operación después de un retraso hasta que la operación sea correcta. Si la misma operación aún experimenta errores después de varios intentos, visite el [sitio de estado del servicio de Azure](https://azure.microsoft.com/status/) para ver si hay interrupciones del servicio conocidas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Preguntas frecuentes sobre Azure Relay](relay-faq.md)

@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/25/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 872930fd127729e0f444942ad1ee6fa11465ceb9
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 50ae54b9476c49b80236e295c0bf244df8236cff
 ms.contentlocale: es-es
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning
@@ -55,7 +55,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Implementación del modelo de pronóstico meteorológico como un servicio web
 
 1. Vaya a la [página del modelo de pronóstico meteorológico](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
-1. Haga clic en **Abrir en Studio** en Microsoft Azure Machine Leaning Studio.
+1. Haga clic en **Abrir en Studio** en Microsoft Azure Machine Learning Studio.
    ![Abrir la página del modelo de pronóstico meteorológico en la Galería de Cortana Intelligence](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
 1. Haga clic en **Ejecutar** para validar los pasos del modelo. Este paso puede tardar 2 minutos en completarse.
    ![Abrir el modelo de pronóstico meteorológico en Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)

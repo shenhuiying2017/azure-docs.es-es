@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 5161b555db96886f556a4fe96eab4415d8ccf047
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="service-bus-pricing-and-billing"></a>Precios y facturación de Bus de servicio
-Service Bus está disponible en los niveles Básico, Estándar y [Premium](service-bus-premium-messaging.md). Puede elegir un nivel de servicio para cada espacio de nombres del servicio Service Bus que cree y esta selección de nivel se aplica a todas las entidades creadas dentro de ese espacio de nombres.
+Service Bus está disponible en los niveles Estándar y [Premium](service-bus-premium-messaging.md). Puede elegir un nivel de servicio para cada espacio de nombres del servicio Service Bus que cree y esta selección de nivel se aplica a todas las entidades creadas dentro de ese espacio de nombres.
 
 > [!NOTE]
 > Para más información sobre los precios actuales de Service Bus, consulte la [página de precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) y las [preguntas más frecuentes sobre Service Bus](service-bus-faq.md#pricing).
@@ -32,16 +31,16 @@ Service Bus está disponible en los niveles Básico, Estándar y [Premium](servi
 
 Service Bus usa los dos siguientes medidores para colas y temas o suscripciones:
 
-1. **Operaciones de mensajería**: definidas como llamadas API en los puntos de conexión de servicio de colas o temas y suscripciones. Este medidor reemplazará los mensajes enviados o recibidos como unidad principal de uso facturable para las colas y los temas o las suscripciones.
-2. **Conexiones asincrónicas**: se definen como el número máximo de conexiones persistentes abiertas en colas, temas y suscripciones, durante un período de muestreo dado de una hora. Este medidor solo se aplicará en el nivel Estándar, en el que puede abrir conexiones adicionales (anteriormente, las conexiones estaban limitadas a 100 por cola, tema o suscripción) por un módico precio por conexión.
+1. **Operaciones de mensajería**: definidas como llamadas API en los puntos de conexión de servicio de colas o temas y suscripciones. Este medidor reemplaza los mensajes enviados o recibidos como unidad principal de uso facturable para colas y temas o suscripciones.
+2. **Conexiones asincrónicas**: se definen como el número máximo de conexiones persistentes abiertas en colas, temas y suscripciones, durante un período de muestreo dado de una hora. Este medidor solo se aplica en el nivel Estándar, en el que puede abrir conexiones adicionales (anteriormente, las conexiones estaban limitadas a 100 por cola, tema o suscripción) por un módico precio por conexión.
 
 El nivel **Estándar** tiene precios escalonados para las operaciones realizadas con colas y temas o suscripciones, lo que implica descuentos basados en volumen de hasta el 80 % para los niveles de máximo uso. También hay un cargo base para el nivel Estándar de 10 $ al mes, que le permite realizar hasta 12,5 millones de operaciones al mes sin ningún costo adicional.
 
 El nivel **Premium** proporciona aislamiento de recursos en el nivel de CPU y memoria para que cada carga de trabajo de cliente se ejecute de forma aislada. Este contenedor de recursos se llama *unidad de mensajería*. A cada espacio de nombres premium se le asigna al menos una unidad de mensajería. Puede comprar 1, 2 o 4 unidades de mensajería para cada espacio de nombres Premium del Bus de servicio. Una sola carga de trabajo o entidad puede abarcar varias unidades de mensajería y el número de unidades de mensajería puede cambiarse a voluntad, aunque la facturación se realiza con base en una tarificación diaria o de 24 horas. El resultado es un rendimiento predecible y repetible para su solución basada en el Bus de servicio. Este rendimiento no es solo más predecible y presenta mayor disponibilidad, sino que también es más rápido.
 
-Tenga en cuenta que el cargo base del nivel Estándar se realiza solo una vez al mes por suscripción de Azure. Esto significa que, después de crear un espacio de nombres de Service Bus del nivel Estándar, podrá crear tantos espacios de nombres Estándar como desee con la misma suscripción de Azure sin incurrir en gastos base adicionales.
+Tenga en cuenta que el cargo base del nivel Estándar se realiza solo una vez al mes por suscripción de Azure. Esto significa que, después de crear un espacio de nombres de Service Bus del nivel Estándar, puede crear tantos espacios de nombres Estándar como desee con la misma suscripción de Azure sin incurrir en gastos base adicionales.
 
-En la tabla [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) se resumen las diferencias funcionales entre los niveles Básico, Estándar y Premium.
+En la tabla [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) se resumen las diferencias funcionales entre los niveles Estándar y Premium.
 
 ## <a name="messaging-operations"></a>Operaciones de mensajería
 Como parte del nuevo modelo de fijación de precios, la facturación de colas, temas y suscripciones está cambiando. Estas entidades están pasando de una facturación por mensaje a una facturación por operación. Una "operación" hace referencia a cualquier llamada API que se realiza a un punto de conexión de servicio de una cola, un temas o una suscripción. Esto incluye las operaciones de administración, envío/recepción y estado de la sesión.
@@ -57,7 +56,7 @@ Para obtener detalles sobre el costo, vea los precios indicados en la página [P
 ## <a name="brokered-connections"></a>Conexiones asincrónicas
 Las *conexiones asincrónicas* se adaptan a los patrones de uso de clientes que tienen que ver con una gran cantidad de remitentes/receptores "conectados de forma persistente" a colas, temas o suscripciones. Los remitentes/receptores conectados de forma persistente son aquellos que se conectan mediante AMQP o HTTP con un tiempo de expiración de recepción distinto a cero (por ejemplo, HTTP long polling). Los remitentes y receptores con un tiempo de expiración inmediato no generarán conexiones asíncronas.
 
-Para las cuotas de conexión y otros límites de servicio, vea el artículo [Cuotas de Service Bus](service-bus-quotas.md).
+Para las cuotas de conexión y otros límites de servicio, vea el artículo [Cuotas de Service Bus](service-bus-quotas.md). Para obtener más información sobre las conexiones asincrónicas, consulte la sección [Preguntas más frecuentes](#faq) de este mismo tema.
 
 El nivel Estándar elimina el límite de conexión asincrónica por espacio de nombres y cuenta el uso por conexión asincrónica agregado en toda la suscripción de Azure. Para más información, vea la tabla [Conexiones asincrónicas](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -73,11 +72,9 @@ El nivel Estándar elimina el límite de conexión asincrónica por espacio de n
 >
 >
 
-| Nivel Premium |
-| --- |
-| No se cobran las conexiones asíncronas en el nivel Premium. |
+### <a name="premium-tier"></a>Nivel Premium
 
-Para más información sobre las conexiones asincrónicas, consulte la sección [Preguntas más frecuentes](#faq) de este mismo tema.
+No se cobran las conexiones asíncronas en el nivel Premium.
 
 ## <a name="faq"></a>P+F
 
@@ -95,7 +92,7 @@ Por ejemplo:
 2. 10.000 dispositivos reciben mensajes desde una cola de Bus de servicio mediante HTTP, especificando un tiempo de expiración distinto a cero. Si todos los dispositivos se conectan 12 horas al día, verá los siguientes cargos por conexión (además de los restantes cargos de Service Bus): 10 000 conexiones de recepción HTTP * 12 horas al día * 31 días / 744 horas = 5000 conexiones asincrónicas.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>¿Se aplican los cargos por conexión asíncrónica a las colas, los temas y las suscripciones?
-Sí. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, independientemente del número de sistemas o dispositivos emisores. La recepción de eventos con HTTP con un tiempo de expiración superior a cero, que a menudo se conoce como "long polling", genera cargos por conexión asíncrona. Las conexiones AMQP generan cargos por conexiones asíncronas, sin importar si las conexiones se usan para enviar o para recibir. Tenga en cuenta que se permiten 100 conexiones asíncronas sin cargo en un espacio de nombres Básico. Este es también el número máximo de conexiones asíncrónicas que se permiten para la suscripción de Azure. Las mil primeras conexiones asíncrónicas de todos los espacios de nombres Estándar de una suscripción de Azure se incluyen sin cargo adicional (más allá del cargo base). Dado que estos números son suficientes para cubrir una gran cantidad de escenarios de mensajería entre servicios, los cargos por conexión asíncrona normalmente solo son relevantes si planea usar AMQP o HTTP long-polling con un gran número de clientes; por ejemplo, para conseguir una mayor eficiencia en el streaming de eventos o para habilitar la comunicación bidireccional con muchos dispositivos o instancias de aplicación.
+Sí. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, independientemente del número de sistemas o dispositivos emisores. La recepción de eventos con HTTP con un tiempo de expiración superior a cero, que a menudo se conoce como "long polling", genera cargos por conexión asíncrona. Las conexiones AMQP generan cargos por conexiones asíncronas, sin importar si las conexiones se usan para enviar o para recibir. Las mil primeras conexiones asíncrónicas de todos los espacios de nombres Estándar de una suscripción de Azure se incluyen sin cargo adicional (más allá del cargo base). Dado que estos números son suficientes para cubrir una gran cantidad de escenarios de mensajería entre servicios, los cargos por conexión asíncrona normalmente solo son relevantes si planea usar AMQP o HTTP long-polling con un gran número de clientes; por ejemplo, para conseguir una mayor eficiencia en el streaming de eventos o para habilitar la comunicación bidireccional con muchos dispositivos o instancias de aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para información completa sobre precios de Service Bus, consulte la [página de precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).

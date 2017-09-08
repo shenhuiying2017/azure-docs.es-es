@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 9253e05931e7434f9e69765fa552f1157b1c8cbb
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -31,7 +31,7 @@ El proxy de la aplicación Azure Active Directory y PingAccess se han asociado p
 
 PingAccess para Azure Active Directory es una oferta de PingAccess que permite conceder acceso a los usuarios y el inicio de sesión único a las aplicaciones que utilizan encabezados para la autenticación. El proxy de la aplicación trata estas aplicaciones como a las demás, usa Azure AD para autenticar el acceso y, después, pasa el tráfico a través del servicio de conector. PingAccess se coloca delante de las aplicaciones y convierte el token de acceso de Azure AD en un encabezado, con el fin de que la aplicación reciba la autenticación en un formato que pueda leer.
 
-Los usuarios no notarán ninguna diferencia al iniciar sesión para usar las aplicaciones corporativas. Podrán seguir trabajando desde cualquier lugar y en cualquier dispositivo. Cuando los usuarios están en la oficina, ni el proxy de la aplicación ni PingAccess interceptan el tráfico, por lo que los usuarios obtienen la misma experiencia de siempre.
+Los usuarios no notarán ninguna diferencia al iniciar sesión para usar las aplicaciones corporativas. Podrán seguir trabajando desde cualquier lugar y en cualquier dispositivo. 
 
 Dado que los conectores del proxy de la aplicación dirigen el tráfico remoto a todas las aplicaciones, independientemente de su tipo de autenticación, seguirán equilibrando la carga de forma automática.
 
@@ -131,6 +131,20 @@ Siga estos pasos para publicar la aplicación. Para obtener un tutorial más det
 6. Cierre la hoja Registros de aplicaciones o desplácese completamente hacia la izquierda para volver al menú de Azure Active Directory.
 7. Seleccione **Propiedades**.
 8. Guarde el GUID de **Id. de directorio**.
+
+### <a name="optional---update-graphapi-to-send-custom-fields"></a>Opcional: actualice GraphAPI para enviar los campos personalizados
+
+Para obtener una lista de los tokens de seguridad que Azure AD envía para la autenticación, consulte la [referencia de tokens de Azure AD](./develop/active-directory-token-and-claims.md). Si necesita una notificación personalizada que enviar a otros tokens, use GraphAPI para establecer el campo de la aplicación *acceptMappedClaims* en **True**. Puede utilizar el Explorador de Azure AD Graph o MS Graph para hacer esta configuración. 
+
+En este ejemplo se usa el Explorador de Graph:
+
+```
+PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application> 
+
+{
+  "acceptMappedClaims":true
+}
+```
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>Descarga de PingAccess y configuración de la aplicación
 

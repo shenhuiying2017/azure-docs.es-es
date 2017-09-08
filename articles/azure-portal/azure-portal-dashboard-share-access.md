@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 927ec9251b5231a5d9a0e8278f5dc46e9abdde0e
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
 ms.contentlocale: es-es
 ms.lasthandoff: 08/24/2017
 
@@ -32,9 +32,9 @@ Todos los paneles publicados se implementan como recursos de Azure, lo que signi
 > 
 
 ## <a name="understanding-access-control-for-dashboards"></a>Descripción del control de acceso para los paneles
-Mediante el control de acceso basado en roles, puede asignar a usuarios a los roles en tres niveles distintos de ámbito:
+Mediante el control de acceso basado en rol (RBAC), puede asignar a usuarios a los roles en tres niveles distintos de ámbito:
 
-* subscription
+* suscripción
 * resource group
 * resource
 

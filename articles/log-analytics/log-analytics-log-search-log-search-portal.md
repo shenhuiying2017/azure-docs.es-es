@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/23/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 04e1c7a70db712dbc54e8846e9453d932016a043
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Creación de búsquedas de registros en Azure Log Analytics mediante el portal correspondiente
@@ -27,9 +27,9 @@ ms.lasthandoff: 07/28/2017
 >
 > Si todavía no se ha actualizado el área de trabajo al nuevo lenguaje de consulta, vaya a [Búsqueda de datos mediante búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para obtener información sobre la versión actual del portal de búsqueda de registros.
 
-Este artículo incluye un tutorial que describe cómo crear búsquedas de registros y analizar los datos almacenados en el área de trabajo de Log Analytics mediante el portal de búsqueda de registros.  El tutorial incluye la ejecución de algunas consultas sencillas que devuelven distintos tipos de datos y el análisis de los resultados.  Se centra en las características del portal de búsqueda de registros que permiten modificar la consulta en lugar de hacerlo directamente.  Para más información sobre cómo editar directamente la consulta, vaya a la [referencia del lenguaje de consulta](https://docs.loganalytics.io/queryLanguage/query_language.html).
+Este artículo incluye un tutorial que describe cómo crear búsquedas de registros y analizar los datos almacenados en el área de trabajo de Log Analytics mediante el portal de búsqueda de registros.  El tutorial incluye la ejecución de algunas consultas sencillas que devuelven distintos tipos de datos y el análisis de los resultados.  Se centra en las características del portal de búsqueda de registros que permiten modificar la consulta en lugar de hacerlo directamente.  Para más información sobre cómo editar directamente la consulta, vaya a la [referencia del lenguaje de consulta](https://go.microsoft.com/fwlink/?linkid=856079).
 
-Para crear búsquedas en el portal de análisis avanzado en lugar de en el portal de búsqueda de registros, consulte [Getting Started with the Analytics Portal](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html) (Introducción al portal de análisis).  Ambos portales usan el mismo lenguaje de consulta para acceder a los mismos datos en el área de trabajo de Log Analytics.
+Para crear búsquedas en el portal de análisis avanzado en lugar de en el portal de búsqueda de registros, consulte [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856587) (Introducción al portal de análisis).  Ambos portales usan el mismo lenguaje de consulta para acceder a los mismos datos en el área de trabajo de Log Analytics.
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este tutorial se da por supuesto que ya tiene un área de trabajo de Log Analytics con al menos un origen conectado que genera los datos para que las consultas los analicen.  
@@ -99,12 +99,12 @@ Solo aquellas propiedades que tienen el nombre en azul tienen la opción **Filtr
 
 ![Menú Filtrar](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
-Puede agrupar los resultados de una sola propiedad seleccionando la opción **Agrupar por** en el menú de registro.  Esto agregará un operador [summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) a la consulta que muestra los resultados en un gráfico.  Puede agrupar por más de una propiedad, pero deberá editar la consulta directamente.  Seleccione el menú de registro situado junto a la propiedad **Computer** y seleccione **Agrupar por "Computer"**.  
+Puede agrupar los resultados de una sola propiedad seleccionando la opción **Agrupar por** en el menú de registro.  Esto agregará un operador [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) a la consulta que muestra los resultados en un gráfico.  Puede agrupar por más de una propiedad, pero deberá editar la consulta directamente.  Seleccione el menú de registro situado junto a la propiedad **Computer** y seleccione **Agrupar por "Computer"**.  
 
 ![Agrupar por equipo](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 
 ## <a name="work-with-results"></a>Trabajo con resultados
-El portal de búsqueda de registros tiene una variedad de características para trabajar con los resultados de una consulta.  Puede ordenar, filtrar y agrupar los resultados para analizar los datos sin modificar la consulta real.
+El portal de búsqueda de registros tiene una variedad de características para trabajar con los resultados de una consulta.  Puede ordenar, filtrar y agrupar los resultados para analizar los datos sin modificar la consulta real.  Los resultados de una consulta no se ordenan de forma predeterminada.
 
 Para ver los datos en un formato de tabla que proporciona opciones adicionales para filtrar y ordenar, haga clic en **Tabla**.  
 
@@ -145,7 +145,7 @@ Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor T
 
 ![Utilización del procesador](media/log-analytics-log-search-log-search-portal/log-search-portal-12.png)
 
-Esto limita los datos a un contador determinado, pero aún no están en un formato que resulte especialmente útil.  Puede mostrar los datos en un gráfico de líneas, pero primero debe agruparlos por las propiedades Computer y TimeGenerated.  Para agrupar por varios campos, debe modificar la consulta directamente, así que modifíquela de la siguiente manera.  Esta utiliza la función [avg](https://docs.loganalytics.io/queryLanguage/query_language_avg_aggfunction.html) de la propiedad **CounterValue** para calcular el valor medio durante cada hora.
+Esto limita los datos a un contador determinado, pero aún no están en un formato que resulte especialmente útil.  Puede mostrar los datos en un gráfico de líneas, pero primero debe agruparlos por las propiedades Computer y TimeGenerated.  Para agrupar por varios campos, debe modificar la consulta directamente, así que modifíquela de la siguiente manera.  Esta utiliza la función [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) de la propiedad **CounterValue** para calcular el valor medio durante cada hora.
 
 ```
 Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated
@@ -153,7 +153,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![Gráfico con datos de rendimiento](media/log-analytics-log-search-log-search-portal/log-search-portal-13.png)
 
-Ahora que los datos están agrupados adecuadamente, puede mostrarlos en un gráfico visual agregando el operador [render](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html).  
+Ahora que los datos están agrupados adecuadamente, puede mostrarlos en un gráfico visual agregando el operador [render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator).  
 
 ```
 Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated | render timechart
@@ -163,6 +163,6 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre el lenguaje de consultas de Log Analytics en [Getting Started with the Analytics Portal](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html) (Introducción al portal de análisis).
-- Realice un tutorial en el [portal avanzado de análisis](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html) que le permita ejecutar las mismas consultas y acceder a los mismos datos que el portal de búsqueda de registros.
+- Obtenga más información sobre el lenguaje de consultas de Log Analytics en [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856079) (Introducción al portal de análisis).
+- Realice un tutorial en el [portal avanzado de análisis](https://go.microsoft.com/fwlink/?linkid=856587) que le permita ejecutar las mismas consultas y acceder a los mismos datos que el portal de búsqueda de registros.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: asmalser-msft
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 8f9c3fa677a93be109bcf423af651a5cd91c7679
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 84613b7f8d7bd031d492a62da0bc53be96ac45a3
 ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -105,9 +105,9 @@ Para aprovisionar cuentas de usuario en Cerner Central, debe crear una cuenta de
 
    * En el campo **URL de inquilino**, escriba una dirección URL en el formato siguiente y sustituya "User-Roster-Realm-ID" por el identificador de dominio kerberos que obtuvo en el paso 4.
 
-> Espacio aislado: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/Users 
+> Espacio aislado: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> Producción: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/Users 
+> Producción: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * En el campo **Token secreto**, escriba el token de portador de OAuth que generó en el paso 3 y haga clic en **Prueba de conexión**.
 

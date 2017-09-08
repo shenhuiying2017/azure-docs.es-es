@@ -6,21 +6,21 @@ keywords: "Administración de contraseñas de Active Directory, administración 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 00acd4090ed981ab2b05e955e93d1c689ea1a2e6
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: fed9008d41b43b2c118aba4939260e819c211d67
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
@@ -38,6 +38,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 * [**Preguntas sobre la escritura diferida de contraseñas**](#password-writeback)
 
 ## <a name="password-reset-registration"></a>Registro de restablecimiento de contraseña
+
 * **P: ¿Mis usuarios pueden registrar sus propios datos de restablecimiento de contraseña?**
 
   > **R:** Sí, siempre que el restablecimiento de contraseña esté habilitado y que los usuarios cuenten con licencia, pueden ir al portal de Registro de restablecimiento de contraseña en http://aka.ms/ssprsetup para registrar la información de autenticación. Para registrarse, los usuarios también pueden ir al panel de acceso en http://myapps.microsoft.com, hacer clic en la pestaña de perfil y en la opción Registrarme para restablecer la contraseña.
@@ -82,7 +83,9 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   > **R:** Se considera que un usuario está registrado en SSPR si ha registrado al menos el **Número de métodos requeridos para el restablecimiento** establecido en [Azure Portal](https://portal.azure.com).
   >
   >
+
 ## <a name="password-reset"></a>Restablecimiento de contraseña
+
 * **P: ¿Cuánto tiempo tengo que esperar para recibir un correo electrónico, un SMS o una llamada telefónica para el restablecimiento de contraseña?**
 
   > **R:** Los correos electrónicos, los mensajes SMS y las llamadas telefónicas deberían llegar en un minuto; lo normal sería que tardaran entre 5 y 20 segundos.
@@ -105,7 +108,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P: ¿Cómo puedo informar a mis usuarios sobre dónde tienen que ir para restablecer sus contraseñas?**
 
-  > **R:** Puede enviar a los usuarios directamente a https://passwordreset.microsoftonline.com, o bien puede indicarles que hagan clic en el vínculo **¿No puede acceder a su cuenta?** en cualquier página de inicio de sesión educativa o profesional. También puede publicar estos vínculos en un lugar al que los usuarios puedan acceder con facilidad.
+  > **R:** Pruebe algunas de las sugerencias de nuestro [artículo sobre la implementación del autoservicio de restablecimiento de contraseña (SSPR)](active-directory-passwords-best-practices.md#email-based-rollout)
   >
   >
 * **P: ¿Puedo usar esta página desde un dispositivo móvil?**
@@ -158,6 +161,11 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   > **R.:** Sí, es posible establecer un límite para el registro y otro para el restablecimiento. Es posible que se requieran entre 3 y 5 preguntas para el registro y entre 3 y 5 para el restablecimiento.
   >
   >
+* **P: He configurado mi directiva para que requiera que los usuarios utilicen preguntas de seguridad para realizar el restablecimiento, pero parece que los administradores de Azure están configurados de forma diferente.**
+
+  > **R:** Este es un comportamiento esperado. Microsoft exige una directiva segura de restablecimiento de contraseña de dos puertas de forma predeterminada para cualquier rol de administrador de Azure. De este modo se impide que los administradores usen preguntas de seguridad. Para más información acerca de esta directiva consulte [Restricciones y directivas de contraseñas en Azure Active Directory](active-directory-passwords-policy.md#administrator-password-policy-differences)
+  >
+  >
 * **P: Si un usuario ha registrado más del número máximo de preguntas necesarias para el restablecimiento, ¿cómo se seleccionan las preguntas de seguridad durante el proceso de restablecimiento?**
 
   > **R:** De manera aleatoria se seleccionan N preguntas de seguridad del número total de preguntas para las cuales se ha registrado un usuario, donde N es el **Número de preguntas necesarias para el restablecimiento**. Por ejemplo, si un usuario tiene registradas 5 preguntas de seguridad, pero solo se requieren 3 para el restablecimiento, 3 de esas 5 se seleccionan de manera aleatoria y se presentan en el momento del restablecimiento. Si el usuario se equivoca al responder las preguntas, el proceso de selección vuelve a ejecutarse para evitar la repetición (hammering) de las preguntas.
@@ -175,6 +183,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 
 ## <a name="password-change"></a>Cambio de contraseña
+
 * **P: ¿Dónde deberían ir los usuarios para cambiar las contraseñas?**
 
   > **R:** Los usuarios pueden cambiar sus contraseñas en cualquier lugar en que vean su icono o imagen de perfil (como en la esquina superior derecha de las experiencias de [Office 365](https://portal.office.com) o el [Panel de acceso](https://myapps.microsoft.com)). Los usuarios pueden cambiar las contraseñas en la [página de perfil del Panel de acceso](https://account.activedirectory.windowsazure.com/r#/profile). Los usuarios también deben cambiar automáticamente sus contraseñas en la pantalla de inicio de sesión de Azure AD en caso de que hayan expirado. Por último, los usuarios pueden navegar directamente al [portal de cambio de contraseñas de Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) si desean cambiar las contraseñas.
@@ -187,6 +196,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 
 ## <a name="password-management-reports"></a>Informes de administración de contraseñas
+
 * **P: ¿Cuánto tiempo demoran en aparecer los datos en los informes de la administración de contraseñas?**
 
   > **R.:** Los datos deben aparecer en los informes de la administración de contraseñas en un plazo de entre 5 y 10 minutos. En algunas instancias, es posible que demoren hasta una hora en aparecer.
@@ -219,6 +229,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 
 ## <a name="password-writeback"></a>Escritura diferida de contraseñas
+
 * **P: ¿Cómo funciona la escritura diferida de contraseñas en segundo plano?**
 
   > **R:** Consulte [Funcionamiento de la escritura diferida de contraseñas](active-directory-passwords-writeback.md) para obtener una explicación de lo que ocurre cuando se habilita la escritura diferida de contraseñas, además de cómo fluyen los datos por el sistema para volver al entorno local.
@@ -262,7 +273,7 @@ Los vínculos siguientes proporcionan información adicional sobre el restableci
 * [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para el autoservicio de administración de contraseñas de Azure AD 
 * [**Licencias**](active-directory-passwords-licensing.md): configuración de licencias de Azure AD
 * [**Datos**](active-directory-passwords-data.md): información sobre los datos necesarios y cómo se usan para administrar contraseñas
-* [**Implementación**](active-directory-passwords-best-practices.md): planificación e implementación de SSPR para los usuarios con las directrices que aquí se proporcionan
+* [**Implementación**](active-directory-passwords-best-practices.md): planee e implemente SSPR en sus usuarios mediante las instrucciones que se encuentran aquí.
 * [**Personalización**](active-directory-passwords-customize.md): personalización de la experiencia de SSPR para la empresa
 * [**Informes**](active-directory-passwords-reporting.md): detectan si los usuarios acceden a la funcionalidad de SSPR, cuándo lo hacen y dónde.
 * [**Directiva**](active-directory-passwords-policy.md): información sobre las directivas de contraseñas de Azure AD y cómo establecerlas

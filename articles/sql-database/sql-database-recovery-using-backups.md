@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 08/25/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: be44db002fc2491be9fc4428c6429ef8b4036147
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: df6e4bba9290c6129c9cba1440bb0c903aacc3c8
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas
@@ -34,7 +33,16 @@ SQL Database proporciona estas opciones para la recuperación de bases de datos 
 > Durante la restauración, no se puede sobrescribir la base de datos existente.
 >
 
-También puede usar las [copias de seguridad automatizadas de base de datos](sql-database-automated-backups.md) para crear una [copia de base de datos](sql-database-copy.md) en cualquier servidor lógico de cualquier región. 
+Una base de datos restaurada incurre en un costo de almacenamiento adicional en las siguientes condiciones: 
+- Restauración de P11 – P15 a S4-S12 o P1–P6 si el tamaño máximo de la base de datos es mayor de 500 GB.
+- Restauración de P1–P6 o PRS1–PRS6 a S4-S12 si el tamaño máximo de la base de datos es mayor de 250 GB.
+
+El costo adicional es debido a que el tamaño máximo de la base de datos restaurada es mayor que la cantidad de almacenamiento incluido para el nivel de rendimiento, y se aplicarán cargos adicionales a cualquier almacenamiento adicional aprovisionado por encima del importe incluido.  Para más información sobre los precios del almacenamiento adicional, consulte la [página de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).  Si la cantidad de espacio real utilizado es menor que la cantidad de almacenamiento incluido, este costo adicional puede evitarse si se reduce el tamaño máximo de la base de datos a la cantidad incluida. Para más información sobre los tamaños de almacenamiento de las bases de datos y cómo cambiar el tamaño máximo de la base de datos, consulte [Límites de recursos de base de datos únicas](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+
+> [!NOTE]
+> Las [copias de seguridad de base de datos automatizadas](sql-database-automated-backups.md) se usan cuando se crea una [copia de la base de datos](sql-database-copy.md). 
+>
+
 
 ## <a name="recovery-time"></a>Tiempo de recuperación
 El tiempo de recuperación para restaurar una base de datos mediante copias de seguridad de base de datos automatizadas se ve afectado por una serie de factores: 
@@ -96,7 +104,7 @@ Para recuperar una base de datos eliminada durante su [período de retención](s
 ![restauración-base de datos-eliminada-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
 
 ## <a name="geo-restore"></a>Restauración geográfica
-Una base de datos SQL situada en cualquier servidor de cualquier región de Azure se puede restaurar de las copias de seguridad diferenciales y completas con replicación geográfica más recientes. La funcionalidad de restauración geográfica usa una copia de seguridad con redundancia geográfica como origen y se puede usar para recuperar una base de datos, aunque no se pueda acceder a dicha base de datos o al centro de datos debido a una interrupción. 
+Una base de datos SQL situada en cualquier servidor de cualquier región de Azure se puede restaurar de las copias de seguridad diferenciales y completas con replicación geográfica más recientes. La funcionalidad de restauración geográfica utiliza una copia de seguridad con redundancia geográfica como origen y se puede usar para recuperar una base de datos, aunque no se pueda acceder a dicha base de datos o al centro de datos debido a una interrupción. 
 
 La funcionalidad de restauración geográfica proporciona la opción de recuperación predeterminada cuando la base de datos no está disponible debido a una incidencia en la región en la que se hospeda la base de datos. Si un incidente a gran escala en una región provoca la falta de disponibilidad de una aplicación de base de datos, puede restaurar una base de datos de las copias de seguridad con replicación geográfica en un servidor de cualquier otra región. Hay un retraso entre momento en que se realiza una copia de seguridad diferencial y el momento en que se replica geográficamente en un blob de Azure de una región diferente. Este retraso puede ser de hasta una hora; por lo tanto, si se produce un desastre, puede haber una pérdida de datos de hasta una hora. En la siguiente ilustración se muestra la restauración de la base de datos a partir de la última copia de seguridad disponible en otra región.
 
@@ -106,7 +114,7 @@ La funcionalidad de restauración geográfica proporciona la opción de recupera
 > Para obtener un script de PowerShell de ejemplo que muestre cómo realizar una georrestauración, vea [Restauración de una instancia de SQL Database con PowerShell](scripts/sql-database-restore-database-powershell.md).
 > 
 
-Para obtener información detallada sobre cómo usar la restauración geográfica a fin de recuperarse de una interrupción, consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](sql-database-disaster-recovery.md).
+Actualmente no se admite la restauración a un momento dad en una base de datos geográfica secundaria. La restauración a un momento dado solo puede realizarse en una base de datos principal. Para obtener información detallada sobre cómo usar la restauración geográfica a fin de recuperarse de una interrupción, consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
 > La recuperación de copias de seguridad es la más básica de las soluciones de recuperación ante desastres disponibles en SQL Database con el RPO y el tiempo de recuperación estimado (ERT) más largos. Para las soluciones que emplean bases de datos Básico, la restauración geográfica suele ser una solución de recuperación ante desastres razonable con un ERT de 12 horas. En lo que respecta a las soluciones que utilizan bases de datos Estándar o Premium más grandes que precisan tiempos de recuperación más cortos, sería conveniente considerar la posibilidad de usar la [replicación geográfica activa](sql-database-geo-replication-overview.md). La replicación geográfica activa ofrece RPO y ERT mucho menores, ya que solo es necesario iniciar una conmutación por error en un elemento secundario replicado continuamente. Para obtener más información sobre las opciones de continuidad empresarial, vea [este artículo](sql-database-business-continuity.md).

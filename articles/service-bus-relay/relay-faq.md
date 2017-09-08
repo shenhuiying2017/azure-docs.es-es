@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: cc44d59100104253447e474a49254d8b6bd68d8c
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-relay-faqs"></a>Preguntas frecuentes sobre Azure Relay
@@ -37,10 +36,10 @@ Un [espacio de nombres](relay-create-namespace-portal.md) es un contenedor de á
 El servicio anteriormente llamado Service Bus Relay se conoce ahora como WCF Relay. Este servicio se puede seguir usando de la manera habitual. La característica Conexiones híbridas es una versión actualizada de un servicio trasplantado desde Azure BizTalk Services. Tanto WCF Relay como Conexiones híbridas seguirán siendo admitidos en el futuro.
 
 ## <a name="pricing"></a>Precios
-Esta sección responde a algunas preguntas frecuentes sobre la estructura de precios de Relay. También puede consultar [Preguntas más frecuentes de soporte técnico de Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para información general sobre los precios de Azure. Para obtener más información sobre los precios de Relay, consulte [Precios del Bus de servicio](https://azure.microsoft.com/pricing/details/service-bus/).
+Esta sección responde a algunas preguntas frecuentes sobre la estructura de precios de Relay. También puede consultar [Preguntas más frecuentes de soporte técnico de Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para información general sobre los precios de Azure. Para más información sobre los precios de Relay, consulte [Precios de Service Bus][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>¿Cómo se cobra por Conexiones híbridas y WCF Relay?
-Para más información sobre los precios de Relay, consulte [Precios de Service Bus][Pricing overview]. Además de los precios indicados en dicha página, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
+Para obtener información completa sobre los precios de retransmisión, consulte la tabla [Conexiones híbridas y retransmisiones de WCF][Pricing overview] en la página de detalles de precios de Service Bus. Además de los precios indicados en dicha página, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>¿Cómo se factura Conexiones híbridas?
 Presentamos tres escenarios de facturación de ejemplo para Conexiones híbridas:
@@ -63,7 +62,7 @@ Tenga en cuenta que los precios que se utilizan en los ejemplos son aplicables �
 
 ### <a name="how-are-hours-calculated-for-relay"></a>¿Cómo se calculan las horas de retransmisión?
 
-WCF Relay solo está disponibles en los espacios de nombres de nivel Estándar. En cualquier otro caso, el precio y las [cuotas de conexión](../service-bus-messaging/service-bus-quotas.md) de las retransmisiones permanecen igual. Esto significa que las retransmisiones seguirán cobrándose según el número de mensajes (y no de operaciones) y las horas de retransmisión. Para más información, vea la tabla [Conexiones híbridas y retransmisiones de WCF](https://azure.microsoft.com/pricing/details/service-bus/) en la página de detalles de precios.
+WCF Relay solo está disponibles en los espacios de nombres de nivel Estándar. En cualquier otro caso, el precio y las [cuotas de conexión](../service-bus-messaging/service-bus-quotas.md) de las retransmisiones permanecen igual. Esto significa que las retransmisiones seguirán cobrándose según el número de mensajes (y no de operaciones) y las horas de retransmisión. Para obtener más información, consulte la tabla [Conexiones híbridas y retransmisiones de WCF](https://azure.microsoft.com/pricing/details/service-bus/) en la página de detalles de precios.
 
 ### <a name="what-if-i-have-more-than-one-listener-connected-to-a-specific-relay"></a>¿Qué ocurre si tengo más de un agente de escucha conectado a una retransmisión determinada?
 En algunos casos, una sola retransmisión puede tener varios agentes de escucha conectados. Una retransmisión se considera abierta cuando al menos un agente de escucha de retransmisión está conectado a ella. Si agrega agentes de escucha a una retransmisión abierta, se generarán horas de retransmisión adicionales. El número de remitentes de retransmisión (clientes que invocan o envían mensajes a retransmisiones) conectados a una retransmisión no tiene ningún efecto en el cálculo de horas de retransmisión.
@@ -73,9 +72,9 @@ En algunos casos, una sola retransmisión puede tener varios agentes de escucha 
 
 En general, los mensajes facturables para retransmisiones se calculan utilizando el mismo método que se usa para las entidades negociadas (colas, temas y suscripciones), que se ha descrito anteriormente. Sin embargo, hay algunas diferencias importantes.
 
-El envío de un mensaje a Service Bus Relay se trata como un envío "completo a través" al agente de escucha de retransmisión que recibe el mensaje. *No* se trata como un envío a Service Bus Relay seguido de una entrega al agente de escucha de retransmisión. Una invocación de servicio de tipo solicitud-respuesta (de hasta 64 KB) a un agente de escucha de retransmisión producirá dos mensajes facturables: un mensaje facturable por la solicitud y un mensaje facturable por la respuesta (siempre que la respuesta sea también igual o inferior a 64 KB). Esto difiere del uso de una cola para mediar entre un cliente y un servicio. Si utiliza una cola para mediar entre un cliente y un servicio, el propio patrón de solicitud y respuesta requiere el envío de una solicitud a la cola, seguido de una eliminación de la cola y entrega desde la cola al servicio. A esto le sigue el envío de la respuesta a otra cola y la eliminación de la cola y entrega desde esa otra cola al cliente. Con las mismas suposiciones de tamaño (hasta 64 KB), el patrón de cola de mediación produciría cuatro mensajes facturables. Se le facturaría dos veces el número de mensajes para implementar el mismo patrón que se logra con el uso de la retransmisión. Por supuesto, hay ventajas derivadas del uso de colas para lograr este patrón, como la durabilidad y el nivelado de carga. Estas ventajas pueden justificar el gasto adicional.
+El envío de un mensaje a Service Bus Relay se trata como un envío "completo a través" al agente de escucha de retransmisión que recibe el mensaje. No se trata como una operación de envío a Service Bus Relay seguido de una entrega al agente de escucha de retransmisión. Una invocación de servicio de tipo solicitud-respuesta (de hasta 64 KB) a un agente de escucha de retransmisión producirá dos mensajes facturables: un mensaje facturable por la solicitud y un mensaje facturable por la respuesta (siempre que la respuesta sea también igual o inferior a 64 KB). Esto difiere del uso de una cola para mediar entre un cliente y un servicio. Si utiliza una cola para mediar entre un cliente y un servicio, el propio patrón de solicitud y respuesta requiere el envío de una solicitud a la cola, seguido de una eliminación de la cola y entrega desde la cola al servicio. A esto le sigue el envío de la respuesta a otra cola y la eliminación de la cola y entrega desde esa otra cola al cliente. Con las mismas suposiciones de tamaño (hasta 64 KB), el patrón de cola de mediación produce cuatro mensajes facturables. Se le facturaría dos veces el número de mensajes para implementar el mismo patrón que se logra con el uso de la retransmisión. Por supuesto, existen ventajas en el uso de colas para lograr este patrón, como la duración y la nivelación de la carga. Estas ventajas pueden justificar el gasto adicional.
 
-Las retransmisiones que se abren mediante el enlace Windows Communication Foundation (WCF) netTCPRelay tratan los mensajes no como mensajes individuales, sino como un flujo de datos que fluye a través del sistema. Cuando se usa este enlace, solo el remitente y el agente de escucha tienen visibilidad sobre la trama de los mensajes individuales enviados y recibidos. Para las retransmisiones que usan el enlace netTCPRelay, todos los datos se tratan como un flujo para el cálculo de los mensajes facturables. En este caso, Service Bus calcula la cantidad total de datos enviados o recibidos a través de cada retransmisión individual en una base de 5 minutos. A continuación, divide la cantidad total de datos entre 64 KB para determinar el número de mensajes facturables para dicha retransmisión durante ese período de tiempo.
+Las retransmisiones que se abren mediante el enlace WCF **netTCPRelay** tratan los mensajes no como mensajes individuales, sino como un flujo de datos que fluye a través del sistema. Cuando se usa este enlace, solo el remitente y el agente de escucha tienen visibilidad sobre la trama de los mensajes individuales enviados y recibidos. Para las retransmisiones que usan el enlace **netTCPRelay**, todos los datos se tratan como un flujo para el cálculo de los mensajes facturables. En este caso, Service Bus calcula la cantidad total de datos enviados o recibidos a través de cada retransmisión individual en una base de 5 minutos. A continuación, divide la cantidad total de datos entre 64 KB para determinar el número de mensajes facturables para dicha retransmisión durante ese período de tiempo.
 
 ## <a name="quotas"></a>Cuotas
 | Nombre de cuota | Scope | Tipo | Comportamiento cuando se supera | Valor |
@@ -93,7 +92,7 @@ De forma predeterminada, para cualquier servicio en la nube, Microsoft establece
 * 5 millardos de mensajes
 * 2 millones de horas de retransmisión
 
-Aunque nos reservamos el derecho de deshabilitar una cuenta de cliente que ha superado sus cuotas de uso mensuales, se proporcionará una notificación por correo electrónico y se realizarán varios intentos para ponerse en contacto con el cliente antes de llevar a cabo cualquier acción. Los clientes que superen estas cuotas siguen siendo responsables de cargos por exceso de cuotas.
+Aunque nos reservamos el derecho de deshabilitar una cuenta que supera sus cuotas de uso mensuales, se proporcionará una notificación por correo electrónico y se realizarán varios intentos para ponerse en contacto con el cliente antes de llevar a cabo cualquier acción. Los clientes que superen estas cuotas siguen siendo responsables de cargos por exceso de las mismas.
 
 ### <a name="naming-restrictions"></a>Restricciones de nomenclatura
 El nombre de un espacio de nombres de Relay debe tener entre 6 y 50 caracteres de longitud.
@@ -127,7 +126,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 Para obtener una descripción de excepciones comunes y las acciones sugeridas que puede realizar, consulte [Excepciones de Azure Relay][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>¿Qué es una firma de acceso compartido y qué lenguajes puedo usar para generar una firma?
-Las firmas de acceso compartido son un mecanismo de autenticación basado en hash seguros SHA-256 o URI. Para obtener información acerca de cómo generar sus propias firmas en Node, PHP, Java, C y C#, consulte [Autenticación de Service Bus con firmas de acceso compartido][Shared Access Signatures].
+Las firmas de acceso compartido (SAS) son un mecanismo de autenticación basado en valores hash seguros SHA-256 o en URI. Para obtener información acerca de cómo generar sus propias firmas en Node, PHP, Java, C y C#, consulte [Autenticación de Service Bus con firmas de acceso compartido][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>¿Es posible incluir los puntos de conexión de Relay en la lista de permitidos?
 Sí. El cliente de Relay establece conexiones al servicio de Azure Relay mediante nombres de dominio completos. Los clientes pueden agregar una entrada para `*.servicebus.windows.net` en los firewalls compatibles con la creación de listas de autorizados de DNS.

@@ -4,7 +4,7 @@ description: "Aprenda a escalar los trabajos de Análisis de transmisiones media
 keywords: "datos de streaming, procesamiento de datos de streaming, optimización del análisis"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 9a2b16fc6dff687e2a1fa03c9194d50711f53476
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: f1e5e11e82d344508aa4375c42d509f96aaa1d00
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase-stream-data-processing-throughput"></a>Escalado de trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento de procesamiento de flujo de datos
@@ -32,7 +31,7 @@ Una definición de trabajo de Análisis de transmisiones incluye entradas, una c
 Un trabajo requiere al menos un origen de entrada de streaming de datos. El origen de entrada del flujo de datos puede almacenarse en un centro de eventos de Azure o en Azure Blob Storage. Para más información, vea [¿Qué es Azure Stream Analytics?](stream-analytics-introduction.md) e [Introducción al uso de Azure Stream Analytics: detección de fraudes en tiempo real](stream-analytics-real-time-fraud-detection.md).
 
 ## <a name="partitions-in-event-hubs-and-azure-storage"></a>Particiones en Event Hubs y Azure Storage
-El escalado de un trabajo de Stream Analytics aprovecha las particiones en la entrada o la salida. La creación de particiones permite dividir los datos en subconjuntos en función de una clave de partición. Un proceso que consume los datos (por ejemplo, un trabajo de Stream Analytics) puede consumir y escribir diferentes particiones en paralelo, lo que aumenta la capacidad de procesamiento. Si trabaja con Stream Analytics, puede aprovechar las ventajas de las particiones en Event Hubs y Blob Storage. 
+El escalado de un trabajo de Stream Analytics aprovecha las particiones en la entrada o la salida. La creación de particiones permite dividir los datos en subconjuntos en función de una clave de partición. Un proceso que consume los datos (por ejemplo, un trabajo de Stream Analytics) puede consumir y escribir diferentes particiones en paralelo, lo que aumenta la capacidad de procesamiento. Si trabaja con Stream Analytics, puede aprovechar las ventajas de la creación de particiones en Event Hubs y Blob Storage. 
 
 Para más información sobre las particiones, vea los siguientes artículos:
 
@@ -339,13 +338,13 @@ Y en el gráfico siguiente se muestra una visualización de la relación entre u
 ![IMG.Stream.Analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: fc20979575b204cdd8dda5291552af0adbde180f
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 279951d40b7780120d0b94e183f06e00ccece016
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="use-an-app-service-environment"></a>Uso de una instancia de App Service Environment #
@@ -133,9 +133,15 @@ Los puntos de conexión de publicación para las aplicaciones en un ASE con un I
 
 ## <a name="pricing"></a>Precios ##
 
-Con ASEv2, un nuevo SKU de precios llamado **Aislado** se usa solo con ASEv2. Todos los planes de App Service que se hospedan en un entorno ASEv2 están en el SKU de precios Aislado. Además del precio de los planes de App Service, hay una tarifa fija para ASE mismo. Este precio no cambia con el tamaño del entorno ASE. 
+La SKU de precios llamada **Isolated** se creó para su uso únicamente con ASEv2. Todos los planes de App Service que se hospedan en un entorno ASEv2 están en el SKU de precios Aislado. Las tarifas del plan Isolated de App Service pueden variar por región. 
 
-Las otras posibles tarifas son por el ajuste del factor de escala de Front-End o del tamaño de Front-End. Puede ajustar el factor de escala para agregar servidores front-end con mayor rapidez. Sin embargo, pagará cualquier núcleo adicional no agregado automáticamente al sistema. Del mismo modo, si selecciona un tamaño mayor para los Front-Ends, pagará los núcleos que no se puedan asignar automáticamente. Por ejemplo, si ajusta el factor de escala en 10, se agrega un Front-End por cada 10 instancias en los planes de App Service. La tarifa fija cubre una escala de un Front-End por cada 15 instancias. Con un factor de escala de 10, paga una tarifa por el tercer servidor front-end que se agrega para las 10 instancias del plan de App Service. No es necesario que pague por él si llega a 15 instancias, ya que se agregó automáticamente.
+Además del precio de los planes de App Service, hay una tarifa fija para ASE mismo. La velocidad sin formato no cambia con el tamaño de su ASE y paga por la infraestructura de ASE a una tarifa de escalado predeterminada de 1 front-end adicional por cada 15 instancias del plan de App Service.  
+
+Si la tarifa de escalado predeterminada de 1 front-end por cada 15 instancias del plan de App Service no es lo suficientemente rápida, puede ajustar la proporción a la que se agregan los front-end o el tamaño de estos.  Al ajustar la proporción o el tamaño, paga por los núcleos de front-end que no se agregarían de forma predeterminada.  
+
+Por ejemplo, si ajusta el factor de escala en 10, se agrega un Front-End por cada 10 instancias en los planes de App Service. La tarifa fija cubre una escala de un Front-End por cada 15 instancias. Con un factor de escala de 10, paga una tarifa por el tercer servidor front-end que se agrega para las 10 instancias del plan de App Service. No es necesario que pague por él si llega a 15 instancias, ya que se agregó automáticamente.
+
+Si ajusta el tamaño de los front-end a 2 núcleos, pero no se ajusta la proporción se pagará por los núcleos adicionales.  Se crea un ASE con 2 front-end, por lo que incluso estando por debajo del umbral de escalado automático, pagaría por 2 núcleos adicionales si aumentó el tamaño a 2 front-end de núcleo.
 
 Para más información, consulte [Precios de Azure App Service][Pricing].
 

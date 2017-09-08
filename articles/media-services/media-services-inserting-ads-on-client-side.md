@@ -4,7 +4,7 @@ description: "Este tema muestra cómo insertar anuncios en el lado cliente."
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 65c9c747-128e-497e-afe0-3f92d2bf7972
 ms.service: media-services
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: aaa0e2757875d8f9ac6a19f218bfb19bf9870b0d
-ms.openlocfilehash: 54cf700463ff0a08f5f28a3d2b66c8814ab0a764
-
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
+ms.contentlocale: es-es
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserción de anuncios en el lado cliente
@@ -30,7 +31,7 @@ Para obtener información acerca de la compatibilidad con anuncios y subtítulos
 > 
 > 
 
-## <a name="a-idinsertadsintomediaainserting-ads-into-your-media"></a><a id="insert_ads_into_media"></a>Inserción de anuncios en contenido multimedia
+## <a id="insert_ads_into_media"></a>Inserción de anuncios en contenido multimedia
 Servicios multimedia de Azure admite la inserción de anuncios mediante Plataforma multimedia de Microsoft: Player Frameworks. Player framework con compatibilidad con anuncios está disponible para dispositivos Windows 8, Silverlight, Windows Phone 8 e iOS. Cada Player Framework contiene código de ejemplo que muestra cómo implementar una aplicación de reproductor. Hay tres tipos diferentes de anuncios que se pueden insertar en los medios:
 
 * **Lineales** : anuncios de fotograma completo que pausan el vídeo principal.
@@ -791,10 +792,5 @@ El ejemplo siguiente muestra cómo programar un anuncio superpuesto de cuña int
 
 ## <a name="see-also"></a>Otras referencias
 [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

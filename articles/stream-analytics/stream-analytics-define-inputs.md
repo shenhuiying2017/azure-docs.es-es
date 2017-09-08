@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 09066927641054acb8c53a3585e111df87893e50
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 8ea05e1c3419f3e9c6b5806c1a2d4035239809d8
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexión de datos: obtenga información sobre las entradas de transmisiones de datos desde eventos para el Análisis de transmisiones
@@ -126,7 +126,7 @@ La marca de tiempo predeterminada de los eventos de Blob Storage en Stream Analy
 Las entradas con formato CSV *requieren* una fila de encabezado para definir los campos del conjunto de datos. Además, todos los campos de fila de encabezado deben ser únicos.
 
 > [!NOTE]
-> Análisis de transmisiones no admite que se agregue contenido a un blob existente. Stream Analytics solo verá un blob una vez y los cambios que se produzcan en el blob después de que el trabajo lea los datos no se procesan. El procedimiento recomendado consiste en cargar todos los datos una vez y no agregar eventos después al almacén de blobs.
+> Stream Analytics no permite agregar contenido a un archivo de blob existente. Stream Analytics solo verá cada archivo una vez y los cambios que se produzcan en él después de que el trabajo lea los datos no se procesan. Se recomienda cargar todos los datos de un archivo de blob a la vez y, a continuación, agregar los eventos más recientes a un archivo de blob diferente y nuevo.
 > 
 
 ### <a name="configure-blob-storage-as-a-data-stream-input"></a>Configuración de Blob Storage como entrada de flujo de datos
@@ -165,15 +165,15 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ha obtenido información sobre las opciones de conexión de datos de Azure para sus trabajos de Análisis de transmisiones. Para obtener más información sobre Análisis de transmisiones, vea:
 
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 02e4e58418e289eaf4b619a6cfc411fe1f50f48f
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 1520cea72069be5d7bb078a3770d61fade26b853
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use PowerShell para administrar recursos de Service Bus
@@ -30,7 +29,7 @@ Las entidades de Service Bus también se pueden administrar mediante plantillas 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, necesitará lo siguiente:
+Antes de empezar, tendrá que cumplir los siguientes requisitos previos:
 
 * Una suscripción de Azure. Para obtener más información sobre cómo obtener una suscripción, consulte [Opciones de compra][purchase options], [ofertas para miembros][member offers] o [cuenta gratuita][free account].
 * Un equipo con Azure PowerShell. Para obtener instrucciones, consulte [Introducción a los cmdlets de Azure PowerShell](/powershell/azure/get-started-azureps).
@@ -47,7 +46,7 @@ Al trabajar con espacios de nombres de Service Bus, puede usar los cmdlets [Get 
 En este ejemplo se crean algunas variables locales en el script: `$Namespace` y `$Location`.
 
 * `$Namespace` es el nombre del espacio de nombres de Service Bus con el que queremos trabajar.
-* `$Location` identifica el centro de datos en el que aprovisionaremos el espacio de nombres.
+* `$Location` identifica el centro de datos en el que aprovisionamos el espacio de nombres.
 * `$CurrentNamespace` almacena el espacio de nombres de referencia que vamos a recuperar (o crear).
 
 En un script real, `$Namespace` y `$Location` se pueden pasar como parámetros.

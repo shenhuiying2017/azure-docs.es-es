@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 08/25/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: fe6a28afbee573351186e361126ddca7db764311
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e138f80e808968ab4bf5c11cfd5fd46fe4a1bcce
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
@@ -110,7 +110,7 @@ Por ahora, los servicios que permiten el traslado a un nuevo grupo de recursos y
 * Service Fabric
 * Storage
 * Storage (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
-* Stream Analytics
+* Stream Analytics: los trabajos de Stream Analytics no se pueden mover si se encuentran en estado de ejecución.
 * Servidor de SQL Database: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos.
 * Administrador de tráfico
 * Máquinas virtuales

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 369389f7f8ce56435dcbb9d9264c2db48a294d55
+ms.sourcegitcommit: 79b215eed38959efd630e21633d235cbc857abd8
+ms.openlocfilehash: dde9d9b8be1faede7d2e9e45597070e6ce51ac02
 ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -249,11 +249,11 @@ a través de ClusterConfig.json para las implementaciones independientes
 >
 
 ## <a name="node-properties-and-placement-constraints"></a>Restricciones de ubicación y propiedades de nodo
-A veces (de hecho, la mayor parte del tiempo) le va a interesar asegurarse de que ciertas cargas de trabajo solo se ejecuten en determinados tipos de nodos en el clúster. Por ejemplo, algunas cargas de trabajo pueden requerir GPU o SSD, al contrario que otras. Un buen ejemplo de esto es prácticamente cualquier arquitectura de n niveles. Determinadas máquinas sirven de front-end o lado de la aplicación a la API y se exponen a los clientes o a Internet. Otras máquinas, a menudo con recursos de hardware diferentes, se encargan del trabajo de las capas de proceso o almacenamiento. Estas _no_ se suelen exponer directamente a los clientes o a Internet. Service Fabric espera que haya casos en que se deban ejecutar cargas de trabajo concretas en configuraciones de hardware específicas. Por ejemplo:
+A veces (de hecho, la mayor parte del tiempo) le va a interesar asegurarse de que ciertas cargas de trabajo solo se ejecuten en determinados tipos de nodos en el clúster. Por ejemplo, algunas cargas de trabajo pueden requerir GPU o SSD, al contrario que otras. Un buen ejemplo de esto es prácticamente cualquier arquitectura de n niveles, Determinadas máquinas sirven de front-end o lado de la aplicación a la API y se exponen a los clientes o a Internet. Otras máquinas, a menudo con recursos de hardware diferentes, se encargan del trabajo de las capas de proceso o almacenamiento. Estas _no_ se suelen exponer directamente a los clientes o a Internet. Service Fabric espera que haya casos en que se deban ejecutar cargas de trabajo concretas en configuraciones de hardware específicas. Por ejemplo:
 
 * una aplicación de n niveles existente se ha transferido "tal cual" a un entorno de Service Fabric;
-* se prefiere ejecutar una carga de trabajo en un hardware específico por motivos de rendimiento, escala o aislamiento de seguridad.
-* Una carga de trabajo debe estar aislada de otras por una directiva o a causa del consumo de recursos.
+* se prefiere ejecutar una carga de trabajo en un hardware específico por motivos de rendimiento, escala o aislamiento de seguridad;
+* una carga de trabajo debe estar aislada de otras por una directiva o a causa del consumo de recursos.
 
 Para admitir estos tipos de configuraciones, Service Fabric parte de una noción de etiquetas de primera clase que pueden aplicarse a los nodos. Estas etiquetas se denominan **propiedades del nodo**. Las **restricciones de posición** son las instrucciones adjuntas a los servicios individuales que se seleccionan para una o más propiedades de nodo. Las restricciones de posición definen dónde deben ejecutarse los servicios. El conjunto de restricciones es extensible; puede funcionar cualquier par clave-valor. 
 
@@ -265,7 +265,7 @@ Para admitir estos tipos de configuraciones, Service Fabric parte de una noción
 Además, Service Fabric define algunas propiedades predeterminadas que se pueden usar automáticamente sin que el usuario tenga que definirlas. Las propiedades predeterminadas definidas en cada nodo son **NodeType** y **NodeName**. Por ejemplo, podría escribir una restricción de selección de ubicación como `"(NodeType == NodeType03)"`. Por lo general, NodeType es una de las propiedades más usadas. Es útil, ya que corresponde a 1:1 con un tipo de una máquina. Cada tipo de máquina corresponde a un tipo de carga de trabajo en una aplicación de n niveles tradicional.
 
 <center>
-![Restricciones de colocación y propiedades de nodo][Image6]
+![Restricciones de selección de ubicación y propiedades de nodo][Image6]
 </center>
 
 ## <a name="placement-constraint-and-node-property-syntax"></a>Restricciones de colocación y sintaxis de propiedades de nodo 
@@ -378,7 +378,7 @@ Uno de los trabajos más importantes de cualquier organizador es ayudar a admini
 
 Service Fabric representa los recursos como `Metrics`. Las métricas son cualquier recurso físico o lógico que desee describir a Service Fabric. Algunos ejemplos de métricas son elementos como "WorkQueueDepth" o "MemoryInMb". Para obtener información acerca de los recursos físicos que puede administrar Service Fabric en los nodos, vea el [regulador de recursos](service-fabric-resource-governance.md). Para obtener información sobre la configuración de métricas personalizadas y sus usos, vea [este artículo](service-fabric-cluster-resource-manager-metrics.md).
 
-Las métricas se diferencian de las restricciones de selección ubicación y de las propiedades de nodo. Las propiedades de nodo son descriptores estáticos de los nodos por sí mismos. Las métricas describen recursos que tienen nodos y que los servicios usan cuando se ejecutan en un nodo. Una propiedad de nodo podría ser "HasSSD" y tener un valor de True o False. La cantidad de espacio disponible en ese SSD y la cantidad consumida por los servicios sería una métrica como "DriveSpaceInMb". 
+Las métricas se diferencian de las restricciones de selección ubicación y de las propiedades de nodo Las propiedades de nodo son descriptores estáticos de los nodos por sí mismos. Las métricas describen recursos que tienen nodos y que los servicios usan cuando se ejecutan en un nodo. Una propiedad de nodo podría ser "HasSSD" y tener un valor de True o False. La cantidad de espacio disponible en ese SSD y la cantidad consumida por los servicios sería una métrica como "DriveSpaceInMb". 
 
 Es importante tener en cuenta que, al igual que para las restricciones de selección de ubicación y las propiedades de nodo, la utilidad Cluster Resource Manager de Service Fabric no comprende lo que significan los nombres de las métricas, ya que son simplemente cadenas. Se recomienda declarar las unidades como parte de los nombres de métricas que cree cuando puedan ser ambiguos.
 
@@ -440,9 +440,9 @@ Normalmente, una carga de un servicio cambia de forma dinámica. Pongamos que la
 ## <a name="cluster-capacity"></a>Capacidad del clúster
 Entonces, ¿cómo Cluster Resource Manager de Service Fabric evita que el clúster general se llene demasiado? Con la carga dinámica no hay mucho que pueda hacer. ya que los servicios pueden tener un pico de carga con independencia de las acciones que realice Resource Manager. Como resultado, un clúster con espacio de sobra hoy puede quedarse corto cuando se haga famoso mañana, pero existen algunos controles preparados para evitar problemas. Lo primero que se puede hacer es evitar la creación de nuevas cargas de trabajo que harían que el clúster se llenara.
 
-Supongamos que crea un servicio sin estado y tiene cierta carga asociado a él, y que el servicio se ocupa de la métrica "DiskSpaceInMb" y que, de forma predeterminada, va a consumir 5 unidades de "DiskSpaceInMb" para cada instancia del servicio. Quiere crear 3 instancias del servicio. Estupendo. Eso significa que necesitamos 15 unidades de "DiskSpaceInMb" en el clúster para poder crear estas instancias de servicio. Cluster Resource Manager calcula continuamente la capacidad y el consumo de cada métrica, por lo que puede determinar la capacidad restante del clúster. Si no hay espacio suficiente, Cluster Resource Manager rechaza la llamada para crear el servicio.
+Supongamos que crea un servicio sin estado y tiene cierta carga asociado a él, y que Supongamos que el servicio se ocupa de la métrica "DiskSpaceInMb" y que, de forma predeterminada, va a consumir 5 unidades de "DiskSpaceInMb" para cada instancia del servicio. Quiere crear 3 instancias del servicio. Estupendo. Eso significa que necesitamos 15 unidades de "DiskSpaceInMb" en el clúster para poder crear estas instancias de servicio. Cluster Resource Manager calcula continuamente la capacidad y el consumo de cada métrica, por lo que puede determinar la capacidad restante del clúster. Si no hay espacio suficiente, Cluster Resource Manager rechaza la llamada para crear el servicio.
 
-Dado que el requisito es solo que haya 15 unidades disponibles, este espacio se podría asignar de muchas maneras distintas. Por ejemplo, podría ser una unidad de capacidad restante en 15 nodos diferentes o las tres unidades de capacidad que quedan en cinco nodos diferentes. Si Cluster Resource Manager puede reorganizarlo todo para que haya cinco unidades disponibles en tres nodos, podrá colocar el servicio. La reorganización del clúster es normalmente posible a no ser que el clúster esté casi lleno o los servicios existentes no puedan consolidarse por alguna razón.
+Dado que el requisito es solo que haya 15 unidades disponibles, este espacio se podría asignar de muchas maneras distintas; por ejemplo, podría ser una unidad de capacidad restante en 15 nodos diferentes o las tres unidades de capacidad que quedan en 5 nodos diferentes. Si Cluster Resource Manager puede reorganizarlo todo para que haya cinco unidades disponibles en tres nodos, podrá colocar el servicio. La reorganización del clúster es normalmente posible a no ser que el clúster esté casi lleno o los servicios existentes no puedan consolidarse por alguna razón.
 
 ## <a name="buffered-capacity"></a>Capacidad de búfer
 Capacidad de búfer es otra característica de Cluster Resource Manager. Permite una reserva de alguna parte de la capacidad total del nodo. Este búfer de capacidad solo se utiliza para colocar los servicios durante las actualizaciones y los errores de nodo. Capacidad de búfer se especifica globalmente por métrica para todos los nodos. El valor que elija para la capacidad reservada es una función del número de dominios de actualización y de error que hay en el clúster. Más dominios de error y de actualización significa que puede elegir un número menor para la capacidad de búfer. Si tiene varios dominios, puede esperar que cantidades más reducidas de su clúster no estarán disponibles durante las actualizaciones y los errores. La especificación de la capacidad de búfer solo tiene sentido si también especifica la capacidad de nodo de una métrica.
@@ -478,7 +478,7 @@ a través de ClusterConfig.json para las implementaciones independientes o Templ
 ]
 ```
 
-La creación de nuevos servicios generará un error cuando el clúster carece de capacidad de búfer en una métrica. Evitar la creación de nuevos servicios para conservar el búfer garantiza que las actualizaciones y los errores no provocan que los nodos sobrepasen la capacidad. La capacidad de búfer es opcional, pero se recomienda en los clústeres que definen una capacidad de una métrica.
+La creación de nuevos servicios generará un error cuando el clúster carece de capacidad de búfer en una métrica, Evitar la creación de nuevos servicios para conservar el búfer garantiza que las actualizaciones y los errores no provocan que los nodos sobrepasen la capacidad. La capacidad de búfer es opcional, pero se recomienda en los clústeres que definen una capacidad de una métrica.
 
 Cluster Resource Manager muestra esta información de carga. Para cada métrica, esta información incluye: 
   - la configuración de capacidad de búfer

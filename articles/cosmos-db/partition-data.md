@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/29/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: e2d2847276e553d7511241ff323c3e00aad8e5c9
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 9f341438fc0bf239f47ae87db70b067862652786
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -65,7 +65,7 @@ Cosmos DB usa la creación de particiones basada en hash. Al escribir un element
 Los contenedores de Azure Cosmos DB se pueden crear como "fijos" o "ilimitados". Los contenedores de tamaño fijo tienen un límite máximo de 10 GB y un rendimiento de 10 000 RU/s. Algunas API permiten que la clave de partición se omita para los contenedores de tamaño fijo. Para crear un contenedor como ilimitado, debe especificar un rendimiento mínimo de 2500 RU/s.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Creación de particiones y procesamiento aprovisionado
-Cosmos DB se ha diseñado para ofrecer un rendimiento predecible. Al crear un contenedor, reserva rendimiento en términos de **[unidades de solicitud](request-units.md) (RU) por segundo con un complemento potencial para RU por minuto**. A cada solicitud se le asigna una carga de unidad de solicitud proporcional a la cantidad de recursos del sistema, como la CPU, la memoria y la E/S consumidas por la operación. Una lectura de un documento de 1 KB con coherencia de sesión consume una unidad de solicitud. Una lectura es 1 RU independientemente del número de elementos almacenados o del número de solicitudes que se ejecutan de manera simultánea. Los elementos más grandes exigen unidades de solicitud mayores en función del tamaño. Si se conoce el tamaño de las entidades y el número de lecturas que soportará la aplicación, se puede aprovisionar la cantidad exacta de procesamiento requerido para las necesidades de lectura de la aplicación. 
+Cosmos DB se ha diseñado para ofrecer un rendimiento predecible. Al crear un contenedor, reserva capacidad de proceso en términos de **[unidades de solicitud](request-units.md) (RU) por segundo**. A cada solicitud se le asigna una carga de unidad de solicitud proporcional a la cantidad de recursos del sistema, como la CPU, la memoria y la E/S consumidas por la operación. Una lectura de un documento de 1 KB con coherencia de sesión consume una unidad de solicitud. Una lectura es 1 RU independientemente del número de elementos almacenados o del número de solicitudes que se ejecutan de manera simultánea. Los elementos más grandes exigen unidades de solicitud mayores en función del tamaño. Si se conoce el tamaño de las entidades y el número de lecturas que soportará la aplicación, se puede aprovisionar la cantidad exacta de procesamiento requerido para las necesidades de lectura de la aplicación. 
 
 > [!NOTE]
 > Para alcanzar el rendimiento total del contenedor, debe elegirse una clave de partición que permita distribuir uniformemente las solicitudes entre algunos valores de clave de partición definidos.

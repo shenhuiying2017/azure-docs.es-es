@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 08/23/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 281b6afc6aeaf65e87e1bd2820c35a14f7714aa1
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 10b7f3ad23d9c5451bc7ff82b8927c260230f6da
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -37,15 +37,16 @@ Si conoce el lenguaje de consulta de Log Analytics heredado, la manera más fác
 
 ## <a name="cheat-sheet"></a>Hoja de referencia rápida
 
-En la tabla siguiente se proporciona una comparación entre diversas consultas comunes y los comandos equivalentes entre el lenguaje de consulta nuevo y el heredado de Azure Log Analytics. 
+En la tabla siguiente se proporciona una comparación entre diversas consultas comunes y los comandos equivalentes entre el lenguaje de consulta nuevo y el heredado de Azure Log Analytics.
 
 | Descripción | Heredado | new |
 |:--|:--|:--|
+| Buscar en todas las tablas      | error | buscar "error" (no distingue mayúsculas de minúsculas) |
 | Selección de datos de una tabla | Type=Event |  Evento |
 |                        | Type=Event &#124; select Source, EventLog, EventID | Event &#124; project Source, EventLog, EventID |
 |                        | Type=Event &#124; top 100 | Event &#124; take 100 |
 | Comparación de cadenas      | Type=Event Computer=srv01.contoso.com   | Event &#124; where Computer == "srv01.contoso.com" |
-|                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" |
+|                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" (no distingue mayúsculas de minúsculas)<br>Event &#124; where Computer contains_cs "Contoso" (distingue mayúsculas de minúsculas) |
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | Comparación de fechas        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
@@ -62,6 +63,6 @@ En la tabla siguiente se proporciona una comparación entre diversas consultas c
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Consulte un [tutorial sobre cómo escribir consultas](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) mediante el nuevo lenguaje de consulta.
-- Remítase a la [Referencia del lenguaje de consulta](https://docs.loganalytics.io/queryLanguage/query_language.html) para obtener más detalles sobre todos los comandos, operadores y funciones del nuevo lenguaje de consulta.  
+- Consulte un [tutorial sobre cómo escribir consultas](https://go.microsoft.com/fwlink/?linkid=856078) mediante el nuevo lenguaje de consulta.
+- Remítase a la [Referencia del lenguaje de consulta](https://go.microsoft.com/fwlink/?linkid=856079) para obtener más detalles sobre todos los comandos, operadores y funciones del nuevo lenguaje de consulta.  
 

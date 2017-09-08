@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
-ms.reviewer: rodejo
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: b9b5ddf42958a2b4e241d0252101d979009e7dc0
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: ae2a2e477137bc117111b147e1f088d528a55de5
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -188,6 +189,7 @@ Operadores permitidos
 | Propiedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | otherMails |Cualquier valor de cadena |(user.otherMails -contains "alias@domain") |
+
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Propiedades de varios valores
@@ -237,7 +239,7 @@ Un ejemplo de una regla que utiliza un atributo personalizado es
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Windows Azure AD Graph y la búsqueda del nombre en cuestión.
+El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Windows Azure AD Graph y la búsqueda del nombre en cuestión. Actualmente no se admiten atributos multivalor sincronizados desde Active Directory local. 
 
 ## <a name="direct-reports-rule"></a>Regla de "subordinados directos"
 Puede crear un grupo con todos los subordinados directos de un administrador. Cuando los subordinados directos de un administrador cambien en el futuro, la pertenencia del grupo se ajustará automáticamente.

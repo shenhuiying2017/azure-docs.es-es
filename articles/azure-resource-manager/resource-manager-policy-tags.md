@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 08/24/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 04338b62d942774368149b27e8b35713b77f8d7c
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 469bd8d637337e5900ea84c6bfaf88064695fb7e
 ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="apply-resource-policies-for-tags"></a>Aplicación de directivas de recursos para etiquetas
 
 Este tema proporciona reglas de directiva comunes que se pueden aplicar para garantizar un uso coherente de las etiquetas en recursos.
 
-La aplicación de una directiva de etiqueta a un grupo de recursos o a una suscripción con recursos existentes no aplica con carácter retroactivo la directiva a esos recursos. Para aplicar las directivas en esos recursos, desencadene una actualización en los recursos existentes, como se muestra en [Desencadenamiento de actualizaciones en recursos existentes](#trigger-updates-to-existing-resources).
+La aplicación de una directiva de etiqueta a un grupo de recursos o a una suscripción con recursos existentes no aplica con carácter retroactivo la directiva a esos recursos. Para aplicar las directivas en esos recursos, desencadene una actualización en los recursos existentes. En este artículo se incluye un ejemplo de PowerShell para desencadenar una actualización.
 
 ## <a name="ensure-all-resources-in-a-resource-group-have-a-tagvalue"></a>Garantizar que todos los recursos de un grupo de recursos tienen una etiqueta y un valor
 

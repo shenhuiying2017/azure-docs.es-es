@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 86a4d6d3ab4d29fba8f554265958ffa079b69ec2
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 90a6172dbd887ecda5a9f5d9082a4e136092bc10
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalización de cómo muestra la solución de factoría conectada los datos de los servidores de OPC UA
 
 ## <a name="introduction"></a>Introducción
 
-La solución de factoría conectada agrega y muestra datos de los servidores de OPC UA conectados a la solución. Puede examinar y enviar comandos a los servidores de OPC UA en la solución. Para más información acerca de OPC UA, consulte las [preguntas frecuentes][lnk-faq].
+La solución de factoría conectada agrega y muestra datos de los servidores de OPC UA conectados a la solución. Puede examinar y enviar comandos a los servidores de OPC UA en la solución. Para más información acerca de OPC UA, consulte las [preguntas frecuentes sobre la fábrica conectada](iot-suite-faq-cf.md).
 
 Entre los ejemplos de datos agregados en la solución se pueden mencionar Overall Equipment Efficiency (OEE) (Eficacia general de equipos) y Key Performance Indicators (Indicadores clave de rendimiento) (KPI) que se pueden ver en el panel en los ámbitos de factoría, línea y estación. En las capturas de pantalla siguientes se muestran los valores de OEE y KPI para la estación **Assembly**, en **Production line 1**, en la factoría **Munich**:
 
@@ -175,6 +175,7 @@ Para obtener más información sobre la solución preconfigurada de factoría co
 * [Tutorial de la solución preconfigurada de fábrica conectada][lnk-rm-walkthrough]
 * [Implementación de una puerta de enlace para una solución de fábrica conectada][lnk-connect-cf]
 * [Permisos en el sitio azureiotsuite.com][lnk-permissions]
+* [Preguntas más frecuentes sobre fábrica conectada](iot-suite-faq-cf.md)
 * [Preguntas más frecuentes][lnk-faq]
 
 

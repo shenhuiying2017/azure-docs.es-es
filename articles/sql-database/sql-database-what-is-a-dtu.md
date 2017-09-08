@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 04/13/2017
+ms.date: 04/14/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: fac947fa153d83b614dc35c3cc0d8e640bfe1c95
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: da3399b9c6642435dc7b40ed1c843217c984d15e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
-# <a name="explaining-database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Descripción de las unidades de transacción de bases de datos (DTU) y de las unidades de transacción de bases de datos elásticas (eDTU)
+# <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Unidades de transacción de bases de datos (DTU) y unidades de transacción de bases de datos elásticas (eDTU)
 Este artículo describe las unidades de transacción de bases de datos (DTU) y las unidades de transacción de bases de datos elásticas (eDTU) y qué sucede cuando se alcanza el número máximo de DTU o eDTU.  
 
-## <a name="what-are-database-transaction-units-dtus"></a>Qué son las unidades de transacción de base de datos
-Para una sola base de datos de Azure SQL en un nivel de rendimiento específico dentro de un [nivel de servicio](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels), Microsoft garantiza un cierto nivel de recursos para esa base de datos (independiente de cualquier otra base de datos en la nube de Azure) y asegura ofrecer un nivel de rendimiento predecible. Esta cantidad de recursos se calcula como un número de unidades de transacción de base de datos o DTU y es una medida combinada de CPU, memoria y E/S (E/S de datos y de registro de transacciones). La relación entre estos recursos se determinó originalmente mediante una [carga de trabajo OLTP de prueba comparativa](sql-database-benchmark-overview.md) diseñada para representar las típicas cargas de trabajo OLTP reales. Cuando la carga de trabajo supera la cantidad de cualquiera de estos recursos, se limita el rendimiento, con lo que se obtiene un rendimiento y tiempos de espera más lentos. Los recursos utilizados por la carga de trabajo no afectan a los recursos disponibles para otras bases de datos SQL en la nube de Azure, y los recursos utilizados por otras cargas de trabajo no afectan a los recursos disponibles para la base de datos SQL.
+## <a name="what-are-database-transaction-units-dtus"></a>¿Qué son las unidades de transacción de base de datos?
+Para una sola base de datos de Azure SQL en un nivel de rendimiento específico dentro de un [nivel de servicio](sql-database-single-database-resources.md), Microsoft garantiza un cierto nivel de recursos para esa base de datos (independiente de cualquier otra base de datos en la nube de Azure) y asegura ofrecer un nivel de rendimiento predecible. Esta cantidad de recursos se calcula como un número de unidades de transacción de base de datos o DTU y es una medida combinada de CPU, memoria y E/S (E/S de datos y de registro de transacciones). La relación entre estos recursos se determinó originalmente mediante una [carga de trabajo OLTP de prueba comparativa](sql-database-benchmark-overview.md) diseñada para representar las típicas cargas de trabajo OLTP reales. Cuando la carga de trabajo supera la cantidad de cualquiera de estos recursos, se limita el rendimiento, con lo que se obtiene un rendimiento y tiempos de espera más lentos. Los recursos utilizados por la carga de trabajo no afectan a los recursos disponibles para otras bases de datos SQL en la nube de Azure, y los recursos utilizados por otras cargas de trabajo no afectan a los recursos disponibles para la base de datos SQL.
 
 ![rectángulo de selección](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
@@ -44,8 +43,8 @@ Puede [cambiar los niveles de servicio](sql-database-service-tiers.md) en cualqu
 
 ![Introducción a SQL Database: DTU de bases de datos únicas por nivel](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
-## <a name="what-are-elastic-database-transaction-units-edtus"></a>Qué son las unidades de transacción de base de datos elástica (eDTU)
-En lugar de proporcionar un conjunto exclusivo de recursos (DTU) a una SQL Database que está siempre disponible sin tener en cuenta si no necesita, puede colocar las bases de datos en un [grupo elástico](sql-database-elastic-pool.md) en un servidor de SQL Database que comparte un grupo de recursos entre esas bases de datos. Los recursos compartidos de un grupo elástico medido por unidades de transacción de bases de datos elásticas o eDTU. Los grupos elásticos proporcionan una solución sencilla y rentable para administrar los objetivos de rendimiento de varias bases de datos que tienen patrones de uso muy diferentes e imprevisibles. En un grupo elástico, puede garantizar que ninguna base de datos usa todos los recursos del grupo y, al mismo tiempo, que siempre está disponible una cantidad mínima de recursos para una base de datos de un grupo elástico. Vea los [grupos elásticos](sql-database-elastic-pool.md) para más información.
+## <a name="what-are-elastic-database-transaction-units-edtus"></a>¿Qué son las unidades de transacción de base de datos elásticas (eDTU)?
+En lugar de proporcionar un conjunto exclusivo de recursos (DTU) a una SQL Database que está siempre disponible sin tener en cuenta si no necesita, puede colocar las bases de datos en un [grupo elástico](sql-database-elastic-pool.md) en un servidor de SQL Database que comparte un grupo de recursos entre esas bases de datos. Los recursos compartidos de un grupo elástico medido por unidades de transacción de bases de datos elásticas o eDTU. Los grupos elásticos proporcionan una solución sencilla y rentable para administrar los objetivos de rendimiento de varias bases de datos que tienen patrones de uso muy diferentes e imprevisibles. En un grupo elástico, puede garantizar que ninguna base de datos usa todos los recursos del grupo y, al mismo tiempo, que siempre está disponible una cantidad mínima de recursos para una base de datos de un grupo elástico. 
 
 ![Introducción a SQL Database: eDTU por servicio y nivel](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -60,11 +59,10 @@ Si desea migrar una carga de trabajo de máquina virtual existente local o de SQ
 Los grupos son apropiados para un amplio número de bases de datos con patrones de utilización específicos. Para una base de datos determinada, este patrón está caracterizado por una utilización media baja con picos de utilización relativamente poco frecuentes. Base de datos SQL evalúa automáticamente el historial de uso de recursos de bases de datos en un servidor de Base de datos SQL existente y recomienda la configuración de grupo apropiada en el Portal de Azure. Para más información, consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool.md)
 
 ## <a name="what-happens-when-i-hit-my-maximum-dtus"></a>¿Qué ocurre cuando se alcanza el número máximo de DTU?
-Los niveles de rendimiento se calibran y rigen para proporcionar los recursos necesarios para ejecutar la carga de trabajo de la base de datos hasta los límites máximos permitidos para el nivel de rendimiento o de servicio seleccionado. Si la carga de trabajo alcanza los límites en uno de los límites de CPU/datos, registro de E/S o E/S, seguirá recibiendo los recursos en el nivel máximo permitido, pero es probable que perciba un aumento de las latencias en las consultas. Alcanzar uno de estos límites no provocará errores, sino una ralentización de la carga de trabajo, a menos que la ralentización sea tan severa que las consultas empiecen a agotar el tiempo de espera. Si alcanza el límite máximo permitido de sesiones y solicitudes de usuario simultáneas (subprocesos de trabajo), se producirán errores explícitos. Consulte [Límites de recursos de Azure SQL Database](sql-database-resource-limits.md) para obtener información sobre el límite de otros recursos distintos de la CPU, memoria, E/S de datos y registro de transacciones de E/S.
+Los niveles de rendimiento se calibran y rigen para proporcionar los recursos necesarios para ejecutar la carga de trabajo de la base de datos hasta los límites máximos permitidos para el nivel de rendimiento o de servicio seleccionado. Si la carga de trabajo alcanza los límites en uno de los límites de CPU/datos, registro de E/S o E/S, seguirá recibiendo los recursos en el nivel máximo permitido, pero es probable que perciba un aumento de las latencias en las consultas. Alcanzar uno de estos límites no provocará errores, sino una ralentización de la carga de trabajo, a menos que la ralentización sea tan severa que las consultas empiecen a agotar el tiempo de espera. Si alcanza el límite máximo permitido de sesiones y solicitudes de usuario simultáneas (subprocesos de trabajo), se producirán errores explícitos. Consulte [Límites de recursos de Azure SQL Database]( sql-database-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) para obtener información sobre el límite de otros recursos distintos de la CPU, memoria, E/S de datos y registro de transacciones de E/S.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Consulte [Nivel de servicio](sql-database-service-tiers.md) para obtener información sobre las DTU y las eDTU disponibles para las bases de datos únicas y para los grupos elásticos.
-* Consulte [Límites de recursos de Azure SQL Database](sql-database-resource-limits.md) para obtener información sobre el límite de otros recursos distintos de la CPU, memoria, E/S de datos y registro de transacciones de E/S.
+* Consulte [Nivel de servicio](sql-database-service-tiers.md) para obtener información sobre las DTU y eDTU disponibles para las bases de datos únicas y para los grupos elásticos, así como los límites de recursos distintos de la CPU, la memoria, la E/S de datos y la E/S de registro de transacciones .
 * Consulte [Información de rendimiento de consultas de SQL Database](sql-database-query-performance.md) para comprender el consumo (DTU).
 * Para comprender la metodología detrás de la carga de trabajo de pruebas comparativas de OLTP utilizada para determinar la combinación de DTU, consulte [Información general sobre la prueba comparativa SQL Database](sql-database-benchmark-overview.md) .
 

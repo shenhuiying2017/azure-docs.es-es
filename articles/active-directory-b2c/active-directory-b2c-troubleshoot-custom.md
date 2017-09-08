@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/04/2017
-ms.author: saeedakhter-msft
+ms.date: 08/04/2017
+ms.author: saeda
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ad31e5f4ef3be78d8d2dd6b9c7d83e447d9ef776
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 8c79df33cd5f04f490e2cc6372f7e8ac1c4d9bbe
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -26,13 +26,17 @@ ms.lasthandoff: 08/21/2017
 
 En este artículo se proporcionan los pasos para recopilar registros de Azure AD B2C de forma que pueda diagnosticar problemas con sus directivas personalizadas.
 
+>[!NOTE]
+>Actualmente, los registros de actividad descritos aquí están diseñados **SOLO** para ayudar en el desarrollo de directivas personalizadas. No use el modo de desarrollo en producción.  Los registros recopilan todas las notificaciones que se envían y se reciben de los proveedores de identidad durante el desarrollo.  Si se utilizan en producción, el programador asume la responsabilidad sobre la PII (información personal de identificación) recopilada en el registro de información de la instancia de App Insights que le pertenece.  Estos registros detallados solo se recopilan cuando la directiva se coloca en **MODO DE DESARROLLO**.
+
+
 ## <a name="use-application-insights"></a>Uso de Application Insights
 
 Azure AD B2C admite una característica para enviar datos a Application Insights.  Application Insights proporciona un modo de diagnosticar excepciones y visualizar problemas de rendimiento de la aplicación.
 
 ### <a name="setup-application-insights"></a>Configuración de Application Insights
 
-1. Vaya a [Azure Portal](https://portal.azure.com). Asegúrese de que se encuentra en el inquilino con su suscripción de Azure (no su inquilino de Azure AD B2C).
+1. Vaya al [Portal de Azure](https://portal.azure.com). Asegúrese de que se encuentra en el inquilino con su suscripción de Azure (no su inquilino de Azure AD B2C).
 1. Haga clic en **+ Nuevo** en el menú de navegación izquierdo.
 1. Busque y seleccione **Application Insights** y, a continuación, haga clic en **Crear**.
 1. Complete el formulario y haga clic en **Crear**. Seleccione **General** para el **Tipo de aplicación**.
@@ -42,7 +46,7 @@ Azure AD B2C admite una característica para enviar datos a Application Insights
 
 ### <a name="set-up-the-custom-policy"></a>Configuración de la directiva personalizada
 
-1. Abra el archivo de usuario de confianza (p. ej., SignUpOrSignin.xml).
+1. Abra el archivo RP (p. ej., SignUpOrSignin.xml).
 1. Agregue los siguientes atributos al elemento `<TrustFrameworkPolicy>`:
 
   ```XML
@@ -60,7 +64,7 @@ Azure AD B2C admite una característica para enviar datos a Application Insights
   * `DeveloperMode="true"` indica a ApplicationInsights que acelere la telemetría a través de la canalización de procesamiento, buena para el desarrollo, pero limitada en volúmenes elevados.
   * `ClientEnabled="true"` envía el script del lado cliente ApplicationInsights para realizar un seguimiento de la vista de página y de los errores del lado cliente (no es necesario).
   * `ServerEnabled="true"` envía el JSON UserJourneyRecorder como evento personalizado a Application Insights.
-  El XML tendrá un aspecto similar al siguiente:
+Sample:
 
   ```XML
   <TrustFrameworkPolicy
@@ -102,11 +106,16 @@ Las entradas pueden ser largas.  Exporte a un archivo CSV para realizar un exame
 Puede obtener más información sobre estas herramientas de Analytics [aquí](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
 >[!NOTE]
->La Comunidad ha desarrollado un visor de userjourney para ayudar a los desarrolladores de identidad.  No está admitido por Microsoft y está disponible estrictamente tal cual.  Lee de la instancia de Application Insights y proporciona una vista bien estructurada de los eventos de userjourney.  Proporciona el código fuente para implementarlo en su propia solución.
+>La Comunidad ha desarrollado un visor de recorrido de usuario para ayudar a los desarrolladores de identidad.  No está admitido por Microsoft y está disponible estrictamente tal cual.  Lee de la instancia de Application Insights y proporciona una vista bien estructurada de los eventos de recorrido de usuario.  Proporciona el código fuente para implementarlo en su propia solución.
+
+>[!NOTE]
+>Actualmente, los registros de actividad descritos aquí están diseñados **SOLO** para ayudar en el desarrollo de directivas personalizadas. No use el modo de desarrollo en producción.  Los registros recopilan todas las notificaciones que se envían y se reciben de los proveedores de identidad durante el desarrollo.  Si se utilizan en producción, el programador asume la responsabilidad sobre la PII (información personal de identificación) recopilada en el registro de información de la instancia de App Insights que le pertenece.  Estos registros detallados solo se recopilan cuando la directiva se coloca en **MODO DE DESARROLLO**.
 
 [Github Repository for Unsupported Custom Policy Samples and Related tools](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies) (Repositorio de Github con ejemplos de directivas personalizadas no admitidas y herramientas relacionadas)
 
 
 
+## <a name="next-steps"></a>Pasos siguientes
 
+Explorar los datos de Application Insights para ayudarle a entender cómo funciona el marco de experiencia de identidad subyacente en B2C y poder entregar sus propias experiencias de identidad.
 

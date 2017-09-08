@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 0c65ac74316421a0258f01143baa25ffecb5be3b
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
 ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
@@ -28,7 +28,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   [Flujo de control](api-management-advanced-policies.md#choose): aplica condicionalmente instrucciones de directiva basadas en los resultados de la evaluación de [expresiones](api-management-policy-expressions.md) booleanas.  
   
--   [Reenviar solicitud](#ForwardRequest): reenvía la solicitud al servicio back-end.
+-   [Reenviar solicitud](#ForwardRequest) : reenvía la solicitud al servicio back-end.
 
 -   [Limitar la simultaneidad](#LimitConcurrency): evita que las directivas delimitadas las ejecute simultáneamente un número de solicitudes mayor que el especificado.
   
@@ -308,8 +308,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |---------------|-----------------|--------------|--------------|  
 |key|Una cadena. Expresión que se permite. Especifica el ámbito de la simultaneidad. Puede compartirse entre varias directivas.|Sí|N/D|  
 |número máximo|Un entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.|Sí|N/D|  
-|timeout|Un entero. Expresión que se permite. Especifica el número de segundos que debe esperar una solicitud para especificar un ámbito antes de que aparezca el error "403 Demasiadas solicitudes"|No|Infinity|  
-|longitud máxima de cola|Un entero. Expresión que se permite. Especifica la longitud máxima de la cola. Cuando la cola se agote, las solicitudes entrantes que intenten acceder a esta directiva se terminarán inmediatamente con el error "403 Demasiadas solicitudes".|No|Infinity|  
+|timeout|Un entero. Expresión que se permite. Especifica el número de segundos que debe esperar una solicitud para indicar un ámbito antes de que aparezca el error "429 Demasiadas solicitudes"|No|Infinity|  
+|longitud máxima de cola|Un entero. Expresión que se permite. Especifica la longitud máxima de la cola. Cuando la cola se agote, las solicitudes entrantes que intenten acceder a esta directiva se terminarán inmediatamente con el error "429 Demasiadas solicitudes".|No|Infinity|  
   
 ###  <a name="ChooseUsage"></a> Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  

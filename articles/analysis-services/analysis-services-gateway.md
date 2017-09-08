@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 08/21/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8c142c5e89c5e4eb45bddd0943a6a130cc876f5a
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 514b5404e8cbfa0baa657eb41736e20cad502638
 ms.contentlocale: es-es
 ms.lasthandoff: 08/24/2017
 
@@ -50,7 +50,7 @@ Flujo de datos y consultas:
 
 1. El servicio en la nube crea una consulta con las credenciales cifradas para el origen de datos local. A continuación, se envía a una cola de la puerta de enlace para su procesamiento.
 2. El servicio en la nube de puerta de enlace analiza la consulta e inserta la solicitud en la instancia de [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
-3. La puerta de enlace de datos local sondea Azure Service Bus en busca de solicitudes pendientes.
+3. La puerta de enlace de datos local sondea el bus de servicio de Azure en busca de solicitudes pendientes.
 4. La puerta de enlace obtiene la consulta, descifra las credenciales y se conecta a los orígenes de datos con ellas.
 5. La puerta de enlace envía la consulta al origen de datos para su ejecución.
 6. Los resultados se devuelven desde el origen de datos a la puerta de enlace y luego se envían al servicio en la nube y al servidor.
@@ -61,7 +61,7 @@ La puerta de enlace de datos local está configurada para usar *NT SERVICE\PBIEg
 Si tiene problemas con el servidor proxy debido a la autenticación, puede cambiar la cuenta de servicio de Windows a un usuario de dominio o cuenta de servicio administrada.
 
 ## <a name="ports"> </a>Puertos
-La puerta de enlace crea una conexión de salida con Azure Service Bus. Se comunica en los puertos de salida siguientes: TCP 443 (valor predeterminado), 5671, 5672 y del 9350 al 9354.  La puerta de enlace no requiere puertos de entrada.
+La puerta de enlace crea una conexión de salida con el bus de servicio de Azure. Se comunica en los puertos de salida siguientes: TCP 443 (valor predeterminado), 5671, 5672 y del 9350 al 9354.  La puerta de enlace no requiere puertos de entrada.
 
 Se recomienda crear una lista de direcciones IP permitidas de la región de datos en el firewall. Puede descargar la [lista de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). La lista se actualiza semanalmente.
 
@@ -99,11 +99,11 @@ Puede hacer que la puerta de enlace se comunique con Azure Service Bus mediante 
 
 ### <a name="general"></a>General
 
-**P**: ¿Necesito una puerta de enlace para los orígenes de datos en la nube como, por ejemplo, SQL Azure? <br/>
+**P**: ¿Necesito una puerta de enlace para orígenes de datos en la nube como, por ejemplo, Azure SQL Database? <br/>
 **R:** No. Las puertas de enlace se conectan únicamente a orígenes de datos locales.
 
 **P**: ¿La puerta de enlace debe estar instalada en la misma máquina que el origen de datos? <br/>
-**R:** No. La puerta de enlace se conecta al origen de datos mediante la información de conexión que se proporcionó. Considere la puerta de enlace como una aplicación cliente en este sentido. La puerta de enlace solo necesita la funcionalidad para conectarse al nombre de servidor que se proporcionó.
+**R:** No. La puerta de enlace se conecta al origen de datos mediante la información de conexión que se proporcionó. Considere la puerta de enlace como una aplicación cliente en este sentido. La puerta de enlace solo necesita la funcionalidad para conectarse al nombre de servidor que se proporcionó, por lo general, en la misma red.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -124,13 +124,13 @@ Puede usar la aplicación Azure Speed Test (desarrollada por un tercero) para me
 **R**: Los resultados se envían a través de Azure Service Bus.
 
 **P**: ¿Hay alguna conexión de entrada a la puerta de enlace desde la nube? <br/>
-**R:** No. La puerta de enlace usa conexiones de salida a Azure Service Bus.
+**R:** No. La puerta de enlace usa conexiones de salida al bus de servicio de Azure.
 
 **P**: ¿Qué sucede si bloqueo las conexiones de salida? ¿Qué tengo que abrir? <br/>
 **R**: Consulte los puertos y los hosts que usa la puerta de enlace.
 
 **P**: ¿Cómo se llama el servicio real de Windows?<br/>
-**R**: En los servicios, la puerta de enlace se llama Servicio Power BI Enterprise Gateway.
+**R**: En los servicios, la puerta de enlace se llama servicio de puerta de enlace de datos local.
 
 **P**: ¿Se puede ejecutar el servicio de Windows de puerta de enlace con una cuenta de Azure Active Directory? <br/>
 **R:** No. El servicio de Windows debe tener una cuenta de Windows válida. De forma predeterminada, el servicio se ejecuta con el SID de servicio NT SERVICE\PBIEgwService.
@@ -151,7 +151,7 @@ Puede usar la aplicación Azure Speed Test (desarrollada por un tercero) para me
 También puede examinar las herramientas de que dispone su origen de datos para el seguimiento de consultas. Por ejemplo, puede utilizar Eventos extendidos o SQL Profiler en SQL Server y Analysis Services.
 
 **P**: ¿Dónde están los registros de la puerta de enlace? <br/>
-**R**: Consulte la sección Herramientas de este mismo tema.
+**R**: Consulte la sección Registros en este mismo tema.
 
 ### <a name="update"></a>Actualización a la versión más reciente
 
