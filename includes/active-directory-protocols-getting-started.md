@@ -13,12 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
-ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
+ms.translationtype: HT
+ms.sourcegitcommit: 8bdd78473b506fd3946ab12839ccbc20ca697f38
+ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
+ms.contentlocale: es-es
 
 ---
-## <a name="register-your-application-with-your-ad-tenant"></a>Registro de la aplicación con el inquilino de AD
+## Registro de la aplicación con el inquilino de AD
 En primer lugar, tendrá que registrar la aplicación con el inquilino de Azure Active Directory (Azure AD). De este modo, se generará un id. de aplicación para la aplicación y también se habilitará esta para que reciba tokens.
 
 * Inicie sesión en el [Portal de Azure](https://portal.azure.com).
