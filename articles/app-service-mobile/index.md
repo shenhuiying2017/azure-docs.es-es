@@ -1,20 +1,22 @@
 ---
 title: "Documentación sobre Azure Mobile Apps: tutoriales y referencia de API | Microsoft Docs"
 description: Aprenda a usar Mobile Apps en Azure App Service para compilar y hospedar aplicaciones iOS, Android o Windows nativas o aplicaciones multiplataforma con Xamarin o Cordova.
-services: app-service\mobile
-author: carolz
+services: app-service-mobile
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\mobile
+ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 6f1ca5fe5125728b51a6d46e55415afb72405910
-ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 0286d0cab7eb774a13066beb838840892dfeeda5
+ms.contentlocale: es-es
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="mobile-apps-documentation"></a>Documentación de Mobile Apps
@@ -141,7 +143,7 @@ Aprenda a usar Mobile Apps en Azure App Service para compilar aplicaciones iOS, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Comenzar a crear una aplicación xamarin.Android</h3>
+                        <h3>Comenzar a crear una aplicación de Xamarin.Android</h3>
                     </div>
                 </div>
             </div>
@@ -159,7 +161,7 @@ Aprenda a usar Mobile Apps en Azure App Service para compilar aplicaciones iOS, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Comenzar a crear una aplicación xamarin.Forms</h3>
+                        <h3>Comenzar a crear una aplicación de Xamarin.Forms</h3>
                     </div>
                 </div>
             </div>
@@ -208,9 +210,4 @@ Aprenda a usar Mobile Apps en Azure App Service para compilar aplicaciones iOS, 
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

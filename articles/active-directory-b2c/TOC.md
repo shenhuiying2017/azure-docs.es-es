@@ -46,6 +46,7 @@
 ## [Configuración de tokens](active-directory-b2c-token-session-sso.md)
 ## [Habilitación de MFA](active-directory-b2c-reference-mfa.md)
 ## [Uso de atributos personalizados](active-directory-b2c-reference-custom-attr.md)
+## [Personalización de contraseña](active-directory-b2c-reference-password-complexity.md)
 ## [Personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md)
 ### [Herramienta de ayudante para la personalización](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Personalización de lenguaje](active-directory-b2c-reference-language-customization.md)
@@ -71,6 +72,7 @@
 #### [Personalización de atributos](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Personalización de la interfaz de usuario](active-directory-b2c-ui-customization-custom.md)
 #### [Personalización de tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Personalización de contraseña](active-directory-b2c-reference-password-complexity-custom.md)
 ### Solución de problemas
 #### [Recopilación de registros con Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referencia
