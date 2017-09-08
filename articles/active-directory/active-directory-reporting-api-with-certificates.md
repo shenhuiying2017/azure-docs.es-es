@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 09/08/2017
 ms.author: ramical
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
+ms.contentlocale: es-es
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Obtención de datos mediante Reporting API de Azure AD con certificados
@@ -26,10 +26,10 @@ Este artículo trata de cómo usar Reporting API de Azure AD con credenciales de
 
 ## <a name="use-the-azure-ad-reporting-api"></a>Uso de Reporting API de Azure AD 
 Reporting API de Azure AD requiere que complete los pasos siguientes:
- *    Requisitos previos de instalación
- *    Establecimiento del certificado en la aplicación
- *    Obtención de un token de acceso
- *    Uso del token de acceso para llamar a la API Graph
+ *  Requisitos previos de instalación
+ *  Establecimiento del certificado en la aplicación
+ *  Obtención de un token de acceso
+ *  Uso del token de acceso para llamar a la API Graph
 
 Para más información sobre el código fuente, consulte el [módulo Leverage Report API](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils) (Uso de Report API). 
 

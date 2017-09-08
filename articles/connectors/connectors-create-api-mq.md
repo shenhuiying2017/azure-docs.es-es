@@ -1,4 +1,3 @@
- 
 ---
 title: Uso del conector de MQ en Azure Logic Apps | Microsoft Docs
 description: "Conexión a un servidor local o de Azure MQ desde flujo de trabajo de la aplicación lógica para examinar, recibir y enviar mensajes a WebSphere MQ"
