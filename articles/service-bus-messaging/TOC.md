@@ -53,6 +53,12 @@
 ## Administrar
 ### [Bibliotecas de administración de Service Bus](service-bus-management-libraries.md)
 ### [Uso de plantillas de Azure Resource Manager](service-bus-resource-manager-overview.md)
+#### [Creación de un espacio de nombres](service-bus-resource-manager-namespace.md)
+#### [Creación de un espacio de nombres y una cola](service-bus-resource-manager-namespace-queue.md)
+#### [Creación de un espacio de nombres con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
+#### [Creación de una regla de autorización para el espacio de nombres y la cola](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Creación de un espacio de nombres con un tema, una suscripción y una regla](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [Uso de PowerShell para aprovisionar entidades](service-bus-manage-with-ps.md)
 
 # Referencia

@@ -132,22 +132,17 @@
 ## Administración de dispositivos
 ### [Introducción](device-management-introduction.md)
 ### [Uso de Azure Portal](device-management-azure-portal.md)
+### [Planear Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Preguntas más frecuentes](device-management-faq.md)
 ### Tareas
+#### [Configuración de dispositivos con Windows 10 registrados en Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Configuración de dispositivos unidos a Azure AD](device-management-azuread-joined-devices-setup.md)
 #### [Configuración de dispositivos combinados híbridos de Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Implementación local](active-directory-device-registration-on-premises-setup.md)
+#### [Combinación de Azure AD durante la primera ejecución de Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Solución de problemas
 #### [Dispositivos combinados híbridos de Azure AD para Windows 10 y Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Dispositivos combinados híbridos de Azure AD para Windows heredado](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-### [Azure AD Join](active-directory-azureadjoin-overview.md)
-#### [Plan](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [Configuración del registro de dispositivos](active-directory-azureadjoin-setup.md)
-#### [Registro de nuevos dispositivos](active-directory-azureadjoin-user-frx.md)
-#### [Implementación](active-directory-azureadjoin-devices-group-policy.md)
-#### [Descripción de la integración de Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [Uso de dispositivos de Windows 10](active-directory-azureadjoin-windows10-devices.md)
-#### [Conexión del dispositivo](active-directory-azureadjoin-personal-device.md)
-#### [Conexión a un dispositivo con Windows 10](active-directory-azureadjoin-user-upgrade.md)
 
 ## Administración de aplicaciones
 ### [Información general](active-directory-enable-sso-scenario.md)
@@ -296,15 +291,15 @@
 ### [Acceso condicional](active-directory-conditional-access-azure-portal.md)
 #### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Procedimientos recomendados](active-directory-conditional-access-best-practices.md)
+#### [Conectividad VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)
+#### [Administración de aplicaciones móviles](active-directory-conditional-access-mam.md)
 #### [Referencia técnica](active-directory-conditional-access-technical-reference.md)
-#### [Aplicaciones admitidas](active-directory-conditional-access-supported-apps.md)
 #### [Descripción de directivas de dispositivo](active-directory-conditional-access-device-policies.md)
 #### [Configuración de acceso a aplicaciones conectadas](active-directory-conditional-access-policy-connected-applications.md)
 #### [Corrección](active-directory-conditional-access-device-remediation.md)
 #### [Preguntas más frecuentes](active-directory-conditional-faqs.md)
 #### [Portal clásico](active-directory-conditional-access.md)
 ##### [Primeros pasos](active-directory-conditional-access-azuread-connected-apps.md)
-
 
 ### Windows Hello
 #### [Autenticación sin contraseñas](active-directory-azureadjoin-passport.md)
