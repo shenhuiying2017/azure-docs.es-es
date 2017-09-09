@@ -39,12 +39,14 @@
 ### [Guía para la optimización del rendimiento de Storm en HDInsight y Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
 
 ## Integración con servicios de Azure
+### Con HDInsight
+#### [Uso del portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Uso de PowerShell (almacenamiento predeterminado)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Uso de PowerShell (almacenamiento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Uso de la plantilla de Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Acceso desde máquinas virtuales en redes virtuales de Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Uso con Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [HDInsight con Data Lake Store: Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [HDInsight con Data Lake Store como almacenamiento predeterminado: PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-### [HDInsight con Data Lake Store como almacenamiento adicional: PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [HDInsight con Data Lake Store: Plantilla de Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Uso con Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
 ### [Uso con Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Uso con Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Uso con Power BI](data-lake-store-power-bi.md)
@@ -55,7 +57,7 @@
 
 ## Administrar
 ### [Acceso a los registros de diagnóstico](data-lake-store-diagnostic-logs.md)
-### [Planeamiento para lograr alta disponibilidad](data-lake-store-troubleshooting-guidance.md)
+### [Planeamiento para lograr alta disponibilidad](data-lake-store-disaster-recovery-guidance.md)
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)

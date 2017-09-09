@@ -143,6 +143,8 @@
 #### [Portal](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
+### [Reproducción de HLS con cifrado AES en Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
+### [Aprobación de tokens de autenticación](http://mingfeiy.com/how-client-pass-tokens-to-azure-media-services-key-delivery-services)
 
 ## [Análisis](media-services-analytics-overview.md)
 ### [Análisis multimedia mediante el portal](media-services-portal-analyze.md)
@@ -190,7 +192,6 @@
 #### [Reproductores de Adobe Open Source Media Framework](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Inserción de anuncios en el lado del cliente](media-services-inserting-ads-on-client-side.md)
 ### [Licencias del kit de portabilidad de cliente de Microsoft Smooth Streaming](media-services-sspk.md)
-### [Reproducción de HLS con cifrado AES en Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## Integrate
 ### [Uso de Azure Functions con Media Services](media-services-dotnet-how-to-use-azure-functions.md)

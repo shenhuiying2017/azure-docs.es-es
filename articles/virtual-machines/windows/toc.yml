@@ -120,6 +120,8 @@
           href: connect-logon.md
         - name: Uso de licencias AHUB
           href: hybrid-use-benefit-licensing.md
+        - name: Uso de los derechos de hospedaje multiinquilino para Windows 10
+          href: windows-desktop-multitenant-hosting-deployment.md
     - name: Protección de máquinas virtuales
       items:
         - name: Cifrar

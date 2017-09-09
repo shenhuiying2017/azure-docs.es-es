@@ -16,9 +16,9 @@
 ### [Configuración personalizada](active-directory-aadconnect-get-started-custom.md)
 ### [Actualización desde DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Actualización desde una versión anterior](active-directory-aadconnect-upgrade-previous-version.md)
+### [Instalación mediante una base de datos de ADSync ya existente](active-directory-aadconnect-existing-database.md)
 
-
-# Procedimientos
+# Cómo
 ## Planeamiento y diseño
 ### [Conceptos de diseño](active-directory-aadconnect-design-concepts.md)
 ### [Topologías de Azure AD Connect](active-directory-aadconnect-topologies.md)

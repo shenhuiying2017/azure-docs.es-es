@@ -13,7 +13,7 @@
 ## [Vídeo introductorio](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Introducción
-## [Replicación de máquinas virtuales de Azure (vista previa)](site-recovery-azure-to-azure.md)
+## [Replicación de máquinas virtuales de Azure en Azure (versión preliminar)](site-recovery-azure-to-azure.md)
 ## [Replicación de máquinas virtuales VMware en Azure](vmware-walkthrough-overview.md)
 ### [Paso 1: Revisión de la arquitectura](vmware-walkthrough-architecture.md)
 ### [Paso 2: Revisión de los requisitos previos y las limitaciones](vmware-walkthrough-prerequisites.md)
@@ -140,6 +140,8 @@
 ## Supervisión y solución de problemas
 ### [Problemas de replicación de Azure en Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [Problemas de replicación desde un sitio local en Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Problemas de instalación de Mobility Service](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [Problemas de conmutación por error en Azure](site-recovery-failover-to-azure-troubleshoot.md)
 ### [Recopilación de registros y solución de problemas locales](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referencia

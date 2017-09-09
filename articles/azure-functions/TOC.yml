@@ -39,6 +39,8 @@
       href: functions-twitter-email.md
     - name: 2 - Creación de una API sin servidor
       href: functions-create-serverless-api.md
+    - name: 3 - Creación de una definición de OpenAPI
+      href: functions-openapi-definition.md
 - name: Muestras
   items:
     - name: Ejemplos de código
@@ -47,7 +49,7 @@
       href: functions-cli-samples.md
 - name: Conceptos
   items:
-    - name: Planes de consumo y plan de App Service
+    - name: Comparación de planes de hospedaje
       href: functions-scale.md
     - name: Desencadenadores y enlaces
       href: functions-triggers-bindings.md
@@ -99,6 +101,8 @@
           href: functions-api-definition-getting-started.md
         - name: Exportación a PowerApps y Microsoft Flow
           href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Llamada a una función desde PowerApps
+          href: functions-powerapps-scenario.md
 - name: Referencia
   items:
     - name: Enlaces
