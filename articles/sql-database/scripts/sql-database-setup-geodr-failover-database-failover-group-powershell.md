@@ -39,8 +39,8 @@ En este ejemplo de script de PowerShell se configura un grupo de conmutación po
 Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos y todos los recursos asociados.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
-Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 ```
 
 ## <a name="script-explanation"></a>Explicación del script

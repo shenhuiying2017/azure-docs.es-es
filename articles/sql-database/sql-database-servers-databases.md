@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ef61aa610957024d85f4231d957869858fd545c5
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 8a44f10eda396aec72e05e87e406ff80834294d8
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -31,8 +31,8 @@ Una base de datos SQL de Azure es una base de datos administrada de Microsoft Az
 
 Una base de datos SQL de Azure puede ser:
 
-- Una base de datos única con su [propio conjunto de recursos](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU).
-- Parte de un [grupo elástico de SQL](sql-database-elastic-pool.md) que [comparte un conjunto de recursos](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU).
+- Una [base de datos única](sql-database-single-database-resources.md) con su propio conjunto de recursos
+- Parte de un [grupo de bases de datos elásticas](sql-database-elastic-pool.md) que comparte un conjunto de recursos
 - Parte de un [conjunto escalado horizontalmente de bases de datos particionadas](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), que pueden ser simples o agrupadas.
 - Parte de un conjunto de bases de datos que participan en un [modelo de diseño de SaaS multiinquilino](sql-database-design-patterns-multi-tenancy-saas-applications.md) y cuyas bases de datos pueden ser simples o agrupadas (o ambas). 
 
@@ -46,7 +46,7 @@ Una base de datos SQL de Azure puede ser:
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>¿Qué es un servidor lógico de Azure SQL?
 
-Un servidor lógico actúa como punto administrativo central para varias bases de datos, incluidos los [grupos elásticos de SQL](sql-database-elastic-pool.md) , los [inicios de sesión](sql-database-manage-logins.md), las [reglas de firewall](sql-database-firewall-configure.md), las [reglas de auditoría](sql-database-auditing.md), las [directivas de detección de amenazas](sql-database-threat-detection.md) y los [grupos de conmutación por error](sql-database-geo-replication-overview.md). Un servidor lógico puede estar en una región distinta a la de su grupo de recursos. El servidor lógico debe existir antes de crear la base de datos SQL de Azure. Todas las bases de datos de un servidor se crean dentro de la misma región que el servidor lógico. 
+Un servidor lógico actúa como punto administrativo central para varias bases de datos, incluidos los [grupos de bases de datos elásticas](sql-database-elastic-pool.md), los [inicios de sesión](sql-database-manage-logins.md), las [reglas de firewall](sql-database-firewall-configure.md), las [reglas de auditoría](sql-database-auditing.md), las [directivas de detección de amenazas](sql-database-threat-detection.md) y los [grupos de conmutación por error](sql-database-geo-replication-overview.md). Un servidor lógico puede estar en una región distinta a la de su grupo de recursos. El servidor lógico debe existir antes de crear la base de datos SQL de Azure. Todas las bases de datos de un servidor se crean dentro de la misma región que el servidor lógico. 
 
 
 > [!IMPORTANT]
@@ -79,7 +79,7 @@ Un servidor lógico de Azure Database:
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Protección de bases de datos SQL de Azure con el firewall de SQL Database
 
-Para ayudar a proteger los datos, un [firewall de SQL Database](sql-database-firewall-configure.md) impide cualquier acceso al servidor de base de datos o a cualquiera de sus bases de datos desde fuera de la conexión al servidor directamente a través de la conexión a la suscripción de Azure. Para habilitar la conectividad adicional, debe [crear una o varias reglas de firewall](sql-database-firewall-configure.md#creating-and-managing-firewall-rules). Para crear y administrar grupos elásticos de SQL, vea [Grupos elásticos](sql-database-elastic-pool.md).
+Para ayudar a proteger los datos, un [firewall de SQL Database](sql-database-firewall-configure.md) impide cualquier acceso al servidor de base de datos o a cualquiera de sus bases de datos desde fuera de la conexión al servidor directamente a través de la conexión a la suscripción de Azure. Para habilitar la conectividad adicional, debe [crear una o varias reglas de firewall](sql-database-firewall-configure.md#creating-and-managing-firewall-rules). Para crear y administrar grupos elásticos, consulte [Grupos elásticos](sql-database-elastic-pool.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Administración de servidores, bases de datos y firewalls de Azure SQL en Azure Portal
 
@@ -99,7 +99,8 @@ Para crear una base de datos de Azure SQL Database en [Azure Portal](https://por
 
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
-> [IMPORTANTE] Para obtener información sobre cómo seleccionar el nivel de precios para la base de datos, vea los [niveles de servicio](sql-database-service-tiers.md).
+> [!IMPORTANT]
+> Para obtener información sobre cómo seleccionar el plan de tarifa para la base de datos, consulte los [niveles de servicio](sql-database-service-tiers.md).
 >
 
 ### <a name="manage-an-existing-sql-server"></a>Administración de un servidor SQL Server existente
@@ -122,7 +123,7 @@ Para administrar una base de datos existente, vaya a la página de **SQL Databas
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Administración de servidores, bases de datos y firewalls de Azure SQL con PowerShell
 
-Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell). Para crear y administrar grupos elásticos de SQL, vea [Grupos elásticos](sql-database-elastic-pool.md).
+Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell). Para crear y administrar grupos elásticos, consulte [Grupos elásticos](sql-database-elastic-pool.md).
 
 | Cmdlet | Descripción |
 | --- | --- |
@@ -146,7 +147,7 @@ Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Administración de servidores, bases de datos y firewalls de Azure SQL con la CLI de Azure
 
-Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con la [CLI de Azure](/cli/azure/overview), use los siguientes comandos de la [CLI de Azure para SQL Database](/cli/azure/sql/db). Use [Cloud Shell](/azure/cloud-shell/overview) para ejecutar la CLI en el explorador o [instálela](/cli/azure/install-azure-cli) en Windows, Linux o macOS. Para crear y administrar grupos elásticos de SQL, vea [Grupos elásticos](sql-database-elastic-pool.md).
+Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con la [CLI de Azure](/cli/azure/overview), use los siguientes comandos de la [CLI de Azure para SQL Database](/cli/azure/sql/db). Use [Cloud Shell](/azure/cloud-shell/overview) para ejecutar la CLI en el explorador o [instálela](/cli/azure/install-azure-cli) en Windows, Linux o macOS. Para crear y administrar grupos elásticos, consulte [Grupos elásticos](sql-database-elastic-pool.md).
 
 | Cmdlet | Descripción |
 | --- | --- |
@@ -176,7 +177,7 @@ Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Administración de servidores, bases de datos y firewalls de Azure SQL con Transact-SQL
 
-Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con Transact-SQL, use los siguientes comandos de Transact-SQL. Puede emitir estos comandos mediante Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) o cualquier otro programa que pueda conectarse a un servidor de Azure SQL Database y pasar comandos de Transact-SQL. Para administrar grupos elásticos de SQL, consulte [Grupos elásticos](sql-database-elastic-pool.md).
+Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con Transact-SQL, use los siguientes comandos de Transact-SQL. Puede emitir estos comandos mediante Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) o cualquier otro programa que pueda conectarse a un servidor de Azure SQL Database y pasar comandos de Transact-SQL. Para administrar grupos de bases de datos elásticas, consulte [Grupos elásticos](sql-database-elastic-pool.md).
 
 > [!IMPORTANT]
 > No se puede crear ni eliminar un servidor mediante Transact-SQL.
@@ -206,11 +207,33 @@ Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Administración de servidores, bases de datos y firewalls de Azure SQL con la API de REST
 
-Para crear y administrar servidores, bases de datos y firewalls de Azure SQL con la API de REST, vea [Azure SQL Database REST API](/rest/api/sql/) (API de REST de Azure SQL Database).
+Para crear y administrar servidores, bases de datos y firewalls de Azure SQL, use estas solicitudes de la API de REST.
+
+| Comando | Descripción |
+| --- | --- |
+|[Servers - Create Or Update](/rest/api/sql/servers/createorupdate)|Crea o actualiza un nuevo servidor.|
+|[Servers - Delete](/rest/api/sql/servers/delete)|Elimina un servidor de SQL Server.|
+|[Servers - Get](/rest/api/sql/servers/get)|Obtiene un servidor.|
+|[Servers - List](/rest/api/sql/servers/list)|Devuelve una lista de servidores.|
+|[Servers - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|Devuelve una lista de servidores en un grupo de recursos.|
+|[Servers - Update](/rest/api/sql/servers/update)|Actualiza un servidor existente.|
+|[Servers - Sql](/rest/api/sql/servers%20-%20sql)|Determina si se puede crear un recurso con el nombre especificado.|
+|[Databases - Create Or Update](/rest/api/sql/databases/createorupdate)|Crea una nueva base de datos o actualiza una ya existente.|
+|[Databases - Get](/rest/api/sql/databases/get)|Obtiene una base de datos.|
+|[Databases - Get By Elastic Pool](/rest/api/sql/databases/getbyelasticpool)|Obtiene una base de datos dentro de un grupo elástico.|
+|[Databases - Get By Recommended Elastic Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtiene una base de datos dentro de un grupo elástico recomendado.|
+|[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Devuelve una lista de bases de datos de un grupo elástico.|
+|[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Devuelve una lista de bases de datos dentro de un grupo elástico recomendado.|
+|[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Devuelve una lista de bases de datos de un servidor.|
+|[Databases - Update](/api/sql/databases/update)|Actualiza una base de datos existente.|
+|[Firewall Rules - Create Or Update](/rest/api/sql/firewallrules/createorupdate)|Crea o actualiza una regla de firewall.|
+|[Firewall Rules - Delete](/rest/api/sql/firewallrules/delete)|Elimina una regla de firewall.|
+|[Firewall Rules - Get](/rest/api/sql/firewallrules/get)|Obtiene una regla de firewall.|
+|[Firewall Rules - List By Server](/rest/api/sql/firewallrules/listbyserver)|Devuelve una lista de reglas de firewall.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información sobre la agrupación de las bases de datos con grupos elásticos de SQL, vea [Grupos elásticos](sql-database-elastic-pool.md).
+- Para más información sobre la agrupación de bases de datos mediante grupos elásticos, consulte [Grupos elásticos](sql-database-elastic-pool.md).
 - Para más información sobre el servicio Azure SQL Database, vea [¿Qué es el servicio Azure SQL Database?](sql-database-technical-overview.md).
 - Para obtener información sobre cómo migrar una base de datos de SQL Server a Azure, vea [Migración a Azure SQL Database](sql-database-cloud-migrate.md).
 - Para obtener información sobre las características admitidas, consulte el [artículo que trata sobre dicho tema](sql-database-features.md).

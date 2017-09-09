@@ -4,7 +4,7 @@ description: "Aprenda a seleccionar el destino de las opciones de salida de dato
 keywords: "transformación de datos, resultados del análisis, opciones de almacenamiento de datos"
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: fdecfe8b63d56983846f1601971ed680d624118d
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 91ee74f01b2e84244245dbe43408589f04af6338
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Salidas de Stream Analytics: opciones para almacenamiento y análisis
@@ -32,7 +31,7 @@ Para habilitar diversos patrones de aplicación, Análisis de transmisiones de A
 Análisis de transmisiones admite el [Almacén de Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). Esta solución de almacenamiento permite almacenar datos de cualquier tamaño, tipo y velocidad de ingesta para realizar análisis exploratorios y operativos. Además, Análisis de transmisiones debe tener autorización para acceder al Almacén de Data Lake. En el [artículo sobre la salida de Data Lake](stream-analytics-data-lake-output.md)se especifica información sobre la autorización y cómo registrarse en Data Lake Store (en caso necesario).
 
 ### <a name="authorize-an-azure-data-lake-store"></a>Creación de una instancia de Azure Data Lake Store
-Al seleccionar Data Lake Storage como salida en el Portal de administración de Azure, se le pedirá que autorice una conexión a una instancia existente de Data Lake Store.  
+Al seleccionar Data Lake Storage como salida en Azure Portal, se le pedirá que autorice una conexión a una instancia existente de Data Lake Store.  
 
 ![Autorizar el Almacén de Azure Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
@@ -57,7 +56,7 @@ En la siguiente tabla podrá encontrar una lista de los nombres de propiedades y
 <td>El nombre de la cuenta de Data Lake Storage donde va a enviar la salida. Se le mostrará una lista desplegable de cuentas del Almacén de Data Lake a las que el usuario cuya sesión se ha iniciado en el portal tiene acceso.</td>
 </tr>
 <tr>
-<td>Patrón de prefijo de la ruta [<I>opcional</I>]</td>
+<td>Patrón del prefijo de la ruta de acceso</td>
 <td>La ruta de acceso utilizada para escribir sus archivos en la cuenta del Almacén de Data Lake especificada. <BR>{date}, {time}<BR>Ejemplo 1: carpeta1/registros/{date}/{time}<BR>Ejemplo 2: carpeta1/registros/{date}</td>
 </tr>
 <tr>
@@ -110,7 +109,7 @@ Tendrá que volver a autenticar la cuenta de Data Lake Store si su contraseña h
 > 
 
 ## <a name="blob-storage"></a>Almacenamiento de blobs
-Almacenamiento de blobs ofrece una solución rentable y escalable para almacenar grandes cantidades de datos no estructurados en la nube.  Para obtener una introducción sobre el almacenamiento de blobs de Azure y su uso, consulte la documentación en [Uso de blobs](../storage/storage-dotnet-how-to-use-blobs.md).
+Almacenamiento de blobs ofrece una solución rentable y escalable para almacenar grandes cantidades de datos no estructurados en la nube.  Para obtener una introducción sobre el almacenamiento de blobs de Azure y su uso, consulte la documentación en [Uso de blobs](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de blob.
 
@@ -162,7 +161,7 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 </tr>
 <tr>
 <td>Formato</td>
-<td>Solo se aplica para la serialización de JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON.</td>
+<td>Solo se aplica para la serialización de JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON. Esta matriz se cerrará cuando el trabajo se detenga o Stream Analytics haya pasado a la siguiente ventana de tiempo. En general, es preferible utilizar JSON separado con líneas, ya que no requiere ningún control especial mientras todavía se esté escribiendo en el archivo de salida.</td>
 </tr>
 </tbody>
 </table>
@@ -189,7 +188,7 @@ Hay unos cuantos parámetros que son necesarios para configurar los flujos de da
 [Power BI](https://powerbi.microsoft.com/) como salida para un trabajo de Análisis de transmisiones a fin de ofrecer una amplia experiencia de visualización de los resultados del análisis. Esta capacidad puede usarse con paneles operativos, generación de informes e informes basados en métricas.
 
 ### <a name="authorize-a-power-bi-account"></a>Autorización de una cuenta de Power BI
-1. Cuando se selecciona Power BI como salida en el Portal de administración de Azure, se le pedirá que autorice a un usuario de Power BI existente o que cree una nueva cuenta de Power BI.  
+1. Cuando se selecciona Power BI como salida en Azure Portal, se le pedirá que autorice a un usuario de Power BI o que cree una nueva cuenta de Power BI.  
    
    ![Autorización de un usuario de Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 2. Cree una cuenta nueva si no aún no tiene una y después haga clic en Autorizar ahora.  Aparecerá una pantalla similar a la siguiente.  
@@ -255,7 +254,7 @@ Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida
   ![Autorización de renovación de Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>Almacenamiento de tablas
-[Azure Table Storage](../storage/storage-introduction.md) ofrece un tipo de almacenamiento de alta disponibilidad y escalabilidad masiva, de forma que las aplicaciones pueden escalarse automáticamente para ajustarse a la demanda de los usuarios. Almacenamiento de tablas es un almacén de claves/atributos NoSQL de Microsoft que puede aprovechar para datos estructurados con menos restricciones en el esquema. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz.
+[Azure Table Storage](../storage/common/storage-introduction.md) ofrece un tipo de almacenamiento de alta disponibilidad y escalabilidad masiva, de forma que las aplicaciones pueden escalarse automáticamente para ajustarse a la demanda de los usuarios. Almacenamiento de tablas es un almacén de claves/atributos NoSQL de Microsoft que puede aprovechar para datos estructurados con menos restricciones en el esquema. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz.
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de tabla.
 
@@ -319,15 +318,15 @@ En la lista siguiente se enumeran los nombres de propiedad y su descripción par
 
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ya conoce Análisis de transmisiones, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:
 
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
