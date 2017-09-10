@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 8/24/2017
 ms.author: asgang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: cf568d20f60709dbb64774bcbcc1b4aa6c43d8d3
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 03127c8f4841b67436c4819628319705af0b2cd5
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="replicate-a-multi-tier-dynamics-ax-application-using-azure-site-recovery"></a>Replicación de una aplicación Dynamics AX de niveles múltiples mediante Azure Site Recovery
@@ -59,7 +58,7 @@ Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Dy
 **VMware** | Sí | Sí
 **Servidor físico** | Sí | Sí
 
-## <a name="enable-dr-of-dynamics-ax-application-using-asr"></a>Habilitar la recuperación ante desastres de la aplicación Dynamics AX mediante ASR
+## <a name="enable-dr-of-dynamics-ax-application-using-azure-site-recovery"></a>Habilitar la recuperación ante desastres de la aplicación Dynamics AX mediante Azure Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Proteger la aplicación Dynamics AX
 Cada componente de Dynamics AX debe protegerse para permitir una replicación y recuperación completas de la aplicación. En esta sección se describe:
 
@@ -103,7 +102,7 @@ La siguiente instantánea muestra el estado de protección de las máquinas virt
 ### <a name="4-configure-networking"></a>4. Configuración de red
 Configuración de procesos de máquina virtual y configuración de red
 
-En el cliente de AX y las máquinas virtuales de AOS, configure las opciones de red en ASR para que las redes de máquinas virtuales se conecten a la red de recuperación ante desastres adecuada después de la conmutación por error. Asegúrese de que la red de recuperación ante desastres para estos niveles pueda enrutarse en el nivel de SQL.
+En el cliente de AX y las máquinas virtuales de AOS, configure las opciones de red en Azure Site Recovery para que las redes de máquinas virtuales se conecten a la red de recuperación ante desastres adecuada después de la conmutación por error. Asegúrese de que la red de recuperación ante desastres para estos niveles pueda enrutarse en el nivel de SQL.
 
 Puede seleccionar la máquina virtual en los elementos replicados para configurar las opciones de red como se muestra en la siguiente instantánea.
 
@@ -115,9 +114,9 @@ Puede seleccionar la máquina virtual en los elementos replicados para configura
 
 ### <a name="5-creating-a-recovery-plan"></a>5. Creación de un plan de recuperación
 
-Puede crear un plan de recuperación en ASR para automatizar el proceso de conmutación por error. Agregue el nivel de aplicación y el nivel web en el plan de recuperación. Ordénelas en diferentes grupos para que el front-end se apague antes del nivel de aplicación.
+Puede crear un plan de recuperación en Azure Site Recovery para automatizar el proceso de conmutación por error. Agregue el nivel de aplicación y el nivel web en el plan de recuperación. Ordénelas en diferentes grupos para que el front-end se apague antes del nivel de aplicación.
 
-1)  Seleccione el almacén de ASR en su suscripción y haga clic en el icono Planes de recuperación.
+1)  Seleccione el almacén de Azure Site Recovery en su suscripción y haga clic en el icono "Planes de recuperación".
 
 2)  Haga clic en Plan de recuperación y especifique un nombre.
 

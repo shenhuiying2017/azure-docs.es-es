@@ -3,8 +3,8 @@ title: "Exploración y administración de recursos de almacenamiento con el Expl
 description: "Exploración y administración de recursos de almacenamiento con el Explorador de servidores"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
 ms.service: storage
@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d35c9903fd68199f9decdf099a7e162fe664e4d5
-
+ms.date: 8/24/2017
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 43ab501c69c0c1e3271dbfcf08e5342a3507ab82
+ms.contentlocale: es-es
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="browsing-and-managing-storage-resources-with-server-explorer"></a>Exploración y administración de recursos de almacenamiento con el Explorador de servidores
@@ -42,11 +43,12 @@ Para ver los recursos en una cuenta de almacenamiento, expanda el nodo de la cue
 * Tablas
 
 ## <a name="work-with-blob-resources"></a>Trabajo con recursos de blob
-El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento seleccionada. Los contenedores de blobs incluyen archivos de blob, y puede organizar estos blobs en carpetas y subcarpetas. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](storage/storage-dotnet-how-to-use-blobs.md) .
+El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento seleccionada. Los contenedores de blobs incluyen archivos de blob, y puede organizar estos blobs en carpetas y subcarpetas. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md) .
 
 ### <a name="to-create-a-blob-container"></a>Para crear un contenedor de blobs
 1. Abra el menú contextual del nodo **Blobs** y elija **Crear contenedor de blobs**.
-2. Escriba el nombre del contenedor nuevo en el cuadro de diálogo **Crear contenedor de blobs** y elija **Aceptar**.
+2. Escriba el nombre del contenedor nuevo en el cuadro de diálogo **Crear contenedor de blobs**.  
+3. Presione **ENTRAR** en el teclado o haga clic o pulse fuera del campo de nombre para guardar el contenedor de blobs.
    
    > [!NOTE]
    > El nombre del contenedor de blobs debe comenzar con una letra minúscula (a–z) o un número (0-9).
@@ -57,7 +59,7 @@ El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento
 * Abra el menú contextual del contenedor de blobs que desee quitar y elija **Eliminar**.
 
 ### <a name="to-display-a-list-of-the-items-contained-in-a-blob-container"></a>Para mostrar una lista de los elementos contenidos en un contenedor de blobs
-* Abra el menú contextual para un nombre de contenedor de blobs de la lista y elija **Ver contenedor de blob**.
+* Abra el menú contextual para un nombre de contenedor de blobs de la lista y elija **Abrir**.
   
     Cuando se ve el contenido de un contenedor de blobs, aparece en una pestaña conocida como vista del contenedor de blobs.
   
@@ -78,7 +80,7 @@ El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento
   * Guardar un blob en el equipo local
 
 ### <a name="to-create-a-folder-or-subfolder-in-a-blob-container"></a>Para crear una carpeta o una subcarpeta en un contenedor de blobs
-1. Elija el contenedor de blobs en el Explorador de servidores. En la ventana del contenedor, elija el botón **Cargar blob** .
+1. Elija el contenedor de blobs en Cloud Explorer. En la ventana del contenedor, elija el botón **Cargar blob** .
    
     ![Cargar un archivo en una carpeta de blob](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
 2. En el cuadro de diálogo **Cargar nuevo archivo**, seleccione el botón **Examinar** para especificar el archivo que desea cargar y escriba un nombre de carpeta en el cuadro **Carpeta (opcional)**.
@@ -109,7 +111,7 @@ Por ejemplo, si escribe el prefijo `hello` en el cuadro de texto del filtro y ha
 > 
 
 ### <a name="to-download-blob-data"></a>Para descargar datos de blob
-* En el **Explorador de servidores**, abra el menú contextual para uno o más blobs y elija **Abrir**, o bien elija el nombre del blob y el botón **Abrir** o haga doble clic en el nombre del blob.
+* En el **Cloud Explorer**, abra el menú contextual para uno o más blobs y elija **Abrir**, o bien elija el nombre del blob y el botón **Abrir** o haga doble clic en el nombre del blob.
   
     Puede ver el progreso de la descarga del blob en la ventana **Registro de actividad de Microsoft Azure** .
   
@@ -160,11 +162,11 @@ Para obtener más información acerca de las colas de servicios de almacenamient
 El servicio de almacenamiento de tablas de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales.
 
 ### <a name="to-create-a-table"></a>Creación de una tabla
-1. En el Explorador de servidores, seleccione el nodo **Tablas** de la cuenta de almacenamiento y elija **Crear tabla**.
+1. En Cloud Explorer, seleccione el nodo **Tablas** de la cuenta de almacenamiento y elija **Crear tabla**.
 2. En el cuadro de diálogo **Crear tabla** , escriba un nombre para la tabla.
 
 ### <a name="to-view-table-data"></a>Para ver los datos de tabla
-1. En el Explorador de servidores, abra el nodo **Azure** y después el nodo **Almacenamiento**.
+1. En Cloud Explorer, abra el nodo **Azure** y después el nodo **Almacenamiento**.
 2. Abra el nodo de la cuenta de almacenamiento que le interese y después abra el nodo **Tablas** para ver una lista de tablas para la cuenta de almacenamiento.
 3. Abra el menú contextual para una tabla y después elija **Ver tabla**.
    
@@ -185,7 +187,7 @@ La tabla se organiza por entidades (mostradas en filas) y propiedades (mostradas
    * Si escribe un valor DateTime, debe seguir un formato adecuado para la configuración regional y de idioma del equipo (por ejemplo, MM/DD/AAAA HH:MM:SS [AM|PM] para Inglés de Estados Unidos).
 
 ### <a name="to-add-entities"></a>Para agregar entidades
-1. En el **Diseñador de tablas**, elija el botón **Agregar entidad**, que está cerca de la esquina superior derecha de la vista de tabla.
+1. En el **Diseñador de tablas**, elija el botón **Agregar entidad**.
    
     ![Agregar entidad](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655336.png)
 2. En el cuadro de diálogo **Agregar entidad**, escriba los valores de las propiedades **PartitionKey** y **RowKey**.
@@ -198,7 +200,7 @@ La tabla se organiza por entidades (mostradas en filas) y propiedades (mostradas
 Puede personalizar el conjunto de entidades que aparecen en una tabla si usa el generador de consultas.
 
 1. Para abrir el generador de consultas, abra una tabla para su visualización.
-2. Elija el botón más a la derecha de la barra de herramientas de la vista de tabla.
+2. Elija el botón Generador de consultas en la barra de herramientas de la vista de tabla.
    
     Aparece el cuadro de diálogo **Generador de consultas** . En la siguiente ilustración, se muestra una consulta que se está generando en el generador de consultas.
    
@@ -271,10 +273,5 @@ Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador d
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo usar los servicios de almacenamiento de Azure, vea [Acceso a los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
