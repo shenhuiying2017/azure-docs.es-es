@@ -5,10 +5,10 @@
 ## [SDK y herramientas](../../index.md#pivot=sdkstools)
 
 # Guía de inicio rápido
-## [Web Apps](../../app-service-web/web-sites-dotnet-get-started.md)
+## [Web Apps](../../app-service-web/app-service-web-get-started-html.md)
 ## Máquinas virtuales
-### [Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md)
-### [Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+### [Linux](../../virtual-machines/linux/quick-create-portal.md)
+### [Windows](../../virtual-machines/windows/quick-create-portal.md)
 ## [Sin servidor](../../azure-functions/functions-create-first-azure-function.md)
 ## Microservicios
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
@@ -16,16 +16,16 @@
 
 # Tutoriales
 ## Creación e implementación de una aplicación web
-### [ASP.NET](../../app-service-web/web-sites-dotnet-get-started.md)
-### [Java](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
-### [Node.js](../../app-service-web/app-service-web-nodejs-get-started.md)
-### [PHP](../../app-service-web/app-service-web-php-get-started.md)
-### [Python](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
+### [ASP.NET](../../app-service-web/app-service-web-get-started-dotnet.md)
+### [Java](../../app-service-web/app-service-web-get-started-java.md)
+### [Node.js](../../app-service-web/app-service-web-get-started-nodejs.md)
+### [PHP](../../app-service-web/app-service-web-get-started-php.md)
+### [Python](../../app-service-web/app-service-web-get-started-python.md)
 ## Implementación de plantillas de máquinas virtuales complejas
 ### [Linux](../../virtual-machines/virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows](../../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Crear una función conectada a Azure](../../azure-functions/functions-create-an-azure-connected-function.md)
-## [Aplicación web de implementación de Docker en Linux](../../app-service-web/app-service-linux-using-custom-docker-image.md) 
+## [Aplicación web de implementación de Docker en Linux](../../app-service/containers/quickstart-custom-docker-image.md) 
 
 # Muestras
 ## CLI de Azure
@@ -48,12 +48,11 @@
 
 # Guías de procedimientos
 ## Plan
-### [Arquitecturas de aplicaciones web](../../guidance/guidance-ra-app-service.md)
-### [Arquitecturas de máquinas virtuales](../../guidance/guidance-ra-compute.md)
-### [Conexión a redes locales](../../guidance/guidance-ra-hybrid-networking.md)
+### [Arquitecturas de aplicaciones web](/azure/architecture/reference-architectures/managed-web-app/)
+### [Arquitecturas de máquinas virtuales](/azure/architecture/reference-architectures/virtual-machines-windows/)
+### [Conexión a redes locales](/azure/architecture/reference-architectures/hybrid-networking/)
 ### [Patrones y escenarios de microservicios](../../service-fabric/service-fabric-patterns-and-scenarios.md)
 ## Desarrollo
-### [Aplicaciones de WordPress](../../app-service-web/web-sites-php-web-site-gallery.md)
 ### [Máquina virtual Linux](../../virtual-machines/virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Máquina virtual Windows](../../virtual-machines/virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Aplicaciones sin servidor](../../azure-functions/functions-reference.md)
@@ -67,8 +66,8 @@
 ### [Blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 ### [Recursos compartidos de archivos](../../storage/files/storage-dotnet-how-to-use-files.md)
 ### [Pares de clave-valor](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-### [Documentos JSON](../../documentdb/documentdb-get-started.md)
-### [Tablas relacionales](../../sql-database/sql-database-get-started.md)
+### [Documentos JSON](../../cosmos-db/documentdb-get-started.md)
+### [Tablas relacionales](../../sql-database/sql-database-get-started-portal.md)
 ### [Colas de mensajes](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Escala
@@ -77,7 +76,7 @@
 ### [Aplicaciones de microservicios](../../service-fabric/service-fabric-concepts-scalability.md)
 
 ## Protección
-### [Aplicaciones web y móviles](../../app-service-web/web-sites-security.md)
+### [Aplicaciones web y móviles](../../app-service-web/app-service-web-tutorial-custom-ssl.md)
 
 ## Backup
 ### [Aplicaciones web y móviles](../../app-service-web/web-sites-backup.md)
@@ -85,7 +84,7 @@
 
 ## Supervisión
 ### [Aplicaciones web y móviles](../../app-service-web/web-sites-enable-diagnostic-log.md)
-### [Máquina virtual Linux](../../virtual-machines/virtual-machines-linux-vm-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json.md)
+### [Máquina virtual Linux](../../virtual-machines/linux/tutorial-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Máquina virtual Windows](../../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Microservicios](../../service-fabric/service-fabric-diagnostics-overview.md)
 ### [Alertas de facturación](../../billing/billing-set-up-alerts.md)
