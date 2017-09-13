@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
 ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?
@@ -31,7 +31,7 @@ Las organizaciones necesitan una estrategia de recuperación ante desastres y co
 
 Site Recovery es un servicio de Azure que contribuye a su estrategia de recuperación ante desastres y continuidad del negocio. Mediante Site Recovery, puede implementar la replicación con reconocimiento de aplicaciones en la nube o en un sitio secundario. Si las aplicaciones se basan en Windows o Linux, y se ejecutan en servidores físicos, VMware o Hyper-V, puede usar Site Recovery para organizar la replicación, realizar pruebas de recuperación ante desastres y ejecutar conmutaciones por error y conmutación por recuperación.
 
-Site Recovery se integra con aplicaciones de Microsoft, incluidas SharePoint, Exchange, Dynamics, SQL Server y Active Directory. Microsoft también trabaja en estrecha colaboración con proveedores líderes como Oracle, SAP, IBM y Red Hat. Puede personalizar las soluciones de replicación en función de cada aplicación.
+Site Recovery se integra con aplicaciones de Microsoft, incluidas SharePoint, Exchange, Dynamics, SQL Server y Active Directory. Microsoft también trabaja en estrecha colaboración con destacados proveedores como Oracle, SAP y Red Hat. Puede personalizar las soluciones de replicación en función de cada aplicación.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>¿Por qué es aconsejable usar Site Recovery para la replicación de aplicaciones?
 Site Recovery contribuye a la recuperación y protección de nivel de aplicación como se indica a continuación:
@@ -127,7 +127,7 @@ Site Recovery ayuda a proteger Exchange como se indica a continuación:
 Use Site Recovery para proteger una implementación de SAP como se indica a continuación:
 
 * Habilite la protección de aplicaciones de producción de SAP NetWeaver y no NetWeaver en ejecución de forma local, mediante la replicación de componentes en Azure.
-* Habilite la protección de aplicaciones de producción de SAP NetWeaver y no NetWeaver en ejecución en Azure, mediante la replicación de componentes en otro centro de datos de Azure.
+* Habilitar la protección de aplicaciones de producción de SAP NetWeaver y no NetWeaver que se ejecutan en Azure, mediante la replicación de componentes en otro centro de datos de Azure.
 * Simplifique la migración a la nube con Site Recovery para migrar la implementación de SAP en Azure.
 * Simplifique las actualizaciones del proyecto SAP, las pruebas y la creación de prototipos, mediante la creación de una clon en producción a petición para probar aplicaciones de SAP.
 

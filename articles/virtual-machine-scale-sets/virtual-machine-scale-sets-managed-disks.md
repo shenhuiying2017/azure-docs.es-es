@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Conjuntos de escalado de máquinas virtuales y discos administrados
@@ -30,7 +30,7 @@ Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-
 
 * Puede conectar discos de datos administrados al conjunto de escalado.
 
-* Con discos administrados, un conjunto de escalado puede tener una capacidad tan alta como 1000 máquinas virtuales, si se basa en una imagen de plataforma o 100 máquinas virtuales, si se basa en una imagen personalizada.
+* Con discos administrados, un conjunto de escalado puede tener una capacidad tan alta como 1000 máquinas virtuales, si se basa en una imagen de plataforma, o 300 máquinas virtuales, si se basa en una imagen personalizada.
 
 ## <a name="get-started"></a>Primeros pasos
 

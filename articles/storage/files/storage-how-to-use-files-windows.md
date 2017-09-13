@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 67b8e2e0039c8bc63f50f177e3c0d18b07df45e6
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -27,16 +27,19 @@ ms.lasthandoff: 08/21/2017
 
 Para montar un recurso compartido de archivos de Azure fuera de la región de Azure en la que se hospeda, bien sea en local o en una región distinta de Azure, el sistema operativo debe admitir SMB 3.0. 
 
-Un recurso compartido de archivos de Azure se puede montar en un equipo Windows tanto en local como en una máquina virtual de Azure en función de la versión del sistema operativo. La tabla siguiente lo describe 
+Puede montar recursos compartidos de Azure File en una instalación de Windows que se ejecute en una máquina virtual de Azure o en el entorno local. En la tabla siguiente se ilustran las versiones del sistema operativo que admiten el montaje de recursos compartidos de archivo en cada entorno:
 
-| Versión de Windows        | Versión de SMB |Se puede montar en una máquina virtual de Azure|Se puede montar en un entorno local|
-|------------------------|-------------|---------------------|---------------------|
-| Windows 7              | SMB 2.1     | Sí                 | No                  |
-| Windows Server 2008 R2 | SMB 2.1     | Sí                 | No                  |
-| Windows 8              | SMB 3.0     | Sí                 | Sí                 |
-| Windows Server 2012    | SMB 3.0     | Sí                 | Sí                 |
-| Windows Server 2012 R2 | SMB 3.0     | Sí                 | Sí                 |
-| Windows 10             | SMB 3.0     | Sí                 | Sí                 |
+| Versión de Windows        | Versión de SMB | Se puede montar en una máquina virtual de Azure | Se puede montar en el entorno local |
+|------------------------|-------------|-----------------------|----------------------|
+| Windows 10<sup>1</sup>  | SMB 3.0 | Sí | Sí |
+| Windows Server 2016    | SMB 3.0     | Sí                   | Sí                  |
+| Windows 8.1            | SMB 3.0     | Sí                   | Sí                  |
+| Windows Server 2012 R2 | SMB 3.0     | Sí                   | Sí                  |
+| Windows Server 2012    | SMB 3.0     | Sí                   | Sí                  |
+| Windows 7              | SMB 2.1     | Sí                   | No                   |
+| Windows Server 2008 R2 | SMB 2.1     | Sí                   | No                   |
+
+<sup>1</sup>Versiones 1507, 1511, 1607 y 1703 de Windows 10
 
 > [!Note]  
 > Siempre se recomienda disponer de la KB más reciente para su versión de Windows.
@@ -118,7 +121,7 @@ Un recurso compartido de archivos de Azure se puede montar en un equipo Windows 
 >   ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los vínculos siguientes para obtener más información acerca de Azure File Storage.
+Consulte los vínculos siguientes para obtener más información acerca de Almacenamiento de archivos de Azure.
 
 * [Preguntas más frecuentes](../storage-files-faq.md)
 * [Solución de problemas en Windows](storage-troubleshoot-windows-file-connection-problems.md)      
@@ -128,13 +131,13 @@ Consulte los vínculos siguientes para obtener más información acerca de Azure
 * [Uso de Azure File Storage con Linux](../storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-azure-file-storage"></a>Compatibilidad de herramientas con Azure File Storage
-* [Uso de AzCopy con Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Uso de la CLI de Azure con Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
+* [Uso de AzCopy con Almacenamiento de Microsoft Azure](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Uso de la CLI de Azure con Almacenamiento de Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Solución de problemas de Azure File Storage (Windows)](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solución de problemas de Azure File Storage (Linux)](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>Publicaciones de blog
-* [Azure File Storage ya está disponible de manera general](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [El almacenamiento de archivos de Azure ya está disponible de manera general](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [En el interior de Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Migración de datos a Azure Files](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)

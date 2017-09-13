@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/7/2017
+ms.date: 9/1/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9e9eae1623e55c1c05e97aa0b836819ce5dc16f9
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso de grandes conjuntos de escalado de máquinas virtuales
@@ -37,7 +37,7 @@ Para decidir si la aplicación puede hacer un uso eficaz de los conjuntos de esc
 
 - Los conjuntos de escalado grandes necesitan Azure Managed Disks. Los conjuntos de escalado grandes que no se crean con Managed Disks requieren varias cuentas de almacenamiento (una por cada 20 máquinas virtuales). Los conjuntos de escalado grandes están diseñados para trabajar exclusivamente con Managed Disks para reducir la sobrecarga de administración del almacenamiento y para evitar el riesgo de alcanzar los límites de suscripción de las cuentas de almacenamiento. Si no usa Managed Disks, el conjunto de escalado está limitado a 100 máquinas virtuales.
 - Los conjuntos de escalado creados a partir de imágenes de Azure Marketplace pueden escalar a un máximo de 1000 máquinas virtuales.
-- Los conjuntos de escalado creados a partir de imágenes personalizadas (imágenes de máquina virtual creadas y cargadas por el usuario) actualmente pueden escalar a un máximo de 100 máquinas virtuales.
+- Los conjuntos de escalado creados a partir de imágenes personalizadas (imágenes de máquina virtual creadas y cargadas por el usuario) actualmente pueden escalar a 300 máquinas virtuales, como máximo.
 - Aún no se admite el equilibrio de carga de nivel 4 con Azure Load Balancer para conjuntos de escalado compuestos por varios grupos de selección de ubicación. Si necesita usar Azure Load Balancer, asegúrese de que el conjunto de escalado esté configurado para usar un único grupo de selección de ubicación, que es la configuración predeterminada.
 - Se admite el equilibrio de carga de nivel 7 con Azure Application Gateway para todos los conjuntos de escalado.
 - Un conjunto de escalado se define con una sola subred; asegúrese de que la subred tenga suficiente espacio de direcciones para todas las máquinas virtuales que necesita. De forma predeterminada, un conjunto de escalado se aprovisiona en exceso (crea máquinas virtuales adicionales durante la implementación o durante el escalado horizontal, que no se le cobran) para mejorar el rendimiento y la confiabilidad de la implementación. Deje un 20 % más de espacio que el número de máquinas virtuales al que tiene pensado escalar.

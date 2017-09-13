@@ -17,10 +17,10 @@ ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -48,11 +48,11 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 
     ![Captura de pantalla que muestra los tamaños de máquina virtual](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. En la hoja de configuración, conserve los valores predeterminados y haga clic en **Aceptar**.
+5. En **Configuración**, conserve los valores predeterminados y haga clic en **Aceptar**. 
 
 6. En la página Resumen, haga clic en **Aceptar** para iniciar la implementación de máquina virtual.
 
-7. La máquina virtual se anclará al panel de Azure Portal. Una vez completada la implementación, se abrirá automáticamente la hoja de resumen de la máquina virtual.
+7. La máquina virtual se anclará al panel de Azure Portal. Una vez completada la implementación, se abrirá automáticamente el resumen de la máquina virtual.
 
 
 ## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
@@ -94,13 +94,13 @@ Los grupos de seguridad de red (NSG) protegen el tráfico entrante y saliente. C
 
 ## <a name="view-the-iis-welcome-page"></a>Página principal de IIS
 
-Con IIS instalado y el puerto 80 abierto para la máquina virtual, se puede acceder ahora al servidor web desde Internet. Abra un explorador web y escriba la dirección IP pública de la máquina virtual. La dirección IP pública puede encontrarse en la hoja de la máquina virtual en Azure Portal.
+Con IIS instalado y el puerto 80 abierto para la máquina virtual, se puede acceder ahora al servidor web desde Internet. Abra un explorador web y escriba la dirección IP pública de la máquina virtual. La dirección IP pública puede encontrarse en *Máquinas virtuales* en Azure Portal.
 
 ![Sitio predeterminado de IIS](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no los necesite, elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la hoja de la máquina virtual y haga clic en **Eliminar**.
+Cuando ya no los necesite, elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la máquina virtual y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,6 +4,8 @@
 
 # Inicios rápidos
 ## [Creación de una aplicación .NET](service-fabric-quickstart-dotnet.md)
+## [Implementación de una aplicación contenedora de Windows](service-fabric-quickstart-containers.md)
+## [Implementación de una aplicación contenedora de Linux](service-fabric-quickstart-containers-linux.md)
 
 # Tutoriales
 ## Implementación de una aplicación .NET

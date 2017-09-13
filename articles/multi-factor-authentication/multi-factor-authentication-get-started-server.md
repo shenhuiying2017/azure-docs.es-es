@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.date: 08/30/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: ebc5fd442c1f0dd9841c1423c174a073d286911a
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: df847c370817c0702163b5e22c35c7e4f1d3cfee
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introducción a Servidor Azure Multi-Factor Authentication
@@ -54,7 +54,7 @@ Asegúrese de que el servidor que usa para Azure Multi-Factor Authentication cum
 | Requisitos del Servidor Azure Multi-Factor Authentication | Description |
 |:--- |:--- |
 | Hardware |<li>200 MB de espacio de disco duro</li><li>Procesador compatible con x32 o x64</li><li>1 GB o más de RAM</li> |
-| Software |<li>Windows Server 2008 o superior si el host es un sistema operativo de servidor</li><li>Windows 7 o superior si el host es un sistema operativo cliente</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 o superior si está instalado el SDK de servicio web o el portal de usuario</li> |
+| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, todas las ediciones</li><li>Windows 8, todas las ediciones</li><li>Windows 7, todas las ediciones</li><li>Windows Vista, todas las ediciones, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 o superior si está instalado el SDK de servicio web o el portal de usuario</li> |
 
 ### <a name="azure-mfa-server-components"></a>Componentes del servidor Azure MFA
 

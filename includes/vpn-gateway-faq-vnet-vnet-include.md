@@ -22,7 +22,11 @@ No. Las redes virtuales pueden estar en la misma región de Azure o en regiones 
 
 ### <a name="if-the-vnets-are-not-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-ad-tenant"></a>Si las redes virtuales no están en la misma suscripción, ¿las suscripciones tienen que estar asociadas con el mismo inquilino de AD?
 
-Nº
+No.
+
+### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>¿Puedo usar una conexión entre redes virtuales para conectar redes virtuales en instancias independientes de Azure? 
+
+No. La conexión entre redes virtuales permite conectar redes virtuales dentro de la misma instancia de Azure. Por ejemplo, no puede crear una conexión entre instancias de Azure del gobierno estadounidense, chino o alemán con una instancia pública de Azure. En estos casos, considere la posibilidad de usar una conexión VPN de sitio a sitio.
 
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>¿Puedo usar las conexiones entre dos redes virtuales con conexiones multisitio?
 

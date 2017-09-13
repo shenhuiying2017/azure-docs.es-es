@@ -1,4 +1,4 @@
-Para empezar a usar colas de Service Bus en Azure, primero hay que crear un espacio de nombres con un nombre que sea único en Azure. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos de Service Bus en la aplicación.
+Para empezar a usar colas de Service Bus en Azure, primero hay que crear un espacio de nombres con un nombre que sea único en Azure. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
 
 Para crear un espacio de nombres:
 
@@ -14,6 +14,7 @@ Para crear un espacio de nombres:
 8. Haga clic en **Crear**. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
 ### <a name="obtain-the-management-credentials"></a>Obtención de las credenciales de administración
+Al crear un nuevo espacio de nombres se genera automáticamente una regla inicial de firma de acceso compartido (SAS) con un par asociado de clave principal y secundaria que concede control completo sobre todos los aspectos del espacio de nombres. Consulte [Autenticación y autorización de Service Bus](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) para aprender a crear reglas adicionales con derechos más restringidos para remitentes y receptores normales. Para copiar la regla inicial, siga estos pasos: 
 
 1. En la lista de espacios de nombres, haga clic en el nombre del espacio de nombres recién creado.
 2. En la hoja del espacio de nombres, haga clic en **Directivas de acceso compartido**.

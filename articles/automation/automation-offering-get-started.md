@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/31/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
 ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -90,7 +90,7 @@ Todas las tareas de automatización que realice con recursos mediante los cmdlet
 Los recursos de Automation de cada cuenta de Automation están asociados con una sola región de Azure, pero las cuentas de Automation pueden administrar recursos en su suscripción. Cree cuentas de Automation en distintas regiones si tiene directivas que requieren que los datos y recursos se aíslen en una región específica.
 
 > [!NOTE]
-> A las cuentas de Automation y los recursos que contienen, que se crean en Azure Portal, no se puede acceder desde el Portal de Azure clásico. Si desea administrar estas cuentas o sus recursos con Windows PowerShell, debe usar los módulos de Azure Resource Manager.
+> A las cuentas de automatización y los recursos que contienen, que se crean en Azure Portal, no se puede acceder desde el Portal de Azure clásico. Si desea administrar estas cuentas o sus recursos con Windows PowerShell, debe usar los módulos del Administrador de recursos de Azure.
 > 
 
 Al crear una cuenta de Automation en Azure Portal, crea automáticamente dos entidades de autenticación:
@@ -170,8 +170,7 @@ Es el método recomendado para incorporar Automation seleccionando la oferta de 
    - Especifique un nombre para el nuevo **espacio de trabajo de OMS**.
    - Seleccione una **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
    - Para **Grupo de recursos**, puede crear un grupo de recursos o seleccionar uno existente.  
-   - Seleccione una **ubicación**.  Actualmente las únicas ubicaciones disponibles son **sudeste de Australia**, **este de EE. UU.**, **Sudeste asiático**, **Centro occidental de EE.UU.** y **Europa Occidental**.
-   - Seleccione un **plan de tarifa**.  La solución se ofrece en dos niveles: gratuito y nivel de pago por nodo (OMS).  El nivel gratis tiene un límite sobre la cantidad de datos recopilados diariamente, el período de retención y los minutos de tiempo de ejecución del trabajo de Runbook.  El nivel de pago por nodos (OMS) no tiene ningún límite en la cantidad de datos recopilados a diario.  
+   - Seleccione una **ubicación**.  Para más información, consulte qué [regiones de Azure Automation están disponibles en](https://azure.microsoft.com/regions/services/).  Las soluciones se ofrecen en dos niveles: gratuito y nivel de pago por nodo (OMS).  El nivel gratis tiene un límite sobre la cantidad de datos recopilados diariamente, el período de retención y los minutos de tiempo de ejecución del trabajo de Runbook.  El nivel de pago por nodos (OMS) no tiene ningún límite en la cantidad de datos recopilados a diario.  
    - Seleccione **Cuenta de Automation**.  Si va a crear una nueva área de trabajo de OMS, será necesario crear también una nueva cuenta de Automation que se asociará con la nueva área de trabajo de OMS especificada anteriormente, lo que incluye la suscripción, el grupo de recursos y la región de Azure.  Puede seleccionar **Crear una cuenta de Automation** y, en la hoja **Cuenta de Automation**, proporcionar la siguiente información: 
   - En el campo **Nombre**, escriba el nombre de la cuenta de Automation.
 

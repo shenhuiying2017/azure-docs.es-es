@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/27/2017
+ms.date: 09/03/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
 ms.contentlocale: es-es
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Creación e implementación de la primera plantilla de Azure Resource Manager
 Este tema lo guiará por los pasos para crear la primera plantilla de Azure Resource Manager. Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](resource-group-overview.md). Si tiene recursos existentes y desea obtener una plantilla para ellos, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).
 
-Para crear y revisar las plantillas, se necesita un editor de JSON. [Visual Studio Code](https://code.visualstudio.com/) es un editor de código ligero, de código abierto y multiplataforma. Se recomienda encarecidamente usar código de Visual Studio para crear plantillas de Resource Manager. En este tema se da por supuesto que se utiliza Visual Studio Code; sin embargo, si tiene otro editor de JSON (por ejemplo, Visual Studio), puede usarlo.
+Para crear y revisar las plantillas, se necesita un editor de JSON. [Visual Studio Code](https://code.visualstudio.com/) es un editor de código ligero, de código abierto y multiplataforma. Se recomienda encarecidamente usar código de Visual Studio para crear plantillas de Resource Manager. En este artículo se da por supuesto que usa VS Code. Si tiene otro editor de JSON (por ejemplo, Visual Studio), puede usarlo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -101,7 +101,7 @@ Cuando finaliza la implementación, la cuenta de almacenamiento existe en el gru
 
 Puede usar [Cloud Shell](../cloud-shell/overview.md) para ejecutar los comandos de la CLI de Azure para implementar la plantilla. Pero primero debe cargar la plantilla en el recurso compartido de archivos de Cloud Shell. Si no ha usado Cloud Shell, vea [Introducción a Azure Cloud Shell](../cloud-shell/overview.md) para más información sobre su configuración.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).   
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).   
 
 2. Seleccione el grupo de recursos de Cloud Shell. El patrón de nombre es `cloud-shell-storage-<region>`.
 
@@ -216,7 +216,7 @@ Tenga en cuenta que el nombre de la cuenta de almacenamiento se establece ahora 
 
 Guarde el archivo. 
 
-Después de completar los pasos descritos en este artículo, la plantilla tendrá ahora el siguiente aspecto:
+La plantilla ahora tiene el aspecto siguiente:
 
 ```json
 {
@@ -289,6 +289,141 @@ Para Cloud Shell, cargue la plantilla modificada en el recurso compartido de arc
 az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
+## <a name="use-autocomplete"></a>Uso de Autocompletar
+
+Hasta ahora, el trabajo en las plantillas ha consistido en copiar y pegar código JSON de este artículo. Sin embargo, al desarrollar sus propias plantillas, querrá buscar y especificar propiedades y valores que estén disponibles para el tipo de recurso. VS Code lee el esquema del tipo de recurso y sugiere propiedades y valores. Para ver la característica Autocompletar, vaya al elemento de propiedades de su plantilla y agregue una nueva línea. Escriba comillas y advertirá que VS Code sugiere inmediatamente nombres que están disponibles dentro del elemento de propiedades.
+
+![Visualización de las propiedades disponibles](./media/resource-manager-create-first-template/show-properties.png)
+
+Seleccione **Cifrado**. Escriba dos puntos (:) y VS Code sugiere que agregue un nuevo objeto.
+
+![Adición de un objeto](./media/resource-manager-create-first-template/add-object.png)
+
+Presione las teclas TAB o ENTRAR para agregar el objeto.
+
+De nuevo, escriba un signo de interrogación y vea que VS Code sugiere ahora propiedades que están disponibles para cifrado.
+
+![Visualización de las propiedades de cifrado](./media/resource-manager-create-first-template/show-encryption-properties.png)
+
+Seleccione **Servicios** y siga agregando valores en función de las extensiones de VS Code hasta que tenga:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        }
+    }
+}
+```
+
+Ya ha habilitado el cifrado de blobs para la cuenta de almacenamiento. Sin embargo, VS Code ha identificado un problema. Tenga en cuenta que el cifrado tiene una advertencia.
+
+![Advertencia de cifrado](./media/resource-manager-create-first-template/encryption-warning.png)
+
+Para ver la advertencia, mantenga el mouse sobre la línea verde.
+
+![Propiedad que falta](./media/resource-manager-create-first-template/missing-property.png)
+
+Verá que el elemento cifrado requiere una propiedad keySource. Agregue una coma después del objeto de servicio y agregue la propiedad keySource. VS Code sugiere **"Microsoft.Storage"** como valor válido. Cuando termine, el elemento de propiedades es:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        },
+        "keySource":"Microsoft.Storage"
+    }
+}
+```
+
+La plantilla final es:
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageSKU": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ],
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "The type of replication to use for the storage account."
+      }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
+    }
+  },
+  "variables": {
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('storageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "Storage",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "encryption":{
+          "services":{
+            "blob":{
+              "enabled":true
+            }
+          },
+          "keySource":"Microsoft.Storage"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+## <a name="deploy-encrypted-storage"></a>Implementación del almacenamiento cifrado
+
+De nuevo, implemente la plantilla y proporcione un nuevo nombre de cuenta de almacenamiento.
+
+Para PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix storesecure
+```
+
+Para la CLI de Azure, utilice:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
+Para Cloud Shell, cargue la plantilla modificada en el recurso compartido de archivos. Sobrescriba el archivo existente. Use el comando siguiente:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos.
@@ -306,6 +441,7 @@ az group delete --name examplegroup
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+* Para obtener más ayuda con el desarrollo de plantillas, puede instalar una extensión de VS Code. Para más información, consulte [Use Visual Studio Code extension to create Azure Resource Manager template](resource-manager-vscode-extension.md) (Uso de la extensión de Visual Studio Code para crear una plantilla de Azure Resource Manager).
 * Para aprender más sobre la estructura de una plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para obtener información acerca de las propiedades de una cuenta de almacenamiento, consulte la [referencia de plantillas de cuentas de almacenamiento](/azure/templates/microsoft.storage/storageaccounts).
 * Para ver plantillas completas de muchos tipos diferentes de soluciones, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).

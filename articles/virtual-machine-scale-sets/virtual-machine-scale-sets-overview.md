@@ -13,20 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 8b2fbc230faf01797109114d6ebdffe5ec50e48b
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: bdd0fd0d1919f61fe586f495adadaf4eabde2dae
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
-<a id="what-are-virtual-machine-scale-sets-in-azure" class="xliff"></a>
-
-# ¿Qué son los conjuntos de escalado de máquinas virtuales en Azure?
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>¿Qué son los conjuntos de escalado de máquinas virtuales en Azure?
 Los conjuntos de escalado de máquinas virtuales son un recurso de Azure Compute que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas. Con todas las máquinas virtuales configuradas de la misma manera, los conjuntos de escalado están diseñados para admitir el escalado automático verdadero y no es necesario aprovisionar las máquinas virtuales antes. Esto facilita la creación de servicios a gran escala cuyo objetivo son las cargas de trabajo en contenedor, de macroproceso y macrodatos.
 
 Para las aplicaciones que necesiten escalar y reducir horizontalmente los recursos de proceso, las operaciones de escala se equilibran implícitamente en dominios de actualización y de error. Para una introducción a los conjuntos de escalado, consulte el [anuncio en el blog de Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -36,9 +33,7 @@ Para más información acerca de los conjuntos de escalado, vea estos vídeos:
 * [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/) (Mark Russinovich habla sobre los conjuntos de escalado de Azure)  
 * [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-<a id="creating-and-managing-scale-sets" class="xliff"></a>
-
-## Creación y administración de conjuntos de escalado
+## <a name="creating-and-managing-scale-sets"></a>Creación y administración de conjuntos de escalado
 Para crear un conjunto de escalado en [Azure Portal](https://portal.azure.com), seleccione **nuevo** y escriba **escalado** en la barra de búsqueda. El **conjunto de escalado de máquinas virtuales** se enumera en los resultados. Aquí podrá rellenar los campos obligatorios para personalizar e implementar el conjunto de escalado. También hay opciones para configurar reglas básicas de escalado automático en función del uso de la CPU.
 
 Los conjuntos de escalado de máquinas virtuales se pueden definir e implementar mediante plantillas JSON y [API de REST](https://msdn.microsoft.com/library/mt589023.aspx), igual que las máquinas virtuales individuales de Azure Resource Manager. Por tanto, puede utilizar cualquier método de implementación estándar de Azure Resource Manager. Para más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md).
@@ -47,9 +42,7 @@ Puede encontrar un conjunto de plantillas de ejemplo para los conjuntos de escal
 
 Para los ejemplos de plantilla de inicio rápido, hay un botón "Implementar en Azure" en el archivo Léame de cada plantilla vinculado a la característica de implementación del portal. Para implementar el conjunto de escalado, haga clic en el botón y rellene los parámetros obligatorios en el portal. 
 
-<a id="scaling-a-scale-set-out-and-in" class="xliff"></a>
-
-## Escalado y reducción verticales de un conjunto de escalado
+## <a name="scaling-a-scale-set-out-and-in"></a>Escalado y reducción verticales de un conjunto de escalado
 Para cambiar la capacidad de conjunto de escalado en Azure Portal, haga clic en la sección **Escalado** de **Configuración**. 
 
 Para cambiar la capacidad del conjunto de escalado en la línea de comandos, use el comando **scale** de la [CLI de Azure](https://github.com/Azure/azure-cli). Por ejemplo, este comando se puede usar para establecer que un conjunto de escalado tenga una capacidad de 10 máquinas virtuales:
@@ -70,9 +63,7 @@ Para aumentar o disminuir el número de máquinas virtuales de un conjunto de es
 
 Si va a volver a implementar una plantilla de Azure Resource Manager para modificar la capacidad, puede definir una plantilla mucho menor que solo incluya el paquete de la propiedad **SKU** con la capacidad actualizada. [Este es un ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-<a id="autoscale" class="xliff"></a>
-
-## Autoscale
+## <a name="autoscale"></a>Autoscale
 
 Cuando un conjunto de escalado se cree en Azure Portal, opcionalmente se puede configurar con valores de escalado automático. En ese caso, el número de máquinas virtuales se puede aumentar o disminuir en función del promedio de uso de la CPU. 
 
@@ -93,18 +84,14 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
 
 En [Métricas compatibles con Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md), bajo el encabezado "Microsoft.Compute/virtualMachineScaleSets", puede encontrar una lista de métricas válidas de escalado. Las opciones más avanzadas de escalado automático también están disponibles, entre las que se incluyen el escalado automático basado en programación y el uso de webhooks para la integración con sistemas de alertas.
 
-<a id="monitoring-your-scale-set" class="xliff"></a>
-
-## Supervisión del conjunto de escalado
+## <a name="monitoring-your-scale-set"></a>Supervisión del conjunto de escalado
 En [Azure Portal](https://portal.azure.com) se enumeran los conjuntos de escalado y se muestran sus propiedades. El portal también admite operaciones de administración. Se pueden realizar operaciones de administración tanto en conjuntos de escalado como en máquinas virtuales individuales de un conjunto de escalado. El portal también proporciona un gráfico de uso de los recursos personalizado. 
 
 Si tiene que ver o editar la definición de JSON subyacente de un recurso de Azure, también puede usar el [Explorador de recursos de Azure](https://resources.azure.com). Los conjuntos de escalado son un recurso del proveedor de recursos Microsoft.Compute Azure. Los puede ver desde este sitio. Para ello, solo tiene que expandir los vínculos siguientes:
 
 **Suscripciones** > **su suscripción** > **resourceGroups** > **proveedores** > **Microsoft.Compute** > **virtualMachineScaleSets** > **su conjunto de escalado** > etc.
 
-<a id="scale-set-scenarios" class="xliff"></a>
-
-## Escenarios de conjuntos de escalado
+## <a name="scale-set-scenarios"></a>Escenarios de conjuntos de escalado
 En esta sección se enumeran algunos escenarios típicos de conjuntos de escalado. Algunos servicios de alto nivel de Azure (como Batch, Service Fabric y Container Service) usan estos escenarios.
 
 * **Uso de RDP o SSH para conectarse a instancias de conjuntos de escalado**: se crea un conjunto de escalado en una red virtual y no se asignan de forma predeterminada direcciones IP públicas a las máquinas virtuales individuales del conjunto de escalado. Esta directiva evita los costos y los gastos generales de administración de la asignación de direcciones IP públicas independientes para todos los nodos en la cuadrícula de proceso. Si necesita conexiones externas directas a máquinas virtuales del conjunto de escalado, puede configurar este para que asigne automáticamente direcciones IP públicas a nuevas máquinas virtuales. Como alternativa, puede conectarse a máquinas virtuales desde otros recursos de la red virtual a los que se puedan asignar direcciones IP públicas (por ejemplo, equilibradores de carga y máquinas virtuales independientes). 
@@ -134,20 +121,16 @@ En esta sección se enumeran algunos escenarios típicos de conjuntos de escalad
   
    En [este ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) de este enfoque, [Azure Container Service](https://azure.microsoft.com/services/container-service/) implementa un clúster basado en conjuntos de escalado con un orquestador del contenedor.
 
-<a id="scale-set-performance-and-scale-guidance" class="xliff"></a>
-
-## Guía de escalado y rendimiento del conjunto de escalado
-* Un conjunto de escalado admite un máximo de 1.000 máquinas virtuales. Si crea y carga sus propias imágenes de máquina virtual personalizadas, el límite es 100. Para ver todo lo que se debe saber al usar conjuntos de escalado grandes, consulte [Uso de grandes conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-placement-groups.md).
+## <a name="scale-set-performance-and-scale-guidance"></a>Guía de escalado y rendimiento del conjunto de escalado
+* Un conjunto de escalado admite un máximo de 1.000 máquinas virtuales. Si crea y carga sus propias imágenes de máquina virtual personalizadas, el límite es 300. Para ver todo lo que se debe saber al usar conjuntos de escalado grandes, consulte [Uso de grandes conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-placement-groups.md).
 * Para usar los conjuntos de escalado no necesita crear antes cuentas de almacenamiento de Azure. Los conjuntos de escalado admiten Azure Managed Disks, lo que evita problemas de rendimiento relacionados con el número de discos por cuenta de almacenamiento. Para más información, consulte [Conjuntos de escalado de máquinas virtuales y discos administrados](virtual-machine-scale-sets-managed-disks.md).
 * Considere la posibilidad de usar Azure Premium Storage, en lugar de Azure Storage, para lograr unos tiempos de aprovisionamiento de máquinas virtuales menores y más predecibles, y mejorar el rendimiento de E/S.
 * La cuota de núcleos en la región en la que realiza la implementación limita el número de máquinas virtuales que puede crear. Aunque disponga de un límite alto de núcleos que se pueden usar con Azure Cloud Services, es posible que necesite ponerse en contacto con el servicio de asistencia al cliente para aumentarlo. Para consultar la cuota, ejecute este comando de la CLI de Azure: `azure vm list-usage`. O bien, ejecute este comando de PowerShell: `Get-AzureRmVMUsage`.
 
-<a id="frequently-asked-questions-for-scale-sets" class="xliff"></a>
-
-## Preguntas más frecuentes acerca de los conjuntos de escalado
+## <a name="frequently-asked-questions-for-scale-sets"></a>Preguntas más frecuentes acerca de los conjuntos de escalado
 **P.** ¿Cuántas máquinas virtuales puede contener un conjunto de escalado?
 
-**R.** Un conjunto de escalado puede tener entre 0 y 1.000 máquinas virtuales basadas en imágenes de plataforma, o entre 0 y 100 basadas en imágenes personalizadas. 
+**R.** Un conjunto de escalado puede tener entre 0 y 1000 máquinas virtuales basadas en imágenes de plataforma, o entre 0 y 300 basadas en imágenes personalizadas. 
 
 **P.** ¿Se admiten discos de datos en los conjuntos de escalado?
 
