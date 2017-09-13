@@ -34,7 +34,8 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de d
     * [Node.js](https://nodejs.org/en/) versión v0.10.29 o superior
     * [Git](http://git-scm.com/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
