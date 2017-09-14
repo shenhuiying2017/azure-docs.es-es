@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/05/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 193e59c610d5c5b553469cf2ea2ecc150236ac27
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: e8c2a8a7c3b5d61b2524eecceeaa4638fada78b8
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Preguntas más frecuentes (P+F)
@@ -80,6 +80,9 @@ Sí. Consulte la [página de precios](https://azure.microsoft.com/pricing/detail
 
 #### <a name="is-there-a-free-trial-for-the-service"></a>¿Hay una versión de prueba gratuita para el servicio?
 Este servicio se incluye en evaluación gratuita de Azure. Puede suscribirse a un [mes de evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+#### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>¿Puedo pausar un dominio administrado de Azure AD Domain Services? 
+No. Después de habilitar un dominio administrado de Azure AD Domain Services, el servicio está disponible en la red virtual administrada hasta que se deshabilita o elimina el dominio administrado. No hay ninguna manera de pausar el servicio. La facturación continuará cada hora hasta que se elimine el dominio administrado.
 
 #### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>¿Puedo obtener Servicios de dominio de Azure AD como parte de Enterprise Mobility Suite (EMS)? ¿Necesito Azure AD Premium para usar Azure AD Domain Services?
 No. No, Azure AD Domain Services es un servicio de pago por uso de Azure y no forma parte de EMS. Azure AD Domain Services puede utilizarse con todas las ediciones de Azure AD (Gratis, Básico y Premium). Se le facturará por cada hora en función del uso.

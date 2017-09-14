@@ -1,4 +1,4 @@
-Cu---title: Azure protege datos personales en reposo con el cifrado | Descripción de Microsoft Docs: este artículo forma parte de una serie que ayuda a usar Azure para proteger los servicios de datos personales: security documentationcenter: na author: Barclayn manager: MBaldwin editor: TomSh
+title: Azure protege datos personales en reposo mediante cifrado | Microsoft Docs description: Este artículo forma parte de una serie que ayuda a usar Azure para proteger los servicios de datos personales: security documentationcenter: nd author: Barclayn manager: MBaldwin editor: TomSh
 
 ms.assetid: ms.service: security ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 08/22/2017 ms.author: barclayn ms.custom: 
 
@@ -16,12 +16,12 @@ Una gran empresa de cruceros, con sede en Estados Unidos, se encuentra en proces
 
 La empresa usa Microsoft Azure para almacenar datos corporativos en la nube. Estos pueden incluir información sobre clientes o empleados como, por ejemplo:
 
-- Direcciones
-- Números de teléfono
-- Números de identificación fiscal
-- Información de tarjeta de crédito
+- direcciones
+- números de teléfono
+- números de identificación fiscal
+- información de tarjeta de crédito
 
-La empresa debe proteger la privacidad de los datos de los clientes y los empleados y, al mismo tiempo, hacer que aquellos departamentos que lo necesiten puedan acceder a esos datos. (por ejemplo, los departamentos de nóminas y reservas)
+La empresa debe proteger la privacidad de los datos de los clientes y los empleados y, al mismo tiempo, hacer que aquellos departamentos que lo necesiten puedan tener acceso a esos datos (por ejemplo, los departamentos de nóminas y reservas)
 
 La línea de cruceros también conserva una gran base de datos de miembros del programa de recompensa y lealtad que incluye información personal para hacer un seguimiento de las relaciones con clientes actuales y antiguos.
 

@@ -17,21 +17,23 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: ae3f3343cf10a6b2f3aa49dccae6d0ac906dba5c
+ms.translationtype: HT
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: f6fc297790b8a8b3ae8edea2e37bb7daf40ed3bb
 ms.contentlocale: es-es
-ms.lasthandoff: 04/26/2017
-
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Procedimiento para descargar las datos de uso diario y de factura de Azure
 También puede descargar la factura desde [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o recibirla por correo electrónico. Para descargar su uso diario, vaya a la [Centro de cuentas de Azure](https://account.windowsazure.com). Solo determinados roles tienen permiso para obtener la información de facturación y uso, como el administrador de la cuenta. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](billing-manage-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
 
+>[!NOTE]
+>Este artículo no es aplicable para clientes del Contrato Enterprise (EA). Si es un cliente EA, las facturas se envían directamente a los administradores de la inscripción.
+
 ## <a name="get-your-invoice-in-email-pdf"></a>Obtención de la factura por correo electrónico (.pdf)
 Puede optar a destinatarios adicionales y configurarlos para recibir la factura de Azure en un correo electrónico. Esta característica puede no estar disponible para determinadas suscripciones, como ofertas de soporte técnico, contratos Enterprise o Azure bajo licencia Open.
 
-1. Seleccione su suscripción en la [hoja Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Tendrá que habilitar la opción en cada suscripción que posea. Haga clic en **Facturas** y luego en **Email my invoice** (Enviar mi factura por correo electrónico). 
+1. Seleccione su suscripción en la [página Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Tendrá que habilitar la opción en cada suscripción que posea. Haga clic en **Facturas** y luego en **Email my invoice** (Enviar mi factura por correo electrónico). 
 
     ![Captura de pantalla que muestra el flujo de participación](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
     
@@ -47,7 +49,7 @@ Si no recibe un correo electrónico después de seguir los pasos, asegúrese de 
 
 ## <a name="download-invoice-from-azure-portal-pdf"></a>Descarga de la factura desde Azure Portal (.pdf)
 
-1. Seleccione su suscripción desde la [hoja Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) en Azure Portal como [un usuario con acceso a las facturas](billing-manage-access.md).
+1. Seleccione su suscripción en la [página Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) de Azure Portal como [un usuario con acceso a las facturas](billing-manage-access.md).
 
 2. Seleccione **Facturas**. 
 

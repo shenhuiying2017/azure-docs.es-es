@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 91ee74f01b2e84244245dbe43408589f04af6338
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 52d131384c61b57d31873530304c644d6e9c11f1
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Salidas de Stream Analytics: opciones para almacenamiento y análisis
@@ -302,7 +302,7 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 | Delimitador |Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) es un servicio de base de datos de documentos NoSQL totalmente administrado que ofrece consultas y transacciones a través de datos sin esquema, rendimiento predecible y confiable y desarrollo rápido.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) es un servicio de base de datos multimodelo distribuido globalmente que ofrece un escalado ilimitado en todo el mundo, una avanzada funcionalidad de indexación automática y de consultas a partir de modelos de datos independientes del esquema, baja latencia garantizada y completos contratos de nivel de servicio líderes en el sector.
 
 En la lista siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de Azure Cosmos DB.
 

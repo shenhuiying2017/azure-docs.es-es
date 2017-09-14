@@ -15,18 +15,20 @@ ms.workload: na
 ms.date: 08/09/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 28fb41499c919e5006f1be7daa97610c2a0583af
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: b4b9d5d272bdb172f1d40db379a519a4f617550a
 ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticación y autorización de Service Bus
 
-Las aplicaciones pueden autenticarse en Azure Service Bus mediante la autenticación con Firma de acceso compartido (SAS). La autenticación de Firma de acceso compartido permite a las aplicaciones autenticarse en Service Bus mediante una clave de acceso configurada en el espacio de nombres o la entidad al que se asocian derechos específicos. A continuación, puede usar esta clave para generar un token de Firma de acceso compartido que los clientes pueden usar para autenticarse en Service Bus.
+Las aplicaciones tiene acceso a Azure Service Bus mediante la autenticación con token de firma de acceso compartido (SAS). Con SAS, las aplicaciones presentan un token a Service Bus que se ha firmado con una clave simétrica que tanto el emisor del token como Service Bus conocen ("compartida") y esa clave está directamente asociada a una regla que concede derechos de acceso específicos, como el permiso para recibir y escuchar o enviar mensajes. Las reglas de SAS se configuran en el espacio de nombres o directamente en entidades como una cola o tema, lo que permite un control de acceso específico.
+
+Los token de SAS los puede generar un cliente de Service Bus directamente o un punto de conexión de emisión de token intermedio con el que el cliente interactúa. Por ejemplo, un sistema puede requerir que el cliente llame a un punto de conexión de servicio web protegido con autorización de Active Directory para demostrar sus derechos de acceso al sistema e identidad y el servicio web, a continuación, devolverá el token de Service Bus adecuado. Este token de SAS se puede generar fácilmente utilizando el proveedor de token de Service Bus incluido en el SDK. 
 
 > [!IMPORTANT]
-> Debe usar SAS en lugar de Azure Active Directory Access Control (también conocido como Access Control Service o ACS), ya que ACS está en desuso. SAS proporciona un esquema de autenticación sencillo, flexible y fácil de usar para Service Bus. Las aplicaciones pueden usar SAS en escenarios en los que no necesitan administrar la noción de “usuario” autorizado. Para más información, vea [esta publicación del blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
+> Si utiliza Azure Active Directory Access Control (también conocido como Access Control Service o ACS) junto con Service Bus, tenga en cuenta que la compatibilidad con este método está limitada y debe migrar la aplicación para usar SAS. Para más información, vea [esta publicación del blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
 
 ## <a name="shared-access-signature-authentication"></a>Autenticación con Firma de acceso compartido
 

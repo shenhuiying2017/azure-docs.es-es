@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 4248a3769ba8a0fb067b3904d55d487fe67e5778
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: c68f0239bcb95aa5e9d8194f7b358f30588ea600
 ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -31,7 +31,7 @@ De forma predeterminada, Azure Container Instances no tiene estado. Si el conten
 
 ## <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 
-Antes de utilizar un recurso compartido de archivos de Azure en Azure Container Instances, debe crearlo. Ejecute el script siguiente para crear una cuenta de almacenamiento para hospedar el recurso compartido de archivos y el propio recurso compartido. Tenga en cuenta que el nombre de la cuenta de almacenamiento debe ser globalmente único, por lo que el script agrega un valor aleatorio en la cadena base.
+Antes de utilizar un recurso compartido de archivos de Azure en Azure Container Instances, debe crearlo. Ejecute el script siguiente para crear una cuenta de almacenamiento para hospedar el recurso compartido de archivos y el propio recurso compartido. El nombre de la cuenta de almacenamiento debe ser único globalmente, por lo que el script agrega un valor aleatorio en la cadena base.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -52,7 +52,7 @@ az storage share create -n $ACI_PERS_SHARE_NAME
 
 ## <a name="acquire-storage-account-access-details"></a>Adquisición de detalles de acceso de la cuenta de almacenamiento
 
-Para montar un recurso compartido de archivos de Azure como un volumen en Azure Container Instances, necesita tres valores: el nombre de la cuenta de almacenamiento, el nombre del recurso compartido y la clave de acceso de almacenamiento. 
+Para montar un recurso compartido de archivos de Azure como un volumen en Azure Container Instances, necesita tres valores: el nombre de la cuenta de almacenamiento, el nombre del recurso compartido y la clave de acceso de almacenamiento.
 
 Si ha usado el script anterior, el nombre de la cuenta de almacenamiento se creó con un valor aleatorio al final. Para consultar la cadena final (incluida la parte aleatoria), use los siguientes comandos:
 
@@ -64,13 +64,13 @@ echo $STORAGE_ACCOUNT
 El nombre del recurso compartido ya se conoce (es *acishare* en el script anterior), por lo que todo lo que queda es la clave de cuenta de almacenamiento, que puede encontrarse con el siguiente comando:
 
 ```azurecli-interactive
-$STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Almacenamiento de los detalles de acceso de la cuenta de almacenamiento con Azure Key Vault
+## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Almacenamiento de los detalles de acceso de la cuenta de almacenamiento con un almacén de claves de Azure
 
-Las claves de cuenta de almacenamiento protegen el acceso a los datos, por lo que recomendamos almacenarlas en Azure Key Vault. 
+Las claves de cuenta de almacenamiento protegen el acceso a los datos, por lo que recomendamos almacenarlas en un almacén de claves de Azure.
 
 Cree un almacén de claves con la CLI de Azure:
 
@@ -129,7 +129,7 @@ Para definir los volúmenes que desea que estén disponibles para el montaje, ag
             "name": "myvolume",
             "mountPath": "/aci/logs/"
           }]
-        }  
+        }
       }],
       "osType": "Linux",
       "ipAddress": {
@@ -152,7 +152,7 @@ Para definir los volúmenes que desea que estén disponibles para el montaje, ag
 }
 ```
 
-La plantilla incluye el nombre y la clave de la cuenta de almacenamiento como parámetros, que se pueden proporcionar en un archivo de parámetros independiente. Para rellenar el archivo de parámetros, necesitará tres valores: el nombre de la cuenta de almacenamiento, el identificador de recursos de Azure Key Vault y el nombre de secreto del almacén de claves que utilizó para almacenar la clave de almacenamiento. Si ha seguido los pasos anteriores, puede obtener estos valores con el siguiente script:
+La plantilla incluye el nombre y la clave de la cuenta de almacenamiento como parámetros, que se pueden proporcionar en un archivo de parámetros independiente. Para rellenar el archivo de parámetros, necesita tres valores: el nombre de la cuenta de almacenamiento, el identificador de recursos de Azure Key Vault y el nombre del secreto del almacén de claves que utilizó para almacenar la clave de almacenamiento. Si ha seguido los pasos anteriores, puede obtener estos valores con el siguiente script:
 
 ```azurecli-interactive
 echo $STORAGE_ACCOUNT
@@ -169,7 +169,7 @@ Inserte los valores en el archivo de parámetros:
   "parameters": {
     "storageaccountname": {
       "value": "<my_storage_account_name>"
-    },    
+    },
    "storageaccountkey": {
       "reference": {
         "keyVault": {
@@ -190,7 +190,7 @@ Con la plantilla definida, puede crear el contenedor y montar el volumen de este
 az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
 ```
 
-Una vez que se inicie el contenedor, puede usar la aplicación web simple que se implementó mediante la imagen **seanmckenna/aci-hellofiles** en los archivos de administración en el recurso compartido de archivos de Azure en la ruta de montaje que especificó. Obtenga la dirección IP de la aplicación web mediante lo siguiente:
+Una vez que se inicie el contenedor, puede usar la aplicación web simple que se implementó mediante la imagen **seanmckenna/aci-hellofiles**, para administrar los archivos en el recurso compartido de archivos de Azure en la ruta de montaje que especificó. Obtenga la dirección IP de la aplicación web mediante lo siguiente:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name hellofiles -o table

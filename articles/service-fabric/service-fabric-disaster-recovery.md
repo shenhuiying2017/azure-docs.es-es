@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: f50d5073b0016bbf0c7b6ba1374e951225dfd88f
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 5346e331d76149ac3aed7aaf11eb3171e0ac5cfc
 ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperación ante desastres en Service Fabric de Azure
@@ -37,7 +37,7 @@ Los errores de hardware y software son imprevisibles. La manera más fácil de s
 
 Con la ejecución en este tipo de modo distribuido, sigue sujeto a ciertos tipos de errores simultáneos, pero errores únicos o incluso varios del mismo tipo (por ejemplo, un error solo en una máquina virtual o un vínculo de la red) se resuelven automáticamente, por lo que dejan de ser un "desastre". Service Fabric proporciona varios mecanismos para expandir el clúster y se ocupa de recuperar nodos y servicios defectuosos. También permite ejecutar varias instancias de los servicios para evitar que estos tipos de errores imprevistos se conviertan en verdaderos desastres.
 
-Puede haber razones por las que ejecutar una gran implementación para abarcar los errores no sea posible. Por ejemplo, puede implicar más recursos de hardware de los que esté dispuesto a pagar por el riesgo de error. Cuando se trabaja con aplicaciones distribuidas, es posible que los costos de los saltos de comunicación o de replicación de estados adicionales a distancia geográfica provoquen una latencia inaceptable. Esta línea se traza en función de cada aplicación. En concreto, para errores de software, el error puede encontrarse en el servicio que intente escalar. En este caso, el hecho de tener más copias no evita el desastre, ya que la condición de error se encuentra en todas las instancias.
+Puede haber razones por las que ejecutar una gran implementación para abarcar los errores no sea posible. Por ejemplo, puede implicar más recursos de hardware que los que esté dispuesto a pagar por el riesgo de error. Cuando se trabaja con aplicaciones distribuidas, es posible que los costos de los saltos de comunicación o de replicación de estados adicionales a distancia geográfica provoquen una latencia inaceptable. Esta línea se traza en función de cada aplicación. En concreto, para errores de software, el error puede encontrarse en el servicio que intente escalar. En este caso, el hecho de tener más copias no evita el desastre, ya que la condición de error se encuentra en todas las instancias.
 
 ### <a name="operational-faults"></a>Errores operativos
 Aunque se distribuya el servicio por todo el mundo con redundancias, pueden seguir produciéndose eventos de desastre. Por ejemplo, si alguien vuelve a configurar por error el nombre de dns del servicio o directamente lo elimina. A modo de ejemplo, supongamos que tuviera un servicio de Service Fabric con estado y que alguien lo elimina por error. A menos que haya otra mitigación, ese servicio y su estado habrán desaparecido. Estos tipos de desastres operativos ("vaya") requieren más mitigaciones y pasos para la recuperación que los errores imprevistos normales. 

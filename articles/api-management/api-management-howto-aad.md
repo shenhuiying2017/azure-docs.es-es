@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: dc279718cbb360e611d7e4cfb6961a087159fb01
-ms.openlocfilehash: 7637e6419d17a2d75904fbe63df5f27d4be4bbe3
-ms.lasthandoff: 02/24/2017
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 2fa5c021d9f493004a5beab02529c70b600b9a0d
+ms.contentlocale: es-es
+ms.lasthandoff: 09/02/2017
 
 ---
+
+> [!WARNING]
+> La integración de Azure Active Directory solo está disponible en los niveles [Desarrollador y Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
+
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory en Administración de API de Azure
 ## <a name="overview"></a>Información general
 En esta guía se muestra cómo habilitar el acceso al portal para desarrolladores para todos los usuarios desde Azure Active Directory. También se muestra cómo administrar los grupos de usuarios de Azure Active Directory mediante la adición de grupos externos que contienen los usuarios de un directorio de Azure Active Directory.
 
 > Para completar los pasos descritos en esta guía, debe tener un directorio de Azure Active Directory en el que crear una aplicación.
-> 
 > 
 
 ## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory
@@ -91,7 +95,7 @@ Vuelva al portal del publicador y pegue el **Id. de cliente** que ha copiado de 
 
 ![Id. de cliente][api-management-client-id]
 
-Vuelva a la configuración de Azure Active Directory, haga clic en la lista desplegable **Seleccionar duración** de la sección **Claves** y especifique un intervalo. En este ejemplo se usa el **año&1;**.
+Vuelva a la configuración de Azure Active Directory, haga clic en la lista desplegable **Seleccionar duración** de la sección **Claves** y especifique un intervalo. En este ejemplo se usa el **año 1**.
 
 ![Clave][api-management-aad-key-before-save]
 

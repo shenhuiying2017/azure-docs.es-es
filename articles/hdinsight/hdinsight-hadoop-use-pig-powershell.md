@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 28904b07609ffb40a8195278fd1afd3957896733
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: ce088b22ca45bc40252c909697153ce9e847592e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Uso de Azure PowerShell para ejecutar trabajos de Pig con HDInsight
@@ -50,8 +50,8 @@ Azure PowerShell proporciona *cmdlets* que le permiten ejecutar de manera remota
 Los cmdlets siguientes se utilizan cuando se ejecutan trabajos de Pig en un clúster de HDInsight remoto:
 
 * **Login-AzureRmAccount**: autentica Azure PowerShell en la suscripción de Azure.
-* **New-AzureRmHDInsightPigJobDefinition**: crea una *definición de trabajo* con las instrucciones de Pig Latin especificadas.
-* **Start-AzureRmHDInsightJob**: envía la definición del trabajo a HDInsight, inicia el trabajo y devuelve un objeto de *trabajo* que se puede usar para comprobar el estado del trabajo.
+* **New-AzureRmHDInsightPigJobDefinition**: crea una *definición de trabajo* utilizando las instrucciones de Pig Latin especificadas.
+* **Start-AzureRmHDInsightJob**: envía la definición del trabajo a HDInsight e inicia el trabajo. Se devuelve un objeto *job*.
 * **Wait-AzureRmHDInsightJob**: usa el objeto de trabajo para comprobar el estado del trabajo. Esperará hasta que el trabajo se haya completado o haya superado el tiempo de espera.
 * **Get-AzureRmHDInsightJobOutput**: se usa para recuperar la salida del trabajo.
 
@@ -81,7 +81,7 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 
 ## <a id="troubleshooting"></a>Solución de problemas
 
-Si no se devuelve ninguna información cuando se completa el trabajo, pudo haberse producido un error durante el procesamiento. Para ver la información de error para este trabajo, agregue lo siguiente al final del archivo **pigjob.ps1** , guárdelo y, a continuación, ejecútelo de nuevo.
+Si una vez completado el trabajo no se devuelve información, consulte los registros de errores. Para ver la información de error para este trabajo, agregue lo siguiente al final del archivo **pigjob.ps1** , guárdelo y, a continuación, ejecútelo de nuevo.
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
@@ -91,7 +91,7 @@ Si no se devuelve ninguna información cuando se completa el trabajo, pudo haber
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-Se devuelve la información escrita en STDERR en el servidor cuando ejecute el trabajo y puede ayudar a determinar por qué se ha producido el error en el trabajo.
+Este cmdlet devuelve la información que se escribió en STDERR al procesar el trabajo.
 
 ## <a id="summary"></a>Resumen
 Como puede ver, Azure PowerShell proporciona una manera fácil de ejecutar trabajos de Pig en un clúster de HDInsight, de supervisar el estado del trabajo y de recuperar el resultado.

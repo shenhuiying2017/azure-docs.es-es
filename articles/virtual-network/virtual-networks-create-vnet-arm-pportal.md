@@ -17,15 +17,15 @@ ms.date: 07/26/2017
 ms.author: jdial
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: a31f0524a6fa1de45498f340a27b863a3c627e04
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: f82a95ec9543b2d53ef28bf7f15315e23cf4893a
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets"></a>Creación de una red virtual con varias subredes
 
-En este tutorial, aprenderá a crear una red virtual básica de Azure con subredes públicas y privadas independientes. Puede crear recursos de Azure, como máquinas virtuales, entornos de App Service, conjuntos de escalado de máquinas virtuales, Azure HDInsight y servicios en la nube en una subred. Los recursos de las redes virtuales se pueden comunicar entre sí y con los recursos de otras redes conectadas a una red virtual.
+En este tutorial, aprenderá a crear una red virtual básica de Azure con subredes públicas y privadas independientes. Los recursos de las redes virtuales se pueden comunicar entre sí y con los recursos de otras redes conectadas a una red virtual. Puede crear recursos de Azure, como máquinas virtuales, entornos de App Service, conjuntos de escalado de máquinas virtuales, Azure HDInsight y servicios en la nube en la misma subred o en diferentes subredes de una red virtual. La creación de recursos en subredes diferentes le permite filtrar el tráfico de red de entrada y salida de las subredes de forma independiente con [grupos de seguridad de red](virtual-networks-create-nsg-arm-pportal.md), y [enrutar el tráfico entre las subredes](virtual-network-create-udr-arm-ps.md) de las aplicaciones virtuales de la red como, por ejemplo, un firewall, si así lo desea. 
 
 En las secciones siguientes se incluyen los pasos que se pueden seguir para crear una red virtual mediante [Azure Portal](#portal), la interfaz de línea de comandos de Azure ([CLI de Azure](#azure-cli)), [Azure PowerShell](#powershell) y una [plantilla de Azure Resource Manager](#resource-manager-template). El resultado es el mismo, independientemente de la herramienta que use para crear la red virtual. Haga clic en un vínculo de la herramienta para ir a esa sección del tutorial. Más información sobre todos los valores de [red virtual](virtual-network-manage-network.md) y [subred](virtual-network-manage-subnet.md).
 
@@ -52,7 +52,8 @@ En este artículo se indican los pasos para crear una red virtual mediante el mo
 6. En la hoja **myVnet - Subredes**, haga clic en **+Subred**.
 7. En la hoja **Agregar subred**, escriba **Privada** en **Nombre**. Para **Intervalo de direcciones**, escriba **10.0.1.0/24**.  Haga clic en **Aceptar**.
 8. Revise las subredes en la hoja **myVnet - Subredes**. Puede ver las subredes **Pública** y **Privada** que ha creado.
-9. **Opcional:** para eliminar los recursos creados en este tutorial, complete los pasos de la sección [Eliminar recursos](#delete-portal) de este artículo.
+9. **Opcional:** complete los tutoriales adicionales que aparecen en la sección [Pasos siguientes](#next-steps) para filtrar el tráfico de red de entrada y salida de cada subred con grupos de seguridad de red, para enrutar el tráfico entre subredes de una aplicación virtual de red , o para conectar la red virtual a otras redes virtuales o redes locales.
+10. **Opcional**: elimine los recursos que cree en este tutorial. Para ello, complete los pasos que aparecen en la sección [Eliminar recursos](#delete-portal).
 
 ## <a name="azure-cli"></a>CLI de Azure
 
@@ -90,7 +91,8 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
     az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
     ```
 
-5. **Opcional**: para eliminar los recursos que crea en este tutorial, complete los pasos que aparecen en la sección [Eliminar recursos](#delete-cli) de este artículo.
+5. **Opcional:** complete los tutoriales adicionales que aparecen en la sección [Pasos siguientes](#next-steps) para filtrar el tráfico de red de entrada y salida de cada subred con grupos de seguridad de red, para enrutar el tráfico entre subredes de una aplicación virtual de red , o para conectar la red virtual a otras redes virtuales o redes locales.
+6. **Opcional**: elimine los recursos que cree en este tutorial. Para ello, complete los pasos que aparecen en la sección [Eliminar recursos](#delete-cli).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -128,13 +130,17 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
     $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
 
-5. **Opcional**: para eliminar los recursos que crea en este tutorial, complete los pasos que aparecen en la sección [Eliminar recursos](#delete-powershell) de este artículo.
+5. **Opcional:** complete los tutoriales adicionales que aparecen en la sección [Pasos siguientes](#next-steps) para filtrar el tráfico de red de entrada y salida de cada subred con grupos de seguridad de red, para enrutar el tráfico entre subredes de una aplicación virtual de red , o para conectar la red virtual a otras redes virtuales o redes locales.
+6. **Opcional**: elimine los recursos que cree en este tutorial. Para ello, complete los pasos que aparecen en la sección [Eliminar recursos](#delete-powershell).
 
 ## <a name="resource-manager-template"></a>Plantilla de Resource Manager
 
 Puede implementar una red virtual con una plantilla de Azure Resource Manager. Para obtener más información sobre las plantillas, vea [¿Qué es Resource Manager?](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment) Para obtener acceso a la plantilla e información sobre sus parámetros, vea la plantilla [Crear una red virtual con dos subredes](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/). Puede implementar la plantilla mediante el [portal](#template-portal), la [CLI de Azure](#template-cli) o [PowerShell](#template-powershell).
 
-**Opcional:** para eliminar los recursos creados en este tutorial, complete los pasos de cualquiera de las subsecciones de [Eliminar recursos](#delete) de este artículo.
+Pasos opcionales después de implementar la plantilla:
+
+1. Complete los tutoriales adicionales que aparecen en la sección [Pasos siguientes](#next-steps) para filtrar el tráfico de red de entrada y salida de cada subred con grupos de seguridad de red, para enrutar el tráfico entre subredes de una aplicación virtual de red , o para conectar la red virtual a otras redes virtuales o redes locales.
+2. Elimine los recursos que cree en este tutorial. Para ello, complete los pasos que aparecen en todas las subsecciones de [Eliminar recursos](#delete).
 
 ### <a name="template-portal"></a>Azure Portal
 
@@ -227,8 +233,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre todos los valores de red virtual y subred, vea [Administración de redes virtuales](virtual-network-manage-network.md#view-vnet) y [Manage virtual network subnets (Administración de subredes virtuales)](virtual-network-manage-subnet.md#create-subnet). Tiene varias opciones para el uso de redes virtuales y subredes en un entorno de producción para satisfacer requisitos diferentes.
-- Para filtrar el tráfico de subred entrante y saliente, cree y aplique [grupos de seguridad de red](virtual-networks-nsg.md) a las subredes.
-- Cree una máquina virtual [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y después conéctela a una red virtual existente.
-- Para conectar dos redes virtuales en la misma ubicación de Azure, cree un [emparejamiento de red virtual](virtual-network-peering-overview.md) entre las redes virtuales.
+- Filtre el tráfico entrante y saliente de las subredes mediante la creación de [grupos de seguridad de red](virtual-networks-nsg.md) para aplicarlos a las subredes.
+- Enrute el tráfico entre subredes de una aplicación virtual de red, mediante la creación de [rutas definidas por el usuario](virtual-network-create-udr-arm-ps.md) y aplique las rutas a cada subred.
+- Cree una máquina virtual [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en una red virtual existente.
+- Conecte dos redes virtuales. Para ello, cree un [emparejamiento de red virtual](virtual-network-peering-overview.md) entre ambas.
 - Conecte la red virtual a una red local mediante un circuito de [VPN Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

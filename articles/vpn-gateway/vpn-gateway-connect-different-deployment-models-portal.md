@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1b7b67ec28986b7c20b3e990e3565265f74c28e6
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: ad5700f1a85567a3e7f4ef80b778183929cb0d68
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
@@ -36,7 +36,7 @@ La conexión de una red virtual clásica a una red virtual de Resource Manager e
 
 Si las redes virtuales están en la misma región, es posible que quiera conectarlas mediante emparejamiento de VNET. El emparejamiento de VNET no usa VPN Gateway. Para más información, consulte [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md). 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="before"></a>Antes de empezar
 
 * En estos pasos se presume que ya se crearon ambas redes virtuales. Si usa este artículo como ejercicio y no tiene redes virtuales, los pasos incluyen vínculos que le ayudarán a crearlas.
 * Compruebe que los intervalos de direcciones de las redes virtuales no se superponen entre sí ni con alguno de los intervalos de otras conexiones con las que puedan estar conectadas las puertas de enlace.
@@ -82,7 +82,7 @@ En la tabla siguiente se muestra un ejemplo de cómo se definen los sitios local
 | ClassicVNet |(10.0.0.0/24) |Oeste de EE. UU. | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |Este de EE. UU. |ClassicVNetLocal (10.0.0.0/24) |
 
-## <a name="classicvnet"></a>1. Configuración de la red virtual clásica
+## <a name="classicvnet"></a>Sección 1: Configuración de la red virtual clásica
 
 En esta sección se creará la red local (sitio local) y la puerta de enlace de la red virtual para la red virtual clásica. Si no tiene una red virtual clásica y lleva a cabo estos pasos como ejercicio, puede crear una red virtual según [este artículo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y los valores de configuración de [ejemplo](#values) indicados anteriormente.
 
@@ -97,7 +97,7 @@ Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puert
 
 Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos o use los valores de [ejemplo](#values).
 
-### <a name="part-1---configure-the-local-site"></a>Parte 1: configuración del sitio local
+### 1. <a name="local"></a>Configuración del sitio local
 
 Abra [Azure Portal](https://ms.portal.azure.com) e inicie sesión con su cuenta de Azure.
 
@@ -112,7 +112,7 @@ Abra [Azure Portal](https://ms.portal.azure.com) e inicie sesión con su cuenta 
 7. Para **Client Address Space** (Espacio de direcciones de clientes), use los valores de los espacios de direcciones IP de red virtual para la red virtual de Resource Manager. Este valor se usa para especificar los espacios de direcciones a fin de enrutar a la red virtual de Resource Manager.
 8. Haga clic en **Aceptar** para guardar los valores y volver a la hoja **Nueva conexión VPN**.
 
-### <a name="part-2---create-the-virtual-network-gateway"></a>Parte 2: creación de la puerta de enlace de la red virtual
+### <a name="classicgw"></a>2. Creación de la puerta de enlace de red virtual
 
 1. En la hoja **Nueva conexión VPN**, seleccione la casilla **Crear puerta de enlace inmediatamente** y haga clic en **Configuración de puerta de enlace opcional** para abrir la hoja **Configuración de puerta de enlace**. 
 
@@ -123,7 +123,7 @@ Abra [Azure Portal](https://ms.portal.azure.com) e inicie sesión con su cuenta 
 5. Compruebe que el **Tipo de enrutamiento** sea **Dinámico** y haga clic en **Aceptar** para volver a la hoja **Nueva conexión VPN**.
 6. En la hoja **Nueva conexión VPN**, haga clic en **Aceptar** para empezar a crear la puerta de enlace VPN. Una puerta de enlace VPN puede tardar hasta 45 minutos en completarse.
 
-### <a name="ip"></a>Parte 3: copia de la dirección IP pública de la puerta de enlace de la red virtual
+### <a name="ip"></a>3. Copia de la dirección IP pública de la puerta de enlace de la red virtual
 
 Una vez que se haya creado la puerta de enlace de la red virtual, puede ver la dirección IP de la puerta de enlace. 
 
@@ -132,13 +132,13 @@ Una vez que se haya creado la puerta de enlace de la red virtual, puede ver la d
 3. Escriba o copie la dirección IP. Se usa en pasos posteriores al trabajar con las opciones de configuración de puerta de enlace de red local de Resource Manager. También puede ver el estado de las conexiones de puerta de enlace. Observe que el sitio de red local que creó aparece como "Conectando". El estado cambiará una vez creadas las conexiones.
 4. Cierre la hoja después de copiar la dirección IP de puerta de enlace.
 
-## <a name="rmvnet"></a>2. Configuración de redes virtuales de Resource Manager
+## <a name="rmvnet"></a>Sección 2: Configuración de redes virtuales de Resource Manager
 
 En esta sección se crea la puerta de enlace de red virtual y la puerta de enlace de red local para la red de Resource Manager. Si no tiene una red virtual de Resource Manager y lleva a cabo estos pasos como ejercicio, puede crear una red virtual según [este artículo](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) y los valores de configuración de [ejemplo](#values) indicados anteriormente.
 
 Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos o use los valores de [ejemplo](#values).
 
-### <a name="part-1---create-a-gateway-subnet"></a>Parte 1: creación de una subred de la puerta de enlace
+### <a name="1-create-a-gateway-subnet"></a>1. Creación de una subred de puerta de enlace
 
 Antes de crear una puerta de enlace de red virtual, primero deberá crear una subred de puerta de enlace. Cree una subred de puerta de enlace con un recuento CIDR de /28 o mayor. (/27, /26, etc.)
 
@@ -146,11 +146,11 @@ Antes de crear una puerta de enlace de red virtual, primero deberá crear una su
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-### <a name="part-2---create-a-virtual-network-gateway"></a>Parte 2: creación de una puerta de enlace de la red virtual
+### <a name="creategw"></a>2. Creación de una puerta de enlace de red virtual
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>Parte 3: creación de una puerta de enlace de la red local
+### <a name="createlng"></a>3. Creación de una puerta de enlace de red local
 
 La puerta de enlace de red local especifica el intervalo de direcciones y la dirección IP pública asociados a la red virtual clásica y su puerta de enlace de red virtual.
 
@@ -163,7 +163,7 @@ Si lleva a cabo estos pasos como ejercicio, haga referencia a esta configuració
 
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
-## <a name="modifylng"></a>3. Modificación de la configuración del sitio local de la red virtual clásica
+## <a name="modifylng"></a>Sección 3: modificación de la configuración del sitio local de la red virtual clásica
 
 En esta sección se reemplaza la dirección IP de marcador de posición que usó al especificar la configuración del sitio local con la dirección IP de puerta de enlace VPN de Resource Manager. Esta sección utiliza los cmdlets de PowerShell (SM) clásicos.
 
@@ -183,7 +183,7 @@ En esta sección se reemplaza la dirección IP de marcador de posición que usó
     ![Dirección IP de puerta de enlace](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Dirección IP de puerta de enlace")
 7. Haga clic en **Aceptar** para actualizar la dirección IP.
 
-## <a name="RMtoclassic"></a>4. Creación de conexión de red virtual de Resource Manager a red virtual clásica
+## <a name="RMtoclassic"></a>Sección 4: Creación de conexión de red virtual de Resource Manager a red virtual clásica
 
 En estos pasos se configura la conexión desde la red virtual de Resource Manager a la red virtual clásica con Azure Portal.
 
@@ -198,7 +198,7 @@ En estos pasos se configura la conexión desde la red virtual de Resource Manage
 9. Cree una **clave compartida**. Esta clave se usa también en la conexión que crea desde la red virtual clásica a la red virtual de Resource Manager. Puede generar la clave o inventar una. En el ejemplo usamos "abc123", pero puede (y debe) usar un valor más complejo.
 10. Haga clic en **Aceptar** para crear la conexión.
 
-##<a name="classictoRM"></a>5. Creación de conexión de red virtual clásica a red virtual de Resource Manager
+##<a name="classictoRM"></a>Sección 5: Creación de conexión de red virtual clásica a red virtual de Resource Manager
 
 En estos pasos se configura la conexión desde la red virtual clásica a la red virtual de Resource Manager. Estos pasos requieren PowerShell. Esta conexión no se puede crear en el portal. Asegúrese de que ha descargado e instalado los cmdlets de PowerShell tanto del modelo clásico (SM) como del modelo de Resource Manager (RM).
 
@@ -256,7 +256,7 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
 ```
 
-##<a name="verify"></a>6. Comprobación de las conexiones
+##<a name="verify"></a>Sección 6: Comprobación de las conexiones
 
 Puede comprobar las conexiones mediante Azure Portal o PowerShell. Al comprobar, es posible que necesite esperar un minuto o dos mientras se crea la conexión. Cuando una conexión se realiza correctamente, el estado de conectividad cambia de "Conectando" a "Conectado".
 
@@ -270,5 +270,5 @@ Puede comprobar las conexiones mediante Azure Portal o PowerShell. Al comprobar,
 
 ## <a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 

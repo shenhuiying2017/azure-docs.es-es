@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: d7e6bcd669d40cb19de44b646505856ecd8f51a0
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 17fe2bc467acc5542d021961a066940dbecf6120
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funciones de implementación para las plantillas de Azure Resource Manager 
@@ -98,7 +98,7 @@ Puede usar deployment() para establecer un vínculo con otra plantilla basada en
 
 ### <a name="example"></a>Ejemplo
 
-El ejemplo siguiente devuelve el objeto de implementación:
+La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) siguiente devuelve el objeto de implementación:
 
 ```json
 {
@@ -136,6 +136,18 @@ El ejemplo anterior devuelve el objeto siguiente:
     "provisioningState": "Accepted"
   }
 }
+```
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
 <a id="parameters" />
@@ -177,7 +189,7 @@ Por lo general, se usan parámetros para establecer los valores de recurso. En e
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra un uso simplificado de la función de los parámetros.
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) siguiente se muestra un uso simplificado de la función de los parámetros.
 
 ```json
 {
@@ -232,7 +244,7 @@ En el ejemplo siguiente se muestra un uso simplificado de la función de los par
 }
 ```
 
-La salida del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -241,6 +253,18 @@ La salida del ejemplo anterior con los valores predeterminados es:
 | objectOutput | Objeto | {"one": "a", "two": "b"} |
 | arrayOutput | Matriz | [1, 2, 3] |
 | crossOutput | String | opción 1 |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+```
 
 <a id="variables" />
 
@@ -285,7 +309,7 @@ Por lo general, para simplificar la plantilla se usan variables para crear valor
 
 ### <a name="example"></a>Ejemplo
 
-La plantilla de ejemplo devuelve distintos valores de variable.
+La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) siguiente devuelve distintos valores de variable.
 
 ```json
 {
@@ -323,7 +347,7 @@ La plantilla de ejemplo devuelve distintos valores de variable.
 }
 ```
 
-La salida del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -331,6 +355,18 @@ La salida del ejemplo anterior con los valores predeterminados es:
 | exampleOutput2 | Matriz | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).

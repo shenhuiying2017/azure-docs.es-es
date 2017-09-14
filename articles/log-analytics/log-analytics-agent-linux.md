@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 09/05/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1c05f68235aafd0fa098a3b0edaba1258df09380
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 17b451b1fc91cf9fdc895ad28f2c455af5d28b07
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
@@ -265,7 +265,7 @@ Los paquetes de agente se pueden desinstalar mediante la ejecución del archivo 
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problema: Ve un error 404 y 500 en el archivo de registro justo después de la incorporación
 Se trata de un problema conocido que se produce con la primera carga de datos de Linux en un área de trabajo de OMS. Esto no afecta a los datos que se envían ni a la experiencia del servicio.
 
-### <a name="issue--you-are-not-seeing-any-data-in-the-oms-portal"></a>Problema: No aparece ningún dato en el portal de OMS
+### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>Problema: No aparece ningún dato en el portal de OMS
 
 #### <a name="probable-causes"></a>Causas probables
 
@@ -281,4 +281,5 @@ Se trata de un problema conocido que se produce con la primera carga de datos de
 
     >[!NOTE]
     >Este problema se ha corregido en la versión 1.1.0-28 y posteriores del agente.
-> 
+
+

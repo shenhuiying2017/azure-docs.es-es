@@ -17,48 +17,48 @@ ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 80df3da4d62feb814ea2dd97c96e57954093c5c5
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: b5bf9042921dfb2344c2c6e03990578fa9ce4f5b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/01/2017
 
 ---
-# <a name="use-the-hive-view-with-hadoop-in-hdinsight"></a>Uso de Vista de Hive con Hadoop en HDInsight
+# <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Uso de Ambari Hive View con Hadoop en HDInsight
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Aprenda a ejecutar consultas de Hive mediante Ambari Hive View. Ambari es una utilidad de administración y supervisión proporcionada con los clústeres de HDInsight basados en Linux. Una de las características que se proporcionan a través de Ambari es una interfaz de usuario web que puede usarse para ejecutar consultas de Hive.
+Aprenda a ejecutar consultas de Hive utilizando Ambari Hive View. Ambari es una utilidad de administración y supervisión proporcionada con los clústeres de HDInsight basados en Linux. Una de las características que se proporcionan a través de Ambari es una interfaz de usuario web que puede usarse para ejecutar consultas de Hive.
 
 > [!NOTE]
 > Ambari cuenta con muchas funcionalidades que no se tratan en este documento. Para más información, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un clúster de HDInsight basado en Linux Para información sobre la creación de un clúster, consulte [Introducción a HDInsight en Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
+* Un clúster de HDInsight basado en Linux Para más información sobre la creación de clústeres, consulte [Introducción al uso de Hadoop en HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [!IMPORTANT]
-> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Los pasos que se describen en este documento requieren un clúster de Azure HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las versiones posteriores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="open-the-hive-view"></a>Abra la Vista de Hive.
+## <a name="open-the-hive-view"></a>Abra la vista de Hive.
 
-Para ver Vistas Ambari en Azure Portal, seleccione el clúster de HDInsight y **Vistas de Ambari** en la sección **Vínculos rápidos**.
+Las vistas de Ambari pueden abrirse desde Azure Portal. Seleccione el clúster de HDInsight y después **Vistas de Ambari** en la sección **Vínculos rápidos**.
 
-![sección de vínculos rápidos del portal](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
+![Sección Vínculos rápidos del portal](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
 En la lista de vistas, seleccione __Vista de Hive__.
 
 ![La vista de Hive seleccionada](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png)
 
 > [!NOTE]
-> Al acceder a Ambari, se le pide autenticarse en el sitio. Escriba el nombre de la cuenta del administrador (de manera predeterminada `admin`) y la contraseña que usó al crear el clúster.
+> Cuando acceda a Ambari, le pedirán que se autentique en el sitio. Escriba el nombre de la cuenta del administrador (el valor predeterminado es `admin`) y la contraseña que usó al crear el clúster.
 
 Debería ver una página similar a la siguiente imagen:
 
 ![Imagen de la hoja de cálculo de consulta de la vista de Hive](./media/hdinsight-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-## <a name="hivequery"></a>Ejecución de una consulta
+## <a name="run-a-query"></a>Ejecución de una consulta
 
-Para ejecutar una consulta de Hive, use los pasos siguientes en la vista de Hive.
+Para ejecutar una consulta de Hive, siga estos pasos en la vista de Hive.
 
 1. En la pestaña __Consulta__, pegue las instrucciones HiveQL siguientes en la hoja de cálculo:
 
@@ -81,27 +81,27 @@ Para ejecutar una consulta de Hive, use los pasos siguientes en la vista de Hive
 
    * `STORED AS TEXTFILE LOCATION`: indica dónde se almacenan los datos y que se almacenan como texto.
 
-   * `SELECT`: selecciona un recuento de todas las filas donde la columna t4 contiene el valor [ERROR].
+   * `SELECT`: selecciona el número total de filas en las que la columna t4 contiene el valor [ERROR].
 
      > [!NOTE]
-     > Las tablas externas se deben utilizar cuando se espera que un origen externo actualice los datos subyacentes. Por ejemplo, un proceso de carga de datos automatizado u otra operación de MapReduce. La eliminación de una tabla externa *no* elimina los datos, solamente la definición de tabla.
+     > Utilice tablas externas cuando prevea que un origen externo, como un proceso automático de carga de datos u otra operación MapReduce, va a actualizar los datos subyacentes. La eliminación de una tabla externa *no* elimina los datos, solamente la definición de tabla.
 
     > [!IMPORTANT]
     > Deje la selección de __base de datos__ en el __valor predeterminado__. Los ejemplos de este documento usan la base de datos predeterminada que se incluye en HDInsight.
 
-2. Para iniciar la consulta, use el botón **Ejecutar** que se encuentra debajo de la hoja de cálculo. Su color cambia a naranja y el texto a **Detener**.
+2. Para iniciar la consulta, use el botón **Ejecutar** que se encuentra debajo de la hoja de cálculo. El botón se vuelve de color naranja y el texto cambia a **Detener**.
 
-3. Cuando haya finalizado la consulta, la pestaña **Resultados** muestra los resultados de la operación. El texto siguiente es el resultado de la consulta:
+3. Cuando finalice la consulta, los resultados de la operación aparecerán en la pestaña **Resultados**. El texto siguiente es el resultado de la consulta:
 
         sev       cnt
         [ERROR]   3
 
-    La pestaña **Registros** puede usarse para ver la información de registro creada por el trabajo.
+    Puede utilizar la pestaña **Registros** para ver la información de registro creada por el trabajo.
 
    > [!TIP]
-   > El cuadro de diálogo desplegable **Guardar resultados** situado en la parte superior izquierda de la sección **Resultados del proceso de consulta** le permite descargar o guardar los resultados.
+   > Descargue o guarde los resultados en el cuadro de diálogo **Guardar resultados** situado en la parte superior izquierda de la sección **Query Process Results** (Resultados del proceso de consulta).
 
-4. Seleccione las cuatro primeras líneas de esta consulta y después elija **Ejecutar**. Observe que no hay ningún resultado cuando finaliza el trabajo. Al usar el botón **Ejecutar** cuando parte de la consulta está seleccionada, solo se ejecutan las instrucciones seleccionadas. En este caso, la selección no incluyó la instrucción final que recupera filas de la tabla. Si selecciona solo esa línea y usa **Ejecutar**, debería ver los resultados esperados.
+4. Seleccione las cuatro primeras líneas de esta consulta y después **Ejecutar**. Observe que no hay ningún resultado cuando finaliza el trabajo. Al usar el botón **Ejecutar** cuando parte de la consulta está seleccionada, solo se ejecutan las instrucciones seleccionadas. En este caso, la selección no incluyó la instrucción final que recupera filas de la tabla. Si selecciona solo esa línea y usa **Ejecutar**, debería ver los resultados esperados.
 
 5. Para agregar una hoja de cálculo, use el botón **Nueva hoja de cálculo** situado en la parte inferior del **Editor de consultas**. En la hoja de cálculo nueva, escriba las siguientes instrucciones de HiveQL:
 
@@ -112,28 +112,28 @@ Para ejecutar una consulta de Hive, use los pasos siguientes en la vista de Hive
 
   Estas instrucciones realizan las acciones siguientes:
 
-   * **CREATE TABLE IF NOT EXISTS** : crea una tabla, si todavía no existe. Puesto que la palabra clave **EXTERNAL** no se utiliza, se crea una tabla interna. Una tabla interna se almacena en el almacenamiento de datos de Hive y Hive la administra completamente. A diferencia de las tablas externas , la eliminación de una tabla interna también elimina los datos subyacentes.
+   * **CREATE TABLE IF NOT EXISTS**: crea una tabla si no existe ninguna. Como no se utiliza la palabra clave **EXTERNAL**, se crea una tabla interna. Una tabla interna se almacena en el almacenamiento de datos de Hive y Hive la administra completamente. A diferencia de las tablas externas, cuando se elimina una tabla interna también se eliminan los datos subyacentes.
 
-   * **STORED AS ORC** : almacena los datos en el formato Optimized Row Columnar (ORC). ORC es un formato altamente optimizado y eficiente para almacenar datos de Hive.
+   * **STORED AS ORC**: almacena los datos en el formato Optimized Row Columnar (ORC). ORC es un formato altamente optimizado y eficiente para almacenar datos de Hive.
 
    * **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contienen `[ERROR]` e inserta los datos en la tabla **errorLogs**.
 
-     Use el botón **Ejecutar** para ejecutar esta consulta. La pestaña **Resultados** no contiene ninguna información cuando la consulta devuelve cero filas. El estado debe aparecer como **CORRECTO** una vez completada la consulta.
+Use el botón **Ejecutar** para ejecutar esta consulta. La pestaña **Resultados** no contiene ninguna información cuando la consulta devuelve cero filas. El estado debe aparecer como **SUCCEEDED** (CORRECTO) al finalizar la consulta.
 
 ### <a name="visual-explain"></a>Explicación visual
 
 Para mostrar una visualización del plan de consulta, seleccione la pestaña **Explicación visual** que se encuentra debajo de la hoja de cálculo.
 
-La vista de **explicación visual** de la consulta puede ser útil para comprender el flujo de las consultas complejas. Puede ver un equivalente textual de esta vista con el botón **Explicar** en el Editor de consultas.
+La vista de **explicación visual** de la consulta puede ser útil para comprender el flujo de las consultas complejas. Puede ver un vista de texto equivalente a esta con el botón **Explicar** del Editor de consultas.
 
 ### <a name="tez-ui"></a>Interfaz de usuario de Tez
 
 Para mostrar la interfaz de usuario de Tez, seleccione la pestaña **Tez** que se encuentra debajo de la hoja de cálculo.
 
 > [!IMPORTANT]
-> Tez no se usa para resolver todas las consultas. Muchas consultas pueden resolverse sin necesidad de usar Tez. 
+> Tez no se usa para resolver todas las consultas. No es necesario usar Tez para resolver muchas consultas. 
 
-Si se usó Tez para resolver la consulta, se muestra el gráfico acíclico dirigido (DAG). Si desea ver el DAG para las consultas que se ejecutaron en el pasado, o depurar el proceso Tez, use la [vista de Tez](hdinsight-debug-ambari-tez-view.md) en su lugar.
+Si se usó Tez para resolver la consulta, se muestra el gráfico acíclico dirigido (DAG). Si desea ver el DAG de las consultas que se ejecutaron en el pasado o depurar el proceso de Tez, use la [vista de Tez](hdinsight-debug-ambari-tez-view.md) en su lugar.
 
 ## <a name="view-job-history"></a>Visualización del historial de trabajos
 
@@ -149,19 +149,19 @@ Puede usar la pestaña __Tablas__ para trabajar con tablas dentro de una base de
 
 ## <a name="saved-queries"></a>Consultas guardadas
 
-En la pestaña Consulta, también puede guardar consultas si lo desea. Una vez que guarda la consulta, puede volver a usarla en la pestaña __Consultas guardadas__.
+Si lo desea, puede guardar consultas en la pestaña **Consulta**. Si guarda una consulta, podrá volver a usarla en la pestaña __Consultas guardadas__.
 
 ![Imagen de la pestaña de consultas guardadas](./media/hdinsight-hadoop-use-hive-ambari-view/saved-queries.png)
 
 ## <a name="user-defined-functions"></a>Funciones definidas por el usuario
 
-Hive también puede extenderse a través de funciones definidas por el usuario (UDF). Una UDF le permite implementar la funcionalidad o la lógica que no se modela con facilidad en HiveQL.
+También puede ampliar la funcionalidad de Hive con funciones definidas por el usuario (UDF). Utilice las UDF para implementar una funcionalidad o lógica que no pueda modelarse fácilmente en HiveQL.
 
-La pestaña UDF en la parte superior de la vista de Hive permite declarar y guardar un conjunto de UDF. Estas UDF se pueden usar con el **Editor de consultas**.
+Si desea declarar y guardar un conjunto de UDF, utilice la pestaña **UDF** situada en la parte superior de la vista de Hive. Estas UDF se pueden usar con el **Editor de consultas**.
 
 ![Imagen de la pestaña UDF](./media/hdinsight-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
-Una vez que haya agregado una función definida por el usuario a la Vista de Hive, aparecerá un botón **Insertar UDF** en la parte inferior del **Editor de consultas**. Al seleccionar esta entrada se muestra una lista desplegable de UDF definidas en la vista de Hive. Al seleccionar una función definida por el usuario se agregan instrucciones HiveQL a la consulta para habilitar dicha función.
+Cuando agregue una UDF a la vista de Hive, aparecerá el botón **Insert udfs** (Insertar UDF) en la parte inferior del **Editor de consultas**. Al seleccionar esta entrada se muestra una lista desplegable de UDF definidas en la vista de Hive. Al seleccionar una función definida por el usuario se agregan instrucciones HiveQL a la consulta para habilitar dicha función.
 
 Por ejemplo, si definió una función definida por el usuario con las siguientes propiedades:
 
@@ -173,7 +173,7 @@ Por ejemplo, si definió una función definida por el usuario con las siguientes
 
 * Nombre de la clase UDF: com.myudfs.Awesome
 
-Si usa el botón **Insertar UDF**, aparecerá una entrada llamada **myudfs**, con otra lista desplegable para cada función definida por el usuario establecida para ese recurso. En este caso, **myawesomeudf**. Al seleccionar esta entrada se agrega lo siguiente al principio de la consulta:
+Si usa el botón **Insert udfs** (Insertar UDF), aparecerá una entrada llamada **myudfs** con otra lista desplegable en cada UDF establecida para ese recurso. En este caso, será **myawesomeudf**. Al seleccionar esta entrada se agrega lo siguiente al principio de la consulta:
 
 ```hiveql
 add jar /myudfs.jar;
@@ -182,18 +182,18 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
 A continuación, puede usar la función definida por el usuario en la consulta. Por ejemplo: `SELECT myawesomeudf(name) FROM people;`.
 
-Para más información sobre el uso de UDF con Hive en HDInsight, consulte los siguientes documentos:
+Para más información sobre el uso de UDF con Hive en HDInsight, consulte los artículos siguientes:
 
 * [Uso de Python con Hive y Pig en HDInsight](hdinsight-python.md)
 * [Cómo agregar una UDF de Hive personalizada a HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a name="hive-settings"></a>Configuración de Hive
 
-Se puede usar la configuración para cambiar los diferentes valores de Hive. Por ejemplo, para cambiar el motor de ejecución de Hive de Tez (el valor predeterminado) a MapReduce.
+Puede modificar la configuración de Hive; por ejemplo, puede cambiar el motor de ejecución de Hive de Tez (valor predeterminado) a MapReduce.
 
 ## <a id="nextsteps"></a>Pasos siguientes
 
-Para obtener información general acerca de Hive en HDInsight:
+Para consultar información general sobre Hive en HDInsight:
 
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 83821ed2f7db1c7dea88a1b4424d405959a206db
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: f2b9aad02a1ae3d5117ffd59b448eabe65a936fc
 ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
@@ -41,7 +41,7 @@ Este error suele ocurrir cuando se intenta el cifrado del disco del sistema oper
 
 ## <a name="unable-to-encrypt"></a>No se puede cifrar
 
-En algunos casos, parece que el cifrado del disco de Linux se atasca en el mensaje que indica que se inició el cifrado de disco del sistema operativo, y SSH se deshabilita. El proceso de cifrado puede tardar entre 3 y 16 horas en completarse en una imagen de la galería de existencias. Si se agregan discos de datos de varios terabytes, el proceso puede tardar días. 
+En algunos casos, parece que el cifrado del disco de Linux se atasca en el mensaje que indica que se inició el cifrado de disco del sistema operativo, y SSH se deshabilita. El proceso de cifrado puede tardar entre 3 y 16 horas en completarse en una imagen de la galería de existencias. Si se agregan discos de datos de varios terabytes, el proceso puede tardar días.
 
 La secuencia de cifrado del disco del sistema operativo Linux desmonta la unidad del sistema operativo temporalmente. A continuación, realiza el cifrado de bloque a bloque de todo el disco del sistema operativo, antes de que vuelva a montarse en su estado cifrado. A diferencia de Azure Disk Encryption en Windows, el cifrado del disco de Linux no permite el uso simultáneo de la máquina virtual mientras el cifrado está en curso. Las características de rendimiento de la máquina virtual pueden suponer una diferencia significativa en el tiempo necesario para el cifrado completo. Estas características incluyen el tamaño del disco y si la cuenta de almacenamiento es almacenamiento premium (SSD) o estándar.
 
@@ -85,15 +85,15 @@ En el entorno de ejecución, Azure Disk Encryption para Linux se basa en el sist
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Solución de problemas de Windows Server 2016 Server Core
 
-En un sistema Windows Server 2016 Server Core, el componente **bdehdcfg** no está disponible de forma predeterminada. Azure Disk Encryption necesita dicho componente. Agregue el componente **bdehdcfg** siguiendo estos pasos:
+En Windows Server 2016 Server Core, el componente bdehdcfg no está disponible de forma predeterminada. y Azure Disk Encryption necesita dicho componente. Se utiliza para dividir el volumen del sistema del volumen del sistema operativo, lo que se realiza una única vez en toda la duración de la máquina virtual. Estos archivos binarios no son necesarios durante las operaciones de cifrado posteriores.
 
-   1. Copie los cuatro archivos siguientes de una máquina virtual del centro de datos de Windows Server 2016 a la carpeta **c:\windows\system32** de la imagen de Server Core:
+Para solucionar este problema, copie los cuatro archivos siguientes de una máquina virtual del centro de datos de Windows Server 2016 en la misma ubicación de Server Core:
 
    ```
-   bdehdcfg.exe
-   bdehdcfglib.dll
-   bdehdcfglib.dll.mui
-   bdehdcfg.exe.mui
+   \windows\system32\bdehdcfg.exe
+   \windows\system32\bdehdcfglib.dll
+   \windows\system32\en-US\bdehdcfglib.dll.mui
+   \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
    2. Escriba el comando siguiente:
@@ -102,8 +102,8 @@ En un sistema Windows Server 2016 Server Core, el componente **bdehdcfg** no est
    bdehdcfg.exe -target default
    ```
 
-   3. Este comando crea una partición de sistema de 550 MB. Reinicie el sistema. 
-   
+   3. Este comando crea una partición de sistema de 550 MB. Reinicie el sistema.
+
    4. Use DiskPart para comprobar los volúmenes y, a continuación, siga.  
 
 Por ejemplo:

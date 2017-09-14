@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: d7bd0d780c265cc15ad09a73ede8c5a886005e37
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -68,7 +68,7 @@ Antes de la actualización, cuando se seleccionaba un valor en un gráfico, se d
 ## <a name="log-search-api"></a>API de búsqueda de registros
 
 ### <a name="question-does-the-log-search-api-get-updated-after-i-upgrade"></a>Pregunta: ¿También se actualiza la API de búsqueda de registros?
-La [API de búsqueda de registros](log-analytics-log-search-api.md) aún no se ha actualizado al nuevo lenguaje de búsqueda.  Continúe usando el lenguaje de consulta heredado con esta API, incluso después de actualizar el área de trabajo.  La documentación actualizada estará disponible para la API de búsqueda de registros en cuanto esta se actualice.
+La [API de búsqueda de registros](log-analytics-log-search-api.md) heredada dejará de funcionar cuando se actualice el área de trabajo.  Consulte [API de REST de Azure Log Analytics](https://dev.loganalytics.io/) para más información sobre la nueva API.
 
 
 ## <a name="portals"></a>Portales

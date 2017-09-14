@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 08/30/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: edbeba95898a41e645b61aeaaec1fd897afadd61
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 9742187d2739b2d2d3b2073646dd6d7002898009
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Enviar una solicitud para pagar una suscripción de Azure mediante factura
@@ -35,8 +35,11 @@ Puede cambiar el método de pago de su suscripción de Azure a factura si envía
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/). Seleccione **Ayuda y soporte técnico** > **Nueva solicitud de soporte técnico**.
 
     ![botón de ayuda y soporte técnico](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
+
 1. Seleccione **Facturación** como tipo de problema, seleccione la suscripción que quiere pagar mediante factura, seleccione un plan de soporte técnico y, después, haga clic en **Siguiente**.
-1. En la hoja **Problema**, seleccione **Pagar mediante factura** en el cuadro **Tipo de problema**.
+
+1. Seleccione la opción **Pago mediante factura** en el cuadro **Tipo de problema**.
+
 1. Escriba la siguiente información en el cuadro **Detalles** y después haga clic en **Siguiente**.
 
     * Nombre de la empresa

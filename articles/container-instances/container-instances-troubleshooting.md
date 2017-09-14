@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/03/2017
+ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: bff594d86c7c34ebff4d7dad5be4e54cdb604baf
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: ff6da0ce95d0405714602c3872da34a2bff344d3
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -213,3 +213,17 @@ microsoft/aci-helloworld               latest              7f78509b568e        1
 La clave para mantener tamaños de imagen pequeños es asegurarse de que la imagen final no contiene nada que no sea necesario en tiempo de ejecución. Una manera de hacerlo es con [compilaciones en varias etapas](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). Las compilaciones en varias etapas hacen más sencillo asegurarse de que la imagen final contiene solo los artefactos necesarios para la aplicación y no los del contenido extra que se requiere en tiempo de compilación.
 
 La otra forma de reducir el impacto de la extracción de la imagen en el tiempo de inicio del contenedor es hospedar la imagen del contenedor con Azure Container Registry en la misma región en la que va a utilizar Azure Container Instances. Esto reduce la ruta de acceso de red que debe recorrer la imagen del contenedor, lo que reduce significativamente el tiempo de descarga.
+
+### <a name="resource-not-available-error"></a>Error de recurso no disponible
+
+Debido a la carga variable de recursos regionales en Azure, podría recibir el siguiente error al intentar implementar una instancia del contenedor:
+
+`The requested resource with 'x' CPU and 'y.z' GB memory is not available in the location 'example region' at this moment. Please retry with a different resource request or in another location.`
+
+Este error indica que, debido a una carga elevada en la región en la que está intentando la implementación, no se pueden asignar los recursos especificados para el contenedor en ese momento. Utilice uno o varios de los siguientes pasos de mitigación para ayudar a resolver el problema.
+
+* Compruebe que la configuración de implementación del contenedor se encuentra dentro de los parámetros definidos en [Region availability for Azure Container Instances](container-instances-region-availability.md) (Disponibilidad de regiones en instancias de Azure Container)
+* Especifique la configuración de CPU y memoria más baja para el contenedor
+* Implemente en una región distinta de Azure
+* Implemente en un momento posterior
+

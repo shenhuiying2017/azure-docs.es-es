@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: a753fd481c9f91d94b6a2bd3633142e2dddedaec
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: 1c80229e2e5ec0c4ddf1f66099fa00ef145ec2ce
 ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="using-shared-access-signatures-sas"></a>Uso de firmas de acceso compartido (SAS)
@@ -78,7 +78,7 @@ El token de SAS es una cadena que genera en el *cliente* (consulte la sección d
 Cuando un cliente proporciona un URI de SAS para Azure Storage como parte de una solicitud, el servicio comprueba los parámetros de SAS y la firma para comprobar que es válido para autenticar la solicitud. Si el servicio confirma la firma es válida, la solicitud se autentica. De lo contrario, la solicitud se rechaza con el código de error 403 (prohibido).
 
 ## <a name="shared-access-signature-parameters"></a>Parámetros de la firma de acceso compartido
-Los tokens de SAS de cuenta y de SAS de servicio incluyen algunos parámetros comunes y también algunos parámetros que son diferentes.
+Los tokens de SAS de cuenta y de SAS de servicio incluyen algunos parámetros comunes, pero también usan otros que son diferentes.
 
 ### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Parámetros comunes para tokens de SAS de cuenta y de SAS de servicio
 * **Versión de API.** Un parámetro opcional que especifica la versión del servicio de almacenamiento que se usa para ejecutar la solicitud.

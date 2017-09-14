@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 521e5ed06c138bcd374913588f06a2e6c1e99963
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 3291d545bc7a66ffa9b4845acd890a714cf84ef8
 ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funciones de comparación para las plantillas de Azure Resource Manager
@@ -68,7 +68,7 @@ La función equals se suele usar con el elemento `condition` para comprobar si e
 
 ### <a name="example"></a>Ejemplo
 
-La plantilla de ejemplo comprueba diferentes tipos de valores para la igualdad. Todos los valores predeterminados devuelven True.
+La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) siguiente comprueba diferentes tipos de valores para la igualdad. Todos los valores predeterminados devuelven True.
 
 ```json
 {
@@ -140,8 +140,19 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | checkArrays | Booleano | True |
 | checkObjects | Booleano | True |
 
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
-En el siguiente ejemplo se usa [not](resource-group-template-functions-logical.md#not) con **equals**.
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
+```
+
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) siguiente se usa [not](resource-group-template-functions-logical.md#not) con **equals**.
 
 ```json
 {
@@ -155,6 +166,7 @@ En el siguiente ejemplo se usa [not](resource-group-template-functions-logical.m
             "value": "[not(equals(1, 2))]"
         }
     }
+}
 ```
 
 El resultado del ejemplo anterior es:
@@ -163,6 +175,17 @@ El resultado del ejemplo anterior es:
 | ---- | ---- | ----- |
 | checkNotEquals | Booleano | True |
 
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json 
+```
 
 ## <a name="greater"></a>greater
 `greater(arg1, arg2)`
@@ -182,7 +205,7 @@ Devuelve **True** si el primer valor es mayor que el segundo; en caso contrario,
 
 ### <a name="example"></a>Ejemplo
 
-La plantilla de ejemplo comprueba si un valor es mayor que el otro.
+La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) siguiente comprueba si un valor es mayor que el otro.
 
 ```json
 {
@@ -228,6 +251,17 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | checkInts | Booleano | False |
 | checkStrings | Booleano | True |
 
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
+```
 
 ## <a name="greaterorequals"></a>greaterOrEquals
 `greaterOrEquals(arg1, arg2)`
@@ -247,7 +281,7 @@ Devuelve **True** si el primer valor es mayor o igual que el segundo; en caso co
 
 ### <a name="example"></a>Ejemplo
 
-La plantilla de ejemplo comprueba si un valor es mayor o igual que el otro.
+La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) siguiente comprueba si un valor es mayor o igual que el otro.
 
 ```json
 {
@@ -293,7 +327,17 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | checkInts | Booleano | False |
 | checkStrings | Booleano | True |
 
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
+```
 
 ## <a name="less"></a>less
 `less(arg1, arg2)`
@@ -313,7 +357,7 @@ Devuelve **True** si el primer valor es menor que el segundo; en caso contrario,
 
 ### <a name="example"></a>Ejemplo
 
-La plantilla de ejemplo comprueba si un valor es menor que el otro.
+La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) siguiente comprueba si un valor es menor que el otro.
 
 ```json
 {
@@ -359,6 +403,17 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | checkInts | Booleano | True |
 | checkStrings | Booleano | False |
 
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
+```
 
 ## <a name="lessorequals"></a>lessOrEquals
 `lessOrEquals(arg1, arg2)`
@@ -378,7 +433,7 @@ Devuelve **True** si el primer valor es menor o igual que el segundo; en caso co
 
 ### <a name="example"></a>Ejemplo
 
-La plantilla de ejemplo comprueba si un valor es menor o igual que el otro.
+La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) siguiente comprueba si un valor es menor o igual que el otro.
 
 ```json
 {
@@ -424,7 +479,17 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | checkInts | Booleano | True |
 | checkStrings | Booleano | False |
 
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).

@@ -7,16 +7,16 @@ author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 08/22/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8bd3e4bb7423db44c48b04f25edcf1074e6ea0bd
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: faa592af285569c7423a1597fcd9086311486abc
 ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -37,7 +37,7 @@ Antes de ejecutar este ejemplo, debe tener lo siguiente:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, para este tema es preciso la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión que tiene. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
@@ -45,7 +45,7 @@ Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecu
 Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran recursos de Azure como instancias de Function App, bases de datos y cuentas de almacenamiento.
 
 En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup`.  
-Si no usa Cloud Shell, primero debe iniciar sesión con `az login`.
+Si no usa Cloud Shell, inicie sesión primero con `az login`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
@@ -56,7 +56,7 @@ az group create --name myResourceGroup --location westeurope
 
 Functions usa una cuenta de Azure Storage para mantener el estado y otra información sobre sus funciones. Cree una cuenta de almacenamiento en el grupo de recursos que ha creado con el comando [az storage account create](/cli/azure/storage/account#create).
 
-En el siguiente comando, sustituya su propio nombre de la cuenta de almacenamiento único de manera global donde vea el marcador de posición `<storage_name>`. Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
+En el siguiente comando, sustituya un nombre de cuenta de almacenamiento único de manera global donde vea el marcador de posición `<storage_name>`. Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
 
 ```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
@@ -86,7 +86,7 @@ Después de que se haya creado la cuenta de almacenamiento, la CLI de Azure mues
 
 Debe tener una Function App para hospedar la ejecución de las funciones. La Function App proporciona un entorno para la ejecución sin servidor de su código de función. Le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos. Cree una Function App con el comando [az functionapp create](/cli/azure/functionapp#create). 
 
-En el siguiente comando, sustituya su propio nombre de la Function App único donde vea el marcador de posición `<app_name>` y el nombre de la cuenta de almacenamiento para `<storage_name>`. El `<app_name>` se usa como el dominio DNS predeterminado para la Function App y, por ello, el nombre debe ser único en todas las aplicaciones de Azure. 
+En el siguiente comando, sustituya un nombre de aplicación de función único donde vea el marcador de posición `<app_name>` y el nombre de la cuenta de almacenamiento para `<storage_name>`. El `<app_name>` se usa como el dominio DNS predeterminado para la Function App y, por ello, el nombre debe ser único en todas las aplicaciones de Azure. 
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \

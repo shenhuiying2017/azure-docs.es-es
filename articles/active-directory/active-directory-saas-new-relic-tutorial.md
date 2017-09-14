@@ -5,20 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 3186b9a8-f4d8-45e2-ad82-6275f95e7aa6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 08/31/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 605e85c23a849f70fcc0237361d7a891f716ca3a
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 45106b499b9a541d5e6120538cfe1715608be118
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Tutorial: Integración de Azure Active Directory con New Relic
@@ -29,7 +29,7 @@ La integración de New Relic con Azure AD le proporciona las siguientes ventajas
 
 - Puede controlar en Azure AD quién tiene acceso a New Relic.
 - Puede permitir que los usuarios inicien sesión automáticamente en New Relic (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
+- Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
@@ -46,7 +46,7 @@ Para configurar la integración de Azure AD con New Relic, necesita los siguient
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
@@ -61,25 +61,22 @@ Para configurar la integración de New Relic en Azure AD, es precios agregar dic
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Botón Azure Active Directory][1]
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![Hoja Aplicaciones empresariales][2]
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **New Relic**.
+4. En el cuadro de búsqueda, escriba **New Relic**, seleccione **New Relic** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_search.png)
+    ![New Relic en la lista de resultados](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_addfromgallery.png)
 
-5. En el panel de resultados, seleccione **New Relic** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 En esta sección, configurará y probará el inicio de sesión único de Azure AD con New Relic con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de New Relic para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de New Relic.
@@ -88,13 +85,13 @@ Para establecer la relación de vínculo, asigne el valor de **nombre de usuario
 
 Para configurar y probar el inicio de sesión único de Azure AD con New Relic, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de New Relic](#creating-a-new-relic-test-user)**: el objetivo es tener un homólogo de Britta Simon en New Relic que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de New Relic](#create-a-new-relic-test-user)**: el objetivo es tener un homólogo de Britta Simon en New Relic que esté vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación New Relic.
 
@@ -102,32 +99,34 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. En la página de integración de la aplicación **New Relic** de Azure Portal, haga clic en **Inicio de sesión único**.
 
-    ![Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único][4]
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
-    ![Configurar inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_samlbase.png)
+    ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_samlbase.png)
 
 3. En la sección **Dominio y direcciones URL de New Relic**, lleve a cabo los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_url.png)
+    ![Información acerca del inicio de sesión único de dominio y direcciones URL de New Relic](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_url.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.newrelic.com`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.newrelic.com`.
+
+    b. En el cuadro de texto **Identificador**, escriba el valor `rpm.newrelic.com`.
 
     > [!NOTE] 
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de New Relic](https://support.newrelic.com/) para obtener este valor. 
- 
+    > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de New Relic](https://support.newrelic.com/) para obtener este valor. 
+
 4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_certificate.png) 
+    ![Vínculo de descarga del certificado](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_certificate.png) 
 
 5. Haga clic en el botón **Guardar** .
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/tutorial_general_400.png)
+    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de New Relic**, haga clic en **Configurar New Relic** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de cierre de sesión y la dirección URL del servicio de inicio de sesión único de SAML** de la **sección de referencia rápida**.
+6. En la sección **Configuración de New Relic**, haga clic en **Configurar New Relic** para abrir la ventana **Configurar inicio de sesión**. Copie los valores **Sign-Out URL y SAML Single Sign-On Service URL** (Dirección URL de cierre de sesión y Dirección URL del servicio de inicio de sesión único de SAML) de la **sección de referencia rápida**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_configure.png) 
+    ![Configuración de New Relic](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_configure.png) 
 
 7. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de **New Relic** como administrador.
 
@@ -155,38 +154,39 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-![Creación de un usuario de Azure AD][100]
+   ![Creación de un usuario de prueba de Azure AD][100]
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-new-relic-tutorial/create_aaduser_01.png) 
+    ![Botón Azure Active Directory](./media/active-directory-saas-new-relic-tutorial/create_aaduser_01.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-new-relic-tutorial/create_aaduser_02.png) 
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-new-relic-tutorial/create_aaduser_03.png) 
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/active-directory-saas-new-relic-tutorial/create_aaduser_02.png)
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-new-relic-tutorial/create_aaduser_04.png) 
+3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+    ![Botón Agregar](./media/active-directory-saas-new-relic-tutorial/create_aaduser_03.png)
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+    ![Cuadro de diálogo Usuario](./media/active-directory-saas-new-relic-tutorial/create_aaduser_04.png)
+
+    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+
+    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
+
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
     d. Haga clic en **Crear**.
  
-### <a name="creating-a-new-relic-test-user"></a>Creación de un usuario de prueba de New Relic
+### <a name="create-a-new-relic-test-user"></a>Creación de un usuario de prueba de New Relic
 
 Para permitir que los usuarios de Azure Active Directory inicien sesión en New Relic, deben aprovisionarse en New Relic. En el caso de New Relic, el aprovisionamiento es una tarea manual.
 
@@ -216,11 +216,11 @@ Para permitir que los usuarios de Azure Active Directory inicien sesión en New 
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de New Relic ofrecida por New Relic para aprovisionar cuentas de usuario de AAD.
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a New Relic.
 
-![Asignar usuario][200] 
+![Asignación del rol de usuario][200] 
 
 **Para asignar a Britta Simon a New Relic, realice los pasos siguientes:**
 
@@ -230,15 +230,15 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 2. En la lista de aplicaciones, seleccione **New Relic**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-new-relic-tutorial/tutorial_newrelic_app.png) 
+    ![Vínculo a New Relic en la lista de aplicaciones](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_app.png)  
 
 3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
-    ![Asignar usuario][202] 
+    ![Vínculo "Usuarios y grupos"][202]
 
 4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Asignar usuario][203]
+    ![Panel Agregar asignación][203]
 
 5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
@@ -246,11 +246,12 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de New Relic en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación New Relic.
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

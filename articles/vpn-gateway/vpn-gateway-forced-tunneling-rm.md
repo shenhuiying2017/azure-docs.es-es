@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 08/31/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 207c53924863eb51ee369fe46d5ad12fb1905c53
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: cc8a3e7f2a907b1eea4ecf39df2b291b0fb8b207
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configuración de la tunelización forzada mediante el modelo de implementación de Azure Resource Manager
@@ -65,15 +65,26 @@ El procedimiento siguiente lo ayudará a crear un grupo de recursos y una red vi
 
 Los pasos del procedimiento establecerán 'DefaultSiteHQ' como la conexión de sitio predeterminada para la tunelización forzada y configurarán las subredes 'Midtier' y 'Backend' para que usen dicha tunelización.
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="before"></a>Antes de empezar
 
 Instale la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para más información sobre cómo instalar los cmdlets de PowerShell.
+
+> [!IMPORTANT]
+> Es necesario instalar la versión más reciente de los cmdlets de PowerShell. En caso contrario, puede recibir errores de validación al ejecutar algunos de los cmdlets.
+>
+>
 
 ### <a name="to-log-in"></a>Para iniciar sesión
 
 [!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
 
 ## <a name="configure-forced-tunneling"></a>Configuración de la tunelización forzada
+
+> [!NOTE]
+> Puede que vea advertencias que indican que "el tipo de objeto de salida de este cmdlet se va a modificar en una versión futura". Este es el comportamiento esperado y puede ignorar estas advertencias.
+>
+>
+
 
 1. Cree un grupo de recursos.
 
@@ -113,7 +124,7 @@ Instale la versión más reciente de los cmdlets de PowerShell de Azure Resource
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Cree la puerta de enlace con un sitio predeterminado. Este paso tarda algún tiempo en completarse, a veces 45 minutos o más, dado que va a crear y configurar la puerta de enlace.<br> **-GatewayDefaultSite** es el parámetro de cmdlet que permite que funcione la configuración de enrutamiento forzado, así que tenga cuidado al configurar este valor correctamente. Este parámetro solo está disponible en PowerShell 1.0 o posterior.
+6. Cree la puerta de enlace con un sitio predeterminado. Este paso tarda algún tiempo en completarse, a veces 45 minutos o más, dado que va a crear y configurar la puerta de enlace.<br> **-GatewayDefaultSite** es el parámetro de cmdlet que permite que funcione la configuración de enrutamiento forzado, así que tenga cuidado al configurar este valor correctamente. Si ve errores ValidateSet relacionados con el valor de GatewaySku, compruebe que tiene instalada la [versión más reciente de los cmdlets de PowerShell](#before). La versión más reciente de los cmdlets de PowerShell contiene los nuevos valores validados para las SKU más recientes de la puerta de enlace.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
@@ -137,3 +148,4 @@ Instale la versión más reciente de los cmdlets de PowerShell de Azure Resource
     
   Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
   ```
+

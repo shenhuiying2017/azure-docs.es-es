@@ -12,11 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 9b7adf78271407963ed1d4b34a7760d707b5fc3a
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 510f8abd839c3c025e955aecfdd787ce85540caf
 ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 
@@ -91,7 +91,7 @@ El analizador de consultas separa los operadores (como `*` y `+` en el ejemplo) 
 + *consultas de frases* de términos entre comillas (como "vistas al mar")
 + *consulta de prefijo* de términos seguidos por un operador de prefijo `*` (como "post-vacacional")
 
-Para obtener una lista completa de tipos de consultas admitidas, consulte [Sintaxis de consulta de Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+Para obtener una lista completa de los tipos de consultas admitidas, consulte [Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Sintaxis de consulta de Lucene)///.
 
 Los operadores asociados a una subconsulta determinan si la cadena "tiene que" cumplirse o "debe" cumplirse para que un documento se considere una coincidencia. Por ejemplo, `+"Ocean view"` es obligatorio debido al operador `+`. 
 
@@ -101,7 +101,7 @@ El analizador de consultas reestructura las subconsultas en un *árbol de consul
 
 ### <a name="supported-parsers-simple-and-full-lucene"></a>Analizadores admitidos: versión simple y completa de Lucene 
 
- Azure Search expone dos lenguajes de consulta diferentes, `simple` (valor predeterminado) y `full`. Si establece el parámetro `queryType` con su solicitud de búsqueda, indica al analizador de consultas qué lenguaje de consulta elegir de modo que sepa cómo interpretar los operadores y la sintaxis. El [lenguaje de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) es intuitivo y sólido, a menudo adecuado para interpretar la entrada del usuario como está sin que sea necesario el procesamiento por parte del cliente. Admite los operadores de consulta familiares desde motores de búsqueda web. El [lenguaje de consulta completo de Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que obtendrá estableciendo `queryType=full`, amplía el lenguaje de consulta simple predeterminado mediante la adición de compatibilidad con más operadores y tipos de consulta como carácter comodín, coincidencias parciales, regex y consultas centrada en el campo. Por ejemplo, una expresión regular enviada con la sintaxis de consulta simple se interpretaría como una cadena de consulta y no una expresión. La solicitud de ejemplo de este artículo utiliza el lenguaje de consulta completo de Lucene.
+ Azure Search expone dos lenguajes de consulta diferentes, `simple` (valor predeterminado) y `full`. Si establece el parámetro `queryType` con su solicitud de búsqueda, indica al analizador de consultas qué lenguaje de consulta elegir de modo que sepa cómo interpretar los operadores y la sintaxis. El [lenguaje de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) es intuitivo y sólido, y suele ser adecuado para interpretar la entrada del usuario como está, sin que sea necesario ningún procesamiento por parte del cliente. Admite los operadores de consulta familiares desde motores de búsqueda web. El [lenguaje de consulta completo de Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que obtendrá estableciendo `queryType=full`, amplía el lenguaje de consulta simple predeterminado mediante la adición de compatibilidad con más operadores y tipos de consulta como carácter comodín, coincidencias parciales, regex y consultas centrada en el campo. Por ejemplo, una expresión regular enviada con la sintaxis de consulta simple se interpretaría como una cadena de consulta y no una expresión. La solicitud de ejemplo de este artículo utiliza el lenguaje de consulta completo de Lucene.
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>Impacto de searchMode en el analizador 
 
@@ -365,7 +365,7 @@ Todos los índices de Azure Search se dividen automáticamente en varias partici
 
 Esto significa que una puntuación por relevancia *puede* ser diferente para los documentos idénticos si residen en diferentes particiones. Afortunadamente, estas diferencias tienden a desaparecer a medida que aumenta el número de documentos en el índice debido a una mejor distribución de los términos. No es posible suponer en qué partición se colocará un documento determinado. Sin embargo, suponiendo que la clave de documento no cambie, siempre se asignará a la misma partición.
 
-En general, la puntuación del documento no es el mejor atributo para ordenar los documentos si la estabilidad del orden es importante. Por ejemplo, en dos documentos con una puntuación idéntica, no hay ninguna garantía del que aparecerá en primer lugar en las ejecuciones posteriores de la misma consulta. La puntuación del documento solo debe proporcionar una idea general de la relevancia del documento con respecto a otros documentos en el conjunto de resultados.
+En general, la puntuación del documento no es el mejor atributo para ordenar los documentos si la estabilidad del orden es importante. Por ejemplo, en dos documentos con una puntuación idéntica, no existe ninguna garantía sobre cuál aparecerá en primer lugar en las ejecuciones posteriores de la misma consulta. La puntuación del documento solo debe proporcionar una idea general de la relevancia del documento con respecto a otros documentos en el conjunto de resultados.
 
 ## <a name="conclusion"></a>Conclusión
 
@@ -391,11 +391,11 @@ En este artículo se ha analizado la búsqueda de texto completo en el contexto 
 
 ## <a name="see-also"></a>Otras referencias
 
-[API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents)
+[API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
-[Sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+[Sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Sintaxis de consulta completa de Lucene ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+[Sintaxis de consulta completa de Lucene ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
 [Control de los resultados de la búsqueda](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
 

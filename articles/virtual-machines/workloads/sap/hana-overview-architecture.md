@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: bcdcbd9e781dc9686f4be18e16bf046de6981a9d
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 0fa1ac4f9e9711332c568e84f86d132508eb185f
 ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Introducción y arquitectura de SAP HANA en Azure (instancias grandes)
@@ -32,7 +32,7 @@ El aislamiento del cliente dentro de la marca de la infraestructura se realiza e
 - Redes: aislamiento de los clientes dentro de la pila de la infraestructura a través de redes virtuales por inquilino asignado al cliente. Un inquilino se asigna a un único cliente. Un cliente puede tener varios inquilinos. El aislamiento de red de los inquilinos prohíbe la comunicación de red entre ellos a nivel de la marca de la infraestructura. Esta situación se da incluso si los inquilinos pertenecen al mismo cliente.
 - Componentes de almacenamiento: aislamiento a través de máquinas virtuales de almacenamiento que tienen volúmenes de almacenamiento asignados. Los volúmenes de almacenamiento pueden asignarse solo a una máquina virtual de almacenamiento. Una máquina virtual de almacenamiento se asigna exclusivamente a un solo inquilino en la pila de la infraestructura certificada con SAP HANA TDI. Como resultado, se puede acceder a los volúmenes de almacenamiento asignados a una máquina virtual de almacenamiento solo en un inquilino específico y relacionado. Dichos volúmenes no son visibles entre los distintos inquilinos implementados.
 - Servidor o host: un servidor o unidad de host no se comparte entre clientes o inquilinos. Un servidor o host implementado en un cliente es una unidad de proceso de reconstrucción completa atómica que se asigna a un único inquilino. **No** se usa particiones de hardware ni de software, ya que podría dar lugar a que un cliente comparta un host o servidor con otro cliente. Los volúmenes de almacenamiento asignados a la máquina virtual de almacenamiento del inquilino específico se montan en dicho servidor. Un inquilino puede tener una o muchas unidades de servidor de diferentes SKU asignadas de forma exclusiva.
-- Dentro de una marca de la infraestructura de SAP HANA en Azure (instancia grande), se implementan muchos inquilinos diferentes que se aíslan entre sí a través de los conceptos de inquilino a nivel de redes, almacenamiento y proceso. 
+- En una marca de la infraestructura de SAP HANA en Azure (instancia grande) se implementan muchos inquilinos diferentes que se aíslan entre sí a través de los conceptos de inquilino a los niveles de redes, almacenamiento y proceso. 
 
 
 La ejecución de estas unidades de servidor de reconstrucción completa es compatible solo en SAP HANA. El nivel de aplicación de SAP o el nivel de middleware de la carga de trabajo se ejecuta en Microsoft Azure Virtual Machines. Las marcas de la infraestructura que se ejecutan en unidades de SAP HANA en Azure (instancia grande) están conectadas a las redes troncales de Azure Network, por lo que se ofrece una conectividad de baja latencia entre las unidades de SAP HANA en Azure (instancia grande) y los recursos de Azure Virtual Machines.
@@ -148,7 +148,7 @@ A partir de julio de 2017, SAP HANA en Azure (instancias grandes) está disponib
 
 Las diferentes configuraciones anteriores que están disponibles o no disponibles se documentan en [SAP Note #2316233 - SAP HANA on Microsoft Azure (Large Instances)](https://launchpad.support.sap.com/#/notes/2316233/E) (Nota de SAP 2316233: SAP HANA en Microsoft Azure [instancias grandes]). Las configuraciones, que están marcadas como "Listo para comprar" tendrán en breve su entrada en la nota de SAP. Pero las SKU de esas instancias ya se pueden pedir para las seis regiones de Azure en las que está disponible el servicio de instancias grandes de HANA.
 
-Las configuraciones específicas que se elijan dependen de la carga de trabajo, los recursos de CPU y la memoria que desee. La carga de trabajo de OLTP puede aprovechar las SKU que estén optimizadas para cargas de trabajo de OLAP. 
+Las configuraciones específicas que se elijan dependen de la carga de trabajo, los recursos de CPU y la memoria que desee. La carga de trabajo de OLTP puede usar las SKU que estén optimizadas para ella. 
 
 La base de hardware para todas las ofertas con certificación SAP HANA TDI. Pero se distingue entre dos clases diferentes de hardware, que divide las SKU en:
 
@@ -189,6 +189,18 @@ Algunos ejemplos de la ejecución de varias instancias de SAP HANA tendrían est
 
 
 Se hace a la idea. Por supuesto, también hay otras variaciones. 
+
+### <a name="using-sap-hana-data-tiering-and-extension-nodes"></a>Uso de los nodos de extensión y las capas de datos de SAP HANA
+SAP admite un modelo de capas de datos para SAP BW de las diferentes versiones de SAP NetWeaver y SAP BW/4HANA. Los detalles relativos al modelo de capas de datos se pueden encontrar tanto en este documento como en el blog al que SAP hace referencia en este documento: [SAP BW/4HANA AND SAP BW ON HANA WITH SAP HANA EXTENSION NODES](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#) (SAP BW/4HANA Y SAP BW EN HANA CON LOS NODOS DE EXTENSIÓN DE SAP HANA.
+Con las instancias grandes de HANA, puede utilizar la configuración de la opción 1 de los nodos de extensión de SAP HANA, tal como se detalla en estas preguntas más frecuentes y en los documentos del blog de SAP. Las configuraciones de la opción-2 se pueden configurar con las siguientes SKU las instancias grandes de HANA (Instancias grandes): S72m, S192, S192m, S384 y S384m.  
+Al examinar la documentación, es posible que la ventaja no se vea de inmediato. Sin embargo, si se examinan las directrices de ajuste de tamaño de SAP, se puede ver una ventaja mediante el uso de los nodos de extensión de SAP HANA de las opciones 1 y 2. Este es un ejemplo:
+
+- Las directrices de ajuste de tamaño de SAP HANA suelen requerir que la cantidad de volumen de datos sea el doble que la memoria. Por consiguiente, si ejecuta una instancia de SAP HANA con los datos activos, solo se llenará de datos el 50 % de la memoria, o menos. Lo ideal es que el resto de la memoria se use para el funcionamiento del propio SAP HANA.
+- Eso significa que en una unidad S192 de la instancia grande de HANA con 2 TB de memoria que ejecuta una base de datos de SAP BW, solo tiene 1 TB de volumen de datos.
+- Si usa una instancia adicional del nodo de extensión de SAP HANA de la opción 1 y también una SKU de la unidad S192 de la instancia grande de HANA, tendría 2 TB adicionales para el volumen de datos. Incluso en la configuración de la opción 2 y 4 TB adicionales para el volumen de datos semiactivos. En comparación con el nodo activo, la capacidad de memoria total del nodo de extensión "semiactivo" se puede usar para el almacenamiento de datos en la opción 1 y el doble de memoria se puede utilizar para el volumen de datos de configuración del nodo de extensión de SAP HANA de la opción 2.
+- Como consecuencia, terminará con una capacidad de 3 TB para los datos y una proporción de datos activos - semiactivos de 1:2 en la opción 1 y 5 TB de datos y una proporción de 1:4 en la configuración del nodo de extensión de la opción 2.
+
+Sin embargo, cuanto mayor sea el volumen de datos, en comparación con la memoria, más posibilidad habrá de que los datos semiactivos que pide se encuentren en el almacenamiento en disco.
 
 
 ## <a name="operations-model-and-responsibilities"></a>Modelo de operaciones y responsabilidades

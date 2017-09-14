@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/10/2017
+ms.date: 08/31/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 5a81dbf6a088e824277275ef13067bdba006d3a9
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 144078bbee8e9633fac12231daa07da6c295f46e
 ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de compatibilidad de Azure Site Recovery para la replicación de Azure a Azure
@@ -49,12 +49,20 @@ En este artículo se resumen las configuraciones y los componentes admitidos en 
 **Mover los servicios Compute, Storage y Network entre grupos de recursos** | No compatible |Si mueve una máquina virtual (o sus componentes asociados, como Storage y Network) después de habilitar la replicación, deberá deshabilitar la replicación y habilitarla de nuevo en la máquina virtual.
 
 
+
 ## <a name="support-for-deployment-models"></a>Compatibilidad con modelos de implementación
 
 **Modelo de implementación** | **Se admite/no se admite** | **Comentarios**  
 --- | --- | ---
 **Clásico** | Compatible | Solo puede replicar una máquina virtual clásica y recuperarla como máquina virtual clásica. No puede recuperarla como una máquina virtual de Resource Manager. Tampoco se admite la implementación de una máquina virtual clásica sin una red virtual y directamente en una región de Azure.
 **Resource Manager** | Compatible |
+
+>[!NOTE]
+>
+> 1. No se admite la replicación de máquinas virtuales de Azure de una suscripción a otra para escenarios de recuperación ante desastres.
+> 2. No se admite la migración de máquinas virtuales de Azure entre suscripciones.
+> 3. No se admite la migración de máquinas virtuales de Azure dentro de la misma región.
+> 4. No se admite la migración de máquinas virtuales de Azure del modelo de implementación clásico al modelo de implementación de Resource Manager.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Compatibilidad con las versiones de SO de las máquinas replicadas
 

@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/14/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 14bfdd8554b075b0c19a75bb572f1214a45ff471
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 9667cc728d9700e9ca985969f3566cd8ea47e80e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulta de Hive mediante el controlador JDBC en HDInsight
@@ -46,7 +46,7 @@ Para obtener más información sobre la interfaz JDBC de Hive, consulte [HiveJDB
 
 ## <a name="jdbc-connection-string"></a>Cadena de conexión JDBC
 
-Las conexiones de JDBC a un clúster de HDInsight en Azure se realizan en el puerto 443 y el tráfico se protege mediante SSL. La puerta de enlace pública tras la que se encuentran los clústeres redirige el tráfico al puerto que HiveServer2 escucha. A continuación, se muestra una cadena de conexión de ejemplo:
+Las conexiones de JDBC a un clúster de HDInsight en Azure se realizan en el puerto 443 y el tráfico se protege mediante SSL. La puerta de enlace pública tras la que se encuentran los clústeres redirige el tráfico al puerto que HiveServer2 escucha. En la siguiente cadena de conexión puede verse el formato que se va a utilizar en HDInsight:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
@@ -68,16 +68,23 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
 1. Copie los controladores JDBC de Hive desde el clúster de HDInsight.
 
-    * Para **HDInsight basado en Linux**, siga estos pasos para descargar los archivos jar necesarios.
+    * En el caso de los clústeres de **HDInsight basados en Linux** de la versión 3.5 o 3.6, siga los pasos que se indican a continuación para descargar los archivos jar necesarios.
 
         1. Cree un directorio que contenga la aplicación. Por ejemplo: `mkdir hivedriver`.
 
         2. En una línea de comandos, use los siguientes comandos para copiar los archivos en el clúster de HDInsight:
 
             ```bash
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
             scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
             ```
 
             Reemplace `USERNAME` por el nombre de la cuenta de usuario SSH del clúster. Reemplace `CLUSTERNAME` por el nombre del clúster de HDInsight.
@@ -88,11 +95,11 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
             ![Icono de escritorio remoto](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
 
-        2. En la hoja Escritorio remoto, seleccione el botón **Conectar** para conectarse al clúster. Si Escritorio remoto no está habilitado, use el formulario para proporcionar un nombre de usuario y una contraseña y, después, seleccione **Habilitar** para habilitar Escritorio remoto para el clúster.
+        2. En la sección Escritorio remoto, utilice el botón **Conectar** para conectarse al clúster. Si Escritorio remoto no está habilitado, use el formulario para proporcionar un nombre de usuario y una contraseña y, después, seleccione **Habilitar** para habilitar Escritorio remoto para el clúster.
 
-            ![Hoja de escritorio remoto](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
+            ![Sección Escritorio remoto](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
 
-            Después de seleccionar **Conectar**, se descargará un archivo .rdp. Utilice este archivo para iniciar al cliente del escritorio remoto. Cuando se le solicite, utilice el nombre de usuario y la contraseña que especificó para el acceso de Escritorio remoto.
+            Después de seleccionar **Conectar**, se descargará un archivo .RDP. Utilice este archivo para iniciar al cliente del escritorio remoto. Cuando se le solicite, utilice el nombre de usuario y la contraseña que especificó para el acceso de Escritorio remoto.
 
         3. Una vez conectado, copie los archivos siguientes de la sesión de escritorio remoto en el equipo local. Póngalos en un directorio local denominado `hivedriver`.
 
@@ -134,7 +141,7 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
     * **Driver** (Controlador): use la lista desplegable para seleccionar el controlador **Hive**.
 
-    * **Dirección URL**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
+    * **Dirección URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
         Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight.
 
@@ -144,7 +151,7 @@ SQL SQuirreL es un cliente JDBC que puede utilizarse para ejecutar consultas de 
 
  ![cuadro de diálogo para agregar alias](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
-    Use el botón **Test** (Probar) para comprobar que la conexión funciona. Cuando aparezca el cuadro de diálogo **Connect to: Hive on HDInsight** (Conectar a: Hive en HDInsight), seleccione **Connect** (Conectar) para realizar la prueba. Si la prueba se realiza con éxito, verá un cuadro de diálogo **Connection successful** (Conexión correcta).
+    Use el botón **Test** (Probar) para comprobar que la conexión funciona. Cuando aparezca el cuadro de diálogo **Connect to: Hive on HDInsight** (Conectar a: Hive en HDInsight), seleccione **Connect** (Conectar) para realizar la prueba. Si la prueba se realiza con éxito, verá un cuadro de diálogo **Connection successful** (Conexión correcta). Si se produce un error, consulte [Solución de problemas](#troubleshooting).
 
     Use el botón **OK** (Aceptar) situado en la parte inferior del cuadro de diálogo **Add Alias** (Agregar alias) para guardar el alias de conexión.
 
@@ -166,7 +173,7 @@ Un ejemplo de uso de un cliente de Java para realizar una consulta Hive en HDIns
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Error inesperado al intentar abrir una conexión SQL
 
-**Síntomas**: Al conectarse a un clúster de HDInsight cuya versión es la 3.3 o 3.4, puede recibir un mensaje de error que indica que se produjo un error inesperado. Se iniciará el seguimiento de la pila para este error con las siguientes líneas:
+**Síntomas**: si se conecta a un clúster de HDInsight con la versión 3.3 u otra posterior, es posible que reciba un mensaje donde se indique que se produjo un error inesperado. Se iniciará el seguimiento de la pila para este error con las siguientes líneas:
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -174,7 +181,7 @@ at java.util.concurrent.FutureTas...(FutureTask.java:122)
 at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 ```
 
-**Causa**: este error se debe a una incoherencia en la versión del archivo commons-codec.jar usado por SQuirreL y el requerido por los componentes JDBC de Hive.
+**Causa**: este error lo causa un archivo commons-codec.jar de una versión anterior que está incluido en SQuirreL.
 
 **Resolución**: para corregir este error, siga estos pasos:
 

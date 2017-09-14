@@ -1,9 +1,9 @@
 ---
-title: "Administración de inicio de sesión único para aplicaciones empresariales en Azure Active Directory | Microsoft Docs"
-description: "Aprenda a administrar el inicio de sesión único para aplicaciones empresariales con la versión preliminar de Azure Active Directory."
+title: "Administración del inicio de sesión único para aplicaciones empresariales en Azure Active Directory | Microsoft Docs"
+description: "Administre la configuración de inicio de sesión único para aplicaciones empresariales de su organización desde la galería de aplicaciones de Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: asmalser
+author: curtand
 manager: femila
 editor: 
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
@@ -12,20 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
-ms.author: asmalser
+ms.date: 09/05/2017
+ms.author: curtand
+ms.reviewer: asmalser
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: c975428550690254ba989935fe5110c5903e7102
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 73c0917702e2c222f3dc09ddfa2d6d54cf005abf
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Administración de inicio de sesión único para aplicaciones empresariales
-> [!div class="op_single_selector"]
-> * [Portal de Azure](active-directory-enterprise-apps-manage-sso.md)
-> * [Portal de Azure clásico](active-directory-sso-integrate-saas-apps.md)
-> 
 
 En este artículo se describe cómo utilizar [Azure Portal](https://portal.azure.com) para administrar la configuración de inicio de sesión único para aplicaciones empresariales. Las aplicaciones empresariales son aplicaciones que se implementan y se usan dentro de su organización. Este artículo se aplica especialmente a las aplicaciones agregadas desde la [Galería de aplicaciones de Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
@@ -34,7 +31,7 @@ Todas las aplicaciones empresariales configuradas para el inicio de sesión úni
 
 ![Hoja Aplicaciones empresariales][1]
 
-Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones configuradas. Si selecciona una aplicación, se carga la hoja de recursos para esa aplicación, donde se pueden ver los informes de dicha aplicación y se pueden administrar diversas opciones de configuración.
+Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones configuradas. Al seleccionar una aplicación se muestran los recursos de esa aplicación, donde se pueden ver informes de ella y se pueden administrar diversas opciones de configuración.
 
 Para administrar la configuración de inicio de sesión único, seleccione **Inicio de sesión único**.
 
@@ -43,20 +40,22 @@ Para administrar la configuración de inicio de sesión único, seleccione **Ini
 ## <a name="single-sign-on-modes"></a>Modos de inicio de sesión único
 La hoja **Inicio de sesión único** comienza con un menú **Modo**, que permite la configuración del modo de inicio de sesión único. Las opciones disponibles incluyen:
 
-* **SAML-based sign on** (Inicio de sesión basado en SAML): esta opción está disponible si la aplicación admite el inicio de sesión único federado completo con Azure Active Directory mediante el protocolo SAML 2.0.
-* **Password-based sign on** (Inicio de sesión basado en contraseña): esta opción está disponible si Azure AD admite el rellenado de formularios de contraseña para esta aplicación.
+* **Inicio de sesión basado en SAML**: esta opción está disponible si la aplicación admite el inicio de sesión único federado completo con Azure Active Directory mediante el protocolo SAML 2.0.
+* **Inicio de sesión con contraseña**: esta opción está disponible si Azure AD admite el rellenado de formularios de contraseña para esta aplicación.
 * **Inicio de sesión vinculado**: antes conocida como "Inicio de sesión único existente", esta opción permite a los administradores agregar un vínculo a esta aplicación en el Panel de acceso de Azure AD o el iniciador de aplicaciones de Office 365 del usuario.
 
 Para más información acerca de estos modos, consulte la sección [¿Cómo funciona el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="saml-based-sign-on"></a>Inicio de sesión basado en SAML
-La opción **SAML-based sign on** (Inicio de sesión basado en SAML) muestra una hoja dividida en cuatro secciones:
+La opción **Inicio de sesión basado en SAML** se divide en cuatro secciones:
 
 ### <a name="domains-and-urls"></a>Dominios y direcciones URL
 Aquí es donde se agregan todos los detalles sobre las direcciones URL y el dominio de la aplicación a su directorio de Azure AD. Todas las entradas necesarias para hacer funciona la aplicación de inicio de sesión único se muestran directamente en la pantalla, mientras que todas las entradas opcionales se pueden ver mediante la selección de la casilla **Show advanced URL settings** (Mostrar configuración de URL avanzada). La lista completa de las entradas admitidas es la siguiente:
 
-* **URL de inicio de sesión** : cuando el usuario va a iniciar sesión en esta aplicación. Si la aplicación está configurada para realizar el inicio de sesión único iniciado por el proveedor de servicios, cuando un usuario navega a esta dirección URL, el proveedor de servicios realiza la redirección necesaria a Azure AD para autenticar al usuario e iniciar sesión. Si este campo se rellena, Azure AD utilizará esta dirección URL para iniciar la aplicación desde el panel de acceso de Azure AD y Office 365. Si se omite este campo, Azure AD realiza un inicio de sesión iniciado por el proveedor de identidades cuando se inicie la aplicación de Office 365, el panel de acceso de Azure AD, o desde la dirección URL de inicio de sesión único de Azure AD.
-* **Identificador**: este URI debería identificar de forma exclusiva la aplicación para el inicio de sesión único que se está configurando. Este es el valor que Azure AD devuelve a la aplicación como el parámetro Audiencia del token SAML, y se espera que la aplicación lo valide. Este valor también aparece como el id. de entidad en los metadatos SAML proporcionados por la aplicación.
+* **URL de inicio de sesión**: donde va el usuario para iniciar sesión en la aplicación. Si la aplicación está configurada para realizar el inicio de sesión único iniciado por el proveedor de servicios, cuando un usuario abre esta dirección URL, el proveedor de servicios le redirige a Azure AD para autenticarse e iniciar sesión. 
+  * Si este campo se rellena, Azure AD usa la dirección URL para iniciar la aplicación desde el Panel de acceso de Azure AD y Office 365.
+  * Si se omite este campo, Azure AD realiza un inicio de sesión iniciado por el proveedor de identidades cuando se inicia la aplicación de Office 365, el Panel de acceso de Azure AD o desde la dirección URL de inicio de sesión único de Azure AD.
+* **Identificador**: este URI debería identificar de forma exclusiva la aplicación para la que se configura el inicio de sesión único. Este es el valor que Azure AD devuelve a la aplicación como el parámetro Audiencia del token SAML, y se espera que la aplicación lo valide. Este valor también aparece como el id. de entidad en los metadatos SAML proporcionados por la aplicación.
 * **URL de respuesta** : la dirección URL de respuesta es el lugar donde la aplicación espera recibir el token SAML. Esto también se conoce como dirección URL del Servicio de consumidor de aserciones (ACS). Después de especificar dichas direcciones, haga clic en Siguiente para pasar a la pantalla siguiente. Esta pantalla proporciona información sobre lo que es preciso configurar en la propia aplicación para que pueda aceptar un token SAML de Azure AD.
 * **Estado de la retransmisión**: el estado de retransmisión es un parámetro opcional que puede ayudar a indicar dónde redirigir al usuario una vez completada la autenticación de la aplicación. Por lo general, el valor suele ser una dirección URL válida en la aplicación; sin embargo, algunas aplicaciones usan este campo de forma diferente (consulte la documentación de inicio de sesión único de la aplicación para más información). La capacidad de establecer el estado de retransmisión es una característica nueva exclusiva para el nuevo Azure Portal.
 
@@ -80,12 +79,12 @@ El menú emergente **Configurar aplicación** proporciona nuevas instrucciones c
 
 ![Documentos insertados][3]
 
-## <a name="password-based-sign-on"></a>Password-based sign on
+## <a name="password-based-sign-on"></a>Inicio de sesión único con contraseña
 Si se admite para la aplicación, si se selecciona el modo SSO basado en contraseña y se selecciona **Guardar** , se configura instantáneamente para el inicio de sesión único basado en contraseña. Para más información sobre la implementación del inicio de sesión único basado en contraseña, consulte la sección [¿Cómo funciona el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Password-based sign on][4]
+![Inicio de sesión único con contraseña][4]
 
-## <a name="linked-sign-on"></a>Linked sign on
+## <a name="linked-sign-on"></a>Inicio de sesión vinculado
 Si se admite para la aplicación, la selección del modo de inicio de sesión único vinculado permite especificar la dirección URL a la que desea que redirijan el Panel de acceso de Azure AD u Office 365 cuando los usuarios hacen clic en esta aplicación. Para más información sobre el inicio de sesión único vinculado, consulte la sección [¿Cómo funciona el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Inicio de sesión vinculado][5]

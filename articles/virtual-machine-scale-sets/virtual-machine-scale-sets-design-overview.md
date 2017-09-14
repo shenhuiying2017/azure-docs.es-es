@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 6dbd4f22e3e949e19565030f5a10f545b89a0a3c
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 0b05359938f4da544c4cb2a6fe60cfaf228478e1
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="design-considerations-for-scale-sets"></a>Consideraciones de diseño para conjuntos de escalado
@@ -74,7 +74,7 @@ Un conjunto de escalado basado en una imagen de Marketplace (que también se con
 
 Un conjunto de escalado configurado con cuentas de almacenamiento administradas por el usuario actualmente tiene un límite de 100 VM (y se recomiendan 5 cuentas de almacenamiento para esta escala).
 
-Un conjunto de escalado basado en una imagen personalizada (que usted haya creado) puede tener una capacidad de hasta 100 VM cuando está configurado con Azure Managed Disks. Si el conjunto de escalado está configurado con cuentas de almacenamiento administradas por el usuario, debe crear todos los VHD del disco del SO dentro de una cuenta de almacenamiento. Como resultado, el número máximo recomendado de VM de un conjunto de escalado basado en una imagen personalizada y en el almacenamiento administrado por el usuario es 20. Si se desactiva el aprovisionamiento en exceso, puede aumentar la cifra hasta 40.
+Un conjunto de escalado basado en una imagen personalizada (que usted haya creado) puede tener una capacidad de hasta 300 VM cuando está configurado con Azure Managed Disks. Si el conjunto de escalado está configurado con cuentas de almacenamiento administradas por el usuario, debe crear todos los VHD del disco del SO dentro de una cuenta de almacenamiento. Como resultado, el número máximo recomendado de VM de un conjunto de escalado basado en una imagen personalizada y en el almacenamiento administrado por el usuario es 20. Si se desactiva el aprovisionamiento en exceso, puede aumentar la cifra hasta 40.
 
 Para poder tener más máquinas virtuales que las que permiten estos límites, debe implementar varios conjuntos de escalado, tal como se muestra en [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 

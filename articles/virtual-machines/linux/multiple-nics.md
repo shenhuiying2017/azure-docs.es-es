@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8a2931e462079c101c91497d459d7d3126234244
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: ff3e3121102eedaa1f439e517570d0a97cf07c22
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red
@@ -118,6 +117,7 @@ az network nic create \
 
 Para agregar una NIC a una máquina virtual existente, en primer lugar desasigne la máquina virtual con [az vm deallocate](/cli/azure/vm#deallocate). En el ejemplo siguiente se desasigna la máquina virtual denominada *myVM*:
 
+
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
@@ -180,5 +180,75 @@ También puede utilizar `copyIndex()` para anexar un número a un nombre de recu
 
 Puede leer un ejemplo completo de [cómo crear varias NIC con plantillas de Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+## <a name="configure-guest-os-for-multiple-nics"></a>Configuración del sistema operativo invitado para varias NIC
+
+Al crear varias tarjetas de interfaz de red (NIC) para una máquina virtual basada en un sistema operativo invitado Linux, se requiere crear reglas de enrutamiento adicionales que permitan enviar y recibir el tráfico que pertenezca solo a una NIC específica. En caso contrario, el tráfico perteneciente a eth1 no se puede procesar correctamente, debido a la ruta predeterminada definida.  
+
+
+### <a name="solution"></a>Solución
+
+Agregue primero dos tablas de enrutamiento al archivo /etc/iproute2/rt_tables
+
+```bash
+echo "200 eth0-rt" >> /etc/iproute2/rt_tables
+echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+```
+
+Para hacer que el cambio sea persistente y se aplique durante la activación de la pila de red, es necesario modificar los archivos */etc/sysconfig/network-scipts/ifcfg-eth0* y */etc/sysconfig/network-scipts/ifcfg-eth1*.
+Cambie la línea *"NM_CONTROLLED = yes"* por *"NM_CONTROLLED = no"*.
+Sin este paso, las reglas o el enrutamiento adicionales que vamos a agregar no surtirán ningún efecto.
+ 
+El siguiente paso es extender las tablas de enrutamiento. Para hacer que los pasos siguientes sean más visibles, supondremos que tenemos la siguiente configuración:
+
+*Enrutamiento*
+
+```bash
+default via 10.0.1.1 dev eth0 proto static metric 100
+10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
+10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
+168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
+169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+```
+    
+*Interfaces*
+
+```bash
+lo: inet 127.0.0.1/8 scope host lo
+eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
+eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```
+    
+    
+Con la información anterior, es posible crear los siguientes archivos adicionales como raíz
+
+*   /etc/sysconfig/network-scripts/rule-eth0
+*   /etc/sysconfig/network-scripts/route-eth0
+*   /etc/sysconfig/network-scripts/rule-eth1
+*   /etc/sysconfig/network-scripts/route-eth1
+
+El contenido de cada archivo es el siguiente
+```bash
+cat /etc/sysconfig/network-scripts/rule-eth0
+from 10.0.1.4/32 table eth0-rt
+to 10.0.1.4/32 table eth0-rt
+
+cat /etc/sysconfig/network-scripts/route-eth0
+10.0.1.0/24 dev eth0 table eth0-rt
+default via 10.0.1.1 dev eth0 table eth0-rt
+
+cat /etc/sysconfig/network-scripts/rule-eth1
+from 10.0.1.5/32 table eth1-rt
+to 10.0.1.5/32 table eth1-rt
+
+cat /etc/sysconfig/network-scripts/route-eth1
+10.0.1.0/24 dev eth1 table eth1-rt
+default via 10.0.1.1 dev eth1 table eth1-rt
+```
+
+Después de crear los archivos y rellenarlos, es necesario reiniciar el servicio de red `systemctl restart network`
+
+Ahora es posible la conexión desde el exterior a eth0 o eth1
+
 ## <a name="next-steps"></a>Pasos siguientes
 Revise los [tamaños de máquina virtual Linux](sizes.md) al intentar crear una máquina virtual con varias NIC. Preste atención al número máximo de NIC que admite cada tamaño de máquina virtual. 
+

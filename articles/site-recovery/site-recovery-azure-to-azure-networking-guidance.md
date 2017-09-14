@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/13/2017
+ms.date: 08/31/2017
 ms.author: sujayt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: eb7b6d606d1a7455710be5e1cf0298c368fc8b1e
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 99c08a1efbc610959fb4ba824dcb0601efac5877
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="networking-guidance-for-replicating-azure-virtual-machines"></a>Guía de redes para la replicación de máquinas virtuales de Azure
@@ -46,7 +45,7 @@ Si usa Azure ExpressRoute o una conexión VPN de una red local a Azure, el entor
 Normalmente, los clientes protegen sus redes mediante firewalls o grupos de seguridad de red (NSG). Para controlar la conectividad de red, los firewalls pueden usar la inclusión en lista de direcciones IP o URL permitidas. Los NSG permiten reglas para usar intervalos de IP en el control de la conectividad de red.
 
 >[!IMPORTANT]
-> Si va a usar un proxy autenticado para controlar la conectividad de red, no se admite, y la replicación de Site Recovery no se podrá habilitar. 
+> Si va a usar un proxy autenticado para controlar la conectividad de red, no se admite, y la replicación de Site Recovery no se podrá habilitar.
 
 En las secciones siguientes se describen los cambios en la conectividad de red saliente que son necesarios en las máquinas virtuales de Azure para que funcione Site Recovery.
 
@@ -79,34 +78,38 @@ Si va a usar un proxy de firewall basado en IP o reglas de NSG para controlar la
 
     >[!NOTE]
     > Si se agregan en el futuro nuevas direcciones IP a los intervalos IP de Office 365 IP, deberá crear nuevas reglas de NSG.
-    
-- Las direcciones IP de punto de conexión del servicio de Site Recovery ([disponibles en un archivo XML](https://aka.ms/site-recovery-public-ips)), que dependen de la ubicación de destino: 
+
+- Las direcciones IP de punto de conexión del servicio de Site Recovery ([disponibles en un archivo XML](https://aka.ms/site-recovery-public-ips)), que dependen de la ubicación de destino:
 
    **Ubicación de destino** | **Direcciones IP del servicio de Site Recovery** |  **IP de supervisión de Site Recovery**
    --- | --- | ---
-   Asia oriental | 52.175.17.132</br>40.83.121.61 | 13.94.47.61
-   Sudeste asiático | 52.187.58.193</br>52.187.169.104 | 13.76.179.223
-   India Central | 52.172.187.37</br>52.172.157.193 | 104.211.98.185
-   Sur de la India | 52.172.46.220</br>52.172.13.124 | 104.211.224.190
-   Centro-Norte de EE. UU | 23.96.195.247</br>23.96.217.22 | 168.62.249.226
-   Europa del Norte | 40.69.212.238</br>13.74.36.46 | 52.169.18.8
-   Europa occidental | 52.166.13.64</br>52.166.6.245 | 40.68.93.145
-   Este de EE. UU | 13.82.88.226</br>40.71.38.173 | 104.45.147.24
-   Oeste de EE. UU | 40.83.179.48</br>13.91.45.163 | 104.40.26.199
-   Centro-Sur de EE. UU | 13.84.148.14</br>13.84.172.239 | 104.210.146.250
-   Central EE. UU: | 40.69.144.231</br>40.69.167.116 | 52.165.34.144
-   Este de EE. UU. 2 | 52.184.158.163</br>52.225.216.31 | 40.79.44.59
-   Este de Japón | 52.185.150.140</br>13.78.87.185 | 138.91.1.105
-   Oeste de Japón | 52.175.146.69</br>52.175.145.200 | 138.91.17.38
-   Sur de Brasil | 191.234.185.172</br>104.41.62.15 | 23.97.97.36
-   Australia Oriental | 104.210.113.114</br>40.126.226.199 | 191.239.64.144
-   Sudeste de Australia | 13.70.159.158</br>13.73.114.68 | 191.239.160.45
-   Centro de Canadá | 52.228.36.192</br>52.228.39.52 | 40.85.226.62
-   Este de Canadá | 52.229.125.98</br>52.229.126.170 | 40.86.225.142
-   Centro occidental de EE.UU | 52.161.20.168</br>13.78.230.131 | 13.78.149.209
-   Oeste de EE. UU 2 | 52.183.45.166</br>52.175.207.234 | 13.66.228.204
-   Oeste de Reino Unido | 51.141.3.203</br>51.140.226.176 | 51.141.14.113
-   Sur del Reino Unido 2 | 51.140.43.158</br>51.140.29.146 | 51.140.189.52
+   Asia oriental | 52.175.17.132 | 13.94.47.61
+   Sudeste asiático | 52.187.58.193 | 13.76.179.223
+   India Central | 52.172.187.37 | 104.211.98.185
+   Sur de la India | 52.172.46.220 | 104.211.224.190
+   Centro-Norte de EE. UU | 23.96.195.247 | 168.62.249.226
+   Europa del Norte | 40.69.212.238 | 52.169.18.8
+   Europa occidental | 52.166.13.64 | 40.68.93.145
+   Este de EE. UU | 13.82.88.226 | 104.45.147.24
+   Oeste de EE. UU | 40.83.179.48 | 104.40.26.199
+   Centro-Sur de EE. UU | 13.84.148.14 | 104.210.146.250
+   Central EE. UU: | 40.69.144.231 | 52.165.34.144
+   Este de EE. UU. 2 | 52.184.158.163 | 40.79.44.59
+   Este de Japón | 52.185.150.140 | 138.91.1.105
+   Oeste de Japón | 52.175.146.69 | 138.91.17.38
+   Sur de Brasil | 191.234.185.172 | 23.97.97.36
+   Australia Oriental | 104.210.113.114 | 191.239.64.144
+   Sudeste de Australia | 13.70.159.158 | 191.239.160.45
+   Centro de Canadá | 52.228.36.192 | 40.85.226.62
+   Este de Canadá | 52.229.125.98 | 40.86.225.142
+   Centro occidental de EE.UU | 52.161.20.168 | 13.78.149.209
+   Oeste de EE. UU 2 | 52.183.45.166 | 13.66.228.204
+   Oeste de Reino Unido | 51.141.3.203 | 51.141.14.113
+   Sur del Reino Unido 2 | 51.140.43.158 | 51.140.189.52
+   Sur del Reino Unido 2 | 13.87.37.4| 13.87.34.139
+   Norte del Reino Unido | 51.142.209.167 | 13.87.102.68
+   Corea Central | 52.231.28.253 | 52.231.32.85
+   Corea del Sur | 52.231.298.185 | 52.231.200.144
 
 ## <a name="sample-nsg-configuration"></a>Configuración de NSG de ejemplo
 En esta sección se explican los pasos para configurar reglas de NSG de forma que la replicación de Site Recovery pueda funcionar en una máquina virtual. Si usa reglas de NSG para controlar la conectividad de salida, utilice reglas para permitir el tráfico HTTPS de salida en todos los intervalos IP necesarios.
@@ -118,7 +121,7 @@ Por ejemplo, si la ubicación de origen de la máquina virtual es "Este de EE. 
 
 >[!IMPORTANT]
 > * Se recomienda que cree las reglas de NSG necesarias en un grupo de seguridad de red de prueba y que compruebe que no haya ningún problema antes de crear las reglas en un grupo de seguridad de red de producción.
-> * Para crear el número necesario de reglas de NSG, asegúrese de que su suscripción esté incluida en la lista de permitidos. Si desea aumentar el límite de reglas de NSG de su suscripción, póngase en contacto con el soporte técnico. 
+> * Para crear el número necesario de reglas de NSG, asegúrese de que su suscripción esté incluida en la lista de permitidos. Si desea aumentar el límite de reglas de NSG de su suscripción, póngase en contacto con el soporte técnico.
 
 ### <a name="nsg-rules-on-the-east-us-network-security-group"></a>Reglas de NSG en el grupo de seguridad de red de Este de EE. UU.
 
@@ -130,7 +133,7 @@ Por ejemplo, si la ubicación de origen de la máquina virtual es "Este de EE. 
 
    **Ubicación** | **Direcciones IP del servicio de Site Recovery** |  **IP de supervisión de Site Recovery**
     --- | --- | ---
-   Central EE. UU.: | 40.69.144.231</br>40.69.167.116 | 52.165.34.144
+   Central EE. UU.: | 40.69.144.231 | 52.165.34.144
 
 ### <a name="nsg-rules-on-the-central-us-network-security-group"></a>Reglas de NSG en el grupo de seguridad de red de Centro de EE. UU.
 
@@ -144,7 +147,7 @@ Estas reglas son necesarias para que la replicación se pueda habilitar de la re
 
    **Ubicación** | **Direcciones IP del servicio de Site Recovery** |  **IP de supervisión de Site Recovery**
     --- | --- | ---
-   Este de EE. UU. | 13.82.88.226</br>40.71.38.173 | 104.45.147.24
+   Este de EE. UU. | 13.82.88.226 | 104.45.147.24
 
 
 ## <a name="guidelines-for-existing-azure-to-on-premises-expressroutevpn-configuration"></a>Directrices para la configuración de ExpressRoute o VPN existente de Azure en el entorno local

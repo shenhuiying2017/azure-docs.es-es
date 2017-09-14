@@ -1,6 +1,6 @@
 ---
 title: "Configuración de credenciales de autenticación con nombre | Microsoft Docs"
-description: "Aprenda a proporcionar credenciales que Visual Studio pueda usar para autenticar solicitudes a Azure para publicar una aplicación en Azure desde Visual Studio o para supervisar un servicio en la nube existente. "
+description: "Aprenda a proporcionar credenciales que Visual Studio pueda usar para autenticar solicitudes en Azure para publicar una aplicación en Azure desde Visual Studio o para supervisar un servicio en la nube existente."
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -15,16 +15,16 @@ ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: c486676a70e195ec85ad40540ea4b7caaa86bc48
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: b75d190724da284324b0337e95a50a64902e19d8
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="setting-up-named-authentication-credentials"></a>Configuración de credenciales de autenticación con nombre
-Para publicar una aplicación en Azure desde Visual Studio o supervisar un servicio en la nube existente, debe proporcionar credenciales que Visual Studio pueda usar para autenticar solicitudes a Azure. Existen varios lugares en Visual Studio donde puede iniciar sesión para proporcionar estas credenciales. Por ejemplo, desde el Explorador de servidores, abra el menú contextual para el nodo **Azure** y elija **Conectar a la suscripción de Microsoft Azure...** Al iniciar sesión, la información de suscripción asociada con su cuenta de Azure está disponible en Visual Studio y con eso basta.
+# <a name="set-up-named-authentication-credentials"></a>Configuración de credenciales de autenticación con nombre
+Para publicar una aplicación en Azure desde Visual Studio o supervisar un servicio en la nube existente, debe proporcionar credenciales que Visual Studio pueda usar para autenticar solicitudes a Azure. Existen varios lugares en Visual Studio donde puede iniciar sesión para proporcionar estas credenciales. Por ejemplo, desde el Explorador de servidores, abra el menú contextual para el nodo **Azure** y elija **Conectar a la suscripción de Microsoft Azure**. Al iniciar sesión, la información de suscripción asociada con su cuenta de Azure está disponible en Visual Studio. No es necesario hacer nada más.
 
-Azure Tools también admite una forma anterior de proporcionar credenciales, mediante el archivo de suscripción (archivo .publishsettings). En este tema se describe este método, que todavía se admite en el SDK 2.2 de Azure.
+Azure Tools también admite una forma anterior de proporcionar credenciales, mediante el archivo de suscripción (archivo .publishsettings). En este artículo se describe este método, que todavía se admite en el SDK 2.2 de Azure.
 
 Para efectuar la autenticación en Azure se requieren los siguientes elementos:
 
@@ -38,7 +38,7 @@ Para efectuar la autenticación en Azure se requieren los siguientes elementos:
 
 Visual Studio usa el Id. de suscripción junto con los datos del certificado como credenciales. Se hace referencia a las credenciales adecuadas en el archivo de suscripción (archivo .publishsettings), que contiene una clave pública para el certificado. El archivo de suscripción puede contener credenciales para más de una suscripción.
 
-Puede editar la información de suscripción en el cuadro de diálogo **Nueva suscripción/Editar suscripción** , como se explica más adelante en este tema.
+Puede editar la información de suscripción en el cuadro de diálogo **Nueva suscripción** o **Editar suscripción**, como se explica más adelante en este artículo.
 
 Si desea crear un certificado por sí mismo, puede consultar las instrucciones de [Creación y carga de un certificado de administración para Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) y después cargar manualmente el certificado en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
 
@@ -48,19 +48,19 @@ Si desea crear un certificado por sí mismo, puede consultar las instrucciones d
 >
 
 ## <a name="import-set-up-or-edit-authentication-credentials-in-visual-studio"></a>Importación, configuración o edición de las credenciales de autenticación en Visual Studio
-Puede importar, configurar o modificar las credenciales de autenticación en el cuadro de diálogo **Nueva suscripción**, que aparece si se lleva a cabo la acción siguiente:
 
-* En el **Explorador de servidores**, abra el menú contextual para el nodo **Azure**, elija **Administrar y filtrar suscripciones...**, elija la pestaña **Certificados** y realice una de las acciones siguientes:
+1. En el Explorador de servidores, abra el menú contextual para el nodo de **Azure** y seleccione **Administrar y filtrar suscripciones**.
+2. Seleccione la pestaña **Certificados** y, a continuación, use cualquiera de los métodos siguientes:
 
-    * Elija **Importar** para abrir el cuadro de diálogo Importar suscripciones de Microsoft Azure donde puede descargar el archivo de suscripciones para la suscripción cargada actualmente, busque su ubicación de descarga y, después, impórtelo para usarlo en la autenticación.
-    * Elija **Nuevo** para abrir el cuadro de diálogo Suscripción nueva, donde puede configurar una nueva suscripción usarla en la autenticación.
-    * Elija **Editar** (después de elegir su suscripción activa) para abrir el cuadro de diálogo Editar suscripción, donde puede editar una suscripción existente para usarla en la autenticación. 
+    * Seleccione **Importar** para abrir el cuadro de diálogo **Importar suscripciones de Microsoft Azure**. Allí puede descargar el archivo de suscripciones para la suscripción cargada actualmente, ir a la ubicación de descarga y, después, importarlo para usarlo en la autenticación.
+    * Seleccione **Nuevo** para abrir el cuadro de diálogo **Nueva suscripción**. Allí, puede configurar una nueva suscripción para su uso en la autenticación.
+    * Seleccione **Editar** (después de elegir su suscripción activa) para abrir el cuadro de diálogo **Editar suscripción**. Allí, puede editar una suscripción existente para su uso en la autenticación. 
 
 En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nueva suscripción** está abierto.
 
 ### <a name="to-set-up-authentication-credentials-in-visual-studio"></a>Configuración de las credenciales de autenticación en Visual Studio
-1. En la lista **Seleccione un certificado existente para la autenticación** , elija un certificado.
-2. Elija el vínculo **Copiar la ruta de acceso completa**. La ruta de acceso del certificado (archivo .cer) se copia en el Portapapeles.
+1. En la lista **Seleccione un certificado existente para la autenticación**, elija un certificado.
+2. Seleccione el vínculo **Copiar la ruta de acceso completa**. La ruta de acceso del certificado (archivo .cer) se copia en el Portapapeles.
 
    > [!IMPORTANT]
    > Para publicar la aplicación de Azure desde Visual Studio, debe cargar este certificado en [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -68,8 +68,16 @@ En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nu
    >
 3. Para cargar el certificado en Azure Portal:
 
-   1. Abra el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-   2. Si se le solicita, inicie sesión en el portal y navegue hasta **Configuración**, **Certificados de administración**.
-   3. En el panel Certificados de administración, elija **Cargar**.
-   4. Seleccione la suscripción de Azure, pegue la ruta de acceso completa del archivo .cer que acaba de crear y elija **Cargar**.
+   a. Abra el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+   
+   b. Si se le solicita, inicie sesión en el portal y vaya a **Configuración** > **Certificados de administración**.
+   
+   c. En el panel **Certificados de administración**, elija **Cargar**.
+   
+   d. Seleccione la suscripción de Azure, pegue la ruta de acceso completa del archivo .cer que acaba de crear y seleccione **Cargar**.
 
+## <a name="next-steps"></a>Pasos siguientes
+* [Introducción general sobre Web Apps](https://docs.microsoft.com/azure/app-service-web/)
+* [Documentación de implementación de Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy?toc=%2fazure%2fapp-service-api%2ftoc.json) 
+* [Implementar trabajos web con Visual Studio](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-deploy-webjobs)
+* [Crear e implementar un servicio en la nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

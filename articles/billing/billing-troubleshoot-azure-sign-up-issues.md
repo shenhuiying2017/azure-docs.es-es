@@ -16,15 +16,26 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 647509ea36e487aca5db661adb3268e845988f78
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: af8a7bbc4bf007dfa5bef7ceb9cf940ad752239a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Solucionar problemas de inicio de suscripción para Azure
 Si no puede suscribirse a Azure, siga las sugerencias de este artículo para solucionar problemas comunes. Si tiene algún problema con la tarjeta de crédito durante el inicio de sesión, vea [La tarjeta de débito o crédito se rechazó al suscribirse a Azure](billing-credit-card-fails-during-azure-sign-up.md). Si tiene una cuenta de Azure, pero no puede iniciar sesión, vea [No puedo iniciar sesión para administrar mi suscripción de Azure](billing-cannot-login-subscription.md).
+
+## <a name="error-we-cannot-proceed-with-signup-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Error "No se puede continuar con el registro debido a un problema con su cuenta. Póngase en contacto con el servicio de soporte técnico de facturación". 
+
+Para solucionar el problema, siga estos pasos:
+
+1. Inicie sesión en el [Centro de cuentas de Azure](https://account.azure.com) con la credencial de administrador de cuenta. 
+2. Haga clic en **perfil** y, a continuación, haga clic en **Editar detalles**.
+3. Asegúrese de que todos los campos de dirección están completados y son válidos. 
+4. Cuando registre la suscripción de Azure, asegúrese de que la dirección de facturación que especificó durante el registro de la tarjeta de crédito coincide con los datos del banco.
+
+Si sigue recibiendo el error, intente registrarse con un explorador diferente.
 
 ## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>La barra de progreso se bloquea en la sección "Comprobación de identidad por tarjeta"
 

@@ -3,7 +3,7 @@ title: "Incorporación de nuevos usuarios en Azure Active Directory | Microsoft 
 description: Describe como agregar usuarios nuevos en Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: jeffgilb
+author: curtand
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: jeffgilb
-ms.reviewer: jsnow
+ms.author: curtand
+ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 13a7d2d3b991206c45e66872b590bc27a224eead
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 9b6a48220132bb8ea18ae5efca46ea2faf825806
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Inicio rápido: incorporación de nuevos usuarios a Azure Active Directory
@@ -28,12 +28,12 @@ En este artículo se explica cómo agregar nuevos usuarios de su organización e
 ## <a name="add-cloud-based-users"></a>Adición de usuarios basados en la nube
 1. Inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Azure Active Directory** y, después, **Usuarios y grupos**.
-3. En la hoja **Usuarios y grupos**, seleccione **Todos los grupos** y, luego, **Nuevo usuario**.
+3. En **Usuarios y grupos**, seleccione **Todos los usuarios** y **Nuevo usuario**.
    ![Selección del comando Agregar](./media/add-users-azure-active-directory/add-user.png)
 4. Especifique los detalles del usuario, como el **nombre** y el **nombre de usuario**. La parte del nombre de dominio del nombre de usuario debe ser el nombre de dominio del nombre de dominio predeterminado inicial "[nombre de dominio].onmicrosoft.com" o un [nombre de dominio personalizado](add-custom-domain.md) comprobado y no federado, como "contoso.com".
 5. Copie o anote la contraseña de usuario generada para poder proporcionársela al usuario cuando finalice este proceso.
-6. También puede abrir y rellenar la información de las hojas **Perfil**, **Grupos** o **Rol del directorio** del usuario. Para obtener más información acerca de los roles del usuario y el administrador, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md).
-7. En la hoja **Usuario**, seleccione **Crear**.
+6. También puede abrir y rellenar la información de **Perfil**, **Grupos** o **Rol del directorio** del usuario. Para obtener más información acerca de los roles del usuario y el administrador, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md).
+7. En **Usuario**, seleccione **Crear**.
 8. Distribuya de manera segura la contraseña generada al nuevo usuario para que pueda iniciar sesión.
 
 > [!TIP]

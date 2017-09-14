@@ -14,13 +14,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/13/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 81fa319f6fb94bdabacd8f68d14b9a1063a9749a
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 788ba828d1380b17913cabf18827c1abcc83c725
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>Ejemplo de streaming de Apache Spark (DStream) con Kafka (versión preliminar) en HDInsight
@@ -53,7 +53,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
     Esta plantilla crea un clúster de HDInsight 3.6 para Kafka y Spark.
 
-2. Utilice los datos siguientes para rellenar las entradas de la hoja **Implementación personalizada**:
+2. Utilice los datos siguientes para rellenar las entradas de la sección **Implementación personalizada**:
    
     ![Implementación personalizada de HDInsight](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
@@ -75,9 +75,9 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
 4. Por último, active **Anclar al panel** y seleccione **Adquirir**. Se tarda aproximadamente 20 minutos en crear los clústeres.
 
-Una vez creados los recursos, se le redirigirá a una hoja del grupo de recursos que contiene los clústeres y el panel web.
+Cuando se crean los recursos, aparece una página de resumen.
 
-![Hoja de grupo de recursos de la red virtual y clústeres](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Resumen del grupo de recursos de la red virtual y los clústeres](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Observe que los nombres de los clústeres de HDInsight son **spark-BASENAME** y **kafka-BASENAME**, donde BASENAME es el nombre que indicó en la plantilla. Estos nombres se utilizarán más adelante al establecer la conexión con los clústeres.
@@ -86,7 +86,7 @@ Una vez creados los recursos, se le redirigirá a una hoja del grupo de recursos
 
 El código del ejemplo que se describe en este documento está disponible en [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
 
-Siga los pasos del archivo `README.md` para completar este ejemplo.
+Para completar este ejemplo, siga los pasos que se indican en `README.md`.
 
 ## <a name="delete-the-cluster"></a>Eliminación del clúster
 

@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 8d701f4a459da2e08510e8001adca0847b08e924
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 3fa6f4f850fc67d41f619d46bd61a19fe890b0fb
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager
@@ -59,7 +59,7 @@ Antes de preparar el entorno, tenga en cuenta las limitaciones.
 * No se admite la copia de seguridad de máquinas virtuales con tamaños de disco de datos mayores que 1023 GB.
 * No se admite la copia de seguridad de máquinas virtuales con una dirección IP reservada y sin puntos de conexión definidos.
 * No se admite la copia de seguridad de máquinas virtuales cifradas simplemente mediante BEK. No se admite la copia de seguridad de máquinas virtuales Linux cifradas mediante el cifrado LUKS.
-* No se recomienda la copia de seguridad de máquinas virtuales en la configuración Servidor de archivos de escalabilidad horizontal.
+* No se recomienda la copia de seguridad de máquinas virtuales que contengan volúmenes compartidos de clúster (CSV) o la configuración Servidor de archivos de escalabilidad horizontal porque requieren la implicación de todas las máquinas virtuales incluidas en la configuración del clúster durante la tarea de instantáneas. Azure Backup no es compatible con la coherencia entre varias VM. 
 * Los datos de copia de seguridad no incluyen unidades montadas de red conectadas a la máquina virtual.
 * No se admite el reemplazo de una máquina virtual existente durante la restauración. Si intenta restaurar la máquina virtual cuando ya existe, la operación de restauración dará error.
 * No se admiten la restauración y la copia de seguridad entre regiones.

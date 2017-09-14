@@ -3,7 +3,7 @@ title: "Diagnóstico de la conectividad local a través de VPN Gateway con Azure
 description: "En este artículo se describe cómo diagnosticar la conectividad local a través de VPN Gateway con la solución de problemas de recursos de Azure Network Watcher."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 8f5534c83adf2ee4a696131afb45a658c89dd298
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 94658dfcf93e821e24cabb1f010f8dce0c014700
 ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -34,7 +34,7 @@ Quiere configurar una conexión de sitio a sitio entre Azure y la red local con 
 
 1. Puerta de enlace de red virtual: la instancia de VPN Gateway en Azure
 1. Puerta de enlace de red local: la representación de la[ instancia de VPN Gateway local (FortiGate](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)) en la nube de Azure
-1. Conexión de sitio a sitio (basada en directivas): [conexión entre VPN Gateway y el enrutador local](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
+1. Conexión de sitio a sitio (basada en rutas): [conexión entre la puerta de enlace de VPN y el enrutador local](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
 1. [Configuración de FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Encontrará instrucciones paso a paso para definir una configuración de sitio a sitio si visita: [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).

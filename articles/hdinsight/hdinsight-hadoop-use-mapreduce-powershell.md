@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: c3801573808709f29cb1e563ac803f225a28cafc
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: bc4e1b04e8f90e5713468ce38f6f05174affb261
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Ejecución de trabajos de MapReduce con Hadoop en HDInsight con PowerShell
@@ -41,7 +40,7 @@ Este documento proporciona un ejemplo de uso de Azure PowerShell para ejecutar u
 
 ## <a id="powershell"></a>Ejecución de un trabajo de MapReduce mediante Azure PowerShell
 
-Azure PowerShell proporciona *cmdlets* que le permiten ejecutar de manera remota trabajos de MapReduce en HDInsight. De manera interna, esto se logra mediante llamadas REST a [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anteriormente llamado Templeton), que se ejecuta en el clúster de HDInsight.
+Azure PowerShell proporciona *cmdlets* que le permiten ejecutar de manera remota trabajos de MapReduce en HDInsight. Internamente, PowerShell hace llamadas de REST a un objeto [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anteriormente llamado Templeton) que se ejecuta en el clúster de HDInsight.
 
 Los siguientes cmdlets se utilizan al ejecutar trabajos de MapReduce en un clúster de HDInsight remoto.
 
@@ -49,7 +48,7 @@ Los siguientes cmdlets se utilizan al ejecutar trabajos de MapReduce en un clús
 
 * **New-AzureRmHDInsightMapReduceJobDefinition**: crea una nueva *definición de trabajo* usando la información especificada de MapReduce.
 
-* **Start-AzureRmHDInsightJob**: envía la definición del trabajo a HDInsight, inicia el trabajo y devuelve un objeto de *trabajo* que se puede usar para comprobar el estado del trabajo.
+* **Start-AzureRmHDInsightJob**: envía la definición del trabajo a HDInsight e inicia el trabajo. Se devuelve un objeto *job*.
 
 * **Wait-AzureRmHDInsightJob**: usa el objeto de trabajo para comprobar el estado del trabajo. Esperará hasta que el trabajo se complete o se supere el tiempo de espera.
 
@@ -65,7 +64,7 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 
         .\mapreducejob.ps1
 
-    Cuando se ejecuta el script, se le pide el nombre del clúster de HDInsight y el nombre de la cuenta de administrador/HTTPS y la contraseña del clúster. Puede que también se le pida que autentique su suscripción de Azure.
+    Si ejecuta el script, se le pedirá el nombre del clúster de HDInsight y el inicio de sesión del clúster. Puede que también se le pida que autentique su suscripción de Azure.
 
 3. Cuando se complete el trabajo, obtendrá un texto similar al siguiente:
 
@@ -88,14 +87,14 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 
 ### <a name="view-output"></a>Visualización de la salida
 
-Abra el archivo **output.txt** en un editor de texto para ver las palabras y los números generados por el trabajo.
+Para ver las palabras y los recuentos generados por el trabajo, abra el archivo **output.txt** en un editor de texto.
 
 > [!NOTE]
 > Los archivos de salida de un trabajo de MapReduce no se pueden mover. Por lo tanto, si vuelve a ejecutar esta muestra, debe cambiar el nombre del archivo de salida.
 
 ## <a id="troubleshooting"></a>Solución de problemas
 
-Si no se devuelve ninguna información cuando se completa el trabajo, pudo haberse producido un error durante el procesamiento. Para ver información de error para este trabajo, agregue el siguiente comando al final del archivo **mapreducejob.ps1** , guárdelo y luego ejecútelo de nuevo.
+Si una vez completado el trabajo no se devuelve información, consulte los errores del trabajo. Para ver información de error para este trabajo, agregue el siguiente comando al final del archivo **mapreducejob.ps1** , guárdelo y luego ejecútelo de nuevo.
 
 ```powershell
 # Print the output of the WordCount job.
@@ -107,7 +106,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-Este cmdlet devuelve la información escrita en STDERR en el servidor cuando ejecute el trabajo y puede ayudar a determinar por qué se ha producido el error en el trabajo.
+Este cmdlet devuelve la información que se escribió en STDERR mientras se ejecutaba el trabajo.
 
 ## <a id="summary"></a>Resumen
 

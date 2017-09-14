@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 181ed544ae4697753490642fea8eef636322a114
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3365bc81b17e0225652504a71d3aff42a399ce67
 ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotección desde Azure a un sitio local
@@ -226,4 +226,36 @@ La conmutación por recuperación apagará la máquina virtual en Azure y arranc
 * Si está intentando conmutar por recuperación en un vCenter alternativo, asegúrese de que se detectan tanto el nuevo vCenter como el servidor de destino maestro. Un síntoma típico es que los almacenes de datos no están accesibles ni visibles en el cuadro de diálogo de **Reprotect** (Reproteger).
 
 * No se puede llevar a cabo la conmutación por recuperación de un servidor Windows Server 2008 R2 SP1 que esté protegido como servidor local físico desde Azure a un sitio local.
+
+### <a name="common-error-codes"></a>Códigos de error comunes
+
+#### <a name="error-code-95226"></a>Código de error 95226
+
+*No se pudo aplicar la reprotección porque la máquina virtual de Azure no pudo acceder al servidor de configuración local.*
+
+Aparece cuando 
+1. La máquina virtual de Azure no ha podido acceder al servidor de configuración local y, por tanto, no se ha podido detectar y registrar en el servidor de configuración. 
+2. Es posible que el servicio InMage Scout Application en la máquina virtual de Azure que debe estar en ejecución para poder comunicarse con al servidor de configuración local no ejecute la conmutación por error posterior.
+
+Para resolver este problema
+1. Es preciso asegurarse de que la red de la máquina virtual de Azure se configura de modo que la máquina virtual pueden comunicarse con el servidor de configuración local. Para ello, configure una VPN de sitio a sitio en el centro de datos local o una conexión de ExpressRoute con pares privados en la red virtual de la máquina virtual de Azure. 
+2. Si ya tiene una red configurada de modo que la máquina virtual de Azure pueda comunicarse con el servidor de configuración local, inicie sesión en la máquina virtual y marque "Servicio InMage Scout Application". Si observa que el servicio InMage Scout Application no se ejecuta, inícielo manualmente y asegúrese de que el tipo de inicio del servicio está establecido Automático.
+
+### <a name="error-code-78052"></a>Código de error 78052
+No se puede realizar la reprotección y aparece el mensaje de error: *No se pudo completar la protección de la máquina virtual.*
+
+Dicho error puede aparecer por dos motivos
+1. La máquina virtual que va a volver a proteger tiene Windows Server 2016. Actualmente este sistema operativo no es compatible con la conmutación por recuperación, pero lo será muy pronto.
+2. Ya existe una máquina virtual con el mismo nombre en el servidor de destino maestro al que se va a realizar la conmutación por recuperación.
+
+Para resolver este problema puede seleccionar otro servidor de destino de un host diferente, con el fin de que la reprotección cree la máquina en otro host, donde los nombres no entren en conflicto. También puede mover el servidor de destino maestro con vMotion a un host en el que no se produzca la colisión de nombres.
+
+### <a name="error-code-78093"></a>Código de error 78093
+
+*La VM no se está ejecutando, no responde o no está accesible.*
+
+Para volver a proteger una máquina virtual en la que se ha realizado la conmutación por error en la ubicación local, la máquina virtual de Azure debe estar en ejecución. Esto es para que el servicio de movilidad se registre con el servidor de configuración local y puede empezar a realizar la replicación mediante la comunicación con el servidor de procesos. Si el equipo está en una red incorrecta o no se ejecuta (bloqueado o apagado), el servidor de configuración no puede acceder al servicio de movilidad de la máquina virtual para iniciar la reprotección. Puede reiniciar la máquina virtual para que pueda volver a la comunicación con el entorno local. Reinicie el trabajo de reprotección después de iniciar la máquina virtual de Azure
+
+
+
 

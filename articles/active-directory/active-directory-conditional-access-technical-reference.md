@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2017
+ms.date: 09/01/2017
 ms.author: markvi
-ms.reviewer: calebb
+ms.reviewer: spunukol
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: f96189735512090f993f61c0d64a249f650ea2a2
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f3d8bdbfc29ca1008006837512c0e6ae8cb8f6fe
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Referencia técnica del acceso condicional de Azure Active Directory
@@ -28,7 +28,11 @@ Este tema proporciona información de soporte técnico para los siguientes eleme
 
 - Asignaciones de aplicaciones de nube
 
-- Condiciones de las aplicaciones de cliente
+- Condición de plataforma de dispositivos 
+
+- Condición de aplicaciones cliente
+
+- Requisito de aplicación cliente aprobado 
 
 
 
@@ -75,7 +79,27 @@ Además de las aplicaciones de nube de Microsoft, puede asignar una directiva de
 - Aplicaciones que usan el proxy de aplicación de Azure AD. 
 
 
-## <a name="client-apps-conditions"></a>Condiciones de las aplicaciones de cliente 
+## <a name="device-platforms-condition"></a>Condición de plataformas de dispositivo
+
+En una directiva de acceso condicional, puede configurar la condición de la plataforma de dispositivos para asociar la directiva al sistema operativo que se está ejecutando en un cliente.
+
+![Control](./media/active-directory-conditional-access-technical-reference/41.png)
+
+El acceso condicional de Azure AD admite las siguientes plataformas de dispositivo:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+- Windows
+
+- macOS (versión preliminar)
+
+
+
+## <a name="client-apps-condition"></a>Condición de aplicaciones cliente 
 
 Cuando se configura una directiva de acceso condicional, puede establecer una [condición de aplicaciones de cliente](active-directory-conditional-access-azure-portal.md#client-apps). La condición de aplicaciones de cliente le permite conceder o bloquear el acceso cuando se realiza un intento de acceso desde estos tipos de aplicaciones de cliente:
 
@@ -83,7 +107,6 @@ Cuando se configura una directiva de acceso condicional, puede establecer una [c
 - Aplicaciones de escritorio y aplicaciones móviles
 
 ![Control](./media/active-directory-conditional-access-technical-reference/03.png)
-
 
 ### <a name="supported-browsers"></a>Exploradores compatibles 
 
@@ -124,11 +147,11 @@ Los siguientes clientes de escritorio y aplicaciones móviles admiten el acceso 
 
 
 | Aplicaciones cliente| Servicio de destino| Plataforma |
-| :-- | --- | --- |
+| --- | --- | --- |
 | Directiva de MFA y de ubicación para las aplicaciones. No se admiten las directivas basadas en dispositivos.| Cualquier servicio de aplicaciones de Mis aplicaciones| Android e iOS|
 | Azure RemoteApp| Servicio Azure Remote App| Windows 10, Windows 8.1, Windows 7, iOS, Android y Mac OS X|
 | Aplicación de Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS y Android|
-| Microsoft Teams Services: controla todos los servicios que admiten Microsoft Teams y todas sus aplicaciones cliente: escritorio de Windows, MAC OS X, iOS, Android, WP y cliente web| Equipos de Microsoft| Windows 10, Windows 8.1, Windows 7, iOS/Android y MAC OSX|
+| Microsoft Teams Services: controla todos los servicios que admiten Microsoft Teams y todas sus aplicaciones cliente: escritorio de Windows, iOS, Android, WP y cliente web| Equipos de Microsoft| Windows 10, Windows 8.1, Windows 7, iOS y Android|
 | Aplicación Correo/Calendario/Contactos, Outlook 2016, Outlook 2013 (con autenticación moderna) y Skype Empresarial (con autenticación moderna)| Office 365 Exchange Online| Windows 10|
 | Outlook 2016, Outlook 2013 (con autenticación moderna) y Skype Empresarial (con autenticación moderna)| Office 365 Exchange Online| Windows 8.1, Windows 7, Windows 7|
 | Aplicación móvil de Outlook| Office 365 Exchange Online| iOS|
@@ -143,15 +166,46 @@ Los siguientes clientes de escritorio y aplicaciones móviles admiten el acceso 
 
 
 
+## <a name="approved-client-app-requirement"></a>Requisito de aplicación cliente aprobado 
+
+Cuando configura una directiva de acceso condicional, puede seleccionar el requisito para conceder acceso solo si una aplicación cliente aprobada realizó un intento de conexión. 
+
+![Control](./media/active-directory-conditional-access-technical-reference/21.png)
+
+Las aplicaciones cliente aprobadas para esta configuración son:
+
+- Microsoft Excel
+
+- Microsoft OneDrive
+
+- Microsoft Outlook
+
+- Microsoft OneNote
+
+- Microsoft PowerPoint
+
+- Microsoft SharePoint
+
+- Microsoft Skype Empresarial
+
+- Equipos de Microsoft
+
+- Microsoft Visio
+
+- Microsoft Word
 
 
+**Comentarios:**
 
+- Estas aplicaciones admiten la administración de aplicaciones móviles (MAM) de Microsoft Intune.
 
+- Este requisito:
 
+    - Solo admite IOS y Android como [condición de plataformas de dispositivo](#device-platforms-condition) seleccionada 
 
-
-
-
+    - No admite **Explorador** como [condición de aplicación cliente](#supported-browsers) seleccionada 
+    
+    - Sustituye la [condición de aplicación cliente](#supported-mobile-apps-and-desktop-clients) denominada **Aplicaciones móviles y aplicaciones de escritorio** si está seleccionada  
 
 
 ## <a name="next-steps"></a>Pasos siguientes

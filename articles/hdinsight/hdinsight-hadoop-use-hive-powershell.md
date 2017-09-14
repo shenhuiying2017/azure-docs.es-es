@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: e1cb2e4a1fc82fb43082e79a5feba71b81b3eaa8
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 74571fc6e1a0b2d6a903cdd992a247f4d5dfa700
 ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-hive-queries-using-powershell"></a>Ejecución de consultas de Hive con PowerShell
@@ -48,13 +48,13 @@ Azure PowerShell proporciona *cmdlets* que le permiten ejecutar de manera remota
 
 Los siguientes cmdlets se utilizan al ejecutar las consultas de Hive en un clúster de HDInsight remoto:
 
-* **Add-AzureRmAccount**: autentica a Azure PowerShell en la suscripción de Azure.
+* **Add-AzureRmAccount**: autentica Azure PowerShell para la suscripción de Azure.
 * **New-AzureRmHDInsightHiveJobDefinition**: crea una nueva *definición de trabajo* con las instrucciones HiveQL especificadas.
-* **Start-AzureRmHDInsightJob**: envía la definición del trabajo a HDInsight, inicia el trabajo y devuelve un objeto de *trabajo* que se puede usar para comprobar el estado del trabajo.
+* **Start-AzureRmHDInsightJob**: envía la definición del trabajo a HDInsight e inicia el trabajo. Se devuelve un objeto *job*.
 * **Wait-AzureRmHDInsightJob**: usa el objeto de trabajo para comprobar el estado del trabajo. Esperará hasta que el trabajo se complete o se supere el tiempo de espera.
 * **Get-AzureRmHDInsightJobOutput**: se usa para recuperar la salida del trabajo.
-* **Invoke-AzureRmHDInsightHiveJob**: se usa para ejecutar instrucciones de HiveQL. Este cmdlet bloqueará la consulta completa, a continuación, devuelve los resultados.
-* **Use-AzureRmHDInsightCluster**: establece el clúster actual para usarlo para el comando **Invoke-AzureRmHDInsightHiveJob**.
+* **Invoke-AzureRmHDInsightHiveJob**: se usa para ejecutar instrucciones de HiveQL. Este cmdlet bloquea toda la consulta y devuelve los resultados.
+* **Use-AzureRmHDInsightCluster**: configura el clúster actual para poder usarlo con el comando **Invoke-AzureRmHDInsightHiveJob**.
 
 Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo en el clúster de HDInsight:
 
@@ -68,7 +68,7 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 
     Cuando se ejecute el script, se le pedirá que escriba el nombre del clúster y las credenciales de la cuenta de administrador/HTTPS del clúster. Puede que también se le pida que inicie la sesión en su suscripción de Azure.
 
-3. Cuando el trabajo se complete, debe devolver información de manera similar a la siguiente:
+3. Cuando el trabajo se complete, la información devuelta será similar a la siguiente:
 
         Display the standard output...
         2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
@@ -94,7 +94,7 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Si no se devuelve ninguna información cuando se completa el trabajo, pudo haberse producido un error durante el procesamiento. Para ver información de error para este trabajo, agregue lo siguiente al final del archivo **hivejob.ps1** , guárdelo y, a continuación, ejecútelo de nuevo.
+Si una vez completado el trabajo no se devuelve información, consulte los registros de errores. Para ver información de error para este trabajo, agregue lo siguiente al final del archivo **hivejob.ps1** , guárdelo y, a continuación, ejecútelo de nuevo.
 
 ```powershell
 # Print the output of the Hive job.
@@ -105,7 +105,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-Este cmdlet devuelve la información escrita en STDERR en el servidor cuando ejecute el trabajo.
+Este cmdlet devuelve la información que se escribió en STDERR durante el procesamiento del trabajo.
 
 ## <a name="summary"></a>Resumen
 

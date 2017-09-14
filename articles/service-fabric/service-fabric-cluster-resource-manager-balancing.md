@@ -1,6 +1,6 @@
 ---
 title: "Equilibrio de un clúster de Azure Service Fabric | Microsoft Docs"
-description: "Una introducción al equilibrio del clúster con Cluster Resource Manager de Service Fabric."
+description: "Una introducción al equilibrio del clúster con el Administrador de recursos de clúster de Service Fabric"
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: dfe0de1bc4cdfcbc0d175f1a3268601bde4da21a
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 06d65878d84fb845cf0c4c333a1e2d12b0aaec2f
 ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Equilibrio del clúster de Service Fabric
@@ -26,19 +26,19 @@ Cluster Resource Manager de Service Fabric admite cambios dinámicos de carga, e
 
 Existen tres categorías de trabajo que Cluster Resource Manager realiza. Son las siguientes:
 
-1. Selección de ubicación: esta fase tiene que ver con la colocación de las réplicas con estado o las instancias sin estado que faltan. Abarca los nuevos servicios y la administración de réplicas con estado o instancias sin estado incorrectas. Aquí también se administra la eliminación de réplicas o instancias.
-2. Comprobaciones de restricciones: en esta etapa se comprueban y corrigen las infracciones de las distintas restricciones de selección de ubicación (reglas) en el sistema. Algunos ejemplos de reglas son asegurarse de que los nodos no sobrepasan la capacidad y que las restricciones de selección de ubicación de un servicio se cumplen.
+1. Ubicación: esta fase tiene que ver con la colocación de las réplicas con estado o las instancias sin estado que faltan. Abarca los nuevos servicios y la administración de réplicas con estado o instancias sin estado incorrectas. Aquí también se administra la eliminación de réplicas o instancias.
+2. Comprobaciones de restricciones: en esta etapa se comprueban y corrigen las infracciones (reglas) de las distintas restricciones de selección de ubicación dentro del sistema. Algunos ejemplos de reglas son asegurarse de que los nodos no sobrepasan la capacidad y que las restricciones de selección de ubicación de un servicio se cumplen.
 3. Equilibrio: en esta fase se comprueba si se precisa reequilibrado en función del nivel deseado de equilibrio configurado para las distintas métricas. En caso afirmativo, se intenta encontrar una disposición en el clúster que sea más equilibrada.
 
 ## <a name="configuring-cluster-resource-manager-timers"></a>Configuración de temporizadores de Cluster Resource Manager
 El primer conjunto de controles en torno al equilibrio es un conjunto de temporizadores. Estos temporizadores controlan la frecuencia con la que Cluster Resource Manager examina el clúster y realiza acciones correctivas.
 
-Cada uno de los distintos tipos de correcciones que Cluster Resource Manager puede realizar se controla mediante un temporizador diferente que determina su frecuencia. Cuando se desencadena cada temporizador, se programa la tarea. De forma predeterminada, Resource Manager:
+Cada uno de estos tipos diferentes de correcciones que Cluster Resource Manager puede realizar se controla mediante un temporizador diferente que determina su frecuencia. Cuando se desencadena cada temporizador, se programa la tarea. De forma predeterminada, Resource Manager:
 
 * Examina su estado y aplica las actualizaciones (por ejemplo, la grabación de que un nodo está inactivo) cada 1/10 de segundo.
 * establece la marca de comprobación de selección de ubicación. 
 * establece la marca de comprobación de restricción cada segundo.
-* establece la marca de equilibrio cada cinco segundos.
+* Establece el indicador de equilibrio cada cinco segundos.
 
 Seguidamente se ofrecen ejemplos de la configuración que regulan estos temporizadores:
 
@@ -81,16 +81,16 @@ a través de ClusterConfig.json para las implementaciones independientes o Templ
 ]
 ```
 
-Ahora, Cluster Resource Manager solo realiza estas acciones una a una, de forma secuencial. Por esto nos referimos a estos temporizadores como “intervalos mínimos” y a las acciones que se realizan cuando los temporizadores se desactivan "marcas de establecimiento". Por ejemplo, Cluster Resource Manager se ocupa de las solicitudes pendientes para crear servicios antes de equilibrar el clúster. Como puede ver por los intervalos de tiempo predeterminados especificados, Cluster Resource Manager examina y comprueba con frecuencia si hay algo que deba hacer. Normalmente, esto significa que el conjunto de cambios realizados durante cada paso es pequeño. Realizar pequeños cambios con frecuencia permite que Cluster Resource Manager responda a los eventos que se producen en el clúster. Los temporizadores predeterminados proporcionan algún procesamiento por lotes porque muchos eventos del mismo tipo tienden a producirse al mismo tiempo. 
+Ahora, Cluster Resource Manager solo realiza estas acciones una a una, de forma secuencial. Por esto nos referimos a estos temporizadores como “intervalos mínimos” y a las acciones que se realizan cuando los temporizadores se desactivan "marcas de establecimiento". Por ejemplo, Cluster Resource Manager se encarga de las solicitudes pendientes para crear servicios antes de equilibrar el clúster. Como puede ver por los intervalos de tiempo predeterminados especificados, Cluster Resource Manager examina y comprueba con frecuencia si hay algo que deba hacer. Normalmente, esto significa que el conjunto de cambios realizados durante cada paso es pequeño. Realizar pequeños cambios con frecuencia permite que Cluster Resource Manager responda a los eventos que se producen en el clúster. Los temporizadores predeterminados proporcionan algún procesamiento por lotes porque muchos eventos del mismo tipo tienden a producirse al mismo tiempo. 
 
-Por ejemplo, cuando los nodos no funcionan pueden provocar que todos los dominios dejen de funcionar a la vez. Tos estos errores se capturan durante la siguiente actualización de estado después de *PLBRefreshGap*. Las correcciones se determinan durante las siguientes ejecuciones de selección de ubicación, comprobación de restricciones y equilibrio. De forma predeterminada, Cluster Resource Manager no realiza exámenes durante las horas de cambios en el clúster e intenta abordar todos los cambios al mismo tiempo. De hacerlo, derivaría en ráfagas de renovación.
+Por ejemplo, cuando los nodos no funcionan pueden provocar que todos los dominios dejen de funcionar a la vez. Tos estos errores se capturan durante la siguiente actualización de estado después de *PLBRefreshGap*. Las correcciones se determinan durante las siguientes ejecuciones de selección de ubicación, comprobación de restricciones y equilibrio. De forma predeterminada, Cluster Resource Manager no realiza exámenes durante las horas de cambios en el clúster e intenta abordar todos los cambios al mismo tiempo. Hacerlo produciría ráfagas de fragmentos.
 
 Cluster Resource Manager también necesita información adicional para determinar si el clúster está desequilibrado. Para ello se cuenta con dos elementos de configuración: *BalancingThresholds* y *ActivityThresholds*.
 
 ## <a name="balancing-thresholds"></a>Umbrales de equilibrio
-Un umbral de equilibrio es el control principal para la activación del reequilibrado. El umbral de equilibrio de una métrica es una _proporción_. Si la carga de una métrica en el nodo más cargado dividida entre la cantidad de carga en el nodo menos cargado supera el valor de *BalancingThreshold* de la métrica, el clúster está desequilibrado. Por consiguiente, el equilibrado se activa la siguiente vez que Cluster Resource Manager realiza la comprobación. El temporizador *MinLoadBalancingInterval* determina la frecuencia con la que Cluster Resource Manager debe comprobar si es necesario realizar el reequilibrado. La comprobación no significa que suceda nada. 
+Un umbral de equilibrio es el control principal para la activación del reequilibrado. El umbral de equilibrio de una métrica es una _proporción_. Si la carga de una métrica en el nodo más cargado dividida entre la cantidad de carga en el nodo menos cargado supera el valor de *BalancingThreshold* de la métrica, el clúster está desequilibrado. Como resultado, se activa el equilibrado durante la próxima comprobación de Cluster Resource Manager. El temporizador *MinLoadBalancingInterval* determina la frecuencia con la que Cluster Resource Manager debe comprobar si es necesario realizar el reequilibrado. La comprobación no significa que suceda nada. 
 
-Los umbrales de equilibrio se definen por métrica como parte de la definición del clúster. Para más información sobre las métricas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
+Los umbrales de equilibrio se definen por métrica como parte de la definición de clúster. Para más información sobre las métricas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
 
 ClusterManifest.xml
 
@@ -125,9 +125,9 @@ a través de ClusterConfig.json para las implementaciones independientes o Templ
 ![Ejemplo de umbral de equilibrio][Image1]
 </center>
 
-En este ejemplo, cada servicio consume una sola unidad de alguna métrica. En el ejemplo de arriba, la carga máxima en un nodo es cinco y la mínima es dos. Supongamos que el umbral de equilibrio de esta métrica es tres. Puesto que la proporción del clúster es 5/2 = 2,5, que es menor que el umbral de equilibrio especificado de tres, el clúster está equilibrado. No se activa ningún equilibrado cuando Cluster Resource Manager realiza la comprobación.
+En este ejemplo, cada servicio solo consume una unidad de alguna métrica. En el ejemplo superior, la carga máxima en un nodo es cinco y la mínima es dos. Supongamos que el umbral de equilibrio de esta métrica es tres. Puesto que la proporción del clúster es 5/2 = 2,5, que es menor que el umbral de equilibrio especificado de tres, el clúster está equilibrado. El equilibrado no se activa durante la comprobación de Cluster Resource Manager.
 
-En el ejemplo de abajo, la carga máxima en un nodo es 10, mientras que la mínima es dos, lo que da lugar a una proporción de cinco. Cinco es mayor que el umbral de equilibrio establecido en tres para esa métrica. Por consiguiente, la próxima vez que el temporizador de equilibrio se active, se programará una ejecución de reequilibrado. En una situación como esta, parte de la carga suele distribuirse a Node3. Como el enfoque de Cluster Resource Manager de Service Fabric no es ambicioso, también podría distribuir cierta carga a Node2. 
+En el ejemplo de abajo, la carga máxima en un nodo es 10, mientras que la mínima es dos, lo que da lugar a una proporción de cinco. Cinco es mayor que el umbral de equilibrio establecido en tres para esa métrica. Como resultado, la próxima vez que el temporizador de equilibrio se active, se programará un reequilibrado. En una situación como esta, parte de la carga suele distribuirse a Node3. Como el enfoque de Cluster Resource Manager de Service Fabric no es ambicioso, también podría distribuir cierta carga a Node2. 
 
 <center>
 ![Acciones de ejemplo de umbral de equilibrio][Image2]
@@ -139,8 +139,8 @@ En el ejemplo de abajo, la carga máxima en un nodo es 10, mientras que la míni
 
 El objetivo explícito no es estar por debajo del umbral de equilibrio. Los umbrales de equilibrio son tan solo un *desencadenador*. Cuando se ejecuta el equilibrio, Cluster Resource Manager determina qué mejoras puede realizar, si hay alguna. El inicio de una búsqueda de equilibrio no significa que nada cambie. A veces, el clúster está desequilibrado pero tiene demasiadas restricciones para que se corrija. Otra posibilidad es que las mejoras requieran movimientos que resulten demasiado [costosos](service-fabric-cluster-resource-manager-movement-cost.md).
 
-## <a name="activity-thresholds"></a>Umbrales de actividad
-En ocasiones, aunque los nodos están relativamente desequilibrados, la cantidad de carga *total* en el clúster es baja. La falta de carga puede deberse a una caída transitoria o a que el clúster es nuevo y se acaba de arrancar. En cualquier caso, es posible que no quiera perder tiempo equilibrando el clúster porque no sirva de mucho. Si el clúster se somete a un equilibrado, se invertirían recursos de red y de proceso para realizar cambios que no suponen *ninguna* diferencia. Para evitar movimientos innecesarios, hay otro control conocido como umbrales de actividad. Los umbrales de actividad permiten especificar un límite inferior absoluto de actividad. Si ningún nodo supera este umbral, no se activa el equilibrado aunque se alcance el umbral de equilibrio.
+## <a name="activity-thresholds"></a>umbrales de actividad
+En ocasiones, aunque los nodos están relativamente desequilibrados, la cantidad de carga *total* en el clúster es baja. La falta de carga puede deberse a una caída transitoria, o porque el clúster es nuevo y se acaba de arrancar. En cualquier caso, no querrá perder tiempo en equilibrar el clúster porque no hay mucho que ganar. Si el clúster se somete a un equilibrado, se invertirían recursos de red y de proceso para realizar cambios que no suponen *ninguna* diferencia. Para evitar movimientos innecesarios, hay otro control conocido como umbrales de actividad. Los umbrales de actividad permiten especificar un límite inferior absoluto para la actividad. Si ningún nodo se encuentra por encima de umbral, el equilibrado no se desencadena aunque se alcance el umbral de equilibrio.
 
 Supongamos que se mantiene el umbral de equilibrio de tres para esta métrica. Supongamos también que se tiene un umbral de actividad de 1536. En el primer caso, aunque el clúster está desequilibrado según el umbral de equilibrio, ningún nodo llega al umbral mínimo de actividad, por lo que no sucede nada. En el ejemplo de abajo, Node1 supera el umbral de actividad. Puesto que se superan el umbral de equilibrio y el umbral de actividad para la métrica, se programa el equilibrado. Como ejemplo, observemos el diagrama siguiente. 
 
@@ -158,7 +158,7 @@ ClusterManifest.xml
     </Section>
 ```
 
-a través de ClusterConfig.json para las implementaciones independientes o Template.json para los clústeres hospedados en Azure:
+mediante ClusterConfig.json para las implementaciones independientes o Template.json para los clústeres hospedados en Azure:
 
 ```json
 "fabricSettings": [
@@ -176,8 +176,12 @@ a través de ClusterConfig.json para las implementaciones independientes o Templ
 
 Observe que los umbrales de equilibrio y actividad están vinculados a la métrica; el equilibrado solo se desencadenará si se superan los umbrales de equilibrio y actividad de la misma métrica.
 
+> [!NOTE]
+> Cuando no se especifica, el umbral de equilibrio de una métrica es 1 y el de actividad, 0. Esto significa que el Administrador de recursos de clúster tratará de mantener esa métrica perfectamente equilibrada para cualquier carga determinada. Si usas métricas personalizadas, se recomienda definir umbrales de equilibrio y actividad explícitos para las métricas. 
+>
+
 ## <a name="balancing-services-together"></a>Equilibrio conjunto de los servicios
-La decisión de si el clúster está desequilibrado o no afecta a todo el clúster. Pero, para corregirlo movemos instancias y réplicas de servicio individuales. Tiene sentido, ¿no? Si la memoria está apilada en un solo nodo, podría haber varias réplicas o instancias que contribuyan a ello. Para corregir el desequilibrio puede ser necesario mover algunas de las réplicas con estado o instancias sin estado que usan la métrica desequilibrada.
+La decisión de si el clúster está desequilibrado o no afecta a todo el clúster. Sin embargo, para corregirlo movemos instancias y réplicas de servicio individuales. Tiene sentido, ¿no? Si la memoria está apilada en un nodo, podría haber varias réplicas o instancias contribuyendo a ella. Para corregir el desequilibrio podría ser necesario mover cualquiera de las réplicas con estado o instancias sin estado que utiliza la métrica desequilibrada.
 
 Aunque, a veces, se mueve un servicio que no estaba desequilibrado (recuerde la explicación anterior sobre ponderaciones locales y globales). ¿Por qué habría de moverse un servicio si todas sus métricas están equilibradas? Veamos un ejemplo:
 
@@ -195,16 +199,16 @@ Seguramente puede ver adónde queremos llegar: hay una cadena. En realidad no te
 
 Debido a esta cadena, es posible que un desequilibrio en las métrica 1-4 provoque el movimiento de las réplicas o instancias que pertenecen a los servicios 1-3. También sabemos que un desequilibrio en las métricas 1, 2 o 3 no puede ocasionar movimientos en Service4. No tendría sentido porque mover las réplicas o instancias que pertenecen a Service4 no afectará al equilibrio de las métricas 1-3.
 
-Cluster Resource Manager averigua automáticamente qué servicios están relacionados. La incorporación, eliminación o modificación de las métricas de los servicios puede afectar a sus relaciones. Por ejemplo, entre dos ejecuciones de equilibrado, puede que Service2 se haya actualizado y quitado Metric2. Esto rompe la cadena entre Service1 y Service2. Ahora, en lugar de dos grupos de servicios relacionados, hay tres:
+Cluster Resource Manager averigua automáticamente qué servicios están relacionados. La incorporación, eliminación o modificación de las métricas de los servicios puede afectar a sus relaciones. Por ejemplo, entre dos ejecuciones de equilibrado, puede que Service2 se haya actualizado y quitado Metric2. Esto rompe la cadena entre el Servicio1 y el Servicio2. Ahora, en lugar de dos grupos de servicios relacionados, hay tres:
 
 <center>
 ![Equilibrio conjunto de los servicios][Image5]
 </center>
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Las métricas son el modo en que Cluster Resource Manger de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre las métricas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
-* Costo del movimiento es una forma de indicar a Cluster Resource Manager que el movimiento de determinados servicios es más caro que el de otros. Para más información sobre el coste del movimiento, consulte [este artículo](service-fabric-cluster-resource-manager-movement-cost.md)
-* Cluster Resource Manager presenta varias limitaciones que se pueden configurar para reducir la velocidad de renovación del clúster. Aunque no son normalmente necesarias, si las necesita, puede encontrar información sobre ellas [aquí](service-fabric-cluster-resource-manager-advanced-throttling.md)
+* Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre las métricas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
+* El costo del movimiento es una forma de señalizar al Administrador de recursos de clúster que determinados servicios son más caros de mover que otros. Para más información sobre el coste del movimiento, consulte [este artículo](service-fabric-cluster-resource-manager-movement-cost.md)
+* El Administrador de recursos de clúster presenta varias limitaciones que se pueden configurar para ralentizar la renovación del clúster. Aunque no son normalmente necesarias, si las necesita, puede encontrar información sobre ellas [aquí](service-fabric-cluster-resource-manager-advanced-throttling.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

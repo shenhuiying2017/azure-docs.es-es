@@ -1,6 +1,6 @@
 ---
-title: "Codificación de un recurso mediante Media Encoder Standard con Azure Portal | Microsoft Docs"
-description: "Este tutorial lo guiará a través de los pasos de codificación de un recurso mediante Media Encoder Standard con Azure Portal."
+title: "Codificación de un recurso con Media Encoder Standard en Azure Portal | Microsoft Docs"
+description: "Este tutorial describe los pasos de codificación de un recurso con Media Encoder Standard en Azure Portal."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -15,47 +15,48 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: efe7db8a36273b4755dd057139bb1c673af868d3
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: ae5f4fd391cbf62b41d1a65f1d8107cefe3a5df3
 ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
-# <a name="encode-an-asset-using-media-encoder-standard-with-the-azure-portal"></a>Codificación de un recurso mediante Media Encoder Standard con Azure Portal
+# <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Codificación de un recurso con Media Encoder Standard en Azure Portal
+
 > [!NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Para completar este tutorial, deberá tener una cuenta de Azure. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-Cuando se trabaja con Azure Media Services, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Media Services admite las siguientes tecnologías de streaming con velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming y MPEG DASH. Para preparar vídeos para streaming con velocidad de bits adaptable, debe codificar el vídeo de origen en archivos de varias velocidades de bits. Debe utilizar el **Codificador multimedia estándar** para codificar sus vídeos.  
+Cuando se trabaja con Azure Media Services, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Media Services admite las siguientes tecnologías de streaming con velocidad de bits adaptable: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming y Dynamic Adaptive Streaming sobre HTTP (DASH, también llamado MPEG-DASH). Para preparar vídeos para streaming con velocidad de bits adaptable, primero debe codificar el vídeo de origen como archivos de varias velocidades de bits. Puede usar Azure Media Encoder Standard para codificar los vídeos.  
 
-Media Services también proporciona empaquetado dinámico, que permite entregar archivos MP4 de velocidad de bits múltiple en los siguientes formatos de streaming: MPEG DASH, HLS o Smooth Streaming sin tener que volver a empaquetar en dichos formatos. Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Media Services creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
+Media Services proporciona empaquetado dinámico. Con empaquetado dinámico, puede entregar los MP4 de varias velocidades de bits en HLS, Smooth Streaming y MPEG-DASH, sin volver a empaquetar en estos formatos de streaming. Gracias al empaquetado dinámico, puede almacenar y pagar por los archivos en un solo formato de almacenamiento. Media Services crea y publica la respuesta adecuada según la solicitud del cliente.
 
-Para sacar partido del empaquetado dinámico, tiene que codificar su archivo de origen en un conjunto de archivos MP4 de velocidad de bits múltiple (los pasos de codificación se muestran más adelante en esta sección).
+Para aprovechar las ventajas del empaquetado dinámico, debe codificar el archivo de origen en un conjunto de archivos MP4 con velocidad de bits múltiple. Los pasos de codificación se muestran más adelante en este artículo.
 
-Para escalar el procesamiento de medios, consulte [este](media-services-portal-scale-media-processing.md) tema.
+Para obtener información sobre cómo escalar el procesamiento multimedia, consulte [Escalado del procesamiento multimedia mediante Azure Portal](media-services-portal-scale-media-processing.md).
 
-## <a name="encode-with-the-azure-portal"></a>Codificación con Azure Portal
-En esta sección se describen los pasos que puede seguir para codificar el contenido con Estándar de codificador multimedia.
+## <a name="encode-in-the-azure-portal"></a>Codificación en Azure Portal
+
+Para codificar el contenido mediante Media Encoder Standard:
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Azure Media Services.
-2. En la ventana **Configuración**, seleccione **Activos**.  
-3. En la ventana **Activos** , seleccione el recurso que desea codificar.
-4. Presione el botón **Codificar** .
-5. En la ventana **Encode an asset** (Codificar un recurso), seleccione el procesador "Codificador multimedia estándar" y un valor predeterminado. Para más información acerca de los valores preestablecidos, consulte [Generación automática de una escalera de velocidad de bits](media-services-autogen-bitrate-ladder-with-mes.md) y [Valores preestablecidos de tarea para MES](media-services-mes-presets-overview.md). Si tiene previsto controlar qué valor preestablecido de codificación se usa, tenga en cuenta: es importante seleccionar el valor preestablecido más adecuado para la entrada de vídeo. Por ejemplo, si sabe que el vídeo de entrada tiene una resolución de 1920 x 1080 píxeles, se podría utilizar el valor predeterminado "H264 Multiple Bitrate 1080p". Si tiene un vídeo de baja resolución (640 x 360), no debería utilizar el valor preestablecido "H264 Multiple Bitrate 1080p".
+2. Seleccione **Configuración** > **Activos**. Seleccione el recurso que desea codificar.
+3. Seleccione el botón **Codificar**.
+4. En el panel **Codificar un recurso**, seleccione el procesador **Media Encoder Standard** y un valor predeterminado. Para más información sobre los valores predeterminados, consulte los artículos sobre la [generación automática de una escalera de velocidad de bits](media-services-autogen-bitrate-ladder-with-mes.md) y [Valores preestablecidos de las tareas de MES (Media Encoder Standard)](media-services-mes-presets-overview.md). Es importante elegir el valor predeterminado que funcionará mejor con la entrada de vídeo. Por ejemplo, si sabe que la entrada de vídeo tiene una resolución de 1920x1080 píxeles, se podría usar el valor predeterminado **H264 Multiple Bitrate 1080p**. Si tiene un vídeo de baja resolución (640x360), no debería usar el valor predeterminado **H264 Multiple Bitrate 1080p**.
    
-   Para facilitar la administración, se puede editar el nombre del recurso de salida y el nombre del trabajo.
+   Para ayudarlo a administrar los recursos, puede editar el nombre del recurso de salida y el nombre del trabajo.
    
    ![Codificación de recursos](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-6. Pulse **Crear**.
+5. Seleccione **Crear**.
 
-## <a name="next-step"></a>Paso siguiente
-Puede supervisar el progreso del trabajo de codificación con Azure Portal, tal y como se describe en [este](media-services-portal-check-job-progress.md) artículo.  
-
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+## <a name="next-steps"></a>Pasos siguientes
+* [Supervisión del progreso del trabajo de codificación](media-services-portal-check-job-progress.md) en Azure Portal.  
 
 

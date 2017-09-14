@@ -4,10 +4,10 @@ hide_bc: true
 title: "Documentación de Microsoft Azure"
 description: "Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc."
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 282e1da4a5ec8ccb3c6119c6de6fd37b83bbb71e
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: aba00d7c90d173ecf58fedc1b8af5d1be418358c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 <div id="main" class="v2">
@@ -161,7 +161,7 @@ ms.lasthandoff: 07/24/2017
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/cosmos-db/">Cosmos DB</a></li>
+                                                    <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
                                                 <h4>AI y Cognitive Services</h4>
                                                 <ul class="noBullet">
@@ -299,7 +299,7 @@ ms.lasthandoff: 07/24/2017
                                         <li>
                                             <a href="/azure/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Cosmos DB</p>
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1846,8 +1846,8 @@ ms.lasthandoff: 07/24/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cosmos DB</h3>
-                                                    <p>Base de datos como servicio documental NoSQL administrada</p>
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>Base de datos multimodelo distribuida globalmente para cualquier escala</p>
                                                 </div>
                                             </div>
                                         </div>

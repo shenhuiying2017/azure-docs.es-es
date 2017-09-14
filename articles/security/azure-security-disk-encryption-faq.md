@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: c28604e3b7058f830c69eedc5d7f25d65e2448a8
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
 ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-disk-encryption-faq"></a>Preguntas más frecuentes de Azure Disk Encryption
@@ -111,6 +111,16 @@ En este artículo se ofrecen respuestas a las preguntas más frecuentes (P+F) so
 **P:** ¿Puedo aplicar actualizaciones a una máquina virtual Red Hat de Linux utilizando la actualización de Yum?
 
 **R:** Sí, puede realizar una actualización o revisión de una máquina virtual de Red Hat de Linux. Para más información, consulte [Aplicación de actualizaciones a una máquina virtual de Red Hat IaaS de Azure cifrada mediante la actualización de yum](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/).
+
+**P:** ¿Cuál es el flujo de trabajo de Azure Disk Encryption recomendado para Linux?
+
+**R:** Para obtener los mejores resultados de Linux, se recomienda el siguiente flujo de trabajo:
+* Comenzar en la imagen de la galería en existencias sin modificar correspondiente a la distribución y versión deseadas del sistema operativo.
+* Realizar una copia de seguridad de las unidades montadas que se van a cifrar.  Esto permite la recuperación en caso de error, por ejemplo, si la máquina virtual se reinicia antes de que finalice el cifrado.
+* Cifrar (puede tardar varias horas o incluso días según las características de la máquina virtual y el tamaño de los discos de datos adjuntos).
+* Personalizar y agregar software a la imagen según sea necesario.
+
+Si este flujo de trabajo no es posible, el uso del [Cifrado del servicio de almacenamiento](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) en el nivel de la cuenta de almacenamiento de la plataforma puede ser una alternativa al cifrado del disco completo mediante dm-crypt.
 
 **P:** ¿Dónde puedo formular preguntas o enviar comentarios?
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 0bd9ec41761c9ce575f3bcf4d1f8e8578b83e01c
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 96840d72b86d0b9487d9a3a6039c7582a2718e7a
 ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funciones de matriz y de objeto para las plantillas de Azure Resource Manager 
@@ -36,8 +36,8 @@ Resource Manager ofrece varias funciones para trabajar con matrices y objetos.
 * [json](#json)
 * [last](#last)
 * [length](#length)
-* [min](#min)
 * [max](#max)
+* [min](#min)
 * [range](#range)
 * [skip](#skip)
 * [take](#take)
@@ -64,7 +64,7 @@ Una matriz.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar la función de matriz con diferentes tipos.
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) siguiente se muestra cómo utilizar la función de matriz con diferentes tipos.
 
 ```json
 {
@@ -103,13 +103,25 @@ En el ejemplo siguiente se muestra cómo utilizar la función de matriz con dife
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | intOutput | Matriz | [1] |
 | stringOutput | Matriz | ["a"] |
 | objectOutput | Matriz | [{"a": "b", "c": "d"}] |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+```
 
 <a id="coalesce" />
 
@@ -131,7 +143,7 @@ El valor de los primeros parámetros que no son nulos, que puede ser una cadena,
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra el resultado de los diferentes usos de coalesce.
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) siguiente se muestra el resultado de los diferentes usos de coalesce.
 
 ```json
 {
@@ -177,7 +189,7 @@ En el ejemplo siguiente se muestra el resultado de los diferentes usos de coales
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -186,6 +198,18 @@ El resultado del ejemplo anterior con los valores predeterminados es:
 | objectOutput | Objeto | {"first": "default"} |
 | arrayOutput | Matriz | [1] |
 | emptyOutput | Booleano | True |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+```
 
 <a id="concat" />
 
@@ -208,7 +232,7 @@ Una cadena o matriz de valores concatenados.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo combinar dos matrices.
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) siguiente se muestra cómo combinar dos matrices.
 
 ```json
 {
@@ -243,13 +267,25 @@ En el ejemplo siguiente se muestra cómo combinar dos matrices.
 }
 ```
 
-La salida del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | return | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-En el ejemplo siguiente se muestra cómo combinar dos valores de cadena y devolver una cadena concatenada.
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```
+
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) siguiente se muestra cómo combinar dos valores de cadena y devolver una cadena concatenada.
 
 ```json
 {
@@ -271,11 +307,23 @@ En el ejemplo siguiente se muestra cómo combinar dos valores de cadena y devolv
 }
 ```
 
-La salida del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```
 
 <a id="contains" />
 
@@ -297,7 +345,7 @@ Comprueba si una matriz contiene un valor, un objeto contiene una clave o una ca
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar contains con diferentes tipos:
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) siguiente se muestra cómo utilizar contains con diferentes tipos:
 
 ```json
 {
@@ -348,7 +396,7 @@ En el ejemplo siguiente se muestra cómo utilizar contains con diferentes tipos:
 }
 ```
 
-La salida del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -358,6 +406,18 @@ La salida del ejemplo anterior con los valores predeterminados es:
 | objectFalse | Booleano | False |
 | arrayTrue | Booleano | True |
 | arrayFalse | Booleano | False |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```
 
 <a id="createarray" />
 
@@ -379,7 +439,7 @@ Una matriz.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar createArray con diferentes tipos:
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) siguiente se muestra cómo utilizar createArray con diferentes tipos:
 
 ```json
 {
@@ -418,7 +478,7 @@ En el ejemplo siguiente se muestra cómo utilizar createArray con diferentes tip
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -426,6 +486,18 @@ El resultado del ejemplo anterior con los valores predeterminados es:
 | intArray | Matriz | [1, 2, 3] |
 | objectArray | Matriz | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | Matriz | [["one", "two", "three"]] |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+```
 
 <a id="empty" />
 
@@ -447,7 +519,7 @@ Devuelve **True** si el valor está vacío; en caso contrario, **False**.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se comprueba si una matriz, un objeto y una cadena están vacíos.
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) siguiente se comprueba si una matriz, un objeto y una cadena están vacíos.
 
 ```json
 {
@@ -486,13 +558,25 @@ En el ejemplo siguiente se comprueba si una matriz, un objeto y una cadena está
 }
 ```
 
-La salida del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayEmpty | Booleano | True |
 | objectEmpty | Booleano | True |
 | stringEmpty | Booleano | True |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```
 
 <a id="first" />
 
@@ -513,7 +597,7 @@ El tipo (cadena, entero, matriz u objeto) del primer elemento en una matriz o el
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar la primera función con una matriz y una cadena.
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) siguiente se muestra cómo utilizar la primera función con una matriz y una cadena.
 
 ```json
 {
@@ -540,12 +624,24 @@ En el ejemplo siguiente se muestra cómo utilizar la primera función con una ma
 }
 ```
 
-La salida del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
 
 <a id="intersection" />
 
@@ -568,7 +664,7 @@ Una matriz o un objeto con los elementos comunes.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar la intersección con matrices y objetos:
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) siguiente se muestra cómo utilizar la intersección con matrices y objetos:
 
 ```json
 {
@@ -607,13 +703,24 @@ En el ejemplo siguiente se muestra cómo utilizar la intersección con matrices 
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "three": "c"} |
 | arrayOutput | Matriz | ["two", "three"] |
 
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+```
 
 ## <a name="json"></a>json
 `json(arg1)`
@@ -633,7 +740,7 @@ Objeto JSON de la cadena especificada o un objeto vacío si se especifica **null
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar la intersección con matrices y objetos:
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) siguiente se muestra cómo utilizar la función json con matrices y objetos:
 
 ```json
 {
@@ -654,12 +761,24 @@ En el ejemplo siguiente se muestra cómo utilizar la intersección con matrices 
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | jsonOutput | Objeto | {"a": "b"} |
 | nullOutput | boolean | True |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+```
 
 <a id="last" />
 
@@ -680,7 +799,7 @@ El tipo (cadena, entero, matriz u objeto) del último elemento de una matriz o e
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar la última función con una matriz y una cadena.
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) siguiente se muestra cómo utilizar la última función con una matriz y una cadena.
 
 ```json
 {
@@ -707,12 +826,24 @@ En el ejemplo siguiente se muestra cómo utilizar la última función con una ma
 }
 ```
 
-La salida del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```
 
 <a id="length" />
 
@@ -733,7 +864,7 @@ Un entero.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar length con una matriz y una cadena:
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) siguiente se muestra cómo utilizar length con una matriz y una cadena:
 
 ```json
 {
@@ -767,12 +898,24 @@ En el ejemplo siguiente se muestra cómo utilizar length con una matriz y una ca
 }
 ```
 
-La salida del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```
 
 Puede usar esta función con una matriz para especificar el número de iteraciones al crear recursos. En el ejemplo siguiente, el parámetro **siteNames** debería hacer referencia a una matriz de nombres que se usará al crear los sitios web.
 
@@ -784,58 +927,6 @@ Puede usar esta función con una matriz para especificar el número de iteracion
 ```
 
 Para más información sobre cómo usar esta función con una matriz, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
-
-<a id="min" />
-
-## <a name="min"></a>Min
-`min(arg1)`
-
-Devuelve el valor mínimo de una matriz de enteros o una lista separada por comas de enteros.
-
-### <a name="parameters"></a>parameters
-
-| Parámetro | Obligatorio | Tipo | Descripción |
-|:--- |:--- |:--- |:--- |
-| arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor mínimo. |
-
-### <a name="return-value"></a>Valor devuelto
-
-Un entero que representa el valor mínimo.
-
-### <a name="example"></a>Ejemplo
-
-En el ejemplo siguiente se muestra cómo utilizar min con una matriz y una lista de enteros:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[min(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[min(0,3,2,5,4)]"
-        }
-    }
-}
-```
-
-La salida del ejemplo anterior con los valores predeterminados es:
-
-| Nombre | Tipo | Valor |
-| ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -856,7 +947,7 @@ Un entero que representa el valor máximo.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar max con una matriz y una lista de enteros:
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) siguiente se muestra cómo utilizar max con una matriz y una lista de enteros:
 
 ```json
 {
@@ -882,12 +973,88 @@ En el ejemplo siguiente se muestra cómo utilizar max con una matriz y una lista
 }
 ```
 
-La salida del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+<a id="min" />
+
+## <a name="min"></a>Min
+`min(arg1)`
+
+Devuelve el valor mínimo de una matriz de enteros o una lista separada por comas de enteros.
+
+### <a name="parameters"></a>parameters
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor mínimo. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Un entero que representa el valor mínimo.
+
+### <a name="example"></a>Ejemplo
+
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) siguiente se muestra cómo utilizar min con una matriz y una lista de enteros:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": [0,3,2,5,4]
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "arrayOutput": {
+            "type": "int",
+            "value": "[min(parameters('arrayToTest'))]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[min(0,3,2,5,4)]"
+        }
+    }
+}
+```
+
+La salida del ejemplo anterior con el valor predeterminado es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
 
 <a id="range" />
 
@@ -909,7 +1076,7 @@ Una matriz de enteros.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar la función range:
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) siguiente se muestra cómo usar la función range:
 
 ```json
 {
@@ -935,11 +1102,23 @@ En el ejemplo siguiente se muestra cómo utilizar la función range:
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | rangeOutput | Matriz | [5, 6, 7] |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+```
 
 <a id="skip" />
 
@@ -961,7 +1140,7 @@ Una matriz o cadena.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se omite el número especificado de elementos de la matriz, y el número especificado de caracteres de la cadena.
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) siguiente se omite el número especificado de elementos de la matriz, y el número especificado de caracteres de la cadena.
 
 ```json
 {
@@ -1003,12 +1182,24 @@ En el ejemplo siguiente se omite el número especificado de elementos de la matr
 }
 ```
 
-La salida del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["three"] |
 | stringOutput | String | two three |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```
 
 <a id="take" />
 
@@ -1030,7 +1221,7 @@ Una matriz o cadena.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se toma el número especificado de elementos de la matriz y de caracteres de la cadena.
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) siguiente se toma el número especificado de elementos de la matriz y de caracteres de la cadena.
 
 ```json
 {
@@ -1072,12 +1263,24 @@ En el ejemplo siguiente se toma el número especificado de elementos de la matri
 }
 ```
 
-La salida del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["one", "two"] |
 | stringOutput | String | en |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```
 
 <a id="union" />
 
@@ -1100,7 +1303,7 @@ Una matriz u objeto.
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra cómo utilizar la unión con matrices y objetos:
+En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) siguiente se muestra cómo utilizar la unión con matrices y objetos:
 
 ```json
 {
@@ -1139,12 +1342,24 @@ En el ejemplo siguiente se muestra cómo utilizar la unión con matrices y objet
 }
 ```
 
-El resultado del ejemplo anterior con los valores predeterminados es:
+La salida del ejemplo anterior con el valor predeterminado es:
 
 | Nombre | Tipo | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "two": "b", "three": "c", "four": "d", "five": "e"} |
 | arrayOutput | Matriz | ["one", "two", "three", "four"] |
+
+Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+```
+
+Para implementar esta plantilla de ejemplo con PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).

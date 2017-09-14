@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: b6bf353a2bad28b0db3a88e971e5c6b209b7ab2b
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: fe78e2ef31695d443123664a83e9f753ccfc0be8
 ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
@@ -101,7 +101,7 @@ En esta sección se da por supuesto que ha consultado o está familiarizado con 
         ![Data Management Gateway: instalación correcta](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
-        > Si va a aprovisionar la puerta de enlace en una máquina virtual de Azure, puede usar [esta plantilla de Azure Resource Manager en GitHub](https://github.com/xiaoyingLJ/vms-with-multiple-data-management-gateway). Este script crea una puerta de enlace lógica, configura las máquinas virtuales con el software de Data Management Gateway instalado y las registra en la puerta de enlace lógica. 
+        > Si va a aprovisionar la puerta de enlace en una máquina virtual de Azure, puede usar [esta plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway). Este script crea una puerta de enlace lógica, configura las máquinas virtuales con el software de Data Management Gateway instalado y las registra en la puerta de enlace lógica. 
 6. En Azure Portal, abra la página **Puerta de enlace**: 
     1. En la página de inicio de factoría de datos en el portal, haga clic en **Servicios vinculados**.
     
@@ -195,7 +195,7 @@ Estado  | Comentarios/Escenarios
 En línea | Nodo conectado al servicio Data Factory.
 Sin conexión | El nodo está sin conexión.
 Actualizando | El nodo se está actualizando automáticamente.
-Limitado | Debido a un problema de conectividad. Puede ser debido a un problema en el puerto HTTP 8050, a un problema de conectividad de Service Bus o un problema de sincronización de credenciales. 
+Limitado | Debido a un problema de conectividad. Puede ser debido a un problema en el puerto HTTP 8050, a un problema de conectividad del bus de servicio o un problema de sincronización de credenciales. 
 Inactivo | El nodo tiene una configuración diferente de la configuración de la mayoría de los otros nodos.<br/><br/> Un nodo puede estar inactivo cuando no se puede conectar a otros nodos. 
 
 

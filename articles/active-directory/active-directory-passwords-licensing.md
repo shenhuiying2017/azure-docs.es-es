@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 08/30/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 3ed13c819f8e32cab44013cdcbf1b3a921ba98b8
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 5445a479fd6893048eb8ff356fa829a3dcd5f7d3
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licensing requirements for Azure AD self-service password reset (Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD)
@@ -38,8 +38,8 @@ Para poder usar la escritura diferida de contraseñas, debe tener una de las sig
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Secure Productive Enterprise E3
-* Secure Productive Enterprise E5
+* Microsoft 365 E3
+* Microsoft 365 E5
 
 > [!NOTE]
 > Los planes de licencias de Office 365 independientes **no admiten la escritura diferida de contraseñas** y requieren uno de los planes anteriores para que esta funcionalidad funcione.
@@ -47,8 +47,9 @@ Para poder usar la escritura diferida de contraseñas, debe tener una de las sig
 En las páginas siguientes encontrará información adicional sobre licencias, incluidos los costos
 
 * [Sitio sobre precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Características y funcionalidades de Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
-* [Secure Productive Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx)
+* [Microsoft 365](https://www.microsoft.com/microsoft-365/enterprise)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Habilitar licencias basadas en grupos o usuarios
 
@@ -62,11 +63,10 @@ Los vínculos siguientes proporcionan información adicional sobre el restableci
 
 * [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para el autoservicio de administración de contraseñas de Azure AD 
 * [**Datos**](active-directory-passwords-data.md): información sobre los datos necesarios y cómo se usan para administrar contraseñas
-* [**Implementación**](active-directory-passwords-best-practices.md): planificación e implementación de SSPR para los usuarios con las directrices que aquí se proporcionan
+* [**Implementación**](active-directory-passwords-best-practices.md): planee e implemente SSPR en sus usuarios mediante las instrucciones que se encuentran aquí.
 * [**Personalización**](active-directory-passwords-customize.md): personalización de la experiencia de SSPR para la empresa
 * [**Informes**](active-directory-passwords-reporting.md): detectan si los usuarios acceden a la funcionalidad de SSPR, cuándo lo hacen y dónde.
-* [**Artículo técnico de profundización**](active-directory-passwords-how-it-works.md): más información para comprender el funcionamiento de la administración de contraseñas
+* [**Profundización técnica**](active-directory-passwords-how-it-works.md): conozca lo que hay detrás para comprender cómo funciona.
 * [**Preguntas más frecuentes**](active-directory-passwords-faq.md): ¿Cómo? ¿Por qué? ¿Qué? ¿Dónde? ¿Quién? ¿Cuándo? : respuestas a las preguntas que siempre se ha hecho.
 * [**Solución de problemas**](active-directory-passwords-troubleshoot.md): información para resolver problemas habituales de SSPR
-
 
