@@ -27,8 +27,6 @@ Los dispositivos gemelos se almacenan en un IoT Hub y contienen:
 Además, el back-end de la solución puede consultar los dispositivos gemelos en función de todos los datos descritos anteriormente.
 Consulte [Introducción a los dispositivos gemelos][lnk-twins] para más información acerca de los dispositivos gemelos, y la referencia sobre [el lenguaje de consultas de IoT Hub][lnk-query] para realizar consultas.
 
-> [!NOTE]
-> En la actualidad, solo se puede acceder a los dispositivos gemelos desde dispositivos conectados a IoT Hub mediante el protocolo MQTT. Para instrucciones acerca de cómo convertir la aplicación de dispositivo existente para usar MQTT, consulte el artículo sobre [compatibilidad con MQTT][lnk-devguide-mqtt].
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 

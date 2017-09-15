@@ -79,7 +79,7 @@ Actualmente, las [instantáneas incrementales](../articles/virtual-machines/wind
 Para más información acerca de cómo crear instantáneas con Managed Disks, consulte estos recursos:
 
 * [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Linux](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 ## <a name="images"></a>Imágenes
