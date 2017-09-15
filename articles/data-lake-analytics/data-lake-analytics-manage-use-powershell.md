@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 862e9551f1e129b7bba06651fbae94e337c92dcb
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Administración de Análisis de Azure Data Lake mediante Azure PowerShell
@@ -329,86 +329,9 @@ $d = [DateTime]::Now.AddDays(-7)
 Get-AdlJob -Account $adla -SubmittedAfter $d
 ```
 
-### <a name="common-scenarios-for-listing-jobs"></a>Escenarios comunes para enumerar trabajos
+### <a name="analyzing-job-history"></a>Análisis del historial de trabajo
 
-
-```
-# List jobs submitted in the last five days and that successfully completed.
-$d = (Get-Date).AddDays(-5)
-Get-AdlJob -Account $adla -SubmittedAfter $d -State Ended -Result Succeeded
-
-# List all failed jobs submitted by "joe@contoso.com" within the past seven days.
-Get-AdlJob -Account $adla `
-    -Submitter "joe@contoso.com" `
-    -SubmittedAfter (Get-Date).AddDays(-7) `
-    -Result Failed
-```
-
-## <a name="filtering-a-list-of-jobs"></a>Filtrado de una lista de trabajos
-
-Una vez que tenga una lista de trabajos en la sesión actual de PowerShell, puede usar cmdlets normales de PowerShell para filtrar la lista.
-
-Filtrar una lista de trabajos por los trabajos enviados en las últimas 24 horas
-
-```
-$upperdate = Get-Date
-$lowerdate = $upperdate.AddHours(-24)
-$jobs | Where-Object { $_.EndTime -ge $lowerdate }
-```
-
-Filtrar una lista de trabajos por los trabajos finalizados en las últimas 24 horas
-
-```
-$upperdate = Get-Date
-$lowerdate = $upperdate.AddHours(-24)
-$jobs | Where-Object { $_.SubmitTime -ge $lowerdate }
-```
-
-Filtre una lista de trabajos por los trabajos que se han empezado a ejecutar. Se puede producir un error en un trabajo en tiempo de compilación, por lo que nunca se inicia. Se van a examinar los trabajos con errores que realmente empezaron a ejecutarse y luego experimentaron un error.
-
-```powershell
-$jobs | Where-Object { $_.StartTime -ne $null }
-```
-
-### <a name="analyzing-a-list-of-jobs"></a>Análisis de una lista de trabajos
-
-Use el cmdlet `Group-Object` para analizar una lista de trabajos.
-
-```
-# Count the number of jobs by Submitter
-$jobs | Group-Object Submitter | Select -Property Count,Name
-
-# Count the number of jobs by Result
-$jobs | Group-Object Result | Select -Property Count,Name
-
-# Count the number of jobs by State
-$jobs | Group-Object State | Select -Property Count,Name
-
-#  Count the number of jobs by DegreeOfParallelism
-$jobs | Group-Object DegreeOfParallelism | Select -Property Count,Name
-```
-Al realizar un análisis, puede ser útil agregar propiedades a los objetos de trabajo para facilitar el filtrado y la agrupación. El fragmento de código siguiente muestra cómo anotar un elemento JobInfo con propiedades calculadas.
-
-```
-function annotate_job( $j )
-{
-    $dic1 = @{
-        Label='AUHours';
-        Expression={ ($_.DegreeOfParallelism * ($_.EndTime-$_.StartTime).TotalHours)}}
-    $dic2 = @{
-        Label='DurationSeconds';
-        Expression={ ($_.EndTime-$_.StartTime).TotalSeconds}}
-    $dic3 = @{
-        Label='DidRun';
-        Expression={ ($_.StartTime -ne $null)}}
-
-    $j2 = $j | select *, $dic1, $dic2, $dic3
-    $j2
-}
-
-$jobs = Get-AdlJob -Account $adla -Top 10
-$jobs = $jobs | %{ annotate_job( $_ ) }
-```
+El uso de Azure PowerShell para analizar el historial de trabajos que se han ejecutado en Data Lake Analytics es una técnica eficaz. Puede usarla para obtener información sobre el uso y el costo. Puede obtener más información examinando el [repositorio de ejemplo del análisis del historial de trabajo](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
 ## <a name="get-information-about-pipelines-and-recurrences"></a>Obtención de información sobre canalizaciones y repeticiones
 
