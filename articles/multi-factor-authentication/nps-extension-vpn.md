@@ -4,7 +4,7 @@ description: "Este artículo describe la integración de la infraestructura de V
 services: active-directory
 keywords: "Azure MFA, integración de VPN, Azure Active Directory, extensión Servidor de directivas de redes"
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT

@@ -3,7 +3,7 @@ title: P+F sobre Azure Multi-Factor Authentication | Microsoft Docs
 description: "Preguntas y respuestas más frecuentes relacionadas con Azure Multi-Factor Authentication. Multi-Factor Authentication es un método para comprobar la identidad de un usuario que requiere usar más de un nombre de usuario y contraseña. Proporciona una capa adicional de seguridad a los inicios de sesión y transacciones de los usuarios."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374

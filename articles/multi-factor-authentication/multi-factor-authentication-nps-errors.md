@@ -3,7 +3,7 @@ title: "Solución de problemas de códigos de error para la extensión de NPS de
 description: "Obtenga ayuda para solucionar problemas con la extensión de NPS para Azure Multi-Factor Authentication con resoluciones específicas para los mensajes de error comunes"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: HT

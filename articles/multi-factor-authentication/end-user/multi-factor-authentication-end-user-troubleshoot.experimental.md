@@ -4,7 +4,7 @@ description: "Este documento ofrecerá a los usuarios información sobre qué ha
 services: multi-factor-authentication
 keywords: "cliente de multi-factor authentication, problema de autenticación, identificador de correlación"
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: end-user
 ms.translationtype: HT

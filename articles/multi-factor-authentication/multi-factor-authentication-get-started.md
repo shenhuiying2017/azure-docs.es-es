@@ -3,7 +3,7 @@ title: "Elección entre la nube o el servidor Azure MFA | Microsoft Docs"
 description: "Para elegir la solución de seguridad para la autenticación multifactor que sea más adecuada para su situación, conteste a dos preguntas: qué estoy tratando de asegurar y dónde están ubicados mis usuarios.  A continuación, elija la nube, Servidor MFA o AD FS."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/25/2017
-ms.author: kgremban
+ms.author: joflore
 ms.translationtype: HT
 ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: cc5a0a8ff789b878cd5afb62176ae8bcf3f80902

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 505834d7354fb920e7ebd931e3bb31d837a79077
 ms.openlocfilehash: 6f01f97e38aa271034741c8a5e2f8057ab61fcd7
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Salidas de runbook y mensajes en la Automatización de Azure
@@ -187,6 +188,11 @@ En el ejemplo siguiente se inicia un runbook y, a continuación, se espera a que
 
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+    
+    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+    
 
 ### <a name="graphical-authoring"></a>Creación gráfica
 Para Runbooks gráficos, hay disponible un registro adicional en forma de seguimiento del nivel de actividad.  Hay dos niveles de seguimiento: básico y detallado.  En el seguimiento básico, puede ver la hora de inicio y de finalización de cada actividad en el Runbook, así como información relacionada con los reintentos de actividad, como el número de intentos y la hora de inicio de la actividad.  En el seguimiento detallado, obtendrá un seguimiento básico y, además, datos de entrada y de salida para cada actividad.  Tenga en cuenta que actualmente los registros de seguimiento se escriben usando el flujo detallado, por lo que debe habilitar el registro detallado cuando habilite el seguimiento.  En el caso de los Runbooks gráficos con el seguimiento habilitado no es necesario registrar los registros de progreso, ya que el seguimiento básico tiene la misma finalidad y es más informativo.
@@ -220,10 +226,5 @@ Para más información sobre cómo configurar la integración con Log Analytics 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md)
 * Para comprender cómo diseñar y usar Runbooks secundarios, consulte [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
