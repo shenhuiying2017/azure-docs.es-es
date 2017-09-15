@@ -261,10 +261,6 @@
           href: sql-database-long-term-backup-retention-configure.md
         - name: 'Replicación geográfica: Portal'
           href: sql-database-geo-replication-portal.md
-        - name: 'Replicación geográfica con T-SQL: Configuración'
-          href: sql-database-geo-replication-transact-sql.md
-        - name: 'Replicación geográfica con T-SQL: Conmutación por error'
-          href: sql-database-geo-replication-failover-transact-sql.md
         - name: Recuperación de una sola tabla
           href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
     - name: Carga y movimiento de datos
@@ -297,10 +293,8 @@
           href: sql-database-metrics-diag-logging.md
         - name: Solución de problemas de conectividad
           href: sql-database-troubleshoot-common-connection-issues.md
-        - name: Automatización de Azure
+        - name: Azure Automation
           href: sql-database-manage-automation.md
-        - name: Azure RemoteApp
-          href: sql-database-ssms-remoteapp.md
     - name: Escalado horizontal
       items:
         - name: Creación de una aplicación con particiones

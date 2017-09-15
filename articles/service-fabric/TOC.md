@@ -280,7 +280,7 @@
 ### [Visualización de un clúster](service-fabric-visualizing-your-cluster.md)
 ### [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md)
 
-### [Administración de un clúster mediante la CLI de Service Fabric](service-fabric-cli.md)
+### [Introducción a la CLI de Service Fabric](service-fabric-cli.md)
 ### [Aplicación de parches a nodos de clúster](service-fabric-patch-orchestration-application.md)
 
 ### Administración y orquestación de recursos de clúster
