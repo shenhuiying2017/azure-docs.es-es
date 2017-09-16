@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 09/15/2017
 ms.author: bwren
 ms.translationtype: HT
 ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
@@ -57,7 +57,7 @@ A continuación se incluyen ejemplos de búsquedas que puede guardar como un gru
 >[!NOTE]
 > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), se realizarán los siguientes cambios en el procedimiento para crear un nuevo grupo de equipos.
 >  
-> - La consulta para crear un grupo de equipos debe incluir `distinct Computer`.  A continuación, se muestra un ejemplo de una consulta para crear un grupo de equipos.<br>`Heartbeat | where Computer contains "srv" `
+> - La consulta para crear un grupo de equipos debe incluir `distinct Computer`.  A continuación, se muestra un ejemplo de una consulta para crear un grupo de equipos.<br>`Heartbeat | where Computer contains "srv" | distinct Computer `
 > - Cuando se crea un nuevo grupo de equipos, debe especificar un alias además del nombre.  Utilizará el alias cuando use el grupo de equipos en una consulta como se explica a continuación.  
 
 ### <a name="log-search-api"></a>API de búsqueda de registros
@@ -104,7 +104,7 @@ Los grupos de equipos se utilizan normalmente con la cláusula **IN** en la bús
 >[!NOTE]
 > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consultas de Log Analytics](log-analytics-log-search-upgrade.md), use un grupo de equipos en una consulta tratando su alias como una función como se indica en el ejemplo siguiente:
 > 
->  `UpdateSummary | where Computer IN (MyComputerGroup)`
+>  `UpdateSummary | where Computer in (mycomputergroup)`
 
 ## <a name="computer-group-records"></a>Registros de grupos de equipos
 En el repositorio de OMS se crea un registro para cada pertenencia a grupos de equipos creada mediante Active Directory o WSUS.  Estos registros tienen el tipo **ComputerGroup** y sus propiedades son las que aparecen en la tabla siguiente.  Para los grupos de equipos basados en búsquedas de registros no se crean registros.
