@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: ae2a2e477137bc117111b147e1f088d528a55de5
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: b136d3841243ad7aa88786f76b2d31e5dfae9079
 ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -271,10 +271,10 @@ También puede crear una regla que selecciona objetos de dispositivo para la per
 | DisplayName             | Cualquier valor de cadena                | (device.displayName -eq "Rob Iphone”)                       |
 | deviceOSType            | Cualquier valor de cadena                | (device.deviceOSType -eq "IOS")                             |
 | deviceOSVersion         | Cualquier valor de cadena                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | Cualquier valor de cadena                | (device.deviceCategory -eq "")                              |
+| deviceCategory          | un nombre de la categoría de dispositivo válido    | (device.deviceCategory -eq "BYOD")                          |
 | deviceManufacturer      | Cualquier valor de cadena                | (device.deviceManufacturer - eq "Microsoft")                 |
 | deviceModel             | Cualquier valor de cadena                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | Cualquier valor de cadena                | (device.deviceOwnership -eq "")                             |
+| deviceOwnership         | Personal, empresa               | (device.deviceOwnership -eq "Company")                      |
 | domainName              | Cualquier valor de cadena                | (device.domainName -eq "contoso.com")                       |
 | enrollmentProfileName   | Cualquier valor de cadena                | (device.enrollmentProfileName -eq "")                       |
 | isRooted                | true false                      | (device.deviceOSType -eq true)                              |

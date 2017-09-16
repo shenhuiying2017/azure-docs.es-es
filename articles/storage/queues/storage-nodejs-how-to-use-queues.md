@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 15c1d3cb6eac8fc14837277c4a4275dea91701cd
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a76770c7a2101675f7cbf953ce9c3b1750656477
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
-# <a name="how-to-use-queue-storage-from-nodejs"></a>Uso de Queue Storage desde Node.js
+# <a name="how-to-use-queue-storage-from-nodejs"></a>Uso del almacenamiento de colas de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
@@ -37,7 +37,7 @@ Esta guía le indicará cómo actuar en situaciones habituales usando el servici
 Cree una aplicación Node.js vacía. Para obtener instrucciones sobre cómo crear una aplicación Node.js, consulte [Creación de una aplicación web Node.js en Azure App Service](../../app-service-web/app-service-web-get-started-nodejs.md), [Creación e implementación de una aplicación Node.js en Azure Cloud Services](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) con Windows PowerShell o [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configuración de la aplicación para obtener acceso al almacenamiento
-Para usar Azure Storage, necesitará el SDK de Azure Storage para Node.js, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de Storage.
+Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azure para Node.js, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Uso del Administrador de paquetes para Node (NPM) para obtener el paquete
 1. Utilice una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) y vaya a la carpeta donde ha creado la aplicación de ejemplo.
@@ -65,7 +65,7 @@ Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte su
 var azure = require('azure-storage');
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Configuración de una conexión de Azure Storage
+## <a name="setup-an-azure-storage-connection"></a>Configuración de una conexión de almacenamiento de Azure
 El módulo azure leerá las variables de entorno AZURE\_STORAGE\_ACCOUNT y AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener información necesaria para conectarse a su cuenta de Azure Storage. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createQueueService**.
 
 Para ver un ejemplo de cómo configurar las variables de entorno de [Azure Portal](https://portal.azure.com) para un sitio web de Azure, consulte [Aplicación web Node.js con Azure Table Service].
@@ -340,9 +340,8 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
-[Creación de una aplicación web de Node.js en Azure App Service](../../app-service-web/app-service-web-get-started-nodejs.md)   
-[Aplicación web Node.js con Azure Table Service](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)
-  
+[Creación de una aplicación web de Node.js en Azure App Service](../../app-service-web/app-service-web-get-started-nodejs.md)
+   
 
 
 [Compilación e implementación de una aplicación Node.js en una instancia de Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)   

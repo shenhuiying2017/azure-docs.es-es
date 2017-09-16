@@ -1,6 +1,6 @@
 ---
 title: "Configuración de entornos de ensayo para aplicaciones web en Azure App Service | Microsoft Docs"
-description: "Aprenda a utilizar la publicación de ensayo para aplicaciones web en Azure App Service."
+description: "Aprenda a utilizar la publicación de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: bc6c77deb02b145cd412e18ba31d724f2b71e4d1
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2d74331ec1625a53d1af5ab5058b733651271f37
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
@@ -31,11 +31,11 @@ Al implementar la aplicación web, la aplicación web en Linux, el back-end móv
 * La implementación de una aplicación en una ranura en primer lugar y su intercambio con la de la producción garantiza que todas las instancias de la ranura estén activas antes de colocarse en producción. Esto elimina tiempos de inactividad a la hora de implementar la aplicación. El redireccionamiento del tráfico es impecable y no se anulan las solicitudes como consecuencia de las operaciones de intercambio. Este flujo de trabajo completo puede automatizarse mediante la configuración de [Intercambio automático](#Auto-Swap) .
 * Después del intercambio, la ranura con la aplicación de ensayo anterior ahora ocupa la aplicación de producción anterior. Si los cambios intercambiados en el espacio de producción no son los esperados, puede realizar el mismo intercambio inmediatamente para volver a obtener el "último sitio en buen estado".
 
-Cada modo del plan de App Service admite un número distinto de espacios de implementación. Para averiguar el número de ranuras compatibles con el modo de la aplicación, consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Cada modo del plan del Servicio de aplicaciones admite un número distinto de espacios de implementación. Para averiguar el número de ranuras compatibles con el modo de la aplicación, consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
 * Cuando la aplicación tiene varias ranuras, no puede cambiar el modo.
 * El escalado no está disponible para los espacios que no son de producción.
-* No se admite la administración de recursos vinculados en los espacios que no sean de producción. Solo en el [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) puede evitar este impacto potencial en un espacio de producción si mueve temporalmente el espacio de no producción a un modo del plan de App Service diferente. Tenga en cuenta que el espacio de no producción debe compartir una vez más el mismo modo con el espacio de producción antes de que pueda intercambiar los dos espacios.
+* No se admite la administración de recursos vinculados en los espacios que no sean de producción. Solo en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) puede evitar este impacto potencial en un espacio de producción si mueve temporalmente el espacio de no producción a un modo del plan del Servicio de aplicaciones diferente. Tenga en cuenta que el espacio de no producción debe compartir una vez más el mismo modo con el espacio de producción antes de que pueda intercambiar los dos espacios.
 
 <a name="Add"></a>
 
@@ -62,7 +62,7 @@ La aplicación debe estar ejecutándose en el modo **Estándar** o **Premium** p
 4. En la hoja de recursos de la aplicación, haga clic en **Ranuras de implementación** y, a continuación, haga clic en una ranura de implementación para abrir la hoja de recursos de esa ranura, con un conjunto de métricas y una configuración como cualquier otra aplicación. El nombre de la ranura se muestra en la parte superior de la hoja para recordarle que está viendo la ranura de implementación.
    
     ![Título de la ranura de implementación][StagingTitle]
-5. Haga clic en la dirección URL de la aplicación en la hoja del espacio. Observe que el espacio de implementación tiene su propio nombre de host y que se trata también de una aplicación activa. Para limitar el acceso público a la ranura de implementación, consulte [Aplicación web de App Service: bloquear acceso web a ranuras de implementación que no son de producción](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+5. Haga clic en la dirección URL de la aplicación en la hoja del espacio. Observe que el espacio de implementación tiene su propio nombre de host y que se trata también de una aplicación activa. Para limitar el acceso público a la ranura de implementación, consulte [Aplicación web del Servicio de aplicaciones: bloquear acceso web a ranuras de implementación que no son de producción](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
 No hay ningún contenido después de la creación de un espacio de implementación. Puede implementar el espacio desde una rama de repositorio diferente o desde un repositorio completamente diferente. También puede cambiar la configuración del espacio. Utilice el perfil de publicación o las credenciales de implementación asociadas al espacio de implementación para ver las actualizaciones del contenido.  Por ejemplo, [puede publicar en esta ranura mediante Git](app-service-deploy-local-git.md).
 
@@ -242,7 +242,7 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 La CLI de Azure proporciona comandos de varias plataformas para trabajar con Azure, incluida la compatibilidad para administrar ranuras de implementación de App Service.
 
 * Para obtener instrucciones acerca de cómo instalar y configurar la CLI de Azure, incluyendo la información acerca de cómo conectar la CLI de Azure a su suscripción de Azure, consulte [Instalación y configuración de la CLI de Azure](../cli-install-nodejs.md).
-* Para mostrar los comandos disponibles para Azure App Service en la CLI de Azure, llame a `azure site -h`.
+* Para mostrar los comandos disponibles para el Servicio de aplicaciones de Azure en la CLI de Azure, llame a `azure site -h`.
 
 > [!NOTE] 
 > Para los comandos de la [CLI de Azure 2.0](https://github.com/Azure/azure-cli) de espacios de implementación, consulte [az appservice web deployment slot](/cli/azure/appservice/web/deployment/slot).
@@ -277,13 +277,13 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 
 - - -
 > [!NOTE]
-> Vea una aplicación web en acción. [Pruebe App Service](https://azure.microsoft.com/try/app-service/) inmediatamente y cree una aplicación de inicio de corta duración; no se requiere tarjeta de crédito ni se establece ningún compromiso.
+> Vea una aplicación web en acción. [Pruebe el Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/) inmediatamente y cree una aplicación de inicio de corta duración; no se requiere tarjeta de crédito ni se establece ningún compromiso.
 > 
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Aplicación web de Azure App Service: bloquear el acceso web a las ranuras de implementación que no son de producción](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Introducción a App Service en Linux](./app-service-linux-intro.md)
+[Introducción a App Service en Linux](../app-service/containers/app-service-linux-intro.md)
 [Evaluación gratuita de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->

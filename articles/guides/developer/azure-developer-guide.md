@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bfc69712a1ddcd4a225fd35cfcceb7fa0616887d
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2c90272a9d33795dca7839292bba38fa16fec3da
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -158,7 +158,7 @@ Azure proporciona varias maneras de utilizar contenedores en sus aplicaciones.
 
     >**Cuándo se usa**: para implementar una aplicación web en Linux en una imagen de Docker.
 
-    >**Para empezar**: [use una imagen de Docker personalizada para App Service en Linux](../../app-service-web/app-service-linux-using-custom-docker-image.md).
+    >**Para empezar**: [use una imagen de Docker personalizada para App Service en Linux](../../app-service/containers/quickstart-custom-docker-image.md).
 
 ### <a name="authentication"></a>Autenticación
 
@@ -168,7 +168,7 @@ Es fundamental saber no solo quién está usando las aplicaciones, sino también
 
     >**Cuándo se usa**: si desea proporcionar una experiencia SSO, trabajar con datos basados en Graph o autenticar usuarios basados en dominio.
 
-    >**Para empezar**: para más información, consulte la [guía para desarrolladores de Azure Active Directory](../../active-directory/active-directory-developers-guide.md).
+    >**Para empezar**: para más información, consulte la [guía para desarrolladores de Azure Active Directory](../../active-directory/develop/active-directory-developers-guide.md).
 
 -   **Autenticación de App Service**: al elegir App Service para hospedar la aplicación, también obtiene compatibilidad con la autenticación para Azure AD, además de proveedores de identidad de redes sociales, como Facebook, Google, Microsoft y Twitter.
 

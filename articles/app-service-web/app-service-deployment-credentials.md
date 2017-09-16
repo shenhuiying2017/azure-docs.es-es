@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 86a2cd8ae9f97c606a378452e44eec8941700531
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configuración de credenciales de implementación para Azure App Service
@@ -47,7 +46,7 @@ Para configurar las credenciales de nivel de usuario:
 1. En [Azure Portal](https://portal.azure.com), haga clic en App Service > **&lt;cualquier_aplicación >** > **Credenciales de implementación**.
 
     > [!NOTE]
-    > En el portal, debe tener al menos una aplicación para tener acceso a la hoja de credenciales de implementación. Sin embargo, con la [CLI de Azure](app-service-web-app-azure-resource-manager-xplat-cli.md), puede configurar las credenciales de nivel de usuario sin tener ninguna aplicación.
+    > En el portal, debe tener al menos una aplicación para tener acceso a la hoja de credenciales de implementación. Sin embargo, con la [CLI de Azure](/cli/azure/webapp/deployment/user#set), puede configurar las credenciales de nivel de usuario sin tener ninguna aplicación.
 
 2. Configure el nombre de usuario y la contraseña y, a continuación, haga clic en **Guardar**.
 

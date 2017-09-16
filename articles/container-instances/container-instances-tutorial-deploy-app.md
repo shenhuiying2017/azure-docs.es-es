@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: d8c2056734bc1fdea71543157debd089a9ca743d
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
 ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 08/08/2017
 Esta es la tercera parte de un tutorial de tres. En las secciones anteriores, [se creó una imagen de contenedor](container-instances-tutorial-prepare-app.md) y [se insertó en una instancia de Azure Container Registry](container-instances-tutorial-prepare-acr.md). En esta sección se completa el tutorial con la implementación del contenedor en Azure Container Instances. Los pasos completados incluyen:
 
 > [!div class="checklist"]
-> * Definición de un grupo de contenedores mediante una plantilla de Azure Resource Manager
-> * Implementación del grupo de contenedores mediante la CLI de Azure
-> * Visualización de los registros de contenedores
+> * Implementación del contenedor desde Azure Container Registry mediante la CLI de Azure
+> * Visualización de la aplicación en el explorador
+> * Visualización de los registros del contenedor
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Implementación del contenedor mediante la CLI de Azure
 

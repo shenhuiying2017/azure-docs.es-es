@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 2556b02459886390b803407c5cb828687229a44e
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: ae7eab97c1da1113b0248b74a9dd67de8ce49e36
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -60,19 +60,19 @@ Cada comando de la tabla crea un vínculo a documentación específica del coman
 
 | Comando | Notas |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Autenticarse en una cuenta de Batch.  |
-| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#list) | Enumerar las aplicaciones disponibles en la cuenta de Batch.  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#create) | Crear un grupo de máquinas virtuales.  |
-| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#set) | Actualizar propiedades de un grupo.  |
-| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#list) | Enumerar la información disponible de imagen y SKU de agente del nodo.  |
-| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#resize) | Cambiar la cantidad de máquinas virtuales en ejecución en el grupo especificado.  |
-| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#show) | Mostrar las propiedades de un grupo.  |
-| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#delete) | Eliminar el grupo especificado.  |
-| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#enable) | Habilitar el escalado automático de un grupo y aplicar una fórmula.  |
-| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#disable) | Deshabilitar el escalado automático de un grupo.  |
-| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#list) | Enumerar todos los nodos de ejecución del grupo especificado.  |
-| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#reboot) | Reiniciar el nodo de ejecución especificado.  |
-| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#delete) | Eliminar los nodos de la lista del grupo especificado.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Autenticarse en una cuenta de Batch.  |
+| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#az_batch_application_summary_list) | Enumerar las aplicaciones disponibles en la cuenta de Batch.  |
+| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_create) | Crear un grupo de máquinas virtuales.  |
+| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_set) | Actualizar propiedades de un grupo.  |
+| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#az_batch_pool_node_agent_skus_list) | Enumerar la información disponible de imagen y SKU de agente del nodo.  |
+| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_resize) | Cambiar la cantidad de máquinas virtuales en ejecución en el grupo especificado.  |
+| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_show) | Mostrar las propiedades de un grupo.  |
+| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_delete) | Eliminar el grupo especificado.  |
+| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_enable) | Habilitar el escalado automático de un grupo y aplicar una fórmula.  |
+| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_disable) | Deshabilitar el escalado automático de un grupo.  |
+| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_list) | Enumerar todos los nodos de ejecución del grupo especificado.  |
+| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_reboot) | Reiniciar el nodo de ejecución especificado.  |
+| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_delete) | Eliminar los nodos de la lista del grupo especificado.  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

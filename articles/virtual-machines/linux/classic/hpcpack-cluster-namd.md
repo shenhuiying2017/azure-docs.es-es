@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e31845f3d7aa08357b0e8a1b3b77d97302442ac3
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 0c0b9875b4153edcc0ec0096577d041d394a842f
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Ejecución de NAMD con Microsoft HPC Pack en nodos de proceso de Linux en Azure
@@ -29,8 +29,6 @@ Este artículo muestra una manera de ejecutar una carga de trabajo de informáti
 
 * **NAMD** (siglas del programa Nanoscale Molecular Dynamics) es un paquete de dinámica molecular paralelo diseñado para la simulación de alto rendimiento de sistemas biomoleculares grandes que contienen hasta millones de átomos. Algunos ejemplos de estos sistemas son virus, estructuras celulares y proteínas grandes. NAMD se escala a cientos de núcleos en las simulaciones típicas y a más de 500.000 núcleos en las simulaciones de mayor tamaño.
 * **Microsoft HPC Pack** proporciona características para ejecutar HPC y aplicaciones paralelas a gran escala, en clústeres de equipos locales o de máquinas virtuales de Azure. HPC Pack, que se desarrolló originalmente como una solución para cargas de trabajo de Windows HPC, ahora admite la ejecución de las aplicaciones HPC Linux en máquinas virtuales de nodos de proceso de Linux implementadas en un clúster de HPC Pack. Consulte [Introducción a los nodos de ejecución de Linux en un clúster de HPC Pack en Azure](hpcpack-cluster.md) para obtener información.
-
-Para ver otras opciones para ejecutar cargas de trabajo HPC de Linux en Azure, consulte [Recursos técnicos para informática de alto rendimiento y computación por lotes](../../../batch/batch-hpc-solutions.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Clúster de HPC Pack con nodos de ejecución de Linux**: implemente un clúster de HPC Pack con nodos de proceso de Linux en Azure utilizando una [plantilla de Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o un [script de Azure PowerShell](hpcpack-cluster-powershell-script.md). Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](hpcpack-cluster.md) para ver los requisitos previos y los pasos para cada opción. Si elige la opción de implementación de scripts de PowerShell, consulte el archivo de configuración de ejemplo en los archivos de ejemplo al final de este artículo. Este archivo configura un clúster basado en Azure HPC Pack que consta de un nodo principal de Windows Server 2012 R2 y cuatro nodos de ejecución de tamaño grande CentOS 6.6. Adapte este archivo según las necesidades de su entorno.

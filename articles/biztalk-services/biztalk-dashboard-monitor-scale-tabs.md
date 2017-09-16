@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
 ms.contentlocale: es-es
-ms.lasthandoff: 03/15/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Revise las pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas
@@ -332,8 +331,6 @@ Establezca Estado de copia de seguridad en Ninguno o Automático. Cuando se esta
 
 ## <a name="HybridConnections"></a>Conexiones híbridas
 Las conexiones híbridas conectan una aplicación de Azure, como Web Apps o Mobile Apps de Azure App Service, a un recurso local que usa un puerto TCP estático (por ejemplo, SQL Server, MySQL, HTTP Web API y la mayoría de los servicios web personalizados). Las conexiones híbridas se administran en BizTalk Services mediante el Portal de Azure clásico.
-
-Para crear conexión híbridas en Azure App Service, consulte [Acceso a recursos locales mediante conexiones híbridas en Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 Para crear o administrar conexiones híbridas en Servicios de BizTalk de Azure, consulte [Conexiones híbridas](integration-hybrid-connection-overview.md).
 

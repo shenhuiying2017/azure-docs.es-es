@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 960a44e0df2c46cea464d9277f22f449b62e7d06
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: be282f79445c505ece7c6115df7a29c20a6a5f02
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -50,9 +50,9 @@ Este script usa los siguientes comandos para crear un disco administrado, una m�
 
 | Comando | Notas |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#show) | Obtiene instantáneas mediante el nombre de la instantánea y el del grupo de recursos. La propiedad de identificador del objeto devuelto se utiliza para crear un disco administrado.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Crea discos administrados a partir de una instantánea usando el identificador de las instantáneas, el nombre del disco, el tipo de almacenamiento y el tamaño.  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Crea una máquina virtual con un disco del SO administrado. |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Obtiene instantáneas mediante el nombre de la instantánea y el del grupo de recursos. La propiedad de identificador del objeto devuelto se utiliza para crear un disco administrado.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Crea discos administrados a partir de una instantánea usando el identificador de las instantáneas, el nombre del disco, el tipo de almacenamiento y el tamaño.  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Crea una máquina virtual con un disco del SO administrado. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

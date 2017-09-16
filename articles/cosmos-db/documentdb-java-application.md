@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 292115b5603c6f05a5eab3492d4b3e2096b58ed2
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: ddfb10a9688842e4a23b72b4362d75b20d320262
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Compilación de una aplicación web de Java mediante Azure Cosmos DB y la API de DocumentDB API
@@ -48,12 +48,12 @@ Este tutorial de aplicación Java muestra cómo crear una aplicación de adminis
 ## <a id="Prerequisites"></a>Requisitos previos para este tutorial de aplicación web de Java
 Antes de comenzar este tutorial de desarrollo de aplicaciones, debe disponer de lo siguiente:
 
-* Una cuenta de Azure activa. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+*  Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
-    OR
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-    Una instalación local del [Emulador de Azure Cosmos DB](local-emulator.md).
-* [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* <seg>
+  [Kit de desarrollo de Java (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).</seg>
 * [IDE de Eclipse para desarrolladores de Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Un sitio web de Azure con un entorno de tiempo de ejecución Java (por ejemplo, Tomcat o Jetty) habilitado.](../app-service-web/web-sites-java-get-started.md)
 
@@ -78,7 +78,7 @@ Para crear la aplicación JSP:
    
     ![Creación de un nuevo archivo JSP - Tutorial de aplicación web de Java](./media/documentdb-java-application/image11.png)
 5. En el cuadro de diálogo **Select JSP Template** (Seleccionar plantilla JSP), para cumplir con el objetivo de este tutorial, seleccione **New JSP File (html)** (Nuevo archivo JSP [html]) y haga clic en **Finish** (Finalizar).
-6. Cuando el archivo index.jsp se abra en Eclipse, agregue texto para mostrar **Hola mundo** dentro del elemento existente. dentro del elemento <body> existente. El contenido actualizado <body> debe ser similar al código siguiente:
+6. Cuando el archivo index.jsp se abra en Eclipse, agregue texto para mostrar **Hola a todos** dentro del elemento existente. dentro del elemento <body> existente. El contenido actualizado <body> debe ser similar al código siguiente:
    
         <body>
             <% out.println("Hello World!"); %>
@@ -86,7 +86,7 @@ Para crear la aplicación JSP:
 7. Guarde el archivo index.jsp.
 8. Si ha establecido un tiempo de ejecución de destino en el paso 2, puede hacer clic en **Project** (Proyecto) y, a continuación, en **Run** (Ejecutar) para ejecutar su aplicación de JSP localmente:
    
-    ![Hola mundo – Tutorial de aplicación de Java](./media/documentdb-java-application/image12.png)
+    ![Hello World – Tutorial de aplicación de Java](./media/documentdb-java-application/image12.png)
 
 ## <a id="InstallSDK"></a>Paso 3: Instalación del SDK de Java de DocumentDB
 La manera más sencilla de insertar el SDK de Java de DocumentDB y sus dependencias es a través de [Apache Maven](http://maven.apache.org/).
@@ -725,7 +725,7 @@ Azure WebSites consigue que la implementación de aplicaciones de Java sea tan s
    
    * En el cuadro Proyecto web, escriba azure-documentdb-java-sample.
    * En el cuadro de destino, seleccione un destino para guardar el archivo WAR.
-   * Haga clic en **Finalizar**.
+   * Haga clic en **Finalizar**
 3. Ahora que tiene a mano un archivo WAR, simplemente puede cargarlo en el directorio **webapps** del sitio web de Azure. Para obtener instrucciones sobre cómo cargar el archivo, consulte [Adición de una aplicación Java a Azure App Service Web Apps](../app-service-web/web-sites-java-add-app.md).
    
     Una vez que se cargue el archivo WAR en el directorio webapps, el entorno de tiempo de ejecución detectará que lo ha agregado y lo cargará automáticamente.

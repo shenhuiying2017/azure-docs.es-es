@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 09/13/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: da2cb358d196e41656bd7f6a06ff77e77c7315c1
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: a293ab42591fad2b913971465bc85743bcf05dad
 ms.contentlocale: es-es
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Cómo se distribuyen datos globalmente con Azure Cosmos DB
@@ -65,9 +65,6 @@ Para controlar la secuencia exacta de las conmutaciones por error regionales cua
 **Un inquilino de Azure Cosmos DB puede configurar el orden de prioridad de la conmutación por error (panel derecho) para las regiones asociadas a una cuenta de la base de datos**
 
 ![Configuración de prioridades de conmutación por error con Azure Cosmos DB](./media/distribute-data-globally/failover-priorities.png)
-
-### <a id="OfflineRegions"></a>Desconexión dinámica de una región
-Azure Cosmos DB permite desconectar la cuenta de la base de datos de una región específica y volver a conectarla posteriormente. Las regiones marcadas como sin conexión no participan activamente en la replicación y no forman parte de la secuencia de conmutación por error. Esto permite congelar la ultima imagen válida conocida de la base de datos en una de las regiones de lectura antes de implementar actualizaciones potencialmente peligrosos en la aplicación.
 
 ### <a id="ConsistencyLevels"></a>Varios modelos de coherencia bien definidos para bases de datos replicadas globalmente
 Azure Cosmos DB expone [varios niveles de coherencia bien definidos](consistency-levels.md) respaldados por acuerdos de nivel de servicio. Puede elegir un modelo de coherencia concreto (de la lista de opciones disponibles), en función de la carga de trabajo o de los escenarios. 

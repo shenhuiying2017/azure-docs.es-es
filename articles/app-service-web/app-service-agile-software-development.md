@@ -1,6 +1,6 @@
 ---
-title: Agile Software Development con Azure App Service
-description: Aprenda a crear aplicaciones complejas de gran escala con Azure App Service de forma que admita Agile Software Development.
+title: Agile Software Development con el Servicio de aplicaciones de Azure
+description: Aprenda a crear aplicaciones complejas de gran escala con el Servicio de aplicaciones de Azure de forma que admita Agile Software Development.
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 5ed888cbb422766cf2094f5980dfd1c599bd431c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: ff71194d701fd5de6ffe616c03f7214275f3bc62
 ms.contentlocale: es-es
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/07/2017
 
 ---
-# <a name="agile-software-development-with-azure-app-service"></a>Agile Software Development con Azure App Service
+# <a name="agile-software-development-with-azure-app-service"></a>Agile Software Development con el Servicio de aplicaciones de Azure
 En este tutorial aprenderá a crear aplicaciones complejas de gran escala con [Azure App Service](/azure/app-service/) de forma tal que admita [
 Agile Software Development](https://en.wikipedia.org/wiki/Agile_software_development). Se supone que ya conoce la [Implementación de aplicaciones complejas con criterio previsible en Azure](app-service-deploy-complex-application-predictably.md).
 
@@ -31,7 +31,7 @@ La tabla siguiente es una breve lista de los requisitos asociados al desarrollo 
 
 | Requisito | Habilitación de Azure |
 | --- | --- |
-| - Compilación con cada confirmación<br>- Compilación automática y rápida |Cuando se configura con implementación continua, Azure App Service puede funcionar como compilaciones de ejecución en directo que se basan en una rama de desarrollo. Cada vez que el código se inserta en la rama, se compila y ejecuta automáticamente en directo en Azure. |
+| - Compilación con cada confirmación<br>- Compilación automática y rápida |Cuando se configura con implementación continua, el Servicio de aplicaciones de Azure puede funcionar como compilaciones de ejecución en directo que se basan en una rama de desarrollo. Cada vez que el código se inserta en la rama, se compila y ejecuta automáticamente en directo en Azure. |
 | - Creación de pruebas automáticas de compilaciones |Se pueden implementar pruebas de carga, pruebas web, etc. con la plantilla de Administrador de recursos de Azure. |
 | - Realización de pruebas en un clon del entorno de producción |Las plantillas de Administrador de recursos de Azure se pueden usar para crear clones del entorno de producción de Azure (que incluye configuración de aplicaciones, plantillas de cadenas de conexión, escalado, etc.) para realizar pruebas rápidamente y con criterio previsible. |
 | - Fácil visualización de los resultados de la última compilación |La implementación continua en Azure desde un repositorio significa que se puede probar el nuevo código en una aplicación en directo inmediatamente después de confirmar los cambios. |
@@ -48,7 +48,7 @@ Para traducir la imagen en palabras:
 
 * La arquitectura de implementación se divide en tres entornos distintos (o [grupos de recursos](../azure-resource-manager/resource-group-overview.md) en Azure), cada uno con su correspondiente [plan de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), configuración de [escalado](web-sites-scale.md) y SQL Database. 
 * Cada entorno se puede administrar por separado. Incluso pueden existir en distintas suscripciones.
-* El ensayo y la producción se implementan como dos ranuras de la misma aplicación de App Service. La rama principal se configura para la integración continua con la ranura de ensayo.
+* El ensayo y la producción se implementan como dos ranuras de la misma aplicación de Servicio de aplicaciones. La rama principal se configura para la integración continua con la ranura de ensayo.
 * Cuando una confirmación en la rama principal se comprueba en la ranura de ensayo (con datos de producción), la aplicación de ensayo comprobada se cambia a la ranura de producción [sin tiempo de inactividad](web-sites-staged-publishing.md).
 
 El entorno de producción y ensayo se define mediante la plantilla que se encuentra en [*&lt;ráiz_repositorio>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json).
@@ -75,7 +75,7 @@ También usará la estrategia de ramas típica, donde el código se mueve de la 
 > * Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/) : obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y usar servicios gratuitos de Azure, tales como Aplicaciones web.
 > * Puede [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) : su suscripción a Visual Studio le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
 > 
-> Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
@@ -138,7 +138,7 @@ Ahora que tiene una aplicación compleja en ejecución en producción en Azure, 
    * Puede crearlo en cualquier suscripción de Azure. Esto significa que el entorno de producción se puede administrar independientemente del entorno de prueba.
    * El entorno de prueba se ejecuta en directo en Azure.
    * El entorno de prueba es idéntico al entorno de producción, excepto en la configuración de escalado y las ranuras de ensayo. Puede saberlo porque son las únicas diferencias entre ProdandStage.json y Dev.json.
-   * Puede administrar su entorno de prueba en su propio plan de App Service, con un nivel de precio diferente (como **Gratis**).
+   * Puede administrar su entorno de prueba en su propio plan de Servicio de aplicaciones, con un nivel de precio diferente (como **Gratis**).
    * Eliminar este entorno de prueba será tan sencillo como eliminar el grupo de recursos. Encontrará información sobre cómo hacerlo [más adelante](#delete).
 3. Continúe con la creación de una rama de desarrollo ejecutando los comandos siguientes:
    
@@ -265,7 +265,9 @@ Dado que diseñó deliberadamente sus entornos de desarrollo y prueba para que s
     Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
 
 ## <a name="summary"></a>Resumen
-Agile Software Development es un componente indispensable para muchas empresas que desean adoptar Azure como su plataforma de aplicaciones. En este tutorial, aprendió a crear y eliminar cómodamente réplicas exactas o casi réplicas del entorno de producción, incluso con aplicaciones complejas. También aprendió a aprovechar esta posibilidad para crear un proceso de desarrollo capaz de compilar y probar cada una de las confirmaciones en Azure. Es de esperar que este tutorial le muestre cómo puede usar mejor Azure App Service y Azure Resource Manager juntos para crear una solución de DevOps que proporcione metodologías ágiles. Luego, puede basarse en este escenario para realizar técnicas de DevOps avanzadas como [pruebas en producción](app-service-web-test-in-production-get-start.md). Para ver un escenario común de pruebas en producción, consulte [Implementación de la distribución de paquetes piloto (pruebas beta) en Azure App Service](app-service-web-test-in-production-controlled-test-flight.md).
+Agile Software Development es un componente indispensable para muchas empresas que desean adoptar Azure como su plataforma de aplicaciones. En este tutorial, aprendió a crear y eliminar cómodamente réplicas exactas o casi réplicas del entorno de producción, incluso con aplicaciones complejas. También aprendió a aprovechar esta posibilidad para crear un proceso de desarrollo capaz de compilar y probar cada una de las confirmaciones en Azure. Es de esperar que este tutorial le muestre cómo puede usar mejor el Servicio de aplicaciones de Azure y el Administrador de recursos de Azure juntos para crear una solución de DevOps que proporcione metodologías ágiles. 
+
+<!-- Next, you can build on this scenario by performing advanced DevOps techniques such as testing in production. For a common testing-in-production scenario, see [Flighting deployment (beta testing) in Azure App Service](app-service-web-test-in-production-controlled-test-flight.md). -->
 
 ## <a name="more-resources"></a>Más recursos
 * [Implementación predecible de una aplicación compleja en Azure](app-service-deploy-complex-application-predictably.md)

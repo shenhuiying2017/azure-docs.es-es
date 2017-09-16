@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: eac9c5b0d8d0f7802d88e6f4f27d9d23c406e025
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 17d046f4f5291233cc5dc29c96e2b68d767d5750
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="build-a-hyper-scale-web-app-in-azure"></a>Creación de una aplicación web a gran escala en Azure
@@ -66,16 +65,16 @@ Y los métodos `About()` y `Contact()` almacenan en caché sus resultados.
 En este paso, creará una aplicación web de Azure e implementará en ella su aplicación ASP.NET de ejemplo.
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos   
-Use [az group create](https://docs.microsoft.com/cli/azure/group#create) para crear un [grupo de recursos](../azure-resource-manager/resource-group-overview.md) en la región de Europa Occidental. Un grupo de recursos es el lugar donde se colocan todos los recursos de Azure que se quieren administrar juntos, como la aplicación web y el back-end de SQL Database.
+Use [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) para crear un [grupo de recursos](../azure-resource-manager/resource-group-overview.md) en la región de Europa Occidental. Un grupo de recursos es el lugar donde se colocan todos los recursos de Azure que se quieren administrar juntos, como la aplicación web y el back-end de SQL Database.
 
 ```azurecli
 az group create --location "West Europe" --name myResourceGroup
 ```
 
-Para ver qué valores posibles puede usar para `---location`, use el comando [az appservice list-locations](https://docs.microsoft.com/en-us/cli/azure/appservice#list-locations).
+Para ver qué valores posibles puede usar para `---location`, use el comando [az appservice list-locations](https://docs.microsoft.com/en-us/cli/azure/appservice#az_appservice_list_locations).
 
 ### <a name="create-an-app-service-plan"></a>Creación de un plan del Servicio de aplicaciones
-Use [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan#create) para crear un [plan de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) "B1". 
+Use [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan#az_appservice_plan_create) para crear un [plan de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) "B1". 
 
 ```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
@@ -83,10 +82,10 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 Un plan de App Service es una unidad de escalado que puede incluir un número cualesquiera de aplicaciones que quiera escalar vertical u horizontalmente juntas sobre la misma infraestructura de App Service. A cada plan se le asigna también un [plan de tarifa](https://azure.microsoft.com/en-us/pricing/details/app-service/). Los niveles superiores incluyen mejor hardware y más características, por ejemplo, más instancias de escalado horizontal.
 
-En este tutorial, B1 es el nivel mínimo que permite el escalado horizontal a tres instancias. Siempre puede subir o bajar el plan de tarifa de su aplicación en otro momento con el comando [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update). 
+En este tutorial, B1 es el nivel mínimo que permite el escalado horizontal a tres instancias. Siempre puede subir o bajar el plan de tarifa de su aplicación en otro momento con el comando [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_update). 
 
 ### <a name="create-a-web-app"></a>Creación de una aplicación web
-Use [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#create) para crear una aplicación web con un nombre único en `$appName`.
+Use [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_create) para crear una aplicación web con un nombre único en `$appName`.
 
 ```azurecli
 $appName = "<replace-with-a-unique-name>"
@@ -94,14 +93,14 @@ az appservice web create --name $appName --resource-group myResourceGroup --plan
 ```
 
 ### <a name="set-deployment-credentials"></a>Configurar credenciales de implementación
-Use [az appservice web deployment user set](https://docs.microsoft.com/en-us/cli/azure/appservice/web/deployment/user#set) para establecer las credenciales de implementación de nivel de cuenta para App Service.
+Use [az appservice web deployment user set](https://docs.microsoft.com/en-us/cli/azure/appservice/web/deployment/user#az_appservice_web_deployment_user_set) para establecer las credenciales de implementación de nivel de cuenta para App Service.
 
 ```azurecli
 az appservice web deployment user set --user-name <letters-numbers> --password <mininum-8-char-captital-lowercase-letters-numbers>
 ```
 
 ### <a name="configure-git-deployment"></a>Configuración de la implementación de Git
-Use [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#config-local-git) para configurar la implementación de Git local.
+Use [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config_local_git) para configurar la implementación de Git local.
 
 ```azurecli
 az appservice web source-control config-local-git --name $appName --resource-group myResourceGroup
@@ -131,7 +130,7 @@ git push azure master
 Cuando se le solicite una contraseña, use la contraseña que especificó cuando ejecutó `az appservice web deployment user set`.
 
 ### <a name="browse-to-azure-web-app"></a>Navegación hasta la aplicación web de Azure
-Use [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#browse) para ver la aplicación en funcionamiento en Azure.
+Use [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_browse) para ver la aplicación en funcionamiento en Azure.
 
 ```azurecli
 az appservice web browse --name $appName --resource-group myResourceGroup
@@ -141,7 +140,7 @@ az appservice web browse --name $appName --resource-group myResourceGroup
 En este paso, configurará Azure Redis Cache como una caché externa colocada en la aplicación web de Azure. Rápidamente, puede usar Redis para almacenar en caché la salida de la página. Además, al escalar horizontalmente las aplicaciones web más adelante, Redis le ayuda a conservar las sesiones de usuario entre varias instancias de forma confiable.
 
 ### <a name="create-an-azure-redis-cache"></a>Creación de una instancia de Caché en Redis de Azure
-Use [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#create) para crear una instancia de Azure Redis Cache y guardar la salida JSON. Use un nombre único en `$cacheName`.
+Use [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) para crear una instancia de Azure Redis Cache y guardar la salida JSON. Use un nombre único en `$cacheName`.
 
 ```powershell
 $cacheName = "<replace-with-a-unique-cache-name>"
@@ -186,7 +185,7 @@ La aplicación usa ahora Redis para administrar sesiones y almacenamiento en cac
 
 Para que la aplicación funcione en Azure, debe configurar la misma cadena de conexión de Redis en la aplicación web de Azure. Como `redis.config` no se mantiene en el control de código fuente, no se implementa en Azure cuando se ejecuta la implementación de Git.
 
-Use [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) para agregar la cadena de conexión con el mismo nombre (`RedisConnection`).
+Use [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#az_appservice_web_config_appsettings_update) para agregar la cadena de conexión con el mismo nombre (`RedisConnection`).
 
 az appservice web config appsettings update --settings "RedisConnection=$connstring" --name $appName --resource-group myResourceGroup
 
@@ -204,7 +203,7 @@ git push azure master
 Cuando se le solicite una contraseña, use la contraseña que especificó cuando ejecutó `az appservice web deployment user set`.
 
 ### <a name="browse-to-the-azure-web-app"></a>Navegación hasta la aplicación web de Azure
-Use [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#browse) para ver los cambios en vivo en Azure.
+Use [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_browse) para ver los cambios en vivo en Azure.
 
 ```azurecli
 az appservice web browse --name $appName --resource-group myResourceGroup
@@ -213,7 +212,7 @@ az appservice web browse --name $appName --resource-group myResourceGroup
 ## <a name="step-4---scale-to-multiple-instances"></a>Paso 4: Escalado a varias instancias
 El plan de App Service es la unidad de escalado de las aplicaciones web de Azure. Para escalar horizontalmente su aplicación web, escalará el plan de App Service.
 
-Use [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) para escalar horizontalmente el plan de App Service a tres instancias, que es el número máximo permitido por el plan de tarifa B1. Recuerde que B1 es el plan de tarifa que eligió cuando creó anteriormente el plan de App Service. 
+Use [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_update) para escalar horizontalmente el plan de App Service a tres instancias, que es el número máximo permitido por el plan de tarifa B1. Recuerde que B1 es el plan de tarifa que eligió cuando creó anteriormente el plan de App Service. 
 
 ```azurecli
 az appservice plan update --name myAppServicePlan --resource-group myResourceGroup --number-of-workers 3 
@@ -225,13 +224,13 @@ Al escalar geográficamente, ejecutará la aplicación en varias regiones de la 
 En este paso, escalará la aplicación web ASP.NET a una segunda región con [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/). Al final del paso, tendrá una aplicación web que se ejecuta en Europa occidental (ya creada) y una aplicación web que se ejecuta en el Sudeste Asiático (aún no creada). Ambas aplicaciones se atenderán desde la misma dirección URL de Traffic Manager.
 
 ### <a name="scale-up-the-europe-app-to-standard-tier"></a>Escalado vertical de la aplicación de Europa al nivel Estándar
-En App Service, la integración con Azure Traffic Manager requiere el plan de tarifa Estándar. Use [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) para escalar verticalmente su plan de App Service a S1. 
+En App Service, la integración con Azure Traffic Manager requiere el plan de tarifa Estándar. Use [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_update) para escalar verticalmente su plan de App Service a S1. 
 
 ```azurecli
 az appservice plan update --name myAppServicePlan --resource-group myResourceGroup --sku S1
 ```
 ### <a name="create-a-traffic-manager-profile"></a>Crear un perfil de Traffic Manager 
-Use [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#create) para crear un perfil de Traffic Manager y agregarlo a su grupo de recursos. Use un nombre DNS único en $dnsName.
+Use [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_create) para crear un perfil de Traffic Manager y agregarlo a su grupo de recursos. Use un nombre DNS único en $dnsName.
 
 ```azurecli
 $dnsName = "<replace-with-unique-dns-name>"
@@ -242,21 +241,21 @@ az network traffic-manager profile create --name myTrafficManagerProfile --resou
 > `--routing-method Performance` especifica que este perfil [enruta el tráfico del usuario al punto de conexión más cercano](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="get-the-resource-id-of-the-europe-app"></a>Obtención del id. de recurso de la aplicación de Europa
-Use [az appservice web show](https://docs.microsoft.com/en-us/cli/azure/appservice/web#show) para obtener el id. de recurso de la aplicación web.
+Use [az appservice web show](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_show) para obtener el id. de recurso de la aplicación web.
 
 ```azurecli
 $appId = az appservice web show --name $appName --resource-group myResourceGroup --query id --output tsv
 ```
 
 ### <a name="add-a-traffic-manager-endpoint-for-the-europe-app"></a>Adición de un punto de conexión de Traffic Manager para la aplicación de Europa
-Use [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#create) para agregar un punto de conexión a su perfil de Traffic Manager y utilizar el id. de recurso de la aplicación web como destino.
+Use [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_create) para agregar un punto de conexión a su perfil de Traffic Manager y utilizar el id. de recurso de la aplicación web como destino.
 
 ```azurecli
 az network traffic-manager endpoint create --name myWestEuropeEndpoint --profile-name myTrafficManagerProfile --resource-group myResourceGroup --type azureEndpoints --target-resource-id $appId
 ```
 
 ### <a name="get-the-traffic-manager-endpoint-url"></a>Obtención de la dirección URL del punto de conexión de Traffic Manager
-El perfil de Traffic Manager ahora tiene un punto de conexión que apunta a la aplicación web existente. Use [az network traffic-manager profile show](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#show) para obtener su dirección URL. 
+El perfil de Traffic Manager ahora tiene un punto de conexión que apunta a la aplicación web existente. Use [az network traffic-manager profile show](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_show) para obtener su dirección URL. 
 
 ```azurecli
 az network traffic-manager profile show --name myTrafficManagerProfile --resource-group myResourceGroup --query dnsConfig.fqdn --output tsv
@@ -265,7 +264,7 @@ az network traffic-manager profile show --name myTrafficManagerProfile --resourc
 Copie la salida en su explorador. Debería ver la aplicación web nuevo.
 
 ### <a name="create-an-azure-redis-cache-in-asia"></a>Creación de una instancia de Azure Redis Cache en Asia
-Ahora, replicará la aplicación web de Azure en la región del Sudeste Asiático. Para comenzar, use [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#create) para crear una segunda instancia de Azure Redis Cache en el Sudeste Asiático. Esta caché debe estar colocada con su aplicación en Asia.
+Ahora, replicará la aplicación web de Azure en la región del Sudeste Asiático. Para comenzar, use [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) para crear una segunda instancia de Azure Redis Cache en el Sudeste Asiático. Esta caché debe estar colocada con su aplicación en Asia.
 
 ```powershell
 $redis = (az redis create --name $cacheName-asia --resource-group myResourceGroup --location "Southeast Asia" --sku-capacity 0 --sku-family C --sku-name Basic | ConvertFrom-Json)
@@ -274,14 +273,14 @@ $redis = (az redis create --name $cacheName-asia --resource-group myResourceGrou
 `--name $cacheName-asia` proporciona a la caché el nombre de la caché de Europa Occidental, con el sufijo `-asia`.
 
 ### <a name="create-an-app-service-plan-in-asia"></a>Creación de un plan de App Service en Asia
-Use [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) para crear un segundo plan de App Service en la región del Sudeste Asiático, con el mismo nivel S1 que el plan de Europa Occidental.
+Use [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) para crear un segundo plan de App Service en la región del Sudeste Asiático, con el mismo nivel S1 que el plan de Europa Occidental.
 
 ```azurecli
 az appservice plan create --name myAppServicePlanAsia --resource-group myResourceGroup --location "Southeast Asia" --sku S1
 ```
 
 ### <a name="create-a-web-app-in-asia"></a>Creación de una aplicación web en Asia
-Use [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#create) para crear una segunda aplicación web.
+Use [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_create) para crear una segunda aplicación web.
 
 ```azurecli
 az appservice web create --name $appName-asia --resource-group myResourceGroup --plan myAppServicePlanAsia
@@ -290,12 +289,12 @@ az appservice web create --name $appName-asia --resource-group myResourceGroup -
 `--name $appName-asia` proporciona a la aplicación el nombre de la aplicación de Europa occidental, con el sufijo `-asia`.
 
 ### <a name="configure-the-connection-string-for-redis"></a>Configuración de la cadena de conexión para Redis
-Use [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) para agregar a la aplicación web la cadena de conexión de la caché del Sudeste Asiático.
+Use [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#az_appservice_web_config_appsettings_update) para agregar a la aplicación web la cadena de conexión de la caché del Sudeste Asiático.
 
 az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-asia --resource-group myResourceGroup
 
 ### <a name="configure-git-deployment-for-the-asia-app"></a>Configuración de la implementación de Git para la aplicación de Asia.
-Use [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#config-local-git) para configurar la implementación de Git local de la segunda aplicación web.
+Use [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config_local_git) para configurar la implementación de Git local de la segunda aplicación web.
 
 ```azurecli
 az appservice web source-control config-local-git --name $appName-asia --resource-group myResourceGroup
@@ -325,28 +324,28 @@ git push azure-asia master
 Cuando se le solicite una contraseña, use la contraseña que especificó cuando ejecutó `az appservice web deployment user set`.
 
 ### <a name="browse-to-the-asia-app"></a>Navegación a la aplicación de Asia
-Use [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#browse) para comprobar que su aplicación está en funcionamiento en Azure.
+Use [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_browse) para comprobar que su aplicación está en funcionamiento en Azure.
 
 ```azurecli
 az appservice web browse --name $appName-asia --resource-group myResourceGroup
 ```
 
 ### <a name="get-the-resource-id-of-the-asia-app"></a>Obtención del id. de recurso de la aplicación de Asia
-Use [az appservice web show](https://docs.microsoft.com/en-us/cli/azure/appservice/web#show) para obtener el id. de recurso de la aplicación web del Sudeste Asiático.
+Use [az appservice web show](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_show) para obtener el id. de recurso de la aplicación web del Sudeste Asiático.
 
 ```azurecli
 $appIdAsia = az appservice web show --name $appName-asia --resource-group myResourceGroup --query id --output tsv
 ```
 
 ### <a name="add-a-traffic-manager-endpoint-for-the-asia-app"></a>Adición de un punto de conexión de Traffic Manager para la aplicación de Asia
-Use [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#create) para agregar un segundo punto de conexión al perfil de Traffic Manager.
+Use [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_create) para agregar un segundo punto de conexión al perfil de Traffic Manager.
 
 ```azurecli
 az network traffic-manager endpoint create --name myAsiaEndpoint --profile-name myTrafficManagerProfile --resource-group myResourceGroup --type azureEndpoints --target-resource-id $appIdAsia
 ```
 
 ### <a name="add-region-identifier-to-web-apps"></a>Adición del identificador de región a las aplicaciones web
-Use [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) para agregar una variable de entorno específica de una región.
+Use [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#az_appservice_web_config_appsettings_update) para agregar una variable de entorno específica de una región.
 
 ```azurecli
 az appservice web config appsettings update --settings "Region=West Europe" --name $appName --resource-group myResourceGroup

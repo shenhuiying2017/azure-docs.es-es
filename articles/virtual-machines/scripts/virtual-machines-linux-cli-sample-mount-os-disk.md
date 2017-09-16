@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: fca1844657821a8ce20deefe0056321c365ce689
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c32ea5e6cade34a9c8dac0eab523ebcaa10ef039
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -42,11 +42,11 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una má
 
 | Comando | Notas |
 |---|---|
-| [az vm show](https://docs.microsoft.com/cli/azure/vm#show) | Devuelve una lista de máquinas virtuales. En este caso, la opción de consulta se utiliza para devolver el disco de sistema operativo de la máquina virtual. Este valor se agrega, posteriormente, a un nombre de variable "uri". |
-| [az vm delete](https://docs.microsoft.com/cli/azure/vm#delete) | Elimina una máquina virtual. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Crea una máquina virtual.  |
-| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) | Conecta un disco a una máquina virtual. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | Devuelve las direcciones IP de una máquina virtual. |
+| [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | Devuelve una lista de máquinas virtuales. En este caso, la opción de consulta se utiliza para devolver el disco de sistema operativo de la máquina virtual. Este valor se agrega, posteriormente, a un nombre de variable "uri". |
+| [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | Elimina una máquina virtual. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Crea una máquina virtual.  |
+| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) | Conecta un disco a una máquina virtual. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list_ip_addresses) | Devuelve las direcciones IP de una máquina virtual. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

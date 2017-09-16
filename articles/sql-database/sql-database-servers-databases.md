@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 07/19/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 8a44f10eda396aec72e05e87e406ff80834294d8
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 4585be186554d5d7aa9bc79029b6f8506b278701
 ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -87,11 +87,7 @@ Puede crear el grupo de recursos de la base de datos SQL de Azure con antelació
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>Creación de un servidor SQL en blanco (servidor lógico)
 
-Para crear un servidor de Azure SQL Database (sin una base de datos) en [Azure Portal](https://portal.azure.com), vaya a un formulario de SQL Server (servidor lógico). En la captura de pantalla siguiente se muestra un método para abrir un formulario para crear un servidor lógico SQL Server en blanco. 
-
-   ![formulario de creación de servidor lógico completado](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
-
-Si accede a este formulario mediante otro método, la información del formulario es idéntica.
+Para crear un servidor de Azure SQL Database (sin una base de datos) en [Azure Portal](https://portal.azure.com), vaya a un formulario de SQL Server (servidor lógico).  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>Creación de una base de datos SQL de ejemplo o en blanco
 
@@ -105,9 +101,7 @@ Para crear una base de datos de Azure SQL Database en [Azure Portal](https://por
 
 ### <a name="manage-an-existing-sql-server"></a>Administración de un servidor SQL Server existente
 
-Para administrar un servidor existente, vaya al servidor mediante una serie de métodos, como la página específica de SQL Database, la página de **Servidores SQL Server** o la página de **Todos los recursos**. En la captura de pantalla siguiente se muestra cómo empezar a configurar un firewall de nivel de servidor desde la página de **información general** de un servidor. 
-
-   ![información general del servidor lógico](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
+Para administrar un servidor existente, vaya al servidor mediante una serie de métodos, como la página específica de SQL Database, la página de **Servidores SQL Server** o la página de **Todos los recursos**. 
 
 Para administrar una base de datos existente, vaya a la página de **SQL Database** y haga clic en la base de datos que desea administrar. En la captura de pantalla siguiente se muestra cómo empezar a configurar un firewall de nivel de servidor para una base de datos desde la página de **información general** de una base de datos. 
 

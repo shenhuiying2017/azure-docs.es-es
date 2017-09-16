@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 05062d7396bdbb3e589d2ab5f0443d1dca54342a
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 5050b442540632086eda80bd7fecaf2beb8ddb50
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-webjobs-documentation-resources"></a>Recursos de documentación de WebJobs de Azure
@@ -69,7 +69,7 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 
 ## <a name="schedule"></a>Programación de WebJobs
 * [Cuadro de diálogo Agregar WebJob de Azure](websites-dotnet-deploy-webjobs.md#configure)
-* [Creación de un WebJob programado en el Portal de Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Creación de un WebJob programado en el Portal de Azure](web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [Enlace de un trabajo del programador con un WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Programación de WebJobs de Azure con expresiones cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Programación de funciones individuales de WebJob con el SDK de WebJobs TimerTrigger](websites-dotnet-webjobs-sdk.md#schedule)

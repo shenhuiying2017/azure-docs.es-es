@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 5d057eaf32867aedc95d58c5185e2be1f9385ec0
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -51,9 +51,9 @@ Cada comando de la tabla crea un vínculo a documentación específica del coman
 
 | Comando | Notas |
 |---|---|
-| [az batch application create](https://docs.microsoft.com/cli/azure/batch/application#create) | Crea una aplicación.  |
-| [az batch application set](https://docs.microsoft.com/cli/azure/batch/application#set) | Actualiza las propiedades de una aplicación.  |
-| [az batch application package create](https://docs.microsoft.com/cli/azure/batch/application/package#create) | Agrega un paquete de aplicación a la aplicación especificada.  |
+| [az batch application create](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_create) | Crea una aplicación.  |
+| [az batch application set](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_set) | Actualiza las propiedades de una aplicación.  |
+| [az batch application package create](https://docs.microsoft.com/cli/azure/batch/application/package#az_batch_application_package_create) | Agrega un paquete de aplicación a la aplicación especificada.  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

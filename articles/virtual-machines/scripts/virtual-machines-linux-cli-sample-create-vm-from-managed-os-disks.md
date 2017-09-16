@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 2611698d70a1a5963abaa55c8e9510469c7aa097
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 2141ea4fd25dfc69ada02c54c4f6b6b717b8e7db
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -53,8 +53,8 @@ Este script usa los siguientes comandos para obtener las propiedades del disco a
 
 | Comando | Notas |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#show) | Obtiene propiedades del disco administrado mediante el nombre del disco y el nombre del grupo de recursos. La propiedad de identificador se utiliza para conectar un disco administrado a una nueva máquina virtual |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Crea una máquina virtual con un disco del SO administrado. |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Obtiene propiedades del disco administrado mediante el nombre del disco y el nombre del grupo de recursos. La propiedad de identificador se utiliza para conectar un disco administrado a una nueva máquina virtual |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Crea una máquina virtual con un disco del SO administrado. |
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).

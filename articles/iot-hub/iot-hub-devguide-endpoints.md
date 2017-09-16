@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 93ada731fe70cf7d294537241f8104c0b89940ed
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: a5753df2ff6874d9574e268953792cac9765cc54
 ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
@@ -50,8 +50,6 @@ En la lista siguiente se describen los puntos de conexión:
   * *Recepción de solicitudes de métodos directos*. Un dispositivo usa este punto de conexión para escuchar solicitudes de [métodos directos][lnk-methods].
 
     Estos puntos de conexión se exponen mediante los protocolos[ MQTT v3.1.1][lnk-mqtt], HTTP 1.1 y [AMQP 1.0][lnk-amqp]. AMQP también está disponible sobre [WebSockets][lnk-websockets] en el puerto 443.
-
-    Los puntos de conexión de métodos y dispositivos gemelos están disponibles solo cuando se usa el protocolo [MQTT v3.1.1][lnk-mqtt].
 
 * **Puntos de conexión de servicio**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión que el back-end de solución para comunicarse con los dispositivos. Con una excepción, estos puntos de conexión solo se muestran con el protocolo [AMQP][lnk-amqp]. El punto de conexión de invocación de método se muestra en el protocolo HTTP.
   

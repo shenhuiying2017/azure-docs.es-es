@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 61396e8a3521c25eaf49c66a4948e520377d342a
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6bbbe61469363bc3a44adce8ceb632a7eb620a3e
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar una aplicación en Azure
@@ -80,8 +80,8 @@ Desplácese hacia abajo para buscar la operación de restauración deseada y hag
 
 La hoja de detalles muestra la información disponible relacionada con la operación de restauración.
 
-## <a name="next-steps"></a>Pasos siguientes
-Puede crear una copia de seguridad de las aplicaciones de App Service y restaurar dicha copia mediante la API de REST (vea [Uso de REST para copia de seguridad y restauración de aplicaciones de App Service](websites-csm-backup.md)).
+<!-- ## Next Steps
+You can backup and restore App Service apps using REST API. -->
 
 
 <!-- IMAGES -->

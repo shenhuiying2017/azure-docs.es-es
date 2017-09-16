@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Creación y administración de máquinas virtuales Linux con la CLI de Azure | Microsoft Docs"
 description: "Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure"
 services: virtual-machines-linux
@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c163c715eb1438a0d6b0ab53cbb43816ca8dbbb4
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -42,7 +42,7 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](https://docs.microsoft.com/cli/azure/group#create). 
+Cree un grupo de recursos con el comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
 
 Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se debe crear un grupo de recursos antes de una máquina virtual. En este ejemplo, se crea un grupo de recursos denominado *myResourceGroupVM* en la región *eastus*. 
 
@@ -54,7 +54,7 @@ Se especifica el grupo de recursos al crear o modificar una máquina virtual, co
 
 ## <a name="create-virtual-machine"></a>Crear máquina virtual
 
-Cree la máquina virtual con el comando [az vm create](https://docs.microsoft.com/cli/azure/vm#create). 
+Cree la máquina virtual con el comando [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
 
 Al crear una máquina virtual, están disponibles varias opciones, como la imagen de sistema operativo, tamaño de disco y credenciales administrativas. En este ejemplo, se crea una máquina virtual llamada *myVM* que se ejecuta en Ubuntu. 
 
@@ -62,7 +62,7 @@ Al crear una máquina virtual, están disponibles varias opciones, como la image
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Una vez creada la máquina virtual, la CLI de Azure ofrece como salida información sobre la máquina virtual. Tome nota de `publicIpAddress`; una dirección que se puede usar para acceder a la máquina virtual. 
+La creación de la máquina virtual puede tardar unos minutos. Una vez creada la máquina virtual, la CLI de Azure ofrece como salida información sobre la máquina virtual. Tome nota de `publicIpAddress`; una dirección que se puede usar para acceder a la máquina virtual. 
 
 ```azurecli-interactive 
 {
@@ -79,13 +79,13 @@ Una vez creada la máquina virtual, la CLI de Azure ofrece como salida informaci
 
 ## <a name="connect-to-vm"></a>Conexión con una máquina virtual
 
-Ahora puede conectarse con la máquina virtual mediante SSH. Reemplace la dirección IP de ejemplo por la dirección `publicIpAddress` que anotó en el paso anterior.
+Ahora puede conectarse a la máquina virtual mediante SSH en Azure Cloud Shell o desde un equipo local. Reemplace la dirección IP de ejemplo por la dirección `publicIpAddress` que anotó en el paso anterior.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-Una vez que termine con la máquina virtual, cierre la sesión de SSH. 
+Una vez que inicia sesión en la máquina virtual, puede instalar y configurar las aplicaciones. Cuando haya terminado, cierre la sesión SSH como normal:
 
 ```bash
 exit
@@ -208,7 +208,11 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>Cambiar el tamaño de una máquina virtual
 
-Una vez implementada una máquina virtual, se puede cambiar su tamaño para aumentar o disminuir la asignación de recursos.
+Una vez implementada una máquina virtual, se puede cambiar su tamaño para aumentar o disminuir la asignación de recursos. El tamaño actual de una máquina virtual se puede ver con [az vm show](/cli/azure/vm#show):
+
+```azurecli-interactive
+az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
+```
 
 Antes de cambiar el tamaño de una máquina virtual, compruebe si el tamaño deseado está disponible en el clúster de Azure actual. El comando [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) devuelve la lista de tamaños. 
 
@@ -300,7 +304,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>Eliminación de un grupo de recursos
 
-Al eliminar un grupo de recursos se eliminan también todos los recursos contenidos en el mismo.
+Al eliminar un grupo de recursos, también se eliminan todos los recursos que contiene, como la máquina virtual, la red virtual y el disco. El parámetro `--no-wait` devuelve el control a la petición de confirmación sin esperar a que finalice la operación. El parámetro `--yes` confirma que desea eliminar los recursos sin pedir confirmación adicional.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes

@@ -17,10 +17,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 68e17ae9e5d82da7f9be9d36e3e2324a2aeadbc4
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 26bddc69c7ff4854c84832ec924ab46ea342f1f4
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,8 +44,8 @@ Este script usa los siguientes comandos para crear un disco administrado a parti
 
 | Comando | Notas |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#show) | Obtiene todas las propiedades de una instantánea usando las propiedades de nombre y grupo de recursos de la instantánea. La propiedad de identificador se utiliza para crear disco administrado.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Crea un disco administrado usando un identificador de una instantánea administrada |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Obtiene todas las propiedades de una instantánea usando las propiedades de nombre y grupo de recursos de la instantánea. La propiedad de identificador se utiliza para crear disco administrado.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Crea un disco administrado usando un identificador de una instantánea administrada |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

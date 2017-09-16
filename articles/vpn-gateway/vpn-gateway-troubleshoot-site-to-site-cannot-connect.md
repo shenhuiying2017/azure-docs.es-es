@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/21/2017
+ms.date: 09/13/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: e7a3da64895f0307e5d6c3563672205a2f93a7d2
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 2411b2ccd30f2155164d65272f999fdd1f6ba760
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -46,7 +46,7 @@ Comprobación del tipo de la puerta de enlace de VPN de Azure.
 
 1. Compruebe si está usando una [versión del sistema operativo y dispositivo VPN validada](vpn-gateway-about-vpn-devices.md#devicetable). Si el dispositivo no es un dispositivo VPN validado, tendrá que ponerse en contacto con el fabricante del dispositivo para ver si hay algún problema de compatibilidad.
 
-2. Asegúrese de que el dispositivo VPN esté configurado correctamente. Para más información, consulte [Ejemplos de edición de configuración de dispositivos](/vpn-gateway-about-vpn-devices.md#editing).
+2. Asegúrese de que el dispositivo VPN esté configurado correctamente. Para más información, consulte [Ejemplos de edición de configuración de dispositivos](vpn-gateway-about-vpn-devices.md#editing).
 
 ### <a name="step-2-verify-the-shared-key"></a>Paso 2: Compruebe la clave compartida
 

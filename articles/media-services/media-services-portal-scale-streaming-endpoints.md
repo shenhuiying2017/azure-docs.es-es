@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 09/10/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 76de1d40e8c24abda33e99a137f4a6c263f60a8b
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 156c5d0b007e33a9181d2847fc7b517c6f816494
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Escalado de puntos de conexión de streaming con el Portal de Azure
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/06/2017
 > 
 > 
 
-Los puntos de conexión de streaming **Premium** son adecuados para cargas de trabajo avanzadas y proporcionan una capacidad de ancho de banda dedicada y escalable. Los clientes que tienen un punto de conexión de streaming **Premium**, de forma predeterminada, obtienen una unidad de streaming (SU). El punto de conexión de streaming puede ampliarse agregando unidades de streaming. Cada unidad de streaming proporciona capacidad de ancho de banda adicional a la aplicación. Para obtener más información acerca de los puntos de conexión de streaming y la configuración de la red CDN, vea el tema [Streaming Endpoint overview](media-services-portal-manage-streaming-endpoints.md) (Información general de puntos de conexión de streaming).
+Los puntos de conexión de streaming **Premium** son adecuados para cargas de trabajo avanzadas y proporcionan una capacidad de ancho de banda dedicada y escalable. Los clientes que tienen un punto de conexión de streaming **Premium**, de forma predeterminada, obtienen una unidad de streaming (SU). El punto de conexión de streaming puede ampliarse agregando unidades de streaming. Cada unidad de streaming proporciona capacidad de ancho de banda adicional a la aplicación. Para obtener más información acerca de los puntos de conexión de streaming y la configuración de la red CDN, vea el tema [Streaming Endpoint overview](media-services-streaming-endpoints-overview.md) (Información general de puntos de conexión de streaming).
  
 Este tema muestra cómo escalar un punto de conexión de streaming.
 
@@ -43,7 +43,8 @@ Para crear y cambiar el número de unidades de streaming, haga lo siguiente:
 2. En la ventana **Configuración**, haga clic en **Extremos de streaming**.
 3. Haga clic en el punto de conexión de streaming que desea modificar. 
 
-    [!NOTE] Solo puede escalar puntos de conexión de streaming **Premium**.
+    > [!NOTE] 
+    > Solo puede escalar puntos de conexión de streaming **Premium**.
 
 4. Mueva el control deslizante para especificar el número de unidades de streaming.
 

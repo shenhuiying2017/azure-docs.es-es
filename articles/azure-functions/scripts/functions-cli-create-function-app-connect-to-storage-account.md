@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 36dbc2c181c9991a27163e3194800f63c6c0e01e
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: af90702601d1bd05836dbf2b20cd3e318832b07c
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="integrate-function-app-into-azure-storage-account"></a>Integración de Function App en una cuenta de almacenamiento de Azure
@@ -53,10 +53,10 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | Comando | Notas |
 |---|---|
 | [az login](https://docs.microsoft.com/cli/azure/#login) | Inicie sesión en Azure. |
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crea un grupo de recursos con una ubicación. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crea un grupo de recursos con una ubicación. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Crear una cuenta de almacenamiento |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Crea una nueva instancia de Function App. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Limpieza |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Crea una nueva instancia de Function App. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Limpieza |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

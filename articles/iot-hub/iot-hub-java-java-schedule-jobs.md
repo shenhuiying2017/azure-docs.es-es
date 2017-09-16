@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 003a548ef2da2921a699df1aa9f7aee366d341ab
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 9009afc83b40064c6dbf10100f514c681af9b96b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Programación y difusión de trabajos (Java)
@@ -349,7 +349,7 @@ En esta sección, creará una aplicación de consola de Java que controla las pr
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    Esta aplicación de ejemplo usa la variable **protocol** al crear una instancia de un objeto **DeviceClient**. Actualmente, para usar características de dispositivos gemelos, debe usar el protocolo MQTT.
+    Esta aplicación de ejemplo usa la variable **protocol** al crear una instancia de un objeto **DeviceClient**.
 
 1. Para imprimir las notificaciones de dispositivos gemelos en la consola, agregue la siguiente clase anidada a la clase **App**:
 

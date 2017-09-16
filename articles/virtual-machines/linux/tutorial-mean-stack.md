@@ -17,10 +17,10 @@ ms.date: 08/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 892d3481b4ec70fb8434cb25013c5cfd8ab85051
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -43,7 +43,7 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 ## <a name="create-a-linux-vm"></a>Creación de una máquina virtual Linux
 
-Cree un grupo de recursos con el comando [az group create](https://docs.microsoft.com/cli/azure/group#create) y una máquina virtual Linux con el comando [az vm create](https://docs.microsoft.com/cli/azure/vm#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+Cree un grupo de recursos con el comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) y una máquina virtual Linux con el comando [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
 En el ejemplo siguiente, se usa la CLI de Azure para crear un grupo de recursos denominado *myResourceGroupMEAN* en la ubicación *eastus*. También se crea una máquina virtual denominada *myVM* con claves SSH, si aún no existen en una ubicación de claves predeterminada. Para utilizar un conjunto específico de claves, utilice la opción --ssh-key-value.
 

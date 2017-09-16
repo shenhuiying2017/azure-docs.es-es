@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/22/2017
 ms.author: eugenesh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 023c343122f872943fb3ab3eed7b4caedfae9ac4
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -28,21 +28,7 @@ En este artículo se explica cómo usar Búsqueda de Azure para indexar document
 ## <a name="supported-document-formats"></a>Formatos de documento admitidos
 El indexador de blob puede extraer texto de los siguientes formatos de documento:
 
-* PDF
-* Formatos de Microsoft Office: DOC/DOCX XLSX, XLS y PPTX/PPT, MSG (correos electrónicos de Outlook)  
-* HTML
-* XML
-* ZIP
-* EML
-* RTF
-* Archivos de texto sin formato (vea también [Indexing plain text (Indexación de texto sin formato)](#IndexingPlainText))
-* JSON (vea [Indexación de blobs JSON](search-howto-index-json-blobs.md))
-* CSV (consulte la característica [Indexación de blobs CSV](search-howto-index-csv-blobs.md) en versión preliminar)
-
-> [!IMPORTANT]
-> La compatibilidad con matrices CSV y JSON está actualmente en fase de versión preliminar. Estos formatos solo están disponibles con la versión **2016-09-01-Preview** de la API de REST o una versión preliminar 2.x del SDK de .NET. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
->
->
+[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## <a name="setting-up-blob-indexing"></a>Configuración de la indexación de blob
 Puede configurar un indexador de Azure Blob Storage utilizando:

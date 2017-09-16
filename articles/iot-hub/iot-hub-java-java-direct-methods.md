@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 5fa42c4fe7ad04bc74f70b023715bb61f81806ab
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 4fb759ecd7767c126bc22165494652039ba1caa4
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="use-direct-methods-java"></a>Uso de métodos directos (Java)
@@ -111,7 +111,7 @@ En esta sección, creará una aplicación de consola de Java que responda a un m
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    Esta aplicación de ejemplo usa la variable **protocol** al crear una instancia de un objeto **DeviceClient**. Actualmente, si desea usar métodos directos, debe usar el protocolo MQTT.
+    Esta aplicación de ejemplo usa la variable **protocol** al crear una instancia de un objeto **DeviceClient**. 
 
 1. Agregue la clase anidada siguiente a la clase **App** para devolver un código de estado a la instancia de IoT Hub:
 

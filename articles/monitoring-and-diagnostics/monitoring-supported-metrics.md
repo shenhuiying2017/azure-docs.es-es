@@ -2,7 +2,7 @@
 title: "Métricas de Azure Monitor admitidas por tipo de recurso | Microsoft Docs"
 description: "Lista de métricas disponibles para cada tipo de recurso con Azure Monitor."
 author: anirudhcavale
-manager: orenr
+manager: ashwink
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/31/2017
+ms.date: 9/6/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 83a32dba7b74a303b7fd2167b5fc41212087f8ca
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6f40f0cdb998bda9d936ecf87089e85713ed9e1b
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
@@ -295,18 +295,6 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |percentProcessorTime9|CPU (partición 9)|Percent|Máxima||
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
-
-|Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
-|---|---|---|---|---|
-|Porcentaje de CPU|Porcentaje de CPU|Percent|Media|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente.|
-|Red interna|Red interna|Bytes|Total|El número de bytes recibidos en todas las interfaces de red por las máquinas virtuales (tráfico entrante).|
-|Red externa|Red externa|Bytes|Total|El número de bytes enviados en todas las interfaces de red por las máquinas virtuales (tráfico saliente).|
-|Bytes de lectura de disco/seg|Lectura de disco|BytesPerSecond|Media|Promedio de bytes que se leen desde el disco durante el período de supervisión.|
-|Bytes de escritura en disco/seg|Escritura de disco|BytesPerSecond|Media|Promedio de bytes que se escriben en el disco durante el período de supervisión.|
-|Operaciones de lectura de disco por segundo|Operaciones de lectura de disco por segundo|CountPerSecond|Media|E/S por segundo de lectura de disco.|
-|Operaciones de escritura por segundo en disco|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco.|
-
-## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
 |---|---|---|---|---|

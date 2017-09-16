@@ -12,19 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 09/08/2017
 ms.author: delhan
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 9b3a8b964ec2f75c53c03b5099dc1e1eb7d77c65
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
-
-## <a name="introduction"></a>Introducción
 
 El Explorador de Microsoft Azure Storage (versión preliminar) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux. La aplicación puede conectarse a las cuentas de Storage hospedadas en Azure, nubes independientes y Azure Stack.
 
@@ -32,7 +30,7 @@ Esta guía resume las soluciones para problemas comunes en el Explorador de Stor
 
 ## <a name="sign-in-issues"></a>Problemas de inicio de sesión
 
-Solo se admiten las cuentas de Azure Active Directory (AAD). Si usa una cuenta de AD FS, se espera que el inicio de sesión en el Explorador de Storage no funcione. Antes de continuar, pruebe a reiniciar la aplicación para ver si se pueden corregir los problemas.
+Antes de continuar, pruebe a reiniciar la aplicación para ver si se pueden corregir los problemas.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Error: Certificado autofirmado de cadena de certificados
 
@@ -69,7 +67,7 @@ Si no se encuentra ningún certificado autofirmado siguiendo los pasos anteriore
 
 Si no puede recuperar las suscripciones después de iniciar la sesión correctamente, siga estos pasos para solucionar este problema:
 
-- Verifique que la cuenta tiene acceso a las suscripciones al iniciar sesión en Azure Portal.
+- Compruebe que la cuenta tiene acceso a las suscripciones al iniciar sesión en el Azure Portal.
 
 - Asegúrese de que ha iniciado sesión usando el entorno correcto (Azure, Azure China, Azure Alemania, Azure US Government, o entorno personalizado o Azure Stack).
 

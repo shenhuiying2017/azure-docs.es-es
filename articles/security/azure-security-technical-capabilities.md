@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2983ce5c068e5188fb70ffc9443ce58d6c188c50
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 268299d82ce79b10eb8061467f4bad61194457f8
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
@@ -344,7 +344,7 @@ Azure dispone también de varias características fáciles de usar que contribuy
 
 - [Conectar de forma segura la aplicación con los recursos de una red privada mediante VPN de punto a sitio](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
 
-- [Conectar de forma segura la aplicación con los recursos de una red privada mediante conexiones híbridas](https://docs.microsoft.com/azure/app-service-web/web-sites-hybrid-connection-get-started)
+- [Conectar de forma segura la aplicación con los recursos de una red privada mediante conexiones híbridas](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
 El Servicio de aplicaciones de Azure usa la misma solución antimalware que usan los Servicios en la nube de Azure y Máquinas virtuales. Para obtener más información al respecto, consulte nuestra [documentación sobre antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
 

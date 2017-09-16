@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1549eb40b0ca79522cc5475057c3af7ff4c7fd1c
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 52c04b234d460a62daf4b067a5d322af144f15f6
+ms.contentlocale: es-es
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Concesión de permisos para que muchas aplicaciones tengan acceso a almacén de claves
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/27/2017
 La directiva de control de acceso de Key Vault solo admite 16 entradas. Sin embargo, puede crear un grupo de seguridad de Azure Active Directory. Agregue todas las entidades de servicio asociadas a este grupo de seguridad y, luego, conceda acceso a este grupo de seguridad a Key Vault.
 
 Instalación de los requisitos previos:
-* [Instale el módulo PowerShell de Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
+* [Instale el módulo PowerShell de Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureAD).
 * [Instale Azure PowerShell](/powershell/azure/overview).
 * Para ejecutar los siguientes comandos, necesita permisos para crear y editar grupos en el inquilino de Azure Active Directory. Si no tiene permisos, debe ponerse en contacto con el administrador de Azure Active Directory.
 

@@ -17,10 +17,10 @@ ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3fe8390e88e609b57a462e066f972346f8e8730e
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c5eab88f1b2311d52e582a0aa1121c8001437376
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>Supervisión de una máquina virtual Linux en Azure
@@ -49,7 +49,7 @@ Para ver las métricas y los diagnósticos en acción, necesita una máquina vir
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Ahora cree una máquina virtual con el comando [az vm create](https://docs.microsoft.com/cli/azure/vm#create). En el ejemplo siguiente se crea una máquina virtual denominada *myVM*:
+Ahora cree una máquina virtual con el comando [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual denominada *myVM*:
 
 ```azurecli-interactive 
 az vm create \
@@ -82,7 +82,7 @@ Al habilitar los diagnósticos de arranque, se necesita el identificador URI par
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-Habilite ahora los diagnósticos de arranque con [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#enable). El valor `--storage` es el identificador URI del blob que se recopila en el paso anterior.
+Habilite ahora los diagnósticos de arranque con [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). El valor `--storage` es el identificador URI del blob que se recopila en el paso anterior.
 
 ```azurecli-interactive 
 az vm boot-diagnostics enable \
@@ -106,7 +106,7 @@ Ahora inicie la máquina virtual con el comando [az vm start]( /cli/azure/vm#sto
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Puede obtener los datos de los diagnósticos de arranque de *myVM* con el comando [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) como se indica a continuación:
+Puede obtener los datos de los diagnósticos de arranque de *myVM* con el comando [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) como se indica a continuación:
 
 ```azurecli-interactive 
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM

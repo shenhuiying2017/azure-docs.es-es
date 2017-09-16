@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 16cf05f62602e494affed49e466209b68413e53a
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="article-top"></a>Migración del servicio móvil de Azure existente al Servicio de aplicaciones de Azure
@@ -33,7 +33,6 @@ La migración de su servicio móvil de Azure convierte dicho servicio en [Azure 
 Microsoft recomienda migrar el servicio móvil de Azure para aprovechar las características del Servicio de aplicaciones de Azure, como por ejemplo:
 
 * Nuevas características de host, como [WebJobs] y [nombres de dominio personalizados].
-* Conectividad a los recursos locales mediante una [red virtual], además de [conexiones híbridas].
 * Supervisión y solución de problemas con New Relic o [Application Insights].
 * Herramientas integradas de DevOps, entre las que se incluyen [ranuras de ensayo], reversión y pruebas en producción.
 * [Escalado automático], equilibrio de carga y [supervisión del rendimiento].
@@ -389,7 +388,7 @@ Ahora que la aplicación se ha migrado a App Service, hay aún más característ
 [nombres de dominio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
 [disponibilidad general del Servicio de aplicaciones de Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
-[conexiones híbridas]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
 [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [SDK de Node.js de Mobile Apps]: https://github.com/azure/azure-mobile-apps-node
 [Servicios móviles frente al Servicio de aplicaciones]: app-service-mobile-value-prop-migration-from-mobile-services.md
@@ -397,7 +396,7 @@ Ahora que la aplicación se ha migrado a App Service, hay aún más característ
 [supervisión del rendimiento]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [ranuras de ensayo]: ../app-service-web/web-sites-staged-publishing.md
-[red virtual]: ../app-service-web/web-sites-integrate-with-vnet.md
+[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Funciones]: ../azure-functions/functions-overview.md

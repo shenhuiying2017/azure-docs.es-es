@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 1a98509a98bcd2a5de593eb006f905766fe72966
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: bfd970a78becfe3f29518b71c4ece24ada2861b2
 ms.contentlocale: es-es
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="_Toc395783175"></a>Creación de una aplicación web de Node.js con Azure Cosmos DB
@@ -39,17 +39,16 @@ En este tutorial de Node.js se muestra cómo usar Azure Cosmos DB y la API de Do
 
 ## <a name="_Toc395783176"></a>Requisitos previos
 > [!TIP]
-> En este tutorial de Node.js se presupone que tiene experiencia previa con el uso de Node.js y Azure Websites.
+> En este tutorial de Node.js se presupone que tiene experiencia previa con el uso de Node.js y los sitios web de Azure.
 > 
 > 
 
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener lo siguiente:
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
-   OR
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-   Una instalación local del [Emulador de Azure Cosmos DB](local-emulator.md) (solo Windows).
 * [Node.js][Node.js] versión v0.10.29 o superior.
 * [Express Generator](http://www.expressjs.com/starter/generator.html) (puede instalarlo mediante `npm install express-generator -g`)
 * [Git][Git].
@@ -517,8 +516,8 @@ Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
 
 5. Para detener la aplicación, presione CTRL+C en la ventana de terminal y, a continuación, haga clic en **Y** para finalizar el trabajo por lotes.
 
-## <a name="_Toc395783182"></a>Paso 7: Implementación del proyecto de desarrollo de aplicación en Azure Websites
-1. Si todavía no lo ha hecho, habilite un repositorio para el sitio web de Azure. En el tema [Implementación de Git local en Azure App Service](../app-service-web/app-service-deploy-local-git.md) puede encontrar instrucciones para hacerlo.
+## <a name="_Toc395783182"></a>Paso 7: Implementación del proyecto de desarrollo de aplicación en Sitios web de Azure
+1. Si todavía no lo ha hecho, habilite un repositorio para el sitio web de Azure. En el tema [Implementación de Git local en el Servicio de aplicaciones de Azure](../app-service-web/app-service-deploy-local-git.md) puede encontrar instrucciones para hacerlo.
 2. Agregue el sitio web de Azure como un git remoto.
    
         git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git

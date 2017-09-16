@@ -1,6 +1,6 @@
 ---
 title: "Preguntas más frecuentes sobre Azure DevTest Labs | Microsoft Docs"
-description: Encuentre respuestas a preguntas comunes sobre Azure DevTest Labs
+description: Encuentre respuestas a preguntas comunes sobre Azure DevTest Labs.
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8ee4a0fd714027cdc77247ec8dc259fe62442564
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-devtest-labs-faq"></a>Preguntas más frecuentes sobre Azure DevTest Labs
@@ -28,54 +28,56 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 ## <a name="what-if-my-question-isnt-answered-here"></a>Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 Si su pregunta no aparece aquí, háganoslo saber para que podamos ayudarlo a encontrar una respuesta.
 
-* Publique una pregunta en el [hilo de Disqus](#comments) al final de estas preguntas más frecuentes y ponerse en contacto con el equipo de Caché de Microsoft Azure y otros miembros de la comunidad con cualquier tema que tenga relación con este artículo.
-* Para llegar a más público, puede publicar una pregunta en el [foro de MSDN de Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)y ponerse en contacto con el equipo de Azure DevTest Labs y otros miembros de la Comunidad.
-* Para realizar una solicitud de característica, envíe las solicitudes y las ideas al sitio [User Voice de Azure DevTest Labs](https://feedback.azure.com/forums/320373-azure-devtest-labs).
+* Publique una pregunta al final de este documento. Póngase en contacto con el equipo de Azure Cache y otros miembros de la comunidad sobre este artículo.
+* Para llegar a un público más amplio, publique una pregunta en el [foro de MSDN de Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Póngase en contacto con el equipo de Azure DevTest Labs y otros miembros de la comunidad.
+* Para solicitudes de características, envíe sus solicitudes e ideas al sitio [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ## <a name="why-should-i-use-azure-devtest-labs"></a>¿Por qué debería usar Azure DevTest Labs?
-Azure DevTest Labs puede ahorrarle a su equipo tiempo y dinero. Los desarrolladores pueden crear sus propios entornos con distintas bases, y utilizar artefactos para implementar y configurar rápidamente las aplicaciones. Mediante imágenes personalizadas y fórmulas, las máquinas virtuales se pueden guardar como plantillas y reproducirse fácilmente. Además, los laboratorios ofrecen varias directivas configurables que permiten a los administradores de laboratorios reducir los desechos y administrar los entornos de un equipo. Estas directivas incluyen apagado automático, umbral de costos, número máximo de máquinas virtuales por usuario y tamaños máximos de máquinas virtuales. Para ver una explicación más detallada de Azure DevTest Labs, lea la [información general](devtest-lab-overview.md) o consulte el [vídeo de introducción](/documentation/videos/videos/what-is-azure-devtest-labs).
+Azure DevTest Labs puede ahorrarle a su equipo tiempo y dinero. Los desarrolladores pueden crear sus propios entornos usando varias bases de datos diferentes. También puede utilizar artefactos para implementar y configurar aplicaciones rápidamente. Mediante el uso de fórmulas e imágenes personalizadas, puede guardar máquinas virtuales (VM) como plantillas y reproducirlas fácilmente en el equipo. DevTest Labs ofrece también varias directivas configurables que permiten a los administradores de los laboratorios reducir los residuos y administrar los entornos de un equipo. Estas directivas incluyen el apagado automático, el umbral de costo, el número máximo de máquinas virtuales por usuario y el tamaño máximo de cada máquina virtual. Para ver una explicación más detallada de DevTest Labs, lea la [información general](devtest-lab-overview.md) o consulte el [vídeo de introducción](https://channel9.msdn.com/Blogs/Azure/what-is-azure-devtest-labs).
 
-## <a name="what-does-worry-free-self-service-mean"></a>¿Qué significa "sin preocupaciones, autoservicio"?
-Con estos términos queremos indicar que los desarrolladores y evaluadores crean sus propios entornos acordes a sus necesidades y que los administradores tienen la seguridad de saber que Azure DevTest Labs ayuda a reducir los desechos y el control de los costos. Los administradores pueden especificar qué tamaños de máquina virtual se permiten, el número máximo de máquinas virtuales y cuándo iniciar y apagar las máquinas virtuales. Azure DevTest Labs también permite supervisar fácilmente los costos y definir alertas para estar al tanto del número de recursos que se utilizan en el laboratorio.
+## <a name="what-does-worry-free-self-service-mean"></a>¿Qué significa "autoservicio sin preocupaciones"?
+Autoservicio sin preocupaciones significa que los desarrolladores y evaluadores crean sus propios entornos según sea necesario. Los administradores tienen la seguridad de que DevTest Labs puede ayudar a minimizar los costos del control y los residuos. Los administradores pueden especificar qué tamaños de máquina virtual se permiten, el número máximo de máquinas virtuales y cuándo iniciar y apagar las máquinas virtuales. DevTest Labs también permite supervisar fácilmente los costos y definir alertas para ayudarle a estar al tanto de cómo se usan los recursos de laboratorios.
 
-## <a name="how-can-i-use-azure-devtest-labs"></a>¿Cómo se usa Azure DevTest Labs?
-Azure DevTest Labs es útil siempre que necesite desarrollar o probar entornos y quiera reproducirlos rápidamente o administrarlos con directivas de ahorro de costos.
+## <a name="how-can-i-use-devtest-labs"></a>¿Cómo se usa DevTest Labs?
+DevTest Labs es útil siempre que necesite desarrollar o probar entornos y quiera reproducirlos rápidamente o administrarlos con directivas de ahorro de costos.
 
-Estos son algunos escenarios en los que nuestros clientes usan Azure DevTest Labs:
+Estos son algunos escenarios en los que nuestros clientes usan DevTest Labs:
 
-* Administración de entornos de desarrollo y prueba, mediante directivas para reducir costos y personalizar imágenes para compartir compilaciones entre los miembros del equipo.
-* Desarrollo de aplicaciones con imágenes personalizadas para guardar el estado del disco en todas las etapas de desarrollo.
+* Administración de entornos de desarrollo y pruebas en un solo lugar. Uso de directivas para reducir los costos y crear imágenes personalizadas para compartir en un equipo de personas.
+* Desarrollo de una aplicación con imágenes personalizadas para guardar el estado del disco en todas las etapas del desarrollo.
 * Seguimiento del costo en relación con el progreso.
 * Creación de entornos de prueba masivos para pruebas de garantía de calidad.
 * Uso de artefactos y fórmulas para configurar y reproducir fácilmente una aplicación en diversos entornos.
 * Distribución de máquinas virtuales para encuentros de programadores (hackathons) (trabajo de desarrollo o prueba en colaboración) y desaprovisionamiento fácil de estas máquinas cuando el evento finaliza.
 
-## <a name="how-am-i-billed-for-azure-devtest-labs"></a>¿Cómo se factura Azure DevTest Labs?
-Azure DevTest Labs es un servicio gratuito, lo que significa que crear laboratorios y configurar las directivas, las plantillas y los artefactos no tiene ningún costo. Solo se paga por los recursos de Azure usados en los laboratorios, como máquinas virtuales, cuentas de almacenamiento y redes virtuales. Para más información sobre el costo de los recursos de laboratorio, lea acerca de los [precios de Azure DevTest Labs](https://azure.microsoft.com/pricing/details/devtest-lab/).
+## <a name="how-am-i-billed-for-devtest-labs"></a>¿Cómo se factura DevTest Labs?
+DevTest Labs es un servicio gratuito. Crear laboratorios y configurar las directivas, las plantillas y los artefactos en DevTest Labs no tiene ningún costo. Solo se paga por los recursos de Azure usados en los laboratorios, como máquinas virtuales, cuentas de almacenamiento y redes virtuales. Para más información sobre el costo de los recursos de laboratorio, consulte los [precios de Azure DevTest Labs](https://azure.microsoft.com/pricing/details/devtest-lab/).
 
 
 **Seguridad**
-## <a name="what-are-the-different-security-levels-in-azure-devtest-labs"></a>¿Cuáles son los diferentes niveles de seguridad en Azure DevTest Labs?
-La seguridad del acceso viene determinada por el [Control de acceso basado en roles (RBAC) de Azure](../active-directory/role-based-access-built-in-roles.md). Para entender cómo funciona el acceso, es importante comprender las diferencias entre un permiso, un rol y un ámbito según se define en RBAC.
+## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>¿Cuáles son los diferentes niveles de seguridad en DevTest Labs?
+La seguridad del acceso viene determinada por el [Control de acceso basado en roles (RBAC)](../active-directory/role-based-access-built-in-roles.md). Para aprender cómo funciona el acceso, es importante comprender las diferencias entre un permiso, un rol y un ámbito según se define en RBAC.
 
-* **Permiso** : un permiso es un acceso definido para una acción específica. Por ejemplo, un permiso podría ser el acceso de lectura a todas las máquinas virtuales.
-* **Rol** : un rol es un conjunto de permisos que se pueden agrupar y asignar a un usuario. Por ejemplo, un "propietario de la suscripción" tiene acceso a todos los recursos dentro de una suscripción.
-* **Ámbito** : un ámbito es un nivel dentro de la jerarquía de recursos de Azure. Por ejemplo, un ámbito puede ser un grupo de recursos, un único laboratorio o toda la suscripción.
+* **Permiso**: es un acceso definido para una acción específica. Por ejemplo, un permiso podría ser el acceso de lectura a todas las máquinas virtuales.
+* **Rol**: es un conjunto de permisos que se pueden agrupar y asignar a un usuario. Por ejemplo, un usuario con el rol de propietario de la suscripción tiene acceso a todos los recursos dentro de una suscripción.
+* **Ámbito**: es un nivel dentro de la jerarquía de recursos de Azure. Por ejemplo, un ámbito puede ser un grupo de recursos, un único laboratorio o toda la suscripción.
 
-Dentro del ámbito de Azure DevTest Labs, hay dos tipos de roles para definir los permisos de usuario: usuario de laboratorio y propietario de laboratorio.
+Dentro del ámbito de DevTest Labs, hay dos tipos de roles para definir los permisos de usuario:
 
-* **Propietario de laboratorio** : el propietario de un laboratorio tiene acceso a todos los recursos del laboratorio. Por lo tanto, puede modificar las directivas, leer y escribir en todas las máquinas virtuales, cambiar la red virtual, etc.
-* **Usuario de laboratorio** : un usuario de laboratorio puede ver todos los recursos de laboratorio, como máquinas virtuales, directivas y redes virtuales, pero no puede modificar las directivas ni las máquinas virtuales creadas por otros usuarios. En Azure DevTest Labs también puede crear roles personalizados, y en este artículo puede averiguar cómo: [Concesión de permisos de usuario a directivas específicas de laboratorio](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
+* **Propietario de laboratorio**: tiene acceso a todos los recursos del laboratorio. El propietario de un laboratorio puede modificar las directivas, leer y escribir en todas las máquinas virtuales, cambiar la red virtual, etc.
+* **Usuario de laboratorio**: puede ver todos los recursos de laboratorio, como las máquinas virtuales, las directivas y las redes virtuales. Sin embargo, un usuario de laboratorio no puede modificar las directivas ni ninguna máquina virtual creada por otros usuarios. 
 
-Puesto que los ámbitos son jerárquicos, cuando un usuario tiene permisos en un ámbito determinado, también se le conceden automáticamente en cada ámbito de nivel inferior que engloba. Por ejemplo, si un usuario está asignado al rol de propietario de la suscripción, tiene acceso a todos los recursos de una suscripción. Estos recursos incluyen todas las máquinas virtuales, todas las redes virtuales y todos los laboratorios. Por lo tanto, el propietario de una suscripción hereda automáticamente el rol de propietario de laboratorio. Sin embargo, lo contrario no es cierto. El propietario de un laboratorio tiene acceso a un laboratorio, que es un ámbito inferior al del nivel de suscripción. Por lo tanto, el propietario de un laboratorio no puede ver las máquinas virtuales, las redes virtuales ni los recursos que se encuentren fuera del laboratorio.
+También puede crear roles personalizados en DevTest Labs. Para aprender a crear roles personalizados en DevTest Labs, consulte [Concesión de permisos de usuario a directivas específicas de laboratorio](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
+
+Puesto que los ámbitos son jerárquicos, cuando un usuario tiene permisos en un ámbito determinado, también se le conceden automáticamente en cada ámbito de nivel inferior. Por ejemplo, si un usuario está asignado al rol de propietario de la suscripción, tiene acceso a todos los recursos de una suscripción. Estos recursos incluyen todas las máquinas virtuales, las redes virtuales y los laboratorios. El propietario de una suscripción hereda automáticamente el rol de propietario de laboratorio. Sin embargo, lo contrario no es cierto. El propietario de un laboratorio tiene acceso a un laboratorio, que es un ámbito inferior al del nivel de suscripción. Por lo tanto, no puede ver las máquinas virtuales, las redes virtuales ni ningún otro recurso que esté fuera del laboratorio.
 
 ## <a name="how-do-i-create-a-role-to-allow-users-to-perform-a-specific-task"></a>¿Cómo se crea un rol para permitir que los usuarios realicen una tarea específica?
-Aquí encontrará un artículo completo sobre cómo crear roles personalizados y asignar permisos a ese rol. Este es un ejemplo de un script que crea el rol "Usuario avanzado de DevTest Labs", que tiene permiso para iniciar y detener todas las máquinas virtuales del laboratorio:
+Para un artículo completo sobre cómo crear roles personalizados y asignar permisos a un rol, consulte [Concesión de permisos de usuario para directivas específicas de laboratorio](devtest-lab-grant-user-permissions-to-specific-lab-policies.md). Este es un ejemplo de script que crea el rol *Usuario avanzado de DevTest Labs*, que tiene permiso para iniciar y detener todas las máquinas virtuales del laboratorio:
 
     $policyRoleDef = Get-AzureRmRoleDefinition "DevTest Labs User"
     $policyRoleDef.Actions.Remove('Microsoft.DevTestLab/Environments/*')
     $policyRoleDef.Id = $null
-    $policyRoleDef.Name = "DevTest Labs Advance User"
+    $policyRoleDef.Name = "DevTest Labs Advanced User"
     $policyRoleDef.IsCustom = $true
     $policyRoleDef.AssignableScopes.Clear()
     $policyRoleDef.AssignableScopes.Add("subscriptions/<subscription Id>")
@@ -85,84 +87,86 @@ Aquí encontrará un artículo completo sobre cómo crear roles personalizados y
 
 
 **Automatización e integración de CI/CD**
-## <a name="does-azure-devtest-labs-integrate-with-my-cicd-toolchain"></a>¿Se integra Azure DevTest Labs con mi cadena de herramientas de CI/CD?
-Si va a utilizar VSTS, hay una [extensión de Tareas de Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) que le permite automatizar la canalización de entrega de versiones de Azure DevTest Labs. Algunos de los usos de esta extensión incluyen:
+## <a name="does-devtest-labs-integrate-with-my-cicd-toolchain"></a>¿Se integra DevTest Labs con mi cadena de herramientas de CI/CD?
+Si va a utilizar Visual Studio Team Services, puede usar una [extensión Tareas de DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) que le permite automatizar la canalización de entrega de versiones de DevTest Labs. Algunas de las tareas que puede realizar con esta extensión incluyen:
 
-* Crear e implementar una máquina virtual automáticamente y configurarla con la última compilación mediante Copia de archivos de Azure o Tareas de VSTS de PowerShell.
+* Crear e implementar una máquina virtual automáticamente. También puede configurar la máquina virtual con la compilación mas reciente mediante las tareas de PowerShell Team Services o de Copia de archivos de Azure.
 * Capturar automáticamente el estado de una máquina virtual después de intentar reproducir un error en la misma máquina virtual para investigarlo con más detalle.
-* Eliminar la máquina virtual al final de la canalización de entrega de versiones cuando ya no sea necesaria.
+* Eliminar la máquina virtual al final de la canalización de versiones cuando ya no sea necesaria.
 
-Las siguientes entradas de blog proporcionan orientación e información sobre el uso de la extensión de VSTS:
+Las siguientes entradas de blog proporcionan orientación e información sobre el uso de la extensión Team Services:
 
-* [Azure DevTest Labs: extensión de VSTS](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Deploying a new VM in an existing AzureDevTestLab from VSTS (Implementación de una nueva máquina virtual en un laboratorio de AzureDevTestLab existente desde VSTS)](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [Using VSTS Release Management for Continuous Deployments to AzureDevTestLabs (Uso de la administración de versiones de VSTS para implementaciones continuas en AzureDevTestLabs)](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [DevTest Labs y la extensión Visual Studio Team Services](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
+* [Deploy a new VM in an existing DevTest Labs lab from Team Services](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS) (Implementación de una nueva máquina virtual en un laboratorio de DevTest Labs existente desde Team Services)
+* [Using VSTS Release Management for Continuous Deployments to DevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs) (Uso de VSTS Release Management para implementaciones continuas en DevTestLabs)
 
-Para otras cadenas de herramientas de CI/CD, todos los escenarios mencionados anteriormente que pueden obtenerse mediante la extensión de Tareas de VSTS se pueden conseguir igualmente mediante la implementación de [plantillas de Azure Resource Manager](https://aka.ms/dtlquickstarttemplate) con [cmdlets de Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) y los [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). También puede usar las [API de REST para DevTest Labs](http://aka.ms/dtlrestapis) para integrarlas con su cadena de herramientas.  
+Para otras cadenas de herramientas de entrega continua (CD) o integración continua (CI), puede lograr los mismos escenarios implementando [plantillas de Azure Resource Manager](https://aka.ms/dtlquickstarttemplate) mediante [cmdlets de Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) y [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). También puede usar las [API de REST para DevTest Labs](http://aka.ms/dtlrestapis) a fin de integrarlas con su cadena de herramientas.  
 
 
-**Virtual Machines**
-## <a name="why-cant-i-see-certain-vms-in-the-azure-virtual-machines-blade-that-i-see-within-azure-devtest-labs"></a>¿Por qué no puedo ver determinadas máquinas virtuales en la hoja Azure Virtual Machines que sí veo en Azure DevTest Labs?
-Cuando se crea una máquina virtual en Azure DevTest Labs, se concede permiso para acceder a esa máquina virtual. Puede verla tanto en la hoja de laboratorios como en la hoja **Virtual Machines**. Los usuarios del rol de DevTest Labs pueden ver todas las máquinas virtuales creadas en el laboratorio mediante la hoja **Todas las máquinas virtuales** del laboratorio. No obstante, a los usuarios del rol de DevTest Labs no se les concede automáticamente acceso de lectura a los recursos de máquina virtual creados por otros usuarios. Por lo tanto, esas máquinas virtuales no se muestran en la hoja **Virtual Machines**.
+**Máquinas virtuales**
+## <a name="why-cant-i-see-vms-on-the-virtual-machines-blade-that-i-see-in-devtest-labs"></a>¿Por qué no puedo ver las máquinas virtuales en la hoja Máquinas virtuales que veo en DevTest Labs?
+Cuando crea una máquina virtual en DevTest Labs, se le otorga permisos para acceder a dicha máquina virtual. Puede ver la máquina virtual tanto en la hoja de laboratorios como en la hoja **Virtual Machines** (Máquinas virtuales). Los usuarios asignados al rol de usuario de laboratorio de DevTest Labs pueden ver todas las máquinas virtuales creadas en el laboratorio en la hoja **All Virtual Machines** (Todas las máquinas virtuales) de este. No obstante, a los usuarios que tengan el rol de usuario de laboratorio de DevTest Labs no se les concede automáticamente acceso de lectura a los recursos de máquina virtual creados por otros usuarios. Por lo tanto, esas máquinas virtuales no se muestran en la hoja **Máquinas virtuales**.
 
-## <a name="what-is-the-difference-between-custom-images-and-formulas"></a>¿Cuál es la diferencia entre imágenes personalizadas y fórmulas?
-Una imagen personalizada es un disco duro virtual (VHD), mientras que una fórmula es una imagen que se puede configurar con opciones adicionales que se pueden guardar y reproducir. Si lo que quiere es crear rápidamente varios entornos con la misma imagen básica inmutable, puede ser preferible una imagen personalizada. En cambio, si quiere reproducir la configuración de la máquina virtual con los últimos bits, una red o subred virtual o un tamaño específico, es mejor una fórmula. Para una explicación más detallada, consulte el artículo [Comparación de imágenes personalizadas y fórmulas en DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
+## <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>¿Cuál es la diferencia entre una imagen personalizada y una fórmula?
+Una imagen personalizada es un disco duro virtual (VHD). Una fórmula es una imagen que puede configurar con opciones adicionales y, a continuación, guardar y reproducir. Si lo que quiere es crear rápidamente varios entornos con la misma imagen básica inmutable, puede ser preferible una imagen personalizada. En cambio, si desea reproducir la configuración de la máquina virtual con los últimos bits, como parte de una red o una subred virtual, o como máquina virtual de un tamaño específico, es mejor una fórmula. Para una explicación más detallada, consulte [Comparación de imágenes personalizadas y fórmulas en DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
 
 ## <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>¿Cómo se crean varias máquinas virtuales desde la misma plantilla a la vez?
-Puede usar la [extensión de Tareas de VSTS](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) o [generar una plantilla de Azure Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) mientras crea una máquina virtual e [implementar la plantilla de Azure Resource Manager desde Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+Tiene dos opciones para crear al mismo tiempo varias máquinas virtuales desde la misma plantilla:
+* Puede usar la [extensión Tareas de Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
+* Puede [generar una plantilla de Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) mientras crea una máquina virtual e [implementar la plantilla de Resource Manager desde Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
-## <a name="how-do-i-move-my-existing-azure-vms-into-my-azure-devtest-labs-lab"></a>¿Cómo se pueden mover las máquinas virtuales de Azure existentes a mi laboratorio de Azure DevTest Labs?
-Siga estos pasos para copiar las máquinas virtuales existentes en Azure DevTest Labs:
+## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>¿Cómo se pueden mover las máquinas virtuales de Azure existentes a mi laboratorio de DevTest Labs?
+Para copiar las máquinas virtuales existentes a los laboratorios de DevTest Labs:
 
-1. Copie el archivo VHD de la máquina virtual existente con este [script de Windows PowerShell](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1)
-2. [Cree la imagen personalizada](devtest-lab-create-template.md) dentro del laboratorio de Azure DevTest Labs.
-3. Creación de una máquina virtual en el laboratorio a partir de la imagen personalizada
+1. Copie el archivo VHD de la máquina virtual existente mediante un [script de Windows PowerShell](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1).
+2. [Cree la imagen personalizada](devtest-lab-create-template.md) dentro del laboratorio de DevTest Labs.
+3. Cree una máquina virtual en el laboratorio a partir de su imagen personalizada.
 
 ## <a name="can-i-attach-multiple-disks-to-my-vms"></a>¿Se pueden conectar varios discos a las máquinas virtuales?
-Se admite la conexión de varios discos a las máquinas virtuales.  
+Sí, puede adjuntar varios discos a sus máquinas virtuales.  
 
 ## <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Si quiero usar una imagen de sistema operativo Windows para mi prueba, ¿tengo que comprar una suscripción a MSDN?
-Si necesita utilizar imágenes de sistema operativo cliente de Windows (Windows 7 o posterior) para el desarrollo o las pruebas en Azure, entonces sí que tendrá que hacer una de estas cosas:
+Para usar imágenes de sistema operativo cliente de Windows (Windows 7 una versión o posterior) para el desarrollo o las pruebas en Azure, debe elegir entre:
 
 - [Adquirir una suscripción a MSDN](https://www.visualstudio.com/products/how-to-buy-vs).
-- Si tiene un contrato Enterprise, crear una suscripción a Azure con la [oferta Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
+- Si tiene un Contrato Enterprise, crear una suscripción a Azure con la [oferta Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
 
 Para obtener más información acerca de los créditos de Azure para cada oferta de MSDN, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
 
 ## <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>¿Cómo se puede automatizar el proceso de carga de archivos VHD para crear imágenes personalizadas?
-Hay dos opciones:
+Para automatizar la carga de archivos VHD para crear imágenes personalizadas, dispone de dos opciones:
 
-* [Azure AzCopy](../storage/common/storage-use-azcopy.md#blob-upload) para copiar o cargar archivos VHD en la cuenta de almacenamiento asociada con el laboratorio.
-* [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente que se ejecuta en Windows, OSX y Linux.   
+* Usar [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) para copiar o cargar archivos VHD en la cuenta de almacenamiento asociada al laboratorio.
+* Usar el [Explorador de Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md). Explorador de Azure Storage es una aplicación independiente que se ejecuta en Windows, OS X y Linux.   
 
-Para buscar la cuenta de almacenamiento de destino asociada con el laboratorio, siga estos pasos:
+Para buscar la cuenta de almacenamiento de destino asociada al laboratorio:
 
-1. Inicie sesión en [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Seleccione **Grupos de recursos** en el panel izquierdo.
-3. Busque y seleccione el grupo de recursos asociado con el laboratorio.
-4. En la hoja **Información general** , seleccione una de las cuentas de almacenamiento.
+1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+2. En el menú de la izquierda, seleccione **Grupos de recursos**.
+3. Busque y seleccione el grupo de recursos asociado al laboratorio.
+4. En **Información general**, seleccione una de las cuentas de almacenamiento.
 5. Seleccione **Blobs**.
 6. Busque cargas en la lista. Si no existe ninguna, vuelva al paso 4 y pruebe con otra cuenta de almacenamiento.
 7. Use la **dirección URL** como destino del comando AzCopy.
 
-## <a name="how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>¿Cómo puedo automatizar el proceso de eliminación de todas las máquinas virtuales en mi laboratorio?
-Además de eliminar las máquinas virtuales del laboratorio en Azure Portal, puede eliminar todas las máquinas virtuales de su laboratorio por medio de un script de PowerShell. En el ejemplo siguiente, basta con modificar los valores de parámetro en el comentario **Values to change** (Valores para cambiar). Puede recuperar los valores `subscriptionId`, `labResourceGroup` y `labName` de la hoja de laboratorio en Azure Portal.
+## <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>¿Cómo se automatiza el proceso de eliminación de todas las máquinas virtuales en mi laboratorio?
+Puede eliminar las máquinas virtuales en el laboratorio en Azure Portal. También puede eliminar todas las máquinas virtuales en el laboratorio mediante un script de PowerShell. En el ejemplo siguiente, en el comentario **Values to change** (Valores para cambiar), modifique los valores del parámetro. Puede recuperar los valores `subscriptionId`, `labResourceGroup` y `labName` del panel del laboratorio en Azure Portal.
 
-    # Delete all the VMs in a lab
+    # Delete all the VMs in a lab.
 
-    # Values to change
+    # Values to change:
     $subscriptionId = "<Enter Azure subscription ID here>"
     $labResourceGroup = "<Enter lab's resource group here>"
     $labName = "<Enter lab name here>"
 
-    # Login to your Azure account
+    # Sign in to your Azure account.
     Login-AzureRmAccount
 
-    # Select the Azure subscription that contains the lab. This step is optional
+    # Select the Azure subscription that has the lab. This step is optional
     # if you have only one subscription.
     Select-AzureRmSubscription -SubscriptionId $subscriptionId
 
-    # Get the lab that contains the VMs to delete.
+    # Get the lab that has the VMs that you want to delete.
     $lab = Get-AzureRmResource -ResourceId ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
 
     # Get the VMs from that lab.
@@ -178,58 +182,57 @@ Además de eliminar las máquinas virtuales del laboratorio en Azure Portal, pue
 
 **Artefactos**
 ## <a name="what-are-artifacts"></a>¿Qué son los artefactos?
-Los artefactos son elementos personalizables que se pueden usar para implementar los bits más recientes o las herramientas de desarrollo en una máquina virtual. Se asocian a la máquina virtual durante su creación con unos pocos clics y una vez que se ha aprovisionado la máquina virtual, los artefactos implementan y configurar la máquina virtual. Hay diversos artefactos ya existentes en el [repositorio público de GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), pero también puede [crear sus propios artefactos](devtest-lab-artifact-author.md) fácilmente.
+Los artefactos son elementos personalizables que puede usar para implementar los bits más recientes o herramientas de desarrollo en una máquina virtual. Asocie los artefactos a la máquina virtual al crearla. Después de aprovisionar la máquina virtual, los artefactos la implementan y configuran. Varios artefactos preexistentes están disponibles en nuestro [repositorio público de GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). También puede [crear sus propios artefactos](devtest-lab-artifact-author.md).
 
 
 **Configuración del laboratorio**
-## <a name="how-do-i-create-a-lab-from-an-azure-resource-manager-template"></a>¿Cómo se crea un laboratorio a partir de una plantilla de Azure Resource Manager?
-Hemos proporcionado un [repositorio de GitHub de plantillas de Azure Resource Manager para laboratorios](https://aka.ms/dtlquickstarttemplate) que se pueden implementar tal cual o modificar para crear plantillas personalizadas para los laboratorios. Cada una de estas plantillas tiene un vínculo en el que puede hacer clic para implementar el laboratorio tal cual bajo su propia suscripción de Azure, o puede personalizar la plantilla e [implementar con PowerShell o la CLI de Azure](../azure-resource-manager/resource-group-template-deploy.md).
+## <a name="how-do-i-create-a-lab-from-a-resource-manager-template"></a>¿Cómo se crea un laboratorio a partir de una plantilla de Resource Manager?
+Hemos ofrecido un [repositorio de GitHub de plantillas de Azure Resource Manager para laboratorios](https://aka.ms/dtlquickstarttemplate) que se pueden implementar tal cual o modificar para crear plantillas personalizadas para los laboratorios. Cada plantilla tiene un vínculo para implementar el laboratorio tal cual está en su propia suscripción de Azure. O bien, puede personalizar la plantilla e [implementarla con PowerShell o la CLI de Azure](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups"></a>¿Por qué mis máquinas virtuales se crean en distintos grupos de recursos con nombres arbitrarios? ¿Se pueden modificar estos grupos de recursos o cambiar su nombre?
-Los grupos de recursos se crean de esta manera para que Azure DevTest Labs administre los permisos de usuario y el acceso a las máquinas virtuales. Aunque puede mover la máquina virtual a otro grupo de recursos con el nombre que desee, no se recomienda hacerlo. Estamos trabajando en mejorar esta experiencia para permitir más flexibilidad.   
+Los grupos de recursos se crean de esta manera para que DevTest Labs pueda administrar los permisos de usuario y el acceso a las máquinas virtuales. Aunque puede mover una máquina virtual a otro grupo de recursos y usar el nombre que desee, se recomienda que no haga cambios en los grupos de recursos. Estamos trabajando en mejorar esta experiencia para permitir más flexibilidad.   
 
 ## <a name="how-many-labs-can-i-create-under-the-same-subscription"></a>¿Cuántos laboratorios se pueden crear con una misma suscripción?
-No hay ningún límite en el número de laboratorios que se pueden crear por suscripción específica. Sin embargo, los recursos usados están limitados por cada suscripción. Puede leer sobre los [límites y las cuotas impuestos en las suscripciones de Azure](../azure-subscription-service-limits.md) y [cómo aumentar estos límites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+No hay ningún límite específico en el número de laboratorios que se pueden crear por cada suscripción. Sin embargo, la cantidad de recursos que se usan para cada suscripción está limitada. Puede leer sobre los [límites y las cuotas de las suscripciones de Azure](../azure-subscription-service-limits.md) y [cómo aumentar estos límites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ## <a name="how-many-vms-can-i-create-per-lab"></a>¿Cuántas máquinas virtuales se pueden crear por laboratorio?
-No hay ningún límite específico en el número de máquinas virtuales que se pueden crear por cada laboratorio. Sin embargo, los recursos usados están limitados por cada suscripción (por ejemplo, los núcleos de máquinas virtuales, direcciones IP públicas, etc). Puede leer sobre los [límites y las cuotas impuestos en las suscripciones de Azure](../azure-subscription-service-limits.md) y [cómo aumentar estos límites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+No hay ningún límite específico en el número de máquinas virtuales que se pueden crear por cada laboratorio. Sin embargo, los recursos (los núcleos de máquinas virtuales, las direcciones IP públicas, etc) están limitados para cada suscripción. Puede leer sobre los [límites y las cuotas de las suscripciones de Azure](../azure-subscription-service-limits.md) y [cómo aumentar estos límites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ## <a name="how-do-i-share-a-direct-link-to-my-lab"></a>¿Cómo se puede compartir un vínculo directo a mi laboratorio?
-Para compartir un vínculo directo a los usuarios de laboratorio, puede realizar el procedimiento siguiente:
 
-1. Vaya al laboratorio en Azure Portal.
+1. En Azure Portal, vaya al laboratorio.
 2. Copie la dirección URL del laboratorio desde el explorador y compártala con los usuarios del laboratorio.
 
 > [!NOTE]
-> Si los usuarios del laboratorio son usuarios externos con una [cuenta Microsoft](#what-is-a-microsoft-account) y no pertenecen al directorio Active Directory de su empresa, es posible que les aparezca un error al navegar al vínculo proporcionado. De ser así, indíqueles que hagan clic en su nombre en la esquina superior derecha de Azure Portal y seleccionen el directorio donde existe el laboratorio en la sección **Directorio** del menú.
+> Si un usuario del laboratorio es externo y tiene una [cuenta de Microsoft](#what-is-a-microsoft-account), pero no es un miembro de la instancia de Active Directory de su organización, podría ver un mensaje de error cuando intente tener acceso al vínculo compartido. Si un usuario externo ve un mensaje de error, pídale que seleccione primero su nombre en la esquina superior derecha de Azure Portal. A continuación, en la sección **Directorio** del menú, el usuario puede seleccionar el directorio donde se encuentra el laboratorio.
 >
 >
 
 ## <a name="what-is-a-microsoft-account"></a>¿Qué es una cuenta Microsoft?
-Una cuenta de Microsoft es lo que se utiliza para casi todo lo que hace con servicios y dispositivos de Microsoft. Es una combinación de dirección de correo electrónico y contraseña que utiliza para iniciar sesión en Skype, Outlook.com, OneDrive, Windows Phone y Xbox LIVE, e implica que los archivos, fotografías, contactos y configuraciones pueden acompañarle a cualquier dispositivo.
+Usa una cuenta de Microsoft para casi todo lo que hace con los servicios y los dispositivos de Microsoft. Es una dirección de correo electrónico y una contraseña que utiliza para iniciar sesión en Skype, Outlook.com, OneDrive, Windows Phone y Xbox Live. Tener una sola cuenta significa que puede disponer de los archivos, fotografías, contactos y configuración desde cualquier dispositivo.
 
 > [!NOTE]
-> La cuenta Microsoft antes se llamaba "Windows Live ID".
+> La cuenta de Microsoft antes se llamaba *Windows Live ID*.
 >
 >
 
 
 **Solución de problemas**
 ## <a name="my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it"></a>Mi artefacto produjo errores durante la creación de la máquina virtual. ¿Cómo se soluciona este problema?
-Consulte [How to diagnose artifact failures in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md) (Diagnóstico de errores de artefactos en DevTest Labs) para obtener información sobre cómo obtener los registros con respecto a los artefactos con error.
+Para aprender a obtener registros de los artefactos con error, consulte [How to diagnose artifact failures in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md) (Diagnóstico de errores de artefactos en DevTest Labs).
 
 ## <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>¿Por qué mi máquina virtual existente no se guarda correctamente?
-Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, pruebe a quitar los puntos, o reemplácelos por guiones, y luego intente guardar de nuevo la máquina virtual.
+Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, intente quitar los puntos o reemplazarlos con guiones. A continuación, vuelva a intentar guardar la red virtual.
 
-## <a name="why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell"></a>¿Por qué obtengo un error "No se encuentra el recurso primario" al aprovisionar una máquina virtual desde PowerShell?
-Cuando un recurso es un elemento primario de otro recurso, el primario debe existir antes de crear el secundario. Si no existe, recibirá un error **ParentResourceNotFound**. Si no se especifica una dependencia del recurso primario, es posible que el recurso secundario se implemente antes que el primario.
+## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>¿Por qué aparece el error "No se encuentra el recurso primario" al aprovisionar una máquina virtual desde PowerShell?
+Cuando un recurso es un elemento primario de otro recurso, el primario debe existir antes de crear el secundario. Si el recurso primario no existe, verá un mensaje **ParentResourceNotFound**. Si no se especifica una dependencia del recurso primario, es posible que el recurso secundario se implemente antes que el primario.
 
-Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de Azure Resource Manager para la implementación a través de PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de Resource Manager para la implementación de máquinas virtuales con PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>¿Dónde puedo encontrar más información sobre errores relativos a la implementación de VM?
-Los errores de implementación de máquina virtual se capturan en los registros de actividad. Puede encontrar registros de actividad de las máquinas virtuales en **Registros de auditoría** o **Virtual machine diagnostics** (Diagnósticos de máquina virtual) en el menú de recursos de la hoja de máquina virtual del laboratorio (la hoja se muestra una vez que seleccione la máquina virtual en la lista **My virtual machines** [Mis máquinas virtuales]).
+Los errores de implementación de máquinas virtuales se capturan en los registros de actividad. Puede encontrar los registros de actividad de las máquinas virtuales en **Registros de auditoría** o **Virtual machine diagnostics** (Diagnósticos de máquina virtual) en el menú de recursos de la hoja de máquina virtual del laboratorio (la hoja se muestra una vez que selecciona la máquina virtual en la lista **My virtual machines** [Mis máquinas virtuales]).
 
-En ocasiones, se produce el error de implementación antes de iniciar la implementación de VM; por ejemplo, cuando se supera el límite de suscripción para un recurso creado con la máquina virtual. En este caso, se capturan los detalles del error en los **Registros de actividad** a nivel de laboratorio que puede encontrar en la parte inferior de los parámetros de **Configuration and policies** (Configuración y directivas). Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
+En ocasiones, el error de implementación se produce antes de que comience la implementación de la máquina virtual. Un ejemplo es cuando se supera el límite de suscripciones para un recurso que se creó con la máquina virtual. En este caso, los detalles del error se capturan en los registros de actividad de nivel de laboratorio. Los registros de actividad se encuentran en la parte inferior de las opciones de **Configuración y directivas**. Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

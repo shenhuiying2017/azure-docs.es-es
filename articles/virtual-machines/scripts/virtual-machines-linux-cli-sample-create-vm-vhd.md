@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 9e62713be30a07ae00dac07de21009d2c379d609
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 6234473d9f7f0eb18ea85e52273eb82a9ce04da5
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -55,17 +55,17 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una má
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#list) | Enumera las cuentas de almacenamiento |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#check-name) | Comprueba que un nombre de cuenta de almacenamiento es válido y que no existe ya |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) | Enumera las claves de las cuentas de almacenamiento |
-| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#exists) | Comprueba si existe el blob |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#create) | Crea un contenedor en una cuenta de almacenamiento. |
-| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#upload) | Crea un blob en el contenedor cargando el VHD. |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#list) | Se usa con `--query` para comprobar si el nombre de la máquina virtual está en uso. | 
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | Crea las máquinas virtuales. |
-| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#set-linux-user) | Restablece la clave SSH para permitir el acceso del usuario actual a la máquina virtual. |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | Obtiene la dirección IP de la máquina virtual que se creó. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Enumera las cuentas de almacenamiento |
+| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | Comprueba que un nombre de cuenta de almacenamiento es válido y que no existe ya |
+| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#az_storage_account_keys_list) | Enumera las claves de las cuentas de almacenamiento |
+| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | Comprueba si existe el blob |
+| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | Crea un contenedor en una cuenta de almacenamiento. |
+| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Crea un blob en el contenedor cargando el VHD. |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Se usa con `--query` para comprobar si el nombre de la máquina virtual está en uso. | 
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Crea las máquinas virtuales. |
+| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | Restablece la clave SSH para permitir el acceso del usuario actual a la máquina virtual. |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Obtiene la dirección IP de la máquina virtual que se creó. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

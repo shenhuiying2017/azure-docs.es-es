@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 891359514e776e169bf05df7b84d2b99306f98bf
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a79f05792fdda3c9895c0893678e4a4d5fb23d54
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
@@ -159,7 +159,7 @@ La copia de seguridad de la base de datos para la aplicación se almacena en la 
 <a name="nextsteps"></a>
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener información sobre cómo restaurar una aplicación desde una copia de seguridad, vea [Restauración de una aplicación en el Servicio de aplicaciones de Azure](web-sites-restore.md). También puede crear una copia de seguridad y restaurar las aplicaciones de App Service mediante la API de REST (vea [Uso de REST para copia de seguridad y restauración de aplicaciones de App Service](websites-csm-backup.md)).
+Para obtener información sobre cómo restaurar una aplicación desde una copia de seguridad, vea [Restauración de una aplicación en el Servicio de aplicaciones de Azure](web-sites-restore.md). 
 
 
 <!-- IMAGES -->
