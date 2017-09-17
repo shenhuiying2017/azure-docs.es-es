@@ -226,7 +226,7 @@ GROUP BY
 
 
 **Explicación:**
-** COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
+**COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Ejemplo de consulta: determinar si un valor ha cambiado
 **Descripción**: busque un valor anterior para determinar si es diferente del valor actual.
