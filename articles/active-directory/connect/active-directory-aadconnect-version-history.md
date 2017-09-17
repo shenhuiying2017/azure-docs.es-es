@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 08/30/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: d55cecf20abdf1637f0537e63a3dba5992a68741
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 6e2a7c5eafee78d342f735b543624d041b9b3fe5
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
@@ -34,6 +34,53 @@ Tema. |  Detalles
 Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actualizar desde una versión anterior a la última](active-directory-aadconnect-upgrade-previous-version.md) versión de Azure AD Connect.
 Permisos necesarios | Para más información sobre los permisos necesarios para aplicar una actualización, consulte [cuentas y permisos](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Descargar| [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116140"></a>1.1.614.0
+Estado: 05 de septiembre de 2017
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+
+#### <a name="known-issues"></a>Problemas conocidos
+* Hay un problema conocido con la actualización de Azure AD Connect que afecta a los clientes que han activado [Inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md). Después de actualizar Azure AD Connect, la característica aparece como deshabilitada en el asistente, aunque realmente sigue estando habilitada. Se proporcionará una solución a este problema en una versión futura. Los clientes preocupados por este problema de presentación pueden solucionarlo manualmente habilitando la opción Inicio de sesión único de conexión directa en el asistente.
+
+#### <a name="fixed-issues"></a>Problemas corregidos
+* Se corrigió un problema que provocaba un error durante la instalación de Azure AD Connect si el bosque de AD local tenía NTLM deshabilitado. El problema se debe a que el asistente de Azure AD Connect no proporciona credenciales de acceso completas al crear los contextos de seguridad necesarios para la autenticación de Kerberos. Esto hace que se produzca un error durante la autenticación de Kerberos y que el asistente de Azure AD Connect recurra de nuevo al uso de NTLM.
+
+### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
+#### <a name="fixed-issues"></a>Problemas corregidos
+* Se ha corregido un problema por el que no se podía crear una nueva regla de sincronización si no estaba relleno el valor del atributo Tag.
+* Se ha corregido un problema que provocaba que Azure AD Connect se conectara a una instancia de AD local para la sincronización de contraseña mediante NTLM, incluso aunque Kerberos estuviera disponible. Este problema se produce si la topología de AD local tiene uno o varios controladores de dominio que se restauraron a partir de una copia de seguridad.
+* Se ha corregido un problema que provocaba que se repitieran todos los pasos de sincronización de forma innecesaria después de una actualización. Por lo general, realizar todos los pasos de sincronización es obligatorio después de una actualización si hay cambios en las reglas de sincronización integradas. El problema se producía por un error en la lógica de detección de cambios que incorrectamente detectaba un cambio al encontrar una expresión de una regla de sincronización con caracteres de nueva línea. Los caracteres de nueva línea se insertan en la expresión de una regla de sincronización para mejorar la legibilidad.
+* Se ha corregido un problema que provocaba que el servidor de Azure AD Connect no funcionara correctamente después de la actualización automática. Este problema afecta a los servidores de Azure AD Connect de la versión 1.1.443.0 (o anterior). Para más información sobre el problema, consulte el artículo [Azure Connect de AD no funciona correctamente después de una actualización automática](https://support.microsoft.com/help/4038479/azure-ad-connect-is-not-working-correctly-after-an-automatic-upgrade).
+* Se ha corregido un problema que puede provocar que se vuelva a intentar la actualización automática cada 5 minutos si se detectan errores. Con la corrección, la actualización automática se vuelve a intentar con retroceso exponencial cuando se producen errores.
+* Se ha corregido un problema por el que el evento de sincronización de contraseña 611 se mostraba incorrectamente en los registros de eventos de aplicación de Windows como **informativo** en lugar de como **error**. El evento 611 se genera siempre que la sincronización de contraseña encuentra un problema. 
+* Se ha corregido un problema en el asistente de Azure AD Connect que permitía que la característica de escritura diferida de grupos se habilitara sin seleccionar una unidad organizativa que es obligatoria para esta.
+
+#### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
+* Se ha agregado una tarea de solución de problemas al asistente de Azure AD Connect en Tareas adicionales. Los clientes pueden aprovechar esta tarea para solucionar problemas relacionados con la sincronización de contraseña y recopilar diagnósticos generales. En el futuro, la tarea de solución de problemas se ampliará para incluir otros problemas relacionados con la sincronización de directorios.
+* Azure AD Connect ahora es compatible con un nuevo modo de instalación denominado **Usar base de datos existente**. Este modo de instalación permite a los clientes instalar una instancia de Azure AD Connect que especifica una base de datos existente de ADSync. Para más información sobre esta característica, consulte el artículo [Uso de una base de datos existente](active-directory-aadconnect-existing-database.md).
+* Para una mayor seguridad, Azure AD Connect usa ahora TLS 1.2 como valor predeterminado para conectarse a Azure AD para la sincronización de directorios. Anteriormente, el valor predeterminado era TLS 1.0.
+* Cuando se inicia el agente de sincronización de contraseña de Azure AD Connect, este intenta conectarse a un conocido punto de conexión de Azure AD para realizar la sincronización de contraseña. Después de conectarse correctamente, se le redirige a un punto de conexión específico de una región. Anteriormente, el agente de sincronización de contraseña almacenaba en caché el punto de conexión específico de la región hasta que se reiniciaba. Ahora, el agente borra la memoria caché y lo vuelve a intentar con el punto de conexión conocido si encuentra un problema de conexión con el punto de conexión específico de la región. Este cambio garantiza que la sincronización de contraseña pueda realizar una conmutación por error a un punto de conexión específico de la región diferente si el punto de conexión específico de la región almacenado en la memoria caché ya no está disponible.
+* Para sincronizar los cambios desde un bosque de AD local, se necesita una cuenta de AD DS. Puede (i) crear la cuenta de AD DS usted mismo y proporcionar sus credenciales a Azure AD Connect o (ii) proporcionar credenciales de administrador de organización y dejar que Azure AD Connect cree la cuenta de AD DS en su lugar. Anteriormente, (i) era la opción predeterminada en el asistente de Azure AD Connect. Ahora, (ii) es la opción predeterminada.
+
+### <a name="azure-ad-connect-health"></a>Azure AD Connect Health
+
+#### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
+* Se agregó compatibilidad para Microsoft Azure Government Cloud y Microsoft Cloud Germany.
+
+### <a name="ad-fs-management"></a>Administración de AD FS
+#### <a name="fixed-issues"></a>Problemas corregidos
+* El cmdlet Initialize-ADSyncNGCKeysWriteBack del módulo de PowerShell de preparación de AD estaba realizando incorrectamente ACL del contenedor de registros de dispositivo y, por tanto, solo heredaba los permisos existentes.  Esto se ha actualizado para que la cuenta del servicio de sincronización tenga los permisos correctos.
+
+#### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
+* La tarea Comprobar inicio de sesión de ADFS de AAD Connect se ha actualizado de forma que ahora comprueba los inicios de sesión con Microsoft Online y no usa simplemente la recuperación de token de ADFS.
+* Al configurar una nueva granja de ADFS mediante AAD Connect, se ha movido la página que solicitaba las credenciales de ADFS para que ahora aparezca antes de pedir al usuario que proporcione los servidores ADFS y WAP.  Esto permite que AAD Connect compruebe que la cuenta especificada tiene los permisos correctos.
+* Durante la actualización de AAD Connect, ya no se producirá ningún error de la actualización aunque la confianza de ADFS AAD sufra un error al actualizarse.  Si eso sucede, se le mostrará al usuario el mensaje de advertencia correspondiente y este deberá continuar para restablecer la confianza mediante la tarea adicional de AAD Connect.
+
+### <a name="seamless-single-sign-on"></a>Inicio de sesión único de conexión directa
+#### <a name="fixed-issues"></a>Problemas corregidos
+* Se ha corregido un problema que provocaba que el asistente de Azure AD Connect devolviera un error si intentaba habilitar [Inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md). El mensaje de error es *"Se ha producido un error en la configuración del agente de autenticación de Microsoft Azure AD Connect".* Este problema afectaba a los clientes existentes que habían actualizado manualmente la versión preliminar de los agentes de autenticación de la [autenticación de paso a través](active-directory-aadconnect-sso.md) según los pasos descritos en este [artículo](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
+
 
 ## <a name="115610"></a>1.1.561.0
 Estado: 23 de julio de 2017

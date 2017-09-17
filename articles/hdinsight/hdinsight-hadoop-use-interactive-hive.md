@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: e7874b55fc72f14d8e2c801872359e823cb2ba34
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: fa8b4126865788549217d89f19627f20739f8540
 ms.contentlocale: es-es
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-interactive-hive-in-hdinsight-preview"></a>Uso de Interactive Hive en HDInsight (versión preliminar)
@@ -31,7 +30,7 @@ Interactive Hive (también conocido como "[Live Long and Process](https://cwiki.
 El clúster de Interactive Hive es diferente al de Hadoop. Solo contiene el servicio de Hive. 
 
 > [!NOTE]
-> MapReduce, Pig, Sqoop, Oozie y otros servicios se quitarán pronto de este tipo de clúster.
+> MapReduce, Pig, Sqoop, Oozie y otros servicios se van a eliminar pronto de este tipo de clúster.
 > Al servicio de Hive en el clúster de Interactive Hive solo puede accederse a través de la vista de Ambari Hive, Beeline y Hive ODBC. No se puede acceder mediante la consola de Hive, Templeton, la CLI de Azure y Azure PowerShell. 
 > 
 > 
@@ -49,7 +48,7 @@ Hay diferentes opciones en lo que respecta a cómo ejecutar consultas de Hive:
   
     Para obtener más información sobre cómo utilizar Beeline en HDInsight, consulte [Uso de Hive con Hadoop en HDInsight con Beeline](hdinsight-hadoop-use-hive-beeline.md).
   
-    Utilice Beeline en el nodo principal o en uno perimetral vacío.  Se recomienda usar Beeline en un nodo perimetral vacío.  Para obtener información sobre cómo crear un clúster de HDInsight con un nodo perimetral vacío, consulte [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) (Uso de nodos perimetrales vacíos en HDInsight).
+    Utilice Beeline en el nodo principal o en uno perimetral vacío.  Se recomienda usar Beeline en un nodo perimetral vacío.  Para más información acerca de cómo crear un clúster de HDInsight con un nodo perimetral vacío, consulte [Uso de nodos perimetrales en clústeres vacíos en HDInsight](hdinsight-apps-use-edge-node.md).
 * Ejecución de Hive mediante Hive ODBC
   
     Para obtener información sobre cómo usar Hive ODBC, consulte [Conexión de Excel a Hadoop con Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).

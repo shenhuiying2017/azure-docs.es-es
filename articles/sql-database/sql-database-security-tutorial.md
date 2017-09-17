@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 06/28/2017
 ms.author: daredis
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 4bc09ad13ed0c9dc9257e9c75ec6f9ff3d689a0b
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 4ae3145daa4968ae619f965f3346ef03bccb0109
 ms.contentlocale: es-es
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Protección de Azure SQL Database
@@ -240,7 +240,7 @@ Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas e
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Con unos pocos pasos sencillos puede mejorar la protección de su base de datos contra usuarios malintencionados o acceso no autorizado. En este tutorial, aprenderá a: 
+En este tutorial se proporcionó información para mejorar la protección de la base de datos contra usuarios malintencionados o acceso no autorizado con unos pocos pasos sencillos.  Ha aprendido a: 
 
 > [!div class="checklist"]
 > * Configurar reglas de firewall para un servidor o una base de datos
@@ -250,7 +250,9 @@ Con unos pocos pasos sencillos puede mejorar la protección de su base de datos 
 > * Habilitación de la auditoría de SQL Database
 > * Habilitación de la detección de amenazas de SQL Database
 
+En el siguiente tutorial aprenderá a implementar una base de datos distribuida geográficamente.
+
 > [!div class="nextstepaction"]
->[Mejora del rendimiento de SQL Database](sql-database-performance-tutorial.md)
+>[Implementación de una base de datos distribuida geográficamente](sql-database-implement-geo-distributed-database.md)
 
 

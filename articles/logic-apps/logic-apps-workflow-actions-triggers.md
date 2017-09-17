@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: dd4e4282d774c2c336889b1df887806bfe512c10
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: bfde83e1142bf57e02ee458d477a0a70e78c4ad6
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
@@ -148,13 +148,13 @@ Los desencadenadores HTTP sondean un punto de conexión especificado y comprueba
 |retryPolicy|No|Un objeto que permite personalizar el comportamiento de reintento para errores 4xx o 5xx.|Objeto|  
 |authentication|No|Representa el método con el que se debe autenticar la solicitud. Para más información sobre este objeto, consulte [Autenticación saliente de Scheduler](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Aparte del programador, hay una propiedad más admitida: `authority`. De forma predeterminada, este valor es `https://login.windows.net` cuando no se especifica, pero puede usar una audiencia diferente como `https://login.windows\-ppe.net`.|Objeto|  
   
-El desencadenador HTTP necesita la API de HTTP para ajustarse a un patrón específico que funcione bien con la aplicación lógica. Requiere los siguientes campos:  
+El desencadenador HTTP necesita la API de HTTP para ajustarse a un patrón específico que funcione bien con la aplicación lógica. Reconoce las siguientes propiedades:  
   
-|Response|Descripción|  
-|------------|---------------|  
-|Código de estado|Código de estado 200 \(Aceptar\) para provocar una ejecución. Cualquier otro código de estado no provoca una ejecución.|  
-|Encabezado Retry\-after|Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión.|  
-|Encabezado Location|La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original.|  
+|Response|Obligatorio|Descripción|  
+|------------|------------|---------------|  
+|Código de estado|Sí|Código de estado 200 \(Aceptar\) para provocar una ejecución. Cualquier otro código de estado no provoca una ejecución.|  
+|Encabezado Retry\-after|No|Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión.|  
+|Encabezado Location|No|La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original.|  
   
 Estos son algunos ejemplos de diferentes comportamientos para diferentes tipos de solicitudes:  
   

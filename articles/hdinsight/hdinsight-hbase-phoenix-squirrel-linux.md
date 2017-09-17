@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/26/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 13d17083bbe26fa9745ce4c5fef9f56859243c2e
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 342e29b009f51f7d1e9c3134a69cab6e30726bcd
 ms.contentlocale: es-es
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDInsight
@@ -35,7 +34,7 @@ Aprenda a utilizar [Apache Phoenix](http://phoenix.apache.org/) en HDInsight y S
 [SQLLine](http://sqlline.sourceforge.net/) es una utilidad de línea de comandos para ejecutar SQL.
 
 ### <a name="prerequisites"></a>Requisitos previos
-Antes de usar SQLLine, debe tener lo siguiente:
+Antes de poder usar SQLLine, debe disponer de los siguientes elementos:
 
 * **Un clúster de HBase en HDInsight**. Para obtener información sobre el aprovisionamiento del clúster de HBase, consulte [Introducción a HBase Apache en HDInsight][hdinsight-hbase-get-started].
 * **Conexión al clúster de HBase a través del protocolo de escritorio remoto**. Para obtener instrucciones, vea [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure][hdinsight-manage-portal].
@@ -45,7 +44,7 @@ Cuando se conecte a un clúster de HBase, deberá conectarse a uno de los Zookee
 **Para averiguar el nombre de host de ZooKeeper**
 
 1. Abra Ambari; para ello, vaya a **https://<ClusterName>.azurehdinsight.net**.
-2. Escriba el nombre de usuario HTTP (clúster) y la contraseña para iniciar sesión.
+2. Escriba el nombre de usuario y la contraseña de HTTP (clúster) para iniciar sesión.
 3. En el menú izquierdo, haga clic en **ZooKeeper** . Verá una lista con los tres **servidores de ZooKeeper**.
 4. Haga clic en uno de los **servidores de ZooKeeper** que aparecen. En el panel Resumen, busque el **Nombre de host**. Es similar a *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: bb6c93557ea26bed721315dc82da917e4727b5f9
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: cb0c74e7a3e3a2044262f94275110d0a55ccc19b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
@@ -175,7 +175,7 @@ La instantánea descargada contiene los archivos de símbolos que se encontraron
 
 ## <a name="how-snapshots-work"></a>Funcionamiento de las instantáneas
 
-Cuando se inicia la aplicación, se crea un proceso independiente de usuario de carga de instantáneas que supervisa las solicitudes de instantáneas de la aplicación. Cuando se solicita una instantánea, se realiza una instantánea de los procesos en ejecución en unos 10-20 minutos. El proceso de instantánea se analiza y se crea una instantánea mientras el proceso principal sigue ejecutándose y entregando el tráfico a los usuarios. Luego, la instantánea se carga en Application Insights junto con los correspondientes archivos de símbolos (.pdb) que sean necesarios para ver la instantánea.
+Cuando se inicia la aplicación, se crea un proceso independiente de usuario de carga de instantáneas que supervisa las solicitudes de instantáneas de la aplicación. Cuando se solicita una instantánea, se realiza una instantánea de los procesos en ejecución en unos 10-20 milisegundos. El proceso de instantánea se analiza y se crea una instantánea mientras el proceso principal sigue ejecutándose y entregando el tráfico a los usuarios. Luego, la instantánea se carga en Application Insights junto con los correspondientes archivos de símbolos (.pdb) que sean necesarios para ver la instantánea.
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 

@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/09/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 02b49e13e8f54c3d55310f4d2b21c7e09c91fe81
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 34c8e18e918221f0287b1078df750d8016e2529a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -61,7 +61,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
     > [!IMPORTANT]
     > El cuaderno de flujo estructurado que se utiliza en este ejemplo requiere Spark en HDInsight 3.6. Si usa una versión anterior de Spark en HDInsight, recibirá errores al usar dicho cuaderno.
 
-2. Utilice los datos siguientes para rellenar las entradas de la hoja **Implementación personalizada**:
+2. Utilice los datos siguientes para rellenar las entradas de la sección **Implementación personalizada**:
    
     ![Implementación personalizada de HDInsight](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
@@ -83,16 +83,16 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
 4. Por último, active **Anclar al panel** y seleccione **Adquirir**. Se tarda aproximadamente 20 minutos en crear los clústeres.
 
-Cuando se hayan creado los recursos, se le redirigirá a la hoja de grupo de recursos.
+Una vez que se han creado los recursos, aparece una página de resumen.
 
-![Hoja de grupo de recursos de la red virtual y clústeres](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Información sobre un grupo de recursos de la red virtual y los clústeres](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Observe que los nombres de los clústeres de HDInsight son **spark-BASENAME** y **kafka-BASENAME**, donde BASENAME es el nombre que indicó en la plantilla. Estos nombres se utilizarán más adelante al establecer la conexión con los clústeres.
 
 ## <a name="get-the-kafka-brokers"></a>Obtención de los agentes de Kafka
 
-El código de este ejemplo se conecta a los hosts de los agentes de Kafka del clúster de Kafka. Para buscar los hosts de los agentes de Kafka, use el siguiente ejemplo de PowerShell o Bash:
+En este ejemplo, el código se conecta a los hosts de los agentes de Kafka del clúster de Kafka. Para buscar la dirección de los dos hosts de los agentes de Kafka, use el siguiente ejemplo de PowerShell o Bash:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -100,22 +100,24 @@ $clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
     -Credential $creds
 $respObj = ConvertFrom-Json $resp.Content
-$brokerHosts = $respObj.host_components.HostRoles.host_name
+$brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
 
 ```bash
-curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
+curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
 
+Cuando se lo pidan, escriba la contraseña de la cuenta de inicio sesión del clúster (admin).
+
 > [!NOTE]
-> En este ejemplo se espera que `$PASSWORD` contenga la contraseña del inicio de sesión del clúster, y que `$CLUSTERNAME` incluya el nombre del clúster de Kafka.
+> En este ejemplo, se espera que `$CLUSTERNAME` contenga el nombre del clúster de Kafka.
 >
 > En este ejemplo se utiliza la utilidad [jq](https://stedolan.github.io/jq/) para analizar datos a partir del documento JSON.
 
 La salida será similar al siguiente texto:
 
-`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn2-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn3-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
+`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
 
 Guarde esta información, ya que se utilizará en las siguientes secciones de este documento.
 
@@ -141,7 +143,7 @@ Siga estos pasos para cargar los cuadernos del proyecto en el clúster de Spark 
 
 3. Busque la entrada __Stream-Tweets-To_Kafka.ipynb__ en la lista de cuadernos y seleccione el botón __Upload__ (Cargar) que está junto a ella.
 
-    ![Utilice el botón Upload (Cargar) que está situado junto a la entrada KafkaStreaming.ipynb para cargar el archivo en el servidor de cuadernos.](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
+    ![Para cargar el cuaderno, utilice el botón de carga de la entrada KafkaStreaming.ipynb.](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
 
 4. Repita los pasos del 1 a 3 para cargar el cuaderno __Spark-Structured-Streaming-From-Kafka.ipynb__.
 

@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c49f185db5a035f70a711bf309b973182d94a2b0
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 5c42b3e519781fa25fe92b286fa65898a7aac173
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox
@@ -36,11 +36,11 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - Hortonworks Data Platform (HDP) 2.4 en Hortonworks Sandbox ejecutándose en el entorno local. Para configurar HDP, consulte [Introducción al ecosistema de Hadoop con un espacio aislado de Hadoop en una máquina virtual](hdinsight-hadoop-emulator-get-started.md). 
     >[!NOTE]
-    >Las herramientas de HDInsight para IntelliJ solo se han probado con HDP 2.4. Para obtener HDP 2.4, expanda **Hortonworks Sandbox Archive** en [el sitio de descarga de Hortonworks Sandbox](http://hortonworks.com/downloads/#sandbox) para obtenerlo.
+    >Las Herramientas de HDInsight para IntelliJ se han probado exclusivamente con HDP 2.4. Para obtener HDP 2.4, expanda **Hortonworks Sandbox Archive** en [el sitio de descarga de Hortonworks Sandbox](http://hortonworks.com/downloads/#sandbox) para obtenerlo.
 
 - [Kit de desarrolladores de Java (JDK) versión 1.8 o posterior](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). El kit de herramientas de Azure para IntelliJ requiere JDK.
 
-- [Edición de la comunidad de IntelliJ IDEA](https://www.jetbrains.com/idea/download) con el complemento [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) y el complemento [Kit de herramientas de Azure para IntelliJ](../azure-toolkit-for-intellij.md). Las herramientas de HDInsight para IntelliJ están disponibles como parte del kit de herramientas de Azure para IntelliJ. 
+- [Edición de la comunidad de IntelliJ IDEA](https://www.jetbrains.com/idea/download) con el complemento [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) y el complemento [Kit de herramientas de Azure para IntelliJ](../azure-toolkit-for-intellij.md). Las Herramientas de HDInsight para IntelliJ están disponibles como parte del kit de herramientas de Azure para IntelliJ. 
 
   Para instalar los complementos, haga lo siguiente:
 
@@ -55,7 +55,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 En esta sección, creará un proyecto de Scala de ejemplo con IntelliJ IDEA. En la siguiente sección, vinculará IntelliJ IDEA con Hortonworks Sandbox (emulador) antes de enviar el proyecto.
 
-1. Abra IntelliJ IDEA desde la estación de trabajo. En el cuadro de diálogo **Nuevo proyecto** , haga lo siguiente:
+1. Abra IntelliJ IDEA desde la estación de trabajo. En el cuadro de diálogo **Nuevo proyecto**, siga estos pasos:
 
    a. Seleccione **HDInsight** > **Spark en HDInsight (Scala)**.
 
@@ -68,7 +68,7 @@ En esta sección, creará un proyecto de Scala de ejemplo con IntelliJ IDEA. En 
 
 2. Seleccione **Siguiente**.
 
-3. En el cuadro de diálogo **Nuevo proyecto**, haga lo siguiente:
+3. En el cuadro de diálogo **Nuevo proyecto**, siga estos pasos:
 
     ![Creación de las propiedades del proyecto de Scala en IntelliJ](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
@@ -135,7 +135,7 @@ En esta sección, creará un proyecto de Scala de ejemplo con IntelliJ IDEA. En 
 
 Antes de crear un vínculo a Hortonworks Sandbox (emulador), debe tener una aplicación de IntelliJ existente.
 
-Para vincular a un emulador, haga lo siguiente:
+Para crear un vínculo con un emulador, siga estos pasos:
 
 1. Abra el proyecto en IntelliJ.
 

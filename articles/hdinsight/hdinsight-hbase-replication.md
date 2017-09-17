@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 7a6a473b6db745563b3667da1013a8e78db8593c
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: c885dae8a13c789ccb3c22532e6a2cea2c920752
 ms.contentlocale: es-es
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-hbase-cluster-replication-within-virtual-networks"></a>Configuración de la replicación de clúster de HBase en redes virtuales
@@ -28,7 +27,7 @@ Aprenda a configurar la replicación de HBase en una red virtual (VNet) o entre 
 
 La replicación de clúster usa una metodología de inserción de origen. Un clúster de HBase puede ser un origen, un destino o cumplir ambos roles a la vez. La replicación es asincrónica y el objetivo de la replicación es la coherencia eventual. Cuando el origen recibe una edición en una familia de columna con la replicación habilitada, esa edición se propaga a todos los clústeres de destino. Cuando se replican datos de un clúster a otro, se realiza un seguimiento del clúster de origen y de todos los clústeres que ya han consumido los datos para evitar bucles de replicación.
 
-En este tutorial, configurará una replicación de origen y de destino. Para otras topologías de clúster, consulte [Guía de referencia de HBase Apache](http://hbase.apache.org/book.html#_cluster_replication).
+En este tutorial, va a configurar una replicación de origen y destino. Para otras topologías de clúster, consulte [Guía de referencia de HBase Apache](http://hbase.apache.org/book.html#_cluster_replication).
 
 Casos de uso de replicación de HBase para una única red virtual:
 
@@ -88,7 +87,7 @@ La replicación de HBase utiliza direcciones IP de las máquinas virtuales ZooKe
 5. Haga clic en una de las máquinas virtuales ZooKeeper.
 6. Haga clic en **IP configurations** (Configuraciones IP).
 7. En la lista, haga clic en **ipConfig1**.
-8. Haga clic en **Static** (Estático) y anote la dirección IP real. Necesitará la dirección IP al ejecutar la acción de script para habilitar la replicación.
+8. Haga clic en **Static** (Estático) y anote la dirección IP real. Necesitará la dirección IP cuando ejecute la acción de script para habilitar la replicación.
 
   ![Dirección IP estática ZooKeeper de replicación de HBase para HDInsight](./media/hdinsight-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
 
@@ -110,7 +109,7 @@ En el escenario entre redes virtuales, debe usar el modificador **-ip** al llama
 
 ## <a name="load-test-data"></a>Carga de datos de prueba
 
-Cuando replica un clúster, debe especificar las tablas que se van a replicar. En esta sección, cargará algunos datos en el clúster de origen. En la siguiente sección, habilitará la replicación entre los dos clústeres.
+Cuando replica un clúster, debe especificar las tablas que se van a replicar. En esta sección, va a cargar algunos datos en el clúster de origen. En la siguiente sección, habilitará la replicación entre los dos clústeres.
 
 Siga las instrucciones de [HBase tutorial: Get started using Apache HBase with Linux-based Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md) (Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop basado en Linux en HDInsight) para crear una tabla **Contacts** e insertar algunos datos en la tabla.
 
@@ -151,7 +150,7 @@ Argumentos opcionales:
 |-su, --src-ambari-user | Especifica el nombre de usuario de administrador para Ambari en el clúster de HBase de origen. El valor predeterminado es **admin**. |
 |-du, --dst-ambari-user | Especifica el nombre de usuario de administrador para Ambari en el clúster de HBase de destino. El valor predeterminado es **admin**. |
 |-t, --table-list | Especifica las tablas que se van a replicar. Por ejemplo: --table-list="table1;table2;table3". Si no se especifica unas tablas determinadas, se replican todas las tablas de HBase existentes.|
-|-m, --machine | Especifica el nodo principal en el que se ejecutará la acción de script. El valor es hn1 o hn0. Dado que hn0 suele estar más ocupado, se recomienda utilizar hn1. Esta opción se utiliza si se está ejecutando el script $0 como acción de script desde el portal de HDInsight o Azure PowerShell.|
+|-m, --machine | Especifique el nodo principal en el que se ejecuta la acción de script. El valor es hn1 o hn0. Dado que hn0 suele estar más ocupado, se recomienda utilizar hn1. Esta opción se utiliza si se está ejecutando el script $0 como acción de script desde el portal de HDInsight o Azure PowerShell.|
 |-ip | Este argumento es necesario cuando se habilita la replicación entre dos redes virtuales. Este argumento actúa como un conmutador para utilizar las direcciones IP estáticas de los nodos ZooKeeper de los clústeres de réplica en lugar de los nombres FQDN. Las direcciones IP estáticas deben configurarse antes de habilitar la replicación. |
 |-cp, -copydata | Habilita la migración de datos existentes en las tablas en las que está habilitada la replicación. |
 |-rpm, -replicate-phoenix-meta | Habilita la replicación en las tablas del sistema Phoenix. <br><br>*Esta opción se debe utilizar con precaución.* Se recomienda volver a crear tablas de Phoenix en clústeres de réplica antes de utilizar este script. |
@@ -197,7 +196,7 @@ La sección print_usage() del [script](https://github.com/Azure/hbase-utils/blob
 
 ### <a name="scenarios"></a>Escenarios
 
-- **Copiar tablas específicas (test1, test2 y test3) para todas las filas editadas hasta ahora (marca de tiempo actual)**:
+- **Copiar tablas específicas (test1, test2 y test3) con todas las filas editadas hasta ahora (marca de tiempo actual)**:
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
   o

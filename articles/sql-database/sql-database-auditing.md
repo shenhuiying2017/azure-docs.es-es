@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: f4324a59b5fa4c2e1ab5b1d7fc7e5fe986ea80f8
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: ea45fe72a499daa363dc9e43f82c94af38bf6e85
 ms.contentlocale: es-es
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
@@ -68,8 +67,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 1. Vaya al [Portal de Azure](https://portal.azure.com).
 2. Vaya a la hoja **Configuración** de la base de datos SQL o el servidor SQL que quiere auditar. En la hoja **Configuración**, seleccione **Auditoría y detección de amenazas**.
 
-    <a id="auditing-screenshot"></a>
-    ![Panel de navegación][1]
+    <a id="auditing-screenshot"></a>![Panel de navegación][1]
 3. Si quiere configurar una directiva de auditoría del servidor (que se aplicará a todas las bases de datos recién creadas y existentes en este servidor), puede seleccionar el vínculo **Ver configuración del servidor** en la hoja de la auditoría de base de datos. Después, puede ver o modificar la configuración de auditoría del servidor.
 
     ![Panel de navegación][2]
@@ -82,8 +80,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
    >[!TIP] 
    >Con el fin de obtener el máximo rendimiento de las plantillas de informes de auditorías, use la misma cuenta de almacenamiento para todas las bases de datos auditadas. 
 
-    <a id="storage-screenshot"></a>
-    ![Panel de navegación][4]
+    <a id="storage-screenshot"></a>![Panel de navegación][4]
 6. Si quiere personalizar los eventos auditados, puede hacerlo a través de PowerShell o de la API de REST. Para obtener más información, vea la sección [Automatización (API de REST o PowerShell)](#subheading-7).
 7. Después de configurar los valores de auditoría, puede activar la nueva característica de detección de amenazas y configurar los mensajes de correo para recibir alertas de seguridad. Cuando se usa la detección de amenazas, se reciben alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Para obtener más detalles, vea [Introducción a la detección de amenazas](sql-database-threat-detection-get-started.md).
 8. Haga clic en **Guardar**.
@@ -148,17 +145,16 @@ Existen varios métodos que puede usar para ver los registros de auditoría de b
 <!--The description in this section refers to preceding screen captures.-->
 
 ### <a id="subheading-6">Auditoría de bases de datos con replicación geográfica</a>
-Cuando se usan bases de datos con replicación geográfica, es posible configurar la auditoría en la base de datos principal, la base de datos secundaria, o ambas, según el tipo de auditoría.
+Cuando se utilizan bases de datos con replicación geográfica, es posible configurar la auditoría en la base de datos secundaria, ya sea mediante la habilitación de la auditoría en el **servidor secundario** o al habilitar la auditoría en la base de datos principal (en cuyo caso, la base de datos secundaria tendrá una directiva de auditoría idéntica a la de la base de datos principal).
 
-Siga estas instrucciones (recuerde que la auditoría de blobs solo se puede activar o desactivar desde la configuración de auditoría de la base de datos principal):
+* Nivel de servidor (**recomendado**): active la auditoría en el **servidor principal** así como en el **servidor secundario**. Las bases de datos principal y secundaria se auditarán de forma independiente en función de la directiva de nivel de servidor respectiva.
 
-* **Base de datos principal**. Active la auditoría de blobs en el servidor o en la propia base de datos, como se describe en la sección [Configuración de la auditoría para su base de datos](#subheading-2).
-* **Base de datos secundaria**. Active la auditoría de blobs en la base de datos principal, como se describe en la sección [Configuración de la auditoría para su base de datos](#subheading-2). 
+* Nivel de base de datos: la auditoría en el nivel de base de datos para las bases de datos secundarias solo se puede configurar desde la configuración de auditoría de la base de datos principal.
    * La auditoría de blobs debe estar habilitada en la *propia base de datos principal*, no en el servidor.
    * Después de habilitar la auditoría de blobs en la base de datos principal, también se habilitará en la base de datos secundaria.
 
      >[!IMPORTANT]
-     >De forma predeterminada, la configuración de almacenamiento de la base de datos secundaria será idéntica a la de la base de datos principal, lo que provocará tráfico interregional. Para evitarlo, puede habilitar la auditoría de blobs en el servidor secundario y configurar el almacenamiento local en la configuración de almacenamiento del servidor secundario. Esto anulará la ubicación de almacenamiento para la base de datos secundaria y, como resultado, cada base de datos guardará sus registros de auditoría en el almacenamiento local.  
+     >Con la auditoría en el nivel de base de datos, la configuración de almacenamiento de la base de datos secundaria será idéntica a la de la base de datos principal, lo que provocará tráfico interregional. A menos que la auditoría de nivel de base de datos sea necesaria, se recomienda habilitar solo la auditoría de nivel de servidor en los servidores principal y secundarios y dejar la auditoría de nivel de base de datos deshabilitada para todas las bases de datos.
 <br>
 
 ### <a id="subheading-6">Regeneración de clave de almacenamiento</a>
@@ -184,7 +180,6 @@ También puede configurar la auditoría en Azure SQL Database mediante las sigui
    * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
    * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Use-AzureRMSqlServerAuditingPolicy][107]
 
    Para ver un script de ejemplo, consulte [Configuración de la auditoría y detección de amenazas mediante PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -218,11 +213,10 @@ También puede configurar la auditoría en Azure SQL Database mediante las sigui
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
 
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
+[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
 [103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
 [104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
+[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
+[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing
 

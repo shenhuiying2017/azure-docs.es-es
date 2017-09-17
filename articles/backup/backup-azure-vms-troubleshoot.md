@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: dbd70bdbb17d99c5025018e76ea756b1b1528a3e
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 2f74637fe9887a9a1afbb32647d3fa98b9f88761
 ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solución de problemas de copia de seguridad de máquinas virtuales de Azure
@@ -33,6 +33,7 @@ Puede solucionar los errores detectados al usar Azure Backup con la información
 ## <a name="backup"></a>Copia de seguridad
 | Detalles del error | Solución alternativa |
 | --- | --- |
+| La configuración de disco especificada no está admitida - Siga http://go.microsoft.com/fwlink/?LinkId=808978 para resolver las alertas o póngase en contacto con el soporte técnico de Microsoft para recibir ayuda.| Azure Backup no admite actualmente los tamaños de disco superiores a 1023 GB. Asegúrese de que los tamaños de disco sean inferiores al límite dividiendo los discos. Para dividirlos, debe copiar los datos de los discos superiores a 1023 GB en los discos recién creados de tamaño inferior a 1023 GB. |
 | No se pudo realizar la operación porque la máquina virtual ya no existe. Ya no se protege la máquina virtual sin eliminar los datos de la copia de seguridad. En http://go.microsoft.com/fwlink/?LinkId=808124 encontrará más información |Esto sucede cuando se elimina la máquina virtual principal, pero la directiva de copia de seguridad continúa buscando una máquina virtual para realizar la copia de seguridad. Para solucionar este error:  <ol><li> Vuelva a crear la máquina virtual con el mismo nombre y el mismo nombre de grupo de recursos [nombre del servicio en la nube],<br>O BIEN</li><li> Deje de proteger la máquina virtual eliminando o sin eliminar los datos de la copia de seguridad. [Más detalles](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Error de la operación de instantánea debido a que no hay conectividad de red en la máquina virtual: asegúrese de que la máquina virtual tiene acceso a la red. Para que la instantánea se ejecuta correctamente, agregue los intervalos del centro de datos de Azure a la lista blanca o configure un servidor proxy para el acceso a la red. Para más detalles, consulte http://go.microsoft.com/fwlink/?LinkId=800034. Si ya usa un servidor proxy, asegúrese de que esté configurado correctamente | Este error se produce cuando se deniega la conectividad saliente a Internet en la máquina virtual. Se requiere conectividad a Internet para que la extensión de instantánea de máquina virtual tome una instantánea de los discos subyacentes de la máquina virtual. [Más información](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) sobre cómo corregir errores de instantánea debido al acceso bloqueado a la red. |
 | El agente de máquina virtual no se puede comunicar con el servicio Azure Backup. - Asegúrese de que la máquina virtual tiene conectividad de red y que el agente de máquina virtual sea el más reciente y esté en ejecución. Para más información, consulte http://go.microsoft.com/fwlink/?LinkId=800034 |Este error se produce si hay un problema con el agente de la máquina virtual o cuando el acceso de red a la infraestructura de Azure está bloqueado por algún motivo. [Aprenda más](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sobre los problemas de las instantáneas de la máquina virtual.<br> Si el agente de la máquina virtual no está causando problemas, reinicie la máquina virtual. A veces, un estado incorrecto de la máquina virtual puede causar problemas, y reiniciar la máquina virtual restablece este "mal estado". |

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
 ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Introducción a la supervisión de aplicaciones web de Azure con Application Insights
@@ -25,7 +25,7 @@ ms.lasthandoff: 06/29/2017
 
 Averigüe cuánto tiempo se dedica a cada método en la aplicación web activa con la herramienta de generación de perfiles de [Azure Application Insights](app-insights-overview.md). Esta herramienta le muestra perfiles detallados de solicitudes activas que han sido atendidas por su aplicación y resalta la "ruta de acceso activa" que se usa la mayor parte del tiempo. Selecciona automáticamente ejemplos con distintos tiempos de respuesta. El generador de perfiles usa diversas técnicas para minimizar la sobrecarga.
 
-El generador de perfiles actualmente funciona para las aplicaciones web ASP.NET con Azure App Services, en al menos el plan de tarifa Básico. 
+El generador de perfiles actualmente funciona para las aplicaciones web ASP.NET con Azure App Services, en al menos el plan de tarifa Básico.
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>Habilitar el generador de perfiles

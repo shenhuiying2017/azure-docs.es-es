@@ -14,20 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 6aa66cac35bc317fc87003e6c3d824544c53de88
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 0ccaee16a19b4338099a93f994553caaa6aa57e3
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="publish-hdinsight-applications-into-the-azure-marketplace"></a>Publicación de aplicaciones de HDInsight en Azure Marketplace
-Una aplicación de HDInsight es una aplicación que los usuarios pueden instalar en un clúster de HDInsight basado en Linux. Estas aplicaciones puede desarrollarlas Microsoft, fabricantes de software independientes (ISV) o el propio usuario. En este artículo aprenderá a publicar una aplicación de HDInsight en Azure Marketplace.  Para obtener información general acerca de cómo publicar en Azure Marketplace, consulte [Publicación de una oferta en Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+Las aplicaciones de HDInsight son aplicaciones que los usuarios pueden instalar en un clúster de HDInsight basado en Linux. Estas aplicaciones puede desarrollarlas Microsoft, fabricantes de software independientes (ISV) o el propio usuario. En este artículo, aprenderá a publicar una aplicación de HDInsight en Azure Marketplace.  Para obtener información general acerca de cómo publicar en Azure Marketplace, consulte [Publicación de una oferta en Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
 
-Las aplicaciones de HDInsight usan el modelo *Traiga su propia licencia (BYOL)* , donde el proveedor de la aplicación es el responsable de la concesión de licencias de la aplicación a los usuarios finales y Azure solo cobra a los usuarios finales los recursos que crean, como el clúster de HDInsight y sus máquinas virtuales o nodos. Actualmente, la facturación de la aplicación en sí no se lleva a cabo a través de Azure.
+Las aplicaciones de HDInsight usan el modelo *Traiga su propia licencia (BYOL)*, donde el proveedor de la aplicación se encarga de conceder licencias de la aplicación a los usuarios finales, mientras que Azure solamente cobra a los usuarios finales por los recursos que crean, como el clúster de HDInsight y sus máquinas virtuales o nodos. Actualmente, la facturación de la aplicación en sí no se lleva a cabo a través de Azure.
 
 Otro artículo relacionado con la aplicación de HDInsight:
 
@@ -64,7 +63,7 @@ La publicación de aplicaciones en Azure Marketplace conlleva dos pasos.  En pri
 ## <a name="application-install-script"></a>Script de instalación de aplicación
 Siempre que se instala una aplicación en un clúster (uno ya existente o uno nuevo), se crea un nodo perimetral y el script de instalación de aplicación se ejecuta en él.
   > [!IMPORTANT]
-  > El nombre de los nombres de script de instalación de aplicación debe ser único para un clúster determinado y debe tener el formato siguiente.
+  > El nombre del script de instalación de la aplicación debe ser único en cada clúster y debe tener el formato siguiente:
   > 
   > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
@@ -105,7 +104,7 @@ Para publicar una aplicación de HDInsight, siga estos pasos:
 6. Especifique el nombre de una topología y haga clic en el signo más.
 7. Especifique una nueva versión y haga clic en el signo más.
 8. Cargue el archivo zip preparado en [Empaquetado de aplicación](#package-application).  
-9. Haga clic en **Request Certification**(Solicitar certificado). El equipo de certificación de Microsoft revisará los archivos y certificará la topología.
+9. Haga clic en **Request Certification**(Solicitar certificado). El equipo de certificación de Microsoft revisa los archivos y certifica la topología.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Instalación de aplicaciones de HDInsight](hdinsight-apps-install-applications.md): aprenda a instalar una aplicación de HDInsight en sus clústeres.

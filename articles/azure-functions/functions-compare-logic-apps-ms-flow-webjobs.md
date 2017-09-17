@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Elección entre Flow, Logic Apps, Functions y WebJobs | Microsoft Docs"
 description: "Compare y contraste los servicios de integración en la nube de Microsoft y decida cuál usar."
 services: functions,app-service\logic
@@ -17,10 +17,10 @@ ms.date: 08/03/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 256bc04684ba337fe8a403d977079c96b63ca61d
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 43e01efaa16ff54d1f526076224979b7b9688e80
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Elección entre Flow, Logic Apps, Functions y WebJobs
@@ -31,18 +31,18 @@ En este artículo se comparan y contrastan los siguientes servicios en la nube d
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service](../app-service-web/web-sites-create-web-jobs.md)
 
-Todos estos servicios son útiles cuando se agrupan sistemas dispares. Todos pueden definir entradas, acciones, condiciones y salidas. Todos se pueden ejecutar según una programación o un desencadenador. Sin embargo, cada servicio aporta un conjunto único de valores, y no se comparan para saber cuál es el mejor, sino cuál es el más adecuado para su situación. Con frecuencia, la mejor manera de crear rápidamente una solución de integración completa y escalable es combinar estos servicios.
+Todos estos servicios son útiles cuando se agrupan sistemas dispares. Todos pueden definir entradas, acciones, condiciones y salidas. Todos se pueden ejecutar según una programación o un desencadenador. Sin embargo, cada servicio tiene ventajas únicas y no se trata de saber cuál es el mejor, sino cuál es el más adecuado para su situación. Con frecuencia, la mejor manera de crear rápidamente una solución de integración completa y escalable es combinar estos servicios.
 
 <a name="flow"></a>
 
 ## <a name="flow-vs-logic-apps"></a>Flow frente a Logic Apps
-Podemos hablar de Microsoft Flow y Azure Logic Apps de forma conjunta porque ambos son servicios de integración con una *configuración de línea base* , lo que facilita la creación de procesos y flujos de trabajo y la integración con varias aplicaciones SaaS y de empresa. 
+Podemos hablar sobre Microsoft Flow y Azure Logic Apps de forma conjunta porque ambos son servicios de integración con una *configuración de línea base*. Facilitan la creación de flujos de trabajo y procesos, y la integración con varias aplicaciones SaaS y de empresa. 
 
 * Flow se crea encima de Logic Apps
 * Tienen el mismo diseñador de flujo de trabajo
 * [conectores](../connectors/apis-list.md) que funcionan en uno también pueden funcionar en el otro
 
-Flows permite a cualquier trabajador de oficina realizar integraciones sencillas (por ejemplo, obtener SMS para correos electrónicos importantes) sin pasar por los desarrolladores o el departamento de TI. Por otro lado, Logic Apps puede permitir integraciones avanzadas o críticas (por ejemplo, procesos B2B) donde se requieren procedimientos DevOps y de seguridad. Lo normal es que la complejidad de un flujo de trabajo crezca con el tiempo. En consecuencia, puede comenzar con un flujo al principio y luego convertirlo en una aplicación lógica cuando sea necesario.
+Flows permite a cualquier oficinista realizar integraciones sencillas (por ejemplo, obtener SMS para correos electrónicos importantes) sin pasar por los desarrolladores o el departamento de TI. Por otro lado, Logic Apps puede permitir integraciones avanzadas o críticas (por ejemplo, procesos B2B) donde se requieren procedimientos DevOps y de seguridad. Lo normal es que la complejidad de un flujo de trabajo crezca con el tiempo. En consecuencia, puede comenzar con un flujo al principio y luego convertirlo en una aplicación lógica cuando sea necesario.
 
 La tabla siguiente le ayuda a determinar qué es lo mejor para una integración dada, si Flow o Logic Apps.
 
@@ -92,7 +92,11 @@ En la tabla siguiente se resumen las diferencias entre Functions y WebJobs:
 | Python |experimental |admitido |
 | JavaScript |admitido |admitido |
 
-El uso de Functions o WebJobs depende en última instancia de lo que esté haciendo con App Service. Si tiene una aplicación de App Service para la que quiere ejecutar fragmentos de código y los quiere administrar juntos en el mismo entorno de DevOps, debería usar WebJobs. Si quiere ejecutar fragmentos de código para otros servicios de Azure o incluso aplicaciones de terceros, si quiere administrar los fragmentos de código de integración por separado de las aplicaciones de App Service o si quiere llamar a los fragmentos de código desde una aplicación lógica, debe aprovechar las ventajas de todas las mejoras que incorpora Functions.  
+El uso de Functions o WebJobs depende en última instancia de lo que esté haciendo con App Service. Si tiene una aplicación de App Service para la que quiere ejecutar fragmentos de código y los desea administrar juntos en el mismo entorno de DevOps, debería usar WebJobs. En los siguientes escenarios, use Functions:
+
+* Desea ejecutar fragmentos de código en otros servicios de Azure o aplicaciones de terceros.
+* Desea administrar por separado el código de integración de las aplicaciones de App Service.
+* Desea llamar a fragmentos de código desde una aplicación Logic. 
 
 <a name="together"></a>
 
@@ -101,7 +105,7 @@ Como se mencionó anteriormente, el servicio más adecuado dependerá de su situ
 
 * Para una optimización empresarial sencilla, use Flow.
 * Si su escenario de integración es demasiado avanzado para Flow, o si necesita funcionalidades de DevOps y cumplimiento de seguridad, use entonces Logic Apps.
-* Si en uno de los pasos del escenario de integración hace falta una gran transformación personalizada o código especializado, escriba una aplicación de función y luego desencadene una función como una acción en la aplicación lógica.
+* Si en uno de los pasos del escenario de integración hace falta una gran transformación personalizada o código especializado, escriba una función y luego desencadénela como una acción en la aplicación lógica.
 
 Puede llamar a una aplicación lógica en un flujo. También puede llamar a una función en una aplicación lógica y a una aplicación lógica en una función. La integración entre Flow, Logic Apps y Functions sigue mejorando con el tiempo. Puede crear algo en un servicio y usarlo en los otros. Por lo tanto, cualquier inversión que realice en estas tres tecnologías merecerá la pena.
 
