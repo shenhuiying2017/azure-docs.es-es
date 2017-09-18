@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: eca4ecd8f639bb9816903f4b1d1f999755da819c
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creación de tablas de Hive y carga de datos desde Azure Blob Storage
@@ -222,7 +222,7 @@ Seleccionar datos desde la tabla externa del paso 1 e insertarlos en la tabla de
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Si la tabla TEXTFILE *&#60;nombre de base de datos>.&#60;nombre de la tabla de archivo de texto externo>* `SELECT * FROM <database name>.<external textfile table name>` tiene particiones, en el PASO 3, el comando selecciona la variable de partición como un campo en el conjunto de datos devuelto. Si se inserta en *&#60;nombre de base de datos>.&#60;nombre de la tabla ORC>* se producirá un error, ya que *&#60;nombre de base de datos>.&#60;nombre de la tabla ORC>* no tiene la variable de partición como un campo en el esquema de tabla. En este caso, los usuarios deben seleccionar específicamente los campos que se van a insertar en *&#60;nombre de base de datos>.&#60;nombre de la tabla ORC>* de la manera siguiente:
+> Si la tabla TEXTFILE *&amp;#60;nombre de base de datos&gt;.&amp;#60;nombre de la tabla de archivo de texto externo&gt;`SELECT * FROM <database name>.<external textfile table name>` tiene particiones, en el PASO 3, el comando* selecciona la variable de partición como un campo en el conjunto de datos devuelto. Si se inserta en *&#60;nombre de base de datos>.&#60;nombre de la tabla ORC>* se producirá un error, ya que *&#60;nombre de base de datos>.&#60;nombre de la tabla ORC>* no tiene la variable de partición como un campo en el esquema de tabla. En este caso, los usuarios deben seleccionar específicamente los campos que se van a insertar en *&#60;nombre de base de datos>.&#60;nombre de la tabla ORC>* de la manera siguiente:
 >
 >
 
