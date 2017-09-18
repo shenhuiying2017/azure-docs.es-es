@@ -26,9 +26,17 @@ sections:
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg'
+              src: 'https://docs.microsoft.com/azure/app-service-web/media/index/logo_net.svg'
             text: .NET
-            href: 'https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-dotnet'
+            href: service-fabric-quickstart-dotnet
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+            text: Contenedores de Linux
+            href: service-fabric-quickstart-containers-linux
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
+            text: Contenedores de Windows
+            href: service-fabric-quickstart-containers
   - title: Tutoriales detallados
     items:
       - type: paragraph
@@ -47,25 +55,43 @@ sections:
           - title: Desarrollo con .NET
             href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
             image:
-              src: 'https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
           - title: Modelos y arquitectura de nube
             href: 'https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7'
             image:
-              src: 'https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7'
+          - title: ¿Por qué usar Azure Service Fabric?
+            href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_lynda.com.svg'
+              href: 'https://www.lynda.com/Azure-tutorials/Why-Azure-Service-Fabric/573134/590379-4.html'
+  - title: Conceptos
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="service-fabric-overview-microservices">Descripción de los microservicios</a>
+          - html: <a href="service-fabric-content-roadmap">Idea general</a>
+          - html: <a href="service-fabric-application-scenarios">Escenarios de aplicación</a>
+          - html: <a href="service-fabric-patterns-and-scenarios">Patrones y escenarios</a>
+          - html: <a href="service-fabric-architecture">Arquitectura</a>
+          - html: <a href="service-fabric-technical-overview">Terminología</a>
   - title: Muestras
     items:
+      - type: paragraph
+        text: 'Búsqueda de scripts para tareas habituales de administración:'
       - type: list
         style: cards
         className: cardsD
         items:
           - title: Ejemplos de scripts
-            html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p>
+            html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p><p><a href="samples-cli">CLI de Service Fabric</a></p>
           - title: .NET
-            html: '<p><a href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-getting-started/">Introducción</a></p><p><a href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Votación</a></p><p><a href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-web-reference-app/">Referencia web</a></p><p><a href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-watchdog-service/">Guardián</a></p>'
+            html: '<p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/">Introducción</a></p><p><a href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Votación</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/">Referencia web</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/">Guardián</a></p>'
           - title: Java
-            html: '<p><a href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-java-getting-started/">Introducción</a></p>'
+            html: '<p><a href="https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/">Introducción</a></p>'
   - title: Referencia
     items:
       - type: list

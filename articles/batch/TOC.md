@@ -64,11 +64,10 @@
 # Temas relacionados
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Procesamiento de datos con Batch y Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Soluciones de Batch y HPC en la nube de Azure](batch-hpc-solutions.md)
+## [Soluciones de Batch, HPC y Big Compute en Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-## [Recursos de Big Compute](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 ## [Ejemplos de código de C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)

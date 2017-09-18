@@ -5,6 +5,7 @@
 ## Tutorial de runbook
 ### [Creación de un runbook gráfico](automation-first-runbook-graphical.md)
 ### [Creación de runbook de PowerShell](automation-first-runbook-textual-powershell.md)
+### [Mi primer runbook de Python](automation-first-runbook-textual-python2.md)
 ### [Creación de runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
 # Procedimientos
 ## Autenticación y seguridad
@@ -37,7 +38,10 @@
 ### [Paso de un objeto JSON a un runbook de Azure Automation](automation-pass-json-string.md)
 ## Hybrid Runbook Worker
 ### [Implementación de Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
+### [Hybrid Runbook Worker de Azure Automation en Windows](automation-windows-hrw-install.md)
+### [Hybrid Runbook Worker de Azure Automation en Linux](automation-linux-hrw-install.md)
 ### [Ejecución de runbooks en Worker](automation-hrw-run-runbooks.md)
+### [Eliminación de instancias de Hybrid Runbook Worker de Azure Automation](automation-remove-hrw.md)
 ## Implementar administración de configuración (DSC)
 ### [Introducción sobre la configuración de estado deseado (DSC)](automation-dsc-overview.md)
 ### [Introducción](automation-dsc-getting-started.md)

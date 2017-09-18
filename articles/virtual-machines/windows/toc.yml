@@ -49,56 +49,33 @@
       href: cli-samples.md
 - name: Conceptos
   items:
+    - name: Administrador de recursos de Azure
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Regiones y disponibilidad
       href: regions-and-availability.md
-    - name: Almacenamiento
+    - name: Tamaños y tipos de máquinas virtuales
+      href: sizes.md
+    - name: Mantenimiento y actualizaciones
+      href: maintenance-and-updates.md
+    - name: Storage
       href: about-disks-and-vhds.md
     - name: Redes
       href: network-overview.md
-    - name: Conjuntos de escalas de máquina virtual
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Contenedores
-      href: containers.md
-    - name: Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      items:
-        - name: Modelos de implementación
-          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Plantillas para máquinas virtuales
-          href: template-description.md
-    - name: Agente de Windows de Azure
-      href: agent-user-guide.md
-    - name: Azure Security Center
-      href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Recuperación ante desastres
-      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Mantenimiento planeado
-      href: planned-maintenance.md
-    - name: Tamaños de VM
-      href: sizes.md
-      items:
-        - name: Uso general
-          href: sizes-general.md
-        - name: Proceso optimizado
-          href: sizes-compute.md
-        - name: Memoria optimizada
-          href: sizes-memory.md
-        - name: Almacenamiento optimizado
-          href: sizes-storage.md
-        - name: GPU optimizada
-          href: sizes-gpu.md
-          items:
-            - name: Controladores de GPU
-              href: n-series-driver-setup.md
-        - name: Proceso de alto rendimiento
-          href: sizes-hpc.md
-        - name: Unidades de proceso de Azure (ACU)
-          href: acu.md
-        - name: Puntuaciones de pruebas comparativas de proceso
-          href: compute-benchmark-scores.md
+    - name: Aplicaciones de escalado automático
+      href: autoscale.md
+    - name: Automatización de la infraestructura
+      href: infrastructure-automation.md
+    - name: Seguridad y directivas
+      href: security-policy.md
+    - name: Supervisión
+      href: monitor.md
+    - name: Copia de seguridad y recuperación
+      href: backup-recovery.md
+    - name: Informática de alto rendimiento
+      href: high-performance-computing.md
     - name: Consideraciones de la implementación
       items:
-        - name: Ejemplo de implementación básica
+        - name: Directrices de infraestructura
           href: infrastructure-example.md
 - name: Guías de procedimientos
   items:

@@ -358,6 +358,8 @@
   items:
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Pruebe gratis Azure Cosmos DB
+      href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: P+F

@@ -61,10 +61,12 @@
 ## Uso de Spark para el procesamiento en memoria
 ### Introducción: desarrollador de Spark
 #### [Creación de una aplicación independiente](hdinsight-apache-spark-create-standalone-application.md)
-#### [Trabajos remotos con Livy](hdinsight-apache-spark-livy-rest-interface.md) 
+#### [Uso de un shell de Spark interactivo](hdinsight-spark-shell.md)
+#### [Trabajos remotos con Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Con Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Creación de aplicaciones mediante Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Creación de aplicaciones con IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
+### [¿Qué es el streaming de Spark?](hdinsight-spark-streaming-overview.md)
 ### [Procesamiento de streaming de eventos](hdinsight-apache-spark-eventhub-streaming.md)
 ### [Predicción del rendimiento de HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Predicción del resultado de la inspección de un alimento](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -109,6 +111,7 @@
 ### [Replicación de datos de Kafka](hdinsight-apache-kafka-mirroring.md)
 ### [Configurar del almacenamiento y la escalabilidad de Kafka](hdinsight-apache-kafka-scalability.md)
 ### [Configuración para alta disponibilidad de datos](hdinsight-apache-kafka-high-availability.md)
+### [Análisis de los registros de Kafka](apache-kafka-log-analytics-operations-management.md)
 ### [Uso con redes virtuales](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Uso con Spark (Structured Streaming)](hdinsight-apache-kafka-spark-structured-streaming.md)
 ### [Uso con Spark (DStream)](hdinsight-apache-spark-with-kafka.md)

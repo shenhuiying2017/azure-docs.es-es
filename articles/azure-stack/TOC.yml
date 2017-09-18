@@ -1,0 +1,265 @@
+- name: Documentación de Azure Stack
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Azure Stack?
+      href: azure-stack-poc.md
+- name: Inicios rápidos
+  expanded: true
+  items:
+    - name: Implementación de Azure Stack
+      href: azure-stack-deploy-overview.md
+- name: Tutoriales
+  items:
+    - name: Habilitar Virtual Machines
+      href: azure-stack-tutorial-tenant-vm.md
+    - name: Habilitar bases de datos SQL Database
+      href: azure-stack-tutorial-sql-server.md
+    - name: Habilitar Web Apps
+      href: azure-stack-tutorial-app-service.md
+    - name: Implementar aplicaciones en Azure y Azure Stack
+      href: azure-stack-solution-pipeline.md
+- name: Conceptos
+  items:
+    - name: Notas de la versión
+      href: azure-stack-asdk-release-notes.md
+    - name: Características y conceptos principales
+      href: azure-stack-key-features.md
+    - name: Arquitectura de Azure Stack Development Kit
+      href: azure-stack-architecture.md
+    - name: Conceptos básicos de administración
+      href: azure-stack-manage-basics.md
+- name: Guías de procedimientos
+  items:
+    - name: Implementación
+      items:
+        - name: Requisitos previos
+          href: azure-stack-deploy.md
+        - name: Implementación
+          href: azure-stack-run-powershell-script.md
+        - name: Registro
+          href: azure-stack-register.md
+        - name: Conexión a Azure Stack
+          href: azure-stack-connect-azure-stack.md
+        - name: Adición de imagen predeterminada
+          href: azure-stack-add-default-image.md
+        - name: Creación de una máquina virtual de prueba
+          href: azure-stack-provision-vm.md
+    - name: Administrar
+      items:
+        - name: Administración de regiones
+          href: azure-stack-region-management.md
+        - name: Uso de los portales
+          href: azure-stack-manage-portals.md
+        - name: Conexión a Azure Stack
+          href: azure-stack-connect-azure-stack.md
+        - name: Habilitar la CLI para los usuarios
+          href: azure-stack-cli-admin.md
+        - name: Configuración del entorno de administración
+          items:
+            - name: Instale PowerShell.
+              href: azure-stack-powershell-install.md
+            - name: Descarga de herramientas
+              href: azure-stack-powershell-download.md
+            - name: 'Configuración de PowerShell: operador en la nube'
+              href: azure-stack-powershell-configure-admin.md
+            - name: Póngase a trabajar con PowerShell
+              href: azure-stack-powershell-configure-quickstart.md
+        - name: Administración de actualizaciones
+          href: azure-stack-updates.md
+        - name: Supervisión de estado y alertas
+          href: azure-stack-monitor-health.md
+        - name: Administración de recursos de red
+          href: azure-stack-viewing-public-ip-address-consumption.md
+        - name: Administración de recursos de almacenamiento
+          href: azure-stack-manage-storage-accounts.md
+        - name: Administración de máquinas virtuales de Windows Azure Pack
+          href: azure-stack-manage-windows-azure-pack.md
+    - name: Seguridad y cumplimiento
+      items:
+        - name: Administración de RBAC
+          href: azure-stack-manage-permissions.md
+        - name: Adición de usuarios a Azure AD
+          href: azure-stack-add-new-user-aad.md
+        - name: Adición de usuarios a AD FS
+          href: azure-stack-add-users-adfs.md
+        - name: Creación de entidades de servicio
+          href: Azure-stack-create-service-principals.md
+        - name: Habilitación de servicios multiinquilino
+          href: azure-stack-enable-multitenancy.md
+    - name: Oferta de servicios
+      items:
+        - name: Introducción a la oferta de servicios
+          href: azure-stack-offer-services-overview.md
+        - name: 'Creación de planes, ofertas y cuotas'
+          items:
+            - name: 'Introducción a los planes, ofertas, cuotas y suscripciones'
+              href: azure-stack-plan-offer-quota-overview.md
+            - name: Creación de un plan
+              href: azure-stack-create-plan.md
+            - name: Creación de una oferta
+              href: azure-stack-create-offer.md
+            - name: Suscripción a una oferta
+              href: azure-stack-subscribe-plan-provision-vm.md
+            - name: Delegación de ofertas en Azure Stack
+              href: azure-stack-delegated-provider.md
+            - name: Tipos de cuotas
+              href: azure-stack-quota-types.md
+        - name: Oferta de SQL o MySQL como PaaS
+          items:
+            - name: Introducción a los servicios de PaaS
+              href: azure-stack-tools-paas-services.md
+            - name: Implementación de un proveedor de recursos de MySQL
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: Implementación de un proveedor de recursos de SQL
+              href: azure-stack-sql-resource-provider-deploy.md
+        - name: Oferta de App Service como PaaS
+          items:
+            - name: Introducción a App Service en Azure Stack
+              href: azure-stack-app-service-overview.md
+            - name: Antes de comenzar
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: Implementación del proveedor de recursos de App Service
+              href: azure-stack-app-service-deploy.md
+            - name: Implementación de App Service sin conexión
+              href: azure-stack-app-service-deploy-offline.md
+            - name: Incorporación de más roles de trabajo web
+              href: azure-stack-app-service-add-worker-roles.md
+            - name: Configuración de orígenes de implementación
+              href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Habilitación del FTP en App Service en Azure Stack
+              href: azure-stack-app-service-enable-ftp.md
+        - name: Rellenado de Marketplace
+          items:
+            - name: Introducción a Marketplace
+              href: azure-stack-marketplace.md
+            - name: Descarga de elementos de Marketplace
+              href: azure-stack-download-azure-marketplace-item.md
+            - name: Elementos de Azure Marketplace para Azure Stack
+              href: azure-stack-marketplace-azure-items.md
+            - name: Creación y publicación de un elemento en Marketplace
+              href: azure-stack-create-and-publish-marketplace-item.md
+            - name: Uso de la herramienta de publicación de Marketplace
+              href: azure-stack-marketplace-publisher.md
+            - name: Adición de una imagen de máquina virtual personalizada
+              href: azure-stack-add-vm-image.md
+            - name: Adición de conjuntos de escalado de máquina virtual
+              href: azure-stack-compute-add-scalesets.md
+            - name: Implementación de máquinas virtuales Linux
+              href: azure-stack-linux.md
+        - name: Uso y facturación
+          items:
+            - name: Información general
+              href: azure-stack-billing-and-chargeback.md
+            - name: Creación de informes de datos de uso
+              href: azure-stack-usage-reporting.md
+            - name: API de uso de proveedor
+              href: azure-stack-provider-resource-api.md
+            - name: API de uso de inquilino
+              href: azure-stack-tenant-resource-usage-api.md
+            - name: Preguntas más frecuentes sobre uso
+              href: azure-stack-usage-related-faq.md
+    - name: Uso de servicios
+      items:
+        - name: Consideraciones clave
+          href: azure-stack-considerations.md
+        - name: Proceso
+          items:
+            - name: Consideraciones sobre máquinas virtuales
+              href: azure-stack-vm-considerations.md
+            - name: Creación de máquina virtual con PowerShell
+              href: azure-stack-quick-create-vm-powershell.md
+        - name: Storage
+          items:
+            - name: Información general
+              href: azure-stack-storage-overview.md
+            - name: Consideraciones sobre el almacenamiento
+              href: azure-stack-acs-differences.md
+            - name: Herramientas de desarrollo de almacenamiento
+              href: azure-stack-storage-dev.md
+            - name: Herramientas de transferencia de datos
+              href: azure-stack-storage-transfer.md
+            - name: Conexión con el explorador de Storage
+              href: azure-stack-storage-connect-se.md
+        - name: Red
+          items:
+            - name: Consideraciones sobre redes
+              href: azure-stack-network-differences.md
+            - name: iDNS para Azure Stack
+              href: azure-stack-understanding-dns.md
+            - name: DNS en Azure Stack
+              href: azure-stack-dns.md
+            - name: Descripción de las conexiones VPN de sitio a sitio
+              href: azure-stack-create-vpn-connection-one-node.md
+        - name: Key Vault
+          items:
+            - name: Información general
+              href: azure-stack-kv-intro.md
+            - name: Administración con el portal
+              href: azure-stack-kv-manage-portal.md
+            - name: Administración con PowerShell
+              href: azure-stack-kv-manage-powershell.md
+            - name: Creación de una máquina virtual con un secreto
+              href: azure-stack-kv-deploy-vm-with-secret.md
+            - name: Creación de una máquina virtual con un certificado
+              href: azure-stack-kv-push-secret-into-vm.md
+            - name: Aplicación de ejemplo de Key Vault
+              href: azure-stack-kv-sample-app.md
+    - name: Compilación de aplicaciones
+      items:
+        - name: Desarrollo para Azure Stack
+          href: azure-stack-developer.md
+        - name: Configuración del entorno de desarrollo
+          items:
+            - name: Instale PowerShell.
+              href: azure-stack-powershell-install.md
+            - name: Descarga de herramientas
+              href: azure-stack-powershell-download.md
+            - name: 'Configuración de PowerShell: usuario'
+              href: azure-stack-powershell-configure-user.md
+            - name: Póngase a trabajar con PowerShell
+              href: azure-stack-powershell-configure-quickstart.md
+            - name: Instalación y configuración de la CLI
+              href: azure-stack-connect-cli.md
+            - name: Instalación de Visual Studio
+              href: azure-stack-install-visual-studio.md
+            - name: Administración de perfiles de la versión de API
+              href: azure-stack-version-profiles.md
+        - name: Uso del módulo de directivas
+          href: azure-stack-policy-module.md
+        - name: Uso de plantillas
+          items:
+            - name: Introducción a las plantillas
+              href: azure-stack-arm-templates.md
+            - name: Desarrollo de plantillas
+              href: azure-stack-develop-templates.md
+            - name: Comprobación de plantillas
+              href: azure-stack-validate-templates.md
+            - name: Implementación con el portal
+              href: azure-stack-deploy-template-portal.md
+            - name: Implementación con PowerShell
+              href: azure-stack-deploy-template-powershell.md
+            - name: Implementación con Visual Studio
+              href: azure-stack-deploy-template-visual-studio.md
+    - name: Solución de problemas
+      items:
+        - name: Problemas conocidos
+          href: azure-stack-troubleshooting.md
+        - name: Diagnósticos de Azure Stack
+          href: azure-stack-diagnostics.md
+        - name: Volver a implementar Azure Stack Development Kit
+          href: azure-stack-redeploy.md
+- name: Referencia
+  items:
+    - name: PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Foro de MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Información de precios
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stackoverflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
