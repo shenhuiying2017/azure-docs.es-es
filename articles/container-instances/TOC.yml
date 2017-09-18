@@ -41,6 +41,8 @@
   items:
     - name: CLI de Azure 2.0
       href: /cli/azure/container
+    - name: REST
+      href: /rest/api/container-instances
 - name: Recursos
   items:
     - name: Azure Roadmap

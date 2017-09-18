@@ -43,5 +43,7 @@ sections:
         style: cards
         className: cardsD
         items:
-          - title: Azure CLI
+          - title: Línea de comandos
             html: <p><a href="/cli/azure/container">CLI de Azure 2.0</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/container-instances">Referencia de API de REST</a></p>
