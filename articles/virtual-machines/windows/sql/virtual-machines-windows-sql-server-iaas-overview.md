@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: 
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/07/2017
+ms.date: 09/12/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Información general de SQL Server en máquinas virtuales de Azure
@@ -27,34 +26,8 @@ Este tema describe las opciones para ejecutar SQL Server en máquinas virtuales 
 
 > [!NOTE]
 > Si ya está familiarizado con SQL Server y solo desea ver cómo implementar una máquina virtual de SQL Server, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
-> 
-> 
 
-## <a name="overview"></a>Información general
-Si es un administrador de base de datos o un desarrollador, las máquinas virtuales de Azure le proporcionan una manera de mover las cargas de trabajo y las aplicaciones de SQL Server local a la nube. El vídeo siguiente proporciona una introducción técnica a las máquinas virtuales de Azure de SQL Server.
-
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
-> 
-> 
-
-El vídeo trata las áreas siguientes:
-
-| Hora | Ámbito |
-| --- | --- |
-| 00:21 |¿Qué son las máquinas virtuales de Azure? |
-| 01:45 |Seguridad |
-| 02:50 |Conectividad |
-| 03:30 |Rendimiento y confiabilidad del almacenamiento |
-| 05:20 |Tamaños de VM |
-| 05:54 |Alta disponibilidad y Acuerdo de Nivel de Servicio |
-| 07:30 |Compatibilidad de configuración |
-| 08:00 |Supervisión |
-| 08:32 |Demostración: Creación de una máquina virtual de SQL Server 2016 |
-
-> [!NOTE]
-> El vídeo se centra en SQL Server 2016, pero Azure proporciona imágenes de máquinas virtuales para muchas versiones de SQL Server, incluidas 2012, 2014 y 2016. 
-> 
-> 
+Si es un administrador de base de datos o un desarrollador, las máquinas virtuales de Azure le proporcionan una manera de mover las cargas de trabajo y las aplicaciones de SQL Server local a la nube.
 
 ## <a name="scenarios"></a>Escenarios
 Hay muchas razones por las que puede decidir alojar los datos en Azure. Si la aplicación se traslada a Azure, mejorará el rendimiento si también mueve los datos. Pero hay otras ventajas. Tendrá acceso automático a varios centros de datos para una recuperación ante desastres y una presencia global. Datos muy protegidos y duraderos.
@@ -126,7 +99,7 @@ Las máquinas virtuales de Azure pueden usar las [revisiones automatizadas](virt
 ### <a name="customer-experience-improvement-program-ceip"></a>Programa para la mejora de la experiencia del usuario (CEIP)
 De manera predeterminada, el Programa para la mejora de la experiencia del cliente (CEIP) está habilitado. Esto permitirá enviar periódicamente informes a Microsoft para ayudar a mejorar SQL Server. No hay ninguna tarea de administración requerida relacionada con el CEIP, a menos que desee deshabilitarlo después del aprovisionamiento. Puede personalizar o deshabilitar el CEIP mediante la conexión a la máquina virtual a través del escritorio remoto. A continuación, ejecute la utilidad **Informes de uso y errores de SQL Server** . Siga las instrucciones para deshabilitar los informes. 
 
-Para más información, consulte la sección CEIP del tema [Aceptar los términos de licencia](https://msdn.microsoft.com/library/ms143343.aspx). 
+Para más información acerca de la recopilación de datos, vea la [declaración de privacidad de SQL Server](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

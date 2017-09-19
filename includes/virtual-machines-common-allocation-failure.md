@@ -6,9 +6,9 @@ Si su problema con Azure no se trata en este artículo, visite los [foros de Azu
 Estos pasos básicos pueden ayudar a resolver muchos errores de asignación en las máquinas virtuales.
 
 * Cambie el tamaño de la máquina virtual por uno diferente.<br>
-   Haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual > **Configuración** > **Tamaño**. Para información detallada, vea [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
+    Haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual > **Configuración** > **Tamaño**. Para información detallada, vea [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
 * Elimine todas las máquinas virtuales del servicio en la nube y vuelva a crearlas.<br>
-   Haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual > **Eliminar**. Luego, haga clic en **Nuevo** > **Compute** > [imagen de máquina virtual].
+    Haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual > **Eliminar**. Luego, haga clic en **Nuevo** > **Compute** > [imagen de máquina virtual].
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Solución de problemas de errores de asignación comunes en el modelo de implementación del Administrador de recursos de Azure
 Estos pasos básicos pueden ayudar a resolver muchos errores de asignación en las máquinas virtuales.
@@ -99,7 +99,7 @@ Si es aceptable el uso de una dirección IP virtual diferente, elimine las VM or
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Escenario de asignación: implementaciones de ensayo o producción (solo plataforma como servicio).
 **Error**
 
-New_General *o New_VMSizeNotSupported*
+New_General* o New_VMSizeNotSupported*
 
 **Causa de anclaje del clúster**
 
@@ -112,7 +112,7 @@ Elimine la primera implementación y el servicio en la nube original y vuelva im
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Escenario de asignación: grupo de afinidad (proximidad de la VM o el servicio)
 **Error**
 
-New_General *o New_VMSizeNotSupported*
+New_General* o New_VMSizeNotSupported*
 
 **Causa de anclaje del clúster**
 
@@ -125,7 +125,7 @@ Si no es necesario un grupo de afinidad, no lo use, o bien intente agrupar los r
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Escenario de asignación: red virtual basada en un grupo de afinidad
 **Error**
 
-New_General *o New_VMSizeNotSupported*
+New_General* o New_VMSizeNotSupported*
 
 **Causa de anclaje del clúster**
 
@@ -151,7 +151,7 @@ En general, mientras el error no indique que "no se admite el tamaño de VM soli
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Escenario de asignación: cambio del tamaño de una VM o incorporación de VM o instancias de rol a un conjunto de disponibilidad existente.
 **Error**
 
-Upgrade_VMSizeNotSupported *o GeneralError*
+Upgrade_VMSizeNotSupported* o GeneralError*
 
 **Causa de anclaje del clúster**
 
@@ -188,6 +188,8 @@ La desasignación completa indica que detuvo (desasignó) todas las VM de un con
 **Solución alternativa**
 
 Seleccione un nuevo tamaño de VM para asignar. Si esto no funciona, vuelva a intentarlo más tarde.
+
+<a name="Error string lookup"></a>
 
 ## <a name="error-string-lookup"></a>Búsqueda de cadenas de error
 **New_VMSizeNotSupported***

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 5553bcb8f9fd38630f694151dc644a684266387c
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Protección de su API con límites de frecuencia mediante Azure API Management
@@ -148,7 +148,7 @@ Para configurar la directiva **Establecer la cuota de uso por suscripción**, si
 </quota>
 ```
 
-Al igual que la directiva **Limitar la frecuencia de llamadas por suscripción**, la directiva **Establecer la cuota de uso por suscripción** permite configurar los límites de las APY y las operaciones del producto. En este tutorial no se usará esa funcionalidad, así que elimine los elementos **api** y **operation** del elemento **quota**, como se muestra en el ejemplo siguiente.
+Al igual que la directiva **Limitar la frecuencia de llamadas por suscripción**, la directiva **Establecer la cuota de uso por suscripción** permite configurar los límites de las operaciones y las API del producto. En este tutorial no se usará esa funcionalidad, así que elimine los elementos **api** y **operation** del elemento **quota**, como se muestra en el ejemplo siguiente.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">

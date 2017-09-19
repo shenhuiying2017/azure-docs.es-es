@@ -28,4 +28,4 @@
 
 6.  Una vez completada la implementación, abra la nueva cuenta desde el icono Todos los recursos. 
 
-    ![Cuenta de DocumentDB en el icono Todos los recursos](./media/cosmos-db-create-dbaccount-table/all-resources.png)
+    ![Cuenta de Azure Cosmos DB en el icono All Resources (Todos los recursos)](./media/cosmos-db-create-dbaccount-table/all-resources.png)

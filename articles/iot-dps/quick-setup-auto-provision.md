@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 519ea43bfaa9d61de6ff962d838c197eb9e4edc0
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -63,7 +63,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 2. En la hoja de resumen del servicio Device Provisioning, seleccione **Linked IoT hubs** (Centros de IoT vinculados). Haga clic en el botón **+ Agregar** que aparece en la parte superior. 
 
-3. En la hoja del portal **Add link to IoT hub or pool** (Agregar vínculo al centro de IoT o al grupo), seleccione la suscripción actual o escriba el nombre y la cadena de conexión de otra suscripción. Seleccione *Centro de IoT* como **Tipo de recurso** y seleccione el nombre del centro en la lista desplegable. Cuando haya terminado, haga clic en **Guardar**. 
+3. En la hoja del portal **Agregar vínculo a IoT Hub**, seleccione la suscripción actual o escriba el nombre y la cadena de conexión de otra suscripción. Seleccione el nombre del centro en la lista desplegable. Cuando haya terminado, haga clic en **Guardar**. 
 
     ![Vínculo del nombre del centro a la instancia de DPS en la hoja del portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 

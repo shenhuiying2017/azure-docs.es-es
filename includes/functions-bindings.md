@@ -8,7 +8,7 @@
 | [Colas y temas](../articles/azure-functions/functions-bindings-service-bus.md) |Bus de servicio |✔ | |✔ |  
 | [Tablas de almacenamiento](../articles/azure-functions/functions-bindings-storage-table.md) |Almacenamiento de Azure | |✔ |✔ |  
 | [Tablas SQL](../articles/azure-functions/functions-bindings-mobile-apps.md) |Aplicaciones móviles de Azure | |✔ |✔ |  
-| [Base de datos no SQL](../articles/azure-functions/functions-bindings-documentdb.md) | DocumentDB de Azure | |✔ |✔ |  
+| [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB | |✔ |✔ |  
 | [notificaciones push](../articles/azure-functions/functions-bindings-notification-hubs.md) |Centros de notificaciones de Azure | | |✔ |  
 | [Texto de SMS de Twilio](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
 | [Correo electrónico SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |

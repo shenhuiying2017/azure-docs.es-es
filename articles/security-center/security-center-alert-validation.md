@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 09/07/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 121b5d8f023a9b663d0e7af26dce8f81db27672c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d7aa8544f50b42bacfa1e1f16fdce468d8fc81ef
 ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Validación de alertas en Azure Security Center
@@ -35,12 +35,15 @@ Una vez que el agente de Security Center esté instalado en el equipo, siga esto
 3. Abra el símbolo del sistema y ejecute este archivo con un argumento (un nombre de argumento falso), como: *ASC_AlertTest_662jfi039N.exe - foo*
 4. Espere de cinco a diez minutos y abra Alertas de Security Center. Debería encontrar una alerta similar a la siguiente:
 
-    ![Validación de alertas](./media/security-center-alert-validation/security-center-alert-validation-fig1.png)
+    ![Validación de alertas](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
 
 Al revisar esta alerta, asegúrese de que el campo Arguments Auditing Enabled (Auditoría de argumentos habilitada) aparece como true. Si aparece como false, debe habilitar la auditoría de argumentos de línea de comandos. Puede habilitar esta opción mediante la línea de comandos siguiente:
 
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
+
+> [!NOTE]
+> Puede ver el vídeo [Validación de alertas en Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) para ver una demostración de esta característica. 
 
 ## <a name="see-also"></a>Otras referencias
 En este artículo se explicó el proceso de validación de las alertas. Ahora que conoce esta validación, intente los siguientes pasos:

@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 8a850f8b1cccda631786f89f2c88647604fba9ed
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
 ms.contentlocale: es-es
-ms.lasthandoff: 03/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="run-intrinsically-parallel-workloads-with-batch"></a>Ejecución de cargas de trabajo paralelas intrínsecamente con Batch
@@ -48,7 +47,7 @@ Algunos ejemplos de cargas de trabajo que normalmente se procesan mediante esta 
 
 El servicio Lote también puede realizar cálculos paralelos con un paso de reducción al final y ejecutar cargas de trabajo de HPC más complejas, como aplicaciones de la [Interfaz de paso de mensajes (MPI)](batch-mpi.md) .
 
-Para obtener una comparación entre Lote y otras opciones de solución HPC en Azure, consulte [Soluciones de lote y HPC en la nube de Azure](batch-hpc-solutions.md).
+Para obtener una comparación entre las opciones de soluciones HPC y Batch en Azure, consulte [Soluciones HPC, Batch y Big Compute](../virtual-machines/linux/high-performance-computing.md).
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 

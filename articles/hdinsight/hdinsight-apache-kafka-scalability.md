@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/14/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 880a186a3d9a23b013294b0121e8265270d160cc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 41d96958ee999e4d0b304dfd9296f51d53eb3277
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -36,12 +36,12 @@ El diagrama siguiente proporciona una comparación entre Kafka en HDInsight ante
 
 1. Siga los pasos que se explican en [Creación de un clúster de HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md) para comprender los pasos habituales para crear un clúster mediante el portal. No termine el proceso de creación del portal.
 
-2. En la hoja __Tamaño del clúster__, use el campo __Disks per worker node__ (Discos por nodo de trabajo) para configurar el número de discos.
+2. En la sección __Tamaño del clúster__, use el campo __Disks per worker node__ (Discos por nodo de trabajo) para configurar el número de discos.
 
     > [!NOTE]
     > El tipo de disco administrado puede ser __Estándar__ (HDD) o __Premium__ (SSD). Los discos Premium se utilizan con máquinas virtuales de las series DS y GS. Todos los otros tipos de máquina virtual usan discos estándar.
 
-    ![Imagen de la hoja Tamaño de clúster con los discos por nodo de trabajo resaltados](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
+    ![Imagen de la sección Tamaño de clúster con los discos por nodo de trabajo resaltados](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>Configuración de Managed Disks: Plantilla de Resource Manager
 

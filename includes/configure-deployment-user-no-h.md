@@ -1,4 +1,4 @@
-Cree credenciales de implementación con el comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
+En Cloud Shell, cree credenciales de implementación con el comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
 
 Se requiere un usuario de implementación para la implementación de FTP y Git local en una aplicación web. El nombre de usuario y la contraseña predeterminados están en el nivel de la cuenta. _Son diferentes de las credenciales de suscripción de Azure._
 

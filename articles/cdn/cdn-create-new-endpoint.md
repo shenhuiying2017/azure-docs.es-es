@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
-ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
-
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
+ms.contentlocale: es-es
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="getting-started-with-azure-cdn"></a>Introducción a Azure CDN
@@ -32,8 +33,13 @@ Este tema le guía a través de la habilitación de la red CDN de Azure mediante
 Un perfil de red de entrega de contenido es una colección de puntos de conexión de red de entrega de contenido.  Cada perfil contiene uno o más de estos puntos de conexión de CDN.  Puede que quiera usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio.
 
 > [!NOTE]
-> De manera predeterminada, una sola suscripción de Azure está limitada a ocho perfiles de red CDN. Cada perfil de red CDN está limitado a diez puntos de conexión de red CDN.
-> 
+> Una suscripción de Azure tiene límites predeterminados para los siguientes recursos:
+> - El número de perfiles de red CDN que se pueden crear
+> - El número de puntos de conexión que pueden crearse en un perfil de CDN 
+> - El número de dominios personalizados que pueden asignarse a un punto de conexión
+>
+> Para más información acerca de los límites de suscripción de red CDN, vea [Límites de red CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
+>
 > Los precios de red de entrega de contenido se aplican en el nivel de perfil de red de entrega de contenido. Si quiere utilizar una combinación planes de tarifa de Red CDN de Azure, necesitará varios perfiles de red CDN.
 > 
 > 
@@ -43,7 +49,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 ## <a name="create-a-new-cdn-endpoint"></a>Crear un nuevo punto de conexión de CDN
 **Para crear un nuevo punto de conexión de red CDN**
 
-1. En el [Portal de Azure](https://portal.azure.com), vaya su perfil de red CDN.  Puede haberlo anclado al panel en el paso anterior.  Si no lo hace, para encontrarlo, haga clic en **Examinar**, en **Perfiles de CDN** y, luego, haga clic en el perfil al que planea agregar el punto de conexión.
+1. En [Azure Portal](https://portal.azure.com), vaya a su perfil de red CDN.  Puede haberlo anclado al panel en el paso anterior.  Si no lo hace, para encontrarlo, haga clic en **Examinar**, en **Perfiles de CDN** y, luego, haga clic en el perfil al que planea agregar el punto de conexión.
    
     Aparece la hoja del perfil de CDN.
    
@@ -55,7 +61,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
     Aparecerá la hoja **Agregar un extremo** .
    
     ![Hoja Agregar punto de conexión][cdn-add-endpoint]
-3. Escriba un **Nombre** para este punto de conexión de red de entrega de contenido.  Este nombre se usará para obtener acceso a sus recursos almacenados en caché en el dominio `<endpointname>.azureedge.net`.
+3. Escriba un **Nombre** para este punto de conexión de red de entrega de contenido.  Este nombre se usa para obtener acceso a sus recursos almacenados en caché en el dominio `<endpointname>.azureedge.net`.
 4. En la lista desplegable **Tipo de origen** , seleccione su tipo de origen.  Seleccione **Almacenamiento** para una cuenta de Azure Storage, **Servicio en la nube** para un servicio en la nube de Azure, **Aplic. web** para una aplic. web de Azure, o bien **Origen personalizado** para cualquier otro origen del servidor web públicamente accesible (hospedado en Azure o en otro lugar).
    
     ![Tipo de origen de la red CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
@@ -70,14 +76,16 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 8. Para **Protocolo** y **Puerto de origen**, especifique los protocolos y los puertos que se usan para tener acceso a sus recursos en el origen.  Se debe seleccionar al menos un protocolo (HTTP o HTTPS).
    
    > [!NOTE]
-   > El valor de **Puerto de origen** solo afecta al puerto que utiliza el punto de conexión para recuperar información del origen.  El propio punto de conexión solo estará disponible para los clientes finales en los puertos HTTP y HTTPS predeterminados (80 y 443), independencia de cuál sea el **puerto de origen**.  
+   > El valor de **Puerto de origen** solo afecta al puerto que utiliza el punto de conexión para recuperar información del origen.  El propio punto de conexión solo está disponible para los clientes finales en los puertos HTTP y HTTPS predeterminados (80 y 443), con independencia de cuál sea el **puerto de origen**.  
    > 
    > **red CDN de Azure de Akamai** no permiten el intervalo completo de puertos TCP para los orígenes.  Para obtener una lista de los puertos de origen que no se permiten, consulte [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx)(Puertos de origen permitidos de la red CDN de Azure de Akamai).  
    > 
    > El acceso al contenido de la red CDN usando HTTPS tiene la siguiente restricciones:
    > 
    > * Debe utilizar el certificado SSL proporcionado por la red CDN. No se admiten certificados de terceros.
-   > * Para acceder al contenido HTTPS, tiene que usar el dominio proporcionado por la red CDN (`<endpointname>.azureedge.net`). La compatibilidad con HTTPS no está disponible para nombres de dominio personalizados (CNAME) dado que la red CDN no admite certificados personalizados en este momento.
+   > * La compatibilidad con HTTPS para dominios personalizados de red CDN de Azure solo está disponible con los productos **Azure CDN de Verizon** (ediciones Standard y Premium). No lo estará en **CDN de Azure de Akamai**. Para más información, consulte [Habilitación de HTTPS en un dominio personalizado de la red CDN de Azure](cdn-custom-ssl.md).
+
+Para acceder al contenido HTTPS, use el dominio proporcionado por la red CDN (`<endpointname>.azureedge.net`). La compatibilidad con HTTPS no está disponible para nombres de dominio personalizados (CNAME) dado que la red CDN no admite certificados personalizados en este momento.
    > 
    > 
 9. Haga clic en el botón **Agregar** para crear el nuevo punto de conexión.
@@ -103,9 +111,4 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -13,12 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/31/2016
+ms.date: 09/13/2017
 ms.author: dendeli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
-
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
+ms.contentlocale: es-es
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Notificaciones push geovalladas con los Centros de notificaciones de Azure y datos espaciales de Bing
@@ -27,12 +28,12 @@ ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
 > 
 > 
 
-En este tutorial, aprenderá a entregar notificaciones push basadas en ubicaciones con Centros de notificaciones de Azure y datos espaciales de Bing, provenientes de una aplicación de Plataforma universal de Windows.
+En este tutorial, se aprende a entregar notificaciones push basadas en la ubicación con Azure Notification Hubs y datos espaciales de Bing, procedentes de una aplicación de la Plataforma universal de Windows.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Ante todo, debe asegurarse de que dispone de todos los requisitos previos de servicios y software:
+Ante todo, asegúrese de que cumple todos los requisitos previos de servicios y software:
 
-* [Visual Studio 2015 Update 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) o posterior ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) también servirá). 
+* [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) o posterior ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) también servirá). 
 * La versión más reciente del [SDK de Azure](https://azure.microsoft.com/downloads/). 
 * [Cuenta del Centro de desarrollo de Bing Maps](https://www.bingmapsportal.com/) (puede crear una gratis y asociarla a su cuenta de Microsoft). 
 
@@ -54,11 +55,11 @@ Debe especificar los siguientes parámetros para que funcione:
 Analicemos ahora más profundamente la configuración de cada uno de los elementos anteriores.
 
 ## <a name="setting-up-the-data-source"></a>Configuración del origen de datos
-Puede hacerlo en el Centro de desarrollo de Bing Maps. Simplemente haga clic en **Data sources** (Orígenes de datos) en la barra de navegación superior y seleccione **Manage Data Sources** (Administrar orígenes de datos).
+Puede configurar el origen de datos en el Centro de desarrollo de Mapas de Bing. En la barra de navegación superior, elija **Data sources** (Orígenes de datos)  > **Manage Data Sources** (Administrar orígenes de datos).
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
 
-Si no ha trabajado antes con la API de Bing Maps, lo más probable es que no haya ningún origen de datos presente, por lo que solo podrá crear uno nuevo haciendo clic en Upload data to a data source (Cargar datos en un origen de datos). Asegúrese de que rellenar todos los campos obligatorios:
+Si no ha trabajado antes con la API de Mapas de Bing, lo más probable es que no haya ningún origen de datos presente, por lo que solo podrá crear uno nuevo; para ello, elija **Data sources** (Orígenes de datos)  > **Upload data** (Cargar datos). Asegúrese de que rellenar todos los campos obligatorios:
 
 ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
 
@@ -72,7 +73,7 @@ Lo anterior representa esta entidad:
 
 ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 
-Simplemente copie y pegue la cadena anterior en un nuevo archivo, guárdelo como **NotificationHubsGeofence.pipe**y cárguelo en el centro de desarrollo de Bing.
+Copie y pegue la cadena anterior en un archivo nuevo, guárdelo como **NotificationHubsGeofence.pipe** y cárguelo en el Centro de desarrollo de Bing.
 
 > [!NOTE]
 > Se le pedirá que especifique una nueva clave para la **clave maestra** que sea diferente de la **clave de consulta**. Simplemente cree una nueva clave en el panel y actualice la página de carga del origen de datos.
@@ -81,17 +82,17 @@ Simplemente copie y pegue la cadena anterior en un nuevo archivo, guárdelo como
 
 Una vez cargado en el archivo de datos, deberá asegurarse de publicar el origen de datos. 
 
-Vaya a **Manage Data Sources** (Administrar orígenes de datos), al igual que hizo antes, busque el origen de datos en la lista y haga clic en **Publish** (Publicar) en la columna **Actions** (Acciones). Poco después debería ver el origen de datos en la pestaña **Published Data Sources** (Orígenes de datos publicados):
+Vaya a **Manage Data Sources** (Administrar orígenes de datos) (como antes), busque el origen de datos en la lista y elija **Publish** (Publicar) en la columna **Actions** (Acciones). Poco después debería ver el origen de datos en la pestaña **Published Data Sources** (Orígenes de datos publicados):
 
 ![](./media/notification-hubs-geofence/bing-maps-published-data.png)
 
-Si hace clic en **Edit**(Editar), podrá ver de un vistazo qué ubicaciones se introdujeron en él:
+Al elegir **Edit** (Editar), verá de un vistazo las ubicaciones que se introdujeron en él:
 
 ![](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
-En este punto, el portal no muestra los límites de la geovalla que hemos creado; todo lo que necesitamos es una confirmación de que la ubicación especificada está en las proximidades correctas.
+En este punto, el portal no muestra los límites de la geovalla creada; todo lo necesario es una confirmación de que la ubicación especificada está en las proximidades correctas.
 
-Ahora tiene todos los requisitos para el origen de datos. Para obtener los detalles en la URL de solicitud para la llamada de API, en el Centro de desarrollo de Bing Maps, haga clic en **Data sources** (Orígenes de datos) y seleccione **Data Source Information** (Información de origen de datos).
+Ahora tiene todos los requisitos para el origen de datos. Para obtener los detalles de la URL de solicitud para la llamada de API, en el Centro de desarrollo de Mapas de Bing, elija **Data sources** (Orígenes de datos) y seleccione **Data Source Information** (Información de origen de datos).
 
 ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
@@ -110,11 +111,11 @@ Esta respuesta solo se produce cuando el punto realmente está dentro de los lí
 ## <a name="setting-up-the-uwp-application"></a>Configuración de la aplicación de UWP
 Ahora que ya está listo el origen de datos, podemos empezar a trabajar en la aplicación de UWP que hemos arrancado anteriormente.
 
-Ante todo, debemos habilitar los servicios de ubicación para nuestra aplicación. Para ello, haga doble clic en el archivo `Package.appxmanifest` en el **Explorador de soluciones**.
+Ante todo, debemos habilitar los servicios de ubicación para nuestra aplicación. Para ello, abra el archivo `Package.appxmanifest` en el **Explorador de soluciones**.
 
 ![](./media/notification-hubs-geofence/vs-package-manifest.png)
 
-En la pestaña de propiedades de paquete que acaba de abrir, haga clic en **Funcionalidades** y asegúrese de que selecciona **Ubicación**:
+En la pestaña de propiedades de paquete que acaba de abrir, elija **Funcionalidades** y asegúrese de que selecciona **Ubicación**:
 
 ![](./media/notification-hubs-geofence/vs-package-location.png)
 
@@ -215,7 +216,7 @@ El proyecto ya está configurado para enviar notificaciones push a dispositivos 
 
 Para configurar la cadena de conexión, en la carpeta `Models` abra `Notifications.cs`. La función `NotificationHubClient.CreateClientFromConnectionString` debe contener la información sobre el centro de notificaciones que puede obtener en [Azure Portal](https://portal.azure.com) (busque dentro de la hoja **Directivas de acceso** en **Configuración**). Guarde el archivo de configuración actualizado.
 
-Ahora vamos a crear un modelo para el resultado de la API de Bing Maps. La manera más fácil de hacerlo es hacer clic con el botón derecho en la carpeta `Models` y elegir **Agregar** > **Clase**. Asígnele el nombre `GeofenceBoundary.cs`. Una vez hecho, copie el JSON en la respuesta de la API que se describe en la primera sección y, en Visual Studio, use **Editar** > **Pegado especial** > **Pegar JSON como clases**. 
+Ahora vamos a crear un modelo para el resultado de la API de Bing Maps. La manera más fácil de hacerlo es abrir la carpeta `Models` y elegir **Agregar** > **Clase**. Asígnele el nombre `GeofenceBoundary.cs`. Una vez hecho, copie el JSON en la respuesta de la API que se describe en la primera sección y, en Visual Studio, use **Editar** > **Pegado especial** > **Pegar JSON como clases**. 
 
 De este modo nos aseguramos de que se va a deserializar el objeto tal y como estaba previsto. El conjunto de clases resultante debe ser similar a esto:
 
@@ -337,23 +338,23 @@ Volviendo a la aplicación de UWP, ahora podemos probar las notificaciones. Dent
 > 
 > 
 
-Ahora asegurémonos de registrar la aplicación de UWP para notificaciones push. En Visual Studio, haga clic en **Proyecto** > **Almacenar** > **Asociar aplicación con la Tienda**.
+Ahora asegurémonos de registrar la aplicación de UWP para notificaciones push. En Visual Studio, elija **Proyecto** > **Tienda** > **Asociar aplicación con la Tienda**.
 
 ![](./media/notification-hubs-geofence/vs-associate-with-store.png)
 
 Cuando se inicia sesión en su cuenta de desarrollador, asegúrese de seleccionar una aplicación existente o de crear una nueva y asociar el paquete con ella. 
 
-Vaya al Centro de desarrollo y abra la aplicación que acaba de crear. Haga clic en **Servicios** > **Notificaciones push** > **Sitio de Servicios Live**.
+Vaya al Centro de desarrollo y abra la aplicación que acaba de crear. Elija **Servicios** > **Notificaciones push** > **Sitio de Servicios Live**.
 
 ![](./media/notification-hubs-geofence/ms-live-services.png)
 
-En el sitio, tome nota del **secreto de aplicación** y del **SID del paquete**. Los necesitará en Azure Portal: abra su centro de notificaciones, haga clic en **Configuración** > **Notification Services** > **Windows (WNS)** y escriba la información en los campos obligatorios.
+En el sitio, tome nota del **secreto de aplicación** y del **SID del paquete**. Los necesitará en Azure Portal: abra el centro de notificaciones, elija **Configuración** > **Notification Services** > **Windows (WNS)** y escriba la información en los campos obligatorios.
 
 ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
 
-Haga clic en **Save**(Guardar).
+Elija **Guardar**.
 
-Haga clic con el botón derecho en **Referencias** en el **Explorador de soluciones** y seleccione **Administrar paquetes NuGet**. Necesitaremos agregar una referencia a la **biblioteca administrada de Microsoft Azure Service Bus**; simplemente busque `WindowsAzure.Messaging.Managed` y agréguelo al proyecto.
+Abra **Referencias** en el **Explorador de soluciones** y seleccione **Administrar paquetes NuGet**. Necesitaremos agregar una referencia a la **biblioteca administrada de Microsoft Azure Service Bus**; simplemente busque `WindowsAzure.Messaging.Managed` y agréguelo al proyecto.
 
 ![](./media/notification-hubs-geofence/vs-nuget.png)
 
@@ -390,10 +391,5 @@ En segundo lugar, cuando se trabaja para garantizar que se realiza la entrega a 
 La solución anterior describe un escenario en el que se puede tener una amplia variedad de plataformas de destino, por lo que no hemos limitado el geovallado a funcionalidades específicas del sistema. Dicho esto, Plataforma universal de Windows ofrece funcionalidades para [detectar geovallas directamente de fábrica](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 Para más información acerca de las funcionalidades de Centros de notificaciones, consulte nuestro [portal de documentación](https://azure.microsoft.com/documentation/services/notification-hubs/).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
