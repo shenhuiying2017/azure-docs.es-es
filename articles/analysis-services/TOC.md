@@ -16,6 +16,7 @@
 ## [Administración de un servicio](analysis-services-manage.md)
 ## [Administración de usuarios de base de datos](analysis-services-database-users.md)
 ## [Administración de administradores de servidor](analysis-services-server-admins.md)
+## [Supervisión de las métricas del servidor](analysis-services-monitor.md)
 ## [Instalación y configuración de una puerta de enlace de datos local](analysis-services-gateway-install.md)
 ## [Obtención de bibliotecas de clientes](analysis-services-data-providers.md)
 ## [Copia de seguridad y restauración](analysis-services-backup.md)
