@@ -1198,7 +1198,7 @@ En este tutorial, ha aprendido a obtener tweets, analizar la opinión de estos, 
 * [Desarrollo de programas MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
-[website-get-started]: ../app-service-web/app-service-web-get-started-dotnet.md
+[website-get-started]: ../app-service/app-service-web-get-started-dotnet.md
 
 
 

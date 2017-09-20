@@ -4,7 +4,7 @@ description: "En este tema se explica qué es Azure Multi-factor Authentication,
 keywords: "introducción a MFA, introducción general a mfa, qué es mfa"
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 editor: yossib
 ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
-ms.author: joflore
+ms.author: kgremban
 ms.translationtype: HT
 ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 6239e0affd778f8f64222abce769841b27d6be1d

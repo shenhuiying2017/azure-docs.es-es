@@ -100,7 +100,7 @@
         - name: Creación de una definición de OpenAPI 2.0
           href: functions-api-definition-getting-started.md
         - name: Exportación a PowerApps y Microsoft Flow
-          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: app-service-export-api-to-powerapps-and-flow.md
         - name: Llamada a una función desde PowerApps
           href: functions-powerapps-scenario.md
         - name: Uso de la identidad de servicio administrada

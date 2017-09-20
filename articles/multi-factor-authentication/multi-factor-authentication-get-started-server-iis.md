@@ -3,7 +3,7 @@ title: "Autenticación de IIS y Servidor Azure MFA | Microsoft Docs"
 description: "Se trata de la página Azure Multi-Factor Authentication que ayudará a implementar la autenticación IIS y el servidor Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: d1bf1c8a-2c10-4ae6-9f4b-75f0c3df43eb
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/16/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017,it-pro
 ms.translationtype: HT

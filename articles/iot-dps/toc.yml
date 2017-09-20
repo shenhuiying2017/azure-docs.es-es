@@ -33,8 +33,6 @@
   items:
     - name: Administración de inscripciones de los dispositivos
       href: how-to-manage-enrollments.md
-    - name: Uso de HSM con SDK
-      href: use-hsm-with-sdk.md
 - name: Referencia
   items:
     - name: REST

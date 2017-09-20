@@ -183,7 +183,7 @@
 ### [Entrega mediante descarga](media-services-deliver-asset-download.md)
 ### [Escenario de streaming de conmutación por error](media-services-implement-failover.md)
 
-## Reproducción
+## Consumo
 ### [Reproducción de medios con los reproductores existentes](media-services-playback-content-with-existing-players.md)
 ### [Reproducción de medios con Media Player](media-services-develop-video-players.md)
 ### Otras opciones de reproducción

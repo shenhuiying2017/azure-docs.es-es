@@ -11,8 +11,6 @@
 ### [Incorporación de operaciones](api-management-howto-add-operations.md)
 ### [Creación de una API](api-management-howto-create-apis.md)
 ### [Importación de una definición de API](api-management-howto-import-api.md)
-### [Introducción a las revisiones](api-management-get-started-revise-api.md)
-### [Introducción a las versiones](api-management-get-started-publish-versions.md)
 ## Proteger el back-end
 ### [Protección del back-end de API web con AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Conexión a una red virtual](api-management-using-with-vnet.md)

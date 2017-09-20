@@ -60,7 +60,6 @@
 ### Configuración de escalado automático
 #### [Portal](cloud-services-how-to-scale-portal.md)
 #### [Portal clásico](cloud-services-how-to-scale.md)
-#### [PowerShell](cloud-services-how-to-scale-powershell.md)
 ### [Uso de Python para administrar recursos de Azure](cloud-services-python-how-to-use-service-management.md)
 
 ### [Revisiones del SO invitado](cloud-services-guestos-msrc-releases.md)

@@ -30,12 +30,12 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de d
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Antes de ejecutar este ejemplo, debe cumplir los siguientes requisitos previos:
-   * JDK 1.7+ (ejecute `apt-get install default-jdk` si no tiene JDK)
-   * Maven (ejecute `apt-get install maven` si no tiene Maven)
+Antes de ejecutar este ejemplo, debe cumplir los siguientes requisitos previos:
+* JDK 1.7+ (ejecute `apt-get install default-jdk` si no tiene JDK)
+* Maven (ejecute `apt-get install maven` si no tiene Maven)
 
-* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-* [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
