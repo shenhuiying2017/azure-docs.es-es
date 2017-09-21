@@ -51,7 +51,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |MemoryLimitHigh|Memoria: límite alto de memoria|Bytes|Media|Límite alto de memoria del archivo de configuración.|
 |MemoryLimitLow|Memoria: límite bajo de memoria|Bytes|Media|Límite bajo de memoria del archivo de configuración.|
 |MemoryLimitVertiPaq|Memoria: VertiPaq de límite de memoria|Bytes|Media|Límite en memoria del archivo de configuración.|
-|Cuota|Memoria: cuota|Bytes|Media|Cuota de memoria actual, en bytes. La cuota de memoria también se denomina concesión de memoria o reserva de memoria.|
+|Quota|Memoria: cuota|Bytes|Media|Cuota de memoria actual, en bytes. La cuota de memoria también se denomina concesión de memoria o reserva de memoria.|
 |QuotaBlocked|Memoria: cuota bloqueada|Recuento|Media|Número actual de solicitudes de cuota que están bloqueadas hasta que se liberen otras cuotas de memoria.|
 |VertiPaqNonpaged|Memoria: VertiPaq no paginado|Bytes|Media|Bytes de memoria bloqueados en el espacio de trabajo para que los use el motor en memoria.|
 |VertiPaqPaged|Memoria: VertiPaq paginado|Bytes|Media|Bytes de memoria paginada en uso para datos en memoria.|
@@ -86,7 +86,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |UnauthorizedRequests|Solicitudes de puerta de enlace no autorizadas|Recuento|Total|Número de solicitudes de puerta de enlace no autorizadas|
 |FailedRequests|Solicitudes de puerta de enlace con error|Recuento|Total|Número de errores en solicitudes de puerta de enlace|
 |OtherRequests|Otras solicitudes de puerta de enlace|Recuento|Total|Número de otras solicitudes de puerta de enlace|
-|Duración|Duración total de las solicitudes de puerta de enlace|Milisegundos|Promedio, máximo|Duración total de las solicitudes de puerta de enlace en milisegundos|
+|Duration|Duración total de las solicitudes de puerta de enlace|Milisegundos|Promedio, máximo|Duración total de las solicitudes de puerta de enlace en milisegundos|
 |Capacity|Capacidad (versión preliminar)|Percent|Promedio, máximo|Métrica de uso para el servicio ApiManagement|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
@@ -298,13 +298,13 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
 |---|---|---|---|---|
-|Porcentaje de CPU|Porcentaje de CPU|Percent|Media|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente.|
-|Red interna|Red interna|Bytes|Total|El número de bytes recibidos en todas las interfaces de red por las máquinas virtuales (tráfico entrante).|
-|Red externa|Red externa|Bytes|Total|El número de bytes enviados en todas las interfaces de red por las máquinas virtuales (tráfico saliente).|
-|Bytes de lectura de disco/seg|Lectura de disco|BytesPerSecond|Media|Promedio de bytes que se leen desde el disco durante el período de supervisión.|
-|Bytes de escritura en disco/seg|Escritura de disco|BytesPerSecond|Media|Promedio de bytes que se escriben en el disco durante el período de supervisión.|
-|Operaciones de lectura de disco por segundo|Operaciones de lectura de disco por segundo|CountPerSecond|Media|E/S por segundo de lectura de disco.|
-|Operaciones de escritura por segundo en disco|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco.|
+|Percentage CPU|Porcentaje de CPU|Percent|Media|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente.|
+|Network In|Red interna|Bytes|Total|El número de bytes recibidos en todas las interfaces de red por las máquinas virtuales (tráfico entrante).|
+|Network Out|Red externa|Bytes|Total|El número de bytes enviados en todas las interfaces de red por las máquinas virtuales (tráfico saliente).|
+|Disk Read Bytes/Sec|Lectura de disco|BytesPerSecond|Media|Promedio de bytes que se leen desde el disco durante el período de supervisión.|
+|Disk Write Bytes/Sec|Escritura de disco|BytesPerSecond|Media|Promedio de bytes que se escriben en el disco durante el período de supervisión.|
+|Disk Read Operations/Sec|Operaciones de lectura de disco por segundo|CountPerSecond|Media|E/S por segundo de lectura de disco.|
+|Disk Write Operations/Sec|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco.|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
@@ -324,37 +324,37 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
 |---|---|---|---|---|
-|Porcentaje de CPU|Porcentaje de CPU|Percent|Media|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente|
-|Red interna|Red interna|Bytes|Total|El número de bytes recibidos en todas las interfaces de red por las máquinas virtuales (tráfico entrante)|
-|Red externa|Red externa|Bytes|Total|El número de bytes enviados en todas las interfaces de red por las máquinas virtuales (tráfico saliente)|
+|Percentage CPU|Porcentaje de CPU|Percent|Media|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente|
+|Network In|Red interna|Bytes|Total|El número de bytes recibidos en todas las interfaces de red por las máquinas virtuales (tráfico entrante)|
+|Network Out|Red interna|Bytes|Total|El número de bytes enviados en todas las interfaces de red por las máquinas virtuales (tráfico saliente)|
 |Bytes de lectura de disco|Bytes de lectura de disco|Bytes|Total|Número total de bytes que se leen desde el disco durante el período de supervisión|
 |Bytes de escritura de disco|Bytes de escritura de disco|Bytes|Total|Número total de bytes que se escriben en el disco durante el período de supervisión|
-|Operaciones de lectura de disco por segundo|Operaciones de lectura de disco por segundo|CountPerSecond|Media|E/S por segundo de lectura de disco|
-|Operaciones de escritura por segundo en disco|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco|
+|Disk Read Operations/Sec|Operaciones de lectura de disco por segundo|CountPerSecond|Media|E/S por segundo de lectura de disco|
+|Disk Write Operations/Sec|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
 |---|---|---|---|---|
-|Porcentaje de CPU|Porcentaje de CPU|Percent|Media|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente|
-|Red interna|Red interna|Bytes|Total|El número de bytes recibidos en todas las interfaces de red por las máquinas virtuales (tráfico entrante)|
-|Red externa|Red externa|Bytes|Total|El número de bytes enviados en todas las interfaces de red por las máquinas virtuales (tráfico saliente)|
+|Percentage CPU|Porcentaje de CPU|Percent|Media|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente|
+|Network In|Red interna|Bytes|Total|El número de bytes recibidos en todas las interfaces de red por las máquinas virtuales (tráfico entrante)|
+|Network Out|Red interna|Bytes|Total|El número de bytes enviados en todas las interfaces de red por las máquinas virtuales (tráfico saliente)|
 |Bytes de lectura de disco|Bytes de lectura de disco|Bytes|Total|Número total de bytes que se leen desde el disco durante el período de supervisión|
 |Bytes de escritura de disco|Bytes de escritura de disco|Bytes|Total|Número total de bytes que se escriben en el disco durante el período de supervisión|
-|Operaciones de lectura de disco por segundo|Operaciones de lectura de disco por segundo|CountPerSecond|Media|E/S por segundo de lectura de disco|
-|Operaciones de escritura por segundo en disco|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco|
+|Disk Read Operations/Sec|Operaciones de lectura de disco por segundo|CountPerSecond|Media|E/S por segundo de lectura de disco|
+|Disk Write Operations/Sec|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
 |---|---|---|---|---|
-|Porcentaje de CPU|Porcentaje de CPU|Percent|Media|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente|
-|Red interna|Red interna|Bytes|Total|El número de bytes recibidos en todas las interfaces de red por las máquinas virtuales (tráfico entrante)|
-|Red externa|Red externa|Bytes|Total|El número de bytes enviados en todas las interfaces de red por las máquinas virtuales (tráfico saliente)|
+|Percentage CPU|Porcentaje de CPU|Percent|Media|El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente|
+|Network In|Red interna|Bytes|Total|El número de bytes recibidos en todas las interfaces de red por las máquinas virtuales (tráfico entrante)|
+|Network Out|Red interna|Bytes|Total|El número de bytes enviados en todas las interfaces de red por las máquinas virtuales (tráfico saliente)|
 |Bytes de lectura de disco|Bytes de lectura de disco|Bytes|Total|Número total de bytes que se leen desde el disco durante el período de supervisión|
 |Bytes de escritura de disco|Bytes de escritura de disco|Bytes|Total|Número total de bytes que se escriben en el disco durante el período de supervisión|
-|Operaciones de lectura de disco por segundo|Operaciones de lectura de disco por segundo|CountPerSecond|Media|E/S por segundo de lectura de disco|
-|Operaciones de escritura por segundo en disco|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco|
+|Disk Read Operations/Sec|Operaciones de lectura de disco por segundo|CountPerSecond|Media|E/S por segundo de lectura de disco|
+|Disk Write Operations/Sec|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -555,7 +555,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
 |---|---|---|---|---|
-|Rendimiento|Rendimiento|BytesPerSecond|Media|Número de bytes por segundo que ha ofrecido Application Gateway|
+|Throughput|Rendimiento|BytesPerSecond|Media|Número de bytes por segundo que ha ofrecido Application Gateway|
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
@@ -573,7 +573,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |registration.update|Operaciones de actualización de registros|Recuento|Total|El recuento de todas las actualizaciones de registros correctas.|
 |registration.get|Operaciones de lectura de registros|Recuento|Total|El recuento de todas las consultas de registros correctas.|
 |registration.delete|Operaciones de eliminación de registros|Recuento|Total|El recuento de todas las eliminaciones de registros correctas.|
-|entrante|Mensajes entrantes|Recuento|Total|El recuento de todas las llamadas a la API de envío. |
+|incoming|Mensajes entrantes|Recuento|Total|El recuento de todas las llamadas a la API de envío. |
 |incoming.scheduled|Notificaciones push programadas enviadas|Recuento|Total|Notificaciones push programadas canceladas|
 |incoming.scheduled.cancel|Notificaciones push programadas canceladas|Recuento|Total|Notificaciones push programadas canceladas|
 |scheduled.pending|Notificaciones programadas pendientes|Recuento|Total|Notificaciones programadas pendientes|
@@ -734,7 +734,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
 |---|---|---|---|---|
 |CpuTime|Tiempo de CPU|Segundos|Total|Tiempo de CPU|
-|Solicitudes|Solicitudes|Recuento|Total|Solicitudes|
+|Requests|Solicitudes|Recuento|Total|Solicitudes|
 |BytesReceived|Entrada de datos|Bytes|Total|Entrada de datos|
 |BytesSent|Salida de datos|Bytes|Total|Salida de datos|
 |Http101|Http 101|Recuento|Total|Http 101|
@@ -767,7 +767,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Description|
 |---|---|---|---|---|
 |CpuTime|Tiempo de CPU|Segundos|Total|Tiempo de CPU|
-|Solicitudes|Solicitudes|Recuento|Total|Solicitudes|
+|Requests|Solicitudes|Recuento|Total|Solicitudes|
 |BytesReceived|Entrada de datos|Bytes|Total|Entrada de datos|
 |BytesSent|Salida de datos|Bytes|Total|Salida de datos|
 |Http101|Http 101|Recuento|Total|Http 101|
@@ -789,7 +789,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|Descripción|
 |---|---|---|---|---|
-|Solicitudes|Solicitudes|Recuento|Total|Solicitudes|
+|Requests|Solicitudes|Recuento|Total|Solicitudes|
 |BytesReceived|Entrada de datos|Bytes|Total|Entrada de datos|
 |BytesSent|Salida de datos|Bytes|Total|Salida de datos|
 |Http101|Http 101|Recuento|Total|Http 101|
