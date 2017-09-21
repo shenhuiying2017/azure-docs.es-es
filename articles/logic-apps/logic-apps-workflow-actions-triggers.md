@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: bfde83e1142bf57e02ee458d477a0a70e78c4ad6
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: cc41bdb12cf11e60489e104af2df4dd0720dd91b
 ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -160,11 +160,11 @@ Estos son algunos ejemplos de diferentes comportamientos para diferentes tipos d
   
 |Response code|Retry\-After|Comportamiento|  
 |-----------------|----------------|------------|  
-|200|\(Ninguna\)|No es un desencadenador válido, se requiere Retry\-After, de lo contrario el motor nunca sondea la siguiente solicitud.|  
-|202|60|No se desencadena el flujo de trabajo. El próximo intento se realiza en un minuto.|  
+|200|\(Ninguna\)|Se ejecuta el flujo de trabajo y se comprueba de nuevo si hay más contenido que siga la periodicidad definida.|  
 |200|10|Se ejecuta el flujo de trabajo y se comprueba de nuevo si hay más contenido en 10 segundos.|  
-|400|\(Ninguna\)|Solicitud incorrecta, no se ejecuta el flujo de trabajo. Si no hay ninguna **directiva de reintento** definida, se usa la directiva predeterminada. Después de alcanzar el número de reintentos, el desencadenador ya no es válido.|  
-|500|\(Ninguna\)|Error del servidor, no se ejecuta el flujo de trabajo.  Si no hay ninguna **directiva de reintento** definida, se usa la directiva predeterminada. Después de alcanzar el número de reintentos, el desencadenador ya no es válido.|  
+|202|60|No se desencadena el flujo de trabajo. El próximo intento tiene lugar en un minuto, según cuál sea la periodicidad definida. Si la periodicidad definida es inferior a un minuto, el encabezado retry-after tiene prioridad. Si no, se sigue la periodicidad definida.|  
+|400|\(Ninguna\)|Solicitud incorrecta, no se ejecuta el flujo de trabajo. Si no hay ninguna **directiva de reintento** definida, se usa la directiva predeterminada. Una vez alcanzado el número de reintentos, el desencadenador volverá a comprobar si hay más contenido que siga la periodicidad definida.|  
+|500|\(Ninguna\)|Error del servidor, no se ejecuta el flujo de trabajo.  Si no hay ninguna **directiva de reintento** definida, se usa la directiva predeterminada. Una vez alcanzado el número de reintentos, el desencadenador volverá a comprobar si hay más contenido que siga la periodicidad definida.|  
   
 Las salidas de un desencadenador HTTP son similares a este ejemplo:  
   

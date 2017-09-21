@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c9df4e1f7677b2ed10684f6f3c981f2abf64f171
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 523ee51c79fe09d71fa3cd3e202cf155b511956f
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="installing-python-and-the-sdk"></a>Instalación de Python y el SDK
@@ -28,7 +28,7 @@ Python es fácil de configurar en Windows y viene preinstalado en Mac, Linux y [
 El SDK de Azure para Python incluye componentes que le permiten desarrollar, implementar y administrar aplicaciones de Python para Azure. Específicamente, el SDK de Azure para Python incluye lo siguiente:
 
 * **Bibliotecas de administración**. Estas bibliotecas de clases proporcionan una interfaz de administración de recursos de Azure, como cuentas de almacenamiento y máquinas virtuales.
-* **Bibliotecas tiempo de ejecución**. Estas bibliotecas de clases proporcionan una interfaz para tener acceso a funciones de Azure, como Storage y Service Bus.
+* **Bibliotecas tiempo de ejecución**. Estas bibliotecas de clases proporcionan una interfaz para tener acceso a funciones de Azure, como el bus de servicio y almacenamiento.
 
 ## <a name="which-python-and-which-version-to-use"></a>Qué es Python y qué versión usar
 Existen varios modelos de intérpretes Python disponibles, entre los ejemplos se incluyen los siguientes:
@@ -36,7 +36,7 @@ Existen varios modelos de intérpretes Python disponibles, entre los ejemplos se
 * CPython: El intérprete Python estándar y que se usa con más frecuencia.
 * PyPy: implementación alternativa rápida y compatible con CPython
 * IronPython: El intérprete Python que se ejecuta en .Net/CLR.
-* Jython: el intérprete Python que se ejecuta en la máquina virtual Java
+* Jython: el intérprete Python que se ejecuta en Java Virtual Machine
 
 **CPython** v2.7 o v3.3+ y PyPy 5.4.0 se han probado y son compatibles con el SDK de Azure de Python.
 
@@ -98,7 +98,7 @@ El repositorio [Python Package Index][Python Package Index] (PyPI) dispone de un
 
 El uso de PTVS es opcional, pero es recomendable, ya que le proporciona compatibilidad con soluciones o proyectos de Web y Python, depuración, creación de perfiles, ventana interactiva, edición de plantillas e IntelliSense.
 
-PTVS también simplifica la implementación en Microsoft Azure, con compatibilidad para la implementación en [Cloud Services](cloud-services/cloud-services-python-ptvs.md) y [Websites](app-service-web/web-sites-python-ptvs-django-mysql.md).
+PTVS también simplifica la implementación en Microsoft Azure, con compatibilidad para la implementación en [Cloud Services](cloud-services/cloud-services-python-ptvs.md) y [Websites](app-service-web/app-service-web-overview.md).
 
 PTVS funciona con su instalación de Visual Studio 2013, 2015 o 2017 existente.  Para obtener documentación, descargas y discusiones, consulte [Python Tools para Visual Studio].  
 
@@ -107,7 +107,7 @@ Para Linux o Mac OS, los escenarios principales de Azure que se admiten:
 
 1. Consumo de servicios de Azure mediante bibliotecas de clientes para Python
 2. Ejecución de la aplicación en la VM de Linux
-3. Desarrollar y publicar en Azure Websites mediante Git
+3. Desarrollar y publicar en sitios web de Azure mediante Git
 
 El primer escenario le permite crear aplicaciones web enriquecidas que aprovechan las funcionalidades de PaaS de Azure como [Blob Storage](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [Queue Storage](storage/queues/storage-python-how-to-use-queue-storage.md), [Table Storage](cosmos-db/table-storage-how-to-use-python.md), etc., a través de contenedores de Python para la API de REST de Azure. Estos funcionan de forma idéntica en Windows, Mac y Linux.  También puede usar estas bibliotecas de cliente desde su equipo de desarrollo local o en una máquina virtual de Linux que se ejecute en Azure.
 
@@ -117,7 +117,7 @@ Para obtener información sobre cómo configurar una máquina virtual Linux, con
 
 Con la implementación de Git puede desarrollar una aplicación web de Python y publicarla en un sitio web de Azure desde cualquier sistema operativo.  Cuando inserta el repositorio en Azure, crea automáticamente un entorno virtual y pip instala los paquetes necesarios.
 
-Para obtener más información acerca del desarrollo y la publicación de Azure Websites, consulte los tutoriales para [Creación de Websites con Django](app-service-web/web-sites-python-create-deploy-django-app.md), [Creación de Websites con Bottle](app-service-web/web-sites-python-create-deploy-bottle-app.md) y [Creación de Websites con Flask](app-service-web/web-sites-python-create-deploy-flask-app.md). Para obtener información general sobre el uso de cualquier marco de trabajo compatible con WSGI, consulte [Configuración de Python con Azure Websites](app-service-web/web-sites-python-configure.md).
+Para información sobre cómo usar cualquier marco de trabajo compatible con WSGI, consulte [Configuración de Python con Azure Websites](app-service-web/web-sites-python-configure.md).
 
 ## <a name="additional-software-and-resources"></a>Recursos y software adicionales:
 * [SDK de Azure para Python ReadTheDocs](http://azure-sdk-for-python.readthedocs.io/en/latest/)
@@ -145,22 +145,10 @@ Para obtener más información acerca del desarrollo y la publicación de Azure 
 [Django Project - A mature web framework/CMS]: http://www.djangoproject.com
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 [IPython]: http://ipython.org
-[IPython Notebook on Azure]: virtual-machines-linux-jupyter-notebook.md
-[Cloud Services]: cloud-services-python-ptvs.md
-[Websites]: web-sites-python-ptvs-django-mysql.md
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 [Python Tools for Visual Studio on GitHub]: https://github.com/microsoft/ptvs
 [Python Package Index]: http://pypi.python.org/pypi
 [Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
 [Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
-[Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
-[How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
-[Create a Virtual Machine Running Linux]: virtual-machines-linux-quick-create-cli.md
-[Creating Websites with Django]: web-sites-python-create-deploy-django-app.md
-[Creating Websites with Bottle]: web-sites-python-create-deploy-bottle-app.md
-[Creating Websites with Flask]: web-sites-python-create-deploy-flask-app.md
-[Configuring Python with Azure Websites]: web-sites-python-configure.md
-[table storage]: storage-python-how-to-use-table-storage.md
-[queue storage]: storage-python-how-to-use-queue-storage.md
 [blob storage]:storage/blobs/storage-python-how-to-use-blob-storage.md
 

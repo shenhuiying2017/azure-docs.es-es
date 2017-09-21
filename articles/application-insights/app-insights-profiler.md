@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 252e1fb070bcdc11494f6f37a9a1ee03fa50509e
 ms.contentlocale: es-es
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Introducción a la supervisión de aplicaciones web de Azure con Application Insights
@@ -65,11 +65,17 @@ Cuando se [habilita Application Insights para Azure App Service en tiempo de eje
 Hay una [versión preliminar de Profiler para los recursos de Azure Compute](https://go.microsoft.com/fwlink/?linkid=848155).
 
 
-## <a name="limits"></a>Límites
+## <a name="limitations"></a>Limitaciones
 
 La retención de datos predeterminada es de 5 días. La ingesta máxima por día es de 10 GB.
 
 No se aplica ningún cargo por el servicio Profiler. La aplicación web debe hospedarse en al menos el nivel Básico de App Services.
+
+## <a name="overhead-and-sampling-algorithm"></a>Sobrecarga y algoritmo de muestreo
+
+Profiler se ejecuta de manera aleatoria dos minutos cada hora en cada máquina virtual que hospede la aplicación con Profiler habilitado para capturar seguimientos. Cuando Profiler se ejecuta, supone entre un 5 y un 15 % de sobrecarga de CPU en el servidor.
+Cuantos más servidores haya disponibles para hospedar la aplicación, menor será el impacto de Profiler en el rendimiento general de la aplicación. La razón es que los resultados del algoritmo de muestreo en Profiler solo acaparan un 5 % de los servidores en un momento dado, y habrá más servidores disponibles para atender las solicitudes web y aliviar los servidores que tengan sobrecarga de Profiler.
+
 
 ## <a name="viewing-profiler-data"></a>Visualización de datos del generador de perfiles
 
@@ -191,6 +197,21 @@ Cuando vea subprocesos en paralelo en su seguimientos, tendrá que determinar cu
 ### <a name="error-report-in-the-profiling-viewer"></a>Informe de errores del visor de generación de perfiles
 
 Abra una incidencia de soporte técnico desde el portal. Incluya el identificador de correlación del mensaje de errores.
+
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Deployment error Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+
+Si está implementando la aplicación web de nuevo en un recurso de App Services con Profiler habilitado, podría aparecer un mensaje de error similar al siguiente: Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs' Este error se producirá si ejecuta Web Deploy desde un script o en la canalización de implementación de VSTS.
+La solución a este problema consiste en agregar los siguientes parámetros de implementación extra a la tarea de Web Deploy:
+
+```
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+```
+
+Esto eliminará la carpeta que App Insights Profiler usa y desbloqueará el proceso de nueva implementación. No afectará a la instancia de Profiler que se está ejecutando actualmente.
+
 
 ## <a name="manual-installation"></a>Instalación manual
 

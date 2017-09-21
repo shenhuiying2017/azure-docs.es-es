@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 38a5bee31483cbb91b0278ea6c750e5ff7780b7c
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: d8c20908756276d9c6d4e0d083a71c92bbbee2be
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -447,48 +447,12 @@ En la sección siguiente se describe cómo crear un script breve para iniciar y 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Para iniciar o eliminar una instantánea en la nube
 
 1.  [Instale Azure PowerShell](/powershell/azure/overview).
-2.  [Descargue e importe la configuración de publicación y la información de suscripción](https://msdn.microsoft.com/library/dn385850.aspx).
-3.  En el Portal de Azure clásico, obtenga el nombre del recurso y la [clave de registro del servicio StorSimple Manager](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-4.  En el servidor que ejecuta el script, ejecute PowerShell como administrador. Escriba el siguiente comando:
-
-    `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
-
-    Fíjese en el identificador de la directiva de copia de seguridad.
-5.  En el Bloc de notas, cree un nuevo script de PowerShell mediante el código siguiente.
-
-    Copie y pegue este fragmento de código:
-    ```powershell
-    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-    Disable-AzureDataCollection
-    $ApplianceName = <myStorSimpleApplianceName>
-    $RetentionInDays = 20
-    $RetentionInDays = -$RetentionInDays
-    $Today = Get-Date
-    $ExpirationDate = $Today.AddDays($RetentionInDays)
-    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-    $CompletedSnapshots =@()
-    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-    Write-Host "The Expiration date is " $ExpirationDate
-    Write-Host
-
-    ForEach ($SnapShot in $CompletedSnapshots)
-    {
-        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-        {
-            $SnapShotInstanceID = $SnapShot.InstanceId
-            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-            Write-Host "Instance ID " $SnapShotInstanceID
-            Write-Host "This snpashotdate is older and needs to be deleted"
-            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-        }
-    }
-    ```
-      Guarde el script de PowerShell en la misma ubicación donde ha guardado su configuración de publicación de Azure. Por ejemplo, guárdelo como C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
-6.  Agregue el script al trabajo de copia de seguridad en Backup Exec, para lo que debe editar las opciones del trabajo de Backup Exec y los comandos previos y posteriores.
+2. Descargue y configure el script [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) de PowerShell.
+3. En el servidor que ejecuta el script, ejecute PowerShell como administrador. Asegúrese de ejecutar el script con `-WhatIf $true` para ver cuáles son los cambios que hará el script. Una vez que se complete la validación, pase `-WhatIf $false`. Ejecute el comando siguiente:
+```powershell
+.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+```
+4.  Agregue el script al trabajo de copia de seguridad en Backup Exec, para lo que debe editar las opciones del trabajo de Backup Exec y los comandos previos y posteriores.
 
     ![Consola de Backup Exec, opciones de copia de seguridad, pestaña de comandos previos y posteriores](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 

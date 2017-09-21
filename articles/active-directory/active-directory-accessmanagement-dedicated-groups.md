@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 09/12/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;oldportal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 92b9c88ec49424c96c3bd21bc5c4ce390352c17b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 992f4563064d7a292cf4fdd90a9a3c84cdec91c0
 ms.contentlocale: es-es
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="dedicated-groups-in-azure-active-directory"></a>Grupos dedicados en Azure Active Directory
@@ -36,7 +36,7 @@ En Azure Active Directory (Azure AD), la característica de grupos dedicados cre
 
 **Para habilitar los grupos dedicados**
 
-1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory**y luego abra el directorio de su organización.
+1. En [Azure Portal](https://portal.azure.com), seleccione **Active Directory** y luego abra el directorio de su organización.
 2. Seleccione la pestaña **Grupos** y abra el grupo que desea editar.
 3. Seleccione la pestaña **Configurar** y en **Habilitar grupos dedicados**, seleccione **Sí**.
 

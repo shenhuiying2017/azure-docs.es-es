@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 43025adeaf954fedfbcee32e636fb30935f2126b
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a761249e7345991bd570cde6170515fafd692d61
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Redes sociales y Azure Cosmos DB
@@ -240,7 +240,7 @@ Pero... momento: pronto se da cuenta de que su experiencia con la plataforma no 
 
 Cosmos DB le permite [replicar los datos global](../cosmos-db/tutorial-global-distribution-documentdb.md) y transparentemente con un par de clics y seleccionar de forma automática entre las regiones disponibles del [código de cliente](../cosmos-db/tutorial-global-distribution-documentdb.md). Esto también significa que tiene [varias regiones de conmutación por error](regional-failover.md). 
 
-Cuando replica globalmente los datos, debe asegurarse de que los clientes puedan aprovecharlos. Si usa un front-end web o tiene acceso a las API desde clientes para dispositivos móviles, puede implementar [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) y clonar la instancia de Azure App Service en todas las regiones deseadas mediante una [configuración de rendimiento](../app-service-web/web-sites-traffic-manager.md) para admitir la cobertura global extendida. Cuando los clientes tienen acceso al front-end o a las API, se enrutarán a la instancia de App Service más cercana, que, a su vez, se conectará a la réplica local de Cosmos DB.
+Cuando replica globalmente los datos, debe asegurarse de que los clientes puedan aprovecharlos. Si usa un front-end web o tiene acceso a las API desde clientes para dispositivos móviles, puede implementar [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) y clonar la instancia de Azure App Service en todas las regiones deseadas mediante una configuración de rendimiento para admitir la cobertura global extendida. Cuando los clientes tienen acceso al front-end o a las API, se enrutarán a la instancia de App Service más cercana, que, a su vez, se conectará a la réplica local de Cosmos DB.
 
 ![Incorporación de la cobertura global en la plataforma social](./media/social-media-apps/social-media-apps-global-replicate.png)
 

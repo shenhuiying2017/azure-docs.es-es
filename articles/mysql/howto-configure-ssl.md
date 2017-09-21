@@ -8,12 +8,12 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 09/15/2017
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 77e1b6266a2cf47949fa06358ec003f6b6b38065
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 38e68712699b3e89a10c3d44d8ec313f531fcbdc
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configuración de la conectividad SSL en la aplicación para conectarse de forma segura a Azure Database for MySQL
@@ -25,7 +25,7 @@ Descargue el certificado necesario para comunicarse a través de SSL con la base
 
 ## <a name="step-2-bind-ssl"></a>Paso 2: Enlazar SSL
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Conexión al servidor mediante MySQL Workbench a través de SSL
-Configure MySQL Workbench para conectarse de forma segura a través de SSL. Vaya a la pestaña **SSL** en MySQL Workbench en el cuadro de diálogo Configuración de una conexión nueva. Escriba la ubicación del archivo **BaltimoreCyberTrustRoot.crt.pem** en el campo **Archivo CA SSL:**.
+Configure MySQL Workbench para conectarse de forma segura a través de SSL. En MySQL Workbench en el cuadro de diálogo Setup New Connection (Configuración de una conexión nueva), vaya a la pestaña **SSL**. En el campo **Archivo CA SSL**, escriba la ubicación del archivo **BaltimoreCyberTrustRoot.crt.pem**.
 ![guardar icono personalizado](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Conexión al servidor mediante la CLI de MySQL a través de SSL
@@ -35,22 +35,22 @@ mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4d
 ```
 
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Paso 3: Aplicar conexiones SSL en Azure 
-### <a name="using-azure-portal"></a>Uso de Azure Portal
-Mediante Azure Portal, vaya al servidor de Azure Database for MySQL y haga clic en **Seguridad de conexión**. Use el botón de alternancia para habilitar o deshabilitar la opción **Aplicar conexión SSL**. A continuación, haga clic en **Guardar**. Microsoft recomienda habilitar siempre **Aplicar conexión SSL** para mejorar la seguridad.
+### <a name="using-the-azure-portal"></a>Uso de Azure Portal
+Mediante Azure Portal, vaya al servidor de Azure Database for MySQL y haga clic en **Seguridad de conexión**. Use el botón de alternancia para habilitar o deshabilitar la opción **Aplicar conexión SSL** y después haga clic en **Guardar**. Microsoft recomienda habilitar siempre la opción **Aplicar conexión SSL** para mejorar la seguridad.
 ![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Uso de la CLI de Azure
-Puede habilitar o deshabilitar el parámetro **ssl-enforcement** con los valores Enabled o Disabled, respectivamente, en la CLI de Azure.
+Puede habilitar o deshabilitar el parámetro **ssl-enforcement** con los valores Enabled o Disabled, respectivamente, en CLI de Azure.
 ```azurecli-interactive
 az mysql server update --resource-group myresource --name mysqlserver4demo --ssl-enforcement Enabled
 ```
 
-## <a name="step-4-verify-ssl-connection"></a>Paso 4: Comprobar la conexión SSL
+## <a name="step-4-verify-the-ssl-connection"></a>Paso 4: Comprobar la conexión SSL
 Ejecute el comando **status** de MySQL para comprobar que se ha conectado al servidor de MySQL mediante SSL:
 ```dos
 mysql> status
 ```
-Confirme que la conexión está cifrada revisando la salida. Debería aparecer: **SSL: el cifrado en uso es AES256-SHA** 
+Confirme que la conexión está cifrada mediante la revisión de la salida, que debe mostrar: **SSL: Cipher in use is AES256-SHA** (SSL: el cifrado en uso es AES256-SHA). 
 
 ## <a name="sample-code"></a>Código de ejemplo
 ### <a name="php"></a>PHP

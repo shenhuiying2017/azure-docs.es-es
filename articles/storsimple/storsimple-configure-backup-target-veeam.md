@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d4a0dfbfab052e98e0dd641e8cab8fc143c2ff41
-ms.lasthandoff: 04/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 38cc3ae906f75e75c9e44ac7e4b7098935a56cf2
+ms.contentlocale: es-es
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -467,47 +468,12 @@ En la sección siguiente se describe cómo crear un script breve para iniciar y 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Para iniciar o eliminar una instantánea en la nube
 
 1. [Instale Azure PowerShell](/powershell/azure/overview).
-2. [Descargue e importe la configuración de publicación y la información de suscripción](https://msdn.microsoft.com/library/dn385850.aspx).
-3. En el Portal de Azure clásico, obtenga el nombre del recurso y la [clave de registro del servicio StorSimple Manager](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-4. En el servidor que ejecuta el script, ejecute PowerShell como administrador. Escriba el siguiente comando:
-
-    `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
-
-    Fíjese en el identificador de la directiva de copia de seguridad.
-5. En el Bloc de notas, cree un nuevo script de PowerShell mediante el código siguiente.
-
-    Copie y pegue este fragmento de código:
-    ```powershell
-    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-    Disable-AzureDataCollection
-    $ApplianceName = <myStorSimpleApplianceName>
-    $RetentionInDays = 20
-    $RetentionInDays = -$RetentionInDays
-    $Today = Get-Date
-    $ExpirationDate = $Today.AddDays($RetentionInDays)
-    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-    $CompletedSnapshots =@()
-    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-    Write-Host "The Expiration date is " $ExpirationDate
-    Write-Host
-
-    ForEach ($SnapShot in $CompletedSnapshots)
-    {
-        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-        {
-            $SnapShotInstanceID = $SnapShot.InstanceId
-            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-            Write-Host "Instance ID " $SnapShotInstanceID
-            Write-Host "This snpashotdate is older and needs to be deleted"
-            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-        }
-    }
-    ```
-6. Para agregar el script a un trabajo de copia de seguridad, edite las opciones avanzadas del trabajo de Veeam.
+2. Descargue y configure el script [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) de PowerShell.
+3. En el servidor que ejecuta el script, ejecute PowerShell como administrador. Asegúrese de ejecutar el script con `-WhatIf $true` para ver cuáles son los cambios que hará el script. Una vez que se complete la validación, pase `-WhatIf $false`. Ejecute el comando siguiente:
+```powershell
+.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+```
+4. Para agregar el script a un trabajo de copia de seguridad, edite las opciones avanzadas del trabajo de Veeam.
 
     ![Pestaña de script de configuración avanzada de copia de seguridad de Veeam](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
 

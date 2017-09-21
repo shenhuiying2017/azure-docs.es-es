@@ -32,6 +32,7 @@
 ##### [Configuración de Intel NUC como una puerta de enlace](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Conexión de la puerta de enlace a IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Uso de la puerta de enlace para la conversión de datos](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Solución de problemas](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## Escenarios de IoT ampliados
 ### [Administración de la mensajería de dispositivos en la nube con iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -82,7 +83,9 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Carga de archivos desde dispositivos](iot-hub-csharp-csharp-file-upload.md)
+### [Carga de archivos desde dispositivos]
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
 ### Introducción a los dispositivos gemelos
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -96,11 +99,13 @@
 ### Introducción a la administración de dispositivos
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-device-management-get-started.md)
+#### [Back-end de .NET/Dispositivo de .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Back-end de Java/Dispositivo de Java](iot-hub-java-java-device-management-getstarted.md)
 ### Uso de propiedades gemelas
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [Back-end de .NET/Dispositivo de .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Back-end de Java/Dispositivo de Java](iot-hub-java-java-twin-how-to-configure.md)
 ### Uso de trabajos de dispositivos para actualizar el firmware del dispositivo
 #### [Back-end de Node/Dispositivo de Node](iot-hub-node-node-firmware-update.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-firmware-update.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 064642ebb9cafb0c6e1b3ff306241182a95215cc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -254,7 +254,7 @@ En este ejemplo, se cambia el filtrado de manera que se sincronicen solo los usu
 1. Inicie sesión en el servidor donde se ejecuta la sincronización de Azure AD Connect con una cuenta que pertenezca al grupo de seguridad **ADSyncAdmins** .
 2. Inicie el **Synchronization Rules Editor** (Editor de reglas de sincronización) del menú **Inicio**.
 3. En **Rules Type** (Tipo de reglas), haga clic en **Saliente**.
-4. Busque la regla llamada **Out to AAD – User Join** y haga clic en **Editar**.
+4. Según la versión de Connect que utilice, o bien busque la regla denominada **Out to AAD – User Join** (Salida a AAD - Unión de usuario) o la regla **Out a AAD - User Join SOAInAD** (Salida a AAD - SOAInAD de unión de usuario) y haga clic en **Editar**.
 5. En el elemento emergente, responda **Sí** para crear una copia de la regla.
 6. En la página **Descripción**, cambie la **Precedencia** a un valor sin usar, como 50.
 7. Haga clic en **Scoping filter** (Filtro de ámbito) en el panel de navegación izquierdo y haga clic en **Agregar cláusula**. En **Atributo**, seleccione **mail**. En **Operador**, seleccione **ENDSWITH**. En **Valor**, escriba **@contoso.com** y haga clic en **Agregar cláusula**. En **Atributo**, seleccione **userPrincipalName**. En **Operador**, seleccione **ENDSWITH**. En **Valor**, escriba **@contoso.com**.

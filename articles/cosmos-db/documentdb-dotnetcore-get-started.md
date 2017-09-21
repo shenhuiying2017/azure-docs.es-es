@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 7536978bbb1e41b6484b66fd1b51c900fc3e545d
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f39d732325d171b30de3b86e0c96be0ce77c66a9
 ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core"></a>Azure Cosmos DB: introducción a la API de DocumentDB y .NET Core
@@ -59,8 +59,10 @@ Comencemos.
 Asegúrese de que dispone de lo siguiente:
 
 * Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/). 
-    * Como alternativa, en este tutorial puede usar el [Emulador de Azure Cosmos DB](local-emulator.md).
-* [Visual Studio 2017](https://www.visualstudio.com/vs/) 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
     * Si está trabajando en MacOS o Linux, puede desarrollar aplicaciones de .NET Core desde la línea de comandos mediante la instalación del [SDK de .NET Core](https://www.microsoft.com/net/core#macos) para la plataforma que elija. 
     * Si está trabajando en Windows, puede desarrollar aplicaciones de .NET Core desde la línea de comandos mediante la instalación del [SDK de .NET Core](https://www.microsoft.com/net/core#windows). 
     * Puede usar su propio editor o descargar [Visual Studio Code](https://code.visualstudio.com/), que es gratuito y funciona en Windows, Linux y MacOS. 
@@ -116,13 +118,13 @@ class Program
     private DocumentClient client;
 ```
 
-Seguidamente, diríjase al [Azure Portal](https://portal.azure.com) para recuperar el identificador URI y la clave principal. El URI y la clave principal de Azure Cosmos DB son necesarios para que la aplicación sepa a dónde debe conectarse y para que Azure Cosmos DB confíe en la conexión de la aplicación.
+Seguidamente, diríjase a [Azure Portal](https://portal.azure.com) para recuperar el identificador URI y la clave principal. El URI y la clave principal de Azure Cosmos DB son necesarios para que la aplicación sepa a dónde debe conectarse y para que Azure Cosmos DB confíe en la conexión de la aplicación.
 
 En Azure Portal, vaya a la cuenta de Azure Cosmos DB y haga clic en **Claves**.
 
 Copie el URI desde el Portal y péguelo en `<your endpoint URI>` en el archivo program.cs. Después, copie la CLAVE PRINCIPAL del Portal y péguela en `<your key>`. Si está usando el Emulador de Azure Cosmos DB, utilice `https://localhost:8081` como punto de conexión y la clave de autorización bien definida del artículo sobre [Desarrollo con el Emulador de Azure Cosmos DB](local-emulator.md). Asegúrese de quitar el < and > pero deje las comillas dobles alrededor de la clave y el punto de conexión.
 
-![Captura de pantalla de Azure Portal usada por el tutorial de NoSQL para crear una aplicación de consola de C#. Muestra una cuenta de Azure Cosmos DB, con el centro ACTIVO resaltado, el botón CLAVES resaltado en la hoja de la cuenta de Azure Cosmos DB y los valores de URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][keys]
+![Captura de pantalla de Azure Portal, usado por el tutorial de NoSQL para crear una aplicación de consola de C#. Muestra una cuenta de Azure Cosmos DB, con el centro ACTIVO resaltado, el botón CLAVES resaltado en la hoja de la cuenta de Azure Cosmos DB y los valores de URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][keys]
 
 Iniciaremos la aplicación de introducción, para lo que crearemos una nueva instancia de **DocumentClient**.
 
@@ -450,7 +452,7 @@ El siguiente diagrama muestra la denominación de la sintaxis de la consulta SQL
 
 ![Diagrama que ilustra el ámbito y el significado de la consulta usada por el tutorial de NoSQL para crear una aplicación de consola de C#.](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-La palabra clave [FROM](documentdb-sql-query.md#FromClause) es opcional en la consulta porque las consultas de Azure Cosmos DB ya tienen como ámbito una única colección. Por lo tanto, "FROM Families f" se puede intercambiar por "FROM root r", o cualquier otra variable de nombre que elija. DocumentDB deducirá la familia, la raíz o el nombre de variable elegido y hará referencia a la colección actual de forma predeterminada.
+La palabra clave [FROM](documentdb-sql-query.md#FromClause) es opcional en la consulta porque las consultas de Azure Cosmos DB ya tienen como ámbito una única colección. Por lo tanto, «FROM Families f" se puede intercambiar por  "FROM root r", o cualquier otra variable de nombre que elija. DocumentDB deducirá la familia, la raíz o el nombre de variable elegido y hará referencia a la colección actual de forma predeterminada.
 
 ## <a id="ReplaceDocument"></a>Paso 8: Reemplazar un documento JSON
 Azure Cosmos DB admite la sustitución de documentos JSON.  

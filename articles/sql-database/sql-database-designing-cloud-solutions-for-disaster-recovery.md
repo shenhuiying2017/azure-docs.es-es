@@ -14,124 +14,84 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 04/21/2017
+ms.date: 09/08/2017
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 40fe0ae04eb94322356ed19773512e3bc383639c
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 5a8b7711d6576edcc470886f27aa61ac04944002
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Diseño de servicios de alta disponibilidad con Azure SQL Database
 
-Al compilar e implementar servicios de alta disponibilidad en Azure SQL Database, use los [grupos de conmutación por error y la replicación geográfica activa](sql-database-geo-replication-overview.md) para proporcionar resistencia frente a errores regionales e interrupciones graves, así como para habilitar la recuperación rápida en las bases de datos secundarias. Este artículo se centra en los patrones comunes de aplicaciones y trata las ventajas e inconvenientes de cada opción en función de los requisitos de implementación de las aplicaciones, el Acuerdo de Nivel de Servicio objetivo, la latencia de tráfico y los costos. Para saber cómo utilizar la replicación geográfica activa con los grupos elásticos, consulte [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Al compilar e implementar servicios de alta disponibilidad en Azure SQL Database, use los [grupos de conmutación por error y la replicación geográfica activa](sql-database-geo-replication-overview.md) para proporcionar resistencia frente a interrupciones regionales y errores muy graves. También permite una recuperación rápida a las bases de datos secundarias. Este artículo se centra en los patrones comunes de aplicación y analiza las ventajas y desventajas de cada opción. Para saber cómo utilizar la replicación geográfica activa con los grupos elásticos, consulte [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-## <a name="design-pattern-1-active-passive-deployment-for-cloud-disaster-recovery-with-a-co-located-database"></a>Patrón de diseño 1: implementación activa-pasiva para la recuperación ante desastres en la nube con una base de datos colocada
-Esta opción es mejor para las aplicaciones con las siguientes características:
+## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Escenario 1: Utilizar dos regiones de Azure para la continuidad empresarial con un tiempo de inactividad mínimo
+En este escenario, las aplicaciones tienen las siguientes características: 
+*   La aplicación está activa en una región de Azure.
+*   Todas las sesiones de base de datos requieren acceso de lectura y escritura (RW) a los datos.
+*   El nivel web y la capa de datos deben colocarse para reducir la latencia y el costo de tráfico. 
+*   Básicamente, el tiempo de inactividad es un riesgo empresarial más alto para estas aplicaciones que la pérdida de datos.
 
-* Instancia activa de una única región de Azure.
-* Fuerte dependencia de acceso de lectura y escritura (RW) a los datos.
-* La conectividad entre regiones entre la aplicación web y la base de datos no es aceptable debido al costo del tráfico y la latencia.    
-
-En este caso, la topología de implementación de la aplicación está optimizada para el tratamiento de desastres regionales cuando se ven afectados todos los componentes de aplicación y es necesario conmutar por error como una unidad. En el caso de la redundancia geográfica, la lógica de aplicación y la base de datos se replican en otra región, pero no se usan para la carga de trabajo de la aplicación en las condiciones normales. La aplicación en la región secundaria debe configurarse para usar una cadena de conexión SQL a la base de datos secundaria. El Administrador de tráfico se configura para usar [el método de enrutamiento de conmutación por error](../traffic-manager/traffic-manager-configure-failover-routing-method.md).  
-
-> [!NOTE]
-> [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) se usa en este artículo únicamente con fines ilustrativos. Puede usar cualquier solución de equilibrio de carga que admita el método de enrutamiento de conmutación por error.    
->
-
-El diagrama siguiente muestra esta configuración antes de una interrupción.
-
-![Configuración de replicación geográfica de SQL Database. Recuperación ante desastres en la nube.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
-
-Después de una interrupción en la región primaria, el servicio SQL Database detectará que no se puede acceder a la base de datos principal y desencadenará una conmutación por error a la base de datos secundaria en función de los parámetros de la directiva de conmutación por error automática. Dependiendo de su Acuerdo de Nivel de Servicio de aplicación, puede optar por configurar un período de gracia entre la detección de la interrupción y la propia conmutación por error. Al configurar un período de gracia se reduce el riesgo de pérdida de datos a los casos donde la interrupción es grave y la disponibilidad en la región no se puede restaurar rápidamente. Si el administrador de tráfico inicia la conmutación por error del punto de conexión antes de que el grupo de conmutación por error active la conmutación por error de la base de datos, la aplicación web no podrá volverse a conectarse a la base de datos. El intento de la aplicación para volverse a conectar se realiza de forma correcta automáticamente en cuanto la conmutación por error de la base de datos se complete. 
+En este caso, la topología de implementación de la aplicación está optimizada para el tratamiento de desastres regionales cuando tiene que realizarse la conmutación por error conjunta de todos los componentes de aplicación. En el diagrama siguiente se muestra esta topología. Para la redundancia geográfica, los recursos de la aplicación se implementan en la región A y B. Sin embargo, no se utilizan los recursos de la región B hasta que se produce un error en la región A. Se configura un grupo de conmutación por error entre las dos regiones para administrar la conmutación por error, la replicación y la conectividad de base de datos. El servicio web de ambas regiones está configurado para tener acceso a la base de datos mediante el agente de escucha de lectura y escritura ** &lt;nombre del grupo de conmutación por error&gt;. database.windows.net** (1). Traffic Manager se configura para usar el [método de enrutamiento de prioridad](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
-> Para lograr una conmutación por error de la aplicación y las bases de datos totalmente coordinada, debe diseñar su propio método de supervisión y usar la conmutación por error manual de los puntos de conexión de la aplicación web y las bases de datos.
+> [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) se usa en este artículo únicamente con fines ilustrativos. Puede usar cualquier solución de equilibrio de carga que admita el método de enrutamiento de prioridad.    
 >
 
-Una vez completada la conmutación por error de la base de datos y los puntos de conexión de la aplicación, esta reiniciará el procesamiento de las solicitudes de usuario en la región B y permanecerá colocada con la base de datos porque la base de datos principal está ahora en la región de B. Este escenario se ilustra en el diagrama siguiente. En todos los diagramas, las líneas continuas indican conexiones activas, las líneas de puntos indican conexiones suspendidas y las señales de detención indican desencadenadores de acción.
+El diagrama siguiente muestra esta configuración antes de una interrupción:
 
-![Replicación geográfica: conmutación por error a la base de datos secundaria. Copia de seguridad de datos de la aplicación.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
+![Escenario 1. Configuración antes de la interrupción.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-a.png)
 
-Si se produce una interrupción en la región secundaria, se suspende el vínculo de replicación entre la base de datos principal y la secundaria pero la conmutación por error no se desencadena porque la base de datos principal no se ve afectada. En este caso, la disponibilidad de la aplicación no cambia, pero la aplicación funciona expuesta y, por tanto, con un riesgo más alto en caso de que ambas regiones tengan un error en cadena.
+Después de una interrupción en la región primaria, el servicio SQL Database detectará que no se puede acceder a la base de datos principal y desencadenará una conmutación por error a la región secundaria en función de los parámetros de la directiva de conmutación por error automática (1). Dependiendo de su Acuerdo de Nivel de Servicio de aplicación, puede configurar un período de gracia que controle el tiempo entre la detección de la interrupción y la propia conmutación por error. Es posible que el Traffic Manager inicie la conmutación por error de punto de conexión antes de que el grupo de conmutación por error active la conmutación por error de la base de datos. En ese caso, la aplicación web no se puede volver a conectar de inmediato a la base de datos. Sin embargo, las reconexiones se realizarán de forma correcta automáticamente tan pronto como se complete conmutación por error de la base de datos. Cuando se restaure la región errónea y vuelva a estar conectada, se volverá a conectar automáticamente con la primaria anterior como una nueva secundaria. El diagrama siguiente muestra la configuración después de la conmutación por error.
+ 
+> [!NOTE]
+> Durante la reconexión se pierden todas las transacciones confirmadas después de la conmutación por error. Una vez completada la conmutación por error, la aplicación de la región B puede volver a conectarse y reiniciar el procesamiento que solicita el usuario. La aplicación web y la base de datos principal se encuentran ahora en la región B y permanecen colocadas. 
+n>
+
+![Escenario 1. Configuración después de la conmutación por error](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
+
+Si se produce una interrupción en la región B, se suspende el proceso de replicación entre la base de datos principal y la secundaria, pero el vínculo entre las dos permanece intacto (1). Traffic Manager detecta que esa conectividad con la región B se ha interrumpido y marca la aplicación web del punto de conexión 2 como Degradada (2). El rendimiento de la aplicación no se ve afectado en este caso, pero la base de datos pasa a estar expuesta y, por tanto, existe un mayor riesgo de pérdida de datos en el caso de que se produzca un error en la región A sucesivamente.
 
 > [!NOTE]
-> Para recuperación ante desastres, se recomienda la configuración con la implementación de aplicaciones limitada a dos regiones. Esto es porque la mayoría de las ubicaciones geográficas de Azure tienen solo dos regiones. Esta configuración no protegerá la aplicación de un error grave simultáneo de ambas regiones.  En el caso poco probable de que este error se produjese, podría recuperar sus bases de datos en una tercera región mediante una [operación de restauración geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> Para recuperación ante desastres, se recomienda la configuración con la implementación de aplicaciones limitada a dos regiones. Esto es porque la mayoría de las ubicaciones geográficas de Azure tienen solo dos regiones. Esta configuración no protegerá la aplicación de un error grave simultáneo de ambas regiones. En el caso poco probable de que este error se produjese, podría recuperar sus bases de datos en una tercera región mediante una [operación de restauración geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
-Una vez que se reduce la interrupción, la base de datos secundaria se volverá a sincronizar automáticamente con la principal. Durante la sincronización, el rendimiento de la principal podría verse afectado ligeramente dependiendo de la cantidad de datos que haya que sincronizar. El siguiente diagrama ilustra una interrupción en la región secundaria.
+ Una vez que se reduce la interrupción, la base de datos secundaria se resincroniza automáticamente con la principal. Durante la sincronización, el rendimiento de la principal puede verse afectado. El impacto específico depende de la cantidad de datos que adquirió la nueva principal desde la conmutación por error. El siguiente diagrama ilustra una interrupción en la región secundaria.
 
-![Base de datos secundaria sincronizada con la primaria. Recuperación ante desastres en la nube.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-3.png)
+![Escenario 1. Configuración después de una interrupción en la región secundaria.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 
 Las **ventajas** clave de este patrón de diseño son:
 
-* La misma aplicación web se implementa en ambas regiones sin ninguna configuración específica de la región y sin lógica adicional para reaccionar ante la conmutación por error. 
+* La misma aplicación web se implementa en ambas regiones sin ninguna configuración específica de la región y no requiere una lógica adicional para administrar la conmutación por error. 
 * El rendimiento de la aplicación no se ve afectado por la conmutación por error, ya que la aplicación web y la base de datos siempre están colocadas.
 
-El principal **inconveniente** es que la instancia de aplicación redundante en la región secundaria solo se usa para la recuperación ante desastres.
+La **contrapartida** principal es que los recursos de la aplicación de la región B están infrautilizados la mayoría del tiempo.
 
-## <a name="design-pattern-2-active-active-deployment-for-application-load-balancing"></a>Patrón de diseño 2: implementación activa-activa para el equilibrio de carga de aplicación
-Esta opción de recuperación ante desastres en la nube es mejor para las aplicaciones con las siguientes características:
-
-* Una proporción alta de lecturas en relación a las escrituras en la base de datos.
-* La latencia de lectura de la base de datos es más importante para la experiencia del usuario final que la latencia de escritura. 
-* La lógica de solo lectura se puede separar de la lógica de lectura y escritura mediante el uso de una cadena de conexión distinta.
-* La lógica de solo lectura no depende de que los datos estén totalmente sincronizados con las actualizaciones más recientes.  
-
-Si sus aplicaciones tienen estas características, equilibrar la carga de las conexiones de usuario final entre varias instancias de la aplicación en diferentes regiones puede mejorar considerablemente la experiencia global del usuario final. Dos de las regiones deben seleccionarse como el par de recuperación ante desastres y el grupo de conmutación por error debe incluir las bases de datos de estas regiones. Para implementar el equilibrio de carga, cada región debe tener una instancia activa de la aplicación con la lógica de lectura y escritura (RW) conectada al punto de conexión del agente de escucha de lectura y escritura del grupo de conmutación por error. Esto garantizará que la conmutación por error se iniciará automáticamente si la base de datos principal se ve afectada por una interrupción del servicio. La lógica de solo lectura (RO) en la aplicación web debe conectarse directamente a la base de datos de dicha región. El administrador de tráfico debe configurarse para usar [enrutamiento del rendimiento](../traffic-manager/traffic-manager-configure-performance-routing-method.md) con la [supervisión de punto de conexión](../traffic-manager/traffic-manager-monitoring.md) habilitada para cada instancia de la aplicación.
-
-Como en el patrón nº 1, debe considerar la posibilidad de implementar una aplicación de supervisión similar. Pero a diferencia del patrón n.º 1, la aplicación de supervisión no será la responsable de desencadenar la conmutación por error del extremo.
-
-> [!NOTE]
-> Mientras que este patrón usa más de una base de datos secundaria, solo se usará la base de datos secundaria de la región B para la conmutación por error y debe formar parte del grupo de conmutación por error.
->
-
-El Administrador de tráfico tiene que configurarse para el enrutamiento de rendimiento para dirigir las conexiones de usuario a la instancia de aplicación que esté más cerca de la ubicación geográfica del usuario. El siguiente diagrama muestra esta configuración antes de una interrupción.
-
-![Sin interrupción: enrutamiento de rendimiento a la aplicación más cercana. Replicación geográfica.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
-
-Si se detecta una interrupción de la base de datos de la región A, el grupo de conmutación por error iniciará automáticamente la conmutación por error de la base de datos principal de la región A a la base de datos secundaria de la región de B. También se actualizará automáticamente el punto de conexión del agente de escucha de lectura y escritura a la región B para que las conexiones de lectura y escritura de la aplicación web no se vean afectadas. El administrador de tráfico excluirá el punto sin conexión de la tabla de enrutamiento, pero continuará enrutando el tráfico de usuario final a las instancias en línea restantes. Las cadenas de conexión de SQL de solo lectura no se verán afectadas, ya que siempre señalan a la base de datos en la misma región. 
-
-El siguiente diagrama ilustra la nueva configuración después de la conmutación por error.
-
-![Configuración después de la conmutación por error. Recuperación ante desastres en la nube.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
-
-En el caso de una interrupción en una de las regiones secundarias, el administrador de tráfico quitará automáticamente el punto sin conexión de esa región de la tabla de enrutamiento. El canal de replicación se suspenderá para la base de datos secundaria en dicha región. Dado que el resto de las regiones reciben tráfico de usuario adicional en este escenario, el rendimiento de la aplicación resultará afectado durante la interrupción. Una vez que se reduce la interrupción, la base de datos secundaria de la región afectada se sincronizará automáticamente con la principal. Durante la sincronización, el rendimiento de la principal podría verse afectado ligeramente dependiendo de la cantidad de datos que haya que sincronizar. El siguiente diagrama ilustra una interrupción en la región B.
-
-![Interrupción en la región secundaria. Recuperación ante desastres en la nube: replicación geográfica.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-3.png)
-
-La principal **ventaja** de este patrón de diseño es que la carga de trabajo de la aplicación se puede escalar a través de varios elementos secundarios para lograr el rendimiento óptimo del usuario final. Los **inconvenientes** de esta opción son:
-
-* las conexiones de lectura y escritura entre las instancias de la aplicación y la base de datos varían en latencia y costo.
-* El rendimiento de la aplicación se ve afectado durante la interrupción.
-
-> [!NOTE]
-> Un enfoque similar puede usarse para descargar las cargas de trabajo especializadas, como trabajos de elaboración de informes, herramientas de inteligencia empresarial o copias de seguridad. Normalmente estas cargas de trabajo consumen una cantidad de recursos importante de la base de datos. Por tanto, se recomienda designar una de las bases de datos secundarias para ellas que tenga un nivel de rendimiento que coincida con la carga de trabajo anticipada.
->
-
-## <a name="design-pattern-3-active-passive-deployment-for-data-preservation"></a>Patrón de diseño 3: implementación activa-pasiva para la conservación de datos
+## <a name="scenario-2-azure-regions-for-business-continuity-with-maximum-data-preservation"></a>Escenario 2: Regiones de Azure para la continuidad empresarial con conservación máxima de datos
 Esta opción es mejor para las aplicaciones con las siguientes características:
 
-* Cualquier pérdida de datos supone un alto riesgo para la empresa. La conmutación por error de la base de datos solo puede usarse como último recurso si la interrupción es grave.
+* Cualquier pérdida de datos supone un alto riesgo para la empresa. La conmutación por error de la base de datos solo puede usarse como último recurso si la interrupción se debe a un error muy grave.
 * La aplicación admite los modos de solo lectura y lectura y escritura de operaciones y puede funcionar en "modo de solo lectura" durante un período de tiempo.
 
-En este modelo, la aplicación cambia al modo de solo lectura cuando las conexiones de lectura y escritura empiezan a tener errores de tiempo de espera agotado. La aplicación web se implementa en ambas regiones e incluyen una conexión con el punto de conexión del agente de escucha de lectura y escritura y otra conexión con el punto de conexión del agente de escucha de solo lectura. El administrador de tráfico debe configurarse para usar el [enrutamiento de conmutación por error](../traffic-manager/traffic-manager-configure-failover-routing-method.md) con la [supervisión de punto de conexión](../traffic-manager/traffic-manager-monitoring.md) habilitada para el punto de conexión de aplicación en cada región.
+En este modelo, la aplicación cambia al modo de solo lectura cuando las conexiones de lectura y escritura empiezan a tener errores de tiempo de espera agotado. La aplicación web se implementa en ambas regiones e incluyen una conexión con el punto de conexión del agente de escucha de lectura y escritura y otra conexión con el punto de conexión del agente de escucha de solo lectura (1). El perfil de Traffic Manager debe usar el [enrutamiento de prioridad](../traffic-manager/traffic-manager-configure-priority-routing-method.md). Debe habilitarse la [supervisión de punto de conexión](../traffic-manager/traffic-manager-monitoring.md) para el punto de conexión de la aplicación en cada región (2).
 
-El siguiente diagrama muestra esta configuración antes de una interrupción.
+El siguiente diagrama muestra esta configuración antes de una interrupción:
 
-![Implementación activa-pasiva antes de la conmutación por error. Recuperación ante desastres en la nube.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)
+![Escenario 2. Configuración antes de la interrupción.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-a.png)
 
-Cuando el administrador de tráfico detecta un error de conectividad con la región A, cambia automáticamente el tráfico de usuario a la instancia de aplicación de la región B. Con este modelo, es importante establecer el período de gracia con pérdida de datos en un valor suficientemente alto, por ejemplo, 24 horas. Esto asegurará que se evita la pérdida de datos si la interrupción se mitiga durante ese período. Cuando la aplicación web de la región B se active, las operaciones de lectura y escritura comenzarán a generar errores. En ese momento, debe cambiar al modo de solo lectura. En este modo, las solicitudes se enrutarán automáticamente a la base de datos secundaria. En el caso de que se produzca un error grave, la interrupción no se mitigará dentro del período de gracia y el grupo de conmutación por error activará la conmutación por error. Después de eso, el agente de escucha de lectura y escritura pasará a estar disponible y las llamadas a él dejarán de dar error. Esto se ilustra en el diagrama siguiente
+Cuando el administrador de tráfico detecta un error de conectividad con la región A, cambia automáticamente el tráfico de usuario a la instancia de aplicación de la región B. Con este modelo, es importante establecer el período de gracia con pérdida de datos en un valor suficientemente alto, por ejemplo, 24 horas. Esto asegurará que se evita la pérdida de datos si la interrupción se mitiga durante ese período. Cuando la aplicación web de la región B se active, las operaciones de lectura y escritura comenzarán a generar errores. En ese momento, debe cambiar al modo de solo lectura (1). En este modo, las solicitudes se enrutarán automáticamente a la base de datos secundaria. Si la interrupción se debe a un error muy grave, lo más probable es que no pueda mitigarse dentro del período de gracia. Cuando expira, el grupo de conmutación por error activa la conmutación por error. Después de eso, el agente de escucha de lectura y escritura pasará a estar disponible y las conexiones a él dejarán de dar error (2). El siguiente diagrama muestra las dos fases del proceso de recuperación.
 
-![Interrupción: aplicación en modo de sólo lectura. Recuperación ante desastres en la nube.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-2.png)
+> [!NOTE]
+> Si la interrupción de la región primaria se soluciona dentro del período de gracia, el administrador de tráfico detecta la restauración de la conectividad en la región principal y cambia el tráfico de usuario de nuevo a la instancia de aplicación de la región A. Esa instancia de aplicación se reanuda y funciona en modo de lectura y escritura utilizando la base de datos principal de la región A, tal y como se mostró en el diagrama anterior.
+>
 
-Si la interrupción de la región primaria se soluciona dentro del período de gracia, el administrador de tráfico detecta la restauración de la conectividad en la región principal y cambia el tráfico de usuario de nuevo a la instancia de aplicación de la región A. Esa instancia de aplicación se reanuda y funciona en modo de lectura y escritura utilizando la base de datos principal de la región A.
+![Escenario 2. Fases de recuperación ante desastres.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-b.png)
 
-En caso de una interrupción en la región B, el administrador de tráfico detecta el error del punto de conexión de la aplicación en la región B y grupo de conmutación por error cambia el agente de escucha de solo lectura a la región A. Esta interrupción no afecta a la experiencia del usuario final, pero la base de datos principal quedará expuesta durante la interrupción. Esto se ilustra en el diagrama siguiente
+Si se produce una interrupción en la región B, Traffic Manager detecta el error de la aplicación web del punto de conexión 2 en la región B y lo marca como Degradado (1). Mientras tanto, en el grupo de conmutación por error cambia el agente de escucha de solo lectura a la región A (2). Esta interrupción no afecta a la experiencia del usuario final, pero la base de datos principal quedará expuesta durante la interrupción. El siguiente diagrama muestra un error en la región secundaria:
 
-![Interrupción: base de datos secundaria. Recuperación ante desastres en la nube.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
+![Escenario 2. Interrupción de la región secundaria.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario2-c.png)
 
 Una vez mitigada la interrupción, la base de datos secundaria se sincroniza inmediatamente con la principal y el agente de escucha de solo lectura se vuelve a cambiar a la base de datos secundaria de la región B. Durante la sincronización, el rendimiento de la principal podría verse ligeramente afectado dependiendo de la cantidad de datos que se necesite sincronizarse.
 
@@ -140,16 +100,57 @@ Este patrón de diseño tiene varias **ventajas**:
 * Evita la pérdida de datos durante las interrupciones temporales.
 * El tiempo de inactividad depende solo de la rapidez del Administrador de tráfico para detectar el error de conectividad, que se puede configurar.
 
-La **contrapartida** es:
+La **contrapartida** es que la aplicación debe poder funcionada en modo de solo lectura.
 
-* La aplicación tiene que poder operar en modo de solo lectura.
+## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>Escenario 3: Recolocación de la aplicación en una ubicación geográfica diferente sin que se produzca una pérdida de datos y prácticamente sin tiempo de inactividad 
+En este escenario, la aplicación tiene las siguientes características: 
+* Los usuarios finales tienen acceso a la aplicación desde diferentes ubicaciones geográficas.
+* La aplicación incluye cargas de trabajo de solo lectura que no dependen de la sincronización completa con las actualizaciones más recientes.
+* El acceso de escritura a los datos debe ser compatible en la misma ubicación geográfica para la mayoría de los usuarios. 
+* La latencia de lectura es fundamental para la experiencia de usuario final. 
+
+
+Con el fin de cumplir estos requisitos, tiene que asegurarse de que el dispositivo del usuario **siempre** se conecta a la aplicación implementada en la misma ubicación geográfica para las operaciones de solo lectura, como la exploración de datos, análisis, etc. Por otra parte, las operaciones OLTP se procesan en la misma ubicación geográfica la **mayoría de las veces**. Por ejemplo, por el día, las operaciones OLTP se procesan en la misma ubicación geográfica, pero durante las horas de inactividad podrían procesarse en una ubicación geográfica diferente. Si la actividad del usuario final se produce principalmente durante las horas de trabajo, puede garantizar un rendimiento óptimo para la mayoría de los usuarios la mayoría del tiempo. El siguiente diagrama muestra esta topología. 
+ 
+Los recursos de la aplicación deben implementase en cada ubicación geográfica en la que haya una demanda de uso considerable. Por ejemplo, si la aplicación se utiliza activamente en Estados Unidos, la Unión Europea y Asia Suroriental, la aplicación debe implementarse en todas estas ubicaciones geográficas. La base de datos principal debe cambiarse dinámicamente de una ubicación geográfica a la siguiente al final de las horas laborables. A este método se le conoce como "seguimiento del sol". La carga de trabajo OLTP siempre se conecta a la base de datos mediante el agente de escucha de lectura y escritura **&lt;nombre de grupo de conmutación por error&gt;.database.windows.net** (1). La carga de trabajo de solo lectura se conecta a la base de datos local directamente mediante el punto de conexión del servidor de bases de datos **&lt;nombre del servidor&gt;.database.windows.net** (2). Traffic Manager está configurado con el [método de enrutamiento de rendimiento](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Este garantiza que el dispositivo del usuario final está conectado al servicio web en la región más cercana. Traffic Manager debe configurarse con la supervisión de punto de conexión habilitada para cada punto de conexión de servicio web (3).
 
 > [!NOTE]
-> En el caso de una interrupción del servicio permanente en la región, tiene que activar manualmente la conmutación por error de base de datos y aceptar la pérdida de datos. La aplicación será funcional en la región secundaria con acceso de lectura y escritura a la base de datos.
+> La configuración del grupo de conmutación por error define qué región se utiliza para la conmutación por error. Puesto que la región primaria nueva se encuentra en una ubicación geográfica diferente, la conmutación por error provoca una latencia mayor para las cargas de trabajo de solo lectura y OLTP hasta que la región afectada vuelva a estar conectada.
 >
 
+![Escenario 3. Configuración con la región primaria en el Este de EE. UU.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
+
+Al final del día (por ejemplo, a las 11 p.m., hora local), las bases de datos activas deben cambiarse a la siguiente región (Europa del Norte). Esta tarea puede se puede automatizar por completo mediante el uso del [servicio de programación de Azure](../scheduler/scheduler-intro.md).  La tarea implica los pasos siguientes:
+* Cambiar el servidor principal en el grupo de conmutación por error a Europa del Norte con una conmutación por error fácil de usar (1).
+* Quitar el grupo de conmutación por error entre el Este de EE. UU. y Europa del Norte.
+* Crear un nuevo grupo de conmutación por error con el mismo nombre, pero entre Europa del Norte y Asia Oriental (2). 
+* Agregar la región primaria en Europa del Norte y la secundaria en Asia Oriental para este grupo de conmutación por error (3).
+
+
+El siguiente diagrama ilustra la nueva configuración después de la conmutación por error planeada:
+
+![Escenario 3. Cambio de la región principal a Europa del Norte.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
+
+Si se produce una interrupción en Europa del Norte, por ejemplo, el grupo de conmutación por error inicia la conmutación por error de base de datos automática, lo que resulta eficaz para trasladar la aplicación a la siguiente región antes de lo previsto (1).  En ese caso, Este de EE. UU. es la única región secundaria que queda hasta que Europa del Norte vuelva a estar activa. Las dos regiones restantes sirven a los clientes en las otras tres regiones geográficas al intercambiar los roles. Azure Scheduler debe ajustarse según corresponda. Puesto que el resto de regiones obtiene tráfico de usuario adicional desde Europa, el rendimiento de la aplicación se ve afectado no solo por latencia adicional, sino también por un mayor número de conexiones de usuario final. Una vez que se solucione la interrupción en Europa del Norte, la base de datos secundaria se sincronizará inmediatamente con la principal actual. El siguiente diagrama ilustra una interrupción en Europa del Norte:
+
+![Escenario 3. Interrupción en Europa del Norte.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
+
+> [!NOTE]
+> Puede reducir el tiempo cuando la experiencia del usuario final en Europa sea inferior debido a una mayor latencia. Para ello, debe implementar proactivamente una copia de la aplicación y crear bases de datos secundarias en otra región local (Europa Occidental) como sustitución de la instancia de la aplicación sin conexión en Europa del Norte. Cuando esta última vuelva a estar activa, puede decidir si desea seguir usando Europa Occidental o quitar la copia de la aplicación y volver a usar Europa del Norte.
+>
+
+Las principales **ventajas** de este diseño son las siguientes:
+* La carga de trabajo de la aplicación de solo lectura tiene acceso a datos en la región más cercana en todo momento. 
+* La carga de trabajo de aplicación de lectura y escritura aplicación tiene acceso a datos en la región más cercana durante el período de máxima actividad en cada región geográfica.
+* Puesto que la aplicación se implementa en varias regiones, puede sobrevivir a una pérdida de una de las regiones sin que se produzca un tiempo de inactividad significativo. 
+
+Sin embargo, hay algunas **contraprestaciones**:
+* Una interrupción regional da como resultado que una ubicación geográfica se vea afectada por una mayor latencia. La aplicación ofrece cargas de trabajo de solo lectura y de lectura y escritura en una ubicación geográfica diferente. 
+* Las cargas de trabajo de solo lectura deben conectarse a un punto de conexión distinto en cada región. 
+
+
 ## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planificación de continuidad del negocio: elección del diseño de una aplicación para la recuperación ante desastres en la nube
-Su estrategia de recuperación ante desastres en la nube puede combinar o ampliar estos patrones para satisfacer mejor las necesidades de su aplicación.  Como se mencionó anteriormente, la estrategia que elija se basa en el acuerdo de nivel de servicio que desee ofrecer a sus clientes y en la topología de implementación de la aplicación. Para guiarle en su decisión, la siguiente tabla compara las opciones en función de la pérdida de datos estimada u objetivo de punto de recuperación (RPO) y el tiempo de recuperación calculado (ERT).
+Su estrategia de recuperación ante desastres en la nube puede combinar o ampliar estos patrones para satisfacer mejor las necesidades de su aplicación.  Como se mencionó anteriormente, la estrategia que elija se basa en el acuerdo de nivel de servicio que desee ofrecer a sus clientes y en la topología de implementación de la aplicación. Para guiarle en su decisión, la siguiente tabla compara las opciones en función del objetivo de punto de recuperación (RPO) y el tiempo de recuperación calculado (ERT).
 
 | Patrón | RPO | ERT |
 |:--- |:--- |:--- |
@@ -160,10 +161,6 @@ Su estrategia de recuperación ante desastres en la nube puede combinar o amplia
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
-* Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Continuidad empresarial con Base de datos SQL de Azure](sql-database-business-continuity.md)
-* Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-* Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md)  
-* Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte [Copiar una base de datos SQL de Azure](sql-database-copy.md)
+* Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md)
+* Para obtener información acerca de los grupos de conmutación por error y la replicación geográfica, vea [Replicación geográfica activa](sql-database-geo-replication-overview.md).  
 * Para saber cómo utilizar la replicación geográfica activa con los grupos elásticos, consulte [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-

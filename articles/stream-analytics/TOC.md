@@ -27,7 +27,7 @@
 ### [Creación de salidas](stream-analytics-define-outputs.md)
 ### [Uso de Azure Functions como destino](stream-analytics-functions-redis.md)
 ### [Uso de Data Lake Store como destino](stream-analytics-data-lake-output.md)
-### [Uso de DocumentDB como destino](stream-analytics-documentdb-output.md)
+### [Uso de Cosmos DB como destino](stream-analytics-documentdb-output.md)
 
 ## Supervisión y optimización
 ### [Adición de alertas](stream-analytics-set-up-alerts.md)

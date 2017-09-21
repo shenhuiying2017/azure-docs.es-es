@@ -17,10 +17,10 @@ ms.date: 08/09/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: ed5284b5a265840c43dbc9890082a7c038d22975
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: c62520846ebdc102204e42b50e52383167c6aa14
 ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Compilación de una aplicación web Node.js de Python Flask mediante Azure cosmos DB
@@ -48,12 +48,11 @@ Siguiendo este tutorial, podrá compilar una aplicación de votación simple que
 ## <a name="database-tutorial-prerequisites"></a>Requisitos previos del tutorial de base de datos
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener instalados los siguientes elementos:
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
- 
-    OR 
+* Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
-    Una instalación local del [Emulador de Azure Cosmos DB](local-emulator.md).
-* [Microsoft Visual Studio Community 2017](http://www.visualstudio.com/)  
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.  
 * [Herramientas de Python para Visual Studio](https://github.com/Microsoft/PTVS/)  
 * [SDK de Microsoft Azure para Python 2.7](https://azure.microsoft.com/downloads/) 
 * [Python 2.7.13](https://www.python.org/downloads/windows/) 

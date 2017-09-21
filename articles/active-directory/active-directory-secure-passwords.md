@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: de9d41cfb157c71f324f5662c1c037ff515e7108
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Un enfoque de varios niveles para la seguridad de contraseñas de Azure AD
@@ -51,7 +51,7 @@ Para más información sobre la administración de contraseñas basada en la inv
 
 ### <a name="dynamically-banned-passwords"></a>Contraseñas prohibidas dinámicamente
 
-Azure AD y el sistema de cuentas de Microsoft salvaguardan la protección de contraseñas mediante la prohibición dinámica de las contraseñas de uso más común. El equipo de Azure AD Identity Protection analiza de manera rutinaria las listas de contraseñas prohibidas, y así impide que los usuarios seleccionen contraseñas de uso más común. Este servicio está disponible en Azure AD y los clientes del servicio de la cuenta de Microsoft.
+Azure AD y el sistema de cuentas de Microsoft salvaguardan la protección de contraseñas mediante la prohibición dinámica de las contraseñas de uso más común. El equipo de Azure AD Identity Protection analiza con regularidad las listas de contraseñas prohibidas, y así impide que los usuarios seleccionen contraseñas de uso más común. Este servicio está disponible en Azure AD y los clientes del servicio de la cuenta de Microsoft.
 
 Al crear contraseñas, es importante que los administradores promuevan en los usuarios la selección de frases de contraseña que incluyan una combinación de letras, números, caracteres o palabras. Este enfoque ayuda a crear contraseñas de usuario que es prácticamente imposible poner en peligro pero que son más fáciles de recordar para los usuarios.
 

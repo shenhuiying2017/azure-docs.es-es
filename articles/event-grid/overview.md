@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/11/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 59a834f32793e349d5639baf3c80dbcba274dfa8
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 20c22bdbefe238781242ee26e648a77da02a21d2
 ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -28,7 +28,7 @@ Este artículo ofrece información general sobre Azure Event Grid. Para comenzar
 
 ![Modelo funcional de Event Grid](./media/overview/event-grid-functional-model.png)
 
-Actualmente, Blob Storage no está disponible públicamente como publicador.
+Actualmente, Blob Storage no está disponible públicamente como publicador. Debe registrarse para que la versión preliminar reaccione a los eventos de Blob Storage. Para más información, vea [Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado (versión preliminar)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json).
 
 ## <a name="concepts"></a>Conceptos
 
@@ -119,7 +119,11 @@ Event Grid tiene un costo de 0,60 $ por cada millón de operaciones (0,30 $ dura
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Crear y suscribirse a eventos personalizados](custom-event-quickstart.md) Para comenzar de inmediato y empezar a enviar sus propios eventos personalizados a cualquier punto de conexión con el inicio rápido de Azure Event Grid.
-* [Uso de Logic Apps como controlador de eventos](monitor-virtual-machine-changes-event-grid-logic-app.md) Un tutorial sobre la creación de una aplicación con Logic Apps para reaccionar ante eventos enviados por Event Grid.
+* [Crear eventos personalizados y suscribirse a ellos](custom-event-quickstart.md)  
+  Para comenzar de inmediato y empezar a enviar sus propios eventos personalizados a cualquier punto de conexión con el inicio rápido de Azure Event Grid.
+* [Uso de Logic Apps como controlador de eventos](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+  Tutorial sobre la creación de una aplicación con Logic Apps para reaccionar ante eventos enviados por Event Grid.
+* [Transmisión de macrodatos a un almacén de datos](event-grid-event-hubs-integration.md)  
+  Tutorial en el que se usa Azure Functions para transmitir datos desde Event Hubs al SQL Data Warehouse.
 * [Referencia de la API de REST de Event Grid](/rest/api/eventgrid)  
   Proporciona más información técnica sobre Azure Event Grid y una referencia para administrar suscripciones a eventos, enrutamiento y filtrado.

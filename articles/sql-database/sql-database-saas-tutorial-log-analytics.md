@@ -1,7 +1,7 @@
 ---
 title: "Uso de Log Analytics con una aplicación multiinquilino de SQL Database | Microsoft Docs"
-description: "Configuración y uso de Log Analytics (OMS) con la aplicación de ejemplo Wingtip SaaS de Azure SQL Database"
-keywords: tutorial de base de datos sql
+description: "Configuración y uso de Log Analytics (OMS) con la aplicación de SaaS de Azure SQL Database multiinquilino"
+keywords: tutorial de SQL Database
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: billgib; sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 26f6f519ecb3abf6343dc2776aa141dff99ced15
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f9428871eab19f56e439ba529a9dcfde833d4fbf
 ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="setup-and-use-log-analytics-oms-with-the-wingtip-saas-app"></a>Instalación y uso de Log Analytics (OMS) con la aplicación Wingtip SaaS
+# <a name="setup-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configuración y uso de Log Analytics (OMS) con la aplicación de SaaS de Azure SQL Database multiinquilino
 
-En este tutorial, instalaremos y usaremos *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* para supervisar bases de datos y grupos elásticos. Se basa en el [tutorial de administración y supervisión del rendimiento](sql-database-saas-tutorial-performance-monitoring.md) y muestra cómo utilizar *Log Analytics* para intensificar la supervisión y las alertas de Azure Portal. Log Analytics es especialmente adecuado para la supervisión y las alertas de escalado, ya que admite cientos de grupos y cientos de miles de bases de datos. También proporciona una única solución de supervisión, que puede integrar la supervisión de distintas aplicaciones y servicios de Azure en varias suscripciones de Azure.
+En este tutorial, instalaremos y usaremos *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* para supervisar bases de datos y grupos elásticos. Este tutorial se basa en el [tutorial de administración y supervisión del rendimiento](sql-database-saas-tutorial-performance-monitoring.md). Muestra cómo usar *Log Analytics* para intensificar la supervisión y alerta proporcionadas en Azure Portal. Log Analytics es adecuado para la supervisión y las alertas de escalado, ya que admite cientos de grupos y cientos de miles de bases de datos. También proporciona una única solución de supervisión, que puede integrar la supervisión de distintas aplicaciones y servicios de Azure en varias suscripciones de Azure.
 
 En este tutorial, aprenderá a:
 
@@ -48,7 +48,7 @@ Para escenarios de gran volumen, puede utilizarse Log Analytics. Se trata de un 
 
 Las soluciones analíticas y las áreas de trabajo de Log Analytics se pueden abrir tanto en Azure Portal como en OMS. Azure Portal es el punto de acceso más reciente, pero puede ser peor que OMS en ciertos aspectos.
 
-### <a name="start-the-load-generator-to-create-data-to-analyze"></a>Inicio del generador de carga para crear datos y analizarlos
+### <a name="create-data-by-starting-the-load-generator"></a>Creación de datos iniciando el generador de carga 
 
 1. Abra **Demo-PerformanceMonitoringAndManagement.ps1** en **PowerShell ISE**. Mantenga este script abierto, ya que quizá quiera ejecutar varios escenarios de generación de carga durante este tutorial.
 1. Aprovisione un lote de inquilinos si tiene menos de cinco para proporcionar un contexto de supervisión más interesante:
@@ -58,13 +58,13 @@ Las soluciones analíticas y las áreas de trabajo de Log Analytics se pueden ab
 1. Establezca **$DemoScenario** = 2, **Generación de una carga de intensidad normal (aprox. 40 DTU)**.
 1. Presione **F5** para ejecutar el script.
 
-## <a name="get-the-wingtip-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip
+## <a name="get-the-wingtip-application-scripts"></a>Obtener scripts de la aplicación Wingtip
 
 Los scripts de Wingtip Tickets y el código fuente de la aplicación están disponibles en el repositorio de github [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Los archivos de los scripts se encuentran en la [carpeta Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Descargue la carpeta **Learning Modules** en el equipo local, conservando su estructura de carpetas.
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalación y configuración de Log Analytics y la solución Azure SQL Analytics
 
-Log Analytics es un servicio independiente que debe configurarse. Log Analytics recopila datos del registro, y telemetría y métricas de un área de trabajo de análisis de registros. Un área de trabajo es un recurso y debe crearse, como otros de Azure. Mientras que el área de trabajo no tiene por qué crearse en el mismo grupo de recursos de las aplicaciones que supervisa, a menudo esto es lo más razonable. En el caso de la aplicación Wingtip SaaS, esto permite que el área de trabajo se pueda eliminar fácilmente con la aplicación con solo eliminar el grupo de recursos.
+Log Analytics es un servicio independiente que debe configurarse. Log Analytics recopila datos del registro, y telemetría y métricas de un área de trabajo de análisis de registros. Un área de trabajo es un recurso y debe crearse, como otros de Azure. Mientras que el área de trabajo no tiene por qué crearse en el mismo grupo de recursos de las aplicaciones que supervisa, a menudo esto es lo más razonable. Para la aplicación Wingtip SaaS, esto permite que el área de trabajo se pueda eliminar fácilmente con la aplicación con solo eliminar el grupo de recursos.
 
 1. Abra ...\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\*Demo-LogAnalytics.ps1* en **PowerShell ISE**.
 1. Presione **F5** para ejecutar el script.

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a7dbe54ffb4daa941c19b51ba263dd3d23b7a98b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
 ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -38,7 +38,7 @@ Con esta integración entre Mapa de servicio y System Center Operations Manager,
 * Una entidad de servicio con acceso a la suscripción de Azure asociada al área de trabajo de Operations Management Suite. Para más información, vaya a [Create a service principal](#creating-a-service-principal) (Creación de una entidad de servicio).
 
 ## <a name="install-the-service-map-management-pack"></a>Instalación del módulo de administración de Mapa de servicio
-La integración entre Operations Manager y Mapa de servicio se habilita al importar el paquete de módulos de administración de Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). El paquete contiene los siguientes módulos de administración:
+La integración entre Operations Manager y Mapa de servicio se habilita al importar el paquete de módulos de administración de Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). Puede descargar el paquete de módulo de administración en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). El paquete contiene los siguientes módulos de administración:
 * Microsoft Service Map Application Views
 * Microsoft System Center Service Map Internal
 * Microsoft System Center Service Map Overrides

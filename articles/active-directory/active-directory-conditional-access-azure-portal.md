@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
+ms.date: 09/10/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 681e91e3581f80c0cda64f95fed5cc01aaac2367
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 19bc7abbbf7e133018b234399d91604dfdbfe73f
 ms.contentlocale: es-es
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acceso condicional en Azure Active Directory
@@ -60,31 +60,22 @@ La combinación de una declaración de condición con los controles representa u
 
 En una directiva de acceso condicional, los controles definen qué es lo que debe suceder cuando se ha satisfecho una declaración de condición.  
 Con controles, puede bloquear el acceso o permitir el acceso con requisitos adicionales.
-Cuando configura una directiva que permite el acceso, debe seleccionar al menos un requisito.   
+Cuando configura una directiva que permite el acceso, debe seleccionar al menos un requisito.  
 
-### <a name="grant-controls"></a>Controles de concesión
+Existen dos tipos de controles: 
+
+- **Controles de concesión**: determinan si un usuario puede completar la autenticación y llegar a los recursos en los que está intentando iniciar sesión. Si tiene varios controles seleccionados, puede configurar si todos ellos son necesarios al procesarse la directiva.
 La implementación actual de Azure Active Directory le permite configurar los siguientes requisitos de control de concesión:
 
-![Control](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![Control](./media/active-directory-conditional-access-azure-portal/05.png)
 
-- **Multi-factor Authentication**: pude exigir autenticación fuerte mediante la autenticación multifactor. Como proveedor, puede usar la autenticación multifactor de Azure o un proveedor de autenticación multifactor de terceros, en combinación con Active Directory Federation Services (AD FS). La autenticación multifactor ayuda a proteger los recursos ante el acceso por parte de un usuario no autorizado que haya conseguido el nombre de usuario y la contraseña de un usuario válido.
+- **Controles de sesión**: permiten limitar la experiencia desde una aplicación en la nube. Los controles de sesión son aplicados por aplicaciones en la nube y se basan en información adicional sobre la sesión proporcionada por Azure AD a la aplicación.
 
-- **Dispositivo compatible**: puede configurar directivas de acceso condicional basadas en dispositivo. El objetivo de una directiva de acceso condicional basado en el dispositivo es conceder acceso a los recursos configurados solo desde dispositivos de confianza. Requerir un dispositivo compatible es una opción para definir qué es un dispositivo de confianza. Para información más detallada consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+    ![Control](./media/active-directory-conditional-access-azure-portal/31.png)
 
-- **Dispositivo unido a un dominio**: requerir un dispositivo unido a un dominio es otra opción para configurar directivas de acceso condicional basadas en el dispositivo. Este requisito hace referencia a equipos de escritorio, equipos portátiles y tabletas de empresa con Windows que están unidos a una instancia local de Active Directory. Para información más detallada consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
-Si tiene varios controles seleccionados, también puede configurar si todos ellos son necesarios al procesarse su directiva.
+Para más información, consulte [Controles en el acceso condicional de Azure Active Directory](active-directory-conditional-access-controls.md).
 
-![Control](./media/active-directory-conditional-access-azure-portal/06.png)
-
-### <a name="session-controls"></a>Controles de sesión
-Los controles de sesión permiten limitar la experiencia desde una aplicación en la nube. Los controles de sesión son aplicados por aplicaciones en la nube y se basan en información adicional sobre la sesión proporcionada por Azure AD a la aplicación.
-
-![Control](./media/active-directory-conditional-access-azure-portal/31.png)
-
-#### <a name="use-app-enforced-restrictions"></a>Usar restricciones que exige la aplicación
-Puede usar este control para requerir que Azure AD transmita la información del dispositivo a la aplicación en la nube. Esto ayuda a la aplicación en la nube a saber si el usuario procede de un dispositivo compatible o un dispositivo unido al dominio. Actualmente este control solo se admite con SharePoint como aplicación en la nube. SharePoint usa la información del dispositivo para proporcionar a los usuarios una experiencia completa o limitada según el estado del dispositivo.
-Para más información sobre cómo requerir el acceso limitado con SharePoint consulte [Controlar el acceso desde dispositivos no administrados](https://aka.ms/spolimitedaccessdocs).
 
 ## <a name="condition-statement"></a>Declaración de condición
 

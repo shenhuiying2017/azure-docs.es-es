@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/07/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3c7ab236d0a9efee6ac3fa97ed6de85cacbc9a89
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: e8ac4bef5af7a98857278b82304bb58f1ac6e342
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-cosmos-db-faq"></a>Preguntas más frecuentes sobre Azure Cosmos DB
@@ -64,12 +64,31 @@ No existe ningún límite en la cantidad total de rendimiento que admite un cont
 Para más información, vea la página de [precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Los cargos por uso de Azure Cosmos DB se determinan según la cantidad de contenedores aprovisionados, el número de horas que los contenedores estuvieron conectados y el rendimiento aprovisionado de cada contenedor. En este contexto, el término *contenedor* se refiere a una colección de la API de DocumentDB, un gráfico de API Graph, una colección de la API de MongoDB y una tabla de Table API. 
 
 ### <a name="is-a-free-account-available"></a>¿Existe una cuenta gratuita disponible?
+Sí, puede registrarse para una cuenta de tiempo limitado sin cargo, con ningún compromiso. Para registrarse, visite [Pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) o consulte la sección de [preguntas más frecuentes sobre Azure Cosmos DB](#try-cosmos-db).
+
 Si es la primera vez que usa Azure, regístrese para obtener una [cuenta gratuita de Azure](https://azure.microsoft.com/free/), que ofrece 30 días y un crédito para que pruebe todos los servicios de Azure. Si tiene una suscripción a Visual Studio, puede recibir [créditos gratis de Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure. 
 
 También puede usar el [Emulador de Azure Cosmos DB](local-emulator.md) para desarrollar y probar su aplicación localmente, de forma gratuita, sin necesidad de crear una suscripción de Azure. Cuando esté satisfecho con el funcionamiento de la aplicación en el Emulador, puede cambiar a una cuenta de Azure Cosmos DB en la nube.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>¿Cómo puedo obtener ayuda adicional con Azure Cosmos DB?
 Si necesita ayuda, póngase en contacto con nosotros en [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb), el [foro de MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB) o programe un chat individual con el equipo de ingeniería de Azure Cosmos DB, para lo que debe enviar un correo a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
+
+<a id="try-cosmos-db"></a>
+## <a name="try-azure-cosmos-db-subscriptions"></a>Prueba de las suscripciones de Azure Cosmos DB
+
+Ya puede disfrutar de Azure Cosmos DB durante un tiempo limitado sin una suscripción, y sin que le suponga ningún gasto ni compromiso. Para registrarse en una suscripción de prueba de Azure Cosmos DB, vaya a [Pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/). Esta suscripción es independiente de la [evaluación gratuita de Azure](https://azure.microsoft.com/free/) y puede utilizarse junto con una evaluación gratuita o una suscripción de pago de Azure. 
+
+Las suscripciones de prueba de Azure Cosmos DB aparecen en Azure Portal junto con otras suscripciones asociadas con el identificador de usuario. 
+
+Las condiciones siguientes se aplican a las suscripciones de prueba de Azure Cosmos DB:
+
+* Un contenedor por cada suscripción de SQL (API de DocumentDB), Gremlin (API Graph) y cuentas de Table.
+* Hasta 3 colecciones por suscripción para las cuentas de MongoDB.
+* 10 GB de capacidad de almacenamiento.
+* La replicación global está disponible en las siguientes [regiones de Azure](https://azure.microsoft.com/regions/): Centro de EE. UU., Europa del Norte y Sudeste Asiático
+* Rendimiento máximo de 5000 unidades de solicitud por segundo.
+* Las suscripciones expiran después de 24 horas y se pueden extender hasta un máximo de 48 horas.
+* No se pueden crear vales de soporte técnico de Azure para las cuentas de prueba de Azure Cosmos DB; sin embargo, se proporciona soporte técnico para aquellos suscriptores con planes de soporte técnico ya existentes. 
 
 ## <a name="set-up-azure-cosmos-db"></a>Configuración de Azure Cosmos DB
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>¿Cómo me registro en Azure Cosmos DB?

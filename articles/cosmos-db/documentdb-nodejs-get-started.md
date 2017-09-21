@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 6510e0270bb2efa252a2b2ad40014c5d26b74a81
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 02e98aadc6a001c7275266d89a196a57bb366b3c
 ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="nodejs-tutorial-use-the-documentdb-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Tutorial de Node.js: utilización de la API de DocumentDB en Azure Cosmos DB para crear una aplicación de consola Node.js
@@ -56,8 +56,10 @@ Comencemos.
 ## <a name="prerequisites-for-the-nodejs-tutorial"></a>Requisitos previos para el tutorial de Node.js
 Asegúrese de que dispone de lo siguiente:
 
-* Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-    * Como alternativa, en este tutorial puede usar el [Emulador de Azure Cosmos DB](local-emulator.md).
+* Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
 * [Node.js](https://nodejs.org/) versión v0.10.29 o superior
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Paso 1: Creación de una cuenta de Azure Cosmos DB
@@ -93,7 +95,7 @@ Después, copie y pegue el siguiente fragmento de código y defina las propiedad
     config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
-Copie y pegue ```database id```, ```collection id``` y ```JSON documents``` en el objeto ```config``` siguiente, donde se definen las propiedades de ```config.endpoint``` y ```config.authKey```. Si ya dispone de los datos que desea almacenar en la base de datos, puede usar la [herramienta de migración de datos](import-data.md) de Azure Cosmos DB en lugar de agregar definiciones de documento.
+Copie y pegue ```database id```, ```collection id``` y ```JSON documents``` en el objeto ```config``` siguiente, donde se definen las propiedades de ```config.endpoint``` y ```config.primaryKey```. Si ya dispone de los datos que desea almacenar en la base de datos, puede usar la [herramienta de migración de datos](import-data.md) de Azure Cosmos DB en lugar de agregar definiciones de documento.
 
     config.endpoint = "~your Azure Cosmos DB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
@@ -263,7 +265,7 @@ En el terminal, busque el archivo ```app.js``` y ejecute el comando: ```node app
 
 ## <a id="CreateColl"></a>Paso 6: Creación de una colección
 > [!WARNING]
-> **CreateDocumentCollectionAsync** creará una nueva colección, que tiene implicaciones de precios. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/).
+> **createCollection** creará una nueva colección, que tiene implicaciones de precios. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 
@@ -408,7 +410,7 @@ En el siguiente diagrama se muestra cómo se llama a la sintaxis de la consulta 
 
 ![Tutorial de Node.js: diagrama que ilustra el ámbito y el significado de la consulta (base de datos de nodo).](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-La palabra clave [FROM](documentdb-sql-query.md#FromClause) es opcional en la consulta porque las consultas de Azure Cosmos DB ya tienen como ámbito una única colección. Por lo tanto, "FROM Families f" se puede intercambiar por "FROM root r", o cualquier otra variable de nombre que elija. Azure Cosmos DB deducirá la familia, la raíz o el nombre de variable elegido y hará referencia a la colección actual de forma predeterminada.
+La palabra clave [FROM](documentdb-sql-query.md#FromClause) es opcional en la consulta porque las consultas de Azure Cosmos DB ya tienen como ámbito una única colección. Por lo tanto, «FROM Families f" se puede intercambiar por  "FROM root r", o cualquier otra variable de nombre que elija. Azure Cosmos DB deducirá la familia, la raíz o el nombre de variable elegido y hará referencia a la colección actual de forma predeterminada.
 
 Copie y pegue el código de debajo de la llamada a **getFamilyDocument** para ejecutar la función **queryCollection**.
 
@@ -615,7 +617,7 @@ Instale el módulo **documentdb** mediante npm. Use el comando siguiente:
 
 * ```npm install documentdb --save```
 
-Después, en el archivo ```config.js``` , actualice los valores de config.endpoint y config.authKey tal como se describe en el [paso 3: Configuración de las opciones de la aplicación](#Config). 
+Después, en el archivo ```config.js``` , actualice los valores de config.endpoint y config.primaryKey tal como se describe en el [paso 3: Configuración de las opciones de la aplicación](#Config). 
 
 Posteriormente, en el terminal, busque el archivo ```app.js``` y ejecute el comando: ```node app.js```.
 

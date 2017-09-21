@@ -14,10 +14,10 @@ ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: dff0bb9b4040ea712519a94bf2bc04de634209c2
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 531d645bab8c80caba96bc5292354b5490a53804
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Actualización de un almacén de Backup a un almacén de Recovery Services
@@ -42,7 +42,7 @@ Consulte las guías de referencia de los cmdlets de PowerShell para más informa
 
 Compruebe lo siguiente antes de actualizar los almacenes de Backup a almacenes de Recovery Service.
 
-- **Versión de agente mínimo**: para actualizar el almacén, asegúrese de que el agente de Microsoft Azure Recovery Services (MARS) es al menos la versión 2.0.9070.0. Si el agente de MARS es anterior a 2.0.9070.0, actualícelo antes de iniciar el proceso de actualización.
+- **Versión del agente mínima**: para actualizar el almacén, asegúrese de que el agente de Microsoft Azure Recovery Services (MARS) es al menos la versión 2.0.9083.0. Si el agente de MARS es anterior a 2.0.9083.0, actualícelo antes de iniciar el proceso de actualización.
 - **Modelo de facturación basado en instancias**: los almacenes de Recovery Service solo admiten el modelo de facturación basado en instancias. Si tiene un almacén de Backup que utiliza el anterior modelo de facturación basado en almacenamiento, convierta el modelo durante la actualización.
 - **Ninguna operación de configuración de copia de seguridad en curso**: durante la actualización, se restringe el acceso al plan de administración. Complete todas las acciones del plan de administración e inicie la actualización.
 
@@ -84,7 +84,7 @@ El script de PowerShell le pide que escriba sus credenciales. Escriba sus creden
 ### <a name="pre-requisites-checking"></a>Comprobación de los requisitos previos
 Una vez que haya escrito sus credenciales de Azure, Azure comprobará que el entorno cumpla los requisitos previos siguientes:
 
-- **Versión mínima del agente**: la actualización de los almacenes de Backup a almacenes de Recovery Services requiere que la versión del agente de MARS sea como mínimo la 2.0.9070. Si tiene elementos registrados en un almacén de Backup con un agente anterior a la versión 2.0.9070, se producirá un error en la comprobación de los requisitos previos. En ese caso, actualice al agente y vuelva a intentar la actualización. Puede descargar la versión más reciente del agente en [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Versión mínima del agente**: la actualización de los almacenes de Backup a almacenes de Recovery Services requiere que la versión del agente de MARS sea como mínimo la 2.0.9083.0. Si tiene elementos registrados en un almacén de Backup con un agente anterior a la versión 2.0.9083.0, se producirá un error en la comprobación de los requisitos previos. En ese caso, actualice al agente y vuelva a intentar la actualización. Puede descargar la versión más reciente del agente en [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Trabajos de configuración en curso**: si alguien está configurando un trabajo para un almacén de Backup que se va a actualizar, o registrando un elemento, la comprobación de requisitos previos generará un error. Complete la configuración o termine de registrar el elemento y, a continuación, inicie el proceso de actualización del almacén.
 - **Modelo de facturación basado en almacenamiento**: los almacenes de Recovery Services admiten el modelo de facturación basado en instancias. Si ejecuta la actualización de un almacén de Backup que usa el modelo de facturación basado en almacenamiento, se le pedirá que actualice el modelo junto con el almacén. Si lo prefiere, puede actualizar primero el modelo de facturación y, después, actualizar el almacén.
 - Identifique un grupo de recursos para el almacén de Recovery Services. Para aprovechar las características de implementación de Resource Manager, debe colocar un almacén de Recovery Services en un grupo de recursos. Si no sabe qué grupo de recursos usar, proporcione un nombre y el proceso de actualización creará el grupo de recursos automáticamente. El proceso de actualización también asocia el almacén al nuevo grupo de recursos.
@@ -147,8 +147,8 @@ No. No se puede ver o administrar su almacén clásico después de la actualizac
 Si tiene que usar el almacén, las copias de seguridad de esta máquina para una retención a largo plazo, no podrá actualizar el almacén. En versiones futuras se agregará compatibilidad para actualizar tal almacén.
 Si ya no necesita almacenar las copias de seguridad de esta máquina, anule el registro de esta máquina del almacén y vuelva a intentar la actualización.
 
-**¿Por qué no puedo ver la información de los trabajos para mis recursos locales después de la actualización?**</br>
-La supervisión de copias de seguridad locales (agente de MARS, DPM y Azure Backup Server) es una característica nueva que obtendrá al actualizar el almacén de Backup al almacén de Recovery Services. La información de supervisión tarda hasta 12 horas en sincronizarse con el servicio.
+**¿Por qué no puedo ver la información de los trabajos para mis recursos después de la actualización?**</br>
+La supervisión de copias de seguridad (agente de MARS e IaaS) es una característica nueva que obtendrá al actualizar el almacén de Backup al almacén de Recovery Services. La información de supervisión tarda hasta 12 horas en sincronizarse con el servicio.
 
 **¿Cómo se informa de un problema?**</br>
 Si se produce un error en cualquier parte de la actualización del almacén, tenga en cuenta el identificador de la operación que figura en el error. Soporte técnico de Microsoft trabajará proactivamente para resolver el problema. Puede conectar con el soporte técnico o enviarnos un correo electrónico a rsvaultupgrade@service.microsoft.com con su identificador de suscripción, el nombre del almacén y el identificador de la operación. Intentaremos resolver el problema lo antes posible. No vuelva a intentar la operación a menos que Microsoft se lo indique explícitamente.

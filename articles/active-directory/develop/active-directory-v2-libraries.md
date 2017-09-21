@@ -12,24 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2017
+ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: c8dc0fab1a4da2bf9ae1463cb5e17fc2c2b12e5c
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliotecas de autenticación de Azure Active Directory v2.0
-El punto de conexión Azure Active Directory (Azure AD) v2.0 admite los protocolos OAuth 2.0 y OpenID Connect 1.0 estándar del sector. Puede utilizar diversas bibliotecas de Microsoft y otras organizaciones con el punto de conexión de v2.0.
+El [punto de conexión de Azure Active Directory (Azure AD) v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) admite los protocolos OAuth 2.0 y OpenID Connect 1.0 estándar del sector. Puede utilizar diversas bibliotecas de Microsoft y otras organizaciones con el punto de conexión de v2.0.
 
 Al compilar una aplicación que utiliza el punto de conexión v2.0, se recomienda usar bibliotecas que hayan escrito expertos en los dominios del protocolo que sigan una metodología de ciclo de vida de desarrollo de seguridad (SDL), como [a la que sigue Microsoft][Microsoft-SDL]. Si decide codificar manualmente los protocolos, se recomienda seguir la metodología SDL y observar detenidamente las consideraciones de seguridad de las especificaciones de los estándares de cada protocolo.
 
+> [!NOTE]
+> ¿Busca las bibliotecas de Azure AD v1.0 (ADAL)? Revise la [Guía de la biblioteca ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> 
+> 
+
 ## <a name="types-of-libraries"></a>Tipos de bibliotecas
-Azure AD v2.0 funciona con dos tipos de bibliotecas:
+El punto de conexión de Azure AD v2.0 funciona con dos tipos de bibliotecas:
 
 * **Bibliotecas de cliente**. Los servidores y clientes nativos utilizan bibliotecas de clientes para obtener tokens de acceso para llamar a un recurso, como Microsoft Graph.
 * **Bibliotecas de middleware de servidores**. Las aplicaciones web usan bibliotecas de middleware de servidor para el inicio de sesión de usuario. Las API de web utilizan bibliotecas de middleware de servidor para validar los tokens que se envían mediante clientes nativos o mediante otros servidores.

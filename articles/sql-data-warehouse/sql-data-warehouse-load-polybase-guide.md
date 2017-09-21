@@ -12,16 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 6/5/2016
+ms.date: 9/13/2017
 ms.custom: loading
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 7594a0730477fe3f3bd34b0b6207478de70c7595
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Guía para el uso de PolyBase en Almacenamiento de datos SQL
@@ -46,21 +44,9 @@ Cuando haya migrado todas las tablas externas al nuevo origen de datos externo, 
 2. Quitar la primera credencial de ámbito de base de datos en función de la clave de acceso de almacenamiento principal
 3. Iniciar sesión en Azure y volver a generar la clave de acceso principal lista para la próxima vez
 
-## <a name="query-azure-blob-storage-data"></a>Consulta de datos en el almacenamiento de blobs de Azure
-Las consultas en tablas externas simplemente usan el nombre de tabla como si fuese una tabla relacional.
 
-```sql
--- Query Azure storage resident data via external table.
-SELECT * FROM [ext].[CarSensor_Data]
-;
-```
 
-> [!NOTE]
-> Una consulta en una tabla externa puede producir el error *"Consulta anulada: se alcanzó el umbral de rechazo máximo al leer desde un origen externo"*. Esto indica que sus datos externos contienen registros *con modificaciones* . Un registro de datos se considera "con modificaciones" si los tipos de datos reales o el número de columnas no coincide con las definiciones de columna de la tabla externa o si los datos no se ajustan al formato de archivo externo especificado. Para corregirlo, asegúrese de que la tabla externa y las definiciones de formato de archivo externos son correctas y que los datos externos se ajustan a estas definiciones. En el caso de que un subconjunto de registros de datos externos estén modificados, puede rechazar estos registros para sus consultas mediante las opciones de rechazo en CREATE EXTERNAL TABLE DDL.
-> 
-> 
-
-## <a name="load-data-from-azure-blob-storage"></a>Carga de datos del almacenamiento de blobs de Azure
+## <a name="load-data-with-external-tables"></a>Carga de datos con Tablas externas
 En este ejemplo se cargan datos del almacenamiento de blobs de Azure en la base de datos de Almacenamiento de datos SQL.
 
 El almacenamiento directo de datos quita el tiempo de transferencia de datos de las consultas. El almacenamiento de datos con un índice ColumnStore mejora en hasta 10 veces el rendimiento de las consultas en consultas de análisis.
@@ -86,6 +72,12 @@ FROM   [ext].[CarSensor_Data]
 
 Vea [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
 
+> [!NOTE]
+> Una carga que utiliza una tabla externa puede producir el error *"Consulta anulada: se alcanzó el umbral de rechazo máximo al leer desde un origen externo"*. Esto indica que sus datos externos contienen registros *con modificaciones* . Un registro de datos se considera "con modificaciones" si los tipos de datos reales o el número de columnas no coincide con las definiciones de columna de la tabla externa o si los datos no se ajustan al formato de archivo externo especificado. Para corregirlo, asegúrese de que la tabla externa y las definiciones de formato de archivo externos son correctas y que los datos externos se ajustan a estas definiciones. En el caso de que un subconjunto de registros de datos externos estén modificados, puede rechazar estos registros para sus consultas mediante las opciones de rechazo en CREATE EXTERNAL TABLE DDL.
+> 
+> 
+
+
 ## <a name="create-statistics-on-newly-loaded-data"></a>Crear estadísticas de los datos recién cargados
 Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas.  Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos.  Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][Statistics] en el grupo de temas relacionados con el desarrollo.  A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
 
@@ -97,8 +89,8 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="export-data-to-azure-blob-storage"></a>Exportación de datos al almacenamiento de blobs de Azure
-Esta sección muestra cómo exportar datos desde el Almacenamiento de datos SQL al almacenamiento de blobs de Azure. En este ejemplo se utiliza CREATE EXTERNAL TABLE AS SELECT, que es una instrucción Transact-SQL de alto rendimiento para exportar los datos en paralelo desde todos los nodos de proceso.
+## <a name="export-data-with-external-tables"></a>Exportación de datos con Tablas externas
+Esta sección muestra cómo exportar datos desde SQL Data Warehouse a Azure Blob Storage mediante tablas externas. En este ejemplo se utiliza CREATE EXTERNAL TABLE AS SELECT, que es una instrucción Transact-SQL de alto rendimiento para exportar los datos en paralelo desde todos los nodos de proceso.
 
 En el ejemplo siguiente se crea una tabla externa Weblogs2014 con definiciones de columna y datos de la tabla dbo.Weblogs. La definición de tabla externa se almacena en Almacenamiento de datos SQL y los resultados de la instrucción SELECT se exportan en el directorio "/archive/log2014/" del contenedor de blobs especificado por el origen de datos. Los datos se exportan en el formato de archivo de texto especificado.
 
@@ -132,6 +124,21 @@ Ahora, los creadores de los esquemas A y B bloquean dichos esquemas utilizando D
 ```   
  Con esto, user_A y user_B estarán ahora bloqueados en el esquema de los otros departamentos.
  
+## <a name="polybase-performance-optimizations"></a>Optimizaciones de rendimiento de PolyBase
+Para lograr un óptimo rendimiento de carga con PolyBase sugerimos lo siguiente:
+- Dividir archivos comprimidos grandes en archivos comprimidos más pequeños. Los tipos de compresión compatibles en este momento no son divisibles. Como resultado, el rendimiento se verá afectado en la carga de un único archivo grande.
+- Para la velocidad de carga más rápida, cargar en una tabla de ensayo round robin. Se trata de la manera más eficaz para mover los datos desde la capa de almacenamiento al almacenamiento de datos.
+- Todos los formatos de archivo tienen diferentes características de rendimiento. Para lograr la carga más rápida, use archivos de texto delimitados comprimidos. La diferencia entre el rendimiento de UTF-8 y UTF-16 es mínima.
+- Reubique la capa de almacenamiento y el almacenamiento de datos para minimizar la latencia
+- Escale verticalmente el almacenamiento de datos si espera un trabajo de carga grande.
+
+## <a name="polybase-limitations"></a>Limitaciones de PolyBase
+PolyBase en SQL DW tiene las siguientes limitaciones que deben tenerse en cuenta al diseñar un trabajo de carga:
+- Una sola fila no puede ser mayor que 1.000.000 bytes. Esto es cierto independientemente del esquema de tabla definido, incluidas las columnas (n)varchar(max). Esto significa que para Tablas externas las columnas (n)varchar(max) pueden tener un ancho de 1.000.000 bytes como máximo, no el límite de 2 GB definido por el tipo de datos.
+- Al exportar datos en formato de archivo ORC desde SQL Server o Azure SQL Data Warehouse, las columnas de texto pesadas se pueden limitar a tan solo 50 columnas debido a errores de memoria insuficiente de Java. Para resolver este problema, exporte solo un subconjunto de las columnas.
+
+
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

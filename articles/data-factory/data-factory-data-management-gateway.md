@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: f1f57404734ad6dc77250b180a9c334de60f0af3
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d032dd38655ef5c7763602739773f9c589cd65a8
 ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
@@ -139,6 +139,7 @@ En el firewall corporativo, debe configurar los siguientes dominios y puertos de
 | *.servicebus.windows.net |443, 80 |Usado para la comunicación con el back-end del servicio de movimiento de datos |
 | *.core.windows.net |443 |Usado para la copia de almacenamiento provisional que usa el blob de Azure (si está configurado)|
 | *.frontend.clouddatahub.net |443 |Usado para la comunicación con el back-end del servicio de movimiento de datos |
+| *.servicebus.windows.net |9350-9354, 5671 |Service Bus Relay opcional a través de TCP utilizado por el Asistente para copiar |
 
 
 En el nivel de Firewall de Windows, normalmente se habilitan estos puertos de salida. De lo contrario, puede configurar los puertos y dominios según corresponda en el equipo de la puerta de enlace.

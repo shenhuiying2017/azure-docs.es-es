@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5b73fec119a88cd86e68537199e7567afa3fdba8
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6b5febd051d0b956c90cb14c260dda1881adac3f
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -40,7 +40,7 @@ Si va a **preparar unidades** para un trabajo de importación, se deben cumplir 
 * Precisa un equipo (el "equipo de copia") con Windows 7, Windows Server 2008 R2 o un sistema operativo de Windows más reciente instalado.
 * Se debe instalar .NET Framework 4 en el equipo de copia.
 * Se debe habilitar BitLocker en el equipo de copia.
-* Necesita uno o varios discos duros SATA de 3,5 pulgadas vacíos y conectados a la máquina de copia.
+* Necesita una o más unidades de disco duro SATAII o III, o SSD, de 2,5 o 3,5 pulgadas conectadas a la máquina de copia.
 * Se debe poder acceder a los archivos que se van a importar desde el equipo de copia, con independencia de si se encuentran en un recurso compartido de red o en una unidad de disco duro local.
 
 Si está tratando de **reparar una importación** que ha generado un error parcial, precisa lo siguiente:

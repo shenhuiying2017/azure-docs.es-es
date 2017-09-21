@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 09/07/2017
 ms.author: jonbeck
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: fe7a92901ae25aa99ef71f09c416e6c6ad30d39b
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 38cc67bdb01f84722af9d58ce3f6f5cc67c29653
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -29,7 +29,7 @@ En este artículo se describen los tamaños y las opciones disponibles para las 
 
 | Tipo                     | Tamaños           |    Descripción       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Uso general](sizes-general.md)          | Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7,  | Uso equilibrado de la CPU en proporción de memoria. Ideal para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio. |
+| [Uso general](sizes-general.md)          | B (Versión preliminar), Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7  | Uso equilibrado de la CPU en proporción de memoria. Ideal para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio. |
 | [Proceso optimizado](sizes-compute.md)        | Fs, F             | Uso elevado de la CPU en proporción de memoria. Bueno para servidores web de tráfico medio, aplicaciones de red, procesos por lotes y servidores de aplicaciones.        |
 | [Memoria optimizada](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Memoria alta en proporción de CPU. Excelente para servidores de bases de datos relacionales, memorias caché de capacidad media o grande y análisis en memoria.                 |
 | [Almacenamiento optimizado](sizes-storage.md)        | LS                | Alto rendimiento de disco y E/S. Perfecto para bases de datos SQL y NoSQL y macrodatos.                                                         |

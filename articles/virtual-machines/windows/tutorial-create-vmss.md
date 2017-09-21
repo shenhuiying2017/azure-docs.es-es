@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 8a5f6e8bf01c8bc38f3fd327acd0ddc8f9cdd7de
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 7fc2e841a193c219822e232fbc994df5e934ddc4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Windows
-El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente, o definir reglas de escalado automático basado en el uso de la CPU, la demanda de memoria o el tráfico de red. En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure. Aprenderá a:
+El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático basado en el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure. Aprenderá a:
 
 > [!div class="checklist"]
 > * Usar la extensión de script personalizada para definir un sitio IIS para escalar
@@ -38,11 +38,11 @@ Para realizar este tutorial es necesaria la versión 3.6 del módulo de Azure Po
 
 
 ## <a name="scale-set-overview"></a>Introducción al conjunto de escalado
-Los conjuntos de escalado usan conceptos similares a los que ha aprendido en el tutorial anterior sobre [Creación de máquinas virtuales de alta disponibilidad](tutorial-availability-sets.md). Las VM de un conjunto de escalado se distribuyen entre los dominios de error y actualización como las VM en un conjunto de disponibilidad.
+El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Las máquinas virtuales de un conjunto de escalado se distribuyen en dominios lógicos de error y de actualización en uno o más *grupos de selección de ubicación*. Se trata de grupos de máquinas virtuales configuradas de manera similar, al igual que los [conjuntos de disponibilidad](tutorial-availability-sets.md).
 
 Las máquinas virtuales se crean según sea necesario en un conjunto de escalado. Defina reglas de escalado automático para controlar cómo y cuándo se agregan o se quitan las máquinas virtuales del conjunto de escalado. Estas reglas se pueden desencadenar en función de métricas como la carga de la CPU, el uso de la memoria o el tráfico de red.
 
-Los conjuntos de escalado admiten hasta 1000 máquinas virtuales cuando se usa una imagen de la plataforma de Azure. Para las cargas de trabajo con requisitos de personalización de VM o instalación significativos, puede que desee [crear una imagen de VM personalizada](tutorial-custom-images.md). Puede crear hasta 100 máquinas virtuales en un conjunto de escalado al usar una imagen personalizada.
+Los conjuntos de escalado admiten hasta 1000 máquinas virtuales cuando se usa una imagen de la plataforma de Azure. Para las cargas de trabajo con requisitos de personalización de VM o instalación significativos, puede que desee [crear una imagen de VM personalizada](tutorial-custom-images.md). Puede crear hasta 300 máquinas virtuales en un conjunto de escalado al usar una imagen personalizada.
 
 
 ## <a name="create-an-app-to-scale"></a>Creación de una aplicación para escalar
@@ -289,6 +289,8 @@ Add-AzureRmAutoscaleSetting `
   -TargetResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
   -AutoscaleProfiles $myScaleProfile
 ```
+
+Para más información de diseño sobre el uso del escalado automático, consulte los [procedimientos recomendados de escalado automático](/azure/architecture/best-practices/auto-scaling).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

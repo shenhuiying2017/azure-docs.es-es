@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 16070499b7befca26d55259d845d1dbc14110f2a
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 05476e35488c104a483f52f88540d33c55e5bc3c
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -42,27 +42,23 @@ En los tutoriales anteriores, se creó una imagen de contenedor y se actualizó 
 
 ## <a name="create-kubernetes-cluster"></a>Creación de un clúster de Kubernetes
 
-En el [tutorial anterior](./container-service-tutorial-kubernetes-prepare-acr.md), se creó un grupo de recursos denominado *myResourceGroup*. Si todavía no lo ha hecho, cree ahora este grupo de recursos.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location westeurope
-```
-
 Cree un clúster de Kubernetes en Azure Container Service con el comando [az acs create](/cli/azure/acs#create). 
 
-En el ejemplo siguiente, se crea un clúster denominado *myK8sCluster* con un nodo maestro de Linux y tres nodos de agente de Linux.
+En el siguiente ejemplo se crea un clúster denominado `myK8sCluster` en un grupo de recursos llamado `myResourceGroup`. Este grupo de recursos se creó en el [tutorial anterior](./container-service-tutorial-kubernetes-prepare-acr.md).
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-Después de varios minutos, el comando se completa y devuelve información en formato json sobre la implementación de ACS.
+En algunos casos, como con las versiones de evaluación de tiempo limitado, una suscripción a Azure tiene un acceso limitado a los recursos de Azure. Si se produce un error en la implementación debido a que los núcleos disponibles son limitados, reduzca el número de agentes predeterminado agregando `--agent-count 1` al comando [az acs create](/cli/azure/acs#create). 
+
+Después de varios minutos, la implementación se completa y devuelve información en formato json sobre la implementación de ACS.
 
 ## <a name="install-the-kubectl-cli"></a>Instalación de la CLI de kubectl
 
 Para conectarse al clúster de Kubernetes desde el equipo cliente, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), el cliente de la línea de comandos de Kubernetes. 
 
-Si usa Azure CloudShell, `kubectl` ya está instalado. Si desea instalarlo de forma local, use el comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
+Si usa Azure CloudShell, kubectl ya está instalado. Si desea instalarlo de forma local, use el comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
 
 Si está ejecutando en Linux o macOS, debe ejecutar con sudo. En Windows, asegúrese de que el shell se ha ejecutado como administrador.
 
@@ -74,7 +70,7 @@ En Windows, la instalación predeterminada es *c:\program files (x86)\kubectl.ex
 
 ## <a name="connect-with-kubectl"></a>Conexión con kubectl
 
-Para configurar `kubectl` para conectarse al clúster de Kubernetes, ejecute el comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials).
+Para configurar kubectl para conectarse al clúster de Kubernetes, ejecute el comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials).
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster

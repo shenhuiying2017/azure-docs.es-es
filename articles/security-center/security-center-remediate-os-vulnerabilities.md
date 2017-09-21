@@ -1,6 +1,6 @@
 ---
 title: "Corrección de vulnerabilidades del SO en Azure Security Center | Microsoft Docs"
-description: "En este documento se muestra cómo implementar la recomendación de Azure Security Center **Corregir las vulnerabilidades del sistema operativo**."
+description: "En este documento se muestra cómo implementar la recomendación de Azure Security Center de corregir vulnerabilidades del sistema operativo."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e6b251d5b97c57b3b6f79d14e53fbed5ca37ecb0
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Corrección de vulnerabilidades del SO en Azure Security Center
-Azure Security Center analiza a diario las configuraciones del sistema operativo (SO) de la máquina virtual que podrían provocar que esta fuera más vulnerable a ataques. Asimismo, recomienda cambios de configuración para solucionar estas vulnerabilidades. Azure Security Center recomienda que solucione las vulnerabilidades cuando la configuración del SO de la máquina virtual no coincida con las reglas de configuración recomendadas.
+Azure Security Center analiza diariamente el sistema operativo (SO) de sus máquinas virtuales (VM) y equipos en busca de alguna configuración que pueda hacer que estos sean más vulnerables frente a los ataques. Azure Security Center recomienda que solucione las vulnerabilidades cuando la configuración del SO de la máquina virtual no coincida con las reglas de configuración recomendadas y recomienda la realización de cambios en la configuración para hacer frente a estas vulnerabilidades.
 
 > [!NOTE]
 > Para obtener más información sobre las configuraciones específicas que se están supervisando, [consulte la lista de reglas de configuración recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
@@ -31,46 +30,67 @@ Azure Security Center analiza a diario las configuraciones del sistema operativo
 >
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
+La corrección de vulnerabilidades del sistema operativo se presenta como una recomendación en Security Center. Esta recomendación se muestra en **Recomendaciones** y en **Proceso**.
 
-> [!NOTE]
-> En este documento se presenta el servicio mediante una implementación de ejemplo.  Este documento no es una guía paso a paso.
->
->
+En este ejemplo, se examinará la recomendación **Corrección de vulnerabilidades del SO (de Microsoft)** en **Proceso**.
+1. Seleccione **Proceso** en el menú principal de Security Center.
 
-1. En la hoja **Recomendaciones**, seleccione **Corregir las vulnerabilidades del sistema operativo**.
    ![Corrección de vulnerabilidades del SO][1]
 
-    La hoja **Corregir las vulnerabilidades del sistema operativo** abre y enumera las máquinas virtuales con configuraciones del sistema operativo que no coinciden con las reglas de configuración recomendadas.  En cada máquina virtual, la hoja identifica lo siguiente:
+2. En **Proceso**, seleccione **Corregir las vulnerabilidades del sistema operativo (por Microsoft)**. Se abre el panel **Error de coincidencia debido a vulnerabilidades del SO (de Microsoft)**.
 
-   * **REGLAS CON ERROR** : número de reglas con errores de configuración del sistema operativo de la máquina virtual.
-   * **HORA DE LA ÚLTIMA DETECCIÓN** : fecha y hora en que Azure Security Center realizó el último examen de la configuración del sistema operativo de la máquina virtual.
-   * **ESTADO** : estado actual de la vulnerabilidad.
+   ![Corrección de vulnerabilidades del SO][2]
 
-     * Abierta: la vulnerabilidad aún no se ha solucionado.
-     * En curso: se está aplicando la corrección en la vulnerabilidad; no se requiere ninguna acción de su parte.
-     * Resuelta: la vulnerabilidad ya se solucionó (cuando el problema se ha resuelto, la entrada aparece atenuada).
-   * **GRAVEDAD** : todas las vulnerabilidades se establecen en un nivel de gravedad Baja; es decir, debe solucionarse, pero no se requiere atención inmediata.
+  En la parte superior del panel se muestra lo siguiente:
 
-2. Seleccione una máquina virtual. Una hoja de esa VM se abre y muestra las reglas con error.
-   ![Reglas de configuración con error][2]
+  - El número total de reglas según su gravedad en las que se produjo un error en la configuración del sistema operativo en sus máquinas virtuales y equipos.
+  - El número total de reglas según su tipo en las que se produjo un error en la configuración del sistema operativo en sus máquinas virtuales y equipos.
+  - El número total de reglas en las que se produjo algún error por las configuraciones del sistema operativo Windows o las de Linux.
 
-3. Seleccione una regla. En este ejemplo, seleccionamos **La contraseña debe cumplir los requisitos de complejidad**. Se abre una hoja que describe la regla con errores y el impacto. Revise los detalles y tenga en cuenta cómo se aplican las configuraciones del sistema operativo.
-  ![Descripción de la regla con error][3]
+  En la parte inferior del panel se muestran todas las reglas con errores en todas las máquinas virtuales y equipos, así como la gravedad de la actualización que falta. La lista incluye:
 
-  Azure Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos para las reglas de configuración. En esta hoja, se proporciona la siguiente información:
+  - **CCEID**: identificador único de CCE para la regla. Azure Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos para las reglas de configuración.
+  - **NOMBRE**: nombre de la regla con error.
+  - **TIPO DE REGLA**: clave del Registro, directiva de seguridad o directiva de auditoría.
+  - **NÚMERO DE MÁQUINAS VIRTUALES Y EQUIPOS**: número total de máquinas virtuales y equipos en los que se aplica esa regla con errores.
+  - **GRAVEDAD DE LA REGLA**: valor de gravedad de CCE, que puede ser Crítico, Importante o Advertencia.
+  - **ESTADO**: el estado actual de la recomendación:
+
+    - **Abierta**: la recomendación aún no se ha abordado.
+    - **En curso**: la recomendación se está aplicando actualmente a esos recursos y no se requiere ninguna acción por su parte.
+    - **Resuelta**: la recomendación ya terminó. (Si se ha resuelto el problema, la entrada aparecerá atenuada).
+
+3. En la lista, seleccione una regla con errores para ver los detalles.
+
+   ![Reglas de configuración con error][3]
+
+  En esta hoja, se proporciona la siguiente información:
 
   - NOMBRE: nombre de la regla.
-  - GRAVEDAD: valor de gravedad de CCE, que puede ser Crítico, Importante o Advertencia.
   - CCIED: identificador único de CCE para la regla.
-  - DESCRIPCIÓN: descripción de la regla.
+  - Versión del sistema operativo: versión del sistema operativo de la máquina virtual o el equipo
+  - GRAVEDAD DE LA REGLA: valor de gravedad de CCE, que puede ser Crítico, Importante o Advertencia.
+  - DESCRIPCIÓN COMPLETA: descripción de la regla.
   - VULNERABILIDAD: explicación de la vulnerabilidad o el riesgo si no se aplica la regla.
-  - IMPACTO: impacto de negocio cuando se aplica la regla.
+  - POSIBLE IMPACTO: impacto empresarial cuando se aplica la regla.
+  - CONTRAMEDIDA: pasos de corrección
   - VALOR ESPERADO: valor esperado cuando Azure Security Center analiza la configuración del sistema operativo de la máquina virtual comparándola con la regla.
-  - FUNCIONAMIENTO DE LA REGLA: cómo utiliza Azure Security Center la regla durante el análisis de la configuración del sistema operativo de la máquina virtual comparándola con la regla.
   - VALOR REAL: valor devuelto después de analizar la configuración del sistema operativo de la máquina virtual comparándola con la regla.
-  - RESULTADO DE LA EVALUACIÓN: resultado del análisis, que puede ser Sin errores o Con errores.
+  - FUNCIONAMIENTO DE LA REGLA: cómo utiliza Azure Security Center la regla durante el análisis de la configuración del sistema operativo de la máquina virtual comparándola con la regla.
 
-## <a name="see-also"></a>Consulte también
+4. Seleccione el icono **Buscar** de la cinta de opciones superior. La búsqueda de registros abre la lista de áreas de trabajo que contienen máquinas virtuales y equipos con la vulnerabilidad del sistema operativo seleccionada. Esta hoja de selección del área de trabajo solo aparece si la regla seleccionada se aplica a varias máquinas virtuales que están conectadas a diferentes áreas de trabajo.
+
+  ![Lista de áreas de trabajo][4]
+
+5. Seleccione un área de trabajo. Una consulta de búsqueda de Log Analytics se abre mostrando las áreas de trabajo filtradas con la vulnerabilidad del sistema operativo.
+
+  ![Área de trabajo con una vulnerabilidad del sistema operativo][5]
+
+6. Seleccione un equipo de la lista para más información. Se abre otro resultado de la búsqueda con la información filtrada solo para ese equipo.
+
+  ![Información filtrada para ese equipo][6]
+
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo se muestra cómo implementar la recomendación de Azure Security Center de corregir vulnerabilidades del sistema operativo. Puede revisar el conjunto de reglas de configuración [aquí](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Azure Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos para las reglas de configuración. Visite el sitio de [CCE](https://nvd.nist.gov/cce/index.cfm) para obtener más información.
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
@@ -85,7 +105,10 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre publicaciones de blog sobre el cumplimiento y la seguridad de Azure.
 
 <!--Image references-->
-[1]: ./media/security-center-remediate-os-vulnerabilities/recommendation.png
-[2]:./media/security-center-remediate-os-vulnerabilities/vm-remediate-os-vulnerabilities.png
+[1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png
+[2]:./media/security-center-remediate-os-vulnerabilities/os-vulnerabilities.png
 [3]: ./media/security-center-remediate-os-vulnerabilities/vulnerability-details.png
+[4]: ./media/security-center-remediate-os-vulnerabilities/search.png
+[5]: ./media/security-center-remediate-os-vulnerabilities/log-search.png
+[6]: ./media/security-center-remediate-os-vulnerabilities/search-results.png
 

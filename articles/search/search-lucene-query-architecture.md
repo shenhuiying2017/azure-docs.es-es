@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 510f8abd839c3c025e955aecfdd787ce85540caf
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
 ms.contentlocale: es-es
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -187,7 +187,7 @@ El analizador estándar divide el texto de entrada en los siguientes dos tokens,
 
 ### <a name="exceptions-to-lexical-analysis"></a>Excepciones para el análisis léxico 
 
-El análisis léxico se aplica únicamente a los tipos de consultas que requieren términos completos: una consulta de término o una consulta de frase. No se aplica a los tipos de consulta con términos incompletos: consulta de prefijo, consulta de carácter comodín, consulta regex o a una consulta de coincidencia parcial. Estos tipos de consulta, incluida la consulta de prefijo con el término *post-vacacional\**  en nuestro ejemplo, se agregan directamente al árbol de consulta omitiendo la fase de análisis. La única transformación realizada en los términos de consulta de esos tipos es el establecimiento de minúsculas.
+El análisis léxico se aplica únicamente a los tipos de consultas que requieren términos completos: una consulta de término o una consulta de frase. No se aplica a los tipos de consulta con términos incompletos: consulta de prefijo, consulta de carácter comodín, consulta regex o a una consulta de coincidencia parcial. Estos tipos de consulta, incluida la consulta de prefijo con el término *post-vacacional\* * en nuestro ejemplo, se agregan directamente al árbol de consulta omitiendo la fase de análisis. La única transformación realizada en los términos de consulta de esos tipos es el establecimiento de minúsculas.
 
 <a name="stage3"></a>
 ## <a name="stage-3-document-retrieval"></a>Fase 3: Recuperación de documentos 
@@ -238,7 +238,13 @@ Suponga también que este índice contiene los siguientes cuatro documentos:
 
 Para entender la recuperación, es útil conocer algunos conceptos básicos acerca de la indexación. La unidad de almacenamiento es un índice invertido, uno para cada campo de búsqueda. Dentro de un índice invertido hay una lista ordenada de todos los términos de todos los documentos. Cada término se asigna a la lista de documentos en el que aparece, tal como aparece en el ejemplo siguiente.
 
-Para generar los términos en un índice invertido, el motor de búsqueda realiza un análisis léxico del contenido de los documentos, de forma similar a lo que sucede durante el procesamiento de consultas. Las entradas de texto pasan al analizador, en minúsculas, con una puntuación fragmentada y así sucesivamente, dependiendo de la configuración del analizador. Es común, pero no necesario, usar los mismos analizadores para las operaciones de búsqueda e indexación para que los términos de consulta tengan un aspecto más parecido a los términos de dentro del índice.
+Para generar los términos en un índice invertido, el motor de búsqueda realiza un análisis léxico del contenido de los documentos, de forma similar a lo que sucede durante el procesamiento de consultas:
+
+1. Las *entradas de texto* se pasan al analizador, en minúsculas, con una puntuación fragmentada y así sucesivamente, dependiendo de la configuración del analizador. 
+2. Los *tokens* son las salidas del análisis de texto.
+3. Los *términos* se agregan al índice.
+
+Es común, pero no necesario, usar los mismos analizadores para las operaciones de búsqueda e indexación para que los términos de consulta tengan un aspecto más parecido a los términos de dentro del índice.
 
 > [!Note]
 > Azure Search le permite especificar diferentes analizadores para la indexación y búsqueda a través de parámetros de campo `indexAnalyzer` y `searchAnalyzer` adicionales. Si no se especifica, el analizador establecido con la propiedad `analyzer` se utiliza para la indexación y la búsqueda.  

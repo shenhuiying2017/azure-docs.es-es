@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 633e34ec3cdc9cf881978bf513294ea2365145dd
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: bea45d6ad01c92cf05821da9da8069dd1f667d31
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Asignación de roles de administrador en Azure Active Directory
@@ -37,6 +37,8 @@ Los roles de administrador disponibles son los siguientes:
 * **Administrador de facturación**: hace compras, administra suscripciones, administra incidencias de soporte técnico y supervisa el estado del servicio.
 
 * **Administrador de cumplimiento**: los usuarios con este rol tienen permisos de administración en el Centro de cumplimiento y seguridad de Office 365 y el Centro de administración de Exchange. Más información en "[Acerca de los roles de administrador de Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)".
+
+* **Administrador de acceso condicional**: los usuarios con este rol tienen la capacidad de administrar la configuración de acceso condicional de Azure Active Directory.
 
 * **Administrador del servicio CRM**: los usuarios con este rol tienen permisos globales en Microsoft CRM Online, cuando el servicio está presente, así como también la capacidad de administrar incidencias de soporte técnico y supervisar el estado del servicio. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -103,11 +105,16 @@ Los roles de administrador disponibles son los siguientes:
 | --- | --- |
 |<p>Ver información de usuario y de la compañía</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra productos de Office</p> |<p>Restablecer las contraseñas de los usuarios</p><p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Visualización de registros de auditoría</p>|
 
+### <a name="conditional-access-administrator"></a>Administrador de acceso condicional
+
+| Puede hacer | No puede hacer |
+| --- | --- |
+|<p>Ver información de usuario y de la compañía</p><p>Administrar la configuración de acceso condicional</p> |<p>Restablecer las contraseñas de los usuarios</p><p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Visualización de registros de auditoría</p>|
+
 ### <a name="global-administrator"></a>Administrador global
 | Puede hacer | No puede hacer |
 | --- | --- |
-| <p>Ver información de usuario y de la compañía</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra productos de Office</p><p>Restablecer las contraseñas de los usuarios</p>
-<p>Restablecer las contraseñas de otro administrador</p> <p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar Multi-Factor Authentication</p><p>Visualización de registros de auditoría</p> |N/D |
+|<p>Ver información de usuario y de la compañía</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra productos de Office</p><p>Restablecer las contraseñas de los usuarios</p><p>Restablecer las contraseñas de otro administrador</p> <p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar Multi-Factor Authentication</p><p>Visualización de registros de auditoría</p> |N/D |
 
 ### <a name="password-administrator"></a>Administrador de contraseñas
 | Puede hacer | No puede hacer |

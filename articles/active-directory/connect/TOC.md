@@ -27,6 +27,7 @@
 ### [Cuando ya tiene una cuenta de Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Administración de Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Renovación de certificados para Office 365 y Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Actualización del certificado SSL para una granja de Servicios de federación de Active Directory (AD FS)](active-directory-aadconnectfed-ssl-update.md)
 ### [Habilitación de la escritura diferida](active-directory-aadconnect-feature-device-writeback.md)
 ### [Opciones de inicio de sesión de usuario](active-directory-aadconnect-user-signin.md)
 #### [Inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md)

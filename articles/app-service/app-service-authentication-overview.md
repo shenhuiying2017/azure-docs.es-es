@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-translationtype: Human Translation
-ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
-ms.openlocfilehash: e89ba5613c615c41af93e8f63b3703da8395095c
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: ea1666007b88cdf45017b0bd91e100dc1218fb2b
+ms.contentlocale: es-es
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en el Servicio de aplicaciones de Azure
@@ -30,7 +31,6 @@ Si desea comenzar inmediatamente, consulte uno de los siguientes tutoriales:
 
 * [Incorporación de la autenticación a la aplicación iOS][iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
 * [Autenticación de usuario para aplicaciones de API en Azure App Service][apia-user]
-* [Introducción a Azure App Service: parte 2][web-getstarted]
 
 ## <a name="how-authentication-works-in-app-service"></a>Funcionamiento de la autenticación en el Servicio de aplicaciones
 Para autenticarse con uno de los proveedores de identidades, primero debe configurar el proveedor de identidades para obtener información sobre su aplicación. A continuación, el proveedor de identidades proporcionará los identificadores y secretos que se deben proporcionar al Servicio de aplicaciones. Esto completa la relación de confianza para que el Servicio de aplicaciones pueda validar las aserciones de usuario, como los tokens de autenticación, del proveedor de identidades.
@@ -75,7 +75,7 @@ Si desea usar la autenticación de Servicio de aplicaciones para controlar un es
 
 La autenticación de cuentas de servicio desde una aplicación lógica de Servicio de aplicaciones en una aplicación de API es un caso especial que se explica detalladamente en [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../logic-apps/logic-apps-custom-hosted-api.md).
 
-## <a name="a-nameauthorizationahow-authorization-works-in-app-service"></a><a name="authorization"></a>Funcionamiento de la autorización en el Servicio de aplicaciones
+## <a name="authorization"></a>Funcionamiento de la autorización en el Servicio de aplicaciones
 Tiene un control total para decidir qué solicitudes pueden acceder a su aplicación. Se puede configurar la autenticación o autorización del Servicio de aplicaciones mediante cualquiera de las siguientes acciones:
 
 * Permitir que solo lleguen a la aplicación las solicitudes autenticadas.
@@ -159,8 +159,6 @@ Los siguientes tutoriales muestran cómo proteger sus aplicaciones de API:
 [apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
 [apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
 
-[web-getstarted]: ../app-service-web/app-service-web-get-started-2.md#authenticate-your-users
-
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
 [Xamarin.iOS]: ../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md
@@ -180,9 +178,4 @@ Los siguientes tutoriales muestran cómo proteger sus aplicaciones de API:
 [ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
 [ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
 [ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

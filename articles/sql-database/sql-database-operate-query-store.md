@@ -16,12 +16,11 @@ ms.tgt_pltfrm: sqldb-performance
 ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: bonova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 46d33a7b2dbaeb447452d8c94e897e59ec915dcc
-ms.openlocfilehash: 104a2d91ee9ca657fcc431d947d6a4be5d57a056
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: c76934d96530889f529eb887469e05d5a6a45e1e
 ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Funcionamiento del almacén de consultas de Base de datos SQL de Azure
@@ -39,7 +38,7 @@ En esta sección se describen los valores predeterminados de una configuración 
 
 | Configuración | Description | Valor predeterminado | Comentario |
 | --- | --- | --- | --- |
-| MAX_STORAGE_SIZE_MB |Especifica el límite del espacio de datos que puede tomar el Almacén de consultas dentro de la base de datos de cliente z. |100 |Se aplica a nuevas bases de datos. |
+| MAX_STORAGE_SIZE_MB |Especifica el límite del espacio de datos que puede tomar el Almacén de consultas dentro de la base de datos de cliente. |100 |Se aplica a nuevas bases de datos. |
 | INTERVAL_LENGTH_MINUTES |Define el tamaño de la ventana de tiempo durante la que se agregan y conservan las estadísticas recopiladas en tiempo de ejecución para los planes de consulta. Todos los planes de consulta activa tienen al menos una fila durante un período de tiempo definido con esta configuración. |60 |Se aplica a nuevas bases de datos. |
 | STALE_QUERY_THRESHOLD_DAYS |Directiva de limpieza basada en el tiempo que controla el período de retención de las estadísticas en tiempo de ejecución guardadas y las consultas inactivas. |30 |Se aplica a nuevas bases de datos y bases de datos con la configuración predeterminada anterior (367). |
 | SIZE_BASED_CLEANUP_MODE |Especifica si limpieza automática de los datos se lleva a cabo cuando el tamaño de los datos del Almacén de consultas se aproxima al límite. |AUTO |Se aplica a todas las bases de datos. |

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 80142d9f27abed181bca6f5f536b950198e66e20
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 12876bff2de5738068f033ecc4ef14b81a68f0f6
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,7 +44,7 @@ La mejor experiencia se obtiene mediante la instalación de Application Insights
 ## <a name="include-user-and-session-id-in-your-telemetry"></a>Inclusión del identificador de usuario y de sesión en la telemetría
 Para realizar un seguimiento de los usuarios a lo largo del tiempo, Application Insights necesita una manera de identificarlos. La herramienta de eventos es la única herramienta de uso que no requiere un identificador de usuario o de sesión.
 
-Empiece a enviar estos identificadores [aquí](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
+Comience enviando identificadores de usuario y de sesión con [este proceso](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Exploración de estadísticas y datos demográficos de uso
 Descubra cuándo los usuarios utilizan la aplicación, en qué páginas que están más interesados, en qué ubicación se encuentran dichos usuarios, y los sistemas operativos y exploradores que emplean. 

@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: cc96ba9f5abd45a7503ba3327b30e1f809391384
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 7ac85bffb9593923808c77f2240e6f0e841e74cd
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -40,7 +40,7 @@ En los tutoriales subsiguientes, se implementa el contenedor del registro privad
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para realizar este tutorial es necesario que ejecute la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Para realizar este tutorial es necesario que ejecute la versión 2.0.12 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="deploy-azure-container-registry"></a>Implementación de Azure Container Registry
 
@@ -62,7 +62,7 @@ En el resto de este tutorial, usamos `<acrname>` como un marcador de posición p
 
 ## <a name="container-registry-login"></a>Inicio de sesión en Container Registry
 
-Debe iniciar sesión en la instancia de ACR antes de insertar imágenes en ella. Use el comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) para completar la operación. Debe proporcionar el nombre único que se especificó para el registro de contenedor cuando se creó.
+Debe iniciar sesión en la instancia de ACR antes de insertar imágenes en ella. Use el comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) para completar la operación. Debe proporcionar el nombre único que se especificó para el registro de contenedor cuando se creó.
 
 ```azurecli
 az acr login --name <acrName>

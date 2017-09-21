@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 09/14/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 2ffbaca614d667db565197f3c13b1658fffc2a7c
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 4b88b5015fcf44e8979b8b1a3aa1eb26f0fbb704
 ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="security-center-platform-migration-faq"></a>Preguntas frecuentes sobre la migración de la plataforma de Security Center
@@ -38,7 +38,7 @@ Cuando la recopilación de datos se habilita por primera vez o cuando se migran 
 
 - Instalará Microsoft Monitoring Agent en la VM
    - Si un área de trabajo creado por Security Center ya existe en la misma geolocalización que la VM, el agente se conecta a esta área de trabajo
-   - Si no existe un área de trabajo, Security Center crea un nuevo grupo de recursos y un área de trabajo predeterminada en esa geolocalización y conecta el agente a esa área de trabajo. La convención de nomenclatura para el área de trabajo y el grupo de recursos es:
+   - Si no existe un área de trabajo, Security Center crea un nuevo grupo de recursos y un área de trabajo predeterminada en esa geolocalización y conecta el agente a esa área de trabajo. La convención de nomenclatura del área de trabajo y el grupo de recursos es:
 
        Área de trabajo: DefaultWorkspace-[subscription-ID]-[geo]
 
@@ -70,25 +70,59 @@ Para más información, vea [Precios de Security Center ](https://azure.microsof
 
 Para realizar la recuperación, quite Microsoft Monitoring Agent de las VM conectadas al área de trabajo eliminado. Security Center vuelve a instalar el agente y crea nuevas áreas de trabajo predeterminadas.
 
+### <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>¿Cómo puedo usar mi área de trabajo de Log Analytics existente?
+
+Puede seleccionar un área de trabajo de Log Analytics existente para almacenar los datos recopilados por Security Center. Para usar el área de trabajo de Log Analytics existente:
+
+- El área de trabajo debe estar asociada con la suscripción a Azure seleccionada.
+- Como mínimo, el usuario debe poseer permisos de lectura para tener acceso el área de trabajo.
+
+Para seleccionar un área de trabajo de Log Analytics existente:
+
+1. En **Security policy – Data Collection** (Directiva de seguridad: recopilación de datos), seleccione **Use another workspace** (Usar otro área de trabajo).
+
+   ![Usar otro área de trabajo][5]
+
+2. En el menú desplegable, seleccione un área de trabajo para almacenar los datos recopilados.
+
+   > [!NOTE]
+   > En el menú desplegable solo se muestran las áreas de trabajo a las que tiene acceso y las que están en su suscripción a Azure.
+   >
+   >
+
+3. Seleccione **Guardar**.
+4. Tras hacer clic en **Guardar**, se le preguntará si quiere reconfigurar las máquinas virtuales supervisadas.
+
+   - Haga clic en **No** si quiere que la nueva configuración del área de trabajo **solo se aplique a las máquinas virtuales nuevas**. La nueva configuración del área de trabajo solo se aplica a las nuevas instalaciones de agente, aquellas máquinas virtuales recién detectadas que no tengan instalado Microsoft Monitoring Agent.
+   - Haga clic en **Sí** si quiere que la nueva configuración del área de trabajo **se aplique a todas las máquinas virtuales**. Además, cada máquina virtual conectada a un área de trabajo creada por Security Center se reconecta a la nueva área de trabajo de destino.
+
+   > [!NOTE]
+   > Si hace clic en Sí, no debe eliminar las áreas de trabajo creadas por Security Center hasta que todas las máquinas virtuales se hayan reconectado al nuevo área de trabajo de destino. Esta operación no se lleva a cabo si un área de trabajo se elimina demasiado pronto.
+   >
+   >
+
+   - Haga clic en **Cancelar** para cancelar la operación.
+
+      ![Reconfigurar máquinas virtuales supervisadas][6]
+
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>¿Qué ocurre si Microsoft Monitoring Agent ya estaba instalado como una extensión en la VM?
 Security Center no invalida las conexiones existentes con áreas de trabajo de usuario. Security Center almacena los datos de seguridad de la VM en el área de trabajo ya conectada.
 
 ### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-the-machine-but-not-as-an-extension"></a>¿Qué ocurre si tenía Microsoft Monitoring Agent instalado en la máquina pero no como una extensión?
-Si Microsoft Monitoring Agent se instala directamente en la VM (no como una extensión de Azure), Security Center no instalará Microsoft Monitoring Agent y la supervisión de seguridad estará limitada.
+Si Microsoft Monitoring Agent se instala directamente en la VM (no como una extensión de Azure), Security Center no instala Microsoft Monitoring Agent y la supervisión de seguridad estará limitada.
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>¿Qué impacto tiene quitar estas extensiones?
 Si quita la extensión de Microsoft Monitoring, Security Center no será capaz de recopilar datos de seguridad de la VM y algunas recomendaciones de seguridad y las alertas no estarán disponibles. En un plazo de 24 horas, Security Center determina que la VM no tiene la extensión y vuelve a instalarla.
 
 ### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>¿Cómo detengo la instalación automática del agente y la creación del área de trabajo?
-Puede desactivar la recopilación de datos de las suscripciones en la directiva de seguridad, pero no es recomendable. La desactivación de la recopilación de datos limita las recomendaciones y las alertas de Security Center. La recopilación de datos es necesaria para las suscripciones del plan de tarifa Estándar. Para deshabilitar la recopilación de datos:
+Puede desactivar el aprovisionamiento automático en las suscripciones en la directiva de seguridad, pero no es recomendable. La desactivación del aprovisionamiento automático limita las recomendaciones y las alertas de Security Center. El aprovisionamiento automático es necesario en las suscripciones del plan de tarifa Estándar. Para deshabilitar el aprovisionamiento automático:
 
 1. Si la suscripción está configurada para el nivel Estándar, abra la directiva de seguridad de esa suscripción y seleccione el nivel **Gratis**.
 
    ![Plan de tarifa ][1]
 
-2. A continuación, desactive la recopilación de datos seleccionando **Desactivar** en la hoja **Directiva de seguridad - Recopilación de datos**.
-
-   ![Colección de datos][2]
+2. Después, desactive el aprovisionamiento automático seleccionando **Desactivar** en la hoja **Security policy - Data collection** (Directiva de seguridad: Recopilación de datos).
+   ![Recopilación de datos][2]
 
 ### <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>¿Cómo quito extensiones OMS instaladas por Security Center?
 También puede quitar manualmente Microsoft Monitoring Agent. Sin embargo, no es recomendable porque limita las recomendaciones y las alertas de Security Center.
@@ -118,7 +152,7 @@ Si una VM ya tiene Microsoft Monitoring Agent instalado como una extensión de A
 
 Una solución de Security Center se instala en el área de trabajo si todavía no está presente y la solución solo se aplica a VM relevantes. Cuando se agrega una solución, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics. La [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md), que es una característica de OMS, le permite aplicar un ámbito a sus soluciones.
 
-Si Microsoft Monitoring Agent se instala directamente en la VM (no como una extensión de Azure), Security Center no instalará Microsoft Monitoring Agent y la supervisión de seguridad estará limitada.
+Si Microsoft Monitoring Agent se instala directamente en la VM (no como una extensión de Azure), Security Center no instala Microsoft Monitoring Agent y la supervisión de seguridad estará limitada.
 
 ### <a name="what-should-i-do-if-i-suspect-that-the-data-platform-migration-broke-the-connection-between-one-of-my-vms-and-my-workspace"></a>¿Qué debo hacer si sospecho que la migración de la plataforma de datos interrumpió la conexión entre una de mis VM y mi área de trabajo?
 Esto no debería ocurrir. Si ocurre, [cree una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md) e incluya los detalles siguientes:
@@ -159,4 +193,6 @@ Para más información sobre la migración de la plataforma de Security Center, 
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
+[5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
+[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png
 

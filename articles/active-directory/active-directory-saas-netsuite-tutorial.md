@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/31/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a19ab310212b93a53495a6fc6c25c77dfb82e79
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f2184f426c0e60ea2b6ce029b80d3d63821794d1
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Tutorial: Integración de Azure Active Directory con NetSuite
@@ -115,7 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
     > [!NOTE] 
-    > Este valor no es real. Actualícelo con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de NetSuite](http://www.netsuite.com/portal/services/support.shtml) para obtener este valor.
+    > Estos valores no son reales. Actualice estos valores con la URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de NetSuite](http://www.netsuite.com/portal/services/support.shtml) para obtener estos valores.
  
 4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
 
@@ -161,7 +160,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-Netsuite-tutorial/ns-attributes.png)
 
-13. Para el campo **Nombre de atributo**, escriba `account`. En el campo **Attribute Value** (Valor de atributo), escriba el identificador de la cuenta de NetSuite. Este valor es constante y cambia con la cuenta. A continuación se incluyen instrucciones sobre cómo encontrar el identificador de la cuenta:
+13. Para el campo **Nombre de atributo**, escriba `account`. Para el campo **Valor de atributo**, escriba el identificador de cuenta de NetSuite. Este valor es constante y cambia con la cuenta. A continuación se incluyen instrucciones sobre cómo encontrar el identificador de la cuenta:
 
       ![Configurar inicio de sesión único](./media/active-directory-saas-Netsuite-tutorial/ns-add-attribute.png)
 
@@ -298,7 +297,7 @@ Para probar la configuración de inicios de sesión únicos, abra el Panel de ac
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Configurar el aprovisionamiento de usuarios](active-directory-saas-netsuite-provisioning-tutorial.md)
+* [Configuración del aprovisionamiento de usuarios](active-directory-saas-netsuite-provisioning-tutorial.md)
 
 <!--Image references-->
 

@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 2ee71536257d4349fdf8d80bdcb1899a1d244293
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 28054e91e91933b939f4ba700e317d63a614e1d9
 ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
@@ -90,7 +90,7 @@ Esta es la configuración definida en el objeto SettingsTemplate Group.Unified.
 
 | **Configuración** | **Descripción** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Tipo: Boolean<li>Valor predeterminado: True. |Marca que indica si se permite la creación de grupos unificados en el directorio. |
+|  <ul><li>EnableGroupCreation<li>Tipo: Boolean<li>Valor predeterminado: True. |Marca que indica si se permite la creación de grupos unificados en el directorio por parte de usuarios que no sean administradores. |
 |  <ul><li>GroupCreationAllowedGroupId<li>Tipo: String<li>Valor predeterminado: “” |El GUID del grupo de seguridad para el se permite a los miembros crear grupos unificados incluso cuando EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: String<li>Valor predeterminado: “” |Un vínculo a las instrucciones de uso de grupos. |
 |  <ul><li>ClassificationDescriptions<li>Tipo: String<li>Valor predeterminado: “” | Una lista delimitada por comas de las descripciones de clasificación. |
@@ -101,7 +101,6 @@ Esta es la configuración definida en el objeto SettingsTemplate Group.Unified.
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: String<li>Valor predeterminado: “” | La dirección URL de un vínculo a las instrucciones de uso del invitado. |
 |  <ul><li>AllowToAddGuests<li>Tipo: Boolean<li>Valor predeterminado: True. | Un valor booleano que indica si está permitido o no agregar invitados a este directorio.|
 |  <ul><li>ClassificationList<li>Tipo: String<li>Valor predeterminado: “” |Una lista de valores de clasificación delimitados por coma que se puede aplicar a grupos unificados. |
-|  <ul><li>EnableGroupCreation<li>Tipo: Boolean<li>Valor predeterminado: True. | Un valor booleano que indica si los usuarios no administradores pueden crear o no nuevos grupos unificados. |
 
 
 ## <a name="read-settings-at-the-directory-level"></a>Lectura de la configuración en el nivel de directorio

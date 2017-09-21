@@ -95,10 +95,24 @@
 ## Solución de problemas
 ### [Errores de implementación frecuentes](resource-manager-common-deployment-errors.md)
 ### [Descripción de los errores de implementación](resource-manager-troubleshoot-tips.md)
-### [Error RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Resolución de errores
+#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+#### [NotFound](resource-manager-not-found-errors.md)
+#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Errores de implementación de máquinas virtuales
-#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+#### Linux
+##### [Problemas de implementación](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+##### [Problemas de aprovisionamiento y asignación](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+##### [Mensajes comunes de error](../virtual-machines/linux/error-messages.md)
+#### Windows
+##### [Problemas de implementación](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+##### [Problemas de aprovisionamiento y asignación](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+##### [Mensajes comunes de error](../virtual-machines/windows/error-messages.md)
 
 # Referencia
 ## [Formato de plantilla](/azure/templates/)

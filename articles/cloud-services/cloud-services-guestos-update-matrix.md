@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 9/14/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: be0092e62033da249015b211db148da57bb82765
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: dbbf529dc7a7c30daa78d92f210385d20e139d41
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
@@ -38,6 +38,8 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No sabe en qué consiste exactamente el SO invitado o cómo funcionan las versiones de este? Lea [esta](#how-it-works) sección.
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
+###### <a name="september-14-2017"></a>**14 de septiembre de 2017**
+La implementación del SO invitado de septiembre comienza el 14 de septiembre y está previsto que se lance el 9 de octubre.
 
 ###### <a name="august-24-2017"></a>**24 de agosto de 2017**
 Se ha publicado el SO invitado de agosto.
@@ -65,12 +67,6 @@ La implementación del SO invitado del mes de mayo comienza el 12 de mayo y est�
 
 ###### <a name="april-18-2017"></a>**18 de abril de 2017**
 La implementación del SO invitado del mes de abril comienza el 18 de abril y está previsto que se lance el 9 de mayo.
-
-###### <a name="april-10-2017"></a>**10 de abril de 2017**
-La implementación del SO invitado del mes de marzo comienza el 14 de marzo de 2017 y está previsto que se lance el 10 de abril de 2017.
-
-###### <a name="january-10-2017"></a>**10 de enero de 2017**
-El SO invitado de enero contiene revisiones que solo afectan a la familia 2 de SO (Windows 2008 Server R2). Por tanto, solo hemos publicado la imagen de la familia 2 de SO (WA-GUEST-OS-2.59_201701-01) este mes. Para todas las demás familias de SO, el SO de diciembre (201612-01) permanece vigente.
 
 
 ## <a name="releases"></a>Lanzamientos

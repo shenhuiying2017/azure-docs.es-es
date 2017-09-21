@@ -3,7 +3,7 @@ title: "Depurador de instantáneas de Azure Application Insights para aplicacion
 description: "Depuración de las instantáneas que se recopilan automáticamente cuando se producen excepciones en aplicaciones de producción de .NET"
 services: application-insights
 documentationcenter: 
-author: qubitron
+author: pharring
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: cb0c74e7a3e3a2044262f94275110d0a55ccc19b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 0761339dfdaaaed418a1414472393ce8e0f37b9c
 ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
@@ -68,26 +68,13 @@ La recopilación de instantáneas está disponible para:
 
 1. [Habilite Application Insights en su aplicación web ASP.NET Core](app-insights-asp-net-core.md), si aún no lo ha hecho.
 
+> [!NOTE]
+> Procure que la aplicación haga referencia a la versión 2.1.1 (o una más reciente) del paquete Microsoft.ApplicationInsights.AspNetCore.
+
 2. Incluya el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) en la aplicación.
 
-3. Modifique el método `ConfigureServices` de la clase `Startup` de la aplicación para agregar el procesador de telemetría del recopilador de instantáneas. El código que debe agregar depende de la versión del paquete NuGet Microsoft.ApplicationInsights.ASPNETCore a la que se hace referencia.
+3. Modifique el método `ConfigureServices` de la clase `Startup` de la aplicación para agregar el procesador de telemetría del recopilador de instantáneas.
 
-   Para Microsoft.ApplicationInsights.AspNetCore 2.1.0, agregue:
-   ```C#
-   using Microsoft.ApplicationInsights.SnapshotCollector;
-   ...
-   class Startup
-   {
-       // This method is called by the runtime. Use it to add services to the container.
-       public void ConfigureServices(IServiceCollection services)
-       {
-           services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
-           // TODO: Add any other services your application needs here.
-       }
-   }
-   ```
-
-   Para Microsoft.ApplicationInsights.AspNetCore 2.1.1, agregue:
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
    ...

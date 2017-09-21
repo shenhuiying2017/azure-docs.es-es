@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 175a2ad70b1f554d05846eb62fb685d4f259af7e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 14d969ecaf1f24a0bb34da4abe78d83f08627796
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Streaming de Apache Spark: procesamiento de datos desde Azure Event Hubs con clústeres de Spark en HDInsight
@@ -367,17 +367,7 @@ A continuación se definen los parámetros del archivo **inputHive.txt** :
 
 Los parámetros son similares a los que especificó para la salida de texto en los pasos anteriores. Una vez más, no es preciso crear las carpetas de salida (EventCheckpoint, EventCount/EventCount10) ni la tabla de Hive de salida (EventHiveTable10) que se usan como parámetros. La aplicación de streaming las crea automáticamente. Tenga en cuenta que la opción **jars** y **files** incluye rutas de acceso a los archivos .jar y hive-site.xml que copió a la cuenta de almacenamiento.
 
-Para comprobar que la tabla de Hive se ha creado correctamente, puede usar SSH en el clúster y ejecutar consultas de Hive. Para obtener instrucciones, consulte [Uso de Hive con Hadoop en HDInsight con SSH](hdinsight-hadoop-use-hive-ssh.md). Una vez que se haya conectado mediante SSH, puede ejecutar el comando siguiente para comprobar que se ha creado la tabla de Hive, **EventHiveTable10**.
-
-    show tables;
-
-Debería ver una salida similar a la siguiente:
-
-    OK
-    eventhivetable10
-    hivesampletable
-
-También puede ejecutar una consulta SELECT para ver el contenido de la tabla.
+Para comprobar que la tabla de hive se creó correctamente, use la [vista de Hive de Ambari](hdinsight-hadoop-use-hive-ambari-view.md). Puede ejecutar una consulta SELECT ahí para ver el contenido de la tabla.
 
     SELECT * FROM eventhivetable10 LIMIT 10;
 

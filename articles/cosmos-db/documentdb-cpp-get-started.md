@@ -14,12 +14,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 4de1f394e0930054f73786ebb59b901d1c91a5dd
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 324b5844362c2712d54fd766eb95e1d9102f757a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-documentdb-api"></a>Cosmos Azure DB: tutorial de la aplicación de consola de C++ para la API de DocumentDB
@@ -59,11 +58,14 @@ Comencemos.
 ## <a name="prerequisites-for-the-c-tutorial"></a>Requisitos previos para el tutorial de C++
 Asegúrese de que dispone de lo siguiente:
 
-* Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* [Visual Studio](https://www.visualstudio.com/downloads/), con los componentes del lenguaje C++ instalados.
+* Una cuenta de Azure activa. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/), con los componentes del lenguaje C++ instalados. Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Paso 1: Creación de una cuenta de Azure Cosmos DB
-Vamos a crear una cuenta de Azure Cosmos DB. Si ya tiene una cuenta que desea usar, puede ir directamente a [Configuración de la aplicación de C++](#SetupNode).
+Vamos a crear una cuenta de Azure Cosmos DB. Si ya tiene una cuenta que desea usar, puede ir directamente a [Configuración de la aplicación de C++](#SetupC++).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 

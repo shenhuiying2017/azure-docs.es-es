@@ -14,11 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: f35450ace02727ddf392dbbe857b934a45ee022a
-ms.lasthandoff: 03/07/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: eeecec0d879b60e90d1a3bf2043e68a41d7145a8
+ms.contentlocale: es-es
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Realización de una llamada telefónica con Twilio en una aplicación PHP en Azure
@@ -30,7 +30,8 @@ Tendrá que hacer lo siguiente para utilizar el código de este tema:
 
 1. Adquiera una cuenta de Twilio y un token de autenticación desde la [Consola de Twilio][twilio_console]. Para empezar con Twilio, evalúe los precios en [http://www.twilio.com/pricing][twilio_pricing]. Puede registrarse para obtener una cuenta de prueba en [https://www.twilio.com/try-twilio][try_twilio].
 2. Instale la [biblioteca de Twilio para PHP](https://github.com/twilio/twilio-php) como paquete PEAR. Para obtener más información, consulte el [archivo Léame](https://github.com/twilio/twilio-php/blob/master/README.md).
-3. Instale el SDK de Azure para PHP. Para obtener información general sobre el SDK e instrucciones sobre cómo instalarlo, vea [Configurar el SDK de Azure para PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md)
+3. Instale el SDK de Azure para PHP. 
+<!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md) -->
 
 ## <a name="create-a-web-form-for-making-a-call"></a>Creación de un formulario web para hacer una llamada
 El código HTML siguiente muestra cómo crear una página web (**callform.html**) que recupera datos de usuarios para realizar una llamada:
@@ -106,10 +107,7 @@ Además de realizar la llamada, **makecall.php** muestra algunos metadatos, como
 ![Respuesta de llamada de Azure con Twilio y PHP][twilio_php_response]
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
-El paso siguiente consiste en implementar la aplicación en Sitios web Azure. Los artículos siguientes contienen la información necesaria para crear un sitio web e implementar el código con Git, FTP o WebMatrix (si bien no toda la información de cada uno de los artículos es relevante):
-
-* [Creación de un sitio web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante Git](app-service-web/web-sites-php-mysql-deploy-use-git.md)
-* [Creación de un sitio web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante FTP](app-service-web/web-sites-php-mysql-deploy-use-ftp.md)
+El paso siguiente es [implementar la aplicación en Azure Web Apps con Git](app-service-web/app-service-web-get-started-php.md) (aunque no toda la información que aparece es relevante). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Este código se ha proporcionado para mostrar la funcionalidad básica usando Twilio en PHP en Azure. Antes de implementarlo en Azure en producción, es posible que desee agregar más controles de errores u otras características. Por ejemplo:
@@ -142,7 +140,5 @@ Para obtener información adicional sobre Twilio, vea [https://www.twilio.com/do
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 [twilio_php]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPCallForm.jpg
 [twilio_php_response]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPMakeCall.jpg
-[website-git]: ./web-sites/web-sites-php-mysql-deploy-use-git.md
-[website-ftp]: ./web-sites/web-sites-php-mysql-deploy-use-ftp.md
 [twilio_php_github]: https://github.com/twilio/twilio-php
 

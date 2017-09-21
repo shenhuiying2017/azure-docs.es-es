@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 613fd0c1164ac34d36d5f21d07dfdf00c8aad614
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 4d5acd0be4a237f46d79800a44124b8c4269c5b9
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -505,48 +505,12 @@ En la sección siguiente se describe cómo crear un script breve para iniciar y 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Para iniciar o eliminar una instantánea en la nube
 
 1.  [Instale Azure PowerShell](/powershell/azure/overview).
-2.  [Descargue e importe la configuración de publicación y la información de suscripción](https://msdn.microsoft.com/library/dn385850.aspx).
-3.  En el Portal de Azure clásico, obtenga el nombre del recurso y la [clave de registro del servicio StorSimple Manager](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-4.  En el servidor que ejecuta el script, ejecute PowerShell como administrador. Escriba el siguiente comando:
-
-    `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
-
-    Fíjese en el identificador de la directiva de copia de seguridad.
-5.  En el Bloc de notas, cree un nuevo script de PowerShell mediante el código siguiente.
-
-    Copie y pegue este fragmento de código:
-    ```powershell
-    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-    Disable-AzureDataCollection
-    $ApplianceName = <myStorSimpleApplianceName>
-    $RetentionInDays = 20
-    $RetentionInDays = -$RetentionInDays
-    $Today = Get-Date
-    $ExpirationDate = $Today.AddDays($RetentionInDays)
-    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-    $CompletedSnapshots =@()
-    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-    Write-Host "The Expiration date is " $ExpirationDate
-    Write-Host
-
-    ForEach ($SnapShot in $CompletedSnapshots)
-    {
-        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-        {
-            $SnapShotInstanceID = $SnapShot.InstanceId
-            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-            Write-Host "Instance ID " $SnapShotInstanceID
-            Write-Host "This snpashotdate is older and needs to be deleted"
-            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-        }
-    }
-    ```
-      Guarde el script de PowerShell en la misma ubicación donde ha guardado su configuración de publicación de Azure. Por ejemplo, guárdelo como C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
-6.  Agregue el script a su trabajo de copia de seguridad en NetBackup. Para ello, edite los comandos de pre- y posprocesamiento de sus opciones de trabajo de NetBackup.
+2. Descargue y configure el script [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) de PowerShell.
+3. En el servidor que ejecuta el script, ejecute PowerShell como administrador. Asegúrese de ejecutar el script con `-WhatIf $true` para ver cuáles son los cambios que hará el script. Una vez que se complete la validación, pase `-WhatIf $false`. Ejecute el comando siguiente:
+```powershell
+.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+```
+4.  Agregue el script a su trabajo de copia de seguridad en NetBackup. Para ello, edite los comandos de pre- y posprocesamiento de sus opciones de trabajo de NetBackup.
 
 > [!NOTE]
 > Se recomienda ejecutar la directiva de copia de seguridad de instantáneas en la nube de StorSimple como script posterior al proceso al final del trabajo de copia de seguridad diaria. Para obtener más información sobre cómo realizar las operaciones de copia de seguridad y restauración en el entorno de aplicaciones de copia de seguridad para ayudarle a cumplir los valores de RPO y RTO, consulte a su arquitecto de copia de seguridad.

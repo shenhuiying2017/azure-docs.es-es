@@ -1,5 +1,5 @@
 ---
-title: "Creación del primer contenedor de Azure Container Instances | Documentos de Azure"
+title: "Guía de inicio rápido: creación del primer contenedor de Azure Container Instances"
 description: Implemente y empiece a usar Azure Container Instances
 services: container-instances
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/12/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ad053391e6b3927ab11faaf4d9e70b610e86f3c3
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 012a48410bb08cb54f42a4f87e952f67ad18c112
 ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
 # <a name="create-your-first-container-in-azure-container-instances"></a>Creación del primer contenedor en Azure Container Instances
 
-Azure Container Instances facilita la creación y administración de contenedores en Azure. En esta guía de inicio rápido, creará un contenedor en Azure y lo expondrá a Internet con una dirección IP pública. Esta operación se completa en un solo comando. En pocos segundos, verá lo siguiente en el explorador:
+Con Azure Container Instances es muy fácil crear y administrar contenedores de Docker en Azure sin tener que aprovisionar máquinas virtuales ni recurrir a un servicio de nivel superior. En esta guía de inicio rápido, crearemos un contenedor en Azure y lo expondremos en Internet con una dirección IP pública. Esta operación se completa en un solo comando. En pocos segundos, veremos lo siguiente en el explorador:
 
 ![Aplicación implementada mediante Azure Container Instances vista en el explorador][aci-app-browser]
 
@@ -35,17 +35,17 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido es preciso que ejecute la CLI de Azure versión 2.0.12 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido es preciso que ejecute la CLI de Azure versión 2.0.12 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Azure Container Instances son recursos de Azure y se deben colocar en un grupo de recursos de Azure, una colección lógica en la que se implementan y administran los recursos de Azure.
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). 
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create).
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -54,7 +54,7 @@ az group create --name myResourceGroup --location eastus
 Para crear un contenedor debe especificar un nombre, una imagen de Docker y un grupo de recursos de Azure. Dicho contenedor se puede exponer opcionalmente a Internet con una dirección IP pública. En este caso, se va a usar un contenedor que hospeda una aplicación web muy simple escrita en [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
-az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 
+az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public
 ```
 
 En pocos segundos, debería obtener una respuesta a su solicitud. Inicialmente, el contenedor estará en un estado de **creación**, pero debería comenzar en pocos segundos. Para comprobar el estado, use el comando `show`:
@@ -81,7 +81,7 @@ En la parte inferior de la salida, verá el estado de aprovisionamiento del cont
 ...
 ```
 
-Una vez que el contenedor pasa al estado **Correcto**, se puede acceder a él desde el navegador mediante la dirección IP proporcionada. 
+Una vez que el contenedor pasa al estado **Correcto**, se puede acceder a él desde el explorador con la dirección IP proporcionada.
 
 ![Aplicación implementada mediante Azure Container Instances vista en el explorador][aci-app-browser]
 

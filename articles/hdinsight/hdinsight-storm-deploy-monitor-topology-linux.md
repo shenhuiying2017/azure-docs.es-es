@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: b9e82463030807d2674594e73f762fe93515d423
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 218e818f48adee0b4e7ecb0b184098a9e3273afd
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implementación y administración de topologías de Apache Storm en HDInsight
@@ -54,7 +53,7 @@ En este documento, aprenderá los aspectos básicos de administración y supervi
 
 ## <a name="submit-a-topology-visual-studio"></a>Envío de una topología: Visual Studio
 
-Las herramientas de HDInsight puede utilizarse para enviar las topologías de C# o híbridas al clúster de Storm. Los pasos siguientes usan una aplicación de muestra. Para obtener información sobre cómo crear sus propias topologías con las herramientas de HDInsight, consulte [Desarrollo de las topologías de C# mediante las herramientas de HDInsight para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+Las herramientas de HDInsight puede utilizarse para enviar las topologías de C# o híbridas al clúster de Storm. Los pasos siguientes usan una aplicación de muestra. Para obtener información sobre cómo crear o utilizar las herramientas de HDInsight, consulte [Desarrollo de las topologías de C# mediante las herramientas de HDInsight para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 1. Si todavía no tiene instalada la versión más reciente de las herramientas de Data Lake para Visual Studio, consulte [Introducción al uso de Herramientas de Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
@@ -97,11 +96,11 @@ Las herramientas de HDInsight puede utilizarse para enviar las topologías de C#
 
 ## <a name="submit-a-topology-programmatically"></a>Envío de una topología: de manera programática
 
-Mediante programación, puede implementar una topología en Storm en HDInsight estableciendo una comunicación con el servicio Nimbus hospedado en el clúster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) proporciona un ejemplo de aplicación de Java que muestra cómo implementar e iniciar una topología a través del servicio Nimbus.
+Puede implementar mediante programación una topología con el servicio Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) proporciona un ejemplo de aplicación de Java que muestra cómo implementar e iniciar una topología a través del servicio Nimbus.
 
 ## <a name="monitor-and-manage-visual-studio"></a>Supervisión y administración: Visual Studio
 
-Cuando una topología se envía correctamente con Visual Studio, aparece la vista **Topologías de Storm** del clúster. Seleccione la topología de la lista para ver información acerca de la topología de ejecución.
+Cuando una topología se envía correctamente con Visual Studio, aparece la vista **Topologías de Storm**. Seleccione la topología de la lista para ver información acerca de la topología de ejecución.
 
 ![supervisión de visual studio](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
@@ -207,7 +206,7 @@ Si se selecciona un spout en la sección **Spouts** o **Bolts**, se muestra la s
 * **Resumen de componentes**: información básica acerca del spout o bolt.
 * **Estadísticas de spouts/bolts**: estadísticas sobre el spout o bolt. Para establecer el período de las entradas restantes en la página, use los vínculos que se encuentran en la columna **Ventana**.
 * **Estadísticas de entrada** (solo bolt): información sobre las secuencias de entrada consumidas por el bolt.
-* **Estadísticas de salida**: información sobre las secuencias emitidas por este spout o bolt
+* **Estadísticas de salida**: información sobre las secuencias emitidas por este spout o bolt.
 * **Ejecutores**: información sobre las instancias del spout o bolt. Seleccione la entrada **Puerto** de un ejecutor específico para ver un registro de información de diagnóstico generado por esta instancia.
 * **Errores**: cualquier información de error de este spout o bolt.
 
@@ -227,7 +226,7 @@ El URI base de la API de REST en los clústeres de HDInsight basado en Linux est
 Puede encontrar el nombre de dominio completo (FQDN) del nodo principal del clúster de varias maneras distintas:
 
 * **Desde una sesión de SSH**: use el comando `headnode -f` desde una sesión SSH al clúster.
-* **Desde Web de Ambari**: seleccione **Servicios** en la parte superior de la pantalla y, luego, seleccione **Storm**. En la pestaña **Resumen**, seleccione **Storm UI Server** (Servidor de IU de Storm). El FQDN del nodo donde se ejecutan IU de Storm y la API de REST está en la parte superior de la página.
+* **Desde Web de Ambari**: seleccione **Servicios** en la parte superior de la pantalla y, luego, seleccione **Storm**. En la pestaña **Resumen**, seleccione **Storm UI Server** (Servidor de IU de Storm). El FQDN del nodo que hospeda la IU de Storm y la API de REST se muestra en la parte superior de la página.
 * **Desde la API de REST de Ambari**: use el comando `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar información sobre el nodo en que se ejecutan la IU de Storm y la API de REST. Reemplace **PASSWORD** por la contraseña de administrador del clúster. Reemplace **CLUSTERNAME** por el nombre del clúster. En la respuesta, la entrada "host_name" contiene el FQDN del nodo.
 
 ### <a name="authentication"></a>Autenticación
@@ -239,11 +238,11 @@ Las solicitudes a la API de REST deben usar la **autenticación básica**; use e
 
 ### <a name="return-values"></a>Valores devueltos
 
-La información que se devuelve de la API de REST solo se puede utilizar desde dentro del clúster o de máquinas virtuales en la misma red virtual de Azure que el clúster. Por ejemplo, no se puede obtener el acceso desde Internet al nombre de dominio completo (FQDN) devuelto para servidores de Zookeeper.
+La información que devuelve la API de REST solo puede utilizarse desde el clúster. Por ejemplo, no se puede obtener el acceso desde Internet al nombre de dominio completo (FQDN) devuelto para servidores de Zookeeper.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que aprendió a implementar y supervisar topologías mediante el panel de Storm, aprenda a [Desarrollar topologías basadas en Java mediante Maven](hdinsight-storm-develop-java-topology.md).
+Aprenda a [desarrollar topologías basadas en Java con Maven](hdinsight-storm-develop-java-topology.md).
 
 Para obtener una lista con más topologías de ejemplo, consulte [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
 

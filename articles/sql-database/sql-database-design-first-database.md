@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 63833db74eb5889611d4aeb45d00542217730910
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 3a58c50d1187b9cca9490ad725b14617b4a98efe
 ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -76,7 +76,7 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
    | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
-   | **Password** | Cualquier contraseña válida | La contraseña debe tener un mínimo de 8 caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
+   | **Password** | Cualquier contraseña válida | La contraseña debe tener un mínimo de ocho caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
    | **Ubicación** | Cualquier ubicación válida | Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |
 
    ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
@@ -157,7 +157,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
    | Configuración       | Valor sugerido | Descripción | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
-   | Nombre de servidor | Nombre completo del servidor | Dicho nombre debe parecerse al siguiente: **mynewserver20170313.database.windows.net**. |
+   | Nombre de servidor | Nombre completo del servidor | Dicho nombre debe parecerse al siguiente: **mynewserver20170824.database.windows.net**. |
    | Autenticación | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
    | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
    | Password | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |

@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 06/28/2017
 ms.author: daredis
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 4ae3145daa4968ae619f965f3346ef03bccb0109
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5dffbf03f07e5d0523ef92eb3b74619b6592782f
 ms.contentlocale: es-es
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Protección de Azure SQL Database
@@ -175,7 +175,7 @@ Auditoría de Azure SQL Database realiza un seguimiento de eventos de bases de d
 
     ![Hoja Auditoría](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. Si prefiere habilitar un tipo (¿o ubicación?) de auditoría distinto del especificado en el nivel de servidor, **active** la auditoría y elija el tipo de autoría **Blob** . Si está habilitada la auditoría de blobs del servidor, la auditoría configurada de base de datos se producirá de forma paralela a la auditoría de blobs del servidor.
+3. Si prefiere habilitar un tipo (¿o ubicación?) de auditoría distinto del especificado en el nivel de servidor, **active** la auditoría y elija el tipo de autoría **Blob **. Si está habilitada la auditoría de blobs del servidor, la auditoría configurada de base de datos se producirá de forma paralela a la auditoría de blobs del servidor.
 
     ![Activar la auditoría](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
@@ -188,7 +188,7 @@ Auditoría de Azure SQL Database realiza un seguimiento de eventos de bases de d
 5. Haga clic en **Guardar**.
 
 > [!IMPORTANT]
-> Si quiere personalizar los eventos auditados, puede hacerlo mediante PowerShell o la API de REST (consulte la sección [Automation (PowerShell/API de REST)](sql-database-auditing.md#subheading-7) para más información.
+> Si quiere personalizar los eventos auditados, puede hacerlo mediante PowerShell o la API de REST (consulte la [auditoría de base de datos SQL](sql-database-auditing.md) para más información).
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>Habilitación de la detección de amenazas de SQL Database

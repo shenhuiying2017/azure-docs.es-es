@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 633b88761de4d2c99cfd196cfac8e664fc83c546
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 42146cdc20bcff84d54110c8fba6d00951558bd0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar Azure Cosmos DB y Azure App Service Web Apps con una plantilla de Azure Resource Manager
@@ -62,8 +61,7 @@ Ahora vamos a implementar nuestra primera plantilla.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com), haga clic en Nuevo y busque "Implementación de plantillas".
     ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment1.png)
-2. Seleccione el elemento de implementación de plantilla y haga clic en **Crear**
-    ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment2.png)
+2. Seleccione el elemento de Template Deployment y haga clic en **Crear** ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment2.png)
 3. Haga clic en **Editar plantilla**, pegue el contenido del archivo de plantilla DocDBWebsiteTodo.json y haga clic en **Guardar**.
    ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment3.png)
 4. Haga clic en **Editar parámetros**, proporcione valores para cada uno de los parámetros obligatorios y haga clic en **Aceptar**.  Los parámetros son los siguientes:
@@ -103,8 +101,7 @@ Ahora implementaremos nuestra segunda plantilla.  Esta plantilla resulta útil p
 
 1. En el [Portal de Azure](https://portal.azure.com), haga clic en Nuevo y busque "Implementación de plantillas".
     ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment1.png)
-2. Seleccione el elemento de implementación de plantilla y haga clic en **Crear**
-    ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment2.png)
+2. Seleccione el elemento de Template Deployment y haga clic en **Crear** ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment2.png)
 3. Haga clic en **Editar plantilla**, pegue el contenido del archivo de plantilla DocDBWebSite.json y haga clic en **Guardar**.
    ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment3.png)
 4. Haga clic en **Editar parámetros**, proporcione valores para cada uno de los parámetros obligatorios y haga clic en **Aceptar**.  Los parámetros son los siguientes:
@@ -122,8 +119,7 @@ Ahora implementaremos nuestra segunda plantilla.  Esta plantilla resulta útil p
    ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment6.png)
 7. Cuando finalice la implementación, se abrirá la hoja Grupo de recursos.
    ![Captura de pantalla de la hoja Grupo de recursos](./media/create-website/TemplateDeployment7.png)  
-8. Haga clic en el recurso Web App en la lista Recursos y luego haga clic en **Configuración de la aplicación**
-    ![Captura de pantalla del grupo de recursos](./media/create-website/TemplateDeployment9.png)  
+8. Haga clic en el recurso Web App en la lista Recursos y luego haga clic en **Configuración de la aplicación**![Captura de pantalla del grupo de recursos](./media/create-website/TemplateDeployment9.png)  
 9. Observe que existen valores de configuración de la aplicación para el punto de conexión de Azure Cosmos DB y para cada una de las claves maestras de Azure Cosmos DB.
 
     ![Captura de pantalla de configuración de la aplicación](./media/create-website/TemplateDeployment10.png)  
@@ -134,16 +130,12 @@ Ahora implementaremos nuestra segunda plantilla.  Esta plantilla resulta útil p
 ## <a name="next-steps"></a>Pasos siguientes
 ¡Enhorabuena! Ha implementado Azure Cosmos DB, una aplicación web de App Service y una aplicación web de ejemplo mediante plantillas de Azure Resource Manager.
 
-* Para más información sobre Azure Cosmos DB, haga clic [aquí](http://azure.com/docdb).
-* Para obtener más información acerca de aplicaciones de servicio web de la aplicación de Azure, haga clic en [aquí](http://go.microsoft.com/fwlink/?LinkId=325362).
-* Para obtener más información sobre las plantillas del Administrador de recursos de Azure, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn790549.aspx).
-
-## <a name="whats-changed"></a>Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para más información acerca de Azure Cosmos DB, consulte la [página de servicio de Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+* Para más información acerca de Azure App Service Web Apps, consulte la [documentación de Web Apps](http://go.microsoft.com/fwlink/?LinkId=325362).
+* Para más información sobre las plantillas de Azure Resource Manager, consulte [API de REST de Resource Manager: Implementaciones](https://docs.microsoft.com/rest/api/resources/deployments).
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 

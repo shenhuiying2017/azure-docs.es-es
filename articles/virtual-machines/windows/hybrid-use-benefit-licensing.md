@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 5/26/2017
+ms.date: 9/13/2017
 ms.author: xujing
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: a986ddf22f059dc55bb9bff5c6eaf27324b716cd
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: f34f65eb1d5375caae8831aedaed8a4b6a9cd098
 ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-hybrid-use-benefit-for-windows-server"></a>Ventaja de uso híbrido de Azure para Windows Server
 Para los clientes con Software Assurance, la ventaja de uso híbrida de Azure le permite usar las licencias de Windows Server y cliente de Windows locales y ejecutar máquinas virtuales de Windows en Azure a bajo costo. La ventaja de uso híbrido de Azure para Windows Server incluye Windows Server 2008R2, Windows Server 2012, Windows Server 2012R2 y Windows Server 2016. Para obtener más información, consulte la [página sobre la licencia de la ventaja de uso híbrido de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+
+> [!IMPORTANT]
+> Las imágenes de Windows Server [HUB] que se publicaron para clientes con el Contrato Enterprise en Azure Marketplace se han retirado a partir de 9/11/2017. Utilice la edición estándar de Windows Server con la opción "Ahorrar dinero" de Ventaja para uso híbrido de Azure. Para obtener más información, consulte este [artículo](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions).
+>
 
 > [!NOTE]
 > En este artículo, se explica cómo implementar la ventaja de las licencias con las imágenes de Windows Server. También puede realizar este procedimiento con [imágenes de Windows 10 Desktop](#windows-desktop-multitenant-hosting-deployment).

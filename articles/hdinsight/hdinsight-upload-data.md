@@ -18,17 +18,17 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 5c352fd29c32b381d754b491ec46b3b250bd66ae
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5c862dbf46a30dd6811faeea447d559dca493991
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Hadoop en HDInsight
 
 Azure HDInsight ofrece un sistema de archivos distribuido de Hadoop (HDFS) completo a través de Azure Storage y Azure Data Lake Store. Azure Storage y Data Lake Store están diseñados como una extensión de HDFS para ofrecer una experiencia sin problemas para los clientes. Habilitan el conjunto completo de componentes en el ecosistema de Hadoop para que opere directamente en los datos que administra. Azure Storage y Data Lake Store son sistemas de archivos diferentes que se han optimizado para el almacenamiento de datos y el cálculo en ellos. Para más información sobre las ventajas del uso de Azure Storage, vea [Uso de Azure Storage con HDInsight][hdinsight-storage] y [Uso de Data Lake Store con HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-##<a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Tenga en cuenta los siguientes requisitos antes de empezar:
 
@@ -159,7 +159,7 @@ La línea de comandos de Hadoop solo es útil para almacenar datos en Azure Stor
 Para usar la línea de comando de Hadoop, primero es preciso conectarse al nodo principal a través de uno de los métodos siguientes:
 
 * **HDInsight para Windows**: [conectar mediante Escritorio remoto](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight basado en Linux**: conectar mediante SSH ([el comando SSH](hdinsight-hadoop-linux-use-ssh-unix.md) o [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
+* **HDInsight basado en Linux**: conexión mediante [SSH o PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Una vez conectado, puede utilizar la siguiente sintaxis para cargar un archivo al almacenamiento.
 

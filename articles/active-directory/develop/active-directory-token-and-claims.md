@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c211c59b00d445a62ebe3ae9334101c983e05c57
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-ad-token-reference"></a>Referencia de tokens de Azure AD
@@ -30,7 +30,7 @@ Azure AD admite el [protocolo de autorización OAuth 2.0](active-directory-proto
 
 Un token portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. En este sentido, el "portador" es cualquier parte que pueda presentar el token. Aunque se requiere autenticación con Azure AD para recibir un token de portador, deben realizarse una serie de pasos para proteger el token, con el fin de evitar interceptaciones imprevistas. Dado que los tokens de portador no disponen de ningún mecanismo integrado que evite que terceros no autorizadas los usen, se deben transportar en un canal seguro como, por ejemplo, Seguridad de la capa de transporte (HTTPS). Si un token portador se transmite sin cifrar, se puede utilizar un ataque del tipo "Man in the middle" para adquirir el token y obtener acceso no autorizado a un recurso protegido. Los mismos principios de seguridad se aplican al almacenamiento o almacenamiento en caché de tokens portadores para su uso posterior. Asegúrate siempre de que la aplicación transmite y almacena los tokens de portador de manera segura. Para otras consideraciones sobre la seguridad de los tokens portadores, consulte la [Sección 5 de RFC 6750](http://tools.ietf.org/html/rfc6750).
 
-Muchos de los tokens emitidos por Azure AD se implementan como tokens web JSON o JWT.  Un JWT es un medio compacto y seguro de la dirección URL para transferir información entre dos partes.  La información contenida en los JWT se conoce como "notificaciones", o aserciones de información sobre el portador y el asunto del token.  Las notificaciones de JWT son los objetos JSON codificados y serializados para su transmisión.  Puesto que los JWT emitidos por Azure AD están firmados, pero no cifrados, puede inspeccionar fácilmente el contenido de un JWT con fines de depuración.  Hay varias herramientas disponibles para hacerlo, como [jwt.calebb.net](http://jwt.calebb.net). Para obtener más información sobre los JWT, consulte la [especificación de JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Muchos de los tokens emitidos por Azure AD se implementan como tokens web JSON o JWT.  Un JWT es un medio compacto y seguro de la dirección URL para transferir información entre dos partes.  La información contenida en los JWT se conoce como "notificaciones", o aserciones de información sobre el portador y el asunto del token.  Las notificaciones de JWT son los objetos JSON codificados y serializados para su transmisión.  Puesto que los JWT emitidos por Azure AD están firmados, pero no cifrados, puede inspeccionar fácilmente el contenido de un JWT con fines de depuración.  Para ello hay varias herramientas disponibles, como [jwt.ms](https://jwt.ms/). Para obtener más información sobre los JWT, consulte la [especificación de JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## <a name="idtokens"></a>Id_Tokens
 Los id_tokens son una forma de token de seguridad de inicio de sesión que recibe la aplicación cuando la autenticación se realiza mediante [OpenID Connect](active-directory-protocols-openid-connect-code.md).  Se representan como [JWT](#types-of-tokens) y contienen notificaciones que se pueden usar para que el usuario inicie sesión en la aplicación.  Puede utilizar las notificaciones de un id_token como le convenga. Normalmente se usan para mostrar información de la cuenta o tomar decisiones de control de acceso en una aplicación.
@@ -45,7 +45,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 ```
 
 > [!TIP]
-> Para la práctica, intente inspeccionar las notificaciones del id_token de ejemplo, para lo que debe pegarlo en [calebb.net](http://jwt.calebb.net).
+> Para practicar, intente inspeccionar las notificaciones del token de identificador de ejemplo, pegándolo en [jwt.ms](https://jwt.ms/).
 > 
 > 
 

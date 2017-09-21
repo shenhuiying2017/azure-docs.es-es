@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 3e1f7617bf2fc52ee4c15598f51a46276f4dc57d
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 951e4fe32e8074817ad20972925f2f0e9f91b4c8
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -34,11 +34,11 @@ Azure Container Registry (ACR) es un registro privado basado en Azure para imág
 > * Etiquetado de una imagen de contenedor para ACR
 > * Carga de la imagen a ACR
 
-En posteriores tutoriales, esta instancia de ACR se integra con un clúster de Kubernetes en Azure Container Service, para la ejecución segura de imágenes de contenedor. 
+En posteriores tutoriales, esta instancia de ACR se integra con un clúster de Kubernetes en Azure Container Service. 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En el [tutorial anterior](./container-service-tutorial-kubernetes-prepare-app.md), se creó una imagen de contenedor para una aplicación sencilla de Azure Voting. En este tutorial, esta imagen se insertó en una instancia de Azure Container Registry. Si no ha creado la imagen de la aplicación de Azure Voting, vuelva al [Tutorial 1: creación de imágenes de contenedor](./container-service-tutorial-kubernetes-prepare-app.md). Por otra parte, los pasos descritos aquí funcionan con cualquier imagen de contenedor.
+En el [tutorial anterior](./container-service-tutorial-kubernetes-prepare-app.md), se creó una imagen de contenedor para una aplicación sencilla de Azure Voting. Si no ha creado la imagen de la aplicación de Azure Voting, vuelva al [Tutorial 1: creación de imágenes de contenedor](./container-service-tutorial-kubernetes-prepare-app.md).
 
 Para realizar este tutorial es necesario que ejecute la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
@@ -46,7 +46,7 @@ Para realizar este tutorial es necesario que ejecute la versión 2.0.4 o superio
 
 Para implementar Azure Container Registry, necesita tener antes un grupo de recursos. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). En este ejemplo se crea un grupo de recursos denominado *myResourceGroup* en la región *westeurope*.
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create). En este ejemplo, se crea un grupo de recursos denominado `myResourceGroup` en la región `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -58,11 +58,11 @@ Cree una instancia de Azure Container Registry con el comando [az acr create](/c
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
-En el resto de este tutorial, usamos "acrname" como un marcador de posición para el nombre del registro del contenedor que eligió.
+En el resto de este tutorial, se usa `<acrname>` como un marcador de posición del nombre del registro de contenedor.
 
 ## <a name="container-registry-login"></a>Inicio de sesión en Container Registry
 
-Debe iniciar sesión en la instancia de ACR antes de insertar imágenes en ella. Use el comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) para completar la operación. Debe proporcionar el nombre único que se especificó para el registro de contenedor cuando se creó.
+Después, use el comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) para iniciar sesión en la instancia de Azure Container Registry. Debe proporcionar el nombre único que se especificó para el registro de contenedor cuando se creó.
 
 ```azurecli
 az acr login --name <acrName>
@@ -71,8 +71,6 @@ az acr login --name <acrName>
 Al finalizar, el comando devuelve un mensaje que indica que el inicio de sesión se ha realizado correctamente.
 
 ## <a name="tag-container-images"></a>Etiquetado de imágenes de contenedor
-
-Es preciso etiquetar cada imagen de contenedor con el nombre loginServer del registro. Esta etiqueta se usa para el enrutamiento al insertar imágenes de contenedor en un registro de imágenes.
 
 Para ver una lista de imágenes actual, use el comando [docker images](https://docs.docker.com/engine/reference/commandline/images/).
 
@@ -89,13 +87,15 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
+Es preciso etiquetar cada imagen de contenedor con el nombre loginServer del registro. Esta etiqueta se usa para el enrutamiento al insertar imágenes de contenedor en un registro de imágenes.
+
 Para obtener el nombre de loginServer, ejecute el comando siguiente.
 
 ```azurecli
-az acr show --name <acrName> --query loginServer --output table
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Ahora, etiquete la imagen *azure-vote-front* con el loginServer del registro de contenedor. Además, agregue `:redis-v1` al final del nombre de la imagen. Esta etiqueta indica la versión de la imagen.
+Ahora, etiquete la imagen `azure-vote-front` con el loginServer del registro de contenedor. Además, agregue `:redis-v1` al final del nombre de la imagen. Esta etiqueta indica la versión de la imagen.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
@@ -119,7 +119,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Inserción de imágenes en el registro
 
-Inserte la imagen *azure-vote-front* en el registro. 
+Inserte la imagen `azure-vote-front` en el registro. 
 
 En el siguiente ejemplo, reemplace el nombre loginServer de ACR por el loginServer de su entorno.
 

@@ -13,23 +13,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/11/2017
+ms.date: 09/08/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 2b8d519e11f70eda164bd8f6e131a3989f242ab0
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 1f54bb04023ad61f4eae51389c6a902a029e9399
 ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Linux
-El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente, o definir reglas de escalado automático basado en el uso de la CPU, la demanda de memoria o el tráfico de red. En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure. Aprenderá a:
+El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático basado en el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure. Aprenderá a:
 
 > [!div class="checklist"]
 > * Usar cloud-init para crear una aplicación para escalar
 > * Crear un conjunto de escalado de máquinas virtuales
 > * Aumentar o disminuir el número de instancias en un conjunto de escalado
+> * Crear reglas de escalado automático
 > * Ver la información de conexión de las instancias del conjunto de escalado
 > * Usar discos de datos con conjuntos de escalado
 
@@ -39,11 +40,11 @@ El conjunto de escalado de máquinas virtuales le permite implementar y administ
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="scale-set-overview"></a>Introducción al conjunto de escalado
-El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Los conjuntos de escalado usan los mismos componentes que ha aprendido en el tutorial anterior sobre [Creación de máquinas virtuales de alta disponibilidad](tutorial-availability-sets.md). Las máquinas virtuales de un conjunto de escalado se crean en un conjunto de disponibilidad y se distribuyen entre los dominios de error lógico y de actualización.
+El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Las máquinas virtuales de un conjunto de escalado se distribuyen en dominios lógicos de error y de actualización en uno o más *grupos de selección de ubicación*. Se trata de grupos de máquinas virtuales configuradas de manera similar, al igual que los [conjuntos de disponibilidad](tutorial-availability-sets.md).
 
 Las máquinas virtuales se crean según sea necesario en un conjunto de escalado. Defina reglas de escalado automático para controlar cómo y cuándo se agregan o se quitan las máquinas virtuales del conjunto de escalado. Estas reglas se pueden desencadenar en función de métricas como la carga de la CPU, el uso de la memoria o el tráfico de red.
 
-Los conjuntos de escalado admiten hasta 1000 máquinas virtuales cuando se usa una imagen de la plataforma de Azure. Para las cargas de trabajo de producción, puede que desee la [creación de una imagen de máquina virtual personalizada](tutorial-custom-images.md). Puede crear hasta 100 máquinas virtuales en un conjunto de escalado al usar una imagen personalizada.
+Los conjuntos de escalado admiten hasta 1000 máquinas virtuales cuando se usa una imagen de la plataforma de Azure. Para las cargas de trabajo con requisitos de personalización de VM o instalación significativos, puede que desee [crear una imagen de VM personalizada](tutorial-custom-images.md). Puede crear hasta 300 máquinas virtuales en un conjunto de escalado al usar una imagen personalizada.
 
 
 ## <a name="create-an-app-to-scale"></a>Creación de una aplicación para escalar
@@ -113,7 +114,7 @@ az vmss create \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
-  --generate-ssh-keys      
+  --generate-ssh-keys
 ```
 
 Se tardan unos minutos en crear y configurar todos los recursos de conjunto de escalado y máquinas virtuales. Hay tareas en segundo plano que continúan ejecutándose después de que la CLI de Azure vuelve a abrir el símbolo del sistema. Es posible que tenga que esperar otros dos minutos antes de poder acceder a la aplicación.
@@ -197,7 +198,79 @@ az vmss scale \
     --new-capacity 5
 ```
 
-Las reglas de escalado automático le permiten definir cómo escalar o reducir verticalmente el número de máquinas virtuales en el conjunto de escalado en respuesta a la demanda, como el tráfico de red o el uso de CPU. Actualmente, no se pueden establecer estas reglas en la CLI de Azure 2.0. Use [Azure Portal](https://portal.azure.com) para configurar el escalado automático.
+
+### <a name="configure-autoscale-rules"></a>Configuración de reglas de escalado automático
+En lugar de escalar manualmente el número de instancias en el conjunto de escalado, puede definir reglas de escalado automático. Estas reglas supervisan las instancias en el conjunto de escalado y responden según corresponda, basándose en las métricas y los umbrales que defina. En el ejemplo siguiente se escala horizontalmente el número de instancias en uno cuando la carga de CPU media es mayor que el 60 % durante un período de cinco minutos. Si la carga de CPU media se sitúa por debajo del 30 % durante un período de cinco minutos, las instancias se reducen horizontalmente en una instancia. El identificador de suscripción se usa para crear los URI de recursos para los distintos componentes de conjunto de escalado. Para crear estas reglas con [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#create), copie y pegue el perfil de comandos de escalado automático siguiente:
+
+```azurecli-interactive 
+sub=$(az account show --query id -o tsv)
+
+az monitor autoscale-settings create \
+    --resource-group myResourceGroupScaleSet \
+    --name autoscale \
+    --parameters '{"autoscale_setting_resource_name": "autoscale",
+      "enabled": true,
+      "location": "East US",
+      "notifications": [],
+      "profiles": [
+        {
+          "name": "Auto created scale condition",
+          "capacity": {
+            "minimum": "2",
+            "maximum": "10",
+            "default": "2"
+          },
+          "rules": [
+            {
+              "metricTrigger": {
+                "metricName": "Percentage CPU",
+                "metricNamespace": "",
+                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+                "metricResourceLocation": "eastus",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT5M",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan",
+                "threshold": 70
+              },
+              "scaleAction": {
+                "direction": "Increase",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT5M"
+              }
+            },
+            {
+              "metricTrigger": {
+                "metricName": "Percentage CPU",
+                "metricNamespace": "",
+                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+                "metricResourceLocation": "eastus",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT5M",
+                "timeAggregation": "Average",
+                "operator": "LessThan",
+                "threshold": 30
+              },
+              "scaleAction": {
+                "direction": "Decrease",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT5M"
+              }
+            }
+          ]
+        }
+      ],
+      "tags": {},
+      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+    }'
+```
+
+Para volver a usar el perfil de escalado automático, puede crear un archivo JSON (notación de objetos JavaScript) y pasarlo al comando `az monitor autoscale-settings create` con el parámetro `--parameters @autoscale.json`. Para más información de diseño sobre el uso del escalado automático, consulte los [procedimientos recomendados de escalado automático](/azure/architecture/best-practices/auto-scaling).
+
 
 ### <a name="get-connection-info"></a>Obtención de información de conexión
 Para obtener información de conexión sobre las máquinas virtuales de los conjuntos de escalado, use [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). Este comando da como resultado la dirección IP pública y los puertos de cada máquina virtual que le permiten conectarse con SSH:
@@ -258,6 +331,7 @@ En este tutorial, ha creado un conjunto de escalado de máquinas virtuales. Ha a
 > * Usar cloud-init para crear una aplicación para escalar
 > * Crear un conjunto de escalado de máquinas virtuales
 > * Aumentar o disminuir el número de instancias en un conjunto de escalado
+> * Crear reglas de escalado automático
 > * Ver la información de conexión de las instancias del conjunto de escalado
 > * Usar discos de datos con conjuntos de escalado
 
@@ -265,3 +339,4 @@ Pase al siguiente tutorial para obtener más información sobre el concepto de e
 
 > [!div class="nextstepaction"]
 > [Load balance virtual machines](tutorial-load-balancer.md) (Equilibrio de carga de máquinas virtuales)
+

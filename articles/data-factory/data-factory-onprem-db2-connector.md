@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 6a89cc44724dbb5b46a9e89d6da24d9b35ddbbef
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: fed1c8790c5d6d1c688e04a49d5cecd09fbc0dda
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Movimiento de datos de DB2 mediante la actividad de copia de Azure Data Factory
@@ -93,7 +93,7 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 | **tableName** |Nombre de la tabla en la instancia de base de datos DB2 a la que hace referencia el servicio vinculado. Esta propiedad distingue mayúsculas de minúsculas. |No (si se especifica la propiedad **query** de una actividad de copia de tipo **RelationalSource**) |
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
-Para una lista de las secciones y propiedades disponibles para definir actividades de copia, consulte el artículo sobre [creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades de la actividad de copia, como **nombre**, **descripción**, tabla de **entradas**, tabla de **salidas** y **directiva**, están disponibles para todos los tipos de actividades. Las propiedades que están disponibles en la sección **typeProperties** de la actividad de cada tipo de actividad. Para la actividad de copia, las propiedades varían en función de los tipos de orígenes y receptores de datos.
+Para una lista de las secciones y propiedades disponibles para definir actividades de copia, consulte el artículo sobre [creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades de la actividad de copia, como **nombre**, **descripción**, tabla de **entradas**, tabla de **salidas** y **directiva**, están disponibles para todos los tipos de actividades. Las propiedades que están disponibles en la sección **typeProperties** de la actividad varían según cada tipo de actividad. Para la actividad de copia, las propiedades varían en función de los tipos de orígenes y receptores de datos.
 
 En el caso de la actividad de copia, si el origen es de tipo **RelationalSource** (que incluye DB2), las propiedades siguientes están disponibles en la sección **typeProperties**:
 
@@ -143,7 +143,7 @@ Como primer paso, instale y configure una puerta de enlace de datos. Las instruc
 }
 ```
 
-**Servicio vinculado de Azure Blob Storage**
+**Servicio vinculado de almacenamiento de blobs de Azure**
 
 ```json
 {
@@ -354,3 +354,4 @@ Cuando se copian datos desde un almacén de datos relacionales, se debe tener pr
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Obtenga información sobre los factores clave que afectan el rendimiento de la actividad de copia y las formas de optimizar el rendimiento en la [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md).
+

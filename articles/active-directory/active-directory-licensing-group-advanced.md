@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 55e2e095138842f8e2d31a4f79ffb22b81d18dba
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 87cc66752dae1f4bd0903607d8a8ae9bd9125b11
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -213,6 +213,8 @@ Si usa licencias basadas en grupo, se recomienda que se familiarice con la sigui
 - Cuando se quita un usuario de un grupo y pierde la licencia, los planes de servicio de esa licencia (por ejemplo, SharePoint Online) pasan a un estado **Suspendido**. Los planes de servicio no pasan a un estado deshabilitado final. Esta precaución puede evitar la eliminación accidental de los datos de usuario, si un administrador comete un error en la administración de la pertenencia a un grupo.
 
 - Cuando se asignan o modifican licencias para un grupo grande (por ejemplo, con más de 100 000 usuarios), podría afectar el rendimiento. En concreto, el volumen de cambios generado por la automatización de Azure AD podría afectar negativamente el rendimiento de la sincronización de directorios entre Azure AD y los sistemas locales.
+
+- En determinadas situaciones de carga elevada, el procesamiento de licencias se puede retrasar y cambios como agregar o quitar un grupo de licencias, o agregar o quitar usuarios del grupo, pueden tardar mucho tiempo en procesarse. Si ve que los cambios tardan más de 24 horas en procesarse, [abra una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) para permitirnos investigar lo que ocurre. Mejoraremos el rendimiento de esta característica antes de que esté *disponible de forma general*.
 
 - La automatización de la administración de licencias no reacciona automáticamente a todos los tipos de cambios en el entorno. Por ejemplo, es posible que se quede sin licencias, lo que haría que algunos usuarios tengan un estado de error. Para liberar el número de puestos disponibles, puede quitar algunas licencias asignadas directamente a otros usuarios. Sin embargo, el sistema no reacciona automáticamente a este cambio ni corrige el estado de error de los usuarios.
 

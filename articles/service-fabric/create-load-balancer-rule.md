@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/22/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 8496bd61d0133a428ce8e522faef5b538f19d4fc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d152444f38e7a09b97ce7cb9778d8c67a0a5a421
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -44,13 +44,14 @@ Para crear una regla de equilibrador de carga, debe recopilar la información si
 - Puerto interno.
 
 ## <a name="azure-cli"></a>CLI de Azure
+Solo hace falta un comando para crear una regla de equilibrador de carga con la **CLI de Azure**. Tiene que saber el nombre del grupo de recursos y del equilibrador de carga para crear una regla.
+
 >[!NOTE]
 >Si necesita determinar el nombre del equilibrador de carga, use este comando para obtener rápidamente una lista de todos los equilibradores de carga y los grupos de recursos asociados.
 >
 >`az network lb list --query "[].{ResourceGroup: resourceGroup, Name: name}"`
 >
 
-Solo hace falta un comando para crear una regla de equilibrador de carga con la **CLI de Azure**. Tiene que saber el nombre del grupo de recursos y del equilibrador de carga para crear una regla.
 
 ```azurecli
 az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol Tcp --lb-name LB-svcfab3 -g svcfab_cli -n my-app-rule
@@ -64,7 +65,7 @@ El comando de la CLI de Azure tiene unos parámetros que se describen en la tabl
 | `--frontend-port` | El puerto que expone el equilibrador de carga para las conexiones externas. |
 | `-lb-name` | El nombre del equilibrador de carga que se cambiará. |
 | `-g`       | El grupo de recursos que tiene el clúster de Service Fabric y el equilibrador de carga. |
-| `-n`       | El nombre elegido de la regla. |
+| `-n`       | El nombre deseado de la regla. |
 
 
 >[!NOTE]
@@ -72,17 +73,17 @@ El comando de la CLI de Azure tiene unos parámetros que se describen en la tabl
 
 ## <a name="powershell"></a>PowerShell
 
->[!NOTE]
->Si necesita determinar el nombre del equilibrador de carga, use este comando para obtener rápidamente una lista de todos los equilibradores de carga y los grupos de recursos asociados.
->
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
-
-PowerShell es un poco más complicado que la CLI de Azure. Realice los siguientes pasos para crear una regla.
+PowerShell es un poco más complicado que la CLI de Azure. Siga estos pasos conceptuales para crear una regla:
 
 1. Obtenga el equilibrador de carga de Azure.
 2. Cree una regla.
 3. Agregue la regla al equilibrador de carga.
 4. Actualice el equilibrador de carga.
+
+>[!NOTE]
+>Si necesita determinar el nombre del equilibrador de carga, use este comando para obtener rápidamente una lista de todos los equilibradores de carga y los grupos de recursos asociados.
+>
+>`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
@@ -106,4 +107,6 @@ Con respecto al comando `New-AzureRmLoadBalancerRuleConfig`, `-FrontendPort` rep
 >[!NOTE]
 >Para obtener más información sobre cómo crear un equilibrador de carga con PowerShell, consulte [Creación de un equilibrador de carga orientado a Internet en Resource Manager mediante PowerShell](..\load-balancer\load-balancer-get-started-internet-arm-ps.md).
 
+## <a name="next-steps"></a>Pasos siguientes
 
+Obtenga más información sobre [las redes en Service Fabric](service-fabric-patterns-networking.md).

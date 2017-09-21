@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/18/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 3a8a661f65923476c89763580a98ea240642db99
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 5d905d410e70c5b635a3f6221e7e0c0bda7ad140
 ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="logic-app-limits-and-configuration"></a>Límites y configuración de Logic Apps
@@ -113,7 +113,7 @@ Los límites de una definición de aplicación lógica única son los siguientes
 
 ### <a name="integration-account-limits"></a>Límites de cuenta de integración
 
-Los límites para los artefactos agregados a la cuenta de integración son los siguientes
+Existen límites en cuanto a los artefactos que se pueden agregar a una cuenta de integración.
 
 |Nombre|Límite|Notas|
 |----|----|----|
@@ -123,6 +123,21 @@ Los límites para los artefactos agregados a la cuenta de integración son los s
 |Llamadas de invocación de punto de conexión en tiempo de ejecución por 5 minutos |45 000|Puede distribuir cargas de trabajo entre varias cuentas según sea necesario.|
 |Llamadas de seguimiento de punto de conexión en tiempo de ejecución por 5 minutos |45 000|Puede distribuir cargas de trabajo entre varias cuentas según sea necesario.|
 |Llamadas simultáneas de bloqueo de puntos de conexión en tiempo de ejecución |~1000|Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario|
+
+Existen límites en cuanto al número de artefactos que se pueden agregar a una cuenta de integración.
+
+Plan de tarifa Gratis
+
+|Nombre|Límite|Notas|
+|----|----|----|
+|Contratos|10||
+|Otros tipos de artefacto|25|Los tipos incluyen socios, esquemas, certificados y asignaciones. Cada tipo puede tener el número máximo de artefactos.|
+
+Plan de tarifa Estándar
+
+|Nombre|Límite|Notas|
+|----|----|----|
+|Cualquier tipo de artefacto|500|Los tipos incluyen acuerdos, socios, esquemas, certificados y asignaciones. Cada tipo puede tener el número máximo de artefactos.|
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Tamaño de mensaje de protocolos B2B (AS2, X12 y EDIFACT)
 

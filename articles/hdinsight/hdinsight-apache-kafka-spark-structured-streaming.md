@@ -15,13 +15,12 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 34c8e18e918221f0287b1078df750d8016e2529a
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 565f840e0ac7ec1a68361ac1613da5d42459c979
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-
 # <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Uso del flujo estructurado de Spark con Kafka (versión preliminar) en HDInsight
 
 Obtenga información sobre cómo usar el flujo estructurado de Spark para leer datos de Apache Kafka en Azure HDInsight.
@@ -92,7 +91,7 @@ Una vez que se han creado los recursos, aparece una página de resumen.
 
 ## <a name="get-the-kafka-brokers"></a>Obtención de los agentes de Kafka
 
-En este ejemplo, el código se conecta a los hosts de los agentes de Kafka del clúster de Kafka. Para buscar la dirección de los dos hosts de los agentes de Kafka, use el siguiente ejemplo de PowerShell o Bash:
+En este ejemplo, el código se conecta a los hosts de los agentes de Kafka del clúster de Kafka. Para buscar las direcciones de los dos hosts de los agentes de Kafka, use el siguiente ejemplo de PowerShell o Bash:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"

@@ -1,6 +1,6 @@
 ---
-title: Ejemplo de PowerShell para importar un archivo bacpac en una base de datos SQL de Azure | Microsoft Docs
-description: Script de ejemplo de Azure PowerShell para importar un archivo bacpac en una base de datos SQL
+title: "PowerShell: ejemplo de importación de una base de datos Azure SQL Database a un archivo BACPAC | Microsoft Docs"
+description: Script de ejemplo de Azure PowerShell para importar un archivo BACPAC en una base de datos SQL
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,17 +16,17 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ba477c19a7c7bd6809aa3b78c0ef23e9cc7d5497
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 815ba6e1eb775399e747514843dbd0f201156a3e
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
-# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Uso de Powershell para importar un archivo bacpac en una base de datos SQL de Azure
+# <a name="use-powershell-to-import-a-pacpac-file-into-an-azure-sql-database"></a>Uso de PowerShell para importar un archivo PACPAC en una base de datos SQL de Azure
 
-Este script de PowerShell importa una base de datos de un archivo **bacpac** a una base de datos SQL de Azure.  
+Este script de PowerShell importa una base de datos de un archivo BACPAC a una base de datos SQL de Azure.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -39,7 +39,7 @@ Este script de PowerShell importa una base de datos de un archivo **bacpac** a u
 Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos y todos los recursos asociados.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>Explicación del script
@@ -51,7 +51,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Crea un servidor lógico que hospeda la base de datos SQL. |
 | [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) | Crea una regla de firewall para permitir el acceso a todas las bases de datos SQL en el servidor desde el intervalo de direcciones IP especificado. |
-| [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) | Importa un archivo bacpac y crea una nueva base de datos en el servidor. |
+| [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) | Importa un archivo BACPAC y crea una nueva base de datos en el servidor. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes

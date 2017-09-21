@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 03/03/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3db5be35b3087bbbe87e623a623e7a10156b932f
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 74b04cb7737011423556cbd956ecef770ac82ad4
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Estudios técnicos de implementaciones para clientes de Azure SQL Database
@@ -37,4 +37,6 @@ ms.lasthandoff: 07/21/2017
 - [Quest](https://customers.microsoft.com/en-US/story/quest): Quest ofrece su servicio Spotlight en SQL Server Enterprise con un objetivo en mente: proporcionar a los profesionales de bases de datos las mejores herramientas disponibles para proteger los datos, mover esos datos y supervisar las operaciones de base de datos. Con Spotlight y el uso combinado de Microsoft Azure y Azure SQL Database, los administradores de bases de datos de SQL Server pueden supervisar, detectar, diagnosticar y proporcionar una manera de resolver problemas de rendimiento en SQL Server, tanto si trabajan en una oficina o desde casa.
 
 - [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): este breve caso práctico destaca los procedimientos recomendados y las lecciones aprendidas a partir de la experiencia del equipo de producto de Dynamics 365 for Operations en la migración a Azure SQL Database a fin de proporcionar a los clientes una oferta de software como servicio (SaaS) completamente administrada. Con Azure SQL Database, el equipo de Dynamics 365 for Operations pudo administrar y usar el servicio con bastante menos personal y escalarlo fácilmente gracias a las características de capacidad de administración listas para usar, como copias de seguridad automáticas de bases de datos, retención de copias de seguridad de bases de datos, alta disponibilidad y recuperación ante desastres. Esto, junto con la posibilidad de aprovisionar bases de datos con apenas automatización, llevaron a que Azure SQL Database fuera una buena plataforma para poner en marcha servicios a gran escala.
+
+- [Microsoft OneDrive y SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states): este breve caso práctico refleja el relato detrás del traslado de Microsoft OneDrive y SharePoint Online a Azure SQL Database y se describe cómo esta migración habilitó la administración de capacidad elástica prácticamente ilimitada a la vez que se redujeron los costos operativos y la sobrecarga de infraestructura.
 

@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.date: 07/10/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 16ddee29c7629861764ddaadf2dcc574a866ae8a
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 484283a98831b3d5fbf079a3bf5eb9ec0d7ab4d4
 ms.contentlocale: es-es
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse
@@ -157,10 +157,10 @@ También puede aprovisionar un administrador de Azure Active Directory mediante 
 También puede aprovisionar un administrador de Azure AD mediante una llamada a los siguientes comandos de la CLI:
 | Comando | Descripción |
 | --- | --- |
-|[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#create) |Aprovisiona un administrador de Azure Active Directory para Azure SQL Server o para Azure SQL Data Warehouse. (Debe ser de la suscripción actual). |
-|[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#delete) |Quita un administrador de Azure Active Directory para Azure SQL Server o para Azure SQL Data Warehouse. |
-|[az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#list) |Devuelve información sobre un administrador de Azure Active Directory configurado actualmente para el servidor de Azure SQL Server o para Azure SQL Data Warehouse. |
-|[az sql server ad-admin update](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#update) |Actualiza el administrador de Azure Active Directory para un servidor Azure SQL Server o para Azure SQL Data Warehouse. |
+|[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) |Aprovisiona un administrador de Azure Active Directory para Azure SQL Server o para Azure SQL Data Warehouse. (Debe ser de la suscripción actual). |
+|[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) |Quita un administrador de Azure Active Directory para Azure SQL Server o para Azure SQL Data Warehouse. |
+|[az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) |Devuelve información sobre un administrador de Azure Active Directory configurado actualmente para el servidor de Azure SQL Server o para Azure SQL Data Warehouse. |
+|[az sql server ad-admin update](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) |Actualiza el administrador de Azure Active Directory para un servidor Azure SQL Server o para Azure SQL Data Warehouse. |
 
 Para más información acerca de los comandos de la CLI, consulte [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
 
@@ -314,7 +314,7 @@ connection.AccessToken = "Your JWT token"
 conn.Open();
 ```
 
-Para más información, consulte el [blog de seguridad de SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/).
+Para más información, consulte el [blog de seguridad de SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). Para obtener información acerca de cómo agregar un certificado, consulte [Introducción a la autenticación basada en certificados de Azure Active Directory](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 ### <a name="sqlcmd"></a>sqlcmd
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2017
+ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2e0347854b5d30c955a50a01d6f7ba08e24f94b6
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 5f1ce4c76aadc5fdfe53b15f0d82da5ce6b43346
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Validación del rendimiento de la VPN en una red virtual
@@ -40,7 +40,7 @@ La conexión a la puerta de enlace de la VPN afecta a los siguientes componentes
 - Dispositivo VPN local (vea una lista de [dispositivos VPN validados)](vpn-gateway-about-vpn-devices.md#devicetable).
 - Internet público
 - Azure VPN Gateway
-- Máquina virtual de Azure
+- MV de Azure
 
 El siguiente diagrama muestra la conectividad lógica de una red local en una red virtual de Azure a través de VPN.
 

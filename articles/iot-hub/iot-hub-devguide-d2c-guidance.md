@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a36283053939ccd53856a394cd9efb66285271ae
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 146a2e16399a3eeed6b178d72234584c76cc8f51
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Guía de comunicación de dispositivo a nube
@@ -37,7 +36,7 @@ Esta es una comparación detallada de las distintas opciones de comunicación de
 | Almacenamiento y recuperación | Almacenados temporalmente por IoT Hub, hasta 7 días. Solo lectura secuencial. | Almacenados por IoT Hub en el dispositivo gemelo. Recuperables mediante el [lenguaje de consulta de IoT Hub][lnk-query]. | Almacenadas en la cuenta de Azure Storage proporcionada por el usuario. |
 | Tamaño | Mensajes de hasta 256 KB. | El tamaño máximo de las propiedades notificadas es 8 KB. | Tamaño máximo de archivo admitido por Azure Blob Storage. |
 | Frecuencia | Alta. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. | Mediana. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. | Baja. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. |
-| Protocol | Disponible en todos los protocolos. | Actualmente solo está disponible cuando se usa MQTT. | Disponible cuando se usa cualquier protocolo, pero hace falta HTTP en el dispositivo. |
+| Protocol | Disponible en todos los protocolos. | Disponible con MQTT o AMQP. | Disponible cuando se usa cualquier protocolo, pero hace falta HTTP en el dispositivo. |
 
 Es posible que una aplicación deba enviar información como alertas o series temporales de telemetría y también permitir que esté disponible en el dispositivo gemelo. En este escenario, puede elegir una de las siguientes opciones:
 

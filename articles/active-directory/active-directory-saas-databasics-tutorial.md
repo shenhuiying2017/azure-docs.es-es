@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/08/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 26943282701302b61252e17850b71381afb1629b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 3a9776e6d11a54220a3b055d59e89d2eb4161a1a
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-databasics"></a>Tutorial: integración de Azure Active Directory con DATABASICS
@@ -124,11 +124,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-databasics-tutorial/tutorial_general_400.png)
 
-6. Para configurar el inicio de sesión único en **DATABASICS**, tiene que enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de DATABASICS](https://www.data-basics.com/support/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+6. Para configurar el inicio de sesión único en DATABASICS, complete el formulario en la dirección URL que se indica a continuación. Una vez enviado el formulario, el [equipo de soporte técnico de DATABASICS](https://www.data-basics.com/support/) se pondrá en contacto con usted.
+    
+    [https://www.data-basics.com/support/submit-sso-onboarding-request/](https://www.data-basics.com/support/submit-sso-onboarding-request/)
+
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

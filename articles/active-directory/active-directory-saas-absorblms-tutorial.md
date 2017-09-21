@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/15/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 3c68c3ac7d6be593476d419f8c015931b206eead
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f5f20fee648cf26b4db49b9a8f5f5e5bcecd453e
 ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integración de Azure Active Directory con Absorb LMS
@@ -124,7 +124,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
     
-7. En la sección **Configuración de Absorb LMS**, haga clic en **Configurar Absorb LMS** para abrir la ventana **Configurar inicio de sesión**. Copie las **direcciones URL del servicio de inicio de sesión único de SAML y de cierre de sesión** de la sección **Referencia rápida**.
+7. En la sección **Configuración de Absorb LMS**, haga clic en **Configurar Absorb LMS** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de cierre de sesión** de la sección **Referencia rápida.**
 
     ![Configuración de Absorb LMS](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_configure.png) 
 
@@ -146,15 +146,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-absorblms-tutorial/4.png)
 
-    a. Seleccione el **Mode** (Modo) adecuado.
+    a. Seleccione **Identity Provider Initiated** (Iniciado por el proveedor de identidades).
 
     b. Abra el certificado que ha descargado de Azure Portal en el Bloc de notas, quite las etiquetas **---BEGIN CERTIFICATE---** y **---END CERTIFICATE---** y pegue el resto del contenido en el cuadro de texto **Key** (Clave).
     
     c. En el cuadro de texto **Id Property** (Propiedad Id), seleccione el atributo adecuado que ha configurado como identificador de usuario en Azure AD; por ejemplo, si se selecciona userprinciplename en Azure AD, aquí se seleccionaría Username (Nombre de usuario).
 
-    d. En el cuadro de texto **Login URL** (URL de inicio de sesión), pegue el valor de **"URL del servicio de inicio de sesión único de SAML"** que copió de la ventana **Configurar inicio de sesión** de Azure Portal.
+    d. En la **dirección URL de inicio de sesión**, pegue la **dirección URL de acceso de usuario** de la página **Propiedades** de la aplicación en Azure Portal.
 
-    e. En el cuadro de texto **Logout URL** (URL de cierre de sesión), pegue el valor de **"Dirección URL de cierre de sesión"** que copió de la ventana **Configurar inicio de sesión** de Azure Portal.
+    e. En el cuadro de texto **Logout URL** (Dirección URL de cierre de sesión), pegue el valor de la **dirección URL de cierre de sesión** que copió de la ventana **Configurar inicio de sesión** de Azure Portal.
 
 13. Habilite **"Only Allow SSO Login"** (Solo permitir inicio de sesión SSO).
 
@@ -276,6 +276,7 @@ Al hacer clic en el icono de Absorb LMS del panel de acceso, debería iniciar se
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
 
 
 <!--Image references-->

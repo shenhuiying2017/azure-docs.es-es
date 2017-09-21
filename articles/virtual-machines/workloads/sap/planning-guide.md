@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 718bb3f890a246fb1688481efdaa9109b49ccad3
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: eabe7f667aab866b8513661110fa416a61988824
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
@@ -980,7 +980,7 @@ En este caso, queremos cargar un VHD (con o sin un sistema operativo en él) y m
 * Inicie sesión en la suscripción con *az login*.
 * Seleccione su suscripción con *az account set --subscription `<subscription name or id`>*.
 * Cargue el VHD con *az storage blob upload* (consulte [Uso de la CLI de Azure con Azure Storage][storage-azure-cli]).
-* (Opcional) Cree un disco de Managed Disks a partir del VHD con *az disk create* (consulte https://docs.microsoft.com/cli/azure/disk#create).
+* (Opcional) Cree un disco de Managed Disk a partir del VHD con *az disk create* (consulte https://docs.microsoft.com/cli/azure/disk#az_disk_create)
 * Cree una máquina virtual especificando el VHD o el disco de Managed Disks cargados como disco del sistema operativo con *az vm create* y el parámetro *--attach-os-disk*.
 * Agregue un disco de datos a una nueva máquina virtual con *az vm disk attach* y el parámetro *--new*.
 
@@ -1009,7 +1009,7 @@ Para cargar una máquina virtual o un VHD existente desde la red local a fin de 
 * Inicie sesión en la suscripción con *az login*.
 * Seleccione su suscripción con *az account set --subscription `<subscription name or id`>*.
 * Cargue el VHD con *az storage blob upload* (consulte [Uso de la CLI de Azure con Azure Storage][storage-azure-cli]).
-* (Opcional) Cree una imagen de Managed Disks a partir del VHD con *az image create* (consulte https://docs.microsoft.com/cli/azure/image#create).
+* (Opcional) Cree una imagen de Managed Disk a partir del VHD con *az image create* (consulte https://docs.microsoft.com/cli/azure/image#az_image_create)
 * Cree una máquina virtual especificando el VHD o la imagen de Managed Disks cargados como disco del sistema operativo con *az vm create* y el parámetro *--image*.
 
 **Plantilla**

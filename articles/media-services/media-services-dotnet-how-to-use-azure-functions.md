@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 096f54b23a8223da89785b2e7f00c9b8a10c2906
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: e8cad53d95186f4f7679d1f19f339ad4149059a8
 ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desarrollo de Azure Functions con Media Services
@@ -32,10 +32,6 @@ Si desea explorar e implementar instancias de Azure Functions existentes que usa
 - Para poder crear la primera función, es necesario tener una cuenta de Azure activa. Si aún no tiene una cuenta de Azure, [tiene a su disposición la creación de una cuenta gratis](https://azure.microsoft.com/free/).
 - Si va a crear instancias de Azure Functions que llevan a cabo acciones en su cuenta de Azure Media Services (AMS) o escuchan eventos enviados por Media Services, debe crear una cuenta de AMS, tal como se describe [aquí](media-services-portal-create-account.md).
     
-## <a name="considerations"></a>Consideraciones
-
--  La instancia de Azure Functions que se ejecuta en el marco del plan de consumo tiene un tiempo de espera límite de 5 minutos.
-
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función
 
 1. Vaya a [Azure Portal](http://portal.azure.com) e inicie sesión con su cuenta de Azure.
@@ -47,10 +43,6 @@ Si desea explorar e implementar instancias de Azure Functions existentes que usa
 ## <a name="configure-function-app-settings"></a>Configuración de la aplicación de función
 
 Cuando desarrolle funciones de Media Services, es útil agregar variables de entorno que se usarán en todas sus funciones. Para definir la configuración de la aplicación, haga clic en el vínculo Configurar las opciones de la aplicación. Para obtener más información, consulte [Configuración de Azure Function App](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
-
-Por ejemplo:
-
-![Configuración](./media/media-services-azure-functions/media-services-azure-functions001.png)
 
 La función, definida en este artículo, da por hecho que tiene las siguientes variables de entorno en la configuración de la aplicación:
 
@@ -344,6 +336,9 @@ Para probar la función, debe cargar un archivo MP4 en el contenedor **input** d
 2. Haga clic en **Blobs**.
 3. Haga clic en **+ Contenedor**. Asigne el nombre **input** al contenedor.
 4. Presione **Cargar** y busque un archivo .mp4 que desee cargar.
+
+>[!NOTE]
+> Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs después de que una aplicación de función quede inactiva. Después de que se ejecute la aplicación de función, los blobs se procesan inmediatamente. Para más información, consulte [Desencadenadores y enlaces de Blob Storage](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

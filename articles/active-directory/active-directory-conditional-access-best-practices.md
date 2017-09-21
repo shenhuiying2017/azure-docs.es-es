@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: fedc72f8fe1ada9a991d417cc77b8ca659589f55
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
@@ -96,6 +96,99 @@ En su entorno, debería evitar las siguientes configuraciones:
 **Para todos los usuarios, todas las aplicaciones en la nube, todas las plataformas de dispositivos:**
 
 - **Bloquear acceso**: esta configuración bloquea toda la organización, lo cual no es en absoluto una buena idea.
+
+
+
+## <a name="policy-migration"></a>Migración de directivas
+
+Si tiene directivas configuradas en el Portal de Azure clásico, debe migrarlas a Azure Portal ya que:
+
+
+- Un usuario que se encuentra en una directiva del Portal de Azure clásico y en una directiva de Azure Portal debe cumplir los requisitos de las dos directivas 
+
+- Si no se migran las directivas existentes, no podrá implementar las directivas que conceden acceso
+
+
+### <a name="migration-from-the-azure-classic-portal"></a>Migración desde el Portal de Azure clásico
+
+En este escenario: 
+
+- En su [Portal de Azure clásico](https://manage.windowsazure.com), ha configurado:
+
+    - SharePoint Online
+
+    ![Acceso condicional](./media/active-directory-conditional-access-best-practices/14.png)
+
+    - Una directiva de acceso condicional basada en dispositivos
+
+    ![Acceso condicional](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Quiere configurar una directiva de acceso condicional de administración de aplicaciones móviles en Azure Portal 
+ 
+
+#### <a name="configuration"></a>Configuración 
+
+- Revise sus directivas de acceso condicional basadas en dispositivos
+
+- Mígrelas a Azure Portal 
+
+- Agregue las directivas de acceso condicional con administración de aplicaciones móviles
+
+
+### <a name="migrating-from-intune"></a>Migración desde Intune 
+
+En este escenario:
+
+- En [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), tiene una directiva de acceso condicional con administración de aplicaciones móviles para cualquier Exchange Online o SharePoint Online configurados
+
+    ![Acceso condicional](./media/active-directory-conditional-access-best-practices/15.png)
+
+- Quiere realizar la migración para poder usar una directiva de acceso condicional con administración de aplicaciones móviles en Azure Portal
+
+
+#### <a name="configuration"></a>Configuración 
+ 
+- Revise sus directivas de acceso condicional basadas en dispositivos
+
+- Mígrelas a Azure Portal 
+
+- Revise sus directivas de acceso condicional con administración de aplicaciones móviles configuradas para cualquier Exchange Online o SharePoint Online en Intune
+
+- Agregue el control para **requerir aplicaciones aprobadas** además del control basado en dispositivos 
+ 
+
+### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migración desde el Portal de Azure clásico e Intune
+
+En este escenario:
+
+- Tiene la siguiente configuración:
+
+    - **Portal de Azure clásico:** condicional basado en dispositivos 
+
+    - **Intune:** directivas de acceso condicional con administración de aplicaciones móviles 
+    
+- Quiere realizar la migración de ambas directivas para poder usar directivas de acceso condicional con administración de aplicaciones móviles en Azure Portal
+
+
+#### <a name="configuration"></a>Configuración
+
+- Revise sus directivas de acceso condicional basadas en dispositivos
+
+- Mígrelas a Azure Portal 
+
+- Revise la directiva de acceso condicional con administración de aplicaciones móviles configurada para cualquier Exchange Online o SharePoint Online en Intune
+
+- Agregue el control para **requerir aplicaciones aprobadas** además del basado en dispositivos 
+
+
+
+
+
+
+
+
+
+
 
 
 ## <a name="common-scenarios"></a>Escenarios comunes

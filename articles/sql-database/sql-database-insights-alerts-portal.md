@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: aamalvea
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: bfbaa71dc5716fbbc23d04bbd62210193c990e8e
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2b3f9f226039759a68e28b9392d30256f308c8d3
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usar Azure Portal para crear alertas de Azure SQL Database y Data Warehouse
@@ -62,7 +61,7 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
    
     ![Agregar alerta](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
 4. Asígnele un **nombre** a la regla de alerta y elija una **descripción**, que también se muestra los correos electrónicos de notificación.
-5. Seleccione la **métrica** que desea supervisar y elija un valor de **Condición** y **Umbral** para la métrica. También debe elegir el **período** de tiempo de la regla de métrica que se debe cumplir antes de que se desencadene la alerta. Por ejemplo, si usa el período "PT5M" y la alerta busca una CPU por encima del 80 %, la alerta se desencadena cuando la CPU ha estado por sobre el 80 % durante 5 minutos. Una vez que se desencadena por primera vez, se vuelve a desencadenar cuando la CPU se mantiene por debajo del 80% durante 5 minutos. La CPU se mide cada 1 minuto.   
+5. Seleccione la **métrica** que desea supervisar y elija un valor de **Condición** y **Umbral** para la métrica. También debe elegir el **período** de la regla de métrica que se debe cumplir antes de que se desencadene la alerta. Por ejemplo, si usa el período "PT5M" y la alerta busca una CPU por encima del 80 %, la alerta se desencadena cuando el **promedio** de CPU ha estado por encima del 80 % durante 5 minutos. Una vez que se desencadena por primera vez, se vuelve a desencadenar cuando el promedio de CPU está por debajo del 80 % durante más de 5 minutos. La CPU se mide cada 1 minuto. Consulte la tabla siguiente para ver las ventanas de tiempo compatibles y el tipo de agregación que usa cada alerta; no todas las alertas usan el valor promedio.   
 6. Desactive la opción **Enviar correo electrónico a propietarios...** si desea que se envíe un correo electrónico a los administradores y coadministradores cuando se active la alerta.
 7. Si desea enviar una notificación a otras direcciones de correo electrónico cuando se active la alerta, agréguelas en el campo **Correos electrónicos de administradores adicionales** . Separe las direcciones de correo electrónico con punto y coma, de la siguiente manera: *email@contoso.com;email2@contoso.com*
 8. Escriba un identificador URI válido en el campo **Webhook** si desea llamarlo cuando se active la alerta.

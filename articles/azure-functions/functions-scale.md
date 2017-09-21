@@ -18,10 +18,10 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 8778dcfdb5859d212a2a3eb28a5ed297b5f07460
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: b2f506a90c6b55624c8fe0392511b8098f058812
 ms.contentlocale: es-es
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Comparación de los planes de hospedaje de Azure Functions
@@ -56,7 +56,7 @@ El plan de consumo es el valor predeterminado y ofrece las siguientes ventajas:
 
 ## <a name="app-service-plan"></a>Plan de App Service
 
-En el plan de App Service, las aplicaciones de función se ejecutan en máquinas virtuales dedicadas en las SKU de los niveles Básico, Estándar y Premium, de un modo similar a Web Apps. Se asignan máquinas virtuales dedicadas a las aplicaciones de App Service, lo que significa que el host de Functions siempre está en ejecución.
+En el plan de App Service, las aplicaciones de función se ejecutan en máquinas virtuales dedicadas de los niveles Básico, Estándar y Premium, y en las SKU aisladas, de un modo similar a Web Apps. Se asignan máquinas virtuales dedicadas a las aplicaciones de App Service, lo que significa que el host de Functions siempre está en ejecución.
 
 Considere el plan de App Service en los casos siguientes:
 - Tiene máquinas virtuales infrautilizadas que ya ejecutan otras instancias de App Service.
@@ -96,7 +96,7 @@ Al usar el plan de consumo, los archivos de código de función se almacenan en 
 
 ### <a name="runtime-scaling"></a>Escalado del entorno de tiempo de ejecución
 
-Azure Functions usa un componente denominado *controlador de escala* para supervisar la tasa de eventos y determinar si se debe ampliar o reducir verticalmente. El controlador de escala usa la heurística para cada tipo de desencadenador. Por ejemplo, al usar un desencadenador de Azure Queue Storage, se escala en función de la longitud de la cola y la antigüedad del mensaje más antiguo de la cola.
+Azure Functions usa un componente denominado *controlador de escala* para supervisar la tasa de eventos y determinar si se debe escalar o reducir horizontalmente. El controlador de escala usa la heurística para cada tipo de desencadenador. Por ejemplo, al usar un desencadenador de Azure Queue Storage, se escala en función de la longitud de la cola y la antigüedad del mensaje más antiguo de la cola.
 
 La unidad de escalado es la aplicación de función. Al escalar horizontalmente la aplicación de función, se asignan más recursos para ejecutar varias instancias del host de Azure Functions. Por el contrario, si la demanda se reduce, el controlador de escala elimina instancias del host de la función. El número de instancias se reduce verticalmente hasta cero cuando no se ejecuta ninguna función en la aplicación de función.
 
@@ -104,9 +104,9 @@ La unidad de escalado es la aplicación de función. Al escalar horizontalmente 
 
 ### <a name="billing-model"></a>Modelo de facturación
 
-La facturación del plan de consumo se describe de manera detallada en la [página de precios de Azure Functions]. El uso se agrega en el nivel de la aplicación de función y solo se cuenta el tiempo que el código de la función está en ejecución. Estas son las unidades de facturación: 
+La facturación del plan de consumo se describe de manera detallada en la [página de precios de Azure Functions]. El uso se agrega en el nivel de la aplicación de función, y solo se cuenta el tiempo que el código de la función está en ejecución. Estas son las unidades de facturación: 
 * **Consumo de recursos en gigabytes-segundo (GB-s)**. Se calcula como una combinación del tamaño de la memoria y el tiempo de ejecución de todas las funciones de una aplicación de función. 
 * **Ejecuciones**. Se cuenta cada vez que se ejecuta una función en respuesta a un evento, desencadenado por un enlace.
 
-[página de precios de Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+[Página de precios de Azure Functions]: https://azure.microsoft.com/pricing/details/functions
 

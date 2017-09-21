@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 08/17/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 30adc10d01290f14a3e116813b19916fa36ab0bc
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 54db95fd50e5d61d54d0c03a8589cfe8292c012c
 ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
@@ -81,6 +81,22 @@ Recibirá este error si la SKU del recurso que ha seleccionado (como, por ejempl
   virtualMachines      Standard_A0 southcentralus
   virtualMachines      Standard_A1 southcentralus
   virtualMachines      Standard_A2 southcentralus
+  ```
+
+- En la CLI de Azure, use el comando `az vm list-skus`. Después, puede usar `grep` o una utilidad similar para filtrar la salida.
+
+  ```
+  az vm list-skus --output table
+  ResourceType      Locations           Name                    Capabilities                       Tier      Size           Restrictions
+  ----------------  ------------------  ----------------------  ---------------------------------  --------  -------------  ---------------------------
+  availabilitySets  eastus              Classic                 MaximumPlatformFaultDomainCount=3
+  avilabilitySets  eastus              Aligned                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  eastus2             Classic                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  eastus2             Aligned                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  westus              Classic                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  westus              Aligned                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  centralus           Classic                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
   ```
 
 - Para usar el [portal](https://portal.azure.com), inicie sesión en el portal y agregue un recurso mediante la interfaz. A medida que establezca los valores, verá las SKU disponibles para ese recurso. No tiene que completar la implementación.
@@ -271,7 +287,7 @@ Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Si está tratando de implementar el recurso que falta en la plantilla, compruebe si tiene que agregar una dependencia. Cuando es posible, Resource Manager optimiza la implementación mediante la creación de recursos en paralelo. Si un recurso se debe implementar después de otro recurso, debe usar el elemento **dependsOn** en la plantilla para crear una dependencia en el otro recurso. Por ejemplo, al implementar una aplicación web, debe existir el plan de App Service. Si no ha especificado que la aplicación web dependa del plan de App Service, Resource Manager creará ambos recursos al mismo tiempo. Recibirá un error que indica que no se encuentra el recurso del plan de App Service, porque aún no existe cuando se trata de establecer una propiedad en la aplicación web. Este error se puede evitar estableciendo la dependencia en la aplicación web.
+Si está tratando de implementar el recurso que falta en la plantilla, compruebe si tiene que agregar una dependencia. Cuando es posible, Resource Manager optimiza la implementación mediante la creación de recursos en paralelo. Si un recurso se debe implementar después de otro recurso, debe usar el elemento **dependsOn** en la plantilla para crear una dependencia en el otro recurso. Por ejemplo, al implementar una aplicación web, debe existir el plan de Servicio de aplicaciones. Si no ha especificado que la aplicación web dependa del plan de App Service, Resource Manager creará ambos recursos al mismo tiempo. Recibirá un error que indica que no se encuentra el recurso del plan de App Service, porque aún no existe cuando se trata de establecer una propiedad en la aplicación web. Este error se puede evitar estableciendo la dependencia en la aplicación web.
 
 ```json
 {
@@ -381,7 +397,7 @@ Recibirá estos errores por uno de estos tres motivos:
 2. No se permite esta versión de API para el tipo de recurso
 3. No se permite esta ubicación para el tipo de recurso
 
-El mensaje de error debería proporcionarle sugerencias con respecto a las versiones de API y a las ubicaciones admitidas. Puede cambiar la plantilla a uno de los valores sugeridos. La mayoría de los proveedores se registran automáticamente mediante Azure Portal o la interfaz de línea de comandos que esté utilizando; pero no ocurre con todos. Si no ha utilizado un proveedor de recursos determinado antes, debe registrar dicho proveedor. Puede obtener más información sobre los proveedores de recursos a través de PowerShell o la CLI de Azure.
+El mensaje de error debería proporcionarle sugerencias con respecto a las versiones de API y a las ubicaciones admitidas. Puede cambiar la plantilla a uno de los valores sugeridos. La mayoría de los proveedores se registran automáticamente mediante el Portal de Azure o la interfaz de línea de comandos que esté utilizando; pero no ocurre con todos. Si no ha utilizado un proveedor de recursos determinado antes, debe registrar dicho proveedor. Puede obtener más información sobre los proveedores de recursos a través de PowerShell o la CLI de Azure.
 
 **Portal**
 
@@ -546,5 +562,5 @@ Para más información sobre el control de acceso basado en roles, consulte [Con
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](resource-group-audit.md).
-* Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con Azure Portal](resource-manager-deployment-operations.md).
+* Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](resource-manager-deployment-operations.md).
 

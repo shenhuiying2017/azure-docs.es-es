@@ -13,16 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 09/10/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
-ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 89b4f7cee6d00b5bbbca4799eeca74a280147fc7
 ms.contentlocale: es-es
-ms.lasthandoff: 01/11/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-
 
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Administración de puntos de conexión de streaming con el Portal de Azure
 
@@ -70,6 +69,9 @@ Punto de conexión de streaming le permite configurar las siguientes propiedades
 * Directivas de acceso en varios sitios
 
 Para obtener información detallada acerca de estas propiedades, consulte [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+
+>[!NOTE]
+>Cuando CDN esté habilitado, no se podrá tener acceso IP. El acceso IP solo es aplicable cuando no tiene CDN.
 
 Puede configurar el punto de conexión de streaming haciendo lo siguiente:
 

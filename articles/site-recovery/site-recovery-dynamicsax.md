@@ -1,6 +1,6 @@
 ---
-title: "Replicación de una implementación de Dynamics AX de niveles múltiples mediante Azure Site Recovery | Microsoft Docs"
-description: "En este artículo se explica cómo se replica y protege Dynamics AX mediante Azure Site Recovery."
+title: "Replicación de una implementación de Dynamics AX en varios niveles múltiples mediante Azure Site Recovery | Microsoft Docs"
+description: "En este artículo se explica cómo replicar y proteger Dynamics AX mediante Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: asgang
@@ -15,40 +15,39 @@ ms.topic: article
 ms.date: 8/24/2017
 ms.author: asgang
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 03127c8f4841b67436c4819628319705af0b2cd5
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: c235102a60b6d11c8b77203121352bd1400f4325
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
-# <a name="replicate-a-multi-tier-dynamics-ax-application-using-azure-site-recovery"></a>Replicación de una aplicación Dynamics AX de niveles múltiples mediante Azure Site Recovery
+# <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicación de una implementación de Dynamics AX en varios niveles múltiples mediante Azure Site Recovery
 
 ## <a name="overview"></a>Información general
 
 
-Microsoft Dynamics AX es una de las soluciones de ERP más populares entre las empresas para estandarizar procesos en diferentes ubicaciones, administrar recursos y simplificar el cumplimiento. Considerar que la aplicación es esencial para la actividad empresarial de una organización es muy importante para asegurarse de que, en el caso de un desastre, la aplicación debe volver a estar activa y en funcionamiento en un tiempo mínimo.
+ Dynamics AX es una de las soluciones de ERP más utilizadas por las empresas para estandarizar procesos en diferentes ubicaciones, administrar recursos y simplificar el cumplimiento. Dado que la aplicación es crítica para una organización, si se produce un desastre, la aplicación debe poder ponerse en funcionamiento en un tiempo mínimo.
 
-En la actualidad, la aplicación Microsoft Dynamics AX no tiene integrada ninguna funcionalidad de recuperación ante desastres. Microsoft Dynamics AX consta de muchos componentes de servidor, como Application Object Server, Active Directory (AD), SQL Database Server, SharePoint Server, servidor de informes, etc. Administrar manualmente la recuperación ante desastres de todos estos componentes no solo es costoso, sino también propenso a errores.
+En la actualidad, Dynamics AX no cuenta con ninguna funcionalidad de recuperación ante desastres de forma estándar. Dynamics AX consta de muchos componentes de servidor, como Windows Application Object Server, Azure Active Directory, Azure SQL Database, SharePoint Server y Reporting Services. La administración manual de la recuperación ante desastres de estos componentes no solo es cara, sino también propensa a errores.
 
-En este artículo se explica en detalle cómo crear una solución de recuperación ante desastres para la aplicación Dynamics AX mediante [Azure Site Recovery](site-recovery-overview.md). También se describen las conmutaciones por error planeadas, no planeadas o de prueba con el plan de recuperación de un solo clic, las configuraciones admitidas y los requisitos previos.
-La solución de recuperación ante desastres de Azure Site Recovery está totalmente probada, certificada y recomendada por Microsoft Dynamics AX.
+En este artículo se explica cómo crear una solución de recuperación ante desastres para la aplicación Dynamics AX mediante [Azure Site Recovery](site-recovery-overview.md). También se describen las conmutaciones por error de prueba (tanto planeadas como no planeadas) mediante el plan de recuperación con un solo clic, las configuraciones admitidas y los requisitos previos.
 
+La solución de recuperación ante desastres de Site Recovery está totalmente probada y certificada, y Dynamics AX la recomienda.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-La implementación de la recuperación ante desastres para aplicaciones de Dynamics AX mediante Azure Site Recovery requiere completar primero los siguientes requisitos previos.
+La implementación de la recuperación ante desastres para aplicaciones de Dynamics AX mediante Site Recovery requiere los siguientes requisitos previos:
 
-• Se ha instalado una implementación local de Dynamics AX
+• Instale una implementación de Dynamics AX local.
 
-• Se ha creado un almacén de Azure Recovery Services en una suscripción de Microsoft Azure
+• Cree un almacén de Site Recovery en una suscripción de Azure.
 
-• Además, si Azure es su sitio de recuperación, debe ejecutar la herramienta de evaluación de la disponibilidad de máquinas virtuales de Azure en las máquinas virtuales para asegurarse de que son compatibles con las máquinas virtuales de Azure y Azure Site Recovery Services.
-
+• Si Azure es el sitio de recuperación, ejecute la herramienta Evaluación de preparación de máquinas virtuales de Azure en las máquinas virtuales. Deben ser compatibles con los servicios Azure Virtual Machines y Site Recovery.
 
 ## <a name="site-recovery-support"></a>Compatibilidad de Site Recovery
 
-Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Dynamics AX 2012 R3 en Windows Server 2012 R2 Enterprise. Como la replicación de la recuperación del sitio no depende de la aplicación, se pretende que estas recomendaciones sirvan también para los escenarios siguientes.
+Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Dynamics AX 2012 R3 en Windows Server 2012 R2 Enterprise. Dado que la replicación de la recuperación del sitio no depende de la aplicación, se pretende que estas recomendaciones sirvan también para los escenarios siguientes.
 
 ### <a name="source-and-target"></a>Origen y destino
 
@@ -58,135 +57,140 @@ Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Dy
 **VMware** | Sí | Sí
 **Servidor físico** | Sí | Sí
 
-## <a name="enable-dr-of-dynamics-ax-application-using-azure-site-recovery"></a>Habilitar la recuperación ante desastres de la aplicación Dynamics AX mediante Azure Site Recovery
+## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Habilitación de la recuperación ante desastres de la aplicación Dynamics AX mediante Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Proteger la aplicación Dynamics AX
-Cada componente de Dynamics AX debe protegerse para permitir una replicación y recuperación completas de la aplicación. En esta sección se describe:
+Para habilitar la recuperación y replicación completas de la aplicación, es preciso proteger todos los componentes de Dynamics AX. 
 
-**1. Protección de Active Directory**
+### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Configuración de la replicación de DNS y Active Directory
 
-**2. Protección del nivel de SQL**
-
-**3. Protección de los niveles de aplicación y web**
-
-**4. Configuración de red**
-
-**5. Plan de recuperación**
-
-### <a name="1-setup-ad-and-dns-replication"></a>1. Configuración de la replicación de DNS y AD
-
-Se requiere Active Directory en el sitio de recuperación ante desastres para que funcione la aplicación Dynamics AX. Hay dos opciones recomendadas según la complejidad del entorno local del cliente.
+Para que la aplicación Dynamics AX funcione, Active Directory debe encontrarse en el sitio de recuperación ante desastres. Hay dos opciones recomendadas en función de la complejidad del entorno local del cliente.
 
 **Opción 1**
 
-Si el cliente tiene un número pequeño de aplicaciones, un único controlador de dominio para todo el sitio local y realizará conmutaciones por error en todo el sitio conjuntamente, se recomienda utilizar la replicación de Azure Site Recovery para replicar la máquina del controlador de dominio en un sitio secundario (esto se aplica tanto de sitio a sitio como de sitio a Azure).
+El cliente tiene un número pequeño de aplicaciones y un solo controlador de dominio para todo el sitio local y planea realizar una conmutación por error de todo el sitio. Se recomienda utilizar la replicación de Site Recovery para replicar la máquina del controlador de dominio en un sitio secundario (se puede aplicar a escenarios de sitio a sitio y de sitio a Azure).
 
 **Opción 2**
 
-Si el cliente tiene un gran número de aplicaciones, ejecuta un bosque de Active Directory y realizará conmutaciones por error de unas pocas aplicaciones a la vez, se recomienda configurar un controlador de dominio adicional en el sitio de recuperación ante desastres (ya sea un sitio secundario o Azure).
+El cliente tiene muchas aplicaciones, ejecuta un bosque de Active Directory y planea realizar una conmutación por error de unas pocas simultáneamente. Se recomienda configurar un controlador de dominio adicional en el sitio de recuperación ante desastres (un sitio secundario o en Azure).
 
-Consulte la [guía complementaria sobre la realización de un controlador de dominio disponible en el sitio de recuperación ante desastres](site-recovery-active-directory.md). Para el resto de este documento, supondremos que habrá un controlador de dominio disponible en el sitio de recuperación ante desastres.
+ Para más información, consulte [Protección de Active Directory y DNS con Azure Site Recovery](site-recovery-active-directory.md). En el resto del documento, se asume que hay un controlador de dominio disponible en el sitio de recuperación ante desastres.
 
-### <a name="2-setup-sql-server-replication"></a>2. Configuración de la replicación de SQL Server
-Consulte la guía complementaria para obtener orientación técnica detallada sobre la opción recomendada para proteger el [nivel SQL](site-recovery-sql.md).
+### <a name="2-set-up-sql-server-replication"></a>2. Configuración de la replicación de SQL Server
+Para obtener orientación técnica acerca de la opción recomendada para proteger el nivel de SQL, consulte [Replicación de aplicaciones con SQL Server y Azure Site Recovery](site-recovery-sql.md).
 
-### <a name="3-enable-protection-for-dynamics-ax-client-and-aos-vms"></a>3. Habilitar la protección del cliente de Dynamics AX y las máquinas virtuales de AOS
-Realice la configuración pertinente de Azure Site Recovery en función de si las máquinas virtuales están implementadas en [Hyper-V](site-recovery-hyper-v-site-to-azure.md) o en [VMware](site-recovery-vmware-to-azure.md).
+### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Habilitación de la protección del cliente de Dynamics AX de las y máquinas virtuales de Application Object Server
+Realice la configuración pertinente de Site Recovery en función de si las máquinas virtuales están implementadas en [Hyper-V](site-recovery-hyper-v-site-to-azure.md) o [VMware](site-recovery-vmware-to-azure.md).
 
 > [!TIP]
-> Se recomienda configurar una frecuencia coherente de bloqueo de 15 minutos.
+> Se recomienda configurar la frecuencia coherente con los bloqueos en 15 minutos.
 >
 
 La siguiente instantánea muestra el estado de protección de las máquinas virtuales del componente de Dynamics en un escenario de protección de sitio de VMware a Azure.
-![Elementos protegidos ](./media/site-recovery-dynamics-ax/protecteditems.png)
 
-### <a name="4-configure-networking"></a>4. Configuración de red
-Configuración de procesos de máquina virtual y configuración de red
+![Elementos protegidos](./media/site-recovery-dynamics-ax/protecteditems.png)
 
-En el cliente de AX y las máquinas virtuales de AOS, configure las opciones de red en Azure Site Recovery para que las redes de máquinas virtuales se conecten a la red de recuperación ante desastres adecuada después de la conmutación por error. Asegúrese de que la red de recuperación ante desastres para estos niveles pueda enrutarse en el nivel de SQL.
+### <a name="4-configure-networking"></a>4. Configuración de las redes
+**Configuración del proceso y las opciones de red de máquinas virtuales**
 
-Puede seleccionar la máquina virtual en los elementos replicados para configurar las opciones de red como se muestra en la siguiente instantánea.
+Tanto en el cliente de Dynamics AX y las máquinas virtuales de Application Object Server, configure las opciones de red en Site Recovery para que las redes de máquinas virtuales se conecten a la red de recuperación ante desastres adecuada después de la conmutación por error. Asegúrese de que la red de recuperación ante desastres para estos niveles pueda enrutarse al nivel de SQL.
 
-* En servidores de AOS, seleccione el conjunto de disponibilidad correcto.
+Puede seleccionar la máquina virtual en los elementos replicados para configurar las opciones de red como se muestra en la siguiente instantánea:
 
-* Si utiliza una dirección IP estática, especifique la dirección IP que desea utilizar con la máquina virtual en el campo **IP de destino** ![Configuración de red ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
+* En el caso de los servidores de Application Object Server, seleccione el conjunto de disponibilidad correcto.
 
+* Si utiliza una IP estática, especifique en el campo **IP de destino** la dirección IP que desea que use la máquina virtual.
 
-
-### <a name="5-creating-a-recovery-plan"></a>5. Creación de un plan de recuperación
-
-Puede crear un plan de recuperación en Azure Site Recovery para automatizar el proceso de conmutación por error. Agregue el nivel de aplicación y el nivel web en el plan de recuperación. Ordénelas en diferentes grupos para que el front-end se apague antes del nivel de aplicación.
-
-1)  Seleccione el almacén de Azure Site Recovery en su suscripción y haga clic en el icono "Planes de recuperación".
-
-2)  Haga clic en Plan de recuperación y especifique un nombre.
-
-3)  Seleccione el origen y el destino. El destino puede ser el sitio secundario o de Azure. Si elige Azure, debe especificar el modelo de implementación.
-
-![Creación del plan de recuperación](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
-
-4)  Seleccione el AOS y las máquinas virtuales cliente del plan de recuperación y haga clic en ✓.
-![Crear plan de recuperación](./media/site-recovery-dynamics-ax/selectvms.png)
+    ![Configuración de red ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
 
 
-![Plan de recuperación](./media/site-recovery-dynamics-ax/recoveryplan.png)
+### <a name="5-create-a-recovery-plan"></a>5. Creación de un plan de recuperación
 
-Puede personalizar el plan de recuperación de la aplicación Dynamics AX añadiendo varios pasos, tal como se detalla a continuación. La instantánea anterior muestra el plan de recuperación completo después de agregar todos los pasos.
+En Site Recovery se puede crear un plan de recuperación para automatizar el proceso de conmutación por error. Agregue un nivel de aplicación y un nivel de web al plan de recuperación. Ordénelos en grupos diferentes, con el fin de que el front-end se apague antes que el nivel de aplicación.
 
-*Pasos:*
+1. Seleccione el almacén de Azure Site Recovery en su suscripción y haga clic en el icono **Planes de recuperación**.
 
-*1. Pasos de conmutación por error de SQL Server*
+2. Seleccione **Plan de recuperación** y especifique un nombre.
 
-Consulte la guía complementaria [Proteger SQL Server con la recuperación ante desastres de SQL Server y Azure Site Recovery](site-recovery-sql.md) para obtener más información sobre los pasos de recuperación específicos de SQL Server.
+3. Seleccione los valores apropiados en **Origen** y **Destino**. El destino puede ser Azure o un sitio secundario. Si elige Azure, debe especificar el modelo de implementación.
 
-*2. Grupo 1 de conmutación por error: Conmutación por error de las máquinas virtuales de AOS*
+    ![Crear plan de recuperación](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
+4. Seleccione las máquinas virtuales cliente y de Application Object Server para el plan de recuperación y seleccione el ✓.
+
+    ![Selección de elementos](./media/site-recovery-dynamics-ax/selectvms.png)
+
+    Ejemplo de plan de recuperación:
+
+    ![Detalles de plan de recuperación](./media/site-recovery-dynamics-ax/recoveryplan.png)
+
+Para personalizar el plan de recuperación de la aplicación Dynamics AX, agregue los siguientes pasos. La instantánea anterior muestra el plan de recuperación completo una vez que se han agregado todos los pasos.
+
+
+* **Pasos de conmutación por error de SQL Server**: para obtener información acerca de los pasos de recuperación específicos para SQL Server, consulte [Replicación de aplicaciones con SQL Server y Azure Site Recovery](site-recovery-sql.md).
+
+* **Grupo de conmutación por error 1**: conmutar por error las máquinas virtuales de Application Object Server.
 Asegúrese de que el punto de recuperación seleccionado esté lo más cercano posible a la base de datos PIT, sin adelantarla.
 
-*3. Script: Agregue el equilibrador de carga (solo E-A)* Agregue un script (a través de Azure Automation) después del grupo de máquinas virtuales de AOS para agregarle un equilibrador de carga. Puede usar un script para realizar esta tarea. Consulte el artículo sobre [cómo agregar el equilibrador de carga en una recuperación ante desastres con aplicaciones de varios niveles](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/)
+* **Script**: agregar un equilibrador de carga (solo E-A).
+Agregue un script (a través de Azure Automation) después de que se active el grupo de máquinas virtuales de Application Object Server para agregarle un equilibrador de carga. Puede usar un script para realizar esta tarea. Para más información, consulte el artículo [Cloud migration and disaster recovery of load balanced multi-tier applications](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/) (Migración a la nube y recuperación ante desastres de aplicaciones de niveles múltiples).
 
-*4. Grupo 2 de conmutación por error: Conmutación por error de las máquinas virtuales de AX*
-Conmute por error las máquinas virtuales de nivel web como parte del plan de recuperación.
+* **Grupo de conmutación por error 2**: conmutar por error las máquinas virtuales del cliente de Dynamics AX. Conmute por error las máquinas virtuales de nivel web como parte del plan de recuperación.
 
 
-### <a name="doing-a-test-failover"></a>Realización de una conmutación por error de prueba
+### <a name="perform-a-test-failover"></a>Realización de una conmutación por error de prueba
 
-Consulte las guías complementarias Solución de recuperación ante desastres de AD y Solución de recuperación ante desastres de SQL Server para obtener consideraciones específicas de AD y SQL server respectivamente durante una conmutación por error de prueba.
+Para más información específica acerca de Active Directory durante la conmutación por error de prueba, consulte la guía complementaria de "solución de recuperación ante desastres de Active Directory". 
 
-1.  En Azure Portal, seleccione su almacén de recuperación del sitio.
-2.  Haga clic en el plan de recuperación creado para Dynamics AX.
-3.  Haga clic en Probar conmutación por error.
-4.  Seleccione la red virtual para iniciar el proceso de conmutación por error de prueba.
-5.  Cuando el entorno secundario esté activo, podrá realizar las validaciones.
-6.  Una vez que se hayan completado las validaciones, puede seleccionar ‘Validations complete’ (Validaciones completas) para que el entono de la conmutación por error de prueba quede limpio.
+Para más información específica acerca de Active Directory durante la conmutación por error de prueba, consulte [Replicación de aplicaciones con SQL Server y Azure Site Recovery](site-recovery-sql.md).
 
-Siga [estas directrices](site-recovery-test-failover-to-azure.md) para llevar a cabo una conmutación por error de prueba.
+1. Vaya a Azure Portal, seleccione su almacén de Site Recovery.
 
-### <a name="doing-a-failover"></a>Realización de una conmutación por error
+2. Seleccione el plan de recuperación creado para Dynamics AX.
 
-1.  En Azure Portal, seleccione su almacén de recuperación del sitio.
-2.  Haga clic en el plan de recuperación creado para Dynamics AX.
-3.  Haga clic en Conmutación por error y seleccione Conmutación por error.
-4.  Seleccione la red de destino y haga clic en ✓ para iniciar el proceso de conmutación por error.
+3. Seleccione **Conmutación por error de prueba**.
 
-Siga [estas directrices](site-recovery-failover.md) cuando realice una conmutación por error.
+4. Seleccione la red virtual para iniciar el proceso de conmutación por error de prueba.
+
+5. Cuando el entorno secundario esté activo, podrá realizar las validaciones.
+
+6. Una vez que se hayan completado las validaciones, seleccione **Validations complete** (Validaciones completas) para que el entorno de la conmutación por error de prueba quede limpio.
+
+Para más información acerca de la realización de una conmutación por error de prueba, consulte [Conmutación por error de prueba a Azure en Site Recovery](site-recovery-test-failover-to-azure.md).
+
+### <a name="perform-a-failover"></a>Realización de una conmutación por error
+
+1. Vaya a Azure Portal, seleccione su almacén de Site Recovery.
+
+2. Seleccione el plan de recuperación creado para Dynamics AX.
+
+3. Seleccione **Conmutación por error** y haga clic en **Conmutación por error**.
+
+4. Seleccione la red de destino y haga clic en **✓** para iniciar el proceso de conmutación por error.
+
+Para más información acerca de cómo realizar una conmutación por error, consulte [Conmutación por error en Site Recovery](site-recovery-failover.md).
 
 ### <a name="perform-a-failback"></a>Realización de una conmutación por recuperación
 
-Consulte la guía complementaria Proteger SQL Server con la recuperación ante desastres de SQL Server y Azure Site Recovery para obtener información específica de SQL Server durante una conmutación por recuperación.
+Para ver consideraciones específicas acerca de Active Directory durante la conmutación por recuperación, consulte [Replicación de aplicaciones con SQL Server y Azure Site Recovery](site-recovery-sql.md).
 
-1.  En Azure Portal, seleccione su almacén de recuperación del sitio.
-2.  Haga clic en el plan de recuperación creado para Dynamics AX.
-3.  Haga clic en Conmutación por error y seleccione Conmutación por error.
-4.  Haga clic en Cambiar dirección.
-5.  Seleccione las opciones adecuadas de sincronización de datos y de creación de máquinas virtuales.
-6.  Haga clic en ✓ para iniciar el proceso de conmutación por recuperación.
+1. Vaya a Azure Portal, seleccione su almacén de Site Recovery.
+
+2. Seleccione el plan de recuperación creado para Dynamics AX.
+
+3. Seleccione **Conmutación por error** y haga clic en **Conmutación por error**.
+
+4. Seleccione **Cambiar dirección**.
+
+5. Seleccione las opciones adecuadas: sincronización de datos y creación de máquinas virtuales.
+
+6. Seleccione **✓** para iniciar el proceso de conmutación por recuperación.
 
 
-Siga [estas directrices](site-recovery-failback-azure-to-vmware.md) cuando realice una conmutación por recuperación.
+Para más información acerca de cómo realizar una conmutación por recuperación, consulte [Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos al sitio local](site-recovery-failback-azure-to-vmware.md).
 
-##<a name="summary"></a>Resumen
-Con Azure Site Recovery, puede crear un plan completo de recuperación ante desastres automatizado para su aplicación Dynamics AX. Puede iniciar la conmutación por error en cuestión de segundos desde cualquier lugar si se produce una interrupción y poner en funcionamiento la aplicación en unos minutos.
+## <a name="summary"></a>Resumen
+Con Azure Site Recovery puede crear un plan completo de recuperación ante desastres automatizado para su aplicación Dynamics AX. Si se produce una interrupción, puede iniciar la conmutación por error en cuestión de segundos desde cualquier lugar y poner en funcionamiento la aplicación en pocos minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte [qué cargas de trabajo puede proteger](site-recovery-workload.md) para más información sobre cómo proteger las cargas de trabajo empresariales con Azure Site Recovery.
+Para más información acerca de cómo proteger las cargas de trabajo empresariales con Azure Site Recovery, consulte [¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?](site-recovery-workload.md) .
 

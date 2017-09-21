@@ -1,11 +1,11 @@
 ---
 title: "Ejecución de consultas de análisis ad-hoc entre varias bases de datos de Azure SQL| Microsoft Docs"
-description: "Ejecute consultas de análisis ad hoc en varias bases de datos SQL en la aplicación multiinquilino SaaS de Wingtip."
-keywords: tutorial de base de datos sql
+description: "Ejecute consultas de análisis ad-hoc entre varias bases de datos SQL en un ejemplo de aplicación multiinquilino."
+keywords: tutorial de SQL Database
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -16,24 +16,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c287fe5d6b333c749b0580b5253e7e46ac27232b
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: a27a65627fecf35b59122110250a40c6fe8077b5
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="run-ad-hoc-analytics-queries-across-all-wingtip-saas-tenants"></a>Ejecución de consultas de análisis ad hoc en todos los inquilinos SaaS de Wingtip
+# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Ejecución de consultas de análisis ad-hoc entre varias bases de datos SQL de Azure
 
-En este tutorial, se ejecutan consultas distribuidas en todo el conjunto de bases de datos de inquilino para habilitar el análisis ad hoc. La consulta elástica se usa para habilitar las consultas distribuidas, lo que requiere la implementación de una base de datos de análisis adicional (en el servidor de catálogo). Estas consultas pueden extraer información incluida en los datos operativos diarios de la aplicación SaaS Wingtip.
+En este tutorial, se ejecutan consultas distribuidas en todo el conjunto de bases de datos multiinquilino para habilitar el análisis ad hoc. La consulta elástica se usa para habilitar las consultas distribuidas, lo que requiere la implementación de una base de datos de análisis adicional (en el servidor de catálogo). Estas consultas pueden extraer información incluida en los datos operativos diarios de la aplicación SaaS Wingtip.
 
 
 En este tutorial, obtendrá información:
 
 > [!div class="checklist"]
 
-> * Acerca de las vistas globales en cada base de datos, que habilitan la realización eficiente de consultas en varios inquilinos
+> * Acerca de las vistas globales en cada base de datos; estas vistas habilitan la realización eficiente de consultas en varios inquilinos
 > * Acerca de la implementación de una base de datos de análisis ad hoc
 > * Acerca de cómo ejecutar consultas distribuidas en todas las bases de datos de inquilinos
 
@@ -48,11 +47,11 @@ Para completar este tutorial, asegúrese de cumplir los siguientes requisitos pr
 
 ## <a name="ad-hoc-analytics-pattern"></a>Patrón de análisis ad hoc
 
-Una de las grandes oportunidades que ofrecen las aplicaciones SaaS es el uso de la gran cantidad de datos de inquilino almacenados centralmente en la nube. Use estos datos para obtener información sobre la operación y el uso de la aplicación; los inquilinos, sus usuarios, preferencias y comportamientos; etc. Esta información puede guiarle en el desarrollo de características, mejoras de facilidad de uso y otras inversiones en sus aplicaciones y servicios.
+Una de las grandes oportunidades que ofrecen las aplicaciones SaaS es el uso de la gran cantidad de datos de inquilino almacenados centralmente en la nube. Puede usar dichos datos para obtener información sobre el funcionamiento y el uso de la aplicación. Esta información puede guiarle en el desarrollo de características, mejoras de facilidad de uso y otras inversiones en sus aplicaciones y servicios.
 
 Es fácil obtener acceso a estos datos en una sola base de datos multiinquilino, pero no es tan fácil cuando se distribuyen a escala en miles de bases de datos. Un enfoque es usar la [consulta elástica](sql-database-elastic-query-overview.md), que permite consultas en un conjunto distribuido de bases de datos con un esquema común. La consulta elástica usa una única base de datos *principal* en la que se definen tablas externas que reflejan tablas o vistas en las bases de datos (de inquilino) distribuidas. Las consultas que se envían a esta base de datos principal se compilan para producir un plan de consulta distribuido, con partes de la consulta aplicadas en las bases de datos de inquilino según sea necesario. La consulta elástica usa el mapa de particiones de la base de datos del catálogo para proporcionar la ubicación de las bases de datos de inquilino. La configuración y la consulta son sencillas y utilizan [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference) estándar; además, admiten consultas ad hoc desde herramientas como Power BI y Excel.
 
-Mediante la distribución de las consultas en las bases de datos de inquilino, la consulta elástica proporciona una visión inmediata de los datos de producción activos. Sin embargo, como la consulta elástica puede extraer los datos de muchas bases de datos, la latencia de las consultas a veces puede ser mayor que las consultas equivalentes enviadas a una sola base de datos multiinquilino. Se debe tener cuidado al diseñar las consultas para minimizar los datos que se devuelven. La consulta elástica a menudo resulta más apropiada para consultar pequeñas cantidades de datos en tiempo real, en lugar de generar informes o consultas de análisis complejos o usados con frecuencia. Si las consultas no funcionan correctamente, examine el [plan de ejecución](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) para ver qué parte de la consulta se ha transferido a la base de datos remota y cuántos datos se devuelven. Las consultas que requieren un procesamiento analítico complejo en algunos casos pueden ser mejor atendidas si se extraen los datos de inquilino en una base de datos dedicada o un almacenamiento de datos optimizado para las consultas de análisis. Este enfoque se explica en el [tutorial de análisis de inquilino](sql-database-saas-tutorial-tenant-analytics.md). 
+Mediante la distribución de las consultas en las bases de datos de inquilino, la consulta elástica proporciona una visión inmediata de los datos de producción activos. Sin embargo, como la consulta elástica puede extraer los datos de muchas bases de datos, la latencia de las consultas a veces puede ser mayor que las consultas equivalentes enviadas a una sola base de datos multiinquilino. Asegúrese de diseñar las consultas para minimizar los datos que se devuelven. La consulta elástica a menudo resulta más apropiada para consultar pequeñas cantidades de datos en tiempo real, en lugar de generar informes o consultas de análisis complejos o usados con frecuencia. Si las consultas no funcionan correctamente, examine el [plan de ejecución](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) para ver qué parte de la consulta se ha transferido a la base de datos remota y cuántos datos se devuelven. Las consultas que requieren un procesamiento analítico complejo en algunos casos pueden ser mejor atendidas si se extraen los datos de inquilino en una base de datos dedicada o un almacenamiento de datos optimizado para las consultas de análisis. Este enfoque se explica en el [tutorial de análisis de inquilino](sql-database-saas-tutorial-tenant-analytics.md). 
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtener scripts de la aplicación Wingtip
 
@@ -64,13 +63,13 @@ Para ejecutar consultas en un conjunto de datos más interesante, ejecute el gen
 
 1. En *PowerShell ISE*, abra el script ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* y establezca los valores siguientes:
    * **$DemoScenario** = 1, **Purchase tickets for events at all venues** (comprar entradas para eventos de todas las ubicaciones).
-2. Presione **F5** para ejecutar el script y generar datos de ventas de entradas. Mientras se ejecuta el script, siga con los pasos de este tutorial. Los datos de entradas se consultan en la sección *Ejecución de consultas distribuidas ad hoc*, de modo que espere a que el generador de entradas finalice, si aún se está ejecutando cuando llegue a ese ejercicio.
+2. Presione **F5** para ejecutar el script y generar datos de ventas de entradas. Mientras se ejecuta el script, siga con los pasos de este tutorial. Los datos de entradas se consultan en la sección *Ejecución de consultas distribuidas ad hoc*, de modo que espere a que el generador de entradas finalice.
 
 ## <a name="explore-the-global-views"></a>Exploración de las vistas globales
 
 La aplicación SaaS de Wingtip se compila siguiendo un modelo de inquilino por cada base de datos, por lo que el esquema de base de datos de inquilino se define desde la perspectiva del inquilino único. Existe información específica del inquilino en una tabla, *Venue*, que siempre tiene una sola fila y, además, se ha diseñado como montón, sin clave principal. No es necesario que otras tablas del esquema estén relacionadas con la tabla *Venue*, ya que, en el uso normal, no hay nunca duda de a qué inquilino pertenecen los datos.
 
-Sin embargo, al consultar en todas las bases de datos, es importante que la consulta elástica pueda tratar los datos como si formaran parte de una sola base de datos lógica compartida por el inquilino. Para ello, se agrega un conjunto de vistas 'globales' a la base de datos de inquilino que proyectan un identificador de inquilino en cada una de las tablas que se consultan globalmente. Por ejemplo, la vista *VenueEvents* agrega un identificador *VenueId* calculado a las columnas que se proyectan desde la tabla *Events*. Al definir la tabla externa en la base de datos principal con la tabla *VenueEvents* (en lugar de con la tabla subyacente *Events*), la consulta elástica puede transferir las combinaciones basadas en el identificador *VenueId* de modo que se pueden ejecutar en paralelo en cada base de datos remota (en lugar de en la base de datos principal). Así se reduce considerablemente la cantidad de datos que se devuelven, lo que da como resultado un aumento sustancial del rendimiento para muchas consultas. Estas vistas globales se han creado previamente en todas las bases de datos de inquilino (y en *basetenantdb*).
+Sin embargo, al consultar en todas las bases de datos, es importante que la consulta elástica pueda tratar los datos como si formaran parte de una sola base de datos lógica compartida por el inquilino. Para simular este patrón, se agrega un conjunto de vistas 'globales' a la base de datos de inquilino que proyectan un identificador de inquilino en cada una de las tablas que se consultan globalmente. Por ejemplo, la vista *VenueEvents* agrega un identificador *VenueId* calculado a las columnas que se proyectan desde la tabla *Events*. Al definir la tabla externa en la base de datos principal con la tabla *VenueEvents* (en lugar de con la tabla subyacente *Events*), la consulta elástica puede transferir las combinaciones basadas en el identificador *VenueId* de modo que se pueden ejecutar en paralelo en cada base de datos remota (en lugar de en la base de datos principal). Así se reduce considerablemente la cantidad de datos que se devuelven, lo que da como resultado un aumento sustancial del rendimiento para muchas consultas. Estas vistas globales se han creado previamente en todas las bases de datos de inquilino (y en *basetenantdb*).
 
 1. Abra SSMS y [conéctese al servidor tenants1-&lt;USUARIO&gt;](sql-database-wtp-overview.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Expanda **Bases de datos**, haga clic con el botón derecho en **contosoconcerthall** y seleccione **Nueva consulta**.
@@ -118,7 +117,7 @@ En la siguiente sección, se agrega el esquema a la base de datos de modo que se
 
 En este ejercicio se agrega el esquema (el origen de datos externo y las definiciones de tabla externas) a la base de datos de análisis ad hoc que permite realizar consultas en todas las bases de datos de inquilino.
 
-1. Abra SQL Server Management Studio y conéctese a la base de datos de análisis ad hoc que creó en el paso anterior. El nombre de la base de datos será adhocanalytics.
+1. Abra SQL Server Management Studio y conéctese a la base de datos de análisis ad hoc que creó en el paso anterior. El nombre de la base de datos será *adhocanalytics*.
 2. Abra ...\Learning Modules\Operational Analytics\Adhoc Analytics\ *Initialize-AdhocAnalyticsDB.sql* en SSMS.
 3. Revise el script SQL y tenga en cuenta lo siguiente:
 

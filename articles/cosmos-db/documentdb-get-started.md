@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 72f66081a6409f980ec6bca5188f585489245a36
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: e5e6a2e5b7ec4bc9c3c81ff37640c98cae36392d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB: tutorial de introducción a las API de DocumentDB
@@ -33,7 +33,7 @@ ms.lasthandoff: 08/17/2017
 >  
 > 
 
-Le damos la bienvenida al tutorial de introducción a las API de Azure Cosmos DB. Después de seguir este tutorial, tendrá una aplicación de consola que crea recursos de Azure Cosmos DB y los consulta.
+Le damos la bienvenida al tutorial de introducción a las API de DocumentDB. Después de seguir este tutorial, tendrá una aplicación de consola que crea recursos de Azure Cosmos DB y los consulta.
 
 Describiremos:
 
@@ -57,8 +57,10 @@ Comencemos.
 Asegúrese de que dispone de lo siguiente:
 
 * Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/). 
-    * Como alternativa, en este tutorial puede usar el [Emulador de Azure Cosmos DB](local-emulator.md).
-* [Visual Studio Community 2017](http://www.visualstudio.com/).
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)].
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Paso 1: Creación de una cuenta de Azure Cosmos DB
 Vamos a crear una cuenta de Azure Cosmos DB. Si ya tiene una cuenta que desea usar, puede ir directamente a [Configuración de la solución de Visual Studio](#SetupVS). Si usa el Emulador de Azure Cosmos DB, siga los pasos que se indican en [Emulador de Azure Cosmos DB](local-emulator.md) para configurar el emulador y vaya directamente a [Configuración de la solución de Visual Studio](#SetupVS).
@@ -115,7 +117,7 @@ En Azure Portal, vaya a la cuenta de Azure Cosmos DB y haga clic en **Claves**.
 
 Copie el URI desde el Portal y péguelo en `<your endpoint URL>` en el archivo program.cs. Después, copie la CLAVE PRINCIPAL del Portal y péguela en `<your primary key>`.
 
-![Captura de pantalla de Azure Portal usada por el tutorial de NoSQL para crear una aplicación de consola de C#. Muestra una cuenta de Azure Cosmos DB, con el centro ACTIVO resaltado, el botón CLAVES resaltado en la hoja de la cuenta de Azure Cosmos DB y los valores de URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][keys]
+![Captura de pantalla de Azure Portal, usado por el tutorial de NoSQL para crear una aplicación de consola de C#. Muestra una cuenta de Azure Cosmos DB, con el centro ACTIVO resaltado, el botón CLAVES resaltado en la hoja de la cuenta de Azure Cosmos DB y los valores de URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][keys]
 
 A continuación, se iniciará la aplicación, para lo que crearemos una nueva instancia de **DocumentClient**.
 
@@ -426,7 +428,7 @@ El siguiente diagrama muestra la denominación de la sintaxis de la consulta SQL
 
 ![Diagrama que ilustra el ámbito y el significado de la consulta usada por el tutorial de NoSQL para crear una aplicación de consola de C#.](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
-La palabra clave [FROM](documentdb-sql-query.md#FromClause) es opcional en la consulta porque las consultas de Azure Cosmos DB ya tienen como ámbito una única colección. Por lo tanto, «FROM Families f" se puede intercambiar por "FROM root r", o cualquier otra variable de nombre que elija. Azure Cosmos DB deducirá la familia, la raíz o el nombre de variable elegido y hará referencia a la colección actual de forma predeterminada.
+La palabra clave [FROM](documentdb-sql-query.md#FromClause) es opcional en la consulta porque las consultas de Azure Cosmos DB ya tienen como ámbito una única colección. Por lo tanto, «FROM Families f" se puede intercambiar por  "FROM root r", o cualquier otra variable de nombre que elija. Azure Cosmos DB deducirá la familia, la raíz o el nombre de variable elegido y hará referencia a la colección actual de forma predeterminada.
 
 ## <a id="ReplaceDocument"></a>Paso 8: Reemplazar un documento JSON
 Azure Cosmos DB admite la sustitución de documentos JSON.  

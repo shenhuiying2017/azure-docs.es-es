@@ -1,6 +1,6 @@
 ---
 title: "Solución del error de Azure Backup: no está disponible el estado del agente invitado | Documentos de Microsoft"
-description: "Síntomas, causas y soluciones de otros errores de Azure Backup relacionados con el error: no es posible establecer comunicación con el agente de máquina virtual"
+description: "Síntomas, causas y soluciones de otros errores de Azure Backup relacionados con el agente, la extensión y los discos"
 services: backup
 documentationcenter: 
 author: genlin
@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/08/2017
 ms.author: genli;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 6ed651bb8caafd18cec93e68ac70e27f92133e5c
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: d2dda47bb3ba5a397ad9626ca4705214dd2560f8
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -67,6 +67,10 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [El agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)
+
+## <a name="the-specified-disk-configuration-is-not-supported"></a>No se admite la configuración de disco especificada
+
+Azure Backup no admite actualmente los tamaños de disco superiores a 1023 GB. Asegúrese de que los tamaños de disco sean inferiores al límite dividiendo los discos. Para dividirlos, debe copiar los datos de los discos superiores a 1023 GB en los discos recién creados de tamaño inferior a 1023 GB.
 
 
 ## <a name="causes-and-solutions"></a>Causas y soluciones
@@ -134,7 +138,7 @@ La mayoría de los errores relacionados con el agente o la extensión de máquin
 Si se requiere el registro detallado para waagent, siga estos pasos:
 
 1. En el archivo /etc/waagent.conf, localice la línea siguiente: **Enable verbose logging (y|n)** (Habilitar registro detallado [s/n]).
-2. Cambie el valor de **Logs.Verbose** de *n* a  *y* .
+2. Cambie el valor de **Logs.Verbose** de *n* a * y *.
 3. Guarde los cambios y reinicie waagent siguiendo los pasos anteriores de esta sección.
 
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas
@@ -165,7 +169,7 @@ Si todavía no se puede actualizar ni cargar la extensión de copia de seguridad
 
 Para desinstalar la extensión, haga lo siguiente:
 
-1. Vaya a [Azure Portal](https://portal.azure.com/).
+1. Vaya al [Portal de Azure](https://portal.azure.com/).
 2. Busque la máquina virtual que tiene problemas de copia de seguridad.
 3. Haga clic en **Configuración**.
 4. Haga clic en **Extensiones**.

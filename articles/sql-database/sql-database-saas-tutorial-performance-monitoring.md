@@ -1,7 +1,7 @@
 ---
 title: "Supervisión del rendimiento de muchas bases de datos SQL de Azure en una aplicación SaaS multiinquilino | Microsoft Docs"
-description: "Supervisión y administración de bases de datos y grupos en la aplicación SaaS de Wingtip de Azure SQL Database"
-keywords: tutorial de base de datos sql
+description: "Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino"
+keywords: tutorial de SQL Database
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 42f727aa40e744916b1a8adf634c10d55880bef0
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 115aa01ee6e3bd539086d80df1dcd94b3b7e2723
 ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="monitor-performance-of-the-wingtip-saas-application"></a>Supervisión del rendimiento de la aplicación SaaS de Wingtip
+# <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
 
 En este tutorial se describen varios escenarios clave de administración de rendimiento que se usan en aplicaciones de SaaS. Mediante un generador de carga para simular la actividad en todas las bases de datos de inquilino, se demuestran las características integradas de supervisión y alertas de SQL Database y los grupos elásticos.
 

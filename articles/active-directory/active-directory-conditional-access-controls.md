@@ -1,0 +1,113 @@
+---
+title: Controles de acceso condicional de Azure Active Directory | Microsoft Docs
+description: "Aprenda cómo funcionan los controles en el acceso condicional de Azure Active Directory."
+services: active-directory
+keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
+documentationcenter: 
+author: MarkusVi
+manager: femila
+editor: 
+ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/07/2017
+ms.author: markvi
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 0f7d847c98e790c542f3a3e666b9a887099a6cbc
+ms.contentlocale: es-es
+ms.lasthandoff: 09/13/2017
+
+---
+
+# <a name="controls-in-azure-active-directory-conditional-access"></a>Controles en el acceso condicional de Azure Active Directory 
+
+Con el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), puede controlar el modo en que los usuarios autorizados acceden a las aplicaciones en la nube. En una directiva de acceso condicional, se define la respuesta ("hacer esto") a una condición específica ("cuando esto sucede"). En el contexto del acceso condicional, 
+
+- "**Cuando esto sucede**" se denomina **declaración de condición**
+- "**Entonces haga esto**" se denomina **controles**.
+
+![Control](./media/active-directory-conditional-access-controls/11.png)
+
+La combinación de una declaración de condición con los controles representa una directiva de acceso condicional.
+
+![Control](./media/active-directory-conditional-access-controls/12.png)
+
+Cada control es un requisito que la persona o el sistema que inicia sesión deben cumplir, o una restricción en lo que el usuario puede hacer tras iniciar sesión. 
+
+Existen dos tipos de controles: 
+
+- **Controles de concesión**: para obtener acceso
+
+- **Controles de sesión**: para restringir el acceso dentro de una sesión
+
+En este tema se explican los distintos controles disponibles en el acceso condicional de Azure AD. 
+
+## <a name="grant-controls"></a>Controles de concesión
+
+Con los controles de concesión, puede bloquear el acceso por completo o permitirlo con requisitos adicionales seleccionando los controles que desee. Con varios controles, puede requerir:
+
+- Que todos los controles se cumplan (*Y*) 
+- Que un control seleccionado se cumpla (*O*)
+
+![Control](./media/active-directory-conditional-access-controls/51.png)
+
+
+
+### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+
+Puede utilizar este control para requerir la autenticación multifactor para tener acceso a la aplicación en la nube especificada. Este control es compatible con los siguientes proveedores multifactor: 
+
+- Azure Multi-Factor Authentication 
+
+- Un proveedor de autenticación multifactor de terceros, en combinación con Servicios de federación de Active Directory (AD FS).
+ 
+La autenticación multifactor ayuda a proteger los recursos del acceso por parte de un usuario no autorizado que podría haber conseguido las credenciales principales de un usuario válido.
+
+
+
+### <a name="compliant-device"></a>Dispositivos compatible
+
+Puede configurar directivas de acceso condicional basadas en dispositivos. El objetivo de una directiva de acceso condicional basado en el dispositivo es conceder acceso a los recursos configurados solo desde dispositivos de confianza. Requerir un dispositivo compatible es una opción para definir qué es un dispositivo de confianza. Para más información, consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+
+### <a name="domain-joined-device"></a>Dispositivo unido al dominio
+
+Requerir un dispositivo unido a un dominio es otra opción para configurar directivas de acceso condicional basadas en dispositivos. Este requisito hace referencia a equipos de escritorio, equipos portátiles y tabletas de empresa con Windows que están unidos a una instancia local de Active Directory. Para más información, consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+
+
+
+
+
+### <a name="approved-client-app"></a>Aplicaciones cliente aprobadas
+
+Dado que los empleados emplean dispositivos móviles tanto para las tareas de trabajo como para uso personal, debe tener la capacidad de proteger los datos de la empresa a los que se accede con dispositivos, incluso en el caso en el que no estén administrados por el usuario.
+Puede usar [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy) para ayudar a proteger los datos de su compañía independientes de cualquier solución de administración de dispositivos móviles (MDM).
+
+
+Con las aplicaciones cliente aprobadas, puede requerir que una aplicación cliente que intente obtener acceso a las aplicaciones en la nube admita [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy). Por ejemplo, puede restringir el acceso a Exchange Online para la aplicación Outlook. Una directiva de acceso condicional que requiere aplicaciones cliente aprobadas se conoce también como [directiva de acceso condicional basado en aplicaciones](active-directory-conditional-access-mam.md). Para una lista de las aplicaciones cliente admitidas, consulte el [requisito de las aplicaciones cliente aprobadas](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+
+
+
+## <a name="session-controls"></a>Controles de sesión
+
+Los controles de sesión permiten limitar la experiencia desde una aplicación en la nube. Los controles de sesión son aplicados por aplicaciones en la nube y se basan en información adicional sobre la sesión proporcionada por Azure AD a la aplicación.
+
+![Control](./media/active-directory-conditional-access-controls/31.png)
+
+### <a name="use-app-enforced-restrictions"></a>Usar restricciones que exige la aplicación
+
+Puede usar este control para requerir que Azure AD transmita la información del dispositivo a la aplicación en la nube. Esto ayuda a la aplicación en la nube a saber si el usuario procede de un dispositivo compatible o un dispositivo unido al dominio. Actualmente este control solo se admite con SharePoint como aplicación en la nube. SharePoint usa la información del dispositivo para proporcionar a los usuarios una experiencia completa o limitada según el estado del dispositivo.
+Para más información sobre cómo requerir el acceso limitado con SharePoint consulte [Controlar el acceso desde dispositivos no administrados](https://aka.ms/spolimitedaccessdocs).
+
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
+
+- Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+

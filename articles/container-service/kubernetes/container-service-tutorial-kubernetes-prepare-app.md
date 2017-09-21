@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: f02ee61ef1cd3b3dfaa051cfabe52866e3e7e838
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 2c7c8e241010e86bf9ffe5b70921da71b8ace9da
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -56,16 +56,22 @@ Use git para descargar una copia de la aplicación en su entorno de desarrollo.
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-En el directorio clonado se encuentra el código fuente de la aplicación, un archivo de Docker Compose creado previamente y un archivo de manifiesto de Kubernetes. Estos archivos se utilizan para crear recursos en el conjunto del tutorial. 
+Cambie los directorios para trabajar desde el directorio clonado.
+
+```
+cd azure-voting-app-redis
+```
+
+En el directorio se encuentra el código fuente de la aplicación, un archivo de Docker Compose creado previamente y un archivo de manifiesto de Kubernetes. Estos archivos se usan en todo el conjunto del tutorial. 
 
 ## <a name="create-container-images"></a>Creación de imágenes de contenedor
 
 [Docker Compose](https://docs.docker.com/compose/) puede utilizarse para automatizar la creación de imágenes de contenedor y la implementación de aplicaciones con varios contenedores.
 
-Ejecute el archivo docker-compose.yml para crear la imagen de contenedor, descargue la imagen de Redis e inicie la aplicación.
+Ejecute el archivo `docker-compose.yml` para crear la imagen de contenedor, descargue la imagen de Redis e inicie la aplicación.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
+docker-compose up -d
 ```
 
 Cuando haya finalizado, use el comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) para ver las imágenes creadas.
@@ -74,7 +80,7 @@ Cuando haya finalizado, use el comando [docker images](https://docs.docker.com/e
 docker images
 ```
 
-Tenga en cuenta que se han descargado o creado tres imágenes. La imagen *azure-vote-front* contiene la aplicación. Derivó de la imagen *nginx-flask*. La imagen de Redis se descargó de Docker Hub.
+Tenga en cuenta que se han descargado o creado tres imágenes. La imagen `azure-vote-front` contiene la aplicación y usa la imagen `nginx-flask` como base. La imagen `redis` se usa para iniciar una instancia de Redis.
 
 ```bash
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -105,18 +111,18 @@ Vaya a http://localhost:8080 para ver la aplicación en ejecución.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Ahora que la funcionalidad de la aplicación se ha validado, los contenedores en ejecución se pueden detener y eliminar. No elimine las imágenes del contenedor. La imagen *azure-vote-front* se carga en una instancia de Azure Container Registry en el siguiente tutorial.
+Ahora que la funcionalidad de la aplicación se ha validado, los contenedores en ejecución se pueden detener y eliminar. No elimine las imágenes del contenedor. La imagen `azure-vote-front` se carga en una instancia de Azure Container Registry en el siguiente tutorial.
 
 Ejecute el siguiente comando para detener los contenedores en ejecución.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
+docker-compose stop
 ```
 
-Elimine los contenedores detenidos con el siguiente comando.
+Elimine los recursos y contenedores detenidos con el siguiente comando.
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
+docker-compose down
 ```
 
 Al finalizar, tendrá una imagen de contenedor que contiene la aplicación Azure Vote.
@@ -134,3 +140,4 @@ Pase al siguiente tutorial para aprender a almacenar imágenes de contenedor en 
 
 > [!div class="nextstepaction"]
 > [Insertar imágenes en Azure Container Registry](./container-service-tutorial-kubernetes-prepare-acr.md)
+

@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 09/07/2017
 ms.author: juanpere
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
-ms.openlocfilehash: 30a707ec15d592c8a10905e13a75ea2f6e52cccc
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6879f51527802591d45ee56aa47ab304623a4323
 ms.contentlocale: es-es
-ms.lasthandoff: 02/06/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Use la administración de dispositivos para iniciar una actualización de firmware del dispositivo (Node/Node)
@@ -41,7 +40,7 @@ Al final de este tutorial tendrá dos aplicaciones de consola de Node.js:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Node.js versión 0.12.x o posteriores. <br/>  En [Preparación del entorno de desarrollo][lnk-dev-setup] se describe cómo instalar Node.js para este tutorial en Windows o Linux.
+* Node.js versión 4.0.x o posterior. <br/>  En [Preparación del entorno de desarrollo][lnk-dev-setup] se describe cómo instalar Node.js para este tutorial en Windows o Linux.
 * Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 
 Siga los pasos del artículo de [introducción a la administración de dispositivos](iot-hub-node-node-device-management-get-started.md) para crear su instancia de IoT Hub y obtener la cadena de conexión de IoT Hub.
@@ -58,7 +57,7 @@ En esta sección, creará una aplicación de consola de Node.js que inicia una a
     ```
     npm init
     ```
-2. En el símbolo del sistema, en la carpeta **triggerfwupdateondevice**, ejecute el siguiente comando para instalar los paquetes del SDK de dispositivo **azure-iothub** y **azure-iot-device-mqtt**:
+2. En el símbolo del sistema, en la carpeta **triggerfwupdateondevice**, ejecute el siguiente comando para instalar el paquete **azure-iot-hub**:
    
     ```
     npm install azure-iothub --save

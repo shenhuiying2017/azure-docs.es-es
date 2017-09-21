@@ -1,25 +1,10 @@
----
-title: "Envío contexto de usuario para habilitar las experiencias de uso en Azure Application Insights | Microsoft Docs"
-description: "Realice un seguimiento de cómo los usuarios navegan por el servicio mediante la asignación a cada uno de ellos de una cadena de identificador única y persistente en Application Insights."
-services: application-insights
-documentationcenter: 
-author: abgreg
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.devlang: csharp
-ms.topic: article
-ms.date: 08/02/2017
-ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 7d0da5fb0b2c59764b36becd826d8c4cc6efc4ad
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+title: Enviar identificadores contextuales de usuario para habilitar las experiencias de uso en Azure Application Insights | Microsoft Docs description: Realice un seguimiento de cómo los usuarios se desplazan por su servicio asignando a cada uno de ellos una cadena de identificador única y persistente en Application Insights.
+services: application-insights documentationcenter: '' author: abgreg manager: carmonm
+
+ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: csharp ms.topic: article ms.date: 08/02/2017 ms.author: bwren
 
 ---
-#  <a name="sending-user-context-to-enable-usage-experiences-in-azure-application-insights"></a>Envío contexto de usuario para habilitar las experiencias de uso en Azure Application Insights
+#  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar identificadores contextuales de usuario para habilitar las experiencias de uso en Azure Application Insights
 
 ## <a name="tracking-users"></a>Seguimiento de usuarios
 
@@ -30,7 +15,7 @@ Application Insights le permite supervisar y realizar un seguimiento de los usua
 * Cohortes
 * [Libros](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
-Para realizar un seguimiento de lo que hace un usuario a lo largo del tiempo, Application Insights necesita un identificador para cada usuario o sesión. Incluya estos identificadores en cada evento personalizado o vista de página.
+Para realizar un seguimiento de lo que hace un usuario a lo largo del tiempo, Application Insights necesita un identificador para cada usuario o sesión. Incluya los siguientes identificadores en cada evento personalizado o vista de página.
 - Usuarios, embudos, retención y cohortes: incluya el identificador de usuario.
 - Sesiones: incluya el identificador de sesión.
 
@@ -47,13 +32,11 @@ El identificador debe ser un GUID u otra cadena lo suficientemente compleja como
 
 Si el identificador contiene información de identificación personal sobre el usuario, no es un valor adecuado para enviarlo a Application Insights como identificador de usuario. Puede enviar un identificador de ese tipo como [identificador de usuario autenticado](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), pero no cumplirá el requisito de identificador de usuario para los escenarios de uso.
 
-## <a name="aspnet-apps-set-user-context-in-an-itelemetryinitializer"></a>Aplicaciones ASP.NET: Establecimiento del contexto de usuario en un inicializador de telemetría
+## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>Aplicaciones ASP.NET: Establecer el contexto de usuario en un inicializador de telemetría
 
 Cree un inicializador de telemetría, tal y como se describe detalladamente [aquí](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) y establezca el Context.User.Id y el Context.Session.Id.
 
 Este ejemplo establece el identificador de usuario en un identificador que expira después de la sesión. Si es posible, use un identificador de usuario que se conserve entre sesiones.
-
-*C#*
 
 ```C#
 
@@ -98,4 +81,3 @@ Este ejemplo establece el identificador de usuario en un identificador que expir
     * [Embudos](usage-funnels.md)
     * [Retención](app-insights-usage-retention.md)
     * [Libros](app-insights-usage-workbooks.md)
-

@@ -12,12 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/10/2017
+ms.date: 09/07/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
-ms.lasthandoff: 04/11/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: bf4d3a517e1308a142d21cffff64f3c6e104eb62
+ms.contentlocale: es-es
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -48,7 +49,7 @@ También, cuando los blobs contienen una **matriz de objetos JSON**, se recomien
 puede rellenar el índice de Azure Search con tres documentos independientes, cada uno de ellos con los campos "id" y "text".
 
 > [!IMPORTANT]
-> Actualmente, la versión de la funcionalidad de análisis de matrices de JSON está en versión preliminar. Está disponible solo en la API de REST con la versión **2015-02-28-Preview**. Recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluaciones, y no deben usarse en entornos de producción.
+> Actualmente, la versión de la funcionalidad de análisis de matrices de JSON está en versión preliminar. Está disponible solo en la API de REST con la versión **2016-09-01-Preview**. Recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluaciones, y no deben usarse en entornos de producción.
 >
 >
 

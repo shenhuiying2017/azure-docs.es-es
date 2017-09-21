@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
-ms.openlocfilehash: 6e66eb076ac7220823a848b5047f147d4101cd55
-
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 51dce1680be5f5f4387c2ba02827195bcdbe9b48
+ms.contentlocale: es-es
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertas en tiempo real en la red CDN de Microsoft Azure
@@ -32,12 +33,12 @@ En este documento se explican las alertas en tiempo real en la red CDN de Micros
 * Conexiones
 
 ## <a name="creating-a-real-time-alert"></a>Creación de una alerta en tiempo real
-1. En el [Portal de Azure](https://portal.azure.com), vaya a su perfil de la red CDN.
+1. En [Azure Portal](https://portal.azure.com), vaya a su perfil de la red CDN.
    
-    ![Hoja del perfil de red CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)
-2. En la hoja de perfil de CDN, haga clic en el botón **Administrar** .
+    ![Perfil de CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)
+1. En la hoja de perfil de CDN, haga clic en el botón **Administrar** .
    
-    ![Botón de administración de hoja de perfil de red CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)
+    ![Botón de administración de perfil de la red CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)
    
     Se abre el portal de administración de CDN.
 3. Mantenga el mouse sobre la pestaña **Análisis** y, después, sobre el control flotante **Estadísticas en tiempo real**.  Haga clic en **Real-Time Alerts**(Alertas en tiempo real).
@@ -68,17 +69,17 @@ En este documento se explican las alertas en tiempo real en la red CDN de Micros
    * **Operator** (Operador) es el operador matemático que establece la relación entre la métrica y el valor del desencadenador.
    * **Trigger Value** (Valor de desencadenador) es el valor de umbral que debe cumplirse para enviarse una notificación.
      
-     En el ejemplo siguiente, la expresión creada indica el deseo de recibir notificación cuando el número de códigos de estado 404 es superior a 25.
+     En el ejemplo siguiente, la expresión creada indica que se envía una notificación cuando el número de códigos de estado 404 es mayor que 25.
      
      ![Expresión de ejemplo de alerta en tiempo real](./media/cdn-real-time-alerts/cdn-expression.png)
 9. En **Interval**(Intervalo), especifique la frecuencia con que desea que se evalúe la expresión.
 10. En la lista desplegable **Notify on** (Notificar el), seleccione si desea recibir una notificación cuando la expresión sea verdadera.
     
-    * **Condition Start** (Inicio de condición) indica que se enviará una notificación la primera vez que se detecte la condición especificada.
-    * **Condition End** (Fin de condición) indica que se enviará una notificación cuando la condición especificada deje de detectarse. Esta notificación solo se puede desencadenar después de que nuestro sistema de supervisión de red detecta que se ha producido el problema especificado.
-    * **Continuous** (Continuo) indica que se enviará una notificación cada vez que el sistema de supervisión de red detecte el problema especificado. Tenga en cuenta que el sistema de supervisión de red solo comprobará una vez por intervalo si existe el problema especificado.
-    * **Condition Start and End** (Inicio y fin de condición) indica que se enviará una notificación la primera vez que se detecte el problema especificado y se volverá a enviar cuando deje de detectarse.
-11. Si desea recibir notificaciones por correo electrónico, active la casilla **Notify by Email** (Notificar por correo electrónico).  
+    * **Condition Start** (Inicio de condición) indica que se envía una notificación la primera vez que se detecte la condición especificada.
+    * **Condition End** (Fin de condición) indica que se envía una notificación cuando la condición especificada deje de detectarse. Esta notificación solo se puede desencadenar después de que nuestro sistema de supervisión de red detecta que se ha producido el problema especificado.
+    * **Continuous** (Continuo) indica que se envía una notificación cada vez que el sistema de supervisión de red detecte el problema especificado. Tenga en cuenta que el sistema de supervisión de red solo comprueba una vez por intervalo si existe el problema especificado.
+    * **Condition Start and End** (Inicio y fin de condición) indica que se envía una notificación la primera vez que se detecte el problema especificado y se volverá a enviar cuando deje de detectarse.
+1. Si desea recibir notificaciones por correo electrónico, active la casilla **Notify by Email** (Notificar por correo electrónico).  
     
     ![Formulario de notificación por correo electrónico](./media/cdn-real-time-alerts/cdn-notify-email.png)
     
@@ -110,10 +111,5 @@ En este documento se explican las alertas en tiempo real en la red CDN de Micros
 * Análisis de [estadísticas en tiempo real en la CDN de Microsoft Azure](cdn-real-time-stats.md)
 * Mayor profundización con [Informes de HTTP avanzados en la red CDN de Microsoft Azure](cdn-advanced-http-reports.md)
 * Analizar [patrones de uso](cdn-analyze-usage-patterns.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

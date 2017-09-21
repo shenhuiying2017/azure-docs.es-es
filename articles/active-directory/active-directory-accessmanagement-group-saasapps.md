@@ -12,38 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/12/2017
 ms.author: curtand
 ms.reviewer: piotrci
-ms.custom: it-pro;oldportal
+ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: d350011ee9fc5ced9ddb16993f68d3c840a645a5
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 818f4b515926c35078b3118978f3accbf3bbb65b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Uso de un grupo para administrar el acceso a las aplicaciones SaaS
-Con Azure Active Directory (Azure AD) y una licencia de Azure AD Premium o Azure AD Basic, puede usar grupos para asignar el acceso a una aplicación SaaS integrada con Azure AD. Por ejemplo, si desea asignar acceso al departamento de marketing para utilizar cinco aplicaciones SaaS diferentes, puede crear un grupo que contenga a los usuarios del departamento de marketing y, a continuación, asignar ese grupo a las cinco aplicaciones SaaS requeridas por el departamento de marketing. De este modo, ahorrará tiempo administrando la pertenencia a grupos del departamento de marketing en un solo lugar. A continuación, los usuarios se asignan a la aplicación cuando se agregan como miembros del grupo de marketing, y se eliminan sus asignaciones de la aplicación cuando se eliminan del grupo de marketing.
+Con Azure Active Directory (Azure AD) y una licencia de Azure AD Premium o Azure AD Basic, puede usar grupos para asignar el acceso a una aplicación SaaS integrada con Azure AD. Por ejemplo, si desea asignar acceso al departamento de marketing para utilizar cinco aplicaciones SaaS diferentes, puede crear un grupo que contenga a los usuarios del departamento de marketing y, a continuación, asignar ese grupo a las cinco aplicaciones SaaS requeridas por el departamento de marketing. De este modo, ahorrará tiempo administrando la pertenencia a grupos del departamento de marketing en un solo lugar. A continuación, los usuarios se asignan a la aplicación cuando se agregan como miembros del grupo de marketing, y se eliminan sus asignaciones de la aplicación cuando se eliminan del grupo de marketing. Esta función se puede utilizar con cientos de aplicaciones que puede agregar desde la Galería de aplicaciones de Azure AD.
 
 > [!IMPORTANT]
-> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure clásico al que se hace referencia en este artículo. 
+> Solo puede utilizar esta característica después de iniciar una evaluación de Azure AD Premium o de adquirir las licencias premium o básica de Azure AD.
+> No se admiten las pertenencias a grupos anidadas para la asignación basada en grupos a aplicaciones en este momento.
 
-Esta función se puede utilizar con cientos de aplicaciones que puede agregar desde la Galería de aplicaciones de Azure AD.
+**Para asignar acceso para un usuario o un grupo a una aplicación SaaS**
 
-**Para asignar acceso para un grupo a una aplicación SaaS**
-
-1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory** en la barra de navegación izquierda.
-2. Seleccione la pestaña **Directorio** y abra el directorio en el que desea asignar el acceso para un grupo a una aplicación SaaS.
-3. Seleccione la pestaña **Aplicaciones** . Seleccione una aplicación que haya agregado desde la Galería de aplicaciones y haga clic en la pestaña **Usuarios y grupos**.
-4. En la pestaña **Usuarios y grupos**, en el campo **Empezando por**, escriba el nombre del grupo al que desea asignar acceso y seleccione la marca de verificación en la esquina superior derecha. Solo necesita escribir la primera parte del nombre de un grupo.
-5. Seleccione el grupo y luego seleccione el botón **Asignar acceso** . Seleccione **Sí** cuando aparezca el mensaje de confirmación. No se admiten las pertenencias a grupos anidadas para la asignación basada en grupos a aplicaciones en este momento.
-6. También puede ver qué usuarios están asignados a la aplicación, directamente o mediante la pertenencia a un grupo. Para ello, cambie la opción **Mostrar lista desplegable de "Grupos"** a **"Todos los usuarios"**. La lista muestra los usuarios en el directorio y si cada uno de ellos está asignado o no a la aplicación. La lista también muestra si los usuarios asignados están asignados a la aplicación directamente (el tipo de asignación aparece como "Directo"), o en virtud de la pertenencia a un grupo (el tipo de asignación aparece como "Heredado").
-
-> [!NOTE]
-> Solo después de habilitar Azure AD Premium o Azure AD Basic verá la pestaña Usuarios y grupos.
->
->
+1. En el [centro de administración de Azure AD](https://aad.portal.azure.com), seleccione **Aplicaciones empresariales**.
+2. Seleccione una aplicación que haya agregado desde la Galería de aplicaciones para abrirla.
+3. Seleccione **Usuarios y grupos** y, luego, **Agregar usuario**.
+4. En **Agregar asignación**, seleccione **Usuarios y grupos** para abrir la lista de selección **Usuarios y grupos**.
+6. Seleccione todos los grupos o usuarios que desee y, a continuación, haga clic o puntee en **Seleccionar** para agregarlos a la lista **Agregar asignación**. También puede asignar un rol a un usuario en esta fase.
+7. Seleccione **Asignar** para asignar los usuarios o los grupos a la aplicación de empresa seleccionada.
 
 ### <a name="next-steps"></a>Pasos siguientes
 Estos artículos proporcionan información adicional sobre Azure Active Directory.

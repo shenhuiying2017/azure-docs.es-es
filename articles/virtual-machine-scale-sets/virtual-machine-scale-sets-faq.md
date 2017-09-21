@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 9/14/2017
 ms.author: negat
 ms.custom: na
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f320dd5d1f8c99317792f4ae9e09bc5adaf79e25
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: cc5a0ba5474827cedc5b6a42651c206d5f2540b7
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -329,7 +329,7 @@ Actualmente no se admiten archivos .cer. Para usar archivos .cer, expórtelos en
 
 
 
-## <a name="compliance"></a>Cumplimiento normativo
+## <a name="compliance-and-security"></a>Cumplimiento y seguridad
 
 ### <a name="are-virtual-machine-scale-sets-pci-compliant"></a>¿Son los conjuntos de escalado de máquinas virtuales compatibles con PCI?
 
@@ -339,9 +339,9 @@ Desde la perspectiva del cumplimiento, los conjuntos de escalado de máquinas vi
 
 Para más información, consulte el [Centro de confianza de Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-vm-scale-sets"></a>¿La [identidad de servicio administrada de Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funciona con conjuntos de escalado de máquinas virtuales?
 
-
-
+Sí. Puede ver algunas plantillas MSI de ejemplo en las plantillas de ejemplo de inicio rápido de Azure. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## <a name="extensions"></a>Extensiones
@@ -510,7 +510,7 @@ Sí. Un grupo de seguridad de red se puede aplicar directamente a un conjunto de
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>¿Cómo hago un intercambio de VIP para conjuntos de escalado de máquinas virtuales de la misma suscripción y la misma región?
 
-Si tiene dos conjuntos de escalado de máquinas virtuales con servidores front-end de Azure Load Balancer, y están en la misma suscripción y región, puede desasignar las direcciones IP públicas de cada uno de ellos y asignarlas al otro. Consulte, por ejemplo, [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Intercambio de VIP: implementación Blue-green en Azure Resource Manager). Esto implica un retraso ya que los recursos se desasignan y asignan a nivel de red. Una opción más rápida es usar Azure Application Gateway con dos grupos de back-end y una regla de enrutamiento. También puede hospedar la aplicación con [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/), que permite realizar un cambio rápido entre las ranuras de ensayo y las de producción.
+Si tiene dos conjuntos de escalado de máquinas virtuales con servidores front-end de Azure Load Balancer, y están en la misma suscripción y región, puede desasignar las direcciones IP públicas de cada uno de ellos y asignarlas al otro. Consulte, por ejemplo, [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Intercambio de VIP: implementación Blue-green en Azure Resource Manager). Esto implica un retraso ya que los recursos se desasignan y asignan a nivel de red. Una opción más rápida es usar Azure Application Gateway con dos grupos de back-end y una regla de enrutamiento. También puede hospedar la aplicación con [Azure App Service](https://azure.microsoft.com/services/app-service/), que permite realizar un cambio rápido entre las ranuras de ensayo y las de producción.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>¿Cómo especifico un intervalo de direcciones IP privadas para la asignación estática de direcciones IP privadas?
 

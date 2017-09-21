@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 5b6f016ce634fd244f1ea3b54361b9a5da9d5483
 ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 08/11/2017
 Azure Cosmos DB es la base de datos multimodelo de distribución global de Microsoft. Con tan solo un clic, Azure Cosmos DB permite escalar de forma elástica e individual el rendimiento y el almacenamiento en cualquiera de las regiones geográficas de Azure. Ofrece garantía de rendimiento, latencia, disponibilidad y coherencia con [acuerdos de nivel de servicio](https://aka.ms/acdbsla) (SLA)  integrales, algo que no ofrece ningún otro servicio de base de datos.
 
 ![Azure Cosmos DB es el servicio de base de datos de distribución global de Microsoft con escalado elástico horizontal, baja latencia garantizada, cinco modelos de coherencia y SLA integrales garantizados.](./media/introduction/azure-cosmos-db.png)
+
+También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure, de forma gratuita y sin compromiso.
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Soluciones que se benefician de Azure Cosmos DB
 

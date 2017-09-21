@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/15/2017
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: a1becaf8465f68ecac768c5c6b2dbc95e8ff7278
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 3eff97a9e7568566cd01a4eb3c7ee66806eac4cc
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -39,20 +39,20 @@ Para ver ejemplos de la CLI de Azure, consulte:
 - [Ejemplos de la CLI de Azure para Azure Database for MySQL](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste del rendimiento y escalabilidad sin tiempo de inactividad
-El servicio Azure Database for MySQL actualmente ofrece dos niveles de servicio: Básico y Estándar. Cada nivel ofrece diferentes niveles de rendimiento y funcionalidades para admitir cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes, y después cambiar de nivel de servicio para escalar en función de las necesidades de la solución sin tiempo de inactividad. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite.
+El servicio Azure Database for MySQL ofrece actualmente dos niveles de servicio: Básico y Estándar. Cada nivel ofrece diferentes niveles de rendimiento y funcionalidades para admitir cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes, y después cambiar de nivel de servicio para escalar en función de las necesidades de la solución sin tiempo de inactividad. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite.
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
-¿Cómo se sabe el momento correcto en el que debe hacer clic para detenerse al subir y bajar por el dial? Utilice las características de supervisión y alertas de rendimiento integradas, combinadas con la clasificación de rendimiento basado en las unidades de proceso. Con estas características puede evaluar rápidamente el impacto de escalar y reducir verticalmente en función de sus necesidades de rendimiento del proyecto o actuales. Consulte [Conceptos: niveles de servicio](concepts-service-tiers.md) para más información.
+¿Cómo se sabe el momento correcto en el que debe hacer clic para detenerse al subir y bajar por el dial? Utilice las características de supervisión y alertas de rendimiento integradas, combinadas con la clasificación de rendimiento basado en las unidades de proceso. Con estas características puede evaluar rápidamente el impacto de escalar y reducir verticalmente en función de sus necesidades de rendimiento previstas o actuales. Consulte [Conceptos: niveles de servicio](concepts-service-tiers.md) para más información.
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenimiento de la aplicación y el negocio en funcionamiento
 El Acuerdo de Nivel de Servicio (SLA) de Azure, con una disponibilidad del 99,99 % líder del sector y con la tecnología de una red global de centros de datos administrados por Microsoft, ayuda a mantener las aplicaciones en funcionamiento de forma ininterrumpida. Con cada servidor de Azure Database for MySQL, se saca provecho de las ventajas de la seguridad integrada, la tolerancia a errores y la protección de datos, algo que de lo contrario tendría que adquirir o diseñar, compilar y administrar. Con Azure Database for MySQL puede usar la restauración a un momento dado para recuperar un servidor a un estado anterior, con un plazo máximo de 35 días.
 
 ## <a name="secure-your-data"></a>Protección de los datos
-Los servicios de bases de datos de Azure tienen una tradición de seguridad de datos que conserva Azure Database for MySQL con características que limitan el acceso, protegen los datos en reposo y en movimiento, y le ayudan a supervisar la actividad. Para más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://www.microsoft.com/en-us/TrustCenter/Security/default.aspx).
+La tradicional seguridad de los datos de los servicios de bases de datos de Azure se mantiene en Azure Database for MySQL con características que limitan el acceso, protegen los datos en reposo y en movimiento, y le ayudan a supervisar la actividad. Para más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://www.microsoft.com/en-us/TrustCenter/Security/default.aspx).
 
 El servicio Azure Database for MySQL usa el cifrado de almacenamiento de los datos en reposo. Los datos, incluidas las copias de seguridad, se cifran en el disco (a excepción de los archivos temporales creados por el motor durante la ejecución de consultas). El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de almacenamiento de Azure y las claves están administradas por el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
 
-De forma predeterminada, el servicio Azure Database for MySQL está configurado para requerir la [seguridad de la conexión SSL](./concepts-ssl-connection-security.md) para los datos en movimiento en la red. Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.  Tiene la opción de deshabilitar el requisito de SSL para conectar el servicio de base de datos en caso de que la aplicación cliente no admita la conectividad SSL.
+De forma predeterminada, el servicio Azure Database for MySQL está configurado para requerir la [seguridad de la conexión SSL](./concepts-ssl-connection-security.md) para los datos en movimiento en la red. La exigencia de conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" dado que los datos se cifran entre el servidor y la aplicación.  Tiene la opción de deshabilitar el requisito de SSL para conectar el servicio de base de datos en caso de que la aplicación cliente no admita la conectividad SSL.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que leyó una introducción a Azure Database for MySQL y contestó a la pregunta "¿Qué es Azure Database for MySQL?", ya está listo para:

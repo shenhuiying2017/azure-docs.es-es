@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/12/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: db5966c920eb29742b2ee0fbd9386319eaaf1c77
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 29fee079bd8b2775d7b45fa37cadb73635a2eb60
 ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Adición o cambio de roles de administrador de Azure que administran la suscripción o servicios
@@ -44,7 +44,7 @@ Para agregar a alguien como administrador de una suscripción en Azure Portal, s
 Solo se puede agregar un propietario como coadministrador. No se pueden agregar otros usuarios, con roles como colaborador y lector, como coadministradores.
 
 1. Si no lo ha hecho ya, agregue a alguien como propietario siguiendo las instrucciones anteriores.
-1. **Haga clic con el botón derecho** en el usuario de propietario que acaba de agregar y seleccione **Agregar como coadministrador**. 
+2. **Haga clic con el botón derecho** en el usuario de propietario que acaba de agregar y seleccione **Agregar como coadministrador**. Si no ve la opción **Agregar como coadministrador**, actualice la página o pruebe con otro explorador de Internet. 
 
      ![Captura de pantalla donde se agrega el coadministrador](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 

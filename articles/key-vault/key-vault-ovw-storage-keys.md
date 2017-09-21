@@ -8,19 +8,19 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3148088c88236c64e089fd25c98eb8ac7cdcbfea
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: b7b8583e8923e65ff068a2bec060a27a14905485
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Claves de cuenta de almacenamiento de Azure Key Vault
 
 Antes de que existieran las claves de cuenta de almacenamiento de Azure Key Vault, los desarrolladores tenían que administrar sus propias claves de cuenta de Azure Storage (ASA) y rotarlas manualmente o mediante la automatización externa. Ahora las claves de cuenta de almacenamiento de Key Vault se implementan como [secretos de Key Vault](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) para autenticar con una cuenta de Azure Storage. 
 
-La característica de clave de ASA administra la rotación de secretos automáticamente y elimina la necesidad de tener contacto directo con una clave de ASA, ya que ofrece como método las firmas de acceso compartido (SAS). 
+La característica de clave de cuenta de almacenamiento de Azure (ASA) administra la rotación secreta de forma automática. También elimina la necesidad de tener contacto directo con una clave de ASA, ya que ofrece como método las Firmas de acceso compartido (SAS). 
 
 Para más información general sobre las cuentas de Azure Storage, vea [Acerca de las cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
@@ -29,35 +29,31 @@ Para más información general sobre las cuentas de Azure Storage, vea [Acerca d
 La característica de claves de la cuenta de Azure Storage está disponible inicialmente a través de las interfaces de REST, .NET/C# y PowerShell. Para obtener más información, vea [Documentación de Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
 
-## <a name="storage-account-keys-behavior"></a>Comportamiento de las claves de cuenta de almacenamiento
+## <a name="what-key-vault-manages"></a>¿Qué administra Key Vault?
 
-### <a name="what-key-vault-manages"></a>¿Qué administra Key Vault?
+Cuando se usan las claves de la cuenta de almacenamiento administrada, Key Vault realiza varias funciones de administración interna en su nombre.
 
-Cuando usa las claves de la cuenta de almacenamiento, Key Vault realiza varias funciones de administración interna en su nombre.
-
-1. Azure Key Vault administra las claves de una cuenta de Azure Storage (ASA). 
+- Azure Key Vault administra las claves de una cuenta de Azure Storage (ASA).
     - Internamente, Azure Key Vault puede enumerar (sincronizar) las claves con una cuenta de Azure Storage.  
     - Azure Key Vault vuelve a generar (rotar) las claves periódicamente. 
     - Los valores de clave nunca se devuelven como respuesta al autor de la llamada. 
     - Azure Key Vault administra las claves de las cuentas de almacenamiento y de las cuentas de almacenamiento clásicas. 
-2. Azure Key Vault le permite a usted, como propietario del almacén/objeto, crear definiciones de SAS (SAS de cuenta o de servicio). 
+- Azure Key Vault le permite a usted, como propietario del almacén/objeto, crear definiciones de SAS (SAS de cuenta o de servicio).
     - El valor de SAS, creado mediante la definición de SAS, se devuelve como un secreto a través de la ruta de acceso de URI de REST. Para más información, vea [Azure Key Vault storage account operations (Operaciones de cuenta de almacenamiento de Azure Key Vault)](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations).
 
-### <a name="naming-guidance"></a>Instrucciones de nomenclatura
+## <a name="naming-guidance"></a>Instrucciones de nomenclatura
 
-Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.  
- 
-Los nombres de las definiciones de SAS deben tener una longitud de entre 1 y 102 caracteres y contener solo los caracteres 0-9, a-z, A-z.
+- Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.  
+- Los nombres de las definiciones de SAS deben tener una longitud de entre 1 y 102 caracteres y contener solo los caracteres 0-9, a-z, A-z.
 
-## <a name="developer-experience"></a>Experiencia para el desarrollador 
+## <a name="developer-experience"></a>Experiencia para el desarrollador
 
 ### <a name="before-azure-key-vault-storage-keys"></a>Antes de la existencia de las claves de cuenta de almacenamiento de Azure Key Vault 
 
 Anteriormente, para obtener acceso a Azure Storage, los desarrolladores debían realizar los procedimientos siguientes con una clave de cuenta de almacenamiento. 
  
- ```
-//create storage account using connection string containing account name 
-// and the storage key 
+```powershell
+//create an Azure Storage Account using a connection string containing an account name and a storage key 
 
 var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -65,16 +61,17 @@ var blobClient = storageAccount.CreateCloudBlobClient();
  
 ### <a name="after-azure-key-vault-storage-keys"></a>A partir de la existencia de las claves de cuenta de almacenamiento de Azure Key Vault 
 
-```
-//Please make sure to set storage permissions appropriately on your key vault
+```powershell
+//Make sure to set storage permissions appropriately on your key vault
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
 
-//Use PowerShell command to get Secret URI 
+//Get secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
+
 -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
 
-//Get SAS token from Key Vault
+//Get a SAS token from Key Vault
 
 var secret = await kv.GetSecretAsync("SecretUri");
 
@@ -82,19 +79,18 @@ var secret = await kv.GetSecretAsync("SecretUri");
 
 var accountSasCredential = new StorageCredentials(secret.Value); 
 
-// Use credentials and the Blob storage endpoint to create a new Blob service client. 
+// Use the storage credentials and the Blob storage endpoint to create a new Blob service client. 
 
 var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null); 
 
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
  
-// If SAS token is about to expire then Get sasToken again from Key Vault and update it.
+// If your SAS token is about to expire, Get sasToken again from Key Vault and update it.
 
 accountSasCredential.UpdateSASToken(sasToken);
+```
 
-  ```
- 
- ### <a name="developer-best-practices"></a>Procedimientos recomendados para desarrolladores 
+ ### <a name="developer-guidance"></a>Instrucciones para desarrolladores
 
 - Permita que solo Key Vault administre las claves de ASA. No intente administrarlas usted mismo, ya que interferiría con los procesos de Key Vault. 
 - No permita que más de un objeto de Key Vault administre las claves de ASA. 
@@ -108,6 +104,10 @@ Key Vault necesita permisos para *mostrar* y *volver a generar* las claves de un
 
 - Obtenga ObjectId de Key Vault: 
 
+    `Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093`
+    
+     o
+     
     `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
 
 - Asigne el rol Operador de claves de almacenamiento a la identidad de Azure Key Vault: 
@@ -115,9 +115,105 @@ Key Vault necesita permisos para *mostrar* y *volver a generar* las claves de un
     `New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'`
 
     >[!NOTE]
-    > Para un tipo de cuenta clásica, establezca el parámetro del rol en *"Rol de servicio de operador de claves de cuentas de almacenamiento clásicas"*.
+    > En el caso de un tipo de cuenta clásica, establezca el parámetro del rol en *"Rol de servicio de operador de claves de cuentas de almacenamiento clásicas"*.
 
-### <a name="storage-account-onboarding"></a>Incorporación de cuentas de almacenamiento 
+## <a name="working-example"></a>Ejemplo práctico
+
+En el siguiente ejemplo se muestra cómo crear una cuenta de almacenamiento de Azure administrada con Key Vault y las definiciones de Firma de acceso compartido (SAS) asociadas.
+
+### <a name="assumptions"></a>Supuestos
+
+Se proporcionan las siguientes instrucciones para este ejemplo práctico.
+
+- El recurso de almacenamiento se encuentra aquí: */subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1*
+
+- El nombre del almacén de claves es: *yourtest1*
+
+### <a name="get-a-service-principal"></a>Obtener una entidad de servicio
+
+```powershell
+Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+```
+
+El resultado del comando anterior incluirá su entidad de servicio, que llamaremos *yourServicePrincipalId*. 
+
+### <a name="set-permissions"></a>Establecer permisos
+
+Asegúrese de que tiene los permisos de almacenamiento establecidos en *todo*.
+
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourServicePrincipalId -PermissionsToStorage all
+```
+
+### <a name="allow-access"></a>Permitir acceso
+
+El servicio Key Vault debe poder tener acceso a las cuentas de almacenamiento para que se pueda crear una cuenta de almacenamiento administrada y las definiciones de SAS.
+
+```powershell
+New-AzureRmRoleAssignment -ObjectId yourServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
+```
+
+### <a name="create-storage-account"></a>Crear cuenta de almacenamiento
+
+Ahora, cree una cuenta de almacenamiento administrada y dos definiciones de SAS. La cuenta SAS proporciona acceso a Blob service con permisos diferentes.
+
+```powershell
+Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -AccountResourceId /subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1 -ActiveKeyName key2 -DisableAutoRegenerateKey
+```
+
+### <a name="regeneration"></a>Regeneración
+
+Establezca el período de regeneración con los siguientes comandos.
+
+```powershell
+$regenPeriod = [System.Timespan]::FromDays(3)
+Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -AccountResourceId /subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1 -ActiveKeyName key2 -RegenerationPeriod $regenPeriod
+```
+
+### <a name="set-sas-definitions"></a>Establecer las definiciones de SAS
+
+Establezca las definiciones de SAS en Key Vault para la cuenta de almacenamiento administrada.
+
+```powershell
+Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourtest1  -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
+Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service,Object -VaultName yourtest1  -AccountName msak01 -Name blobsas2 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List,Write
+```
+
+### <a name="get-token"></a>Obtener el token
+
+Obtenga los tokens de SAS correspondientes y realice llamadas al almacenamiento.
+
+```powershell
+$sasToken1 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-blobsas1).SecretValueText
+$sasToken2 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-blobsas2).SecretValueText
+```
+
+### <a name="create-storage"></a>Crear el almacenamiento
+
+Observe que, al intentar obtener acceso con *$sastoken1*, se produce un error, pero sí que se puede obtener acceso con *$sastoken2*. 
+
+```powershell
+$context1 = New-AzureStorageContext -SasToken $sasToken1 -StorageAccountName yourtest1
+$context2 = New-AzureStorageContext -SasToken $sasToken2 -StorageAccountName yourtest1
+Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt"  -Context $context1
+Set-AzureStorageBlobContent -Container cont1-file "file.txt"  -Context $context2
+```
+
+### <a name="example-summary"></a>Resumen del ejemplo
+
+Se puede obtener acceso al contenido del blob de almacenamiento con el token de SAS que tiene acceso de escritura.
+
+### <a name="relevant-powershell-cmdlets"></a>Cmdlets de PowerShell relevantes
+
+- [Get-AzureKeyVaultManagedStorageAccount ](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
+- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount?view=azurermps-4.3.1)
+- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
+- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey?view=azurermps-4.3.1)
+- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
+- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
+- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
+
+## <a name="storage-account-onboarding"></a>Incorporación de cuentas de almacenamiento 
 
 Ejemplo: como propietario de un objeto de Key Vault, agregue un objeto de cuenta de almacenamiento a Azure Key Vault para incorporar una cuenta de almacenamiento.
 

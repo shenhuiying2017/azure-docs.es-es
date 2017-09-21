@@ -13,19 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 09/13/2017
 ms.author: cjiang
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: ff1cc44c01061aa924917e082d582bdebfb40c21
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b7b3e4539110f68e1e6ef4a75110924a27b40c49
 ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="associate-an-office-365-tenant-to-an-azure-subscription"></a>Asociación de un inquilino de Office 365 a una suscripción de Azure
-Vincule las suscripciones independientes de Azure y Office 365 para poder acceder al inquilino de Office 365 desde su suscripción de Azure. Para vincular sus suscripciones, inicie sesión en Azure con la cuenta de administrador de servicio de Azure, agregue un directorio y agregue las cuentas de organización de Office 365 al inquilino de Azure Active Directory.
+# <a name="link-an-office-365-tenant-to-an-azure-subscription"></a>Vinculación de un inquilino de Office 365 a una suscripción de Azure
+Vincule las suscripciones independientes de Azure y Office 365 para poder acceder al inquilino de Office 365 desde su suscripción de Azure. Para vincular sus suscripciones, inicie sesión en Azure con la cuenta de administrador de servicio de Azure, agregue un directorio y agregue las cuentas profesionales o educativas de Office 365 al inquilino de Azure Active Directory.
 
-Si desea una suscripción de Office 365 para los usuarios de la instancia de Azure Active Directory o tiene una cuenta de Office 365, pero no una cuenta de Azure, consulte [Uso de una cuenta de Office 365 con la suscripción de Azure y viceversa](billing-use-existing-office-365-account-azure-subscription.md). 
+**¿Desea mover la suscripción de Azure existente a la cuenta profesional o educativa de Office 365?** Si se suscribió a Azure mediante una cuenta personal de Microsoft y desea utilizarla o iniciar sesión con su cuenta de Office 365, recomendamos fehacientemente transferir la suscripción. Vea [Transferencia de la propiedad de suscripción de Azure a otra cuenta](billing-subscription-transfer.md). 
+
+**¿Desea suscribirse a Azure mediante Office 365?** Vea [Suscripción a Azure con la cuenta de Office 365](billing-use-existing-office-365-account-azure-subscription.md). 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 * Necesita las credenciales de administrador de servicios de la suscripción de Azure. Las cuentas de coadministrador no pueden realizar algunos de los pasos de este artículo. Para cambiar el administrador del servicio, consulte [Incorporación o cambio de roles de administrador de Azure](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription).
@@ -92,6 +94,5 @@ Para agregar un administrador a su suscripción de Azure, consulte [Adición o c
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
-
 
 

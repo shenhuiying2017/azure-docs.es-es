@@ -1,11 +1,11 @@
 ---
-title: "Restauración de una base de datos SQL de Azure en una aplicación multiinquilino | Microsoft Docs"
+title: "Restauración de una base de datos SQL de Azure en una aplicación SaaS multiinquilino | Microsoft Docs"
 description: "Obtenga información sobre cómo restaurar una base de datos SQL Database de inquilino único después de la eliminación accidental de datos"
-keywords: tutorial de base de datos sql
+keywords: tutorial de SQL Database
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -16,15 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 547851972f13ec69a8f65d01290874ad7d07f192
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 792476849e796695dde3f2ec80b56431a17e8fc0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="restore-a-wingtip-saas-tenants-sql-database"></a>Restaurar una base de datos SQL de inquilinos de SaaS Wingtip
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Restauración de una base de datos SQL de Azure de un solo inquilino en una aplicación SaaS multiinquilino
 
 La aplicación SaaS Wingtip se compila con un modelo de base de datos por inquilino, donde cada inquilino tiene su propia base de datos. Una de las ventajas de este modelo es que resulta fácil restaurar los datos de un inquilino único de manera aislada sin afectar a otros inquilinos.
 

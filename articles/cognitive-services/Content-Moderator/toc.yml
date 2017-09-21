@@ -4,6 +4,30 @@
   items:
     - name: Acerca de Content Moderator
       href: overview.md
+- name: Inicios rápidos
+  items:
+    - name: Herramienta de revisión
+      href: quick-start.md
+    - name: API de moderación
+      items:
+        - name: API de imagen
+          href: try-image-api.md
+        - name: API de lista de imágenes
+          href: try-image-list-api.md
+        - name: API de texto
+          href: try-text-api.md
+        - name: API de lista de términos
+          href: try-terms-list-api.md
+    - name: Revisión de las API
+      items:
+        - name: Trabajos
+          href: try-review-api-job.md
+        - name: Revisiones
+          href: try-review-api-review.md
+        - name: Flujos de trabajo
+          href: try-review-api-workflow.md
+- name: Conceptos
+  items:
     - name: Moderación de imágenes
       href: image-moderation-api.md
     - name: Moderación de texto
@@ -14,31 +38,9 @@
       href: video-moderation-api.md
     - name: Revisión de las API
       href: review-api.md
-- name: Primeros pasos
+- name: Guías de procedimientos
   items:
-    - name: La herramienta de revisión
-      href: quick-start.md
-    - name: Pruebe las API de moderación
-      items:
-        - name: Imágenes
-          href: try-image-api.md
-        - name: Listas de imágenes
-          href: try-image-list-api.md
-        - name: Texto
-          href: try-text-api.md
-        - name: Listas de términos
-          href: try-terms-list-api.md
-    - name: Pruebe las API de revisión
-      items:
-        - name: Trabajos
-          href: try-review-api-job.md
-        - name: Revisiones
-          href: try-review-api-review.md
-        - name: Flujos de trabajo
-          href: try-review-api-workflow.md
-- name: Cómo
-  items:
-    - name: Usar la herramienta de revisión
+    - name: Herramienta de revisión
       items:
         - name: Usuarios del bucle
           href: Review-Tool-User-Guide/human-in-the-loop.md

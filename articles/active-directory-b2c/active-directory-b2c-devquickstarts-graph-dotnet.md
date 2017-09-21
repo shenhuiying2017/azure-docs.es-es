@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 1e6748f40c7b825615b3f58243afd9d50348214d
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 430063bbc9fab8195e12cd1d3e3966a29bafd404
 ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: uso de la API Graph
@@ -59,6 +59,11 @@ Ahora debe configurar la aplicación para obtener todos los permisos necesarios 
 5. Por último, de nuevo en el menú Permisos necesarios, haga clic en el botón **Conceder permisos**.
 
 Ahora tiene una aplicación con permiso para crear, leer y actualizar usuarios en el inquilino B2C.
+
+> [!NOTE]
+> La concesión de permisos puede tardar unos minutos en procesarse completamente.
+> 
+> 
 
 ## <a name="configure-delete-permissions-for-your-application"></a>Configuración de permisos de eliminación para la aplicación
 Actualmente, el permiso *Leer y escribir en datos de directorio* **NO** incluye la capacidad de llevar a cabo cualquier eliminación, como la de usuarios. Si desea dotar a la aplicación de la capacidad de eliminar usuarios, deberá seguir estos pasos adicionales que hacen partícipe a PowerShell. De lo contrario, puede ir a la sección siguiente.

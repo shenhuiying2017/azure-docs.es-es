@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 08/30/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 6e2a7c5eafee78d342f735b543624d041b9b3fe5
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 895b538680230170cd29817997a7739b1ba89cfc
 ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
@@ -44,6 +44,7 @@ Estado: 05 de septiembre de 2017
 * Hay un problema conocido con la actualización de Azure AD Connect que afecta a los clientes que han activado [Inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md). Después de actualizar Azure AD Connect, la característica aparece como deshabilitada en el asistente, aunque realmente sigue estando habilitada. Se proporcionará una solución a este problema en una versión futura. Los clientes preocupados por este problema de presentación pueden solucionarlo manualmente habilitando la opción Inicio de sesión único de conexión directa en el asistente.
 
 #### <a name="fixed-issues"></a>Problemas corregidos
+* Se corrigió un problema que impedía que Azure AD Connect actualizara las reglas de notificaciones en ADFS local al tiempo que habilita la característica [msDS-ConsistencyGuid as Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor). El problema se produce si intenta habilitar la característica de una implementación de Azure AD Connect existente que tenga configurado ADFS como método de inicio de sesión. El problema se produce porque el asistente no solicita las credenciales de ADFS antes de intentar actualizar las reglas de notificaciones de ADFS.
 * Se corrigió un problema que provocaba un error durante la instalación de Azure AD Connect si el bosque de AD local tenía NTLM deshabilitado. El problema se debe a que el asistente de Azure AD Connect no proporciona credenciales de acceso completas al crear los contextos de seguridad necesarios para la autenticación de Kerberos. Esto hace que se produzca un error durante la autenticación de Kerberos y que el asistente de Azure AD Connect recurra de nuevo al uso de NTLM.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync

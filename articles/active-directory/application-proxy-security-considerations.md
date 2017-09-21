@@ -11,21 +11,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c6ead651133eb17fd55f7567cdb14dc3bcd64245
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 4eef4f00bb407f97a68d09a39f3e99d1bc325d0e
 ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD
 
-En este artículo se explica el modo en que el proxy de aplicación de Azure Active Directory proporciona un servicio seguro para la publicación y el acceso a las aplicaciones de forma remota.
+En este artículo se explican los componentes que funcionan para mantener a los usuarios y las aplicaciones seguros cuando se usa el Proxy de aplicación de Azure Active Directory.
 
 El diagrama siguiente muestra cómo Azure AD permite el acceso remoto seguro a sus aplicaciones locales.
 
@@ -61,7 +61,7 @@ Como el Proxy de aplicación de Azure AD es un servidor proxy inverso, todo el t
 
 No es necesario abrir conexiones de entrada a la red corporativa.
 
-Los conectores de Proxy de aplicación solo usan conexiones salientes al servicio Azure AD Application Proxy, lo que significa que no es necesario abrir los puertos de firewall para las conexiones entrantes. Los servidores proxy tradicionales requerían una red perimetral (también conocida como *DMZ*, *zona desmilitarizada* o *subred filtrada*) y permitían el acceso a las conexiones no autenticadas en el perímetro de la red. Este escenario hacía necesaria una gran inversión adicional en productos de firewall de aplicaciones web para analizar el tráfico y ofrecer una mayor protección al entorno. Con Proxy de aplicación no se necesita una red perimetral, ya que todas las conexiones son de salida y tienen lugar a través de un canal seguro.
+Los conectores de Proxy de aplicación solo usan conexiones salientes al servicio Azure AD Application Proxy, lo que significa que no es necesario abrir los puertos de firewall para las conexiones entrantes. Los servidores proxy tradicionales requerían una red perimetral (también conocida como *DMZ*, *zona desmilitarizada* o *subred filtrada*) y permitían el acceso a las conexiones no autenticadas en el perímetro de la red. Este escenario hacía necesaria inversiones adicionales en productos de firewall de aplicaciones web para analizar el tráfico y proteger el entorno. Con Proxy de aplicación no se necesita una red perimetral, ya que todas las conexiones son de salida y tienen lugar a través de un canal seguro.
 
 Para más información sobre los conectores, consulte [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md).
 
@@ -69,7 +69,7 @@ Para más información sobre los conectores, consulte [Descripción de los conec
 
 Obtenga una protección de seguridad avanzada.
 
-Dado que forma parte de Azure Active Directory, el Proxy de aplicación puede sacar provecho de [Azure AD Identity Protection](active-directory-identityprotection.md), con inteligencia controlada por Machine Learning y datos de Microsoft Security Response Center y Digital Crimes Unit. Juntos identificamos de manera proactiva las cuentas en peligro y ofrecemos protección en tiempo real frente a inicios de sesión de alto riesgo. Tomamos en consideración diversos factores, como el acceso desde dispositivos infectados y a través de redes anónimas, y desde ubicaciones atípicas y poco probables.
+Dado que forma parte de Azure Active Directory, el Proxy de aplicación puede sacar provecho de [Azure AD Identity Protection](active-directory-identityprotection.md), con datos de Microsoft Security Response Center y Digital Crimes Unit. Juntos identificamos de manera proactiva las cuentas en peligro y ofrecemos protección frente a inicios de sesión de alto riesgo. Para determinar qué intentos de inicio de sesión son de alto riesgo se tienen en cuenta diversos factores. Estos factores incluyen el marcado de dispositivos infectados, el acceso desde redes anónimas, y ubicaciones atípicas o poco probables.
 
 Muchos de estos informes y eventos ya están disponibles a través de una API para la integración con los sistemas de información de seguridad y administración de eventos (SIEM).
 
@@ -80,6 +80,14 @@ No tiene que preocuparse sobre cómo mantener y aplicar revisiones a los servido
 El software al que no se aplican revisiones sigue siendo objeto de un gran número de ataques. El proxy de aplicación de Azure AD es un servicio de escala de Internet que es propiedad de Microsoft, por lo que siempre obtendrá las actualizaciones y revisiones de seguridad más recientes.
 
 Para mejorar la seguridad de las aplicaciones publicadas por el Proxy de aplicación de Azure AD, se impide que los robots de agentes de búsqueda indexen y archiven sus aplicaciones. Cada vez que un robot de agente de búsqueda intenta recuperar la configuración del robot de una aplicación publicada, el Proxy de aplicación responde con un archivo robots.txt que incluye `User-agent: * Disallow: /`.
+
+### <a name="ddos-prevention"></a>Prevención de DDOS
+
+Las aplicaciones publicadas a través de Proxy de aplicación están protegidas frente a ataques de denegación de servicio distribuido (DDOS).
+
+El servicio de Proxy de aplicación supervisa la cantidad de tráfico que intenta obtener acceso a las aplicaciones y la red. Si el número de dispositivos que solicitan acceso remoto a las aplicaciones sube hasta un pico, Microsoft limita el acceso a la red. 
+
+Microsoft supervisa los patrones de tráfico para las aplicaciones individuales y para la suscripción íntegra. Si una aplicación recibe una cantidad de solicitudes superior a la normal, las solicitudes para tener acceso a esa aplicación se deniegan durante un breve período de tiempo. Si recibe una cantidad de solicitudes superior a la normal en toda la suscripción completa, se deniegan las solicitudes para acceder a cualquiera de las aplicaciones. Esta medida preventiva impide que los servidores de aplicaciones se sobrecarguen con solicitudes de acceso remoto, de esta forma los usuarios locales pueden mantener el acceso a sus aplicaciones. 
 
 ## <a name="under-the-hood"></a>En segundo plano
 
@@ -104,7 +112,7 @@ El conector usa un certificado de cliente para autenticarse en el servicio de Pr
 Los siguientes eventos de flujo ocurren cuando el conector se configura en primer lugar:
 
 1. El registro del conector en el servicio se produce en el marco de la instalación del conector. Se solicita a los usuarios que escriban sus credenciales de administrador de Azure AD. A continuación, el token obtenido con esta autenticación se presenta al servicio Azure AD Application Proxy.
-2. El servicio Application Proxy evalúa el token. Garantiza que el usuario sea un administrador de la compañía en el inquilino para el que se emitió el token. Si el usuario no es un administrador, el proceso se termina.
+2. El servicio Application Proxy evalúa el token. Comprueba si el usuario es un administrador de empresa en el inquilino. Si el usuario no es un administrador, el proceso se termina.
 3. El conector genera una solicitud de certificado de cliente y la pasa, junto con el token, al servicio Application Proxy. A su vez, el servicio comprueba el token y firma la solicitud de certificado de cliente.
 4. El conector usa el certificado de cliente para la comunicación posterior con el servicio de Proxy de aplicación.
 5. El conector realiza una extracción inicial de los datos de configuración del sistema desde el servicio usando su certificado de cliente y ya está listo para aceptar solicitudes.

@@ -1,6 +1,6 @@
 ---
 title: "Aprovisionamiento de nuevos inquilinos en una aplicación multiinquilino que usa Azure SQL Database | Microsoft Docs"
-description: "Aprenda cómo realizar el aprovisionamiento y catalogación de nuevos inquilinos en la aplicación SaaS de Wingtip"
+description: "Obtenga información sobre cómo aprovisionar y catalogar nuevos inquilinos en una aplicación SaaS de multiinquilino de Azure SQL Database"
 keywords: tutorial de SQL Database
 services: sql-database
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 8fa4c4f95386a92c8c818eef1a5b4de5a086fe07
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: febf9d9f8a32a95ae61734cc2d3632bb74f6c8f5
 ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Aprovisionamiento y registro de nuevos inquilinos en el catálogo
+# <a name="learn-how-to-provision-and-catalog-new-tenants-and-register-them-in-the-catalog"></a>Aprenda cómo realizar el aprovisionamiento y catalogación de nuevos inquilinos y su registro en el catálogo
 
 En este tutorial aprenderá a aprovisionar y catalogar los patrones SaaS, y cómo se implementan en la aplicación SaaS de Wingtip. Creará e inicializará nuevas bases de datos de inquilinos y las registrará en el catálogo de inquilinos de la aplicación. El catálogo es una base de datos que mantiene la asignación entre los diversos inquilinos de aplicaciones SaaS y sus datos. El catálogo desempeña un papel importante para dirigir las solicitudes de aplicación a las bases de datos correctas.  
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 0c9825f11733127a547e06e159172a08cef736eb
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 311a1af35b7fecb5f0d4fac7f38af705c945d714
 ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprender el límite de gasto de Azure y cómo quitarlo
@@ -69,7 +69,11 @@ El límite de gasto podría impedirle implementar o usar ciertos servicios de Mi
 
 ### <a name="how-do-i-turn-on-the-spending-limit-after-removing-it"></a>¿Cómo se activa el límite de gasto después de quitarlo?
 
-El límite de gasto solo se activa automáticamente. Lamentablemente, no hay ninguna opción para activarlo una vez que se ha quitado. Asegúrese de seleccionar la opción **Quitar el límite de gasto para el período de facturación actual**, si le preocupa que el límite no se pueda volver a activar.
+Esta característica solo está disponible cuando se ha quitado el límite de gasto indefinidamente. Cámbielo para activarlo automáticamente al principio del siguiente período de facturación.
+
+1. Inicie sesión en el [Centro de cuentas](https://account.windowsazure.com/Subscriptions).
+1. Haga clic aquí en el banner amarillo para cambiar la opción de límite de gasto.
+1. Elija **Activar el límite de gasto para el siguiente período de facturación \<fecha inicial del período de facturación\>**.
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>¿Cómo se puede establecer un límite de gasto personalizado?
 

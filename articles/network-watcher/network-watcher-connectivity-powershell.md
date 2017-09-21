@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: a8f936cd23838759dc30b04688d3c6544e4895cc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6cc61144b9e2f776c9039022d32300fd06b67bbd
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -69,7 +69,7 @@ AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Comprobación de la conectividad a una máquina virtual
 
-En este ejemplo se comprueba la conectividad a una máquina virtual de destino a través del puerto 80.
+En este ejemplo se comprueba la conectividad a una máquina virtual de destino a través del puerto 80. En este ejemplo se requiere que tenga habilitado Network Watcher en la región que contiene la máquina virtual de origen.  
 
 ### <a name="example"></a>Ejemplo
 
@@ -80,11 +80,11 @@ $destVMName = "Database0"
 
 $RG = Get-AzureRMResourceGroup -Name $rgName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-
 $VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 $VM2 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $destVMName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location} 
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationId $VM2.Id -DestinationPort 80
 ```
@@ -164,7 +164,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>Problemas de validación de enrutamiento
 
-En el ejemplo se comprueba la conectividad entre una máquina virtual y un punto de conexión remoto.
+En el ejemplo se comprueba la conectividad entre una máquina virtual y un punto de conexión remoto. En este ejemplo se requiere que tenga habilitado Network Watcher en la región que contiene la máquina virtual de origen.  
 
 ### <a name="example"></a>Ejemplo
 
@@ -173,11 +173,10 @@ $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
 $RG = Get-AzureRMResourceGroup -Name $rgName
-
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-
 $VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress 13.107.21.200 -DestinationPort 80
 ```
@@ -229,7 +228,7 @@ Hops             : [
 
 ## <a name="check-website-latency"></a>Comprobación de la latencia del sitio web
 
-En el siguiente ejemplo se comprueba la conectividad con un sitio web.
+En el siguiente ejemplo se comprueba la conectividad con un sitio web. En este ejemplo se requiere que tenga habilitado Network Watcher en la región que contiene la máquina virtual de origen.  
 
 ### <a name="example"></a>Ejemplo
 
@@ -238,11 +237,11 @@ $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
 $RG = Get-AzureRMResourceGroup -Name $rgName
+$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location } 
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
-$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress http://bing.com/
 ```
@@ -282,7 +281,7 @@ Hops             : [
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>Comprobación de la conectividad con un punto de conexión de almacenamiento
 
-En el ejemplo siguiente se prueba la conectividad de una máquina virtual con una cuenta de almacenamiento de blog.
+En el ejemplo siguiente se prueba la conectividad de una máquina virtual con una cuenta de almacenamiento de blog. En este ejemplo se requiere que tenga habilitado Network Watcher en la región que contiene la máquina virtual de origen.  
 
 ### <a name="example"></a>Ejemplo
 
@@ -292,10 +291,10 @@ $sourceVMName = "MultiTierApp0"
 
 $RG = Get-AzureRMResourceGroup -Name $rgName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location }
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-
 $VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location }
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://contosostorageexample.blob.core.windows.net/ 
 ```

@@ -3,7 +3,7 @@ title: "Diseño de aplicaciones de alta disponibilidad mediante almacenamiento c
 description: "Cómo usar el almacenamiento RA-GRS de Azure para diseñar una aplicación de alta disponibilidad lo bastante flexible como para enfrentarse a interrupciones."
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
@@ -12,28 +12,35 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
-ms.author: robinsh
+ms.date: 9/06/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: adc7e23d8c9f869f2951490020e3d0f1a2b2e81c
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 2889faf7bfa86f40eb38c50f146bd59ecfb6001f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Diseño de aplicaciones de alta disponibilidad mediante RA-GRS
 
-Una característica común de las infraestructuras en la nube es que proporcionan una plataforma de alta disponibilidad para hospedar aplicaciones. Los desarrolladores de aplicaciones basadas en la nube deben considerar cuidadosamente cómo aprovechar esta plataforma para entregar aplicaciones de alta disponibilidad a sus usuarios. Este artículo se centra específicamente en cómo los desarrolladores pueden usar el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) de Azure para mejorar la disponibilidad de sus aplicaciones.
+Una característica común de las infraestructuras basadas en la nube como Azure Storage es que proporcionan una plataforma de alta disponibilidad para hospedar aplicaciones. Los desarrolladores de aplicaciones basadas en la nube deben considerar cuidadosamente cómo aprovechar esta plataforma para entregar aplicaciones de alta disponibilidad a sus usuarios. Este artículo se centra en cómo los desarrolladores pueden usar el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para garantizar que sus aplicaciones de Azure Storage tengan alta disponibilidad.
 
-Existen cuatro opciones de redundancia: LRS (almacenamiento con redundancia local), ZRS (almacenamiento con redundancia de zona), GRS (almacenamiento con redundancia geográfica) y RA-GRS (almacenamiento con redundancia geográfica con acceso de lectura). En este artículo se van a explicar GRS y RA-GRS. Con GRS, se mantienen tres copias de los datos en la región primaria que seleccionó al configurar la cuenta de almacenamiento. Se mantienen tres copias adicionales de forma asincrónica en una región secundaria especificada por Azure. RA-GRS es igual que GRS salvo en que tiene acceso de lectura a la copia secundaria. Para más información sobre las distintas opciones de redundancia de Azure Storage, consulte [Replicación de Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy). En el artículo sobre replicación también se muestran los emparejamientos de regiones primarias y secundarias.
+Azure Storage ofrece cuatro opciones de redundancia para los datos de la cuenta de almacenamiento:
+
+– LRS (almacenamiento con redundancia local)
+- ZRS (almacenamiento con redundancia de zona) 
+- GRS (almacenamiento con redundancia geográfica)
+- RA-GRS (almacenamiento con redundancia geográfica con acceso de lectura). 
+
+Este artículo se centra en GRS y en RA-GRS. Con GRS, se mantienen tres copias de los datos en la región primaria que seleccionó al configurar la cuenta de almacenamiento. Se mantienen tres copias adicionales de forma asincrónica en una región secundaria especificada por Azure. RA-GRS es igual que GRS salvo en que tiene acceso de lectura a la copia secundaria. Para más información sobre las distintas opciones de redundancia de Azure Storage, consulte [Replicación de Azure Storage](https://docs.microsoft.com/azure/storage/storage-redundancy). En el artículo sobre replicación también se muestran los emparejamientos de regiones primarias y secundarias.
 
 En este artículo se incluyen fragmentos de código y, al final, un vínculo a un ejemplo completo que puede descargar y ejecutar.
 
 ## <a name="key-features-of-ra-grs"></a>Características fundamentales de RA-GRS
 
-Antes de hablar acerca de cómo usar el almacenamiento RA-GRS, se explicarán sus propiedades y su comportamiento.
+Cuando diseñe su aplicación para RA-GRS debe tener en cuenta estos puntos clave:
 
-* Azure Storage mantiene en una región secundaria una copia de solo lectura de los datos que almacena en su región primaria; como se mencionó antes, el servicio de almacenamiento determina la ubicación de la región secundaria.
+* Azure Storage mantiene una copia de solo lectura de los datos que almacena en la región primaria en una región secundaria. Como se mencionó anteriormente, el servicio de almacenamiento determina la ubicación de la región secundaria.
 
 * La copia de solo lectura es de [coherencia final](https://en.wikipedia.org/wiki/Eventual_consistency) con los datos en la región primaria.
 
@@ -43,17 +50,19 @@ Antes de hablar acerca de cómo usar el almacenamiento RA-GRS, se explicarán su
 
 * Si un problema grave afecta a la accesibilidad de los datos en la región principal, es posible que el equipo de Azure desencadene una conmutación por error geográfica, momento en el cual se cambiarán las entradas DNS que apunten a la región principal de forma que apunten a la secundaria.
 
-* Si se produce una conmutación por error geográfica, Azure seleccionará una nueva ubicación secundaria, replicará los datos en dicha ubicación y hará que las entradas DNS secundarias apunten a ella. El punto de conexión secundario no estará disponible hasta que termine de replicarse la cuenta de almacenamiento. Para más información, consulte [Qué hacer si se produce una interrupción del servicio Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-disaster-recovery-guidance).
+* Si se produce una conmutación por error geográfica, Azure seleccionará una nueva ubicación secundaria, replicará los datos en dicha ubicación y hará que las entradas DNS secundarias apunten a ella. El punto de conexión secundario no estará disponible hasta que termine de replicarse la cuenta de almacenamiento. Para más información, consulte [Qué hacer si se produce una interrupción del servicio Azure Storage](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>Consideraciones sobre el diseño de aplicaciones cuando se usa RA-GRS
 
-El propósito principal de este artículo es mostrar cómo diseñar una aplicación que siga funcionando (aunque con limitaciones) incluso si se produce un desastre importante en el centro de datos principal. Para ello, la aplicación debe poder enfrentarse a problemas transitorios o de ejecución prolongada pasando a leer desde la región secundaria mientras haya un problema y regresando después cuando la región principal esté disponible de nuevo.
+El propósito de este artículo es mostrar cómo diseñar una aplicación que siga funcionando (aunque con limitaciones) incluso si se produce un desastre importante en el centro de datos principal. Puede diseñar la aplicación para que se enfrente a problemas transitorios o prolongados pasando a leer desde la región secundaria cuando se produzca un problema que interfiera con la lectura desde la región primaria. Cuando la región primaria vuelva a estar disponible, la aplicación podrá volver a leer desde ella.
 
 ### <a name="using-eventually-consistent-data"></a>Uso de datos con coherencia final
 
-En esta solución propuesta, se da por supuesto que no pasa nada por devolver datos posiblemente obsoletos a la aplicación que realiza la llamada. Dado que los datos secundarios son de coherencia final, es posible que los datos se escribieran en la región principal, pero que la actualización en la región secundaria aún no hubiera terminado de replicarse cuando la región primaria dejó de ser accesible.
+En la solución propuesta se da por supuesto que es aceptable devolver datos potencialmente obsoletos a la aplicación que realiza la llamada. Debido a que, en última instancia, los datos de la región secundaria son coherentes, puede que no sea posible acceder a la región primaria antes de que una actualización en la región secundaria haya terminado de replicarse.
 
-Por ejemplo, el cliente podría enviar una actualización que sea correcta y después la región principal podría pasar a estar inactiva antes de que la actualización se propague a la región secundaria. En este caso, si el cliente pide leer los datos de nuevo, recibirá los datos obsoletos en lugar de los actualizados. Debe decidir si esto es aceptable y, en tal caso, cómo enviará mensajes al cliente. Verá cómo comprobar la hora de la última sincronización en los datos secundarios más adelante en este artículo para ver si la región secundaria está actualizada.
+Por ejemplo, imagine que el cliente envía correctamente una actualización, pero se produce un error en la región primaria antes de que la actualización se propague a la región secundaria. Cuando el cliente pide leer de nuevo los datos, recibe los datos obsoletos de la región secundaria en lugar de los datos actualizados. Cuando diseña la aplicación, debe decidir si esto es aceptable y, en tal caso, cómo enviará mensajes al cliente. 
+
+Más adelante en este artículo, le mostraremos cómo comprobar la hora de la última sincronización de los datos secundarios para ver si la región secundaria está actualizada.
 
 ### <a name="handling-services-separately-or-all-together"></a>Control de servicios por separado o conjuntamente
 
@@ -75,11 +84,11 @@ En el resto del artículo, también se tratarán estas consideraciones.
 
 ## <a name="running-your-application-in-read-only-mode"></a>Ejecución de la aplicación en modo de solo lectura
 
-Para utilizar almacenamiento RA-GRS, debe ser capaz de controlar tanto solicitudes de lectura con errores como solicitudes de actualización con errores (aquí actualización se refiere a inserciones, actualizaciones y eliminaciones). Si se produce un error en el centro de datos principal, se pueden redirigir las solicitudes de lectura al centro de datos secundario, pero no las de actualización, porque el centro de datos secundario es de solo lectura. Por este motivo, se necesita alguna manera de ejecutar la aplicación en modo de solo lectura.
+Para utilizar almacenamiento RA-GRS, debe ser capaz de controlar tanto solicitudes de lectura con errores como solicitudes de actualización con errores (aquí actualización se refiere a inserciones, actualizaciones y eliminaciones). Si se produce un error en el centro de datos principal, se pueden redirigir las solicitudes de lectura al centro de datos secundario. Sin embargo, las solicitudes de actualización no se puede redirigir a la región secundaria porque es de solo lectura. Por este motivo, debe diseñar la aplicación para que se ejecute en modo de solo lectura.
 
-Por ejemplo, puede establecer una marca que se comprobará antes de enviar solicitudes de actualización al servicio de almacenamiento. Cuando llegue una de las solicitudes de actualización, puede pasarla por alto y devolver una respuesta adecuada al cliente. Incluso es posible que desee deshabilitar totalmente determinadas características hasta que se resuelva el problema y notificar a los usuarios que esas características no están disponibles temporalmente.
+Por ejemplo, puede establecer una marca que se comprueba antes de que se envíe cualquier solicitud de actualización a Azure Storage. Cuando llegue una de las solicitudes de actualización, puede pasarla por alto y devolver una respuesta adecuada al cliente. Incluso es posible que desee deshabilitar totalmente determinadas características hasta que se resuelva el problema y notificar a los usuarios que esas características no están disponibles temporalmente.
 
-Si decide controlar errores para cada servicio por separado, también necesitará controlar la capacidad de ejecutar la aplicación en modo de solo lectura para cada servicio. Podría tener marcas de solo lectura para cada servicio que se puedan habilitar y deshabilitar, y controlar la marca correspondiente en los lugares adecuados del código.
+Si decide controlar errores para cada servicio por separado, también necesitará controlar la capacidad de ejecutar la aplicación en modo de solo lectura para cada servicio. Por ejemplo, es posible que tenga marcas de solo lectura en cada servicio que se puede habilitar o deshabilitar. Luego puede manipular la marca en los lugares correspondientes del código.
 
 Poder ejecutar la aplicación en modo de solo lectura ofrece otra ventaja: la capacidad de garantizar una funcionalidad limitada durante una actualización importante de la aplicación. Puede desencadenar la aplicación para que se ejecute en modo de solo lectura y apunte al centro de datos secundario, de forma que nadie acceda a los datos de la región primaria mientras se estén llevando a cabo actualizaciones.
 
@@ -145,7 +154,7 @@ Otra consideración es cómo controlar varias instancias de una aplicación y qu
 
 Dispone de tres opciones principales para supervisar la frecuencia de reintentos en la región primaria y determinar cuándo se debe cambiar a la región secundaria y hacer que la aplicación se ejecute en modo de solo lectura.
 
-*   Agregue un controlador para el evento [**Retrying**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) en el objeto [**OperationContext**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.aspx) que se pasa a las solicitudes de almacenamiento: este método se muestra en este artículo y se usa en el ejemplo que lo acompaña. Estos eventos se activan cada vez que el cliente reintenta una solicitud, lo que le permite realizar un seguimiento de la frecuencia con que el cliente encuentra errores con posibilidad de reintento en un punto de conexión principal.
+*   Agregue un controlador para el evento [**Retrying**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) en el objeto [**OperationContext**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) que se pasa a las solicitudes de almacenamiento: este método se muestra en este artículo y se usa en el ejemplo que lo acompaña. Estos eventos se activan cada vez que el cliente reintenta una solicitud, lo que le permite realizar un seguimiento de la frecuencia con que el cliente encuentra errores con posibilidad de reintento en un punto de conexión principal.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -156,7 +165,7 @@ Dispone de tres opciones principales para supervisar la frecuencia de reintentos
     };
     ```
 
-*   En el método [**Evaluate**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) de una directiva de reintentos personalizada, puede ejecutar código personalizado siempre que se lleve a cabo un reintento. Además de registrar cuándo sucede un reintento, esto también ofrece la oportunidad de modificar el comportamiento de reintento.
+*   En el método [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) de una directiva de reintentos personalizada, puede ejecutar código personalizado siempre que se lleve a cabo un reintento. Además de registrar cuándo sucede un reintento, esto también ofrece la oportunidad de modificar el comportamiento de reintento.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -164,12 +173,12 @@ Dispone de tres opciones principales para supervisar la frecuencia de reintentos
     {
         var statusCode = retryContext.LastRequestResult.HttpStatusCode;
         if (retryContext.CurrentRetryCount >= this.maximumAttempts
-        || ((statusCode &gt;= 300 && statusCode &lt; 500 && statusCode != 408)
-        || statusCode == 501 // Not Implemented
-        || statusCode == 505 // Version Not Supported
+            || ((statusCode >= 300 && statusCode < 500 && statusCode != 408)
+            || statusCode == 501 // Not Implemented
+            || statusCode == 505 // Version Not Supported
             ))
         {
-        // Do not retry
+            // Do not retry
             return null;
         }
 

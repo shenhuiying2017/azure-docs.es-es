@@ -11,25 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 09/07/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: f1fda3c4192d0dae4fa60788f4d88fb72ddba4ad
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: e5ac068e37d921530272e5eb3dc76d976a86a742
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="understanding-resource-access-in-azure"></a>Descripción de acceso a los recursos de Azure
-> [!IMPORTANT]
-> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure clásico al que se hace referencia en este artículo. Azure Portal proporciona [control de acceso basado en rol](role-based-access-control-configure.md) para que los recursos de Azure se puedan administrar con mayor precisión.
-> 
-> 
 
-En octubre de 2013, el Portal de Azure clásico y las API de administración de servicios se integraron con Azure Active Directory para sentar las bases para mejorar la experiencia del usuario al administrar el acceso a los recursos de Azure. Azure Active Directory ya proporciona excelentes funcionalidades, como la administración de usuarios, la sincronización de directorios locales, la autenticación multifactor y el control de acceso a aplicaciones. Naturalmente, también deben estar disponibles para administrar los recursos globales de Azure.
-
-El control de acceso de Azure se inicia desde una perspectiva de facturación. El propietario de una cuenta de Azure, a la que se accede desde el [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions), es el administrador de la cuenta (AA). Las suscripciones son un contenedor para la facturación, pero también actúan como límite de seguridad: cada suscripción tiene un administrador de servicios (SA) que puede agregar, quitar y modificar recursos de Azure en esa suscripción mediante el [Portal de Azure clásico](https://manage.windowsazure.com/). El administrador de servicios predeterminado de una suscripción nueva es el administrador de cuenta, pero este puede cambiar al administrador de servicios en el Centro de cuentas de Azure.
+El control de acceso de Azure se inicia desde una perspectiva de facturación. El propietario de una cuenta de Azure, a la que se accede desde el [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions), es el administrador de la cuenta (AA). Las suscripciones son un contenedor para la facturación, pero también actúan como límite de seguridad: cada suscripción tiene un administrador de servicios (SA) que puede agregar, quitar y modificar recursos de Azure en esa suscripción mediante [Azure portal](https://portal.azure.com/). El administrador de servicios predeterminado de una suscripción nueva es el administrador de cuenta, pero este puede cambiar al administrador de servicios en el Centro de cuentas de Azure.
 
 <br><br>![Cuentas de Azure][1]
 

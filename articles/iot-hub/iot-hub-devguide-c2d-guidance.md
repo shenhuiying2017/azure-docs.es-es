@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 65a9815525c612bdfac569e5ec56a1db53d82c78
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 688b33710283a82fcd772bf50a171893f3ac124c
 ms.contentlocale: es-es
-ms.lasthandoff: 03/10/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Guía de comunicación de nube a dispositivo
@@ -39,7 +38,7 @@ Esta es una comparación detallada de las distintas opciones de comunicación de
 | Destinos | Un único dispositivo que usa **deviceId**, o varios dispositivos que usan [trabajos][lnk-jobs]. | Un único dispositivo que usa **deviceId**, o varios dispositivos que usan [trabajos][lnk-jobs]. | Dispositivo único por **deviceId**. |
 | Tamaño | Hasta 8 KB de solicitudes y 8 KB de respuestas. | El tamaño máximo de propiedades deseadas es 8 KB. | Mensajes de hasta 64 kB. |
 | Frecuencia | Alta. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. | Mediana. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. | Baja. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. |
-| Protocol | Actualmente solo está disponible cuando se usa MQTT. | Actualmente solo está disponible cuando se usa MQTT. | Disponible en todos los protocolos. El dispositivo debe sondear al utilizar HTTP. |
+| Protocol | Disponible con MQTT o AMQP. | Disponible con MQTT o AMQP. | Disponible en todos los protocolos. El dispositivo debe sondear al utilizar HTTP. |
 
 Aprenda a usar métodos directos, propiedades deseadas y mensajes de nube a dispositivo en los siguientes tutoriales:
 
