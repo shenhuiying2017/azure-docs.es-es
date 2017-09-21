@@ -3,7 +3,7 @@
 ## [Discos y VHD](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Redes virtuales](../../../virtual-network/virtual-networks-overview.md)
 ## [Preguntas más frecuentes](faq.md)
-## [Comparación entre máquinas virtuales, sitios web y servicios en la nube](../../../app-service-web/choose-web-site-cloud-service-vm.md)
+## [Comparación entre máquinas virtuales, sitios web y servicios en la nube](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [Contenedores](../../virtual-machines-windows-containers.md)
 
 # Primeros pasos

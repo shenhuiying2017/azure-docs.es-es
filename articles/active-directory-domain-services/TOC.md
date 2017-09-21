@@ -7,16 +7,15 @@
 ## [Software de terceros compatible](active-directory-ds-compatible-software.md)
 
 # Primeros pasos
-## Azure Portal (versión preliminar)
-### [Tarea 1: Configuración básica](active-directory-ds-getting-started.md)
-### [Tarea 2: Configuración de red](active-directory-ds-getting-started-network.md)
-### [Tarea 3: Configuración del grupo de administradores y habilitación de Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
-### [Tarea 4: Actualización de la configuración DNS para la red virtual](active-directory-ds-getting-started-dns.md)
-### [Tarea 5: Habilitación de la sincronización de contraseña](active-directory-ds-getting-started-password-sync.md)
+## [Tarea 1: Configuración básica](active-directory-ds-getting-started.md)
+## [Tarea 2: Configuración de red](active-directory-ds-getting-started-network.md)
+## [Tarea 3: Configuración del grupo de administradores y habilitación de Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
+## [Tarea 4: Actualización de la configuración DNS para la red virtual](active-directory-ds-getting-started-dns.md)
+## [Tarea 5: Habilitación de la sincronización de contraseña](active-directory-ds-getting-started-password-sync.md)
 
 # Procedimientos
 ## Unirse a un dominio administrado
-### [Unirse a una máquina virtual de Windows Server](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Unirse a una máquina virtual de Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Unirse a una máquina virtual de Windows Server con PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Unirse a una máquina virtual Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Administrar un dominio administrado

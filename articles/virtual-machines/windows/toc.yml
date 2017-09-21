@@ -131,6 +131,8 @@
           href: download-template.md
         - name: Agente de máquina virtual de Azure
           href: agent-user-guide.md
+        - name: Mantenimiento planeado
+          href: maintenance-notifications.md
         - name: Eventos programados
           href: scheduled-events.md
         - name: Supervisión de metadatos

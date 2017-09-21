@@ -257,14 +257,6 @@
           href: sql-database-ssms-mfa-authentication-configure.md
     - name: Continuidad del negocio
       items:
-        - name: 'Configuración del almacén: copias de seguridad'
-          href: sql-database-long-term-backup-retention-configure.md
-        - name: 'Replicación geográfica: Portal'
-          href: sql-database-geo-replication-portal.md
-        - name: Recuperación de una sola tabla
-          href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-    - name: Carga y movimiento de datos
-      items:
         - name: Carga de datos con BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Carga de datos con ADF
