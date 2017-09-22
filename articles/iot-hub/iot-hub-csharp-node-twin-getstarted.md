@@ -12,13 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 09/07/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 07797b9159c9b926e9eb47d8864c63048951931a
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 4cf607e8e0ccd3aab06be54d715c2bf3777caeb0
+ms.contentlocale: es-es
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="get-started-with-device-twins-netnode"></a>Introducción a los dispositivos gemelos (.NET y Node)
@@ -37,7 +37,7 @@ Al final de este tutorial tendrá una aplicación de consola Node.js y .NET:
 Para completar este tutorial, necesitará lo siguiente:
 
 * Visual Studio 2015 o Visual Studio 2017.
-* Node.js versión 0.10.x, o posteriores.
+* Node.js, versión 4.0.x o posterior.
 * Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]

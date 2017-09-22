@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c6bfa094f5f06483a9c59a1e0167e5fa7f8f053e
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: afcfc6bb27506dbcc44217680e779318107b33d9
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Información general de Application Insights para DevOps
@@ -38,7 +38,7 @@ Los requisitos son la fuente del trabajo pendiente de desarrollo (lista de tarea
 
 El equipo usa Application Insights para supervisar estrechamente la aplicación web activa para:
 
-* Rendimiento. Desean comprender cómo varían los tiempos de respuesta con el número de solicitudes; cuánto se está usando la CPU, la red, el disco y otros recursos; y dónde están los cuellos de botella.
+* Rendimiento. Quieren comprender cómo varían los tiempos de respuesta con el número de solicitudes; en qué grado se usa la CPU, la red, el disco y otros recursos; qué código de aplicación ha ralentizado el rendimiento; y dónde están los cuellos de botella.
 * Errores. Si hay excepciones o errores de solicitud, o si un contador de rendimiento se sale de su intervalo habitual, el equipo necesita tener conocimiento de ello rápidamente para que pueda llevar a cabo la acción correspondiente.
 * Uso. Siempre que se publique una nueva característica, el equipo desea saber en qué medida se usa y si los usuarios tienen dificultades con ella.
 
@@ -181,11 +181,14 @@ El diagnóstico no es exactamente lo mismo que la depuración. Antes de iniciar 
 
 **¿Somos nosotros?**  Si tiene un descenso repentino en el rendimiento de un tipo concreto de solicitud, por ejemplo cuando el cliente desea un extracto de cuenta, hay una posibilidad de que sea un subsistema externo en lugar de la aplicación web. En el Explorador de métricas, seleccione la tasa de errores de dependencia y las tasas de duración de dependencia y compare sus historiales de las pasadas horas o días con el problema que ha detectado. Si hay cambios que se correlacionan, es posible que un subsistema externo sea el culpable.  
 
+
 ![Gráficos de errores de dependencia y duración de llamadas a dependencias](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 Algunos problemas de dependencia lenta son problemas de ubicación geográfica. Fabrikam Bank usa máquinas virtuales de Azure, y descubrieron que habían ubicado sin darse cuenta el servidor web y el servidor de cuentas en distintos países. Migrando uno de ellos, se obtuvo una mejora considerable.
 
-**¿Qué hicimos?** Si el problema no parece estar en una dependencia, y no ha estado siempre ahí, es probable que se deba a un cambio reciente. La perspectiva histórica proporcionada por los gráficos de métricas y eventos facilita la correlación de cualquier cambio repentino con las implementaciones. De esta forma se limita la búsqueda del problema.
+**¿Qué hicimos?** Si el problema no parece estar en una dependencia, y no ha estado siempre ahí, es probable que se deba a un cambio reciente. La perspectiva histórica proporcionada por los gráficos de métricas y eventos facilita la correlación de cualquier cambio repentino con las implementaciones. De esta forma se limita la búsqueda del problema. Para identificar las líneas del código de aplicación que han ralentizado el rendimiento, habilite Application Insights Profiler. Consulte [Introducción a la supervisión de aplicaciones web de Azure con Application Insights](./app-insights-profiler.md). Una vez habilitado Application Insights Profiler, verá un seguimiento similar al siguiente. En este ejemplo se ve claramente que el método *GetStorageTableData* ha provocado el problema.  
+
+![Seguimiento de Application Insights Profiler](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
 **¿Qué está ocurriendo?** Algunos problemas se producen solo en raras ocasiones y pueden ser difíciles de rastrear mediante pruebas sin conexión. Todo lo que podemos hacer es intentar capturar el error cuando se produzca en vivo. Puede inspeccionar los volcados de pila en los informes de excepciones. Además, puede escribir llamadas de seguimiento con su plataforma de registro favorita o con TrackTrace() o TrackEvent().  
 
@@ -203,7 +206,7 @@ El equipo de desarrollo de Fabrikam Bank adopta un enfoque más estructurado par
 ## <a name="monitor-user-activity"></a>Supervisar la actividad del usuario
 Cuando el tiempo de respuesta es bueno de manera coherente y hay algunas excepciones, el equipo de desarrollo puede continuar con la usabilidad. Puede pensar en cómo mejorar la experiencia del usuario y en cómo animar a más usuarios a lograr los objetivos deseados.
 
-Application Insights puede usarse también para saber qué hacen los usuarios con una aplicación. Una vez que funciona sin problemas, al equipo le gustaría saber qué características son las más populares, lo que les gusta a los usuarios o con lo que tienen dificultad y la frecuencia con que vuelven. Eso ayudará a establecer prioridades en su próximo trabajo. Y pueden planear la medición del éxito de cada característica como parte del ciclo de desarrollo. 
+Application Insights puede usarse también para saber qué hacen los usuarios con una aplicación. Una vez que funciona sin problemas, al equipo le gustaría saber qué características son las más populares, lo que les gusta a los usuarios o con lo que tienen dificultad y la frecuencia con que vuelven. Eso ayudará a establecer prioridades en su próximo trabajo. Y pueden planear la medición del éxito de cada característica como parte del ciclo de desarrollo.
 
 Por ejemplo, un viaje de usuario típico a través del sitio web tiene un claro "embudo". Muchos clientes examinan las tasas de diferentes tipos de préstamo. Algunos de ellos rellenan el formulario de presupuesto. De aquellos que reciben un presupuesto, algunos siguen adelante y obtienen el préstamo.
 

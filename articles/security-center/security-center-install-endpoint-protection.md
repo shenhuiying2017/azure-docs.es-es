@@ -1,6 +1,6 @@
 ---
-title: "Instalación de Endpoint Protection en Azure Security Center | Microsoft Docs"
-description: "En este documento, mostramos cómo implementar la recomendación de instalar Endpoint Protection de Azure Security Center."
+title: Administrar problemas de Endpoint Protection con Azure Security Center | Microsoft Docs
+description: Aprenda a administrar los problemas de Endpoint Protection en Azure Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,43 +12,87 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/11/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: efb86a0ae362c30a6772c391a499154b7ae2a697
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: b3b4a6df431ccdb882dd354aac9cb86a96a81b11
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="install-endpoint-protection-in-azure-security-center"></a>Instalación de Endpoint Protection en Azure Security Center
-Azure Security Center recomienda instalar Endpoint Protection en las máquinas virtuales de Azure si aún no se ha habilitado esta solución. Esta recomendación se aplica únicamente a las máquinas virtuales de Windows.
+# <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Administrar problemas de Endpoint Protection con Azure Security Center
+Azure Security Center supervisa el estado de la protección antimalware y lo notifica en la hoja de problemas de Endpoint Protection. Security Center resalta problemas, como las amenazas detectadas y si hay una protección insuficiente, que pueden hacer vulnerables sus equipos y máquinas virtuales frente a amenazas antimalware. Si aplica la información descrita en **Problemas de Endpoint Protection**, puede identificar un plan para solucionar cualquier problema detectado.
 
-> [!NOTE]
-> En esta implementación de ejemplo se utiliza Microsoft Antimalware. Consulte [Integración de asociados en Azure Security Center](security-center-partner-integration.md#partners-that-integrate-with-security-center) para ver una lista de asociados integrados con Security Center.  
->
->
+Security Center notifica los siguientes problemas de Endpoint Protection:
+
+- Endpoint Protection no está instalado en las máquinas virtuales de Azure: No hay ninguna solución antimalware compatible instalada en estas máquinas virtuales de Azure.
+- Endpoint protection not installed on non-Azure computers (Endpoint Protection no instalado en los equipos que no son de Azure): No hay ningún antimalware compatible instalado en estos equipos que no son de Azure.
+- Estado de Endpoint Protection:
+
+   - Firma sin actualizar: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no cuenta con las firmas de antimalware más recientes.
+   - Sin protección en tiempo real: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no está configurada para la protección en tiempo real.   El servicio podría deshabilitarse o es posible que Security Center no pueda obtener el estado, ya que la solución no es compatible. Vea [Integración de soluciones de asociados](security-center-partner-integration.md) para ver una lista de las soluciones compatibles.
+   - Sin generación de informes: Hay una solución antimalware instalada, pero no notifica datos.
+   - Desconocido: Hay una solución antimalware instalada, pero su estado es desconocido o informa de un error desconocido.
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
+Los problemas de Endpoint Protection se presentan como una recomendación en Security Center.  Si su entorno es vulnerable a las amenazas antimalware, esta recomendación se mostrará en **Recomendaciones** y en **Proceso**. Para ver el panel de **problemas de Endpoint Protection**, debe seguir el flujo de trabajo de Proceso.
+
+En este ejemplo usaremos **Proceso**.  Veremos cómo instalar un antimalware en máquinas virtuales de Azure y en equipos que no son de Azure.
+
+## <a name="install-antimalware-on-azure-vms"></a>Instalar un antimalware en máquinas virtuales de Azure
+
+1. Seleccione **Proceso** en el menú principal de Security Center o en **Información general**.
+
+   ![Seleccionar Proceso][1]
+
+2. En **Proceso**, seleccione **Endpoint protection issues** (Problemas de Endpoint Protection). Se abrirá el panel **Endpoint protection issues** (Problemas de Endpoint Protection).
+
+   ![Seleccionar Endpoint protection issues (Problemas de Endpoint Protection)][2]
+
+   En la parte superior del panel se muestra lo siguiente:
+
+   - Proveedores de Endpoint Protection instalados: Se muestran los distintos proveedores identificados por Security Center.
+   - Installed endpoint protection health state (Estado de mantenimiento de Endpoint Protection instalado): Se muestra el estado de mantenimiento de las máquinas virtuales y equipos que tienen instalada una solución de Endpoint Protection. En el gráfico se muestra el número de máquinas virtuales y de equipos que están en buen estado y los que tienen una protección insuficiente.
+   - Malware detectado: Se muestra el número de máquinas virtuales y de equipos en los que Security Center ha notificado que se ha detectado un malware.
+   - Equipos atacados: Se muestra el número de máquinas virtuales y de equipos en los que Security Center ha notificado ataques de malware.
+
+   En la parte inferior del panel hay una lista de problemas de Endpoint Protection que incluye la información siguiente:  
+
+   - **TOTAL**: Número de máquinas virtuales y de equipos afectados por el problema.
+   - Una barra en la que se agrega el número de máquinas virtuales y de equipos afectados por el problema. Los colores de la barra identifican la prioridad:
+
+      - Rojo: Alta prioridad; se debe solucionar de inmediato.
+      - Naranja: Prioridad media; se debe solucionar lo antes posible.
+
+3. Seleccione **Endpoint protection not installed on Azure VMs** (Endpoint Protection no instalado en las máquinas virtuales de Azure).
+
+   ![Seleccionar Endpoint protection not installed on Azure VMs (Endpoint Protection no instalado en las máquinas virtuales de Azure)][3]
+
+4. En **Endpoint protection not installed on Azure VMs** (Endpoint Protection no instalado en las máquinas virtuales de Azure) hay una lista de máquinas virtuales de Azure que no tienen ningún antimalware instalado.  Puede optar por instalar un antimalware en todas las máquinas virtuales de la lista o seleccionar máquinas virtuales concretas para instalar el antimalware haciendo clic en la máquina virtual en cuestión.
+5. En **Seleccionar Endpoint Protection**, seleccione la solución de Endpoint Protection que quiere usar. En este ejemplo, seleccione **Microsoft Antimalware**.
+6. Aparece información adicional sobre la solución Endpoint Protection. Seleccione **Crear**.
+
+## <a name="install-antimalware-on-non-azure-computers"></a>Instalar un antimalware en equipos que no son de Azure
+
+1. Vuelva a **Endpoint protection issues** (Problemas de Endpoint Protection) y seleccione **Endpoint protection not installed on non-Azure computers** (Endpoint Protection no instalado en los equipos que no son de Azure).
+
+   ![Seleccionar Endpoint protection not installed on non-Azure computers (Endpoint Protection no instalado en los equipos que no son de Azure)][4]
+
+2. En **Endpoint protection not installed on non-Azure computers** (Endpoint Protection no instalado en los equipos que no son de Azure), seleccione un área de trabajo. Se abrirá una consulta de búsqueda de Log Analytics filtrada por el área de trabajo, donde se mostrarán los equipos a los que les falta antimalware. Seleccione un equipo de la lista para obtener más información.
+
+   ![Búsqueda de Log Analytics][5]
+
+Se abre otro resultado de la búsqueda con la información filtrada solo para ese equipo.
+
+  ![Búsqueda de Log Analytics][6]
 
 > [!NOTE]
-> En este documento se presenta el servicio mediante una implementación de ejemplo.  Este documento no es una guía paso a paso.
+> Se recomienda aprovisionar Endpoint Protection para todas las máquinas virtuales y equipos a fin de identificar y quitar virus, spyware y otro software malintencionado.
 >
 >
 
-1. En la hoja **Recomendaciones**, seleccione **Instalar Endpoint Protection**.
-   ![Selección de instalar Endpoint Protection][1]
-2. Se abre la hoja **Instalar Endpoint Protection** con una lista de máquinas virtuales sin Endpoint Protection. Seleccione en la lista las máquinas virtuales en las que quiere instalar Endpoint Protection y haga clic en **Install on VMs** (Instalar en máquinas virtuales).
-   ![Selección de máquinas virtuales en las que instalar Endpoint Protection][2]
-3. Se abre la hoja **Seleccionar Endpoint Protection**, que permite seleccionar la solución Endpoint Protection que quiere usar. En este ejemplo, vamos a seleccionar **Microsoft Antimalware**.
-   ![Select Endpoint Protection][3]
-4. Aparece información adicional sobre la solución Endpoint Protection. Seleccione **Crear**.
-   ![Creación de solución antimalware][4]
-5. Escriba las opciones de configuración requeridas en la hoja **Agregar extensión** y seleccione **Aceptar**. Para obtener más información acerca de las opciones de configuración, consulte [Configuración predeterminada y personalizada de Antimalware](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration).
-
-[Microsoft Antimalware](../security/azure-security-antimalware.md) ahora está activo en las máquinas virtuales seleccionadas.
-
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>Pasos siguientes
 En este documento, mostramos cómo implementar la recomendación "Instalar Endpoint Protection" de Security Center. Para obtener más información sobre cómo habilitar Microsoft Antimalware en Azure, consulte el siguiente documento:
 
 * [Microsoft Antimalware para Azure Cloud Services y Virtual Machines](../security/azure-security-antimalware.md): aprenda a implementar Microsoft Antimalware.
@@ -64,8 +108,10 @@ Para obtener más información sobre Security Center, consulte los siguientes do
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : encuentre publicaciones de blog sobre el cumplimiento y la seguridad de Azure.
 
 <!--Image references-->
-[1]:./media/security-center-install-endpoint-protection/select-install-endpoint-protection.png
-[2]:./media/security-center-install-endpoint-protection/install-endpoint-protection-blade.png
-[3]:./media/security-center-install-endpoint-protection/select-endpoint-protection.png
-[4]:./media/security-center-install-endpoint-protection/create-antimalware-solution.png
+[1]:./media/security-center-install-endpoint-protection/compute.png
+[2]:./media/security-center-install-endpoint-protection/endpoint-protection-issues.png
+[3]:./media/security-center-install-endpoint-protection/install-endpoint-protection.png
+[4]:./media/security-center-install-endpoint-protection/endpoint-protection-issues-computers.png
+[5]:./media/security-center-install-endpoint-protection/log-search.png
+[6]:./media/security-center-install-endpoint-protection/info-filtered-to-computer.png
 

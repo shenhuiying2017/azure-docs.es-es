@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 50127242cdf156771d0610e58cf2fc41281adae7
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
+ms.contentlocale: es-es
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Creación de alertas de métricas en Azure Monitor para servicios de Azure: PowerShell
@@ -97,7 +97,7 @@ Para información adicional, siempre puede escribir ```Get-Help``` y, luego, el 
      Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 
      ```
-     Ejecute Get-MetricDefinitions para obtener una lista completa de las opciones disponibles para Get-AzureRmMetricDefinition.
+     Ejecute `Get-Help Get-AzureRmMetricDefinition -Detailed` para obtener una lista completa de las opciones disponibles para Get-AzureRmMetricDefinition.
 5. En el ejemplo siguiente se configura una alerta en un recurso de sitio web. La alerta se desencadena cada vez que se recibe constantemente cualquier tráfico durante 5 minutos y nuevamente cuando no se recibe tráfico durante 5 minutos.
 
     ```PowerShell

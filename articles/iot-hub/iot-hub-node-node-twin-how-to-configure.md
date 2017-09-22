@@ -12,14 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 09/07/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: f8a6705879905d5cf419fc8c5c2322cb5536d244
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6ff6f1c331d5a77e7ac0a47af6806f5d90fb0fdc
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="use-desired-properties-to-configure-devices-node"></a>Uso de las propiedades deseadas para configurar dispositivos (Node)
@@ -37,7 +36,7 @@ Al final de este tutorial tendrá dos aplicaciones de consola de Node.js:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Node.js versión 0.10.x o posteriores.
+* Node.js, versión 4.0.x o posterior.
 * Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 
 Si ha seguido el tutorial [Introducción a los dispositivos gemelos][lnk-twin-tutorial], ya tiene un centro de IoT y una identidad de dispositivo denominada **myDeviceId**; y puede ir directamente a la sección [Creación de la aplicación de dispositivo simulado][lnk-how-to-configure-createapp] .
@@ -170,7 +169,7 @@ En esta sección, creará una aplicación de consola de Node.js que actualiza la
     ```
     npm install azure-iothub node-uuid --save
     ```
-3. Con un editor de texto, cree un nuevo archivo **SetDesiredAndQuery.js** en la carpeta **addtagsandqueryapp**.
+3. Con un editor de texto, cree un archivo **SetDesiredAndQuery.js** en la carpeta **setdesiredandqueryapp**.
 4. Agregue el código siguiente al archivo **SetDesiredAndQuery.js** y sustituya el marcador de posición **{iot hub connection string}** con la cadena de conexión de IoT Hub que copió al crear su centro:
    
         'use strict';

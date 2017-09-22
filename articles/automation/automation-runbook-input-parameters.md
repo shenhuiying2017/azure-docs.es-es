@@ -14,19 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 6486f3963b18edee8490446cad1f6f2697db699b
+ms.contentlocale: es-es
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="runbook-input-parameters"></a>Parámetros de entrada de Runbook
+
 Los parámetros de entrada de Runbook aumentan la flexibilidad de los Runbooks porque permiten pasarle datos cuando se inicia. Los parámetros permiten dirigir acciones de Runbook a entornos y escenarios específicos. En este artículo, le guiaremos por los distintos escenarios donde se usan parámetros de entrada en Runbooks.
 
 ## <a name="configure-input-parameters"></a>Configuración de parámetros de entrada
-Los parámetros de entrada pueden configurarse en Runbooks gráficos, de PowerShell y de flujo de trabajo de PowerShell. Un Runbook puede tener varios parámetros con tipos de datos diferentes o sin parámetros. Los parámetros de entrada pueden ser obligatorios u opcionales, y puede asignar un valor predeterminado a los parámetros opcionales. Puede asignar valores a los parámetros de entrada para un Runbook cuando lo inicia mediante uno de los métodos disponibles. Entre estos métodos, se incluye iniciar un Runbook mediante el portal o un servicio web. También puede iniciarlo como Runbook secundario al que se llama insertado en otro Runbook.
+
+Los parámetros de entrada pueden configurarse en los runbooks gráficos, de PowerShell, de flujo de trabajo de PowerShell y de Python. Un Runbook puede tener varios parámetros con tipos de datos diferentes o sin parámetros. Los parámetros de entrada pueden ser obligatorios u opcionales, y puede asignar un valor predeterminado a los parámetros opcionales. Puede asignar valores a los parámetros de entrada para un Runbook cuando lo inicia mediante uno de los métodos disponibles. Entre estos métodos, se incluye iniciar un Runbook mediante el portal o un servicio web. También puede iniciarlo como Runbook secundario al que se llama insertado en otro Runbook.
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>Configuración de parámetros de entrada en Runbooks de PowerShell y de flujo de trabajo de PowerShell
+
 Los Runbooks de PowerShell y de [flujo de trabajo de PowerShell](automation-first-runbook-textual.md) en Automatización de Azure admiten parámetros de entrada que se definen mediante los siguientes atributos.  
 
 | **Propiedad** | **Descripción** |
@@ -40,7 +44,7 @@ Windows PowerShell admite más atributos de parámetros de entrada de los enumer
 
 Una definición de parámetro en los Runbooks de flujo de trabajo de PowerShell tiene el formato general siguiente, donde los distintos parámetros están separados por comas.
 
-   ```
+   ```powershell
      Param
      (
          [Parameter (Mandatory= $true/$false)]
@@ -73,6 +77,7 @@ Puede pasar el siguiente valor al parámetro:
 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Configuración de parámetros de entrada en Runbooks gráficos
+
 Para [configurar un Runbook gráfico](automation-first-runbook-graphical.md) con parámetros de entrada, vamos a crear un Runbook gráfico que proporciona detalles sobre las máquinas virtuales, una o varias, de un grupo de recursos. La configuración de un Runbook consta de dos actividades principales, como se describe a continuación.
 
 [**Autenticación de Runbooks con una cuenta de ejecución de Azure**](automation-sec-configure-azure-runas-account.md) para autenticarse con Azure.
@@ -112,14 +117,26 @@ Puede usar la actividad [**Write-Output**](https://technet.microsoft.com/library
      * Valor predeterminado personalizado: \<Nombre del grupo de recursos que contiene las máquinas virtuales>
 5. Una vez agregados los parámetros, haga clic en **Aceptar**.  Ahora puede verlos en la **hoja Entrada y salida**. Haga clic en **Aceptar** de nuevo y después en **Guardar** y en **Publicar** para publicar el Runbook.
 
+## <a name="configure-input-parameters-in-python-runbooks"></a>Configuración de parámetros de entrada en runbooks de Python
+
+A diferencia de los runbooks gráficos, de PowerShell y de flujo de trabajo de PowerShell, los runbooks de Python no toman parámetros con nombre.
+Todos los parámetros de entrada se analizan como una matriz de valores de argumento.
+Para obtener acceso a la matriz, debe importar el módulo `sys` al script de Python y usar la matriz `sys.argv`.
+Es importante tener en cuenta que el primer elemento de la matriz, `sys.argv[0]`, es el nombre del script, por lo que el primer parámetro de entrada real es `sys.argv[1]`.
+
+Para obtener un ejemplo de cómo usar los parámetros de entrada en un runbook de Python, vea [My first Python runbook in Azure Automation](automation-first-runbook-textual-python2.md) (Mi primer runbook de Python en Azure Automation).
+
 ## <a name="assign-values-to-input-parameters-in-runbooks"></a>Asignación de valores a parámetros de entrada en Runbooks
+
 Puede pasar valores a parámetros de entrada en Runbooks en los siguientes escenarios.
 
 ### <a name="start-a-runbook-and-assign-parameters"></a>Inicio de un Runbook y asignación de parámetros
+
 Se puede iniciar un Runbook de muchas maneras: mediante Azure Portal, con un webhook, con cmdlets de PowerShell, con la API de REST o con el SDK. A continuación, se describen distintos métodos para iniciar un Runbook y asignar parámetros.
 
 #### <a name="start-a-published-runbook-by-using-the-azure-portal-and-assign-parameters"></a>Inicio de un Runbook publicado mediante el Portal de Azure y asignación de parámetros
-Cuando se [inicia el Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), se abre la hoja **Iniciar runbook** y puede configurar los valores para los parámetros que acaba de crear.
+
+Al [iniciar el runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), se abre la hoja **Iniciar runbook** y puede indicar los valores de los parámetros que acaba de crear.
 
 ![Empezar a usar el portal](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
@@ -133,6 +150,7 @@ En la etiqueta bajo el cuadro de entrada, puede ver los atributos que se han def
 > 
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>Inicio de un Runbook publicado mediante cmdlets de PowerShell y asignación de parámetros
+
 * **Cmdlets de Azure Resource Manager:** puede iniciar un Runbook de automatización creado en un grupo de recursos mediante [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
   
   **Ejemplo:**
@@ -158,6 +176,7 @@ En la etiqueta bajo el cuadro de entrada, puede ver los atributos que se han def
 > 
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>Inicio de un Runbook con un SDK y asignación de parámetros
+
 * **Método Azure Resource Manager:** puede iniciar un Runbook mediante el SDK de un lenguaje de programación. A continuación, se muestra un fragmento de código C# para iniciar un Runbook en su cuenta de Automatización. Puede ver todo el código en nuestro [repositorio de GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
   ```
@@ -267,10 +286,5 @@ Cuando se ejecuta un Runbook mediante un webhook, se envía un parámetro de ent
 * Para más información acerca de diferentes maneras de iniciar un Runbook, consulte [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md).
 * Para editar un Runbook de texto, consulte [Edición de runbooks de texto en Automatización de Azure](automation-edit-textual-runbook.md).
 * Para editar un Runbook gráfico, consulte [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
