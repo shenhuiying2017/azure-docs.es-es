@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 09/20/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 6ef296fb98478be9240f0231c8ad39cd2a0af995
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: d614352a62dc7aca012e9b144473604ae9829af9
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
@@ -57,11 +57,7 @@ Se requiere una puerta de enlace de datos local cuando uno o varios servidores d
 
    ![Ubicación de instalación y términos de la licencia](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. Seleccione **Puerta de enlace de datos local (se recomienda)**. Azure Analysis Services no admite el modo personal.
-
-   ![Elección del tipo de puerta de enlace](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
-
-4. Especifique una cuenta para iniciar sesión en Azure. La cuenta debe estar en la instancia de Azure Active Directory de su inquilino. Dicha cuenta se usa para el administrador de la puerta de enlace. 
+3. Especifique una cuenta para iniciar sesión en Azure. La cuenta debe estar en la instancia de Azure Active Directory de su inquilino. Dicha cuenta se usa para el administrador de la puerta de enlace. 
 
    ![Especifique una cuenta para iniciar sesión en Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 

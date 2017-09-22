@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7db677614c23a3447e3e40ae867711a754b06d0d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -153,7 +153,7 @@ Seguridad y auditoría es un ejemplo de solución de este tipo.
 
 Azure Automation automatiza los procesos administrativos con runbooks basados en PowerShell que se ejecutan en la nube de Azure. Los runbooks pueden ejecutarse en un servidor en el centro de datos local para administrar recursos locales. Azure Automation proporciona administración de configuración con DSC de PowerShell (Configuración de estado deseada).
 
-![Azure Automation](./media/azure-threat-detection/azure-threat-detection-fig7.png)
+![Automatización de Azure](./media/azure-threat-detection/azure-threat-detection-fig7.png)
 
 Puede crear y administrar recursos de DSC hospedados en Azure y aplicarlos a los sistemas de nube y locales para definir y aplicar automáticamente su configuración u obtener informes de la desviación para ayudar a garantizar que las configuraciones de seguridad cumplen siempre las directivas.
 
@@ -290,7 +290,7 @@ Los detectores de amenazas de SQL Database usan uno de los métodos de detecció
 
 ### <a name="application-gateway-web-application-firewall"></a>Firewall de aplicaciones web de Application Gateway
 
-El [firewall de aplicaciones web](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) (WAF) es una característica de [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) que protege las aplicaciones web que utilizan una puerta de enlace de aplicaciones para las funciones estándar de [Application Delivery Control](https://kemptechnologies.com/in/application-delivery-controllers). El firewall de aplicaciones web ofrece protección contra las [10 vulnerabilidades web identificadas por OWASP](https://www.owasp.org/index.php/Top_10_2010-Main) más comunes
+El [firewall de aplicaciones web](../app-service/environment/app-service-app-service-environment-web-application-firewall.md) (WAF) es una característica de [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) que protege las aplicaciones web que utilizan una puerta de enlace de aplicaciones para las funciones estándar de [Application Delivery Control](https://kemptechnologies.com/in/application-delivery-controllers). El firewall de aplicaciones web ofrece protección contra las [10 vulnerabilidades web identificadas por OWASP](https://www.owasp.org/index.php/Top_10_2010-Main) más comunes
 
 ![Firewall de aplicaciones web de Application Gateway](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 

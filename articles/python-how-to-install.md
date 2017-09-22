@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 523ee51c79fe09d71fa3cd3e202cf155b511956f
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e69fff29be5b12c3c0004b4101eba69c7da87d3d
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="installing-python-and-the-sdk"></a>Instalación de Python y el SDK
@@ -92,13 +92,13 @@ o directamente
 El repositorio [Python Package Index][Python Package Index] (PyPI) dispone de una abundante selección de bibliotecas de Python.  Si ha optado por instalar una distribución, ya dispondrá de los bits más interesantes para varios escenarios que van desde el desarrollo web a la informática técnica.
 
 ## <a name="python-tools-for-visual-studio"></a>Python Tools para Visual Studio
-[Python Tools para Visual Studio][Python Tools para Visual Studio] (PTVS) es un complemento gratuito o software de código abierto (OSS) de Microsoft que convierte VS en un IDE de Python completo:
+[Herramientas de Python para Visual Studio][Herramientas de Python para Visual Studio] (PTVS) es un complemento gratuito o software de código abierto (OSS) de Microsoft que convierte VS en un IDE de Python completo:
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 
 El uso de PTVS es opcional, pero es recomendable, ya que le proporciona compatibilidad con soluciones o proyectos de Web y Python, depuración, creación de perfiles, ventana interactiva, edición de plantillas e IntelliSense.
 
-PTVS también simplifica la implementación en Microsoft Azure, con compatibilidad para la implementación en [Cloud Services](cloud-services/cloud-services-python-ptvs.md) y [Websites](app-service-web/app-service-web-overview.md).
+PTVS también simplifica la implementación en Microsoft Azure, con compatibilidad para la implementación en [Cloud Services](cloud-services/cloud-services-python-ptvs.md) y [Websites](app-service/app-service-web-overview.md).
 
 PTVS funciona con su instalación de Visual Studio 2013, 2015 o 2017 existente.  Para obtener documentación, descargas y discusiones, consulte [Python Tools para Visual Studio].  
 
@@ -117,7 +117,7 @@ Para obtener información sobre cómo configurar una máquina virtual Linux, con
 
 Con la implementación de Git puede desarrollar una aplicación web de Python y publicarla en un sitio web de Azure desde cualquier sistema operativo.  Cuando inserta el repositorio en Azure, crea automáticamente un entorno virtual y pip instala los paquetes necesarios.
 
-Para información sobre cómo usar cualquier marco de trabajo compatible con WSGI, consulte [Configuración de Python con Azure Websites](app-service-web/web-sites-python-configure.md).
+Para información sobre cómo usar cualquier marco de trabajo compatible con WSGI, consulte [Configuración de Python con Azure Websites](app-service/web-sites-python-configure.md).
 
 ## <a name="additional-software-and-resources"></a>Recursos y software adicionales:
 * [SDK de Azure para Python ReadTheDocs](http://azure-sdk-for-python.readthedocs.io/en/latest/)

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 298679883416a871016563aa789522413ff4c019
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
+ms.contentlocale: es-es
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="introducing-microsoft-azure"></a>Introducción a Microsoft Azure
@@ -102,7 +103,7 @@ A la hora de crear una instancia, dispone de dos roles para elegir, ambos basado
 Los servicios en la nube son una opción ideal para el escalado horizontal masivo cuando necesite un control sobre la plataforma superior al que ofrece Aplicaciones web de Azure pero no sea necesario controlar el sistema operativo subyacente.
 
 #### <a name="choosing-a-compute-model"></a>Selección de un modelo de proceso
-La página de [comparación entre Aplicaciones web de Azure, servicios en la nube y Máquinas virtuales de Azure](app-service-web/choose-web-site-cloud-service-vm.md) proporciona información más detallada sobre cómo seleccionar un modelo de proceso.
+La página de [comparación entre Aplicaciones web de Azure, servicios en la nube y Máquinas virtuales de Azure](app-service/choose-web-site-cloud-service-vm.md) proporciona información más detallada sobre cómo seleccionar un modelo de proceso.
 
 ## <a name="data-management"></a>Administración de datos
 Las aplicaciones necesitan datos, y diferentes tipos de aplicaciones necesitan diferentes tipos de datos. Como consecuencia, Azure ofrece varias formas de almacenar y administrar los datos. Azure proporciona muchas opciones de almacenamiento, todas ellas diseñadas para ofrecer un rendimiento muy duradero.  Con cualquiera de estas opciones, hay siempre tres copias de sus datos sincronizados entre los centros de datos de Azure (seis si permite que Azure utilice la redundancia geográfica para hacer una copia de seguridad en otro centro de datos que esté al menos a 450 kilómetros de distancia).     
@@ -537,9 +538,4 @@ SendGrid es una aplicación de la Tienda Azure que le permite enviar correo elec
 Ahora que ha captado la idea general, el siguiente paso es programar su primera aplicación de Azure. Elija su lenguaje, [obtenga el SDK adecuado](/downloads/)y ¡a por ello!. La informática en nube es el nuevo estándar, comience ya.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

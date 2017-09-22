@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm;cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 017e08b7e1e37c0bcb95ae0d9d702471bb8bc6bc
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: c072cb3a7d376d1e3c2b9f741f5410106e701256
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>Creación y conexión de una base de datos MySQL en Azure
-En este tutorial se le enseñará a crear una base de datos MySQL en [Azure Portal](https://portal.azure.com) (el proveedor es [ClearDB](http://www.cleardb.com/)) y cómo conectarse a ella desde una aplicación web PHP que se ejecute en [Azure App Service](app-service/app-service-value-prop-what-is.md).
+En este tutorial se le enseñará a crear una base de datos MySQL en [Azure Portal](https://portal.azure.com) (el proveedor es [ClearDB](http://www.cleardb.com/)) y cómo conectarse a ella desde una aplicación web PHP que se ejecute en [Azure App Service](app-service/app-service-web-overview.md).
 
 > [!NOTE]
 > También puede crear una base de datos MySQL como parte de una <a href="https://portal.azure.com/#create/WordPress.WordPress" target="_blank">plantilla de aplicación de Marketplace</a>.
@@ -68,75 +68,6 @@ Para ver la información de conexión de la nueva base de datos MySQL, haga clic
 ![Creación una base de datos MySQL en Azure: hoja Base de datos MySQL](./media/store-php-create-mysql-database/create-db-5-finished-db-blade.png)
 
 Ahora puede emplear esa información de conexión en cualquier aplicación web. [Aquí](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql)puede encontrar un ejemplo que muestra cómo utilizar la información de conexión de una aplicación PHP simple.
-
-## <a name="connect-a-laravel-web-app-from-the-php-get-started-tutorial"></a>Conexión de una aplicación web de Laravel (del tutorial de introducción de PHP)
-Si, por ejemplo, acaba de finalizar el tutorial [Create, configure, and deploy a PHP web app to Azure](app-service-web/app-service-web-php-get-started.md) (Creación, configuración e implementación de aplicaciones web PHP en Azure) y tiene una aplicación web de [Laravel](https://www.laravel.com/) que se ejecuta en Azure, podrá agregar fácilmente las funcionalidades de base de datos a la aplicación Laravel. Siga los pasos que se indican a continuación:
-
-> [!NOTE]
-> En los siguientes pasos se da por hecho que ha finalizado la tutorial [Create, configure, and deploy a PHP web app to Azure](app-service-web/app-service-web-php-get-started.md)(Creación, configuración e implementación de aplicaciones web PHP en Azure).
->
->
-
-1. Configure la aplicación Laravel en su entorno de desarrollo local para que apunte a la base de datos MySQL. Para ello, abra `.env` desde el directorio raíz de la aplicación Laravel y configure las opciones de base de datos de MySQL.
-
-        DB_CONNECTION=mysql
-        DB_HOST=<HOSTNAME_from_properties_blade>
-        DB_PORT=<PORT_from_properties_blade>
-        DB_DATABASE=<see_note_below>
-        DB_USERNAME=<USERNAME_from_properties_blade>
-        DB_PASSWORD=<PASSWORD_from_properties_blade>
-
-   > [!NOTE]
-   > En la hoja **Propiedades**, puede que no se muestre el nombre de la base de datos MySQL en el campo **NOMBRE DE LA BASE DE DATOS**. Se recomienda comprobar el parámetro Database del campo **CADENA DE CONEXIÓN** .    
-   >
-   > ![Creación una base de datos MySQL en Azure: en curso](./media/store-php-create-mysql-database/connect-db-1-database-name.png)
-   >
-   >
-2. La forma más rápida de comprobar que ahora tiene acceso a MySQL es usar la técnica [scaffolding de autenticación predeterminada de Laravel](https://laravel.com/docs/5.2/authentication#authentication-quickstart).
-   En el terminal de la línea de comandos, ejecute los siguientes comandos desde el directorio raíz de la aplicación Laravel:
-
-         php artisan migrate
-         php artisan make:auth
-
-    El primer comando crea las tablas en Azure según las migraciones predefinidas del directorio `database/migrations`, mientras que el segundo comando aplica la técnica scaffolding en las vistas básicas y las rutas de autenticación y registro de usuarios.
-3. Ejecute ahora el servidor de desarrollo:
-
-        php artisan serve
-4. En el explorador, vaya a http://localhost:8000 y registre un nuevo usuario tal y como se muestra:
-
-    ![Conexión a la base de datos MySQL en Azure: registro de usuarios](./media/store-php-create-mysql-database/connect-db-2-development-server.png)
-
-    Siga las indicaciones de la interfaz de usuario para completar el registro. Cuando se haya registrado, se iniciará la sesión.
-
-    ![Conexión a la base de datos MySQL en Azure: registro de usuarios](./media/store-php-create-mysql-database/connect-db-3-registered-user.png)
-
-    Ahora está desarrollando la aplicación en la base de datos MySQL de Azure.
-5. Ahora, solo tiene que replicar la configuración de `.env` en la aplicación web de Azure. Ejecute los siguientes comandos de la CLI de Azure:
-
-        azure site appsetting add DB_CONNECTION=mysql
-        azure site appsetting add DB_HOST=<HOSTNAME_from_properties_blade>
-        azure site appsetting add DB_PORT=<PORT_from_properties_blade>
-        azure site appsetting add DB_DATABASE=<Database_param_from_CONNECTION_INFO_from_properties_blade>
-        azure site appsetting add DB_USERNAME=<USERNAME_from_properties_blade>
-        azure site appsetting add DB_PASSWORD=<PASSWORD_from_properties_blade>
-
-6. Después, confirme y envíe a Azure los cambios locales realizados anteriormente durante la ejecución de `php artisan make:auth`.
-
-        git add .
-        git commit -m "scaffold auth views and routes"
-        git push azure master
-7. Vaya a la aplicación web de Azure.
-
-        azure site browse
-8. Inicie sesión con las credenciales de usuario que creó antes.
-
-    ![Conexión a la base de datos MySQL en Azure: acceso a la aplicación web de Azure](./media/store-php-create-mysql-database/connect-db-4-browse-azure-webapp.png)
-
-    Después de iniciar sesión, deberá ver la pantalla posterior a este paso, con una intuitiva interfaz.
-
-    ![Conexión a la base de datos MySQL en Azure: sesión iniciada](./media/store-php-create-mysql-database/connect-db-5-logged-in.png)
-
-    Enhorabuena. La aplicación web PHP de Azure ahora tiene acceso a datos de la base de datos MySQL.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte el [Centro para desarrolladores de PHP](/develop/php/).

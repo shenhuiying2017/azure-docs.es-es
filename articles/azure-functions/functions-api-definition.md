@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: e9499d036c8c5ef5a56a70f7e7ecf9afbff4e6b0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Compatibilidad con metadatos de OpenAPI 2.0 en Azure Functions (versión preliminar)
 La compatibilidad con metadatos de OpenAPI 2.0 (anteriormente Swagger) en Azure Functions es una característica en versión preliminar que puede usar para escribir una definición de OpenAPI 2.0 dentro de una aplicación de función. A continuación, puede hospedar ese archivo mediante la aplicación de función.
 
-[Los metadatos de OpenAPI](http://swagger.io/) permiten que una función que hospede una API de REST pueda ser consumida por una gran variedad de software. Este software incluye ofertas de Microsoft como PowerApps y la [característica API Apps de Azure App Service](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), herramientas de desarrollo de terceros, como [Postman](https://www.getpostman.com/docs/importing_swagger) y [muchos otros paquetes](http://swagger.io/tools/).
+[Los metadatos de OpenAPI](http://swagger.io/) permiten que una función que hospede una API de REST pueda ser consumida por una gran variedad de software. Este software incluye ofertas de Microsoft como PowerApps y la [característica API Apps de Azure App Service](../app-service/app-service-web-overview.md), herramientas de desarrollo de terceros, como [Postman](https://www.getpostman.com/docs/importing_swagger) y [muchos otros paquetes](http://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

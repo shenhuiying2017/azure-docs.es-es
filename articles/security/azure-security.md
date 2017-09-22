@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: b0749847af81521e0ffe6b5f1e115fff558df5cd
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 54bbd7dd1d0ecad79f86e0ab16be3a48854093ac
 ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -111,7 +111,7 @@ Además, Azure Security Center le ayuda con las operaciones de seguridad, al pro
 En esta sección se proporciona información adicional acerca de características fundamentales para la seguridad de las aplicaciones y un resumen de estas funcionalidades.
 
 ### <a name="web-application-vulnerability-scanning"></a>Examen de vulnerabilidades para aplicaciones web
-Una de las maneras más fáciles de empezar a probar si existen puntos vulnerables en su [aplicación de App Service](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is) consiste en usar la [integración con Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para realizar un examen con un solo clic del nivel de vulnerabilidad de su aplicación. Puede ver los resultados de la prueba en un informe fácil de entender, y aprender a corregir cada vulnerabilidad con instrucciones detalladas.
+Una de las maneras más fáciles de empezar a probar si existen puntos vulnerables en su [aplicación de App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview) consiste en usar la [integración con Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para realizar un examen con un solo clic del nivel de vulnerabilidad de su aplicación. Puede ver los resultados de la prueba en un informe fácil de entender, y aprender a corregir cada vulnerabilidad con instrucciones detalladas.
 
 ### <a name="penetration-testing"></a>Pruebas de penetración
 Si prefiere realizar sus propias pruebas de penetración o desea usar otro conjunto de aplicaciones de análisis u otro proveedor, debe seguir el [proceso de aprobación de pruebas de penetración de Azure](https://security-forms.azure.com/penetration-testing/terms) y obtener aprobación previa para realizar las pruebas de penetración deseadas.
@@ -123,10 +123,10 @@ El firewall de aplicaciones web (WAF) de [Azure Application Gateway](https://azu
 La [autenticación/autorización de App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) es una característica que proporciona una forma para que la aplicación lleve a cabo el inicio de sesión de usuarios sin necesidad de cambiar el código en el back-end de aplicación. Ofrece una forma fácil de proteger su aplicación y trabajar con datos por usuario.
 
 ### <a name="layered-security-architecture"></a>Arquitectura de seguridad por niveles
-Como los [entornos de App Service](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-intro) proporcionan un entorno en tiempo de ejecución aislado que está implementado en una [instancia de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), los desarrolladores pueden crear una arquitectura de seguridad por niveles que proporcione diferentes niveles de acceso a la red para cada capa de aplicación. Un objetivo común es ocultar los back-ends de API al acceso general desde Internet y permitir que solo las aplicaciones web ascendentes puedan llamar a las API. Los [grupos de seguridad de red (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) pueden usarse en subredes de Azure Virtual Network que contengan entornos de App Service para restringir el acceso público a aplicaciones API.
+Como los [entornos de App Service](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro) proporcionan un entorno en tiempo de ejecución aislado que está implementado en una [instancia de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), los desarrolladores pueden crear una arquitectura de seguridad por niveles que proporcione diferentes niveles de acceso a la red para cada capa de aplicación. Un objetivo común es ocultar los back-ends de API al acceso general desde Internet y permitir que solo las aplicaciones web ascendentes puedan llamar a las API. Los [grupos de seguridad de red (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) pueden usarse en subredes de Azure Virtual Network que contengan entornos de App Service para restringir el acceso público a aplicaciones API.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>Diagnóstico del servidor web y diagnóstico de aplicaciones
-Aplicaciones web del Servicio de aplicaciones ofrece la funcionalidad de diagnóstico para registrar información del servidor web y de la aplicación web. De forma lógica, estos diagnósticos se dividen en [diagnósticos del servidor web](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log) y [diagnóstico de aplicaciones](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). El servidor web incluye dos avances importantes para el diagnóstico y la solución de problemas de sitios y aplicaciones.
+Aplicaciones web del Servicio de aplicaciones ofrece la funcionalidad de diagnóstico para registrar información del servidor web y de la aplicación web. De forma lógica, estos diagnósticos se dividen en [diagnósticos del servidor web](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) y [diagnóstico de aplicaciones](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). El servidor web incluye dos avances importantes para el diagnóstico y la solución de problemas de sitios y aplicaciones.
 
 La primera característica nueva es la información de estado en tiempo real sobre grupos de aplicaciones, procesos de trabajo, sitios, dominios de aplicación y solicitudes en ejecución. La segunda ventaja nueva son los eventos de seguimiento detallados que siguen una solicitud a lo largo del proceso completo de solicitud y respuesta.
 
@@ -142,7 +142,7 @@ Puede habilitar o deshabilitar los siguientes tipos de registros:
 -   Registro del servidor web: registra información sobre todas las transacciones HTTP con el formato de archivo de registro extendido de W3C. Este informe resulta útil para determinar las métricas totales del sitio, como el número de solicitudes tramitadas o cuántas solicitudes proceden de una dirección IP específica.
 
 #### <a name="application-diagnostics"></a>diagnósticos de la aplicación
-El [diagnóstico de aplicaciones](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log) le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) para registrar información en el registro de diagnóstico de la aplicación. En Diagnóstico de aplicaciones, hay dos tipos principales de eventos, los relacionados con el rendimiento de las aplicaciones y los relacionados con los errores de las aplicaciones. Los errores se pueden subdividir en problemas de conectividad, seguridad y funcionamiento. Los problemas de funcionamiento normalmente guardan relación con un problema con el código de la aplicación.
+El [diagnóstico de aplicaciones](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) para registrar información en el registro de diagnóstico de la aplicación. En Diagnóstico de aplicaciones, hay dos tipos principales de eventos, los relacionados con el rendimiento de las aplicaciones y los relacionados con los errores de las aplicaciones. Los errores se pueden subdividir en problemas de conectividad, seguridad y funcionamiento. Los problemas de funcionamiento normalmente guardan relación con un problema con el código de la aplicación.
 
 En Diagnóstico de aplicaciones, puede ver los eventos agrupados de las siguientes maneras:
 

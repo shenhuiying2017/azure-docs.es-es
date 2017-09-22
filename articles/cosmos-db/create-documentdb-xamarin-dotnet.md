@@ -15,16 +15,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c8e2e688a7a8b99272c304df37ceff0f9ec52b19
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ed1d30be780e0882b8e75c01bc7822c3350f3fee
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB: Compilación de una aplicación web con la autenticación de .NET, Xamarin y Facebook
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escalado horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escalado horizontal en Azure Cosmos DB. 
 
 En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Podrá compilar e implementar una aplicación web de lista de tareas pendientes integrada en el motor de autorizaciones de [API de .NET de DocumentDB](documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/) y Azure Cosmos DB. La aplicación web de lista de tareas pendientes implementa un patrón de datos por usuario que permite a los usuarios iniciar sesión con la autenticación de Facebook y administrar sus propias tareas pendientes.
 
@@ -108,7 +108,7 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 4. Abra el proyecto de Xamarin y vaya a TodoItemManager.cs. Rellene los valores para accountURL, collectionId, databaseId, así como resourceTokenBrokerURL como dirección URL HTTPS base para el sitio web de ResourceTokenBroker.
 
-5. Complete el tutorial [Configuración de la aplicación de App Service para usar el inicio de sesión de Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) para configurar la autenticación de Facebook y configurar el sitio web de ResourceTokenBroker.
+5. Complete el tutorial [Configuración de la aplicación de App Service para usar el inicio de sesión de Facebook](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md) para configurar la autenticación de Facebook y configurar el sitio web de ResourceTokenBroker.
 
     Ejecute la aplicación Xamarin.
 

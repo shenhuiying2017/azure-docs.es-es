@@ -15,18 +15,17 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 27c582436bd57adfb5e8edb0f63c0f206db66c89
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e106a9bdf28243dd829b6a014b73c148809c1bde
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="azure-active-directory-authentication-protocols"></a>Protocolos de autenticación de Azure Active Directory
+# Protocolos de autenticación de Azure Active Directory
 Azure Active Directory (Azure AD) admite varios de los protocolos de autenticación y autorización utilizados más comúnmente. En los temas de esta sección se describen los protocolos admitidos y su implementación en Azure AD. En los temas se incluye una revisión de los tipos de notificación compatibles, una introducción al uso de los metadatos de federación, documentación de referencia detallada sobre los protocolos OAuth 2.0. y SAML 2.0, y una sección de solución de problemas.
 
-## <a name="authentication-protocols-articles-and-reference"></a>Artículos y referencia de protocolos de autenticación
+## Artículos y referencia de protocolos de autenticación
 * [Información importante acerca de la cadencia de sustitución de clave en Azure AD](active-directory-signing-key-rollover.md) : obtenga información sobre la cadencia de sustitución de clave de firma de Azure AD, los cambios que puede realizar para actualizar la clave automáticamente y una explicación sobre cómo actualizar los escenarios de aplicación más comunes.
 * [Tipos de token y notificación compatibles](active-directory-token-and-claims.md): obtenga información sobre las notificaciones en los tokens que emite Azure AD.
 * [Metadatos de federación](active-directory-federation-metadata.md) : obtenga información sobre cómo buscar e interpretar los documentos de metadatos que Azure AD genera.
@@ -36,10 +35,8 @@ Azure Active Directory (Azure AD) admite varios de los protocolos de autenticaci
 * [Llamadas de servicio a servicio con el flujo En nombre de](active-directory-protocols-oauth-on-behalf-of.md): aprenda a usar el flujo "En nombre de" de OAuth 2.0 en las llamadas de servicio a servicio.
 * [Referencia del protocolo SAML](active-directory-saml-protocol-reference.md) : obtenga información sobre los perfiles SAML de inicio de sesión único y de cierre de sesión único de Azure AD.
 
-## <a name="see-also"></a>Otras referencias
+## Otras referencias
 [Guía del desarrollador de Azure Active Directory](active-directory-developers-guide.md)
-
-[Uso de Azure AD para la autenticación](../../app-service-web/web-sites-authentication-authorization.md)
 
 [Ejemplos de código de Azure Active Directory](active-directory-code-samples.md)
 

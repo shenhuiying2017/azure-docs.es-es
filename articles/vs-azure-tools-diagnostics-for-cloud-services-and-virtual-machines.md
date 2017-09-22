@@ -15,14 +15,14 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 2516c0eb8ce470577731db9b844d5b9038465477
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d3c85cde864d599871e195df2e81548180e647ba
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configuración de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure
-Cuando tenga que solucionar problemas de un servicio en la nube o una máquina virtual de Azure, puede configurar diagnósticos de Azure con mayor facilidad mediante Visual Studio. El diagnóstico de Azure captura los datos del sistema y los datos de registro en las máquinas virtuales y las instancias de máquina virtual que ejecutan el servicio en la nube y transfiere datos a la cuenta de almacenamiento que elija. Vea [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service](app-service-web/web-sites-enable-diagnostic-log.md) para obtener más información sobre el registro de diagnóstico de Azure.
+Cuando tenga que solucionar problemas de un servicio en la nube o una máquina virtual de Azure, puede configurar diagnósticos de Azure con mayor facilidad mediante Visual Studio. El diagnóstico de Azure captura los datos del sistema y los datos de registro en las máquinas virtuales y las instancias de máquina virtual que ejecutan el servicio en la nube y transfiere datos a la cuenta de almacenamiento que elija. Vea [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service](app-service/web-sites-enable-diagnostic-log.md) para obtener más información sobre el registro de diagnóstico de Azure.
 
 En este tema se muestra cómo habilitar y configurar el diagnóstico de Azure en Visual Studio, tanto antes como después de la implementación, así como en máquinas virtuales de Azure. También muestra cómo seleccionar los tipos de información de diagnóstico que sé recopilarán y cómo ver la información que se recopila.
 
@@ -137,7 +137,7 @@ Cuando habilite la colección de datos de diagnóstico, puede elegir exactamente
 
   ![Registros de aplicación](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758145.png)
 
-  Vea [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service](app-service-web/web-sites-enable-diagnostic-log.md) para obtener más información sobre los registros de aplicación.
+  Vea [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service](app-service/web-sites-enable-diagnostic-log.md) para obtener más información sobre los registros de aplicación.
 
 ### <a name="windows-event-logs"></a>Registros de eventos de Windows
 Si quiere capturar registros de aplicación de Windows, active la casilla **Habilitar la transferencia de registros de eventos de Windows** . Puede aumentar o disminuir el número de minutos durante los cuales se transfieren los registros de eventos a la cuenta de almacenamiento cambiando el valor **Período de transferencia (min)** . Active las casillas para los tipos de eventos de los que quiera realizar un seguimiento.
@@ -301,6 +301,6 @@ A los métodos de RoleEntryPoint se les llama en el contexto de WAIISHost.exe, n
 En la ventana **Propiedades**, establezca la propiedad **Copiar en el directorio de salida** en **Copiar siempre**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre el registro de diagnósticos de Azure, consulte [Habilitación de diagnósticos en Azure Cloud Services y Azure Virtual Machines](cloud-services/cloud-services-dotnet-diagnostics.md) y [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service](app-service-web/web-sites-enable-diagnostic-log.md).
+Para más información sobre el registro de diagnósticos de Azure, consulte [Habilitación de diagnósticos en Azure Cloud Services y Azure Virtual Machines](cloud-services/cloud-services-dotnet-diagnostics.md) y [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service](app-service/web-sites-enable-diagnostic-log.md).
 
 

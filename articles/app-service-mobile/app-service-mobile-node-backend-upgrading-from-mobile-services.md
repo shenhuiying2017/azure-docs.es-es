@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 879854c4afc6fa5ac31f8e18dad0164e77f190cd
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5fc61fed674f0d2fc64bc29c064e7e872b4f2e68
 ms.contentlocale: es-es
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Actualización del Servicio móvil de Azure de Node.js existente a Servicio de aplicaciones
@@ -156,13 +156,13 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
-[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[precios del Servicio de aplicaciones]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Precios de App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[conceptos de autenticación]: ../app-service/app-service-authentication-overview.md
+[Conceptos de autenticación]: ../app-service/app-service-authentication-overview.md
 [inicio rápido de autenticación]: app-service-mobile-auth.md
 
 [Portal de Azure]: https://portal.azure.com/

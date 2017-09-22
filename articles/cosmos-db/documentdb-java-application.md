@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: ddfb10a9688842e4a23b72b4362d75b20d320262
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 78cf118dfb9759e1cdbdc023ccad65238853122e
 ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Compilación de una aplicación web de Java mediante Azure Cosmos DB y la API de DocumentDB API
@@ -726,7 +726,7 @@ Azure WebSites consigue que la implementación de aplicaciones de Java sea tan s
    * En el cuadro Proyecto web, escriba azure-documentdb-java-sample.
    * En el cuadro de destino, seleccione un destino para guardar el archivo WAR.
    * Haga clic en **Finalizar**
-3. Ahora que tiene a mano un archivo WAR, simplemente puede cargarlo en el directorio **webapps** del sitio web de Azure. Para obtener instrucciones sobre cómo cargar el archivo, consulte [Adición de una aplicación Java a Azure App Service Web Apps](../app-service-web/web-sites-java-add-app.md).
+3. Ahora que tiene a mano un archivo WAR, simplemente puede cargarlo en el directorio **webapps** del sitio web de Azure. Para obtener instrucciones sobre cómo cargar el archivo, consulte [Adición de una aplicación Java a Azure App Service Web Apps](../app-service/web-sites-java-add-app.md).
    
     Una vez que se cargue el archivo WAR en el directorio webapps, el entorno de tiempo de ejecución detectará que lo ha agregado y lo cargará automáticamente.
 4. Para ver el producto terminado, vaya a http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ y comience a agregar las tareas.

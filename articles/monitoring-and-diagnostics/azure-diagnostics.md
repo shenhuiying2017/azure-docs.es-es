@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Microsoft Azure Diagnostics | Microsoft Docs"
+title: "Introducción a Diagnósticos de Microsoft Azure | Microsoft Docs"
 description: "Use Diagnósticos de Azure para realizar tareas de depuración, medición de rendimiento, supervisión y análisis de tráfico en servicios en la nube, en máquinas virtuales y en Service Fabric"
 services: multiple
 documentationcenter: .net
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e2d3a6725ee53dc6d6986b185fac143901ba6955
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
 ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="what-is-azure-diagnostics"></a>¿Qué es Diagnósticos de Azure?
@@ -49,7 +48,7 @@ Consulte el [historial de versiones de Diagnósticos de Azure](azure-diagnostics
 Seleccione el servicio sobre el cual intenta recopilar diagnósticos y utilice los siguientes artículos para comenzar. Utilice los vínculos de diagnósticos generales de Azure como referencia para tareas específicas.
 
 ## <a name="web-apps"></a>Aplicaciones web
-Tenga en cuenta que las aplicaciones web no utilizan Diagnósticos de Azure. Puede encontrar información equivalente en [Web Apps](../app-service-web/web-sites-enable-diagnostic-log.md).
+Tenga en cuenta que las aplicaciones web no utilizan Diagnósticos de Azure. Puede encontrar información equivalente en [Web Apps](../app-service/web-sites-enable-diagnostic-log.md).
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Servicios en la nube que usan Diagnósticos de Azure
 * Si utiliza Visual Studio, consulte el artículo sobre el [uso de Visual Studio para rastrear una aplicación de Cloud Services](../vs-azure-tools-debug-cloud-services-virtual-machines.md) para comenzar. De lo contrario, consulte

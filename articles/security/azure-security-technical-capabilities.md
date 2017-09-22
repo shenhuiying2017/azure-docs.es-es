@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 268299d82ce79b10eb8061467f4bad61194457f8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a32693a274c2615a515838306d72dbe64a5d1763
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
@@ -318,12 +318,10 @@ Entre las vulnerabilidades web más habituales frente a las que protege el firew
 
 Azure dispone también de varias características fáciles de usar que contribuyen a proteger el tráfico entrante y saliente de la aplicación. Azure ayuda a los clientes a proteger el código de su aplicación con funcionalidad externa para detectar vulnerabilidades en la aplicación web.
 
-- [Proteger su aplicación web mediante diversos medios de autenticación y autorización](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization)
-
-    - [Configurar la autenticación de Azure Active Directory en la aplicación](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
+- [Configurar la autenticación de Azure Active Directory en la aplicación](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
 
-- [Proteger el tráfico a la aplicación mediante la habilitación de Seguridad de la capa de transporte (TLS/SSL) - HTTPS](https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate)
+- [Proteger el tráfico a la aplicación mediante la habilitación de Seguridad de la capa de transporte (TLS/SSL) - HTTPS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
     - [Forzar todo el tráfico entrante a través de la conexión HTTPS](http://microsoftazurewebsitescheatsheet.info/)
 
@@ -336,13 +334,13 @@ Azure dispone también de varias características fáciles de usar que contribuy
 
 - [Examinar el código de la aplicación web en búsqueda de vulnerabilidades mediante Tinfoil Security Scanning](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 
-- [Configurar la autenticación mutua de TLS para requerir certificados de cliente para conectarse a la aplicación web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)
+- [Configurar la autenticación mutua de TLS para requerir certificados de cliente para conectarse a la aplicación web](https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth)
 
 - [Configurar un certificado de cliente para usarlo desde la aplicación para conectarse de forma segura a recursos externos](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
 
 - [Quitar encabezados de servidor estándar para evitar que las herramientas creen huellas digitales en la aplicación](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 
-- [Conectar de forma segura la aplicación con los recursos de una red privada mediante VPN de punto a sitio](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
+- [Conectar de forma segura la aplicación con los recursos de una red privada mediante VPN de punto a sitio](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 
 - [Conectar de forma segura la aplicación con los recursos de una red privada mediante conexiones híbridas](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 

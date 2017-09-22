@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e54c3bc484b0b3b81cc495e54c17e8ef448abe91
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: c4f7c829e6fe3890342bd973185e679dd3ea2df5
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Usar ReportViewer en un sitio web hospedado en Azure
@@ -78,7 +78,7 @@ En el modo de procesamiento remoto, el control ReportViewer usa los siguientes e
 El control ReportViewer debe usar las credenciales adecuadas para autenticarse con el servidor de informes y las credenciales deben estar autorizadas por el servidor de informes para obtener acceso a los informes que quiere. Para obtener información sobre la autenticación, vea las notas del producto [Control Visor de informes de Reporting Services y servidores de informes basados en máquinas virtuales de Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>Publicar la aplicación web ASP.NET en Azure
-Para obtener instrucciones sobre cómo publicar una aplicación web ASP.NET en Azure, consulte [Cómo migrar y publicar una aplicación web en Azure desde Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introducción a aplicaciones web y ASP.NET](../../../app-service-web/app-service-web-get-started-dotnet.md).
+Para obtener instrucciones sobre cómo publicar una aplicación web ASP.NET en Azure, consulte [Cómo migrar y publicar una aplicación web en Azure desde Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introducción a aplicaciones web y ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > Si el comando Agregar proyecto de implementación de Azure o Agregar  proyecto de servicio de nube de Azure no aparece en el menú contextual del Explorador de soluciones, puede que necesite cambiar el marco de trabajo de destino del proyecto a .NET Framework 4.

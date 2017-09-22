@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 1caea59e71126e934e2e52a1ad7f533ffa7d4b03
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7028cdacf7d597c238bf29bd26bbd44705d66224
+ms.contentlocale: es-es
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="devtest-labs-concepts"></a>Conceptos de DevTest Labs
@@ -29,7 +29,7 @@ La lista siguiente contiene las definiciones y los conceptos clave de DevTest La
 Un laboratorio es la infraestructura que abarca un grupo de recursos, como máquinas virtuales (VM), que permite una mejor administración de esos recursos especificando límites y cuotas.
 
 ## <a name="virtual-machine"></a>Máquina virtual
-Una máquina virtual de Azure es uno de los distintos tipos de [recursos informáticos a petición y escalables](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm) que ofrece Azure. Las máquinas virtuales de Azure proporcionan la flexibilidad de virtualización sin necesidad de comprar y mantener el hardware físico que la ejecuta, aunque todavía es necesario mantener la máquina virtual mediante la realización de ciertas tareas, como configurar, aplicar revisiones e instalar el software que se ejecuta en la máquina virtual.
+Una máquina virtual de Azure es uno de los distintos tipos de [recursos informáticos a petición y escalables](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm) que ofrece Azure. Las máquinas virtuales de Azure proporcionan la flexibilidad de virtualización sin necesidad de comprar y mantener el hardware físico que la ejecuta, aunque todavía es necesario mantener la máquina virtual mediante la realización de ciertas tareas, como configurar, aplicar revisiones e instalar el software que se ejecuta en la máquina virtual.
 
 [Información general sobre las máquinas virtuales Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) proporciona información sobre lo que se debe considerar antes de crear una máquina virtual, cómo crearla y cómo administrarla.
 

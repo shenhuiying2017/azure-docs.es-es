@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 38c342802ed687985ac6f84f5a590a1a0dcc6c6a
-ms.lasthandoff: 05/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
+ms.contentlocale: es-es
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configuración de Azure Key Vault con la auditoría y la rotación de claves de un extremo a otro
@@ -406,7 +406,7 @@ Y agregue un archivo denominado project.json con el contenido siguiente:
 ```
 Cuando haga clic en **Guardar**, Azure Functions descargará los binarios necesarios.
 
-Cambie a la pestaña **Integrar** y asigne al parámetro del temporizador un nombre descriptivo para usarlo en la función. En el código anterior, el nombre esperado para el temporizador es *myTimer*. Especifique una [expresión CRON](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON) del modo siguiente: 0 \* \* \* \* \* para el temporizador que hará que la función se ejecute una vez por minuto.
+Cambie a la pestaña **Integrar** y asigne al parámetro del temporizador un nombre descriptivo para usarlo en la función. En el código anterior, el nombre esperado para el temporizador es *myTimer*. Especifique una [expresión CRON](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) del modo siguiente: 0 \* \* \* \* \* para el temporizador que hará que la función se ejecute una vez por minuto.
 
 En la misma pestaña **Integrar**, agregue una entrada que sea del tipo **Azure Blob Storage**. Esta entrada apuntará al archivo sync.txt , que contiene la marca de tiempo del último evento que consultó la función. El parámetro name se encargará de que esté disponible en la función. En el código anterior, la entrada de Azure Blob Storage espera que el parámetro name sea *inputBlob*. Elija la cuenta de almacenamiento donde residirá el archivo sync.txt (puede ser la misma o una diferente). En el campo ruta de acceso, proporcione la ruta donde se encuentra el archivo en el formato {nombre-contenedor}/path/to/sync.txt.
 

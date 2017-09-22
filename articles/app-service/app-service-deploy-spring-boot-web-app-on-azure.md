@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 0c388862d927a1492745832225c686670c071f86
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8776142d5452bf5057990702c89aa1a541382ffc
 ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -91,7 +91,7 @@ Los siguientes pasos le guiarán por las diferentes fases de creación de una ap
 
 1. Una vez que haya iniciado sesión en la cuenta de Azure Portal, haga clic en el icono de menú de **App Services**:
    
-   ![Azure Portal][AZ01]
+   ![Portal de Azure][AZ01]
 
 1. Cuando aparezca la página **App Services**, haga clic en **+ Agregar** para crear un nuevo elemento de App Service.
 
@@ -204,7 +204,7 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 
 Para obtener más información sobre la implementación de aplicaciones web en Azure mediante FTP, consulte [Implementación de la aplicación en Azure App Service mediante FTP/S].
 
-Para obtener más información sobre el proyecto de ejemplo de Spring Boot, consulte [inicial de Spring Boot].
+Para obtener más información sobre el proyecto de ejemplo de Spring Boot, consulte [Primeros pasos de Spring Boot].
 
 Para obtener ayuda para dar sus primeros pasos con sus propias aplicaciones de Spring Boot, consulte **Spring Initializr** en https://start.spring.io/.
 
@@ -212,20 +212,20 @@ Para obtener más información sobre configuración de valores adicionales para 
 
 <!-- URL List -->
 
-[Azure App Service]: https://azure.microsoft.com/services/app-service/
+[Servicio de aplicaciones de Azure]: https://azure.microsoft.com/services/app-service/
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [Centro para desarrolladores de Java de Azure]: https://azure.microsoft.com/develop/java/
-[Azure Portal]: https://portal.azure.com/
-[Configuración de aplicaciones web en Azure App Service]: /azure/app-service-web/web-sites-configure
-[Implementación de la aplicación en Azure App Service mediante FTP/S]: https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp
-[cuenta de Azure gratuita]: https://azure.microsoft.com/pricing/free-trial/
+[Portal de Azure]: https://portal.azure.com/
+[Configuración de Aplicaciones web en Servicio de aplicaciones de Azure]: /azure/app-service/web-sites-configure
+[Implementación de la aplicación en Azure App Service mediante FTP/S]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
+[Cuenta de Azure gratuita]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
-[kit para desarrolladores de Java (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
-[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
+[Kit para desarrolladores de Java (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
+[Herramientas de Java para Visual Studio Team Services]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
-[ventajas como suscriptor de MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[Ventajas para suscriptores de MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[inicial de Spring Boot]: https://github.com/spring-guides/gs-spring-boot
+[Primeros pasos de Spring Boot]: https://github.com/spring-guides/gs-spring-boot
 [Spring Framework]: https://spring.io/
 
 <!-- IMG List -->

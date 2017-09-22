@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 8cc23d5c284123c7c04dda4b71fdb6275d32bf8d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e8b22dad84e89be6051041e60ca9d72ec4aa3c56
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Uso del almacenamiento de tablas de Azure en Node.js
@@ -30,8 +30,7 @@ Este tema muestra cómo realizar algunas tareas comunes a través del servicio T
 
 En los ejemplos de código de este tema se considera que ya tiene una aplicación Node.js. Para información sobre cómo crear una aplicación Node.js en Azure, consulte alguno de estos temas:
 
-* [Creación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure](../app-service-web/app-service-web-get-started-nodejs.md)
-* [Creación e implementación de una aplicación web Node.js en Azure con WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+* [Creación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (con Windows PowerShell)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -451,4 +450,4 @@ Para obtener más información, consulte los siguientes recursos:
 * El [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
 * [SDK de almacenamiento de Azure para Node.js](https://github.com/Azure/azure-storage-node) en GitHub
 * [Centro para desarrolladores de Node.js](/develop/nodejs/)
-* [Creación e implementación de una aplicación Node.js en un sitio web de Azure](../app-service-web/app-service-web-get-started-nodejs.md)
+* [Creación e implementación de una aplicación Node.js en un sitio web de Azure](../app-service/app-service-web-get-started-nodejs.md)

@@ -1,6 +1,6 @@
 ---
 title: "Adición de un firewall de aplicaciones web en Azure Security Center | Microsoft Docs"
-description: "En este documento se muestra cómo implementar las recomendaciones de **agregar un firewall de aplicaciones web** y de **finalizar la protección de la aplicación** de Azure Security Center."
+description: "En este documento se muestra cómo implementar las recomendaciones de agregar un firewall de aplicaciones web y de finalizar la protección de la aplicación de Azure Security Center."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d04a07237029953d8a9b20704d85e852ce45d867
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e858db97c3e7a832ad01e16a60d486a758109d7c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Adición de un firewall de aplicaciones web en el Centro de seguridad de Azure
@@ -27,7 +26,7 @@ Azure Security Center puede recomendarle agregar Firewall de aplicaciones web (W
 
 Se muestra una recomendación WAFS para cualquier IP pública (dirección IP de nivel de instancia o con equilibrio de carga) que tiene un grupo de seguridad de red asociado con puertos abiertos web entrantes (80 y 443).
 
-Security Center le recomendará que aprovisione un WAF para defenderse de ataques dirigidos a las aplicaciones web que se encuentran tanto en las máquinas virtuales como en App Service Environment. Un entorno de App Service es una opción de plan de servicio [Premium](https://azure.microsoft.com/pricing/details/app-service/) de Azure App Service que proporciona un entorno plenamente aislado y dedicado para ejecutar de forma segura las aplicaciones de Azure App Service. Para más información acerca de ASE, consulte [Documentación de App Service Environment](../app-service/app-service-app-service-environments-readme.md).
+Security Center le recomendará que aprovisione un WAF para defenderse de ataques dirigidos a las aplicaciones web que se encuentran tanto en las máquinas virtuales como en App Service Environment. Un entorno de App Service es una opción de plan de servicio [Premium](https://azure.microsoft.com/pricing/details/app-service/) de Azure App Service que proporciona un entorno plenamente aislado y dedicado para ejecutar de forma segura las aplicaciones de Azure App Service. Para más información acerca de ASE, consulte [Documentación de App Service Environment](../app-service/environment/intro.md).
 
 > [!NOTE]
 > En este documento se presenta el servicio mediante una implementación de ejemplo.  Este documento no es una guía paso a paso.
@@ -70,7 +69,7 @@ Los registros de ese WAF ahora están totalmente integrados. El Centro de seguri
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, mostramos cómo implementar la recomendación "Adición de una aplicación web" del Centro de seguridad. Para obtener más información sobre cómo configurar un firewall de aplicaciones web, vea lo siguiente:
 
-* [Configuración de un firewall de aplicaciones web (WAF) para entornos del Servicio de aplicaciones](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
+* [Configuración de un firewall de aplicaciones web (WAF) para entornos del Servicio de aplicaciones](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 

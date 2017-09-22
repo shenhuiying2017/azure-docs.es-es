@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 32c236c7082e48990f41a1a9069cea53d0cab96f
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integración con Azure Active Directory
@@ -34,7 +33,7 @@ Hay varias maneras de integrar la aplicación con Azure AD.  Aprovechar muchos o
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Compatibilidad con Azure AD como una forma de inicio de sesión para la aplicación
 **Reduzca la fricción de inicio de sesión y reduzca los costes de soporte técnico.** Mediante el uso de Azure AD para iniciar sesión en la aplicación, los usuarios no tendrán un nombre y una contraseña más que recordar.  Como desarrollador, tendrá una contraseña menos que almacenar y proteger.  No tener que administrar restablecimientos de contraseñas olvidadas puede considerarse en sí un ahorro notable.  Azure AD acciona el inicio de sesión para algunas aplicaciones en la nube más populares del mundo, incluido Office 365 y Microsoft Azure.  Con cientos de millones de usuarios de millones de organizaciones, lo más probable es que el usuario ya haya iniciado sesión en Azure AD.  Más información sobre la [adición de compatibilidad para el inicio de sesión de Azure AD](active-directory-authentication-scenarios.md).
 
-**Simplifique el registro de la aplicación.**  Durante el registro de la aplicación, Azure AD puede enviar información esencial acerca de un usuario para que pueda rellenar previamente el formulario de registro o eliminarlo completamente.  Los usuarios pueden registrarse en la aplicación con su cuenta de Azure AD a través de una experiencia familiar de consentimiento familiar similar a las que se encuentran en las redes sociales y en las aplicaciones móviles.  Cualquier usuario puede registrarse e iniciar sesión en una aplicación que se integra con Azure AD sin necesidad de la participación de TI.  Más información sobre el [registro de la aplicación para el inicio de sesión con la cuenta de Azure AD](../../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+**Simplifique el registro de la aplicación.**  Durante el registro de la aplicación, Azure AD puede enviar información esencial acerca de un usuario para que pueda rellenar previamente el formulario de registro o eliminarlo completamente.  Los usuarios pueden registrarse en la aplicación con su cuenta de Azure AD a través de una experiencia familiar de consentimiento familiar similar a las que se encuentran en las redes sociales y en las aplicaciones móviles.  Cualquier usuario puede registrarse e iniciar sesión en una aplicación que se integra con Azure AD sin necesidad de la participación de TI.  Más información sobre el [registro de la aplicación para el inicio de sesión con la cuenta de Azure AD](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Búsqueda de usuarios, administración del el aprovisionamiento de usuarios y control del acceso a la aplicación
 **Busque usuarios en el directorio.**  Utilice Graph API para ayudar a los usuarios a buscar y examinar otras personas en su organización cuando inviten a otras o concedan acceso, en lugar de solicitarles que escriban direcciones de correo electrónico.  Los usuarios pueden examinar con una interfaz de estilo agenda familiar, incluida la visualización de información de la jerarquía organizacional.  Más información acerca de [API Graph](active-directory-graph-api.md).

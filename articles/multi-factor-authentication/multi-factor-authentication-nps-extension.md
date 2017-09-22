@@ -3,7 +3,7 @@ title: Uso de servidores NPS existentes para proporcionar funcionalidades de Azu
 description: "La extensión Servidor de directivas de redes para Azure Multi-Factor Authentication es una solución sencilla para agregar funcionalidades de verificación de dos pasos basadas en la nube a la infraestructura de autenticación existente."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b9061283952ae6b14431f5e88295eefac173ae01
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 42b0bda033b1721ba5c0f575ea2ce6b0933f0f45
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
@@ -62,8 +62,11 @@ Windows Server 2008 R2 SP1 o superior.
 ### <a name="libraries"></a>Bibliotecas
 
 Estas bibliotecas se instalan automáticamente con la extensión.
+
 -   [Paquetes redistribuibles de Visual C++ para Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
 -   [Módulo Microsoft Azure Active Directory para Windows PowerShell versión1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+
+El módulo Microsoft Azure Active Directory para Windows PowerShell se instala, si todavía no está presente, a través de un script de configuración que se ejecuta como parte del proceso de instalación. No es necesario instalar este módulo con antelación si aún no está instalado.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -158,8 +161,8 @@ A menos que desee utilizar sus propios certificados (en lugar de los certificado
 
    `.\AzureMfaNpsExtnConfigSetup.ps1`
 
-4. PowerShell le pide el identificador de inquilino. Use el GUID de id. de directorio que ha copiado desde Azure Portal en la sección de requisitos previos.
-5. Inicie sesión como administrador en Azure AD.
+4. Inicie sesión como administrador en Azure AD.
+5. PowerShell le pide el identificador de inquilino. Use el GUID de id. de directorio que ha copiado desde Azure Portal en la sección de requisitos previos.
 6. PowerShell muestra un mensaje de operación correcta cuando finaliza el script.  
 
 Repita estos pasos en todos los servidores NPS adicionales que desee configurar para equilibrio de carga.

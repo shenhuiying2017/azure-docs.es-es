@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: e4f2e0a23aa52a0e02e7047916b77fb15107defa
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: cf9963be162df3bd886b6fd44535c3d09e06284b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Conexión de productos o servicios de ITSM con IT Service Management Connector (versión preliminar)
@@ -270,7 +270,7 @@ En las secciones siguientes se ofrecen detalles sobre cómo conectar el producto
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
 - IT Service Management Connector se ha instalado. Más información: [Configuración](log-analytics-itsmc-overview.md#configuration).
-- La aplicación Provance debe registrarse con Azure AD y estará disponible el identificador de cliente. Para una información detallada, consulte el tema sobre [cómo configurar la autenticación de Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- La aplicación Provance debe registrarse con Azure AD y estará disponible el identificador de cliente. Para una información detallada, consulte el tema sobre [cómo configurar la autenticación de Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 - Rol de usuario: administrador.
 
 ### <a name="connection-procedure"></a>Procedimiento de conexión
@@ -293,7 +293,7 @@ Use el procedimiento siguiente para crear una conexión a Provance:
 | **Nombre de usuario**   | Escriba el nombre de usuario que puede conectarse a IT Service Management Connector.    |
 | **Password**   | Escriba la contraseña asociada con este nombre de usuario. **Nota**: El nombre de usuario y la contraseña se utilizan para generar únicamente tokens de autenticación y no se almacenan en ningún lugar dentro del servicio OMS.|
 | **Dirección URL del servidor**   | Escriba la dirección URL de la instancia de Provance que quiere conectar con IT Service Management Connector. |
-| **Id. de cliente**   | Escriba el identificador de cliente para autenticar esta conexión, que genera en la instancia de Provance.  Para más información sobre el identificador de cliente, consulte el tema sobre [cómo configurar la autenticación de Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **Id. de cliente**   | Escriba el identificador de cliente para autenticar esta conexión, que genera en la instancia de Provance.  Para más información sobre el identificador de cliente, consulte el tema sobre [cómo configurar la autenticación de Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
 | **Ámbito de sincronización de datos**   | Seleccione los elementos de trabajo de Provance que quiere sincronizar con OMS mediante IT Service Management Connector.  Estos elementos de trabajo se importan en Log Analytics.   **Opciones:** incidentes, solicitudes de cambio.|
 | **Sincronización de datos** | Escriba el número de días pasados de los que desea los datos. **Límite máximo**: 120 días. |
 | **Creación de un elemento de configuración de solución ITSM** | Seleccione esta opción si desea crear los elementos de configuración en el producto ITSM. Cuando se selecciona, OMS crea los elementos de configuración afectados como elementos de configuración (en el caso de que no existan) en el sistema ITSM compatible. **Valor predeterminado**: deshabilitado.|

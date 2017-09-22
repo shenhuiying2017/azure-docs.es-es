@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: e79ca131bddc9e65dd24da109b9e8a08606f7bc6
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 264bd9ecb413d2685dca351d7f4090efcadf4988
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/20/2017
 
 --- 
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Herramienta de evaluación de soluciones Cortana Intelligence
@@ -99,7 +99,7 @@ Los recursos de Azure SQL o Azure SQL DW de la solución deberían tener habilit
 | AAD con SQL Database y SQL Data Warehouse | [Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) (Usar la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse) |
 | Configuración y administración de AAD | [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) |
 | Autenticación de aplicaciones web de Azure | [Autenticación y autorización en el Servicio de aplicaciones de Azure](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview) |
-| Configuración de aplicaciones web con AAD | [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory](https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication)|
+| Configuración de aplicaciones web con AAD | [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
 
 ### <a name="datasets-accessible-to-end-users-should-support-role-based-access-control"></a>Los conjuntos de datos accesibles a los usuarios finales deberían admitir el control de acceso basado en roles
 Al ejecutar la herramienta de evaluación, se le pedirá que especifique cualquier recurso de elaboración de informes o publicación. Se supone que estos recursos están diseñados para el acceso de los usuarios finales, no de los desarrolladores. Estos recursos deberían proporcionar control de acceso basado en roles (RBAC) con el fin de garantizar que los usuarios finales solo puedan acceder a los datos autorizados.

@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: a50a265feff8c0aec28825eb0bc4e33585ea5a02
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7d683f950e8847a18f38158a8f8727b1274fc711
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introducción al almacenamiento de blobs de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Información general
-En esta guía se proporcionan muestras de código C# que muestran cómo desencadenar un proceso cuando se crea o actualiza un blob de Azure. Los ejemplos de código usan el [SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md) versión 1.x. Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, se instala el paquete de NuGet de Almacenamiento de Azure adecuado, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
+En esta guía se proporcionan muestras de código C# que muestran cómo desencadenar un proceso cuando se crea o actualiza un blob de Azure. Los ejemplos de código usan el [SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) versión 1.x. Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, se instala el paquete de NuGet de Almacenamiento de Azure adecuado, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
 
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Cómo desencadenar una función cuando se crea o actualiza un blob
 En esta sección se muestra cómo usar el atributo **BlobTrigger** .
 
- **Nota:** el SDK de WebJobs analiza los archivos de registro para inspeccionar los blobs nuevos o modificados. Este proceso es lento por naturaleza; podría no desencadenarse una función hasta varios minutos o más después de haberse creado el blob.  Si su aplicación necesita procesar inmediatamente los blobs, el método recomendado es crear un mensaje en cola al crear el blob y usar el atributo [QueueTrigger](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) en lugar del atributo **BlobTrigger** en la función que procesa el blob.
+ **Nota:** el SDK de WebJobs analiza los archivos de registro para inspeccionar los blobs nuevos o modificados. Este proceso es lento por naturaleza; podría no desencadenarse una función hasta varios minutos o más después de haberse creado el blob.  Si su aplicación necesita procesar inmediatamente los blobs, el método recomendado es crear un mensaje en cola al crear el blob y usar el atributo **QueueTrigger** en lugar del atributo **BlobTrigger** en la función que procesa el blob.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Único marcador de posición para el nombre de blob con extensión
 El siguiente ejemplo de código copia blobs de texto que aparecen en el contenedor *input* al contenedor *output*:
@@ -142,7 +142,7 @@ El código de enlace **WebImage** se ofrece en una clase **WebImageBinder** que 
 ## <a name="how-to-handle-poison-blobs"></a>Cómo administrar los blobs dudosos
 Cuando una función **BlobTrigger** genera un error, el SDK le llama de nuevo en el caso de que se hubiese producido por un error transitorio. Si el error se produce debido al contenido del blob, la función presentará un error cada vez que intente procesar el blob. De manera predeterminada, el SDK llama una función hasta cinco veces para un blob determinado. Si el quinto intento falla, el SDK agrega un mensaje a una cola llamada *webjobs-blobtrigger-poison*.
 
-Es posible configurar el número máximo de reintentos. Se usa la misma configuración [MaxDequeueCount](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) para controlar los blobs dudosos y los mensajes de cola dudosos.
+Es posible configurar el número máximo de reintentos. Se usa la misma configuración **MaxDequeueCount** para controlar los blobs dudosos y los mensajes de cola dudosos.
 
 El mensaje de cola para los blobs dudosos es un objeto JSON que contiene las siguientes propiedades:
 
@@ -204,7 +204,7 @@ Las recepciones de blobs se almacenan en un contenedor llamado *azure-webjobs-ho
 Si desea forzar el reprocesamiento de un blob, puede eliminar manualmente la recepción de blob de ese blob desde el contenedor *azure-webjobs-hosts* .
 
 ## <a name="related-topics-covered-by-the-queues-article"></a>Temas relacionados tratados en el artículo sobre colas
-Para obtener información sobre cómo controlar el procesamiento de blobs desencadenado por un mensaje de cola o para ver los escenarios de SDK de WebJobs no específicos para el procesamiento de blobs, consulte [Cómo usar el almacenamiento de cola de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
+Para obtener información sobre cómo controlar el procesamiento de blobs desencadenado por un mensaje de cola o para ver los escenarios de SDK de WebJobs no específicos para el procesamiento de blobs, consulte [Cómo usar el almacenamiento de cola de Azure con el SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Los temas relacionados tratados en ese artículo incluyen:
 

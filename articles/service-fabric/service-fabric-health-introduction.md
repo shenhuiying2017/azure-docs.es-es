@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: oanapl
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 598a4d35faebb592f840b1bec7e77c7a091ea2de
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 330ef58d89ebabaa2af7fa8e98e693ddd64dcc4e
 ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introducción a la supervisión del mantenimiento de Service Fabric
@@ -26,7 +26,7 @@ Azure Service Fabric presenta un modelo de mantenimiento que proporciona informe
 
 Los componentes de Service Fabric usan este modelo de mantenimiento avanzado para informar de su estado actual. Este mismo mecanismo puede usar para informar del mantenimiento de las aplicaciones. Si invierte en informes sobre el mantenimiento de alta calidad, que capturan sus condiciones personalizadas, puede detectar y corregir problemas de la aplicación en ejecución mucho más fácilmente.
 
-En el siguiente vídeo de Microsoft Virtual Academy también se describe el modelo de estado de Service Fabric y cómo se utiliza: <center><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+En el siguiente vídeo de Microsoft Virtual Academy también se describe el modelo de estado de Service Fabric y cómo se utiliza: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 

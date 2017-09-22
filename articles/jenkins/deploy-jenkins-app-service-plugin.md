@@ -16,10 +16,10 @@ ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: b2035d6bc0d323f2497a1db9b88d3ed015235b16
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bd4e629e522fb9acea5601be8eac7c70ae61d042
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -57,7 +57,7 @@ Se necesita una entidad de servicio de Azure para implementar en Azure.
 
 <ol>
 <li>Use la [CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) o [Azure Portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal) para crear una entidad de servicio de Azure</li>
-<li>En el panel de Jenkins, haga clic en **Credenciales -> System ->**(Credenciales -> Sistema). Haga clic en **Global credentials(unrestricted)**  [Credenciales (sin restricción) globales].</li>
+<li>En el panel de Jenkins, haga clic en **Credenciales -> System ->**(Credenciales -> Sistema). Haga clic en **Global credentials(unrestricted) ** [Credenciales (sin restricción) globales].</li>
 <li>Haga clic en **Add Credentials** (Agregar credenciales) para agregar una entidad de servicio de Microsoft Azure rellenando los datos correspondientes a Subscription ID (Identificador de suscripción), Client ID (Identificador de cliente), Client Secret (Secreto de cliente) y OAuth 2.0 Token Endpoint (Punto de conexión de token OAuth 2.0). Proporcione un identificador, **mySp**, para su uso en los siguientes pasos.</li>
 </ol>
 
@@ -76,7 +76,7 @@ Antes de configurar el trabajo en Jenkins, necesitará un plan de Azure App Serv
 
 
 1. Cree un plan de Azure App Service con el plan de tarifa **GRATIS** mediante el comando [az appservice plan create](/cli/azure/appservice/plan#create) de la CLI. Un plan de servicio de aplicaciones define los recursos físicos que se usan para hospedar las aplicaciones. Todas las aplicaciones asignadas a un plan de servicio de aplicaciones comparten los recursos, lo que permite ahorrar costos al hospedar varias aplicaciones.
-2. Creación de una aplicación web. Puede utilizar [Azure Portal](/azure/app-service-web/web-sites-configure) o bien el siguiente comando de la CLI de Azure:
+2. Creación de una aplicación web. Puede utilizar [Azure Portal](/azure/app-service/web-sites-configure) o bien el siguiente comando de la CLI de Azure:
 ```azurecli-interactive 
 az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
 ```

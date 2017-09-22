@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9e6331df4a8a07c3f2524891caf77bbaab3bff0b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -58,7 +58,7 @@ El inquilinato de Azure (suscripción de Azure) hace referencia a una relación 
 
 Los usuarios, grupos y aplicaciones de ese directorio pueden administrar los recursos en la suscripción de Azure. Puede asignar estos derechos de acceso con Azure Portal, las herramientas de la línea de comandos de Azure o las API de administración de Azure. Un inquilino de Azure está aislado lógicamente mediante límites de seguridad de forma que ningún cliente puede acceder o poner en riesgo los coinquilinos, ya sea de forma malintencionada o por accidente. Azure AD se ejecuta en servidores sin sistema operativo, aislados en un segmento de red separado donde el filtrado de paquetes de nivel de host y Firewall de Windows bloquean el tráfico y las conexiones no deseadas.
 
-- El acceso a los datos de Azure AD requiere autenticación del usuario mediante un [servicio de token de seguridad (STS)](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization). El sistema de autorización usa la información sobre la existencia, estado habilitado y rol del usuario se usa para determinar si el acceso solicitado al inquilino de destino está autorizado para este usuario en esta sesión.
+- El acceso a los datos de Azure AD requiere autenticación del usuario mediante un servicio de token de seguridad (STS). El sistema de autorización usa la información sobre la existencia, estado habilitado y rol del usuario se usa para determinar si el acceso solicitado al inquilino de destino está autorizado para este usuario en esta sesión.
 
 ![Inquilinato de Azure](./media/azure-isolation/azure-isolation-fig1.png)
 

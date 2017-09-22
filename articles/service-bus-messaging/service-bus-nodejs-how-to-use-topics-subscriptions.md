@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 3ffaf1d9102d189468d047b2a0cf11e73e944620
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d4e44134e94d835ab4ff15ded61ce0a899a4334
 ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Uso de temas y suscripciones de Service Bus con Node.js
@@ -32,8 +32,8 @@ En esta guía se describe cómo usar los temas y las suscripciones de Service Bu
 ## <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
 Cree una aplicación Node.js vacía. Para obtener instrucciones sobre cómo crear una aplicación Node.js, vea [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube Node.js][Node.js Cloud Service] (con Windows PowerShell) o Sitio web con WebMatrix.
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar Service Bus
-Para usar Service Bus, descargue el paquete Node.js de Azure. Este paquete incluye un conjunto de bibliotecas que se comunican con los servicios REST de Service Bus.
+## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar el Bus de servicio
+Para usar el Bus de servicio, descargue el paquete Node.js de Azure. Este paquete incluye un conjunto de bibliotecas que se comunican con los servicios REST del Bus de servicio.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Uso del Administrador de paquetes para Node (NPM) para obtener el paquete
 1. Utilice una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) y vaya a la carpeta donde ha creado la aplicación de ejemplo.
@@ -61,7 +61,7 @@ Utilizando el Bloc de notas u otro editor de texto, agregue el código siguiente
 var azure = require('azure');
 ```
 
-### <a name="set-up-a-service-bus-connection"></a>Configuración de una conexión de Service Bus
+### <a name="set-up-a-service-bus-connection"></a>Configuración de una conexión del Bus de servicio
 El módulo de Azure lee las variables de entorno `AZURE_SERVICEBUS_NAMESPACE` y `AZURE_SERVICEBUS_ACCESS_KEY` para obtener la información necesaria para conectarse a Service Bus. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a `createServiceBusService`.
 
 Para ver un ejemplo de configuración de las variables de entorno para un servicio en la nube de Azure, consulte [Servicio en la nube de Node.js con Storage][Node.js Cloud Service with Storage].
@@ -257,9 +257,9 @@ El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB 
 ## <a name="receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
 Los mensajes se reciben de una suscripción utilizando el método `receiveSubscriptionMessage` del objeto **ServiceBusService**. De manera predeterminada, los mensajes se eliminan de la suscripción cuando se leen; sin embargo, se pueden leer y bloquear sin eliminarlos de la suscripción. Para ello, es preciso establecer el parámetro opcional `isPeekLock` en **true**.
 
-El funcionamiento predeterminado por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como Service Bus habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
+El funcionamiento predeterminado por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
-Si el parámetro `isPeekLock` está establecido en **true**, el proceso de recepción se convierte en una operación en dos fases que permite admitir aplicaciones que no toleran la pérdida de mensajes. Cuando Service Bus recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación.
+Si el parámetro `isPeekLock` está establecido en **true**, el proceso de recepción se convierte en una operación en dos fases que permite admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación.
 Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **deleteMessage** y facilitando el mensaje que se va a eliminar a modo de parámetro. El método **deleteMessage** marcará el mensaje como consumido y lo quitará de la suscripción.
 
 En el ejemplo siguiente se muestra cómo se pueden recibir y procesar mensajes mediante `receiveSubscriptionMessage`. En el ejemplo, primero se recibe un mensaje y se elimina de la suscripción "LowMessages" y, luego, se recibe un mensaje de la suscripción "HighMessages" con `isPeekLock` establecido en true. A continuación, se elimina el mensaje utilizando `deleteMessage`:
@@ -286,7 +286,7 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Actuación ante errores de la aplicación y mensajes que no se pueden leer
-Service Bus proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción es incapaz de procesar el mensaje, entonces puede llamar al método `unlockMessage` del objeto **ServiceBusService**. Esto hará que Service Bus desbloquee el mensaje de la suscripción y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
+El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción es incapaz de procesar el mensaje, entonces puede llamar al método `unlockMessage` del objeto **ServiceBusService**. Esto hará que Service Bus desbloquee el mensaje de la suscripción y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
 
 También hay otro tiempo de expiración asociado a un mensaje bloqueado en la suscripción y, si la aplicación no puede procesar el mensaje antes de que expire el tiempo de espera del bloqueo (por ejemplo, si la aplicación se bloquea), Service Bus desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
@@ -315,7 +315,7 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que conoce los fundamentos de los temas de Service Bus, siga estos vínculos para obtener más información.
+Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos vínculos para obtener más información.
 
 * Vea [Colas, temas y suscripciones][Queues, topics, and subscriptions].
 * Referencia de API para [SqlFilter][SqlFilter].
@@ -327,7 +327,7 @@ Ahora que conoce los fundamentos de los temas de Service Bus, siga estos víncul
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../app-service-web/app-service-web-get-started-nodejs.md
+[Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 

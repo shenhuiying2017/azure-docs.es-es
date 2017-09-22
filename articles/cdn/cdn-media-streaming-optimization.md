@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1221f4f50b8b9c4b9f9f88be4d04a65375c36062
+ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
+ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Optimización del streaming multimedia mediante Azure Content Delivery Network 
@@ -61,7 +61,7 @@ Si Azure Content Delivery Network de Akamai detecta que el recurso es un fragmen
 El tiempo de almacenamiento en caché negativo corto es útil para la descarga de origen cuando muchos usuarios solicitan un fragmento que no existe todavía. Un ejemplo es una transmisión en directo en la que los paquetes no están disponibles desde el origen en ese segundo. Un intervalo de almacenamiento en caché más largo también ayuda a descargar solicitudes del origen, ya que el contenido de vídeo no suele modificarse.
  
 
-|    | General<br> web<br>entrega | General<br> medios<br> streaming | Vídeo bajo demanda <br>medios<br> streaming  
+|   | Entrega web general | Streaming multimedia general | Streaming multimedia de vídeo a petición  
 --- | --- | --- | ---
 Almacenamiento en caché: positivo <br> HTTP 200, 203, 300, <br> 301, 302 y 410 | 7 días |365 días | 365 días   
 Almacenamiento en caché: negativo <br> HTTP 204, 305, 404, <br> y 405 | None | 1 segundo | 1 segundo
