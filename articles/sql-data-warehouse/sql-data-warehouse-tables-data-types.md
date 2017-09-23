@@ -21,7 +21,6 @@ ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
 ms.contentlocale: es-es
 ms.lasthandoff: 06/05/2017
 
-
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Guía para definir los tipos de datos para las tablas en SQL Data Warehouse
 Siga estas recomendaciones para definir los tipos de datos para tablas compatibles con SQL Data Warehouse. Además de compatibilidad, minimizar el tamaño de los tipos de datos mejora el rendimiento de las consultas.

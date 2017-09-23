@@ -21,7 +21,6 @@ ms.openlocfilehash: 4d0f085423d5bd60b24d88649ee1d77bcd1d009f
 ms.contentlocale: es-es
 ms.lasthandoff: 06/21/2017
 
-
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell
 > [!div class="op_single_selector"]

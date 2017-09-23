@@ -21,7 +21,6 @@ ms.openlocfilehash: 328a4d893637d7150807855e118b485a2c3bbfc5
 ms.contentlocale: es-es
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Administración de todas las directivas para un laboratorio de Azure DevTest Labs
 

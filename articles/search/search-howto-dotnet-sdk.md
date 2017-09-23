@@ -20,7 +20,6 @@ ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
 ms.contentlocale: es-es
 ms.lasthandoff: 05/22/2017
 
-
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Cómo usar Búsqueda de Azure desde una aplicación .NET
 Este artículo es un tutorial para empezar a trabajar con el [SDK de Búsqueda de Azure para .NET](https://aka.ms/search-sdk). Puede utilizar el SDK para .NET para implementar una experiencia de búsqueda enriquecida en la aplicación mediante Búsqueda de Azure.

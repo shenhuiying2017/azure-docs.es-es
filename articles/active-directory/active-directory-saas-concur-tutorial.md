@@ -19,7 +19,6 @@ ms.openlocfilehash: 0b44437b3dcf69dae3587529da7d12e7809b9f55
 ms.contentlocale: es-es
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-concur"></a>Tutorial: Integración de Azure Active Directory con Concur
 

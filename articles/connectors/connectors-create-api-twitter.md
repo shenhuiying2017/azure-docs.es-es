@@ -21,7 +21,6 @@ ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Introducción al conector de Twitter
 Con el conector de Twitter puede:

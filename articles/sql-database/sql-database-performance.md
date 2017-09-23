@@ -21,7 +21,6 @@ ms.openlocfilehash: 522b932ab055978c52f085dbaa36095bb6b77962
 ms.contentlocale: es-es
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="monitor-and-improve-performance"></a>Supervisión y mejora del rendimiento
 Azure SQL Database identifica posibles problemas en la base de datos y recomienda las acciones que pueden mejorar el rendimiento de la carga de trabajo mediante recomendaciones y acciones de optimización inteligentes.

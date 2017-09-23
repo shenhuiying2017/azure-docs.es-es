@@ -20,7 +20,6 @@ ms.openlocfilehash: bb55a7a4bff0fd4319de6f6ce958686ad8a4142b
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-storsimple-volume-containers"></a>Usar el servicio de Administrador de StorSimple para administrar contenedores de volúmenes de StorSimple
 ## <a name="overview"></a>Información general

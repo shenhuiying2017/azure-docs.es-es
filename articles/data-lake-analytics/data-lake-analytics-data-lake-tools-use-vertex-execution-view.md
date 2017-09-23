@@ -20,7 +20,6 @@ ms.openlocfilehash: b788e7bc8ded86ebd49cc0be73e5b4e1bcbeaba3
 ms.contentlocale: es-es
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Use the Vertex Execution View in Data Lake Tools for Visual Studio (Usar la vista de ejecución de vértices de Data Lake Tools para Visual Studio)
 Obtenga información acerca de cómo usar la vista de la ejecución de vértices para examinar los trabajos de Data Lake Analytics.

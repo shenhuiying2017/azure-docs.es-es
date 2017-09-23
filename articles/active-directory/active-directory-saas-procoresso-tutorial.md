@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 042a41eaa6bb21670b4c12068f1b017222f64b99
+ms.contentlocale: es-es
 ms.lasthandoff: 04/12/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integración de Azure Active Directory con Procore SSO
@@ -199,7 +199,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 
 Siga estos pasos para crear un usuario de prueba en Procore.
 
-1. Inicie sesión como administrador en su sitio de la compañía de procore.    
+1. Inicie sesión como administrador en su sitio de la compañía de procore.  
 
 2. En la lista desplegable del cuadro de herramientas, haga clic en **Directorio** para abrir la página de directorio de la compañía.
 

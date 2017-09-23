@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 891cde9b16bbbb51729129b6ad7a0f3794307baa
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="redeploy-azure-stack"></a>Redeploy Azure Stack

@@ -21,7 +21,6 @@ ms.openlocfilehash: b075e2eb36f54afb7544e0aeb698701cd224ff93
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>Introducción al conector ProjectOnline
 Project Online en es una solución en línea flexible para la administración de carteras de proyectos (PPM) y el trabajo diario de Microsoft. Ofrecida a través de Office 365, Project Online permite a las organizaciones empezar a trabajar rápidamente con grandes capacidades de administración de proyectos para planear, priorizar y administrar proyectos e inversiones de carteras de proyectos, desde prácticamente cualquier lugar en casi todos los dispositivos.

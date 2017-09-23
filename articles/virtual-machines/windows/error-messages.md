@@ -21,7 +21,6 @@ ms.openlocfilehash: 42025586a437f19e4a752ac502588fd59ad2139a
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="understand-common-error-messages-when-you-manage-windows-virtual-machines-in-azure"></a>Información de mensajes de error habituales al administrar máquinas virtuales Windows en Azure
 

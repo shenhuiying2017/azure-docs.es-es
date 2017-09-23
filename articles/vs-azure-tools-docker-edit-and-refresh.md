@@ -20,7 +20,6 @@ ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
 ms.contentlocale: es-es
 ms.lasthandoff: 05/11/2017
 
-
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Depuración de aplicaciones en un contenedor de Docker local
 ## <a name="overview"></a>Información general

@@ -21,7 +21,6 @@ ms.openlocfilehash: 78613cc978b585a98d235245194c02371f7f3849
 ms.contentlocale: es-es
 ms.lasthandoff: 05/25/2017
 
-
 ---
 
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Delegación de invitaciones de la colaboración B2B de Azure Active Directory

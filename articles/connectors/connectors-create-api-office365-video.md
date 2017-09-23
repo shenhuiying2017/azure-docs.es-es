@@ -21,7 +21,6 @@ ms.openlocfilehash: f0e3613d4a3fd5478787c0365eb7a0bcde886c81
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>Introducción al conector de Office 365 Video
 Conéctese a Office 365 Video para conseguir información acerca de un vídeo Office 365 específico, obtener una lista de vídeos y mucho más. Con Office 365 Video puede:

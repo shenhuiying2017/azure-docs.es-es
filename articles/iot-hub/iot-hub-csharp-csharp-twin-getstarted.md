@@ -20,7 +20,6 @@ ms.openlocfilehash: 6073d594117e69676b753a1e3af25fffa3583a2b
 ms.contentlocale: es-es
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Introducción a los dispositivos gemelos (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]

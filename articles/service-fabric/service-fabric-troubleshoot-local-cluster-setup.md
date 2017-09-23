@@ -20,7 +20,6 @@ ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
 ms.contentlocale: es-es
 ms.lasthandoff: 06/09/2017
 
-
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Solución de problemas de instalación del clúster de desarrollo local
 Si surge un problema al interactuar con el clúster de desarrollo local de Azure Service Fabric, revise las siguientes sugerencias para obtener posibles soluciones.

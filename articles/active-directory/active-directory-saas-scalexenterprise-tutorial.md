@@ -19,7 +19,6 @@ ms.openlocfilehash: 0ebed0c2605862426384c0e219e52c9d626b6246
 ms.contentlocale: es-es
 ms.lasthandoff: 05/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integración de Azure Active Directory con ScaleX Enterprise
 
@@ -135,7 +134,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. Haga clic en el atributo **emailaddress** para abrir la ventana Editar atributo. Cambie el valor de **user.mail** a **user.userprincipalname** y haga clic en Aceptar.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)    
+    ![Configurar inicio de sesión único](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)   
     
 5. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 

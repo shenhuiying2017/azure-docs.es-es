@@ -21,7 +21,6 @@ ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
 ms.contentlocale: es-es
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Actualización de un conjunto de escalado de máquinas virtuales
 En este artículo se describe cómo puede implementar una actualización del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure sin tiempos de inactividad. En este contexto, una actualización del SO implica un cambio de versión o de SKU del sistema operativo o del URI de una imagen personalizada. Para actualizar sin tiempos de inactividad, las máquinas virtuales deben actualizarse una a una o en grupos (por ejemplo, un dominio de error a la vez), en lugar de todas a la vez. Al hacerlo, todas las máquinas virtuales que no se estén actualizando siguen funcionando.

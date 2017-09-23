@@ -14,10 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e5f09fb3716303bb21fe7442aa6fa8832174838e
-
+ms.contentlocale: es-es
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Inserción segura de los Centros de notificaciones de Azure
@@ -154,9 +155,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 3. En la interfaz de usuario de la aplicación iOS, haga clic en **Log in**(Iniciar sesión). A continuación, haga clic en **Send push**(Enviar inserción). Debe ver la notificación segura mostrada en el centro notificaciones.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

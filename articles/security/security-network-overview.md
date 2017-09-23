@@ -20,7 +20,6 @@ ms.openlocfilehash: 27243856d0c6b70c7515b6bde66b99ef6160eb36
 ms.contentlocale: es-es
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="azure-network-security-overview"></a>Azure Network Security Overview (Información general sobre Azure Network Security)
 Microsoft Azure incluye una sólida infraestructura de red que respalda sus requisitos de conectividad de aplicaciones y servicios. Es posible la conectividad de red entre recursos ubicados en Azure, entre recursos locales y hospedados en Azure y entre Internet y Azure.

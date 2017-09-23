@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 6b7da3c1b4e9bcaa302d4c763eb73d0dd1832124
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>View public IP address consumption in Azure Stack

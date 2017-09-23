@@ -19,7 +19,6 @@ ms.openlocfilehash: f8caa023da05863372b7ef92b47a92168445d741
 ms.contentlocale: es-es
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Tutorial: Integración de Azure Active Directory con BenSelect
 

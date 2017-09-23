@@ -20,7 +20,6 @@ ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
 ms.contentlocale: es-es
 ms.lasthandoff: 06/14/2017
 
-
 ---
 
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager

@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Informes avanzados con el SDK de Engagement para aplicaciones la contratación de aplicaciones universales de Windows
@@ -160,10 +161,5 @@ Se recomienda llamar a `StartActivity` dentro del método `OnNavigatedTo` de su 
 Opcionalmente, es aconsejable informar de eventos, errores y trabajos de aplicación específicos. Para ello, use los otros métodos que se encuentran en la clase `EngagementAgent`. La API de Engagement permite usar todas las funcionalidades avanzadas de Engagement.
 
 Para obtener más información, consulte [Cómo usar la API de etiquetado avanzado de Mobile Engagement en la aplicación Windows Universal](mobile-engagement-windows-store-use-engagement-api.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

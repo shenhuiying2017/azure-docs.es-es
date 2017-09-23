@@ -20,7 +20,6 @@ ms.openlocfilehash: 9a364adad3342b211a647eb743776a47812b75f4
 ms.contentlocale: es-es
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="service-bus-quotas"></a>Cuotas del Bus de servicio
 En esta sección se muestra una lista de las cuotas básicas y los umbrales de limitación en la mensajería de Microsoft Azure Service Bus.

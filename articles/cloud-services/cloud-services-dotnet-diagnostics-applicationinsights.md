@@ -20,7 +20,6 @@ ms.openlocfilehash: 4001ca908ff00b1a40829d687589080e9b07b18a
 ms.contentlocale: es-es
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="troubleshoot-cloud-services-using-application-insights"></a>Solucionar problemas de Servicios en la nube con Application Insights
 Con [Azure SDK 2.8](https://azure.microsoft.com/downloads/) y la extensión 1.5 de Diagnósticos de Azure puede enviar los datos de Diagnósticos de Azure para su servicio en la nube directamente a Application Insights. Los registros recopilados por Azure Diagnostics, incluidos los registros de aplicaciones, los registros de eventos de Windows, los registros de ETW y los contadores de rendimiento, pueden enviarse a Application Insights. Después podrá visualizar esta información en la interfaz de usuario del portal de Application Insights. Podrá usar el SDK de Application Insights para obtener información sobre las métricas y los registros de la aplicación, y sobre los datos del sistema y de la infraestructura procedentes de Diagnósticos de Azure.

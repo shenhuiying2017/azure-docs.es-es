@@ -21,7 +21,6 @@ ms.openlocfilehash: c2e2efd356382df9404f5c4ed54f24758b2cd22b
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Introducción al conector de Salesforce
 El conector de Salesforce proporciona una API para trabajar con objetos de Salesforce.

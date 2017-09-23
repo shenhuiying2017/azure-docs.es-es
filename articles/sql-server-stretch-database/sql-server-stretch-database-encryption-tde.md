@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
 ms.author: douglasl
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bcb0a66425439522e0c9a353798ac70505b91e39
 ms.openlocfilehash: ceb355d2ba872ed5d3886c6dc82ca75b1854db0a
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/25/2017
 
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Habilitación del cifrado de datos transparente (TDE) para Stretch Database en Azure
@@ -58,9 +59,4 @@ Para deshabilitar TDE para una base de datos de Azure que almacena los datos mig
 
 
 <!--Link references-->
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Todos los temas del servicio SQL Server Stretch Database de Azure
@@ -57,10 +58,5 @@ En este documento se muestran todos los temas relacionados directamente con el s
 | ---:|:--- |:--- |
 | 14 |[Copia de seguridad y restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-backup.md) |Obtenga información sobre cómo realizar una copia de seguridad de bases de datos habilitadas para Stretch. |
 | 15 |[Restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-restore.md) |Obtenga información sobre cómo restaurar bases de datos habilitadas para Stretch. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

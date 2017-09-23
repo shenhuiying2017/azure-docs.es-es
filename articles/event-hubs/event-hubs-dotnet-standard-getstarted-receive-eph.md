@@ -20,7 +20,6 @@ ms.openlocfilehash: cc62792dad0284f9514664795fdfb32e94a85943
 ms.contentlocale: es-es
 ms.lasthandoff: 06/28/2017
 
-
 ---
 
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Introducción a la recepción de mensajes con el Host del procesador de eventos en .NET Standard

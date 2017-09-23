@@ -21,7 +21,6 @@ ms.openlocfilehash: 581e5d1fb5fb08d0dc89ed2c85edcb5f0005650b
 ms.contentlocale: es-es
 ms.lasthandoff: 05/25/2017
 
-
 ---
 
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitaciones de colaboración B2B de Azure AD

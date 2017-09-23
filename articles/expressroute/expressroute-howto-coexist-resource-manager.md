@@ -21,7 +21,6 @@ ms.openlocfilehash: ffa791cf4c4be15645a67fef4e94bf6ebdc42a6a
 ms.contentlocale: es-es
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configuración de conexiones coexistentes de ExpressRoute de sitio a sitio
 > [!div class="op_single_selector"]

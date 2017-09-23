@@ -20,7 +20,6 @@ ms.openlocfilehash: e66a3390c08b66e0f2f38725425cd78a36004118
 ms.contentlocale: es-es
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="how-to-manage-cloud-services"></a>Administración de servicios en la nube
 > [!div class="op_single_selector"]

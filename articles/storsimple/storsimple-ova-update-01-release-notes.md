@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c4ccde9635b3874864baa9d4d262ff5ddcf2a425
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Notas de la versión de la matriz virtual de StorSimple Update 0.2 y 0.1
@@ -83,10 +84,5 @@ En la tabla siguiente se muestra un resumen de los problemas conocidos de la mat
 
 ## <a name="next-step"></a>Paso siguiente
 [Instale actualizaciones](storsimple-ova-install-update-01.md) en la matriz virtual de StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

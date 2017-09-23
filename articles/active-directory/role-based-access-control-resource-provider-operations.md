@@ -18,7 +18,6 @@ ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
 ms.contentlocale: es-es
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 

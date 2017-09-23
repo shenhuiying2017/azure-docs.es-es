@@ -20,7 +20,6 @@ ms.openlocfilehash: 3c4b7ad16e6a03fb605447def18f7475d502fdd1
 ms.contentlocale: es-es
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-9-set-up-a-replication-policy-for-vmware-vm-replication-to-azure"></a>Paso 9: Configuración de una directiva de replicación para replicar máquinas virtuales de VMware en Azure
 

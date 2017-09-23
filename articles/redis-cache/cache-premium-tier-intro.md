@@ -20,7 +20,6 @@ ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Introducción al nivel Premium de Caché en Redis de Azure
 Caché en Redis de Azure es una memoria caché distribuida y administrada que ayuda a compilar aplicaciones muy útiles y altamente escalables mediante el acceso ultrarrápido a los datos. 

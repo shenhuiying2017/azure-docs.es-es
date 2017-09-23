@@ -21,7 +21,6 @@ ms.openlocfilehash: 63bd33bf4e09b98aa53dcfec9fcc4a0109204952
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Introducción al conector de OneDrive
 Conéctese a OneDrive para administrar los archivos, incluyendo las tareas de carga, obtención y eliminación de archivos, y muchas más. 

@@ -21,7 +21,6 @@ ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
 ms.contentlocale: es-es
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli-10"></a>Cifrado de discos en una máquina virtual Linux mediante la CLI de Azure 1.0
 Para mejorar la seguridad y el cumplimiento de las máquinas virtuales, los discos virtuales en Azure se pueden cifrar en reposo. Los discos se cifran mediante claves criptográficas que están protegidas en Azure Key Vault. Estas claves criptográficas se pueden controlar y se puede auditar su uso. En este artículo se explica cómo cifrar discos virtuales en una máquina virtual Linux mediante la CLI de Azure 1.0 y el modelo de implementación de Resource Manager.

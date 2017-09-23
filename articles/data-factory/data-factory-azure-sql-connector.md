@@ -20,7 +20,6 @@ ms.openlocfilehash: a64d13fa7dc5f50c259b98774be80b603dce400a
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copia de datos hacia una instancia de Azure SQL Database y desde ella con Azure Data Factory
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos hacia y desde Azure SQL Database. Se basa en la información general ofrecida en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).  

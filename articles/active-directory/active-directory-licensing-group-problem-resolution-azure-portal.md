@@ -1,5 +1,4 @@
 ---
-
 title: "Resolución de problemas de licencias para un grupo en Azure Active Directory | Microsoft Docs"
 description: "Identificación y resolución de problemas de asignación de licencias cuando se utilizan licencias basadas en grupos con Azure Active Directory"
 services: active-directory
@@ -22,7 +21,6 @@ ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: bfa951a897c9b383072c0d29c9a4266c163fe753
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
-
 
 ---
 

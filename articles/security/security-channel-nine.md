@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
 ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/30/2017
 
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Vídeos sobre seguridad de Azure de Channel 9
@@ -78,9 +79,4 @@ Azure Active Directory (AD) Privileged Identity Management es una funcionalidad 
 [Almacén de claves con Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 
 Amit Bapat presenta a Scott Almacén de claves de Azure. Con Almacén de claves de Azure puede cifrar claves y pequeños secretos como contraseñas con claves almacenadas en módulos de seguridad de hardware (HSM). Se trata de una administración de secretos basada en hardware y en la nube para Microsoft Azure.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

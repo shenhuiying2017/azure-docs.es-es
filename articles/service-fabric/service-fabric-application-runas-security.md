@@ -20,7 +20,6 @@ ms.openlocfilehash: e673b45a43a06d18040c3437caf8765704d5c36a
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="configure-security-policies-for-your-application"></a>Configuración de directivas de seguridad para la aplicación
 Azure Service Fabric le permite proteger aplicaciones que se ejecutan en distintas cuentas de usuario en el clúster. Service Fabric también protege los recursos que usan las aplicaciones en el momento de la implementación con la cuenta de usuario; por ejemplo, archivos, directorios y certificados. Esto aumenta la seguridad entre aplicaciones en ejecución, incluso en un entorno hospedado compartido.

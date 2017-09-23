@@ -21,7 +21,6 @@ ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Introducción al conector de FTP
 Use el conector de FTP para supervisar, administrar y crear archivos en un servidor FTP. 

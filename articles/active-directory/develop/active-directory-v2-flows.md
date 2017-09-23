@@ -21,7 +21,6 @@ ms.openlocfilehash: 9d59e7f0e8f326c40be86e199d7712f6c565cc13
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Tipos de aplicación para el punto de conexión v2.0 de Azure Active Directory
 El punto de conexión v2.0 de Azure Active Directory (Azure AD) admite la autenticación de una variedad de arquitecturas de aplicaciones modernas, todas ellas basadas en los protocolos estándar del sector [OAuth 2.0 u OpenID Connect](active-directory-v2-protocols.md). En este artículo se describen los tipos de aplicaciones que puede crear mediante Azure AD v2.0, con independencia de su plataforma o idioma preferidos. La información de este artículo está diseñada para ayudarle a entender los escenarios de alto nivel antes de [empezar a trabajar con el código](active-directory-appmodel-v2-overview.md#getting-started).

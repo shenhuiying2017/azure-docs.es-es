@@ -15,10 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: efac6e1ecc00359f1622d380333140bc055c83e0
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Envío de notificaciones programadas
@@ -35,10 +36,5 @@ Además, puede cancelar una notificación programada anteriormente con su notifi
     await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 
 No hay límite de notificaciones programadas que puede enviar.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: haining
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bce4c5bb16f505d2f2f0fc388bdfbeb214a2f8fe
 ms.openlocfilehash: 7dc337c5aa03a9a609b4ca5d811442c99c75878f
-
+ms.contentlocale: es-es
+ms.lasthandoff: 12/09/2016
 
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Administración del ciclo de vida de las aplicaciones en Azure Machine Learning Studio
@@ -100,9 +101,4 @@ Un aspecto importante de ALM es poder automatizar el proceso de ejecución e imp
 * Descargue el módulo [Azure Machine Learning Studio PowerShell](http://aka.ms/amlps) y empiece a automatizar sus tareas de ALM.
 * Obtenga información sobre cómo [crear y administrar un gran número de modelos de ML con solo un único experimento](machine-learning-create-models-and-endpoints-with-powershell.md) a través de PowerShell y la API de reentrenamiento.
 * Obtenga más información sobre cómo [implementar los servicios web de Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

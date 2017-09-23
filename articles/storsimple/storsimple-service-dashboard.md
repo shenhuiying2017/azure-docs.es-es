@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2016
 ms.author: v-sharos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 596431b7279b753ca4da838eb028cdde2022ce02
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="use-the-storsimple-manager-service-dashboard"></a>Uso del panel del servicio StorSimple Manager
@@ -68,10 +69,5 @@ Para ver los registros de operaciones, haga clic en el vínculo de registros de 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda cómo [solucionar problemas de un dispositivo de StorSimple](storsimple-troubleshoot-operational-device.md).
 * Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

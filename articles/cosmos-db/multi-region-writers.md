@@ -21,7 +21,6 @@ ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
 ms.contentlocale: es-es
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Arquitecturas de bases de datos de replicación global con varios maestros con Azure Cosmos DB
 Azure Cosmos DB admite la [replicación global](distribute-data-globally.md) inmediata, que permite distribuir datos en varias regiones con un acceso de baja latencia en cualquier parte de la carga de trabajo. Este modelo se utiliza normalmente para las cargas de trabajo del publicador o el consumidor cuando hay un redactor en una única región geográfica y lectores distribuidos globalmente en otras regiones (lectura). 

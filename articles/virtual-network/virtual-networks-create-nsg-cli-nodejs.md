@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: ca8c182651e3c9f2f1f3a85b94361755d8e638d4
+ms.contentlocale: es-es
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="create-network-security-groups-using-the-azure-cli-10"></a>Creación de grupos de seguridad de red con la CLI de Azure 1.0

@@ -20,7 +20,6 @@ ms.openlocfilehash: cea4531175df2cc39790497dc049d27e23ffa0c6
 ms.contentlocale: es-es
 ms.lasthandoff: 05/09/2017
 
-
 ---
 
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Creación o modificación de laboratorios automáticamente con plantillas de Azure Resource Manager y PowerShell

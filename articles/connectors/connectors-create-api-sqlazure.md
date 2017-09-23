@@ -21,7 +21,6 @@ ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Introducción al conector de Base de datos SQL de Azure
 Mediante el conector de Base de datos SQL Azure, cree flujos de trabajo para su organización que administren datos de las tablas. 

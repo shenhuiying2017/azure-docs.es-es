@@ -19,7 +19,6 @@ ms.openlocfilehash: 877e0288fdd1f590acf064c204aff0741539b112
 ms.contentlocale: es-es
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutorial: Integración de Azure Active Directory con Learning Seat LMS
 

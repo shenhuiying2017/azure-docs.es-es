@@ -20,7 +20,6 @@ ms.openlocfilehash: 9847bcfcc139a769847678c1cca6a8b9c3a30e93
 ms.contentlocale: es-es
 ms.lasthandoff: 05/09/2017
 
-
 ---
 
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Descripción de las directivas personalizadas del paquete del inicio de directivas personalizadas de Azure AD B2C
@@ -40,9 +39,9 @@ Los elementos básicos de la directiva *B2C_1A_base* son tipos de notificaciones
 
 Estos esquemas de notificaciones se dividen en tres secciones:
 
-1.    La primera sección que muestra las notificaciones mínimas necesarias para que los recorridos de usuario funcionen correctamente.
-2.    Una segunda sección que muestra las notificaciones necesarias para que los parámetros de cadena de consulta y otros parámetros especiales se pasen a otros proveedores de notificaciones, en especial login.microsoftonline.com para la autenticación. **No modifique estas notificaciones**.
-3.    Y, finalmente, una tercera sección que muestra las notificaciones adicionales opcionales que pueden recopilarse del usuario, almacenarse en el directorio y enviarse en tokens durante el inicio de sesión. En esta sección se pueden agregar los nuevos tipos de notificaciones que se recopilan del usuario o se envían en el token.
+1.  La primera sección que muestra las notificaciones mínimas necesarias para que los recorridos de usuario funcionen correctamente.
+2.  Una segunda sección que muestra las notificaciones necesarias para que los parámetros de cadena de consulta y otros parámetros especiales se pasen a otros proveedores de notificaciones, en especial login.microsoftonline.com para la autenticación. **No modifique estas notificaciones**.
+3.  Y, finalmente, una tercera sección que muestra las notificaciones adicionales opcionales que pueden recopilarse del usuario, almacenarse en el directorio y enviarse en tokens durante el inicio de sesión. En esta sección se pueden agregar los nuevos tipos de notificaciones que se recopilan del usuario o se envían en el token.
 
 > [!IMPORTANT]
 > El esquema de notificaciones contiene restricciones sobre ciertas notificaciones, como contraseñas y nombres de usuario. La directiva del marco de confianza (TF) trata a Azure AD como cualquier otro proveedor de notificaciones y todas sus restricciones se modelan en la directiva premium. Una directiva se podría modificar para agregar más restricciones o usar otro proveedor de notificaciones para el almacenamiento de credenciales que tenga sus propias restricciones.

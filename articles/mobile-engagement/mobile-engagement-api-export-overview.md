@@ -15,10 +15,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1e2ddb613e713972820621d0fa836c41eb61f91
 ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/19/2017
 
 ---
 # <a name="mobile-engagement-export-api-overview"></a>Información general de API de exportación de Mobile Engagement
@@ -73,10 +74,5 @@ Tenga en cuenta que el trabajo puede tardar varios minutos en iniciarse y despu�
 Una vez que se crea el trabajo, es posible comprobar su estado para ver si todavía se está ejecutando o si se ha completado.
 
 Cuando el trabajo se complete CORRECTAMENTE, el archivo de datos resultante estará disponible en el contenedor de almacenamiento proporcionado.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: robb
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 35b4a4270846c54a1ca760e803ef7adba60cf03b
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Seguimiento del flujo en una aplicación de servicios en la nube con Diagnósticos de Azure
@@ -75,10 +76,5 @@ Después de completar los pasos para agregar el agente de escucha, puede agregar
     ```
 3. Agregue instrucciones de seguimiento en donde desee capturar información sobre el estado de la aplicación. Puede usar diversos métodos para dar formato al resultado de la instrucción de seguimiento. Para información, vea [Procedimientos: adición de instrucciones de seguimiento al código de aplicación](https://msdn.microsoft.com/library/zd83saa2.aspx).
 4. Guarde el archivo de origen.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

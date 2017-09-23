@@ -212,8 +212,3 @@ Para conocer una lista completa de comandos para crear y administrar máquinas v
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-
-
-<!--HONumber=Jan17_HO5-->
-
-

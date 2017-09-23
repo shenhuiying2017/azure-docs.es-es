@@ -21,7 +21,6 @@ ms.openlocfilehash: bde1629504c97cf6706b42219570ffa6243073dd
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-outlookcom-connector"></a>Get started with the Outlook.com connector (Introducción al conector de Outlook.com)
 El conector de Outlook.com permite administrar su correo, calendarios y contactos. Puede realizar diversas acciones como enviar correo, programar reuniones, agregar contactos, etc.

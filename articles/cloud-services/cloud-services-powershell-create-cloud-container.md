@@ -20,7 +20,6 @@ ms.openlocfilehash: c024d8d47ab9b78399d8eb8b4df1f764f2877339
 ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Uso de un comando de Azure PowerShell para crear un contenedor vacío de servicios en la nube
 En este artículo se explica cómo crear rápidamente un contenedor de servicios en la nube mediante cmdlets de Azure PowerShell. Siga estos pasos:

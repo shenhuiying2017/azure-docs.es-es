@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: cb9454212c94cf65093219c3d24c71277ede7877
-
+ms.contentlocale: es-es
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Configuración avanzada del SDK de Engagement para aplicaciones universales de Windows
@@ -76,9 +77,4 @@ El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta 
 
 [here]:http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]:http://docs.nuget.org/docs/start-here/overview
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

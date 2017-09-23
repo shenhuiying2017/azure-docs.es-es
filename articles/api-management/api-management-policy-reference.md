@@ -20,7 +20,6 @@ ms.openlocfilehash: adc0c4415e10ddd0b4994cecef17f026546e91a1
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="azure-api-management-policy-reference"></a>Referencia de la directiva de Administración de API de Azure
 Esta sección proporciona un índice de las directivas en la [Referencia de la directiva de API Management de Azure][API Management policy reference]. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en API Management][Policies in API Management].

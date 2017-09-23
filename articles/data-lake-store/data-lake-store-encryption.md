@@ -52,8 +52,8 @@ Data Lake Store proporciona dos modos de administración de claves de cifrado ma
 
 Los dos modos para administrar la clave de cifrado maestra son los siguientes:
 
-*    Claves administradas por el servicio
-*    Claves administradas por el cliente
+*   Claves administradas por el servicio
+*   Claves administradas por el cliente
 
 En ambos modos, la clave de cifrado maestra está protegida al estar almacenada en Azure Key Vault. Key Vault es un servicio de Azure totalmente administrado y enormemente seguro que se puede utilizar para proteger las claves criptográficas. Para más información, consulte [Key Vault](https://azure.microsoft.com/services/key-vault).
 
@@ -74,8 +74,8 @@ Aparte de esta diferencia sobre quién administra la clave de cifrado maestra y 
 
 Al elegir el modo de las claves de cifrado maestras, es importante recordar lo siguiente:
 
-*    Puede elegir si se usarán claves administradas por el cliente o claves administradas por el servicio al aprovisionar una cuenta de Data Lake Store.
-*    Después de aprovisionar una cuenta de Data Lake Store, no se puede cambiar el modo.
+*   Puede elegir si se usarán claves administradas por el cliente o claves administradas por el servicio al aprovisionar una cuenta de Data Lake Store.
+*   Después de aprovisionar una cuenta de Data Lake Store, no se puede cambiar el modo.
 
 ### <a name="encryption-and-decryption-of-data"></a>Cifrado y descifrado de datos
 
@@ -92,20 +92,20 @@ En el siguiente diagrama, se ilustra este concepto:
 ![Claves de cifrado de datos](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Pseudo-algoritmo para descifrar un archivo:
-1.    Compruebe si la clave DEK de la cuenta de Data Lake Store está almacenada en caché y lista para su uso.
+1.  Compruebe si la clave DEK de la cuenta de Data Lake Store está almacenada en caché y lista para su uso.
     - Si no es así, lea la clave DEK cifrada del almacenamiento persistente y envíela a Key Vault para descifrarla. Almacene en caché la clave DEK descifrada en memoria. Ahora está lista para su uso.
-2.    Para cada bloque de datos del archivo:
+2.  Para cada bloque de datos del archivo:
     - Lea el bloque de datos cifrado del almacenamiento persistente.
     - Genere la clave BEK con la clave DEK y el bloque de datos cifrado.
     - Use la clave BEK para descifrar los datos.
 
 
 #### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Pseudo-algoritmo para cifrar un archivo:
-1.    Compruebe si la clave DEK de la cuenta de Data Lake Store está almacenada en caché y lista para su uso.
+1.  Compruebe si la clave DEK de la cuenta de Data Lake Store está almacenada en caché y lista para su uso.
     - Si no es así, lea la clave DEK cifrada del almacenamiento persistente y envíela a Key Vault para descifrarla. Almacene en caché la clave DEK descifrada en memoria. Ahora está lista para su uso.
-2.    Generar una clave BEK única para el bloque de datos con la clave DEK.
-3.    Cifre el bloque de datos con la clave BEK mediante el cifrado AES-256.
-4.    Almacene el bloque de datos cifrado en el almacenamiento persistente.
+2.  Generar una clave BEK única para el bloque de datos con la clave DEK.
+3.  Cifre el bloque de datos con la clave BEK mediante el cifrado AES-256.
+4.  Almacene el bloque de datos cifrado en el almacenamiento persistente.
 
 > [!NOTE] 
 > Por motivos de rendimiento, la clave DEK sin cifrar se almacena en caché en memoria durante un corto período de tiempo, transcurrido el cual se borra inmediatamente. En medios persistentes, siempre se almacena cifrada con la clave MEK.
@@ -127,15 +127,15 @@ Tenga en cuenta que si usa las opciones predeterminadas para el cifrado, los dat
 
     ![Captura de pantalla de Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.    Seleccione la clave asociada con su cuenta de Data Lake Store y cree una nueva versión de esta clave. Tenga en cuenta que Data Lake Store solo admite actualmente la rotación de claves a una nueva versión de clave. No admite la rotación a una clave diferente.
+3.  Seleccione la clave asociada con su cuenta de Data Lake Store y cree una nueva versión de esta clave. Tenga en cuenta que Data Lake Store solo admite actualmente la rotación de claves a una nueva versión de clave. No admite la rotación a una clave diferente.
 
    ![Captura de pantalla de la ventana Claves, donde se resalta Nueva versión](./media/data-lake-store-encryption/keynewversion.png)
 
-4.    Vaya a la cuenta de almacenamiento de Data Lake Store y seleccione **Cifrado**.
+4.  Vaya a la cuenta de almacenamiento de Data Lake Store y seleccione **Cifrado**.
 
     ![Captura de pantalla de la ventana de la cuenta de almacenamiento de Data Lake Store, con Cifrado resaltado](./media/data-lake-store-encryption/select-encryption.png)
 
-5.    Un mensaje le notifica que hay una nueva versión de la clave. Haga clic en **Rotar clave** para actualizar la clave a la nueva versión.
+5.  Un mensaje le notifica que hay una nueva versión de la clave. Haga clic en **Rotar clave** para actualizar la clave a la nueva versión.
 
     ![Captura de pantalla de la ventana Data Lake Store con el mensaje y Rotar clave resaltado](./media/data-lake-store-encryption/rotatekey.png)
 

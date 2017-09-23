@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/20/2017
 
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Introducción a las acciones de retraso y retraso hasta
@@ -73,10 +74,5 @@ Un * significa que es un campo obligatorio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

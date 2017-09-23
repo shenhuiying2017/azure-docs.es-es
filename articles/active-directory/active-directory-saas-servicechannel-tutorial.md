@@ -19,7 +19,6 @@ ms.openlocfilehash: 7e1dad18ff0ae9a9102b789b2cb32e7b96ed3d38
 ms.contentlocale: es-es
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Tutorial: Integración de Azure Active Directory con ServiceChannel
 
@@ -122,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 4. La aplicación ServiceChannel espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de pantalla le muestra un ejemplo de esto. **NameIdentifier (identificador de usuario)** es la única notificación obligatoria y el valor predeterminado es **user.userprincipalname**, pero ServiceChannel espera que se le asigne **user.mail**. Si va a habilitar el aprovisionamiento de usuarios Just-In-Time, debe agregar las siguientes notificaciones tal y como se muestra a continuación. La notificación **role** debe asignarse a **user.assignedroles**, que contiene el rol del usuario.  
 
     Puede consultar la guía de ServiceChannel [aquí](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) para obtener más información sobre las notificaciones.
-      
+    
     ![Configurar inicio de sesión único](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
     > [!NOTE] 

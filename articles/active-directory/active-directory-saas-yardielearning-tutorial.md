@@ -19,7 +19,6 @@ ms.openlocfilehash: e7b36b692ad2a8bc3a3f5203d93882af96fd2109
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Tutorial: Integración de Azure Active Directory con Yardi eLearning
 

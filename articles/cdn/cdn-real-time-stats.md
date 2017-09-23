@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: e9b9522de6b2c54dc794b00100ffe358296ecfdd
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/25/2017
 
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Estadísticas en tiempo real en la CDN de Microsoft Azure
@@ -92,10 +93,5 @@ Este gráfico indica cuántas conexiones se han establecido para los servidores 
 * Recibir notificaciones con [alertas en tiempo real en la CDN de Azure](cdn-real-time-alerts.md)
 * Profundizar más con [informes de HTTP avanzados](cdn-advanced-http-reports.md)
 * Analizar [patrones de uso](cdn-analyze-usage-patterns.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

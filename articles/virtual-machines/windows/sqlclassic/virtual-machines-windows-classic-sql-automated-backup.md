@@ -21,7 +21,6 @@ ms.openlocfilehash: 9e7cbf383eff5344f652024606164c9cf264015c
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Copia de seguridad automatizada para SQL Server en máquinas virtuales de Azure (implementación clásica)
 > [!div class="op_single_selector"]

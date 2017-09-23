@@ -21,7 +21,6 @@ ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
 ms.contentlocale: es-es
 ms.lasthandoff: 06/14/2017
 
-
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Supervisión de la carga de trabajo mediante DMV
 En este artículo se describe cómo usar las vistas de administración dinámica (DMV) para supervisar la carga de trabajo e investigar la ejecución de la consulta en Almacenamiento de datos SQL de Azure.

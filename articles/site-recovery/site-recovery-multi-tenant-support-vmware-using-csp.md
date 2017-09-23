@@ -20,7 +20,6 @@ ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Compatibilidad con multiinquilino en Azure Site Recovery para la replicación de máquinas virtuales de VMware en Azure mediante CSP
 

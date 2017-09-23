@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c81f23603cfbbc916c148c61bd3de52ef1db36ac
 ms.openlocfilehash: 5c598bfa5b6725d21a89df54dbcb3314cc631d80
+ms.contentlocale: es-es
 ms.lasthandoff: 02/15/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Tutorial: Integración de Azure Active Directory con Zscaler Private Access (ZPA)
@@ -125,7 +125,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_400.png)     
+    ![Configurar inicio de sesión único](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_400.png)   
 
 5. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
 

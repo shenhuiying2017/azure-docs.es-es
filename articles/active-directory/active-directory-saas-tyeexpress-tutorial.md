@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 869e5284c71904fcc817ceee0f39d94fab1bc6f3
+ms.contentlocale: es-es
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integración de Azure Active Directory con T&E Express
@@ -136,7 +136,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-tyeexpress-tutorial/tyeAdmin.png)
 
-11. Haga clic en el botón **Guardar** para guardar la configuración.    
+11. Haga clic en el botón **Guardar** para guardar la configuración. 
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD

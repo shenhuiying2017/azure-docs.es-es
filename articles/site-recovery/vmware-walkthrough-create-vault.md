@@ -20,7 +20,6 @@ ms.openlocfilehash: dca95ad46b8de587140c3573ba6ed5702a122032
 ms.contentlocale: es-es
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-7-set-up-a-vault-for-vmware-replication-to-azure"></a>Paso 7: Configuración de un almacén para la replicación de VMware en Azure
 

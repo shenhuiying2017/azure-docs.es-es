@@ -19,7 +19,6 @@ ms.openlocfilehash: bae5f05a161b2730bf662bcb47f20ab3e1799951
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Tutorial: Integración de Azure Active Directory con el Portal de administración en la nube de Microsoft Azure
 

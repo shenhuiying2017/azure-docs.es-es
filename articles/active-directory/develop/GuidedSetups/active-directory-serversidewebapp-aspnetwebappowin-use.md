@@ -20,18 +20,17 @@ ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 3b7d29e48c91f40e8782a5e32a52998b815fe331
 ms.contentlocale: es-es
 
-
 ---
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Agregar un controlador para controlar las solicitudes de inicio de sesión y cierre de sesión
 
 En este paso se muestra cómo crear un controlador para exponer los métodos de inicio de sesión y cierre de sesión.
 
-1.    Haga clic con el botón derecho en la carpeta `Controllers` y seleccione `Add` > `Controller`.
-2.    Seleccione `MVC (.NET version) Controller – Empty`.
-3.    Haga clic en *Agregar*.
-4.    Asígnele el nombre `HomeController` y haga clic en *Aceptar*.
-5.    Agregue referencias de *OWIN* a la clase:
+1.  Haga clic con el botón derecho en la carpeta `Controllers` y seleccione `Add` > `Controller`.
+2.  Seleccione `MVC (.NET version) Controller – Empty`.
+3.  Haga clic en *Agregar*.
+4.  Asígnele el nombre `HomeController` y haga clic en *Aceptar*.
+5.  Agregue referencias de *OWIN* a la clase:
 
 ```csharp
 using Microsoft.Owin.Security;
@@ -75,9 +74,9 @@ public void SignOut()
 
 En Visual Studio, cree otra vista para agregarle el botón de inicio de sesión y mostrar información del usuario tras la autenticación:
 
-1.    Haga clic con el botón derecho en la carpeta `Views\Home` y seleccione `Add View`.
-2.    Asígnele el nombre `Index`.
-3.    Agregue el código HTML siguiente, que incluye el botón de inicio de sesión, al archivo:
+1.  Haga clic con el botón derecho en la carpeta `Views\Home` y seleccione `Add View`.
+2.  Asígnele el nombre `Index`.
+3.  Agregue el código HTML siguiente, que incluye el botón de inicio de sesión, al archivo:
 
 ```html
 <html>
@@ -124,11 +123,11 @@ else
 ## <a name="add-a-controller-to-display-users-claims"></a>Agregar un controlador para mostrar las notificaciones del usuario
 Este controlador muestra los usos del atributo `[Authorize]` para proteger un controlador. Este atributo restringe el acceso al controlador permitiendo únicamente usuarios autenticados. El siguiente código utiliza el atributo para mostrar notificaciones de usuario que se han recuperado como parte del inicio de sesión.
 
-1.    Haga clic con el botón derecho en la carpeta `Controllers`: `Add` > `Controller`.
-2.    Seleccione `MVC {version} Controller – Empty`.
-3.    Haga clic en *Agregar*.
-4.    Asígnele el nombre `ClaimsController`.
-5.    Reemplace el código de la clase de controlador por el código siguiente; el atributo `[Authorize]` se agrega a la clase:
+1.  Haga clic con el botón derecho en la carpeta `Controllers`: `Add` > `Controller`.
+2.  Seleccione `MVC {version} Controller – Empty`.
+3.  Haga clic en *Agregar*.
+4.  Asígnele el nombre `ClaimsController`.
+5.  Reemplace el código de la clase de controlador por el código siguiente; el atributo `[Authorize]` se agrega a la clase:
 
 ```csharp
 [Authorize]
@@ -167,9 +166,9 @@ public class ClaimsController : Controller
 
 En Visual Studio, cree otra vista para mostrar las notificaciones del usuario en una página web:
 
-1.    Haga clic con el botón derecho en la carpeta `Views\Claims` y en: `Add View`.
-2.    Asígnele el nombre `Index`.
-3.    Agregue el código HTML siguiente al archivo:
+1.  Haga clic con el botón derecho en la carpeta `Views\Claims` y en: `Add View`.
+2.  Asígnele el nombre `Index`.
+3.  Agregue el código HTML siguiente al archivo:
 
 ```html
 <html>

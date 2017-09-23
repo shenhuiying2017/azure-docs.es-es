@@ -19,7 +19,6 @@ ms.openlocfilehash: 84582492592613320bd3ec2bdffe08519852d7c9
 ms.contentlocale: es-es
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: integración de Azure Active Directory con Direct
 

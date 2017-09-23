@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 935cd31c4b38262b7e42271574a8a221377a3cec
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="deploy-linux-virtual-machines-on-azure-stack"></a>Deploy Linux virtual machines on Azure Stack

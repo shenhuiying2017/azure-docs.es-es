@@ -21,7 +21,6 @@ ms.openlocfilehash: 637463399593f4bc9ff5bfcbf67bf93b816efc7f
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introducción a las herramientas de Elastic Database
 Este documento le presenta la experiencia de desarrollador mediante la ejecución de la aplicación de ejemplo. El ejemplo crea una aplicación particionada sencilla y explora las capacidades clave de las herramientas de Elastic Database. El ejemplo muestra funciones de la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md).

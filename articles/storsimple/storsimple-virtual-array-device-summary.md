@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 35413d597c3b6b1c7600241a78572b63f982d175
+ms.contentlocale: es-es
+ms.lasthandoff: 01/26/2017
 
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Uso de la hoja de resumen de dispositivos para StorSimple Device Manager conectado a StorSimple Virtual Array
@@ -54,10 +56,5 @@ Obtenga información sobre cómo:
 - [Administrar recursos compartidos en una instancia de StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md)
     
 - [Administrar volúmenes en una instancia de StorSimple Virtual Array](storsimple-virtual-array-manage-volumes.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

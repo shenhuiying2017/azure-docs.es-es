@@ -1,5 +1,4 @@
 ---
-
 title: "Registro y auditoría de Azure | Microsoft Docs"
 description: "Aprenda a usar datos de registro para obtener un conocimiento más profundo sobre su aplicación."
 services: security
@@ -21,7 +20,6 @@ ms.openlocfilehash: 9e5c929251259a86944121e504dc033bc99e3bc4
 ms.contentlocale: es-es
 ms.lasthandoff: 05/12/2017
 
-
 ---
 # <a name="azure-logging-and-auditing"></a>Registro y auditoría de Azure
 ## <a name="introduction"></a>Introducción
@@ -31,11 +29,11 @@ Para ayudar a los clientes de Azure actuales y potenciales a entender y utilizar
 Azure es una plataforma de servicios en la nube abierta y flexible que admite la más amplia selección de sistemas operativos, lenguajes de programación, marcos, herramientas, bases de datos y dispositivos.
 
 Por ejemplo, puede:
--    Ejecutar contenedores de Linux con integración de Docker.
+-   Ejecutar contenedores de Linux con integración de Docker.
 
--    Compilar aplicaciones con JavaScript, Python, .NET, PHP, Java y Node.js.
+-   Compilar aplicaciones con JavaScript, Python, .NET, PHP, Java y Node.js.
 
--    Crear back-end para dispositivos iOS, Android y Windows.
+-   Crear back-end para dispositivos iOS, Android y Windows.
 
 Los servicios en la nube pública de Azure admiten las mismas tecnologías en las que ya confían millones de desarrolladores y profesionales de TI.
 
@@ -59,25 +57,25 @@ Estas notas del producto proporcionan una introducción a la generación, recopi
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. Los registros proporcionan datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de registro para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
 
 Azure genera gran cantidad de registros para cada servicio. Estos registros se clasifican en estos tipos principales:
--    **Registros de control/administración**, que ofrecen visibilidad sobre las operaciones CREATE, UPDATE y DELETE de Azure Resource Manager. Los [registros de actividad de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) son un ejemplo de este tipo de registro.
+-   **Registros de control/administración**, que ofrecen visibilidad sobre las operaciones CREATE, UPDATE y DELETE de Azure Resource Manager. Los [registros de actividad de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) son un ejemplo de este tipo de registro.
 
--    **Registros de plano de datos**, que ofrecen visibilidad sobre los eventos que surgen cuando se usa un recurso de Azure. Ejemplos de este tipo de registro son los registros de sistema, seguridad y aplicaciones de eventos de Windows en una máquina virtual, así como los [registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) que se han configurado mediante Azure Monitor.
+-   **Registros de plano de datos**, que ofrecen visibilidad sobre los eventos que surgen cuando se usa un recurso de Azure. Ejemplos de este tipo de registro son los registros de sistema, seguridad y aplicaciones de eventos de Windows en una máquina virtual, así como los [registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) que se han configurado mediante Azure Monitor.
 
 
--    **Eventos procesados**, que aportan información sobre eventos y alertas analizados que se han procesado en su nombre. Ejemplos de este tipo son las [alertas de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts), donde [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) ha procesado y analizado su suscripción, y proporciona unas alertas de seguridad concisas.
+-   **Eventos procesados**, que aportan información sobre eventos y alertas analizados que se han procesado en su nombre. Ejemplos de este tipo son las [alertas de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts), donde [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) ha procesado y analizado su suscripción, y proporciona unas alertas de seguridad concisas.
 
 En la tabla siguiente se enumeran el tipo más importante de registros disponibles en Azure.
 
 | Categoría del registro | Tipo de registro | Usos | Integración |
 | ------------ | -------- | ------ | ----------- |
-|[Registros de actividad](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Eventos de plano de control de los recursos de Azure Resource Manager|    Proporcionan información detallada sobre las operaciones que se realizaron en los recursos de su suscripción.|    API de REST y [Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
-|[Registros de diagnóstico de Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Datos frecuentes acerca del funcionamiento de los recursos de Azure Resource Manager de la suscripción|    Proporcionan información detallada sobre las operaciones que el mismo recurso realiza.| Azure Monitor, [Stream](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
+|[Registros de actividad](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Eventos de plano de control de los recursos de Azure Resource Manager| Proporcionan información detallada sobre las operaciones que se realizaron en los recursos de su suscripción.| API de REST y [Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
+|[Registros de diagnóstico de Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Datos frecuentes acerca del funcionamiento de los recursos de Azure Resource Manager de la suscripción|   Proporcionan información detallada sobre las operaciones que el mismo recurso realiza.| Azure Monitor, [Stream](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Informes de AAD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-azure-portal)|Registros e informes|Actividades de inicio de sesión de usuario e información de actividades del sistema acerca de la administración de grupos y usuarios|[API Graph](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Máquina virtual y servicios en la nube](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Registro de eventos de Windows y Syslog de Linux|    Captura los datos del sistema y los datos de registro en las máquinas virtuales, y transfiere estos datos a la cuenta de almacenamiento que elija.|    Windows con [WAD](https://docs.microsoft.com/en-us/azure/azure-diagnostics) (almacenamiento de Microsoft Azure Diagnostics) y Linux en Azure Monitor|
-|[Storage Analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)|Registro de almacenamiento y proporciona datos de métricas para una cuenta de almacenamiento.|Proporciona información detallada sobre seguimiento de solicitudes, análisis de tendencias de uso y diagnóstico de problemas con la cuenta de almacenamiento.|    API de REST o [biblioteca de cliente](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
+|[Máquina virtual y servicios en la nube](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Registro de eventos de Windows y Syslog de Linux|  Captura los datos del sistema y los datos de registro en las máquinas virtuales, y transfiere estos datos a la cuenta de almacenamiento que elija.|   Windows con [WAD](https://docs.microsoft.com/en-us/azure/azure-diagnostics) (almacenamiento de Microsoft Azure Diagnostics) y Linux en Azure Monitor|
+|[Storage Analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)|Registro de almacenamiento y proporciona datos de métricas para una cuenta de almacenamiento.|Proporciona información detallada sobre seguimiento de solicitudes, análisis de tendencias de uso y diagnóstico de problemas con la cuenta de almacenamiento.|  API de REST o [biblioteca de cliente](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
 |[Registros de flujos de NSG (grupo de seguridad de red)](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON y muestra flujos entrantes y salientes por cada regla|Consulte información sobre el tráfico IP de entrada y salida a través de un grupo de seguridad de red|[Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)|
-|[Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)|Registros, excepciones y diagnósticos personalizados|    Servicio de Application Performance Management (APM) para desarrolladores web en varias plataformas.|    API de REST, [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
-|Datos de proceso/alerta de seguridad|    Alerta de Azure Security Center, alerta de OMS|    Información y alertas de seguridad|     API de REST, JSON|
+|[Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)|Registros, excepciones y diagnósticos personalizados|  Servicio de Application Performance Management (APM) para desarrolladores web en varias plataformas.| API de REST, [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
+|Datos de proceso/alerta de seguridad| Alerta de Azure Security Center, alerta de OMS| Información y alertas de seguridad|   API de REST, JSON|
 
 ### <a name="activity-log"></a>Registro de actividad
 El [registro de actividad de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporciona información sobre las operaciones que se realizaron en los recursos de su suscripción. El registro de actividad se conocía antes como "Registros de auditoría" o "Registros operativos", ya que notifica [eventos del plano de control](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) para las suscripciones. Con el registro de actividad, se pueden determinar los interrogantes “qué, quién y cuándo” de las operaciones de escritura (PUT, POST, DELETE) realizadas en los recursos de la suscripción. También puede conocer el estado de la operación y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET).
@@ -90,19 +88,19 @@ Aquí PUT, POST, DELETE hacen referencia a todas las operaciones de escritura qu
 Puede recuperar los eventos del registro de actividad mediante Azure Portal, la [CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli), los cmdlets de PowerShell y la [API de REST de Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Los registros de actividad tienen un período de retención de datos de 19 días.
 
 Escenarios de integración
--    [Crear una alerta de correo electrónico o webhook que se desencadene con un evento de registro de actividad.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-auditlog-to-webhook-email)
+-   [Crear una alerta de correo electrónico o webhook que se desencadene con un evento de registro de actividad.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-auditlog-to-webhook-email)
 
--    [Transmitirlo a un centro de eventos ](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs) para ingestión en un servicio de terceros o una solución de análisis personalizada como PowerBI.
+-   [Transmitirlo a un centro de eventos ](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs) para ingestión en un servicio de terceros o una solución de análisis personalizada como PowerBI.
 
--    Analizarlo en PowerBI con el [paquete de contenido de PowerBI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+-   Analizarlo en PowerBI con el [paquete de contenido de PowerBI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 
--    [Guardarlo en una cuenta de almacenamiento para archivarlo o inspeccionarlo manualmente](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-activity-log). Puede especificar el tiempo de retención (en días) mediante perfiles de registro.
+-   [Guardarlo en una cuenta de almacenamiento para archivarlo o inspeccionarlo manualmente](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-activity-log). Puede especificar el tiempo de retención (en días) mediante perfiles de registro.
 
--    Verlo y realizar consultas en él en Azure Portal.
+-   Verlo y realizar consultas en él en Azure Portal.
 
--    Consultarlo mediante un cmdlet de PowerShell, la CLI o la API de REST.
+-   Consultarlo mediante un cmdlet de PowerShell, la CLI o la API de REST.
 
--    Exportar el registro de actividad con perfiles de registro a [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
+-   Exportar el registro de actividad con perfiles de registro a [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 Puede usar una cuenta de almacenamiento o un [espacio de nombres de centro de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) adecuado a ambas suscripciones.
 ### <a name="azure-diagnostic-logs"></a>Registros de diagnóstico de Azure
@@ -113,19 +111,19 @@ Un recurso emite registros de diagnóstico de Azure que proporcionan datos exhau
 Los registros de diagnóstico de Azure ofrecen varias opciones de configuración: Azure Portal, con PowerShell, la interfaz de línea de comandos (CLI) y API de REST.
 
 **Escenarios de integración**
--    Guardarlos en una [cuenta de almacenamiento](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) para archivarlos o inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante la configuración de diagnóstico.
+-   Guardarlos en una [cuenta de almacenamiento](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) para archivarlos o inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante la configuración de diagnóstico.
 
--    [Transmitirlos Event Hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) para la ingestión en un servicio de terceros o una solución de análisis personalizado como [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
+-   [Transmitirlos Event Hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) para la ingestión en un servicio de terceros o una solución de análisis personalizado como [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
--    Analizarlos con [Log Analytics de OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
+-   Analizarlos con [Log Analytics de OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 **Servicios admitidos, esquema para registros de diagnóstico y categorías de registro admitidas por tipo de recurso**
 
 
 | Servicio | Esquema y documentos | Tipo de recurso | Categoría |
 | ------- | ------------- | ------------- | -------- |
-|Load Balancer| [Análisis del registros para el Equilibrador de carga de Azure (vista previa)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
-|||Microsoft.Network/loadBalancers|    LoadBalancerProbeHealthStatus
+|Load Balancer| [Análisis del registros para el Equilibrador de carga de Azure (vista previa)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|  LoadBalancerAlertEvent|
+|||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
 |Grupos de seguridad de red|[Análisis del registro para grupos de seguridad de red (NSG)](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
 |||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
 |Puertas de enlace de aplicaciones|[Registro de diagnóstico para la Puerta de enlace de aplicaciones](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
@@ -155,13 +153,13 @@ Los informes proporcionan el registro de auditoría para el nombre del evento, e
 
 | Informes de seguridad | Informes de actividad | Informes de auditoría |
 | :--------------- | :--------------- | :------------ |
-|Inicios de sesión desde orígenes desconocidos|    Uso de la aplicación: resumen|    Informe de auditoría de directorio|
-|Inicios de sesión tras varios errores|    Uso de la aplicación: detallado||
+|Inicios de sesión desde orígenes desconocidos| Uso de la aplicación: resumen| Informe de auditoría de directorio|
+|Inicios de sesión tras varios errores|  Uso de la aplicación: detallado||
 |Inicios de sesión desde varias ubicaciones geográficas|    Panel de la aplicación||
-|Inicios de sesión desde direcciones IP con actividad sospechosa|    Errores de aprovisionamiento de cuentas||
+|Inicios de sesión desde direcciones IP con actividad sospechosa|   Errores de aprovisionamiento de cuentas||
 |Actividad de inicio de sesión irregular|    Dispositivos de usuario individuales||
-|Inicios de sesión desde dispositivos posiblemente infectados|    Actividad de usuario individual||
-|Usuarios con actividad de inicio de sesión anómala|    Informe de actividad de grupos||
+|Inicios de sesión desde dispositivos posiblemente infectados|   Actividad de usuario individual||
+|Usuarios con actividad de inicio de sesión anómala| Informe de actividad de grupos||
 ||Informe de actividad de registro de restablecimiento de contraseña||
 ||Actividad de restablecimiento de contraseña|||
 
@@ -183,13 +181,13 @@ Para los clientes interesados en almacenar eventos de auditoría durante períod
 
 Puede habilitar el Diagnóstico de Azure en una máquina virtual mediante las opciones siguientes:
 
--    Si utiliza Visual Studio, consulte el artículo sobre el [uso de Visual Studio para rastrear Azure Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-debug-cloud-services-virtual-machines).
+-   Si utiliza Visual Studio, consulte el artículo sobre el [uso de Visual Studio para rastrear Azure Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-debug-cloud-services-virtual-machines).
 
--    [Configuración de Diagnósticos de Azure en Azure Virtual Machine de forma remota](https://docs.microsoft.com/azure/virtual-machines-dotnet-diagnostics)
+-   [Configuración de Diagnósticos de Azure en Azure Virtual Machine de forma remota](https://docs.microsoft.com/azure/virtual-machines-dotnet-diagnostics)
 
--    [Uso de PowerShell para configurar los diagnósticos en Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-extensions-diagnostics?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+-   [Uso de PowerShell para configurar los diagnósticos en Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-extensions-diagnostics?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
--    [Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+-   [Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="storage-analytics"></a>Storage Analytics
 [Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) realiza el registro y proporciona datos de métricas para una cuenta de almacenamiento. Puede usar estos datos para hacer un seguimiento de solicitudes, analizar tendencias de uso y diagnosticar problemas con la cuenta de almacenamiento. El registro de Storage Analytics está disponible para los [servicios Blob, Queue y Table service](https://docs.microsoft.com/azure/storage/storage-introduction). El análisis de almacenamiento registra información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento.
@@ -217,15 +215,15 @@ Se registran los siguientes tipos de solicitudes autenticadas y anónimas.
 | Solicitudes correctas | Solicitudes correctas |
 |Solicitudes erróneas, incluidos errores de tiempo de espera, de limitación, de red, de autorización y de otro tipo | Solicitudes que usan una firma de acceso compartido (SAS), incluidas las correctas y las erróneas |
 | Solicitudes que usan una firma de acceso compartido (SAS), incluidas las correctas y las erróneas |Errores de tiempo de espera para el cliente y el servidor |
-|     Solicitudes de datos de análisis |     Solicitudes GET erróneas con el código de error 304 (No modificado) |
+|   Solicitudes de datos de análisis |    Solicitudes GET erróneas con el código de error 304 (No modificado) |
 | Las solicitudes realizadas por el propio análisis de almacenamiento, como la creación o eliminación del registro, no se registran. Puede encontrar una lista completa de los datos registrados en los temas [Operaciones y mensajes de estado registrados por el análisis de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) y [Formato del registro del análisis de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). | El resto de solicitudes anónimas erróneas no se registran. Puede encontrar una lista completa de los datos registrados en [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) (Operaciones registradas y mensajes de estado de Storage Analytics) y [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) (Formato de registro de Storage Analytics). |
 
 ### <a name="azure-networking-logs"></a>Registros de redes de Azure
 El registro y supervisión de redes en Azure es completa y cubre dos amplias categorías:
 
--    [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): este servicio ofrece las características de supervisión de redes basada en el escenario. Este servicio incluye captura de paquetes, próximo salto, comprobación de flujo de IP, vista de grupos de seguridad y registros de flujo de NSG. La supervisión en el nivel de escenario, ofrece una visión global de los recursos de la red que contrasta con la supervisión de recursos de red individuales.
+-   [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): este servicio ofrece las características de supervisión de redes basada en el escenario. Este servicio incluye captura de paquetes, próximo salto, comprobación de flujo de IP, vista de grupos de seguridad y registros de flujo de NSG. La supervisión en el nivel de escenario, ofrece una visión global de los recursos de la red que contrasta con la supervisión de recursos de red individuales.
 
--    [Supervisión de recursos](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring) - la supervisión en el nivel de recurso consta de cuatro funciones: registros de diagnóstico, métricas, solución de problemas y mantenimiento de recursos. Todas estas funciones se integran en el nivel de recursos de red.
+-   [Supervisión de recursos](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring) - la supervisión en el nivel de recurso consta de cuatro funciones: registros de diagnóstico, métricas, solución de problemas y mantenimiento de recursos. Todas estas funciones se integran en el nivel de recursos de red.
 
 ![Registros de redes de Azure](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -257,15 +255,15 @@ Además de las funcionalidades de registro anteriores, Network Watcher tiene act
 
 - [Captura de paquetes variable](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): captura datos de paquetes dentro y fuera de una máquina virtual. Opciones de filtrado avanzadas y controles optimizados con los que se pueden establecer límites de tiempo y de tamaño, lo cual proporciona una gran versatilidad. Los datos de paquetes se pueden almacenar en un almacén de blobs o en el disco local en formato .cap.
 
--    [Comprobaciones de flujo de IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): comprueba si un paquete está permitido o no en función de los parámetros de paquete de información de 5-tupla sobre el flujo (IP de destino, IP de origen, puerto de destino, puerto de origen y protocolo). Si un grupo de seguridad deniega un paquete, se devuelve el nombre de la regla y del grupo que lo deniega.
+-   [Comprobaciones de flujo de IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): comprueba si un paquete está permitido o no en función de los parámetros de paquete de información de 5-tupla sobre el flujo (IP de destino, IP de origen, puerto de destino, puerto de origen y protocolo). Si un grupo de seguridad deniega un paquete, se devuelve el nombre de la regla y del grupo que lo deniega.
 
--    [Próximo salto](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): determina el próximo salto para los paquetes que se enrutan en el tejido de red de Azure, lo que le permite diagnosticar cualquier ruta definida por el usuario que se haya configurado incorrectamente.
+-   [Próximo salto](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): determina el próximo salto para los paquetes que se enrutan en el tejido de red de Azure, lo que le permite diagnosticar cualquier ruta definida por el usuario que se haya configurado incorrectamente.
 
--    [Vista de grupos de seguridad](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): obtiene las reglas de seguridad eficaces que se aplican en una máquina virtual.
+-   [Vista de grupos de seguridad](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): obtiene las reglas de seguridad eficaces que se aplican en una máquina virtual.
 
--    [Solución de problemas de la puerta de enlace de Virtual Network y de las conexiones](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): ofrece la capacidad para solucionar problemas con las puertas de enlace de Virtual Network y las conexiones.
+-   [Solución de problemas de la puerta de enlace de Virtual Network y de las conexiones](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): ofrece la capacidad para solucionar problemas con las puertas de enlace de Virtual Network y las conexiones.
 
--    [Límites de suscripción de red](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): le permite ver el uso de los recursos de la red en comparación con los límites.
+-   [Límites de suscripción de red](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): le permite ver el uso de los recursos de la red en comparación con los límites.
 
 ### <a name="application-insight"></a>Application Insights
 
@@ -279,25 +277,25 @@ Además de las funcionalidades de registro anteriores, Network Watcher tiene act
 
 Application Insights está dirigido al equipo de desarrollo y sirve ayudarle a conocer el rendimiento de una aplicación y cómo se utiliza. Supervisa:
 
--    **Tasas de solicitud, tiempos de respuesta y tasas de error** - Averigüe qué páginas que son las más conocidas, en qué momento del día y dónde están los usuarios. Vea qué páginas presentan mejor rendimiento. Si los tiempos de respuesta y las tasas de error aumentan cuando hay más solicitudes, quizás tiene un problema de recursos.
+-   **Tasas de solicitud, tiempos de respuesta y tasas de error** - Averigüe qué páginas que son las más conocidas, en qué momento del día y dónde están los usuarios. Vea qué páginas presentan mejor rendimiento. Si los tiempos de respuesta y las tasas de error aumentan cuando hay más solicitudes, quizás tiene un problema de recursos.
 
--    **Tasas de dependencia, tiempos de respuesta y tasa de error** - Averigüe si los servicios externos le ralentizan.
+-   **Tasas de dependencia, tiempos de respuesta y tasa de error** - Averigüe si los servicios externos le ralentizan.
 
--    **Excepciones**: - Analice las estadísticas agregadas o seleccione instancias concretas y profundice en el seguimiento de la pila y las solicitudes relacionadas. Se notifican tanto las excepciones de servidor como las de explorador.
+-   **Excepciones**: - Analice las estadísticas agregadas o seleccione instancias concretas y profundice en el seguimiento de la pila y las solicitudes relacionadas. Se notifican tanto las excepciones de servidor como las de explorador.
 
--    **Vistas de página y rendimiento de carga** - Notificados por los exploradores de los usuarios.
+-   **Vistas de página y rendimiento de carga** - Notificados por los exploradores de los usuarios.
 
--    **Llamadas AJAX** desde páginas web - Tasas, tiempos de respuesta y tasas de error.
+-   **Llamadas AJAX** desde páginas web - Tasas, tiempos de respuesta y tasas de error.
 
--    **Número de usuarios y sesiones**.
+-   **Número de usuarios y sesiones**.
 
--    **Contadores de rendimiento** de las máquinas de servidor de Windows o Linux, como CPU, memoria y uso de la red.
+-   **Contadores de rendimiento** de las máquinas de servidor de Windows o Linux, como CPU, memoria y uso de la red.
 
--    **Diagnóstico de host** de Docker o Azure.
+-   **Diagnóstico de host** de Docker o Azure.
 
--    **Registros de seguimiento de diagnóstico** de la aplicación - De esta forma puede correlacionar eventos de seguimiento con las solicitudes.
+-   **Registros de seguimiento de diagnóstico** de la aplicación - De esta forma puede correlacionar eventos de seguimiento con las solicitudes.
 
--    **Métricas y eventos personalizados** que usted mismo escribe en el código de cliente o servidor para realizar un seguimiento de eventos empresariales, como artículos vendidos o partidas ganadas.
+-   **Métricas y eventos personalizados** que usted mismo escribe en el código de cliente o servidor para realizar un seguimiento de eventos empresariales, como artículos vendidos o partidas ganadas.
 
 **Lista de escenarios de integración y descripción:**
 
@@ -324,11 +322,11 @@ La detección de amenazas de Security Center recopila automáticamente informaci
 
 Security Center utiliza análisis avanzados que superan con creces los enfoques basados en firmas. Los grandes avances registrados en las tecnologías de grandes datos y [aprendizaje automático](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) se aplican para evaluar eventos en todo el tejido de la nube, lo que permite detectar amenazas que no se podrían identificar mediante enfoques manuales, así como predecir la evolución de los ataques. Estas técnicas de análisis son:
 
--    **Información integrada sobre amenazas**: busca actores malintencionados conocidos aplicando la información global sobre amenazas de los productos y servicios de Microsoft, la Unidad de crímenes digitales de Microsoft (DCU), Microsoft Security Response Center (MSRC) y otras fuentes externas.
+-   **Información integrada sobre amenazas**: busca actores malintencionados conocidos aplicando la información global sobre amenazas de los productos y servicios de Microsoft, la Unidad de crímenes digitales de Microsoft (DCU), Microsoft Security Response Center (MSRC) y otras fuentes externas.
 
--    **Análisis del comportamiento**: aplica patrones conocidos para detectar comportamientos malintencionados.
+-   **Análisis del comportamiento**: aplica patrones conocidos para detectar comportamientos malintencionados.
 
--    **Detección de anomalías**: utiliza la generación de perfiles estadísticos para crear una base histórica de referencia. Alerta de las desviaciones de las referencias que se ajustan a un posible vector de ataque.
+-   **Detección de anomalías**: utiliza la generación de perfiles estadísticos para crear una base histórica de referencia. Alerta de las desviaciones de las referencias que se ajustan a un posible vector de ataque.
 
 
 Muchos equipos de respuesta a incidentes y operaciones de seguridad confían en una solución de administración de eventos (SIEM) e información de seguridad como punto de partida para clasificar e investigar alertas de seguridad. Gracias a la integración de registro de Azure, los clientes pueden sincronizar alertas de Azure Security Center, además de los eventos de seguridad de máquina virtual recopilados por Diagnósticos de Azure y los registros de auditoría de Azure, con sus análisis de registros o una solución SIEM casi en tiempo real.
@@ -347,44 +345,44 @@ Los orígenes conectados son los equipos y otros recursos que generan los datos 
 [orígenes de datos](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) son las distintas variantes de datos que se recopilan desde cada origen conectado. Esto incluye eventos y [datos de rendimiento](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters) de agentes de [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) y Linux, además de orígenes como [registros de IIS](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs) y [registros de texto personalizado](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs). Usted configura cada origen de datos que desea recopilar y la configuración se entrega automáticamente a cada origen conectado.
 
 Hay cuatro maneras diferentes de [recopilar registros y métricas para servicios de Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage):
-1.    Diagnósticos de Azure directos a Log Analytics (Diagnósticos en la tabla siguiente)
+1.  Diagnósticos de Azure directos a Log Analytics (Diagnósticos en la tabla siguiente)
 
-2.    Diagnósticos de Azure a Azure Storage y luego a Log Analytics (Almacenamiento en la tabla siguiente)
+2.  Diagnósticos de Azure a Azure Storage y luego a Log Analytics (Almacenamiento en la tabla siguiente)
 
-3.    Conectores para servicios de Azure (Conectores en la tabla siguiente)
+3.  Conectores para servicios de Azure (Conectores en la tabla siguiente)
 
-4.    Scripts para recopilar y después publicar datos en Log Analytics (espacios en blanco en la tabla siguiente y para servicios que no aparecen)
+4.  Scripts para recopilar y después publicar datos en Log Analytics (espacios en blanco en la tabla siguiente y para servicios que no aparecen)
 
 | Servicio | Tipo de recurso | Registros | Métricas | Solución |
 | :------ | :------------ | :--- | :------ | :------- |
-|Puertas de enlace de aplicaciones|    Microsoft.Network/<br>applicationGateways|    Diagnóstico|Diagnóstico|    [Azure Application](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
-|Application Insights||         Conector|    Conector|    [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Connector (versión preliminar)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
-|Cuentas de automatización|    Microsoft.Automation/<br>AutomationAccounts|    Diagnóstico||         [Más información](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
-|Cuentas de Batch|    Microsoft.Batch/<br>batchAccounts|    Diagnóstico|    Diagnóstico||
-|Servicios en la nube clásica||         Almacenamiento||         [Más información](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table)|
-|Cognitive Services|    Microsoft.CognitiveServices/<br>accounts|         Diagnóstico|||
-|Data Lake Analytics|    Microsoft.DataLakeAnalytics/<br>accounts|    Diagnóstico|||
-|Data Lake Store|    Microsoft.DataLakeStore/<br>accounts|    Diagnóstico|||
-|Espacio de nombres del Centro de eventos|    Microsoft.EventHub/<br>namespaces|    Diagnóstico|    Diagnóstico||
-|IoT Hubs|    Microsoft.Devices/<br>IotHubs||         Diagnóstico||
-|Key Vault|    Microsoft.KeyVault/<br>vaults|    Diagnóstico     ||    [KeyVault Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault)|
+|Puertas de enlace de aplicaciones|  Microsoft.Network/<br>applicationGateways|  Diagnóstico|Diagnóstico|    [Azure Application](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Application Insights||     Conector|  Conector|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Connector (versión preliminar)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
+|Cuentas de automatización|   Microsoft.Automation/<br>AutomationAccounts|    Diagnóstico||       [Más información](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
+|Cuentas de Batch|    Microsoft.Batch/<br>batchAccounts|  Diagnóstico|    Diagnóstico||
+|Servicios en la nube clásica||       Almacenamiento||       [Más información](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table)|
+|Cognitive Services|    Microsoft.CognitiveServices/<br>accounts|       Diagnóstico|||
+|Data Lake Analytics|   Microsoft.DataLakeAnalytics/<br>accounts|   Diagnóstico|||
+|Data Lake Store|   Microsoft.DataLakeStore/<br>accounts|   Diagnóstico|||
+|Espacio de nombres del Centro de eventos|   Microsoft.EventHub/<br>namespaces|  Diagnóstico|    Diagnóstico||
+|IoT Hubs|  Microsoft.Devices/<br>IotHubs||     Diagnóstico||
+|Key Vault| Microsoft.KeyVault/<br>vaults|  Diagnóstico  || [KeyVault Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault)|
 |Equilibradores de carga|    Microsoft.Network/<br>loadBalancers|    Diagnóstico|||
-|Logic Apps|    Microsoft.Logic/<br>workflows|     Diagnóstico|    Diagnóstico||
+|Logic Apps|    Microsoft.Logic/<br>workflows|  Diagnóstico|    Diagnóstico||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Grupos de seguridad de red|    Microsoft.Network/<br>networksecuritygroups|Diagnóstico||     [Azure Network Security Group Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
-|Almacenes de recuperación|    Microsoft.RecoveryServices/<br>vaults|||[Azure Recovery Services Analytics (versión preliminar)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
-|Servicios de búsqueda|    Microsoft.Search/<br>searchServices|    Diagnóstico|    Diagnóstico||
-|Espacio de nombres de Bus de servicio|    Microsoft.ServiceBus/<br>namespaces|    Diagnóstico|Diagnóstico|    [Service Bus Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-|Service Fabric||         Almacenamiento||     [Service Fabric Analytics (versión preliminar)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric)|
-|SQL (v12)|    Microsoft.Sql/<br>servers/<br>bases de datos||          Diagnóstico||
+|Grupos de seguridad de red|   Microsoft.Network/<br>networksecuritygroups|Diagnóstico||   [Azure Network Security Group Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Almacenes de recuperación|   Microsoft.RecoveryServices/<br>vaults|||[Azure Recovery Services Analytics (versión preliminar)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
+|Servicios de búsqueda|   Microsoft.Search/<br>searchServices|    Diagnóstico|    Diagnóstico||
+|Espacio de nombres de Bus de servicio| Microsoft.ServiceBus/<br>namespaces|    Diagnóstico|Diagnóstico|    [Service Bus Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Service Fabric||       Almacenamiento||    [Service Fabric Analytics (versión preliminar)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric)|
+|SQL (v12)| Microsoft.Sql/<br>servers/<br>bases de datos||       Diagnóstico||
 ||Microsoft.Sql/<br>servers/<br>elasticPools||||
-|Storage|||              Script|    [Azure Storage Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
-|Máquinas virtuales|    Microsoft.Compute/<br>virtualMachines|    Extensión|    Extensión||
+|Storage|||         Script| [Azure Storage Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
+|Máquinas virtuales|  Microsoft.Compute/<br>virtualMachines|  Extensión|  Extensión||
 ||||Diagnóstico||
-|Conjuntos de escalado de máquinas virtuales|    Microsoft.Compute/<br>virtualMachines      ||Diagnóstico||
+|Conjuntos de escalado de máquinas virtuales|   Microsoft.Compute/<br>virtualMachines    ||Diagnóstico||
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
-|Granjas de servidores web|Microsoft.Web/<br>serverfarms||     Diagnóstico
-|Sitios web|    Microsoft.Web/<br>sites ||         Diagnóstico|    [Más información](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
+|Granjas de servidores web|Microsoft.Web/<br>serverfarms||   Diagnóstico
+|Sitios web| Microsoft.Web/<br>sites ||      Diagnóstico|    [Más información](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
 ||Microsoft.Web/<br>sites/<br>slots|||||
 
 
@@ -402,10 +400,10 @@ La integración de registros de Azure admite actualmente la integración de regi
 | Tipo de registro | Análisis de registros que admiten JSON (Splunk, ArcSight, Qradar) |
 | :------- | :-------------------------------------------------------- |
 |Registros de auditoría de AAD|    yes|
-|Registros de actividad|    Sí|
-|Alertas de ASC    |Sí|
-|Registros de diagnóstico (registros de recursos)|    Sí|
-|Registros de VM|    Sí, mediante eventos reenviados y no mediante JSON|
+|Registros de actividad| Sí|
+|Alertas de ASC |Sí|
+|Registros de diagnóstico (registros de recursos)|  Sí|
+|Registros de VM|   Sí, mediante eventos reenviados y no mediante JSON|
 
 
 En la siguiente tabla se explica en detalle la categoría Registro y la integración de SIEM.
@@ -414,11 +412,11 @@ En la siguiente tabla se explica en detalle la categoría Registro y la integrac
 
 Escenarios de integración
 
--    [Pasos de configuración para soluciones de asociados](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : esta entrada de blog le muestra cómo configurar la integración de registros de Azure para que funcione con soluciones de asociados, como Splunk, HP ArcSight y IBM QRadar.
+-   [Pasos de configuración para soluciones de asociados](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : esta entrada de blog le muestra cómo configurar la integración de registros de Azure para que funcione con soluciones de asociados, como Splunk, HP ArcSight y IBM QRadar.
 
--    [Preguntas más frecuentes sobre la integración de registro de Azure (P+F)](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq). Este artículo de preguntas más frecuentes responde a preguntas sobre la integración de registro de Azure.
+-   [Preguntas más frecuentes sobre la integración de registro de Azure (P+F)](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq). Este artículo de preguntas más frecuentes responde a preguntas sobre la integración de registro de Azure.
 
--    [Integración de las alertas de Security Center con la integración de registro de Azure (versión preliminar)](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration). Este documento le explica cómo sincronizar las alertas de Security Center, además de los eventos de seguridad de máquina virtual recopilados por Diagnósticos de Azure y los registros de auditoría de Azure, con sus análisis de registros o una solución SIEM.
+-   [Integración de las alertas de Security Center con la integración de registro de Azure (versión preliminar)](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration). Este documento le explica cómo sincronizar las alertas de Security Center, además de los eventos de seguridad de máquina virtual recopilados por Diagnósticos de Azure y los registros de auditoría de Azure, con sus análisis de registros o una solución SIEM.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

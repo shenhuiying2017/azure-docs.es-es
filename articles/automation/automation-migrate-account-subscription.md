@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
 ms.openlocfilehash: 687da15bdaf854254321b59350f47549781676f5
-
+ms.contentlocale: es-es
+ms.lasthandoff: 12/21/2016
 
 ---
 # <a name="migrate-automation-account-and-resources"></a>Migrar una cuenta de Automatización y sus recursos
@@ -65,9 +66,4 @@ Al igual que en el ejemplo anterior, se le pedirá que confirme el movimiento.
 * Para más información acerca del control de acceso basado en rol de Automatización de Azure, consulte [Control de acceso basado en rol en Automatización de Azure](automation-role-based-access-control.md).
 * Para más información sobre los cmdlets de PowerShell que permiten administrar su suscripción, vea [Uso de Azure PowerShell con Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 * Para conocer las características del Portal que permiten administrar la suscripción, vea [Uso del Portal de Azure para implementar y administrar los recursos de Azure](../azure-resource-manager/resource-group-portal.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

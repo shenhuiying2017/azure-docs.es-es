@@ -20,7 +20,6 @@ ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
 ms.contentlocale: es-es
 ms.lasthandoff: 05/23/2017
 
-
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialización de objetos de Reliable Collections en Azure Service Fabric
 Reliable Collections replica y conserva sus elementos para garantizar su durabilidad en casos de errores de equipos e interrupciones del suministro eléctrico.

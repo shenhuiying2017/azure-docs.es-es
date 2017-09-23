@@ -21,7 +21,6 @@ ms.openlocfilehash: fa2e37bd922690322ccc3d8f68128180d013b701
 ms.contentlocale: es-es
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Actualización del clúster de HDInsight a una versión más reciente
 Para aprovechar las ventajas de las características más recientes de HDInsight, se recomienda que los clústeres de HDInsight se actualicen a la versión más reciente. Siga las directrices que aparecen a continuación para actualizar las versiones del clúster de HDInsight.
@@ -44,11 +43,11 @@ El flujo de trabajo para actualizar el clúster de HDInsight es el siguiente.
 
 Cuando haya comprobado que todo funciona según lo esperado, programe el tiempo de inactividad para la migración. Durante este tiempo de inactividad, realice las acciones siguientes:
 
-1.    Haga copia de seguridad de todos los datos transitorios almacenados localmente en los nodos del clúster. Por ejemplo, si tiene datos que se almacenan directamente en un nodo principal.
-2.    Elimine el clúster existente.
-3.    Cree un clúster en la misma subred de red virtual con la versión de HDI más reciente (o compatible) con el mismo almacén de datos predeterminado que usaba el clúster anterior. Esto permitirá que el nuevo clúster siga trabajando con los datos de producción existentes.
-4.    Importe los datos transitorios cuya copia de seguridad realizó.
-5.    Inicie trabajos o continúe el procesamiento con el nuevo clúster.
+1.  Haga copia de seguridad de todos los datos transitorios almacenados localmente en los nodos del clúster. Por ejemplo, si tiene datos que se almacenan directamente en un nodo principal.
+2.  Elimine el clúster existente.
+3.  Cree un clúster en la misma subred de red virtual con la versión de HDI más reciente (o compatible) con el mismo almacén de datos predeterminado que usaba el clúster anterior. Esto permitirá que el nuevo clúster siga trabajando con los datos de producción existentes.
+4.  Importe los datos transitorios cuya copia de seguridad realizó.
+5.  Inicie trabajos o continúe el procesamiento con el nuevo clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre cómo crear clústeres de HDInsight basado en Linux](hdinsight-hadoop-provision-linux-clusters.md)

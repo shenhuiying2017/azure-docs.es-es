@@ -22,7 +22,6 @@ ms.openlocfilehash: 3abb71c12b4769bebd808276f8bdd832aad22d7a
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Análisis de datos de sensor mediante la consola de consultas de Hive en Hadoop con HDInsight 
 

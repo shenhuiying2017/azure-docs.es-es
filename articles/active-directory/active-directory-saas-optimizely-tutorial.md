@@ -19,7 +19,6 @@ ms.openlocfilehash: 4d6f6da6bace09fbd6ab105530a1162653675c99
 ms.contentlocale: es-es
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: integración de Azure Active Directory con Optimizely
 

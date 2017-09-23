@@ -20,7 +20,6 @@ ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
 ms.contentlocale: es-es
 ms.lasthandoff: 12/08/2016
 
-
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introducción al Programador de Azure en el Portal de Azure
 Es fácil crear trabajos programados en el Programador de Azure. En este tutorial, aprenderá a crear un trabajo: También aprenderá las funcionalidades de supervisión y administración del Programador.

@@ -19,7 +19,6 @@ ms.openlocfilehash: 668fc5ae4f964bd776904c3a9dbc2b203689d50c
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: Integración de Azure Active Directory con Skillport
 

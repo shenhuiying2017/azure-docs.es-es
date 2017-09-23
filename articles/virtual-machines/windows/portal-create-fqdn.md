@@ -22,7 +22,6 @@ ms.openlocfilehash: 2d5a555cd873222efcdb29e8eb3aaf128a24414b
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-windows-vm"></a>Creación de un nombre de dominio completo en Azure Portal para una máquina virtual Windows
 

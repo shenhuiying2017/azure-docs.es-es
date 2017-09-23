@@ -20,7 +20,6 @@ ms.openlocfilehash: 974230f349aec46fde58e69658e05a13bff4296f
 ms.contentlocale: es-es
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="azure-resource-manager-template-deployment---azure-cli-script"></a>Implementación de plantillas de Azure Resource Manager: script de la CLI de Azure
 

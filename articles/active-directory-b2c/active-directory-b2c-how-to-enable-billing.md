@@ -18,7 +18,6 @@ ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
 ms.contentlocale: es-es
 ms.lasthandoff: 05/23/2017
 
-
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Vinculación de una suscripción de Azure a un inquilino de Azure B2C para pagar los cargos por uso
 

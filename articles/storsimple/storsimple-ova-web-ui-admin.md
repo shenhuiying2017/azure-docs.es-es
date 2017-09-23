@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6c5fa51bdaad808d90cac6c8b8adeafe7d1cafc9
 ms.openlocfilehash: 989e7b697f9b527df549fb32be18edd1d3c8d224
-
+ms.contentlocale: es-es
+ms.lasthandoff: 12/01/2016
 
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Usar la interfaz de usuario web para administrar la matriz virtual de StorSimple
@@ -110,10 +111,5 @@ Puede apagar o reiniciar el dispositivo virtual mediante la interfaz de usuario 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo](storsimple-virtual-array-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

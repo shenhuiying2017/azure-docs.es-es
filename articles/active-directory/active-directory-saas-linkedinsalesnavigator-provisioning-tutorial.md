@@ -48,9 +48,9 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-sales-navigator"></a>Sugerencias importantes para asignar usuarios a LinkedIn Sales Navigator
 
-*    Se recomienda asignar un solo usuario de Azure AD a LinkedIn Sales Navigator para probar la configuración del aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
+*   Se recomienda asignar un solo usuario de Azure AD a LinkedIn Sales Navigator para probar la configuración del aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
 
-*    Al asignar un usuario a LinkedIn Sales Navigator, debe seleccionar el rol **Usuario** en el cuadro de diálogo de asignación. El rol "Acceso predeterminado" no funciona para realizar el aprovisionamiento.
+*   Al asignar un usuario a LinkedIn Sales Navigator, debe seleccionar el rol **Usuario** en el cuadro de diálogo de asignación. El rol "Acceso predeterminado" no funciona para realizar el aprovisionamiento.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-sales-navigator"></a>Configuración del aprovisionamiento de usuarios en LinkedIn Sales Navigator
@@ -93,9 +93,9 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
 
 8) Si ya ha configurado LinkedIn Sales Navigator para el inicio de sesión único, busque la instancia de LinkedIn Sales Navigator mediante el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **LinkedIn Sales Navigator** en la galería de aplicaciones. Seleccione LinkedIn Sales Navigator en los resultados de búsqueda y agréguelo a la lista de aplicaciones.
 
-9)    Seleccione la instancia de LinkedIn Sales Navigator y la pestaña **Aprovisionamiento**.
+9)  Seleccione la instancia de LinkedIn Sales Navigator y la pestaña **Aprovisionamiento**.
 
-10)    Establezca el **modo de aprovisionamiento** en **Automático**.
+10) Establezca el **modo de aprovisionamiento** en **Automático**.
 
 ![Aprovisionamiento de LinkedIn Sales Navigator](./media/active-directory-saas-linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 

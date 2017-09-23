@@ -19,7 +19,6 @@ ms.openlocfilehash: 220ccc8b94797880d335385046001c5f3b17c862
 ms.contentlocale: es-es
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Movimiento de datos de SAP Business Warehouse mediante Azure Data Factory
 En este artículo, se explica el uso de la actividad de copia en Azure Data Factory para mover datos desde un almacén de datos de SAP Business Warehouse (BW) local. Se basa en la información general ofrecida en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).
@@ -284,7 +283,7 @@ Al mover datos desde SAP BW, se usan las asignaciones siguientes de tipos de SAP
 
 Tipo de datos en el diccionario de ABAP | Tipo de datos de .Net
 -------------------------------- | --------------
-ACCP |    int
+ACCP |  int
 CHAR | String
 CLNT | String
 CURR | Decimal

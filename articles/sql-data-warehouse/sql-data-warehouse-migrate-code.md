@@ -21,7 +21,6 @@ ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
 ms.contentlocale: es-es
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migración del código SQL a Almacenamiento de datos SQL
 En este artículo se explican los cambios de código que probablemente tenga que realizar al migrar el código desde otra base de datos a SQL Data Warehouse. Algunas características de Almacenamiento de datos SQL pueden mejorar significativamente el rendimiento, ya que están diseñadas para trabajar directamente en un modo distribuido. Sin embargo, para mantener el rendimiento y la escala, también hay algunas características que no están disponibles.

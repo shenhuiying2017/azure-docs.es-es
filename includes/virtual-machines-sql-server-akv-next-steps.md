@@ -1,6 +1,4 @@
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Después de habilitar la integración de Azure Key Vault, puede habilitar el cifrado de SQL Server en la máquina virtual de SQL. En primer lugar, tendrá que crear una clave asimétrica en el almacén de claves y una clave simétrica dentro de SQL Server en la máquina virtual. A continuación, podrá ejecutar las instrucciones de T-SQL para habilitar el cifrado de las bases de datos y las copias de seguridad.
 
@@ -12,9 +10,7 @@ Hay varias formas de cifrado que puede aprovechar:
 
 Los siguientes scripts de Transact-SQL proporcionan ejemplos para cada una de estas áreas.
 
-<a id="prerequisites-for-examples" class="xliff"></a>
-
-### Requisitos previos para los ejemplos
+### <a name="prerequisites-for-examples"></a>Requisitos previos para los ejemplos
 
 Cada ejemplo se basa en los dos requisitos previos: una clave asimétrica de Key Vault denominada **CONTOSO_KEY** y una credencial creada por la característica de integración de AKV denominada **Azure_EKM_TDE_cred**. Los siguientes comandos Transact-SQL configuran estos requisitos previos para ejecutar los ejemplos.
 
@@ -55,9 +51,7 @@ WITH PROVIDER_KEY_NAME = 'keytestvault',  --key name
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
-<a id="transparent-data-encryption-tde" class="xliff"></a>
-
-### Cifrado de datos transparente (TDE) 
+### <a name="transparent-data-encryption-tde"></a>Cifrado de datos transparente (TDE) 
 
 1. Cree un inicio de sesión de SQL Server que el motor de base de datos usará para TDE, después agréguele la credencial.
 
@@ -94,9 +88,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-<a id="encrypted-backups" class="xliff"></a>
-
-### Copias de seguridad cifradas
+### <a name="encrypted-backups"></a>Copias de seguridad cifradas
 
 1. Cree un inicio de sesión de SQL Server que el motor de base de datos usará para cifrar las copias de seguridad, después agréguele la credencial.
 
@@ -126,9 +118,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-<a id="column-level-encryption-cle" class="xliff"></a>
-
-### Cifrado de nivel de columna (CLE)
+### <a name="column-level-encryption-cle"></a>Cifrado de nivel de columna (CLE)
 
 Este script crea una clave simétrica protegida por la clave asimétrica en el almacén de claves y, a continuación, usa la clave simétrica para cifrar los datos de la base de datos.
 
@@ -153,9 +143,7 @@ SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
 CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 ```
 
-<a id="additional-resources" class="xliff"></a>
-
-## Recursos adicionales
+## <a name="additional-resources"></a>Recursos adicionales
 
 Para más información sobre cómo usar estas características de cifrado, vea [Uso de la administración extensible de claves con las características de cifrado de SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 

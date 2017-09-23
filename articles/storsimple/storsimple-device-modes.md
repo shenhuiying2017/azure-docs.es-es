@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 33c65bf2eecff3914f3227c76f7d638a4507e1f6
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Cambiar el modo del dispositivo en su dispositivo StorSimple
@@ -90,10 +91,5 @@ Puede colocar el dispositivo StorSimple en modo de mantenimiento (desde el modo 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Aprenda a [aplicar las actualizaciones del modo normal y del de mantenimiento](storsimple-update-device.md) en el dispositivo StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

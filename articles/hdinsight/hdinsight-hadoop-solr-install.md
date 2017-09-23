@@ -22,7 +22,6 @@ ms.openlocfilehash: 6efb7ea26c3cdf7748fff4b02b5810c85cc41e1a
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Instalación y uso de Solr en clústeres de HDInsight basados en Windows
 

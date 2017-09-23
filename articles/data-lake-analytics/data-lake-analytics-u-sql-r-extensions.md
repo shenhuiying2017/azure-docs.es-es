@@ -20,7 +20,6 @@ ms.openlocfilehash: d479af515566f497d9611e75426f6acb8f8276d9
 ms.contentlocale: es-es
 ms.lasthandoff: 06/20/2017
 
-
 ---
 
 # <a name="tutorial-get-started-with-extending-u-sql-with-r"></a>Tutorial: Introducción a la extensión de U-SQL con Python (Tutorial: Introducción a la extensión de U-SQL con R)

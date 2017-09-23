@@ -14,9 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
 ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
+ms.contentlocale: es-es
+ms.lasthandoff: 01/14/2017
 
 ---
 
@@ -63,9 +65,4 @@ Sin embargo, dado que las características en versión preliminar están sujetas
 Para el SDK de .NET: encontrará indicaciones para la migración de código en [Actualización a la versión&1;.1 del SDK de .NET para Búsqueda de Azure](search-dotnet-sdk-migration.md).
 
 La disponibilidad general significa que Búsqueda de Azure está ahora sujeta al contrato de nivel de servicio. Encontrará dicho contrato en el [Acuerdo de Nivel de Servicio de Búsqueda de Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

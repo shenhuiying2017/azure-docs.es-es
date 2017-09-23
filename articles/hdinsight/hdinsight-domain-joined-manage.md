@@ -22,7 +22,6 @@ ms.openlocfilehash: 9b56ce6cc5bdd3b8d48d047751e978cad08598e1
 ms.contentlocale: es-es
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="manage-domain-joined-hdinsight-clusters-preview"></a>Administración de clústeres de HDInsight unidos a dominio (versión preliminar)
 Conozca los usuarios y los roles de HDInsight unido a un dominio y cómo administrar clústeres de HDInsight unidos a dominio.

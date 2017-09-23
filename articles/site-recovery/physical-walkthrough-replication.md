@@ -20,7 +20,6 @@ ms.openlocfilehash: 9ce23382001b54e7b9b7a58b8dd9aa61b400826d
 ms.contentlocale: es-es
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-8-set-up-a-replication-policy-for-physical-server-replication-to-azure"></a>Paso 8: Configuración de una directiva de replicación para replicar servidores físicos en Azure
 

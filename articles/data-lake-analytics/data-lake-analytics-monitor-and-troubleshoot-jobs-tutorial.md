@@ -20,7 +20,6 @@ ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
 ms.contentlocale: es-es
 ms.lasthandoff: 06/15/2017
 
-
 ---
 # <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure
 Aprenda a usar el Portal de Azure para solucionar problemas de trabajos de Análisis de Data Lake.

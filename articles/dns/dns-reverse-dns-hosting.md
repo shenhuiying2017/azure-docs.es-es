@@ -119,7 +119,7 @@ Para las zonas de búsqueda directa, el proceso de delegación de una zona DNS s
 
 En el ejemplo siguiente, se le guiará a través del proceso de creación de un registro PTR en una zona DNS inversa mediante Azure Portal. Para crear otros tipos de registros y modificar los que ya existan, consulte [Administración de registros y conjuntos de registros DNS mediante Azure Portal](dns-operations-recordsets-portal.md).
 
-1.    En la parte superior de la hoja **Zona DNS**, seleccione **+ Conjunto de registros** para abrir la hoja **Agregar conjunto de registros**.
+1.  En la parte superior de la hoja **Zona DNS**, seleccione **+ Conjunto de registros** para abrir la hoja **Agregar conjunto de registros**.
 
  ![Zona DNS](./media/dns-reverse-dns-hosting/figure4.png)
 

@@ -19,7 +19,6 @@ ms.openlocfilehash: c2ecfd5f066ed3bd10f74f935de2f2b80057329f
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Tutorial: Integración de Azure Active Directory con Anaplan
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: 00fcccb379bf1ba3875fbaba57a05b00fa228622
 ms.contentlocale: es-es
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="reliable-actors-reentrancy"></a>Reentrada de Reliable Actors
 El runtime de Reliable Actors permite, de manera predeterminada, la reentrada basada en el contexto de llamadas lógicas. Esto permite que los actores sean reentrantes si están en la misma cadena de contexto de llamada. Por ejemplo, si el actor A envía un mensaje al actor B, quien envía el mensaje al actor C; como parte del procesamiento del mensaje, si el actor C llama al actor A, el mensaje es reentrante y, por los tanto, se permitirá. Los demás mensajes que formen parte de un contexto de llamada distinto se bloquearán en el actor A hasta que complete el procesamiento.

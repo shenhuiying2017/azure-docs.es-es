@@ -20,7 +20,6 @@ ms.openlocfilehash: 4580bda5633f84a7c7af0dc85f3cea4951024836
 ms.contentlocale: es-es
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Envío de mensajes de nube a dispositivo con IoT Hub (Node)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]

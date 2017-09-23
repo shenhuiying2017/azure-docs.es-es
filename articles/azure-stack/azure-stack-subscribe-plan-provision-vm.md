@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 3cd87ebe9827249d32f15b5de0ad8521d0282c47
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="subscribe-to-an-offer"></a>Subscribe to an offer

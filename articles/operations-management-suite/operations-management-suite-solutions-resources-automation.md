@@ -21,7 +21,6 @@ ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Incorporación de recursos de Azure Automation a una solución de administración de OMS (versión preliminar)
 > [!NOTE]

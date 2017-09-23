@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: c851b88fc1067e65044266d07775717c028e75d9
+ms.contentlocale: es-es
 ms.lasthandoff: 01/31/2017
 
 ---

@@ -21,7 +21,6 @@ ms.openlocfilehash: efecbc9f1c410744f49795889c4ec3cc618f07e0
 ms.contentlocale: es-es
 ms.lasthandoff: 06/26/2017
 
-
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modelo de datos para informes de Azure Backup
 En este artículo se describe el modelo de datos de Power BI utilizado para crear informes de Azure Backup. Con este modelo de datos, puede filtrar los informes existentes en función de los campos correspondientes, y lo que es más importante, crear sus propios informes mediante el uso de las tablas y campos del modelo. 

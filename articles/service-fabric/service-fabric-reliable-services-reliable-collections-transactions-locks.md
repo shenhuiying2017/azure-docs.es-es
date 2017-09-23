@@ -20,7 +20,6 @@ ms.openlocfilehash: 3452473f5b2f86d29e46339c997193bc6403736a
 ms.contentlocale: es-es
 ms.lasthandoff: 05/04/2017
 
-
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transacciones y modos de bloqueo en Reliable Collections de Azure Service Fabric
 

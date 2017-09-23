@@ -20,7 +20,6 @@ ms.openlocfilehash: a5f222e5b11e05286152a9f1cc55d2c3fc27a9dc
 ms.contentlocale: es-es
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de la versión preliminar de la directiva personalizada de Azure Active Directory B2C
 El conjunto de características de la directiva personalizada está disponible para su evaluación en versión preliminar pública para todos los clientes de Azure Active Directory B2C (Azure AD B2C). Este conjunto de características está destinado a desarrolladores de identidades avanzados que crean las soluciones de identidad más complejas.  

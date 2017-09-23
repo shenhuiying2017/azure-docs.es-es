@@ -20,7 +20,6 @@ ms.openlocfilehash: df3ae8bf775370432b3648459a7c942afe69fb17
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-storsimple-bandwidth-templates"></a>Usar el servicio de Administrador de StorSimple para administrar plantillas de ancho de banda de StorSimple
 ## <a name="overview"></a>Información general

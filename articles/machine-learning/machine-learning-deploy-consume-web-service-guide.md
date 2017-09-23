@@ -20,7 +20,6 @@ ms.openlocfilehash: 18edabe267ec06c08074d7a7a6d71435cedc8489
 ms.contentlocale: es-es
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Servicios web Azure Machine Learning: Implementación y consumo
 Puede usar Azure Machine Learning para implementar flujos de trabajo y modelos de aprendizaje automático como servicios web. Estos servicios web pueden usarse después para llamar a los modelos de aprendizaje automático de las aplicaciones a través de Internet para que realicen predicciones en tiempo real o en modo por lotes. Como estos servicios web son RESTFul, se los puede llamar desde diversos lenguajes de programación y plataformas como .NET y Java, y aplicaciones como Excel.

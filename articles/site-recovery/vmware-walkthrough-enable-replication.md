@@ -19,7 +19,6 @@ ms.openlocfilehash: 470b9ddd8df4a4e74ec7174f79020c252323e502
 ms.contentlocale: es-es
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-11-enable-replication-for-vmware-virtual-machines-to-azure"></a>Paso 11: Habilitación de la replicación de máquinas virtuales VMware en Azure
 

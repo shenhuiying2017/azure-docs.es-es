@@ -20,7 +20,6 @@ ms.openlocfilehash: 92893edc4e02de148f6585e83c6861fd751401bb
 ms.contentlocale: es-es
 ms.lasthandoff: 06/03/2017
 
-
 ---
 # <a name="managing-azure-automation-data"></a>Administración de datos de Automatización de Azure
 Este artículo contiene varios temas para administrar un entorno de Automatización de Azure.

@@ -20,7 +20,6 @@ ms.openlocfilehash: fdee02fb60b633c26704fc1774dfc3a7825b5e0d
 ms.contentlocale: es-es
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desarrollo de operadores U-SQL definidos por el usuario (UDO)
 Aprenda a desarrollar operadores definidos por el usuario para procesar datos en un trabajo de U-SQL.

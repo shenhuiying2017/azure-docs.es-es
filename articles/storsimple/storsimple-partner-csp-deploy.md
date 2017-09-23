@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b28c5e93dc8f53597b1d2fa6f4ae154acf16068
 ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
+ms.contentlocale: es-es
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -104,9 +106,4 @@ En algunos casos, es posible que tenga un cliente existente y que necesite agreg
 
 - Si tiene más preguntas sobre StorSimple en CSP, vaya a [StorSimple in CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple en CSP: preguntas más frecuentes).
 - Si está listo para implementar StorSimple, vaya a [Deploy your StorSimple in CSP](storsimple-partner-csp-deploy.md) (Implementación de StorSimple en CSP).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

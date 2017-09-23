@@ -20,7 +20,6 @@ ms.openlocfilehash: cde355381b0d726a1ab340bc4230b2dc8f6e2c56
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implementar el complemento MMC del Administrador de instantáneas StorSimple
 

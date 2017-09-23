@@ -20,7 +20,6 @@ ms.openlocfilehash: 008952b4fee6bffe1e20259dc86fd6d5122777ec
 ms.contentlocale: es-es
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Progreso de un modelo de Machine Learning de un experimento a un servicio web aplicado
 Azure Machine Learning Studio ofrece un lienzo interactivo que permite desarrollar, ejecutar, probar e iterar un ***experimento*** que representa un modelo de análisis predictivo. Hay una gran variedad de módulos que le permiten realizar las acciones siguientes:

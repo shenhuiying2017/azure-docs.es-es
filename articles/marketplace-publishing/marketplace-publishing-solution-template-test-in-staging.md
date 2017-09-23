@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2015
 ms.author: hascipio; v-divte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Prueba de la oferta de plantilla de solución en ensayo
@@ -45,10 +46,5 @@ Si está satisfecho con los resultados, puede continuar en la fase de publicaci�
 > 
 
 Vea [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md) para obtener una guía de todas las tareas del publicador.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

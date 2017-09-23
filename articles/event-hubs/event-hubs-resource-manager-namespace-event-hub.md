@@ -20,7 +20,6 @@ ms.openlocfilehash: eb9a80eec0326aaa605cb8b21aecbaeec94ff212
 ms.contentlocale: es-es
 ms.lasthandoff: 06/13/2017
 
-
 ---
 
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager

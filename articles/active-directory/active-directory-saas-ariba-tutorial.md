@@ -19,7 +19,6 @@ ms.openlocfilehash: 214367847055ba38ee03a28d0afdcc58f68333cc
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Tutorial: Integración de Azure Active Directory con Ariba
 

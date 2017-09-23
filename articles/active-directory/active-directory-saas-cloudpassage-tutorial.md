@@ -19,7 +19,6 @@ ms.openlocfilehash: 094740e20570665e975dec1a591989e411f90c16
 ms.contentlocale: es-es
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Tutorial: integración de Azure Active Directory con CloudPassage
 

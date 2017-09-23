@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 66ee6ce15e51b14366eac0512c899d1c425c6092
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurar el proxy web para el dispositivo StorSimple
@@ -139,10 +140,5 @@ Si el proxy web se configuró de manera incorrecta, se mostrarán mensajes de er
 ## <a name="next-steps"></a>Pasos siguientes
 * Si experimenta problemas durante la implementación del dispositivo o la configuración de los valores de proxy web, vea [Solución de problemas de implementación del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 * Para obtener información sobre cómo usar el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -19,7 +19,6 @@ ms.openlocfilehash: 74bf865d796c965b4843092215639b32f033d807
 ms.contentlocale: es-es
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Exportación de plantillas de Azure Resource Manager con Azure PowerShell
 

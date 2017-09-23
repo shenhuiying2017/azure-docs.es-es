@@ -21,7 +21,6 @@ ms.openlocfilehash: 6ed02ead07c50b9a49e8868756b6f957d7b49b99
 ms.contentlocale: es-es
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="sql-database-faq"></a>Preguntas más frecuentes sobre la Base de datos SQL
 

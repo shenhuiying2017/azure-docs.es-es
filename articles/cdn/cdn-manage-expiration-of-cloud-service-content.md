@@ -20,7 +20,6 @@ ms.openlocfilehash: c207d780857a61d4b1fc0f39e6185cae67abc955
 ms.contentlocale: es-es
 ms.lasthandoff: 04/29/2017
 
-
 ---
 # <a name="manage-expiration-of-azure-web-appscloud-services-aspnet-or-iis-content-in-azure-cdn"></a>Administración de la caducidad del contenido de Azure Web Apps/Cloud Services, ASP.NET o IIS en la red CDN de Azure
 > [!div class="op_single_selector"]

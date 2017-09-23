@@ -20,10 +20,8 @@ ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
 ms.contentlocale: es-es
 ms.lasthandoff: 05/12/2017
 
-
 ---
-# Procedimiento de instalación y configuración de MongoDB en una máquina virtual Linux con la CLI de Azure 1.0
-<a id="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10" class="xliff"></a>
+# <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Procedimiento de instalación y configuración de MongoDB en una máquina virtual Linux con la CLI de Azure 1.0
 [MongoDB](http://www.mongodb.org) es una conocida base de datos NoSQL de código abierto y alto rendimiento. En este artículo, se muestra cómo instalar y configurar MongoDB en una máquina virtual Linux en Azure con el modelo de implementación de Resource Manager. Se muestran algunos ejemplos detallados de:
 
 * [Instalación y configuración manuales de una instancia básica de MongoDB](#manually-install-and-configure-mongodb-on-a-vm)
@@ -31,16 +29,14 @@ ms.lasthandoff: 05/12/2017
 * [Creación de un clúster complejo con particiones de MongoDB con conjuntos de réplicas mediante una plantilla de Resource Manager](#create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template)
 
 
-## Versiones de la CLI para completar la tarea
-<a id="cli-versions-to-complete-the-task" class="xliff"></a>
+## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - CLI de Azure 1.0: la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
 - [CLI de Azure 2.0](create-cli-complete-nodejs.md): la CLI de última generación para el modelo de implementación de administración de recursos
 
 
-## Instalación y configuración manuales de MongoDB en una máquina virtual
-<a id="manually-install-and-configure-mongodb-on-a-vm" class="xliff"></a>
+## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Instalación y configuración manuales de MongoDB en una máquina virtual
 MongoDB [proporciona instrucciones de instalación](https://docs.mongodb.com/manual/administration/install-on-linux/) para distribuciones de Linux, incluidos Red Hat/CentOS, SUSE, Ubuntu y Debian. En el ejemplo siguiente se crea una máquina virtual *CentOS* con una clave SSH almacenada en *~/.ssh/id_rsa.pub*. Responda a los mensajes que solicitan el nombre de la cuenta de almacenamiento, el nombre DNS y las credenciales de administrador:
 
 ```azurecli
@@ -115,8 +111,7 @@ sudo chkconfig mongod on
 ```
 
 
-## Creación de una instancia básica de MongoDB en CentOS mediante una plantilla
-<a id="create-basic-mongodb-instance-on-centos-using-a-template" class="xliff"></a>
+## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Creación de una instancia básica de MongoDB en CentOS mediante una plantilla
 Puede crear una instancia básica de MongoDB una sola máquina virtual CentOS con la siguiente plantilla de inicio rápido de Azure en GitHub. Esta plantilla usa la extensión de script personalizado para Linux para agregar un repositorio `yum` a la máquina Virtual CentOS recién creada y después instalar MongoDB.
 
 * [Instancia básica de MongoDB en CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos): https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
@@ -163,8 +158,7 @@ test
 ```
 
 
-## Creación de un clúster complejo con particiones de MongoDB en CentOS mediante una plantilla
-<a id="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template" class="xliff"></a>
+## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Creación de un clúster complejo con particiones de MongoDB en CentOS mediante una plantilla
 Puede crear un clúster complejo con particiones de MongoDB con la siguiente plantilla de inicio rápido de Azure en GitHub. Esta plantilla sigue los [procedimientos recomendados para clústeres con particiones de MongoDB](https://docs.mongodb.com/manual/core/sharded-cluster-components/) para proporcionar alta disponibilidad y redundancia. La plantilla crea dos particiones, con tres nodos en cada conjunto de réplicas. También se crea un conjunto de réplicas de servidor de configuración con tres nodos, más dos servidores de ruta **mongos** para proporcionar coherencia a las aplicaciones entre las particiones.
 
 * [Clúster con particiones de MongoDB en CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos): https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
@@ -185,8 +179,7 @@ azure group create \
 > La CLI de Azure regresa a un símbolo del sistema a los pocos segundos de crearse la implementación, pero la instalación y la configuración pueden tardar más de una hora en completarse. Para comprobar el estado de la implementación con `azure group deployment show myResourceGroup`, ajuste el nombre de su grupo de recursos según corresponda. Espere a que **ProvisioningState** muestre un estado *correcto* antes de conectarse a las máquinas virtuales.
 
 
-## Pasos siguientes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Pasos siguientes
 En estos ejemplos, puede conectarse a la instancia de MongoDB localmente desde la máquina virtual. Si desea conectarse a la instancia de MongoDB desde otra máquina virtual o una red, asegúrese de que [se creen las reglas de grupo de seguridad de red](nsg-quickstart.md) correspondientes.
 
 Para más información sobre la creación de plantillas, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).

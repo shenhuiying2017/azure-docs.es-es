@@ -21,7 +21,6 @@ ms.openlocfilehash: 96fc1347604c0c6cc2c2463a5dbd83b560183a16
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-sharepoint-online-connector"></a>Introducción al conector de SharePoint Online
 Use el conector de SharePoint Online para administrar las listas de SharePoint.  

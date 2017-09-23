@@ -19,7 +19,6 @@ ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
 ms.contentlocale: es-es
 ms.lasthandoff: 06/08/2017
 
-
 ---
 # <a name="query-your-azure-search-index"></a>Consultas en el índice de Búsqueda de Azure
 > [!div class="op_single_selector"]

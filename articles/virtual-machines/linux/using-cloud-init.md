@@ -21,7 +21,6 @@ ms.openlocfilehash: a7a6daad34525683579e25b9591ed28f2bf29c04
 ms.contentlocale: es-es
 ms.lasthandoff: 05/11/2017
 
-
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation"></a>Uso de cloud-init para personalizar una máquina virtual Linux durante la creación
 En este artículo se muestra cómo crear un script de cloud-init para establecer el nombre de host, actualizar los paquetes instalados y administrar cuentas de usuario con la CLI de Azure 2.0. Los scripts de cloud-init se llaman durante la creación de una máquina virtual desde la CLI de Azure. Para obtener información más detallada acerca de la instalación de aplicaciones, la escritura de archivos de configuración y la inserción de claves desde Key Vault, consulte [este tutorial](tutorial-automate-vm-deployment.md). También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](using-cloud-init-nodejs.md).

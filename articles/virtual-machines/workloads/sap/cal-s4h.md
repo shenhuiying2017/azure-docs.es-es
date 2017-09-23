@@ -22,7 +22,6 @@ ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
 ms.contentlocale: es-es
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implementación de SAP S/4HANA o BW/4HANA en Azure
 En este artículo se describe cómo implementar S/4HANA en Azure por medio de SAP Cloud Appliance Library (SAP CAL) 3.0. Para implementar otras soluciones basadas en SAP HANA, por ejemplo, BW/4HANA, siga los mismos pasos.

@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a2beec313c0dfcd9cf7f7c1ad716223dcaf453b7
 ms.openlocfilehash: 7b0639c6515298731f88346c2e4ca82664653a2b
-
+ms.contentlocale: es-es
+ms.lasthandoff: 02/11/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Tutorial: Integración de Azure Active Directory con Inkling
@@ -124,7 +125,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)     
+    ![Configurar inicio de sesión único](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)    
 
 5. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
 
@@ -242,8 +243,3 @@ Al hacer clic en el icono de Inkling en el panel de acceso, debería iniciar ses
 [201]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-inkling-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Feb17_HO2-->
-
-

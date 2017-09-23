@@ -20,7 +20,6 @@ ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
 ms.contentlocale: es-es
 ms.lasthandoff: 06/10/2017
 
-
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Creación de un front-end de servicio web para una aplicación mediante ASP.NET Core
 De forma predeterminada, los servicios de Azure Service Fabric no proporcionan una interfaz pública para la Web. Para exponer la funcionalidad de su aplicación a los clientes HTTP, tendrá que crear un proyecto web para que actúe como punto de entrada y, a continuación, comunicarse desde allí con los servicios individuales.

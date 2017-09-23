@@ -20,7 +20,6 @@ ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
 ms.contentlocale: es-es
 ms.lasthandoff: 06/10/2017
 
-
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes AS2 para la integración empresarial con las aplicaciones lógicas
 

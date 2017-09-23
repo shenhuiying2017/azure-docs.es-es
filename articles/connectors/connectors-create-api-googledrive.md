@@ -22,7 +22,6 @@ ms.openlocfilehash: c066a10b33e172eb5f16eede43ec407794000c90
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Introducción al conector de Google Drive
 Conéctese a Google Drive para crear archivos, obtener filas, etc. Con Google Drive, puede: 

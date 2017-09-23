@@ -20,17 +20,12 @@ ms.openlocfilehash: 1a6bf0a0352e6d9e3a22586ac825558d12e1307a
 ms.contentlocale: es-es
 ms.lasthandoff: 06/28/2017
 
-
 ---
-<a id="what-is-event-hubs" class="xliff"></a>
-
-# ¿Qué es Event Hubs?
+# <a name="what-is-event-hubs"></a>¿Qué es Event Hubs?
 
 Azure Event Hubs es una plataforma de streaming de datos y servicio de ingesta de eventos de gran escalabilidad que es capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Con la capacidad para ofrecer [funcionalidades de publicación y suscripción](https://msdn.microsoft.com/library/aa560414.aspx), con una latencia baja y a gran escala, Event Hubs sirve como "vía de entrada" para los macrodatos.
 
-<a id="why-use-event-hubs" class="xliff"></a>
-
-## ¿Por qué usar Event Hubs?
+## <a name="why-use-event-hubs"></a>¿Por qué usar Event Hubs?
 
 Las funcionalidades de control de eventos y telemetría de Event Hubs lo hacen especialmente útil para:
 
@@ -40,9 +35,7 @@ Las funcionalidades de control de eventos y telemetría de Event Hubs lo hacen e
 
 Por ejemplo, Event Hubs permite el seguimiento del comportamiento en aplicaciones móviles, la información sobre el tráfico de granjas de servidores web, la captura de eventos en juegos de consola o la recopilación de telemetría de máquinas industriales, vehículos conectados u otros dispositivos.
 
-<a id="azure-event-hubs-overview" class="xliff"></a>
-
-## Información general de Azure Event Hubs
+## <a name="azure-event-hubs-overview"></a>Información general de Azure Event Hubs
 
 La función habitual que Event Hubs desempeña en las arquitecturas de soluciones es la de actuar como la "puerta principal" de una canalización de eventos, conocida a menudo como un *consumidor de eventos*. Un consumidor de eventos es un componente o servicio que se encuentra entre los publicadores de eventos y los consumidores de eventos para desacoplar la producción de un flujo de eventos del consumo de esos eventos. En la siguiente ilustración se muestra esta arquitectura:
 
@@ -50,9 +43,7 @@ La función habitual que Event Hubs desempeña en las arquitecturas de solucione
 
 Event Hubs proporciona una funcionalidad de control del flujo de mensajes pero tiene características diferentes de la mensajería empresarial tradicional. Las funcionalidades de Event Hubs se basan en un alto rendimiento y en escenarios de procesamiento de eventos. Por lo tanto, Event Hubs es diferente de la mensajería de [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) y no implementa algunas de las funcionalidades que están disponibles para entidades de [mensajería de Service Bus](/azure/service-bus-messaging/), como los temas.
 
-<a id="event-hubs-features" class="xliff"></a>
-
-## Características de Event Hubs
+## <a name="event-hubs-features"></a>Características de Event Hubs
 
 Event Hubs contiene los siguientes elementos clave:
 
@@ -66,9 +57,7 @@ Event Hubs contiene los siguientes elementos clave:
 
 Para detalles técnicos sobre estas y otras características de Event Hubs, consulte [Event Hubs features overview](event-hubs-features.md) (Introducción a las características de Event Hubs). 
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para información detallada sobre los precios de Event Hubs, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 

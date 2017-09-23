@@ -21,7 +21,6 @@ ms.openlocfilehash: c7a213343b4fb2b5a89a5052a459061b404a431c
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-yammer-connector"></a>Introducción al conector de Yammer
 Conectarse a Yammer para acceder a conversaciones en la red empresarial. Con Yammer, puede:

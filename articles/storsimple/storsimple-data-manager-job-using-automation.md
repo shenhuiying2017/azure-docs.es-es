@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/16/2017
 ms.author: vidarmsft
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 9691408bcd80afb6eba534f26749b76dd3bfe315
+ms.contentlocale: es-es
 ms.lasthandoff: 03/21/2017
 
 ---
@@ -29,12 +30,12 @@ En este artículo se describe cómo usar Azure Automation para desencadenar un t
 
 Antes de comenzar, asegúrese de que dispone de:
 
-*    Azure Powershell instalado. [Descarga de Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*    Valores de configuración para inicializar el trabajo de transformación de datos (se incluyen las instrucciones necesarias para obtener dichos valores).
-*    Una definición del trabajo que se ha configurado correctamente en un recurso de datos híbridos de un grupo de recursos.
-*    Descargue el archivo [zip](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) `DataTransformationApp.zip` del repositorio de GitHub.
-*    Descargue el [script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Get-ConfigurationParams.ps1) `Get-ConfigurationParams.ps1` del repositorio de GitHub.
-*    Descargue el [script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) `Trigger-DataTransformation-Job.ps1` del repositorio de GitHub.
+*   Azure Powershell instalado. [Descarga de Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*   Valores de configuración para inicializar el trabajo de transformación de datos (se incluyen las instrucciones necesarias para obtener dichos valores).
+*   Una definición del trabajo que se ha configurado correctamente en un recurso de datos híbridos de un grupo de recursos.
+*   Descargue el archivo [zip](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) `DataTransformationApp.zip` del repositorio de GitHub.
+*   Descargue el [script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Get-ConfigurationParams.ps1) `Get-ConfigurationParams.ps1` del repositorio de GitHub.
+*   Descargue el [script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) `Trigger-DataTransformation-Job.ps1` del repositorio de GitHub.
 
 ## <a name="step-by-step"></a>Paso a paso
 

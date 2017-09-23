@@ -20,7 +20,6 @@ ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
 ms.contentlocale: es-es
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recopilar los contadores de rendimiento para aplicaciones de Linux en Log Analytics 
 En este artículo se proporciona información para configurar el [agente de OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) a fin de recopilar los contadores de rendimiento para aplicaciones específicas.  Las aplicaciones incluidas en este artículo son las siguientes:  

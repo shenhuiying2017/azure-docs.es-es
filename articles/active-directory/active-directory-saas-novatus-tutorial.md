@@ -19,7 +19,6 @@ ms.openlocfilehash: ec67e96309a8877e6fb65b30da1501e4f34a9ee4
 ms.contentlocale: es-es
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Tutorial: integración de Azure Active Directory con Novatus
 

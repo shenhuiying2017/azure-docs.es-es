@@ -20,7 +20,6 @@ ms.openlocfilehash: 45699c267d1009c4884dd164fd3f2950d6d5f555
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Reemplazar un controlador EBOD en el dispositivo StorSimple
 

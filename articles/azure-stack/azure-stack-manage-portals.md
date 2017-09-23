@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 066de8278d1ef4406cde837da4c7c65304854383
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="using-the-administrator-and-user-portals-in-azure-stack"></a>Using the administrator and user portals in Azure Stack

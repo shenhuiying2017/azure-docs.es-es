@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: eb6e67dc4707b2b999efcceec1c55dc950c5996e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Deploy templates using the Azure Stack portal

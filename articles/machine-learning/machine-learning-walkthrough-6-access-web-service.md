@@ -20,7 +20,6 @@ ms.openlocfilehash: d309f6c4749a80c81859b693a2bd5927e8fe0e54
 ms.contentlocale: es-es
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Paso 6 del tutorial: Acceso al servicio web de Aprendizaje automático de Azure
 

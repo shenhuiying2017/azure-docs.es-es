@@ -20,7 +20,6 @@ ms.openlocfilehash: 031b492df1f186087e7b91102cbb44f552999293
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="mydriving-iot-system-quick-start"></a>Sistema IoT de MyDriving: inicio rápido
 MyDriving es un sistema que muestra el diseño y la implementación de una solución de [Internet de las cosas](iot-suite-overview.md) (IoT) típica que recopila datos de telemetría de dispositivos, procesa dichos datos en la nube y aplica el aprendizaje automático para proporcionar una respuesta adaptable. La demostración registra datos sobre sus viajes en coche, mediante el uso de los datos de su teléfono móvil y un adaptador que recopila información del sistema de control de su automóvil. Estos datos se utilizan para proporcionar comentarios sobre su estilo de conducción en comparación con otros usuarios.

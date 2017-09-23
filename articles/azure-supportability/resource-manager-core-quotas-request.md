@@ -13,7 +13,6 @@ ms.openlocfilehash: cb6c5b3e86f126d4110d1cd29d8c9891e356e414
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 
 # <a name="resource-manager-core-quota-increase-requests"></a>Solicitudes de aumento de cuota de núcleos de Resource Manager

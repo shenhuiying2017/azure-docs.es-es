@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2016
 ms.author: telmos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b574360cce92350a9bf52c21678bf0e91ceb270e
 ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
-
+ms.contentlocale: es-es
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="name-resolution-for-vms-and-role-instances"></a>Resolución de nombres para las máquinas virtuales e instancias de rol
@@ -178,10 +179,5 @@ Modelo de implementación clásico:
 * [Esquema de configuración del servicio de Azure](https://msdn.microsoft.com/library/azure/ee758710)
 * [Esquema de configuración de Red virtual](https://msdn.microsoft.com/library/azure/jj157100)
 * [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md) 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

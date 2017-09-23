@@ -20,22 +20,18 @@ ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
 ms.contentlocale: es-es
 ms.lasthandoff: 05/11/2017
 
-
 ---
 
-# Expansión del disco del sistema operativo en una máquina virtual Linux mediante la CLI de Azure 1.0
-<a id="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10" class="xliff"></a>
+# <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Expansión del disco del sistema operativo en una máquina virtual Linux mediante la CLI de Azure 1.0
 Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una máquina virtual Linux de Azure. Puede [agregar discos de datos](add-disk.md) para proporcionar espacio de almacenamiento adicional, pero puede que también desee expandir el disco del sistema operativo. En este artículo se detalla cómo expandir el disco del sistema operativo para una máquina virtual Linux mediante discos no administrados con la CLI de Azure 1.0.
 
-## Versiones de la CLI para completar la tarea
-<a id="cli-versions-to-complete-the-task" class="xliff"></a>
+## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#prerequisites): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
 - [CLI de Azure 2.0](expand-disks.md): la CLI de última generación para el modelo de implementación de administración de recursos
 
-## Requisitos previos
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Requisitos previos
 Necesita tener instalada la [CLI de Azure 1.0 más reciente](../../cli-install-nodejs.md) y haber iniciado sesión en una [cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/) con el modo Resource Manager de la forma siguiente:
 
 ```azurecli
@@ -44,8 +40,7 @@ azure config mode arm
 
 En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetros de ejemplo incluyen *myResourceGroup* y *myVM*.
 
-## Expansión del disco del sistema operativo
-<a id="expand-os-disk" class="xliff"></a>
+## <a name="expand-os-disk"></a>Expansión del disco del sistema operativo
 
 1. No se pueden realizar operaciones en los discos duros virtuales con la máquina virtual en ejecución. En el ejemplo siguiente se detiene y desasigna la máquina virtual llamada *myV* en el grupo de recursos llamado *myResourceGroup*:
 
@@ -80,7 +75,6 @@ En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por 
     /dev/sda1        49G  1.3G   48G   3% /
     ```
 
-## Pasos siguientes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Pasos siguientes
 Si necesita almacenamiento adicional, también puede [agregar discos de datos a una máquina virtual Linux](add-disk.md). Para más información acerca del cifrado de disco, consulte [Cifrado de discos en una máquina virtual Linux mediante la CLI de Azure](encrypt-disks.md).
 

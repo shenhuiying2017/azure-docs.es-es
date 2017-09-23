@@ -21,7 +21,6 @@ ms.openlocfilehash: bc7908868828bd1628633cf9e57f8c44f8000827
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Uso del conector de Azure Blob Storage en una aplicación lógica
 Use el conector de Azure Blob Storage para cargar, actualizar, obtener y eliminar blobs en la cuenta de almacenamiento, todo dentro de una aplicación lógica.  

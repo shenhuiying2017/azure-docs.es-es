@@ -20,7 +20,6 @@ ms.openlocfilehash: 122cb48149477f295a65b8ee623c647b6db10a86
 ms.contentlocale: es-es
 ms.lasthandoff: 05/17/2017
 
-
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introducción a ReliableConcurrentQueue en Azure Service Fabric
 La cola simultánea confiable es una cola asincrónica, transaccional y replicada que presenta una alta simultaneidad para las operaciones de puesta en cola y eliminación de la cola. Está diseñada para ofrecer un alto rendimiento y una baja latencia al relajar la ordenación FIFO estricta que proporciona la [cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx) y, en su lugar, proporciona la ordenación de mejor esfuerzo.

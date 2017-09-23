@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 7c93a02f7a290aab3d451da72dabd431f9d40b0c
+ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Asignación de varias direcciones IP a máquinas virtuales mediante PowerShell
@@ -267,7 +267,7 @@ Puede agregar direcciones IP públicas y privadas a una NIC completando los paso
         -AllocationMethod Static
         ```
 
-         Para crear una nueva configuración de IP con una dirección IP privada estática y el recurso de dirección IP pública *myPublicIp3*, escriba el comando siguiente:
+        Para crear una nueva configuración de IP con una dirección IP privada estática y el recurso de dirección IP pública *myPublicIp3*, escriba el comando siguiente:
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `
@@ -288,7 +288,7 @@ Puede agregar direcciones IP públicas y privadas a una NIC completando los paso
 
         Verá un resultado similar al siguiente:
 
-        ```        
+        ```     
         Name       PrivateIpAddress PublicIpAddress                                           Primary
         
         IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True

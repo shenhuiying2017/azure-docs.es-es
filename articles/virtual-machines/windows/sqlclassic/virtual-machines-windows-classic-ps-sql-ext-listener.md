@@ -21,7 +21,6 @@ ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
 ms.contentlocale: es-es
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure
 > [!div class="op_single_selector"]

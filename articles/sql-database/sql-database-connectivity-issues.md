@@ -22,7 +22,6 @@ ms.openlocfilehash: ae081fc0432e36bf9f4d4f06f289386ddce37990
 ms.contentlocale: es-es
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Acciones para solucionar problemas, diagnosticar y evitar errores de conexión y errores transitorios en Base de datos SQL
 En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar los errores de conexión y los errores transitorios que la aplicación cliente encuentra cuando interactúa con Base de datos SQL de Azure. Aprenda a configurar la lógica de reintento, generar la cadena de conexión y ajustar otros valores de conexión.

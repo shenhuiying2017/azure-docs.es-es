@@ -20,7 +20,6 @@ ms.openlocfilehash: e345b2e22daae5b24c23645f7d2636f66df630ff
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="scheduler-outbound-authentication"></a>Autenticación saliente de Programador
 Puede que los trabajos de Programador tengan que llamar a servicios que requieren autenticación. De este modo, un servicio llamado puede determinar si el trabajo de Programador puede tener acceso a sus recursos. Algunos de estos servicios incluyen otros servicios de Azure, Salesforce.com, Facebook y sitios web personalizados que sean seguros.

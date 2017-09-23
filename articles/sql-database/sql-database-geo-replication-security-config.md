@@ -21,7 +21,6 @@ ms.openlocfilehash: de5e1732dab570b80692efcdd08e4ed2d8c98800
 ms.contentlocale: es-es
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configuración y administración de la seguridad de Azure SQL Database para la restauración geográfica o la conmutación por error 
 

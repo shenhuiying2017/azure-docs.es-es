@@ -21,7 +21,6 @@ ms.openlocfilehash: 5ce72ffef4394bf3bbe39fa420c4fcaa965ae35c
 ms.contentlocale: es-es
 ms.lasthandoff: 05/12/2017
 
-
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creación y administración de reglas de alerta de Log Analytics con la API de REST
 Con la API de REST de alertas de Log Analytics se pueden crear y administrar alertas de Operations Management Suite (OMS).  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.

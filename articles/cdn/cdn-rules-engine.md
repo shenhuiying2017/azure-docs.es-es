@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: abfe283476206b181018d187675b47112dc5ad2f
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/25/2017
 
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Invalidación del comportamiento HTTP mediante el motor de reglas de la red CDN de Azure
@@ -85,8 +86,3 @@ El motor de reglas le permite personalizar cómo se controlan las solicitudes HT
 * [Funciones del motor de reglas](cdn-rules-engine-reference-features.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
 * [Azure Fridays: Azure CDN's powerful new Premium Features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (Azure Fridays: Características nuevas y eficaces de la edición Premium de CDN de Azure) (vídeo)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

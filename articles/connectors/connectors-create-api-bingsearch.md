@@ -22,7 +22,6 @@ ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-bing-search-connector"></a>Introducción al conector de Búsqueda de Bing
 Conéctese a Búsqueda de Bing para buscar noticias, vídeos y mucho más. Con Búsqueda de Bing, puede hacer lo siguiente: 

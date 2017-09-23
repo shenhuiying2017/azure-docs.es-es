@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
 ms.openlocfilehash: c3bbef8fee018dc54e7d3edb86e3f9434999bdae
-
+ms.contentlocale: es-es
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guía técnica de la plantilla de solución de Cortana Intelligence para la previsión de demanda de energía
@@ -239,9 +240,4 @@ Las dos herramientas siguientes están disponibles para ayudarle a comprender me
 
 ## <a name="acknowledgements"></a>**Agradecimientos**
 Este artículo fue creado por el científico de datos Yijing Chen y el ingeniero de software Qiu Min de Microsoft.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

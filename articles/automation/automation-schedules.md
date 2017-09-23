@@ -20,7 +20,6 @@ ms.openlocfilehash: 140bea93c4563666e8cfdf356eaf87500c1aca8e
 ms.contentlocale: es-es
 ms.lasthandoff: 06/14/2017
 
-
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Programación de un runbook en Automatización de Azure
 Para programar un runbook en Automatización de Azure para que se inicie en un momento determinado, vincúlelo a una o más programaciones. Puede configurar una programación para que se ejecute una vez o de forma periódica, cada hora o a diario, para runbooks en el Portal de Azure clásico y runbooks en Azure Portal. Además, puede programarlos semanal o mensualmente, para determinados días de la semana o del mes, o en un día concreto del mes.  Un runbook puede vincularse a varias programaciones y una programación puede tener varios runbooks vinculados a ella.

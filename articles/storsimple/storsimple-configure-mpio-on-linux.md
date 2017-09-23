@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/01/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aa0193e741b1a84c03230b2458eec96b5504f031
 ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-
+ms.contentlocale: es-es
+ms.lasthandoff: 12/06/2016
 
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuración de MPIO en un host de StorSimple que ejecuta CentOS
@@ -446,10 +447,5 @@ Cuando está configurando MPIO en el host Linux, es posible que tenga que hacer 
 
 * [Configuración de MPIO en CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 * [Guía de aprendizaje de Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

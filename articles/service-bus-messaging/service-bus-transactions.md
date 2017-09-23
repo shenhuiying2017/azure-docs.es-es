@@ -1,6 +1,6 @@
 ---
 title: "Introducción al procesamiento de transacciones en Azure Service Bus| Microsoft Docs"
-description: "Información general sobre las transacciones atómicas del Bus de servicio de Azure y la característica &quot;enviar por&quot;"
+description: "Información general sobre las transacciones atómicas del Bus de servicio de Azure y la característica \"enviar por\""
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: a88f2d81ab43e38c9363a67aaefc178b47bfb259
 ms.contentlocale: es-es
 ms.lasthandoff: 05/18/2017
-
 
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Información general sobre el procesamiento de transacciones del Bus de servicio

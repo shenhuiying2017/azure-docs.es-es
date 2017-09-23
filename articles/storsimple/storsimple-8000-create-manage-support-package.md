@@ -20,7 +20,6 @@ ms.openlocfilehash: 92abbb96b2117e10800de61b5c405a784453265b
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Crear y administrar un paquete de soporte para la serie StorSimple 8000
 

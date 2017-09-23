@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 638e3e59f91202d55347c830542801ccead1b90f
 ms.openlocfilehash: a74a160eae88a2d03460a1346479c333d8f9d524
+ms.contentlocale: es-es
+ms.lasthandoff: 12/01/2016
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para administrar StorSimple Virtual Array
@@ -76,10 +78,5 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si desea obtener información sobre la interfaz de usuario web y cómo usarla, vaya a [Uso de la interfaz de usuario web de StorSimple para administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

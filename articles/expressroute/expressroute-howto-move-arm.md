@@ -21,7 +21,6 @@ ms.openlocfilehash: d8403b88a425ba75a7948fdb865838d66e27823a
 ms.contentlocale: es-es
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Transición de los circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager mediante PowerShell
 

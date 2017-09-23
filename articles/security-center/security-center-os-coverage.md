@@ -20,7 +20,6 @@ ms.openlocfilehash: c33e132037d95fa92fd59a8243a9a8a351ae0224
 ms.contentlocale: es-es
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plataformas compatibles con Azure Security Center
 La supervisión del estado de seguridad y las recomendaciones están disponibles para las máquinas virtuales creadas con los modelos de implementación clásica y de Resource Manager.

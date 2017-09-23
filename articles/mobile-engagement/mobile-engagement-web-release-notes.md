@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dc90620d284bdcae888b990f55191be18b29d6f5
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="azure-mobile-engagement-web-sdk-release-notes"></a>Notas de la versión del SDK web de Azure Mobile Engagement
@@ -38,10 +39,5 @@ ms.openlocfilehash: dc90620d284bdcae888b990f55191be18b29d6f5
 * Se ha quitado la API que envía y recibe mensajes entre dispositivos.
 * Devoluciones de llamada relacionadas con la conexión XMPP en desuso quitadas.
 * Se ha quitado la compatibilidad con la característica de cobertura.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

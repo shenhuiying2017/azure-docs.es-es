@@ -21,7 +21,6 @@ ms.openlocfilehash: 526a14710f24ee4a4b61a11873aa6caa0b47dc10
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-trello-connector"></a>Introducción al conector Trello
 Trello le ofrece perspectiva sobre todos los proyectos, en el trabajo y en casa.  Es una manera fácil, gratis, flexible y visual de administrar los proyectos y organizar todo.  Conéctese a Trello para administrar los paneles, listas y tarjetas.

@@ -21,7 +21,6 @@ ms.openlocfilehash: a293c06f2e9bca8790832ecb851c89b04e76bb24
 ms.contentlocale: es-es
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Configuración de la retención de copias de seguridad a largo plazo de Azure SQL Database
 

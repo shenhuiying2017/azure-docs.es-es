@@ -38,27 +38,27 @@ En este tema se muestra cómo crear una aplicación lógica que crea una tarea e
 
 ## <a name="create-a-task-when-a-new-lead-is-created-in-dynamics-365"></a>Creación de una tarea cuando se crea un nuevo cliente potencial en Dynamics 365
 
-1.    [Inicie de sesión en Azure](https://portal.azure.com).
+1.  [Inicie de sesión en Azure](https://portal.azure.com).
 
-2.    En el cuadro de búsqueda de Azure, escriba `Logic apps` y presione ENTRAR.
+2.  En el cuadro de búsqueda de Azure, escriba `Logic apps` y presione ENTRAR.
 
       ![Búsqueda de Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
-3.    En **Logic Apps**, haga clic en **Agregar**.
+3.  En **Logic Apps**, haga clic en **Agregar**.
 
       ![Agregar LogicApp](./media/connectors-create-api-crmonline/add-logic-app.png)
 
-4.    Para crear la aplicación lógica, rellene los campos **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**, y haga clic en **Crear**.
+4.  Para crear la aplicación lógica, rellene los campos **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**, y haga clic en **Crear**.
 
-5.    Seleccione la nueva aplicación lógica. Cuando reciba la notificación **Implementación correcta**, haga clic en **Actualizar**.
+5.  Seleccione la nueva aplicación lógica. Cuando reciba la notificación **Implementación correcta**, haga clic en **Actualizar**.
 
-6.    En **Herramientas de desarrollo**, haga clic en **Diseñador de aplicación lógica**. En la lista de plantillas, haga clic en **Aplicación lógica en blanco**.
+6.  En **Herramientas de desarrollo**, haga clic en **Diseñador de aplicación lógica**. En la lista de plantillas, haga clic en **Aplicación lógica en blanco**.
 
-7.    En el cuadro de búsqueda, escriba `Dynamics 365`. En la lista de desencadenadores de Dynamics 365, seleccione **Dynamics 365: Al crear un registro**.
+7.  En el cuadro de búsqueda, escriba `Dynamics 365`. En la lista de desencadenadores de Dynamics 365, seleccione **Dynamics 365: Al crear un registro**.
 
-8.    Si se le pide que inicie sesión en Dynamics 365, hágalo.
+8.  Si se le pide que inicie sesión en Dynamics 365, hágalo.
 
-9.    Escriba la información a continuación en los detalles del desencadenador:
+9.  Escriba la información a continuación en los detalles del desencadenador:
 
   * **Nombre de la organización**. Seleccione la instancia de Dynamics 365 a la que desea que la aplicación lógica escuche.
 

@@ -14,10 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 35f7bdbeb480122513ae2a0b04a6d8cfd426802a
-
+ms.contentlocale: es-es
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="bridge-ios-webview-with-native-mobile-engagement-ios-sdk"></a>Puente de WebView en iOS con el SDK de iOS para Mobile Engagement nativo
@@ -264,9 +265,4 @@ Siga los pasos siguientes para el ejemplo de puente de iOS.
 <!-- Images. -->
 [1]: ./media/mobile-engagement-bridge-webview-native-ios/sending-event.png
 [2]: ./media/mobile-engagement-bridge-webview-native-ios/event-output.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

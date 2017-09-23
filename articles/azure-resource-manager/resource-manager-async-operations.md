@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5590ced0e7d2a68fd525178ee21590b0897b58d7
 ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/13/2017
 
 ---
 # <a name="track-asynchronous-azure-operations"></a>Seguimiento de las operaciones asincrónicas de Azure
@@ -196,8 +197,3 @@ Si la solicitud aún se está ejecutando, recibe un código de estado 202. Si la
 * Para obtener documentación sobre cada operación de REST, consulte la [documentación de la API de REST](/rest/api/).
 * Para obtener información acerca de cómo administrar los recursos a través de la API de REST de Resource Manager, consulte [API de REST de Resource Manager](resource-manager-rest-api.md).
 * Para obtener información acerca de la implementación de plantillas a través de la API de REST de Resource Manager, consulte [Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager](resource-group-template-deploy-rest.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

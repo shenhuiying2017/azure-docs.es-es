@@ -21,7 +21,6 @@ ms.openlocfilehash: 16c387fe574243544cf54cf283c7713ddcaa1942
 ms.contentlocale: es-es
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelado de datos del documento para bases de datos NoSQL
 Mientras que las bases de datos libres de esquemas, como Azure Cosmos DB, facilitan notablemente la adopción de cambios en el modelo de datos, debe dedicar algo de tiempo a pensar en los datos. 

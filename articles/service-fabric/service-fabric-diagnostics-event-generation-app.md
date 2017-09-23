@@ -20,7 +20,6 @@ ms.openlocfilehash: 3c472904641108b7383cd0f1416c47460f8de11a
 ms.contentlocale: es-es
 ms.lasthandoff: 05/31/2017
 
-
 ---
 
 # <a name="application-and-service-level-event-and-log-generation"></a>Generación de eventos y registros de nivel de aplicación y servicio

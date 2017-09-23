@@ -20,7 +20,6 @@ ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: d933781713456f73aa76db557fdf35672dfb2a29
 ms.contentlocale: es-es
 
-
 ---
 
 # <a name="call-the-microsoft-graph-api-from-an-android-app"></a>Llamada a la API Graph de Microsoft desde una aplicación de Android

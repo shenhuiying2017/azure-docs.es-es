@@ -20,7 +20,6 @@ ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
 ms.contentlocale: es-es
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>Aplicación de directivas de recursos para nombres y texto
 Este tema muestra varias [directivas de recurso](resource-manager-policy.md) que puede aplicar para establecer las convenciones de texto y nomenclatura. Estas directivas garantizan la coherencia para valores de etiquetas y nombres de recursos. 

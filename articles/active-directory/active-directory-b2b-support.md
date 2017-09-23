@@ -1,5 +1,4 @@
 ---
-
 title: "Obtención de soporte de la colaboración B2B de Azure Active Directory | Microsoft Docs"
 description: "¿Qué es la experiencia de soporte de la colaboración B2B de Azure Active Directory?"
 services: active-directory
@@ -21,7 +20,6 @@ ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: ce4731966baefa76b72e5a1a065c06379fac065d
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
-
 
 ---
 

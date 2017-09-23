@@ -21,7 +21,6 @@ ms.openlocfilehash: d4614b0ceff0ec0d36dbb1a136551f985f2fc1a1
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-github-connector"></a>Introducción al conector GitHub
 GitHub es un servicio de hospedaje del repositorio Git basado en la Web. Ofrece toda la funcionalidad de administración de código fuente (SCM) y control de revisiones distribuidas de Git, además de agregar sus propias características.

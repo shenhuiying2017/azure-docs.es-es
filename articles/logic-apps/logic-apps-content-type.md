@@ -20,7 +20,6 @@ ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="handle-content-types-in-logic-apps"></a>Administración de los tipos de contenido en las aplicaciones lógicas
 

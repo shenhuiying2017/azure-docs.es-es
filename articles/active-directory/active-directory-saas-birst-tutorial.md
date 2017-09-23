@@ -19,7 +19,6 @@ ms.openlocfilehash: 779f9e0a57ffb2274ea22a90ed9759734ab6916d
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Tutorial: Integración de Azure Active Directory con Birst Agile Business Analytics
 

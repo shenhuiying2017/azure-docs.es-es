@@ -22,7 +22,6 @@ ms.openlocfilehash: f4b2e8a5583855df7472af3fbef01ac641caf6bf
 ms.contentlocale: es-es
 ms.lasthandoff: 06/05/2017
 
-
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Ejemplos de la CLI de Azure para máquinas virtuales Windows
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: e6a0e480f7748f12f5e566cf4059b5b2c4242c09
 ms.contentlocale: es-es
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
 

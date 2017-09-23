@@ -20,7 +20,6 @@ ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 4a695c00fce4deb02261ba58ec95469746bb1486
 ms.contentlocale: es-es
 
-
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Llamada a la API Graph de Microsoft desde una aplicación de escritorio de Windows
 

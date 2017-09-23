@@ -20,7 +20,6 @@ ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="comparing-azure-mobile-engagement-with-other-similar-azure-services"></a>Comparación de Azure Mobile Engagement con otros servicios similares de Azure
 La lista de servicios ofrecidos por Microsoft Azure no deja de crecer y, en ocasiones, es posible que se pregunte en qué se diferencia Azure Mobile Engagement de este otro servicio sobre el que acaba de leer u oír. En este artículo se intentan aclarar algunas ideas y se le indica que elija Azure Mobile Engagement cuando su uso le resulte más adecuado. 

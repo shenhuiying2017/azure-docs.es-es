@@ -20,7 +20,6 @@ ms.openlocfilehash: 857647e89b7ac5d9bc72bc4b2ace0ea7279353f9
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volúmenes de StorSimple anclados localmente: preguntas más frecuentes (P+F)
 ## <a name="overview"></a>Información general

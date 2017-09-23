@@ -21,7 +21,6 @@ ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>¿Qué es una lista de control de acceso de puntos de conexión?
 

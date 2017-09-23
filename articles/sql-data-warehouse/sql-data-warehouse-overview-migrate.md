@@ -21,7 +21,6 @@ ms.openlocfilehash: 771b9456e66b8a1e41f72340b695b19e2adaf793
 ms.contentlocale: es-es
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Migración de una solución a Azure SQL Data Warehouse
 Vea lo que supone migrar una solución de base de datos existente a Azure SQL Data Warehouse. 

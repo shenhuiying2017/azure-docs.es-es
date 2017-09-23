@@ -22,7 +22,6 @@ ms.openlocfilehash: 908a8a0c82b2d21fb25c9b33dbd714570d1ac272
 ms.contentlocale: es-es
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Procedimiento para crear una máquina virtual Linux con plantillas de Azure Resource Manager
 En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux con plantillas de Azure Resource Manager y la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](create-ssh-secured-vm-from-template-nodejs.md).

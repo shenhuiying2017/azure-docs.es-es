@@ -20,7 +20,6 @@ ms.openlocfilehash: f11ed42b474e4f208eac92689bfa33fb188d15a1
 ms.contentlocale: es-es
 ms.lasthandoff: 05/17/2017
 
-
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Escalado de cuotas y límites en DevTest Labs
 Mientras trabaja en DevTest Labs, puede que observe que hay ciertos límites predeterminados para algunos recursos de Azure, lo que puede afectar al servicio DevTest Labs. Estos límites se conocen como **cuotas**.

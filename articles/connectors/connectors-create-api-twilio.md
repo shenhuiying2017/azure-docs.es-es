@@ -21,7 +21,6 @@ ms.openlocfilehash: a790ac51b0fea7e3fa379d20e0e094e7ce0d7696
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Introducción al conector de Twilio
 Conectarse a Twilio para enviar y recibir mensajes SMS, MMS y IP globales. Con Twilio, puede:

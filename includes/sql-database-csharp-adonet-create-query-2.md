@@ -1,9 +1,7 @@
 
 <a name="cs_0_csharpprogramexample_h2"/>
 
-<a id="c-program-example" class="xliff"></a>
-
-## Ejemplo de programa C#
+## <a name="c-program-example"></a>Ejemplo de programa C#
 
 En las secciones siguientes de este artículo se presenta un programa C# que usa ADO.NET para enviar instrucciones Transact-SQL a la base de datos SQL. El programa C# realiza las acciones siguientes:
 
@@ -21,9 +19,7 @@ El programa C# contiene:
 - Métodos que devuelven el código fuente T-SQL.
 - Dos métodos que enviar el código T-SQL a la base de datos.
 
-<a id="to-compile-and-run" class="xliff"></a>
-
-#### Para compilarlo y ejecutarlo
+#### <a name="to-compile-and-run"></a>Para compilarlo y ejecutarlo
 
 Este programa C# es lógicamente un archivo .cs. Pero aquí el programa se divide físicamente en varios bloques de código, para que cada bloque resulte más fácil de ver y comprender. Para compilar y ejecutar este programa, haga lo siguiente:
 
@@ -47,9 +43,7 @@ Este programa C# es lógicamente un archivo .cs. Pero aquí el programa se divid
 >
 
 <a name="cs_1_connect"/>
-<a id="c-block-1-connect-by-using-adonet" class="xliff"></a>
-
-### Bloque de C# 1: conectar mediante ADO.NET
+### <a name="c-block-1-connect-by-using-adonet"></a>Bloque de C# 1: conectar mediante ADO.NET
 
 - [Siguiente](#cs_2_createtables)
 
@@ -105,9 +99,7 @@ namespace csharp_db_test
 
 
 <a name="cs_2_createtables"/>
-<a id="c-block-2-t-sql-to-create-tables" class="xliff"></a>
-
-### Bloque de C# 2: T-SQL para crear tablas
+### <a name="c-block-2-t-sql-to-create-tables"></a>Bloque de C# 2: T-SQL para crear tablas
 
 - [Anterior](#cs_1_connect) &nbsp; / &nbsp; [Siguiente](#cs_3_insert)
 
@@ -139,9 +131,7 @@ CREATE TABLE tabEmployee
       }
 ```
 
-<a id="entity-relationship-diagram-erd" class="xliff"></a>
-
-#### Diagrama de relaciones de entidades (ERD)
+#### <a name="entity-relationship-diagram-erd"></a>Diagrama de relaciones de entidades (ERD)
 
 Las instrucciones CREATE TABLE anteriores emplean la palabra clave **REFERENCES** para crear una relación de *clave externa* (FK) entre dos tablas.  Si usa tempdb, convierta en comentario la palabra clave `--REFERENCES` con un par de guiones iniciales.
 
@@ -151,9 +141,7 @@ A continuación, se ve un ERD que muestra la relación entre ambas tablas. Los v
 
 
 <a name="cs_3_insert"/>
-<a id="c-block-3-t-sql-to-insert-data" class="xliff"></a>
-
-### Bloque de C# 3: T-SQL para insertar datos
+### <a name="c-block-3-t-sql-to-insert-data"></a>Bloque de C# 3: T-SQL para insertar datos
 
 - [Anterior](#cs_2_createtables) &nbsp; / &nbsp; [Siguiente](#cs_4_updatejoin)
 
@@ -185,9 +173,7 @@ INSERT INTO tabEmployee
 
 
 <a name="cs_4_updatejoin"/>
-<a id="c-block-4-t-sql-to-update-join" class="xliff"></a>
-
-### Bloque de C# 4: T-SQL para la actualización-combinación
+### <a name="c-block-4-t-sql-to-update-join"></a>Bloque de C# 4: T-SQL para la actualización-combinación
 
 - [Anterior](#cs_3_insert) &nbsp; / &nbsp; [Siguiente](#cs_5_deletejoin)
 
@@ -215,9 +201,7 @@ UPDATE empl
 
 
 <a name="cs_5_deletejoin"/>
-<a id="c-block-5-t-sql-to-delete-join" class="xliff"></a>
-
-### Bloque de C# 5: T-SQL para la eliminación-combinación
+### <a name="c-block-5-t-sql-to-delete-join"></a>Bloque de C# 5: T-SQL para la eliminación-combinación
 
 - [Anterior](#cs_4_updatejoin) &nbsp; / &nbsp; [Siguiente](#cs_6_selectrows)
 
@@ -249,9 +233,7 @@ DELETE tabDepartment
 
 
 <a name="cs_6_selectrows"/>
-<a id="c-block-6-t-sql-to-select-rows" class="xliff"></a>
-
-### Bloque de C# 6: T-SQL para seleccionar filas
+### <a name="c-block-6-t-sql-to-select-rows"></a>Bloque de C# 6: T-SQL para seleccionar filas
 
 - [Anterior](#cs_5_deletejoin) &nbsp; / &nbsp; [Siguiente](#cs_6b_datareader)
 
@@ -279,9 +261,7 @@ SELECT
 
 
 <a name="cs_6b_datareader"/>
-<a id="c-block-6b-executereader" class="xliff"></a>
-
-### Bloque de C# 6b: ExecuteReader
+### <a name="c-block-6b-executereader"></a>Bloque de C# 6b: ExecuteReader
 
 - [Anterior](#cs_6_selectrows) &nbsp; / &nbsp; [Siguiente](#cs_7_executenonquery)
 
@@ -317,9 +297,7 @@ Este método se ha diseñado para ejecutar la instrucción T-SQL SELECT que se g
 
 
 <a name="cs_7_executenonquery"/>
-<a id="c-block-7-executenonquery" class="xliff"></a>
-
-### Bloque de C# 7: ExecuteNonQuery
+### <a name="c-block-7-executenonquery"></a>Bloque de C# 7: ExecuteNonQuery
 
 - [Anterior](#cs_6b_datareader) &nbsp; / &nbsp; [Siguiente](#cs_8_output)
 
@@ -357,9 +335,7 @@ Se llama a este método para las operaciones que modifican el contenido de datos
 
 
 <a name="cs_8_output"/>
-<a id="c-block-8-actual-test-output-to-the-console" class="xliff"></a>
-
-### Bloque de C# 8: salida de la prueba real en la consola
+### <a name="c-block-8-actual-test-output-to-the-console"></a>Bloque de C# 8: salida de la prueba real en la consola
 
 - [Anterior](#cs_7_executenonquery)
 

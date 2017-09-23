@@ -21,7 +21,6 @@ ms.openlocfilehash: 6b5af18d02fd508a21cdc21b38b1c16e79f07ecb
 ms.contentlocale: es-es
 ms.lasthandoff: 06/26/2017
 
-
 ---
 # <a name="install-mongodb-on-a-windows-vm-in-azure"></a>Instalación de MongoDB en una máquina virtual de Windows en Azure
 > [!IMPORTANT]

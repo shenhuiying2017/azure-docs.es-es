@@ -19,7 +19,6 @@ ms.openlocfilehash: caa287a2ed8774965ef722685e4e950336e5e0ea
 ms.contentlocale: es-es
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Tutorial: Integración de Azure Active Directory con People
 

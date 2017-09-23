@@ -20,7 +20,6 @@ ms.openlocfilehash: e89bbf5a2c1d71852e49da43d3106a05ebfc28a8
 ms.contentlocale: es-es
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-7-set-up-the-source-and-target-for-physical-server-replication-to-azure"></a>Paso 7: Configuración del origen y el destino para la replicación del servidor físico en Azure
 

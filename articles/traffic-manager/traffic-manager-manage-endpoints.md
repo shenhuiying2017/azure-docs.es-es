@@ -45,8 +45,8 @@ También puede deshabilitar los extremos individuales que forman parte de un per
     5. En **Prioridad**, seleccione **1**. Esto hace que todo el tráfico vaya a este punto de conexión si funciona correctamente.
     6. No active la opción **Agregar como deshabilitado**.
     7. Haga clic en **Aceptar**
-6.    Repita los pasos 4 y 5 para agregar el siguiente punto de conexión de Azure. Asegúrese de agregarlo con el valor de **prioridad** establecido en **2**.
-7.    Cuando termine de agregar ambos puntos de conexión, aparecerán en la hoja **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
+6.  Repita los pasos 4 y 5 para agregar el siguiente punto de conexión de Azure. Asegúrese de agregarlo con el valor de **prioridad** establecido en **2**.
+7.  Cuando termine de agregar ambos puntos de conexión, aparecerán en la hoja **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
 
 > [!NOTE]
 > Después de agregar o quitar un punto de conexión de un perfil mediante el método de enrutamiento de tráfico *Conmutación por error*, no podrá ordenar como desee la lista de prioridad de conmutación por error. Puede ajustar el orden de la lista de prioridad de conmutación por error en la página Configuración. Para obtener más información, consulte [Método de enrutamiento del tráfico de conmutación por error](traffic-manager-configure-failover-routing-method.md).

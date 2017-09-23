@@ -41,9 +41,9 @@ Un patrón del método de enrutamiento del tráfico es proporcionar un conjunto 
         2. En el tipo de **ruta de acceso**, escriba una barra diagonal */*. Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal "/" es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado).
         3. Haga clic en **Guardar** en la parte superior de la página.
 5. Pruebe los cambios de la configuración de la siguiente forma:
-    1.    En la barra de búsqueda del Portal, busque el nombre del perfil de Traffic Manager y haga clic en él en los resultados que se muestran.
-    2.    En la hoja del perfil de **Traffic Manager**, haga clic en **Información general**.
-    3.    La hoja **Perfil de Traffic Manager** muestra el nombre DNS del perfil de Traffic Manager que acaba de crear. Cualquier cliente puede usar este perfil (por ejemplo, mediante un explorador web) para enrutar el tráfico al punto de conexión correcto según el tipo de enrutamiento. En este caso, todas las solicitudes se enrutan a cada punto de conexión según round-robin.
+    1.  En la barra de búsqueda del Portal, busque el nombre del perfil de Traffic Manager y haga clic en él en los resultados que se muestran.
+    2.  En la hoja del perfil de **Traffic Manager**, haga clic en **Información general**.
+    3.  La hoja **Perfil de Traffic Manager** muestra el nombre DNS del perfil de Traffic Manager que acaba de crear. Cualquier cliente puede usar este perfil (por ejemplo, mediante un explorador web) para enrutar el tráfico al punto de conexión correcto según el tipo de enrutamiento. En este caso, todas las solicitudes se enrutan a cada punto de conexión según round-robin.
 6. Una vez que el perfil de Traffic Manager esté en funcionamiento, edite el registro DNS en el servidor DNS relevante para redireccionar el nombre de dominio de la empresa al nombre de dominio del Administrador de tráfico.
 
 ![Configuración del método de enrutamiento de tráfico ponderado con Traffic Manager][1]

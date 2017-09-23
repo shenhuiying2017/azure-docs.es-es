@@ -22,7 +22,6 @@ ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
 ms.contentlocale: es-es
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Procedimiento para usar el escalado automático y los conjuntos de escalado de máquinas virtuales
 El escalado automático de máquinas virtuales en un conjunto de escalado consiste en la creación o eliminación de máquinas del conjunto según sea necesario para cumplir los requisitos de rendimiento. A medida que crece el volumen de trabajo, una aplicación puede requerir recursos adicionales para poder realizar sus tareas de manera eficaz.

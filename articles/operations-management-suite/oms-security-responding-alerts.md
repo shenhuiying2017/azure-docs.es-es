@@ -21,7 +21,6 @@ ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
 ms.contentlocale: es-es
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Supervisión de las alertas de seguridad y su respuesta en la solución Seguridad y auditoría de Operations Management Suite
 Este documento le ayuda a utilizar la opción de información sobre amenazas disponible en Seguridad y auditoría de OMS para supervisar las alertas de seguridad y dar una respuesta a ellas.

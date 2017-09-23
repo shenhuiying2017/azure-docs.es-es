@@ -22,7 +22,6 @@ ms.openlocfilehash: d31ad53525ef75bdb61c42409dc07bba4138fc25
 ms.contentlocale: es-es
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Configuración de clústeres de HDInsight unidos a un dominio (versión preliminar) con Azure PowerShell
 Vea cómo configurar un clúster de HDInsight de Azure con Azure Active Directory (Azure AD) y [Apache Ranger](http://hortonworks.com/apache/ranger/) con Azure PowerShell. Se proporciona un script de Azure PowerShell para realizar la configuración más rápidamente y con menos errores. HDInsight unido a un dominio solo se puede configurar en clústeres basados en Linux. Para más información, consulte [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Introducción a los clústeres de HDInsight unidos a dominio (versión preliminar))

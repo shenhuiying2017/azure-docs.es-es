@@ -19,7 +19,6 @@ ms.openlocfilehash: e86adaf4bd9b4752f2aece8207a8a423ec5590a6
 ms.contentlocale: es-es
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Tutorial: Integración de Azure Active Directory con PerformanceCentre
 

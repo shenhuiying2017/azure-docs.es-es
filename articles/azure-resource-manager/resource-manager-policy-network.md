@@ -20,7 +20,6 @@ ms.openlocfilehash: bca66bbdd9da9b3e4099d0d961f42c9368a17f5e
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="apply-resource-policies-to-network-resources"></a>Aplicación de directivas de recursos a recursos de red
 En este artículo se muestra una [directiva de recursos](resource-manager-policy.md) de ejemplo que se puede aplicar a las puertas de enlace de red virtual de Azure. Esta directiva garantiza la coherencia de las puertas de enlace implementadas en su organización. 

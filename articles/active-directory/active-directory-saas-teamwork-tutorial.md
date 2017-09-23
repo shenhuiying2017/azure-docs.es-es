@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 92ff0b4b7664ad2d33b54d02290c55a213d4e610
 ms.openlocfilehash: edd2f9446515531f1147a8abf99295b618b89b25
+ms.contentlocale: es-es
 ms.lasthandoff: 02/23/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamwork"></a>Tutorial: Integración de Azure Active Directory con Teamwork
@@ -121,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_03.png)     
+    ![Configurar inicio de sesión único](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_03.png)   
 
 5. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
 

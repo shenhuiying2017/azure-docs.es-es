@@ -20,7 +20,6 @@ ms.openlocfilehash: c502e4363dbaa37455d1aad90d1e9fa855fd09b0
 ms.contentlocale: es-es
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guía de planeamiento y operaciones de Azure Security Center
 Esta guía está destinada a profesionales de tecnologías de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube cuyas organizaciones estén planeando utilizar Azure Security Center.

@@ -20,7 +20,6 @@ ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
 ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="set-up-service-fabric-continuous-integration-and-deployment-with-visual-studio-team-services"></a>Configuración de la integración continua y la implementación de Service Fabric con Visual Studio Team Services
 En este artículo se describen los pasos necesarios para configurar la integración continua y la implementación de una aplicación de Azure Service Fabric mediante Visual Studio Team Services (VSTS).

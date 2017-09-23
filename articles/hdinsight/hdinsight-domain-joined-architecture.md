@@ -22,7 +22,6 @@ ms.openlocfilehash: 7e34f47f09466a40993b4cc797ff1cad2bdaeafe
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planeamiento de clústeres de Hadoop unidos a un dominio de Azure en HDInsight
 

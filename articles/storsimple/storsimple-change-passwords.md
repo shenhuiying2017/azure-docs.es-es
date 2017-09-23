@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: d890b59595628ca3eeff1df258847c2bb54d29ff
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/26/2017
 
 ---
 # <a name="use-the-storsimple-manager-service-to-change-your-storsimple-passwords"></a>Use el servicio de Administrador de StorSimple para cambiar las contraseñas de StorSimple
@@ -56,10 +57,5 @@ Ahora se debe actualizar la contraseña de StorSimple Snapshot Manager.
 * Obtenga más información sobre la [seguridad de StorSimple](storsimple-security.md).
 * Obtenga más información sobre la [modificación de la configuración del dispositivo](storsimple-modify-device-config.md).
 * Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

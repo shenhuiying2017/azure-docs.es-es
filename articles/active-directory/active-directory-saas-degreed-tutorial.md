@@ -19,7 +19,6 @@ ms.openlocfilehash: ea96edb25e2d7199981ff126bf4b2a3d93c6840a
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Tutorial: integración de Azure Active Directory con Degreed
 

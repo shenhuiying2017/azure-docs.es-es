@@ -19,7 +19,6 @@ ms.openlocfilehash: 919d2262cf9f14159a13370037301005b5b69da2
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Tutorial: integración de Azure Active Directory con Domo
 

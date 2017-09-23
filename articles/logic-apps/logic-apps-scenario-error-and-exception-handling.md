@@ -22,7 +22,6 @@ ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Escenario: control de excepciones y registro de errores para aplicaciones lógicas
 

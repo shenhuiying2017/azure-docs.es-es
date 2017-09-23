@@ -1,5 +1,4 @@
 ---
-
 title: "Uso de una máquina virtual Linux de solución de problemas con la CLI de Azure 1.0 | Microsoft Docs"
 description: "Aprenda a solucionar problemas de la máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure 1.0"
 services: virtual-machines-linux
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: d817358211f123c96d899c5cff88cc47aeb5c9c1
+ms.contentlocale: es-es
 ms.lasthandoff: 04/03/2017
-
 
 ---
 

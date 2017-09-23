@@ -17,7 +17,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 5ff45235cffead8c665d5c8610edca3c787ac267
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="add-users-in-the-azure-stack-development-kit"></a>Add users in the Azure Stack Development Kit

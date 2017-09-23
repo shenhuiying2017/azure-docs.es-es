@@ -21,7 +21,6 @@ ms.openlocfilehash: 97a7c011b72ea733b8bd22203fb7ed6eb97c6e38
 ms.contentlocale: es-es
 ms.lasthandoff: 05/23/2017
 
-
 ---
 # <a name="understand-common-error-messages-when-you-manage-linux-virtual-machines-in-azure"></a>Información de mensajes de error habituales al administrar máquinas virtuales Linux en Azure
 

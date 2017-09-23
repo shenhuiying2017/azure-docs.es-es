@@ -21,7 +21,6 @@ ms.openlocfilehash: 1b1d65a41a794a566287dcffe3581ac58e2a965f
 ms.contentlocale: es-es
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="performing-disaster-recovery-drill"></a>Obtención de detalles de la recuperación ante desastres
 Se recomienda validar periódicamente el flujo de trabajo de preparación de la aplicación para la recuperación. Comprobar el comportamiento de la aplicación y las implicaciones de las pérdidas de datos o de las interrupciones que conlleva la conmutación por error es una buena práctica de ingeniería. También es un requisito de la mayoría de estándares del sector como parte de la certificación de continuidad del negocio.

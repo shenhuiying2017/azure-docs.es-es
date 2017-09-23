@@ -14,10 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 9d6132e1a01be489b8e8e28a0219cf8a0b50b318
-
+ms.contentlocale: es-es
+ms.lasthandoff: 12/22/2016
 
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Autenticación con las API de REST de Mobile Engagement: configuración manual
@@ -133,10 +134,5 @@ Ahora ha completado la configuración de AAD necesaria y ya está listo para lla
 [21]: ./media/mobile-engagement-api-authentication-manual/add-access-final.png
 
 
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

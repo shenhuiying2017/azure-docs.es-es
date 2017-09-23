@@ -20,7 +20,6 @@ ms.openlocfilehash: 303cdffa15fdfe9b83d0612edecafc6943d218f3
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="storsimple-8000-series-release-version-release-notes---july-2014"></a>Notas de la versión de StorSimple 8000 Series - julio de 2014
 ## <a name="overview"></a>Información general

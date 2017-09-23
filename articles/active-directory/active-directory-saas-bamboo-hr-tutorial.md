@@ -19,7 +19,6 @@ ms.openlocfilehash: 06bf91b0e598fd3d8e644378efdb753611ee1ebc
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Tutorial: Integración de Azure Active Directory con BambooHR
 

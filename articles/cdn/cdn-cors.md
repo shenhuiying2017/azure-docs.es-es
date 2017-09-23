@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
 ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso de la red CDN de Azure con CORS
@@ -95,10 +96,5 @@ En lugar de usar expresiones regulares, puede crear una regla aparte para cada o
 
 ### <a name="azure-cdn-standard"></a>Estándar de red CDN de Azure
 En los perfiles estándar de la red CDN de Azure, el único mecanismo para permitir varios orígenes sin usar el carácter comodín consiste en utilizar el [almacenamiento en caché de la cadena de consulta](cdn-query-string.md).  Debe habilitar la configuración de la cadena de consulta para el punto de conexión de la red CDN y, después, utilizar una cadena de consulta única para las solicitudes de cada dominio permitido. De este modo, la red CDN copiará en caché un objeto independiente para cada cadena de consulta única. Sin embargo, este enfoque no es ideal, ya que conllevará varias copias del mismo archivo en caché en la red CDN.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

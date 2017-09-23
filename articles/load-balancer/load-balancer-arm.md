@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
 ms.openlocfilehash: d06c924f384a2684b5a91c202039c581796c1091
+ms.contentlocale: es-es
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -68,9 +70,4 @@ Introducción a los cmdlets de Azure Resource Manager, las herramientas de líne
 También puede [empezar a crear un equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-arm-ps.md) y configurar el tipo de [modo de distribución](load-balancer-distribution-mode.md) para un comportamiento especifico del tráfico de red del equilibrador de carga.
 
 Aprenda a administrar la [configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md). Esto es importante cuando la aplicación necesita mantener las conexiones activas para servidores detrás de un equilibrador de carga.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

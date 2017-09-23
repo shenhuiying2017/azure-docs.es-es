@@ -20,7 +20,6 @@ ms.openlocfilehash: 1865d75f1b4c2aa18d5a3130f639572d19563b3e
 ms.contentlocale: es-es
 ms.lasthandoff: 06/07/2017
 
-
 ---
 
 # <a name="logic-apps-b2b-list-of-errors-and-solutions"></a>Lista de errores y soluciones para Logic Apps B2B  

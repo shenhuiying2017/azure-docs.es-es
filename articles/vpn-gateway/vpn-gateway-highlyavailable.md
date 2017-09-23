@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3708a2f7c445a161f02416cf8427b1707e1db8f0
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Conectividad de alta disponibilidad entre locales y de red virtual a red virtual
 En este artículo se proporciona información general sobre las opciones de configuración de alta disponibilidad para la conectividad entre locales y de red virtual a red virtual con instancias de Azure VPN Gateway.
 
-## <a name="a-name-activestandbyaabout-azure-vpn-gateway-redundancy"></a><a name = "activestandby"></a>Acerca de la redundancia de Azure VPN Gateway
+## <a name = "activestandby"></a>Acerca de la redundancia de Azure VPN Gateway
 Cada instancia de Azure VPN Gateway consta de dos instancias en una configuración activa-en espera. Con cualquier mantenimiento planeado o interrupción imprevista que suceda en la instancia activa, la instancia en modo de espera se hace cargo automáticamente (conmutación por error) y reanuda las conexiones de VPN S2S o de red virtual a red virtual. El cambio causará una breve interrupción. Para el mantenimiento planeado, la conectividad se debería restaurar en un plazo de 10 a 15 segundos. Para problemas no planeados, la recuperación de la conexión llevará más tiempo, aproximadamente entre un minuto a uno y medio, en el peor de los casos. Para las conexiones de cliente VPN P2S a la puerta de enlace, se desconectarán las conexiones P2S y los usuarios deberán volver a conectarse desde los equipos cliente.
 
 ![Activa-en espera](./media/vpn-gateway-highlyavailable/active-standby.png)
@@ -36,7 +37,7 @@ Para proporcionar mejor disponibilidad para las conexiones entre locales, hay un
 * Azure VPN Gateway activa-activa
 * Combinación de ambos
 
-### <a name="a-name-activeactiveonpremamultiple-on-premises-vpn-devices"></a><a name = "activeactiveonprem"></a>Varios dispositivos VPN locales
+### <a name = "activeactiveonprem"></a>Varios dispositivos VPN locales
 Puede usar varios dispositivos VPN desde la red local para conectarse a su instancia de Azure VPN Gateway, como se muestra en el diagrama siguiente:
 
 ![Varias VPN locales](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)
@@ -83,10 +84,5 @@ Esto garantiza que siempre haya un par de túneles entre las dos redes virtuales
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [Configuración activa-activa de puertas de enlace de VPN para conexiones entre locales y de red virtual a red virtual](vpn-gateway-activeactive-rm-powershell.md) para ver los pasos para configurar de modo activo-activo conexiones entre locales y de red virtual a red virtual.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

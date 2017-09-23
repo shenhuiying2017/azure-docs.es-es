@@ -21,7 +21,6 @@ ms.openlocfilehash: 0f3274816e279a1aa57febaa2f8294914900799a
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Introducción al conector de SharePoint
 El conector de SharePoint ofrece una manera de trabajar con listas en SharePoint.

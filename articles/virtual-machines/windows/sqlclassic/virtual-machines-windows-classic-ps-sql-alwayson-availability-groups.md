@@ -21,7 +21,6 @@ ms.openlocfilehash: c4948d83b5eff5280f6a0d16535f3eb29d680f04
 ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configuración de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure con PowerShell
 > [!div class="op_single_selector"]

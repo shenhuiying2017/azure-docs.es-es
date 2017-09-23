@@ -21,7 +21,6 @@ ms.openlocfilehash: 0b5f7a2c3fd16ac32b0bc382616ca6600d378bb8
 ms.contentlocale: es-es
 ms.lasthandoff: 03/21/2017
 
-
 ---
 # <a name="what-is-microsoft-power-bi-embedded"></a>¿Qué es Microsoft Power BI Embedded?
 Con **Power BI Embedded**, puede integrar informes de Power BI directamente en las aplicaciones web o móviles.

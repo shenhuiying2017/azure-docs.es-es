@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
+ms.contentlocale: es-es
 ms.lasthandoff: 03/25/2017
-
 
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Ejecución de un servidor de aplicaciones Java en una máquina virtual creada con el modelo de implementación clásico

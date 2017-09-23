@@ -20,7 +20,6 @@ ms.openlocfilehash: 5da9f5eceda71ac85259193e0f183c72813e1679
 ms.contentlocale: es-es
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="manage-key-vault-using-cli-20"></a>Administración de Key Vault mediante CLI 2.0
 Almacén de claves de Azure está disponible en la mayoría de las regiones. Para obtener más información, consulte la [página de precios del Almacén de claves](https://azure.microsoft.com/pricing/details/key-vault/).

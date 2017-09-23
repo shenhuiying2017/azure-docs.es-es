@@ -21,7 +21,6 @@ ms.openlocfilehash: 356083fbaabfcd2ec7581adf319fa22b810df0d3
 ms.contentlocale: es-es
 ms.lasthandoff: 06/08/2017
 
-
 ---
 # Azure Active Directory v2.0 y el flujo en nombre de OAuth 2.0
 El flujo en nombre de OAuth 2.0 se usa en los casos en que una aplicación invoca un servicio o API web que a su vez debe llamar a otro servicio o API web. La idea es propagar la identidad y los permisos del usuario delegado a través de la cadena de solicitud. Para que el servicio de nivel intermedio realice solicitudes autenticadas al servicio de bajada, debe proteger un token de acceso de Azure Active Directory (Azure AD) en nombre del usuario.

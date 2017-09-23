@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 2a35efb04d7fe22abc6894c149caf090666ce016
+ms.contentlocale: es-es
 ms.lasthandoff: 04/12/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutorial: Integración de Azure Active Directory con Teamphoria
@@ -158,7 +158,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     d. **ENTRY POINT**: pegar la **dirección URL del servicio Single Sign-On de SAML** copiada anteriormente de Azure Portal.
 
-    e. Cambie la opción a **ON** y haga clic en **SAVE**.    
+    e. Cambie la opción a **ON** y haga clic en **SAVE**.   
 
 <!--### Next steps
 
@@ -218,11 +218,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Teamphoria, deben 
 
 3. Haga clic en la opción **MANUAL INVITE**.
 
-    ![Invitar a contactos](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)    
+    ![Invitar a contactos](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)  
 
 4. En esta página, realizar las acciones siguientes. 
     
-    ![Invitar a contactos](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)    
+    ![Invitar a contactos](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)  
 
     a. En el cuadro de texto **EMAIL ADDRESS**, escriba la **dirección de correo electrónico** de Britta Simon.
 

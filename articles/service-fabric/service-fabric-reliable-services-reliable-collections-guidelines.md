@@ -20,7 +20,6 @@ ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
 ms.contentlocale: es-es
 ms.lasthandoff: 05/12/2017
 
-
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Directrices y recomendaciones de Reliable Collections en Azure Service Fabric
 Esta sección proporciona directrices para el uso de Reliable State Manager y Reliable Collections. El objetivo es ayudar a los usuarios a evitar problemas comunes.

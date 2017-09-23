@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: nickfloyd@newrelic.com
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: f4f13c909a6ff640d403f5264004176c087925dd
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="new-relic-application-performance-management-on-azure"></a>Administración del rendimiento de la aplicación New Relic en Azure
@@ -51,10 +52,5 @@ Para obtener más información sobre cómo utilizar New Relic y Azure, visite el
 * [New Relic for the Microsoft Azure Cloud platform](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-cloud-services)
 * [New Relic for the Microsoft Azure App Services](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-portal)
 * [New Relic/Azure troubleshooting](https://docs.newrelic.com/docs/agents/net-agent/azure-troubleshooting)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

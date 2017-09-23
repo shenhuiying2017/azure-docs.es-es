@@ -22,7 +22,6 @@ ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
 ms.contentlocale: es-es
 ms.lasthandoff: 06/08/2017
 
-
 ---
 # Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0
 Puede usar la [concesiones de credenciales de cliente de OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), a veces denominada *OAuth de dos días*, para obtener acceso a recursos hospedados en la Web mediante la identidad de una aplicación. Este tipo de concesión se usa principalmente para interacciones de servidor a servidor que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. A menudo, estos tipos de aplicaciones se conocen como *demonios* o *cuentas de servicio*.

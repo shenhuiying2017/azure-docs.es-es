@@ -20,7 +20,6 @@ ms.openlocfilehash: 7841fcf0b5f4dcb409abf8bfb804c2e03dad6d3a
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="azure-redis-cache-samples"></a>Ejemplos de Caché en Redis de Azure
 Este tema proporciona una lista de ejemplos de Caché en Redis de Azure y cubre escenarios como conexión a una caché, operaciones de lectura y escritura en una caché y uso de proveedores de Caché en Redis de ASP.NET. Algunos de los ejemplos son proyectos que se pueden descargar y algunos otros proporcionan instrucciones paso a paso e incluyen fragmentos de código pero no vínculos a un proyecto que se puede descargar.

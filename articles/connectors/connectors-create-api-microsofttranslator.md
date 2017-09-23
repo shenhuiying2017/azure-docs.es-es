@@ -22,7 +22,6 @@ ms.openlocfilehash: f36cd801a0572d671977e2e48a7f1e743e38e768
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-microsoft-translator-connector"></a>Introducción al conector de Microsoft Translator
 Conéctese a Microsoft Translator para traducir el texto, detectar un idioma, etc. Con Microsoft Translator, puede: 

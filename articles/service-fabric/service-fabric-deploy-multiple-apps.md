@@ -20,7 +20,6 @@ ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implementación de varios ejecutables invitados
 En este artículo se muestra cómo empaquetar e implementar varios ejecutables invitados en Azure Service Fabric. Para crear e implementar un solo paquete de Service Fabric, lea el artículo sobre cómo [implementar un ejecutable invitado en Service Fabric](service-fabric-deploy-existing-app.md).

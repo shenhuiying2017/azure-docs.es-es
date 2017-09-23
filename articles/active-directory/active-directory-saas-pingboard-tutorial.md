@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 008c670a8043da0c67ccefde48d5ef721c75d97c
+ms.contentlocale: es-es
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integración de Azure Active Directory con Pingboard
@@ -138,7 +138,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-pingboard-tutorial/Pingboard_integration.png)
 
-9.    En la página **Integraciones**, busque el icono **"Azure Active Directory"** y haga clic en él.
+9.  En la página **Integraciones**, busque el icono **"Azure Active Directory"** y haga clic en él.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-pingboard-tutorial/Pingboard_aad.png)
 
@@ -208,7 +208,7 @@ En el caso de Pingboard, el aprovisionamiento es una tarea manual.
 
     d. En la lista desplegable **Ubicación**, seleccione la ubicación de Britta Simon.
     
-    e. Haga clic en **Agregar**.    
+    e. Haga clic en **Agregar**.   
 
 4. Se muestra una pantalla de confirmación para confirmar la adición del usuario.
     

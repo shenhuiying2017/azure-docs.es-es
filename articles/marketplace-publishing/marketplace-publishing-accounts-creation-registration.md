@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 125d4d4bc916883e3bb53b9b3b4bf46bbb4bf139
 ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/06/2017
 
 ---
 # <a name="create-a-microsoft-developer-account"></a>Crear una cuenta de desarrollador de Microsoft
@@ -258,9 +259,4 @@ Ahora que ya se creó y se registró la cuenta, consulte los [requisitos previos
 [link-devsvc]:marketplace-publishing-dev-service-creation.md
 [link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

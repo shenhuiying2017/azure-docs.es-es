@@ -21,7 +21,6 @@ ms.openlocfilehash: 72a81fa0deb34ace77b8fb9b1a4e6b24ee164b35
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="ios-push-notifications-with-notification-hubs-for-xamarin-apps"></a>Notificaciones push de iOS con Centros de notificaciones para aplicaciones Xamarin
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]

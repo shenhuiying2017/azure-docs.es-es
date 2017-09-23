@@ -20,7 +20,6 @@ ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
 ms.contentlocale: es-es
 ms.lasthandoff: 05/25/2017
 
-
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publicación y administración de una oferta en Azure Marketplace
 Este artículo sirve de ayuda a los desarrolladores para crear, implementar y administrar sus soluciones incluidas en Azure Marketplace para que otros asociados y clientes de Azure las compren y usen.

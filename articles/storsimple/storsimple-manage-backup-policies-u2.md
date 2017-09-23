@@ -20,7 +20,6 @@ ms.openlocfilehash: 5448247428ab96887470c6b53f7a9b3dcd9238f0
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-backup-policies-update-2"></a>Usar el servicio de Administrador de StorSimple para administrar directivas de copia de seguridad (Update 2)
 [!INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]

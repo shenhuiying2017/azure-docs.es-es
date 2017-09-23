@@ -20,7 +20,6 @@ ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
 ms.contentlocale: es-es
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Administración de copias de seguridad de máquinas virtuales de Azure
 > [!div class="op_single_selector"]

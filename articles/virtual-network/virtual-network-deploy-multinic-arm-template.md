@@ -22,7 +22,6 @@ ms.openlocfilehash: e2e10d3531fbbe2ed09dc34a6c3b14ff5df1a937
 ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="create-a-vm-with-multiple-nics-using-a-template"></a>Crear una VM con varias NIC mediante una plantilla
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 40f0e2b1b1b6144b2f9aa5814a4408b4964ede97
-
+ms.contentlocale: es-es
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Requisitos previos técnicos para la creación de una plantilla de soluciones para Azure Marketplace
@@ -36,9 +37,4 @@ Debe decidir los bloques de creación de la solución antes de continuar con la 
 Ahora que ha revisado los requisitos previos y completado las tareas necesarias, puede continuar con la creación de su oferta de plantilla de soluciones como se detalla en la [Guía para crear una plantilla de soluciones](marketplace-publishing-solution-template-creation.md). Para volver a la página principal de las tareas del publicador, consulte [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md).
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

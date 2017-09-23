@@ -21,7 +21,6 @@ ms.openlocfilehash: f0cf88a06c5470ef173b22e7213419a6c8760723
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Cómo conectar un disco de datos administrado a una VM con Windows en Azure Portal
 

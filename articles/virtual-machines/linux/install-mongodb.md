@@ -20,7 +20,6 @@ ms.openlocfilehash: e19c09558285497f29eb78b4f4ae5b15d7f1a191
 ms.contentlocale: es-es
 ms.lasthandoff: 06/26/2017
 
-
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Procedimiento de instalación y configuración de MongoDB en una máquina virtual Linux
 [MongoDB](http://www.mongodb.org) es una conocida base de datos NoSQL de código abierto y alto rendimiento. En este artículo se muestra cómo instalar y configurar MongoDB en una máquina virtual Linux con la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](install-mongodb-nodejs.md). Se muestran algunos ejemplos detallados de:

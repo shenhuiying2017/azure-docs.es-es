@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c75d95ed554a78a02e5469915c21491e65edd8c2
 ms.openlocfilehash: 14ec59087b0aede76a18034f5aa93cb6ecd67a7e
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/25/2017
 
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Ejemplos de implementación de plantillas scaffold empresariales de Azure
@@ -196,10 +197,5 @@ Para cumplir estos requisitos, David habilita Azure Security Center. Se asegura 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para ver más recomendaciones sobre cómo crear plantillas de Resource Manager, consulte [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md) (Procedimientos recomendados para crear plantillas de Azure Resource Manager).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

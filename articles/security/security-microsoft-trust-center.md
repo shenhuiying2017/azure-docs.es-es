@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
 ms.openlocfilehash: a8835da0947ce2a365b57356960541cb997e73b3
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="microsoft-trust-center"></a>Centro de confianza de Microsoft
@@ -39,9 +40,4 @@ Estas son las secciones que encontrará en el Centro de confianza de Microsoft:
 * [Resources](https://aka.ms/tcresources) (Recursos): investigue notas de producto, vídeos y casos prácticos en Microsoft Trusted Cloud.
 
 El [Centro de confianza de Microsoft](https://www.microsoft.com/trustcenter) tiene lo que necesita para comprender qué debemos hacer para proteger la nube de Microsoft.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

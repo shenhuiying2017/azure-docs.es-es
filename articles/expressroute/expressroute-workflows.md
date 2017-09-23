@@ -20,7 +20,6 @@ ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
 ms.contentlocale: es-es
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
 Esta página le guiará a través del aprovisionamiento de servicios y de los flujos de trabajo de configuración del enrutamiento a alto nivel.

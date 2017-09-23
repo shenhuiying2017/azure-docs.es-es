@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 38d70ed302eeab912ce4fe33272f85e96f1b1eda
 ms.openlocfilehash: 9983ea9b847f44ed18a6169a4bdb224b63626a64
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/11/2017
 
 ---
 
@@ -77,9 +78,4 @@ Los siguientes pasos le guían en la creación de una imagen personalizada a par
 ##<a name="next-steps"></a>Pasos siguientes
 
 - [Agregar una máquina virtual al laboratorio](./devtest-lab-add-vm-with-artifacts.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

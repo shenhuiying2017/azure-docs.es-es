@@ -21,7 +21,6 @@ ms.openlocfilehash: 66ab12f2590196ff14ee96a9b88c3d87e376230b
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Aplicación de revisiones automatizadas para SQL Server en máquinas virtuales de Azure (implementación clásica)
 > [!div class="op_single_selector"]

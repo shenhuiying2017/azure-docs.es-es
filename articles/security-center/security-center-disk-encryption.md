@@ -20,7 +20,6 @@ ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
 ms.contentlocale: es-es
 ms.lasthandoff: 05/17/2017
 
-
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Cifrado de una máquina virtual de Azure
 Azure Security Center le avisará si tiene máquinas virtuales que no estén cifradas. Estas alertas se mostrarán con gravedad alta y se recomienda cifrar estas máquinas virtuales.

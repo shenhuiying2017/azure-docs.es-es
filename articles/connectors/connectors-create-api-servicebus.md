@@ -21,7 +21,6 @@ ms.openlocfilehash: 1e2ce06f5993280dbdb67121849591e67f7979e9
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-azure-service-bus-connector"></a>Introducción al conector del Bus de servicio de Azure
 Conéctese al Bus de servicio de Azure para enviar y recibir mensajes. Puede realizar acciones como enviar a la cola, enviar al tema, recibir de la cola, recibir de la suscripción, etc.

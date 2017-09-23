@@ -20,7 +20,6 @@ ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
 ms.contentlocale: es-es
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementación de varias instancias de un recurso o una propiedad en plantillas de Azure Resource Manager
 En este tema se muestra cómo iterar en la plantilla de Azure Resource Manager para crear varias instancias de un recurso o varias instancias de una propiedad de un recurso.

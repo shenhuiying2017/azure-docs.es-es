@@ -18,7 +18,6 @@ ms.openlocfilehash: ca7092a06a9ffce8383ca8bc9f70ce312cdf9de4
 ms.contentlocale: es-es
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="service-fabric-hosting-model"></a>Modelo de hospedaje de Service Fabric
 En este artículo se ofrece información general sobre los modelos de hospedaje de aplicaciones que Service Fabric proporciona y, además, se describen las diferencias entre los modelos de **proceso compartido** y **proceso exclusivo**. Se describe el aspecto de una aplicación implementada en un nodo de Service Fabric y la relación entre las réplicas o instancias del servicio y el proceso de host de servicio.

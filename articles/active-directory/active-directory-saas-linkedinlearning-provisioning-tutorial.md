@@ -48,9 +48,9 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-learning"></a>Sugerencias importantes para asignar usuarios a LinkedIn Learning
 
-*    Se recomienda asignar un solo usuario de Azure AD a LinkedIn Learning para probar la configuración del aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
+*   Se recomienda asignar un solo usuario de Azure AD a LinkedIn Learning para probar la configuración del aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
 
-*    Al asignar un usuario a LinkedIn Learning, debe seleccionar el rol **Usuario** en el cuadro de diálogo de asignación. El rol "Acceso predeterminado" no funciona para realizar el aprovisionamiento.
+*   Al asignar un usuario a LinkedIn Learning, debe seleccionar el rol **Usuario** en el cuadro de diálogo de asignación. El rol "Acceso predeterminado" no funciona para realizar el aprovisionamiento.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-learning"></a>Configuración del aprovisionamiento de usuarios en LinkedIn Learning
@@ -93,9 +93,9 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
 
 8) Si ya ha configurado LinkedIn Learning para el inicio de sesión único, busque la instancia de LinkedIn Learning con el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **LinkedIn Learning** en la galería de aplicaciones. Seleccione LinkedIn Learning en los resultados de búsqueda y agréguelo a la lista de aplicaciones.
 
-9)    Seleccione la instancia de LinkedIn Learning y seleccione la pestaña **Aprovisionamiento**.
+9)  Seleccione la instancia de LinkedIn Learning y seleccione la pestaña **Aprovisionamiento**.
 
-10)    Establezca el **modo de aprovisionamiento** en **Automático**.
+10) Establezca el **modo de aprovisionamiento** en **Automático**.
 
 ![Aprovisionamiento de LinkedIn Learning](./media/active-directory-saas-linkedinlearning-provisioning-tutorial/linkedin_3.PNG)
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: 02962a91c739a53dfcf947bcc736e5c293b9384f
 ms.contentlocale: es-es
 ms.lasthandoff: 06/26/2017
 
-
 ---
 # <a name="use-azure-iot-edge-on-a-raspberry-pi-to-forward-device-to-cloud-messages-to-iot-hub"></a>Uso de Azure IoT Edge en un Raspberry Pi para reenviar mensajes del dispositivo a la nube a IoT Hub
 

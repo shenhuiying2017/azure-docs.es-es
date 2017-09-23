@@ -19,7 +19,6 @@ ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
 ms.contentlocale: es-es
 ms.lasthandoff: 06/17/2017
 
-
 ---
 
 # <a name="deploy-azure-resources-to-more-than-one-resource-group"></a>Implementación de recursos de Azure en más de un grupo de recursos

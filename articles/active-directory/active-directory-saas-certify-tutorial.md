@@ -19,7 +19,6 @@ ms.openlocfilehash: bbb2357d17535de438555a0b1f8256b134c8a40e
 ms.contentlocale: es-es
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certify"></a>Tutorial: integración de Azure Active Directory con Certify
 

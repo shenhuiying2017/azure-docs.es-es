@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/22/2017
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 99b76e3bc2939c65654cbf606fda6f8a45e0c44b
+ms.contentlocale: es-es
 ms.lasthandoff: 04/21/2017
-
 
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set-update-2"></a>Restaurar un volumen de StorSimple de un conjunto de copia de seguridad (Update 2)
@@ -53,7 +53,7 @@ Para los dispositivos que ejecutan Update 4 o una versión posterior, se impleme
 El seguimiento basado en el mapa térmico solo se habilita para los volúmenes en capa; los volúmenes anclados localmente no son compatibles. Tampoco se puede realizar la restauración basada en el mapa térmico al clonar un volumen en otro dispositivo. Si hay una restauración en contexto y una instantánea local para el volumen que se restaurará en el dispositivo, no se realizará la rehidratación (porque los datos ya están disponibles localmente). De forma predeterminada, cuando se restaura, se inician los trabajos de rehidratación que rehidratan los datos de forma proactiva en función del mapa térmico. En Update 4, los cmdlets de Windows PowerShell se puede utilizar para consultar los trabajos de rehidratación en ejecución, cancelar un trabajo de rehidratación y obtener el estado del trabajo de rehidratación.
 
 * `Get-HcsRehydrationJob`: este cmdlet obtiene el estado del trabajo de rehidratación. Se desencadena un solo trabajo de rehidratación para un volumen.
-* `Set-HcsRehydrationJob`: este cmdlet permite interrumpir, detener o reanudar el trabajo de rehidratación, cuando la rehidratación está en curso.    
+* `Set-HcsRehydrationJob`: este cmdlet permite interrumpir, detener o reanudar el trabajo de rehidratación, cuando la rehidratación está en curso. 
 
 Para obtener más información sobre los cmdlets de rehidratación, vaya al artículo de [referencia de cmdlet de Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 

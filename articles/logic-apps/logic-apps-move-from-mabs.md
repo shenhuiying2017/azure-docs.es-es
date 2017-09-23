@@ -20,7 +20,6 @@ ms.openlocfilehash: e58c6950d1d9420f32fc98ca917216dc5fae4fc3
 ms.contentlocale: es-es
 ms.lasthandoff: 05/31/2017
 
-
 ---
 
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Migración desde BizTalk Services a Logic Apps
@@ -31,8 +30,8 @@ Microsoft Azure BizTalk Services (MABS) está en retirada. Use este tema para mi
 
 BizTalk Services consta de dos subservicios:
 
-1.    Conexiones híbridas de Microsoft BizTalk Services
-2.    Integración basada en puente de EAI y EDI
+1.  Conexiones híbridas de Microsoft BizTalk Services
+2.  Integración basada en puente de EAI y EDI
 
 Si lo que busca es migrar conexiones híbridas, [Conexiones híbridas de Azure App Service](../app-service/app-service-hybrid-connections.md) describe los cambios y las características de este servicio. Conexiones híbridas de Azure reemplaza a Conexiones híbridas de BizTalk Services. Conexiones híbridas de Azure está disponible en Azure App Service y se ofrece en Azure Portal. Conexiones híbridas de Azure también proporciona un nuevo administrador de conexiones híbridas para administrar las conexiones híbridas existentes de BizTalk Services y las conexiones híbridas nuevas que cree en el portal. Conexiones híbridas de Azure App Service está disponible con carácter general (GA).
 

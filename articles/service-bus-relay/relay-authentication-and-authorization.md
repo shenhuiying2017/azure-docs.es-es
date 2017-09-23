@@ -20,7 +20,6 @@ ms.openlocfilehash: 95589ca169926362fa77f0e307afd449014c8402
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticación y autorización en Azure Relay
 Las aplicaciones pueden autenticarse en Azure Relay mediante la autenticación con Firma de acceso compartido (SAS). De manera similar a como sucede en la [mensajería de Service Bus](../service-bus-messaging/service-bus-authentication-and-authorization.md), la autenticación de SAS permite a las aplicaciones autenticarse en el servicio Azure Relay mediante una clave de acceso configurada en el espacio de nombres de Relay. A continuación, puede usar esta clave para generar un token de Firma de acceso compartido que los clientes pueden usar para autenticarse en el servicio de retransmisión.

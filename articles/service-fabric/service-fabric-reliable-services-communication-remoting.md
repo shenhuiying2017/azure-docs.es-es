@@ -21,7 +21,6 @@ ms.openlocfilehash: 92a8894f24c234fbf38eda086531b524cceccfc1
 ms.contentlocale: es-es
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicación remota de servicio con Reliable Services
 Para los servicios que no están vinculados a una pila o un protocolo de comunicación concretos, como WebAPI, Windows Communication Foundation (WCF) u otros, el marco de trabajo de Reliable Services ofrece un mecanismo de comunicación remota para configurar de manera rápida y sencilla una llamada a procedimiento remoto para servicios.

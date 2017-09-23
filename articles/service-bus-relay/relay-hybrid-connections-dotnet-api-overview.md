@@ -20,7 +20,6 @@ ms.openlocfilehash: f3f4a2e721b1a75a5b92a5c17a9939c7013340d4
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Introducción a la API de estándar de .NET de las conexiones híbridas de Retransmisión de Azure

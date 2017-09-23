@@ -19,7 +19,6 @@ ms.openlocfilehash: 8df9c0d8443d6685253207ed1915c780275014fc
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Tutorial: Integración de Azure Active Directory con BenefitHub
 

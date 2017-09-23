@@ -20,7 +20,6 @@ ms.openlocfilehash: 756565b3da6e0a818d1ee3d5e17f942d96be14f0
 ms.contentlocale: es-es
 ms.lasthandoff: 06/28/2017
 
-
 ---
 
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>El protocolo AMQP 1.0 de Microsoft Azure Service Bus: operaciones de respuesta/solicitud

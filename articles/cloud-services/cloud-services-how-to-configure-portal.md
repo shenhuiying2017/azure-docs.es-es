@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb66627b170c9010414b24266fdae608e67f5c61
 ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/20/2017
 
 ---
 # <a name="how-to-configure-cloud-services"></a>Configuración de servicios en la nube
@@ -109,9 +110,4 @@ Puede que necesite volver a configurar el servicio en la nube a través del arch
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

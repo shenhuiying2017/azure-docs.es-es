@@ -20,7 +20,6 @@ ms.openlocfilehash: dd160ede1189b0de544c8cf5db3b13228d212419
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Cambiar el modo del dispositivo en su dispositivo StorSimple
 

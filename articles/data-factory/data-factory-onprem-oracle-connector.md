@@ -20,7 +20,6 @@ ms.openlocfilehash: bb6af719fe6f1a30c5933ce4342a4c0c072f3ff4
 ms.contentlocale: es-es
 ms.lasthandoff: 06/10/2017
 
-
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copia de datos con una instancia local Oracle como origen o destino mediante Azure Data Factory
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos con una base de datos de Oracle local como origen o destino. Se basa en la información general ofrecida en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).

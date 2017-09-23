@@ -21,7 +21,6 @@ ms.openlocfilehash: 330f733440932a769eb0fe6031cd0d947a820080
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Introducción al conector de Usuarios de Office 365
 Conéctese a Usuarios de Office 365 para obtener perfiles, buscar usuarios, etc. Con Usuarios de Office 365, puede:

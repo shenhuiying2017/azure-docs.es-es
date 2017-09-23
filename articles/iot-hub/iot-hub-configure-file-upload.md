@@ -20,7 +20,6 @@ ms.openlocfilehash: 149dd84d7d8f4ff9cd30f9fc649ced3cb364cfb7
 ms.contentlocale: es-es
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configuración de cargas de archivos de IoT Hub mediante Azure Portal
 

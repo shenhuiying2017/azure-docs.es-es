@@ -21,7 +21,6 @@ ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-box-connector"></a>Introducción al conector de Box
 Conéctese a Box y cree y elimine archivos, entre muchas otras cosas. Con Box, puede hacer lo siguiente:

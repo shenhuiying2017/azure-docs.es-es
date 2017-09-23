@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/25/2017
 
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Restricción del contenido de la red CDN de Azure por país
@@ -62,15 +63,10 @@ Por ejemplo, la regla de bloqueo /Fotos/Estrasburgo/ filtrará los archivos, inc
 ### <a name="country-codes"></a>Códigos de país
 La característica **Filtrado geográfico** usa códigos de país para definir los países desde los que se permitirá o bloqueará una solicitud para un directorio protegido. Encontrará los códigos de país en [Azure CDN Country Codes](https://msdn.microsoft.com/library/mt761717.aspx) (Códigos de países en la red CDN de Azure). 
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="considerations"></a>Consideraciones
+## <a id="considerations"></a>Consideraciones
 * Es posible que los cambios en la configuración del filtro de país tarden 90 minutos en el caso de Verizon, o un par de minutos en el de Akamai, en surtir efecto.
 * Esta característica no admite caracteres comodín (por ejemplo, ‘*’).
 * La configuración de filtrado geográfico asociada a la ruta de acceso relativa se aplicará de forma recursiva a esa ruta.
 * Solo se puede aplicar una regla a la misma ruta de acceso relativa (no se pueden crear varios filtros de país que señalen a la misma ruta de acceso relativa). Sin embargo, una carpeta puede tener varios filtros de país. Esto se debe a la naturaleza recursiva de los filtros de país. En otras palabras, se puede asignar un filtro de país diferente a una subcarpeta de una carpeta configurada previamente.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

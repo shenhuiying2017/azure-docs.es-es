@@ -19,7 +19,6 @@ ms.openlocfilehash: 62d01333b61e73c83588d2d1701c0c300df4ab1c
 ms.contentlocale: es-es
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Tutorial: integración de Azure Active Directory con Egnyte
 

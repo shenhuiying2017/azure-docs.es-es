@@ -20,7 +20,6 @@ ms.openlocfilehash: 417fceb0961165d96ece000f95c8a3f973f4f75b
 ms.contentlocale: es-es
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Automatización de Azure
 ## <a name="introduction"></a>Introducción

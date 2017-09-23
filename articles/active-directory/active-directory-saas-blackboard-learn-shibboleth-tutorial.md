@@ -19,7 +19,6 @@ ms.openlocfilehash: 014b0671eb8604235a823c2cf4324a49d94df702
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Tutorial: Integración de Azure Active Directory con Blackboard Learn - Shibboleth
 

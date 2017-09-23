@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 014aa646459cd64fca7c697419324caa3edaeeea
+ms.contentlocale: es-es
 ms.lasthandoff: 03/22/2017
 
 ---
@@ -37,9 +38,9 @@ El método de enrutamiento de tráfico Rendimiento permite dirigir el tráfico a
         2. En el tipo de **ruta de acceso**, escriba una barra diagonal */*. Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal "/" es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado).
         3. Haga clic en **Guardar** en la parte superior de la página.
 5.  Pruebe los cambios de la configuración de la siguiente forma:
-    1.    En la barra de búsqueda del Portal, busque el nombre del perfil de Traffic Manager y haga clic en él en los resultados que se muestran.
-    2.    En la hoja del perfil de **Traffic Manager**, haga clic en **Información general**.
-    3.    La hoja del **perfil de Traffic Manager** muestra el nombre DNS del perfil de Traffic Manager que acaba de crear. Cualquier cliente puede usar este perfil (por ejemplo, accediendo a él mediante un explorador web) para enrutar el tráfico al punto de conexión correcto según el tipo de enrutamiento. En este caso, todas las solicitudes se enrutan al punto de conexión con la menor latencia de red del cliente.
+    1.  En la barra de búsqueda del Portal, busque el nombre del perfil de Traffic Manager y haga clic en él en los resultados que se muestran.
+    2.  En la hoja del perfil de **Traffic Manager**, haga clic en **Información general**.
+    3.  La hoja del **perfil de Traffic Manager** muestra el nombre DNS del perfil de Traffic Manager que acaba de crear. Cualquier cliente puede usar este perfil (por ejemplo, accediendo a él mediante un explorador web) para enrutar el tráfico al punto de conexión correcto según el tipo de enrutamiento. En este caso, todas las solicitudes se enrutan al punto de conexión con la menor latencia de red del cliente.
 6. Una vez que el perfil de Traffic Manager esté en funcionamiento, edite el registro DNS en el servidor DNS relevante para redireccionar el nombre de dominio de la empresa al nombre de dominio del Administrador de tráfico.
 
 ![Configuración del método de enrutamiento del tráfico de rendimiento con Traffic Manager][1]

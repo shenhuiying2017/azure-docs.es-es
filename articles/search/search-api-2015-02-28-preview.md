@@ -20,7 +20,6 @@ ms.openlocfilehash: e6ad5c964bfa8421be2706cb4015980e01a271b7
 ms.contentlocale: es-es
 ms.lasthandoff: 06/09/2017
 
-
 ---
 # <a name="azure-search-service-rest-api-version-2015-02-28-preview"></a>API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview
 Este artículo es la documentación de referencia de `api-version=2015-02-28-Preview`. Esta vista previa amplía la versión disponible generalmente actual, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), proporcionando las siguientes funciones experimentales:

@@ -20,7 +20,6 @@ ms.openlocfilehash: 09a68c7f4e7169a6ca02e33e89e0f048155fa88c
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Cómo decidir si Active Directory Domain Services es adecuado para su caso de uso
 Con Active Directory Domain Services puede implementar cargas de trabajo en los servicios de infraestructura de Azure sin tener que preocuparse por mantener la infraestructura de las identidades en Azure. Este servicio administrado no es lo mismo que una implementación típica de Windows Server Active Directory donde los usuarios son los encargados de llevarla a cabo y administrarla. El servicio es fácil de implementar y permite la corrección de problemas y la supervisión automatizada del estado. Realizamos continuamente cambios en el servicio para agregar compatibilidad con escenarios comunes de implementación.

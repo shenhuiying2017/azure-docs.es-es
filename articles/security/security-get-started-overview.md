@@ -20,7 +20,6 @@ ms.openlocfilehash: 1303815755584e912891d501018b257b96e5f063
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="azure-security-overview"></a>Información general de seguridad de Azure
 El sitio de información de seguridad de Microsoft Azure en Azure.com es el lugar para las respuestas técnicas a las preguntas de seguridad de Azure. Si está interesado en el cumplimiento de Azure y en cómo Azure protege su propia infraestructura, visite el [Centro de confianza de Microsoft](https://www.microsoft.com/TrustCenter/default.aspx).

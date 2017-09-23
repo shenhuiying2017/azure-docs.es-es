@@ -20,7 +20,6 @@ ms.openlocfilehash: f481de9d7eb23531b4be82c3b61e4f3850bed72e
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Generación y transferencia de claves protegidas con HSM para el Almacén de claves de Azure
 ## <a name="introduction"></a>Introducción

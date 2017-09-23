@@ -1,5 +1,4 @@
 ---
-
 title: "Uso de una máquina virtual Linux de solución de problemas en Azure Portal | Microsoft Docs"
 description: "Aprenda a solucionar problemas de la máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal."
 services: virtual-machines-linux
@@ -19,7 +18,6 @@ ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
 ms.contentlocale: es-es
 ms.lasthandoff: 05/12/2017
-
 
 ---
 

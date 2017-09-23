@@ -19,7 +19,6 @@ ms.openlocfilehash: eab1d25abc2fccdeffdf2706269bfd078eb5a09f
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-condeco"></a>Tutorial: Integración de Azure Active Directory con Condeco
 

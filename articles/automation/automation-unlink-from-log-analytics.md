@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 02/07/2017
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cd65cd34846122ff14f6d5df61e4f61a7c1ac4f
 ms.openlocfilehash: 56b09c2cfc14813b5efcb364c580787fec1bf639
+ms.contentlocale: es-es
+ms.lasthandoff: 02/08/2017
 
 ---
 
@@ -53,8 +55,3 @@ Si ha usado la solución de inicio y detención de máquinas virtuales durante l
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para volver a configurar la cuenta de Automation para integrarla con Log Analytics de OMS, consulte [Reenvío del estado de un trabajo y de transmisiones de trabajos desde Automation a Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md). 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

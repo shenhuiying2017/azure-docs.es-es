@@ -21,7 +21,6 @@ ms.openlocfilehash: 783d6a640d9626508bcabc5f991dc5b6fc22eaf4
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Get started with the OneDrive for Business connector (Introducción al conector de OneDrive para la Empresa)
 Conéctese a OneDrive para la Empresa para administrar sus archivos. Puede realizar diversas acciones en archivos: carga, actualización, obtención y eliminación.

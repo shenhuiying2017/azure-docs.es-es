@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c0bb99976277405cfd79c37ebd754311c3c6004e
 ms.openlocfilehash: 3cddd5b9508159089bf344dbb3882d462799747c
+ms.contentlocale: es-es
 ms.lasthandoff: 02/23/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Tutorial: Integración de Azure Active Directory con FirmPlay - Employee Advocacy for Recruiting
@@ -121,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)     
+    ![Configurar inicio de sesión único](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)   
 
 5. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
 

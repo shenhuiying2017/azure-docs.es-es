@@ -14,9 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/05/2017
 ms.author: betorres
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
+ms.contentlocale: es-es
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -176,11 +177,11 @@ Para crear una instancia de la plantilla de Power BI Desktop, necesita tres frag
 
 Métricas incluidas en la plantilla de PowerBI Desktop:
 
-*    Haga clic para valorar (CTR): proporción de usuarios que hacen clic en un documento específico para el número de número total de búsquedas.
-*    Búsquedas sin clics: términos de las consultas principales que no registran ningún clic
-*    Documentos con más clics: documentos con más clics por identificador en las últimas 24 horas, 7 días y 30 días.
-*    Pares de documentos de términos populares: términos resultantes en el mismo documento en el que se hizo clic, ordenados por clics.
-*    Tiempo para hacer clic : clics divididos por tiempo transcurrido desde la consulta de búsqueda
+*   Haga clic para valorar (CTR): proporción de usuarios que hacen clic en un documento específico para el número de número total de búsquedas.
+*   Búsquedas sin clics: términos de las consultas principales que no registran ningún clic
+*   Documentos con más clics: documentos con más clics por identificador en las últimas 24 horas, 7 días y 30 días.
+*   Pares de documentos de términos populares: términos resultantes en el mismo documento en el que se hizo clic, ordenados por clics.
+*   Tiempo para hacer clic : clics divididos por tiempo transcurrido desde la consulta de búsqueda
 
 ![Plantilla de Power BI para la lectura desde Application Insights][3]
 

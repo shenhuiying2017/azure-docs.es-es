@@ -1,5 +1,4 @@
 ---
-
 title: "¿En qué consisten las licencias basadas en grupos de Azure Active Directory? | Microsoft Docs"
 description: "Descripción de las licencias basadas en grupo de Azure Active Directory, cómo funcionan y procedimientos recomendados"
 services: active-directory
@@ -23,7 +22,6 @@ ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 52dd48ce4e4acaf48f31edc51bbb657f8cd249cd
 ms.contentlocale: es-es
 ms.lasthandoff: 06/30/2017
-
 
 ---
 

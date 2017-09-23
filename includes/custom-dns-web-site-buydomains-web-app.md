@@ -26,8 +26,3 @@ Si desea un dominio, puede comprarlo directamente en el [Portal de administraci�
 
 En este punto, debería poder escribir el nombre de dominio personalizado en el explorador y ver que le lleva sin problemas a la aplicación web.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

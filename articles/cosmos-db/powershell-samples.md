@@ -1,4 +1,4 @@
-﻿---
+---
 title: Ejemplos de Azure PowerShell para Azure Cosmos DB | Microsoft Docs
 description: 'Ejemplos de Azure PowerShell: scripts para ayudarle a crear y administrar cuentas de Azure Cosmos DB.'
 services: cosmos-db
@@ -30,7 +30,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell de eje
 | |  |
 |---|---|
 |**Creación de una cuenta de Azure Cosmos DB** ||
-|[Creación de una cuenta de API de DocumentDB](scripts/create-database-account-powershell.md)| Crea una sola cuenta de Azure Cosmos DB para usarla con la API de DocumentDB. |
+|[Create a DocumentDB API account](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) (Creación de una cuenta de API de DocumentDB)| Crea una sola cuenta de Azure Cosmos DB para usarla con la API de DocumentDB. |
 |**Escalado de Azure Cosmos DB**||
 |[Replicación de la cuenta de Azure Cosmos DB en varias regiones y configuración de prioridades de conmutación por error](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Replicación global de datos de la cuenta en varias regiones con una prioridad específica de conmutación por error.|
 |**Protección de Azure Cosmos DB**||

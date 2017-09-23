@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
 ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
+ms.contentlocale: es-es
 ms.lasthandoff: 03/03/2017
-
 
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Archivos multimedia de Hyperlapse con Azure Media Hyperlapse
@@ -36,7 +36,7 @@ Para ver las actualizaciones más recientes de Azure Media Hyperlapse, consulte 
 ## <a name="hyperlapse-an-asset"></a>Aplicar Hyperlapse a un recurso
 Primero debe cargar el archivo de entrada deseado en Servicios multimedia de Azure.  Para obtener más información acerca de los conceptos relacionados con la carga y la administración de contenido, consulte el [artículo de administración de contenido](media-services-portal-vod-get-started.md).
 
-### <a name="a-idconfigurationaconfiguration-preset-for-hyperlapse"></a><a id="configuration"></a>Preestablecimiento de configuración para Hyperlapse
+### <a id="configuration"></a>Preestablecimiento de configuración para Hyperlapse
 Una vez que el contenido esté en su cuenta de Servicios multimedia, deberá generar la configuración preestablecida.  En la tabla siguiente se describen los campos especificados por el usuario:
 
 | Campo | Description |
@@ -75,7 +75,7 @@ El siguiente es un ejemplo de un archivo de configuración compatible en JSON y 
         }
     }
 
-### <a name="a-idsamplecodea-microsoft-hyperlapse-with-the-ams-net-sdk"></a><a id="sample_code"></a> Microsoft Hyperlapse con el SDK de .NET de AMS
+### <a id="sample_code"></a> Microsoft Hyperlapse con el SDK de .NET de AMS
 El método siguiente carga un archivo multimedia como un recurso y crea un trabajo con el procesador de multimedia de Azure Media Hyperlapse.
 
 > [!NOTE]
@@ -199,7 +199,7 @@ El método siguiente carga un archivo multimedia como un recurso y crea un traba
         return processor;
     }
 
-### <a name="a-idfiletypesasupported-file-types"></a><a id="file_types"></a>Tipos de archivo admitidos
+### <a id="file_types"></a>Tipos de archivo admitidos
 * MP4
 * MOV
 * WMV

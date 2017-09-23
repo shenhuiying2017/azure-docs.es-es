@@ -20,7 +20,6 @@ ms.openlocfilehash: 8e7e7bc7633370057f8dc596ad04a3f1d796a7d2
 ms.contentlocale: es-es
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # Azure AD B2C: protocolos de autenticación
 Azure Active Directory B2C (Azure AD B2C) proporciona identidad como servicio para sus aplicaciones gracias a la compatibilidad con dos protocolos estándar del sector: OpenID Connect y OAuth 2.0. Aunque el servicio cumple con la norma, pueden existir diferencias sutiles entre dos implementaciones cualesquiera de estos protocolos. 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
 ms.openlocfilehash: 8d79626fa8516f226a82d3dac693c2033904c91d
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/25/2017
 
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings"></a>Control del comportamiento del almacenamiento en caché de la red CDN de Azure con cadenas de consulta
@@ -61,10 +62,5 @@ Hay tres modos disponibles:
 > Es posible que los cambios en la configuración no sean visibles de forma inmediata, ya que el registro puede tardar en propagarse a través de la red CDN.  Para <b>red CDN de Azure de Akamai</b> , la propagación normalmente se completará en un minuto.  Para los perfiles de la <b>red CDN de Azure de Verizon</b>, la propagación normalmente se completará en 90 minutos, pero en algunos casos puede tardar más tiempo.
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

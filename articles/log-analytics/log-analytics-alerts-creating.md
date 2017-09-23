@@ -20,7 +20,6 @@ ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
 ms.contentlocale: es-es
 ms.lasthandoff: 05/25/2017
 
-
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Uso de reglas de alertas en Log Analytics
 Las alertas se crean mediante reglas de alerta que ejecutan automáticamente búsquedas de registros a intervalos regulares.  Crean un registro de alertas si los resultados coinciden con criterios concretos.  Luego, la regla puede ejecutar automáticamente una o varias acciones para avisarle proactivamente de la alerta o invocar otro proceso.   

@@ -21,7 +21,6 @@ ms.openlocfilehash: 308d78550e9e60303b70d591eb4e6bfff3e49ce7
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-rss-connector"></a>Introducción al conector RSS
 RSS es un formato de distribución web popular que se usa para publicar contenido de frecuente actualización, como entradas de blog y titulares de noticias.  Muchos editores de contenido ofrecen una fuente RSS para permitir que los usuarios se suscriban a ella.  Use el conector RSS para recuperar la información de la fuente y desencadenar flujos cuando se publiquen nuevos elementos en una fuente RSS.

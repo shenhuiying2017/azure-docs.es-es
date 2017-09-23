@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: bf92ffdb16b86c4033cc96ae2abb060d90f9505e
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
@@ -178,10 +179,5 @@ Si hay dispositivos StorSimple que se registraron justo antes de que ocurra un d
 ## <a name="next-steps"></a>Pasos siguientes
 * Después de haber realizado una conmutación por error, puede que necesite [desactivar o eliminar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 * Para obtener información sobre cómo usar el servicio del administrador de StorSimple, vaya a [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

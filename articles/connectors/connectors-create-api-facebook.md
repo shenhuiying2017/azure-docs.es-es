@@ -21,7 +21,6 @@ ms.openlocfilehash: e10a30ccef3e81cb3d7749696453d82b8958d076
 ms.contentlocale: es-es
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-facebook-connector"></a>Introducción al conector de Facebook
 Conéctese a Facebook y publique en una biografía, obtenga una fuente de página y mucho más. Con Facebook, puede hacer lo siguiente:

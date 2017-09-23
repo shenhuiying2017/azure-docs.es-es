@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/16/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d45bb37c8417785db0ea38be4375a998b6d9f109
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-your-storsimple-device"></a>Uso del servicio StorSimple Manager para supervisar el dispositivo StorSimple.
@@ -115,10 +116,5 @@ Los gráficos siguientes muestran el rendimiento de la red para Data 0 y Data 4,
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [usar el panel de dispositivos del servicio del Administrador de StorSimple](storsimple-device-dashboard.md).
 * Obtenga información sobre cómo [usar el servicio Administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

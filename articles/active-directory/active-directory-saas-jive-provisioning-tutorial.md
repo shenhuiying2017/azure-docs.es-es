@@ -19,7 +19,6 @@ ms.openlocfilehash: 957b152fdd40d08a867e788b0cb9f7d57ed481e4
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-configuring-jive-for-user-provisioning"></a>Tutorial: Configuración de Jive para el aprovisionamiento de usuarios
 

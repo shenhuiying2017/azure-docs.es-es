@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3e2ad6b466ba4885ae14576b83d4c0f3010bab67
 ms.openlocfilehash: 9782454e3bfc697b63cde8aa28a14be0c393c36b
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/13/2017
 
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Actualización a la versión 3 del SDK de .NET para Azure Search
@@ -482,10 +483,5 @@ Esto no es solo una inquietud hipotética: imagine un escenario donde se agrega 
 Por este motivo, recomendamos utilizar tipos que aceptan valores null en las clases de modelo como procedimiento recomendado.
 
 Para más detalles sobre este error y la corrección, vea [este problema en GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: 810c1cedd4fe0bd6ecdf9bd32dfb241f5f345300
 ms.contentlocale: es-es
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Creación de una aplicación web y Caché en Redis mediante una plantilla
 En este tema, aprenderá a crear una plantilla de Administrador de recursos de Azure que implementa una aplicación web de Azure con Caché en Redis. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.

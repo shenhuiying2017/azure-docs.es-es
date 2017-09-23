@@ -22,7 +22,6 @@ ms.openlocfilehash: b6fc2098027690eb76b69b1427f0e9541b8a7a69
 ms.contentlocale: es-es
 ms.lasthandoff: 06/10/2017
 
-
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Supervisión de clústeres de Hadoop en HDInsight con la API de Ambari
 Aprenda a supervisar clústeres de HDInsight con las API de Ambari.

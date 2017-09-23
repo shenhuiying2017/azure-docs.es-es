@@ -21,7 +21,6 @@ ms.openlocfilehash: 87a27dbe9042973dcfa7e9a5a438773d1bbab4d3
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="cortana-intelligence-solution-template-architecture-for-demand-forecasting-of-energy"></a>Arquitectura de la plantilla de solución de Cortana Intelligence para la previsión de demanda de energía
 En el siguiente diagrama se ofrece información general de la arquitectura de la [plantilla de solución de Cortana Intelligence para la previsión de demanda de energía](cortana-analytics-playbook-demand-forecasting-energy.md).

@@ -20,7 +20,6 @@ ms.openlocfilehash: 7d0b2db01427430d6b0a317cdfefc265dd4b06e2
 ms.contentlocale: es-es
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Habilitar el registro para los servicios web de Aprendizaje automático
 Este documento proporciona información sobre la funcionalidad de registro de los servicios web Machine Learning. El registro ofrece información adicional, más allá de simplemente un número de error y un mensaje, que puede ayudarle a solucionar problemas con las llamadas a las API de Machine Learning.  

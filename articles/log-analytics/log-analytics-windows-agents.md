@@ -21,7 +21,6 @@ ms.openlocfilehash: 48a0eaeb10d406d551c9e5870edde06809bd7544
 ms.contentlocale: es-es
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conexión de equipos Windows al servicio Log Analytics de Azure
 

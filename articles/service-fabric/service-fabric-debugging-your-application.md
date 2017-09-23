@@ -20,7 +20,6 @@ ms.openlocfilehash: 2459025899a7f5ffebf44fa104ed112c0eb99dfa
 ms.contentlocale: es-es
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar la aplicación de Service Fabric con Visual Studio
 > [!div class="op_single_selector"]

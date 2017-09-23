@@ -3,7 +3,7 @@ title: "Configuración de la descarga SSL para Azure Application Gateway mediant
 description: "Este artículo contiene instrucciones para crear una puerta de enlace de aplicaciones con descarga SSL mediante la CLI de Azure 2.0."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 032a514ddab625e4f7c5ef23a1da03a0162f43e3

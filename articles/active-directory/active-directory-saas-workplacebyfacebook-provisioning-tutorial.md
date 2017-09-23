@@ -19,7 +19,6 @@ ms.openlocfilehash: 9b22679c304248ed7ba7a6bd9eaf82b64f7143cf
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento de usuarios
 

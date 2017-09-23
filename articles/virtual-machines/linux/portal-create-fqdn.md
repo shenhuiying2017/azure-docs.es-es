@@ -22,7 +22,6 @@ ms.openlocfilehash: 49bfec791fcca3feabc4eb280cefd7faada0ea31
 ms.contentlocale: es-es
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Creación de un nombre de dominio completo en Azure Portal para una máquina virtual Linux
 

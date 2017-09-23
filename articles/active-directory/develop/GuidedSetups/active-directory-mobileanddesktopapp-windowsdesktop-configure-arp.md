@@ -21,7 +21,6 @@ ms.openlocfilehash: 5e83171846517496e221f0a84565cdf7b77514df
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Adición de información de registro de la aplicación a su aplicación

@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 4baa1b675d2930cd111b5b8368ac081dc2b77841
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Download marketplace items from Azure to Azure Stack
