@@ -36,7 +36,7 @@ Después de configurar un [almacén de Recovery Services](azure-to-azure-walkthr
 > La replicación de la máquina virtual de Azure actualmente se encuentra en versión preliminar.
 
 
-## <a name="select-the-source"></a>Seleccione el origen 
+## <a name="select-the-source"></a>Seleccione el origen
 
 1. En los almacenes de Recovery Services, haga clic en el nombre del almacén y > **+Replicar**. 
 2. En **Origen**, seleccione **Azure - VERSIÓN PRELIMINAR**.
@@ -62,18 +62,18 @@ Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscr
 Configuración predeterminada de las disposiciones de Site Recovery para la región de destino (según la configuración de región de origen) y la directiva de replicación:
 
    - **Ubicación de destino**: La región de destino que desea usar para la recuperación ante desastres. Se recomienda que la ubicación de destino coincida con la ubicación del almacén de Site Recovery.
-   - **Grupo de recursos de destino**: Grupo de recursos al que las máquinas virtuales de Azure de la región de destino pertenecerán después de la conmutación por error. De forma predeterminada, Site Recovery crea un nuevo grupo de recursos en la región de destino con un sufijo "asr". 
-   - **Red virtual de destino**: La red en las máquinas virtuales de Azure en la región de destino se ubicará después de la conmutación por error. De forma predeterminada, Site Recovery crea una nueva red (y subredes) virtual en la región de destino con un sufijo "asr". Esta red está asignada a la red de origen. Tenga en cuenta que puede asignar una dirección IP específica después de la conmutación por error de una máquina virtual, si tiene que conservar la misma dirección IP en las ubicaciones de origen y de destino. 
-   - **Cuentas de almacenamiento en caché**: Site Recovery utiliza una cuenta de almacenamiento en la región de origen. Los cambios en máquinas virtuales de origen se envían a esta cuenta, antes de la réplica en la ubicación de destino. 
+   - **Grupo de recursos de destino**: Grupo de recursos al que las máquinas virtuales de Azure de la región de destino pertenecerán después de la conmutación por error. De forma predeterminada, Site Recovery crea un nuevo grupo de recursos en la región de destino con un sufijo "asr".
+   - **Red virtual de destino**: La red en las máquinas virtuales de Azure en la región de destino se ubicará después de la conmutación por error. De forma predeterminada, Site Recovery crea una nueva red (y subredes) virtual en la región de destino con un sufijo "asr". Esta red está asignada a la red de origen. Tenga en cuenta que puede asignar una dirección IP específica después de la conmutación por error de una máquina virtual, si tiene que conservar la misma dirección IP en las ubicaciones de origen y de destino.
+   - **Cuentas de almacenamiento en caché**: Site Recovery utiliza una cuenta de almacenamiento en la región de origen. Los cambios en máquinas virtuales de origen se envían a esta cuenta, antes de la réplica en la ubicación de destino.
    - **Cuentas de almacenamiento de destino**: De forma predeterminada, Site Recovery crea una nueva cuenta de almacenamiento en la región de destino, para reflejar la cuenta de almacenamiento de la máquina virtual de origen.
-   -  **Conjuntos de disponibilidad de destino:** De forma predeterminada, Site Recovery creará un nuevo conjunto de disponibilidad en la región de destino con el sufijo "asr". 
+   -  **Conjuntos de disponibilidad de destino:** De forma predeterminada, Site Recovery creará un nuevo conjunto de disponibilidad en la región de destino con el sufijo "asr".
    - **Nombre de la directiva de replicación**: Nombre de la directiva.
    - **Retención del punto de recuperación**: De forma predeterminada, Site Recovery conserva los puntos de recuperación durante 24 horas. Puede configurar un valor entre 1 y 72 horas.
    - **Frecuencia de instantáneas coherentes con la aplicación**: De forma predeterminada, Site Recovery toma una instantánea coherente con la aplicación cada 4 horas. Puede configurar cualquier valor entre 1 y 12 horas. Los datos se replican continuamente:
     - Los puntos de recuperación coherentes para el bloqueo mantienen una orden de escritura de datos coherente cuando se crea. Este tipo de punto de recuperación generalmente es suficiente si la aplicación está diseñada para recuperarse de un bloqueo sin incoherencias en los datos
     - Los puntos de recuperación coherentes para el bloqueo se generan cada pocos minutos. Con estos puntos de recuperación para conmutar por error y recuperar las máquinas virtuales se proporciona un objetivo de punto de recuperación (RPO) del orden de minutos.
     - Puntos de recuperación coherentes con la aplicación (además de la coherencia de orden de escritura) aseguran que las aplicaciones de ejecución completan todas las operaciones y vuelcan los búferes en el disco (modo de inactividad de aplicación). Se recomienda usar estos puntos de recuperación para aplicaciones de base de datos como SQL Server, Oracle y Exchange.
-        
+
     ![Definición de la configuración](./media/azure-to-azure-walkthrough-enable-replication/settings.png)
 
 
@@ -87,7 +87,7 @@ Si desea modificar la configuración de directiva de replicación y de destino, 
     ![Definición de la configuración](./media/azure-to-azure-walkthrough-enable-replication/customize-target.png)
 
 3. Para invalidar la configuración de replicación de instantáneas coherentes con la aplicación y los puntos de recuperación, haga clic en **Personalizar** junto a **Directiva de replicación**.
- 
+
     ![Definición de la configuración](./media/azure-to-azure-walkthrough-enable-replication/customize-policy.png)
 
 4. Para iniciar el aprovisionamiento de los recursos de destino, haga clic en **Crear recursos de destino**. El aprovisionamiento tarda aproximadamente un minuto. No cierre la hoja durante la operación o deberá empezar de nuevo.

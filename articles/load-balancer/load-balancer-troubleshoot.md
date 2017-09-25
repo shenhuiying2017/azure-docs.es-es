@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
@@ -23,6 +23,8 @@ ms.lasthandoff: 07/21/2017
 ---
 
 # <a name="troubleshoot-azure-load-balancer"></a>Solución de problemas de Azure Load Balancer
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 En esta página se proporcionan soluciones de problemas para preguntas frecuentes sobre Azure Load Balancer. Cuando el equilibrador de carga no tenga conectividad, los síntomas más comunes son los siguientes: 
 - Las máquinas virtuales detrás del equilibrador de carga no responden a los sondeos de estado 

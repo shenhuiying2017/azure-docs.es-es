@@ -147,4 +147,3 @@ Las direcciones IP públicas pueden tener un precio simbólico. Para más inform
 * [Implementar una máquina virtual con una dirección IP pública estática mediante el portal de Azure](virtual-network-deploy-static-pip-arm-portal.md)
 * [Implementar una máquina virtual con una dirección IP pública estática mediante una plantilla](virtual-network-deploy-static-pip-arm-template.md)
 * [Implemente una VM con una dirección IP privada estática](virtual-networks-static-private-ip-arm-pportal.md)
-

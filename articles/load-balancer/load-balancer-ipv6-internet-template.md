@@ -3,7 +3,7 @@ title: "Implementación de un equilibrador de carga con conexión a Internet con
 description: "Cómo implementar la compatibilidad de IPv6 con Azure Load Balancer y máquinas virtuales con equilibrio de carga."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
@@ -30,6 +30,8 @@ ms.lasthandoff: 03/15/2017
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
 > * [CLI de Azure](load-balancer-ipv6-internet-cli.md)
 > * [Plantilla](load-balancer-ipv6-internet-template.md)
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye proporcionando una alta disponibilidad el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de carga equilibrada. Azure Load Balancer también pueden presentar prestar servicios en varios puertos, varias direcciones IP o ambos.
 

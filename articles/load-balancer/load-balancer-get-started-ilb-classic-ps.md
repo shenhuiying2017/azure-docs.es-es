@@ -3,7 +3,7 @@ title: "Creación de un equilibrador de carga interno de Azure: PowerShell clás
 description: "Información sobre cómo crear un equilibrador de carga interno mediante PowerShell con el modelo de implementación clásica"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management

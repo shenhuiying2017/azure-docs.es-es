@@ -3,7 +3,7 @@ title: "Creación de un equilibrador de carga con conexión a Internet: Portal d
 description: "Aprenda a crear un equilibrador de carga accesible desde Internet en el modelo de implementación clásica mediante el Portal de Azure clásico"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
