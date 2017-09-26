@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 09/21/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 00f2ecbf0d8542741bd78dcfe2692e6627b1f3cd
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: e7c64a7f6b85986d48f0da39962c634b572e773b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
@@ -34,6 +34,9 @@ Obtenga información sobre cómo usar HDInsight con una instancia de [Azure Virt
 
 > [!WARNING]
 > La información de este documento requiere conocimientos sobre las redes TCP/IP. Si no está familiarizado con las redes TCP/IP, debe asociarse con alguien que lo esté antes de realizar modificaciones a las redes de producción.
+
+> [!IMPORTANT]
+> Si busca guías paso a paso sobre cómo conectar HDInsight con la red local mediante una instancia de Azure Virtual Network, consulte el documento [Conexión de HDInsight a la red local](connect-on-premises-network.md).
 
 ## <a name="planning"></a>Planificación
 

@@ -18,14 +18,14 @@ ms.date: 04/25/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: f6fc297790b8a8b3ae8edea2e37bb7daf40ed3bb
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 4160b9ef6cda1efd6c76ce1b283c78b4d43a5187
 ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Procedimiento para descargar las datos de uso diario y de factura de Azure
-También puede descargar la factura desde [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o recibirla por correo electrónico. Para descargar su uso diario, vaya a la [Centro de cuentas de Azure](https://account.windowsazure.com). Solo determinados roles tienen permiso para obtener la información de facturación y uso, como el administrador de la cuenta. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](billing-manage-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
+También puede descargar la factura desde [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) o recibirla por correo electrónico. Para descargar su uso diario, vaya a la [Centro de cuentas de Azure](https://account.azure.com/Subscriptions). Solo determinados roles tienen permiso para obtener la información de facturación y uso, como el administrador de la cuenta. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](billing-manage-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
 
 >[!NOTE]
 >Este artículo no es aplicable para clientes del Contrato Enterprise (EA). Si es un cliente EA, las facturas se envían directamente a los administradores de la inscripción.

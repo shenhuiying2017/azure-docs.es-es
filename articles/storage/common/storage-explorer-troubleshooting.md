@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: delhan
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 9b3a8b964ec2f75c53c03b5099dc1e1eb7d77c65
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: ba8a02e2faaa0affd68feebd2ae5efe64cded93f
 ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -30,7 +30,7 @@ Esta guía resume las soluciones para problemas comunes en el Explorador de Stor
 
 ## <a name="sign-in-issues"></a>Problemas de inicio de sesión
 
-Antes de continuar, pruebe a reiniciar la aplicación para ver si se pueden corregir los problemas.
+Solo se admiten las cuentas de Azure Active Directory (AAD). Si usa una cuenta de AD FS, se espera que el inicio de sesión en el Explorador de Storage no funcione. Antes de continuar, pruebe a reiniciar la aplicación para ver si se pueden corregir los problemas.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Error: Certificado autofirmado de cadena de certificados
 

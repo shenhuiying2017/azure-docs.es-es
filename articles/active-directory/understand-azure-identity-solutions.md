@@ -14,10 +14,10 @@ ms.technology:
 ms.assetid: 
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b7328eea378dde886419be8a4ab5b6f69c0b0d24
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: e368f14638c480a632afa7c17023aa8ae4c8833f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="understand-azure-identity-solutions"></a>Información acerca de las soluciones de identidad de Azure
@@ -40,7 +40,7 @@ Antes de poder tomar una decisión sobre una solución de identidad de Azure, de
 |Directorio de Azure AD | Cada inquilino de Azure tiene un directorio de Azure AD dedicado y de confianza que contiene los usuarios, grupos y aplicaciones del inquilino. Sirve para realizar funciones de administración de identidad y acceso a los recursos del inquilino. Dado que un único directorio de Azure AD se aprovisiona automáticamente para representar su organización al suscribirse a un servicio en la nube de Microsoft como Office 365, Microsoft Intune o Azure, a veces, verá los términos *inquilino*, *Azure AD* y *directorio de Azure AD* utilizados indistintamente. |
 |Dominio personalizado | La primera vez que se suscribe a un servicio en la nube de Microsoft, el inquilino (organización) usa un nombre de dominio *.onmicrosoft.com*. Sin embargo, la mayoría de las organizaciones tienen uno o más nombres de dominio que usan para hacer negocios y que los usuarios finales utilizan para acceder a los recursos de la empresa. Puede agregar su nombre de dominio personalizado a Azure AD para que el nombre de dominio resulte familiar a los usuarios, como *alice@contoso.com* en lugar de *alice@contoso.onmicrosoft.com*. |
 |Cuenta de Azure AD | Se trata de identidades que se crean mediante Azure AD u otro servicio en la nube de Microsoft como Office 365. Se almacenan en Azure AD y son accesibles a cualquiera de las suscripciones de servicio en la nube de la organización. |
-|Administrador de suscripciones de Azure| El administrador de cuenta es la persona que se inscribió o que adquirió la suscripción de Azure. Tiene autorización para usar el [Centro de cuentas](https://account.windowsazure.com/Home/Index) y realizar diversas tareas de administración como crear suscripciones, cancelar suscripciones, cambiar la facturación de una suscripción o cambiar el administrador de servicios. |
+|Administrador de suscripciones de Azure| El administrador de cuenta es la persona que se inscribió o que adquirió la suscripción de Azure. Tiene autorización para usar el [Centro de cuentas](https://account.azure.com/Subscriptions) y realizar diversas tareas de administración como crear suscripciones, cancelar suscripciones, cambiar la facturación de una suscripción o cambiar el administrador de servicios. |
 |Administrador global de Azure AD | Los administradores globales de Azure AD tienen acceso total a todas las funciones administrativas de Azure AD. La persona que se suscribe a un servicio en la nube de Microsoft se convierte automáticamente en administrador global de forma predeterminada. Puede tener más de un administrador global, pero solo los administradores globales pueden asignar cualquiera de [los otros roles de administrador](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) a los usuarios. |
 |Cuenta Microsoft | Las cuentas Microsoft (creadas para su uso personal) proporcionan acceso a los productos y servicios en la nube de Microsoft orientados al cliente, como Outlook (Hotmail), OneDrive, Xbox LIVE u Office 365. Estas identidades se crean y almacenan en el sistema de cuentas de identidad de consumidor de Microsoft ejecutado por Microsoft.|
 |Cuentas profesionales o educativas | Las cuentas profesionales o educativas (generadas por un administrador para uso empresarial o académico) proporcionan acceso a los servicios en la nube de Microsoft de nivel empresarial, como Azure, Intune u Office 365.|

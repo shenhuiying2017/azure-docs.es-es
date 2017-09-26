@@ -18,10 +18,10 @@ ms.date: 08/15/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: e918e2863384d44533efaee25d3fea3cceedba77
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 15c6d3b8a335be068ead512c9b9d93940086c9ab
 ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de una suscripción de Azure a otra cuenta
@@ -104,7 +104,7 @@ El administrador de la empresa puede transferir la propiedad de las suscripcione
 
 ### <a name="whoisaa"></a>¿Quién es el administrador de cuenta de la suscripción?
 
-El administrador de cuenta es la persona que se inscribió o que adquirió la suscripción de Azure. Están autorizados para tener acceso al [Centro de cuentas](https://account.windowsazure.com/Home/Index) y realizar diversas tareas de administración como crear suscripciones, cancelar suscripciones, cambiar la facturación de una suscripción o cambiar el administrador de servicios. Si no está seguro de quién es el administrador de cuenta de la suscripción, use los pasos siguientes para averiguarlo.
+El administrador de cuenta es la persona que se inscribió o que adquirió la suscripción de Azure. Están autorizados para tener acceso al [Centro de cuentas](https://account.azure.com/Subscriptions) y realizar diversas tareas de administración como crear suscripciones, cancelar suscripciones, cambiar la facturación de una suscripción o cambiar el administrador de servicios. Si no está seguro de quién es el administrador de cuenta de la suscripción, use los pasos siguientes para averiguarlo.
 
 1. Visite la [página Suscripciones de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Seleccione la suscripción que desee comprobar y, luego, consulte **Configuración**.

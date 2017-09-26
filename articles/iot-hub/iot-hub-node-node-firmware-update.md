@@ -15,16 +15,15 @@ ms.workload: na
 ms.date: 09/07/2017
 ms.author: juanpere
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 6879f51527802591d45ee56aa47ab304623a4323
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: e169367592b25ea45c3d1017937316a3b3b538b8
 ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Use la administración de dispositivos para iniciar una actualización de firmware del dispositivo (Node/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-## <a name="introduction"></a>Introducción
 En el tutorial de [Introducción a la administración de dispositivos][lnk-dm-getstarted], vimos cómo usar los primitivos de [dispositivo gemelo][lnk-devtwin] y [métodos directos][lnk-c2dmethod] para reiniciar de forma remota un dispositivo. Este tutorial utiliza a los mismos tipos primitivos de IoT Hub. Además, proporciona orientación y muestra cómo realizar una actualización de firmware simulada de extremo a extremo.  Este patrón se utiliza en la implementación de actualización de firmware para el ejemplo de dispositivo Intel Edison.
 
 En este tutorial se muestra cómo realizar las siguientes acciones:

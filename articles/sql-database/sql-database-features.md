@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/25/2017
+ms.date: 09/22/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 968a7d3611d050d15ee398f9c3c5830d5c8e85fb
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 75575fec0047dd653dca86df1daf234676859600
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="azure-sql-database-features"></a>Características de Azure SQL Database
@@ -120,7 +120,6 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Partición de tabla](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Sí; solo el grupo de archivos principal. |
 | [Tablas temporales](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#temporary-tables) | Solo las tablas temporales globales locales y de ámbito de base de datos. |
 | [Tablas temporales](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Sí |
-| [Transacciones](https://docs.microsoft.com/sql/t-sql/language-elements/transactions-transact-sql) | No |
 | [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Sí | 
 | [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Sí |
 | [Agrupación en clústeres de conmutación por error de Windows Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | No; consulte [Introducción: grupos de conmutación por error y replicación geográfica activa](sql-database-geo-replication-overview.md). |
