@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/26/2017
 ms.author: larryfr
 ms.translationtype: HT
 ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
@@ -206,7 +206,7 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
 1. Use lo siguiente para iniciar el cliente Beeline desde la sesión SSH.
 
     ```bash
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
     Este comando supone que usó el valor predeterminado de **admin** para la cuenta de inicio de sesión del clúster.
