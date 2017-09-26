@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 6a66289ee52eca02a7ab416f5bcf55e6cff8b720
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
@@ -113,9 +113,9 @@ Las opciones están limitadas al uso de claves precompartidas (PSK) para la aute
 * Azure Portal: navegue a la red virtual clásica > Conexiones VPN > Conexiones VPN de sitio a sitio > Nombre del sitio local > Sitio local > Espacio de direcciones del cliente. 
 * Portal clásico: agregue todos los intervalos que desea que se envíen a través de la puerta de enlace para la red virtual en la página Redes de Redes locales. 
 
-### <a name="can-i-configure-forced-tunneling"></a>¿Puedo configurar una tunelización forzada?
+### <a name="can-i-configure-force-tunneling"></a>¿Puedo configurar una tunelización forzada?
 
-Sí. Consulte [Configurar una tunelización forzada](vpn-gateway-about-forced-tunneling.md).
+Sí. Consulte [Configuración de una tunelización forzada](vpn-gateway-about-forced-tunneling.md).
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>¿Puedo configurar mi propio servidor VPN en Azure y usarlo para conectar a mi red local?
 
@@ -159,9 +159,13 @@ Para la configuración de sitio a sitio entre locales se admiten los servidores 
 
 Otras soluciones VPN de software deben funcionar con nuestra puerta de enlace siempre que se ajusten a las implementaciones IPsec estándar de la industria. Póngase en contacto con el proveedor del software para obtener instrucciones de configuración y soporte técnico.
 
-## <a name="P2S"></a>Conexiones de punto a sitio
+## <a name="P2S"></a>Punto a sitio: autenticación de certificados de Azure nativa
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="point-to-site---radius-authentication"></a>Punto a sitio: autenticación RADIUS
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>Conexiones entre dos redes virtuales y multisitio
 
