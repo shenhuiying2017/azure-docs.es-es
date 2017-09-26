@@ -16,16 +16,16 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Carga de datos en SQL Data Warehouse con Data Factory
 
-Puede usar Azure Data Factory para cargar datos en Azure SQL Data Warehouse desde cualquiera de los [almacenes de datos de origen compatibles](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats). Por ejemplo, puede cargar datos desde una base de datos SQL de Azure o una base de datos de Oracle en una instancia de SQL Data Warehouse mediante Data Factory. El tutorial de este artículo muestra cómo cargar datos desde una base de datos de SQL Server local en una instancia de SQL Data Warehouse.
+Puede usar Azure Data Factory para cargar datos en Azure SQL Data Warehouse desde cualquiera de los [almacenes de datos de origen compatibles](../data-factory/copy-activity-overview.md). Por ejemplo, puede cargar datos desde una base de datos SQL de Azure o una base de datos de Oracle en una instancia de SQL Data Warehouse mediante Data Factory. El tutorial de este artículo muestra cómo cargar datos desde una base de datos de SQL Server local en una instancia de SQL Data Warehouse.
 
 **Tiempo estimado**: una vez que haya cumplido los requisitos previos, tardará en completar este tutorial aproximadamente entre 10 y 15 minutos.
 
@@ -72,7 +72,7 @@ Ahora, indicaremos a Data Factory la base de datos de SQL Server local desde la 
     > [!NOTE]
     > Si el almacén de datos de origen es local o se encuentra en una máquina virtual de Azure IaaS, se requiere una instancia de Data Management Gateway. Una puerta de enlace tiene una relación de 1 a 1 con una factoría de datos. No se puede usar desde otra factoría de datos, pero sí se puede usar para varias tareas de carga de datos con la misma factoría de datos. Una puerta de enlace se puede usar para conectarse con varios almacenes de datos cuando se ejecutan tareas de carga de datos.
     >
-    > Para información más detallada sobre la puerta de enlace, consulte el artículo [Data Management Gateway](../data-factory/data-factory-data-management-gateway.md).
+    > Para información más detallada sobre la puerta de enlace, consulte el artículo [Data Management Gateway](../data-factory/v1/data-factory-data-management-gateway.md).
 
 3. Se mostrará el cuadro de diálogo **Crear puerta de enlace**. En Nombre, escriba **GatewayForDWLoading**y haga clic en **Crear**.
 
@@ -154,9 +154,9 @@ Para migrar la base de datos a SQL Data Warehouse, consulte el artículo de [int
 
 Para más información sobre Azure Data Factory y sus funcionalidades de movimientos de datos, consulte los artículos siguientes:
 
-- [Introducción al servicio Data Factory de Azure](../data-factory/data-factory-introduction.md)
-- [Movimiento de datos con la actividad de copia](../data-factory/data-factory-data-movement-activities.md)
-- [Movimiento de datos hacia y desde Azure SQL Data Warehouse mediante Azure Data Factory](../data-factory/data-factory-azure-sql-data-warehouse-connector.md)
+- [Introducción al servicio Data Factory de Azure](../data-factory/introduction.md)
+- [Movimiento de datos con la actividad de copia](../data-factory/copy-activity-overview.md)
+- [Movimiento de datos hacia y desde Azure SQL Data Warehouse mediante Azure Data Factory](../data-factory/connector-azure-sql-data-warehouse.md)
 
 Para explorar los datos en SQL Data Warehouse, consulte los artículos siguientes:
 

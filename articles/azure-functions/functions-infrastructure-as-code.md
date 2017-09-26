@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 9458b3b619649d094ddab1638e146571d9268fb0
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 2fee04ee11210b9081fc7edb64da1f0210f1bd06
 ms.contentlocale: es-es
-ms.lasthandoff: 06/05/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -32,13 +32,13 @@ Para más información sobre la creación de plantillas, consulte [Creación de 
 
 Para obtener las plantillas de ejemplo, vea:
 - [Aplicación de función en el plan de consumo]
-- [Aplicación de función en el plan de App Service]
+- [Aplicación de función en el plan Azure App Service]
 
 ## <a name="required-resources"></a>Recursos necesarios
 
 Una aplicación de función requiere estos recursos:
 
-* Una cuenta de [Azure Storage](../storage/index.md).
+* Una cuenta de [Azure Storage](../storage/index.yml).
 * Un plan de hospedaje (plan de consumo o plan de App Service).
 * Una aplicación de función. 
 
@@ -292,5 +292,5 @@ Aprenda a desarrollar y configurar Azure Functions.
 <!-- LINKS -->
 
 [Aplicación de función en el plan de consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[Aplicación de función en el plan de App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Aplicación de función en el plan Azure App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
 

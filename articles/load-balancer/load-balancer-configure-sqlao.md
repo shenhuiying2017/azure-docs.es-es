@@ -1,9 +1,9 @@
 ---
 title: "Configuración de Load Balancer para SQL always on | Microsoft Docs"
-description: "Configuración del equilibrador de carga para trabajar con SQL Always On y cómo puede sacar provecho de PowerShell para crear el equilibrador de carga para la implementación de SQL"
+description: "Configuración del equilibrador de carga para trabajar con SQL always on y cómo puede sacar provecho de powershell para crear el equilibrador de carga para la implementación de SQL"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 ms.assetid: d7bc3790-47d3-4e95-887c-c533011e4afd
 ms.service: load-balancer
@@ -11,15 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 68aad6253f185d53fdd7f11c8660c7287ef12655
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3ebbf1c4009d89b1f18b2ff8ff5dd243c456dff8
+ms.contentlocale: es-es
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="configure-load-balancer-for-sql-always-on"></a>Configuración del equilibrador de carga para SQL Always On
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Los grupos de disponibilidad de SQL Server AlwaysOn se pueden ejecutar ahora con ILB. El grupo de disponibilidad es la solución estrella de SQL Server para conseguir alta disponibilidad y recuperación ante desastres. El agente de escucha de grupo de disponibilidad permite a las aplicaciones cliente conectarse sin problemas a la réplica principal, independientemente del número de réplicas en la configuración.
 
@@ -65,9 +69,4 @@ Para más información sobre SQL AlwaysOn, consulte [Configuración de un equili
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

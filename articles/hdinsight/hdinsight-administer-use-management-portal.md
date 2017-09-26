@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f69fa4f838b22ccbb25186c08cac9744bb31c6d1
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop basados en Windows en HDInsight con el portal de Azure
@@ -211,7 +211,7 @@ También se le cargará por un clúster de HDInsight aunque no esté en uso. Com
 
 Hay muchas maneras de programar el proceso:
 
-* Usar Factoría de datos de Azure. Consulte [Servicios vinculados de Azure HDInsight](../data-factory/data-factory-compute-linked-services.md) y [Transformación y análisis mediante Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md) para conocer los servicios vinculados de HDInsight a petición y definidos por el usuario.
+* Usar Factoría de datos de Azure. Consulte [Servicios vinculados de Azure HDInsight](../data-factory/compute-linked-services.md) y [Transformación y análisis mediante Azure Data Factory](../data-factory/transform-data.md) para conocer los servicios vinculados de HDInsight a petición y definidos por el usuario.
 * Usar Azure PowerShell.  Vea [Análisis de datos de retrasos de vuelos](hdinsight-analyze-flight-delay-data.md).
 * Uso de CLI de Azure. Consulte [Administrar clústeres de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md).
 * Usar .NET SDK de HDInsight. Vea [Envío de trabajos de Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md).

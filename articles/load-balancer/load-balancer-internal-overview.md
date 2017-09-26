@@ -3,7 +3,7 @@ title: "Información general sobre el equilibrador de carga interno | Microsoft 
 description: "Información general sobre el equilibrador de carga interno y sus características. Cómo funciona un equilibrador de carga en Azure y posibles escenarios para configurar extremos internos"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: 36065bfe-0ef1-46f9-a9e1-80b229105c85
@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ec07c77119c2da408da21fbdc7877d0b43d16556
 ms.contentlocale: es-es
-ms.lasthandoff: 04/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="internal-load-balancer-overview"></a>Información general sobre el equilibrador de carga interno
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 A diferencia del equilibrador de carga accesible desde Internet, el equilibrador de carga interno (ILB) solo dirige el tráfico a los recursos dentro del servicio en la nube o mediante VPN para acceder la infraestructura de Azure. La infraestructura restringe el acceso a las direcciones IP virtuales de carga equilibrada de un servicio en la nube o una red virtual para que nunca se expongan directamente a un punto de conexión de Internet. Esto permite que las aplicaciones de línea de negocio (LOB) internas se ejecuten en Azure y se tenga acceso a ellas desde la nube o los recursos locales.
 

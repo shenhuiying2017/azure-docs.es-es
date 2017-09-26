@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: c33e132037d95fa92fd59a8243a9a8a351ae0224
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c80e78b39b3fba4dcd9523e1e679822758822805
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plataformas compatibles con Azure Security Center
@@ -38,12 +38,6 @@ Sistemas operativos Windows compatibles:
 * Windows Server 2012 R2
 * Windows Server 2016
 
-> [!NOTE]
->
-* Las evaluaciones de vulnerabilidad del sistema operativo todavía no están disponibles para Windows Server 2016.
-* Las detecciones de análisis de bloqueos solo son compatibles con Windows Server 2012 y Windows Server 2012 R2.
->
->
 
 ## <a name="supported-platforms-for-linux-vms"></a>Plataformas compatibles con máquinas virtuales Linux
 Sistemas operativos Linux compatibles:

@@ -18,14 +18,14 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 600a70c74a16e2601a874f804ac2e8382c8bfa90
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 709541a88b2b15924b93c630693ad7a3f276e29c
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Uso del coordinador de Oozie basado en tiempo con Hadoop en HDInsight para definir flujos de trabajo y coordinar trabajos
-En este artículo, obtenga información sobre cómo definir los flujos de trabajo y los coordinadores, así como el modo de desencadenar los trabajos del coordinador basados en el tiempo. Le resultará útil repasar el artículo [Uso de Oozie con HDInsight][hdinsight-use-oozie] antes de leer este artículo. Además de con Oozie, también puede programar trabajos usando Data Factory de Azure. Para obtener información sobre la factoría de datos de Azure, consulte [Uso de Pig y Hive con la factoría de datos](../data-factory/data-factory-data-transformation-activities.md).
+En este artículo, obtenga información sobre cómo definir los flujos de trabajo y los coordinadores, así como el modo de desencadenar los trabajos del coordinador basados en el tiempo. Le resultará útil repasar el artículo [Uso de Oozie con HDInsight][hdinsight-use-oozie] antes de leer este artículo. Además de con Oozie, también puede programar trabajos usando Data Factory de Azure. Para obtener información sobre la factoría de datos de Azure, consulte [Uso de Pig y Hive con la factoría de datos](../data-factory/transform-data.md).
 
 > [!NOTE]
 > En este artículo se requiere un clúster de HDInsight basado en Windows. Para obtener información sobre el uso de Oozie, incluidos los trabajos basados en tiempo, en un clúster basado en Linux, consulte [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight basado en Linux](hdinsight-use-oozie-linux-mac.md)

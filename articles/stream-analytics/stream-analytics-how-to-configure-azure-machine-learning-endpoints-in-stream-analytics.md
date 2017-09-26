@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: d0771509dfa6ca4fc005edfdbc7c0a9cb5ca0e9e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 65ba6deaf5391b013c5337e00c80099e81aa4bea
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integración de Aprendizaje automático en Análisis de transmisiones
@@ -33,7 +33,7 @@ Aprendizaje automático de Microsoft Azure proporciona una herramienta colaborat
 * **Punto de conexión**: los *puntos de conexión* son objetos de Aprendizaje automático de Azure que se usan para tomar características como entradas, aplicar un modelo de Aprendizaje automático especificado y devolver la salida con puntuación.
 * **Servicio web de puntuación**: un *servicio web de puntuación* es una colección de puntos de conexión, como se mencionó anteriormente.
 
-Cada punto de conexión tiene varias API para la ejecución de lotes y la ejecución sincrónica. Análisis de transmisiones usa la ejecución sincrónica. El servicio específico se denomina un [servicio de solicitud/respuesta](../machine-learning/machine-learning-consume-web-services.md) en Estudio de aprendizaje automático de Azure.
+Cada punto de conexión tiene varias API para la ejecución de lotes y la ejecución sincrónica. Análisis de transmisiones usa la ejecución sincrónica. El servicio específico se denomina un [servicio de solicitud/respuesta](../machine-learning/studio/consume-web-services.md) en Estudio de aprendizaje automático de Azure.
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Recursos de Machine Learning necesarios para trabajos de Stream Analytics
 Para el procesamiento de trabajos de Stream Analytics, para la correcta ejecución se necesitan un punto de conexión de solicitud/respuesta, una [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md)y una definición de Swagger. Análisis de transmisiones tiene un punto de conexión adicional que construye la dirección URL de Swagger, busca en la interfaz y devuelve una definición de función definida por el usuario predeterminada al usuario.

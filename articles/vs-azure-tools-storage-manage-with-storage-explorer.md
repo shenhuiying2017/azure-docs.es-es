@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bd8957f1257a5fdd867658be9c708bbdc8717f36
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Introducción al Explorador de Storage (versión preliminar)
@@ -68,7 +68,7 @@ Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Conexión a una suscripción de Azure Stack
 
-Para más información sobre cómo conectarse a una suscripción de Azure Stack, consulte [Conexión de Storage Explorer a una suscripción de Azure Stack](azure-stack/azure-stack-storage-connect-se.md).
+Para más información sobre cómo conectarse a una suscripción de Azure Stack, consulte [Conexión de Storage Explorer a una suscripción de Azure Stack](azure-stack/user/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Trabajo con el almacenamiento de desarrollo local
 Con el Explorador de Storage (versión preliminar), puede trabajar con el almacenamiento local mediante el Emulador de Azure Storage. Este enfoque le permite escribir código y realizar pruebas de almacenamiento sin necesidad de tener una cuenta de almacenamiento implementada en Azure (ya que el Emulador de Azure Storage emula dicha cuenta).

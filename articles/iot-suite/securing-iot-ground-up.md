@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4e02b55272fee8460886bb807a45cad99612dd86
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -49,7 +49,7 @@ Nuestros sistemas proporcionan continua detección y prevención de intrusiones,
 
 El conjunto de aplicaciones de IoT de Microsoft Azure aprovecha la seguridad y la privacidad integradas en la plataforma de Azure, junto con nuestros procesos SDL y OSA para el desarrollo y el funcionamiento seguros de todo el software de Microsoft. Estos procedimientos proporcionan protección de infraestructura, protección de red y características de administración de identidades fundamentales para la seguridad de cualquier solución. 
 
-[Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md) dentro del [conjunto de aplicaciones de IoT](iot-suite-what-is-azure-iot.md) ofrece un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre dispositivos IoT y servicios de Azure, como [Azure Machine Learning](../machine-learning/machine-learning-what-is-machine-learning.md) y [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md), mediante el uso de credenciales de seguridad y el control de acceso en cada dispositivo.
+[Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md) dentro del [conjunto de aplicaciones de IoT](iot-suite-what-is-azure-iot.md) ofrece un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre dispositivos IoT y servicios de Azure, como [Azure Machine Learning](../machine-learning/studio/what-is-machine-learning.md) y [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md), mediante el uso de credenciales de seguridad y el control de acceso en cada dispositivo.
 
 Para comunicar mejor las características de privacidad y seguridad integradas en el conjunto de aplicaciones de IoT de Azure, hemos dividido el conjunto de aplicaciones en tres áreas de seguridad principales. 
 

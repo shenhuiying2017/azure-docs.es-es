@@ -12,22 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 518b2719f24be96dffba3458f6c15e65f16b7e0d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f603c4f0305184bfefe23a02b07cef134c83e678
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Preguntas más frecuentes sobre el inicio de sesión único de conexión directa de Azure Active Directory
 
 En este artículo se ofrece respuesta a las preguntas más frecuentes sobre el inicio de sesión único de conexión directa (SSO de conexión directa) de Azure Active Directory. Siga comprobando si hay contenido nuevo.
-
->[!IMPORTANT]
->La característica de SSO de conexión directa está actualmente en versión preliminar.
 
 ## <a name="what-sign-in-methods-do-seamless-sso-work-with"></a>¿Con qué métodos de inicio de sesión funciona el SSO de conexión directa?
 
@@ -49,9 +46,9 @@ Sí. SSO de conexión directa admite `Alternate ID` como el nombre de usuario cu
 
 Sí, en este escenario se necesita la versión 2.1 o posterior del [cliente para unirse al área de trabajo](https://www.microsoft.com/download/details.aspx?id=53554).
 
-## <a name="how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account"></a>¿Cómo puedo implementar la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSOACCT`?
+## <a name="how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account"></a>¿Cómo puedo implementar la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSOACC`?
 
-Es importante implementar con frecuencia la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSOACCT` (que representa a Azure AD) creada en el bosque local de AD.
+Es importante implementar con frecuencia la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSOACC` (que representa a Azure AD) creada en el bosque local de AD.
 
 >[!IMPORTANT]
 >Se recomienda implementar la clave de descifrado de Kerberos al menos cada 30 días.
@@ -70,7 +67,7 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Paso 2: Actualización de la clave de descifrado de Kerberos en cada bosque de AD en el que se haya configurado
 
 1. Llame a `$creds = Get-Credential`. Cuando se le pida, escriba las credenciales del administrador de dominio para el bosque de AD deseado.
-2. Llame a `Update-AzureADSSOForest -OnPremCredentials $creds`. Este comando actualiza la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSOACCT` en este bosque de AD concreto y la actualiza en Azure AD.
+2. Llame a `Update-AzureADSSOForest -OnPremCredentials $creds`. Este comando actualiza la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSOACC` en este bosque de AD concreto y la actualiza en Azure AD.
 3. Repita los pasos anteriores para cada bosque de AD en el que haya configurado la característica.
 
 >[!IMPORTANT]

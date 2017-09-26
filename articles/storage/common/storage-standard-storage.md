@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: yuemlu
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b7cc8bc2b39e544a5807a2f6f9ff86ba73c54564
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b432426cb5cc5401fa2e8f7aaa6bc0955aff0931
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Almacenamiento Estándar rentable y discos de máquina virtual de Azure administrados y no administrados
@@ -48,7 +48,7 @@ Para obtener información acerca de cómo crear una máquina virtual con Managed
 
 Examinemos algunas de las características del almacenamiento estándar. Para más información, consulte [Introducción a Azure Storage](../storage-introduction.md).
 
-**Almacenamiento estándar**: el almacenamiento estándar de Azure admite discos de Azure, blobs de Azure, Azure File Storage, tablas de Azure y colas de Azure. Para utilizar el almacenamiento estándar, comience por [crear una cuenta de Azure Storage](storage-create-storage-account.md#create-a-storage-account).
+**Almacenamiento estándar**: el almacenamiento estándar de Azure admite discos de Azure, blobs de Azure, archivos de Azure, tablas de Azure y colas de Azure. Para utilizar el almacenamiento estándar, comience por [crear una cuenta de Azure Storage](storage-create-storage-account.md#create-a-storage-account).
 
 **Discos de almacenamiento estándar:** los discos de almacenamiento estándar se pueden conectar a todas las máquinas virtuales de Azure, incluidas las máquinas virtuales de varias series de tamaños que se usan con Premium Storage, como las series DSv2 y GS. Un disco de almacenamiento estándar solo puede conectarse a una máquina virtual. Sin embargo, se pueden asociar uno o varios de estos discos a una máquina virtual, hasta el número máximo definido para el tamaño de la máquina virtual. En la sección siguiente sobre objetivos de escalabilidad y rendimiento del almacenamiento estándar, se describirán las especificaciones con más detalle. 
 

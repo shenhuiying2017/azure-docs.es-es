@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ad2c6d585eef5450f7f0912ffa4753fe80d86b37
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 21229ad7277ce03e5276fe965d73b5e5eba12424
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Administración de las identidades de dispositivo de IoT Hub de forma masiva
@@ -71,7 +71,7 @@ while(true)
 
 ## <a name="export-devices"></a>Exportación de dispositivos
 
-Use el método **ExportDevicesAsync** para exportar la totalidad de un Registro de identidad de IoT Hub a un contenedor de blobs de [Azure Storage](../storage/index.md) mediante una [firma de acceso compartido](../storage/common/storage-security-guide.md#data-plane-security).
+Use el método **ExportDevicesAsync** para exportar la totalidad de un Registro de identidad de IoT Hub a un contenedor de blobs de [Azure Storage](../storage/index.yml) mediante una [firma de acceso compartido](../storage/common/storage-security-guide.md#data-plane-security).
 
 Este método le permite crear copias de seguridad confiables de la información del dispositivo en un contenedor de blobs que usted controle.
 
@@ -196,7 +196,7 @@ Tenga cuidado con el método **ImportDevicesAsync** porque además del aprovisio
 
 El método **ImportDevicesAsync** requiere dos parámetros:
 
-* Una *cadena* que contiene un identificador URI de un contenedor de blobs de [Azure Storage](../storage/index.md) para usar como *entrada* para el trabajo. Este identificador URI debe contener un token SAS que conceda acceso de lectura al contenedor. Este contenedor debe incluir un blob con el nombre **devices.txt** que contenga los datos de dispositivo serializados para importar en el Registro de identidad. Los datos de importación deben contener la información del dispositivo en el mismo formato JSON que usa el trabajo **ExportImportDevice** cuando crea un blob **devices.txt**. El token de SAS debe incluir estos permisos:
+* Una *cadena* que contiene un identificador URI de un contenedor de blobs de [Azure Storage](../storage/index.yml) para usar como *entrada* para el trabajo. Este identificador URI debe contener un token SAS que conceda acceso de lectura al contenedor. Este contenedor debe incluir un blob con el nombre **devices.txt** que contenga los datos de dispositivo serializados para importar en el Registro de identidad. Los datos de importación deben contener la información del dispositivo en el mismo formato JSON que usa el trabajo **ExportImportDevice** cuando crea un blob **devices.txt**. El token de SAS debe incluir estos permisos:
 
    ```csharp
    SharedAccessBlobPermissions.Read

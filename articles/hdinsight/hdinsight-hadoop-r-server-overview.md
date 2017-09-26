@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c88bf04f904d6784b882f524ac8737ca70003c91
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a9f61ec7c051ccdd867aec94121347db19b059b5
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introducción a las funcionalidades de R de código abierto de R Server en HDInsight
@@ -32,7 +32,7 @@ R Server en HDInsight proporciona las funcionalidades más recientes para realiz
 
 El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R. Con un nodo perimetral, tiene la opción de ejecutar las funciones distribuidas paralelizadas de ScaleR en los diferentes núcleos del servidor de nodo perimetral. También puede ejecutarlas en los nodos del clúster utilizando los contextos de proceso de Spark o Hadoop MapReduce de ScaleR.
 
-Los modelos o las predicciones que se generan a partir de los análisis pueden descargarse para utilizarse en un entorno local. También pueden emplearse en otro lugar de Azure, en concreto a través del [servicio web](../machine-learning/machine-learning-publish-a-machine-learning-web-service.md) [Azure Machine Learning Studio](http://studio.azureml.net).
+Los modelos o las predicciones que se generan a partir de los análisis pueden descargarse para utilizarse en un entorno local. También pueden emplearse en otro lugar de Azure, en concreto a través del [servicio web](../machine-learning/studio/publish-a-machine-learning-web-service.md) [Azure Machine Learning Studio](http://studio.azureml.net).
 
 ## <a name="get-started-with-r-on-hdinsight"></a>Introducción a R en HDInsight
 Para incluir R Server en un clúster de HDInsight, debe seleccionar el tipo de clúster R Server al crear un clúster de HDInsight mediante Azure Portal. El tipo de clúster R Server incluye esta plataforma en los nodos de datos del clúster y en un nodo perimetral, que sirve como zona de aterrizaje para los análisis basados en R Server. Consulte [Introducción al uso de R Server en HDInsight](hdinsight-hadoop-r-server-get-started.md) para conocer una solución alternativa sobre cómo crear el clúster.

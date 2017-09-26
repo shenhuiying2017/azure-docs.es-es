@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b45d85d0d77cf47f36cb793bc8c0dbe2d5c12634
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f0be85d661807f36890fc79090c3f820ae8c376d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carga de archivos de un dispositivo a la nube con IoT Hub mediante .NET
@@ -37,7 +37,7 @@ Los tutoriales [Introducción a Iot Hub](iot-hub-csharp-csharp-getstarted.md) y 
 * Datos de vibración muestreados con alta frecuencia
 * Cierto tipo de datos procesados previamente
 
-Dichos archivos se suelen procesar por lotes en la nube mediante herramientas como [Azure Data Factory](../data-factory/index.md) o la pila [Hadoop](../hdinsight/index.md). Cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub.
+Dichos archivos se suelen procesar por lotes en la nube mediante herramientas como [Azure Data Factory](../data-factory/introduction.md) o la pila [Hadoop](../hdinsight/index.md). Cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub.
 
 Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET:
 
@@ -191,12 +191,12 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 <!-- Links -->
 
-[Azure Portal]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[paquete NuGet del SDK de servicios IoT de Azure ]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Paquete NuGet del SDK de servicios IoT de Azure]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

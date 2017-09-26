@@ -3,7 +3,7 @@ title: "Configuración de un modo de distribución de Load Balancer | Microsoft 
 description: "Cómo configurar el modo de distribución del equilibrador de carga de Azure para admitir la afinidad de IP de origen"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
 ms.service: load-balancer
@@ -11,15 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 664e668d6660fae956d4b6bdf0179abf67d743b1
-ms.openlocfilehash: 1bc28b6f2979f47284a27a5a25becb8599b2ffab
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5c08b1361dfd2d13e0e7ca2ce6f9a2cf357a8dff
+ms.contentlocale: es-es
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="configure-the-distribution-mode-for-load-balancer"></a>Configuración del modo de distribución en el equilibrador de carga
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## <a name="hash-based-distribution-mode"></a>Distribución basada en hash
 
@@ -164,9 +168,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
 [Introducción a la configuración de un equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

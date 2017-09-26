@@ -16,17 +16,17 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 249a8bfb6cab66af19fbf15cb270c9377f49358f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1e1c3724462a4d2a67eab3ef42867d2aeb5d3fa1
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Escalado del trabajo de Análisis de transmisiones con funciones de Aprendizaje automático de Azure
 A menudo resulta fácil configurar un trabajo de Stream Analytics y ejecutar datos de ejemplo mediante él. ¿Qué debemos hacer cuando tengamos que ejecutar el mismo trabajo con un volumen de datos más alto? Será necesario comprender cómo configurar el trabajo de Stream Analytics para escalarlo. En este documento, nos centraremos en los aspectos especiales de escalar trabajos de Stream Analytics con funciones de Machine Learning. Para más información sobre cómo escalar trabajos de Análisis de transmisiones en general, consulte el artículo [Escalado de trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento de procesamiento de flujo de datos](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>¿Qué es una función de Aprendizaje automático de Azure en Análisis de transmisiones?
-Una función de Aprendizaje automático en Análisis de transmisiones puede utilizarse como una llamada de función normal en el lenguaje de consulta de Análisis de transmisiones. Sin embargo, en segundo plano, las llamadas de función son en realidad solicitudes de servicio web de Aprendizaje automático de Azure. Los servicios web de Aprendizaje automático admiten el "procesamiento por lotes" de varias filas, lo que se conoce como mini lote, en la misma llamada a la API de servicio web, con el fin de mejorar el rendimiento en general. Consulte los siguientes artículos para obtener más detalles: [Funciones de Azure Machine Learning en Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) y [Servicios web Azure Machine Learning](../machine-learning/machine-learning-consume-web-services.md).
+Una función de Aprendizaje automático en Análisis de transmisiones puede utilizarse como una llamada de función normal en el lenguaje de consulta de Análisis de transmisiones. Sin embargo, en segundo plano, las llamadas de función son en realidad solicitudes de servicio web de Aprendizaje automático de Azure. Los servicios web de Aprendizaje automático admiten el "procesamiento por lotes" de varias filas, lo que se conoce como mini lote, en la misma llamada a la API de servicio web, con el fin de mejorar el rendimiento en general. Consulte los siguientes artículos para obtener más detalles: [Funciones de Azure Machine Learning en Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) y [Servicios web Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configuración de un trabajo de Análisis de transmisiones con funciones de Aprendizaje automático
 Al configurar una función de Machine Learning para el trabajo de Stream Analytics, hay dos parámetros a tener en cuenta: el tamaño de lote de las llamadas de función de Machine Learning y las unidades de streaming (SU) aprovisionadas para el trabajo de Stream Analytics. Para determinar los valores adecuados de estos parámetros, será necesario en primer lugar decidir entre latencia y rendimiento, es decir, entre la latencia del trabajo de Análisis de transmisiones y el rendimiento de cada SU. Siempre se pueden agregar SU a un trabajo para aumentar el rendimiento de una consulta de Stream Analytics bien particionada, aunque las SU adicionales aumentarán el costo de ejecución del trabajo.
@@ -45,7 +45,7 @@ En general, si ***B*** es el tamaño de lote y ***L*** es la latencia del servic
 
 Un aspecto adicional a tener en cuenta pueden ser las 'llamadas simultáneas máximas' en el lado del servicio web de Aprendizaje automático; se recomienda que estas llamadas se establezcan en el valor máximo (actualmente 200).
 
-Para más información sobre esta configuración, consulte el artículo de [Escalado para servicio web Machine Learning](../machine-learning/machine-learning-scaling-webservice.md).
+Para más información sobre esta configuración, consulte [Escalado del servicio web](../machine-learning/studio/scaling-webservice.md).
 
 ## <a name="example--sentiment-analysis"></a>Ejemplo: Análisis de opiniones
 En el ejemplo siguiente se incluye un trabajo de Análisis de transmisiones con la función de Aprendizaje automático de análisis de opiniones, como se describe en el [tutorial de integración de Aprendizaje automático de Análisis de transmisiones](stream-analytics-machine-learning-integration-tutorial.md).

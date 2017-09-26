@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b469c0ebe9838a1ea986cff3043e3008941e9aa9
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Uso del servicio Azure Import/Export para la copia de datos sin conexión en Data Lake Store
@@ -70,7 +70,7 @@ Ahora puede enviar físicamente los discos a un centro de datos de Azure. Allí,
 ## <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-store"></a>Copia de datos de blobs de Azure Storage en Azure Data Lake Store
 Cuando se muestre el estado del trabajo de importación como completado, podrá comprobar si los datos están disponibles en los blobs de Azure Storage que había especificado. Después, podrá utilizar diversos métodos para mover estos datos de los blobs de Azure Storage a Azure Data Lake Store. Para ver todas las opciones disponibles para cargar datos, consulte el artículo sobre cómo [ingerir datos en Data Lake Store](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-store).
 
-En esta sección, proporcionamos las definiciones de JSON que puede usar para crear una canalización de Azure Data Factory con el objetivo de copiar datos. Puede utilizar estas definiciones de JSON en [Azure Portal](../data-factory/data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](../data-factory/data-factory-copy-activity-tutorial-using-powershell.md).
+En esta sección, proporcionamos las definiciones de JSON que puede usar para crear una canalización de Azure Data Factory con el objetivo de copiar datos. Puede utilizar estas definiciones de JSON en [Azure Portal](../data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](../data-factory/v1/data-factory-copy-activity-tutorial-using-powershell.md).
 
 ### <a name="source-linked-service-azure-storage-blob"></a>Servicio vinculado de origen (blob de Azure Storage)
 ````
@@ -188,7 +188,7 @@ En esta sección, proporcionamos las definiciones de JSON que puede usar para cr
     }
 }
 ````
-Para más información, consulte [Movimiento de datos hacia y desde Azure Data Lake Store mediante Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md).
+Para más información, consulte [Movimiento de datos hacia y desde Azure Data Lake Store mediante Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Reconstrucción de los archivos de datos de Azure Data Lake Store
 Comenzamos con un archivo de 319 GB y lo dividimos en fragmentos de menor tamaño para que se pudiesen transferir mediante el servicio Azure Import/Export. Ahora que los datos están en Azure Data Lake Store, podemos reconstruir el archivo para que vuelva a tener su tamaño original. También puede utilizar el siguiente cmdlet de Azure PowerShell.

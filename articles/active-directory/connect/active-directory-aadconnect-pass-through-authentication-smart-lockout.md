@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: c84b2406e6373701c83c509342129bd6d7d4034b
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9a33e83c7453d5b80043599acca3ac4310446562
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -35,7 +35,7 @@ Bloqueo inteligente funciona mediante el seguimiento de los errores de inicio de
 
 Bloqueo inteligente también distingue entre inicios de sesión de usuarios originales y de los atacantes, y solo bloquea a los atacantes en la mayoría de los casos. Esta funcionalidad impide que los atacantes bloqueen de forma malintencionada a los usuarios originales. Se usa el comportamiento de inicio de sesión pasado, los exploradores y dispositivos de los usuarios, y otras señales para distinguir entre atacantes y usuarios originales. Estamos mejorando constantemente nuestros algoritmos.
 
-Como la autenticación de paso a través reenvía las solicitudes de validación de contraseñas a la instancia local de Active Directory (AD), tendrá que evitar que los atacantes bloqueen las cuentas de AD de sus usuarios. Como tiene sus propias directivas de bloqueo de cuentas de AD (en concreto, [**Umbral de bloqueo de cuenta**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) y [**Restablecer contador de bloqueo de cuenta después de** ](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx)), debe configurar los valores de umbral de bloqueo y duración del bloqueo de Azure AD adecuadamente para filtrar ataques en la nube antes de que lleguen a la instancia local de AD.
+Como la autenticación de paso a través reenvía las solicitudes de validación de contraseñas a la instancia local de Active Directory (AD), tendrá que evitar que los atacantes bloqueen las cuentas de AD de sus usuarios. Como tiene sus propias directivas de bloqueo de cuentas de AD (en concreto, [**Umbral de bloqueo de cuenta**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) y [**Restablecer contador de bloqueo de cuenta después de **](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx)), debe configurar los valores de umbral de bloqueo y duración del bloqueo de Azure AD adecuadamente para filtrar ataques en la nube antes de que lleguen a la instancia local de AD.
 
 >[!NOTE]
 >La característica de bloqueo inteligente es gratuita y está _activada_ de forma predeterminada para todos los clientes. Sin embargo, la modificación de los valores de Umbral de bloqueo y Duración del bloqueo de Azure AD mediante la API Graph requiere que el inquilino disponga al menos de una licencia de Azure AD Premium P2. No se necesita una licencia de Azure AD Premium P2 _por usuario_ para habilitar la característica de bloqueo inteligente con la autenticación de paso a través.
@@ -79,7 +79,7 @@ Siga estos pasos para establecer los valores de bloqueo inteligente del inquilin
 1. Inicie sesión en el Explorador de gráficos como un administrador global del inquilino. Si se le solicita, conceda acceso para los permisos solicitados.
 2. Haga clic en "Modificar permisos" y seleccione el permiso "Directory.ReadWrite.All".
 3. Configure la solicitud de la API de Graph como sigue: establezca la versión en "BETA", el tipo de solicitud en "POST" y la dirección URL en `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
-4. Copie y pegue la siguiente solicitud de JSON en el campo "Cuerpo de la solicitud". Cambie los valores de bloqueo inteligente según corresponda y use un GUID aleatorio para `templateId`.
+4. Copie y pegue la siguiente solicitud de JSON en el campo "Cuerpo de la solicitud".
 5. Haga clic en "Ejecutar consulta" para establecer los valores de bloqueo inteligente del inquilino.
 
 ```

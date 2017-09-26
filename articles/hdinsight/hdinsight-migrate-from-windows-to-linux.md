@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 2efd8e9981ac5d8f2ff28df9ffe1e6b5c01ba953
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ea38d3b47ff4b50446f4ffdc3dc544fdcf938e7
 ms.contentlocale: es-es
-ms.lasthandoff: 06/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migración desde un clúster de HDInsight basado en Windows a un clúster basado en Linux
@@ -256,8 +256,8 @@ Los clústeres de Spark estaban disponibles en los clústeres de Windows durante
 
 Las actividades de .NET personalizadas de Data Factory de Azure no son compatibles actualmente con clústeres de HDInsight basado en Linux. En su lugar, se debe usar uno de los métodos siguientes para implementar actividades personalizadas como parte de la canalización de ADF.
 
-* Ejecute actividades de .NET en grupo de Lote de Azure. Consulte la sección Servicio vinculado de Lote de Azure de [Uso de actividades personalizadas en una canalización de Azure Data Factory](../data-factory/data-factory-use-custom-activities.md)
-* Implemente la actividad como una actividad MapReduce. Para obtener más información, consulte [Invocación de programas MapReduce desde Data Factory](../data-factory/data-factory-map-reduce.md).
+* Ejecute actividades de .NET en grupo de Lote de Azure. Consulte la sección Servicio vinculado de Lote de Azure de [Uso de actividades personalizadas en una canalización de Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md)
+* Implemente la actividad como una actividad MapReduce. Para obtener más información, consulte [Invocación de programas MapReduce desde Data Factory](../data-factory/transform-data-using-hadoop-map-reduce.md).
 
 ### <a name="line-endings"></a>Fin de línea
 

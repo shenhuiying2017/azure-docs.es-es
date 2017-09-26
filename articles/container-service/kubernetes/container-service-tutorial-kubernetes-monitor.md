@@ -18,10 +18,10 @@ ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 65556049d33c84848f015a095acf9c1f69348c6d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ebf35877dcd6f980af75f46b437070a6a29b7c54
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -140,7 +140,7 @@ En el portal de OMS, busque un icono de resumen de **Containers** en el panel de
 
 En Azure Portal, vaya a **Log Analytics** y seleccione el nombre de su área de trabajo. Para ver el icono de resumen de **Containers**, haga clic en **Soluciones** > **Containers**. Para ver los detalles, haga clic en el icono.
 
-Consulte la [documentación de Azure Log Analytics](../../log-analytics/index.md) para obtener una guía detallada para consultar y analizar los datos de supervisión.
+Consulte la [documentación de Azure Log Analytics](../../log-analytics/index.yml) para obtener una guía detallada para consultar y analizar los datos de supervisión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

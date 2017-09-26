@@ -12,22 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: f0bcbdb03fbb70ff91ac3a56974a88eb1b26c245
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 38b107513e72635fd034bb86d0d866bcb0fcb8e4
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Inicio de sesión único de conexión directa de Azure Active Directory: información técnica detallada
 
 En este artículo se proporcionan los detalles técnicos sobre cómo funciona la característica Inicio de sesión único de conexión directa (SSO de conexión directa) de Azure Active Directory.
-
->[!IMPORTANT]
->La característica de SSO de conexión directa está actualmente en versión preliminar.
 
 ## <a name="how-does-seamless-sso-work"></a>¿Cómo funciona SSO de conexión directa?
 
@@ -38,15 +35,15 @@ Esta sección tiene dos partes:
 ### <a name="how-does-set-up-work"></a>¿Cómo funciona la configuración?
 
 SSO de conexión directa se habilita a través de Azure AD Connect tal como se muestra [aquí](active-directory-aadconnect-sso-quick-start.md). Cuando se habilita la característica, se producen los pasos siguientes:
-- Una cuenta de equipo denominada `AZUREADSSOACCT` (que representa a Azure AD) se crea en la instancia local de Active Directory (AD).
+- Una cuenta de equipo denominada `AZUREADSSOACC` (que representa a Azure AD) se crea en la instancia local de Active Directory (AD).
 - La clave de descifrado de Kerberos de la cuenta de equipo se comparte de manera segura con Azure AD.
 - Además, se crean dos nombres de entidad de seguridad de servicio (SPN) de Kerberos que representan las dos direcciones URL que se usan en el inicio de sesión de Azure AD.
 
 >[!NOTE]
-> La cuenta de equipo y los SPN de Kerberos se crean en cada bosque de AD que sincronice con Azure AD (a través de Azure AD Connect) y para cuyos usuarios desee SSO de conexión directa. Migre la cuenta de equipo `AZUREADSSOACCT` a una unidad organizativa (UO) donde se almacenen otras cuentas de equipo para garantizar que se administre de la misma manera y que no se elimine.
+> La cuenta de equipo y los SPN de Kerberos se crean en cada bosque de AD que sincronice con Azure AD (a través de Azure AD Connect) y para cuyos usuarios desee SSO de conexión directa. Migre la cuenta de equipo `AZUREADSSOACC` a una unidad organizativa (UO) donde se almacenen otras cuentas de equipo para garantizar que se administre de la misma manera y que no se elimine.
 
 >[!IMPORTANT]
->Se recomienda encarecidamente [sustituir la clave de descifrado de Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account) de la cuenta de equipo de `AZUREADSSOACCT` al menos cada 30 días.
+>Se recomienda encarecidamente [sustituir la clave de descifrado de Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) de la cuenta de equipo de `AZUREADSSOACC` al menos cada 30 días.
 
 ### <a name="how-does-sign-in-with-seamless-sso-work"></a>¿Cómo funciona el inicio de sesión con SSO de conexión directa?
 
@@ -60,7 +57,7 @@ Una vez que se completa la instalación, SSO de conexión directa funcionan del 
 
 3. El usuario escribe su nombre de usuario en la página de inicio de sesión de Azure AD.
 4. Con JavaScript en segundo plano, Azure AD desafía al explorador, a través de una respuesta 401 No autorizado, a que proporcione un vale de Kerberos.
-5. A su vez, el explorador solicita un vale desde Active Directory para la cuenta de equipo `AZUREADSSOACCT` (que representa a Azure AD).
+5. A su vez, el explorador solicita un vale desde Active Directory para la cuenta de equipo `AZUREADSSOACC` (que representa a Azure AD).
 6. Active Directory busca la cuenta de equipo y devuelve al explorador un vale Kerberos cifrado con el secreto de la cuenta de equipo.
 7. El explorador reenvía el vale de Kerberos que adquirió desde Active Directory a Azure AD (en una de las [direcciones URL de Azure AD que se agregó previamente a la configuración de la zona de intranet del explorador](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
 8. Azure AD descifra el vale de Kerberos, que incluye la identidad del usuario que inició sesión en el dispositivo corporativo, mediante la clave compartida previamente.
