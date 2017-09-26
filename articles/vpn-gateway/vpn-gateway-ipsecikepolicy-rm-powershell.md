@@ -1,6 +1,6 @@
 ---
 title: 'Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual: Azure Resource Manager: PowerShell | Microsoft Docs'
-description: "Este artículo le guiará a la hora de configurar una directiva de IPsec o IKE para conexiones de sitio a sitio o de red virtual a red virtual con Azure VPN Gateway mediante Azure Resource Manager y PowerShell."
+description: "Este artículo le guiará a la hora de configurar una directiva de IPsec o IKE para conexiones de sitio a sitio o de red virtual a red virtual con puertas de enlace de VPN de Azure mediante Azure Resource Manager y PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 798014b6e8d4495db99ef2e2d2ea487ae7d02fd0
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: edeaec04c040d0cbe419f357541915b56c2c33b9
 ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/16/2017
 Este artículo le guiará por los pasos para configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual mediante el modelo de implementación de Resource Manager y PowerShell.
 
 ## <a name="about"></a>Acerca de los parámetros de la directiva de IPsec e IKE para Azure VPN gateway
-El protocolo IPsec e IKE estándar admite una gran variedad de algoritmos criptográficos en diversas combinaciones. En [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) (Acerca de los requisitos de cifrado y Azure VPN Gateway) se describe la manera en que esto puede ayudar a garantizar que la conectividad entre locales y de red virtual a red virtual satisface los requisitos de cumplimiento o seguridad.
+El protocolo IPsec e IKE estándar admite una gran variedad de algoritmos criptográficos en diversas combinaciones. En [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) (Acerca de los requisitos de cifrado y las puertas de enlace de VPN de Azure) se describe la manera en que esto puede ayudar a garantizar que la conectividad entre locales y de red virtual a red virtual satisface los requisitos de cumplimiento o seguridad.
 
 En este artículo se proporcionan instrucciones para crear y configurar una directiva de IPsec o IKE y aplicarla a una conexión nueva o existente:
 
@@ -47,7 +47,7 @@ En este artículo se proporcionan instrucciones para crear y configurar una dire
 
 ## <a name ="workflow"></a>Parte 1: flujo de trabajo para crear y establecer una directiva de IPsec o IKE
 En esta sección se describe el flujo de trabajo para crear y actualizar una directiva de IPsec o IKE en una conexión VPN de sitio a sitio o de red virtual a red virtual:
-1. Crear una red virtual y una VPN Gateway
+1. Crear una red virtual y una puerta de enlace de VPN
 2. Crear una puerta de enlace de red local para la conexión entre locales, u otra red virtual y puerta de enlace para la conexión de red virtual a red virtual
 3. Crear una directiva de IPsec o IKE con los algoritmos y parámetros seleccionados
 4. Crear una conexión (IPsec o de red virtual a red virtual) con la directiva de IPsec o IKE
@@ -74,9 +74,24 @@ En la tabla siguiente se enumeran los algoritmos criptográficos y los niveles d
 |  |  |
 
 > [!IMPORTANT]
-> 1. **Si se usa GCMAES para el algoritmo de cifrado IPsec, se debe seleccionar el mismo algoritmo GCMAES y longitud de clave para la integridad de IPsec; por ejemplo, el uso de GCMAES128 para ambos**
-> 2. La vigencia de SA del modo principal de IKEv2 se fija en 28 800 segundos en Azure VPN Gateway
-> 3. Si establece "UsePolicyBasedTrafficSelectors" en $True en una conexión, configurará Azure VPN Gateway de modo que se conecte al firewall VPN basado en directivas de forma local. Si habilita PolicyBasedTrafficSelectors, debe asegurarse de que el dispositivo VPN tiene los selectores de tráfico coincidentes definidos con todas las combinaciones de sus prefijos de red local (puerta de enlace de red local) a o desde los prefijos de Azure Virtual Network, en lugar de cualquiera a cualquiera. Por ejemplo, si sus prefijos de red local son 10.1.0.0/16 y 10.2.0.0/16, y sus prefijos de red virtual son 192.168.0.0/16 y 172.16.0.0/16, debe especificar los siguientes selectores de tráfico:
+> 1. **La configuración de su dispositivo VPN local debe coincidir o contener los siguientes algoritmos y parámetros que se especifican en la directiva de IPsec o IKE de Azure:**
+>    * Algoritmo de cifrado de IKE (modo principal/fase 1)
+>    * Algoritmo de integridad de IKE (modo principal/fase 1)
+>    * Grupo DH (modo principal/fase 1)
+>    * Algoritmo de cifrado de IPsec (modo rápido/fase 2)
+>    * Algoritmo de integridad de IPsec (modo rápido/fase 2)
+>    * Grupo PFS (modo rápido/fase 2)
+>    * Selector de tráfico (si se usa UsePolicyBasedTrafficSelectors)
+>    * Las vigencias de SA solo son especificaciones locales, no es preciso que coincidan.
+>
+> 2. **Si se usa GCMAES para el algoritmo de cifrado IPsec, se debe seleccionar el mismo algoritmo GCMAES y longitud de clave para la integridad de IPsec; por ejemplo, el uso de GCMAES128 para ambos**
+> 3. En la tabla anterior:
+>    * IKEv2 corresponde al modo principal o fase 1
+>    * IPsec corresponde al modo rápido o fase 2
+>    * El Grupo DH especifica el grupo Diffie-Hellmen utilizado en el modo principal o fase 1
+>    * El grupo PFS especifica el grupo Diffie-Hellmen utilizado en el modo rápido o fase 2
+> 4. La vigencia de SA del modo principal de IKEv2 se fija en 28 800 segundos en las puertas de enlace de VPN de Azure
+> 5. Si establece "UsePolicyBasedTrafficSelectors" en $True en una conexión, configurará la puerta de enlace de VPN de Azure de modo que se conecte al firewall VPN basado en directivas de forma local. Si habilita PolicyBasedTrafficSelectors, debe asegurarse de que el dispositivo VPN tiene los selectores de tráfico coincidentes definidos con todas las combinaciones de sus prefijos de red local (puerta de enlace de red local) a o desde los prefijos de red virtual de Azure, en lugar de cualquiera a cualquiera. Por ejemplo, si sus prefijos de red local son 10.1.0.0/16 y 10.2.0.0/16, y sus prefijos de red virtual son 192.168.0.0/16 y 172.16.0.0/16, debe especificar los siguientes selectores de tráfico:
 >    * 10.1.0.0/16 <====> 192.168.0.0/16
 >    * 10.1.0.0/16 <====> 172.16.0.0/16
 >    * 10.2.0.0/16 <====> 192.168.0.0/16
@@ -153,7 +168,7 @@ Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Creación de la red virtual, VPN Gateway y la puerta de enlace de red local
+#### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Creación de la red virtual, la puerta de enlace de VPN y la puerta de enlace de red local
 
 En el ejemplo siguiente se crea la red virtual, TestVNet1, con tres subredes y VPN Gateway. Al reemplazar valores, es importante que siempre asigne el nombre GatewaySubnet a la subred de la puerta de enlace. Si usa otro, se produce un error al crear la puerta de enlace.
 
@@ -169,7 +184,7 @@ $vnet1      = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
 $subnet1    = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
 $gw1ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $subnet1 -PublicIpAddress $gw1pip1
 
-New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance
+New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
 
 New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
 ```
@@ -181,19 +196,19 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 El script de ejemplo siguiente crea una directiva de IPsec o IKE con los algoritmos y parámetros siguientes:
 
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, PFS24, vigencia de SA de 7200 segundos y 2048 KB
+* IPsec: AES256, SHA256, sin PFS, vigencia de SA de 7200 segundos y 102400000 KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
 ```
 
 Si usa GCMAES para IPsec, debe usar el mismo algoritmo GCMAES y longitud de clave para la integridad y el cifrado IPsec, por ejemplo:
 
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: **GCMAES256, GCMAES256**, PFS24, vigencia de SA de 7200 segundos y 2048 KB
+* IPsec: **GCMAES256, GCMAES256**, sin PFS, vigencia de SA de 7200 segundos y 102400000 KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
 ```
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. Crear la conexión VPN de sitio a sitio con la directiva de IPsec o IKE
@@ -207,10 +222,10 @@ $lng6 = Get-AzureRmLocalNetworkGateway  -Name $LNGName6 -ResourceGroupName $RG1
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -IpsecPolicies $ipsecpolicy6 -SharedKey 'AzureA1b2C3'
 ```
 
-Opcionalmente, puede agregar "-UsePolicyBasedTrafficSelectors $True" al cmdlet para crear la conexión a fin de permitir que VPN Gateway se conecte a dispositivos VPN basados en directivas de forma local, como se ha descrito anteriormente.
+Opcionalmente, puede agregar "-UsePolicyBasedTrafficSelectors $True" al cmdlet para crear la conexión a fin de permitir que la puerta de enlace de VPN se conecte a dispositivos VPN basados en directivas de forma local, como se ha descrito anteriormente.
 
 > [!IMPORTANT]
-> Una vez que se haya especificado una directiva de IPsec o IKE en una conexión, Azure VPN Gateway solo enviará o aceptará la propuesta de IPsec o IKE con los algoritmos criptográficos y los niveles de clave especificados en esa conexión en particular. Asegúrese de que el dispositivo VPN local para la conexión usa o acepta la combinación de directivas exacta. En caso contrario, no se establecerá el túnel VPN de sitio a sitio.
+> Una vez que se haya especificado una directiva de IPsec o IKE en una conexión, la puerta de enlace de VPN de Azure solo enviará o aceptará la propuesta de IPsec o IKE con los algoritmos criptográficos y los niveles de clave especificados en esa conexión en particular. Asegúrese de que el dispositivo VPN local para la conexión usa o acepta la combinación de directivas exacta. En caso contrario, no se establecerá el túnel VPN de sitio a sitio.
 
 
 ## <a name ="vnet2vnet"></a>Parte 4: crear una conexión de red virtual a red virtual con una directiva de IPsec o IKE
@@ -219,7 +234,7 @@ Los pasos necesarios para crear una conexión de red virtual a red virtual con u
 
 ![v2v-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/v2vpolicy.png)
 
-Consulte [Creación de una conexión de red virtual a red virtual](vpn-gateway-vnet-vnet-rm-ps.md) para conocer los pasos detallados para crear una conexión de red virtual a red virtual. Tiene que completar la [parte 3](#crossprem) para crear y configurar TestVNet1 y VPN Gateway.
+Consulte [Creación de una conexión de red virtual a red virtual](vpn-gateway-vnet-vnet-rm-ps.md) para conocer los pasos detallados para crear una conexión de red virtual a red virtual. Tiene que completar la [parte 3](#crossprem) para crear y configurar TestVNet1 y la puerta de enlace de VPN.
 
 ### <a name="createvnet2"></a>Paso 1: Creación de la segunda red virtual y VPN Gateway
 
@@ -247,7 +262,7 @@ $Connection21 = "VNet2toVNet1"
 $Connection12 = "VNet1toVNet2"
 ```
 
-#### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2. Creación de la segunda red virtual y VPN Gateway en el nuevo grupo de recursos
+#### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2. Creación de la segunda red virtual y la puerta de enlace de VPN en el nuevo grupo de recursos
 
 ```powershell
 New-AzureRmResourceGroup -Name $RG2 -Location $Location2
@@ -294,7 +309,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 ```
 
 > [!IMPORTANT]
-> Una vez que se haya especificado una directiva de IPsec o IKE en una conexión, Azure VPN Gateway solo enviará o aceptará la propuesta de IPsec o IKE con los algoritmos criptográficos y los niveles de clave especificados en esa conexión en particular. Asegúrese de que las directivas de IPsec para ambas conexiones son iguales. En caso contrario, no se establecerá la conexión de red virtual a red virtual.
+> Una vez que se haya especificado una directiva de IPsec o IKE en una conexión, la puerta de enlace de VPN de Azure solo enviará o aceptará la propuesta de IPsec o IKE con los algoritmos criptográficos y los niveles de clave especificados en esa conexión en particular. Asegúrese de que las directivas de IPsec para ambas conexiones son iguales. En caso contrario, no se establecerá la conexión de red virtual a red virtual.
 
 Después de completar estos pasos, la conexión se establecerá al cabo de unos minutos y tendrá la topología de red siguiente, tal como se mostró al principio:
 
@@ -312,7 +327,7 @@ En la última sección se muestra cómo administrar la directiva de IPsec o IKE 
 Los mismos pasos se aplican a las conexiones de sitio a sitio y de red virtual a red virtual.
 
 > [!IMPORTANT]
-> La directiva de IPsec o IKE solo se admite en VPN Gateway basadas en rutas *Standard* y *HighPerformance*. No funciona en la SKU de puerta de enlace básica o VPN Gateway basada en directivas.
+> La directiva de IPsec o IKE solo se admite en las puertas de enlace de VPN basadas en rutas *Standard* y *HighPerformance*. No funciona en la SKU de puerta de enlace básica o la puerta de enlace de VPN basada en directivas.
 
 #### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. Mostrar la directiva de IPsec o IKE de una conexión
 
