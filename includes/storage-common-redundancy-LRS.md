@@ -1,0 +1,11 @@
+El almacenamiento con redundancia local (LRS) replica los datos tres veces dentro de una unidad de escalado de almacenamiento que se hospeda en un centro de datos de la región en la que se creó su cuenta de almacenamiento. Una solicitud de escritura se devuelve correctamente solo una vez que se ha escrito en las tres réplicas. Cada una de estas tres réplicas reside en dominios de error y dominios de actualización independientes dentro de una unidad de escalado de almacenamiento.
+
+Una unidad de escalado de almacenamiento es una colección de estanterías de nodos de almacenamiento. Un dominio de error (FD) es un grupo de nodos que representan una unidad física de error y se pueden considerar como nodos pertenecientes a la misma estantería. Un dominio de actualización (UD) es un grupo de nodos que se actualizan en conjunto durante el proceso de actualización de un servicio (implementación). Las tres réplicas se distribuyen entre dominios UD y FD dentro de una unidad de escalado de almacenamiento para garantizar que los datos se encuentran disponibles incluso si un error de hardware afecta a una sola estantería y cuando los nodos se actualizan durante una implementación.
+
+LRS es la opción de costo más bajo y ofrece menos durabilidad en comparación con otras opciones. En caso de un desastre en el nivel de centro de datos (incendio, inundación etc.), las tres réplicas podrían perderse o volverse irrecuperables. Para mitigar este riesgo, se recomienda almacenamiento con redundancia geográfica (GRS) para la mayoría de las aplicaciones.
+
+El almacenamiento con redundancia local puede ser conveniente en algunos escenarios:
+
+* Proporciona el ancho de banda máximo más elevado de las opciones de replicación de Azure Storage.
+* Si su aplicación almacena datos que se pueden reconstruir fácilmente, puede optar por LRS.
+* Algunas aplicaciones están restringidas a la replicación de datos solo dentro de un país debido a requisitos de gobernanza de datos. Podría ser una región emparejada en otro país. Para obtener más información, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).

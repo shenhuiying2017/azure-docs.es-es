@@ -20,7 +20,7 @@
    7. Active la casilla para indicar que sabe que los datos almacenados en la aplicación en la nube estarán hospedados en un centro de datos de Microsoft.
        * Cuando se utiliza solo un dispositivo físico, la clave de cifrado se mantiene con el dispositivo; por lo tanto, Microsoft no podrá descifrarla.
 
-       * Cuando se utiliza una aplicación en la nube, la clave de cifrado y la clave de descifrado se almacenan en Microsoft Azure. Para más información, consulte las [consideraciones de seguridad para utilizar una aplicación en la nube](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       * Cuando se utiliza una aplicación en la nube, la clave de cifrado y la clave de descifrado se almacenan en Microsoft Azure. Para más información, consulte las [consideraciones de seguridad para utilizar una aplicación en la nube](../articles/storsimple/storsimple-security.md).
    8. Haga clic en **Crear** para aprovisionar la aplicación en la nube. El dispositivo puede tardar unos 30 minutos en aprovisionar. Recibirá una notificación cuando la aplicación en la nube se haya creado correctamente. Vaya a la hoja Dispositivos y la lista de dispositivos se actualizará y mostrará la aplicación en la nube. El estado de la aplicación es **Listo para configurar**.
       
       ![Estado listo para configurar de StorSimple Cloud Appliance](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)

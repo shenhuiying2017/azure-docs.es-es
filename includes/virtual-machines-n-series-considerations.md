@@ -12,7 +12,7 @@
 
 * Es posible que necesite aumentar la cuota de núcleos (por región) de la suscripción de Azure y la cuota independiente para núcleos NC o NV. Para solicitar un aumento de cuota, [abra una solicitud de soporte técnico al cliente en línea](../articles/azure-supportability/how-to-create-azure-support-request.md) sin cargo alguno. Los límites predeterminados pueden variar según la categoría de suscripción.
 
-* Una imagen de máquina virtual que se puede implementar en máquinas virtuales de la serie de N es la [máquina virtual de ciencia de datos de Azure](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md). La máquina virtual de ciencia de datos preinstala y configura muchas herramientas de ciencia de datos y aprendizaje profundo conocidas. También preinstala controladores de GPU de NVIDIA Tesla para instancias de NC.
+* Una imagen de máquina virtual que se puede implementar en máquinas virtuales de la serie de N es la [máquina virtual de ciencia de datos de Azure](../articles/machine-learning/data-science-virtual-machine/overview.md). La máquina virtual de ciencia de datos preinstala y configura muchas herramientas de ciencia de datos y aprendizaje profundo conocidas. También preinstala controladores de GPU de NVIDIA Tesla para instancias de NC.
 
 
 

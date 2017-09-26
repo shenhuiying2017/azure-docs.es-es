@@ -16,7 +16,7 @@ Data Factory es un servicio multiinquilino que tiene los siguientes límites pre
 
 <sup>2</sup>Los núcleos de HDInsight a petición se asignan fuera de la suscripción que contiene Data Factory. En consecuencia, el límite superior es el límite de núcleos aplicados de Data Factory para los núcleos de HDInsight a petición y es diferente del límite de núcleos asociado a su suscripción de Azure.
 
-<sup>3</sup> La unidad de movimiento de datos de nube (DMU) se usa en una operación de copia de la nube a la nube. Es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Data Factory. Poder usar más DMU en algunos escenarios permite lograr una mayor capacidad de procesamiento de copia. Consulte la sección [Unidades de movimiento de datos en la nube](../articles/data-factory/data-factory-copy-activity-performance.md#cloud-data-movement-units) para más información.
+<sup>3</sup> La unidad de movimiento de datos de nube (DMU) se usa en una operación de copia de la nube a la nube. Es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Data Factory. Poder usar más DMU en algunos escenarios permite lograr una mayor capacidad de procesamiento de copia. Consulte la sección [Unidades de movimiento de datos en la nube](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) para más información.
 
 | **Recurso** | **Límite inferior predeterminado** | **Límite mínimo** |
 | --- | --- | --- |

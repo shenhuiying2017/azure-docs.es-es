@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Implementar y administrar un dispositivo virtual StorSimple en Azure
@@ -64,7 +64,7 @@ La tabla siguiente muestra algunas diferencias clave entre el dispositivo virtua
 | **Clave de cifrado de datos de servicio** |Vuelve a generar en el dispositivo físico y, a continuación, actualiza el dispositivo virtual con la clave nueva. |No se puede volver a generar desde el dispositivo virtual. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Requisitos previos para el dispositivo virtual
-Las siguientes secciones explican los requisitos previos de configuración para el dispositivo virtual de StorSimple. Antes de implementar un dispositivo virtual, consulte el artículo [Protección de datos y seguridad de StorSimple](storsimple-security.md#storsimple-virtual-device-security).
+Las siguientes secciones explican los requisitos previos de configuración para el dispositivo virtual de StorSimple. Antes de implementar un dispositivo virtual, consulte el artículo [Protección de datos y seguridad de StorSimple](storsimple-security.md).
 
 #### <a name="azure-requirements"></a>Requisitos de Azure
 Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes preparativos en el entorno de Azure:
