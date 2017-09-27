@@ -1,0 +1,244 @@
+- name: Documentación sobre Log Analytics
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Log Analytics?
+      href: log-analytics-overview.md
+- name: Inicios rápidos
+  expanded: true
+  items:
+    - name: 'Recopilación: máquinas virtuales de Azure'
+      href: log-analytics-quick-collect-azurevm.md
+- name: Tutoriales
+  items:
+    - name: 1 - Análisis de datos
+      href: log-analytics-tutorial-viewdata.md
+    - name: 2 - Visualización de datos
+      href: log-analytics-tutorial-dashboards.md
+    - name: 3 - Alerta sobre datos
+      href: log-analytics-tutorial-response.md
+- name: Muestras
+  items:
+    - name: Azure PowerShell
+      href: powershell-samples.md
+- name: Conceptos
+  items:
+    - name: P+F
+      href: log-analytics-faq.md
+    - name: Consumo de datos
+      href: log-analytics-usage.md
+    - name: Administración del acceso
+      href: log-analytics-manage-access.md
+    - name: Características de proveedores de servicios
+      href: log-analytics-service-providers.md
+- name: Procedimientos
+  items:
+    - name: Recopilación de datos
+      items:
+        - name: Orígenes conectados
+          items:
+            - name: Agentes de Windows
+              href: log-analytics-windows-agents.md
+            - name: Agentes de Linux
+              href: log-analytics-agent-linux.md
+            - name: Máquinas virtuales de Azure
+              href: log-analytics-azure-vm-extension.md
+            - name: Recursos de Azure
+              href: log-analytics-azure-storage.md
+            - name: Operations Manager
+              href: log-analytics-om-agents.md
+            - name: Administrador de configuración
+              href: log-analytics-sccm.md
+            - name: Puerta de enlace de OMS
+              href: log-analytics-oms-gateway.md
+        - name: Orígenes de datos
+          items:
+            - name: Introducción a orígenes de datos
+              href: log-analytics-data-sources.md
+            - name: Eventos de Windows
+              href: log-analytics-data-sources-windows-events.md
+            - name: Personalización de datos JSON
+              href: log-analytics-data-sources-json.md
+            - name: Recopilación de datos de rendimiento
+              href: log-analytics-data-sources-collectd.md
+            - name: Alertas de Nagios y Zabbix
+              href: log-analytics-data-sources-alerts-nagios-zabbix.md
+            - name: syslog
+              href: log-analytics-data-sources-syslog.md
+            - name: Contadores de rendimiento
+              href: log-analytics-data-sources-performance-counters.md
+            - name: Rendimiento de aplicaciones de Linux
+              href: log-analytics-data-sources-linux-applications.md
+            - name: Registros IIS
+              href: log-analytics-data-sources-iis-logs.md
+            - name: Registros personalizados
+              href: log-analytics-data-sources-custom-logs.md
+            - name: Custom Fields
+              href: log-analytics-custom-fields.md
+    - name: Datos de consulta
+      items:
+        - name: Introducción a búsquedas de registros
+          href: log-analytics-log-searches.md
+        - name: Referencia de búsqueda
+          href: log-analytics-search-reference.md
+          items:
+            - name: Expresiones regulares
+              href: log-analytics-log-searches-regex.md
+        - name: Actuación a partir de resultados de búsqueda
+          href: log-analytics-log-search-takeaction.md
+        - name: Grupos de equipos
+          href: log-analytics-computer-groups.md
+    - name: Nueva búsqueda de registros
+      items:
+        - name: Actualización del área de trabajo
+          href: log-analytics-log-search-upgrade.md
+        - name: P+F
+          href: log-analytics-log-search-faq.md
+        - name: Introducción a búsquedas de registros
+          href: log-analytics-log-search-new.md
+        - name: Portales de búsqueda de registros
+          href: log-analytics-log-search-portals.md
+          items:
+            - name: Uso del portal de búsqueda de registros
+              href: log-analytics-log-search-log-search-portal.md
+        - name: Transición desde el lenguaje heredado
+          href: log-analytics-log-search-transition.md
+        - name: Conector de Flow
+          href: log-analytics-flow-tutorial.md
+    - name: Análisis de datos
+      items:
+        - name: Paneles
+          href: log-analytics-dashboards.md
+        - name: Ver diseñador
+          href: log-analytics-view-designer.md
+        - name: Power BI
+          href: log-analytics-powerbi.md
+    - name: Creación de alertas
+      items:
+        - name: Descripción de las alertas
+          href: log-analytics-alerts.md
+        - name: Acciones de alerta
+          href: log-analytics-alerts-actions.md
+        - name: Creación de reglas de alerta
+          items:
+            - name: Portal de OMS
+              href: log-analytics-alerts-creating.md
+            - name: API de REST
+              href: log-analytics-api-alerts.md
+            - name: Plantilla de Resource Manager
+              href: ../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md
+        - name: Ejemplo de acción de webhook
+          href: log-analytics-alerts-webhooks.md
+        - name: Solución de Alert Management
+          href: log-analytics-solution-alert-management.md
+    - name: Uso de soluciones
+      items:
+        - name: Introducción a soluciones
+          href: log-analytics-add-solutions.md
+        - name: Soluciones de destino
+          href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Análisis de registros de actividad
+          href: log-analytics-activity.md
+        - name: Evaluación de AD
+          href: log-analytics-ad-assessment.md
+        - name: Estado de replicación de AD
+          href: log-analytics-ad-replication-status.md
+        - name: Estado de mantenimiento de los agentes
+          href: ../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Administración de alertas
+          href: log-analytics-solution-alert-management.md
+        - name: Application Insights Connector
+          href: log-analytics-app-insights-connector.md
+        - name: Azure SQL Analytics
+          href: log-analytics-azure-sql.md
+        - name: Azure Web Apps Analytics
+          href: log-analytics-azure-web-apps-analytics.md
+        - name: Capacidad y rendimiento
+          href: log-analytics-capacity.md
+        - name: Seguimiento de cambios
+          href: log-analytics-change-tracking.md
+        - name: Contenedores
+          href: log-analytics-containers.md
+        - name: DNS Analytics
+          href: log-analytics-dns.md
+        - name: IT Service Management Connector
+          href: log-analytics-itsmc-overview.md
+          items:
+            - name: Conexiones de IT Service Management
+              href: log-analytics-itsmc-connections.md
+        - name: Key Vault
+          href: log-analytics-azure-key-vault.md
+        - name: Mensajes de Logic Apps B2B
+          items:
+            - name: Solución de mensajes de Logic Apps B2B
+              href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: Esquema de seguimiento personalizado de Logic Apps B2B
+              href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Evaluación de malware
+          href: log-analytics-malware.md
+        - name: Análisis de redes
+          href: log-analytics-azure-networking-analytics.md
+        - name: Monitor de rendimiento de red
+          href: log-analytics-network-performance-monitor.md
+        - name: Office 365
+          href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Evaluación de SCOM
+          href: log-analytics-scom-assessment.md
+        - name: Auditoría de seguridad
+          href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Service Fabric con Azure PowerShell
+          href: log-analytics-service-fabric.md
+          items:
+            - name: Service Fabric con Azure Resource Manager
+              href: log-analytics-service-fabric-azure-resource-manager.md
+        - name: Mapa de servicio
+          href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Evaluación de SQL
+          href: log-analytics-sql-assessment.md
+        - name: Surface Hub
+          href: log-analytics-surface-hubs.md
+        - name: Administración de actualizaciones
+          href: ../operations-management-suite/oms-solution-update-management.md
+        - name: VMware
+          href: log-analytics-vmware.md
+        - name: Análisis de Windows
+          items:
+            - name: Update Compliance
+              href: 'https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started'
+            - name: Upgrade Readiness
+              href: 'https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started'
+        - name: Wire Data
+          href: log-analytics-wire-data.md
+    - name: Desarrollo
+      items:
+        - name: API de recopilador de datos
+          href: log-analytics-data-collector-api.md
+        - name: Cmdlets de PowerShell
+          href: log-analytics-powershell-workspace-configuration.md
+        - name: Plantillas de Resource Manager
+          href: log-analytics-template-workspace-configuration.md
+        - name: API de búsqueda de registros
+          href: log-analytics-log-search-api.md
+          items:
+            - name: Python
+              href: log-analytics-log-search-api-python.md
+        - name: API de alerta
+          href: log-analytics-api-alerts.md
+- name: Referencia
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.operationalinsights
+    - name: REST
+      href: /rest/api/loganalytics
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/log-analytics/'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/?product=log-analytics'
+    - name: Análisis de Windows
+      href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'

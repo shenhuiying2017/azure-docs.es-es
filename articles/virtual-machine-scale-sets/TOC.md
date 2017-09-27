@@ -2,7 +2,7 @@
 ## [¿Qué son los conjuntos de escalado de máquinas virtuales?](virtual-machine-scale-sets-overview.md)
 
 # Introducción
-## [Implementación de un conjunto de escalado en el portal](virtual-machine-scale-sets-portal-create.md)
+## [Implementación de un conjunto de escalado en Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ## [Implementación de un conjunto de escalado con PowerShell o la CLI de Azure](virtual-machine-scale-sets-create.md)
 ## [Implementación de una aplicación de escalado automático con una plantilla](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
@@ -17,9 +17,9 @@
 ### [Uso del escalado automático basado en invitado con una plantilla del conjunto de escalado de Linux](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Implementación
-### [Creación con el portal](virtual-machine-scale-sets-portal-create.md)
+### [Creación con Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ### [Creación con Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Creación con PowerShell o la CLI de Azure](virtual-machine-scale-sets-create.md)
+### [Creación con Azure PowerShell o la CLI de Azure](virtual-machine-scale-sets-create.md)
 ### [Conjunto de escalado con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Conjunto de escalado de Linux con escalado automático](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Conjunto de escalado de Windows con escalado automático](virtual-machine-scale-sets-windows-autoscale.md)
@@ -30,8 +30,8 @@
 
 
 
-## administración
-### [Conjunto de escalado de Windows con PowerShell](virtual-machine-scale-sets-windows-manage.md)
+## Administrar
+### [Conjunto de escalado de Windows con Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Escalado automático y conjuntos de escalado](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Escalado automático avanzado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Escalado vertical en un conjunto de escalado](virtual-machine-scale-sets-vertical-scale-reprovision.md)
@@ -47,7 +47,7 @@
 ### [Preguntas más frecuentes sobre los conjuntos de escalado](virtual-machine-scale-sets-faq.md)
 
 # Referencia
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [CLI de Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

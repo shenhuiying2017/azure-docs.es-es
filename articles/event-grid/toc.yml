@@ -12,6 +12,8 @@
   items:
     - name: Supervisión de cambios en las máquinas virtuales con aplicaciones lógicas
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - name: Cambio de tamaño de las imágenes cargadas
+      href: resize-images-on-storage-blob-upload-event.md
 - name: Conceptos
   items:
     - name: Conceptos de Event Grid

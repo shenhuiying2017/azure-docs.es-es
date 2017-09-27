@@ -67,12 +67,17 @@
 ### Integración de API de RESTful
 #### [Validación de entradas de usuario](active-directory-b2c-rest-api-validation-custom.md)
 #### [Obtención de notificaciones adicionales](active-directory-b2c-rest-api-step-custom.md)
-### Personalización del inicio de sesión
+### Flujos de usuario
 #### [Configuración de entrada de usuario](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Personalización de atributos](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Personalización de la interfaz de usuario](active-directory-b2c-ui-customization-custom.md)
 #### [Personalización de tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
-#### [Personalización de contraseña](active-directory-b2c-reference-password-complexity-custom.md)
+#### [Complejidad de la contraseña](active-directory-b2c-reference-password-complexity-custom.md).
+
+#### [Cambio de contraseña](active-directory-b2c-reference-password-change-custom.md)
+
+#### [Habilitación de Mantener la sesión iniciada](active-directory-b2c-reference-kmsi-custom.md)
+
 ### Solución de problemas
 #### [Recopilación de registros con Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referencia

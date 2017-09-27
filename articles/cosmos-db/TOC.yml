@@ -93,14 +93,20 @@
           href: local-emulator.md
         - name: Exportación de certificados
           href: local-emulator-export-ssl-certificates.md
+    - name: 6 - Integración con funciones
+      items:
+        - name: Desencadenador HTTP
+          href: tutorial-functions-http-trigger.md
 - name: Muestras
   items:
-    - name: CLI de Azure 2.0
+    - name: CLI de Azure
       href: cli-samples.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: powershell-samples.md
 - name: Conceptos
   items:
+    - name: Base de datos sin servidor
+      href: serverless-computing-database.md
     - name: Distribución global
       href: distribute-data-globally.md
     - name: Creación de particiones
@@ -268,7 +274,9 @@
           href: geospatial.md
         - name: Indización
           href: indexing-policies.md
-    - name: administración
+        - name: Servicio conectado en Visual Studio
+          href: connected-service.md
+    - name: Administrar
       items:
         - name: Escrituras y lecturas rentables
           href: key-value-store-cost.md
@@ -282,8 +290,14 @@
           href: set-throughput.md
         - name: Supervisión del Acuerdo de Nivel de Servicio
           href: monitor-accounts.md
+        - name: Uso de métricas
+          href: use-metrics.md
+        - name: Registro de diagnósticos
+          href: logging.md
         - name: Administración de claves y coherencia
           href: manage-account.md
+        - name: Explorador de Azure Storage
+          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
         - name: Seguridad
           items:
             - name: Cifrado en reposo
@@ -309,7 +323,7 @@
         - name: Integración con Azure Search
           href: ../search/search-howto-index-documentdb.md
         - name: Traslado de datos con Azure Data Factory
-          href: ../data-factory/data-factory-azure-documentdb-connector.md
+          href: ../data-factory/connector-azure-cosmos-db.md
         - name: Análisis de datos en tiempo real con Azure Stream Analytics
           href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
         - name: Cambio del registro HL7 FHIR mediante Logic Apps

@@ -8,7 +8,7 @@
 
 # Primeros pasos
 ## [Creación de un servidor de Azure Portal](analysis-services-create-server.md)
-## [Creación de un servidor con PowerShell](analysis-services-create-powershell.md)
+## [Creación de un servidor con Azure PowerShell](analysis-services-create-powershell.md)
 ## [Implementación de un modelo de Visual Studio](analysis-services-deploy.md)
 ## [Creación de un modelo en Azure Portal (versión preliminar)](analysis-services-create-model-portal.md)
 
@@ -43,7 +43,7 @@
 ### [Lección complementaria: Jerarquías desiguales](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Referencia
-## [PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)

@@ -33,8 +33,8 @@
 
 ### Creación rápida de una máquina virtual Windows
 #### [Uso de la CLI de Azure](../../virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Uso del portal](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Uso de PowerShell](../../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Uso de Azure Portal](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Uso de Azure PowerShell](../../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Tutoriales de máquinas virtuales para Windows
 #### [Creación y administración de una máquina virtual](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Creación y administración de discos](../../virtual-machines/windows/tutorial-manage-data-disk.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -51,8 +51,8 @@
 
 ### Creación rápida de una máquina virtual Linux
 #### [Uso de la CLI de Azure](../../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Uso del portal](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Uso de PowerShell](../../virtual-machines/linux/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Uso de Azure Portal](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Uso de Azure PowerShell](../../virtual-machines/linux/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Tutoriales de máquinas virtuales para Linux
 #### [Creación y administración de máquinas virtuales](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Creación y administración de discos](../../virtual-machines/linux/tutorial-manage-disks.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -89,7 +89,7 @@
 
 ## [Redes virtuales](azure-operations-guide.md#azure-virtual-network)
 ### [Creación de una red virtual mediante Azure Portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Creación de una red virtual usando PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Creación de una red virtual usando Azure PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Creación de una red virtual usando la CLI de Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Filtrado del tráfico de red con grupos de seguridad de red](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Tutoriales de redes virtuales

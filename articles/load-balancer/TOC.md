@@ -1,8 +1,10 @@
 # Información general
 ## [¿Qué es Load Balancer?](load-balancer-overview.md)
+## [¿Qué es Load Balancer Estándar?](load-balancer-standard-overview.md)
 ## [Equilibrador de carga de Internet](load-balancer-internet-overview.md)
 ## [Equilibrador de carga interno](load-balancer-internal-overview.md)
 ## [Descripción de los sondeos del equilibrador de carga](load-balancer-custom-probe-overview.md)
+## [Introducción a los puertos de alta disponibilidad](load-balancer-ha-ports-overview.md)
 ## [Soporte técnico de Azure Resource Manager](load-balancer-arm.md)
 ## [Compatibilidad de IPv6](load-balancer-ipv6-overview.md)
 ## [Varias direcciones VIP](load-balancer-multivip-overview.md)
@@ -33,7 +35,11 @@
 ### [Creación de un equilibrador de carga accesible desde Internet con IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Creación de un equilibrador de carga accesible desde Internet con IPv6 (plantilla)](load-balancer-ipv6-internet-template.md)
 
-# Procedimientos
+## [Creación de un estándar público de equilibrador de carga con redundancia de zonas](load-balancer-get-started-internet-az-portal.md)
+### [Creación de un estándar público de equilibrador de carga con redundancia de zonas (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Creación de un estándar público de equilibrador de carga con redundancia de zonas (CLI)](load-balancer-get-started-internet-az-cli.md)
+
+# Cómo
 ## [Configuración del tiempo de espera de inactividad TCP del equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 ## [Configuración del modo de distribución en el equilibrador de carga](load-balancer-distribution-mode.md)
 ## [Configuración del equilibrador de carga interno para SQL AlwaysOn](load-balancer-configure-sqlao.md)
@@ -44,13 +50,17 @@
 ### [Uso de varias configuraciones de IP (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log Analytics para Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configuración de DHCPv6 para VM de Linux](load-balancer-ipv6-for-linux.md)
+## [Configuración de puertos de alta disponibilidad para el equilibrador de carga interno](load-balancer-configure-ha-ports.md)
+## [Creación de una dirección IP pública en una zona de disponibilidad](../virtual-network/create-public-ip-availability-zone-portal.md)
+## [Creación de una dirección IP pública en una zona de disponibilidad (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
+## [Creación de una dirección IP pública en una zona de disponibilidad (CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
 ## Solución de problemas
 ### [Configuración de Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
-## [PowerShell](/powershell/module/azurerm.network)
-## [CLI de Azure 2.0](/cli/azure/network/lb)
+## [Azure PowerShell](/powershell/module/azurerm.network)
+## [CLI de Azure](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)

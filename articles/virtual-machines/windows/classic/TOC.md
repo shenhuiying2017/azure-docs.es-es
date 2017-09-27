@@ -7,7 +7,7 @@
 ## [Contenedores](../../virtual-machines-windows-containers.md)
 
 # Primeros pasos
-## [Creación de una VM desde el portal](tutorial.md)
+## [Creación de una máquina virtual mediante Azure Portal](tutorial.md)
 ## [Inicio de sesión en una VM](connect-logon.md)
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Instalación de la CLI de Azure](../../../cli-install-nodejs.md)
@@ -85,7 +85,7 @@
 ### [Conexión de un disco duro virtual para solucionar problemas de máquina virtual](troubleshoot-recovery-disks-portal.md)
 
 # Referencia
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [CLI de Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

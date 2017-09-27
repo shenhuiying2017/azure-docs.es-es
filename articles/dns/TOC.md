@@ -4,31 +4,34 @@
 ## [Registros y zonas DNS](dns-zones-records.md)
 ## [Delegación de DNS con el DNS de Azure](dns-domain-delegation.md)
 ## [Preguntas más frecuentes sobre DNS](dns-faq.md)
+## [Uso de zonas DNS privadas](private-dns-overview.md)
 
 # Introducción
 
 ## Creación de una zona y un registro DNS
-### [Portal](dns-getstarted-portal.md)
-### [PowerShell](dns-getstarted-powershell.md)
+### [Portal de Azure](dns-getstarted-portal.md)
+### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [CLI de Azure 1.0](dns-getstarted-cli-nodejs.md)
-### [CLI de Azure 2.0](dns-getstarted-cli.md)
+### [CLI de Azure](dns-getstarted-cli.md)
 
+## Creación de una zona DNS privada y un registro
+### [PowerShell](private-dns-getstarted-powershell.md)
 ## [Delegación del dominio en DNS de Azure](dns-delegate-domain-azure-dns.md)
 ## [Creación de registros DNS personalizados para una aplicación web](dns-web-sites-custom-domain.md)
 
 # Procedimientos
 
 ## Administración de zonas DNS
-### [Portal](dns-operations-dnszones-portal.md)
-### [PowerShell](dns-operations-dnszones.md)
+### [Portal de Azure](dns-operations-dnszones-portal.md)
+### [Azure PowerShell](dns-operations-dnszones.md)
 ### [CLI de Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
-### [CLI de Azure 2.0](dns-operations-dnszones-cli.md)
+### [CLI de Azure](dns-operations-dnszones-cli.md)
 
 ## Administración de registros DNS
-### [Portal](dns-operations-recordsets-portal.md)
-### [PowerShell](dns-operations-recordsets.md)
+### [Portal de Azure](dns-operations-recordsets-portal.md)
+### [Azure PowerShell](dns-operations-recordsets.md)
 ### [CLI de Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
-### [CLI de Azure 2.0](dns-operations-recordsets-cli.md)
+### [CLI de Azure](dns-operations-recordsets-cli.md)
 
 ## Administración de DNS inverso
 ### [Información general](dns-reverse-dns-overview.md)
@@ -46,7 +49,7 @@
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
-## [PowerShell](/powershell/module/azurerm.dns)
+## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [CLI de Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)

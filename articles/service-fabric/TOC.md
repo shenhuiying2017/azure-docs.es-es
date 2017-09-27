@@ -4,8 +4,8 @@
 
 # Inicios rápidos
 ## [Creación de una aplicación .NET](service-fabric-quickstart-dotnet.md)
-## [Implementación de una aplicación contenedora de Windows](service-fabric-quickstart-containers.md)
 ## [Implementación de una aplicación contenedora de Linux](service-fabric-quickstart-containers-linux.md)
+## [Implementación de una aplicación contenedora de Windows](service-fabric-quickstart-containers.md)
 
 # Tutoriales
 ## Implementación de una aplicación .NET
@@ -17,11 +17,24 @@
 ## Inclusión de una aplicación .NET existente en un contenedor
 ### [1- Creación de un clúster seguro en Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Implementación de una aplicación de .NET con Docker Compose](service-fabric-host-app-in-a-container.md)
+### [3- Supervisión del contenedor](service-fabric-tutorial-monitoring-wincontainers.md)
+
+## Creación de una aplicación contenedor de Linux
+### [1--Creación de imágenes de contenedor](service-fabric-tutorial-create-container-images.md)
+### [2--Empaquetado e implementación de contenedores](service-fabric-tutorial-package-containers.md)
+### [3 - Conmutación por error y escalado](service-fabric-tutorial-containers-failover.md)
+
+## Creación y administración de un clúster
+### 1--Creación de un clúster en Azure
+#### [1a- Creación de un clúster de Windows seguro en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Creación de un clúster de Linux seguro en Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2- Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 # Muestras
-## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
-## [PowerShell](service-fabric-powershell-samples.md)
+## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=service-fabric)
+## [Azure PowerShell](service-fabric-powershell-samples.md)
 ## [CLI de Service Fabric](samples-cli.md)
+
 # Conceptos
 ## [Descripción de los microservicios](service-fabric-overview-microservices.md)
 ## [Idea general](service-fabric-content-roadmap.md)
@@ -67,6 +80,8 @@
 #### [Estado de servicio](service-fabric-concepts-state.md)
 #### [Partición de servicio](service-fabric-concepts-partitioning.md)
 #### [Disponibilidad de servicios](service-fabric-availability-services.md)
+#### [Réplicas e instancias](service-fabric-concepts-replica-lifecycle.md)
+#### [Reconfiguración](service-fabric-concepts-reconfiguration.md)
 #### Comunicación de servicio
 ##### [Información general](service-fabric-connect-and-communicate-with-services.md)
 ##### [Servicio DNS](service-fabric-dnsservice.md)
@@ -91,7 +106,6 @@
 
 ## Creación y administración de clústeres
 ### [Información general](service-fabric-deploy-anywhere.md)
-### [Service Fabric en Linux](service-fabric-linux-overview.md)
 ### Planeación y preparación
 #### [Planificación de capacidad](service-fabric-cluster-capacity.md)
 #### [Recuperación ante desastres](service-fabric-disaster-recovery.md)
@@ -130,6 +144,8 @@
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
+
+## [Configuración de la CLI de Service Fabric](service-fabric-cli.md)
 
 ## Creación de una aplicación
 ### [Creación de la primera aplicación de C# en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -225,13 +241,13 @@
 
 ### Implementación o eliminación de aplicaciones
 #### [Implementación de aplicaciones en un clúster local](service-fabric-get-started-with-a-local-cluster.md)
-#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [CLI de Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [API de FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Actualización de aplicaciones
-#### [Actualización mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+#### [Actualización con Azure PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 #### [Actualización mediante Visual Studio](service-fabric-application-upgrade-tutorial.md)
 #### [Solución de problemas de actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -280,8 +296,6 @@
 
 ### [Visualización de un clúster](service-fabric-visualizing-your-cluster.md)
 ### [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md)
-
-### [Introducción a la CLI de Service Fabric](service-fabric-cli.md)
 ### [Aplicación de parches a nodos de clúster](service-fabric-patch-orchestration-application.md)
 
 ### Administración y orquestación de recursos de clúster
@@ -326,7 +340,7 @@
 ### [Solución de problemas de un clúster local](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Referencia
-## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
+## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [CLI de Azure](/cli/azure/sf)
 ## [API de Java](/java/api/overview/azure/servicefabric)

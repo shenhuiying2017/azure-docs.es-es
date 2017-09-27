@@ -5,7 +5,11 @@
 ## [Protección de la API con límites de tarifa](api-management-howto-product-with-rules.md)
 ## [Adición de almacenamiento en caché para mejorar el rendimiento](api-management-howto-cache.md)
 ## [Preguntas más frecuentes](api-management-faq.md)
-# Procedimientos
+# Cómo
+## Configuración de un servicio APIM
+### [Creación de una instancia de APIM](get-started-create-service-instance.md)
+### [Actualización y escalado](upgrade-and-scale.md)
+### [Configuración de un dominio personalizado](configure-custom-domain.md)
 ## Desarrollar API
 ### [Incorporación y publicación de un producto de API](api-management-howto-add-products.md)
 ### [Incorporación de operaciones](api-management-howto-add-operations.md)
@@ -51,7 +55,7 @@
 #### [Inicio rápido](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Referencia
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Directivas](api-management-policies.md)

@@ -15,7 +15,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: 'Las máquinas virtuales Linux de Azure proporcionan una infraestructura bajo demanda, a gran escala, segura y virtualizada con Red Hat, Ubuntu o la distribución de Linux de su elección. Aprenda a crear, configurar, administrar y escalar máquinas virtuales Linux con nuestros inicios rápidos, tutoriales y ejemplos.'
+  description: 'Las máquinas virtuales Linux de Azure proporcionan una infraestructura bajo demanda, a gran escala, segura y virtualizada con Red Hat, Ubuntu o la distribución de Linux de su elección. Aprenda a crear, configurar, administrar, actualizar y escalar máquinas virtuales Linux con nuestros inicios rápidos, tutoriales y ejemplos.'
   aside:
     image:
       alt: null
@@ -39,7 +39,7 @@ sections:
             href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
           - image:
               src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Azure Portal
+            text: Portal de Azure
             href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
           - image:
               src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
@@ -61,29 +61,32 @@ sections:
           - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Equilibrio de carga de máquinas virtuales</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Administración de máquinas y redes virtuales</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Copia de seguridad de máquinas virtuales</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Supervisión de máquinas virtuales</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Supervisión y actualización de máquinas virtuales</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Administración de seguridad en máquinas virtuales</a>
           - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Creación de una infraestructura de integración y entrega continuas con Jenkins, Docker y GitHub</a>'
           - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD con Team Services</a>
           - html: 'Creación de una pila de servidor web con <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> o <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>'
-          - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Protección de servidor web con SSL</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Protección de un servidor web con SSL</a>
   - title: Vídeo gratuito de aprendizaje de PluralSight
     items:
       - type: list
         style: cards
-        className: cardsW
+        className: cardsFTitle
         items:
-          - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Administración de la infraestructura</a></p>'
+          - title: Administración de la infraestructura en Azure
+            href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-infrastructure.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Introducción a Virtual Machines</a></p>'
+          - title: Introducción a Azure Virtual Machines
+            href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-vms.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Introducción a la supervisión de IaaS</a></p>'
+          - title: Introducción a la supervisión de IaaS
+            href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-iaas-monitoring.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
   - title: Muestras
     items:

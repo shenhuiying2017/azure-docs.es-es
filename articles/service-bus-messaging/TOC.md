@@ -60,13 +60,14 @@
 #### [Creación de una regla de autorización para el espacio de nombres y la cola](service-bus-resource-manager-namespace-auth-rule.md)
 #### [Creación de un espacio de nombres con un tema, una suscripción y una regla](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [Uso de PowerShell para aprovisionar entidades](service-bus-manage-with-ps.md)
+### [Uso de Azure PowerShell para aprovisionar entidades](service-bus-manage-with-ps.md)
 
 # Referencia
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Excepciones](service-bus-messaging-exceptions.md)
 ## [Cuotas](service-bus-quotas.md)

@@ -1,0 +1,52 @@
+- name: Documentación de la máquina virtual de ciencia de datos
+  items: null
+- name: Información general
+  items:
+    - name: ¿Qué es la máquina virtual de ciencia de datos?
+      href: overview.md
+    - name: ¿Qué es la máquina virtual de aprendizaje profundo?
+      href: deep-learning-dsvm-overview.md
+- name: Primeros pasos
+  items:
+    - name: Creación de una máquina virtual de ciencia de datos de Windows
+      href: provision-vm.md
+    - name: Creación de una máquina virtual de ciencia de datos de Ubuntu
+      href: dsvm-ubuntu-intro.md
+    - name: Creación de una máquina virtual de ciencia de datos de CentOS
+      href: linux-dsvm-intro.md
+    - name: Creación de una máquina virtual de aprendizaje profundo
+      href: provision-deep-learning-dsvm.md
+- name: Cómo
+  items:
+    - name: Uso de una máquina virtual de ciencia de datos de Windows
+      href: vm-do-ten-things.md
+    - name: Uso de una máquina virtual de ciencia de datos de Linux
+      href: linux-dsvm-walkthrough.md
+    - name: Uso de una máquina virtual de aprendizaje profundo
+      href: use-deep-learning-dsvm.md
+- name: Referencia
+  items:
+    - name: Marcos de trabajo de aprendizaje profundo y AI
+      href: dsvm-deep-learning-ai-frameworks.md
+    - name: Herramientas de ciencia de datos y ML
+      href: dsvm-ml-data-science-tools.md
+    - name: Idiomas
+      href: dsvm-languages.md
+    - name: Herramientas de desarrollo
+      href: dsvm-tools-development.md
+    - name: Herramientas de ingesta de datos
+      href: dsvm-tools-ingestion.md
+    - name: Herramientas de visualización y exploración de datos
+      href: dsvm-tools-explore-and-visualize.md
+    - name: Plataformas de datos
+      href: dsvm-data-platforms.md
+    - name: Ejemplos y tutoriales
+      href: dsvm-samples-and-walkthroughs.md
+- name: Recursos
+  items:
+    - name: Blog
+      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+    - name: Foro de MSDN
+      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
+    - name: Stackoverflow
+      href: 'https://stackoverflow.com/search?q=dsvm'

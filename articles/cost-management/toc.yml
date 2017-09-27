@@ -1,0 +1,29 @@
+- name: Documentación sobre Azure Cost Management
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Cost Management?
+      href: overview.md
+- name: Inicios rápidos
+  expanded: true
+  items:
+    - name: Visualización de datos de costos
+      href: quick-register-azure-sub.md
+    - name: 'Visualización de datos de costos: EA'
+      href: quick-register-ea.md
+    - name: 'Visualización de datos de costos: CSP'
+      href: quick-register-csp.md
+- name: Tutoriales
+  items:
+    - name: 1 - Revisión del uso y los costos
+      href: tutorial-review-usage.md
+    - name: 2 - Control del acceso a los datos
+      href: tutorial-user-access.md
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+    - name: Disponibilidad regional
+      href: 'https://azure-staging.microsoft.com/en-us/regions/services/'

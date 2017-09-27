@@ -24,7 +24,7 @@
 ###[Proteger la memoria caché con una red virtual](cache-how-to-premium-vnet.md)
 ###[Distribuir la memoria caché mediante agrupación en clústeres](cache-how-to-premium-clustering.md)
 ## Automatizar
-###[Implementar y administrar con PowerShell](cache-howto-manage-redis-cache-powershell.md)
+###[Implementación y administración con PowerShell](cache-howto-manage-redis-cache-powershell.md)
 ###[Implementar y administrar con la CLI de Azure](cli-samples.md)
 ###[Aprovisionar una instancia de Redis Cache](cache-redis-cache-arm-provision.md)
 ###[Aprovisionar una aplicación web con Redis Cache](cache-web-app-arm-with-redis-cache-provision.md)
@@ -32,13 +32,13 @@
 ###[Proveedor de estado de sesión](cache-aspnet-session-state-provider.md)
 ###[Proveedor de caché de salida](cache-aspnet-output-cache-provider.md)
 ## Administrar
-###[Configurar en el portal](cache-configure.md)
+###[Configuración en Azure Portal](cache-configure.md)
 ###[Configuración de la replicación geográfica](cache-how-to-geo-replication.md)
 ###[Importar y exportar datos](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
 ###[Programación de actualizaciones](cache-administration.md#schedule-updates)
 ## Supervisión y solución de problemas
-###[Supervisar en el portal](cache-how-to-monitor.md)
+###[Supervisión en Azure Portal](cache-how-to-monitor.md)
 ###[Solución de problemas de caché](cache-how-to-troubleshoot.md)
 ###[Establecer alertas para las excepciones](cache-how-to-monitor.md#operations-and-alerts)
 ## Escala
@@ -49,8 +49,8 @@
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=redis-cache)
-## [PowerShell](/powershell/module/azurerm.rediscache)
-## [Versión preliminar de la CLI de Azure 2.0](/cli/azure/redis)
+## [Azure PowerShell](/powershell/module/azurerm.rediscache)
+## [Versión preliminar de la CLI de Azure](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Clientes de Redis](http://redis.io/clients)

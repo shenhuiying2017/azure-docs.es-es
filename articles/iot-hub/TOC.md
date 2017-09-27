@@ -109,23 +109,24 @@
 ### Uso de trabajos de dispositivos para actualizar el firmware del dispositivo
 #### [Back-end de Node/Dispositivo de Node](iot-hub-node-node-firmware-update.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-firmware-update.md)
+#### [Back-end de Java/Dispositivo de Java](iot-hub-java-java-firmware-update.md)
 ### Programación y difusión de trabajos
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Administrar
 ### Crear un centro de IoT 
-#### [Uso del portal](iot-hub-create-through-portal.md)
-#### [Uso de PowerShell](iot-hub-create-using-powershell.md)
-#### [Uso de la CLI 2.0](iot-hub-create-using-cli.md)
+#### [Uso de Azure portal](iot-hub-create-through-portal.md)
+#### [Uso de Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [Uso de CLI de Azure](iot-hub-create-using-cli.md)
 #### [Uso de la CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Uso de la API de REST](iot-hub-rm-rest.md)
-#### [Uso de una plantilla de PowerShell](iot-hub-rm-template-powershell.md)
+#### [Uso de una plantilla de Azure PowerShell](iot-hub-rm-template-powershell.md)
 #### [Uso de una plantilla de .NET](iot-hub-rm-template.md)
 ### Configuración de la carga de archivos
-#### [Uso del portal](iot-hub-configure-file-upload.md)
-#### [Uso de PowerShell](iot-hub-configure-file-upload-powershell.md)
-#### [Uso de la CLI 2.0](iot-hub-configure-file-upload-cli.md)
+#### [Uso de Azure Portal](iot-hub-configure-file-upload.md)
+#### [Uso de Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Uso de CLI de Azure](iot-hub-configure-file-upload-cli.md)
 ### [Administración de identidades de dispositivos de Centro de IoT de forma masiva](iot-hub-bulk-identity-mgmt.md)
 ### [Métricas de uso](iot-hub-metrics.md)
 ### [Supervisión de operaciones](iot-hub-operations-monitoring.md)

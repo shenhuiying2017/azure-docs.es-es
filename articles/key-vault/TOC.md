@@ -25,9 +25,9 @@
 ### [Acceso detrás de firewalls](key-vault-access-behind-firewall.md)
 ### [Disponibilidad y redundancia](key-vault-disaster-recovery-guidance.md)
 ### [Cambio del identificador de inquilino](key-vault-subscription-move-fix.md)
-### [Creación y administración mediante CLI 2.0](key-vault-manage-with-cli2.md)
+### [Creación y administración mediante la CLI de Azure](key-vault-manage-with-cli2.md)
 ### [Uso de la eliminación temporal de Key Vault con la CLI](key-vault-soft-delete-cli.md)
-### [Uso de la eliminación temporal de Key Vault con PowerShell](key-vault-soft-delete-powershell.md)
+### [Uso de la eliminación temporal de Key Vault con Azure PowerShell](key-vault-soft-delete-powershell.md)
 ### [Uso de grupos para conceder acceso](key-vault-group-permissions-for-apps.md)
 ### [Protección de Key Vault](key-vault-secure-your-key-vault.md)
 
@@ -36,8 +36,8 @@
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
-## [PowerShell](/powershell/module/azurerm.keyvault)
-## [CLI de Azure 2](/cli/azure/keyvault)
+## [Azure PowerShell](/powershell/module/azurerm.keyvault)
+## [CLI de Azure](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js
