@@ -17,24 +17,24 @@
 
 # Procedimientos
 ## Creación y modificación de un circuito
-### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Portal de Azure](expressroute-howto-circuit-portal-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [CLI de Azure](howto-circuit-cli.md)
 ## Creación y modificación de la configuración de emparejamiento
-### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-routing-arm.md)
+### [Portal de Azure](expressroute-howto-routing-portal-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [CLI de Azure](howto-routing-cli.md)
 ## Vinculación de una red virtual a un circuito ExpressRoute
-### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Portal de Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [CLI de Azure](howto-linkvnet-cli.md)
 ## Configuración de una puerta de enlace de red virtual para ExpressRoute
-### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [Portal de Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configuración de conexiones coexistentes de ExpressRoute y de sitio a sitio](expressroute-howto-coexist-resource-manager.md)
 ## Configuración de filtros de ruta para el emparejamiento de Microsoft
 ### [Portal de Azure](how-to-routefilter-portal.md)
-### [PowerShell](how-to-routefilter-powershell.md)
+### [Azure PowerShell](how-to-routefilter-powershell.md)
 ## [Movimiento de un circuito del portal clásico a Resource Manager](expressroute-howto-move-arm.md)
 ## [Migración de redes virtuales asociadas del portal clásico a Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configuración de un enrutador para ExpressRoute
@@ -53,7 +53,7 @@
 ### [Obtención de tablas ARP (clásico)](expressroute-troubleshooting-arp-classic.md)
 
 # Referencia
-## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
 ## [CLI de Azure](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (clásico)](https://msdn.microsoft.com/library/azure/dn606310)

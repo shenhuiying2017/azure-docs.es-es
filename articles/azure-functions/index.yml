@@ -46,6 +46,10 @@ sections:
             text: Webhook de GitHub
             href: /azure/azure-functions/functions-create-github-webhook-triggered-function
           - image:
+              src: media/index/cosmosdb.svg
+            text: Azure Cosmos DB
+            href: /azure/azure-functions/functions-create-cosmos-db-triggered-function
+          - image:
               src: media/index/blob.svg
             text: Blob
             href: /azure/azure-functions/functions-create-storage-blob-triggered-function
@@ -59,7 +63,7 @@ sections:
         style: icon48
         items:
           - image:
-              src: /media/logos/logo_visual-studio.svg
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
             text: Visual Studio
             href: /azure/azure-functions/functions-create-your-first-function-visual-studio
   - title: Tutoriales detallados
@@ -71,6 +75,8 @@ sections:
         items:
           - html: <a href="/azure/azure-functions/functions-twitter-email">Creación de una función que se integre con Azure Logic Apps</a>
           - html: <a href="/azure/azure-functions/functions-create-serverless-api">Creación de una API sin servidor mediante Azure Functions</a>
+          - html: <a href="/azure/azure-functions/functions-openapi-definition">Creación de una definición de OpenAPI para una función</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Automatización del cambio de tamaño de las imágenes cargadas mediante Event Grid</a>
   - title: Muestras
     items:
       - type: list
@@ -89,4 +95,4 @@ sections:
           - title: REST
             html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
           - title: Enlaces
-            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Event Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Archivo externo</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP y webhooks</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Aplicaciones móviles</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Centros de notificaciones</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Queue storage</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Bus de servicio</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Almacenamiento de tablas</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Temporizador</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Enlace de salida de Twilio</a></p>
+            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob storage</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Event Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Archivo externo</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP y webhooks</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Aplicaciones móviles</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Centros de notificaciones</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Queue storage</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Bus de servicio</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Almacenamiento de tablas</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Temporizador</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Enlace de salida de Twilio</a></p>

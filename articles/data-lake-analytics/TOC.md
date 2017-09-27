@@ -4,15 +4,15 @@
 # Primeros pasos
 ## [Portal de Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [PowerShell](data-lake-analytics-get-started-powershell.md)
-## [CLI de Azure 2.0](data-lake-analytics-get-started-cli2.md)
+## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+## [CLI de Azure](data-lake-analytics-get-started-cli2.md)
 
-# Procedimientos
+# Cómo
 
 ## Administración de cuentas de Data Lake Analytics
 ### [Portal de Azure](data-lake-analytics-manage-use-portal.md)
 ### [CLI de Azure](data-lake-analytics-manage-use-cli.md)
-### [PowerShell](data-lake-analytics-manage-use-powershell.md)
+### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [SDK de Python](data-lake-analytics-manage-use-python-sdk.md)
 ### [SDK de Java](data-lake-analytics-manage-use-java-sdk.md)
@@ -41,12 +41,12 @@
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
-## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
+## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
 ## [REST](/rest/api/datalakeanalytics/)
-## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
+## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
 # Recursos
 ## [Blog de Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)

@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación sobre Azure Cost Management
+metadata:
+  title: 'Documentación sobre Cost Management: tutoriales y referencia de API | Microsoft Docs'
+  description: 'Azure Cost Management de Cloudyn es una solución de administración de costos en varias nubes que le permitirá usar Azure y otros recursos en la nube. Aprenda a revisar el uso y los costos, administrar activamente los costos, pronosticar gastos y optimizar los costos con nuestros inicios rápidos y tutoriales.'
+  services: cost-management
+  author: czeumault
+  manager: carolz
+  ms.service: cost-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/18/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Cost Management de Cloudyn es una solución de administración de costos en varias nubes que le ayuda a usar y administrar mejor Azure y otros recursos en la nube. Aprenda a revisar el uso y los costos, administrar activamente los costos, pronosticar gastos y optimizar los costos con nuestros inicios rápidos y tutoriales.'
+sections:
+  - title: Inicios rápidos en 5 minutos
+    items:
+      - type: paragraph
+        text: Aprenda a registrar la información sobre su contrato o suscripción de Azure con Cost Management y empiece a ver los datos de costos.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Ver datos de costos
+            href: quick-register-azure-sub
+  - title: Tutoriales detallados
+    items:
+      - type: paragraph
+        text: 'Aprenda a revisar el uso y los costos, administrar activamente los costos, pronosticar gastos y optimizar los costos con Cost Management.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-review-usage">Revisión del uso y los costos para detectar anomalías y eficiencias</a>
+          - html: <a href="tutorial-user-access">Asignación del acceso a los datos de Cost Management</a>

@@ -1,17 +1,22 @@
 # Primeros pasos
 ## [Prevención de costes inesperados](billing-getting-started.md)
+## [Creación de servicios incluidos con la cuenta gratuita](billing-create-free-services-included-free-account.md)
+## [Evitar cargos de la cuenta gratuita](billing-avoid-charges-free-account.md)
 ## [Concesión de acceso a la facturación](billing-manage-access.md)
 ## [Registro con la cuenta de Office 365](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Suscripción a Office 365 con la cuenta de Azure](billing-use-existing-azure-account-for-office-365-subscription.md)
+## [Organización de recursos con grupos de administración](billing-enterprise-mgmt-group-overview.md)
 ## [Límites y cuotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # Procedimientos
 ## Supervisión de uso y costos
 ### [Obtención de factura y uso](billing-download-azure-invoice-daily-usage-date.md)
+### [Comprobación del uso de los servicios gratuitos](billing-check-free-service-usage.md)
 ### [Descripción de la factura](billing-understand-your-bill.md)
 ### [Descripción de los términos de la factura](billing-understand-your-invoice.md)
 ### [Descripción de los términos de uso](billing-understand-your-usage.md)
 ### [Descripción de los cargos de servicios externos](billing-understand-your-azure-marketplace-charges.md)
+### [Descripción de la asignación de medidores de los servicios gratuitos](billing-understand-free-service-meter-mapping.md)
 ### [Descripción del límite de gasto](billing-spending-limit.md)
 ### [Configurar alertas de facturación](billing-set-up-alerts.md)
 ### [Resolución del saldo vencido](billing-azure-subscription-past-due-balance.md)
@@ -23,6 +28,7 @@
 ### [Actualización de suscripción gratis](billing-upgrade-azure-subscription.md)
 ### [Cambio de oferta de suscripción](billing-how-to-switch-azure-offer.md)
 ### [Cancelación de la suscripción](billing-how-to-cancel-azure-subscription.md)
+### [Búsqueda de la suscripción o grupo de administración](billing-enterprise-mgmt-grp-find.md)
 ## Administración de una cuenta
 ### [Edición de perfil](billing-how-to-change-azure-account-profile.md)
 ### [Actualización de la información de pago](billing-how-to-change-credit-card.md)
@@ -33,6 +39,7 @@
 ### [Tarjeta rechazada](billing-credit-card-fails-during-azure-sign-up.md)
 ### [Problemas de inicio de sesión](billing-cannot-login-subscription.md)
 ### [No se han encontrado suscripciones](billing-no-subscriptions-found.md)
+### [Se ha deshabilitado la vista de costos empresariales](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 # Referencia
 ## [Información general acerca de la API](billing-usage-rate-card-overview.md)
@@ -40,7 +47,6 @@
 ## [REST de factura](/rest/api/billing)
 ## [Uso y REST de RateCard](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [Solución de asociado: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
-## [Solución de asociado: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

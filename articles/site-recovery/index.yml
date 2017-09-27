@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de Site Recovery
+metadata:
+  title: 'Documentación sobre Azure Site Recovery: tutoriales y referencia de API | Microsoft Docs'
+  meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
+  services: site-recovery
+  author: czeumault
+  manager: carolz
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/23/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Site Recovery orquesta y administra la recuperación ante desastres de las máquinas virtuales de Azure y de las máquinas virtuales y servidores físicos locales. Aprenda a replicar, conmutar por error y conmutar por recuperación con nuestros inicios rápidos y tutoriales.'
+sections:
+  - title: Inicios rápidos en 5 minutos
+    items:
+      - type: paragraph
+        text: Configuración rápida de la recuperación ante desastres de una máquina virtual de Azure
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/site-recovery/media/index/portal.svg
+            text: Azure Portal
+            href: /azure/site-recovery/azure-to-azure-quickstart
+  - title: Tutoriales detallados
+    items:
+      - type: paragraph
+        text: Aprenda a configurar la recuperación ante desastres de máquinas virtuales y servidores físicos.
+      - type: text
+        html: <h3>Azure a Azure</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="azure-to-azure-tutorial-enable-replication">Configuración de la recuperación ante desastres</a>
+          - html: <a href="azure-to-azure-tutorial-dr-drill">Obtención de detalles de recuperación ante desastres</a>
+          - html: <a href="azure-to-azure-tutorial-failover-failback">Realización de una conmutación por error y una conmutación por recuperación</a>
+      - type: text
+        html: <h3>VMware</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Preparación de Azure</a>
+          - html: <a href="tutorial-prepare-on-premises-vmware">Preparación de instancias locales de VMware</a>
+          - html: <a href="tutorial-vmware-to-azure">Configuración de la recuperación ante desastres</a>
+          - html: <a href="tutorial-dr-drill-azure">Obtención de detalles de recuperación ante desastres</a>
+          - html: <a href="tutorial-vmware-to-azure-failover-failback">Realización de una conmutación por error y una conmutación por recuperación</a>
+      - type: text
+        html: <h3>Migración a Azure</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Preparación de Azure</a>
+          - html: <a href="tutorial-migrate-on-premises-to-azure">Migración de máquinas locales</a> o <a href="tutorial-migrate-aws-to-azure">instancias de AWS a Azure</a>
+  - title: Referencia
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Línea de comandos
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">Referencia de API de REST</a></p>

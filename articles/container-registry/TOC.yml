@@ -1,0 +1,51 @@
+- name: Azure Container Registry
+  href: ./index.yml
+- name: Información general
+  items:
+    - name: Acerca de Container Registry
+      href: container-registry-intro.md
+- name: Inicios rápidos
+  expanded: true
+  items:
+    - name: 'Container Registry: CLI'
+      href: container-registry-get-started-azure-cli.md
+    - name: 'Container Registry: Portal'
+      href: container-registry-get-started-portal.md
+    - name: 'Container Registry: PowerShell'
+      href: container-registry-get-started-powershell.md
+- name: Tutoriales
+  items:
+    - name: Azure Container Instances
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Azure Container Service
+      href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
+- name: Guías de procedimientos
+  items:
+    - name: Inserción y extracción de una imagen
+      href: container-registry-get-started-docker-cli.md
+    - name: Visualización de repositorios
+      href: container-registry-repositories.md
+    - name: Creación de una entidad de servicio
+      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
+    - name: Autenticación con un registro
+      href: container-registry-authentication.md
+    - name: Uso de webhooks de ACR
+      href: ./container-registry-webhook.md
+- name: Referencia
+  items:
+    - name: CLI de Azure
+      href: /cli/azure/acr
+    - name: REST
+      href: /rest/api/containerregistry
+    - name: PowerShell
+      href: /powershell/module/azurerm.containerregistry
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Disponibilidad en regiones
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stackoverflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'

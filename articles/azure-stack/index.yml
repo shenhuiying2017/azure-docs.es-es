@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación de Azure Stack
+title: Documentación del operador de Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: 'Documentación sobre Azure Stack: tutoriales y referencia de API'
+  title: 'Documentación del operador de Azure Stack: tutoriales y referencia de API'
   description: Aprenda a usar la versión preliminar de Azure Stack para prestar servicios de Azure desde el centro de datos. Aprenda y demuestre características desde un entorno de prueba de concepto.
   services: azure-stack
   author: czeumault
@@ -12,12 +12,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/28/2017
+  ms.date: 09/23/2017
   ms.author: carolz
 abstract:
   description: Microsoft Azure Stack es una nueva plataforma en la nube híbrida que le permite proporcionar servicios de Azure desde el centro su datos. Aprenda a implementar Azure Stack y a ofrecer servicios con nuestros inicios rápidos y tutoriales.
 sections:
-  - title: Guía de inicio rápido
+  - title: Inicios rápidos en 5 minutos
     items:
       - type: paragraph
         text: 'Configuración del hardware e implementación de Azure Stack:'
@@ -33,12 +33,22 @@ sections:
       - type: paragraph
         text: 'Aprenda a agregar servicios a la implementación de Azure Stack:'
       - type: list
-        style: unordered
+        style: ordered
         items:
           - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Habilitar Virtual Machines en Azure Stack</a>
           - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Habilitar bases de datos SQL en Azure Stack</a>
           - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Habilitar Web Apps en Azure Stack</a>
-          - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Implementación de aplicaciones en Azure y Azure Stack</a>
+  - title: Vídeo gratuito de aprendizaje de PluralSight
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Conozca los aspectos básicos de Azure Stack
+            href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
   - title: Referencia
     items:
       - type: list
@@ -46,4 +56,4 @@ sections:
         className: cardsD
         items:
           - title: Línea de comandos
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>

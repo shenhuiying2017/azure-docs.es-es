@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de Azure Backup
+metadata:
+  title: 'Documentación sobre Azure Backup: tutoriales y referencia de API | Microsoft Docs'
+  description: 'Azure Backup le permite realizar copias de seguridad de los datos de servidores locales, máquinas virtuales, cargas de trabajo virtualizadas, servidores SQL Server, servidores SharePoint Server y mucho más. Aprenda a realizar copias de seguridad y a restaurar datos con nuestros inicios rápidos, tutoriales y ejemplos.'
+  services: backup
+  author: czeumault
+  manager: carolz
+  ms.service: backup
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/11/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Backup le permite realizar copias de seguridad de los datos de servidores locales, máquinas virtuales, cargas de trabajo virtualizadas, servidores SQL Server, servidores SharePoint Server y mucho más. Aprenda a realizar copias de seguridad y a restaurar datos con nuestros inicios rápidos, tutoriales y ejemplos.'
+sections:
+  - title: Inicios rápidos en 5 minutos
+    items:
+      - type: paragraph
+        text: Aprenda a realizar la copia de seguridad de una máquina virtual en Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
+            text: Portal de Azure
+            href: quick-backup-vm-portal
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: quick-backup-vm-powershell
+          - image:
+              src: 'https://docs.microsoft.com/media/common/cli.svg'
+            text: CLI de Azure
+            href: quick-backup-vm-cli
+  - title: Tutoriales detallados
+    items:
+      - type: paragraph
+        text: Aprenda a realizar copias de seguridad y a recuperar máquinas virtuales en Azure o desde Windows Server.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-backup-vm-at-scale">Copia de seguridad de varias máquinas virtuales de Azure</a>
+          - html: <a href="tutorial-restore-disk">Restauración de un disco y creación de una máquina virtual recuperada</a>
+          - html: <a href="tutorial-restore-files">Restauración de archivos en una máquina virtual de Azure</a>
+          - html: <a href="tutorial-backup-windows-server-to-azure">Realización de copias de seguridad de un servidor de Windows Server en Azure</a>
+          - html: <a href="tutorial-backup-restore-files-windows-server">Recuperación de archivos de Azure en Windows Server</a>
+  - title: Muestras
+    items:
+      - type: paragraph
+        text: Utilice los siguientes ejemplos para proteger los datos en Azure.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
+  - title: Referencia
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Línea de comandos
+            html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">Azure PowerShell</a></p>
+          - title: Idiomas
+            html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>

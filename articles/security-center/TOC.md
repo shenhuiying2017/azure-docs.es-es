@@ -19,7 +19,7 @@
 # Cómo
 
 ## Directiva de seguridad
-### [Colección de datos](security-center-enable-data-collection.md)
+### [Recopilación de datos](security-center-enable-data-collection.md)
 ### [Directiva de seguridad](security-center-policies.md)
 ### [Notificaciones por correo electrónico](security-center-provide-security-contact-details.md)
 ### [Plan de tarifa](security-center-pricing.md)
@@ -74,6 +74,7 @@
 
 ## Defensas en la nube
 ### [Acceso justo a tiempo](security-center-just-in-time.md)
+### [Controles de aplicación adaptables](security-center-adaptive-application.md)
 
 ## Automatización y orquestación
 ### [Cuadernos de estrategias](security-center-playbooks.md)

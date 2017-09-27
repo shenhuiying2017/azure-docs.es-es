@@ -4,7 +4,7 @@ title: Documentación sobre Azure Cosmos DB
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: 'Documentación sobre Azure Cosmos DB: tutoriales y referencia de API'
-  description: 'Aprenda a usar Azure Cosmos DB para crear bases de datos de varios modelos de distribución global. Los tutoriales le explican cómo crear y consultar documentos, pares clave/valor y bases de datos de gráficos.'
+  description: 'Aprenda a usar Azure Cosmos DB para crear bases de datos de varios modelos de distribución global. Los tutoriales le explican cómo crear y consultar documentos, pares clave/valor y bases de datos de grafos.'
   services: cosmos-db
   author: czeumault
   manager: carolz
@@ -15,7 +15,7 @@ metadata:
   ms.date: 07/24/2017
   ms.author: carolz
 abstract:
-  description: 'Azure Cosmos DB es un servicio de base de datos de distribución global diseñado para permitirle escalar de forma elástica e independiente el rendimiento y el almacenamiento en todas las regiones geográficas con un Acuerdo de Nivel de Servicio completo.  Puede desarrollar documentos, pares clave/valor o bases de datos de gráficos con Cosmos DB mediante una serie de API y modelos de programación muy conocidos. Aprenda a usar Cosmos DB con nuestros inicios rápidos, tutoriales y ejemplos.'
+  description: 'Azure Cosmos DB es un servicio de base de datos de distribución global diseñado para permitirle escalar de forma elástica e independiente el rendimiento y el almacenamiento en todas las regiones geográficas con un Acuerdo de Nivel de Servicio completo.  Puede desarrollar documentos, pares clave/valor o bases de datos de grafos con Cosmos DB mediante una serie de API y modelos de programación muy conocidos. Aprenda a usar Cosmos DB con nuestros inicios rápidos, tutoriales y ejemplos.'
 sections:
   - title: Inicios rápidos en 5 minutos
     items:
@@ -75,6 +75,7 @@ sections:
           - html: 'Consulta de datos con Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>'
           - html: 'Replicación de base de datos global con Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>'
           - html: <a href="local-emulator">Desarrollo de la aplicación localmente mediante el emulador</a>
+          - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Creación de un desencadenador HTTP con un enlace de entrada de Azure Cosmos DB</a>
   - title: Muestras
     items:
       - type: list
