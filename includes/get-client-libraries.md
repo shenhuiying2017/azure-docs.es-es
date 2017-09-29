@@ -1,22 +1,23 @@
 ### <a name="install-via-composer"></a>Instalación mediante el compositor
-1. [Instalación de Git][install-git] Tenga en cuenta que en Windows, también debe agregar el archivo ejecutable Git a la variable de entorno PATH. 
-2. Cree un archivo con el nombre **composer.json** en la raíz del proyecto y agréguele el código siguiente:
+1. Cree un archivo con el nombre **composer.json** en la raíz del proyecto y agréguele el código siguiente:
    
     ```json
     {
       "require": {
-        "microsoft/windowsazure": "^0.4"
+        "microsoft/azure-storage": "*"
       }
     }
     ```
-3. Descargue **[composer.phar][composer-phar]** en la raíz del proyecto.
-4. Abra un símbolo del sistema y ejecute el siguiente comando en la raíz del proyecto
+2. Descargue **[composer.phar][composer-phar]** en la raíz del proyecto.
+3. Abra un símbolo del sistema y ejecute el siguiente comando en la raíz del proyecto
    
     ```
     php composer.phar install
     ```
 
-[php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
+También puede ir a la [biblioteca de cliente de PHP de Azure Storage][php-sdk-github] en GitHub para clonar el código fuente.
+
+[php-sdk-github]: https://github.com/Azure/azure-storage-php
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
