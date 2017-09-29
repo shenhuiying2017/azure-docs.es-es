@@ -32,7 +32,7 @@ Para más información sobre la creación de plantillas, consulte [Creación de 
 
 Para obtener las plantillas de ejemplo, vea:
 - [Aplicación de función en el plan de consumo]
-- [Aplicación de función en el plan Azure App Service]
+- [Aplicación de función en el plan de App Service]
 
 ## <a name="required-resources"></a>Recursos necesarios
 
@@ -292,5 +292,5 @@ Aprenda a desarrollar y configurar Azure Functions.
 <!-- LINKS -->
 
 [Aplicación de función en el plan de consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[Aplicación de función en el plan Azure App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Aplicación de función en el plan de App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
 

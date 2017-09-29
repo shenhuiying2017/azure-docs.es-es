@@ -185,7 +185,7 @@ Una opción para actualizar el servicio web es volver a entrenar el modelo media
 <!-- internal links -->
 [Crear un experimento de entrenamiento]: #create-a-training-experiment
 [Convertirlo en un experimento predictivo]: #convert-the-training-experiment-to-a-predictive-experiment
-[Implementación como un servicio web]: #deploy-it-as-a-web-service
+[Implementarlo como un servicio web]: #deploy-it-as-a-web-service
 [nuevo]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [clásico]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [Access]: #access-the-Web-service

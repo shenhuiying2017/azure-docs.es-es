@@ -562,7 +562,7 @@ También verá el número de alertas en el icono **Reglas de alerta**. Haga clic
 
 ![Hoja Métrica de la factoría de datos: Reglas de alerta](./media/data-factory-monitor-manage-pipelines/alert-rules-tile-rules.png)
 
-En la hoja **Reglas de alerta**, vea las alertas existentes. Para agregar una alerta, haga clic en ** Agregar alerta** en la barra de herramientas.
+En la hoja **Reglas de alerta**, vea las alertas existentes. Para agregar una alerta, haga clic en  **Agregar alerta** en la barra de herramientas.
 
 ![Hoja Reglas de alertas](./media/data-factory-monitor-manage-pipelines/alert-rules-blade.png)
 
