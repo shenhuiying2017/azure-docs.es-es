@@ -305,7 +305,7 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 Para más información acerca de las diferentes tecnologías que se tratan en este artículo, consulte los artículos siguientes:
 
-* [Complemento Maven de Azure Web Apps]
+* [complemento Maven de Azure Web Apps]
 
 * [Inicio de sesión en Azure desde la CLI de Azure](/azure/xplat-cli-connect)
 
@@ -315,25 +315,25 @@ Para más información acerca de las diferentes tecnologías que se tratan en es
 
 * [Referencia de configuración de Maven](https://maven.apache.org/settings.html)
 
-* [Complemento Docker para Maven]
+* [complemento de Docker para Maven]
 
 <!-- URL List -->
 
 [Interfaz de la línea de comandos (CLI) de Azure]: /cli/azure/overview
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Portal de Azure]: https://portal.azure.com/
-[Docker]: https://www.docker.com/
-[Complemento Docker para Maven]: https://github.com/spotify/docker-maven-plugin
+[Azure Portal]: https://portal.azure.com/
+[cliente de Docker]: https://www.docker.com/
+[complemento de Docker para Maven]: https://github.com/spotify/docker-maven-plugin
 [cuenta de Azure gratuita]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
-[Ventajas para suscriptores de MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[ventajas como suscriptor de MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[Spring Boot on Docker Getting Started]: https://github.com/spring-guides/gs-spring-boot-docker
+[inicial de Spring Boot en Docker]: https://github.com/spring-guides/gs-spring-boot-docker
 [Spring Framework]: https://spring.io/
-[Complemento Maven de Azure Web Apps]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
+[complemento Maven de Azure Web Apps]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
 <!-- IMG List -->
 

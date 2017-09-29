@@ -108,5 +108,5 @@ La facturación del plan de consumo se describe de manera detallada en la [pági
 * **Consumo de recursos en gigabytes-segundo (GB-s)**. Se calcula como una combinación del tamaño de la memoria y el tiempo de ejecución de todas las funciones de una aplicación de función. 
 * **Ejecuciones**. Se cuenta cada vez que se ejecuta una función en respuesta a un evento, desencadenado por un enlace.
 
-[Página de precios de Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+[página de precios de Azure Functions]: https://azure.microsoft.com/pricing/details/functions
 

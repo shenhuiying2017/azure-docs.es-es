@@ -49,7 +49,7 @@ Cuando finalmente migre el nombre DNS personalizado del sitio antiguo a la aplic
 
 ### <a name="create-domain-verification-record"></a>Creación de un registro de comprobación de dominio
 
-Para comprobar la propiedad de dominio, agregue un registro TXT. El registro TXT se asigna desde _awverify.&lt; subdominio >_ a _ &lt;nombreaplic >. azurewebsites.net_. 
+Para comprobar la propiedad de dominio, agregue un registro TXT. El registro TXT se asigna desde _awverify.&lt; subdominio >_ a  _&lt;nombreaplic >. azurewebsites.net_. 
 
 El registro TXT que necesita depende en el registro DNS que desea migrar. Para obtener ejemplos, vea la tabla siguiente (`@` normalmente representa el dominio raíz):  
 

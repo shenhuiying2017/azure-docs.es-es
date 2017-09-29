@@ -218,7 +218,7 @@ Hay varias situaciones que pueden impedir que la aplicación llegue a un host y 
 
 * **Hay un firewall en la comunicación**: si tiene un firewall en la comunicación, se agotará el tiempo de espera de TCP. En este caso, es de 21 segundos. Utilice la herramienta tcpping para probar la conectividad. Los tiempos de espera agotados de TCP pueden deberse a muchas causas, además de los firewalls, pero comience por comprobar los firewalls. 
 * **El DNS no está accesible**: el tiempo de espera del DNS es de tres segundos por cada servidor DNS. Si tiene dos servidores DNS, el tiempo de espera es de seis segundos. Utilice nameresolver para ver si funciona el DNS. Recuerde que no puede usar nslookup ya que este no utiliza el DNS con el que está configurada su red virtual.
-* **Intervalo IP de P2S no válido ** El intervalo IP de punto a sitio debe estar en los intervalos IP privado de RFC 1918 (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255). Si el intervalo utiliza direcciones IP externas, las cosas no funcionarán. 
+* **Intervalo IP de P2S no válido**  El intervalo IP de punto a sitio debe estar en los intervalos IP privado de RFC 1918 (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255). Si el intervalo utiliza direcciones IP externas, las cosas no funcionarán. 
 
 Si estos elementos no resuelven su problema, busque primero elementos sencillas como: 
 

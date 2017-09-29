@@ -204,7 +204,7 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 
 Para obtener más información sobre la implementación de aplicaciones web en Azure mediante FTP, consulte [Implementación de la aplicación en Azure App Service mediante FTP/S].
 
-Para obtener más información sobre el proyecto de ejemplo de Spring Boot, consulte [Primeros pasos de Spring Boot].
+Para obtener más información sobre el proyecto de ejemplo de Spring Boot, consulte [inicial de Spring Boot].
 
 Para obtener ayuda para dar sus primeros pasos con sus propias aplicaciones de Spring Boot, consulte **Spring Initializr** en https://start.spring.io/.
 
@@ -212,20 +212,20 @@ Para obtener más información sobre configuración de valores adicionales para 
 
 <!-- URL List -->
 
-[Servicio de aplicaciones de Azure]: https://azure.microsoft.com/services/app-service/
+[Azure App Service]: https://azure.microsoft.com/services/app-service/
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [Centro para desarrolladores de Java de Azure]: https://azure.microsoft.com/develop/java/
-[Portal de Azure]: https://portal.azure.com/
-[Configuración de Aplicaciones web en Servicio de aplicaciones de Azure]: /azure/app-service/web-sites-configure
+[Azure Portal]: https://portal.azure.com/
+[Configuración de aplicaciones web en Azure App Service]: /azure/app-service/web-sites-configure
 [Implementación de la aplicación en Azure App Service mediante FTP/S]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
-[Cuenta de Azure gratuita]: https://azure.microsoft.com/pricing/free-trial/
+[cuenta de Azure gratuita]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
-[Kit para desarrolladores de Java (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
-[Herramientas de Java para Visual Studio Team Services]: https://java.visualstudio.com/
+[kit para desarrolladores de Java (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
+[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
-[Ventajas para suscriptores de MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[ventajas como suscriptor de MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[Primeros pasos de Spring Boot]: https://github.com/spring-guides/gs-spring-boot
+[inicial de Spring Boot]: https://github.com/spring-guides/gs-spring-boot
 [Spring Framework]: https://spring.io/
 
 <!-- IMG List -->
