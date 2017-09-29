@@ -1,4 +1,4 @@
-- name: Documentación del usuario de Azure Stack
+- name: Documentación de usuario de Azure Stack
   href: index.yml
 - name: Información general
   items:
@@ -116,7 +116,9 @@
 - name: Referencia
   items:
     - name: PowerShell de Azure Stack
-      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    - name: CLI de Azure Stack
+      href: /cli/azure/?view=azure-cli-2017-03-09-profile
 - name: Recursos
   items:
     - name: Azure Roadmap

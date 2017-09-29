@@ -83,7 +83,7 @@
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Carga de archivos desde dispositivos]
+### Carga de archivos desde dispositivos
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 ### Introducción a los dispositivos gemelos
@@ -116,7 +116,7 @@
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Administrar
 ### Crear un centro de IoT 
-#### [Uso de Azure portal](iot-hub-create-through-portal.md)
+#### [Uso de Azure Portal](iot-hub-create-through-portal.md)
 #### [Uso de Azure PowerShell](iot-hub-create-using-powershell.md)
 #### [Uso de CLI de Azure](iot-hub-create-using-cli.md)
 #### [Uso de la CLI](iot-hub-create-using-cli-nodejs.md)

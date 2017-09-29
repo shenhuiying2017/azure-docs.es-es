@@ -23,7 +23,7 @@
       href: powershell-samples.md
 - name: Conceptos
   items:
-    - name: P+F
+    - name: Preguntas frecuentes sobre Log Analytics
       href: log-analytics-faq.md
     - name: Consumo de datos
       href: log-analytics-usage.md
@@ -31,6 +31,14 @@
       href: log-analytics-manage-access.md
     - name: Características de proveedores de servicios
       href: log-analytics-service-providers.md
+    - name: Búsqueda de registros
+      items:
+        - name: Preguntas más frecuentes sobre la búsqueda de registros
+          href: log-analytics-log-search-faq.md
+        - name: Introducción a búsquedas de registros
+          href: log-analytics-log-search-new.md
+        - name: Portales de búsqueda de registros
+          href: log-analytics-log-search-portals.md
 - name: Procedimientos
   items:
     - name: Recopilación de datos
@@ -92,15 +100,6 @@
       items:
         - name: Actualización del área de trabajo
           href: log-analytics-log-search-upgrade.md
-        - name: P+F
-          href: log-analytics-log-search-faq.md
-        - name: Introducción a búsquedas de registros
-          href: log-analytics-log-search-new.md
-        - name: Portales de búsqueda de registros
-          href: log-analytics-log-search-portals.md
-          items:
-            - name: Uso del portal de búsqueda de registros
-              href: log-analytics-log-search-log-search-portal.md
         - name: Transición desde el lenguaje heredado
           href: log-analytics-log-search-transition.md
         - name: Conector de Flow
