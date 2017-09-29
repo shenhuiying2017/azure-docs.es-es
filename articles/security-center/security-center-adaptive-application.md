@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 09/20/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 18ae6a970455646b7a25170f5abefa52a98b0ba2
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controles de aplicación adaptables en Azure Security Center (versión preliminar)
@@ -33,6 +33,9 @@ Los controles de aplicación adaptables ayudan a controlar qué aplicaciones se 
 - Evitar la ejecución de aplicaciones anteriores y no compatibles.
 - Impedir herramientas de software específicas no permitidas en la organización.
 - Permiten que TI controle el acceso a información confidencial a través del uso de aplicaciones.
+
+> [!NOTE]
+> Los controles de aplicación adaptables están disponibles para los clientes de Azure Security Center Estándar como una versión preliminar pública limitada. Envíe un correo electrónico con los identificadores de suscripción a [nuestro equipo](mailto:ASC_appcontrol@microsoft.com) para unirse a la versión preliminar.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>¿Cómo habilitar los controles de aplicación adaptables?
 Los controles de aplicación adaptables ayudan a definir un conjunto de aplicaciones que se pueden ejecutar en los grupos de recursos configurados. Esta característica solo está disponible para equipos Windows (todas las versiones, clásica o Azure Resource Manager). Siga los pasos siguientes para configurar la inclusión en listas de aplicaciones permitidas en Security Center:
@@ -144,10 +147,6 @@ Security Center solo recomendará las listas de aplicaciones permitidas para las
 La lista contiene:
 - **NOMBRE**: nombre de la suscripción y del grupo de recursos.
 - **MÁQUINAS VIRTUALES**: número de máquinas virtuales en el grupo de recursos.
-
-## <a name="preview-registration"></a>Registro para la versión preliminar
-
-Los controles de aplicación adaptables están disponibles para los clientes de Azure Security Center Estándar como una versión preliminar pública limitada. Envíe un correo electrónico con los identificadores de suscripción a [nuestro equipo](mailto:ASC_appcontrol@microsoft.com) para unirse a la versión preliminar.
 
 ## <a name="see-also"></a>Otras referencias
 En este documento ha aprendido a usar el control de aplicación adaptable en Azure Security Center para incluir en la lista de permitidos las aplicaciones que se ejecutan en máquinas virtuales de Azure. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:

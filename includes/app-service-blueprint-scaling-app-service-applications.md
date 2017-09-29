@@ -1,4 +1,4 @@
-* [Escalar Servicio de aplicaciones de Azure](../articles/app-service-web/web-sites-scale.md)
+* [Escalar Servicio de aplicaciones de Azure](../articles/app-service/web-sites-scale.md)
   
   * Descripción de redundancia y confiabilidad
   * Comparación de aplicaciones con y sin estado

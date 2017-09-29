@@ -1,6 +1,6 @@
-* [Implementar una aplicación en el Servicio de aplicaciones de Azure](../articles/app-service-web/web-sites-deploy.md)
-* [Configuración del control de código fuente y la integración continua](../articles/app-service-web/app-service-continuous-deployment.md)
-* [Almacenamiento provisional de implementaciones mediante ranuras de implementación](../articles/app-service-web/web-sites-staged-publishing.md)
+* [Implementar una aplicación en el Servicio de aplicaciones de Azure](../articles/app-service/app-service-deploy-local-git.md)
+* [Configuración del control de código fuente y la integración continua](../articles/app-service/app-service-continuous-deployment.md)
+* [Almacenamiento provisional de implementaciones mediante ranuras de implementación](../articles/app-service/web-sites-staged-publishing.md)
 * [Publicación y control de acceso basado en rol (RBAC)](https://azure.microsoft.com/blog/rbac-and-azure-websites-publishing/)
 
 ## <a name="videos"></a>Vídeos

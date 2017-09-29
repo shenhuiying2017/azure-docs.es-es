@@ -1,20 +1,12 @@
 
 ## <a name="resources"></a>Recursos
-* [Lista completa de recursos de WebJobs](../articles/app-service-web/websites-webjobs-resources.md)
-* [Introducción al SDK de WebJobs de Azure](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
-* [Uso del almacenamiento de colas de Azure con el SDK de WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
-* [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-* [Uso del almacenamiento de tablas de Azure con el SDK de WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
-* [Uso del Bus de servicio de Azure con el SDK de trabajos web](../articles/app-service-web/websites-dotnet-webjobs-sdk-service-bus.md)
+* [Introducción al SDK de WebJobs de Azure](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * [Documentación de configuración de WebJobs en GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs)
-* [Cómo implementar trabajos web de Azure con Visual Studio](../articles/app-service-web/websites-dotnet-deploy-webjobs.md)
-* [Implementación de WebJobs mediante el Portal de administración de Azure](../articles/app-service-web/web-sites-create-web-jobs.md)
-* [Cuadro de diálogo Agregar WebJob de Azure](../articles/app-service-web/websites-dotnet-deploy-webjobs.md#configure)
-* [Creación de un WebJob programado en el Portal de administración de Azure](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON)
+* [Cómo implementar trabajos web de Azure con Visual Studio](../articles/app-service/websites-dotnet-deploy-webjobs.md)
+* [Implementación de WebJobs mediante el Portal de administración de Azure](../articles/app-service/web-sites-create-web-jobs.md)
+* [Cuadro de diálogo Agregar WebJob de Azure](../articles/app-service/websites-dotnet-deploy-webjobs.md#configure)
+* [Creación de un WebJob programado en el Portal de administración de Azure](../articles/app-service/web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [Programación de WebJobs de Azure con expresiones cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
-* [Visualización del panel de WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
-* [Cómo escribir registros mediante el SDK de WebJobs y verlos en el panel](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
-* [WebJobs de depuración remota](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
 
 ## <a name="videos"></a>Vídeos
 * [WebJobs y SDK de WebJobs](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)
