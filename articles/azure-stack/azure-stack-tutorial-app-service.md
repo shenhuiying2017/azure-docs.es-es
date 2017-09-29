@@ -75,7 +75,7 @@ Ahora que ha implementado el proveedor de recursos de App Service y ha creado un
 
 ### <a name="create-a-dnn-app"></a>Creación de una aplicación DNN    
 
-1. Haga clic en ** + **  >  **Ver todo** > **DNN Platform preview** (Versión preliminar de la plataforma DNN)  > **Crear**.
+1. Haga clic en **+** > **Ver todo** > **DNN Platform preview (Versión preliminar de la plataforma DNN)** > **Crear**.
 2. Escriba *AppDNN* en **Nombre de la aplicación** y seleccione **OfertaDePruebaDeAppService** en **Suscripción**.
 3. Haga clic en **Configurar los valores obligatorios** > **Crear nuevo** > escriba un nombre de **Plan de App Service**.
 4. Haga clic en **Nivel de precios** > **F1 gratuito** > **Seleccionar** > **Aceptar**.
