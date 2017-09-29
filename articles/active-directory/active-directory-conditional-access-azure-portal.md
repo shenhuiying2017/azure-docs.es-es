@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/10/2017
+ms.date: 09/27/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 19bc7abbbf7e133018b234399d91604dfdbfe73f
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
 ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acceso condicional en Azure Active Directory
@@ -67,7 +67,7 @@ Existen dos tipos de controles:
 - **Controles de concesión**: determinan si un usuario puede completar la autenticación y llegar a los recursos en los que está intentando iniciar sesión. Si tiene varios controles seleccionados, puede configurar si todos ellos son necesarios al procesarse la directiva.
 La implementación actual de Azure Active Directory le permite configurar los siguientes requisitos de control de concesión:
 
-    ![Control](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![Control](./media/active-directory-conditional-access-azure-portal/73.png)
 
 - **Controles de sesión**: permiten limitar la experiencia desde una aplicación en la nube. Los controles de sesión son aplicados por aplicaciones en la nube y se basan en información adicional sobre la sesión proporcionada por Azure AD a la aplicación.
 
@@ -108,7 +108,7 @@ Para obtener una lista completa de las aplicaciones de nube que puede utilizar e
 
 Siempre y cuando el acceso se realice bajo condiciones que pueda controlar, puede que no haya necesidad de imponer controles adicionales sobre cómo los usuarios accederán a las aplicaciones de nube. Sin embargo, las cosas podrían cambiar si el acceso a sus aplicaciones de nube se realiza, por ejemplo, desde redes o dispositivos que no son de confianza. En una declaración de condición, puede definir determinadas condiciones de acceso que tienen requisitos adicionales respecto al modo en que se realiza el acceso a las aplicaciones.
 
-![Condiciones](./media/active-directory-conditional-access-azure-portal/21.png)
+![Condiciones](./media/active-directory-conditional-access-azure-portal/01.png)
 
 
 ## <a name="conditions"></a>Condiciones
@@ -120,11 +120,12 @@ En la implementación actual de Azure Active Directory, puede definir condicione
 - Ubicaciones
 - Aplicaciones cliente
 
-![Condiciones](./media/active-directory-conditional-access-azure-portal/21.png)
+
+![Condiciones](./media/active-directory-conditional-access-azure-portal/01.png)
 
 ### <a name="sign-in-risk"></a>Riesgo de inicio de sesión
 
-El riesgo del inicio de sesión es un objeto que utiliza Azure Active Directory para rastrear la probabilidad de que no sea el legítimo propietario de una cuenta de usuario quien haya realizado un intento de inicio de sesión. En este objeto, la probabilidad (alta, media o baja) se almacena en un formato de atributo denominado [nivel de riesgo de inicio de sesión](active-directory-reporting-risk-events.md#risk-level). El objeto se genera durante un inicio de sesión de un usuario si Azure Active Directory ha detectado riesgos de inicio de sesión. Para más información, consulte la sección sobre los [inicios de sesión peligrosos](active-directory-identityprotection.md#risky-sign-ins).  
+El riesgo del inicio de sesión es un objeto que utiliza Azure Active Directory para rastrear la probabilidad de que no sea el legítimo propietario de una cuenta de usuario quien haya realizado un intento de inicio de sesión. En este objeto, la probabilidad (alta, media o baja) se almacena en un formato de atributo denominado [nivel de riesgo de inicio de sesión](active-directory-reporting-risk-events.md#risk-level). El objeto se genera durante un inicio de sesión de un usuario si Azure Active Directory ha detectado riesgos de inicio de sesión. Para más información, consulte [Inicios de sesión no seguros](active-directory-identityprotection.md#risky-sign-ins).  
 Puede utilizar el nivel calculado de riesgo de inicio de sesión como condición en una directiva de acceso condicional. 
 
 ![Condiciones](./media/active-directory-conditional-access-azure-portal/22.png)
@@ -147,22 +148,35 @@ Para usar plataformas de dispositivos en la directiva, primero cambie los conmut
 
 ### <a name="locations"></a>Ubicaciones
 
-La ubicación se identifica mediante la dirección IP del cliente que ha usado para conectarse con Azure Active Directory. Para esta condición es necesario estar familiarizado **Ubicaciones con nombre** y **IP de confianza de MFA**.  
+Con ubicaciones, tiene la opción de definir las condiciones que se basan en desde dónde se inicia un intento de conexión. Las entradas de la lista de ubicaciones son **ubicaciones con nombre** o **IP de confianza de MFA**.  
 
-**Ubicaciones con nombre** es una característica de Azure Active Directory que permite etiquetar intervalos de direcciones IP de confianza en las organizaciones. En su entorno, puede usar las ubicaciones con nombre en el contexto de la detección de [eventos de riesgo](active-directory-reporting-risk-events.md), así como del acceso condicional. Para más información sobre cómo configurar ubicaciones con nombre en Azure Active Directory, vea [Ubicaciones con nombre en Azure Active Directory](active-directory-named-locations.md).
+**Ubicaciones con nombre** es una característica de Azure Active Directory que permite definir las etiquetas para las ubicaciones desde las que se realizaron intentos de conexión. Para definir una ubicación, puede configurar un intervalo de direcciones IP o seleccionar un país o región.  
 
-El número de ubicaciones que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Puede configurar:
+![Condiciones](./media/active-directory-conditional-access-azure-portal/42.png)
+
+Además, puede marcar una ubicación con nombre como ubicación de confianza. Para una directiva de acceso condicional, la ubicación de confianza es otra opción de filtro que le permite seleccionar *todas las ubicaciones de confianza* en la condición de ubicaciones.
+Las ubicaciones con nombre también son importantes en el contexto de la detección de [eventos de riesgo](active-directory-reporting-risk-events.md) a fin de reducir el número de falsos positivos para el evento de riesgo Viaje imposible a ubicaciones inusuales. 
+
+El número de ubicaciones con nombre que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Puede configurar:
  
  - Una ubicación con nombre de hasta 500 intervalos IP
  - Un máximo de 60 ubicaciones con nombre (versión preliminar) con un intervalo IP asignado a cada una 
 
-
-**IP de confianza de MFA** es una característica de Multi-Factor Authentication que permite definir intervalos IP de confianza que representan la intranet local de su organización. Cuando se configura una condición de ubicación, IP de confianza le permite distinguir entre conexiones realizadas desde la red de su organización y todas las demás ubicaciones. Para más información, vea [IP de confianza](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
-
+Para más información, vea [Ubicaciones con nombre en Azure Active Directory](active-directory-named-locations.md).
 
 
-Puede incluir todas las ubicaciones o todas las direcciones IP de confianza y puede excluir todas las direcciones IP de confianza.
+**IP de confianza de MFA** es una característica de Multi-Factor Authentication que permite definir intervalos IP de confianza que representan la intranet local de su organización. Cuando se configura una condición de ubicación, las IP de confianza permiten distinguir entre conexiones realizadas desde la red de la organización y las demás ubicaciones. Para más información, vea [IP de confianza](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
 
+En la directiva de acceso condicional, puede:
+
+- Include
+    - Cualquier ubicación
+    - Todas las ubicaciones de confianza
+    - Ubicaciones seleccionadas
+- Exclude
+    - Todas las ubicaciones de confianza
+    - Ubicaciones seleccionadas
+     
 ![Condiciones](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
@@ -175,6 +189,7 @@ La autenticación heredada hace referencia a clientes que usan autenticación b�
 
 
 Para obtener una lista completa de las aplicaciones de cliente que puede utilizar en la directiva de acceso condicional, consulte la [Referencia técnica del acceso condicional de Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+
 
 
 
