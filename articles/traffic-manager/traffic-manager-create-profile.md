@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 58194b71b22b63f7d4a2a6bf0f4e66f456a96d03
-ms.lasthandoff: 03/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
+ms.contentlocale: es-es
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 03/22/2017
 
 En este artículo se describe se puede crear un perfil con el tipo de enrutamiento por **prioridad** para enrutar a los usuarios a dos puntos de conexión de Azure Web Apps. Mediante el uso del tipo de enrutamiento por **prioridad**, todo el tráfico se enruta al primer punto de conexión, mientras que el segundo se conserva como copia de seguridad. Como resultado, los usuarios se pueden enrutar al segundo punto de conexión si el primero tiene un estado incorrecto.
 
-En este artículo, dos puntos de conexión de Azure Web App creados anteriormente se asocian a este perfil de Traffic Manager que se acaba de crear. Para más información sobre cómo crear puntos de conexión de Azure Web App, visite la [página de documentación de Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/). Puede agregar cualquier punto de conexión con un nombre DNS y al que se pueda llegar a través de Internet público; usaremos los puntos de conexión de Azure Web Apps como ejemplo.
+En este artículo, dos puntos de conexión de Azure Web App creados anteriormente se asocian a este perfil de Traffic Manager que se acaba de crear. Para más información sobre cómo crear puntos de conexión de Azure Web App, visite la [página de documentación de Azure Web Apps](https://docs.microsoft.com/azure/app-service/). Puede agregar cualquier punto de conexión con un nombre DNS y al que se pueda llegar a través de Internet público; usaremos los puntos de conexión de Azure Web Apps como ejemplo.
 
 ### <a name="create-a-traffic-manager-profile"></a>Crear un perfil de Traffic Manager
 1. En un explorador, inicie sesión en [Azure Portal](http://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener una [evaluación gratuita durante un mes](https://azure.microsoft.com/free/). 
@@ -54,13 +55,13 @@ En este artículo, dos puntos de conexión de Azure Web App creados anteriorment
     5. En **Prioridad**, seleccione **1**. Esto hace que todo el tráfico vaya a este punto de conexión si funciona correctamente.
     6. No active la opción **Agregar como deshabilitado**.
     7. Haga clic en **Aceptar**
-5.    Repita los pasos 3 y 4 para el próximo punto de conexión de Azure Web Apps. Asegúrese de agregarlo con el valor de **prioridad** establecido en **2**.
-6.    Cuando termine de agregar ambos puntos de conexión, aparecerán en la hoja **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
+5.  Repita los pasos 3 y 4 para el próximo punto de conexión de Azure Web Apps. Asegúrese de agregarlo con el valor de **prioridad** establecido en **2**.
+6.  Cuando termine de agregar ambos puntos de conexión, aparecerán en la hoja **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
 
     ![Incorporación de un punto de conexión de Traffic Manager](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Uso del perfil de Traffic Manager
-1.    En la barra de búsqueda del portal, busque el nombre del **perfil de Traffic Manager** que creó en la sección anterior. Haga clic en el perfil de Traffic Manager en los resultados que aparezcan.
+1.  En la barra de búsqueda del portal, busque el nombre del **perfil de Traffic Manager** que creó en la sección anterior. Haga clic en el perfil de Traffic Manager en los resultados que aparezcan.
 2. En la hoja **Perfil de Traffic Manager**, haga clic en **Información general**.
 3. La hoja **Perfil de Traffic Manager** muestra el nombre DNS del perfil de Traffic Manager que acaba de crear. Cualquier cliente puede usar este perfil (por ejemplo, mediante un explorador web) para enrutar el tráfico al punto de conexión correcto según el tipo de enrutamiento. En este caso, todas las solicitudes se enrutan al primer punto de conexión y si Traffic Manager detecta que no funciona correctamente, se hace conmutación por error del tráfico automáticamente al siguiente punto de conexión.
 

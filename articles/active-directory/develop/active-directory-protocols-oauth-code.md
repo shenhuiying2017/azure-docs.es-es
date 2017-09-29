@@ -16,10 +16,10 @@ ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 916652f2d6336da625be91431c3771a730204a73
 ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure Active Directory
@@ -207,7 +207,7 @@ El parámetro `id_token` incluye los siguientes tipos de notificación:
 | Tipo de notificación | Descripción |
 | --- | --- |
 | aud |Se trata de la audiencia del token. Cuando se emite el token a una aplicación cliente, la audiencia es el identificador `client_id` del cliente. |
-| exp |Se trata de la fecha de expiración. La hora a la que expira el token. Para que el token sea válido, la fecha y hora actual debe ser menor o igual que el valor de `exp` . La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que se emitió el token. |
+| exp |Se trata de la fecha de expiración. La hora a la que expira el token. Para que el token sea válido, la fecha y hora actual debe ser menor o igual que el valor de `exp` . La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que la validez del token expira.|
 | family_name |Se trata de los apellidos del usuario. La aplicación puede mostrar este valor. |
 | given_name |Se trata del nombre del usuario. La aplicación puede mostrar este valor. |
 | iat |Hora de emisión. La hora a la que se generó el token JWT. La hora se representa como el número de segundos desde el 1 de enero de 1970 (1970-01-01T0:0:0Z) UTC hasta el momento en que se emitió el token. |

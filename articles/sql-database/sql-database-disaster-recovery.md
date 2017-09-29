@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: e5242b5f76866ca382b31005deca07cd722af423
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 535dcd8b03a0fd92eaa5800a924ca17fc958d630
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria
@@ -64,7 +64,7 @@ Utilice una de las siguientes guías para realizar la conmutación por error en 
 
 * [Configuración de replicación geográfica con Azure Portal](sql-database-geo-replication-portal.md)
 * [Configuración de la replicación geográfica con PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-* [Conmutación por error a una base de datos secundaria con replicación geográfica mediante Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database.md)
+* [Conmutación por error a una base de datos secundaria con replicación geográfica mediante Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database)
 
 ## <a name="recover-using-geo-restore"></a>Recuperación mediante la restauración geográfica
 Si el tiempo de inactividad de la aplicación no da lugar a responsabilidades civiles, puede usar la [restauración geográfica](sql-database-recovery-using-backups.md) como método para recuperar las bases de datos de la aplicación. Dicho método crea una copia de la base de datos a partir de la última copia de seguridad con redundancia geográfica.

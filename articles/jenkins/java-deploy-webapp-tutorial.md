@@ -12,16 +12,16 @@ ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 22288cd1468b410df77b27721ccda32c3d033e47
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: dcc60feb4c0b3a961689f3d365d49ac1690696a6
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configuración de la integración continua y la implementación en Azure App Service con Jenkins
 
-En este tutorial se configura la integración continua y la implementación (CI/CD) de una aplicación web de Java de ejemplo con el marco [Spring Boot](http://projects.spring.io/spring-boot/) en [Azure App Service Web App en Linux](/azure/app-service-web/app-service-linux-intro) con Jenkins.
+En este tutorial se configura la integración continua y la implementación (CI/CD) de una aplicación web de Java de ejemplo con el marco [Spring Boot](http://projects.spring.io/spring-boot/) en [Azure App Service Web App en Linux](/azure/app-service/containers/app-service-linux-intro) con Jenkins.
 
 En este tutorial, realizará las siguientes tareas:
 
@@ -83,7 +83,7 @@ Configure Jenkins para recibir [webhooks de GitHub](https://developer.github.com
 
 ## <a name="configure-azure-app-service"></a>Configuración de Azure App Service 
 
-1. Mediante la CLI de Azure o [Cloud Shell](/azure/cloud-shell/overview), cree una nueva [aplicación web en Linux](/azure/app-service-web/app-service-linux-intro). El nombre de la aplicación web en este tutorial es `myJavaApp`, pero debe usar un nombre único en su propia aplicación.
+1. Mediante la CLI de Azure o [Cloud Shell](/azure/cloud-shell/overview), cree una nueva [aplicación web en Linux](/azure/app-service/containers/app-service-linux-intro). El nombre de la aplicación web en este tutorial es `myJavaApp`, pero debe usar un nombre único en su propia aplicación.
    
     ```azurecli-interactive
     az group create --name myResourceGroupJenkins --location westus

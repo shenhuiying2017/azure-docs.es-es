@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
-ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
+ms.translationtype: HT
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 23ee3572752030332c5bfdd84edc97df5fb8e58f
 ms.contentlocale: es-es
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="service-fabric-application-upgrade"></a>Actualización de la aplicación de Service Fabric
@@ -50,7 +50,7 @@ Los servicios predeterminados de la aplicación de Service Fabric pueden actuali
 
 1. Se crean los servicios predeterminados del nuevo [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application) que no se encuentran en el clúster.
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) debe establecerse en True para habilitar las reglas siguientes. Esta característica se admite desde la versión 5.5.
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) debe establecerse en True para habilitar las reglas siguientes. Esta característica se admite desde la versión 5.5.
 
 2. Se actualizan los servicios predeterminados existentes del [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application) anterior y los de la nueva versión. Las descripciones de servicios de la nueva versión sobrescribirán a las que ya se encuentran en el clúster. La actualización de aplicaciones se revertiría automáticamente tras el error de actualización de servicios.
 3. Se eliminan los servicios predeterminados del [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application) anterior, pero no los de la nueva versión. **Tenga en cuenta que no se pueden revertir esta eliminación de servicios predeterminados.**

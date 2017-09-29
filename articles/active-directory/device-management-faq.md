@@ -15,10 +15,10 @@ ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 8eb0e7aa1a0fd55ece4adcfe4619c64845b7d271
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 3b37033e0c96e01c73bef15af1b85116f404c354
 ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
@@ -34,7 +34,7 @@ ms.lasthandoff: 09/20/2017
 
 **Comentarios:**
 
-- Los usuarios que se incluyen en la directiva de acceso condicional necesitan un [versión admitida de Office para Mac OS](active-directory-conditional-access-technical-reference.md#supported-mobile-apps-and-desktop-clients) para acceder a los recursos. 
+- Los usuarios que se incluyen en la directiva de acceso condicional necesitan un [versión admitida de Office para Mac OS](active-directory-conditional-access-technical-reference.md#client-apps-condition) para acceder a los recursos. 
 
 - Durante el primer intento de acceso, se pide a los usuarios que inscriban el dispositivo mediante el portal de empresa.
 
