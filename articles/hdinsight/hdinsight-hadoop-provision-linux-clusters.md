@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/06/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 8d7f397145bbecf0c651872f04b81cf44e25dbff
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8517c09d4dc4bd7907fc6e5260de119fbdd8f5e9
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Aprenda a instalar y configurar clústeres en HDInsight con Hadoop, Spark, Kafka, Hive interactivo, HBase, R Server o Storm. Además, aprenda a personalizar clústeres y a aumentar la seguridad al asociarlos a un dominio.
+Aprenda a instalar y configurar clústeres en HDInsight con Hadoop, Spark, Kafka, Interactive Query, HBase, R Server o Storm. Además, aprenda a personalizar clústeres y a aumentar la seguridad al asociarlos a un dominio.
 
 Un clúster de Hadoop se compone de varias máquinas virtuales (nodos) que se usan para el procesamiento distribuido de tareas. Azure HDInsight se ocupa de los detalles de implementación de la instalación y configuración de los nodos individuales, por lo que solo tiene que proporcionar información de configuración general. 
 
@@ -83,7 +83,7 @@ Actualmente, Azure HDInsight proporciona los siguientes tipos de clúster, cada 
 | [Spark](hdinsight-apache-spark-overview.md) |Procesamiento en memoria, consultas interactivas, procesamiento de transmisión de microlotes |
 | [Kafka (versión preliminar)](hdinsight-apache-kafka-introduction.md) | Una plataforma de streaming distribuida que se puede utilizar para compilar aplicaciones y canalizaciones de datos de streaming en tiempo real. |
 | [R Server](hdinsight-hadoop-r-server-overview.md) |Distintas capacidades de estadísticas de macrodatos, modelado de predicción y aprendizaje automático |
-| [Interactive Hive (versión preliminar)](hdinsight-hadoop-use-interactive-hive.md) |Almacenamiento en caché en memoria para realizar consultas de Hive interactivas y más rápidas |
+| [Interactive Query](hdinsight-hadoop-use-interactive-hive.md) |Almacenamiento en caché en memoria para realizar consultas de Hive interactivas y más rápidas |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Número de nodos de cada tipo de clúster
 Cada tipo de clúster tiene su propio número de nodos, terminología para los nodos y tamaño de máquina virtual predeterminado. En la siguiente tabla, el número de nodos de cada tipo de nodo se muestra entre paréntesis.

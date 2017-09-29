@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 6acbc347d7b187a6aac603dd05cf95c6aba54475
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9fcf2756dee8a19ee3fd6013ccbb427fcef99ae1
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,14 +28,13 @@ ms.lasthandoff: 08/01/2017
 
 La autenticación de paso a través de Azure Active Directory (Azure AD) permite a los usuarios iniciar sesión en aplicaciones basadas en la nube y locales con las mismas contraseñas. Esta característica proporciona a los usuarios una mejor experiencia (una contraseña menos que recordar) y reduce los costos del departamento de soporte técnico de TI dado que es menos probable que olviden cómo iniciar sesión. Cuando los usuarios inician sesión con Azure AD, esta característica valida sus contraseñas directamente con la instancia de Active Directory local.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+
 Esta característica es una alternativa a la [sincronización de hash de contraseña de Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), que proporciona la misma ventaja de autenticación en la nube a las organizaciones. Sin embargo, las directivas de seguridad y cumplimiento de ciertas organizaciones no les permiten enviar las contraseñas de los usuarios, ni siquiera en forma de hash, fuera de sus límites internos. La autenticación de paso a través es la solución adecuada para estas organizaciones.
 
 ![Autenticación de paso a través de Azure AD](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
 Puede combinar la autenticación de paso a través con la característica de [inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md) (SSO). De esta manera, cuando los usuarios accedan a las aplicaciones en sus máquinas corporativas dentro de la red de la empresa, no tendrán que escribir la contraseña para iniciar sesión.
-
->[!IMPORTANT]
->La autenticación de paso a través de Azure AD se encuentra actualmente en versión preliminar.
 
 ## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Principales ventajas del uso de la autenticación de paso a través de Azure AD
 
@@ -59,6 +58,7 @@ Puede combinar la autenticación de paso a través con la característica de [in
 - Admite el inicio de sesión de usuario en todas las aplicaciones basadas en explorador web y en las aplicaciones cliente de Microsoft Office que usan la [autenticación moderna](https://aka.ms/modernauthga).
 - Los nombres de usuario de inicio de sesión pueden ser el predeterminado local (`userPrincipalName`) u otro atributo (conocido como `Alternate ID`) configurado en Azure AD Connect.
 - La característica funciona sin problemas con características de [acceso condicional](../active-directory-conditional-access.md), como Multi-Factor Authentication (MFA), para ayudar a proteger a los usuarios.
+- Se integra con la [administración de contraseñas de autoservicio](../active-directory-passwords-overview.md) basada en la nube, incluida la escritura diferida de contraseñas en Active Directory local y la protección con contraseña mediante la prohibición de contraseñas usadas habitualmente.
 - Se admiten entornos de varios bosques si hay relaciones de confianza de bosque entre los bosques de AD y si el enrutamiento de sufijos de nombre está configurado correctamente.
 - Es una característica gratuita y no es necesario usar ninguna versión de pago de Azure AD para usarla.
 - Puede habilitarse a través de [Azure AD Connect](active-directory-aadconnect.md).
@@ -69,7 +69,7 @@ Puede combinar la autenticación de paso a través con la característica de [in
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [**Inicio rápido** ](active-directory-aadconnect-pass-through-authentication-quick-start.md): desarrollo y ejecución de la autenticación de paso a través de Azure AD.
-- [**Limitaciones actuales**](active-directory-aadconnect-pass-through-authentication-current-limitations.md): esta funcionalidad actualmente está en su versión preliminar. Obtenga información sobre los escenarios que se admiten y los que no.
+- [**Limitaciones actuales**](active-directory-aadconnect-pass-through-authentication-current-limitations.md): conozca qué escenarios son compatibles y cuáles no.
 - [**Profundización técnica** ](active-directory-aadconnect-pass-through-authentication-how-it-works.md): descripción del funcionamiento de esta característica.
 - [**Preguntas más frecuentes**](active-directory-aadconnect-pass-through-authentication-faq.md): obtenga respuestas a las preguntas más frecuentes.
 - [**Solución de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): aprenda a resolver problemas comunes de esta característica.

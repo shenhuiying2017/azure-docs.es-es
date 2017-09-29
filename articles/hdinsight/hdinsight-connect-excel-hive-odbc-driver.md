@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 08/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7818093e42c34ee671a035cde783a6622fb2a798
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a0563af9a7fc62fe3923562dd352d756f4945287
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conexión de Excel a Hadoop en Azure HDInsight con el controlador ODBC de Microsoft Hive
@@ -104,9 +104,12 @@ En los pasos siguientes se describe cómo importar datos desde una tabla de Hive
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se proporciona información sobre cómo usar el controlador ODBC de Microsoft Hive para recuperar datos del servicio HDInsight en Excel. De manera similar, puede recuperar datos del servicio HDInsight en la Base de datos SQL. Es posible cargar datos en un servicio HDInsight. Para obtener más información, consulte:
 
-* [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-data]
-* [Carga de datos en HDInsight][hdinsight-upload-data]
-* [Uso de Sqoop con HDInsight][hdinsight-use-sqoop]
+* [Visualize Hive data with Microsoft Power BI in Azure HDInsight](./hdinsight-connect-hive-power-bi.md) (Visualización de datos de Hive con Microsoft Power BI en Azure HDInsight)
+* [Use Zeppelin to run Hive queries in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md) (Uso de Zeppelin para ejecutar consultas de Hive en Azure HDInsight)
+* [Conexión de Excel a Hadoop con Power Query](./hdinsight-connect-excel-power-query.md).
+* [Conectarse a Azure HDInsight y ejecutar consultas de Hive con Herramientas de Data Lake para Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
+* [Use Visual Studio Code for Hive, LLAP or pySpark](hdinsight-for-vscode.md) (Uso de Visual Studio Code para Hive, LLAP o pySpark)
+* [Carga de datos en HDInsight](./hdinsight-upload-data.md).
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md

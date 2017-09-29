@@ -3,7 +3,7 @@ title: "Guía de seguridad de Azure Storage | Microsoft Docs"
 description: "Detalles de los distintos métodos de seguridad de Azure Storage incluidos, entre otros, el control de acceso basado en rol, el cifrado del servicio Storage, el cifrado del lado cliente, SMB 3.0 y Azure Disk Encryption."
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e71d9baf36ea7acb8dc8fa1daf9ddde3a2856f85
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c4a0b047ce5c6706b51e96e8cc160c610625869e
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
@@ -157,11 +157,14 @@ Nota: Se recomienda usar solo una de las claves en todas las aplicaciones al mis
   Este artículo muestra cómo utilizar Active Directory para controlar el acceso a las claves de Azure Storage en Azure Key Vault. También muestra cómo utilizar un trabajo de Azure Automation para regenerar las claves cada hora.
 
 ## <a name="data-plane-security"></a>Seguridad en el plano de los datos
-La seguridad en el plano de los datos hace referencia a los métodos utilizados para proteger los objetos de datos almacenados en Azure Storage: blobs, colas, tablas y archivos. Hemos visto métodos para cifrar los datos y la seguridad durante el tránsito de los datos, pero ¿qué hay sobre permitir el acceso a los objetos?
+La seguridad en el plano de los datos hace referencia a los métodos utilizados para proteger los objetos de datos almacenados en Azure Storage: blobs, colas, tablas y archivos. Hemos visto métodos para cifrar los datos y la seguridad durante el tránsito de los datos, pero ¿qué hay sobre controlar el acceso a los objetos?
 
-Básicamente, existen dos métodos para controlar el acceso a los propios objetos de datos. El primero es controlar el acceso a las claves de cuenta de almacenamiento, y el segundo es usar Firmas de acceso compartido para conceder acceso a objetos de datos específicos durante un período de tiempo determinado.
+Existen dos métodos para autorizar el acceso a los propios objetos de datos. Uno de ellos consiste en controlar el acceso a las claves de la cuenta de almacenamiento y el otro es usar Firmas de acceso compartido para conceder acceso a objetos de datos específicos durante un período de tiempo determinado.
 
-Debe observar una excepción: puede permitir el acceso público a los blobs estableciendo el nivel de acceso para el contenedor que almacena los blobs en consecuencia. Si configura el acceso para un contenedor en Blob o Contenedor, permitirá el acceso de lectura público a los blobs en ese contenedor. Esto significa que cualquier usuario que tenga una dirección URL que apunte a un blob de ese contenedor podrá abrirlo en un explorador sin necesidad de una Firma de acceso compartido o las claves de cuenta de almacenamiento.
+Además, para Blog Storage, puede permitir el acceso público a los blobs estableciendo el nivel de acceso para el contenedor que almacena los blobs según corresponda. Si configura el acceso para un contenedor en Blob o Contenedor, permitirá el acceso de lectura público a los blobs en ese contenedor. Esto significa que cualquier usuario que tenga una dirección URL que apunte a un blob de ese contenedor podrá abrirlo en un explorador sin necesidad de una Firma de acceso compartido o las claves de cuenta de almacenamiento.
+
+Además de limitar el acceso mediante la autorización, puede usar [firewalls y redes virtuales](storage-network-security.md) para limitar el acceso a la cuenta de almacenamiento basado en reglas de red.  Este método permite denegar el acceso al tráfico de Internet público y conceder acceso a determinadas redes virtuales de Azure o determinados intervalos de direcciones IP de Internet públicas.
+
 
 ### <a name="storage-account-keys"></a>Claves de cuenta de almacenamiento
 Las claves de cuenta de almacenamiento son cadenas de 512 bits creadas por Azure que, junto con el nombre de la cuenta de almacenamiento, pueden utilizarse para tener acceso a los objetos de datos almacenados en la cuenta de almacenamiento.
@@ -243,15 +246,7 @@ Para más información sobre el uso de Firmas de acceso compartido y Directivas 
   * [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con Blob service](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Este artículo incluye una explicación del modelo de SAS, ejemplos de SAS y recomendaciones para el mejor uso práctico de SAS. También trata la revocación de los permisos concedidos.
-* Limitación del acceso por dirección IP (ACL de IP)
 
-  * [¿Qué es una lista de control de acceso (ACL) de extremo?](../../virtual-network/virtual-networks-acl.md)
-  * [Creación de una SAS de servicio](https://msdn.microsoft.com/library/azure/dn140255.aspx)
-
-    Este es el artículo de referencia para SAS de nivel de servicio; incluye un ejemplo de creación de ACL de IP.
-  * [Creación de una SAS de cuenta](https://msdn.microsoft.com/library/azure/mt584140.aspx)
-
-    Este es el artículo de referencia para SAS de nivel de cuenta; incluye un ejemplo de creación de ACL de IP.
 * Autenticación
 
   * [Autenticación para los servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx)
@@ -268,22 +263,21 @@ Para tener un canal de comunicación seguro, siempre debe usar HTTPS al llamar a
 Puede exigir el uso de HTTPS al llamar a las API de REST para acceder a objetos de cuentas de almacenamiento habilitando la opción [Se requiere transferencia segura](../storage-require-secure-transfer.md) para la cuenta de almacenamiento. Una vez que esta opción esté habilitada, se rechazarán las conexiones que usan HTTP.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Uso del cifrado durante el tránsito con recursos compartidos de archivos de Azure
-Azure File Storage admite HTTPS cuando se usa la API de REST, pero se usa con más frecuencia como un recurso compartido de archivos de SMB conectado a una máquina virtual. SMB 2.1 no admite el cifrado, por lo que solo se permiten las conexiones dentro de la misma región de Azure. Sin embargo, SMB 3.0 admite cifrado y está disponible en Windows Server 2012 R2, Windows 8, Windows 8.1 y Windows 10, lo que permite el acceso entre regiones e incluso el acceso en el escritorio.
+Azure Files admite HTTPS cuando se usa la API de REST, pero se usa con más frecuencia como un recurso compartido de archivos de SMB conectado a una máquina virtual. SMB 2.1 no admite el cifrado, por lo que solo se permiten las conexiones dentro de la misma región de Azure. Sin embargo, SMB 3.0 admite cifrado y está disponible en Windows Server 2012 R2, Windows 8, Windows 8.1 y Windows 10, lo que permite el acceso entre regiones e incluso el acceso en el escritorio.
 
 Tenga en cuenta que aunque se pueden usar recursos compartidos de archivos de Azure con Unix, el cliente SMB de Linux aún no admite el cifrado, por lo que solo se permite el acceso dentro de una región de Azure. La compatibilidad con el cifrado para Linux está en la hoja de ruta de los desarrolladores de Linux responsables de la funcionalidad SMB. Cuando se agregue el cifrado, podrá tener acceso a un recurso compartido de archivos de Azure en Linux al igual que hace en Windows.
 
 Puede exigir el uso de cifrado con el servicio Azure Files habilitando la opción [Se requiere transferencia segura](../storage-require-secure-transfer.md) para la cuenta de almacenamiento. Si usa las API de REST, se necesita HTTPS. Para SMB, solo las conexiones SMB que admiten cifrado se conectarán correctamente.
 
 #### <a name="resources"></a>Recursos
-* [Uso de Azure File Storage con Linux](../storage-how-to-use-files-linux.md)
+* [Introducción a Azure Files](../files/storage-files-introduction.md)
+* [Montaje de un recurso compartido de archivos de Azure y acceso al recurso compartido en Windows](../files/storage-how-to-use-files-windows.md)
+
+  Este artículo ofrece una descripción general de los recursos compartidos de Azure Files y cómo montarlos y usarlos en Windows.
+
+* [Uso de Azure Files con Linux](../files/storage-how-to-use-files-linux.md)
 
   En este artículo se muestra cómo montar un recurso compartido de archivos de Azure en un sistema Linux y cargar y descargar archivos.
-* [Introducción a Azure File Storage en Windows](../storage-dotnet-how-to-use-files.md)
-
-  Este artículo ofrece una visión general de los recursos compartidos de archivos de Azure y cómo montarlos y usarlos con PowerShell y. NET.
-* [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/) (En el interior de Azure File Storage)
-
-  En este artículo se anuncia la disponibilidad general de Azure File Storage y se proporcionan detalles técnicos sobre el cifrado SMB 3.0.
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Uso del cifrado de cliente para proteger los datos que envía al almacenamiento
 Otra opción que le ayuda a garantizar que sus datos están protegidos mientras se transfieren entre una aplicación cliente y el servicio Almacenamiento es el Cifrado de cliente. Los datos se cifran antes de ser transferidos a Azure Storage. En el proceso de recuperación de los datos de Azure Storage, estos se descifran una vez recibidos en el cliente. Aunque los datos se cifran al pasar por el cable, se recomienda que también se utilice HTTPS, ya sus comprobaciones incorporadas de la integridad de los datos ayudan a mitigar los errores de red que pueden incidir en esta.
@@ -350,7 +344,7 @@ La solución no admite los siguientes escenarios, características y tecnología
 * Deshabilitación del cifrado en una unidad del sistema operativo para máquinas virtuales IaaS Linux
 * Máquinas virtuales IaaS creadas con el método clásico de generación de máquinas virtuales
 * Integración con el Servicio de administración de claves local
-* Azure File Storage (sistema de archivos compartido), Network File System (NFS), volúmenes dinámicos y máquinas virtuales con Windows configuradas con sistemas RAID basados en software
+* Azure Files (sistema de archivos compartido), Network File System (NFS), volúmenes dinámicos y máquinas virtuales Windows configuradas con sistemas RAID basadas en software
 
 
 > [!NOTE]

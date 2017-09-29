@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 07063ea53e96c6467e40e8a7ca70e5c03ce53284
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b0327b37b56987d52557f3f4e305f27eb2e5296d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/24/2017
 La autenticación de paso a través de Azure Active Directory (Azure AD) permite a los usuarios iniciar sesión en aplicaciones basadas en la nube y locales con las mismas contraseñas. Los usuarios inician sesión mediante la validación de sus contraseñas directamente en la instancia de Active Directory local.
 
 >[!IMPORTANT]
->La autenticación de paso a través de Azure AD se encuentra actualmente en versión preliminar. Si ha usado esta característica durante la versión preliminar, debe asegurarse de actualizar las versiones preliminares de los agentes de autenticación con las instrucciones proporcionadas [aquí](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
+>Si ha usado esta característica durante la versión preliminar, debe asegurarse de actualizar las versiones preliminares de los agentes de autenticación con las instrucciones proporcionadas [aquí](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
 
 Debe seguir estas instrucciones para implementar la autenticación de paso a través:
 
@@ -130,7 +130,7 @@ Si tiene previsto implementar la autenticación de paso a través en un entorno 
 >También puede descargar el agente de autenticación desde [aquí](https://aka.ms/getauthagent). Asegúrese de que revisa y acepta las [Condiciones del servicio](https://aka.ms/authagenteula) del agente de autenticación _antes_ de instalarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [**Limitaciones actuales**](active-directory-aadconnect-pass-through-authentication-current-limitations.md): esta funcionalidad actualmente está en su versión preliminar. Obtenga información sobre los escenarios que se admiten y los que no.
+- [**Limitaciones actuales**](active-directory-aadconnect-pass-through-authentication-current-limitations.md): conozca qué escenarios son compatibles y cuáles no.
 - [**Profundización técnica** ](active-directory-aadconnect-pass-through-authentication-how-it-works.md): descripción del funcionamiento de esta característica.
 - [**Preguntas más frecuentes**](active-directory-aadconnect-pass-through-authentication-faq.md): obtenga respuestas a las preguntas más frecuentes.
 - [**Solución de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): aprenda a resolver problemas comunes de esta característica.

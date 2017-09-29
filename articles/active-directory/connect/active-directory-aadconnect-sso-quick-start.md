@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 977108687734a5eb7f7a30419de2a6bdef184d0e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
 ms.contentlocale: es-es
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -27,9 +27,6 @@ ms.lasthandoff: 08/07/2017
 ## <a name="how-to-deploy-seamless-sso"></a>Implementación de SSO de conexión directa
 
 El inicio de sesión único de conexión directa de Azure Active Directory (SSO de conexión directa de Azure AD) permite iniciar sesión automáticamente a los usuarios en equipos de escritorio corporativos conectados a la red de la empresa. Esta característica proporciona a los usuarios un acceso sencillo a las aplicaciones en la nube sin necesidad de otros componentes locales.
-
->[!IMPORTANT]
->La característica de SSO de conexión directa está actualmente en versión preliminar.
 
 Para implementar SSO de conexión directa, debe seguir estos pasos:
 
@@ -73,7 +70,7 @@ Siga estas instrucciones para verificar que ha habilitado SSO de conexión direc
 
 ## <a name="step-3-roll-out-the-feature"></a>Paso 3: Implementación de la característica
 
-Para implementar la característica para los usuarios, debe agregar dos direcciones URL de Azure AD (https://autologon.microsoftazuread-sso.com y https://aadg.windows.net.nsatc.net) en la configuración de zona de intranet de los usuarios a través de una directiva de grupo en Active Directory.
+Para implantar la característica a los usuarios, debe agregar un par de direcciones URL de Azure AD a la configuración de la zona de Intranet de los usuarios mediante la directiva de grupo en Active Directory.
 
 >[!NOTE]
 > Las siguientes instrucciones solo funcionan en Internet Explorer y Google Chrome en Windows (si comparte el mismo conjunto de direcciones URL de sitios de confianza que Internet Explorer). Lea la sección siguiente para obtener instrucciones para configurar Mozilla Firefox y Google Chrome en Mac.
@@ -122,7 +119,7 @@ En el caso de Google Chrome para Mac OS y otras plataformas distintas de Windows
 
 El uso de las extensiones de directiva de grupo de Active Directory de terceros para implementar las direcciones URL de AD Azure de Firefox y Google Chrome para los usuarios de Mac está fuera del ámbito de este artículo.
 
-#### <a name="known-limitations"></a>Limitaciones conocidas
+#### <a name="known-browser-limitations"></a>Limitaciones de exploradores conocidos
 
 SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Edge. Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada.
 
@@ -146,7 +143,7 @@ Para probar el escenario en el que el usuario no tiene que escribir ni su nombre
 
 ## <a name="step-5-roll-over-keys"></a>Paso 5: Sustitución de claves
 
-En el paso 2, Azure AD Connect crea cuentas de equipo (que representan a Azure AD) en todos los bosques de AD en que se ha habilitado SSO de conexión directa. Obtenga información más detallada [aquí](active-directory-aadconnect-sso-how-it-works.md). Para mejorar la seguridad, se recomienda sustituir con frecuencia las claves de descifrado de Kerberos de estas cuentas de equipo.
+En el paso 2, Azure AD Connect crea cuentas de equipo (que representan a Azure AD) en todos los bosques de AD en que se ha habilitado SSO de conexión directa. Obtenga información más detallada [aquí](active-directory-aadconnect-sso-how-it-works.md). Para mejorar la seguridad, se recomienda sustituir periódicamente las claves de descifrado de Kerberos de estas cuentas de equipo. Las instrucciones sobre cómo sustituirlas las encontrará [aquí](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
 
 >[!IMPORTANT]
 >No es necesario realizar este paso _inmediatamente_ después de haber habilitado la característica. Sustituya las claves de descifrado de Kerberos al menos cada 30 días.

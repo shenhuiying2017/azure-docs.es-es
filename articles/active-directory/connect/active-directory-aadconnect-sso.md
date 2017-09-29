@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/18/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 5a390208f4b7c22e96d7888bcbbd14d8b27667eb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: dd619ddf62b079ecc06bdf3699e3e32c35313284
 ms.contentlocale: es-es
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,12 +28,14 @@ ms.lasthandoff: 08/07/2017
 
 El inicio de sesión único de conexión directa de Azure Active Directory (SSO de conexión directa de Azure AD) permite iniciar sesión automáticamente a los usuarios en dispositivos corporativos conectados a la red de la empresa. Si se habilita, los usuarios no tienen que escribir la contraseña para iniciar sesión en Azure AD y, generalmente, ni siquiera los nombres de usuario. Esta característica proporciona a los usuarios un acceso sencillo a las aplicaciones en la nube sin necesidad de componentes locales adicionales.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+
 SSO de conexión directa se puede combinar con los métodos de inicio de sesión mediante [sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md).
 
 ![Inicio de sesión único de conexión directa](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->SSO de conexión directa está actualmente en versión preliminar. Esta característica _no_ se puede aplicar a Servicios de federación de Active Directory (AD FS).
+>El inicio de sesión único de conexión directa _no_ se puede aplicar a Servicios de federación de Active Directory (AD FS).
 
 ## <a name="key-benefits"></a>Ventajas principales
 
@@ -64,9 +66,6 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 |Mac OS X|N/D|N/D|Sí\*|Sí\*|Sí\*
 
 \*Requiere [configuración adicional](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
-
->[!IMPORTANT]
->Recientemente se ha revertido la compatibilidad para Edge, a fin de investigar los problemas notificados por los clientes.
 
 >[!NOTE]
 >En el caso de Windows 10, la recomendación es usar [Azure AD Join](../active-directory-azureadjoin-overview.md) para que la experiencia de inicio de sesión único con Azure AD sea óptima.

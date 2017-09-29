@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
 ms.contentlocale: es-es
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -189,6 +189,13 @@ Puede no asignar ninguna dirección [IPv6](#ipv6) privada o asignar una a una co
 > Aunque puede crear una interfaz de red con una dirección IPv6 mediante el portal, no se puede agregar una interfaz de red a una máquina virtual nueva o existente, mediante el portal. Use PowerShell o la CLI de Azure 2.0 para crear una interfaz de red con una dirección IPv6 privada y, luego, conectar la interfaz de red cuando crea una máquina virtual. No puede conectar a una máquina virtual existente una interfaz de red con una dirección IPv6 privada asignada. No puede agregar una dirección IPv6 privada a una configuración IP para ninguna interfaz de red conectada a una máquina virtual con ninguna herramienta (portal, CLI o PowerShell).
 
 No puede asignar una dirección IPv6 pública a una configuración IP principal o secundaria.
+
+## <a name="skus"></a>SKU
+
+Se crea una dirección IP pública con la SKU estándar o básica.  Para más detalles sobre las diferencias entre SKU, vea [Manage public IP addresses](virtual-network-public-ip-address.md) (Administración de direcciones IP públicas).
+
+> [!NOTE]
+> Cuando asigna una dirección IP pública de SKU estándar a una interfaz de red de una máquina virtual, debe permitir explícitamente el tráfico previsto con un [grupo de seguridad de red](security-overview.md#network-security-groups). Para evitar que se produzca un error en la comunicación con el recurso, debe crear un grupo de seguridad de red, asociarlo y permitir explícitamente el tráfico deseado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para crear una máquina virtual con distintas configuraciones IP, lea los artículos siguientes:

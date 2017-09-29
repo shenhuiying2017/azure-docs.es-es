@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 745a9c016bd037f1051025a2c5a468c3935e4550
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
 ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Creación de alertas de métricas en Azure Monitor para servicios de Azure: Azure Portal
@@ -30,12 +30,12 @@ ms.lasthandoff: 03/31/2017
 >
 
 ## <a name="overview"></a>Información general
-En este artículo se muestra cómo configurar alertas de métricas de Azure con Azure Portal.   
+En este artículo se muestra cómo configurar alertas de métricas de Azure con Azure Portal. 
 
 Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
 
 * **Valores de métrica** : la alerta se desencadena cuando el valor de una métrica específica cruza un umbral asignado en cualquier dirección. Es decir, se desencadena tanto la primera vez que se cumple la condición como después, cuando dicha condición ya deja de cumplirse.    
-* **Eventos de registro de actividades**: una alerta puede desencadenarse con *cada* evento o solo cuando se producen ciertos eventos concretos. Para obtener más información sobre las alertas de registro de actividad, [haga clic aquí](monitoring-activity-log-alerts.md).
+* **Eventos de registro de actividades**: una alerta puede desencadenarse con *cada* evento o solo cuando se producen ciertos eventos concretos. Más información sobre las [alertas del registro de actividad](monitoring-activity-log-alerts.md).
 
 Puede configurar una alerta de métrica para hacer lo siguiente cuando se desencadena:
 
@@ -44,9 +44,14 @@ Puede configurar una alerta de métrica para hacer lo siguiente cuando se desenc
 * Llamar a un webhook.
 * Iniciar la ejecución de un runbook de Azure (solo desde Azure Portal).
 
+> [!NOTE]
+> Azure Monitor ahora es compatible con alertas de métrica casi en tiempo real en la versión preliminar pública. Estas alertas usan grupos de acciones. Más información sobre [alertas de métrica en tiempo real](monitoring-near-real-time-metric-alerts.md).
+>
+>
+
 Puede obtener información sobre las reglas de alerta de métricas y configurarlas mediante:
 
-* [Azure Portal](insights-alerts-portal.md)
+* [Portal de Azure](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [Interfaz de la línea de comandos (CLI)](insights-alerts-command-line-interface.md)
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -64,7 +69,7 @@ Puede obtener información sobre las reglas de alerta de métricas y configurarl
 
 4. Asígnele un **nombre** a la regla de alerta y elija una **descripción**, que también se muestra los correos electrónicos de notificación.
 
-5. Seleccione la **métrica** que desea supervisar y elija un valor de **Condición** y **Umbral** para la métrica. También debe elegir el **período** de tiempo de la regla de métrica que se debe cumplir antes de que se desencadene la alerta. Por ejemplo, si usa el período "PT5M" y la alerta busca una CPU por encima del 80 %, la alerta se desencadena cuando la CPU ha estado por sobre el 80 % durante 5 minutos. Una vez que se desencadena por primera vez, se vuelve a desencadenar cuando la CPU se mantiene por debajo del 80% durante 5 minutos. La CPU se mide cada 1 minuto.   
+5. Seleccione la **métrica** que desea supervisar y elija un valor de **Condición** y **Umbral** para la métrica. También debe elegir el **período** de la regla de métrica que se debe cumplir antes de que se desencadene la alerta. Por ejemplo, si usa el período "En los últimos 5 minutos" y la alerta busca una CPU por encima del 80 %, la alerta se desencadena cuando la CPU ha estado por encima del 80 % durante 5 minutos de manera uniforme. Una vez que se desencadena por primera vez, se vuelve a desencadenar cuando la CPU se mantiene por debajo del 80% durante 5 minutos. La medición de métrica de CPU se produce cada minuto.
 
 6. Desactive la opción **Enviar correo electrónico a propietarios...** si desea que se envíe un correo electrónico a los administradores y coadministradores cuando se active la alerta.
 
@@ -87,6 +92,7 @@ Una vez que haya creado una alerta, puede seleccionarla y:
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Obtenga información general sobre la supervisión de Azure](monitoring-overview.md) , incluidos los tipos de información que puede recopilar y supervisar.
+* Más información sobre las nuevas [alertas de métrica casi en tiempo real (versión preliminar)](monitoring-near-real-time-metric-alerts.md).
 * Obtenga más información sobre cómo [configurar webhooks en las alertas](insights-webhooks-alerts.md).
 * Obtenga más información sobre la [configuración de alertas sobre los eventos de registro de actividad](monitoring-activity-log-alerts.md).
 * Obtenga más información sobre los [runbooks de Azure Automation](../automation/automation-starting-a-runbook.md).

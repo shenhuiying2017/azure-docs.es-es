@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4d96f96d6b9d6808d6a7c7ad8d720c2c2773d7d5
 ms.contentlocale: es-es
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,12 +28,14 @@ Este artículo sirve de ayuda para encontrar información acerca de cómo soluci
 
 ## <a name="known-issues"></a>Problemas conocidos
 
+- En algunos casos, el proceso para habilitar el inicio de sesión único de conexión directa puede tardar hasta 30 minutos.
+- El soporte técnico para el explorador Edge no está disponible.
+- La activación de licencias en clientes de Office, especialmente en escenarios de equipos compartidos, provoca solicitudes de inicio de sesión adicionales para los usuarios.
+- SSO de conexión directa no funciona en modo de exploración privada en Firefox. y 
+- El inicio de sesión único de conexión directa no funciona en Internet Explorer cuando está activado el modo de protección mejorada.
+- El inicio de sesión único de conexión directa no funciona en exploradores móviles en iOS y Android.
 - Si va a sincronizar treinta bosques de AD o más, no se puede habilitar SSO de conexión directa mediante Azure AD Connect. Como alternativa, también puede [habilitar manualmente](#manual-reset-of-azure-ad-seamless-sso) la característica en su inquilino.
 - Al agregar direcciones URL de servicio de Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) a la zona "Sitios de confianza" en lugar de a la zona "Intranet local", **se impide que los usuarios inicie sesión**.
-- SSO de conexión directa no funciona en modo de exploración privada en Firefox y Edge. Y también en Internet Explorer cuando se activa el modo de protección mejorada.
-
->[!IMPORTANT]
->Recientemente se ha revertido la compatibilidad para Edge, a fin de investigar los problemas notificados por los clientes.
 
 ## <a name="check-status-of-the-feature"></a>Comprobación del estado de la característica
 
