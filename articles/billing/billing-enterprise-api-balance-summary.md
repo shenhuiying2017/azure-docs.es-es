@@ -3,7 +3,7 @@ title: "API de facturación de Azure Enterprise - Saldos y resumen| Microsoft Do
 description: "Obtenga información sobre las API de RateCard y de uso de facturación de Azure que se usan para proporcionar información sobre el consumo de recursos y tendencias de Azure."
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing

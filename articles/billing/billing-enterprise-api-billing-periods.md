@@ -3,7 +3,7 @@ title: "API de facturación de Azure Enterprise - Períodos de facturació| Micr
 description: "Obtenga información acerca de las API de informes que permiten a los clientes de Azure Enterprise extraer datos de consumo mediante programación."
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing
