@@ -1,6 +1,6 @@
 ---
-title: Publish a custom marketplace item in Azure Stack (cloud operator) | Microsoft Docs
-description: As a cloud operator, learn how to publish a custom marketplace item in Azure Stack.
+title: Publicar un elemento de Marketplace personalizado en Azure Stack (operador de nube) | Microsoft Docs
+description: "Como operador de nube, aprenda cómo publicar un elemento de Marketplace personalizado en Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -21,27 +21,27 @@ ms.contentlocale: es-es
 ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="the-azure-stack-marketplace-overview"></a>The Azure Stack Marketplace overview
-The Marketplace is a collection of services, applications, and resources customized for Azure Stack, like networks, virtual machines, storage, and so on. Users come here to create new resources and deploy new applications. Think of it as a shopping catalog where users can browse and choose the items they want to use. To use a Marketplace item, users must subscribe to an offer that grants them access to the item.
+# <a name="the-azure-stack-marketplace-overview"></a>Información general de Azure Stack Marketplace
+Marketplace es un conjunto de servicios, aplicaciones y recursos personalizados para Azure Stack, como redes, máquinas virtuales, almacenamiento, etc. Es el lugar donde los usuarios vienen para crear nuevos recursos e implementar nuevas aplicaciones. Piense que es como un catálogo de compras donde los usuarios pueden examinar y elegir los elementos que se quieren usar. Los usuarios, para utilizar un elemento de Marketplace, deben suscribirse a una oferta que les concede acceso al elemento.
 
-As a cloud operator, you decide which items to add (publish) to the Marketplace. You can publish things like databases, App Services, and so on. This makes them visible to all your users. You can publish custom items that you create. You can also publish items from a growing [list of Azure Marketplace items](azure-stack-marketplace-azure-items.md). When you publish an item to the Marketplace, users can see it within five minutes.
+Como operador de nube, usted decide qué elementos quiere agregar (publicar) en Marketplace. Puede publicar elementos, como bases de datos, App Services, etc. Esto hace que sean visibles para todos los usuarios. Puede publicar elementos personalizados creados por usted. También puede publicar elementos de una creciente [lista de elementos de Azure Marketplace](azure-stack-marketplace-azure-items.md). Al publicar un elemento en Marketplace, los usuarios pueden verlo a los cinco minutos.
 
-To open the Marketplace, click **New**.
+Para abrir Marketplace, haga clic en **Nuevo**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
-## <a name="marketplace-items"></a>Marketplace items
-An Azure Stack Marketplace item is a service, application, or resource that your users can download and use. All Azure Stack Marketplace items are visible to all your users.
+## <a name="marketplace-items"></a>Elementos de Marketplace
+Un elemento de Azure Stack Marketplace es un servicio, una aplicación o un recurso que los usuarios pueden descargar y usar. Todos los elementos de Azure Stack Marketplace son visibles para todos los usuarios.
 
-Every Marketplace item has:
+Cada elemento de Marketplace tiene:
 
-* An Azure Resource Manager template for resource provisioning
-* Metadata, like strings, icons, and other marketing collateral
-* Formatting information to display the item in the portal
+* Una plantilla del Administrador de recursos de Azure para el aprovisionamiento de recursos
+* Metadatos, como cadenas, iconos y otra documentación y material adjunto de marketing
+* Información de formato para mostrar el elemento en el portal
 
-Every item published to the Marketplace uses a format called the Azure Gallery Package (azpkg). Add deployment or runtime resources (like code, zip files with software, or virtual machine images) to Azure Stack separately, not as part of the Marketplace Item. 
+Cada elemento publicado en Marketplace utiliza un formato denominado paquete de galería de Azure (azpkg). Agregue recursos de implementación o de entorno en tiempo de ejecución (por ejemplo, código, archivos comprimidos con software o imágenes de máquinas virtuales) a Azure Stack por separado, no como parte del elemento de Marketplace. 
 
-## <a name="next-steps"></a>Next steps
-[Create and publish a marketplace item](azure-stack-create-and-publish-marketplace-item.md)
+## <a name="next-steps"></a>Pasos siguientes
+[Crear y publicar un elemento en Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 
 

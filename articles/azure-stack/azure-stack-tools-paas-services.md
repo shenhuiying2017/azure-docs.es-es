@@ -1,6 +1,6 @@
 ---
-title: Tools and PaaS services for Azure Stack | Microsoft Docs
-description: Learn how to get started with PaaS services in Azure Stack.
+title: Herramientas y servicios de PaaS para Azure Stack | Microsoft Docs
+description: "Obtenga información sobre cómo empezar a trabajar con los servicios de PaaS en Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -21,15 +21,15 @@ ms.contentlocale: es-es
 ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="paas-services-for-azure-stack"></a>PaaS services for Azure Stack
+# <a name="paas-services-for-azure-stack"></a>Servicios de PaaS para Azure Stack
 
-You can deploy [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) services for Azure Stack from Microsoft and other 3rd party providers. If you want to be notified of new services, follow #AzureStack on Twitter.
+Puede implementar servicios de [Plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) para Azure Stack de Microsoft y otros proveedores. Si desea recibir una notificación sobre servicios nuevos, puede seguir #AzureStack en Twitter.
 
-[Add an App Service resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-overview)
+[Incorporación de un proveedor de recursos de App Service a Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-overview)
 
-[Add a SQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
+[Incorporación de un proveedor de recursos de SQL Server a Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
 
-[Add a MySQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
+[Incorporación de un proveedor de recursos de MySQL Server a Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
 
 
 
