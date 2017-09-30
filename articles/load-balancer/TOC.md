@@ -26,9 +26,8 @@
 ### [Configuración del equilibrador de carga accesible desde Internet (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [Configuración del equilibrador de carga accesible desde Internet (plantilla)](load-balancer-get-started-internet-arm-template.md)
 
-## [Configuración del equilibrador de carga accesible desde Internet (portal clásico)](load-balancer-get-started-internet-classic-portal.md)
+## [Configuración del equilibrador de carga accesible desde Internet (PowerShell clásico)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configuración del equilibrador de carga accesible desde Internet (nube clásica)](load-balancer-get-started-internet-classic-cloud.md)
-### [Configuración del equilibrador de carga accesible desde Internet (PS clásico)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configuración del equilibrador de carga accesible desde Internet (CLI clásica)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [Creación de un equilibrador de carga accesible desde Internet con IPv6](load-balancer-ipv6-internet-ps.md)
