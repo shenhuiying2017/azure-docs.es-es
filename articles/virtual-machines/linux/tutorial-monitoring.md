@@ -1,6 +1,6 @@
 ---
-title: "Supervisión de máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "Aprenda a supervisar los diagnósticos de arranque y las métricas de rendimiento en una máquina virtual Linux en Azure"
+title: "Supervisión y actualización de máquinas virtuales Linux en Azure | Microsoft Docs"
+description: "Aprender a supervisar los diagnósticos de arranque y las métricas de rendimiento, así como a administrar las actualizaciones de paquetes en una máquina virtual Linux en Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: davidmu1
@@ -17,15 +17,15 @@ ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: c5eab88f1b2311d52e582a0aa1121c8001437376
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
 ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>Supervisión de una máquina virtual Linux en Azure
+# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Supervisión y actualización de una máquina virtual Linux en Azure
 
-Para asegurarse de que las máquinas virtuales (VM) de Azure se ejecutan correctamente, puede revisar los diagnósticos de arranque y las métricas de rendimiento. En este tutorial, aprenderá a:
+Para asegurarse de que las máquinas virtuales (VM) de Azure se ejecutan correctamente, puede revisar los diagnósticos de arranque y las métricas de rendimiento, y administrar las actualizaciones de paquetes. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Habilitar los diagnósticos de arranque en la máquina virtual
@@ -34,6 +34,7 @@ Para asegurarse de que las máquinas virtuales (VM) de Azure se ejecutan correct
 > * Habilitar una extensión Diagnostics en la máquina virtual
 > * Visualización de las métricas de la máquina virtual
 > * Crear alertas basadas en métricas de diagnóstico
+> * Administrar actualizaciones de paquetes
 > * Configurar la supervisión avanzada
 
 
@@ -163,6 +164,92 @@ En el siguiente ejemplo se crea una alerta para el uso medio de la CPU.
 6. Opcionalmente, active la casilla *Enviar correo electrónico a propietarios, colaboradores y lectores* para enviar una notificación por correo electrónico. La acción predeterminada es presentar una notificación en el portal.
 7. Haga clic en el botón **Aceptar**.
 
+## <a name="manage-package-updates"></a>Administrar actualizaciones de paquetes
+
+La administración de actualizaciones permite administrar las revisiones y actualizaciones de paquetes para las máquinas virtuales Linux de Azure. Directamente desde la máquina virtual, puede evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias y revisar los resultados de la implementación para comprobar si las actualizaciones se aplicaron correctamente en la máquina virtual.
+
+Para obtener información de precios, consulte [Precios de automatización de la administración de actualizaciones](https://azure.microsoft.com/pricing/details/automation/).
+
+### <a name="enable-update-management-preview"></a>Habilitar la administración de actualizaciones (versión preliminar)
+
+Habilitar la administración de actualizaciones para la máquina virtual
+
+1. En el lado izquierdo de la pantalla, seleccione **Máquinas virtuales**.
+1. En la lista, seleccione una máquina virtual.
+1. En la pantalla de la máquina virtual, en la sección **Operaciones**, haga clic en **Administración de actualizaciones**. Se abre la pantalla **Habilitar la administración de actualizaciones**.
+
+Se realiza la validación para determinar si la administración de actualizaciones está habilitada para esta máquina virtual. La validación incluye comprobaciones de un área de trabajo de Log Analytics y la cuenta de Automation vinculada, y si la solución está en el área de trabajo.
+
+Un área de trabajo de Log Analytics se usa para recopilar datos que se generan mediante características y servicios, como, por ejemplo, Administración de actualizaciones. El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes. Para llevar a cabo alguna acción adicional en máquinas virtuales que requieran actualizaciones, Azure Automation permite ejecutar scripts en máquinas virtuales, por ejemplo, para descargar y aplicar actualizaciones.
+
+El proceso de validación también comprueba si la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) y Hybrid Worker. Este agente se usa para comunicarse con la máquina virtual y obtener información sobre el estado de actualización. 
+
+Si no se cumplen estos requisitos previos, aparece un banner que le ofrece la opción de habilitar la solución.
+
+![Banner de configuración de la incorporación de Update Management](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
+
+Haga clic en el banner para habilitar la solución. Si se detecta la falta de alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
+
+* Área de trabajo de [Log Analytics](../../log-analytics/log-analytics-overview.md)
+* [Automation](../../automation/automation-offering-get-started.md)
+* [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitado en la máquina virtual.
+
+Se abre la pantalla **Habilitar la administración de actualizaciones**. Configure las opciones y haga clic en **Habilitar**.
+
+![Habilitar la solución Update Management](./media/tutorial-monitoring/manage-updates-update-enable.png)
+
+La habilitación de la solución puede tardar hasta 15 minutos, período durante el cual no debe cerrar la ventana del explorador. Después de habilitar la solución, la información sobre las actualizaciones que faltan en el Administrador de paquetes en la máquina virtual se pasa a Log Analytics.
+Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el análisis.
+
+### <a name="view-update-assessment"></a>Ver evaluación de la actualización
+
+Una vez habilitada la solución **Update Management**, se muestra la pantalla **Administración de actualizaciones**. Puede ver una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
+
+![Ver el estado de la actualización](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
+
+### <a name="schedule-an-update-deployment"></a>Programación de una implementación de actualizaciones
+
+Para instalar actualizaciones, programe una implementación que se ajuste a su ventana de programación y mantenimiento de versiones.
+
+Programe una nueva implementación de actualizaciones para la máquina virtual. Para ello, haga clic en **Programar implementación de actualizaciones** en la parte superior de la pantalla **Administración de actualizaciones**. En la pantalla **Nueva implementación de actualización**, especifique la siguiente información:
+
+* **Nombre**: proporcione un nombre único para identificar la implementación de actualizaciones.
+* **Actualizaciones para excluir**: seleccione esta opción para especificar los nombres de los paquetes que se excluirán de la actualización.
+* **Configuración de la programación**: puede aceptar la fecha y hora predeterminadas, es decir, 30 minutos después de la hora actual, o bien especificar una hora distinta. También puede especificar si la implementación se produce una vez o configurar una programación periódica. Haga clic en la opción Periódica en Periodicidad para configurar una programación periódica.
+
+  ![Pantalla de configuración de la programación de actualizaciones](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
+
+* **Ventana de mantenimiento (minutos)**: especifique el período de tiempo en el que desea que se produzca la implementación de actualizaciones.  Esto ayuda a garantizar que los cambios se realizan en las ventanas de mantenimiento definidas. 
+
+Después de completar la configuración de la programación, haga clic en el botón **Crear** para volver al panel de estado.
+Tenga en cuenta que la tabla **Programada** muestra la programación de implementación que ha creado.
+
+> [!WARNING]
+> La máquina virtual se reiniciará automáticamente después de instalar las actualizaciones si queda tiempo suficiente en la ventana de mantenimiento.
+
+Update Management usa el Administrador de paquetes existente en la máquina virtual para instalar paquetes.
+
+### <a name="view-results-of-an-update-deployment"></a>Ver los resultados de una implementación de actualizaciones
+
+Después de iniciar la implementación programada, puede ver su estado en la pestaña **Implementaciones de actualizaciones** en la pantalla **Administración de actualizaciones**.
+Si se está ejecutando actualmente, su estado se muestra como **En curso**. Cuando se completa, si se realiza correctamente, cambia a **Correcto**.
+Si se produce un error con una o varias actualizaciones en la implementación, el estado es **Error**.
+Haga clic en la implementación de actualizaciones completada para ver el panel correspondiente.
+
+![Panel de estado de Implementación de actualizaciones de la implementación específica](./media/tutorial-monitoring/manage-updates-view-results.png)
+
+En el icono **Resultados de actualización** encontrará un resumen del número total de actualizaciones y los resultados de la implementación en la máquina virtual.
+En la tabla de la derecha encontrará un análisis detallado de cada actualización y los resultados de la instalación, que podrían ser uno de los valores siguientes:
+
+* **No intentado**: la actualización no se instaló porque no había tiempo disponible suficiente de acuerdo con la duración definida para la ventana de mantenimiento.
+* **Correcto**: la actualización se descargó e instaló correctamente en la máquina virtual.
+* **Error**: la actualización no se pudo descargar ni instalar en la máquina virtual.
+
+Haga clic en **Todos los registros** para ver todas las entradas de registro que creó la implementación.
+
+Haga clic en el icono **Salida** para ver el flujo de trabajo del runbook responsable de administrar la implementación de actualizaciones en la máquina virtual de destino.
+
+Haga clic en **Errores** para ver información detallada sobre los errores de la implementación.
 
 ## <a name="advanced-monitoring"></a>Supervisión avanzada 
 
@@ -187,7 +274,7 @@ En la hoja Búsqueda de registros del portal de OMS, debería ver *myVM* como se
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha configurado y revisado las máquinas virtuales con Azure Security Center. Ha aprendido a:
+En este tutorial, ha configurado, revisado y administrado las actualizaciones para una máquina virtual. Ha aprendido a:
 
 > [!div class="checklist"]
 > * Habilitar los diagnósticos de arranque en la máquina virtual
@@ -196,9 +283,11 @@ En este tutorial, ha configurado y revisado las máquinas virtuales con Azure Se
 > * Habilitar una extensión Diagnostics en la máquina virtual
 > * Visualización de las métricas de la máquina virtual
 > * Crear alertas basadas en métricas de diagnóstico
+> * Administrar actualizaciones de paquetes
 > * Configurar la supervisión avanzada
 
-En el siguiente tutorial obtendrá información sobre Azure Security Center.
+Pase al siguiente tutorial para obtener información sobre Azure Security Center.
 
 > [!div class="nextstepaction"]
 > [Administración de la seguridad de máquinas virtuales](./tutorial-azure-security.md)
+

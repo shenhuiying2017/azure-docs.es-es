@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: b0d4615a9b8ab566f69b27e4879b6e2d597b4990
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3e46b4bdcf7b55c31afe5e7bc84a1fb95ad98701
 ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -37,16 +37,9 @@ Un servicio con estado tiene algún estado asociado a él. En Service Fabric, un
 
 Solo puede haber una réplica principal, pero puede haber varias réplicas secundarias activas. El número de réplicas secundarias activas es configurable y un mayor número de réplicas puede tolerar un mayor número de errores de hardware y software simultáneos.
 
-Si la réplica principal deja de funcionar, Service Fabric convierte una de las réplicas secundarias activas en la nueva réplica principal. Esta réplica secundaria activa ya tiene la versión actualizada del estado (a través de la *replicación*) y puede continuar procesando más operaciones de lectura y escritura.
+Si la réplica principal deja de funcionar, Service Fabric convierte una de las réplicas secundarias activas en la nueva réplica principal. Esta réplica secundaria activa ya tiene la versión actualizada del estado (a través de la *replicación*) y puede continuar procesando más operaciones de lectura y escritura. Este proceso se conoce como reconfiguración y se describe con mayores detalles en [Reconfiguración](service-fabric-concepts-reconfiguration.md).
 
-Este concepto de una réplica como secundaria activa o principal se conoce como el rol de réplica.
-
-### <a name="replica-roles"></a>Roles de réplica
-El rol de una réplica se usa para administrar el ciclo de vida del estado que se está administrando por esa réplica. Una réplica cuyo rol sea solicitudes de lectura de servicios principales. El servidor principal también controla todas las solicitudes de escritura mediante la actualización de su estado y la replicación de los cambios. Estos cambios se aplican a las secundarias activas del conjunto de réplicas. El trabajo de una secundaria activa es recibir cambios de estado que la réplica principal ha replicado y actualizar su vista del estado.
-
-> [!NOTE]
-> Los modelos de programación de nivel superior, como [Reliable Actors](service-fabric-reliable-actors-introduction.md) y [Reliable Services](service-fabric-reliable-services-introduction.md) ocultan el concepto de rol de réplica del desarrollador. En Actors, la noción de rol es innecesaria, mientras que en Services se simplifica enormemente en la mayoría de los escenarios.
->
+Este concepto de una réplica como secundaria activa o principal se conoce como el rol de réplica. Se describen con mayor detalle en [Réplicas e instancias](service-fabric-concepts-replica-lifecycle.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre los conceptos de Service Fabric, consulte los siguientes artículos:

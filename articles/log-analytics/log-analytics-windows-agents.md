@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 48a0eaeb10d406d551c9e5870edde06809bd7544
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e5f04f3b9135167c0f339c58323ebd931b260109
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conexión de equipos Windows al servicio Log Analytics de Azure
@@ -76,7 +76,7 @@ En la siguiente tabla se muestran los recursos necesarios para la comunicación.
 
 
 ## <a name="download-the-agent-setup-file-from-oms"></a>Descarga del archivo de instalación del agente desde OMS
-1. En el portal de OMS, en la página **Overview** (Información general), haga clic en el icono **Settings** (Configuración).  Haga clic en la pestaña **Orígenes conectados** en la parte superior.  
+1. En el [portal de OMS](https://www.mms.microsoft.com), en la página **Overview** (Información general), haga clic en el icono **Settings** (Configuración).  Haga clic en la pestaña **Orígenes conectados** en la parte superior.  
     ![Pestaña Connected Sources (Orígenes conectados)](./media/log-analytics-windows-agents/oms-direct-agent-connected-sources.png)
 2. Haga clic en **Servidores de Windows** y, después, haga clic en **Descargar el agente de Windows** (según el tipo de procesador del equipo) para descargar el archivo del programa de instalación.
 3. A la derecha de **Id. del área de trabajo**, haga clic en el icono Copiar y pegue el id. en el Bloc de notas.

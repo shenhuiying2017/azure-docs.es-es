@@ -1,6 +1,6 @@
 ---
-title: Desarrollo para Azure File Storage con C++ | Microsoft Docs
-description: Aprenda a desarrollar aplicaciones de C++ y servicios que usan Azure File Storage para almacenar datos de archivos.
+title: Desarrollo con C++ para Azure Files | Microsoft Docs
+description: Aprenda a desarrollar aplicaciones y servicios C++ que usen Azure Files para almacenar datos de archivos.
 services: storage
 documentationcenter: .net
 author: renashahmsft
@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 86c3714327074f5576e535f67a0a2a8e761ffb46
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-c"></a>Desarrollo para Azure File Storage con C++
+# <a name="develop-for-azure-files-with-c"></a>Desarrollo con C++ para Azure Files
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Acerca de este tutorial
 
-En este tutorial, aprenderá a realizar operaciones básicas en Azure File Storage. Mediante ejemplos escritos en C++, aprenderá a crear recursos compartidos y directorios, y a cargar, enumerar y eliminar archivos. Si es la primera vez que usa Azure File Storage, le resultará útil repasar los conceptos de las secciones siguientes para comprender los ejemplos.
+En este tutorial, aprenderá a realizar operaciones básicas en Azure Files. Mediante ejemplos escritos en C++, aprenderá a crear recursos compartidos y directorios, y a cargar, enumerar y eliminar archivos. Si es la primera vez que usa Azure Files, le resultará útil repasar los conceptos de las secciones siguientes para comprender los ejemplos.
 
 
 * Crear y eliminar recursos compartidos de Azure File
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a realizar operaciones básicas en Azure File Stora
 * Crear una firma de acceso compartido (clave SAS) para un archivo que utiliza una directiva de acceso compartido definida en el recurso compartido.
 
 > [!Note]  
-> Dado que se puede tener acceso a Azure File Storage a través de SMB, es posible escribir aplicaciones sencillas que tengan acceso al recurso compartido de Azure File mediante las clases y funciones estándar de E/S de C++. En este artículo se describe cómo escribir aplicaciones que utilizan el SDK de C++ de Azure Storage, que usa la [API de REST de Azure File Storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para comunicarse con Azure File Storage.
+> Dado que se puede tener acceso a Azure Files a través de SMB, es posible escribir aplicaciones sencillas que tengan acceso al recurso compartido de Azure Files mediante las clases y funciones estándar de E/S de C++. En este artículo se describe cómo escribir aplicaciones que utilizan el SDK de C++ de Azure Storage, que usa la [API de REST de archivos](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para comunicarse con Azure Files.
 
 ## <a name="create-a-c-application"></a>Creación de una aplicación de C++
 Para compilar los ejemplos, debe instalar la biblioteca de cliente de Azure Storage 2.4.0 para C++. También deberá haber creado una cuenta de almacenamiento de Azure.
@@ -54,8 +54,8 @@ Para instalar el cliente de Azure Storage 2.4.0 para C++, puede usar uno de los 
 Install-Package wastorage
 ```
 
-## <a name="set-up-your-application-to-use-azure-file-storage"></a>Configuración de la aplicación para usar Azure File Storage
-Agregue las siguientes instrucciones include a la parte superior del archivo de origen de C++ en el que desea manipular Azure File Storage:
+## <a name="set-up-your-application-to-use-azure-files"></a>Configuración de la aplicación para usar Azure Files
+Agregue las siguientes instrucciones include a la parte superior del archivo de origen de C++ en el que desea manipular Azure Files:
 
 ```cpp
 #include <was/storage_account.h>
@@ -81,15 +81,15 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de Azure File
-Todos los archivos y directorios de Azure File Storage residen en un contenedor denominado **Share**. La cuenta de almacenamiento puede tener tantos recursos compartidos como los que permita la capacidad de su cuenta. Para obtener acceso a un recurso compartido y su contenido, es preciso usar un cliente de Azure File Storage.
+Todos los archivos y directorios de un recurso compartido de Azure Files denominado **Share**. La cuenta de almacenamiento puede tener tantos recursos compartidos como los que permita la capacidad de su cuenta. Para acceder a un recurso compartido y su contenido, es preciso usar un cliente de Azure Files.
 
 ```cpp
-// Create the Azure File storage client.
+// Create the Azure Files client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 ```
 
-Con dicho cliente, puede obtener luego una referencia a un recurso compartido.
+Se usa el cliente de Azure Files para obtener una referencia a un recurso compartido.
 
 ```cpp
 // Get a reference to the file share
@@ -120,7 +120,7 @@ share.delete_share_if_exists();
 ```
 
 ## <a name="create-a-directory"></a>Creación de directorios
-Para organizar el almacenamiento, coloque los archivos en los subdirectorios, en lugar de mantenerlos todos en el directorio raíz. Azure File Storage permite crear tantos directorios como permita su cuenta. El código siguiente creará un directorio llamado **Mi directorio de ejemplo** bajo el directorio raíz, así como un subdirectorio denominado **mi subdirectorio de ejemplo**.
+Para organizar el almacenamiento, coloque los archivos en los subdirectorios, en lugar de mantenerlos todos en el directorio raíz. Azure Files permite crear tantos directorios como permita su cuenta. El código siguiente creará un directorio llamado **Mi directorio de ejemplo** bajo el directorio raíz, así como un subdirectorio denominado **mi subdirectorio de ejemplo**.
 
 ```cpp
 // Retrieve a reference to a directory
@@ -241,7 +241,7 @@ outfile.close();
 ```
 
 ## <a name="delete-a-file"></a>Eliminación de un archivo
-Otra operación común de Azure File Storage es la eliminación de archivos. El código siguiente elimina un archivo denominado my-sample-file-3 almacenado en el directorio raíz.
+Otra operación habitual en Azure Files es la eliminación de archivos. El código siguiente elimina un archivo denominado my-sample-file-3 almacenado en el directorio raíz.
 
 ```cpp
 // Get a reference to the root directory for the share.    

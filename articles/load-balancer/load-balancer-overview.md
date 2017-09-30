@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 617da1cf41db08d319d6fe9fa7bc96b794a0001e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf1fc38d2b9fd54fe5b00db616224a0848179fe
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-load-balancer-overview"></a>Información general sobre el Equilibrador de carga de Azure
 
 Equilibrador de carga de Azure proporciona una alta disponibilidad y un elevado rendimiento de red para sus aplicaciones. Se trata de un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye el tráfico entrante entre las instancias de servicio correctas de los servicios que se definen en un conjunto de carga equilibrada.
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer puede configurarse para lo siguiente:
 
@@ -33,38 +35,6 @@ Azure Load Balancer puede configurarse para lo siguiente:
 * Reenviar el tráfico externo a una máquina virtual determinada.
 
 Todos los recursos en la nube necesitan una dirección IP pública para ser accesibles desde Internet. La infraestructura de nube de Azure usa direcciones IP no enrutables para sus recursos. Asimismo, usa traducción de direcciones de red (NAT) con direcciones IP públicas para comunicarse con Internet.
-
-## <a name="azure-deployment-models"></a>Modelos de implementación de Azure
-
-Es importante comprender las diferencias entre los [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md) clásico de Azure y de Resource Manager. ya que Azure Load Balancer se configura de forma diferente en cada uno de ellos.
-
-### <a name="azure-classic-deployment-model"></a>modelo de implementación clásica de Azure
-
-Las máquinas virtuales que se implementan dentro de los límites de un servicio en la nube pueden agruparse para usar un equilibrador de carga. En este modelo, una dirección IP pública y un nombre de dominio completo (FQDN) se asignan a un servicio en la nube. El equilibrador de carga se ocupará de la traducción de puertos y de equilibrar la carga del tráfico de red aprovechando la dirección IP pública para el servicio en la nube.
-
-El tráfico de carga equilibrada lo definen los puntos de conexión. Los puntos de conexión de traducción de puertos establecen una relación uno a uno entre el puerto público asignado de la dirección IP pública y el puerto local asignado para enviar tráfico a una máquina virtual específica. Los puntos de conexión de equilibrio de carga tienen una relación uno a varios entre la dirección IP pública y los puertos locales asignados a los servicios de las máquinas virtuales del servicio en la nube.
-
-![Azure Load Balancer en el modelo de implementación clásica](./media/load-balancer-overview/asm-lb.png)
-
-Ilustración 1: Azure Load Balancer en el modelo de implementación clásica
-
-La etiqueta de dominio de la dirección IP pública que usa el equilibrador de carga en este modelo de implementación es \<nombre de servicio en la nube\>.cloudapp.net. En el siguiente gráfico se muestra Azure Load Balancer en este modelo.
-
-### <a name="azure-resource-manager-deployment-model"></a>modelo de implementación de Azure Resource Manager
-
-No hay ninguna necesidad de crear un servicio en la nube en el modelo de implementación de Resource Manager. El equilibrador de carga puede crearse expresamente para enrutar el tráfico entre varias máquinas virtuales.
-
-Una dirección IP pública es un recurso individual que tiene una etiqueta de dominio (nombre DNS). La dirección IP pública está asociada al recurso de equilibrador de carga. Las reglas de este último y las de NAT de entrada usan la dirección IP pública como el punto de conexión de Internet para los recursos que reciban tráfico de red de carga equilibrada.
-
-Se asigna una dirección IP privada o pública al recurso de interfaz de red asociado a una máquina virtual. Una vez agregada una interfaz de red a un grupo de direcciones IP de back-end del equilibrador de carga, este empezará a enviar tráfico de red de carga equilibrada en función de las reglas de carga equilibrada creadas.
-
-En el siguiente gráfico se muestra Azure Load Balancer en este modelo:
-
-![Azure Load Balancer en Resource Manager](./media/load-balancer-overview/arm-lb.png)
-
-Ilustración 2: Azure Load Balancer en Resource Manager
-
-El equilibrador de carga puede administrarse mediante las herramientas , las API y las plantillas basadas en Resource Manager. Para obtener más información sobre Resource Manager, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="load-balancer-features"></a>Características del equilibrador de carga
 
@@ -76,7 +46,7 @@ El equilibrador de carga puede administrarse mediante las herramientas , las API
 
     ![Distribución basada en hash](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    Ilustración 3: Distribución basada en Hash
+    Ilustración: Distribución basada en Hash
 
 * Enrutamiento de puerto
 

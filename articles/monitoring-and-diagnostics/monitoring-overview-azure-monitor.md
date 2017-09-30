@@ -12,33 +12,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 09/23/2017
 ms.author: robb
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 619a004b9aff99be68988e1f7be3ccad400a8a0e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5003ede9a40848db6905ef182da68577bca342cd
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="overview-of-azure-monitor"></a>Información general sobre Azure Monitor
 En este artículo se proporciona información general sobre el servicio Azure Monitor de Microsoft Azure. Se describe la utilidad de Azure Monitor y se ofrecen vínculos a información adicional sobre cómo usar este servicio.  Si prefiere un vídeo de introducción, consulte los vínculos de pasos siguientes al final de este artículo. 
 
-## <a name="why-monitor-your-application-or-system"></a>¿Por qué supervisar la aplicación o el sistema?
-Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
-
-
 ## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Azure Monitor y otros productos de supervisión de Microsoft
 Azure Monitor ofrece registros y métricas de infraestructuras a nivel básico para la mayoría de los servicios de Microsoft Azure. Los servicios de Azure que aún no han colocado sus datos en Azure Monitor lo harán allí en un futuro.
 
 Microsoft entrega productos y servicios adicionales que ofrecen funcionalidades de supervisión adicionales para desarrolladores, DevOps u operaciones de TI que también tienen instalaciones locales. Para obtener una introducción e información sobre cómo estos distintos productos y servicios funcionan de forma conjunta, vea [Supervisión en Microsoft Azure](monitoring-overview.md).
 
-## <a name="monitoring-sources---compute"></a>Orígenes de supervisión: Compute
+## <a name="portal-overview-page"></a>Página de Información general del portal
+
+Azure Monitor tiene una página de aterrizaje que ayuda a los usuarios a lo siguiente: 
+- Comprender las funcionalidades de supervisión que ofrece Azure.
+- Detectar, configurar e incorporar la plataforma y las funcionalidades de supervisión premium de Azure.
+
+Si bien el servicio Azure Monitor está publicado, la página de aterrizaje de información general se encuentra en versión preliminar. 
+
+La página es un punto inicial para la navegación, incluida la incorporación. Muestra problemas pertinentes creados desde distintos servicios y permite al usuario navegar a ellos en contexto.
+ 
+![Modelo para la supervisión y el diagnóstico de recursos que no son de proceso](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
+
+Cuando abre la página, puede seleccionar entre las suscripciones en las que tiene acceso de lectura. Para una suscripción seleccionada, puede ver:
+
+- **Alertas desencadenadas y orígenes de alertas**: en esta tabla se muestran los recuentos de resumen, los orígenes de alertas y cuántas veces se activaron las alertas durante el período seleccionado. Se aplica a las alertas de métricas y de registro de actividad.
+- **Errores del registro de actividad**: si cualquiera de los recursos de Azure registra eventos con una gravedad de nivel de error, puede ver un recuento de alto nivel y hacer clic en la página del registro de actividad para investigar cada evento.
+- **Azure Service Health**: puede ver un recuento de los problemas del servicio de Service Health, eventos de mantenimiento planeados y avisos de mantenimiento. Azure Service Health proporciona información personalizada cuando los problemas en la infraestructura de Azure afectan a los servicios.  Para obtener más información, consulte [Azure Service Health](../service-health/service-health-overview.md).  
+- **Application Insights**: vea KPI para cada recurso de AppInsights en la suscripción actual. Los KPI están optimizados para la supervisión de aplicaciones del lado servidor a través de las aplicaciones web de ASP.NET, Java, Node y tipos de aplicación General. Los KPI incluyen métricas para la tasa de solicitud, la duración de respuesta, la tasa de error y el % de disponibilidad. 
+
+Si no se ha incorporado en Log Analytics ni Application Insights, o si no ha configurado ninguna alerta de Azure en la suscripción actual, la página proporciona vínculos para comenzar el proceso de incorporación.
+
+
+
+## <a name="azure-monitor-sources---compute-subset"></a>Orígenes de Azure Monitor: subconjunto Compute
 
 ![Modelo para la supervisión y el diagnóstico de recursos que no son de proceso](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
 
-Los servicios de Compute incluyen: 
+Los servicios de Compute aquí incluyen: 
 - Cloud Services 
 - Máquinas virtuales 
 - Conjuntos de escalado de máquina virtual 
@@ -64,7 +83,7 @@ Los recursos de procesos enumerados anteriormente tienen una máquina virtual ho
 ### <a name="activity-log"></a>Registro de actividad
 Puede buscar el registro de actividad (anteriormente llamado registro operativo o de actividad) para obtener información sobre los recursos, tal y como se ven en la infraestructura de Azure. El registro contiene información tal como el número de veces que se crean o se destruye recursos.  Para más información, vea [Información general sobre el registro de actividad de Azure](monitoring-overview-activity-logs.md). 
 
-## <a name="monitoring-sources---everything-else"></a>Orígenes de supervisión: el resto
+## <a name="azure-monitor-sources---everything-else"></a>Orígenes de Azure Monitor: todo el resto
 
 ![Modelo para la supervisión y el diagnóstico de recursos que son de proceso](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-non-compute_v6.png)
 
@@ -79,10 +98,10 @@ No hay necesariamente una asignación 1:1 entre los recursos y una máquina virt
 El registro de actividad es el mismo que en el caso de los recursos de procesos.  
 
 ## <a name="uses-for-monitoring-data"></a>Usos de los datos de supervisión
-Después de recopilar los datos, puede hacer lo siguiente con ellos en Azure Monitor:
+Después de recopilar los datos, puede hacer lo siguiente con ellos en Azure Monitor.
 
 ### <a name="route"></a>Enrutar
-Puede transmitir los datos de supervisión a otras ubicaciones en tiempo real.
+Puede transmitir los datos de supervisión a otras ubicaciones. 
 
 Algunos ejemplos son:
 
@@ -142,7 +161,8 @@ En general, puede manipular el seguimiento, el enrutamiento y la recuperación d
 ## <a name="next-steps"></a>Pasos siguientes
 Más información acerca de
 - Hay un tutorial en vídeo de Azure Monitor en  
-[Introducción a Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) Puede consultar un vídeo adicional donde se explica un escenario en el que puede usar Azure Monitor en [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) (Información sobre supervisión y Microsoft Azure Diagnostics) y en un [vídeo sobre Azure Monitor de Ignite 2016](https://myignite.microsoft.com/videos/4977)
+[Introducción a Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) 
+- Puede consultar un vídeo donde se explica un escenario en el que puede usar Azure Monitor en [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) (Información sobre supervisión y Microsoft Azure Diagnostics) y en un [vídeo sobre Azure Monitor de Ignite 2016](https://myignite.microsoft.com/videos/4977).
 - Haga un recorrido por la interfaz de Azure Monitor en [Introducción a Azure Monitor](monitoring-get-started.md)
 - Configure las [extensiones de Diagnósticos de Azure](../azure-diagnostics.md) si intenta diagnosticar problemas en su aplicación de Cloud Services, Virtual Machines, Conjuntos de escalado de máquinas virtuales o Service Fabric.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) : si está intentando diagnosticar problemas en su aplicación web de Servicio de aplicaciones.

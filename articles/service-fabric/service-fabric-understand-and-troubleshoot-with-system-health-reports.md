@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 54e20146b2f1e0ca6153b66319be70c6f7c2fb59
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fb3b2ecd73acb0ea65af477bc6a5b887c117574c
 ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilización de informes de mantenimiento del sistema para solucionar problemas
@@ -189,7 +189,15 @@ Otros eventos importantes incluyen una advertencia cuando la reconfiguración ta
 
 * **SourceId**: System.FM
 * **Property**: State
-* **Pasos siguientes**: si el estado de mantenimiento no es correcto, es posible que algunas réplicas no se hayan creado, abierto o promocionado a principales o secundarias de manera correcta. En muchos casos, la causa raíz es un error de servicio en la implementación del rol de apertura o cambio.
+* **Pasos siguientes**: si el estado de mantenimiento no es correcto, es posible que algunas réplicas no se hayan creado, abierto o promocionado a principales o secundarias de manera correcta. 
+
+Si la descripción detalla la pérdida de cuórum, examinar el informe de estado detallado para las réplicas que están inactivas y activarlas ayudaría a volver a poner en línea la partición.
+
+Si la descripción examina una interrupción de la partición en la [reconfiguración](service-fabric-concepts-reconfiguration.md), el informe de estado de la réplica principal proporcionaría información adicional.
+
+Para otros informes de estado de System.FM, habría informes sobre las réplicas, o la partición o servicio de otros componentes del sistema. 
+
+Los ejemplos siguientes describen algunos de estos informes. 
 
 El ejemplo siguiente muestra una partición correcta:
 
@@ -235,12 +243,12 @@ HealthEvents          :
                         TTL                   : Infinite
                         Description           : Partition is below target replica or instance count.
                         fabric:/WordCount/WordCountService 7 2 af2e3e44-a8f8-45ac-9f31-4093eb897600
-                          N/S RD _Node_2 Up 131444422260002646
-                          N/S RD _Node_4 Up 131444422293113678
-                          N/S RD _Node_3 Up 131444422293113679
-                          N/S RD _Node_1 Up 131444422293118720
-                          N/P RD _Node_0 Up 131444422293118721
-                          (Showing 5 out of 5 replicas. Total available replicas: 5.)
+                          N/S Ready _Node_2 131444422260002646
+                          N/S Ready _Node_4 131444422293113678
+                          N/S Ready _Node_3 131444422293113679
+                          N/S Ready _Node_1 131444422293118720
+                          N/P Ready _Node_0 131444422293118721
+                          (Showing 5 out of 5 replicas. Total available replicas: 5)
                         
                         RemoveWhenExpired     : False
                         IsExpired             : False
@@ -291,6 +299,55 @@ PS C:\> @(Get-ServiceFabricNode).Count
 5
 ```
 
+En el ejemplo siguiente se muestra el estado de una partición bloqueada en la reconfiguración debido a que el usuario no respeta el token de cancelación del método RunAsync. Investigar el informe de estado de cualquier réplica marcada como principal (P) puede ayudar a profundizar más en el problema.
+
+```powershell
+PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
+
+
+PartitionId           : 0e40fd81-284d-4be4-a665-13bc5a6607ec
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                                               
+HealthEvents          : 
+                        SourceId              : System.FM
+                        Property              : State
+                        HealthState           : Warning
+                        SequenceNumber        : 7
+                        SentAt                : 8/27/2017 3:43:09 AM
+                        ReceivedAt            : 8/27/2017 3:43:32 AM
+                        TTL                   : Infinite
+                        Description           : Partition reconfiguration is taking longer than expected.
+                        fabric:/app/test1 3 1 0e40fd81-284d-4be4-a665-13bc5a6607ec
+                          P/S Ready Node1 131482789658160654
+                          S/P Ready Node2 131482789688598467
+                          S/S Ready Node3 131482789688598468
+                          (Showing 3 out of 3 replicas. Total available replicas: 3)                        
+                        
+                        For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Ok->Warning = 8/27/2017 3:43:32 AM, LastError = 1/1/0001 12:00:00 AM
+```
+Este informe muestra el estado de las réplicas de la partición en las que se está llevando a cabo la reconfiguración. 
+
+```
+  P/S Ready Node1 131482789658160654
+  S/P Ready Node2 131482789688598467
+  S/S Ready Node3 131482789688598468
+```
+
+Para cada réplica, el informe de estado contiene:
+- Rol de configuración anterior
+- Rol de configuración actual
+- [Estado de réplica](service-fabric-concepts-replica-lifecycle.md)
+- Nodo en el que se ejecuta la réplica
+- Id. de réplica
+
+En tal caso, por ejemplo, es necesario seguir investigando el estado de cada réplica individual a partir de las réplicas marcadas como primarias (131482789658160654 y 131482789688598467) en el ejemplo anterior.
+
 ### <a name="replica-constraint-violation"></a>Infracción de restricción de réplica
 **System.PLB** notifica una advertencia si detecta una infracción de restricción de réplica y no se pueden colocar todas las réplicas de la partición. Los detalles del informe muestran qué restricciones y propiedades evitan la ubicación de las réplicas.
 
@@ -328,14 +385,189 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/14/2017 4:55:13 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="replica-open-status"></a>Estado de apertura de réplica
-La descripción de este informe de mantenimiento contiene la hora de inicio (hora universal coordinada) de cuando se ha invocado la llamada API.
+### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
+Esta propiedad se usa para indicar advertencias o errores al intentar abrir una réplica, cerrar una réplica o realizar la transición de una réplica de un rol a otro (consulte [Ciclo de vida de las réplicas](service-fabric-concepts-replica-lifecycle.md)). Los errores podrían ser excepciones devueltas desde las llamadas API o bloqueos del proceso de host de servicios durante este tiempo. Si hay errores debidos a llamadas API del código C#, Service Fabric agregará la excepción y el seguimiento de la pila al informe de estado.
 
-**System.RA** notifica una advertencia si la apertura de la réplica tarda más tiempo del configurado (valor predeterminado: 30 minutos). Si la API afecta a la disponibilidad de servicio, el informe se emite con mayor rapidez (intervalo configurable, valor predeterminado de 30 segundos). El tiempo medido incluye el tiempo necesario para la apertura del replicador y del servicio. La propiedad cambia a Correcto si se completa la apertura.
+Estas advertencias de estado se producen después de volver a intentar la acción localmente cierto número de veces (según la directiva). Service Fabric continuará reintentando la acción hasta un umbral máximo después del cual puede intentar tomar medidas para solucionar la situación, lo que puede hacer desaparecer estas advertencias al abandonar la acción de este nodo. Por ejemplo: si una réplica no se puede abrir en un nodo, Service Fabric emitirá una advertencia de estado. Si siguen produciéndose errores al abrir la réplica, Service Fabric llevará a cabo una reparación automática que puede consistir en intentar realizar la misma operación en otro nodo. Esto haría que la advertencia emitida para esta réplica se borrase. 
 
 * **SourceId**: System.RA
-* **Property**: **ReplicaOpenStatus**
-* **Pasos siguientes**: si el estado de mantenimiento no es Correcto, compruebe por qué la apertura de la réplica tarda más de lo previsto.
+* **Propiedad**: **ReplicaOpenStatus**, **ReplicaCloseStatus**, **ReplicaChangeRoleStatus**
+* **Pasos siguientes**: investigar los volcados de memoria o el código del servicio para determinar por qué no se puede realizar la operación.
+
+En el ejemplo siguiente se muestra el estado de una réplica que devuelve `TargetInvocationException` desde su método open. La descripción contiene el punto de error (**IStatefulServiceReplica.Open**), el tipo de excepción (**TargetInvocationException**) y el seguimiento de la pila.
+
+```powershell
+PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
+
+
+PartitionId           : 337cf1df-6cab-4825-99a9-7595090c0b1b
+ReplicaId             : 131483509874784794
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RA', Property='ReplicaOpenStatus', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : ReplicaOpenStatus
+                        HealthState           : Warning
+                        SequenceNumber        : 131483510001453159
+                        SentAt                : 8/27/2017 11:43:20 PM
+                        ReceivedAt            : 8/27/2017 11:43:21 PM
+                        TTL                   : Infinite
+                        Description           : Replica had multiple failures during open on _Node_0 API call: IStatefulServiceReplica.Open(); Error = System.Reflection.TargetInvocationException (-2146232828)
+Exception has been thrown by the target of an invocation.
+   at Microsoft.ServiceFabric.Replicator.RecoveryManager.d__31.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Replicator.LoggingReplicator.d__137.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Replicator.DynamicStateManager.d__109.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Replicator.TransactionalReplicator.d__79.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Replicator.StatefulServiceReplica.d__21.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.ServiceFabric.Services.Runtime.StatefulServiceReplicaAdapter.d__0.MoveNext()
+
+    For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 8/27/2017 11:43:21 PM, LastOk = 1/1/0001 12:00:00 AM                        
+```
+
+En el ejemplo siguiente se muestra una réplica que se bloquea constantemente durante el cierre.
+
+```Powershell
+C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
+
+
+PartitionId           : dcafb6b7-9446-425c-8b90-b3fdf3859e64
+ReplicaId             : 131483565548493142
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RA', Property='ReplicaCloseStatus', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : ReplicaCloseStatus
+                        HealthState           : Warning
+                        SequenceNumber        : 131483565611258984
+                        SentAt                : 8/28/2017 1:16:01 AM
+                        ReceivedAt            : 8/28/2017 1:16:03 AM
+                        TTL                   : Infinite
+                        Description           : Replica had multiple failures during close on _Node_1. The application 
+                        host has crashed.
+                        
+                        For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 8/28/2017 1:16:03 AM, LastOk = 1/1/0001 12:00:00 AM
+```
+
+### <a name="reconfiguration"></a>Reconfiguración
+Esta propiedad se usa para indicar si una réplica que realiza una [reconfiguración](service-fabric-concepts-reconfiguration.md) detecta que la reconfiguración está detenida o bloqueada. Este informe de estado se refiere a la réplica que, actualmente, tiene el rol principal (excepto en los casos de una reconfiguración de intercambio de principal, en que puede referirse a la réplica que se va a degradar de principal a secundaria activa).
+
+La reconfiguración puede bloquearse por las razones siguientes:
+
+- No se está completando una acción en la réplica local (la misma réplica que realiza la reconfiguración). En este caso, la investigación de los informes de estado sobre esta réplica de otros componentes (System.RAP o System.RE) puede proporcionar información adicional.
+
+- No se está completando una acción en una réplica remota. Las réplicas para que haya acciones pendientes se mostrarán en el informe de estado. Es necesario investigar más los informes de estado para las réplicas remotas. También podría haber problemas de comunicación entre este nodo y el nodo remoto.
+
+En raras ocasiones, la reconfiguración puede bloquearse debido a problemas de comunicación o de otro tipo entre este nodo y el servicio de administración de conmutación por error.
+
+* **SourceId**: System.RA
+* **Propiedad**: **Reconfiguración**
+* **Pasos siguientes**: investigar las réplicas locales o remotas en función de la descripción del informe de estado.
+
+En el ejemplo siguiente se muestra un informe de estado con una reconfiguración bloqueada en la réplica local (debido a que un servicio no respeta el token de cancelación).
+
+```Powershell
+PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
+
+
+PartitionId           : 9a0cedee-464c-4603-abbc-1cf57c4454f3
+ReplicaId             : 131483600074836703
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RA', Property='Reconfiguration', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : Reconfiguration
+                        HealthState           : Warning
+                        SequenceNumber        : 131483600309264482
+                        SentAt                : 8/28/2017 2:13:50 AM
+                        ReceivedAt            : 8/28/2017 2:13:57 AM
+                        TTL                   : Infinite
+                        Description           : Reconfiguration is stuck. Waiting for response from the local replica
+                        
+                        For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 8/28/2017 2:13:57 AM, LastOk = 1/1/0001 12:00:00 AM
+```
+
+En el ejemplo siguiente se muestra un informe de estado con una reconfiguración bloqueada a la espera de respuesta de dos réplicas remotas (hay tres réplicas en la partición, incluida la actual principal). 
+
+```Powershell
+PS C:\> Get-ServiceFabricReplicaHealth -PartitionId  579d50c6-d670-4d25-af70-d706e4bc19a2 -ReplicaOrInstanceId 131483956274977415
+
+
+PartitionId           : 579d50c6-d670-4d25-af70-d706e4bc19a2
+ReplicaId             : 131483956274977415
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RA', Property='Reconfiguration', HealthState='Warning', ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : Reconfiguration
+                        HealthState           : Warning
+                        SequenceNumber        : 131483960376212469
+                        SentAt                : 8/28/2017 12:13:57 PM
+                        ReceivedAt            : 8/28/2017 12:14:07 PM
+                        TTL                   : Infinite
+                        Description           : Reconfiguration is stuck. Waiting for response from 2 replicas
+                        
+                        Pending Replicas: 
+                        P/I Down 40 131483956244554282
+                        S/S Down 20 131483956274972403
+                        
+                        For more information see: http://aka.ms/sfhealth
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 8/28/2017 12:07:37 PM, LastOk = 1/1/0001 12:00:00 AM
+```
+
+Este informe de estado muestra que la reconfiguración está bloqueada a la espera de respuesta de dos réplicas. 
+
+```
+    P/I Down 40 131483956244554282
+    S/S Down 20 131483956274972403
+```
+
+Para cada réplica, se proporciona la siguiente información:
+- Rol de configuración anterior
+- Rol de configuración actual
+- [Estado de réplica](service-fabric-concepts-replica-lifecycle.md)
+- Id. de nodo
+- Id. de réplica
+
+Para desbloquear la reconfiguración:
+- Es necesario activar las réplicas **desactivadas**. 
+- Se debe completar la generación y la transición a preparadas de las réplicas **InBuild**.
 
 ### <a name="slow-service-api-call"></a>Llamada a la API de servicio lenta
 **System.RAP** y **System.Replicator** notifican una advertencia si una llamada al código de servicio de usuario tarda más tiempo del configurado. La advertencia se borra cuando finaliza la llamada.
@@ -344,108 +576,48 @@ La descripción de este informe de mantenimiento contiene la hora de inicio (hor
 * **Property**: el nombre de la API lenta. La descripción proporciona más detalles sobre el tiempo que la API ha estado pendiente.
 * **Pasos siguientes**: investigue por qué la llamada tarda más de lo previsto.
 
-El ejemplo siguiente muestra una partición en la pérdida de quórum, así como los pasos de investigación realizados para descubrir el motivo. Una de las réplicas tiene un estado de mantenimiento de advertencia, por tanto, ya conoce su estado. Muestra que la operación de servicio tarda más de lo previsto, un evento notificado por System.RAP. Después de recibir esta información, el paso siguiente es examinar el código de servicio e investigar. En este caso, la implementación de **RunAsync** del servicio con estado produce una excepción no controlada. Las réplicas se reciclan, por lo que quizás no pueda ver ninguna réplica en estado de advertencia. Puede intentar obtener de nuevo el estado de mantenimiento y buscar las diferencias en el identificador de réplica. En algunos casos, los reintentos pueden proporcionar pistas.
+En el ejemplo siguiente se muestra el evento de estado de System.RAP para un servicio confiable que no respeta el token de cancelación de RunAsync.
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics
+PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
 
-PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
-AggregatedHealthState : Error
-UnhealthyEvaluations  :
-                        Error event: SourceId='System.FM', Property='State'.
 
-ReplicaHealthStates   :
-                        ReplicaId             : 130743748372546446
-                        AggregatedHealthState : Ok
-
-                        ReplicaId             : 130743746168084332
-                        AggregatedHealthState : Ok
-
-                        ReplicaId             : 130743746195428808
-                        AggregatedHealthState : Warning
-
-                        ReplicaId             : 130743746195428807
-                        AggregatedHealthState : Ok
-
-HealthEvents          :
-                        SourceId              : System.FM
-                        Property              : State
-                        HealthState           : Error
-                        SequenceNumber        : 182
-                        SentAt                : 4/24/2015 7:00:17 PM
-                        ReceivedAt            : 4/24/2015 7:00:31 PM
-                        TTL                   : Infinite
-                        Description           : Partition is in quorum loss.
-                        RemoveWhenExpired     : False
-                        IsExpired             : False
-                        Transitions           : Warning->Error = 4/24/2015 6:51:31 PM
-
-PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful
-
-PartitionId            : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
-PartitionKind          : Int64Range
-PartitionLowKey        : -9223372036854775808
-PartitionHighKey       : 9223372036854775807
-PartitionStatus        : InQuorumLoss
-LastQuorumLossDuration : 00:00:13
-MinReplicaSetSize      : 3
-TargetReplicaSetSize   : 3
-HealthState            : Error
-DataLossNumber         : 130743746152927699
-ConfigurationNumber    : 227633266688
-
-PS C:\> Get-ServiceFabricReplica 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
-
-ReplicaId           : 130743746195428808
-ReplicaAddress      : PartitionId: 72a0fb3e-53ec-44f2-9983-2f272aca3e38, ReplicaId: 130743746195428808
-ReplicaRole         : Primary
-NodeName            : Node.3
-ReplicaStatus       : Ready
-LastInBuildDuration : 00:00:01
-HealthState         : Warning
-
-PS C:\> Get-ServiceFabricReplicaHealth 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
-
-PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
-ReplicaId             : 130743746195428808
+PartitionId           : 5f6060fb-096f-45e4-8c3d-c26444d8dd10
+ReplicaId             : 131483966141404693
 AggregatedHealthState : Warning
-UnhealthyEvaluations  :
-                        Unhealthy event: SourceId='System.RAP', Property='ServiceOpenOperationDuration', HealthState='Warning', ConsiderWarningAsError=false.
-
-HealthEvents          :
-                        SourceId              : System.RA
-                        Property              : State
-                        HealthState           : Ok
-                        SequenceNumber        : 130743756170185892
-                        SentAt                : 4/24/2015 7:00:17 PM
-                        ReceivedAt            : 4/24/2015 7:00:33 PM
-                        TTL                   : Infinite
-                        Description           : Replica has been created.
-                        RemoveWhenExpired     : False
-                        IsExpired             : False
-                        Transitions           : ->Ok = 4/24/2015 7:00:33 PM
-
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RA', Property='Reconfiguration', HealthState='Warning', ConsiderWarningAsError=false.
+                        
+HealthEvents          :                         
                         SourceId              : System.RAP
-                        Property              : ServiceOpenOperationDuration
+                        Property              : IStatefulServiceReplica.ChangeRole(S)Duration
                         HealthState           : Warning
-                        SequenceNumber        : 130743756399407044
-                        SentAt                : 4/24/2015 7:00:39 PM
-                        ReceivedAt            : 4/24/2015 7:00:59 PM
+                        SequenceNumber        : 131483966663476570
+                        SentAt                : 8/28/2017 12:24:26 PM
+                        ReceivedAt            : 8/28/2017 12:24:56 PM
                         TTL                   : Infinite
-                        Description           : Start Time (UTC): 2015-04-24 19:00:17.019
+                        Description           : The api IStatefulServiceReplica.ChangeRole(S) on _Node_1 is stuck. Start Time (UTC): 2017-08-28 12:23:56.347.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Warning = 4/24/2015 7:00:59 PM
+                        Transitions           : Error->Warning = 8/28/2017 12:24:56 PM, LastOk = 1/1/0001 12:00:00 AM
+                        
 ```
 
-Al iniciar la aplicación defectuosa en el depurador, las ventanas de eventos de diagnóstico muestran la excepción de RunAsync:
+La propiedad y el texto indican qué API podría bloquearse. Los siguientes pasos para distintas API bloqueadas son diferentes. Cualquier API de *IStatefulServiceReplica* o *IStatelessServiceInstance* suele ser un error en el código del servicio. En la siguiente sección se describe cómo se transforman en el [modelo de servicios confiables](service-fabric-reliable-services-lifecycle.md).
 
-![Eventos de diagnóstico de Visual Studio 2015: Error de RunAsync en fabric:/HelloWorldStatefulApplication.][1]
+- **IStatefulServiceReplica.Open**: indica que una llamada a `CreateServiceInstanceListeners` o `ICommunicationListener.OpenAsync` o, si se reemplaza `OnOpenAsync`, está bloqueada.
 
-Eventos de diagnóstico de Visual Studio 2015: Error de RunAsync en **fabric:/HelloWorldStatefulApplication**.
+- **IStatefulServiceReplica.Close** e **IStatefulServiceReplica.Abort**: el caso más común es un servicio que no respeta el token de cancelación pasado a `RunAsync`. También podría ser que `ICommunicationListener.CloseAsync` o, si se reemplaza, `OnCloseAsync` sufra un bloqueo.
 
-[1]: ./media/service-fabric-understand-and-troubleshoot-with-system-health-reports/servicefabric-health-vs-runasync-exception.png
+- **IStatefulServiceReplica.ChangeRole(S)** e **IStatefulServiceReplica.ChangeRole(N)**: el caso más común es el de un servicio que no respeta el token de cancelación pasado a `RunAsync`.
 
+- **IStatefulServiceReplica.ChangeRole(P)**: el caso más habitual es que el servicio no ha devuelto una tarea de `RunAsync`.
+
+Otras llamadas API que se pueden bloquear están en la interfaz **IReplicator**. Por ejemplo:
+
+- **IReplicator.CatchupReplicaSet**: esto indica que no hay suficientes réplicas activas (se pueden determinar examinando el estado de réplica de las réplicas de la partición o el informe de estado de System.FM para una reconfiguración bloqueada) o que las réplicas no reconocen las operaciones. El cmdlet de PowerShell `Get-ServiceFabricDeployedReplicaDetail` se puede utilizar para determinar el progreso de todas las réplicas. El problema son las réplicas con un valor de `LastAppliedReplicationSequenceNumber` inferior al de `CommittedSequenceNumber` de la principal.
+
+- **IReplicator.BuildReplica (<Remote ReplicaId>)**: esto indica un problema en el proceso de compilación (vea [ciclo de vida de réplica](service-fabric-concepts-replica-lifecycle.md)). Puede deberse a una configuración incorrecta de la dirección del replicador (vea [esto](service-fabric-reliable-services-configuration.md) y [esto](service-fabric-service-manifest-resources.md)). También podría ser un problema en el nodo remoto.
 
 ### <a name="replication-queue-full"></a>Cola de replicación completa
 **System.Replicator** notifica una advertencia cuando la cola de replicación está llena. En la réplica principal, la cola de replicación suele llenarse porque una o varias réplicas secundarias son lentas a la hora de confirmar las operaciones. En la secundaria, esto suele ocurrir cuando el servicio es lento en aplicar las operaciones. La advertencia se borra cuando la cola ya no está llena.
@@ -465,7 +637,7 @@ Cuando una operación de nomenclatura tarda más de lo esperado, la operación s
 
 * **SourceId**: System.NamingService
 * **Property**: comienza con el prefijo **Duration_** e identifica la operación lenta y el nombre de Service Fabric en el que se aplica la operación. Por ejemplo, si el servicio de creación en el nombre fabric:/MyApp/MyService tarda demasiado, la propiedad es Duration_AOCreateService.fabric:/MyApp/MyService. AO apunta al rol de la partición de nomenclatura para este nombre y operación.
-* **Pasos siguientes**: compruebe por qué se produce un error en la operación de nomenclatura. Cada operación puede tener diferentes causas. Por ejemplo, el servicio de eliminación puede estar atascado en un nodo debido a que el host de la aplicación se bloquee continuamente en un nodo por un error de usuario en el código del servicio.
+* **Pasos siguientes**: compruebe por qué se produce un error en la operación de nomenclatura. Cada operación puede tener diferentes causas. Por ejemplo, el servicio de eliminación puede estar bloqueado debido a que el host de la aplicación se bloquee continuamente en un nodo por un error de usuario en el código del servicio.
 
 El ejemplo siguiente muestra una operación de servicio de creación. La operación tardó más de la duración configurada. AO vuelve a intentarlo y envía trabajo a NO. NO completó la última operación con tiempo de espera. En este caso, la misma réplica es la principal tanto para el rol de AO como para el de NO.
 

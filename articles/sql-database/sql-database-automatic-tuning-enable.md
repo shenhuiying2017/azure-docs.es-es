@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 06/05/2016
+ms.date: 09/19/2016
 ms.author: vvasic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: b391b1f7aa37c5a06fc320ce892534187deb4959
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 378e5a6a8cea80a551666c3692f8aa650620f66d
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="enable-automatic-tuning"></a>Habilitación del ajuste automático
@@ -42,7 +42,7 @@ Azure Portal le permite especificar individualmente la configuración de ajuste 
 > La recomendación general es administrar la configuración de ajuste automático en el nivel de servidor de forma que se pueda aplicar la misma configuración en todas las bases de datos automáticamente. Configure el ajuste automático en una base de datos individual si la base de datos es diferente a otras del mismo servidor.
 >
 
-Para habilitar el ajuste automático en una única base de datos, vaya a la base de datos en Azure Portal y luego seleccione **Ajuste automático**. Puede configurar una única base de datos para que herede la configuración de la base de datos con solo activar la casilla; o puede especificar la configuración de una base de datos de forma individual.
+Para habilitar el ajuste automático en una única base de datos, vaya a la base de datos en Azure Portal y luego seleccione **Ajuste automático**. Puede configurar una única base de datos para que herede la configuración del servidor con solo seleccionar la opción; o puede especificar la configuración de una base de datos de forma individual.
 
 ![Base de datos](./media/sql-database-automatic-tuning-enable/database.png)
 
@@ -52,4 +52,3 @@ Cuando haya seleccionado la configuración adecuada, haga clic en **Aplicar**.
 * Para aprender más sobre el ajuste automático y cómo puede ayudarle a mejorar su rendimiento, lea el [artículo sobre este tema](sql-database-automatic-tuning.md).
 * Consulte [Recomendaciones de rendimiento](sql-database-advisor.md) para ver información general sobre las recomendaciones de rendimiento de Azure SQL Database.
 * Consulte [Query Performance Insight](sql-database-query-performance.md) para más información sobre el impacto en el rendimiento de las principales consultas.
-

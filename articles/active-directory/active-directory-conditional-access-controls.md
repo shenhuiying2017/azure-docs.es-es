@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0f7d847c98e790c542f3a3e666b9a887099a6cbc
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: be3631db20ae744965f9f6677c536ade45e34c49
 ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 09/13/2017
 Con el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), puede controlar el modo en que los usuarios autorizados acceden a las aplicaciones en la nube. En una directiva de acceso condicional, se define la respuesta ("hacer esto") a una condición específica ("cuando esto sucede"). En el contexto del acceso condicional, 
 
 - "**Cuando esto sucede**" se denomina **declaración de condición**
+
 - "**Entonces haga esto**" se denomina **controles**.
 
 ![Control](./media/active-directory-conditional-access-controls/11.png)
@@ -54,7 +55,7 @@ Con los controles de concesión, puede bloquear el acceso por completo o permiti
 - Que todos los controles se cumplan (*Y*) 
 - Que un control seleccionado se cumpla (*O*)
 
-![Control](./media/active-directory-conditional-access-controls/51.png)
+![Control](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -89,6 +90,63 @@ Puede usar [directivas de protección de aplicaciones de Intune](https://docs.mi
 
 
 Con las aplicaciones cliente aprobadas, puede requerir que una aplicación cliente que intente obtener acceso a las aplicaciones en la nube admita [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy). Por ejemplo, puede restringir el acceso a Exchange Online para la aplicación Outlook. Una directiva de acceso condicional que requiere aplicaciones cliente aprobadas se conoce también como [directiva de acceso condicional basado en aplicaciones](active-directory-conditional-access-mam.md). Para una lista de las aplicaciones cliente admitidas, consulte el [requisito de las aplicaciones cliente aprobadas](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+
+
+### <a name="terms-of-use"></a>Términos de uso
+
+Puede requerir a un usuario en el inquilino que consienta las condiciones de uso antes de concederle acceso a un recurso. Como administrador, puede configurar y personalizar las condiciones de uso mediante la carga de un documento PDF. Si un usuario se encuentra en el ámbito de control, el acceso a una aplicación solo se concede si se han aceptado las condiciones de uso. 
+
+
+### <a name="custom-controls"></a>Controles personalizados 
+
+También puede crear controles personalizados en acceso condicional que redirigen a los usuarios a un servicio compatible para satisfacer más requisitos fuera de Azure Active Directory. Esto le permite utilizar ciertos proveedores externos de autenticación multifactor y comprobación para exigir reglas de acceso condicional o para crear su propio servicio personalizado. Para satisfacer este control, el explorador de un usuario se redirige al servicio externo, lleva a cabo todas las actividades de autenticación y validación necesarias y luego se vuelve a redirigir a Azure Active Directory. Si el usuario se autenticó o validó correctamente, dicho usuario continúa en el flujo de acceso condicional. 
+
+## <a name="custom-controls"></a>Controles personalizados
+
+Los controles personalizados en acceso condicional redirigen a los usuarios a un servicio compatible para satisfacer más requisitos fuera de Azure Active Directory. Para satisfacer este control, el explorador de un usuario se redirige al servicio externo, lleva a cabo todas las actividades de autenticación y validación necesarias y luego se vuelve a redirigir a Azure Active Directory. Azure Active Directory comprueba la respuesta y, si el usuario se autenticó o validó correctamente, dicho usuario continuará en el flujo de acceso condicional.
+
+Estos controles permiten el uso de ciertos servicios externos o personalizados como controles de acceso condicional y generalmente amplían las funcionalidades de acceso condicional.
+
+Los proveedores que actualmente ofrecen un servicio compatible incluyen:
+
+- Duo Security
+
+- RSA
+
+- Trusona
+
+Para más información sobre esos servicios, póngase en contacto con los proveedores directamente.
+
+### <a name="creating-custom-controls"></a>Creación de controles personalizados
+
+Para crear un control personalizado, primero debe ponerse en contacto con el proveedor que desea utilizar. Cada proveedor que no es Microsoft tiene su propio proceso y requisitos para registrarse, suscribirse o pasar a formar parte del servicio e indicar que usted desea integrarse con el acceso condicional. En ese momento, el proveedor le proporcionará un bloque de datos en formato JSON. Estos datos permiten al proveedor y al acceso condicional trabajar conjuntamente para su inquilino, crean el nuevo control y definen cómo el acceso condicional puede indicar si los usuarios han realizado correctamente la comprobación con el proveedor.
+
+Copie los datos JSON y, a continuación, péguelos en el cuadro de texto relacionado. No realice ningún cambio en JSON a menos que entienda explícitamente dicho cambio. Realizar cualquier cambio podría interrumpir la conexión entre el proveedor y Microsoft y dejarle tanto a usted como a sus usuarios fuera de sus cuentas.
+
+La opción para crear un control personalizado está en la sección **Administrar** de la página **Acceso condicional**.
+
+![Control](./media/active-directory-conditional-access-controls/82.png)
+
+Al hacer clic en **Nuevo control personalizado** se abre una hoja con un cuadro de texto para los datos JSON del control.  
+
+
+![Control](./media/active-directory-conditional-access-controls/81.png)
+
+
+### <a name="deleting-custom-controls"></a>Eliminación de controles personalizados
+
+Para eliminar un control personalizado, primero debe asegurarse de que no se está utilizando en ninguna directiva de acceso condicional. Cuando haya terminado:
+
+1. Vaya a la lista Controles personalizados.
+
+2. Haga clic en ...  
+
+3. Seleccione **Eliminar**.
+
+### <a name="editing-custom-controls"></a>Edición de controles personalizados
+
+Para editar un control personalizado, debe eliminar el control actual y crear un nuevo control con la información actualizada.
+
 
 
 

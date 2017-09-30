@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 425c7a733a0a2383f01d2122e7155d3e3a9071be
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: f52988f2a67f2cafe93a7e0a358c599658d068b2
 ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,7 +28,7 @@ Operations Management Suite (OMS) es una colección de servicios de administraci
 
 ## <a name="log-analytics-and-the-oms-workspace"></a>Log Analytics y el área de trabajo de OMS
 
-Log Analytics recopila datos de recursos administrados, incluidos un agente o una tabla de Azure Storage, y los mantiene en un repositorio central. Estos datos pueden utilizarse posteriormente para análisis, alertas, visualizaciones y tareas ulteriores de exportación. Log Analytics admite eventos, datos de rendimiento u otros datos personalizados.
+Log Analytics recopila datos de recursos administrados, incluidos un agente o una tabla de almacenamiento de Azure, y los mantiene en un repositorio central. Estos datos pueden utilizarse posteriormente para análisis, alertas, visualizaciones y tareas ulteriores de exportación. Log Analytics admite eventos, datos de rendimiento u otros datos personalizados.
 
 Cuando se configura OMS, podrá acceder a un *área de trabajo OMS* determinada, donde se pueden consultar o visualizar los datos en paneles.
 
@@ -47,7 +47,7 @@ Hay dos formas de aprovisionar y configurar el área de trabajo de OMS, bien a t
 Esto ocurre en la fase de creación del clúster; al implementar un clúster con una plantilla de Resource Manager, esta última también puede crear una nueva área de trabajo de OMS, agregar a ella la solución Service Fabric y configurarla para leer datos de las tablas de almacenamiento apropiadas.
 
 >[!NOTE]
->Para ello, Diagnostics tiene que estar habilitado para que haya tablas de Azure Storage en las que OMS o Log Analytics puedan leer información.
+>Para ello, Diagnostics tiene que estar habilitado para que haya tablas de almacenamiento de Azure en las que OMS o Log Analytics puedan leer información.
 
 [Aquí](https://azure.microsoft.com/resources/templates/service-fabric-oms/) hay una plantilla de ejemplo que puede usar y modificar según sea necesario, donde se realizan las acciones anteriores. En caso de que desee considerar otras alternativas, existen algunas plantillas más que ofrecen diferentes opciones en función del punto en que se encuentre en el proceso de configuración de un área de trabajo de OMS; se encuentran disponibles en la página de [plantillas de Service Fabric y OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
 
@@ -92,7 +92,7 @@ En este artículo se tratan los pasos necesarios para configurar la supervisión
 
 Para configurar la solución Containers en el área de trabajo, asegúrese de que el agente de OMS esté implementado en los nodos del clúster; para ello, siga los pasos mencionados anteriormente. Cuando el clúster esté listo, implemente un contenedor en él. Tenga en cuenta que la primera vez que una imagen del contenedor se implementa en un clúster, se tardan varios minutos en descargar la imagen según su tamaño.
 
-En Azure Marketplace, busque *Containers* y cree un recurso de Containers (en la categoría Supervisión y administración).
+En Azure Marketplace, busque la *solución de Supervisión de contenedores* y cree el resultado de la **solución de Supervisión de contenedores** que debería aparecer, en la categoría Supervisión y administración.
 
 ![Adición de la solución Containers](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 

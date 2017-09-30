@@ -3,7 +3,7 @@ title: "Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure 
 description: "En este documento se explica cómo establecer una estrategia de alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)"
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
+author: saghorpa
 manager: timlt
 editor: 
 ms.service: virtual-machines-linux
@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/11/2016
-ms.author: rclaus
+ms.date: 09/15/2016
+ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 87ea8b808c0b7e5fe79a5bee038a3d34ed59a1e6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 293ac7a275398f05e3abe815413403efeaadc6e0
 ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Alta disponibilidad y recuperación ante desastres de SAP HANA para instancias grandes en Azure 
@@ -41,9 +41,9 @@ En la tabla siguiente se muestran los métodos y las combinaciones de alta dispo
 | Conmutación por error automática de host: N+m<br /> incluido 1+1 | Posible con el modo en espera tomando el rol activo.<br /> HANA controla el cambio de rol. | Configuración de recuperación ante desastres dedicada.<br /> Configuración de recuperación ante desastres multipropósito.<br /> Sincronización de recuperación ante desastres mediante replicación de almacenamiento. | Los conjuntos de volúmenes de HANA se adjuntan a todos los nodos (n+m).<br /> El sitio de recuperación ante desastres debe tener el mismo número de nodos. |
 | Replicación del sistema de HANA | Posible con configuración principal o secundaria.<br /> La configuración secundaria pasa al rol principal en caso de conmutación por error.<br /> Replicación del sistema de HANA y conmutación por error de control del SO. | Configuración de recuperación ante desastres dedicada.<br /> Configuración de recuperación ante desastres multipropósito.<br /> Sincronización de recuperación ante desastres mediante replicación de almacenamiento.<br /> La recuperación ante desastres mediante replicación del sistema de HANA todavía no es posible sin componentes de terceros. | El conjunto independiente de volúmenes de discos se adjunta a cada nodo.<br /> Solo los volúmenes de disco de la réplica secundaria en el sitio de producción se replican a la ubicación de recuperación ante desastres.<br /> Se requiere un conjunto de volúmenes en el sitio de recuperación ante desastres. | 
 
-Una configuración de recuperación ante desastres dedicada es aquella en la que no se usa la unidad de instancia grande de HANA en el sitio de recuperación ante desastres para ejecutar ninguna otra carga de trabajo o ningún sistema que no sea de producción. La unidad es pasiva y solo se implementa si se ejecuta una conmutación por error ante desastres. Hasta el momento no tenemos ningún cliente con esta configuración.
+Una configuración de recuperación ante desastres dedicada es aquella en la que no se usa la unidad de instancia grande de HANA en el sitio de recuperación ante desastres para ejecutar ninguna otra carga de trabajo o ningún sistema que no sea de producción. La unidad es pasiva y solo se implementa si se ejecuta una conmutación por error ante desastres. Sin embargo, esta no es la opción preferida para muchos clientes.
 
-Una configuración de recuperación ante desastres multipropósito es aquella en la que la unidad de instancia grande de HANA en el sitio de recuperación ante desastres ejecuta una carga de trabajo no de producción. En el caso de un desastre, se apaga el sistema no de producción, se montan los conjuntos de volúmenes replicados en el almacenamiento (adicionales) y luego se inicia la instancia de HANA de producción. Hasta el momento, todos los clientes que usan la funcionalidad de recuperación ante desastres de instancias grandes de HANA usan esta alternativa de configuración. 
+Una configuración de recuperación ante desastres multipropósito es aquella en la que la unidad de instancia grande de HANA en el sitio de recuperación ante desastres ejecuta una carga de trabajo no de producción. En el caso de un desastre, se apaga el sistema no de producción, se montan los conjuntos de volúmenes replicados en el almacenamiento (adicionales) y luego se inicia la instancia de HANA de producción. La mayoría de los clientes que usan la funcionalidad de recuperación ante desastres de instancias grandes de HANA usan esta configuración. 
 
 
 Para más información sobre la alta disponibilidad de SAP HANA, consulte los artículos siguientes sobre SAP: 
@@ -221,7 +221,15 @@ En este paso se autoriza a la cuenta de usuario de SAP HANA que creó, de manera
 
 Escriba el comando `hdbuserstore` de esta forma:
 
-![Ejecución del comando hdbuserstore](./media/hana-overview-high-availability-disaster-recovery/image4-hdbuserstore-command.png)
+**Para la configuración de HANA distinta de MDC**
+```
+hdbuserstore set <key> <host><3[instance]15> <user> <password>
+```
+
+**Para la configuración de HANA MDC**
+```
+hdbuserstore set <key> <host><3[instance]13> <user> <password>
+```
 
 En el ejemplo siguiente, el usuario es **SCADMIN01**, el nombre del host es **lhanad01** y el número de instancia es **01**:
 ```
@@ -231,8 +239,8 @@ Si tiene una configuración de escala horizontal de SAP HANA, debe administrar t
 
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 SCADMIN <password>
-hdbuserstore set SCADMIN02 lhanad02:30215 SCADMIN <password>
-hdbuserstore set SCADMIN03 lhanad03:30315 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad02:30115 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad03:30115 SCADMIN <password>
 ```
 
 ### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>Paso 6: Obtener los scripts de instantánea, configurar las instantáneas y probar la configuración y la conectividad
@@ -285,7 +293,7 @@ Storage IP Address: 10.240.20.31
 #hdbuserstore utility.
 Node 1 IP Address: 
 Node 1 HANA instance number:
-Node 1 HANA Backup Name:
+Node 1 HANA userstore Name:
 ```
 
 >[!NOTE]
@@ -376,28 +384,28 @@ Si la instantánea de prueba se ejecutó correctamente con el script, puede cont
 A medida que finalizan todos los pasos de preparación, puede comenzar a establecer la configuración de instantánea de almacenamiento real. El script que se va a programar funciona con configuraciones de escalado vertical o escalado horizontal de SAP HANA. Debe programar la ejecución de los scripts a través de cron. 
 
 Se pueden crear tres tipos de copias de seguridad de instantánea:
-- **HANA**: copia de seguridad de la instantánea combinada en la que la instantánea coordinada abarca los volúmenes que contienen /hana/data, /hana/log y /hana/shared (que también contiene /usr/sap). Es posible realizar una sola restauración de archivos a partir de esta instantánea.
+- **HANA**: copia de seguridad de la instantánea combinada en la que la instantánea coordinada abarca los volúmenes que contienen /hana/data y /hana/shared (que también contiene /usr/sap). Es posible realizar una sola restauración de archivos a partir de esta instantánea.
 - **Registros**: copia de seguridad de la instantánea del volumen /hana/logbackups. Ninguna instantánea de HANA se desencadena para ejecutar esta instantánea de almacenamiento. Este volumen de almacenamiento es el volumen pensado para contener las copias de seguridad del registro de transacciones de SAP HANA. Las copias de seguridad del registro de transacciones de SAP HANA se realizan más frecuentemente para limitar el crecimiento del registro y evitar la posible pérdida de datos. Es posible realizar una sola restauración de archivos a partir de esta instantánea. No debe reducir la frecuencia por debajo de cinco minutos.
 - **Arranque**: instantánea del volumen que contiene el número de unidad lógica (LUN) de arranque de la instancia grande de HANA. La copia de seguridad de esta instantánea solo es posible con las SKU de tipo I de las instancias grandes de HANA. No es posible realizar restauraciones de archivos únicas a partir de la instantánea del volumen que contiene el LUN de arranque.  
 
 
 La sintaxis de llamada de estos tres tipos distintos de instantáneas es la siguiente:
 ```
-HANA backup covering /hana/data, /hana/log, /hana/shared (includes/usr/sap)
+HANA backup covering /hana/data and /hana/shared (includes/usr/sap)
 ./azure_hana_backup.pl hana <HANA SID> manual 30
 
 For /hana/logbackups snapshot
 ./azure_hana_backup.pl logs <HANA SID> manual 30
 
 For snapshot of the volume storing the boot LUN
-./azure_hana_backup.pl boot manual 30
+./azure_hana_backup.pl boot none manual 30
 
 ```
 
 Es necesario especificar los parámetros siguientes:
 
 - El primer parámetro caracteriza el tipo de la copia de seguridad de la instantánea. Los valores permitidos son **hana**, **logs** y **boot**. 
-- El segundo valor es el SID de HANA (como HM3). Este parámetro no es necesario para realizar una copia de seguridad del volumen de arranque.
+- El segundo parámetro es **HANA SID** (como HM3) o **none**. Si el primer valor de los parámetros proporcionado es **hana** o **logs**, el valor de este parámetro es **HANA SID** (como HM3), y para la copia de seguridad del volumen de arranque, el valor es **none**. 
 - El tercer parámetro es una instantánea o etiqueta de copia de seguridad para el tipo de instantánea. Tiene dos finalidades. La primera finalidad le corresponde a usted y consiste en asignarle un nombre, para que sepa de qué tratan estas instantáneas. La segunda finalidad es para el script azure\_hana\_backup.pl para determinar el número de instantáneas de almacenamiento que se conservan bajo esa etiqueta específica. Si programa dos copias de seguridad de instantánea de almacenamiento del mismo tipo (como **hana**), con dos etiquetas diferentes y define que deben conservarse 30 instantáneas para cada una de ellas, terminará con 60 instantáneas de almacenamiento de los volúmenes afectados. 
 - El cuarto parámetro define la retención de las instantáneas de manera indirecta al definir el número de instantáneas con el mismo prefijo de instantánea (etiqueta) que se deben conservar. Este parámetro es importante para una ejecución programada a través de cron. 
 
@@ -428,7 +436,7 @@ En las consideraciones y recomendaciones siguientes, se supone que *no* se usa l
 - El número de instantáneas por volumen está limitado a 255.
 
 
-En el caso de los clientes que no usan la funcionalidad de recuperación ante desastres de las instancias grandes de HANA, el período de la instantánea es menos frecuente. En dichos casos, vemos clientes que realizan las instantáneas combinadas en /hana/data, /hana/log y /hana/shared (incluye /usr/sap) en períodos de 12 o 24 horas y mantienen esas instantáneas de modo que abarquen todo un mes. Lo mismo ocurre con las instantáneas del volumen de copia de seguridad del registro. Sin embargo, la ejecución de las copias de seguridad del registro de transacciones de SAP HANA en el volumen de la copia de seguridad del registro tiene lugar en períodos de cinco a quince minutos.
+En el caso de los clientes que no usan la funcionalidad de recuperación ante desastres de las instancias grandes de HANA, el período de la instantánea es menos frecuente. En dichos casos, vemos clientes que realizan las instantáneas combinadas en /hana/data y /hana/shared (incluye /usr/sap) en períodos de 12 o 24 horas y mantienen esas instantáneas de modo que abarquen todo un mes. Lo mismo ocurre con las instantáneas del volumen de copia de seguridad del registro. Sin embargo, la ejecución de las copias de seguridad del registro de transacciones de SAP HANA en el volumen de la copia de seguridad del registro tiene lugar en períodos de cinco a quince minutos.
 
 Le animamos a realizar instantáneas de almacenamiento programadas mediante cron. También le recomendamos que utilice el mismo script para todas las copias de seguridad y necesidades de recuperación ante desastres. Debe modificar las entradas de script para que coincidan con los distintos tiempos de copia de seguridad solicitados. Todas estas instantáneas se programan de forma diferente en cron en función de su tiempo de ejecución: cada hora, cada 12 horas, a diario o semanalmente. 
 
@@ -440,9 +448,9 @@ Un ejemplo de programación cron en /etc/crontab podría ser la siguiente:
 22 12 * * *  ./azure_hana_backup.pl log HM3 dailylogback 28
 30 00 * * *  ./azure_hana_backup.pl boot dailyboot 28
 ```
-En el ejemplo anterior, se trata de una instantánea combinada por hora que abarca los volúmenes que contienen las ubicaciones /hana/data, /hana/log y /hana/shared (incluye /usr/sap). Este tipo de instantánea se podría usar para una recuperación a un momento dado más rápida en un período de dos días antes. Además, en esos volúmenes hay una instantánea diaria. Por tanto, tiene dos días de cobertura por instantáneas por hora más cuatro semanas de cobertura por instantáneas diarias. Además, se crea una copia de seguridad del volumen de la copia de seguridad del registro de transacciones una vez cada día. Estas copias de seguridad también se conservan durante cuatro semanas. Como se ve en la tercera línea de crontab, la copia de seguridad del registro de transacciones de HANA está programada para ejecutarse cada cinco minutos. Los minutos iniciales de los distintos trabajos de cron que ejecutan las instantáneas de almacenamiento son escalonados, por lo que esas instantáneas no se ejecutan todas a la vez en un momento dado. 
+En el ejemplo anterior, se trata de una instantánea combinada por hora que abarca los volúmenes que contienen las ubicaciones /hana/data y /hana/shared (incluye /usr/sap). Este tipo de instantánea se podría usar para una recuperación a un momento dado más rápida en un período de dos días antes. Además, en esos volúmenes hay una instantánea diaria. Por tanto, tiene dos días de cobertura por instantáneas por hora más cuatro semanas de cobertura por instantáneas diarias. Además, se crea una copia de seguridad del volumen de la copia de seguridad del registro de transacciones una vez cada día. Estas copias de seguridad también se conservan durante cuatro semanas. Como se ve en la tercera línea de crontab, la copia de seguridad del registro de transacciones de HANA está programada para ejecutarse cada cinco minutos. Los minutos iniciales de los distintos trabajos de cron que ejecutan las instantáneas de almacenamiento son escalonados, por lo que esas instantáneas no se ejecutan todas a la vez en un momento dado. 
 
-En el ejemplo siguiente, cada hora se realiza una instantánea combinada que abarca los volúmenes que contienen las ubicaciones /hana/data, /hana/log y /hana/shared (incluido /usr/sap). Las instantáneas se conservan durante dos días. Las instantáneas de los volúmenes de copia de seguridad del registro de transacciones se ejecutan cada cinco minutos y se conservan durante cuatro horas. Como antes, la copia de seguridad del registro de transacciones de HANA se programa para ejecutarse cada cinco minutos. La instantánea del volumen de la copia de seguridad del registro de transacciones se realiza con un retraso de dos minutos una vez que se inicia la copia de seguridad del registro de transacciones. En circunstancias normales, la copia de seguridad del registro de transacciones de SAP HANA debería completarse en esos dos minutos. Como antes, una instantánea de almacenamiento crea una copia de seguridad al día del volumen que contiene el LUN de arranque y se conserva durante cuatro semanas.
+En el ejemplo siguiente, cada hora se realiza una instantánea combinada que abarca los volúmenes que contienen las ubicaciones /hana/data y /hana/shared (incluido /usr/sap). Las instantáneas se conservan durante dos días. Las instantáneas de los volúmenes de copia de seguridad del registro de transacciones se ejecutan cada cinco minutos y se conservan durante cuatro horas. Como antes, la copia de seguridad del registro de transacciones de HANA se programa para ejecutarse cada cinco minutos. La instantánea del volumen de la copia de seguridad del registro de transacciones se realiza con un retraso de dos minutos una vez que se inicia la copia de seguridad del registro de transacciones. En circunstancias normales, la copia de seguridad del registro de transacciones de SAP HANA debería completarse en esos dos minutos. Como antes, una instantánea de almacenamiento crea una copia de seguridad al día del volumen que contiene el LUN de arranque y se conserva durante cuatro semanas.
 
 ```
 10 0-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 48
@@ -453,9 +461,9 @@ En el ejemplo siguiente, cada hora se realiza una instantánea combinada que aba
 
 En el siguiente gráfico se ilustran las secuencias del ejemplo anterior, excepto el LUN de arranque:
 
-![Relación entre copias de seguridad e instantáneas](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot.PNG)
+![Relación entre copias de seguridad e instantáneas](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
-SAP HANA realiza escrituras normales en el volumen /hana/log para documentar los cambios confirmados en la base de datos. De manera regular, SAP HANA escribe un punto de retorno en el volumen /hana/data. Tal como se especifica en crontab, una copia de seguridad del registro de transacciones de SAP HANA se ejecuta cada cinco minutos. También se ve que una instantánea de SAP HANA se ejecuta cada hora como resultado del desencadenamiento de una instantánea de almacenamiento combinada sobre los volúmenes /hana/data, /hana/log y /hana/shared. Una vez que la instantánea de HANA se realiza correctamente, se ejecuta la instantánea de almacenamiento combinada. Tal como se indica en crontab, la instantánea de almacenamiento en el volumen /hana/logbackup se ejecuta cada cinco minutos alrededor de dos minutos después de la copia de seguridad del registro de transacciones de HANA.
+SAP HANA realiza escrituras normales en el volumen /hana/log para documentar los cambios confirmados en la base de datos. De manera regular, SAP HANA escribe un punto de retorno en el volumen /hana/data. Tal como se especifica en crontab, una copia de seguridad del registro de transacciones de SAP HANA se ejecuta cada cinco minutos. También se ve que una instantánea de SAP HANA se ejecuta cada hora como resultado del desencadenamiento de una instantánea de almacenamiento combinada sobre los volúmenes /hana/data y /hana/shared. Una vez que la instantánea de HANA se realiza correctamente, se ejecuta la instantánea de almacenamiento combinada. Tal como se indica en crontab, la instantánea de almacenamiento en el volumen /hana/logbackup se ejecuta cada cinco minutos alrededor de dos minutos después de la copia de seguridad del registro de transacciones de HANA.
 
 
 >[!IMPORTANT]
@@ -463,7 +471,7 @@ SAP HANA realiza escrituras normales en el volumen /hana/log para documentar los
 
 Si ha adquirido un compromiso con los usuarios de una recuperación a un momento dado de treinta días, haga lo siguiente:
 
-- En casos extremos, necesita poder acceder a una instantánea de almacenamiento combinada en /hana/data, /hana/log y /hana/shared, que tiene una antigüedad de 30 días.
+- En casos extremos, necesita poder acceder a una instantánea de almacenamiento combinada en /hana/data y /hana/shared, que tiene una antigüedad de 30 días.
 - Tenga copias de seguridad del registro de transacciones contiguas que abarquen el tiempo entre cualquiera de las instantáneas del almacenamiento combinado. Por tanto, la instantánea de mayor antigüedad del volumen de copia de seguridad del registro de transacciones debe tener 30 días. Este no es el caso si copia las copias de seguridad del registro de transacciones en otro recurso compartido NFS ubicado en Azure Storage. En ese caso, podría extraer copias de seguridad del registro de transacciones anteriores de ese recurso compartido NFS.
 
 Para beneficiarse de las instantáneas de almacenamiento y la posible replicación de almacenamiento de las copias de seguridad del registro de transacciones, es necesario cambiar la ubicación donde SAP HANA escribe las copias de seguridad del registro de transacciones. Puede realizar este cambio en HANA Studio. Si bien SAP HANA crea automáticamente copias de seguridad de segmentos de registros completos, se debe especificar un intervalo de copia de seguridad de registros para que sea determinista. Hay que tener esto especialmente en cuenta cuando se usa la opción de recuperación ante desastres porque habitualmente querrá ejecutar las copias de seguridad de registros con un período determinista. En el caso siguiente, se tomó un intervalo de copia de seguridad de registros de quince minutos.

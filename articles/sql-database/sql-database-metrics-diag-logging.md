@@ -13,13 +13,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 09/16/2017
 ms.author: vvasic
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bf41aa530c68ea0e94a09d1dab63237c6f42bce7
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ef73f9036a91d5bac50597d1d96fe134225eef51
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database 
@@ -47,6 +47,13 @@ Al habilitar las métricas y los registros de diagnóstico, debe especificar el 
 Puede aprovisionar un nuevo recurso de Azure o seleccionar uno existente. Después de seleccionar el recurso de almacenamiento, debe especificar qué datos se van a recopilar. Las opciones disponibles incluyen:
 
 - **[Métricas de 1 minuto](sql-database-metrics-diag-logging.md#1-minute-metrics)**: contiene porcentaje de DTU; límite de DTU; porcentaje de CPU; porcentaje de lectura de datos físicos; porcentaje de escritura en registro; conexiones correctas, erróneas o bloqueadas por el firewall; porcentaje de sesiones; porcentaje de trabajadores; almacenamiento; porcentaje de almacenamiento y porcentaje de almacenamiento de XTP.
+- **[QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics)**: contiene la información sobre las estadísticas de tiempo de ejecución de consulta, como el uso de CPU, la duración de la consulta, etc.
+- **[QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics)**: contiene la información sobre las estadísticas de espera de las consultas que le indica el motivo de la espera de sus consultas, como la CPU, el registro, el bloqueo, etc.
+- **[Errores](sql-database-metrics-diag-logging.md#errors-dataset)** : contiene la información sobre los errores de SQL producidos en esta base de datos.
+- **[DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset)**: contiene la información sobre cuánto tiempo ha dedicado una base de datos en esperar distintos tipos de espera.
+- **[Tiempos de expiración](sql-database-metrics-diag-logging.md#timeouts-dataset)**: contiene la información sobre cuánto tiempo ha dedicado una base de datos en esperar distintos tipos de espera.
+- **[Bloqueos](sql-database-metrics-diag-logging.md#blockings-dataset)**: contiene la información acerca de los eventos de bloqueo que se produjeron en una base de datos.
+- **[SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset)**: contiene Intelligent Insights. [Más información acerca de Intelligent Insights](sql-database-intelligent-insights.md)
 
 Si especifica una cuenta de Centro de eventos o Azure Storage, puede indicar una directiva de retención para especificar que los datos que sean más antiguos que un período de tiempo seleccionado se eliminen. Si especifica Log Analytics, la directiva de retención depende del plan de tarifa seleccionado. Más información sobre [Log Analytics Precios](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
@@ -57,6 +64,10 @@ Se recomienda leer los artículos [Información general sobre las métricas en M
 Para habilitar la recopilación de métricas y registros de diagnóstico en Azure Portal, vaya a la página de Azure SQL Database o del grupo elástico y haga clic en **Configuración de diagnóstico**.
 
    ![habilitar en Azure Portal](./media/sql-database-metrics-diag-logging/enable-portal.png)
+
+Cree una nueva configuración de diagnóstico o edite la existente. Para ello, seleccione el destino y la telemetría.
+
+   ![configurar valores de diagnóstico](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -96,7 +107,7 @@ Para habilitar las métricas y los registros de diagnóstico con PowerShell, use
 
 Puede combinar estos parámetros para habilitar varias opciones de salida.
 
-### <a name="cli"></a>CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 Para habilitar las métricas y los registros de diagnóstico con CLI de Azure, use los siguientes comandos:
 
@@ -143,9 +154,9 @@ Las métricas y los registros de diagnóstico de Azure SQL Database se pueden tr
 
 La supervisión de la línea de Azure SQL Database es sencilla con Log Analytics. Se necesitan tres pasos:
 
-1.  Crear el recurso Log Analytics
-2.  Configurar bases de datos para registrar las métricas y los registros de diagnóstico en el recurso Log Analytics creado
-3.  Instalar la solución **Azure SQL Analytics** desde la galería en Log Analytics
+1. Crear el recurso Log Analytics
+2. Configurar bases de datos para registrar las métricas y los registros de diagnóstico en el recurso Log Analytics creado
+3. Instalar la solución **Azure SQL Analytics** desde la galería en Log Analytics
 
 ### <a name="create-log-analytics-resource"></a>Crear el recurso Log Analytics
 
@@ -170,8 +181,7 @@ La manera más sencilla de configurar la ubicación en que las bases de datos re
 
 ### <a name="using-azure-sql-analytics-solution"></a>Uso de la solución Azure SQL Analytics
 
-Azure SQL Analytics es un panel jerárquico que permite navegar por la jerarquía de recursos de Azure SQL Database. Esta capacidad permite realizar supervisión de alto nivel y además limitar la supervisión a solo el conjunto adecuado de recursos.
-El panel contiene las listas de los recursos incluidos en el recurso seleccionado. Por ejemplo, en una suscripción seleccionada puede ver todos los servidores, los grupos elásticos y las bases de datos que pertenecen a esa suscripción. Además, en los grupos elásticos y las bases de datos puede ver las métricas de uso de ese recurso. Esto incluye gráficos de DTU, CPU, E/S, registro, sesiones, trabajadores, conexiones y almacenamiento en GB.
+Azure SQL Analytics es un panel jerárquico que permite navegar por la jerarquía de recursos de Azure SQL Database. [Haga clic aquí para obtener información sobre cómo usar la solución de Azure SQL Analytics.](../log-analytics/log-analytics-azure-sql.md)
 
 ## <a name="stream-into-azure-event-hub"></a>Transmisión al Centro de eventos de Azure
 
@@ -186,9 +196,9 @@ Una vez que los datos seleccionados se transmiten al Centro de eventos, está un
 
 Estas son solo algunas formas en que se podría usar la funcionalidad de transmisión:
 
--   Visualización del estado del servicio mediante la transmisión de datos de "ruta de acceso activa" a PowerBI: con Event Hubs, Stream Analytics y Power BI, puede transformar fácilmente las métricas y los datos de diagnóstico en información prácticamente en tiempo real sobre los servicios de Azure. Para obtener una introducción sobre cómo configurar Event Hubs, procesar datos con Stream Analytics y usar Power BI como salida, vea [Stream Analytics y Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
--   Transmisión de registros a registros de terceros y flujos de telemetría: con la transmisión de Event Hubs puede enviar las métricas y los registros de diagnóstico a distintas soluciones de supervisión y análisis de registros de terceros. 
--   Creación de una plataforma personalizada de registro y telemetría: si ya tiene una plataforma de telemetría personalizada o está pensando en crear una, la naturaleza altamente escalable de suscripción y publicación de Event Hubs permite introducir registros de diagnóstico de manera flexible. Vea la [guía de Dan Rosanova para usar Event Hubs en una plataforma de telemetría de escala global](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+-             Visualización del estado del servicio mediante la transmisión de datos de "ruta de acceso activa" a PowerBI: con Event Hubs, Stream Analytics y Power BI, puede transformar fácilmente las métricas y los datos de diagnóstico en información prácticamente en tiempo real sobre los servicios de Azure. Para obtener una introducción sobre cómo configurar Event Hubs, procesar datos con Stream Analytics y usar Power BI como salida, vea [Stream Analytics y Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
+-             Transmisión de registros a registros de terceros y flujos de telemetría: con la transmisión de Event Hubs puede enviar las métricas y los registros de diagnóstico a distintas soluciones de supervisión y análisis de registros de terceros. 
+-             Creación de una plataforma personalizada de registro y telemetría: si ya tiene una plataforma de telemetría personalizada o está pensando en crear una, la naturaleza altamente escalable de suscripción y publicación de Event Hubs permite introducir registros de diagnóstico de manera flexible. Vea la [guía de Dan Rosanova para usar Event Hubs en una plataforma de telemetría de escala global](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="stream-into-azure-storage"></a>Transmisión a Azure Storage
 
@@ -224,14 +234,212 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 Vea [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs) (Descargar métricas y registros de diagnóstico de Azure Storage).
 
-## <a name="1-minute-metrics"></a>métricas de 1 minuto
+## <a name="metrics-and-logs-available"></a>Métricas y registros disponibles
 
-| |  |
-|---|---|
+### <a name="1-minute-metrics"></a>métricas de 1 minuto
+
 |**Recurso**|**Métricas**|
+|---|---|
 |Base de datos|Porcentaje de DTU; DTU usada; límite de DTU; porcentaje de CPU; porcentaje de lectura de datos físicos; porcentaje de escritura en registro; conexiones correctas, erróneas o bloqueadas por el firewall; porcentaje de sesiones; porcentaje de trabajadores; almacenamiento; porcentaje de almacenamiento; porcentaje de almacenamiento de XTP e interbloqueos |
 |Grupo elástico|porcentaje de eDTU; eDTUusada; límite de eDTU; porcentaje de CPU; porcentaje de lectura de datos físicos; porcentaje de escritura en registro; porcentaje de sesiones; porcentaje de trabajadores; almacenamiento; porcentaje de almacenamiento; límite de almacenamiento y porcentaje de almacenamiento de XTP |
 |||
+
+### <a name="query-store-runtime-statistics"></a>Estadísticas de tiempo de ejecución del Almacén de consultas
+
+|Propiedad|Descripción|
+|---|---|
+|TenantId|Identificador de inquilino|
+|SourceSystem|Siempre: Azure|
+|TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro|
+|Tipo|Siempre: AzureDiagnostics|
+|ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
+|Categoría|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics|
+|nombreOperación|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent|
+|Recurso|Nombre del recurso|
+|ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES|
+|SubscriptionId|GUID de la suscripción al que pertenece la base de datos|
+|ResourceGroup|Nombre del grupo de recursos al que pertenece la base de datos|
+|LogicalServerName_s|Nombre del servidor al que pertenece la base de datos|
+|ElasticPoolName_s|Nombre del grupo elástico al que pertenece la base de datos, si pertenece a alguno|
+|DatabaseName_s|Nombre de la base de datos.|
+|ResourceId|URI de recurso|
+|query_hash_s|Hash de consulta|
+|query_plan_hash_s|Hash del plan de consulta|
+|statement_sql_handle_s|Controlador de SQL de instrucción|
+|interval_start_time_d|Inicio datetimeoffset del intervalo en número de tics de 1900-1-1|
+|interval_end_time_d|Fin datetimeoffset del intervalo en número de tics de 1900-1-1|
+|logical_io_writes_d|Número total de escrituras de E/S lógicas|
+|max_logical_io_writes_d|Número máximo de escrituras de E/S lógicas por ejecución|
+|physical_io_reads_d|Número total de lecturas de E/S físicas|
+|max_physical_io_reads_d|Número máximo de escrituras de E/S lógicas por ejecución|
+|logical_io_reads_d|Número total de lecturas de E/S lógicas|
+|max_logical_io_reads_d|Número máximo de escrituras de E/S lógicas por ejecución|
+|execution_type_d|Tipo de ejecución|
+|count_executions_d|Número de ejecuciones de la consulta|
+|cpu_time_d|Tiempo total de la CPU usado por la consulta en microsegundos|
+|max_cpu_time_d|Consumidor de tiempo máximo de la CPU por una sola ejecución en microsegundos|
+|dop_d|Suma de los grados de paralelismo|
+|max_dop_d|Grado máximo de paralelismo que se usa para una sola ejecución|
+|rowcount_d|Número total de filas devueltas|
+|max_rowcount_d|Número máximo de filas devueltas en una sola ejecución|
+|query_max_used_memory_d|Cantidad total de memoria usada en KB|
+|max_query_max_used_memory_d|Cantidad máxima de memoria usada por una sola ejecución en KB|
+|duration_d|Tiempo de ejecución total en milisegundos|
+|max_duration_d|Tiempo de ejecución máximo de una sola ejecución|
+|num_physical_io_reads_d|Número total de lecturas físicas|
+|max_num_physical_io_reads_d|Número máximo de lecturas físicas por ejecución|
+|log_bytes_used_d|Cantidad total de bytes de registro usados|
+|max_log_bytes_used_d|Cantidad máxima de bytes de registro usados por ejecución|
+|query_id_d|Id. de la consulta del Almacén de consultas|
+|plan_id_d|Id. del plan del Almacén de consultas|
+
+[Más información sobre los datos de estadísticas de tiempo de ejecución del Almacén de consultas.](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql)
+
+### <a name="query-store-wait-statistics"></a>Estadísticas de espera del Almacén de consultas
+
+|Propiedad|Descripción|
+|---|---|
+|TenantId|Identificador de inquilino|
+|SourceSystem|Siempre: Azure|
+|TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro|
+|Tipo|Siempre: AzureDiagnostics|
+|ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
+|Categoría|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics|
+|nombreOperación|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent|
+|Recurso|Nombre del recurso|
+|ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES|
+|SubscriptionId|GUID de la suscripción al que pertenece la base de datos|
+|ResourceGroup|Nombre del grupo de recursos al que pertenece la base de datos|
+|LogicalServerName_s|Nombre del servidor al que pertenece la base de datos|
+|ElasticPoolName_s|Nombre del grupo elástico al que pertenece la base de datos, si pertenece a alguno|
+|DatabaseName_s|Nombre de la base de datos|
+|ResourceId|URI de recurso|
+|wait_category_s|Categoría de la espera|
+|is_parameterizable_s|La consulta se puede parametrizar.|
+|statement_type_s|Tipo de la instrucción|
+|statement_key_hash_s|Hash de clave de instrucción|
+|exec_type_d|Tipo de ejecución|
+|total_query_wait_time_ms_d|Tiempo total de espera de la consulta en la categoría de espera específica|
+|max_query_wait_time_ms_d|Tiempo de espera máximo de la consulta en ejecución individual en la categoría de espera específica|
+|query_param_type_d|0|
+|query_hash_s|Hash de consulta del Almacén de consultas|
+|query_plan_hash_s|Hash de plan de consulta del Almacén de consultas|
+|statement_sql_handle_s|Controlador de instrucción del Almacén de consultas|
+|interval_start_time_d|Inicio datetimeoffset del intervalo en número de tics de 1900-1-1|
+|interval_end_time_d|Fin datetimeoffset del intervalo en número de tics de 1900-1-1|
+|count_executions_d|Número de ejecuciones de la consulta.|
+|query_id_d|Id. de la consulta del Almacén de consultas|
+|plan_id_d|Id. del plan del Almacén de consultas|
+
+[Haga clic aquí para obtener más información sobre los datos de estadísticas de espera del Almacén de consultas.](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)
+
+### <a name="errors-dataset"></a>Conjunto de datos de errores
+
+|Propiedad|Descripción|
+|---|---|
+|TenantId|Identificador de inquilino|
+|SourceSystem|Siempre: Azure|
+|TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro|
+|Tipo|Siempre: AzureDiagnostics|
+|ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
+|Categoría|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics|
+|nombreOperación|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent|
+|Recurso|Nombre del recurso|
+|ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES|
+|SubscriptionId|GUID de la suscripción al que pertenece la base de datos|
+|ResourceGroup|Nombre del grupo de recursos al que pertenece la base de datos|
+|LogicalServerName_s|Nombre del servidor al que pertenece la base de datos|
+|ElasticPoolName_s|Nombre del grupo elástico al que pertenece la base de datos, si pertenece a alguno|
+|DatabaseName_s|Nombre de la base de datos|
+|ResourceId|URI de recurso|
+|Message|Mensaje de error en texto sin formato.|
+|user_defined_b|Es el bit de error definido por el usuario.|
+|error_number_d|Código de error|
+|Severity|Gravedad del error|
+|state_d|Estado del error|
+|query_hash_s|Hash de consulta de la consulta errónea si está disponible|
+|query_plan_hash_s|Hash de plan de consulta de la consulta errónea si está disponible|
+
+[Mensajes de error de SQL Server](https://msdn.microsoft.com/en-us/library/cc645603.aspx)
+
+### <a name="database-waits-dataset"></a>La base de datos espera un conjunto de datos.
+
+|Propiedad|Descripción|
+|---|---|
+|TenantId|Identificador de inquilino|
+|SourceSystem|Siempre: Azure|
+|TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro|
+|Tipo|Siempre: AzureDiagnostics|
+|ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
+|Categoría|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics|
+|nombreOperación|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent|
+|Recurso|Nombre del recurso|
+|ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES|
+|SubscriptionId|GUID de la suscripción al que pertenece la base de datos|
+|ResourceGroup|Nombre del grupo de recursos al que pertenece la base de datos|
+|LogicalServerName_s|Nombre del servidor al que pertenece la base de datos|
+|ElasticPoolName_s|Nombre del grupo elástico al que pertenece la base de datos, si pertenece a alguno|
+|DatabaseName_s|Nombre de la base de datos|
+|ResourceId|URI de recurso|
+|wait_type_s|Nombre del tipo de espera|
+|start_utc_date_t [UTC]|Hora de inicio del período medido|
+|end_utc_date_t [UTC]|Hora de finalización del período medido|
+|delta_max_wait_time_ms_d|Tiempo máximo esperado por ejecución|
+|delta_signal_wait_time_ms_d|Tiempo de espera de señal total|
+|delta_wait_time_ms_d|Tiempo total de espera en el período|
+|delta_waiting_tasks_count_d|Número de tareas en espera|
+
+[Haga clic aquí para obtener más información sobre las estadísticas de espera de la base de datos.](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)
+
+### <a name="timeouts-dataset"></a>Conjunto de datos de los tiempos de expiración
+
+|Propiedad|Descripción|
+|---|---|
+|TenantId|Identificador de inquilino|
+|SourceSystem|Siempre: Azure|
+|TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro|
+|Tipo|Siempre: AzureDiagnostics|
+|ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
+|Categoría|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics|
+|nombreOperación|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent|
+|Recurso|Nombre del recurso|
+|ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES|
+|SubscriptionId|GUID de la suscripción al que pertenece la base de datos|
+|ResourceGroup|Nombre del grupo de recursos al que pertenece la base de datos|
+|LogicalServerName_s|Nombre del servidor al que pertenece la base de datos|
+|ElasticPoolName_s|Nombre del grupo elástico al que pertenece la base de datos, si pertenece a alguno|
+|DatabaseName_s|Nombre de la base de datos|
+|ResourceId|URI de recurso|
+|error_state_d|Código de estado de error|
+|query_hash_s|Hash de consulta si está disponible|
+|query_plan_hash_s|Hash de plan de consulta si está disponible|
+
+### <a name="blockings-dataset"></a>Conjunto de datos de bloqueos
+
+|Propiedad|Descripción|
+|---|---|
+|TenantId|Identificador de inquilino|
+|SourceSystem|Siempre: Azure|
+|TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro|
+|Tipo|Siempre: AzureDiagnostics|
+|ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
+|Categoría|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics|
+|nombreOperación|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent|
+|Recurso|Nombre del recurso|
+|ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES|
+|SubscriptionId|GUID de la suscripción al que pertenece la base de datos|
+|ResourceGroup|Nombre del grupo de recursos al que pertenece la base de datos|
+|LogicalServerName_s|Nombre del servidor al que pertenece la base de datos|
+|ElasticPoolName_s|Nombre del grupo elástico al que pertenece la base de datos, si pertenece a alguno|
+|DatabaseName_s|Nombre de la base de datos|
+|ResourceId|URI de recurso|
+|lock_mode_s|Modo de bloqueo usado por la consulta|
+|resource_owner_type_s|Propietario del bloqueo.|
+|blocked_process_filtered_s|Archivo XML de informe del proceso bloqueado|
+|duration_d|Duración del bloqueo en milisegundos.|
+
+### <a name="intelligent-insights-dataset"></a>Conjunto de datos de Intelligent Insights
+[Haga clic aquí para obtener más información sobre el formato de registro de Intelligent Insights.](sql-database-intelligent-insights-use-diagnostics-log.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

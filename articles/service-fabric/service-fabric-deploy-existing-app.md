@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a1db3dda674ffe43587333d88f3816549af3019c
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a8579c66cbfb0968a3659316aa5f03b798f4e332
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>Implementación de un ejecutable invitado en Service Fabric
@@ -101,7 +100,7 @@ Visual Studio proporciona una plantilla de servicio de Service Fabric para ayuda
 6. Ya puede utilizar el paquete y publicar la acción en el clúster local mediante la depuración de la solución en Visual Studio. Cuando esté listo puede publicar la aplicación en un clúster remoto o comprobar la solución en el control de código fuente.
 7. Vaya al final de este artículo para saber cómo ver el servicio ejecutable invitado que se ejecuta en Service Fabric Explorer.
 
-## <a name="use-yoeman-to-package-and-deploy-an-existing-executable-on-linux"></a>Uso de Yoeman para empaquetar e implementar un ejecutable existente en Linux
+## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Uso de Yeoman para empaquetar e implementar un ejecutable existente en Linux
 
 El procedimiento para crear e implementar un invitado ejecutable en Linux es el mismo que con una aplicación de csharp o Java.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -130,6 +130,9 @@ La [solución Estado de dispositivos](https://docs.microsoft.com/windows/deploym
 
 ### <a name="known-issue-application-insights-connector"></a>Problema conocido: Application Insights Connector
 Las perspectivas de la [solución Application Insights Connector](log-analytics-app-insights-connector.md) no se admiten actualmente en un área de trabajo actualizada.  En estos momentos se está analizando una corrección para este problema.
+
+### <a name="known-issue-backup-solution"></a>Problema conocido: Solución de copia de seguridad
+La solución de copia de seguridad no recopilará datos en un área de trabajo actualizada. En breve, se anunciará una nueva solución de copia de seguridad que funcionará con el área de trabajo actualizada.
 
 ## <a name="upgrade-process"></a>Proceso de actualización
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/05/2017
+ms.date: 09/23/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 17b451b1fc91cf9fdc895ad28f2c455af5d28b07
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 616505d7884189ddee2edadc4114deb8f08f7475
 ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -129,8 +129,8 @@ sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
-## <a name="configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>Configuración del agente para su uso con un servidor proxy HTTP o puerta de enlace de OMS
-El agente OMS para Linux admite la comunicación a través de un servidor proxy HTTP o HTTPS o la puerta de enlace de OMS para el servicio OMS.  Se admite la autenticación anónima y básica (nombre de usuario/contraseña).  
+## <a name="configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway"></a>Configuración del agente para su uso con un servidor proxy o puerta de enlace de OMS
+El Agente de OMS para Linux admite la comunicación a través de un servidor proxy o la puerta de enlace de OMS para el servicio de OMS mediante el protocolo HTTPS.  Se admite la autenticación anónima y básica (nombre de usuario/contraseña).  
 
 ### <a name="proxy-configuration"></a>Configuración de proxy
 El valor de configuración de proxy tiene la siguiente sintaxis:
@@ -139,13 +139,13 @@ El valor de configuración de proxy tiene la siguiente sintaxis:
 
 Propiedad|Descripción
 -|-
-Protocol|http o https
+Protocol|https
 user|Nombre de usuario opcional para la autenticación de proxy
 contraseña|Contraseña opcional para la autenticación de proxy
 proxyhost|Dirección o el FQDN de la puerta de enlace de OMS/servidor proxy
 puerto|Número de puerto opcional para el servidor proxy/puerta de enlace de OMS
 
-Por ejemplo: `http://user01:password@proxy01.contoso.com:8080`
+Por ejemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 El servidor proxy se puede especificar durante la instalación o al modificar el archivo de configuración proxy.conf después de la instalación.   
 
@@ -153,13 +153,13 @@ El servidor proxy se puede especificar durante la instalación o al modificar el
 El argumento `-p` o `--proxy` para el paquete de instalación de omsagent especifica la configuración de proxy que se va a usar. 
 
 ```
-sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### <a name="define-the-proxy-configuration-in-a-file"></a>Definición de la configuración de proxy en un archivo
 Se puede establecer la configuración del proxy en los archivos `/etc/opt/microsoft/omsagent/proxy.conf` y `/etc/opt/microsoft/omsagent/conf/proxy.conf `. Estos archivos se pueden crear o editar directamente, pero se deben actualizar sus permisos para conceder al usuario omiuser permiso de lectura en los archivos. Por ejemplo:
 ```
-proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
+proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
 sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
 sudo chmod 600 /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/proxy.conf  
@@ -240,7 +240,7 @@ Los paquetes de agente se pueden desinstalar mediante la ejecución del archivo 
 1. Vuelva a incorporase al servicio OMS con el agente de OMS para Linux mediante el comando siguiente con la opción `-v` habilitada. Esto permite la salida detallada del agente que se conecta a través del proxy al servicio OMS. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Revise la sección [Configuración del agente para su uso con un servidor proxy HTTP (#configuring the-agent-for-use-with-a-http-proxy-server) para comprobar que el agente se haya configurado correctamente para comunicarse a través de un servidor proxy.    
+2. Revise la sección [Configuración del agente para su uso con un servidor proxy o puerta de enlace de OMS](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) para comprobar que el agente se haya configurado correctamente para comunicarse a través de un servidor proxy.    
 * Vuelva a comprobar que los siguientes puntos de conexión del servicio OMS estén incluidos en la lista de permitidos.
 
     |Recurso del agente| Puertos |  

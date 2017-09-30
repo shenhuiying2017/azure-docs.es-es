@@ -1,6 +1,6 @@
 ---
-title: "Supervisión de Azure y máquinas virtuales Windows | Microsoft Docs"
-description: "Tutorial: Supervisar una máquina virtual Windows con Azure PowerShell"
+title: "Supervisión y actualización de Azure y máquinas virtuales Windows | Microsoft Docs"
+description: "Tutorial: Supervisar y actualizar una máquina virtual Windows con Azure PowerShell"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: davidmu1
@@ -16,17 +16,19 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 2bf6e3cf2f039a9c92617203a3d4cf2aac8901ce
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a37aed8b3321d3518ffd73e09f5bb21266a7e577
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="monitor-a-windows-virtual-machine-with-azure-powershell"></a>Supervisar una máquina virtual Windows con Azure PowerShell
+# <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Tutorial: Supervisar y actualizar una máquina virtual Windows con Azure PowerShell
 
-La supervisión de Azure usa agentes para recopilar datos de arranque y de rendimiento de máquinas virtuales de Azure, almacenar estos datos en Azure Storage y permitir el acceso a ellos a través del portal, el módulo de Azure PowerShell y la CLI de Azure. En este tutorial, aprenderá a:
+La supervisión de Azure usa agentes para recopilar datos de arranque y de rendimiento de máquinas virtuales de Azure, almacenar estos datos en Azure Storage y permitir el acceso a ellos a través del portal, el módulo de Azure PowerShell y la CLI de Azure. La administración de actualizaciones permite administrar las actualizaciones y las revisiones para las máquinas virtuales Windows de Azure.
+
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Habilitar los diagnósticos de arranque en una máquina virtual
@@ -35,6 +37,7 @@ La supervisión de Azure usa agentes para recopilar datos de arranque y de rendi
 > * Instalar la extensión de Diagnostics
 > * Ver las métricas de la máquina virtual
 > * Crear una alerta
+> * Administrar actualizaciones de Windows
 > * Configurar la supervisión avanzada
 
 Para realizar este tutorial es necesaria la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, vea [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -92,11 +95,108 @@ En el siguiente ejemplo se crea una alerta para el uso medio de la CPU.
 6. Opcionalmente, active la casilla *Enviar correo electrónico a propietarios, colaboradores y lectores* para enviar una notificación por correo electrónico. La acción predeterminada es presentar una notificación en el portal.
 7. Haga clic en el botón **Aceptar**.
 
+## <a name="manage-windows-updates"></a>Administrar actualizaciones de Windows
+
+La administración de actualizaciones permite administrar las actualizaciones y las revisiones para las máquinas virtuales Windows de Azure.
+Directamente desde la máquina virtual, puede evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias y revisar los resultados de la implementación para comprobar si las actualizaciones se aplicaron correctamente en la máquina virtual.
+
+Para obtener información de precios, consulte [Precios de automatización de la administración de actualizaciones](https://azure.microsoft.com/pricing/details/automation/).
+
+### <a name="enable-update-management"></a>Habilitar la administración de actualizaciones
+
+Habilite la administración de actualizaciones para la máquina virtual:
+ 
+1. En el lado izquierdo de la pantalla, seleccione **Máquinas virtuales**.
+2. En la lista, seleccione una máquina virtual.
+3. En la pantalla de la máquina virtual, en la sección **Operaciones**, haga clic en **Administración de actualizaciones**. Se abre la pantalla **Habilitar la administración de actualizaciones**.
+
+Se realiza la validación para determinar si la administración de actualizaciones está habilitada para esta máquina virtual. La validación incluye comprobaciones de un área de trabajo de Log Analytics y la cuenta de Automation vinculada, y si la solución está en el área de trabajo.
+
+Un área de trabajo de Log Analytics se usa para recopilar datos que se generan mediante características y servicios, como, por ejemplo, Administración de actualizaciones. El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes. Para llevar a cabo alguna acción adicional en máquinas virtuales que requieran actualizaciones, Azure Automation permite ejecutar scripts en máquinas virtuales, por ejemplo, para descargar y aplicar actualizaciones.
+
+El proceso de validación también comprueba si la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) y Hybrid Worker. Este agente se usa para comunicarse con la máquina virtual y obtener información sobre el estado de actualización. 
+
+Si no se cumplen estos requisitos previos, aparece un banner que le ofrece la opción de habilitar la solución.
+
+![Banner de configuración de la incorporación de Update Management](./media/tutorial-monitoring/manageupdates-onboard-solution-banner.png)
+
+Haga clic en el banner para habilitar la solución. Si se detecta la falta de alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
+
+* Área de trabajo de [Log Analytics](../../log-analytics/log-analytics-overview.md)
+* [Automation](../../automation/automation-offering-get-started.md)
+* [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitado en la máquina virtual.
+
+Se abre la pantalla **Habilitar la administración de actualizaciones**. Configure las opciones y haga clic en **Habilitar**.
+
+![Habilitar la solución Update Management](./media/tutorial-monitoring/manageupdates-update-enable.png)
+
+La habilitación de la solución puede tardar hasta 15 minutos, período durante el cual no debe cerrar la ventana del explorador. Después de habilitar la solución, la información sobre las actualizaciones que faltan en la máquina virtual se pasa a Log Analytics.
+Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el análisis.
+
+### <a name="view-update-assessment"></a>Ver evaluación de la actualización
+
+Una vez habilitado **Update Management**, se muestra la pantalla **Administración de actualizaciones**. Puede ver una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
+
+ ![Ver el estado de la actualización](./media/tutorial-monitoring/manageupdates-view-status-win.png)
+
+### <a name="schedule-an-update-deployment"></a>Programación de una implementación de actualizaciones
+
+Para instalar actualizaciones, programe una implementación que se ajuste a su ventana de programación y servicio de versiones.
+Puede elegir los tipos de actualizaciones que quiere incluir en la implementación. Por ejemplo, puede incluir actualizaciones de seguridad o críticas y excluir paquetes acumulativos de actualizaciones.
+
+Programe una nueva implementación de actualizaciones para la máquina virtual. Para ello, haga clic en **Programar implementación de actualizaciones** en la parte superior de la pantalla **Administración de actualizaciones**. En la pantalla **Nueva implementación de actualización**, especifique la siguiente información:
+
+* **Nombre**: proporcione un nombre único para identificar la implementación de actualizaciones.
+* **Clasificación de actualizaciones**: seleccione los tipos de software que la implementación de actualizaciones incluyó en la implementación. Los tipos de clasificación son:
+  * Actualizaciones críticas
+  * Actualizaciones de seguridad
+  * Paquetes acumulativos de actualizaciones
+  * Feature Packs
+  * Service Packs
+  * Actualizaciones de definiciones
+  * Herramientas
+  * Actualizaciones
+
+* **Configuración de la programación**: puede aceptar la fecha y hora predeterminadas, es decir, 30 minutos después de la hora actual, o bien especificar una hora distinta.
+  También puede especificar si la implementación se produce una vez o configurar una programación periódica. Haga clic en la opción Periódica en Periodicidad para configurar una programación periódica.
+
+  ![Pantalla de configuración de la programación de actualizaciones](./media/tutorial-monitoring/manageupdates-schedule-win.png)
+
+* **Ventana de mantenimiento (minutos)**: especifique el período de tiempo en el que desea que se produzca la implementación de actualizaciones.  Esto ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
+
+Después de completar la configuración de la programación, haga clic en el botón **Crear** para volver al panel de estado.
+Tenga en cuenta que la tabla **Programada** muestra la programación de implementación que ha creado.
+
+> [!WARNING]
+> Para las actualizaciones que requieren un reinicio, la máquina virtual se reinicia automáticamente.
+
+### <a name="view-results-of-an-update-deployment"></a>Ver los resultados de una implementación de actualizaciones
+
+Después de iniciar la implementación programada, puede ver su estado en la pestaña **Implementaciones de actualizaciones** en la pantalla **Administración de actualizaciones**.
+Si se está ejecutando actualmente, su estado se muestra como **En curso**. Cuando se completa, si se realiza correctamente, cambia a **Correcto**.
+Si se produce un error con una o varias actualizaciones en la implementación, el estado es **Error parcial**.
+Haga clic en la implementación de actualizaciones completada para ver el panel correspondiente.
+
+   ![Panel de estado de Implementación de actualizaciones de la implementación específica](./media/tutorial-monitoring/manageupdates-view-results.png)
+
+En el icono **Resultados de actualización** encontrará un resumen del número total de actualizaciones y los resultados de la implementación en la máquina virtual.
+En la tabla de la derecha encontrará un análisis detallado de cada actualización y los resultados de la instalación, que podrían ser uno de los valores siguientes:
+
+* **No intentado**: la actualización no se instaló porque no había tiempo disponible suficiente de acuerdo con la duración definida para la ventana de mantenimiento.
+* **Correcto**: la actualización se realizó correctamente.
+* **Error**: se produjo un error en la actualización.
+
+Haga clic en **Todos los registros** para ver todas las entradas de registro que creó la implementación.
+
+Haga clic en el icono **Salida** para ver el flujo de trabajo del runbook responsable de administrar la implementación de actualizaciones en la máquina virtual de destino.
+
+Haga clic en **Errores** para ver información detallada sobre los errores de la implementación.
+
 ## <a name="advanced-monitoring"></a>Supervisión avanzada 
 
 Mediante [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) se puede realizar una supervisión más avanzada de la máquina virtual. Si aún no lo ha hecho, puede suscribirse para disfrutar de una [evaluación gratuita](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial) de Operations Management Suite.
 
-Cuando tenga acceso al portal de OMS, puede buscar la clave y el identificador del área de trabajo en la hoja Configuración. Use el comando [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) para agregar la extensión de OMS a la máquina virtual. Actualice los valores de variable del ejemplo siguiente de modo que reflejen la clave y el identificador del área de trabajo de OMS.  
+Cuando tenga acceso al portal de OMS, puede buscar la clave y el identificador del área de trabajo en la hoja Configuración. Use el comando [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) para agregar la extensión OMS a la máquina virtual. Actualice los valores de variable del ejemplo siguiente de modo que reflejen la clave y el identificador del área de trabajo de OMS.  
 
 ```powershell
 $omsId = "<Replace with your OMS Id>"
@@ -129,6 +229,7 @@ En este tutorial, ha configurado y revisado las máquinas virtuales con Azure Se
 > * Instalar la extensión de Diagnostics
 > * Ver las métricas de la máquina virtual
 > * Crear una alerta
+> * Administrar actualizaciones de Windows
 > * Configurar la supervisión avanzada
 
 En el siguiente tutorial obtendrá información sobre Azure Security Center.

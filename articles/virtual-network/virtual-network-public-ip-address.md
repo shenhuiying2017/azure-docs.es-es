@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo crear, cambiar o eliminar una dir
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 09/25/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 41e4fe685f38a6a19a2024a12198cb8a8566182e
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 673647e6bd68d4df49753bf53bcd36f721923c8b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -49,17 +49,20 @@ Las direcciones IP públicas tienen un precio simbólico. Para ver los precios, 
 
     |Configuración|¿Necesario?|Detalles|
     |---|---|---|
+    |SKU|Sí|Todas las direcciones IP públicas creadas antes de la introducción de SKU son direcciones IP públicas de SKU **básica**.  No se puede cambiar la SKU después de crear la dirección IP pública. Una máquina virtual independiente, las máquinas virtuales dentro de un conjunto de disponibilidad o los conjuntos de escalado de máquinas virtuales pueden usar SKU básicas o estándar.  No se permite la mezcla de SKU entre máquinas virtuales dentro de conjuntos de disponibilidad o conjuntos de escalado. SKU **básico**: si va a crear una dirección IP pública en una región que admite zonas de disponibilidad, el ajuste **Zona disponibilidad** se establece en *Ninguno* de forma predeterminada. Puede seleccionar una zona de disponibilidad para garantizar una zona específica para la dirección IP pública. SKU **estándar** SKU: una dirección IP pública de SKU estándar se puede asociar a una máquina virtual o una front-end de equilibrador de carga. Si va a crear una dirección IP pública en una región que admite zonas de disponibilidad, el ajuste **Zona disponibilidad** se establece en *Redundancia de zona* de forma predeterminada. Para obtener información sobre las zonas de disponibilidad, consulte el ajuste **Zona de disponibilidad**. La SKU estándar es necesaria si se asocia la dirección a un equilibrador de carga estándar. Para obtener más información sobre equilibradores de carga estándar, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SLU estándar para Azure Load Balancer). La SKU estándar se encuentra en versión preliminar. Antes de crear una dirección IP pública de SKU estándar, primero debe completar los pasos descritos de la sección [Registro para la versión preliminar de la SKU estándar](#register-for-the-standard-sku-preview) y crear la dirección IP pública en una ubicación (región) admitida. Para una lista de ubicaciones admitidas, consulte [Region availability](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) (Disponibilidad de regiones) y supervise la página [Actualizaciones de Azure](https://azure.microsoft.com/updates/?product=virtual-network) para conocer la compatibilidad con regiones adicionales. Cuando asigna una dirección IP pública de SKU estándar a la interfaz de red de una máquina virtual, debe permitir explícitamente el tráfico previsto con un [grupo de seguridad de red](security-overview.md#network-security-groups). Para evitar que se produzca un error en la comunicación con el recurso, debe crear un grupo de seguridad de red, asociarlo y permitir explícitamente el tráfico deseado.|
     |Nombre|Sí|El nombre debe ser único dentro del grupo de recursos que seleccione.|
-    |Versión de la dirección IP|Sí| Seleccione IPv4 o IPv6. Si bien las direcciones IPv4 públicas se pueden asignar a varios recursos de Azure, una dirección IP pública IPv6 solo se puede asignar a un equilibrador de carga accesible desde Internet. El equilibrador de carga puede equilibrar la carga del tráfico IPv6 a máquinas virtuales de Azure. Más información sobre el [equilibrio de carga del tráfico IPv6 a máquinas virtuales](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    |Asignación de dirección IP|Sí|**Dinámico:** asigna las direcciones dinámicas solo después de asociar la dirección IP pública a una NIC conectada a una máquina virtual que se inicie por primera vez. Las direcciones dinámicas pueden cambiar si la máquina virtual a la cual está conectada la NIC está detenida (desasignada). La dirección sigue siendo la misma si la máquina virtual se reinicia o se detiene (pero no está desasignada). **Estático:** las direcciones estáticas se asignan cuando se crea la dirección IP pública. Las direcciones estáticas no cambian, aunque la máquina virtual se detenga (estado desasignado). La dirección solo se libera cuando se elimina la NIC. Una vez creada la NIC, puede cambiar el método de asignación. Si seleccione IPv6 como la **versión de dirección IP**, el único método de asignación disponible es **Dinámico**.|
+    |Versión de la dirección IP|Sí| Seleccione IPv4 o IPv6. Si bien las direcciones IPv4 públicas se pueden asignar a varios recursos de Azure, una dirección IP pública IPv6 solo se puede asignar a un equilibrador de carga accesible desde Internet. El equilibrador de carga puede equilibrar la carga del tráfico IPv6 a máquinas virtuales de Azure. Más información sobre el [equilibrio de carga del tráfico IPv6 a máquinas virtuales](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si seleccionó la **SKU estándar**, no tiene la opción de seleccionar *IPv6*. Solo puede crear una dirección IPv4 cuando se usa la **SKU estándar**.|
+    |Asignación de dirección IP|Sí|**Dinámica:** las direcciones dinámicas solo se asignan después de asociar la dirección IP pública a una interfaz de red asociada a una máquina virtual y que se inicie por primera vez. Las direcciones dinámicas pueden cambiar si la máquina virtual a la cual está asociada la interfaz de red está detenida (desasignada). La dirección sigue siendo la misma si la máquina virtual se reinicia o se detiene (pero no está desasignada). **Estático:** las direcciones estáticas se asignan cuando se crea la dirección IP pública. Las direcciones estáticas no cambian, aunque la máquina virtual se detenga (estado desasignado). La dirección solo se libera cuando se elimina la interfaz de red. Una vez creada la interfaz de red, puede cambiar el método de asignación. Si selecciona *IPv6* como la **versión de dirección IP**, el único método de asignación disponible es *Dinámica*. Si selecciona *estándar* para **SKU**, el método de asignación es *Estático*.|
     |Tiempo de espera de inactividad (minutos)|No|Cantidad de minutos para mantener una conexión TCP o HTTP abierta sin que dependa del envío de mensajes de mantenimiento de los clientes. Si selecciona IPv6 como la **versión de dirección IP**, no se puede cambiar este valor. |
     |Etiqueta de nombre DNS|No|Debe ser único dentro de la ubicación de Azure en la que cree el nombre (entre todas las suscripciones y todos los clientes). El servicio DNS público de Azure registra automáticamente el nombre y la dirección IP para que pueda conectarse a un recurso con el nombre. Azure anexa *location.cloudapp.azure.com* (donde location es la ubicación seleccionada) al nombre que proporcione para crear el nombre DNS completo. Si elige crear ambas versiones de direcciones, el mismo nombre DNS se asigna tanto a la dirección IPv4 como a la IPv6. El servicio DNS de Azure contiene registros de nombres AAAA tanto de IPv4 como de IPv6 y responde con ambos registros cuando se busca el nombre DNS. El cliente elige con qué dirección (IPv4 o IPv6) comunicarse.|
-    |Creación de una dirección IPv6 (o IPv4)|No| Se muestra IPv6 o IPv4, dependiendo de lo que selecciona en la **versión de dirección IP**. Por ejemplo, si selecciona **IPv4** en la **versión de dirección IP**, aquí se muestra **IPv6**.
+    |Creación de una dirección IPv6 (o IPv4)|No| Se muestra IPv6 o IPv4, dependiendo de lo que selecciona en la **versión de dirección IP**. Por ejemplo, si selecciona **IPv4** en la **versión de dirección IP**, aquí se muestra **IPv6**. Si selecciona *Estándar* para **SKU**, no tiene la opción de crear una dirección IPv6.
     |Nombre (solo es visible si activó la casilla **Crear una dirección IPv6 (o IPv4)**)|Sí, si selecciona la casilla **Crear una dirección IPv6** (o IPv4).|El nombre debe ser distinto del nombre que escribe para el **nombre** de esta lista. Si elige crear tanto una dirección IPv4 como IPv6, el portal crea dos recursos de direcciones IP públicas independientes, uno con cada versión de dirección IP asignada.|
     |Asignación de direcciones IP (solo está visible si activó la casilla **Crear una dirección IPv6 (o IPv4)**)|Sí, si selecciona la casilla **Crear una dirección IPv6** (o IPv4).|Si la casilla indica **Crear una dirección IPv4**, puede seleccionar un método de asignación. Si la casilla indica **Crear una dirección IPv6**, no puede seleccionar un método de asignación, porque debe ser **Dinámico**.|
     |La suscripción|Sí|Debe existir en la misma [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que el recurso al cual desee asociar la dirección IP pública.|
     |Grupos de recursos|Sí|Puede existir en la misma suscripción que el [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) al cual desee asociar la dirección IP pública o en otra diferente.|
     |La ubicación|Sí|Debe existir en la misma [ubicación](https://azure.microsoft.com/regions), a la que también se hace referencia como región, que el recurso al que desea asociar la dirección IP pública.|
+    |Zona de disponibilidad| No | Este ajuste solo aparece si selecciona una ubicación admitida. Para una lista de ubicaciones admitidas, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Las zonas de disponibilidad están actualmente en versión preliminar. Antes de seleccionar una opción con zona o redundancia de zona, primero debe completar los pasos descritos en el [registro para la versión preliminar de zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#get-started-with-the-availability-zones-preview). Si seleccionó la SKU **básica**, la opción *Ninguna* se selecciona automáticamente. Si prefiere garantizar una zona específica, puede seleccionarla. Cualquiera de las opciones no tiene redundancia de zona. Si seleccionó la SKU **estándar**: la redundancia de zona se selecciona automáticamente y hace que la ruta de acceso de datos sea resistente a errores de zona. Si prefiere garantizar una zona específica, que no sea resistente a errores de zona, puede seleccionarla.
+  
 
 **Comandos**
 
@@ -90,6 +93,28 @@ Si bien el portal proporciona la opción de crear dos recursos de direcciones IP
 |CLI|[az network public-ip-list](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#list) para mostrar las direcciones IP públicas, [az network public-ip-show](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#show) para mostrar la configuración, [az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update) para actualizar, [az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete) para eliminar|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) para recuperar un objeto de dirección IP pública y ver su configuración, [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) para actualizar la configuración, [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) para eliminar|
 
+## <a name="register-for-the-standard-sku-preview"></a>Registro para la versión preliminar de la SKU estándar
+
+> [!NOTE]
+> Las características que se encuentran en versión preliminar pueden no tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en la versión de disponibilidad general. Las características de la versión preliminar no se admiten, pueden tener funcionalidades limitadas y pueden no estar disponibles en todas las ubicaciones de Azure. 
+
+Para poder crear una dirección IP pública de SKU estándar, primero debe registrarse para la versión preliminar. Complete los pasos siguientes para registrarse para la versión preliminar:
+
+1. Instale y configure [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+2. Ejecute el comando `Get-Module -ListAvailable AzureRM` para ver qué versión del módulo AzureRM ha instalado. Debe tener la versión 4.4.0 o superior instalada. Si no lo hace, puede instalar la versión más reciente de la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM).
+3. Inicie sesión en Azure con el comando `login-azurermaccount`.
+4. Escriba el siguiente comando para registrarse para la versión preliminar:
+   
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    ```
+
+5. Escriba el siguiente comando para confirmar que está registrado para la versión preliminar:
+
+    ```powershell
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    ```
+
 ## <a name="next-steps"></a>Pasos siguientes
 Asignar direcciones IP públicas al crear los siguientes recursos de Azure:
 
@@ -98,3 +123,4 @@ Asignar direcciones IP públicas al crear los siguientes recursos de Azure:
 - [Introducción a Puerta de enlace de aplicaciones](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Conexión de sitio a sitio con Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Conjunto de escalado de máquinas virtuales de Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+

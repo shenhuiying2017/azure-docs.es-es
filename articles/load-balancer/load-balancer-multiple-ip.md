@@ -3,7 +3,7 @@ title: Equilibrio de carga en varias configuraciones de IP en Azure | Microsoft 
 description: Equilibrio de carga entre las configuraciones de IP principales y secundarias.
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: cf1e68c7b37b2506de007bdf24eea63a27187a33
-ms.lasthandoff: 03/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8c0fc8d11a872b99fee2efa3a32a9e1ccce67f3c
+ms.contentlocale: es-es
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,7 +29,9 @@ ms.lasthandoff: 03/22/2017
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
-En este artículo se describe cómo usar Azure Load Balancer con varias direcciones IP en una interfaz de red secundaria (NIC). En este escenario, tenemos dos máquinas virtuales que ejecutan Windows, cada una con una NIC principal y otra secundaria. Cada una de las NIC secundarias tiene dos configuraciones de IP. Cada máquina virtual hospeda dos sitios web: contoso.com y fabrikam.com. Cada uno de los sitios web está enlazado a una de las configuraciones de IP de la NIC secundaria. Usamos Azure Load Balancer para exponer dos direcciones IP front-end, una por cada sitio web, que van a distribuir el tráfico a la configuración de IP correspondiente del sitio web. En este escenario, se utiliza el mismo número de puerto en los dos front-end, así como en las dos direcciones IP del grupo de back-end.
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
+En este artículo se describe cómo usar Azure Load Balancer con varias direcciones IP en una interfaz de red secundaria (NIC). En este escenario, tenemos dos máquinas virtuales que ejecutan Windows, cada una con una NIC principal y otra secundaria. Cada NIC secundario tiene dos configuraciones IP. Cada máquina virtual hospeda dos sitios web: contoso.com y fabrikam.com. Cada uno de los sitios web está enlazado a una de las configuraciones de IP de la NIC secundaria. Usamos Azure Load Balancer para exponer dos direcciones IP front-end, una por cada sitio web, que van a distribuir el tráfico a la configuración de IP correspondiente del sitio web. En este escenario, se utiliza el mismo número de puerto en los dos front-end, así como en las dos direcciones IP del grupo de back-end.
 
 ![Imagen del escenario de equilibrio de carga](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
@@ -39,7 +42,7 @@ En este ejemplo se da por supuesto que tiene un grupo de recursos denominado *co
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Pasos para equilibrar la carga en varias configuraciones de IP
 
-Siga estos pasos para reproducir el escenario que se describe en este artículo:
+Complete los pasos siguientes para reproducir el escenario que se describe en este artículo:
 
 ### <a name="step-1-configure-the-secondary-nics-for-each-vm"></a>PASO 1: Configuración de la NIC secundaria para cada máquina virtual
 
@@ -64,7 +67,7 @@ Cree un equilibrador de carga de la manera siguiente:
 2. En la parte superior izquierda de la pantalla, haga clic en **Nuevo** > **Redes** > **Equilibrador de carga**. A continuación, haga clic en **Crear**.
 3. En la hoja **Crear equilibrador de carga** , escriba un nombre para el equilibrador de carga. Aquí se denomina *mylb*.
 4. En Dirección IP pública, cree una nueva dirección IP pública denominada **PublicIP1**.
-5. En Grupo de recursos, seleccione el grupo de recursos existente de sus máquinas virtuales (por ejemplo, *contosofabrikam*). A continuación, seleccione una ubicación adecuada y haga clic en **Aceptar**. El equilibrador de carga empezará entonces a implementarse, y este proceso tardará unos minutos en completarse correctamente.
+5. En Grupo de recursos, seleccione el grupo de recursos existente de sus máquinas virtuales (por ejemplo, *contosofabrikam*). A continuación, seleccione una ubicación adecuada y haga clic en **Aceptar**. El equilibrador de carga empieza entonces a implementarse. Este proceso puede tardar unos minutos en completarse correctamente.
 6. Una vez implementado, el equilibrador de carga se muestra como un recurso en el grupo de recursos.
 
 ### <a name="step-3-configure-the-frontend-ip-pool"></a>PASO 3: Configuración del grupo de direcciones IP de front-end
@@ -81,9 +84,9 @@ Configure el grupo de direcciones IP del front-end para cada sitio web (contoso 
 3. En el portal, haga clic en **More services** (Más servicios) > escriba **equilibrador de carga** en el cuadro de filtro y luego haga clic en **Equilibrador de carga**.  
 4. Seleccione el equilibrador de carga (*mylb*) al que desea agregar el grupo de direcciones IP de front-end.
 5. En **Configuración**, seleccione **Frontend Pools** (Grupos de servidores front-end). A continuación, haga clic en **Agregar** hacia la parte superior de la hoja que se muestra.
-6. Escriba un nombre para la dirección IP de front-end (*farbikamfe* o **contosofe*).
+6. Escriba un nombre para la dirección IP de front-end (*farbikamfe* o *contosofe*).
 7. Haga clic en **Dirección IP** y en la hoja **Elegir dirección IP pública**, seleccione las direcciones IP de su front-end (*PublicIP1* o *PublicIP2*).
-8. Repita los pasos del 3 al 7 de esta sección para crear la segunda dirección IP de front-end.
+8. Para crear la segunda dirección IP de front-end, repita los pasos del 3 al 7 de esta sección.
 9. Cuando se ha completado la configuración del grupo de direcciones IP de front-end, ambas direcciones IP de front-end se muestran en la hoja **Grupo de direcciones IP de front-end** del equilibrador de carga. 
     
 ### <a name="step-4-configure-the-backend-pool"></a>PASO 4: Configuración del grupo de back-end   
@@ -127,5 +130,5 @@ Por último, debe configurar los registros de recursos DNS para que apunten a la
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda más sobre cómo combinar servicios de equilibrio de carga en Azure en [Uso de servicios de equilibrio de carga de Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Aprenda a usar diferentes tipos de registros en Azure para administrar el equilibrador de carga y solucionar sus problemas en [Análisis del registros para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Aprenda a usar diferentes tipos de registros para administrar el equilibrador de carga y solucionar sus problemas en [Log Analytics para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8d876a0f2168ee9375a3905d5d5a562ab1194cf3
-ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 47152d05eb7e31e7fe1f35e33a10fe8e903e21e2
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Creación de un clúster de Service Fabric con Azure Resource Manager
@@ -591,7 +591,7 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 
 El nombre de sujeto del certificado debe coincidir con el dominio usado para acceder al clúster de Service Fabric. Esta coincidencia es necesaria para proporcionar SSL a los puntos de conexión de administración HTTPS y de Service Fabric Explorer del clúster. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio `.cloudapp.azure.com`. Debe adquirir un nombre de dominio personalizado para el clúster. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre del dominio personalizado del clúster.
 
-Estos nombres de sujeto son las entradas necesarias para crear un clúster seguro de Service Fabric (sin Azure AD) tal y como se describe en [Configuración de los parámetros de plantilla de Resource Manager](#configure-arm). Puede conectarse al clúster seguro mediante las instrucciones de [autenticación del acceso de cliente a un clúster](service-fabric-connect-to-secure-cluster.md). Los clústeres de versión preliminar de Linux no admiten la autenticación de Azure AD. Puede asignar roles de administrador y cliente como se indica en la sección [Asignación de usuarios a roles](#assign-roles). Al especificar los roles de administrador y cliente para un clúster de versión preliminar de Linux, tendrá que proporcionar huellas digitales de certificado para la autenticación. (No proporciona el nombre del sujeto, ya que no se realiza ninguna validación o revocación de la cadena en esta versión preliminar).
+Estos nombres de sujeto son las entradas necesarias para crear un clúster seguro de Service Fabric (sin Azure AD) tal y como se describe en [Configuración de los parámetros de plantilla de Resource Manager](#configure-arm). Puede conectarse al clúster seguro mediante las instrucciones de [autenticación del acceso de cliente a un clúster](service-fabric-connect-to-secure-cluster.md). Los clústeres de Linux no admiten la autenticación de Azure AD. Puede asignar roles de administrador y cliente como se indica en la sección [Asignación de usuarios a roles](#assign-roles). Al especificar los roles de administrador y cliente para un clúster de Linux, tendrá que proporcionar huellas digitales de certificado para la autenticación. No proporciona el nombre del sujeto, ya que no se realiza ninguna validación o revocación de la cadena.
 
 Si desea usar un certificado autofirmado para pruebas, puede usar el mismo script para generar uno. A continuación, puede cargar el certificado en el almacén de claves al proporcionar la marca `ss` en lugar de proporcionar la ruta de acceso y el nombre del certificado. Por ejemplo, observe el siguiente comando para crear y cargar un certificado autofirmado:
 

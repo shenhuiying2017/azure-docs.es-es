@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 1db13c30e2ec1de62d5103f85b4181a5750403c5
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bbad2e501acf024fb5b7f5c62ebe5fa81e19cce7
 ms.contentlocale: es-es
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>¿Qué desea saber sobre Service Fabric?
@@ -139,9 +139,9 @@ La ejecución de clústeres de Service Fabric en Azure proporciona integración 
 
 Puede crear un clúster en Azure a través de [Azure Portal](service-fabric-cluster-creation-via-portal.md), a partir de una [plantilla](service-fabric-cluster-creation-via-arm.md) o en [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
-La versión preliminar de Service Fabric en Linux permite compilar, implementar y administrar aplicaciones de alta disponibilidad y escalabilidad en ese entorno de la misma forma que en Windows. Los marcos de Service Fabric (Reliable Services y Reliable Actors) se encuentran disponibles en Java en Linux, además de en C# (.NET Core). Puede compilar igualmente [servicios ejecutables invitados](service-fabric-deploy-existing-app.md) con cualquier lenguaje o marco. Además, la vista previa también admite contenedores de Docker de organización. Los contenedores de Docker pueden ejecutar archivos ejecutables invitados o servicios de Service Fabric nativos que utilizan los marcos de Service Fabric. Para más información, vea [Service Fabric en Azure](service-fabric-linux-overview.md).
+Service Fabric en Linux permite compilar, implementar y administrar aplicaciones de alta disponibilidad y escalabilidad en Linux de la misma forma que en Windows. Los marcos de Service Fabric (Reliable Services y Reliable Actors) se encuentran disponibles en Java en Linux, además de en C# (.NET Core). Puede compilar igualmente [servicios ejecutables invitados](service-fabric-deploy-existing-app.md) con cualquier lenguaje o marco. También se admite la organización de contenedores de Docker. Los contenedores de Docker pueden ejecutar archivos ejecutables invitados o servicios de Service Fabric nativos que utilizan los marcos de Service Fabric. Para más información, consulte [Service Fabric en Linux](service-fabric-deploy-anywhere.md).
 
-Como Service Fabric en Linux es una versión preliminar, hay algunas características que se admiten en Windows pero no en Linux. Para más información, vea [Diferencias entre Service Fabric en Linux (versión preliminar) y Windows (disponible con carácter general)](service-fabric-linux-windows-differences.md).
+Hay algunas características que se admiten en Windows, pero no en Linux. Para más información, vea [Diferencias entre Service Fabric en Linux (versión preliminar) y Windows (disponible con carácter general)](service-fabric-linux-windows-differences.md).
 
 ### <a name="standalone-clusters"></a>Clústeres independientes
 Service Fabric le proporciona un paquete de instalación para que cree clústeres independientes de Service Fabric de forma local o en cualquier proveedor en la nube. Los clústeres independientes le dan la libertad de hospedar un clúster siempre que lo desee. Si los datos están sujetos a restricciones legales o de cumplimiento o si desea mantener los datos locales, puede hospedar clústeres y aplicaciones propios. Las aplicaciones de Service Fabric se pueden ejecutar en varios entornos de hospedaje sin realizar cambios, de tal forma que puede transferir los conocimientos sobre la creación de aplicaciones de un entorno de hospedaje a otro. 

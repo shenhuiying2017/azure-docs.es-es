@@ -1,6 +1,6 @@
 ---
-title: Conexiones de ITSM en IT Service Management Connector de OMS | Microsoft Docs
-description: Conecte los productos o servicios de ITSM con IT Service Management Connector en OMS para supervisar y administrar de forma centralizada los elementos de trabajo ITSM.
+title: Conexiones compatibles con IT Service Management Connector en Azure Log Analytics | Microsoft Docs
+description: Conecte los productos o servicios de ITSM con IT Service Management Connector en Azure Log Analytics para supervisar y administrar de forma centralizada los elementos de trabajo de ITSM.
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: cf9963be162df3bd886b6fd44535c3d09e06284b
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bbec5773987b29eb62d10d17b88efcda29889612
 ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Conexión de productos o servicios de ITSM con IT Service Management Connector (versión preliminar)
@@ -39,7 +39,7 @@ En las secciones siguientes se ofrecen detalles sobre cómo conectar el producto
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
 - IT Service Management Connector se ha instalado.
-Más información: [Configuración](log-analytics-itsmc-overview.md#configuration).
+Más información:  [Agregar la solución IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Se implementa y se configura la aplicación web de Service Manager (aplicación web). [Aquí](#create-and-deploy-service-manager-web-app-service) se puede obtener información sobre la aplicación web.
 - Conexión híbrida creada y configurada Más información: [Configuración de la conexión híbrida](#configure-the-hybrid-connection).
 - Versiones admitidas de Service Manager: 2012 R2 o 2016.
@@ -176,7 +176,7 @@ En las secciones siguientes se ofrecen detalles sobre cómo conectar el producto
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
-- IT Service Management Connector se ha instalado. Más información: [Configuración](log-analytics-itsmc-overview.md#configuration).
+- IT Service Management Connector se ha instalado. Más información: [Agregar la solución IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versiones admitidas de ServiceNow: Fuji, Ginebra, Helsinki.
 
 Los administradores de ServiceNow deben realizar lo siguiente en la instancia de ServiceNow:
@@ -269,8 +269,10 @@ En las secciones siguientes se ofrecen detalles sobre cómo conectar el producto
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
-- IT Service Management Connector se ha instalado. Más información: [Configuración](log-analytics-itsmc-overview.md#configuration).
-- La aplicación Provance debe registrarse con Azure AD y estará disponible el identificador de cliente. Para una información detallada, consulte el tema sobre [cómo configurar la autenticación de Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+
+- IT Service Management Connector se ha instalado. Más información: [Agregar la solución IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- La aplicación Provance debe registrarse con Azure AD y estará disponible el identificador de cliente. Para una información detallada, consulte el tema sobre [cómo configurar la autenticación de Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+
 - Rol de usuario: administrador.
 
 ### <a name="connection-procedure"></a>Procedimiento de conexión
@@ -313,7 +315,7 @@ En las secciones siguientes se ofrecen detalles sobre cómo conectar el producto
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
-- IT Service Management Connector se ha instalado. Más información: [Configuración](log-analytics-itsmc-overview.md#configuration).
+- IT Service Management Connector se ha instalado. Más información: [Agregar la solución IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Identificador de cliente generado. Más información: [Generación del identificador de cliente para Cherwell](#generate-client-id-for-cherwell).
 - Rol de usuario: administrador.
 

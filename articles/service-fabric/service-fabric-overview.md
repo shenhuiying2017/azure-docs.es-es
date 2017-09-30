@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
-ms.author: mfussell
+ms.date: 09/20/2017
+ms.author: msfussell
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 32e84984a61bb54ea459826f191de7fc25fc2158
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8ff0d38a679b673b148dd808050eda82060cfe80
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="overview-of-azure-service-fabric"></a>Información general de Azure Service Fabric
@@ -50,7 +50,9 @@ Service Fabric se ejecuta en todas partes. Puede crear clústeres de Service Fab
 
 ![Plataforma de Service Fabric][Image1]
 
-Para más información sobre la creación de clústeres locales, lea [Creación de clústeres de Service Fabric en Windows Server o Linux](service-fabric-deploy-anywhere.md) o sobre la creación de un clúster de Azure [mediante Azure Portal](service-fabric-cluster-creation-via-portal.md).
+Para el desarrollo de Windows, el SDK de .NET de Service Fabric se integra con Visual Studio y Powershell. Consulte [Preparación del entorno de desarrollo en Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md). Para el desarrollo de Linux, el SDK de Java de Service Fabric se integra con Eclipse y Yeoman se usa para generar plantillas para Java, .NET Core y aplicaciones de contenedor. Consulte [Preparación del entorno de desarrollo en Linux](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md)
+
+Para obtener más información sobre la creación de clústeres, lea sobre la [creación de un clúster en Windows Server o Linux](service-fabric-deploy-anywhere.md) o sobre la creación de un clúster de Azure [mediante Azure Portal](service-fabric-cluster-creation-via-portal.md).
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microservicios de Service Fabric con estado y sin estado
 Service Fabric permite compilar aplicaciones que constan de microservicios o contenedores. Los microservicios sin estado (como puertas de enlace de protocolo y servidores proxy web) no mantienen un estado mutable fuera de una petición y de su respuesta del servicio. Los roles de trabajo de los servicios en la nube de Azure son un ejemplo de servicio sin estado. Los microservicios con estado (como cuentas de usuario, bases de datos, dispositivos, carros de la compra y colas) mantienen un estado mutable y autoritativo más allá de la petición y su respuesta. Actualmente, las aplicaciones de escala de Internet se componen de una combinación de microservicios con estado y sin estado. 
@@ -89,7 +91,8 @@ Usando Service Fabric, puede:
 * Para obtener más información:
   * [¿Por qué usar un enfoque de microservicios para crear aplicaciones?](service-fabric-overview-microservices.md)
   * [Información general sobre la terminología](service-fabric-technical-overview.md)
-* Configuración del [entorno de desarrollo](service-fabric-get-started.md)  
+* Configuración del [entorno de desarrollo de Windows](service-fabric-get-started.md)  
+* Configuración del [entorno de desarrollo de Linux](service-fabric-get-started-linux.md)
 * Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png

@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: ea15705bf02d9773507c6cb59f2da4c1dd0f9d77
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 7347be8520e643cd166851d3f525a9a0726b40c8
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
-En este artículo se muestra cómo crear y administrar grupos de acciones en Azure Portal.
+En este artículo se muestra cómo crear y administrar grupos de acciones en el portal de Azure.
 
 Los grupos de acciones le permiten configurar una lista de acciones. Estos grupos, a continuación, se pueden usar cuando se definen alertas del registro de actividad. Estos grupos pueden ser reutilizados por cada alerta de registro de actividad que defina, asegurándose de que las mismas acciones se realizan cada vez que se desencadena la alerta del registro de actividad.
 
 Un grupo de acciones puede tener hasta 10 acciones de cada tipo. Cada acción se compone de las siguientes propiedades:
 
 * **Nombre**: un identificador único dentro del grupo de acciones.  
-* **Tipo de acción**: enviar un SMS, enviar un correo electrónico o llamar a un webhook.  
-* **Detalles**: el número de teléfono, dirección de correo electrónico o identificador URI del webhook.
+* **Tipo de acción**: envíe un SMS, envíe un correo electrónico, llame a un webhook o envíe datos a una herramienta ITSM.
+* **Detalles**: el número de teléfono, dirección de correo electrónico o identificador URI del webhook o los detalles de conexión de ITSM.
 
 Para más información sobre el uso de plantillas de Azure Resource Manager para configurar grupos de acciones, consulte [Plantillas de Resource Manager para grupos de acciones](monitoring-create-action-group-with-resource-manager-template.md).
 
@@ -57,9 +57,14 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
     a. **Nombre**: escriba un identificador único para esta acción.
 
-    b. **Tipo de acción**: seleccione SMS, correo electrónico o webhook.
+    b. **Tipo de acción**: seleccione SMS, correo electrónico, webhook o ITSM.
 
-    c. **Detalles**: según el tipo de acción, proporcione un número de teléfono, una dirección de correo electrónico o un identificador URI de webhook.
+    c. **Detalles**: según el tipo de acción, proporcione un número de teléfono, una dirección de correo electrónico o un identificador URI de webhook o detalles de conexión de ITSM. Para la acción de ITSM, especifique además **Elemento de trabajo** y otros campos que requiera la herramienta ITSM. 
+
+> [!NOTE]
+> La acción de ITSM requiere una conexión de ITSM. Aprenda cómo crear una [conexión de ITSM](../log-analytics/log-analytics-itsmc-overview.md). La acción de ITSM solo funciona actualmente para las alertas de Registro de actividad. Para otros tipos de alerta, esta acción no está actualmente operativa.
+>
+>
 
 8. Seleccione **Aceptar** para crear el grupo de acciones.
 
@@ -72,6 +77,7 @@ Después de crear un grupo de acciones, está visible en la sección **Grupos de
 ## <a name="next-steps"></a>Pasos siguientes ##
 * Más información sobre el [comportamiento de las alertas por SMS](monitoring-sms-alert-behavior.md).  
 * [Comprender el esquema de webhook de alertas del registro de actividad](monitoring-activity-log-alerts-webhook.md).  
+* Obtenga más información sobre [Conector de ITSM](../log-analytics/log-analytics-itsmc-overview.md)
 * Más información sobre la [limitación de velocidad](monitoring-alerts-rate-limiting.md) en las alertas. 
 * Consulte la [introducción a las alertas del registro de actividad](monitoring-overview-alerts.md) y aprenda cómo puede recibir alertas.  
 * Aprenda a [configurar alertas siempre que se publique una notificación de mantenimiento de un servicio](monitoring-activity-log-alerts-on-service-notifications.md).

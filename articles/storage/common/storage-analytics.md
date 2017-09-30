@@ -3,7 +3,7 @@ title: "Uso del análisis de almacenamiento de Azure para recopilar datos de reg
 description: "El análisis de almacenamiento permite realizar un seguimiento de los datos de métricas para todos los servicios de almacenamiento y recopilar registros de Almacenamiento de blobs, Almacenamiento de colas y Almacenamiento de tablas."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a477c1eaf2388f31d4fd36b90f9a830c782873d3
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 61e4f599d17417c11d7ff79489300b82df0bc9c8
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="storage-analytics"></a>Análisis de almacenamiento
@@ -38,7 +38,7 @@ El análisis de almacenamiento registra información detallada sobre las solicit
 
 Solo se crean entradas del registro si hay actividad del servicio de almacenamiento. Por ejemplo, si una cuenta del almacenamiento tiene actividad en el servicio Blob pero no en los servicios Tabla o Cola, solo se crearán los registros que pertenezcan al servicio Blob.
 
-El registro del análisis de cuentas no está disponible para Azure File Storage.
+El registro de Storage Analytics no está disponible para Azure Files.
 
 ### <a name="logging-authenticated-requests"></a>Registrar solicitudes de autenticación
 Se registran los siguientes tipos de solicitudes autenticadas:
