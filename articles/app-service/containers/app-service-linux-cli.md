@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: d58fab0b423b7bc1382a82f4bf308b6ad7286296
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5213bec66095d50ef29cc3bec0a7b6307614dc92
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="manage-web-apps-for-containers-using-azure-cli"></a>Administración de Web Apps for Containers mediante la CLI de Azure
+# <a name="manage-web-app-for-containers-using-azure-cli"></a>Administración de Web Apps for Containers mediante la CLI de Azure
 
 Con los comandos de este artículo, podrá crear y administrar una instancia de Web Apps for Containers mediante la CLI de Azure 2.0.
 Puede empezar a usar la nueva versión de la CLI de dos formas:
@@ -54,7 +54,7 @@ Para activar el registro del contenedor de Docker, puede usar el comando siguien
 az webapp log config -n sname -g rgname --web-server-logging filesystem
 ```
 
-## <a name="change-the-custom-docker-container-for-an-existing-web-apps-for-containers-app"></a>Cambio del contenedor de Docker personalizado por una aplicación existente de Web Apps for Containers
+## <a name="change-the-custom-docker-container-for-an-existing-web-app-for-containers-app"></a>Cambio del contenedor de Docker personalizado para una aplicación existente de Web Apps for Containers
 
 Para cambiar una aplicación creada anteriormente, de la imagen de Docker actual a una nueva imagen, puede usar el siguiente comando:
 
@@ -78,15 +78,15 @@ Con el siguiente comando puede habilitar la funcionalidad de CD y obtener la dir
 az webapp deployment container config -n sname -g rgname -e true
 ```
 
-## <a name="create-a-web-apps-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Creación de una aplicación de Web Apps for Containers mediante uno de nuestros marcos en tiempo de ejecución integrados
+## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Creación de una aplicación de Web Apps for Containers mediante uno de nuestros marcos en tiempo de ejecución integrados
 
-Para crear una aplicación de Web Apps for Containers PHP 5.6, puede usar el siguiente comando.
+Para crear una aplicación de Web Apps for Containers en PHP 5.6, puede usar el siguiente comando.
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -r "php|5.6"
 ```
 
-## <a name="change-framework-version-for-an-existing-web-apps-for-containers-app"></a>Cambio de la versión del marco por una aplicación existente de Web Apps for Containers
+## <a name="change-framework-version-for-an-existing-web-app-for-containers-app"></a>Cambio de la versión del marco para una aplicación existente de Web App for Containers
 
 Para cambiar una aplicación creada anteriormente, de la versión de .NET Framework actual a Node.js 6.11, puede usar el siguiente comando:
 
@@ -104,9 +104,9 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [What is Azure Web Apps for Containers?](app-service-linux-intro.md) (¿Qué es Azure Web Apps for Containers?)
+* [What is Azure Web App for Containers?](app-service-linux-intro.md) (¿Qué es Azure Web App for Containers?)
 * [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (versión preliminar)](../../cloud-shell/overview.md)
-* [Configuración de entornos de ensayo en Azure App Service](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Implementación continua con Azure Web Apps for Containers](app-service-linux-ci-cd.md)
+* [Configuración de entornos de ensayo en Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Implementación continua con Azure Web App for Containers](app-service-linux-ci-cd.md)
 

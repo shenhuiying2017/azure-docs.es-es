@@ -14,17 +14,18 @@ ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/30/2017
-ms.author: aelnably;wesmc;mikono;rachelap;cephalin;cfowler
+ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 5d84e558e2fd998df31725b71d1474c0a774490b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3ae0f28272d70a63b74a9f249566ae789f07aad5
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>Creación de una aplicación web de .NET Core en un contenedor de Linux en Azure
 
-[Web Apps for Containers](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones mediante el sistema operativo Linux. Esta guía de inicio rápido muestra cómo crear una aplicación de [.NET Core](https://docs.microsoft.com/aspnet/core/) en Azure Web Apps for Containers. Se crea la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) y se usa Git para implementar el código .NET Core en la aplicación web.
+[Web Apps for Containers](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático mediante el sistema operativo Linux. En esta guía de inicio rápido se muestra cómo crear una aplicación de [.NET Core](https://docs.microsoft.com/aspnet/core/) en Azure Web Apps for Containers. Se crea la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) y se usa Git para implementar el código .NET Core en la aplicación web.
 
 ![Aplicación de ejemplo que se ejecuta en Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -63,7 +64,7 @@ dotnet restore
 dotnet run
 ```
 
-Abra un explorador web y navegue a la aplicación en http://localhost:5000.
+Abra un explorador web y vaya a la aplicación en `http://localhost:5000`.
 
 Verá el mensaje **Hola mundo** de la aplicación de ejemplo que aparece en la página.
 
@@ -87,7 +88,7 @@ git commit -m "first commit"
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
-Cree una [aplicación web](../../app-service-web/app-service-web-overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp#create). No olvide reemplazar `<app name>` por un nombre de aplicación único.
+Cree una [aplicación web](../app-service-web-overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp#create). No olvide reemplazar `<app name>` por un nombre de aplicación único.
 
 En el siguiente comando, el entorno de tiempo de ejecución se establece en `DOTNETCORE|1.1`. Para ver todos los entornos de tiempo de ejecución admitidos, ejecute [az webapp list-runtimes](/cli/azure/webapp#list-runtimes).
 
@@ -184,5 +185,5 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Compilación de una aplicación web de .NET Core y SQL Database en Azure Web Apps for Containers](tutorial-dotnetcore-sqldb-app.md)
+> [Compilación de una aplicación web .NET Core y SQL Database en Azure Web Apps for Containers](tutorial-dotnetcore-sqldb-app.md)
 

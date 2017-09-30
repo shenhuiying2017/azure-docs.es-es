@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: dd6af3b7693aad9e8c6fa5ada612e01a71744720
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: fbb3bb5f538d1d26b6fe8d653724d80faf96e277
 ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa: Azure Portal
@@ -37,7 +37,7 @@ Una puerta de enlace de VPN de punto a sitio (P2S) permite crear una conexión s
 
 Al conectarse, los clientes pueden usar los siguientes métodos de autenticación:
 
-* Servidor RADIUS
+* Servidor RADIUS: actualmente en versión preliminar
 * Autenticación de certificados de Azure nativa de puerta de enlace de VPN
 
 Este artículo le ayuda a establecer una configuración de punto a sitio con autenticación mediante la autenticación nativa de certificados de Azure. Si desea usar RADIUS para autenticar a los usuarios que se conectan, consulte cómo [configurar una conexión de punto a sitio mediante autenticación RADIUS](point-to-site-how-to-radius-ps.md).
@@ -48,7 +48,7 @@ Las conexiones de punto a sitio no requieren un dispositivo VPN ni una direcció
 
 * SSTP es un túnel VPN basado en SSL que solo se admite en plataformas de cliente Windows. Puede traspasar firewalls, por lo que resulta ideal para conectarse a Azure desde cualquier lugar. En el lado servidor, se admiten las versiones 1.0, 1.1 y 1.2 de SSTP. El cliente decide qué versión va a usar. Para Windows 8.1 y versiones posteriores, SSTP usa 1.2 de forma predeterminada.
 
-* Los túneles P2S de IKEv2 se admiten tanto en plataformas Windows como Mac. Si tiene dispositivos de ambos tipos en su organización, IKEv2 es la mejor opción. Tanto Windows como Mac utilizan el cliente VPN con IKEv2 nativo.
+* La conexión VPN IKEv2, una solución de VPN con protocolo de seguridad de Internet basada en estándares. La conexión VPN IKEv2 puede utilizarse para la conexión desde dispositivos Mac (versión de OSX 10.11 y versiones posteriores). IKEv2 se encuentra actualmente en versión preliminar.
 
 Las conexiones de punto a sitio con autenticación de certificados de Azure nativa requieren lo siguiente:
 

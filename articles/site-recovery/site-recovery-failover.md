@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: ef586191f0b89dca89810644d45503fe42538635
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 8be405f01d919e9581afca9101d811a045f4469a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="failover-in-site-recovery"></a>Conmutación por error en Site Recovery
@@ -28,6 +27,13 @@ En este artículo se describe cómo se realiza la conmutación por error en máq
 ## <a name="prerequisites"></a>Requisitos previos
 1. Antes de realizar una conmutación por error, realice una [conmutación por error de prueba](site-recovery-test-failover-to-azure.md) para asegurarse de que todo funciona según lo previsto.
 1. [Prepare la red](site-recovery-network-design.md) en la ubicación de destino antes de realizar una conmutación por error.  
+
+Consulte en la siguiente tabla las opciones de conmutación por error proporcionadas por Azure Site Recovery para distintos escenarios de conmutación por error.
+
+| Escenario | Requisito de recuperación de la aplicación | Flujo de trabajo para Hyper-V | Flujo de trabajo para VMware
+|---|--|--|--|
+|Conmutación por error planeada debido a que el centro de datos estará fuera de servicio próximamente| Cuando se realiza una actividad planeada, no se pierden datos de aplicación| Para Hyper-V, ASR replica los datos con una frecuencia de copia especificada por el usuario. La conmutación por error planeada se usa para anular la frecuencia y replicar los cambios finales antes de que se inicie una conmutación por error. <br/> <br/> 1.    Planifique un período de mantenimiento de acuerdo con el proceso de administración de cambios de su empresa. <br/><br/> 2. Notifique a los usuarios el tiempo de inactividad programado. <br/><br/> 3. Desconecte la aplicación orientada a los usuarios.<br/><br/>4. Inicie la conmutación por error planeada mediante el portal de ASR. La máquina virtual local se apagará automáticamente.<br/><br/>Pérdida efectiva de datos de aplicación = 0 <br/><br/>También se proporciona un diario de puntos de recuperación en un período de retención para los usuarios que deseen utilizar un punto de recuperación anterior. (Retención de 24 horas para Hyper-V).| Para VMware, ASR replica los datos continuamente mediante CDP. La conmutación por error proporciona al usuario la opción de conmutar por error a los datos más recientes (incluso a los posteriores a la desconexión de la aplicación).<br/><br/> 1. Planifique un período de mantenimiento de acuerdo con el proceso de administración de cambios. <br/><br/>2. Notifique a los usuarios el tiempo de inactividad programado. <br/><br/>3.  Desconecte la aplicación orientada a los usuarios. <br/><br/>4.  Inicie una conmutación por error planeada mediante el portal de ASR para el punto más reciente posterior a la desconexión de la aplicación. Utilice la opción "Conmutación por error no planeada" en el portal y seleccione el punto más reciente al que conmutar por error. La máquina virtual local se apagará automáticamente.<br/><br/>Pérdida efectiva de datos de aplicación = 0 <br/><br/>Se proporciona un diario de puntos de recuperación en un período de retención para los clientes que deseen utilizar un punto de recuperación anterior. (72 horas de retención para VMware).
+|Conmutación por error debida a un tiempo de inactividad del centro de datos no planeado (desastre natural o informático) | Pérdida mínima de datos de la aplicación | 1. Inicie el plan BCP de la organización. <br/><br/>2. Inicie la conmutación por error no planeada mediante el portal de ASR al punto más reciente o a otro punto del período de retención (diario).| 1. Inicie el plan BCP de la organización. <br/><br/>2.  Inicie la conmutación por error no planeada mediante el portal de ASR al punto más reciente o a otro punto del período de retención (diario).
 
 
 ## <a name="run-a-failover"></a>Ejecución de la conmutación por error
@@ -65,7 +71,7 @@ En este procedimiento se describe cómo ejecutar una conmutación por error para
 1. Realice la acción **Confirmar** una vez que quede satisfecho con la conmutación por error de la máquina virtual. Esto elimina todos los puntos de recuperación disponibles con el servicio y la opción **Cambiar punto de recuperación** dejará de estar disponible.
 
 ## <a name="planned-failover"></a>Conmutación por error planeada
-Además de la conmutación por error, las máquinas virtuales de Hyper-V protegidas con Site Recovery también son compatibles con la **Conmutación por error planeada**. Se trata de una opción de conmutación por error sin pérdida de datos. Cuando se desencadena una conmutación por error planeada, primero se apagan las máquinas virtuales de origen, después se sincronizan los datos que correspondan y, por último, se desencadena la conmutación por error.
+Las máquinas virtuales y los servidores físicos protegidos con Site Recovery también admiten la **conmutación por error planeada**. Se trata de una opción de conmutación por error sin pérdida de datos. Cuando se desencadena una conmutación por error planeada, primero se apagan las máquinas virtuales de origen, después se sincronizan los datos que correspondan y, por último, se desencadena la conmutación por error.
 
 > [!NOTE]
 > Cuando se conmutan por error máquinas virtuales de Hyper-V un sitio local a otro, para regresar al sitio principal local, primero debe realizar una **replicación inversa** de la máquina virtual al sitio principal y, a continuación, desencadenar la conmutación por error. Si la máquina virtual principal no está disponible, antes de iniciar la **replicación inversa** tiene que restaurar la máquina virtual desde una copia de seguridad.   

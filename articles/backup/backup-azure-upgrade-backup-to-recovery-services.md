@@ -14,10 +14,10 @@ ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 531d645bab8c80caba96bc5292354b5490a53804
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 28e8b0be0b69f279685109d611fbfb369b96101a
 ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Actualización de un almacén de Backup a un almacén de Recovery Services
@@ -69,7 +69,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 >[!NOTE]
 > Los nombres de grupos de recursos tienen restricciones. Asegúrese de seguir las instrucciones; si no lo hace, la actualización podría generar un error.
 >
->
+>Los clientes de **Azure Gobierno de EE. UU.** deben establecer el entorno en "AzureUSGovernment" para la ejecución del script.
 
 El siguiente fragmento de código es un ejemplo de cómo debería ser el comando de PowerShell:
 

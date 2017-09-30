@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 87cc66752dae1f4bd0903607d8a8ae9bd9125b11
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 75cafa6868d54f9d8a7e0dbe9f2a9e85ed43f16f
 ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -199,6 +199,16 @@ Esta salida de ejemplo muestra el inicio del procesamiento, todos los cambios de
 
 >[!TIP]
 > Al hacer clic en elementos relacionados con *Cambiar la licencia de usuario* se mostrarán los detalles de los cambios de licencia aplicados a cada usuario individual.
+
+## <a name="deleting-a-group-with-an-assigned-license"></a>Eliminación de un grupo con una licencia asignada
+
+No es posible eliminar un grupo con una licencia activa asignada. Un administrador podría eliminar un grupo sin darse cuenta de que hará que las licencias se quiten de los usuarios. Por este motivo, para poder eliminar las licencias, se requiere que se quiten primero del grupo.
+
+Al intentar eliminar un grupo en Azure Portal, puede ver una notificación de error similar a la siguiente: ![Captura de pantalla del error de eliminación de grupo](media/active-directory-licensing-group-advanced/groupdeletionfailed.png)
+
+Vaya a la pestaña **Licencias** en el grupo y compruebe si hay licencias asignadas. Si es así, quite esas licencias e intente eliminar el grupo de nuevo.
+
+Puede ver errores similares al intentar eliminar el grupo a través de PowerShell o de la API Graph. Si usa un grupo sincronizado desde un entorno local, Azure AD Connect también puede informar de errores, si no puede eliminar el grupo en Azure AD. En todos estos casos, asegúrese de comprobar si hay licencias asignadas al grupo y quítelas primero.
 
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
 

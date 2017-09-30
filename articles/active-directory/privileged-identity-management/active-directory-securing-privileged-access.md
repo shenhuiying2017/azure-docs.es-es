@@ -3,8 +3,8 @@ title: "Protección del acceso con privilegios en Azure AD | Microsoft Docs"
 description: Un tema que explica los enfoques para proteger el acceso con privilegios en Azure, Azure Active Directory y Microsoft Online Services.
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
+author: barclayn
+manager: mbaldwin
 editor: mwahl
 ms.assetid: 235a0ce9-1daf-4433-8f65-9c6afcd64d08
 ms.service: active-directory
@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: c96a0bd6710d60629bc631fe7e1f642cdb2bada6
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 849637fb391576954307bc84bb02e1d8579bf1cf
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Protección del acceso con privilegios en Azure AD
@@ -52,7 +51,7 @@ Para más información, consulte [MFA for Office 365 and MFA for Azure](https://
 ## <a name="time-bound-privileges"></a>Privilegios de tiempo limitado
 Algunas organizaciones pueden encontrarse con que tienen demasiados usuarios en roles con privilegios elevados. Un usuario podría haberse agregado al rol de una determinada actividad, por ejemplo, registrarse en un servicio, pero luego no usar esos privilegios con frecuencia.
 
-Para reducir el tiempo de exposición de los privilegios y aumentar la visibilidad de su uso, limite a los usuarios a tomar solo esos privilegios "Just in Time" (JIT) cuando necesiten realizar una tarea. Para Azure Active Directory y Microsoft Online Services, puede usar [Privileged Identity Management (PIM) de Azure AD](http://aka.ms/AzurePIM).
+Para reducir el tiempo de exposición de los privilegios y aumentar la visibilidad sobre su uso, puede limitar a los usuarios a tomar los privilegios "justo a tiempo" (JIT) o asignar estos roles para una duración reducida con la confianza de que los privilegios se revocarán automáticamente. Para Azure Active Directory, Azure Resources (versión preliminar) y Microsoft Online Services, puede usar [Privileged Identity Management (PIM) de Azure AD](http://aka.ms/AzurePIM).
 
 ![Panel de PIM][2]
 

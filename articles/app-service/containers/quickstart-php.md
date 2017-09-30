@@ -16,15 +16,15 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1b10636848198ab0ff46e6a492373ecf42a96202
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Creación de una aplicación web de PHP en un contenedor de Linux en Azure
 
-[Web Apps for Containers](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones mediante el sistema operativo Linux. En esta guía de inicio rápido se explica cómo se implementa una aplicación de PHP en Azure Web Apps for Containers. Se crea la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en Cloud Shell y se usa Git para implementar el código PHP en la aplicación web.
+[Web Apps for Containers](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático mediante el sistema operativo Linux. En esta guía de inicio rápido se explica cómo se implementa una aplicación de PHP en Azure Web Apps for Containers. Se crea la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en Cloud Shell y se usa Git para implementar el código PHP en la aplicación web.
 
 ![Sample app running in Azure]](media/quickstart-php/hello-world-in-browser.png)
 
@@ -56,7 +56,7 @@ Ejecute la aplicación localmente abriendo una ventana de terminal y utilizando 
 php -S localhost:8080
 ```
 
-Abra un explorador web y navegue a la aplicación de ejemplo en http://localhost:8080.
+Abra un explorador web y vaya a la aplicación de ejemplo en `http://localhost:8080`.
 
 Verá el mensaje **Hola mundo** desde la aplicación de ejemplo mostrada en la página.
 

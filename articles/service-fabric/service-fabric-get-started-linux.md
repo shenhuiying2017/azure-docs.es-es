@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/23/2017
+ms.date: 9/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 8d902ba9e2077b4b70762c76cfb3ebf12752fb11
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: da9aff17c16e179be200677bfbfd1287fff269e3
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
@@ -29,13 +29,28 @@ ms.lasthandoff: 09/14/2017
 >
 >  
 
-Para implementar y ejecutar [aplicaciones de Azure Service Fabric](service-fabric-application-model.md) en la máquina de desarrollo de Linux, instale el motor de tiempo de ejecución y el SDK común. También puede instalar SDK opcionales para Java y .NET Core.
+Para implementar y ejecutar [aplicaciones de Azure Service Fabric](service-fabric-application-model.md) en la máquina de desarrollo de Linux, instale el motor de tiempo de ejecución y el SDK común. También puede instalar SDK opcionales para el desarrollo con Java y .NET Core.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Se admiten las siguientes versiones de sistemas operativos para desarrollo:
 
 * Ubuntu 16.04 (`Xenial Xerus`)
+
+## <a name="installation-methods"></a>Métodos de instalación
+
+### <a name="1-script-installation"></a>1. Instalación mediante script
+
+Se proporciona un script para facilitar la instalación del motor de tiempo de ejecución y el SDK común de Service Fabric junto con la CLI de **sfctl**. Ejecute los pasos de instalación manual descritos en la sección siguiente para determinar lo que se está instalando y las licencias que se acuerdan. Con la ejecución del script se da por supuesto que acepta las licencias para todo el software que se está instalando. 
+
+Una vez que el script se ejecuta correctamente, puede ir directamente a [Instalación de un clúster local](#set-up-a-local-cluster).
+
+```bash
+sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+```
+
+### <a name="2-manual-installation"></a>2. Instalación manual
+Para la instalación manual del motor de tiempo de ejecución y el SDK común de Service Fabric, siga los pasos descritos más abajo en esta guía.
 
 ## <a name="update-your-apt-sources"></a>Actualización de los orígenes de APT
 Para instalar el SDK y el paquete en tiempo de ejecución asociado mediante la herramienta de línea de comandos apt-get, primero debe actualizar los orígenes de Advanced Packaging Tool (APT).
@@ -79,7 +94,7 @@ Para instalar el SDK y el paquete en tiempo de ejecución asociado mediante la h
     sudo apt-get update
     ```
 
-## <a name="install-and-set-up-the-sdk-for-local-cluster-setup"></a>Instalación y configuración del SDK para la configuración del clúster local
+## <a name="install-and-set-up-the-service-fabric-sdk-for-local-cluster-setup"></a>Instalación y configuración del SDK de Service Fabric para la configuración del clúster local
 
 Una vez actualizados los orígenes, puede instalar el SDK. Instale el paquete del SDK de Service Fabric, confirme la instalación y acepte el contrato de licencia.
 
@@ -90,12 +105,12 @@ sudo apt-get install servicefabricsdkcommon
 >   [!TIP]
 >   Los siguientes comandos aceptan automáticamente la licencia para los paquetes de Service Fabric:
 >   ```bash
->   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
->   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
+>   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
+>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
 ## <a name="set-up-a-local-cluster"></a>Instalación de un clúster local
-  Si todo se instaló correctamente, debe poder iniciar un clúster local.
+  Una vez finalizada la instalación, debe poder iniciar un clúster local.
 
   1. Ejecute el script de instalación del clúster.
 
@@ -111,7 +126,7 @@ sudo apt-get install servicefabricsdkcommon
 
 
   > [!NOTE]
-  > No se admiten clústeres independientes en Linux. La versión preliminar admite únicamente un equipo y clústeres de múltiples máquinas Linux de Azure.
+  > No se admiten clústeres independientes en Linux.
   >
 
 ## <a name="set-up-the-service-fabric-cli"></a>Configuración de la CLI de Service Fabric
@@ -120,8 +135,8 @@ La [CLI de Service Fabric](service-fabric-cli.md) tiene comandos para interactua
 Siga las instrucciones que aparecen en la [CLI de Service Fabric](service-fabric-cli.md) para instalar la CLI.
 
 
-## <a name="install-and-set-up-the-generators-for-containers-and-guest-executables"></a>Instalación y configuración de los generadores para los contenedores y los ejecutables invitados
-Service Fabric proporciona herramientas de scaffolding que le ayudarán a crear aplicaciones de Service Fabric desde el terminal mediante el generador de plantillas Yeoman. Siga los pasos siguientes para asegurarse de que el generador de plantillas yeoman de Service Fabric está en funcionamiento en la máquina.
+## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>Instalación de los generadores Yeoman para los contenedores y los ejecutables invitados
+Service Fabric proporciona herramientas de scaffolding que le ayudarán a crear aplicaciones de Service Fabric desde el terminal mediante el generador de plantillas Yeoman. Siga estos pasos para configurar los generadores de plantillas de Service Fabric Yeoman:
 
 1. Instalación de nodejs y NPM en la máquina
 
@@ -141,11 +156,15 @@ Service Fabric proporciona herramientas de scaffolding que le ayudarán a crear 
   sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
   ```
 
-Una vez instalados los generadores anteriores, puede crear aplicaciones con ejecutables invitados o servicios de contenedor mediante la ejecución de `yo azuresfguest` o `yo azuresfcontainer` respectivamente.
+Una vez instalados los generadores, puede crear ejecutables invitados o servicios de contenedor mediante la ejecución de `yo azuresfguest` o `yo azuresfcontainer` respectivamente.
 
-## <a name="install-the-necessary-java-artifacts-optional-if-you-want-to-use-the-java-programming-models"></a>Instalación de los artefactos de Java necesarios (opcional, si desea usar los modelos de programación de Java)
+## <a name="set-up-net-core-20-development"></a>Configuración del desarrollo con .NET Core 2.0
 
-Para compilar servicios de Service Fabric con Java, asegúrese de que tiene instalado JDK 1.8 junto con Gradle, que se utiliza para ejecutar tareas de compilación. El fragmento de código siguiente instala Open JDK 1.8 junto con Gradle. Las bibliotecas de Java de Service Fabric se extraen de Maven.
+Instale el [SDK de .NET Core 2.0 para Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) para iniciar la [creación de aplicaciones de Service Fabric en C#](service-fabric-create-your-first-linux-application-with-csharp.md). Los paquetes de aplicaciones de Service Fabric en .NET Core 2.0 se hospedan en NuGet.org, actualmente en versión preliminar.
+
+## <a name="set-up-java-development"></a>Configuración del desarrollo de Java
+
+Para compilar servicios de Service Fabric mediante Java, instale JDK 1.8 y Gradle para ejecutar las tareas de compilación. El fragmento de código siguiente instala Open JDK 1.8 junto con Gradle. Las bibliotecas de Java de Service Fabric se extraen de Maven.
 
   ```bash
   sudo apt-get install openjdk-8-jdk-headless
@@ -154,7 +173,7 @@ Para compilar servicios de Service Fabric con Java, asegúrese de que tiene inst
 
 ## <a name="install-the-eclipse-neon-plug-in-optional"></a>Instalación del complemento Eclipse Neon (opcional)
 
-Puede instalar el complemento de Eclipse para Service Fabric desde el **IDE de Eclipse para desarrolladores de Java**. Eclipse se puede usar para crear aplicaciones ejecutables y contenedoras de invitado de Service Fabric, además de aplicaciones Java de Service Fabric.
+Puede instalar el complemento de Eclipse para Service Fabric desde el IDE de Eclipse para desarrolladores de Java. Eclipse se puede usar para crear aplicaciones ejecutables y contenedoras de invitado de Service Fabric, además de aplicaciones Java de Service Fabric.
 
 1. En Eclipse, asegúrese de tener instaladas las versiones más recientes de Eclipse Neon y Buildship (1.0.17 o versiones posteriores). Puede comprobar las versiones de los componentes instalados seleccionando **Help** > **Installation Details** (Ayuda > Detalles de la instalación). Puede actualizar Buildship siguiendo las instrucciones de [Eclipse Buildship: Complementos de Eclipse para Gradle][buildship-update].
 
@@ -174,26 +193,28 @@ Si el complemento de Eclipse para Service Fabric ya está instalado, asegúrese 
 
 Para más información, consulte [Complemento de Service Fabric para el desarrollo de aplicaciones Java de Eclipse](service-fabric-get-started-eclipse.md).
 
-
-## <a name="install-the-net-core-sdk-optional-if-you-want-to-use-the-net-core-programming-models"></a>Instalación del SDK de .NET Core (opcional, si desea usar los modelos de programación de .NET Core)
-El SDK de .NET Core proporciona las bibliotecas y plantillas necesarias para compilar servicios de Service Fabric con .NET Core. Instale el paquete SDK de .NET Core mediante los siguientes pasos:
-
-   ```bash
-   sudo apt-get install servicefabricsdkcsharp
-   ```
-
 ## <a name="update-the-sdk-and-runtime"></a>Actualización del SDK y del runtime
 
-Para actualizar a la versión más reciente del SDK y el motor de tiempo de ejecución, ejecute los siguientes pasos (desactive los SDK que no desee actualizar o instalar):
+Para actualizar a la versión más reciente del SDK y el motor de tiempo de ejecución, ejecute los siguientes pasos:
 
 ```bash
 sudo apt-get update
-sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
+sudo apt-get install servicefabric servicefabricsdkcommon
 ```
 Para actualizar los archivos binarios del SDK de Java desde Maven, debe actualizar los detalles de la versión del archivo binario correspondiente en el archivo ``build.gradle`` para que señale a la versión más reciente. Para saber exactamente dónde debe actualizar la versión, puede hacer referencia a cualquier archivo ``build.gradle`` en los ejemplos de Introducción a Service Fabric [aquí](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 > [!NOTE]
 > La actualización de los paquetes puede dar lugar a que se detenga el clúster de desarrollo local. Reinicie el clúster local después de cada actualización, para lo que debe seguir las instrucciones de esta página.
+
+## <a name="remove-the-sdk"></a>Eliminación del SDK
+Para quitar los SDK de Service Fabric, haga lo siguiente:
+
+```bash
+sudo apt-get remove servicefabric servicefabicsdkcommon
+sudo npm uninstall generator-azuresfcontainer
+sudo npm uninstall generator-azuresfguest
+sudo apt-get install -f
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

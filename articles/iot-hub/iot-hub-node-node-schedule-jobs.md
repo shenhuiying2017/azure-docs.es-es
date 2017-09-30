@@ -206,12 +206,15 @@ En esta sección, creará una aplicación de consola de Node.js que inicia un **
    
     ```
     var twinPatch = {
-        etag: '*',
-        desired: {
-            building: '43',
-            floor: 3
-        }
+       etag: '*', 
+       properties: {
+           desired: {
+               building: '43', 
+               floor: 3
+           }
+       }
     };
+   
    
     var twinJobId = uuid.v4();
    

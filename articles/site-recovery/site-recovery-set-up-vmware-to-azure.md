@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a2fabc56463c8cbf0b8a76b7a84369ed8e535486
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 49cc01e54158b68e440f1efbfe2f8b0d076a5692
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -37,7 +37,11 @@ En este artículo se supone que ya creó:
 - Una máquina virtual en donde instalar el servidor de configuración.
 
 ## <a name="configuration-server-minimum-requirements"></a>Requisitos mínimos del servidor de configuración
-El software del servidor de configuración se debe implementar en una máquina virtual de VMware de alta disponibilidad. En la siguiente tabla se muestran los requisitos mínimos de hardware, software y red para un servidor de configuración.
+En la siguiente tabla se muestran los requisitos mínimos de hardware, software y red para un servidor de configuración.
+
+> [!IMPORTANT]
+> Al implementar un servidor de configuración para la protección de máquinas virtuales de VMware, se recomienda implementarlo como una máquina virtual con **alta disponibilidad (HA)**.
+
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]

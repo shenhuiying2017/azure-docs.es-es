@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
 ms.contentlocale: es-es
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montaje de un recurso compartido de archivos de Azure y acceso al recurso compartido en Windows
-[Azure File Storage](../storage-dotnet-how-to-use-files.md) es el sistema de archivos en la nube de Microsoft fácil de usar. Los recursos compartidos de archivos de Azure se pueden montar en Windows y Windows Server. En este artículo se muestran tres maneras diferentes para montar un recurso compartido de archivos de Azure en Windows: con la interfaz del explorador de archivos, a través de PowerShell y mediante el símbolo del sistema. 
+[Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en Windows y Windows Server. En este artículo se muestran tres maneras diferentes para montar un recurso compartido de archivos de Azure en Windows: con la interfaz del explorador de archivos, a través de PowerShell y mediante el símbolo del sistema. 
 
 Para montar un recurso compartido de archivos de Azure fuera de la región de Azure en la que se hospeda, bien sea en local o en una región distinta de Azure, el sistema operativo debe admitir SMB 3.0. 
 
@@ -39,7 +39,7 @@ Puede montar recursos compartidos de Azure File en una instalación de Windows q
 | Windows 7              | SMB 2.1     | Sí                   | No                   |
 | Windows Server 2008 R2 | SMB 2.1     | Sí                   | No                   |
 
-<sup>1</sup>Versiones 1507, 1511, 1607 y 1703 de Windows 10
+<sup>1</sup>Versiones 1507, 1511, 1607, 1703 y 1709 de Windows 10.
 
 > [!Note]  
 > Siempre se recomienda disponer de la KB más reciente para su versión de Windows.
@@ -49,7 +49,7 @@ Puede montar recursos compartidos de Azure File en una instalación de Windows q
 
 * **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria) de la cuenta de almacenamiento. Actualmente no se admiten claves SAS para el montaje.
 
-* **Asegúrese de que el puerto 445 está abierto**: Azure File Storage usa el protocolo SMB. SMB se comunica a través del puerto TCP 445: compruebe que el firewall no bloquea el puerto TCP 445 en el equipo cliente.
+* **Asegúrese de que el puerto 445 está abierto**: Azure Files usa el protocolo SMB. SMB se comunica a través del puerto TCP 445: compruebe que el firewall no bloquea el puerto TCP 445 en el equipo cliente.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Montaje del recurso compartido de archivos de Azure con el explorador de archivos
 > [!Note]  
@@ -63,7 +63,7 @@ Puede montar recursos compartidos de Azure File en una instalación de Windows q
 
 3. **Copie la ruta de acceso UNC desde el panel "Conectar" de Azure Portal**: una descripción detallada de cómo buscar esta información puede encontrarse [aquí](storage-how-to-use-files-portal.md#connect-to-file-share).
 
-    ![Ruta de acceso UNC en el panel Conectar de Azure File Storage](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![Ruta de acceso UNC en el panel Conectar de Azure Files](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **Seleccione la letra de unidad y escriba la ruta de acceso UNC.** 
     
@@ -121,24 +121,24 @@ Puede montar recursos compartidos de Azure File en una instalación de Windows q
 >   ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los vínculos siguientes para obtener más información acerca de Almacenamiento de archivos de Azure.
+Consulte los vínculos siguientes para más información acerca Azure Files.
 
-* [Preguntas más frecuentes](../storage-files-faq.md)
+* [P+F](../storage-files-faq.md)
 * [Solución de problemas en Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>Artículos y vídeos conceptuales
-* [Azure File Storage: un sistema de archivos SMB en la nube sin dificultades para Windows y Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Uso de Azure File Storage con Linux](../storage-how-to-use-files-linux.md)
+* [Azure Files: un sistema de archivos SMB en la nube sin dificultades para Windows y Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Uso de Azure Files con Linux](../storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-azure-file-storage"></a>Compatibilidad de herramientas con Azure File Storage
+### <a name="tooling-support-for-azure-files"></a>Compatibilidad de herramientas con Azure Files
 * [Uso de AzCopy con Almacenamiento de Microsoft Azure](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Uso de la CLI de Azure con Almacenamiento de Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Solución de problemas de Azure File Storage (Windows)](storage-troubleshoot-windows-file-connection-problems.md)
-* [Solución de problemas de Azure File Storage (Linux)](storage-troubleshoot-linux-file-connection-problems.md)
+* [Solución de problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Solución de problemas de Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>Publicaciones de blog
-* [El almacenamiento de archivos de Azure ya está disponible de manera general](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [En el interior de Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files is now generally available (Azure Files ya está disponible con carácter general)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inside Azure Files (En el interior de Azure Files)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Migración de datos a Azure Files](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 

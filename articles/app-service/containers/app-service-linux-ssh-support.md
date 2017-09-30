@@ -1,5 +1,5 @@
 ---
-title: Compatibilidad con SSH para Web Apps for Containers de Azure App Service | Microsoft Docs
+title: Compatibilidad con SSH para Web App for Containers de Azure Apps Service | Microsoft Docs
 description: Aprenda a usar SSH con Azure Web Apps for Containers.
 keywords: "azure app service, aplicación web, linux, oss"
 services: app-service
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7cbdbc65bac97aef5d4215fd6b188830795a86f2
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7ce9b23e8925d4c79827c7c4e8bec63067ce33e0
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="ssh-support-for-azure-web-apps-for-containers"></a>Compatibilidad con SSH para Web Apps for Containers
+# <a name="ssh-support-for-azure-web-app-for-containers"></a>Compatibilidad con SSH para Azure Web Apps for Containers
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) es un protocolo de red criptográfico que permite usar servicios de red de forma segura. Normalmente, se usa para iniciar sesión en un sistema de forma remota y segura desde una línea de comandos, además de para ejecutar comandos administrativos de forma remota.
 
@@ -67,7 +67,7 @@ Estos pasos se indican en el repositorio de Azure App Service, como en [este](ht
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Agregue una instrucción [`COPY`](https://docs.docker.com/engine/reference/builder/#copy) al Dockerfile para copiar un archivo [sshd_config](http://man.openbsd.org/sshd_config) en el directorio */etc/ssh/*. Su archivo de configuración debería basarse en nuestro archivo sshd_config del repositorio de GitHub de Azure App Service, localizable [aquí](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+1. Agregue una instrucción [`COPY`](https://docs.docker.com/engine/reference/builder/#copy) al Dockerfile para copiar un archivo [sshd_config](http://man.openbsd.org/sshd_config) en el directorio */etc/ssh/*. Su archivo de configuración debería basarse en nuestro archivo sshd_config del repositorio de GitHub de Azure App Service, localizable [aquí](https://github.com/Azure-App-Service/node/blob/master/6.11.0/sshd_config).
 
     > [!NOTE]
     > El archivo *sshd_config* debe incluir los siguientes elementos o se producirá un error de conexión: 
@@ -103,9 +103,9 @@ El Dockerfile usa la instrucción [`CMD`](https://docs.docker.com/engine/referen
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Visite los siguientes vínculos para obtener más información acerca de Web Apps for Containers. Puede publicar preguntas y problemas en [nuestro foro](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Visite los siguientes vínculos para más información acerca de Web Apps for Containers. Puede publicar preguntas y problemas en [nuestro foro](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [How to use a custom Docker image for Azure Web Apps for Containers](quickstart-custom-docker-image.md) (Uso de una imagen personalizada de Docker para Azure Web App for Containers)
-* [Using .NET Core in Azure Web Apps for Containers](quickstart-dotnetcore.md) (Uso de .NET Core en Azure Web Apps for Containers)
-* [Using Ruby in Azure Web Apps for Containers](quickstart-ruby.md) (Uso de Ruby en Azure Web Apps for Containers)
-* [Preguntas más frecuentes sobre Web Apps for Containers de Azure App Service](app-service-linux-faq.md)
+* [Cómo usar una imagen personalizada de Docker para Azure Web Apps for Containers](quickstart-custom-docker-image.md)
+* [Uso de .NET Core en Azure Web Apps for Containers](quickstart-dotnetcore.md)
+* [Uso de Ruby en Azure Web Apps for Containers](quickstart-ruby.md)
+* [Preguntas más frecuentes sobre Web App for Containers de Azure App Service ](app-service-linux-faq.md)

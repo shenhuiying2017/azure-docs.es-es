@@ -12,19 +12,20 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 02/16/2017
-ms.author: naziml;wesmc
+ms.author: wesmc
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: f46f59a69d13a4e702eccded810cf3c7a8b30904
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bc1658fa49677386c8e4697221f7269ceec3533d
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="introduction-to-azure-web-apps-for-containers"></a>Introducción a Azure Web Apps for Containers
+# <a name="introduction-to-azure-web-app-for-containers"></a>Introducción a Azure Web Apps for Containers
 
-[Aplicación web](../../app-service-web/app-service-web-overview.md) es una plataforma de procesos completamente administrada que se ha optimizado para el hospedaje de sitios y aplicaciones web. Los clientes pueden usar Web Apps for Containers para hospedar aplicaciones web de forma nativa en Linux para pilas de aplicaciones admitidas. En las secciones siguientes se muestran las pilas de aplicaciones que son compatibles actualmente.
+[Aplicación web](../app-service-web-overview.md) es una plataforma de procesos completamente administrada que se ha optimizado para el hospedaje de sitios y aplicaciones web. Los clientes pueden usar Web Apps for Containers para hospedar aplicaciones web de forma nativa en Linux para pilas de aplicaciones admitidas. En las secciones siguientes se muestran las pilas de aplicaciones que son compatibles actualmente.
 
 ## <a name="languages"></a>Idiomas
 
@@ -67,9 +68,9 @@ Azure Portal solo muestra las características que funcionan actualmente para We
 
 Algunas de ellas, como la integración de la red virtual, la autenticación de Azure Active Directory o de terceros o las extensiones de sitio de Kudu, no están aún disponibles. Pero cuando lo estén, actualizaremos nuestra documentación y el blog sobre los cambios.
 
-Web Apps for Containers solo se admite en los planes de App Service [Básico, Estándar y Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) y no tiene un nivel [Gratis o Compartido](https://azure.microsoft.com/pricing/details/app-service/plans/). También existen las siguientes restricciones importantes para Web Apps for Containers:
+Web Apps for Containers solo se admite en los planes de App Service [Básico y Estándar](https://azure.microsoft.com/pricing/details/app-service/plans/) y no tiene un nivel [Gratis o Compartido](https://azure.microsoft.com/pricing/details/app-service/plans/). También existen las siguientes restricciones importantes para Web Apps for Containers:
 
-* No se puede crear Web Apps for Containers en un plan de App Service que ya hospeda Web Apps que no sean de Linux.
+* No se puede crear Web App for Containers en un plan de App Service que ya hospeda Web Apps que no sean de Linux.
 * Al crear Web Apps for Containers en un grupo de recursos que contenga Web Apps que no sean de Linux, debe crear un plan de App Service en una región distinta a la del plan de App Service existente.
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -87,13 +88,13 @@ Puede acceder al sitio SCM desde **Advanced Tools** (Herramientas avanzadas) en 
 
 Consulte los vínculos siguientes para empezar a trabajar con App Service en Linux. Puede publicar preguntas y problemas en [nuestro foro](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [How to use a custom Docker image for Azure Web Apps for Containers](quickstart-custom-docker-image.md) (Uso de una imagen personalizada de Docker para Azure Web App for Containers)
-* [Using .NET Core in Azure App Service Web Apps for Containers](quickstart-dotnetcore.md) (Uso de .NET Core en Web Apps for Containers de Azure App Service)
-* [Using Ruby in Azure App Service Web Apps for Containers](quickstart-ruby.md) (Uso de Ruby en Web Apps for Containers de Azure App Service)
-* [Preguntas más frecuentes sobre Web Apps for Containers de Azure App Service](app-service-linux-faq.md)
-* [Compatibilidad con SSH para Web Apps for Containers](app-service-linux-ssh-support.md)
-* [Configuración de entornos de ensayo en Azure App Service](../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Docker Hub Continuous Deployment with Azure Web Apps for Containers](./app-service-linux-ci-cd.md) (Implementación continua de Docker Hub con Azure Web Apps for Containers)
+* [Cómo usar una imagen personalizada de Docker para Azure Web Apps for Containers](quickstart-custom-docker-image.md)
+* [Uso de .NET Core en Azure App Service Web Apps for Containers](quickstart-dotnetcore.md)
+* [Uso de Ruby en Azure App Service Web Apps for Containers](quickstart-ruby.md)
+* [Preguntas más frecuentes sobre Web App for Containers de Azure App Service ](app-service-linux-faq.md)
+* [Compatibilidad con SSH para Azure Web Apps for Containers](app-service-linux-ssh-support.md)
+* [Configuración de entornos de ensayo en Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Implementación continua de Docker Hub con Azure Web Apps for Containers](./app-service-linux-ci-cd.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

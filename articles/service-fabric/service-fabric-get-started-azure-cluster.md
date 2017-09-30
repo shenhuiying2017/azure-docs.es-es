@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -70,18 +70,6 @@ Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.
 
     Puede ver el progreso de creación en las notificaciones. (Haga clic en el icono de la "campana" cerca de la barra de estado en la parte superior derecha de la pantalla). Si hizo clic en **Anclar a Panel de inicio** al crear el clúster, verá **Deploying Service Fabric Cluster** (Implementando clúster de Service Fabric) anclado al panel de **Inicio**.
 
-### <a name="view-cluster-status"></a>Visualización del estado del clúster
-Una vez creado el clúster, puede inspeccionarlo en la hoja **Información general** del portal. Ahora puede ver los detalles del clúster en el panel, incluido el punto de conexión público del clúster y un vínculo a Service Fabric Explorer.
-
-![Estado del clúster][cluster-status]
-
-### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Visualización del clúster mediante Service Fabric Explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) es una buena herramienta para visualizar el clúster y administrar aplicaciones.  Service Fabric Explorer es un servicio que se ejecuta en el clúster.  Acceda a él mediante un explorador web haciendo clic en el vínculo **Service Fabric Explorer** de la página del clúster **Información general** en el portal.  También puede escribir la dirección directamente en el explorador: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
-
-El panel del clúster proporciona información general del clúster, incluido un resumen de la aplicación y del estado del nodo. En la vista de nodos se muestra el diseño físico del clúster. Para un nodo determinado, puede comprobar qué aplicaciones tienen el código implementado en ese nodo.
-
-![Service Fabric Explorer][service-fabric-explorer]
-
 ### <a name="connect-to-the-cluster-using-powershell"></a>Conexión a un clúster con PowerShell
 Compruebe que el clúster se está ejecutando a través de una conexión usando PowerShell.  El módulo ServiceFabric PowerShell se instala con el [SDK de Service Fabric](service-fabric-get-started.md).  El cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) establece una conexión con el clúster.   
 
@@ -112,7 +100,7 @@ Eliminación de un grupo de recursos en Azure Portal:
     ![Eliminación del grupo de recursos][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Uso de Azure PowerShell para implementar un clúster seguro
+## <a name="use-azure-powershell-to-deploy-a-secure-windows-cluster"></a>Uso de Azure PowerShell para implementar un clúster de Windows seguro
 1. Descargue la [versión 4.0 del módulo Azure PowerShell, o cualquier versión posterior](https://docs.microsoft.com/powershell/azure/install-azurerm-ps), en el equipo.
 
 2. Abra una ventana de Windows PowerShell y ejecute el comando siguiente. 
@@ -205,10 +193,6 @@ Ejecute el siguiente comando para comprobar que está conectado y que el clúste
 Get-ServiceFabricClusterHealth
 
 ```
-### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Publicación de aplicaciones en un clúster desde Visual Studio
-
-Ahora que ha configurado un clúster de Azure, puede publicar aplicaciones en él desde Visual Studio, para lo que debe seguir la información del documento [Publicación de una aplicación en un clúster remoto con Visual Studio](service-fabric-publish-app-remote-cluster.md). 
-
 ### <a name="remove-the-cluster"></a>Eliminación del clúster
 Un clúster está formado por muchos otros recursos de Azure, además del propio recurso del clúster. La manera más sencilla de eliminar el clúster y todos los recursos que consume es eliminar el grupo de recursos. 
 
@@ -217,12 +201,62 @@ Un clúster está formado por muchos otros recursos de Azure, además del propio
 Remove-AzureRmResourceGroup -Name $RGname -Force
 
 ```
+## <a name="use-azure-cli-to-deploy-a-secure-linux-cluster"></a>Uso de la CLI de Azure para implementar un clúster de Linux seguro
+
+1. Instale la [CLI de Azure 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) en el equipo.
+2. Inicie sesión en Azure y seleccione la suscripción en la que desea crear el clúster.
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. Ejecute el comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) para crear un clúster seguro.
+
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="southcentralus" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
+    
+### <a name="connect-to-the-cluster"></a>Conexión al clúster
+Ejecute el siguiente comando de la CLI para conectarse al clúster mediante el certificado.  Cuando se utiliza un certificado de cliente para la autenticación, los detalles del certificado deben coincidir con un certificado implementado en los nodos del clúster.  Use la opción `--no-verify` para obtener un certificado autofirmado.
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+Ejecute el siguiente comando para comprobar que está conectado y que el clúster es correcto.
+
+```azurecli
+az sf cluster health
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez configurado un clúster de desarrollo, pruebe lo siguiente:
-* [Creación de un clúster seguro en el portal](service-fabric-cluster-creation-via-portal.md)
-* [Crear un clúster a partir de una plantilla](service-fabric-cluster-creation-via-arm.md) 
+* [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
+* [Eliminación de un clúster](service-fabric-cluster-delete.md) 
 * [Implemente aplicaciones mediante PowerShell](service-fabric-deploy-remove-applications.md).
+* [Implementación de aplicaciones mediante la CLI](service-fabric-application-lifecycle-sfctl.md)
 
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png

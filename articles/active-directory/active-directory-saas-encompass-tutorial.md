@@ -1,0 +1,230 @@
+---
+title: "Tutorial: Integración de Azure Active Directory con Encompass | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Encompass."
+services: active-directory
+documentationCenter: na
+author: jeevansd
+manager: femila
+ms.reviewer: joflore
+ms.assetid: 3b985248-056f-4d0f-9ce4-c017b38f5b50
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/15/2017
+ms.author: jeedes
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 21d4cf3a28e2b21e606663be32e001b8b4e91bb7
+ms.contentlocale: es-es
+ms.lasthandoff: 09/19/2017
+
+---
+# <a name="tutorial-azure-active-directory-integration-with-encompass"></a>Tutorial: Integración de Azure Active Directory con Encompass
+
+En este tutorial, aprenderá a integrar Encompass con Azure Active Directory (Azure AD).
+
+La integración de Encompass con Azure AD proporciona las siguientes ventajas:
+
+- Puede controlar en Azure AD quién tiene acceso a Encompass.
+- Puede permitir que los usuarios inicien sesión automáticamente en Encompass (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Para configurar la integración de Azure AD con Encompass se necesitan los siguientes elementos:
+
+- Una suscripción de Azure AD
+- Una suscripción habilitada para el inicio de sesión único en Encompass
+
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
+
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+
+1. Adición de Encompass desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
+
+## <a name="adding-encompass-from-the-gallery"></a>Adición de Encompass desde la galería
+Para configurar la integración de Encompass en Azure AD, será preciso que agregue Encompass desde la galería a la lista de aplicaciones SaaS administradas.
+
+**Para agregar Encompass desde la galería, realice los pasos siguientes:**
+
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+
+    ![Botón Azure Active Directory][1]
+
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+
+    ![Hoja Aplicaciones empresariales][2]
+    
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+
+    ![Botón Nueva aplicación][3]
+
+4. En el cuadro de búsqueda, escriba **Encompass**, seleccione **Encompass** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![Encompass en la lista de resultados](./media/active-directory-saas-encompass-tutorial/tutorial_encompass_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+
+En esta sección, se configura y se prueba el inicio de sesión único de Azure AD con Encompass con un usuario de prueba llamado "Britta Simon".
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Encompass para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Encompass.
+
+Para establecer la relación de vínculo en Encompass, asigne el valor de **nombre de usuario** de Azure AD como valor de **Nombre de usuario**.
+
+Para configurar y probar el inicio de sesión único de Azure AD con Encompass, es preciso completar los siguientes bloques de creación:
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de Encompass](#create-a-encompass-test-user)**: para tener un homólogo de Britta Simon en Encompass que esté vinculado a su representación en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Encompass.
+
+**Para configurar el inicio de sesión único de Azure AD con Encompass, realice los pasos siguientes:**
+
+1. En Azure Portal, en la página de integración de la aplicación **Encompass**, haga clic en **Inicio de sesión único**.
+
+    ![Vínculo Configurar inicio de sesión único][4]
+
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-encompass-tutorial/tutorial_encompass_samlbase.png)
+
+3. En la sección de **dominio y direcciones URL de Encompass**, lleve a cabo los pasos siguientes:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de Encompass](./media/active-directory-saas-encompass-tutorial/tutorial_encompass_url.png)
+
+    a. En el cuadro de texto **Identificador**, proporcione el valor específico de su cliente.
+
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.voxmobile.com/voxportal/ws/saml/consume`.
+
+    > [!NOTE] 
+    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Encompass](http://www.voxmobile.com/contact/) para obtener estos valores.
+
+4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+
+    ![Vínculo de descarga del certificado](./media/active-directory-saas-encompass-tutorial/tutorial_encompass_certificate.png) 
+
+5. Haga clic en el botón **Guardar** .
+
+    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-encompass-tutorial/tutorial_general_400.png)
+
+6. En la sección **Configuración de Encompass**, haga clic en **Configurar Encompass** para abrir la ventana **Configurar inicio de sesión**. Copie los valores **Sign-Out URL y SAML Single Sign-On Service URL** (Dirección URL de cierre de sesión y Dirección URL del servicio de inicio de sesión único de SAML) de la **sección de referencia rápida**.
+
+    ![Configuración de Encompass](./media/active-directory-saas-encompass-tutorial/tutorial_encompass_configure.png) 
+
+7. Para configurar el inicio de sesión único en **Encompass**, es preciso enviar el **Certificado (Base64) descargado, la dirección URL de cierre de sesión y la dirección URL del servicio de inicio de sesión único de SAML** al [equipo de soporte técnico de Encompass](http://www.voxmobile.com/contact/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+
+> [!TIP]
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+
+   ![Creación de un usuario de prueba de Azure AD][100]
+
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+
+1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+
+    ![Botón Azure Active Directory](./media/active-directory-saas-encompass-tutorial/create_aaduser_01.png)
+
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/active-directory-saas-encompass-tutorial/create_aaduser_02.png)
+
+3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+
+    ![Botón Agregar](./media/active-directory-saas-encompass-tutorial/create_aaduser_03.png)
+
+4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+
+    ![Cuadro de diálogo Usuario](./media/active-directory-saas-encompass-tutorial/create_aaduser_04.png)
+
+    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+
+    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
+
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+
+    d. Haga clic en **Crear**.
+  
+### <a name="create-a-encompass-test-user"></a>Creación de un usuario de prueba de Encompass
+
+En esta sección, se crea un usuario denominado Britta Simon en Encompass. Trabaje con el [equipo de soporte técnico de Encompass](http://www.voxmobile.com/contact/) para agregar los usuarios a la plataforma de Encompass. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Encompass.
+
+![Asignación del rol de usuario][200] 
+
+**Para asignar Britta Simon a Encompass, realice los pasos siguientes:**
+
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+
+    ![Asignar usuario][201] 
+
+2. En la lista de aplicaciones, seleccione **Encompass**.
+
+    ![Vínculo a Encompass en la lista de aplicaciones](./media/active-directory-saas-encompass-tutorial/tutorial_encompass_app.png)  
+
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+
+    ![Vínculo "Usuarios y grupos"][202]
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Panel Agregar asignación][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+
+Al hacer clic en el icono de Encompass en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Encompass.
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-encompass-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-encompass-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-encompass-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-encompass-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-encompass-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-encompass-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-encompass-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-encompass-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-encompass-tutorial/tutorial_general_203.png
+
+

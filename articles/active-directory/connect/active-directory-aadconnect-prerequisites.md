@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: eb9697edc5a6085417ec1339c334db6451ebbf12
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: e09017cbd6c4060ea24bb17c751277b4f4c6daf8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Requisitos previos de Azure AD Connect
@@ -76,7 +76,8 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesita.
 * Si tiene firewalls en la Intranet y necesita abrir puertos entre los servidores de Azure AD Connect y los controladores de dominio, consulte [La identidad híbrida requería puertos y protocolos](active-directory-aadconnect-ports.md) para más información.
 * Si el proxy o firewall limita a qué direcciones URL se puede acceder, deben abrirse las direcciones URL que se documentan en [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
   * Si está usando Microsoft Cloud en Alemania o Microsoft Azure Government Cloud, consulte [Azure AD Connect: consideraciones especiales para instancias](active-directory-aadconnect-instances.md) para ver las direcciones URL.
-* Azure AD Connect utiliza TLS 1.0 de forma predeterminada para comunicarse con Azure AD. Puede cambiar este protocolo a TLS 1.2 siguiendo los pasos que se describen en [Habilitación de TLS 1.2 en Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
+* Azure AD Connect (versión 1.1.614.0 y posteriores) usa de forma predeterminada TLS 1.2 para cifrar la comunicación entre el motor de sincronización y Azure AD. Si TLS 1.2 no está disponible en el sistema operativo subyacente, Azure AD Connect recurre de mayor a menor a los protocolos anteriores (TLS 1.1 y TLS 1.0). Por ejemplo, Azure AD Connect en Windows Server 2008 usa TLS 1.0 porque Windows Server 2008 no admite TLS 1.1 ni TLS 1.2.
+* Antes de la versión 1.1.614.0, Azure AD Connect usa de forma predeterminada TLS 1.0 para cifrar la comunicación entre el motor de sincronización y Azure AD. Para cambiar este protocolo a TLS 1.2, siga los pasos que se describen en [Habilitación de TLS 1.2 en Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
 * Si usa un proxy de salida para realizar la conexión a Internet, se tiene que agregar la siguiente configuración del archivo **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** con el fin de que el Asistente para instalación y la sincronización de Azure AD Connect se puedan conectar a Internet y Azure AD. Este texto debe escribirse en la parte inferior del archivo. En este código, &lt;PROXYADRESS&gt; representa el nombre de host o la dirección IP de proxy real.
 
 ```
@@ -128,7 +129,7 @@ Azure AD Connect depende de Microsoft PowerShell y .NET Framework 4.5.1. Necesit
   * .NET Framework 4.5.1 y versiones posteriores están disponibles en el [Centro de descarga de Microsoft](http://www.microsoft.com/downloads).
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Habilitación de TLS 1.2 en Azure AD Connect
-Azure AD Connect usa TLS 1.0 de forma predeterminada para cifrar la comunicación entre el servidor del motor de sincronización y Azure AD. Puede cambiar este protocolo configurando las aplicaciones .NET para que empleen TLS 1.2 de forma predeterminada en el servidor. Puede encontrar más información sobre TLS 1.2 en [Documento informativo sobre seguridad de Microsoft 2960358 ](https://technet.microsoft.com/security/advisory/2960358).
+Antes de la versión 1.1.614.0, Azure AD Connect usa de forma predeterminada TLS 1.0 para cifrar la comunicación entre el servidor de sincronización y Azure AD. Puede cambiar este protocolo configurando las aplicaciones .NET para que empleen TLS 1.2 de forma predeterminada en el servidor. Puede encontrar más información sobre TLS 1.2 en [Documento informativo sobre seguridad de Microsoft 2960358 ](https://technet.microsoft.com/security/advisory/2960358).
 
 1. No se puede habilitar TLS 1.2 en Windows Server 2008. Se requiere Windows Server 2008 R2 o posterior. Asegúrese de que la revisión de .NET 4.5.1 esté instalada en el sistema operativo. Consulte [Documento informativo sobre seguridad de Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358). Puede que ya tenga esta revisión o una posterior instalada en el servidor.
 2. Si usa Windows Server 2008 R2, asegúrese de que TLS 1.2 esté habilitado. En el servidor de Windows Server 2012 y versiones posteriores, TLS 1.2 ya debe estar habilitado.

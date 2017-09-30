@@ -3,7 +3,7 @@ title: "Preparación de la implementación de un clúster independiente de Azure
 description: "Documentación relacionada con la preparación del entorno y la creación de la configuración del clúster, que se debe tener en cuenta antes de implementar un clúster dirigido a administrar una carga de trabajo de producción."
 services: service-fabric
 documentationcenter: .net
-author: maburlik
+author: dkkapur
 manager: timlt
 editor: 
 ms.service: service-fabric
@@ -11,44 +11,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: maburlik;chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f332193f9a53260173a1010b8bf9f08726bea427
-ms.lasthandoff: 03/31/2017
-
+ms.date: 9/12/2017
+ms.author: dekapur;maburlik;chackdan
+ms.translationtype: HT
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: e5d582431b53aafb977e219ecf3bc882232efaaa
+ms.contentlocale: es-es
+ms.lasthandoff: 09/16/2017
 
 ---
 
 <a id="preparemachines"></a>
 
-## <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planeamiento y preparación del desarrollo de un clúster independiente de Service Fabric
+# <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster independiente de Service Fabric
 Realice los pasos siguientes antes de crear el clúster.
 
-### <a name="step-1-plan-your-cluster-infrastructure"></a>Paso 1: Planear la infraestructura de clúster
-Va a crear un clúster de Service Fabric en máquinas que posee, por lo que podrá decidir qué tipos de errores desea que resista el clúster. Por ejemplo, ¿necesita separar redes eléctricas o conexiones a Internet que proporcionan estas máquinas? Además, debe tener en cuenta la seguridad física de estas máquinas. ¿Donde se encuentran las máquinas y quién tiene acceso a ellas? Una vez que haya tomado estas decisiones, asigne las máquinas de manera lógica a los distintos dominios de error (vea el paso 4). El planeamiento de la infraestructura para clústeres de producción es más complicado que el de los clústeres de prueba.
+## <a name="plan-your-cluster-infrastructure"></a>Planear la infraestructura del clúster
+Va a crear un clúster de Service Fabric en máquinas que "posee", por lo que podrá decidir qué tipos de errores desea que resista el clúster. Por ejemplo, ¿necesita separar redes eléctricas o conexiones a Internet que proporcionan estas máquinas? Además, debe tener en cuenta la seguridad física de estas máquinas. ¿Donde se encuentran las máquinas y quién tiene acceso a ellas? Una vez que haya tomado estas decisiones, asigne las máquinas de manera lógica a los distintos dominios de error (consulte el siguiente paso). El planeamiento de la infraestructura para clústeres de producción es más complicado que el de los clústeres de prueba.
 
-### <a name="step-2-prepare-the-machines-to-meet-the-prerequisites"></a>Paso 2: Preparar las máquinas para cumplir los requisitos previos
-Requisitos previos para cada máquina que desee agregar al clúster:
-
-* Se recomiendan como mínimo 16 GB de RAM.
-* Se recomiendan 40 GB de espacio disponible en disco como mínimo.
-* Se recomienda una CPU de cuatro núcleos o más.
-* Conectividad a una o varias redes seguras para todas las máquinas.
-* Windows Server 2012 R2 o Windows Server 2016. 
-* [.NET Framework 4.5.1 o posterior](https://www.microsoft.com/download/details.aspx?id=40773)(instalación completa).
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell).
-* El [servicio RemoteRegistry](https://technet.microsoft.com/library/cc754820) se debe estar ejecutando en todas las máquinas.
-
-El administrador de clúster que implemente y configure el clúster debe tener [privilegios de administrador](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) en cada una de las máquinas. No se puede instalar Service Fabric en un controlador de dominio.
-
-### <a name="step-3-determine-the-initial-cluster-size"></a>Paso 3: Determinar el tamaño inicial del clúster
-Cada nodo de un clúster de Service Fabric independiente tiene el sistema en tiempo de ejecución de Service Fabric implementado y es miembro del clúster. En una implementación típica de producción, hay un nodo por cada instancia de sistema operativo (física o virtual). El tamaño del clúster depende de sus necesidades empresariales. Sin embargo, debe tener un tamaño mínimo de clúster de tres nodos (máquinas o máquinas virtuales).
-Con fines de desarrollo, puede tener más de un nodo en una máquina determinada. En un entorno de producción, Service Fabric solo admite un nodo por máquina virtual o física.
-
-### <a name="step-4-determine-the-number-of-fault-domains-and-upgrade-domains"></a>Paso 4: Determinar el número de dominios de error y de actualización
-Un *dominio de error* (FD) es una unidad física de error, y está directamente relacionado con la infraestructura física de los centros de datos. Un dominio de error consta de componentes de hardware (equipos, conmutadores, redes, etc.) que comparten un único punto de error. Aunque no hay ninguna asignación 1:1 entre dominios de error y racks, en términos generales, cada bastidor puede considerarse un dominio de error. A la hora de valorar los nodos del clúster, se recomienda que los nodos se distribuyan entre tres dominios de error como mínimo.
+## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>Determinar el número de dominios de error y de actualización
+Un [*dominio de error* (FD)](service-fabric-cluster-resource-manager-cluster-description.md) es una unidad física de error y está directamente relacionado con la infraestructura física de los centros de datos. Un dominio de error consta de componentes de hardware (equipos, conmutadores, redes, etc.) que comparten un único punto de error. Aunque no hay ninguna asignación 1:1 entre dominios de error y racks, en términos generales, cada bastidor puede considerarse un dominio de error.
 
 Si especifica dominios de error en ClusterConfig.json, puede elegir el nombre de cada uno. Service Fabric admite FD jerárquicos, así que puede reflejar la topología de infraestructura en ellos.  Por ejemplo, los siguientes FD son válidos:
 
@@ -67,12 +49,35 @@ Si especifica dominios de actualización en ClusterConfig.json, puede elegir el 
 * "upgradeDomain": "DomainRed"
 * "upgradeDomain": "Blue"
 
-Para más información sobre los dominios de actualización y los dominios de error, vea [Descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
+Para más información sobre los dominios de actualización y los dominios de error, consulte [Descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-### <a name="step-5-download-the-service-fabric-standalone-package-for-windows-server"></a>Paso 5: Descarga del paquete independiente de Windows Server para Service Fabric
+Un clúster en producción debe extender al menos tres FD para que se admita en un entorno de producción, si tiene control total sobre el mantenimiento y la administración de los nodos, es decir, usted es responsable de actualizar y reemplazar las máquinas. Para los clústeres que se ejecutan en entornos (por ejemplo, instancias de máquinas virtuales de Amazon Web Services) en los que no tiene control total sobre las máquinas, debe tener un mínimo de cinco FD en el clúster. Cada FD puede tener uno o más nodos. Esto es para evitar problemas causados por actualizaciones de máquinas que, dependiendo de su programación temporal, pueden interferir con la ejecución de aplicaciones y servicios de clústeres.
+
+## <a name="determine-the-initial-cluster-size"></a>Determinar el tamaño inicial del clúster
+
+Por lo general, el número de nodos del clúster se determina en función de las necesidades empresariales, por ejemplo, el número de servicios y contenedores que se ejecutarán en el clúster y la cantidad de recursos necesaria para admitir las cargas de trabajo. Para los clústeres de producción, se recomienda tener al menos 5 nodos en el clúster, que expanden 5 FD. Sin embargo, como se describió anteriormente, si tiene control total sobre los nodos y puede extender tres FD, tres nodos serán suficientes.
+
+Los clústeres de prueba que ejecutan cargas de trabajo con estado deben tener tres nodos, mientras que los clústeres de prueba que solo ejecutan cargas de trabajo sin estado solamente necesitan un nodo. Se debe también tener en cuenta que, para fines de desarrollo, puede tener más de un nodo en un equipo determinado. Sin embargo, en un entorno de producción, Service Fabric solo admite un nodo por máquina virtual o física.
+
+## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>Preparación de las máquinas que servirán como nodos
+
+Estas son algunas especificaciones recomendadas para cada máquina que se va a agregar al clúster:
+
+* Un mínimo de 16 GB de RAM
+* Un mínimo de 40 GB de espacio disponible en disco
+* Una CPU de 4 núcleos o superior
+* Conectividad a una o varias redes seguras para todas las máquinas
+* Windows Server 2012 R2 o Windows Server 2016
+* [.NET Framework 4.5.1 o posterior](https://www.microsoft.com/download/details.aspx?id=40773) (instalación completa)
+* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
+* El [servicio RemoteRegistry](https://technet.microsoft.com/library/cc754820) se debe estar ejecutando en todas las máquinas
+
+El administrador de clúster que implemente y configure el clúster debe tener [privilegios de administrador](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) en cada una de las máquinas. No se puede instalar Service Fabric en un controlador de dominio.
+
+## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Descarga del paquete independiente de Service Fabric para Windows Server
 [Descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) y descomprímalo en una máquina de implementación que no forme parte del clúster, o bien en una de las máquinas que formarán parte del clúster.
 
-### <a name="step-6-modify-cluster-configuration"></a>Paso 6: Modificación de la configuración del clúster
+## <a name="modify-cluster-configuration"></a>Modificación de la configuración del clúster
 Para crear un clúster independiente, debe crear un archivo ClusterConfig.json de configuración del clúster independiente, que describa la especificación del clúster. Puede basar el archivo de configuración en las plantillas que se encuentran en el siguiente vínculo. <br>
 [Configuraciones de clúster independiente](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
@@ -88,7 +93,7 @@ Después de que se han realizado todas las configuraciones del clúster de acuer
 
 <a id="environmentsetup"></a>
 
-### <a name="step-7-environment-setup"></a>Paso 7. Configuración del entorno
+## <a name="environment-setup"></a>Configuración del entorno
 
 Cuando un administrador de clústeres configura un clúster independiente de Service Fabric, es necesario configurar el entorno con los siguientes criterios: <br>
 1. El usuario que crea el clúster debe tener privilegios de seguridad de nivel de administrador en todas las máquinas que se enumeran como nodos en el archivo de configuración del clúster.
@@ -104,8 +109,8 @@ Cuando un administrador de clústeres configura un clúster independiente de Ser
 3. Ninguna de las máquinas de nodo del clúster debe ser un controlador de dominio.
 4. Si el clúster que se va a implementar es un clúster seguro, valide que los requisitos previos de seguridad necesarios estén implementados y que se ajusten a la configuración.
 5. Si las máquinas del clúster no son accesibles desde Internet, establezca lo siguiente en la configuración del clúster:
-* Deshabilite la telemetría: en *Propiedades*, establezca   *"enableTelemetry" en false*.
-* Deshabilite la descarga de versiones de Fabric y las notificaciones automáticas de que la versión actual del clúster está próxima a finalizar el soporte técnico: en *properties*, establezca   *"fabricClusterAutoupgradeEnabled": false*.
+* Deshabilite la telemetría: en *Propiedades*, establezca *"enableTelemetry" en false*
+* Deshabilite la descarga de versiones de Fabric y las notificaciones automáticas de que la versión actual del clúster está próxima a finalizar el soporte técnico: en *properties*, establezca *"fabricClusterAutoupgradeEnabled" en false*
 * Como alternativa, en el caso de que el acceso a Internet de red está limitado a los dominios de la lista blanca, tendrán que incluirse los dominios siguientes para la actualización automática: go.microsoft.com y download.microsoft.com.
 
 6. Establezca las exclusiones adecuadas del antivirus de Service Fabric:
@@ -131,7 +136,7 @@ Cuando un administrador de clústeres configura un clúster independiente de Ser
 | FabricRM.exe |
 | FileStoreService.exe |
 
-### <a name="step-8-validate-environment-using-testconfiguration-script"></a>Paso 8. Validación del entorno mediante el script TestConfiguration
+## <a name="validate-environment-using-testconfiguration-script"></a>Validación del entorno mediante el script TestConfiguration
 El script TestConfiguration.ps1 se puede encontrar en el paquete independiente. Se usa como Analizador de procedimientos recomendados para validar algunos de los criterios anteriores y debe usarse como una comprobación de integridad para validar si un clúster puede implementarse en un entorno determinado. Si se produce cualquier error, consulte la lista que aparece en [Configuración del entorno](service-fabric-cluster-standalone-deployment-preparation.md) para solucionar el problema. 
 
 Este script puede ejecutarse en cualquier máquina que tenga acceso de administrador a todas las máquinas que se muestran como nodos en el archivo de configuración del clúster. La máquina donde se ejecuta este script no tiene que formar parte del clúster.

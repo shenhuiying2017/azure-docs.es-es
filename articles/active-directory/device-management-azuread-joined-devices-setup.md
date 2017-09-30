@@ -16,49 +16,37 @@ ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: f548833cca27debb67cb155be0791299470f28dd
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
+ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Configuración de dispositivos unidos a Azure Active Directory
 
-La administración de dispositivos en Azure Active Directory (Azure AD) puede ayudar a asegurarse de que los usuarios tienen acceso a los recursos desde dispositivos que cumplen los estándares de seguridad y cumplimiento. Para obtener más información, vea [Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md).
+Con la administración de dispositivos en Azure Active Directory (Azure AD), puede asegurarse de que los usuarios tienen acceso a los recursos desde dispositivos que cumplen los estándares de seguridad y cumplimiento. Para obtener más información, vea [Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md).
 
-Con los [dispositivos unidos a Azure AD](device-management-introduction.md#azure-ad-joined-devices), puede hacer que los dispositivos de Windows 10 que pertenecen a su organización estén bajo el control de Azure AD. Estos dispositivos no deben estar ya [unidos a una implementación de AD local](device-management-introduction.md#hybrid-azure-ad-joined-devices).
+Si quiere tener dispositivos Windows 10 de trabajo bajo el control de Azure AD, configure dispositivos unidos a Azure AD. En este tema, se indican los pasos relacionados. 
 
-En este tema se proporcionan instrucciones sobre cómo registrar dispositivos Windows 10 con Azure AD. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, debe comprobar que:
-
-- Tiene permisos para unir dispositivos a Azure AD.
-
-    ![Conectado](./media/device-management-azuread-joined-devices-setup/21.png)
-
-- Aún no ha superado aún el número máximo de dispositivos por usuario. 
-
-    ![Conectado](./media/device-management-azuread-joined-devices-setup/22.png)
-
-
-Para obtener más información, consulte [Configure device settings](device-management-azure-portal.md#configure-device-settings) (Configuración del dispositivo).
+Para unir un dispositivo Windows 10, el servicio de registro de dispositivos debe configurarse para que pueda registrar dispositivos. Además de tener permiso para unir dispositivos en su inquilino de Azure AD, debe tener menos dispositivos registrados que el máximo configurado. Para obtener más información, consulte [Configure device settings](device-management-azure-portal.md#configure-device-settings) (Configuración del dispositivo).
 
 
 
 ## <a name="what-you-should-know"></a>Qué debería saber
 
 
-- Windows registra el dispositivo en el directorio de la organización en Azure AD.
+- Windows une el dispositivo al directorio de la organización en Azure AD.
 
-- Es posible que se le pida que pase el desafío de autenticación multifactor. El administrador de TI puede configurar este desafío.
+- Es posible que se le pida que pase el desafío de autenticación multifactor. Este desafío puede configurarlo el administrador de TI.
 
-- Azure AD comprueba si el dispositivo requiere una inscripción en la administración de dispositivos móviles. Inscribe el dispositivo, si procede.
+- Azure AD comprueba si el dispositivo requiere la inscripción de administración de dispositivos móviles y lo inscribe si es necesario.
 
-- Windows redirige a los usuarios administrados en el escritorio mediante el proceso de inicio de sesión automático.
+- Si es un usuario administrado, Windows le llevará al escritorio mediante el inicio de sesión automático.
 
-- Los usuarios federados se redirigen a una página de inicio de sesión de Windows para que introduzcan las credenciales.
+- Si es un usuario federado, tendrá que iniciar sesión con sus credenciales.
 
 
 ## <a name="joining-a-device"></a>Unión de un dispositivo
@@ -135,9 +123,8 @@ Para obtener más información, consulte [Locate devices](device-management-azur
 Para más información, consulte: 
 
 - [Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md)
-
 - [Managing devices using the Azure portal](device-management-azure-portal.md) (Administración de dispositivos con Azure Portal)
-
+- 
 
 
 

@@ -11,29 +11,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 9fec51528d1203a7107558408ced42fa2b2b884a
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8e4b3466143dc8b19df399913baca864b0af9bc0
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
 
-# <a name="use-managed-service-identity-msi-with-a-linux-vm-to-access-storage-credentials"></a>Uso de Managed Service Identity (MSI) con una máquina virtual Linux para tener acceso a las credenciales de Storage
+# <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage"></a>Uso de Managed Service Identity en una máquina virtual Linux para tener acceso a Azure Storage
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial muestra cómo habilitar Managed Service Identity (MSI) para una máquina virtual Linux y, a continuación, usar esa identidad para acceder a las claves de almacenamiento. Puede usar las claves de almacenamiento de la forma habitual al realizar operaciones de almacenamiento, por ejemplo, al usar Storage SDK. En este tutorial, se cargarán y descargarán blobs mediante la CLI de Azure. Aprenderá a:
+Este tutorial muestra cómo habilitar Managed Service Identity (MSI) para una máquina virtual Linux y, a continuación, usar esa identidad para acceder a las claves de almacenamiento. Puede usar las claves de almacenamiento de la forma habitual al realizar operaciones de almacenamiento, por ejemplo, al usar Storage SDK. En este tutorial se cargan y descargan blobs mediante la CLI de Azure. Aprenderá a:
 
 
 > [!div class="checklist"]
 > * Habilitar MSI en una máquina virtual Linux 
-> * Creación de una cuenta de Storage
-> * Conceder a la máquina virtual acceso a Storage
-> * Obtener un token de acceso para la cuenta de Storage utilizando la identidad de máquina virtual para acceder a las claves de almacenamiento 
+> * Conceder acceso a la máquina virtual a las claves de almacenamiento en Resource Manager
+> * Obtener un token de acceso mediante la identidad de la máquina virtual y utilizarlo para recuperar claves de almacenamiento de Resource Manager 
 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -42,13 +41,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Creación de una máquina virtual Linux en un nuevo grupo de recursos
+## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Crear una máquina virtual Linux en un nuevo grupo de recursos
 
 En este tutorial, vamos a crear una nueva máquina virtual Linux. También puede habilitar MSI en una máquina virtual existente.
 
 1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
 2. Seleccione **Compute**y, después, seleccione **Ubuntu Server 16.04 LTS**.
-3. Escriba la información de la máquina virtual. En **Tipo de autenticación**, seleccione **Clave pública SSH** o **Contraseña**. Las credenciales creadas le permitirán iniciar sesión en la máquina virtual.
+3. Escriba la información de la máquina virtual. En **Tipo de autenticación**, seleccione **Clave pública SSH** o **Contraseña**. Las credenciales creadas le permiten iniciar sesión en la máquina virtual.
 
     ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
@@ -60,32 +59,44 @@ En este tutorial, vamos a crear una nueva máquina virtual Linux. También puede
 
 Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azure AD sin tener que incluir las credenciales en el código. Al habilitar MSI, se hacen dos cosas en segundo plano: se instala la extensión MSI en la máquina virtual y se habilita Managed Service Identity para la máquina virtual.  
 
-1. Seleccione la **máquina virtual** en la que quiera habilitar MSI.
-2. En la barra de navegación de la izquierda, haga clic en **Configuración**.
-3. Verá **Managed Service Identity**. Para registrar y habilitar MSI, seleccione **Sí**; si desea deshabilitarla, elija No.
+1. Desplácese hasta el grupo de recursos de la nueva máquina virtual y seleccione la máquina virtual que creó en el paso anterior.
+2. En la configuración de máquina virtual, a la izquierda, haga clic en **Configuración**.
+3. Para registrar y habilitar MSI, seleccione **Sí**; si desea deshabilitarla, elija No.
 4. No olvide hacer clic en **Guardar** para guardar la configuración.
 
     ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Si desea comprobar las extensiones que están en esta **máquina virtual Linux**, haga clic en **Extensiones**. Si MSI está habilitada, **ManagedIdentityExtensionforLinux** aparecerá en la lista.
+5. Si desea comprobar las extensiones que hay en la máquina virtual, haga clic en **Extensiones**. Si MSI está habilitado, **ManagedIdentityExtensionforLinux** aparece en la lista.
 
     ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
+## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento 
 
-## <a name="create-a-new-storage-account"></a>Creación de una cuenta de Storage 
+Si aún no tiene una, creará ahora una cuenta de almacenamiento.  También puede omitir este paso y conceder acceso para MSI en la máquina virtual a las claves de una cuenta de almacenamiento existente. 
 
-Puede usar las claves de almacenamiento de la manera habitual al realizar operaciones de Storage; este ejemplo se centra en la carga y la descarga de blobs mediante la CLI de Azure. 
+1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
+2. Haga clic en **Storage**, a continuación, en **Cuenta de almacenamiento** y se mostrará un nuevo panel "Crear cuenta de almacenamiento".
+3. Escriba un **Nombre** para la cuenta de almacenamiento, que utilizará más adelante.  
+4. **Modelo de implementación** y **Clase de cuenta** debe establecerse en "Resource Manager" y "Uso General", respectivamente. 
+5. Asegúrese de que **Suscripción** y **Grupo de recursos** coinciden con los que especificó cuando creó la máquina virtual en el paso anterior.
+6. Haga clic en **Crear**.
 
-1. Vaya a la barra lateral y seleccione **Storage**.  
-2. Cree una nueva **cuenta de Storage**.  
-3. En **Modelo de implementación**, escriba **Resource Manager** y en **Tipo de cuenta**, seleccione **Uso general**.  
-4. Asegúrese de que los valores de **Suscripción** y **Grupo de recursos** sean los que usó cuando creó su **máquina virtual Linux** en el paso anterior.
+    ![Creación de una nueva cuenta de almacenamiento](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-    ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+## <a name="create-a-blob-container-in-the-storage-account"></a>Creación de un contenedor de blobs en la cuenta de almacenamiento
 
-## <a name="grant-your-vm-identity-access-to-use-storage-keys"></a>Concesión de acceso a la identidad de máquina virtual para usar claves de almacenamiento 
+Más adelante se cargará y descargará un archivo a la nueva cuenta de almacenamiento. Dado que los archivos requieren almacenamiento de blobs, es necesario crear un contenedor de blobs en el que almacenar el archivo.
 
-Con MSI, el código puede obtener tokens de acceso para autenticarse en los recursos que admitan la autenticación de Azure AD.   
+1. Vuelva a la cuenta de almacenamiento recién creada.
+2. Haga clic en el vínculo **Contenedores** en la barra de navegación izquierda, en "Blob service".
+3. Haga clic en **+ Contenedor** en la parte superior de la página y se abrirá un panel "Nuevo contenedor".
+4. Asigne un nombre al contenedor, seleccione un nivel de acceso y, a continuación, haga clic en **Aceptar**. El nombre especificado se utilizará más adelante en el tutorial. 
+
+    ![Creación de contenedores de almacenamiento](media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+
+## <a name="grant-your-vms-identity-access-to-use-storage-keys"></a>Concesión de acceso a la identidad de la máquina virtual para usar claves de almacenamiento 
+
+Azure Storage no admite la autenticación de Azure AD de forma nativa.  No obstante, puede usar una instancia de MSI para recuperar las claves de almacenamiento de Resource Manager y usar dichas claves para tener acceso al almacenamiento.  En este paso, se concede a la instancia de MSI en la máquina virtual acceso a las claves para la cuenta de almacenamiento.   
 
 1. Vaya a la pestaña de **Storage**.  
 2. Seleccione la **cuenta de Storage** específica que creó anteriormente.   
@@ -96,31 +107,32 @@ Con MSI, el código puede obtener tokens de acceso para autenticarse en los recu
 7. Por último, en **Seleccionar**, elija la máquina virtual Linux en la lista desplegable y haga clic en **Guardar**. 
     ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-resource-manager"></a>Obtención de un token de acceso mediante la identidad de máquina virtual y su uso para llamar a Azure Resource Manager
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Obtención de un token de acceso utilizando la identidad de la máquina virtual y su uso para llamar a Azure Resource Manager
 
-Tendrá que usar el terminal Bash, escoger y descargar la distribución de Linux [aquí](https://msdn.microsoft.com/commandline/wsl/install_guide).
-
+Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede usar el cliente SSH en el [Subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/install_guide).
 
 1. En el portal, vaya a la máquina virtual Linux y, en **Información general**, haga clic en **Conectar**. Se le pedirá que use Bash, tome nota de su SSH y IP de máquina virtual en la alerta. 
 2. Abra y conéctese a Bash.  
 3. En el terminal, escriba en su **SSH** y **máquina virtual** a la que desea conectarse, por ejemplo, "ssh admin@12.61.219.35 ".  
 4. A continuación, se le pedirá que escriba la **contraseña** que agregó al crear la **máquina virtual Linux**. Debe haber iniciado sesión correctamente.  
-5. A continuación, puede crear una solicitud mediante CURL para obtener el token de autorización para la máquina virtual Linux en la que ha iniciado sesión. El punto de conexión de**Azure Resource Manager** es https://management.azure.com.  
+5. Utilice CURL para obtener un token de acceso para Azure Resource Manager.  
 
     La solicitud CURL para el token de acceso está debajo:
     
     ```bash
-    curl --data "authority= https://login.microsoftonline.com/<TENANT ID>&&resource=https://management.azure.com/"  -H Metadata:true http://localhost:50432/oauth2/token   
+    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true    
     ```
     
     > [!NOTE]
-    > Asegúrese de que la dirección URL para el recurso para el que está intentando solicitar acceso contiene un formato adecuado con una barra diagonal al final, como "https:<RESOURCE>/"
+    > El valor del parámetro "resource" debe coincidir exactamente con el que Azure AD espera. Al usar el id. de recurso de Azure Resource Manager, debe incluir la barra diagonal final en el URI.
     
-    ```powershell
+    ```bash
     {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyIsImtpZCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3LyIsImlhdCI6MTUwNDEyNjYyNywibmJmIjoxNTA0MTI2NjI3LCJleHAiOjE1MDQxMzA1MjcsImFpbyI6IlkyRmdZTGg2dENWSzRkSDlGWGtuZzgyQ21ZNVdBZ0E9IiwiYXBwaWQiOiI2ZjJmNmU2OS04MGExLTQ3NmEtOGRjZi1mOTgzZDZkMjUxYjgiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwib2lkIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwic3ViIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoib0U5T3JVZFJMMHVKSEw4UFdvOEJBQSIsInZlciI6IjEuMCJ9.J6KS7b9kFgDkegJ-Vfff19LMnu3Cfps4dL2uNGucb5M76rgDM5f73VO-19wZSRhQPxWmZLETzN3SljnIMQMkYWncp79MVdBud_xqXYyLdQpGkNinpKVJhTo1j1dY27U_Cjl4yvvpBTrtH3OX9gG0GtQs7PBFTTLznqcH3JR9f-bTSEN4wUhalaIPHPciVDtJI9I24_vvMfVqxkXOo6gkL0mEP"}
      ```
     
-## <a name="the-curl-request-to-get-storage-keys-from-azure-resource-manager"></a>La solicitud CURL para obtener las claves de almacenamiento de Azure Resource Manager  
+## <a name="use-curl-to-get-storage-keys-from-azure-resource-manager"></a>Uso de CURL para obtener las claves de almacenamiento de Azure Resource Manager  
+
+Ahora vamos a utilizar CURL para realizar una llamada a Resource Manager mediante el token de acceso que se recuperó en la sección anterior, para recuperar la clave de acceso de almacenamiento. Una vez que tenemos la clave de acceso de almacenamiento, podemos hacer llamadas a operaciones de carga y descarga del almacenamiento.
 
 > [!NOTE]
 > El texto en la dirección URL distingue mayúsculas de minúsculas, por lo que tiene que fijarse si usa mayúsculas o minúsculas para los grupos de recursos para reflejarlo adecuadamente según corresponda. Además, es importante saber que se trata de una solicitud POST, no una solicitud GET, y asegurarse de que pasa un valor para capturar un límite de longitud con -d que puede ser NULL.  
@@ -136,14 +148,13 @@ La respuesta CURL le ofrece la lista de claves:
 ```
 
 
-Cree un archivo para cargar, se trata de un archivo de blob de ejemplo que puede cargar con las claves de almacenamiento en la cuenta de almacenamiento dentro del contenedor que ha creado. 
-
-En una máquina virtual Linux puede hacer esto con el siguiente comando. 
+Cree un archivo blob de ejemplo para cargar en el contenedor de almacenamiento de blobs. En una máquina virtual Linux puede hacer esto con el siguiente comando. 
 
 ```bash
 echo "This is a test file." > test.txt
 ```
- A continuación, cargue el archivo usando la CLI de Azure y realice la autenticación con la clave de almacenamiento.
+
+A continuación, cargue el archivo usando la CLI de Azure y realice la autenticación con la clave de almacenamiento.
  
 
 ```azurecli-interactive

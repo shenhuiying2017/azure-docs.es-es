@@ -15,10 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: b8fac1b258535fd668b45acbe2c1c8580fb8a340
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ea4421f7b22cf60b2c3e42b59057162ad56f412e
 ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -34,7 +34,7 @@ Para más información sobre la totalidad de funcionalidades de acceso condicion
 
 En este artículo, nos centramos en el significado que tiene el acceso condicional para los desarrolladores que compilan aplicaciones para Azure AD.  En él se supone que tiene conocimientos de aplicaciones de inquilino [único](active-directory-integrating-applications.md) y [multiinquilino](active-directory-devhowto-multi-tenant-overview.md), además de los [patrones comunes de autenticación](active-directory-authentication-scenarios.md).
 
-Analizaremos en profundidad el impacto de acceder a recursos sobre los cuales no tiene control y en los que se puedan aplicar directivas de acceso condicional.  Además, exploraremos las implicaciones del acceso condicional en el flujo en el nombre de y aplicaciones web, mediante el acceso a Microsoft Graph y llamando a API.
+Analizaremos en profundidad el impacto de acceder a recursos sobre los cuales no tiene control y en los que se puedan aplicar directivas de acceso condicional.  Además, exploraremos las implicaciones del acceso condicional en el flujo en el nombre de otra persona y aplicaciones web, el acceso a Microsoft Graph y las llamadas a API.
 
 ## <a name="how-does-conditional-access-impact-an-app"></a>¿Cómo el acceso condicional impacta a una aplicación?
 
@@ -90,7 +90,7 @@ La información siguiente solo se aplica en estos escenarios de acceso condicion
 
 En las secciones siguientes, describiremos escenarios comunes mucho más complejos.  El principio operativo central es que las directivas de acceso condicional se evalúan en el momento en que se solicita el token para el servicio que tiene aplicada una directiva de acceso condicional, a menos que se acceda a través de Microsoft Graph.
 
-### <a name="scenario-app-accessing-the-microsoft-graph"></a>Escenario: Aplicación que accede a Microsoft Graph
+### <a name="scenario-app-accessing-microsoft-graph"></a>Escenario: Aplicación que accede a Microsoft Graph
 
 En este escenario, analizaremos un caso en el que una aplicación web solicita acceso a Microsoft Graph. En este caso, la directiva de acceso condicional se podría asignar a SharePoint, Exchange o algún otro servicio al que se accede como carga de trabajo mediante Microsoft Graph.  En este ejemplo, vamos a suponer que hay una directiva de acceso condicional en SharePoint Online.
 

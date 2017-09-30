@@ -3,7 +3,7 @@ title: "Creación de un equilibrador de carga interno: CLI de Azure clásica | M
 description: "Información sobre cómo crear un equilibrador de carga interno mediante la CLI de Azure en el modelo de implementación clásica"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
 ms.contentlocale: es-es
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -39,11 +39,11 @@ ms.lasthandoff: 03/21/2017
 
 ## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Para crear un equilibrador de carga interno establecido para máquinas virtuales
 
-Para crear un conjunto con equilibrio de carga interno y los servidores que enviarán su tráfico a él, debe hacer lo siguiente:
+Para crear un conjunto con equilibrio de carga interno y los servidores que envían su tráfico a él, debe hacer lo siguiente:
 
-1. Crea una instancia de Equilibrio de carga interno que será el extremo del tráfico entrante que su carga se va a equilibrar entre los servidores de un conjunto con equilibrio de carga.
-2. Agregue extremos correspondientes a las máquinas virtuales que van a recibir el tráfico entrante.
-3. Configura los servidores que van a enviar el tráfico cuya carga se va a equilibrar para que lo hagan a la dirección IP virtual (VIP) de la instancia de Equilibrio de carga interno.
+1. Crea una instancia de Equilibrio de carga interno que es el punto de conexión del tráfico entrante que su carga se va a equilibrar entre los servidores de un conjunto de carga equilibrada.
+2. Agregue puntos de conexión correspondientes a las máquinas virtuales que van a recibir el tráfico entrante.
+3. Configura los servidores para que envíen el tráfico a la dirección IP virtual (VIP) de la instancia de equilibrio de carga interno.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Creación paso a paso de un equilibrador de carga interno mediante la CLI
 
@@ -64,7 +64,7 @@ Esta guía muestra cómo crear un equilibrador de carga interno basado en el esc
 
 En el escenario se supone la presencia de las máquinas virtuales "DB1" y "DB2" en un servicio en la nube denominado "mytestcloud". Ambas máquinas virtuales usan una red virtual denominada mi "testvnet" con la subred "subnet-1".
 
-Esta guía creará un conjunto de equilibrador de carga interno mediante el puerto 1433 como puerto privado y 1433 como puerto local.
+Esta guía crea un conjunto de equilibrador de carga interno mediante el puerto 1433 como puerto privado y 1433 como puerto local.
 
 Se trata de un escenario común donde hay máquinas virtuales de SQL en el back-end que usan un equilibrador de carga interno para garantizar que los servidores de base de datos no se exponen directamente mediante una dirección IP pública.
 
@@ -93,7 +93,7 @@ A continuación se sigue un ejemplo de la salida:
 
 ### <a name="step-2"></a>Paso 2
 
-Configurar el conjunto del equilibrador de carga interno al agregar el primer punto de conexión. En este paso se asociará el punto de conexión, la máquina virtual y el puerto de sondeo al conjunto del equilibrador de carga interno.
+Configurar el conjunto del equilibrador de carga interno al agregar el primer punto de conexión. En este paso se asocia el punto de conexión, la máquina virtual y el puerto de sondeo al conjunto del equilibrador de carga interno.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -107,7 +107,7 @@ Comprobar la configuración del equilibrador de carga mediante el `azure vm show
 azure vm show DB1
 ```
 
-El resultado será:
+La salida es como sigue:
 
     azure vm show DB1
     info:    Executing command vm show

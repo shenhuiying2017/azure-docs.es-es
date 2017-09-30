@@ -16,10 +16,10 @@ ms.date: 08/09/2017
 ms.author: ryanwi
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 07e55117d92e2780ea0c2ec24af04832f3f704a7
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: d0f67b1a63c36e878ed5f7c9aa1c45267e5b156c
 ms.contentlocale: es-es
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -39,6 +39,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * [Implementar la aplicación en un clúster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Configurar CI/CD con Visual Studio Team Services
+> * [Configurar la supervisión y el diagnóstico para la aplicación](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial:
@@ -159,10 +160,9 @@ En este tutorial, ha aprendido cómo:
 > * Creación de una definición de versión
 > * Implementar y actualizar una aplicación automáticamente
 
-Ahora que ha implementado una aplicación y ha configurado la integración continua, pruebe lo siguiente:
-- [Actualizar una aplicación](service-fabric-application-upgrade.md)
-- [Probar una aplicación](service-fabric-testability-overview.md) 
-- [Supervisar y diagnosticar](service-fabric-diagnostics-overview.md)
+Avance hasta el siguiente tutorial:
+> [!div class="nextstepaction"]
+> [Configurar la supervisión y el diagnóstico para la aplicación](service-fabric-tutorial-monitoring-aspnet.md) 
 
 
 <!-- Image References -->

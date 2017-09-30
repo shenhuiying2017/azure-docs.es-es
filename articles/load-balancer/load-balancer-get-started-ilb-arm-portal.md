@@ -3,7 +3,7 @@ title: "Creación de un equilibrador de carga interno: Azure Portal | Microsoft 
 description: "Obtenga información sobre cómo crear un equilibrador de carga interno en Resource Manager mediante el Portal de Azure"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
 ms.contentlocale: es-es
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -30,6 +30,9 @@ ms.lasthandoff: 01/24/2017
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [CLI de Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Plantilla](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -63,9 +66,9 @@ Para crear un equilibrador de carga interno desde Azure Portal, siga estos pasos
 ## <a name="configure-load-balancing-rules"></a>Configuración de las reglas de equilibrio de carga
 
 Después de la creación del equilibrador de carga, vaya al recurso del equilibrador de carga para configurarlo.
-Tiene que configurar primero un grupo de direcciones back-end y un sondeo antes de configurar una regla de equilibrio de carga.
+Configure un grupo de direcciones de back-end y un sondeo antes de configurar una regla de equilibrio de carga.
 
-### <a name="step-1-configure-a-back-end-pool"></a>Paso 1: Configuración de un grupo back-end
+### <a name="step-1-configure-a-backend-pool"></a>Paso 1: Configuración de un grupo de back-end
 
 1. En Azure Portal, haga clic en **Examinar** > **Equilibradores de carga** y, después, haga clic en el equilibrador de carga que ha creado anteriormente.
 2. En la hoja **Configuración**, haga clic en **Grupos back-end**.
@@ -94,7 +97,7 @@ Tiene que configurar primero un grupo de direcciones back-end y un sondeo antes 
 5. En **Protocolo**, seleccione **HTTP** (para sitios web) o **TCP** (para otras aplicaciones basadas en TCP).
 6. En **Puerto**, especifique los puertos a los que se conectan los clientes en el equilibrador de carga.
 7. En **Puerto back-end**, especifique el puerto que se utilizará para el grupo back-end (normalmente, el puerto del equilibrador de carga y el puerto back-end son iguales).
-8. En **Grupo back-end**, seleccione el grupo back-end que creó anteriormente.
+8. En **Grupo de back-end**, seleccione el grupo de back-end que creó anteriormente.
 9. En **Persistencia de la sesión**, seleccione cómo desea que se conserven las sesiones.
 10. En **Tiempo de espera de inactividad (minutos)**, especifique el tiempo de espera de inactividad.
 11. En **IP flotante (Direct Server Return)**, haga clic en **Deshabilitado** o **Habilitado**.

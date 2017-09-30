@@ -1,4 +1,4 @@
-| **SKU** | **Conexiones de punto a sitio **| **Pruebas comparativas de rendimiento agregado** | **Autenticación RADIUS** |
+| **SKU** | **Conexiones de punto a sitio**| **Pruebas comparativas de rendimiento agregado** | **Autenticación RADIUS** |
 |---|---|---|---|
 | VpnGw1 | 128 | 650 MBps  | Compatible     |
 | VpnGw2 | 128 | 1 Gbps     | Compatible     |

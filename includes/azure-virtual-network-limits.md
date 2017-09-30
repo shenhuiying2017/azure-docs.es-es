@@ -22,27 +22,36 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| Redes virtuales |50 |500 |
-| Subredes por red virtual |1000 |ponerse en contacto con el servicio de soporte técnico |
+| Redes virtuales |50 |1000 |
+| Subredes por red virtual |1000 |10000 |
+| Emparejamientos de redes virtuales por red virtual |10 |50 |
 | Servidores DNS por red virtual |9 |25 |
 | Direcciones IP privadas por red virtual |4096 |8192 |
-| Direcciones IP privadas por interfaz de red |50 |póngase en contacto con el soporte técnico |
+| Direcciones IP privadas por interfaz de red |256 |1024 |
 | Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500 KB |500 KB |
-| Interfaces de red (NIC) |300 |10000 |
-| Grupos de seguridad de red (NSG) |100 |400 |
+| Interfaces de red (NIC) |350 |20000 |
+| Grupos de seguridad de red (NSG) |100 |5000 |
 | Reglas de NSG por NSG |200 |500 |
+| Direcciones IP y rangos especificados para el origen o destino en una regla de seguridad |2000 |4000 |
+| Grupos de seguridad de aplicaciones |200 |500 |
+| Grupos de seguridad de aplicaciones por configuración de IP, por NIC |10 |20 | |
+| Configuraciones de IP por grupo de seguridad de aplicaciones |1000 |4000 |
+| Grupos de seguridad de aplicaciones que se pueden especificar en todas las reglas de seguridad de un grupo de seguridad de red |50 |100 |
 | Tablas de rutas definidas por el usuario |100 |200 |
 | Rutas definidas por el usuario por tabla de ruta |100 |400 |
-| Direcciones IP públicas (dinámicas) |60 |póngase en contacto con el soporte técnico |
-| Direcciones IP públicas (estáticas) |20 |póngase en contacto con el soporte técnico |
-| Equilibradores de carga (interno y accesibles desde Internet) |100 |póngase en contacto con el soporte técnico |
-| Reglas de equilibrador de carga por equilibrador de carga |150 |150 |
-| Reglas de equilibrador de carga por configuración IP |299 |299 |
-| Dirección IP de front-end pública por equilibrador de carga |10 |30 |
-| Dirección IP de front-end privada por equilibrador de carga |10 |póngase en contacto con el soporte técnico |
-| Emparejamientos de redes virtuales por red virtual |10 |50 |
-| Certificados raíz de punto a sitio por puerta de enlace de VPN |20 |20 |
-| Configuraciones de IP secundarias por red virtual |1000 |póngase en contacto con el soporte técnico |
+| Direcciones IP públicas - dinámicas |(Básico) |60 |póngase en contacto con el soporte técnico |
+| Direcciones IP públicas - estáticas |(Básico) 20 |póngase en contacto con el soporte técnico |
+| Direcciones IP públicas - estáticas |(Estándar) 20 |póngase en contacto con el soporte técnico |
+| Equilibradores de carga (interno y accesibles desde Internet, Básico y Estándar) |100 |1000 |
+| Reglas de Load Balancer (Básico) por equilibrador de carga |150 |250 |
+| Reglas de Load Balancer (Estándar) por equilibrador de carga | 1250 | 1.500|
+| Reglas de Load Balancer (Básico) por configuración IP |250 |250 |
+| Dirección IP de front-end pública por Load Balancer (Básico) |10 |30 |
+| Dirección IP de front-end pública por Load Balancer (Estándar) | 10 | 600 |
+| Dirección IP de front-end privada por Load Balancer (Básico) |10 |póngase en contacto con el soporte técnico |
+| Dirección IP de front-end privada por Load Balancer (Estándar) | 10 | 600 |
+| Certificados raíz de punto a sitio por puerta de enlace de VPN |20 |20 | |
+
 
 Si necesita que los límites sean superiores a lo establecido de manera predeterminada, [póngase en contacto con el soporte técnico](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

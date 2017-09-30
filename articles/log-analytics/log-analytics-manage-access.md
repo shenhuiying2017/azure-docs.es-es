@@ -1,6 +1,6 @@
 ---
-title: "Administrar áreas de trabajo en Azure Log Analytics y el portal de OMS | Documentos de Microsoft"
-description: "Puede administrar las áreas de trabajo en Azure Log Analytics y el portal de OMS usando una serie de tareas administrativas en usuarios, cuentas, áreas de trabajo y cuentas de Azure."
+title: "Administración de áreas de trabajo en Azure Log Analytics | Microsoft Docs"
+description: "Puede administrar las áreas de trabajo en Azure Log Analytics, puede usar una serie de tareas administrativas en usuarios, cuentas, áreas de trabajo y cuentas de Azure."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/06/2017
+ms.date: 09/12/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: ff4c937fe06d88c6189d39cf799a5d349d0e280a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: d9f86ac19044fd13e77d35d6c3dd9964c3852001
 ms.contentlocale: es-es
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="manage-workspaces"></a>Administración de áreas de trabajo
@@ -49,21 +49,21 @@ Dadas estas características anteriores, quizás quiera crear varias áreas de t
 * Una empresa internacional que necesita que los datos estén almacenados en regiones concretas por motivos de soberanía de datos o cumplimiento normativo.
 * Un usuario de Azure que desea evitar los gastos de transferencia de datos de salida manteniendo un área de trabajo en la misma región que los recursos de Azure que administra.
 * Se desea asignar los gastos a diferentes departamentos o grupos de negocios en función del uso que hagan. Cuando se crea un área de trabajo para cada departamento o grupo de negocios, la factura y la declaración de uso de Azure reflejan los cargos de cada área de trabajo de manera independiente.
-* Un proveedor de servicio administrado que necesita mantener los datos de Log Analytics para cada cliente que administra aislados de los datos de otro cliente.
+* Es un proveedor de servicio administrado que necesita mantener los datos de Log Analytics para cada cliente que administra aislados de los datos de otro cliente.
 * Si se administran varios clientes y se desea que cada cliente, departamento o grupo empresarial vea sus propios datos, pero no los datos de los demás.
 
 Cuando se usan agentes para recopilar datos, se puede [configurar cada uno de ellos para que informe a una o varias áreas de trabajo](log-analytics-windows-agents.md).
 
-Si usa System Center Operations Manager, cada grupo de administración de Operations Manager se puede conectar con una sola área de trabajo. Se puede instalar Microsoft Monitoring Agent en los equipos administrados por Operations Manager y hacer que el agente informe tanto a Operations Manager como a una diferente área de trabajo de Log Analytics.
+Si usa System Center Operations Manager, cada grupo de administración de Operations Manager se puede conectar con una sola área de trabajo. Sin embargo, se puede configurar Microsoft Monitoring Agent en el equipo para informar tanto a Operations Manager como a cualquier otra área de trabajo de Log Analytics.  
 
 ### <a name="workspace-information"></a>Información del área de trabajo
 
-Puede ver los detalles sobre el área de trabajo en Azure Portal. También puede ver los detalles en el portal de OMS.
+Puede ver los detalles sobre el área de trabajo en Azure Portal. 
 
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Visualización de la información de un área de trabajo en Azure Portal
 
-1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) mediante su suscripción de Azure.
-2. En el menú **central**, haga clic en **Más servicios** y, en la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Log Analytics**.  
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. Haga clic en **Más servicios**, en la esquina inferior izquierda de Azure Portal.  En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Log Analytics**.  
     ![Menú central de Azure](./media/log-analytics-manage-access/hub.png)  
 3. En la hoja de suscripciones de Log Analytics, seleccione un área de trabajo.
 4. La hoja del área de trabajo muestra información detallada sobre el área de trabajo y vínculos a información adicional.  
@@ -160,10 +160,10 @@ Use estos roles para conceder a los usuarios acceso en distintos ámbitos:
 Use [roles personalizados](../active-directory/role-based-access-control-custom-roles.md) para crear roles con los permisos específicos necesarios.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Roles de usuario de Azure y roles de usuario del portal de Log Analytics
-Si tiene al menos permiso de lectura de Azure en el área de trabajo de Log Analytics, puede abrir el portal de Log Analytics haciendo clic en la tarea **Portal de OMS** al visualizar el área de trabajo de Log Analytics.
+Si tiene al menos permiso de lectura de Azure en el área de trabajo de Log Analytics, puede abrir el portal de OMS haciendo clic en la tarea **Portal de OMS** al visualizar el área de trabajo de Log Analytics.
 
-Al abrir el portal de Log Analytics, cambia al uso de los roles de usuario heredados de Log Analytics. Si no tiene una asignación de roles en el portal de Log Analytics, el servicio [comprueba los permisos de Azure que tiene en el área de trabajo](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
-La asignación de roles en el portal de Log Analytics se determina de la manera siguiente:
+Al abrir el portal de OMS, puede cambiar al uso de los roles de usuario heredados de Log Analytics. Si no tiene una asignación de roles en el portal de Log Analytics, el servicio [comprueba los permisos de Azure que tiene en el área de trabajo](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
+La asignación de roles en el portal de OMS se determina de la manera siguiente:
 
 | Condiciones                                                   | Rol de usuario asignado de Log Analytics | Notas |
 |--------------------------------------------------------------|----------------------------------|-------|
@@ -281,83 +281,6 @@ Todas las áreas de trabajo creadas después del 26 de septiembre de 2016 deben 
 >
 >
 
-## <a name="upgrade-a-workspace-to-a-paid-plan"></a>Actualizar el área de trabajo a un plan de pago
-En OMS, existen tres tipos de planes de áreas de trabajo: **Free** (Gratis), **Standalone** (Independiente) y **OMS**.  Si dispone del plan *Free* (Gratis), se puede enviar un máximo de 500 MB de datos por día a Log Analytics.  Si supera esta cantidad, debe cambiar el área de trabajo a un plan de pago para evitar la pérdida de datos una vez superado este límite. Puede cambiar de tipo de plan en cualquier momento.  Para más información sobre los precios de OMS, consulte [Precios de Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
-
-### <a name="using-entitlements-from-an-oms-subscription"></a>Uso de los derechos de una suscripción de OMS
-Para usar los derechos que proceden de la adquisición de OMS E1, OMS E2 OMS o un complemento de OMS para System Center, elija el plan *OMS* de OMS Log Analytics.
-
-Cuando adquiere una suscripción de OMS, los derechos se agregan a su contrato Enterprise. Cualquier suscripción de Azure creada en virtud de este contrato puede usar estos derechos. Todas las áreas de trabajo de estas suscripciones usan los derechos de OMS.
-
-Para asegurarse de que el uso de un área de trabajo se realiza con arreglo a los derechos de la suscripción de OMS, deberá:
-
-1. Crear el área de trabajo en una suscripción de Azure incluida en el contrato Enterprise que incluye la suscripción de OMS
-2. Seleccionar el plan *OMS* para el área de trabajo
-
-> [!NOTE]
-> Si el área de trabajo se creó antes del 26 de septiembre de 2016 y el plan de precios de Log Analytics es *Premium*, este área de trabajo usa los derechos del complemento de OMS para System Center. También puede usar los derechos, cambiando al plan de tarifa *OMS*.
->
->
-
-Los derechos de la suscripción de OMS no son visibles en Azure Portal ni en el portal de OMS. Podrá ver estos derechos y usos en Enterprise Portal.  
-
-Si necesita cambiar la suscripción de Azure a la que está vinculada el área de trabajo, puede usar el cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) de Azure PowerShell.
-
-### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Uso del compromiso de Azure en contratos Enterprise
-Si no tiene una suscripción de OMS, pagará por separado por cada componente de OMS y el uso aparecerá en la factura de Azure.
-
-Si tiene un compromiso monetario de Azure sobre la inscripción Enterprise a la que están vinculadas sus suscripciones de Azure, el uso de Log Analytics se descontará de este importe.
-
-Si necesita cambiar la suscripción de Azure a la que está vinculada el área de trabajo, puede usar el cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) de Azure PowerShell.  
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Cambio de un área de trabajo a un plan de tarifa de pago en Azure Portal
-1. Inicie sesión en [Azure Portal](http://portal.azure.com).
-2. Busque **Log Analytics** y selecciónelo.
-3. Aparecerá una lista con las áreas de trabajo existentes. Seleccione un área de trabajo.  
-4. En la hoja del área de trabajo, en **General**, haga clic en **Plan de tarifa**.  
-5. En **Plan de tarifa**, seleccione un plan de tarifa y haga clic en **Seleccionar**.  
-    ![seleccionar plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. Cuando actualice la vista en Azure Portal, verá que **Plan de tarifa** se ha actualizado con el plan seleccionado.  
-    ![plan actualizado](./media/log-analytics-manage-access/manage-access-change-plan04.png)
-
-> [!NOTE]
-> Si el área de trabajo está vinculada a una cuenta de Automation, antes de seleccionar el plan de tarifa *Independiente (por GB)* debe eliminar todas las soluciones de **Automation and Control** y desvincular la cuenta de Automation. En la hoja del área de trabajo, en **General**, haga clic en **Soluciones** para ver y eliminar soluciones. Para desvincular la cuenta de Automation, haga clic en el nombre de la cuenta de Automation en la hoja **Plan de tarifa**.
->
->
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>Cambio de un área de trabajo a un plan de tarifa de pago en el portal de OMS
-
-Para cambiar el plan de tarifa mediante el portal de OMS, debe tener una suscripción de Azure.
-
-1. En el portal de OMS, haga clic en el icono **Configuración**.
-2. Haga clic en la pestaña **Cuentas** y, luego, en la pestaña **Azure Subscription & Data Plan** (Suscripción y plan de datos de Azure).
-3. Haga clic en el plan de tarifa que quiere usar.
-4. Haga clic en **Guardar**.  
-   ![suscripción y planes de datos](./media/log-analytics-manage-access/subscription-tab.png)
-
-Su nuevo plan de datos se muestra en la cinta de opciones del portal OMS, que se encuentra en la parte superior de la página web.
-
-![cinta de opciones de OMS](./media/log-analytics-manage-access/data-plan-changed.png)
-
-
-## <a name="change-how-long-log-analytics-stores-data"></a>Cambio de la duración del almacenamiento de datos de Log Analytics
-
-En el plan de tarifa Gratis, en Log Analytics están disponibles los datos correspondientes a los últimos siete días.
-En el plan de tarifa Estándar, en Log Analytics están disponibles los datos correspondientes a los últimos treinta días.
-En el plan de tarifa Premium, en Log Analytics están disponibles los datos correspondientes a los últimos 365 días.
-De manera predeterminada, en los planes de tarifa Independiente y OMS de Log Analytics están disponibles los datos correspondientes a los últimos 31 días.
-
-Si usa los planes de tarifas Independiente y OMS, puede conservar hasta dos años de datos (730 días). Los datos almacenados durante más tiempo que el valor predeterminado de 31 días incurrirán en un cargo por retención de datos. Para más información sobre los precios, consulte [Costos del uso por encima del límite](https://azure.microsoft.com/pricing/details/log-analytics/).
-
-Para cambiar la duración de la retención de datos:
-
-1. Inicie sesión en [Azure Portal](http://portal.azure.com).
-2. Busque **Log Analytics** y selecciónelo.
-3. Aparecerá una lista con las áreas de trabajo existentes. Seleccione un área de trabajo.  
-4. En la hoja del área de trabajo, en **General**, haga clic en **Retención**.  
-5. Use el control deslizante para aumentar o disminuir el número de días de retención y haga clic en **Guardar**.  
-    ![Cambio de la retención](./media/log-analytics-manage-access/manage-access-change-retention01.png)
-
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Cambio de la organización de Azure Active Directory para un área de trabajo
 
 Puede cambiar la organización de Azure Active Directory para un área de trabajo. Cambiar la organización de Azure Active Directory le permite agregar usuarios y grupos desde ese directorio al área de trabajo.
@@ -370,22 +293,6 @@ Puede cambiar la organización de Azure Active Directory para un área de trabaj
 3. Especifique los datos de identidad del administrador del dominio de Azure Active Directory. A continuación, verá un mensaje de confirmación en el que se indica que el área de trabajo se ha vinculado al dominio de Azure Active Directory.  
     ![confirmación de área de trabajo vinculada](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
-
-## <a name="delete-a-log-analytics-workspace"></a>Eliminación de un área de trabajo de Log Analytics
-Cuando elimina un área de trabajo de Log Analytics, todos los datos relacionados con el área de trabajo se eliminan del servicio de OMS en un plazo máximo de 30 días.
-
-Si es administrador y hay varios usuarios asociados al área de trabajo, se interrumpirá la asociación entre los usuarios y el área de trabajo. Si los usuarios están asociados a otras áreas de trabajo, podrán seguir utilizando OMS con esas otras áreas de trabajo. Sin embargo, si no están asociados a otras áreas de trabajo, deberán crear un área de trabajo para poder usar OMS.
-
-### <a name="to-delete-a-workspace"></a>Para eliminar un área de trabajo
-1. Inicie sesión en [Azure Portal](http://portal.azure.com).
-2. Busque **Log Analytics** y selecciónelo.
-3. Aparecerá una lista con las áreas de trabajo existentes. Seleccione el área de trabajo que desea eliminar.
-4. En la hoja del área de trabajo, haga clic en **Eliminar**.  
-    ![delete](./media/log-analytics-manage-access/delete-workspace01.png)
-5. En el cuadro de diálogo de confirmación de la eliminación del área de trabajo, haga clic en **Sí**.
-
 ## <a name="next-steps"></a>Pasos siguientes
-* Consulte [Conexión de equipos Windows a Log Analytics](log-analytics-windows-agents.md) para agregar agentes y recopilar información.
-* [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md) para agregar funcionalidad y recopilar información.
-* [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) si la organización utiliza un servidor proxy o un firewall para que los agentes puedan comunicarse con el servicio Log Analytics.
-
+* Consulte [Entender la utilización de datos](log-analytics-usage.md) para saber cómo analizar el volumen de datos recopilados por las soluciones y enviados desde los equipos.
+* [Agregue soluciones de administración de Log Analytics desde Azure Marketplace](log-analytics-add-solutions.md) para agregar funcionalidad y recopilar datos.

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 53c142217c67465d29fa413f4edb4f96fcb4c6cc
+ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
+ms.openlocfilehash: d90b8c41d130526607adb035c5c6d4c02c5f7c4f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>¿Por qué usar un enfoque de microservicios para crear aplicaciones?
@@ -156,7 +156,7 @@ Un enfoque clave en Service Fabric es reutilizar código existente, que luego pu
 
 ![Migración a microservicios][Image3]
 
-Es importante volver a insistir en que puede **empezar y detenerse en cualquiera de estas fases**, no está obligado a pasar a la fase siguiente. Veamos ahora ejemplos de cada una de las fases.
+Es importante destacar de nuevo que se puede **iniciar y detener en cualquiera de estas fases**. No nos vemos obligados a avanzar a la siguiente fase. Veamos ahora ejemplos de cada una de las fases.
 
 **Levantamiento y movimiento** gran cantidad de compañías están levantando y moviendo las aplicaciones monolíticas existentes a contenedores por dos motivos:
 

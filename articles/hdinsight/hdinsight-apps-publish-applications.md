@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/21/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: a7e389037a458c91d67643f7c0fca0691c22224f
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 9bda115455ff1e122ac2764cec612546c71365c4
 ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicación de una aplicación de HDInsight en Azure Marketplace
@@ -41,16 +41,17 @@ También debe registrar la cuenta de desarrollador. Para más información, cons
 ## <a name="define-the-application"></a>Definición de la aplicación
 La publicación de aplicaciones en Marketplace consta de dos pasos. En primer lugar, defina un archivo *createUiDef.json*. El archivo createUiDef.json indica los clústeres con los que es compatible su aplicación. A continuación, publique la plantilla desde Azure Portal. Este es un archivo createUiDef.json de ejemplo:
 
-    {
-        "handler": "Microsoft.HDInsight",
-        "version": "0.0.1-preview",
-        "clusterFilters": {
-            "types": ["Hadoop", "HBase", "Storm", "Spark"],
-            "tiers": ["Standard", "Premium"],
-            "versions": ["3.4"]
-        }
+```json
+{
+    "handler": "Microsoft.HDInsight",
+    "version": "0.0.1-preview",
+    "clusterFilters": {
+        "types": ["Hadoop", "HBase", "Storm", "Spark"],
+        "tiers": ["Standard", "Premium"],
+        "versions": ["3.4"]
     }
-
+}
+```
 
 | Campo | Description | Valores posibles |
 | --- | --- | --- |
@@ -64,7 +65,7 @@ Cuando se instala una aplicación en un clúster (ya sea en un clúster existent
   > [!IMPORTANT]
   > El nombre del script de instalación de la aplicación debe ser único para un clúster específico. El nombre del script debe tener el formato siguiente:
   > 
-  > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+  > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
   > El nombre del script tiene tres partes:
   > 
@@ -102,7 +103,7 @@ Para publicar una aplicación de HDInsight:
 4. Si todavía no ha registrado su organización, seleccione **Create Dev Center account and join the Azure program** ///(Crear cuenta de Centro de desarrollo y unirse al programa de Azure).  Para más información, consulte [Crear una cuenta de desarrollador de Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 5. Seleccione **Define some Topologies to get Started** ///(Definir algunas topologías para comenzar). Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías. 
 6. Escriba un nombre de topología y luego seleccione **+**.
-7. Escriba una nueva versión y luego seleccione ** +**.
+7. Escriba una nueva versión y luego seleccione  **+**.
 8. Cargue el archivo .zip que creó cuando [empaquetó la aplicación](#package-application).  
 9. Seleccione **Request Certification** ///(Solicitar certificación). El equipo de certificación de Microsoft revisa los archivos y certifica la topología.
 

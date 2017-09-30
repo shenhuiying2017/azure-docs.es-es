@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: elkuzmen
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 150c8ff025fa71657aa91cdef728a893d62a5337
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 064843d3118c36c63c3024f5cd5d08ba4d65eb7f
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -59,7 +59,7 @@ Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azu
 2.  En la barra de navegación de la izquierda, haga clic en **Configuración**. 
 3.  Verá **Managed Service Identity**. Para registrar y habilitar MSI, seleccione **Sí**; si desea deshabilitarla, elija No. 
 4.  No olvide hacer clic en **Guardar** para guardar la configuración.  
-    ![Texto alternativo de imagen](media/msi-tutorial-windows-vm-access-arm/msi-windows-configured.png)
+    ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Si desea comprobar las extensiones que están en esta máquina virtual, haga clic en **Extensiones**. Si MSI está habilitada, en la lista aparece **ManagedIdentityExtensionforWindows**.
 
@@ -88,7 +88,7 @@ Deberá usar **PowerShell** en esta parte.  Si no lo ha instalado, descárguelo 
 4.  Mediante Invoke-WebRequest de PowerShell, realice una solicitud al punto de conexión de MSI local para obtener un token de acceso para Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body @resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
@@ -97,7 +97,7 @@ Deberá usar **PowerShell** en esta parte.  Si no lo ha instalado, descárguelo 
     A continuación, extraiga la respuesta completa, que se almacena como una cadena con formato de notación de objetos JavaScript (JSON) en el objeto $response. 
     
     ```powershell
-    $content = $repsonse.Content | ConvertFrom-Json
+    $content = $response.Content | ConvertFrom-Json
     ```
     Luego, extraiga el token de acceso de la respuesta.
     
@@ -111,7 +111,7 @@ Deberá usar **PowerShell** en esta parte.  Si no lo ha instalado, descárguelo 
     (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content
     ```
     > [!NOTE] 
-    > La dirección URL distingue mayúsculas de minúsculas, por lo tanto, asegúrese de que usa las mismas mayúsculas y minúsculas que al asignar el nombre al grupo de recursos, así como la "G" mayúscula de "resourceGrop".
+    > La dirección URL distingue mayúsculas de minúsculas, por lo tanto, asegúrese de que usa las mismas mayúsculas y minúsculas que al asignar el nombre al grupo de recursos, así como la "G" mayúscula de "resourceGroups".
         
     El siguiente comando devuelve los detalles del grupo de recursos:
 

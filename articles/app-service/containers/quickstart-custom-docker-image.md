@@ -1,6 +1,6 @@
 ---
 title: "Ejecución de una imagen personalizada de Docker Hub en Azure Web Apps for Containers | Microsoft Docs"
-description: "Cómo usar una imagen personalizada de Docker para Azure Web Apps for Containers."
+description: "Cómo usar una imagen personalizada de Docker para Azure Web App for Containers."
 keywords: "azure app service, aplicación web, linux, docker, contenedor"
 services: app-service
 documentationcenter: 
@@ -12,18 +12,19 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/05/2017
-ms.author: naziml;wesmc
+ms.author: wesmc
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 47eec572272eb22cd6cd881874d7ecb87d7e08ad
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: da47bc9dd6fd980a37e2fdb57485858c2f1b2a73
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
-# <a name="run-a-custom-docker-hub-image-in-azure-web-apps-for-containers"></a>Ejecución de una imagen personalizada de Docker Hub en Azure Web Apps for Containers #
+# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Ejecución de una imagen personalizada de Docker Hub en Azure Web Apps for Containers #
 
 App Service proporciona pilas de aplicaciones predefinidas en Linux con compatibilidad para versiones específicas, como PHP 7.0 y Node.js 4.5. También puede usar una imagen personalizada de Docker para implementar la aplicación web a una pila de aplicaciones aún sin definir en Azure. Esta guía de inicio rápido muestra cómo crear una aplicación web e implementar ahí una imagen de Python. Creará la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
@@ -37,7 +38,7 @@ App Service proporciona pilas de aplicaciones predefinidas en Linux con compatib
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
-Cree una [aplicación web](../../app-service-web/app-service-web-overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp#create). No olvide reemplazar `<app name>` por un nombre de aplicación único.
+Cree una [aplicación web](../app-service-web-overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp#create). No olvide reemplazar `<app name>` por un nombre de aplicación único.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
@@ -72,7 +73,7 @@ http://<app_name>.azurewebsites.net
 
 ![Aplicación de ejemplo que se ejecuta en Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
-**¡Enhorabuena!** Ya implementó una imagen personalizada de Docker en Web Apps for Containers.
+**¡Enhorabuena!** Ha implementado una imagen personalizada de Docker en Web Apps for Containers.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/18/2017
 ms.author: raprasa
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 89dc30c5475786d89554f5ec9e10e555267e6d78
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 84b26c9ff354adef3f1bc1e61f235c520b63df13
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB
-Azure Cosmos DB crea automáticamente copias de seguridad de todos los datos a intervalos regulares. Las copias de seguridad automáticas se crean sin afectar el rendimiento ni la disponibilidad de las operaciones de bases de datos. Todas las copias de seguridad se almacenan por separado en otro servicio de almacenamiento y se replican globalmente para lograr resistencia frente a desastres regionales. Las copias de seguridad automáticas están pensadas para escenarios en los que se elimina accidentalmente el contenedor de Cosmos DB y que después requieren una solución de recuperación de datos o recuperación ante desastres.  
+Azure Cosmos DB crea automáticamente copias de seguridad de todos los datos a intervalos regulares. Las copias de seguridad automáticas se crean sin afectar el rendimiento ni la disponibilidad de las operaciones de bases de datos. Todas las copias de seguridad se almacenan por separado en otro servicio de almacenamiento y se replican globalmente para lograr resistencia frente a desastres regionales. Las copias de seguridad automáticas están pensadas para escenarios en los que se elimina accidentalmente el contenedor de Cosmos DB y que después requieren una solución de recuperación de datos o de recuperación ante desastres.  
 
 Este artículo comienza con un resumen rápido de la disponibilidad y redundancia de datos en Cosmos DB y, luego, analiza las copias de seguridad. 
 
@@ -39,7 +39,7 @@ La imagen siguiente ilustra el alto grado de redundancia con Cosmos DB.
 ![Alto grado de redundancia con Cosmos DB](./media/online-backup-and-restore/global-distribution.png)
 
 ## <a name="full-automatic-online-backups"></a>Copias de seguridad completas, automáticas y en línea
-¡Vaya! Eliminé mi contenedor o base de datos. Con Cosmos DB, no solo los datos son altamente redundantes y resistentes ante los desastres regionales, sino que también las copias de seguridad de los mismos datos. Actualmente, estas copias de seguridad automatizadas se crean aproximadamente cada cuatro horas y se almacenan las dos copias de seguridad más recientes en todo momento. Si los datos se quitan o dañan accidentalmente, [póngase en contacto con el soporte técnico de Azure](https://azure.microsoft.com/support/options/) en un plazo de 8 horas. 
+¡Vaya! Eliminé mi contenedor o base de datos. Con Cosmos DB, no solo los datos son altamente redundantes y resistentes ante los desastres regionales, sino que también las copias de seguridad de los mismos datos. Actualmente, estas copias de seguridad automatizadas se crean aproximadamente cada cuatro horas y se almacenan las dos copias de seguridad más recientes en todo momento. Si los datos se eliminan o dañan accidentalmente, [póngase en contacto con el soporte técnico de Azure](https://azure.microsoft.com/support/options/) en un plazo de ocho horas. 
 
 Las copias de seguridad se crean sin afectar el rendimiento ni la disponibilidad de las operaciones de bases de datos. Cosmos DB crea la copia de seguridad en segundo plano y no consume las RU aprovisionadas ni tampoco afecta el rendimiento ni la disponibilidad de su base de datos. 
 
@@ -50,15 +50,15 @@ La imagen siguiente ilustra copias de seguridad completas y periódicas de todas
 ![Copias de seguridad completas y periódicas de todas las entidades de Cosmos DB en Azure Storage de GRS](./media/online-backup-and-restore/automatic-backup.png)
 
 ## <a name="backup-retention-period"></a>Período de retención de copia de seguridad
-Como se describió anteriormente, Azure Cosmos DB toma instantáneas de los datos cada cuatro horas y conserva las últimas dos instantáneas de cada partición durante 30 días. Siguiendo nuestras normas de cumplimiento, las instantáneas se purgan después de 90 días.
+Como se describió anteriormente, Azure Cosmos DB toma instantáneas de los datos cada cuatro horas en el nivel de partición. En un momento dado del tiempo, solo las dos últimas instantáneas se conservan. Sin embargo, si se elimina la colección o la base de datos, se conservan las instantáneas existentes para todas las particiones eliminadas dentro de la colección o base de datos determinada durante 30 días.
 
-Si desea mantener sus propias instantáneas, puede utilizar la opción de exportación a JSON [herramienta de migración de datos](import-data.md#export-to-json-file) en la base de datos de Azure Cosmos para programar copias de seguridad adicionales. 
+Si desea mantener sus propias instantáneas, puede utilizar la opción de exportación a JSON [herramienta de migración de datos](import-data.md#export-to-json-file) en la base de datos de Azure Cosmos para programar copias de seguridad adicionales.
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Restauración de una base de datos desde una copia de seguridad en línea
-En caso de que elimine accidentalmente su base de datos o colección, puede [presentar un vale de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o llamar al [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) para restaurar los datos a partir de la copia de seguridad automática más reciente. Si necesita restaurar la base de datos debido a problemas de datos dañados, consulte [Control de los datos dañados](#handling-data-corruption) ya que puede ser necesario realizar pasos adicionales para impedir que los datos dañados se escriban en las copias de seguridad. Si se va a restaurar una instantánea específica de su copia de seguridad, Cosmos DB requiere que los datos hayan estado disponibles durante el ciclo de copia de seguridad de esa instantánea.
+En caso de que elimine accidentalmente su base de datos o colección, puede [presentar un vale de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o llamar al [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) para restaurar los datos a partir de la copia de seguridad automática más reciente. Si necesita restaurar la base de datos debido a problemas de datos dañados (incluye los casos en los que se eliminan documentos de una colección), consulte [Control de datos dañados](#handling-data-corruption) ya que puede ser necesario realizar pasos adicionales para impedir que los datos dañados se escriban en las copias de seguridad existentes. Si se va a restaurar una instantánea específica de su copia de seguridad, Cosmos DB requiere que los datos hayan estado disponibles durante el ciclo de copia de seguridad de esa instantánea.
 
 ## <a name="handling-data-corruption"></a>Control de los datos dañados
-Azure Cosmos DB conserva las dos últimas copias de seguridad de cada partición en el sistema. Este modelo funciona muy bien cuando un contenedor (colección de documentos, grafos o tablas) o una base de datos se eliminan accidentalmente porque una de las últimas versiones se puede restaurar. Sin embargo, cuando se presenta un problema de daños en los datos, Azure Cosmos DB puede no ser consciente de los daños en los datos y es posible que los daños puedan haber entrado en las copias de seguridad. En cuanto se detectan daños, el usuario debe eliminar el contenedor dañado (colección, grafo o tabla) para que las copias de seguridad estén protegidas de ser sobrescritas con datos dañados. Puesto que la última copia de seguridad podría ser de cuatro horas de antigüedad, el usuario puede emplear [Cambiar fuente](change-feed.md) para capturar y almacenar las últimas cuatro horas de datos antes de eliminar el contenedor.
+Azure Cosmos DB conserva las dos últimas copias de seguridad de cada partición en la cuenta de la base de datos. Este modelo funciona bien cuando un contenedor (colección de documentos, grafos o tablas) o una base de datos se eliminan accidentalmente porque una de las últimas versiones se puede restaurar. Sin embargo, cuando se presenta un problema de daños en los datos, Azure Cosmos DB puede no ser consciente de los daños en los datos y es posible que los daños puedan haberse escrito en las copias de seguridad existentes. En cuanto se detectan daños, el usuario debe eliminar el contenedor dañado (colección, grafo o tabla) para que las copias de seguridad estén protegidas de ser sobrescritas con datos dañados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

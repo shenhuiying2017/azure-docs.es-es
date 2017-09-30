@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2017
+ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 73c0917702e2c222f3dc09ddfa2d6d54cf005abf
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 882180a553fffee05a612cf70ddd9a0f30108415
 ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Administración de inicio de sesión único para aplicaciones empresariales
@@ -40,7 +40,7 @@ Para administrar la configuración de inicio de sesión único, seleccione **Ini
 ## <a name="single-sign-on-modes"></a>Modos de inicio de sesión único
 La hoja **Inicio de sesión único** comienza con un menú **Modo**, que permite la configuración del modo de inicio de sesión único. Las opciones disponibles incluyen:
 
-* **Inicio de sesión basado en SAML**: esta opción está disponible si la aplicación admite el inicio de sesión único federado completo con Azure Active Directory mediante el protocolo SAML 2.0.
+* **Inicio de sesión basado en SAML**: esta opción está disponible si la aplicación admite el inicio de sesión único federado completo con Azure Active Directory mediante el protocolo SAML 2.0, WS-Federation u otros protocolos de conexión OpenID.
 * **Inicio de sesión con contraseña**: esta opción está disponible si Azure AD admite el rellenado de formularios de contraseña para esta aplicación.
 * **Inicio de sesión vinculado**: antes conocida como "Inicio de sesión único existente", esta opción permite a los administradores agregar un vínculo a esta aplicación en el Panel de acceso de Azure AD o el iniciador de aplicaciones de Office 365 del usuario.
 

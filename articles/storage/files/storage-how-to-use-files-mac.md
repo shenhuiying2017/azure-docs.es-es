@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc3d67745afb8bbffe7ec3462e995104daff9632
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montaje de un recurso compartido de archivos de Azure mediante SMB con macOS
-[Azure File Storage](../storage-dotnet-how-to-use-files.md) es el servicio de Microsoft que permite crear y utilizar recursos compartidos de archivos en red en Azure utilizando el estándar del sector. Los recursos compartidos de archivos de Azure se pueden montar en macOS Sierra (10.12) y El Capitan (10.11). En este artículo se muestran dos maneras diferentes para montar un recurso compartido de archivos de Azure en macOS, con la interfaz de usuario de Finder y utilizando el Terminal.
+[Azure Files](storage-files-introduction.md) es el servicio de Microsoft que permite crear y utilizar recursos compartidos de archivos en red en Azure utilizando el estándar del sector. Los recursos compartidos de archivos de Azure se pueden montar en macOS Sierra (10.12) y El Capitan (10.11). En este artículo se muestran dos maneras diferentes para montar un recurso compartido de archivos de Azure en macOS, con la interfaz de usuario de Finder y utilizando el Terminal.
 
 > [!Note]  
 > Antes de montar un recurso compartido de archivos de Azure con SMB, se recomienda deshabilitar la firma de paquetes SMB. De no hacerlo, puede producirse un rendimiento deficiente en el acceso al recurso compartido de archivos de Azure desde macOS. La conexión SMB será cifrada, por lo que esto no afecta a la seguridad de la conexión. Desde el terminal, los siguientes comandos deshabilitan firma del paquete SMB, como se describe en este [artículo de soporte técnico de Apple acerca de cómo deshabilitar la firma de paquetes SMB](https://support.apple.com/HT205926):  
@@ -65,9 +65,9 @@ ms.lasthandoff: 08/21/2017
     ![Captura de pantalla del recurso compartido de archivos de Azure montado](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los vínculos siguientes para obtener más información acerca de Azure File Storage.
+Consulte los vínculos siguientes para más información acerca Azure Files.
 
 * [Artículo de soporte técnico de Apple: cómo conectarse con uso compartido de archivos en el equipo Mac](https://support.apple.com/HT204445)
-* [Preguntas más frecuentes](../storage-files-faq.md)
+* [P+F](../storage-files-faq.md)
 * [Solución de problemas en Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Solución de problemas en Linux](storage-troubleshoot-linux-file-connection-problems.md)    

@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: skwan
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 891a895419a4fe882e01495231f33a1d79eb42a9
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: c18fd5d5b528dfbafa456b3702996b80c3a60a02
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -57,7 +57,6 @@ Los siguientes servicios de Azure admiten Managed Service Identity.
 | Servicio | Estado | Date |
 | --- | --- | --- |
 | Máquinas virtuales de Azure | Vista previa | Septiembre de 2017 |
-| Conjuntos de escalado de máquinas virtuales de Azure | Vista previa | Septiembre de 2017 |
 | Servicio de aplicaciones de Azure | Vista previa | Septiembre de 2017 |
 | Funciones de Azure | Vista previa | Septiembre de 2017 |
 
@@ -69,7 +68,6 @@ Los siguientes servicios admiten la autenticación de Azure AD y se han probado 
 | --- | --- | --- | --- |
 | Administrador de recursos de Azure | https://management.azure.com/ | Disponible | Septiembre de 2017 |
 | Azure Key Vault | https://vault.azure.net/ | Disponible | Septiembre de 2017 |
-| Azure SQL | https://database.windows.net/ | Disponible | Septiembre de 2017 |
 | Azure Data Lake | https://datalake.azure.net/ | Disponible | Septiembre de 2017 |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>¿Cuánto cuesta Managed Service Identity?
@@ -85,28 +83,35 @@ Estaríamos encantados de ayudarle.
 
 ## <a name="try-managed-service-identity"></a>Evaluación de Managed Service Identity
 
-Ahora que comprende los conceptos básicos, siga un tutorial de Managed Service Identity para ver cómo obtener acceso a diferentes recursos de Azure.
+Pruebe un tutorial de Managed Service Identity para obtener información sobre escenarios de extremo a extremo para tener acceso a diferentes recursos de Azure:
 
-- [Acceso a Azure Resource Manager con Managed Service Identity en una máquina virtual Windows](msi-tutorial-windows-vm-access-arm.md)
-- [Acceso a Azure Resource Manager con Managed Service Identity en una máquina virtual Linux](msi-tutorial-linux-vm-access-arm.md)
-- [Acceso a Azure Storage con Managed Service Identity de una máquina virtual Windows](msi-tutorial-windows-vm-access-storage.md)
-- [Acceso a Azure Storage con Managed Service Identity en una máquina virtual Linux](msi-tutorial-linux-vm-access-storage.md)
-- [Acceso a un recurso que no es de Azure AD con Managed Service Identity en una máquina virtual Windows](msi-tutorial-windows-vm-access-nonaad.md)
-- [Acceso a un recurso que no es de Azure AD con Managed Service Identity en una máquina virtual Linux](msi-tutorial-linux-vm-access-nonaad.md)
-- [Managed Service Identity de usuario con Azure App Service o Azure Functions](/azure/app-service/app-service-managed-service-identity)
+| Desde un recurso habilitado para MSI | Obtenga información sobre cómo |
+| ------- | -------- |
+| Máquina virtual de Azure (Windows) | [Acceso a Azure Resource Manager con Managed Service Identity en una máquina virtual Windows](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Acceso a Azure Storage con Managed Service Identity de una máquina virtual Windows](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Acceso a un recurso ajeno a Azure AD con Managed Service Identity en una máquina virtual Windows y Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
+| Máquina virtual de Azure (Linux)   | [Acceso a Azure Resource Manager con Managed Service Identity en una máquina virtual Linux](msi-tutorial-linux-vm-access-arm.md) |
+|                    | [Acceso a Azure Storage con Managed Service Identity en una máquina virtual Linux](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [Acceso a un recurso que no es de Azure AD con Managed Service Identity en una máquina virtual Linux](msi-tutorial-linux-vm-access-nonaad.md) |
+| Servicio de aplicaciones de Azure  | [Uso de Managed Service Identity con Azure App Service o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Función de Azure     | [Uso de Managed Service Identity con Azure App Service o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 
+Si desea obtener información sobre los conceptos básicos de la habilitación de MSI en un recurso de Azure:
 
+| Para recursos de Azure | Habilitar o eliminar MSI utilizando |
+| ------------------ | ------------------------------------ |
+| Máquina virtual de Azure (Windows) | [Portal de Azure](msi-qs-configure-portal-windows-vm.md) |
+|                    | [PowerShell](msi-qs-configure-powershell-windows-vm.md) |
+|                    | [CLI de Azure](msi-qs-configure-cli-windows-vm.md)|
+|                    | [Plantillas del Administrador de recursos de Azure](msi-qs-configure-template-windows-vm.md) |
 
+A continuación, obtenga información acerca de cómo usar el control de acceso basado en roles (RBAC) para conceder un permiso de MSI para tener acceso a otro recurso de Azure:
 
-
-
-
-
-
-
-
-
-
+| Desde un recurso habilitado para MSI | Asignación del acceso a otro recurso de Azure utilizando |
+| ------------------------ | ---------------------------------------------------------- |
+| Máquina virtual de Azure (Windows) | [Portal de Azure](msi-howto-assign-access-portal.md) |
+|                    | [PowerShell](msi-howto-assign-access-powershell.md) |
+|                    | [CLI de Azure](msi-howto-assign-access-CLI.md) |
 
 
 

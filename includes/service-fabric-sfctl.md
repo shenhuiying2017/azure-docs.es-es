@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Hay dos utilidades de la CLI que interactúan con Service Fabric. [CLI de Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) se utiliza para administrar los recursos de Azure, como un clúster de Service Fabric hospedado en Azure. La CLI de Service Fabric se utiliza para conectarse directamente al clúster de Service Fabric (independientemente de dónde esté hospedado) y administrar el clúster, las aplicaciones y los servicios. 

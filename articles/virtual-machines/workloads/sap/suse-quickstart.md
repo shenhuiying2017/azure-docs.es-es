@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/14/2017
+ms.date: 09/14/2017
 ms.author: hermannd
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 118b56376eace80788a20625497849181ad2e253
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: f7dd532e96540fa297cac8fa3736f9f4a6ccd82f
+ms.contentlocale: es-es
+ms.lasthandoff: 09/16/2017
 
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Ejecución de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure
-En este artículo se describen diversos aspectos que deben considerarse al ejecutar SAP NetWeaver en máquinas virtuales (VM) con SUSE Linux de Microsoft Azure. A partir del 19 de mayo de 2016 SAP NetWeaver es compatible oficialmente con máquinas virtuales de SUSE Linux en Azure. Todos los detalles sobre las versiones de Linux, las versiones de kernel SAP etc., se pueden encontrar en la nota de SAP 1928533 "SAP Applications on Azure: Supported Products and Azure VM types" (Aplicaciones SAP en Azure: productos admitidos y tipos de máquina virtual de Azure).
-Se puede encontrar documentación adicional sobre SAP en máquinas virtuales Linux aquí: [Uso de SAP en máquinas virtuales (VM) Linux ](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+En este artículo se describen diversos aspectos que deben considerarse al ejecutar SAP NetWeaver en máquinas virtuales (VM) con SUSE Linux de Microsoft Azure. A partir del 19 de mayo de 2016, SAP NetWeaver es compatible oficialmente con máquinas virtuales de SUSE Linux en Azure. Todos los detalles sobre las versiones de Linux, las versiones de kernel SAP y otros requisitos previos se encuentran en la nota de SAP 1928533 "SAP Applications on Azure: Supported Products and Azure VM types" (Aplicaciones SAP en Azure: productos admitidos y tipos de máquina virtual de Azure).
+Se puede encontrar documentación adicional sobre SAP en máquinas virtuales Linux en el artículo sobre el [uso de SAP en máquinas virtuales Linux](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 La siguiente información debería ayudarle a evitar algunos obstáculos potenciales.
 
 ## <a name="suse-images-on-azure-for-running-sap"></a>Imágenes SUSE en Azure para ejecutar SAP
-Para ejecutar SAP NetWeaver en Azure, utilice solo SUSE Linux Enterprise Server SLES 12 (SPx). Consulte también la nota SAP 1928533. Se puede encontrar una imagen SUSE especial en Azure Marketplace ("SLES 11 SP3 para SAP CAL"), pero no está pensado para uso general. No use esta imagen, ya que está reservada para la solución de [biblioteca de aplicaciones en la nube de SAP](https://cal.sap.com/).  
+Para ejecutar SAP NetWeaver en Azure, utilice SUSE Linux Enterprise Server SLES 12 (SPx) o SLES para SAP. Consulte también la nota de SAP 1928533. Se puede encontrar una imagen SUSE especial en Azure Marketplace ("SLES 11 SP3 para SAP CAL"), pero esta imagen está pensada para el uso general. No use esta imagen, ya que está reservada para la solución de [biblioteca de aplicaciones en la nube de SAP](https://cal.sap.com/).  
 
-Todas las nuevas pruebas e instalaciones en Azure deben realizarse con Azure Resource Manager. Para buscar imágenes y versiones de SUSE SLES mediante Azure PowerShell o la interfaz de la línea de comandos de Azure (CLI), utilice los siguientes comandos. El resultado puede utilizarse, por ejemplo, para definir la imagen del sistema operativo en una plantilla JSON para implementar una nueva máquina virtual de SUSE Linux.
+Debe usar el marco de implementación de Azure Resource Manager para todas las instalaciones en Azure. Para buscar imágenes y versiones de SUSE SLES mediante Azure PowerShell o la interfaz de la línea de comandos de Azure (CLI), utilice los comandos que se muestran a continuación. El resultado puede utilizarse, por ejemplo, para definir la imagen del sistema operativo en una plantilla JSON para implementar una nueva máquina virtual de SUSE Linux.
 Estos comandos de PowerShell son válidos para la versión de Azure PowerShell 1.0.1 y posterior.
 
-Aunque es posible usar las imágenes de SLES estándar para las instalaciones de SAP, se recomienda utilizar el nuevo SLES para imágenes de SAP que se encuentran disponibles en este momento en la galería de imágenes de Azure. Para obtener más información acerca de estas imágenes, consulte la [página de Azure Marketplace]( https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES-SAP ) o la [página web de SUSE de preguntas más frecuentes sobre SLES para SAP]( https://www.suse.com/products/sles-for-sap/frequently-asked-questions/ ), según corresponda.
+Aunque es posible usar las imágenes de SLES estándar para las instalaciones de SAP, se recomienda utilizar el nuevo SLES para imágenes de SAP. Estas imágenes están ahora disponibles en la galería de imágenes de Azure. Para obtener más información acerca de estas imágenes, consulte la [página de Azure Marketplace]( https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES-SAP ) o la [página web de SUSE de preguntas más frecuentes sobre SLES para SAP]( https://www.suse.com/products/sles-for-sap/frequently-asked-questions/ ), según corresponda.
 
 
 * Busque publicadores existentes que incluyan SUSE:
@@ -78,7 +78,7 @@ El agente denominado WALinuxAgent forma parte de las imágenes de SLES en Azure 
 La "supervisión mejorada" de SAP es un requisito obligatorio para ejecutar SAP en Azure. Compruebe los detalles en la nota de SAP 2191498 "SAP on Linux with Azure: Enhanced Monitoring" (SAP en Linux con Azure: supervisión mejorada).
 
 ## <a name="attaching-azure-data-disks-to-an-azure-linux-vm"></a>Conexión de discos de datos de Azure a una máquina virtual Linux de Azure
-Jamás debe montar discos de datos de Azure en una máquina virtual con Linux de Azure mediante el identificador de dispositivo. En su lugar, use el identificador único universal (UUID). Tenga cuidado al utilizar herramientas gráficas para montar discos de datos de Azure, por ejemplo. Compruebe las entradas de /etc/fstab.
+No monte discos de datos de Azure en una máquina virtual Linux de Azure mediante el identificador de dispositivo. En su lugar, use el identificador único universal (UUID). Tenga cuidado al utilizar herramientas gráficas para montar discos de datos de Azure, por ejemplo. Compruebe las entradas de /etc/fstab.
 
 El problema con el identificador del dispositivo es que puede cambiar y la máquina virtual de Azure podría bloquearse en el proceso de arranque. Para mitigar el problema, puede agregar el parámetro nofail en /etc/fstab. Pero tenga cuidado con nofail, pues las aplicaciones pueden usar el punto de montaje como antes y quizá escribir en el sistema de archivos raíz en caso de que no se haya montado un disco de datos externos de Azure durante el arranque.
 
@@ -89,9 +89,9 @@ Puede haber situaciones en las que una máquina virtual de SUSE en Azure se bloq
 
 Un modo de resolver el problema es conectando el disco del sistema operativo de la máquina virtual dañada a otra máquina virtual de SUSE en Azure. A continuación, realice los cambios adecuados (modificar /etc/fstab o quitar reglas de udev de red), como se describe en la sección siguiente.
 
-Hay un aspecto importante que debe considerar. La implementación de varias máquinas virtuales de SUSE desde la misma imagen de Azure Marketplace (por ejemplo, SLES 11 SP4) hace que el mismo UUID monte siempre el disco del sistema operativo. Por lo tanto, el uso de UUID para conectar un disco del sistema operativo desde una máquina virtual distinta que se implementó mediante la misma imagen de Azure Marketplace generará dos UUID idénticos. Esto provoca problemas y podría significar que la máquina virtual destinada a la solución de problemas arranque, de hecho, desde el disco del sistema operativo conectado y dañado, en lugar de hacerlo desde el original.
+Hay un aspecto importante que debe considerar. La implementación de varias máquinas virtuales de SUSE desde la misma imagen de Azure Marketplace (por ejemplo, SLES 11 SP4) hace que el mismo UUID monte siempre el disco del sistema operativo. Por lo tanto, el uso de UUID para conectar un disco del sistema operativo desde una máquina virtual distinta que se implementara mediante la misma imagen de Azure Marketplace genera dos UUID idénticos. Dos UUID idénticos hacen que la máquina virtual de solución de problemas arranque desde el disco del sistema operativo dañado conectado, en lugar de desde el disco de sistema operativo original.
 
-Existen dos formas de evitarlo:
+Existen dos formas de evitar los problemas:
 
 * Use una imagen de Azure Marketplace distinta para la solución de problemas de la máquina virtual (por ejemplo, SLES 11 SPx en lugar de SLES 12).
 * No conecte el disco del sistema operativo dañado desde otra máquina virtual mediante UUID; hágalo de una manera distinta.
@@ -104,7 +104,7 @@ Si desea cargar una máquina virtual sin el paso de desaprovisionamiento al fina
 * Asegúrese de que el disco del sistema operativo se monte a través de UUID y no del identificador de dispositivo. Cambiar a UUID solo en /etc/fstab no es suficiente para el disco de sistema operativo. Además, no olvide adaptar el cargador de arranque a través de YaST o mediante la edición de /boot/grub/menu.lst.
 * Si usa el formato VHDX para el disco del sistema operativo de SUSE y lo convierte en VHD para cargarlo en Azure, es muy probable que el dispositivo de red cambie de eth0 a eth1. Para evitar problemas al arrancar después en Azure, hay que devolverlo a eth0, tal como se describe en [Fixing eth0 in cloned SLES 11 VMware](https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/)(Corrección de eth0 en VMware de SLES 11 clonado).
 
-Además de lo que se describe en el artículo le recomendamos que quite también lo siguiente:
+Además de lo que se describe en el artículo, se recomienda eliminar también el archivo siguiente:
 
    /lib/udev/rules.d/75-persistent-net-generator.rules
 
@@ -117,37 +117,38 @@ Debe crear nuevas máquinas virtuales de SUSE mediante archivos de plantilla JSO
    azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
 
    ```
-Para más información sobre los archivos de plantilla JSON, consulte [Creación de plantillas de Azure Resource Manager](../../../resource-group-authoring-templates.md) y [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
+Para más información sobre los archivos de plantilla JSON, consulte el artículo de [creación de plantillas de Azure Resource Manager](../../../resource-group-authoring-templates.md) y [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
 
-Para más información sobre la CLI y Azure Resource Manager, consulte [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
+Para más información sobre la CLI y Azure Resource Manager, consulte el artículo sobre el [uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
 
 ## <a name="sap-license-and-hardware-key"></a>Clave de licencia y hardware de SAP
-Para la certificación oficial SAP-Azure se introdujo un nuevo mecanismo para calcular la clave de hardware de SAP, que se usa para la licencia SAP. Había que adaptar el núcleo SAP para usarlo. Las versiones anteriores de kernel de SAP para Linux no incluían este cambio en el código. Por lo tanto, en determinadas situaciones (por ejemplo, el cambio de tamaño de la máquina virtual de Azure), es posible que los cambios en la clave de hardware de SAP y en la licencia de SAP ya no fueran válidos. Esto se soluciona en los kernels de Linux de SAP más recientes. Para más información, consulte la nota de SAP 1928533.
+Para la certificación oficial SAP-Azure se introdujo un nuevo mecanismo para calcular la clave de hardware de SAP, que se usa para la licencia SAP. Había que adaptar el kernel de SAP para usar el nuevo algoritmo. Las versiones anteriores de kernel de SAP para Linux no incluían este cambio en el código. Por lo tanto, en determinadas situaciones (por ejemplo, el cambio de tamaño de la máquina virtual de Azure), es posible que los cambios en la clave de hardware de SAP y en la licencia de SAP ya no fueran válidos. Se proporciona una solución con los kernels Linux de SAP más recientes.  Las revisiones de kernel de SAP detalladas se documentan en la nota de SAP 1928533.
 
 ## <a name="suse-sapconf-package--tuned-adm"></a>Paquete sapconf de SUSE/tuned-adm
 SUSE ofrece un paquete denominado "sapconf" que administra un conjunto de opciones específicas de SAP. Para más información sobre lo que hace este paquete y cómo instalarlo y usarlo, consulte [Using sapconf to prepare a SUSE Linux Enterprise Server to run SAP systems](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) (Uso de sapconf para preparar SUSE Linux Enterprise Server para ejecutar sistemas SAP) y [What is sapconf or how to prepare a SUSE Linux Enterprise Server for running SAP systems?](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems) (¿Qué es sapconf o cómo preparar SUSE Linux Enterprise Server para ejecutar sistemas SAP?).
 
-Mientras tanto, hay una herramienta nueva que reemplaza a sapconf - tuned-adm. Puede encontrar más detalles acerca de esta herramienta en los dos vínculos siguientes.
+Mientras tanto, hay una herramienta nueva que reemplaza a "sapconf - tuned-adm". Puede encontrar más información acerca de esta herramienta en los dos vínculos siguientes:
 
-La documentación de SLES sobre tuned-adm y el perfil de SAP Hana se encuentra [aquí](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html) 
+- La documentación de SLES sobre "tuned-adm" y el perfil de SAP Hana se encuentran [aquí](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html) 
 
-Puede encontrar información sobre el ajuste de sistemas para cargas de trabajo SAP con tuned-adm [aquí](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf) (capítulo 6.2).
+- Puede encontrar información sobre el ajuste de sistemas para cargas de trabajo SAP con "tuned-adm" [aquí](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf) (capítulo 6.2)
 
 ## <a name="nfs-share-in-distributed-sap-installations"></a>Recursos compartidos de NFS en instalaciones de SAP distribuidas
 Si tiene una instalación distribuida (por ejemplo, donde desea instalar la base de datos y los servidores de aplicaciones SAP en máquinas virtuales independientes), puede compartir el directorio /sapmnt a través de Network File System (NFS). Si tiene problemas con los pasos de instalación después de crear el recurso compartido NFS para /sapmnt, compruebe si se ha establecido "no_root_squash" para el recurso compartido.
 
 ## <a name="logical-volumes"></a>Volúmenes lógicos
-En el pasado, si se necesitaba un gran volumen lógico en varios discos de datos de Azure (por ejemplo, para la base de datos SAP), se recomendaba usar mdadm dado que lvm no estaba aún completamente validado en Azure. Para más información sobre cómo configurar RAID de Linux en Azure mediante mdadm, consulte [Configuración del software RAID en Linux](../../linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Mientras tanto, desde principios de mayo de 2016 también lvm es totalmente compatible con Azure y puede utilizarse como alternativa a mdadm. Para más información sobre lvm en Azure, consulte [Configuración del LVM en una máquina virtual Linux en Azure](../../linux/configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+En el pasado, si se necesitaba un gran volumen lógico en varios discos de datos de Azure (por ejemplo, para la base de datos SAP), se recomendaba usar la herramienta MDADM de Raid Management, dado que Logical Volume Manager (LVM) de Linux no estaba aún completamente validado en Azure. Para más información sobre cómo configurar RAID de Linux en Azure mediante mdadm, consulte [Configuración del software RAID en Linux](../../linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Mientras tanto, desde principios de mayo de 2016, Logical Volume Manager de Linux es totalmente compatible con Azure y puede utilizarse como alternativa a MDADM. Para más información sobre LVM en Azure, consulte:  
+[Configuración del LVM en una máquina virtual Linux en Azure](../../linux/configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-suse-repository"></a>Repositorio SUSE de Azure
-Si tiene un problema con el acceso al repositorio SUSE de Azure estándar, podrá usar un comando simple para restablecerlo. Esto podría suceder si crea una imagen de sistema operativo privada en una región de Azure y después copia la imagen en una región diferente donde desea implementar nuevas máquinas virtuales que se basan en esta imagen de sistema operativo privada. Solo ejecute los siguientes comandos dentro de la máquina virtual:
+Si tiene problemas de acceso al repositorio SUSE de Azure estándar, podrá usar un comando para restablecerlo. Estos problemas pueden aparecer al crear una imagen de sistema operativo privada en una región de Azure y después copiarla en una región de Azure diferente donde se vayan a implementar nuevas máquinas virtuales que se basen en esta imagen de sistema operativo privada. Ejecute el siguiente comando en la máquina virtual:
 
    ```
    service guestregister restart
    ```
 
 ## <a name="gnome-desktop"></a>Escritorio Gnome
-Si desea usar el escritorio Gnome para instalar un sistema completo de demostración SAP dentro de una máquina virtual única, incluidos GUI de SAP, el explorador y la consola de administración de SAP, use esta sugerencia para su instalación en las imágenes de SLES Azure:
+Si desea usar el escritorio Gnome para instalar un sistema completo de demostración SAP en una máquina virtual, con la GUI de SAP, el explorador y la consola de administración de SAP, use esta sugerencia de instalación en las imágenes de SLES Azure:
 
    Para SLES 11:
 
@@ -162,6 +163,6 @@ Si desea usar el escritorio Gnome para instalar un sistema completo de demostrac
    ```
 
 ## <a name="sap-support-for-oracle-on-linux-in-the-cloud"></a>Compatibilidad entre SAP y Oracle en Linux en la nube
-Hay una restricción de soporte técnico de Oracle en Linux en entornos virtualizados. Aunque no es un tema específico de Azure, es importante comprenderlo. SAP no admite Oracle en SUSE ni en Red Hat en una nube pública como Azure. Para tratar este tema, póngase en contacto con Oracle directamente.
+Hay una restricción de soporte técnico de Oracle en Linux en entornos virtualizados. Aunque esta compatibilidad limitada es un tema específico de Azure, es importante saberlo. SAP no admite Oracle en SUSE ni en Red Hat en una nube pública como Azure. Para tratar este tema, póngase en contacto con Oracle directamente.
 
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 2d0f9d7f32ad79f49d58165d734b9df4af862835
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1943e87ffd991d099ab655af5a7d16d7f1608d22
 ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Introducción a SQL Data Sync de Azure (vista previa)
@@ -63,7 +63,7 @@ Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL 
     2.  En la sección **Base de datos de metadatos de sincronización**, elija si desea crear una base de datos (opción recomendada) o usar una existente.
 
         > [!NOTE]
-        > Se recomienda crear una vacía para usarla como base de datos de metadatos de sincronización. Data Sync crea tablas en esta base de datos y ejecuta una carga de trabajo frecuente. Esta base de datos se comparte automáticamente como la base de datos de metadatos de sincronización para todos los grupos de sincronización en la región seleccionada. No se puede cambiar la base de datos de metadatos de sincronización, su nombre ni su nivel de servicio sin quitarla.
+        > Se recomienda crear una vacía para usarla como base de datos de metadatos de sincronización. Data Sync crea tablas en esta base de datos y ejecuta una carga de trabajo frecuente. Esta base de datos se comparte automáticamente como la base de datos de metadatos de sincronización para todos los grupos de sincronización en la región seleccionada. No se puede cambiar la base de datos de metadatos de sincronización ni su nombre sin quitarla.
 
         Si ha elegido **Nueva base de datos**, seleccione **Crear nueva base de datos**. Se abre la hoja de **SQL Database**. En la hoja **SQL Database**, asigne un nombre a la base de datos nueva y configúrela. Después seleccione **Aceptar**.
 

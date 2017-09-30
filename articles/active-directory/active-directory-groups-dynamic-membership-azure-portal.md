@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 780f94f9863f73834ab72e9daf4362bea28242e9
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: edf3b0a80712e8287a66978e0e9574949805a27a
 ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creación de reglas de pertenencia dinámica a grupos basadas en atributos en Azure Active Directory
@@ -119,15 +119,13 @@ Tenga en cuenta el uso de "[" y "]" al principio y al final de la lista de valor
 
 
 ## <a name="query-error-remediation"></a>Corrección de errores de consulta
-En la tabla siguiente se enumeran los posibles errores y se indica cómo corregirlos si se producen.
+En la tabla siguiente se enumeran los errores comunes y se indica cómo corregirlos:
 
 | Error de análisis de consulta | Uso con error | Uso corregido |
 | --- | --- | --- |
-| Error: no se admite el atributo. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/>La propiedad debe coincidir con una de la [lista de propiedades admitidas](#supported-properties). |
-| Error: no se admite el operador en el atributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/>La propiedad es de tipo booleano. Utilice los operadores admitidos (-eq o -ne) en un tipo booleano de la lista anterior. |
-| Error: error de compilación de consulta. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>El operador lógico debe coincidir con una de la lista de propiedades admitidas anterior.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error en la expresión regular. |
-| Error: la expresión binaria no está en un formato adecuado. |(user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La consulta tiene varios errores. El paréntesis no está en el lugar correcto. |
-| Error: se ha producido un error desconocido durante la configuración de pertenencias dinámicas. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>La consulta tiene varios errores. El paréntesis no está en el lugar correcto. |
+| Error: no se admite el atributo. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Asegúrese de que el atributo se encuentra en la [lista de propiedades admitidas](#supported-properties). |
+| Error: no se admite el operador en el atributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>El operador usado no se admite para el tipo de propiedad (en este ejemplo, -contains no se puede usar con el tipo boolean). Utilice los operadores correctos para el tipo de propiedad. |
+| Error: error de compilación de consulta. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Falta el operador. Use -and u -or para predicados de combinación<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2. Error en la expresión regular usada con -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), o bien: (user.userPrincipalName -match "@domain.ext$")|
 
 ## <a name="supported-properties"></a>Propiedades admitidas
 A continuación se muestran todas las propiedades de usuario que puede utilizar en la regla avanzada:

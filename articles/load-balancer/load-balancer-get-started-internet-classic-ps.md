@@ -3,7 +3,7 @@ title: "Creación de un equilibrador de carga con conexión a Internet: Azure Po
 description: "Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en el modo clásico con PowerShell."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0a0b4cd516033ffe74d6992a98711be7a8150842
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -39,12 +39,12 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="set-up-load-balancer-using-powershell"></a>Configurar el equilibrador de carga con PowerShell
 
-Para configurar un equilibrador de carga con PowerShell, siga estos pasos:
+Para configurar un equilibrador de carga con PowerShell, complete estos pasos:
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 2. Después de crear una máquina virtual, puede usar cmdlets de PowerShell para agregar un equilibrador de carga a una máquina virtual dentro del mismo servicio en la nube.
 
-En el ejemplo siguiente se agregará un conjunto de equilibrador de carga denominado "webfarm" al servicio en la nube "mytestcloud" (o myctestcloud.cloudapp.net), agregando los puntos de conexión para el equilibrador de carga a las máquinas virtuales denominadas "web1" y "web2". El equilibrador de carga recibe tráfico de red en el puerto 80 y equilibra la carga entre las máquinas virtuales definidas por el punto de conexión local (en este caso el puerto 80) mediante TCP.
+En el ejemplo siguiente se agrega un conjunto de equilibrador de carga denominado "webfarm" al servicio en la nube "mytestcloud" (o myctestcloud.cloudapp.net), agregando los puntos de conexión para el equilibrador de carga a las máquinas virtuales denominadas "web1" y "web2". El equilibrador de carga recibe tráfico de red en el puerto 80 y equilibra la carga entre las máquinas virtuales definidas por el punto de conexión local (en este caso el puerto 80) mediante TCP.
 
 ### <a name="step-1"></a>Paso 1
 
@@ -74,5 +74,5 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 
 También puede [empezar a crear un equilibrador de carga interno](load-balancer-get-started-ilb-classic-ps.md) y configurar el tipo de [modo de distribución](load-balancer-distribution-mode.md) para un comportamiento del tráfico de red de un equilibrador de carga específico.
 
-Si la aplicación necesita mantener conexiones activas para servidores detrás de un equilibrador de carga, puede obtener más información acerca de la [configuración de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md). Le ayudará a conocer el comportamiento de conexión del tiempo de inactividad cuando se usa el Equilibrador de carga de Azure.
+Si la aplicación necesita mantener conexiones activas para servidores detrás de un equilibrador de carga, puede obtener más información acerca de la [configuración de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md). Le ayuda a conocer el comportamiento de conexión del tiempo de inactividad cuando se usa Azure Load Balancer.
 

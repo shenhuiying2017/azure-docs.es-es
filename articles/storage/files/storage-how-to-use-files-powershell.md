@@ -1,6 +1,6 @@
 ---
-title: "Uso de PowerShell para la administración de Azure File Storage | Microsoft Docs"
-description: Aprenda a usar PowerShell para administrar Azure File Storage.
+title: "Uso de PowerShell para la administración de Azure Files | Microsoft Docs"
+description: Aprenda a usar PowerShell para administrar Azure Files.
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ce62d4423ce711a6902aed7b8174ff4e827f6083
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f919e1880f709b416867a29de14f1dcc63a165fe
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="how-to-use-powershell-to-manage-azure-file-storage"></a>Uso de PowerShell para la administración de Azure File Storage
+# <a name="how-to-use-powershell-to-manage-azure-files"></a>Uso de PowerShell para administrar Azure Files
 Puede usar Azure PowerShell para crear y administrar recursos compartidos de archivos.
 
-## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Instalación de cmdlets de PowerShell para Azure Storage
+## <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Instalación de cmdlets de PowerShell para Almacenamiento de Azure
 Para prepararse para usar PowerShell, descargue e instale los cmdlets de Azure PowerShell. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) para obtener instrucciones sobre el punto de instalación y la instalación.
 
 > [!NOTE]
@@ -96,8 +96,8 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los vínculos siguientes para obtener más información acerca de Azure File Storage.
+Consulte los vínculos siguientes para más información acerca Azure Files.
 
-* [Preguntas más frecuentes](../storage-files-faq.md)
+* [P+F](../storage-files-faq.md)
 * [Solución de problemas en Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Solución de problemas en Linux](storage-troubleshoot-linux-file-connection-problems.md)    

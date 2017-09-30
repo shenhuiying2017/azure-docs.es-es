@@ -12,14 +12,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: d2dda47bb3ba5a397ad9626ca4705214dd2560f8
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 1eb8c05f24fcf41f9c188e1153f96a53d8828a39
 ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -70,8 +70,11 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>No se admite la configuración de disco especificada
 
-Azure Backup no admite actualmente los tamaños de disco superiores a 1023 GB. Asegúrese de que los tamaños de disco sean inferiores al límite dividiendo los discos. Para dividirlos, debe copiar los datos de los discos superiores a 1023 GB en los discos recién creados de tamaño inferior a 1023 GB.
-
+Azure Backup no admite actualmente tamaños de disco [mayores que 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- Si tiene discos de más de 1 TB, [conecte discos nuevos](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) de menos de 1 TB. <br>
+- A continuación, copie los datos del disco de más de 1 TB en los discos recién creados de tamaño inferior a 1 TB. <br>
+- Asegúrese de que se han copiado todos los datos y quite los discos de más de 1 TB.
+- Inicie la copia de seguridad.
 
 ## <a name="causes-and-solutions"></a>Causas y soluciones
 
@@ -138,7 +141,7 @@ La mayoría de los errores relacionados con el agente o la extensión de máquin
 Si se requiere el registro detallado para waagent, siga estos pasos:
 
 1. En el archivo /etc/waagent.conf, localice la línea siguiente: **Enable verbose logging (y|n)** (Habilitar registro detallado [s/n]).
-2. Cambie el valor de **Logs.Verbose** de *n* a * y *.
+2. Cambie el valor de **Logs.Verbose** de *n* a  *y* .
 3. Guarde los cambios y reinicie waagent siguiendo los pasos anteriores de esta sección.
 
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas

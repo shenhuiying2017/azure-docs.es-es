@@ -16,10 +16,10 @@ ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6624d683edb548a65d07ab4012c599faaf940ed0
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -36,6 +36,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * Implementar la aplicación en un clúster remoto
 > * [Configurar CI/CD con Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configurar la supervisión y el diagnóstico para la aplicación](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial:
@@ -54,6 +55,8 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 Los clústeres de entidad son clústeres de Service Fabric gratuitos y de duración limitada, hospedados en Azure y ejecutados por el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y obtener información sobre la plataforma. ¡Gratis!
 
 Para obtener acceso a un clúster de entidad, vaya al sitio http://aka.ms/tryservicefabric y siga las instrucciones para acceder a un clúster. Necesita una cuenta de Facebook o GitHub para acceder a un clúster de entidad.
+
+Puede utilizar su propio clúster en lugar del clúster de la entidad, si lo desea.  El front-end web de ASP.NET Core usa el proxy inverso para comunicarse con el back-end del servicio con estado.  Los clústeres de entidades y el clúster de desarrollo local tienen el proxy inverso habilitado de forma predeterminada.  Si implementa la aplicación de ejemplo de votación en su propio clúster, debe [habilitar el proxy inverso en el clúster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 > [!NOTE]
 > Los clústeres de entidades no están protegidos, por lo que las aplicaciones y los datos que coloque en ellos los pueden ver otros usuarios. No implemente nada que no desea que vean los demás usuarios. Asegúrese de leer nuestros términos de uso para conocer todos los detalles.

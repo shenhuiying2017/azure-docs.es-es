@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 09/15/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 46efcfc9dfc0f56378c6ae6e9e04e0a4672f6d4a
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 97660436d29dd8d9b7547a2bf71e9fc06b09624f
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="planned-maintenance-for-virtual-machines-in-azure"></a>Mantenimiento planeado de máquinas virtuales Linux en Azure
@@ -28,8 +28,7 @@ ms.lasthandoff: 09/14/2017
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Azure Metadata Service](instance-metadata-service.md) le permite descubrir información sobre una máquina virtual hospedada en Azure. 
-
+Para obtener información sobre la administración del mantenimiento planeado, consulte [Control de las notificaciones de mantenimiento planeado](maintenance-notifications.md).
 
 
 

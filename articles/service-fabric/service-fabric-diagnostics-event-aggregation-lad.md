@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/17/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: bcc3a229369a065cfcfbd32eadbf3f6ae6fe0036
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: 5e5c6d3cf840a80be08473a300c01555d69cf57d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/16/2017
 
 ---
 
@@ -41,21 +41,17 @@ Service Fabric genera una serie de registros de serie a través de [LTTng](http:
 ### <a name="application-events"></a>Eventos de aplicación
  Eventos emitidos desde el código de los servicios y las aplicaciones especificados por el usuario al instrumentar el software. Puede utilizar cualquier solución de registro que escriba archivos de registro basados en texto, por ejemplo, LTTng. Para obtener más información, consulte la documentación de LTTng sobre el seguimiento de la aplicación.
 
-[Supervisión y diagnóstico de servicios en una configuración de desarrollo de máquina local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Supervisión y diagnóstico de servicios en una configuración de desarrollo de máquina local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
 ## <a name="deploy-the-diagnostics-extension"></a>Implementación de la extensión de Diagnósticos
-El primer paso para recopilar registros será implementar la extensión WAD en cada una de las máquinas virtuales del clúster de Service Fabric. La extensión de Diagnósticos recopila registros en cada máquina virtual y los carga a la cuenta de almacenamiento que especifique. Los pasos varían en función de si se utiliza Azure Portal o Azure Resource Manager.
+El primer paso para recopilar registros será implementar la extensión WAD en cada una de las máquinas virtuales del clúster de Service Fabric. La extensión de Diagnósticos recopila registros en cada máquina virtual y los carga a la cuenta de almacenamiento que especifique. 
 
-Para implementar la extensión de Diagnósticos en las máquinas virtuales del clúster como parte de la creación de dicho clúster, establezca **Diagnósticos** en **Activado**. Después de crear el clúster, no puede cambiar esta configuración mediante el portal.
+Para implementar la extensión de Diagnósticos en las máquinas virtuales del clúster como parte de la creación de dicho clúster, establezca **Diagnósticos** en **Activado**. Después de crear el clúster, no se puede cambiar esta configuración mediante el portal, por lo que tendrá que realizar los cambios apropiados en la plantilla de Resource Manager.
 
-Después, configure Diagnósticos de Azure de Linux (LAD) para recopilar los archivos y colocarlos en su cuenta de almacenamiento. En este proceso se explica en el escenario 3 ("Carga de sus propios archivos de registro") en el artículo sobre cómo [utilizar LAD para supervisar y diagnosticar máquinas virtuales Linux](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Con este proceso puede acceder a los seguimientos. Puede cargar los seguimientos en un visualizador de su elección.
+Esto configura el agente LAD para supervisar los archivos de registro especificados. Siempre que se anexa una nueva línea al archivo, se crea una entrada syslog que se envía al almacenamiento (tabla) especificado.
 
-También puede implementar la extensión de Diagnósticos mediante Azure Resource Manager. El proceso es el mismo para Windows y Linux, y está documentado para los clústeres de Windows en [Recopilación de registros con Diagnósticos de Azure](service-fabric-diagnostics-how-to-setup-wad.md).
-
-También puede usar Operations Management Suite, como se describe en [Operations Management Suite Log Analytics with Linux](https://blogs.technet.microsoft.com/hybridcloud/2016/01/28/operations-management-suite-log-analytics-with-linux/) (Análisis de registros de Operations Management Suite con Linux).
-
-Una vez finalizada esta configuración, el agente de LAD supervisa los archivos de registro especificados. Siempre que se anexa una nueva línea al archivo, se crea una entrada syslog que se envía al almacenamiento especificado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Compruebe la [documentación de LTTng](http://lttng.org/docs) y el [uso de LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) para obtener información más detallada sobre qué eventos debe examinar durante la solución de problemas.
+1. Compruebe la [documentación de LTTng](http://lttng.org/docs) y el [uso de LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) para obtener información más detallada sobre qué eventos debe examinar durante la solución de problemas.
+2. [Configuración del agente de OMS](service-fabric-diagnostics-event-analysis-oms.md) con el fin de recopilar métricas, supervisar contenedores implementados en el clúster y visualizar los registros 

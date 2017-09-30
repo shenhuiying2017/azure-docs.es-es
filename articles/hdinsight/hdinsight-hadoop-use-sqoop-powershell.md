@@ -1,6 +1,6 @@
 ---
 title: "Ejecución de trabajos de Sqoop con PowerShell y Azure HDInsight | Microsoft Docs"
-description: "Aprenda a utilizar Azure PowerShell desde una estación de trabajo para ejecutar la importación y exportación en Sqoop entre un clúster de Hadoop y una base de datos SQL de Azure."
+description: "Aprenda a utilizar Azure PowerShell desde una estación de trabajo para ejecutar la importación y la exportación en Sqoop entre un clúster de Hadoop y una instancia de Azure SQL Database."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -17,32 +17,30 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 87af5baeeb1b3132a17085db7cbf275ae86da53b
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 9ccb191335e8a0d2984599e822bc10db6dba9f2d
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/19/2017
 
 ---
-# <a name="run-sqoop-jobs-using-azure-powershell-for-hadoop-in-hdinsight"></a>Ejecución de trabajos de Sqoop con Azure PowerShell para Hadoop en HDInsight
+# <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>Ejecución de trabajos de Sqoop con Azure PowerShell para Hadoop en HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Obtenga información sobre cómo utilizar Azure PowerShell para ejecutar trabajos de Sqoop en HDInsight con el fin de llevar a cabo tareas de importación y exportación entre un clúster de HDInsight y una base de datos SQL de Azure o una de SQL Server.
+Aprenda a utilizar Azure PowerShell para ejecutar trabajos de Sqoop en Azure HDInsight con el fin de llevar a cabo tareas de importación y exportación entre un clúster de HDInsight y una instancia de Azure SQL Database o una base de datos de SQL Server.
 
 > [!NOTE]
-> Los pasos de este artículo pueden usarse con un clúster de HDInsight basado en Windows o en Linux, aunque solo funcionan desde un cliente Windows. Para consultar otros métodos de envío de trabajos, haga clic en el selector de pestañas de la parte superior del artículo.
+> Aunque puede usar los procedimientos descritos en este artículo con cualquier clúster de HDInsight basado en Windows o Linux, solo funcionan desde un cliente de Windows. Para elegir otros métodos, use el selector de fichas de la parte superior de este artículo. 
 > 
 > 
 
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-* **Una estación de trabajo con Azure PowerShell**.
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-* **Un clúster de Hadoop en HDInsight**. Consulte el artículo [Creación del clúster y la base de datos SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* Una estación de trabajo con Azure PowerShell.
+* Un clúster de Hadoop en HDInsight. Para más información, consulte [Creación del clúster y la base de datos SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
-## <a name="run-sqoop-using-powershell"></a>Ejecutar Sqoop mediante PowerShell
-El siguiente script de PowerShell procesa previamente el archivo de origen y lo exporta a una base de datos SQL de Azure:
+## <a name="run-sqoop-by-using-powershell"></a>Ejecución de Sqoop con PowerShell
+El siguiente script de PowerShell procesa previamente el archivo de origen y lo exporta a una instancia de Azure SQL Database:
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $hdinsightClusterName = "<HDInsightClusterName>"
@@ -167,15 +165,18 @@ El siguiente script de PowerShell procesa previamente el archivo de origen y lo 
     #endregion
 
 ## <a name="limitations"></a>Limitaciones
-* Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o Base de datos SQL Azure no es compatible actualmente con las inserciones masivas.
-* Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realiza varias inserciones en lugar de procesar por lotes las operaciones de inserción.
+HDInsight basado en Linux presenta las siguientes limitaciones:
+
+* Exportación masiva: el conector de Sqoop que se usa para exportar datos a Microsoft SQL Server o Azure SQL Database no admite actualmente inserciones en masa.
+
+* Procesamiento por lotes: con el modificador `-batch` para realizar inserciones, Sqoop realiza inserciones múltiples en lugar de procesar por lotes las operaciones de inserción. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 * [Uso de Oozie con HDInsight](hdinsight-use-oozie.md): use la acción Sqoop en un flujo de trabajo de Oozie.
-* [Análisis de la información de retraso de vuelos con HDInsight](hdinsight-analyze-flight-delay-data.md): use Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos SQL de Azure.
-* [Carga de datos en HDInsight](hdinsight-upload-data.md): busque otros métodos para cargar datos en HDInsight o el almacenamiento de blobs de Azure.
+* [Análisis de la información de retraso de vuelos con HDInsight](hdinsight-analyze-flight-delay-data.md): use Hive para analizar la información de retraso de los vuelos y use Sqoop para exportar los datos a una instancia de Azure SQL Database.
+* [Carga de datos en HDInsight](hdinsight-upload-data.md): encuentre otros métodos de cargar datos en HDInsight o Azure Blob Storage.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 

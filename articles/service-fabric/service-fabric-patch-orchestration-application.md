@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 2c5842822e347113e388d570f6ae603a313944d6
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: bcd1d13265350d8ac96250c5cd5b4b2880e1c146
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -274,6 +274,17 @@ La aplicación de orquestación de revisiones expone API de REST para mostrar lo
   ...
 ]
 ```
+
+Los campos del archivo JSON se describen a continuación.
+
+Campo | Valores | Detalles
+-- | -- | --
+OperationResult | 0: se realizó correctamente<br> 1: se realizó correctamente con errores<br> 2: con error<br> 3: anulada<br> 4: anulada con tiempo de espera | Indica el resultado de la operación global (que normalmente implica la instalación de una o más actualizaciones).
+ResultCode | Igual que OperationResult | Este campo indica el resultado de la operación de instalación para una actualización individual.
+OperationType | 1: instalación<br> 0: buscar y descargar.| La instalación es el único valor de OperationType que se muestra en los resultados de forma predeterminada.
+WindowsUpdateQuery | El valor predeterminado es "IsInstalled=0" |Consulta de Windows Update que se utilizó para buscar actualizaciones. Para más información, vea [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
+RebootRequired | true: se requiere reinicio<br> false: no se requiere reinicio | Indica si se requiere reiniciar para completar la instalación de actualizaciones.
+
 Si todavía no hay ninguna actualización programada, el resultado JSON está vacío.
 
 Inicie sesión en el clúster para consultar los resultados de Windows Update. Después, obtenga la dirección de la réplica principal del servicio Coordinador y diríjase a la dirección URL desde el explorador: http://&lt;IP DE RÉPLICA&gt;:&lt;PuertoDeAplicación&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
@@ -363,7 +374,7 @@ A. El tiempo que necesita la aplicación de orquestación de revisiones depende 
 
 P: **¿Por qué veo algunas actualizaciones en los resultados de Windows Update obtenidos a través de la API de REST, pero no en el historial de Windows Update en la máquina?**
 
-A. Algunas actualizaciones del producto deben comprobarse en su historial de actualizaciones o revisiones respectivo. Por ejemplo: Las actualizaciones de Windows Defender no se muestran en el historial de Windows Update en Windows Server 2016.
+A. Algunas actualizaciones del producto deben comprobarse en su historial de actualizaciones o revisiones respectivo. Por ejemplo, las actualizaciones de Windows Defender no se muestran en el historial de Windows Update en Windows Server 2016.
 
 ## <a name="disclaimers"></a>Declinación de responsabilidades
 
@@ -403,7 +414,7 @@ Una actualización de Windows fallida puede desactivar el estado de una aplicaci
 
 Un administrador debe intervenir y determinar por qué la aplicación o el clúster pasó a ser incorrecto debido a Windows Update.
 
-## <a name="release-notes-"></a>Notas de la versión:
+## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="version-110"></a>Versión 1.1.0
 - Versión pública

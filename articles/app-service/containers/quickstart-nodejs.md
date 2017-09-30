@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/05/2017
-ms.author: cfowler;cephalin
+ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 8dba82b37a1584199f6a16cd2b05129e2adca276
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 6a7e2a99af7bca9bd0b12f877511f765593acb0a
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-nodejs-web-app-in-a-linux-container-in-azure"></a>Creación de una aplicación web de Node.js en un contenedor de Linux en Azure
 
-[Web Apps for Containers](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones mediante el sistema operativo Linux. En esta guía de inicio rápido se explica cómo se implementa una aplicación de Node.js en Azure Web Apps for Containers. Se crea la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) y se usa Git para implementar el código Node.js en la aplicación web.
+[Web Apps for Containers](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático mediante el sistema operativo Linux. En esta guía de inicio rápido se explica cómo se implementa una aplicación de Node.js en Azure Web Apps for Containers. Se crea la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) y se usa Git para implementar el código Node.js en la aplicación web.
 
 ![Aplicación de ejemplo que se ejecuta en Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -62,7 +63,7 @@ Ejecute la aplicación localmente abriendo una ventana de terminal y utilizando 
 npm start
 ```
 
-Abra un explorador web y navegue a la aplicación de ejemplo en http://localhost:1337.
+Abra un explorador web y vaya a la aplicación de ejemplo en `http://localhost:1337`.
 
 Verá el mensaje **Hola mundo** de la aplicación de ejemplo que aparece en la página.
 

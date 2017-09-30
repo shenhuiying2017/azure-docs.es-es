@@ -1,4 +1,4 @@
-## <a name="add-function-apps-to-your-portal-favorites"></a>Agregar instancias de Function App a los favoritos de su portal 
+## <a name="favorite-functions-in-the-portal"></a>Funciones favoritas en el portal 
 
 Si todavía no lo ha hecho, agregue instancias de Function App a sus favoritos en Azure Portal. Esto facilita la búsqueda de las instancias de Function App. Si ya lo ha hecho, vaya a la sección siguiente. 
 

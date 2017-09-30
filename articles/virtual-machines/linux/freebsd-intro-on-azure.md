@@ -3,7 +3,7 @@ title: "Introducción a FreeBSD en Azure | Microsoft Docs"
 description: "Aprenda a utilizar máquinas virtuales de FreeBSD en Azure"
 services: virtual-machines-linux
 documentationcenter: 
-author: KylieLiang
+author: thomas1206
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
-ms.author: kyliel
+ms.date: 09/13/2017
+ms.author: huishao
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7ada9fddd7ffccc3dcbfe3eac05d99b710b67cbc
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 79724bced613619406b693b4b352037e2c5ec9f3
 ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introducción a FreeBSD en Azure
@@ -32,6 +32,7 @@ Microsoft Corporation ofrece imágenes de FreeBSD en Azure con el [agente de inv
 
 - FreeBSD 10.3-RELEASE
 - FreeBSD 11.0-RELEASE
+- FreeBSD 11.1-RELEASE
 
 El agente es responsable de la comunicación entre la VM de FreeBSD y el tejido de Azure para operaciones como el aprovisionamiento de la VM cuando se usa por primera vez (nombre de usuario, contraseña o clave SSH, nombre de host, etc.) y la habilitación de la funcionalidad para extensiones de VM selectivas.
 
@@ -42,6 +43,7 @@ La implementación de una máquina virtual de FreeBSD es un proceso sencillo cua
 
 - [FreeBSD 10.3 en Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
 - [FreeBSD 11.0 en Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+- [FreeBSD 11.1 en Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>Crear una máquina virtual de FreeBSD mediante la CLI de Azure 2.0 en FreeBSD
 Primero necesita instalar la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) mediante el siguiente comando en una máquina de FreeBSD.

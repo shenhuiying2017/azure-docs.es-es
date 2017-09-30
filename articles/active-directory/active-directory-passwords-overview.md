@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: 9f72a4900f20282827ff939aa41bc4f306e547a3
+ms.translationtype: HT
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: de2d41d8c2787ffdc80daddf959487f6031da87d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 09/16/2017
 
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI
@@ -55,8 +55,8 @@ Si está listo, puede comenzar a utilizar SSPR de Azure AD con la [guía de inic
 
 El autoservicio de restablecimiento de contraseña de Azure AD está disponible en tres niveles, en función de la suscripción de que se trate.
 
-* **Azure AD Gratis**: los administradores que están solo en la nube pueden restablecer sus propias contraseñas.
-* **Azure AD Básico** o cualquier **suscripción de pago de Office 365**: los usuarios y administradores que están solo en la nube pueden restablecer sus propias contraseñas.
+* **Azure AD Free**: los administradores que están solo en la nube pueden restablecer sus propias contraseñas.
+* **Azure AD Basic** o cualquier **suscripción de pago de Office 365**: los usuarios que están solo en la nube pueden cambiar sus propias contraseñas y los administradores que están solo en la nube pueden restablecer sus propias contraseñas.
 * **Azure AD Premium**: cualquier usuario o administrador, incluidos los que están solo en la nube, los federados o los usuarios sincronizados con contraseña, pueden restablecer sus propias contraseñas. Algunas contraseñas locales requieren que la escritura diferida de contraseñas esté habilitada.
 
 ## <a name="azure-ad-self-service-password-reset-a-sum-of-the-parts"></a>El autoservicio de restablecimiento de contraseña de Azure AD, una suma de las partes

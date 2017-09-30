@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/21/2017
 ms.author: saysa
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 28424d139499b797b09664f73657a7f73361e3bc
 ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configuración de su entorno de desarrollo en Mac OS X
@@ -49,7 +49,7 @@ Para crear la máquina virtual local que contenga un clúster de Service Fabric 
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    Este paso reduce el archivo `Vagrantfile` que contiene la configuración de la máquina virtual, junto con la ubicación desde la que se descarga la máquina virtual.
+    Este paso reduce el archivo `Vagrantfile` que contiene la configuración de la máquina virtual, junto con la ubicación desde la que se descarga la máquina virtual.  El archivo apunta a una imagen de Ubuntu existente. 
 
 2. Vaya al clon local del repositorio
 
@@ -70,9 +70,24 @@ Para crear la máquina virtual local que contenga un clúster de Service Fabric 
     vagrant up
     ```
 
-   En este paso, se descarga la imagen de máquina virtual preconfigurada, se arranca localmente y, a continuación, se configura un clúster de Service Fabric local en ella. Tenga en cuenta que puede tardar unos minutos. Si la instalación se completa correctamente, verá un mensaje en la salida que indica que el clúster se está iniciando.
 
-    ![El programa de instalación del clúster se inicia después de aprovisionar la máquina virtual][cluster-setup-script]
+5. Inicie sesión en la máquina virtual e instale el SDK de Service Fabric.
+
+    ```bash
+    vagrant ssh
+    ```
+   
+   Instale el SDK como se describe en [Instalación del SDK](service-fabric-get-started-linux.md).  El siguiente script se proporciona para facilitar la instalación del motor de tiempo de ejecución y el SDK común de Service Fabric junto con la CLI de sfctl. Con la ejecución del script se da por supuesto que ha leído y acepta las licencias para todo el software que se está instalando.
+
+    ```bash
+    sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+    ```
+
+5.  Inicie el clúster de Service Fabric
+
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
 
     >[!TIP]
     > Si la descarga de la máquina virtual tarda mucho tiempo, puede descargarla mediante wget o curl, o si usa un explorador, navegando al vínculo que especifica **config.vm.box_url** en el archivo `Vagrantfile`. Después de descargarlo localmente, edite `Vagrantfile` para que apunte a la ruta de acceso local en la que descargó la imagen. Por ejemplo si la descargó en /home/users/test/azureservicefabric.tp8.box, establezca **config.vm.box_url** en dicha ruta.
@@ -106,6 +121,10 @@ Service Fabric proporciona herramientas de scaffolding que le ayudarán a crear 
   npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
   ```
 4. Para compilar una aplicación de Java de Service Fabric en Mac, necesita JDK 1.8 y Gradle instalados en el equipo.
+
+## <a name="set-up-net-core-20-development"></a>Configuración del desarrollo con .NET Core 2.0
+
+Instale el [SDK de .NET Core 2.0 para Mac](https://www.microsoft.com/net/core#macos) para iniciar la [creación de aplicaciones de Service Fabric en C#](service-fabric-create-your-first-linux-application-with-csharp.md). Los paquetes de aplicaciones de Service Fabric en .NET Core 2.0 se hospedan en NuGet.org, actualmente en versión preliminar.
 
 
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Instalación del complemento de Eclipse Neon para Service Fabric

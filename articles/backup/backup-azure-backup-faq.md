@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
-ms.author: markgal;arunak;trinadhk;
+ms.author: markgal;arunak;trinadhk;sogup;
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Preguntas sobre el servicio Azure Backup
@@ -47,7 +47,7 @@ No. El almacén se crea en un nivel de suscripción y no se puede reasignar a ot
 Todos los almacenes de Backup existentes en el [portal clásico](https://manage.windowsazure.com) siguen siendo compatibles. Sin embargo, ya no podrá usar el portal clásico para implementar nuevos almacenes de Backup. Microsoft recomienda el uso de almacenes de Recovery Services para todas las implementaciones porque las futuras mejoras solo se aplican a almacenes de Recovery Services. Si intenta crear un almacén de Backup en el portal clásico, se le redirigirá a [Azure Portal](https://portal.azure.com).
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>¿Se puede migrar un almacén de Backup a un almacén de Recovery Services? <br/>
-Por desgracia, no, no puede migrar el contenido de un almacén de Backup a un almacén de Recovery Services. Estamos trabajando para agregar esta funcionalidad, pero no está disponible actualmente.
+Sí, ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md).
 
 ### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>He realizado copias de seguridad de mis máquinas virtuales clásicas en un almacén de Backup. ¿Puedo migrar mis máquinas virtuales del modo clásico al modo de Resource Manager y protegerlos en un almacén de Recovery Services?
 Los puntos de recuperación de máquinas virtuales clásicas en un almacén de Backup no migran automáticamente a un almacén de Recovery Services cuando se mueve la máquina virtual del modo clásico al modo de Resource Manager. Siga estos pasos para transferir las copias de seguridad de máquinas virtuales:

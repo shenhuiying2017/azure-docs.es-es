@@ -1,6 +1,6 @@
 ---
-title: Desarrollo para Azure File Storage con .NET | Microsoft Docs
-description: "Obtenga información acerca de cómo desarrollar aplicaciones .NET y servicios que utilizan Azure File Storage para almacenar datos de archivos."
+title: Desarrollo para Azure Files con .NET | Microsoft Docs
+description: Aprenda a desarrollar aplicaciones y servicios .NET que usen Azure Files para almacenar datos de archivos.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7b94e70619324bb8dc8e7f8306f00f06e7476c1f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-net"></a>Desarrollo para Azure File Storage con .NET 
+# <a name="develop-for-azure-files-with-net"></a>Desarrollo para Azure Files con .NET 
 > [!NOTE]
-> Este artículo muestra cómo administrar Azure File Storage con código. NET. Para más información sobre Azure File Storage, consulte la [Introducción a Azure File Storage](storage-files-introduction.md).
+> Este artículo muestra cómo administrar Azure Files con código. NET. Para más información sobre Azure Files, consulte la [Introducción a Azure Files](storage-files-introduction.md).
 >
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>Acerca de este tutorial
-Este tutorial muestra los aspectos básicos del uso de .NET para desarrollar aplicaciones o servicios que utilizan Azure File Storage para almacenar datos de archivos. En este tutorial, se creará una aplicación de consola simple y se mostrará cómo realizar las acciones básicas con .NET y Azure File Storage:
+En este tutorial se muestran los aspectos básicos del uso de .NET para desarrollar aplicaciones o servicios que usen Azure Files para almacenar datos de archivos. En este tutorial, se creará una aplicación de consola simple y se mostrará cómo realizar las acciones básicas con .NET y Azure Files:
 
 * Obtener el contenido de un archivo
 * Establezca la cuota (tamaño máximo) para el recurso compartido de archivos.
@@ -42,7 +42,7 @@ Este tutorial muestra los aspectos básicos del uso de .NET para desarrollar apl
 * Uso de las métricas de Almacenamiento de Azure para solucionar problemas
 
 > [!Note]  
-> Dado que se puede tener acceso a Azure File Storage a través de SMB, es posible escribir aplicaciones simples que tienen acceso a un recurso compartido de Azure File mediante las clases estándar de System.IO para E/S de archivos. En este artículo se describe cómo escribir aplicaciones que utilizan el SDK de .NET de Azure Storage, que usa la [API de REST de Azure File Storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para comunicarse con Azure File Storage. 
+> Dado que se puede tener acceso a Azure Files a través de SMB, es posible escribir aplicaciones simples que tienen acceso a un recurso compartido de Azure File mediante las clases estándar de System.IO para E/S de archivos. En este artículo se describe cómo escribir aplicaciones que utilizan el SDK de .NET de Azure Storage, que usa la [API de REST de archivos](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para comunicarse con Azure Files. 
 
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Creación de la aplicación de consola y obtención del ensamblado
@@ -86,7 +86,7 @@ A continuación, guardará las credenciales en el archivo app.config del proyect
 ```
 
 > [!NOTE]
-> La versión más reciente del emulador de Azure Storage no es compatible con Azure File Storage. La cadena de conexión debe hacer referencia a una cuenta de Azure Storage en la nube para trabajar con Azure File Storage.
+> La versión más reciente del Emulador de Azure Storage no es compatible con Azure Files. La cadena de conexión debe hacer referencia a una cuenta de Azure Storage en la nube para trabajar con Azure Files.
 
 ## <a name="add-using-directives"></a>Adición de directivas using
 Abra el archivo `Program.cs` desde el Explorador de soluciones y agregue las siguientes directivas using al principio del archivo.
@@ -95,7 +95,7 @@ Abra el archivo `Program.cs` desde el Explorador de soluciones y agregue las sig
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
 using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Azure Blobs
-using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
+using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure Files
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
@@ -104,7 +104,7 @@ using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
 A continuación, agregue el siguiente código al método `Main()` (después del código mostrado anteriormente) para recuperar la cadena de conexión. Este código obtiene una referencia al archivo que creamos anteriormente y envía su contenido a la ventana de consola.
 
 ```csharp
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -149,7 +149,7 @@ En el ejemplo siguiente se muestra cómo comprobar el uso actual de un recurso c
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -184,7 +184,7 @@ En el ejemplo siguiente se crea una directiva de acceso compartido en un recurso
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -242,7 +242,7 @@ También puede usar AzCopy para copiar un archivo en otro o para copiar un blob 
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -286,7 +286,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Create a new file share, if it does not already exist.
@@ -327,14 +327,12 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Puede copiar un blob en un archivo de la misma manera. Si el objeto de origen es un blob, cree una SAS para autenticar el acceso a dicho blob durante la operación de copia.
 
-## <a name="troubleshooting-azure-file-storage-using-metrics"></a>Solución de problemas de Azure File Storage mediante métricas
-Azure Storage Analytics ahora admite métricas para Azure File Storage. Con los datos de las métricas, es posible seguir paso a paso las solicitudes y diagnosticar problemas.
+## <a name="troubleshooting-azure-files-using-metrics"></a>Solución de problemas de Azure Files mediante métricas
+Azure Storage Analytics ahora admite métricas para Azure Files. Con los datos de las métricas, es posible seguir paso a paso las solicitudes y diagnosticar problemas.
 
+Puede habilitar las métricas para Azure Files mediante [Azure Portal](https://portal.azure.com). También se puede habilitar mediante programación, para lo que hay que llamar a la operación establecer propiedades del servicio de archivos a través de la API de REST o una de sus análogas de la Biblioteca del cliente de almacenamiento.
 
-Puede habilitar las métricas para Azure File Storage mediante [Azure Portal](https://portal.azure.com). También se puede habilitar mediante programación, para lo que hay que llamar a la operación establecer propiedades del servicio de archivos a través de la API de REST o una de sus análogas de la Biblioteca del cliente de almacenamiento.
-
-
-En el siguiente ejemplo de código se muestra cómo usar la Biblioteca del cliente de almacenamiento para .NET a fin de habilitar las métricas para Azure File Storage.
+En el siguiente ejemplo de código se muestra cómo usar la Biblioteca del cliente de almacenamiento para .NET a fin de habilitar las métricas para Azure Files.
 
 En primer lugar, agregue las siguientes directivas `using` a su archivo `Program.cs`, además de las que ya ha agregado:
 
@@ -343,7 +341,7 @@ using Microsoft.WindowsAzure.Storage.File.Protocol;
 using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
-Tenga en cuenta que mientras que Azure Blobs, Azure Table y Azure Queues utilizan el tipo compartido `ServiceProperties` en el espacio de nombres `Microsoft.WindowsAzure.Storage.Shared.Protocol`, Azure File Storage utiliza el suyo propio, el tipo `FileServiceProperties` en el espacio de nombres `Microsoft.WindowsAzure.Storage.File.Protocol`. No obstante, se debe hacer referencia a ambos espacios de nombres en el código para que se pueda compilar.
+Tenga en cuenta que mientras que Azure Blobs, Azure Table y Azure Queues utilizan el tipo compartido `ServiceProperties` en el espacio de nombres `Microsoft.WindowsAzure.Storage.Shared.Protocol`, Azure Files utiliza el suyo propio, el tipo `FileServiceProperties` en el espacio de nombres `Microsoft.WindowsAzure.Storage.File.Protocol`. No obstante, se debe hacer referencia a ambos espacios de nombres en el código para que se pueda compilar.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -386,26 +384,26 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-Además, en el artículo [Solución de problemas de Azure File Storage](storage-troubleshoot-windows-file-connection-problems.md) puede ver una guía completa de solución de problemas.
+Además, puede hacer referencia al [artículo de solución de problemas de archivos de Azure](storage-troubleshoot-windows-file-connection-problems.md) para ver una guía completa de solución de problemas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los vínculos siguientes para obtener más información acerca de Almacenamiento de archivos de Azure.
+Consulte los vínculos siguientes para más información acerca Azure Files.
 
 ### <a name="conceptual-articles-and-videos"></a>Artículos y vídeos conceptuales
-* [Azure File Storage: un sistema de archivos SMB en la nube sin dificultades para Windows y Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Uso de Azure File Storage con Linux](storage-how-to-use-files-linux.md)
+* [Azure Files: un sistema de archivos SMB en la nube sin dificultades para Windows y Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Uso de Azure Files con Linux](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>Compatibilidad de herramientas con el almacenamiento de archivos
 * [Uso de AzCopy con Almacenamiento de Microsoft Azure](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Uso de la CLI de Azure con Almacenamiento de Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Solución de problemas de Azure File Storage](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Solución de problemas de Azure Files](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referencia
 * [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Referencia de la API REST del servicio de archivos](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>Publicaciones de blog
-* [El almacenamiento de archivos de Azure ya está disponible de manera general](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [En el interior de Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files is now generally available (Azure Files ya está disponible con carácter general)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inside Azure Files (En el interior de Azure Files)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Conexiones persistentes a Microsoft Azure File Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

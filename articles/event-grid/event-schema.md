@@ -6,25 +6,25 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 09/18/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6736c6a60021b51db612f0a596086a9e988d7aef
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a61357b6ba75566e0ad4d3300cc602333ece0563
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
-# <a name="event-grid-event-schema"></a>Esquema de eventos de Event Grid
+# <a name="azure-event-grid-event-schema"></a>Esquema de eventos de Azure Event Grid
 
-En este artículo se proporcionan las propiedades y los esquemas de los eventos. Los eventos constan de un conjunto de cinco propiedades de cadena y un objeto de **datos** obligatorios. Las propiedades son comunes a todos los eventos de cualquier anunciante. El objeto de **datos** contiene propiedades específicas de cada anunciante. Para los temas de sistema, estas propiedades son específicas del proveedor de recursos, como Storage o Event Hubs.
+En este artículo se proporcionan las propiedades y los esquemas de los eventos. Los eventos constan de un conjunto de cinco propiedades de cadena y un objeto de datos obligatorios. Las propiedades son comunes a todos los eventos de cualquier anunciante. El objeto de datos contiene propiedades específicas de cada anunciante. Para los temas de sistema, estas propiedades son específicas del proveedor de recursos, como Azure Storage o Azure Event Hubs.
 
-Los eventos se envían a Azure Event Grid en una matriz que puede contener varios objetos de evento. Si hay un solo evento, la matriz tiene una longitud de 1. 
+Los eventos se envían a Azure Event Grid en una matriz que puede contener varios objetos de evento. Si hay un solo evento, la matriz tiene una longitud de 1. La matriz puede tener un tamaño total de hasta 1 MB. Cada evento de la matriz tiene 64 KB como máximo.
  
 ## <a name="event-properties"></a>Propiedades de evento
 
-Todos los eventos contendrán los siguientes datos de nivel superior iguales.
+Todos los eventos contendrán los siguientes datos de nivel superior iguales:
 
 | Propiedad | Escriba | Descripción |
 | -------- | ---- | ----------- |
@@ -41,7 +41,7 @@ Los siguientes orígenes de eventos publican eventos para el consumo a través d
 
 * Grupos de recursos (operaciones de administración)
 * Suscripciones de Azure (operaciones de administración)
-* Event Hubs
+* Centros de eventos
 * Temas personalizados
 
 ## <a name="azure-subscriptions"></a>Suscripciones de Azure
@@ -55,7 +55,7 @@ Las suscripciones de Azure ahora pueden emitir eventos de administración de Azu
 - **Microsoft.Resources.ResourceWriteCancel**: se genera cuando se cancela una operación de creación o actualización de recursos.  
 - **Microsoft.Resources.ResourceDeleteSuccess**: se genera cuando se elimina un recurso correctamente.  
 - **Microsoft.Resources.ResourceDeleteFailure**: se genera cuando se produce un error al eliminar una operación de creación o actualización de recursos.  
-- **Microsoft.Resources.ResourceDeleteCancel**: se genera cuando se cancela la eliminación de un recurso. Esto sucede cuando se cancela la implementación de una plantilla.
+- **Microsoft.Resources.ResourceDeleteCancel**: se genera cuando se cancela una operación de eliminación de recursos. Esto sucede cuando se cancela la implementación de una plantilla.
 
 ### <a name="example-event-schema"></a>Esquema de evento de ejemplo
 
@@ -96,7 +96,7 @@ Los grupos de recursos ahora pueden emitir eventos de administración de Azure R
 - **Microsoft.Resources.ResourceWriteCancel**: se genera cuando se cancela una operación de creación o actualización de recursos.  
 - **Microsoft.Resources.ResourceDeleteSuccess**: se genera cuando se elimina un recurso correctamente.  
 - **Microsoft.Resources.ResourceDeleteFailure**: se genera cuando se produce un error al eliminar una operación de creación o actualización de recursos.  
-- **Microsoft.Resources.ResourceDeleteCancel**: se genera cuando se cancela la eliminación de un recurso. Esto sucede cuando se cancela la implementación de una plantilla.
+- **Microsoft.Resources.ResourceDeleteCancel**: se genera cuando se cancela una operación de eliminación de recursos. Esto sucede cuando se cancela la implementación de una plantilla.
 
 ### <a name="example-event"></a>Evento de ejemplo
 
@@ -136,7 +136,7 @@ A día de hoy, los eventos de Event Hubs solo se generan cuando se envía autom�
 
 ### <a name="example-event"></a>Evento de ejemplo
 
-Este evento de ejemplo muestra el esquema de un evento de Event Hubs que se genera cuando Captura almacena un archivo. 
+Este evento de ejemplo muestra el esquema de un evento de Event Hubs que se genera cuando la característica Captura almacena un archivo: 
 
 ```json
 [
@@ -163,10 +163,11 @@ Este evento de ejemplo muestra el esquema de un evento de Event Hubs que se gene
 ```
 
 
+## <a name="azure-blob-storage"></a>Azure Blob Storage
 
-## <a name="azure-blob-storage"></a>Almacenamiento de blobs de Azure
+>[!IMPORTANT]
+>Para usar eventos de Blob Storage, debe estar registrado para la versión preliminar de eventos de Blob Storage. Para más información acerca del programa de la versión preliminar, consulte los [eventos de Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview#join-the-preview).  
 
-Azure Blob Storage en versión preliminar privada con inicio de sesión para la integración con Event Grid.
 
 ### <a name="available-event-types"></a>Tipos de eventos disponibles
 
@@ -175,7 +176,7 @@ Azure Blob Storage en versión preliminar privada con inicio de sesión para la 
 
 ### <a name="example-event"></a>Evento de ejemplo
 
-Este evento de ejemplo muestra el esquema de un evento de almacenamiento que se genera cuando se crea un blob. 
+Este evento de ejemplo muestra el esquema de un evento de almacenamiento que se genera cuando se crea un blob: 
 
 ```json
 [
@@ -208,7 +209,7 @@ Este evento de ejemplo muestra el esquema de un evento de almacenamiento que se 
 
 ## <a name="custom-topics"></a>Temas personalizados
 
-La carga de datos de los eventos personalizados la define el usuario y puede ser cualquier formato JSON correcto. Los datos de nivel superior deben contener los mismos campos que los eventos estándar definidos por los recursos. Al publicar eventos de temas personalizados debe considerar modelar el asunto de los eventos como ayuda para el enrutamiento y el filtrado.
+La carga de datos de los eventos personalizados la define el usuario y puede ser cualquier objeto con formato JSON correcto. Los datos de nivel superior deben contener los mismos campos que los eventos estándar definidos por los recursos. Al publicar eventos de temas personalizados, debe considerar modelar el asunto de los eventos como ayuda para el enrutamiento y el filtrado.
 
 ### <a name="example-event"></a>Evento de ejemplo
 
@@ -232,6 +233,6 @@ En el ejemplo siguiente se muestra un evento de tema personalizado:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para ver una introducción a Event Grid, consulte el artículo acerca de [qué es Event Grid](overview.md).
-* Para información acerca de la creación de una suscripción de Event Grid, consulte [Event Grid subscription schema](subscription-creation-schema.md) (Esquema de suscripción de Event Grid).
+* Para una introducción a Azure Event Grid, consulte el artículo de [introducción a Event Grid](overview.md).
+* Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).
 

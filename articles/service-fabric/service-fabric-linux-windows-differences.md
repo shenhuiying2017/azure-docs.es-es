@@ -1,6 +1,6 @@
 ---
 title: Diferencias entre Azure Service Fabric en Windows y en Linux | Documentos de Microsoft
-description: "Diferencias entre Azure Service Fabric, versión preliminar, en Linux y Azure Service Fabric en Windows."
+description: Diferencias entre Azure Service Fabric en Linux y Azure Service Fabric en Windows.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,36 +12,28 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 25976ba919454e26f1dd7965de5db7c4f80b9355
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Diferencias entre Service Fabric en Linux (versión preliminar) y Windows (disponible con carácter general)
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>Diferencias entre Service Fabric en Linux y en Windows
 
-Dado que Service Fabric en Linux está en versión preliminar, hay varias características que se admiten en Windows, pero aún no en Linux. Por último, los conjuntos de características estarán a la par cuando Service Fabric en Linux esté disponible con carácter general. En las próximas versiones, esta distancia se reducirá. Existen las siguientes diferencias entre las últimas versiones disponibles (es decir, entre la versión 5.6 en Windows y la versión 5.5 en Linux): 
+Hay algunas características que se admiten en Windows, pero todavía no en Linux. Al final, los conjuntos de características serán idénticos ya que con cada versión las diferencias serán más pequeñas. Existen las siguientes diferencias entre las últimas versiones disponibles (es decir, entre la versión 6.0 en Windows y la versión 6.0 en Linux): 
 
-* Colecciones confiables (y servicios con estado confiables) 
-* ReverseProxy 
-* Instalador independiente 
-* Validación del esquema XML para archivos de manifiesto 
-* Redireccionamiento de la consola 
-* El servicio de análisis de errores (FAS)
-* Docker Compose y controladores de volúmenes y de registro para contenedores 
-* Regulación de recursos para contenedores y servicios 
-* Servicio DNS
-* Compatibilidad con Azure Active Directory
-* Comandos de la CLI equivalentes a ciertos comandos de Powershell 
-* Solo se puede ejecutar un subconjunto de comandos de Powershell en un clúster de Linux (tal como se explica detalladamente en la sección siguiente).
+* Todos los modelos de programación se encuentran en fase de versión preliminar (Java / Reliable Actors de C#, Reliable Stateless Services y Reliable Stateful Services)
+* Envoy (ReverseProxy) está en fase de versión preliminar en Linux
+* El instalador independiente para Linux no está aún disponible en Linux
+* El redireccionamiento de la consola no se admite en los clústeres de producción de Linux ni de Windows.
+* El servicio de análisis de errores (FAS) en Linux
+* El servicio DNS para servicios de Service Fabric (el servicio DNS se admite para contenedores en Linux)
+* Los comandos equivalentes de la CLI para determinados comandos de Powershell (la lista aparece a continuación, la mayoría de los cuales es aplicable solo a clústeres independientes)
 
->[!NOTE]
->El redireccionamiento de la consola no se admite en los clústeres de producción, ni siquiera en Windows.
-
-Las herramientas de desarrollo también son diferentes en Windows y Linux. VisualStudio, Powershell, VSTS, and ETW se usan en Windows, mientras que Yeoman, Eclipse, Jenkins, y LTTng se usan en Linux.
+Las herramientas de desarrollo también son diferentes en Windows y Linux. Visual Studio, Powershell, VSTS y ETW se usan en Windows, mientras que Yeoman, Eclipse, Jenkins, y LTTng se usan en Linux.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Cmdlets de PowerShell que no funcionan en un clúster de Service Fabric para Linux
 
@@ -67,7 +59,6 @@ Las herramientas de desarrollo también son diferentes en Windows y Linux. Visua
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus

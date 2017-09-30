@@ -16,8 +16,8 @@ Ya tiene la definición de OpenAPI para su función; la creó siguiendo las inst
 
     |Configuración|Descripción|
     |--------|------------|
-    |**Modo de exportación**|Seleccione **Rápido** para generar la API personalizada de forma automática. Si selecciona **Manual**, se exporta la definición de la API, pero después tendrá que importarla en PowerApps y Microsoft Flow de forma manual. Para más información, consulte, [Exportación a PowerApps y Microsoft Flow](https://docs.microsoft.com/azure/app-service/app-service-export-api-to-powerapps-and-flow?toc=%2fazure%2fazure-functions%2ftoc.json).|
-    |**Entorno**|Seleccione el entorno en que se debe guardar la API personalizada. Para más información, consulte [Información general de entornos (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) o [Información general de entornos (Microsoft Flow)] (https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
+    |**Modo de exportación**|Seleccione **Rápido** para generar la API personalizada de forma automática. Si selecciona **Manual**, se exporta la definición de la API, pero después tendrá que importarla en PowerApps y Microsoft Flow de forma manual. Para más información, consulte, [Exportación a PowerApps y Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md).|
+    |**Entorno**|Seleccione el entorno en que se debe guardar la API personalizada. Para más información, consulte [Información general sobre los entornos (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) o [Información general sobre los entornos (Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
     |**Nombre de la API personalizada**|Escriba un nombre, por ejemplo, `Turbine Repair`.|
     |**Nombre de clave de API**|Escriba el nombre que deben ver los compiladores de aplicación y flujo en la interfaz de usuario de la API personalizada. Tenga en cuenta que en el ejemplo se incluye información útil.|
  

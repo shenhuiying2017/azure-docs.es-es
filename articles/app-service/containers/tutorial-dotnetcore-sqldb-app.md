@@ -1,6 +1,6 @@
 ---
-title: "Compilación de una aplicación web de .NET Core y SQL Database en Azure Web Apps for Containers | Microsoft Docs"
-description: "Obtenga información sobre cómo comenzar a trabajar con una aplicación .NET Core en Azure Web Apps for Containers con conexión a una instancia de SQL Database."
+title: "Compilación de una aplicación web .NET Core y SQL Database en Azure Web Apps for Containers | Microsoft Docs"
+description: "Aprenda a poner en funcionamiento una aplicación .NET Core en Azure Web Apps for Containers con conexión a una instancia de SQL Database."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -16,17 +16,17 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7683856e5ad7bf19b38d51f019e4eef106f1800c
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 365747f9f9c765e8db1ab86946ba578c321ec732
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-apps-for-containers"></a>Compilación de una aplicación web de .NET Core y SQL Database en Azure Web Apps for Containers
+# <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-app-for-containers"></a>Compilación de una aplicación web .NET Core y SQL Database en Azure Web Apps for Containers
 
-[Web Apps for Containers](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones mediante el sistema operativo Linux. En este tutorial se muestra cómo crear una aplicación web .NET Core y conectarla a una instancia de SQL Database. Cuando termine, tendrá una aplicación MVC de .NET Core en ejecución en Web Apps for Containers. 
+[Web Apps for Containers](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático mediante el sistema operativo Linux. En este tutorial se muestra cómo crear una aplicación web .NET Core y conectarla a una instancia de SQL Database. Cuando termine, tendrá una aplicación .NET Core con MVC en ejecución en Web Apps for Containers. 
 
-![Aplicación en ejecución en Web Apps for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![aplicación en ejecución en Web Apps for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
 Aprenderá a:
 
@@ -74,7 +74,7 @@ dotnet ef database update
 dotnet run
 ```
 
-Navegue a http://localhost:5000 en un explorador. Seleccione el vínculo **Crear nuevo** y cree un par de elementos de _tareas pendientes_.
+Vaya a `http://localhost:5000` en un explorador. Seleccione el vínculo **Crear nuevo** y cree un par de elementos de _tareas pendientes_.
 
 ![Se conecta correctamente a SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
@@ -251,7 +251,7 @@ http://<app_name>.azurewebsites.net
 
 Agregue algunos elementos de tareas pendientes.
 
-![Aplicación en ejecución en Web Apps for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![aplicación en ejecución en Web Apps for Containers](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
 **¡Enhorabuena!** Está ejecutando una aplicación .NET Core controlada por datos en Web Apps for Containers.
 
@@ -335,7 +335,7 @@ Ejecute localmente la aplicación.
 dotnet run
 ```
 
-En el explorador, navegue a http://local:5000/. Ahora puede agregar una tarea pendiente y marcar **Listo**. A continuación se debería mostrar en su página principal como un elemento completado. Recuerde que la vista `Edit` no muestra el campo `Done`, dado que no cambió la vista `Edit`.
+Abra el explorador y vaya a `http://localhost:5000/`. Ahora puede agregar una tarea pendiente y marcar **Listo**. A continuación se debería mostrar en su página principal como un elemento completado. Recuerde que la vista `Edit` no muestra el campo `Done`, dado que no cambió la vista `Edit`.
 
 ### <a name="publish-changes-to-azure"></a>Publicación de los cambios en Azure
 
@@ -381,5 +381,5 @@ De forma predeterminada, el portal muestra la página **Información general**. 
 Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación web.
 
 > [!div class="nextstepaction"] 
-> [Asignar un nombre DNS personalizado a Azure Web Apps](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Asignar un nombre DNS personalizado a Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
 

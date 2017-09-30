@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/18/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 83b9b2c7bb4134e1d9bdf857449bfb85884333d0
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -22,7 +22,7 @@ Los principales conceptos de Azure Event Grid son:
 
 ## <a name="events"></a>Eventos
 
-Una evento es la cantidad mínima de información que describe completamente algo que se ha producido en el sistema.  Todos los eventos tienen información común, como: origen del evento, hora en que el evento ha tenido lugar e identificador único.  Cada evento tiene además información específica que solo es relevante para el evento concreto. Por ejemplo, un evento sobre un nuevo archivo que se crea en Azure Storage contiene detalles sobre el archivo, como, por ejemplo, el valor de lastTimeModified. O bien, un evento sobre un reinicio de máquina virtual contiene el nombre de la máquina virtual y el motivo de reinicio.
+Una evento es la cantidad mínima de información que describe completamente algo que se ha producido en el sistema.  Todos los eventos tienen información común, como: origen del evento, hora en que el evento ha tenido lugar e identificador único.  Cada evento tiene además información específica que solo es relevante para el evento concreto. Por ejemplo, un evento sobre un nuevo archivo que se crea en Azure Storage contiene detalles sobre el archivo, como, por ejemplo, el valor de lastTimeModified. O bien, un evento sobre un reinicio de máquina virtual contiene el nombre de la máquina virtual y el motivo de reinicio. Cada evento tiene 64 KB de datos como máximo.
 
 ## <a name="event-sourcespublishers"></a>Orígenes/publicadores de eventos
 
