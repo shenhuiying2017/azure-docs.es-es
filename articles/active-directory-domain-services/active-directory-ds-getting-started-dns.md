@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory Domain Services: actualización de la configuración DNS para la red virtual de Azure | Microsoft Docs"
-description: "Introducción a Azure Active Directory Domain Services"
+title: "Azure Active Directory Domain Services: actualización de la configuración DNS para Azure Virtual Network | Microsoft Docs"
+description: "Introducción a los Servicios de dominio de Azure Active Directory"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: c704ee189072ce8ed196d1ef0a23edd528a10025
+ms.translationtype: HT
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: ab8e3215e8e73d3943af06cffafa730cf1b7744b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/27/2017
 
 ---
-# <a name="enable-azure-active-directory-domain-services-preview"></a>Habilitación de Azure Active Directory Domain Services (versión preliminar)
+# <a name="enable-azure-active-directory-domain-services"></a>Habilitación de Azure Active Directory Domain Services
 
 ## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Tarea 4: Actualización de la configuración DNS para la red virtual de Azure
 En las tareas de configuración anteriores, ha habilitado correctamente Azure Active Directory Domain Services para el directorio. La tarea siguiente consiste en asegurarse de que los equipos dentro de la red virtual pueden conectarse y consumir estos servicios. En este artículo, se actualiza la configuración del servidor DNS de la red virtual para que apunte a las direcciones IP en las que Azure Active Directory Domain Services está disponible en la red virtual.
