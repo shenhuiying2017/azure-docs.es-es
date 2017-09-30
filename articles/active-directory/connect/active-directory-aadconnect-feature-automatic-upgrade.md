@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9541cd195e8afa6e692a5a0214b0d614e429c33b
-ms.openlocfilehash: 234f06a858987b03ec2ed0bbe0899423d8f0bcdd
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 57cd81a92817171a23ffd0f607eb127005bc1e0d
 ms.contentlocale: es-es
-ms.lasthandoff: 12/20/2016
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: actualización automática
@@ -87,6 +87,7 @@ Aquí presentamos una lista de los mensajes más comunes que se encuentran. No a
 | UpgradeAbortedSyncExeInUse |La [interfaz de usuario de Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) está abierta en el servidor. |
 | UpgradeAbortedSyncOrConfigurationInProgress |El asistente para la instalación se está ejecutando o se programó una sincronización al margen del programador. |
 | **UpgradeNotSupported** | |
+| UpgradeNotSupportedAdfsSignInMethod | Ha seleccionado AD FS como método de inicio de sesión. | 
 | UpgradeNotSupportedCustomizedSyncRules |Ha agregado sus propias reglas personalizadas a la configuración. |
 | UpgradeNotSupportedDeviceWritebackEnabled |Se ha habilitado la característica [Reescritura de dispositivos](active-directory-aadconnect-feature-device-writeback.md) . |
 | UpgradeNotSupportedGroupWritebackEnabled |Se ha habilitado la característica [Reescritura de grupos](active-directory-aadconnect-feature-preview.md#group-writeback) . |
@@ -95,6 +96,8 @@ Aquí presentamos una lista de los mensajes más comunes que se encuentran. No a
 | UpgradeNotSupportedMultiForestSetup |Se está conectando a más de un bosque. La configuración rápida solo se conecta a un bosque. |
 | UpgradeNotSupportedNonLocalDbInstall |No se está utilizando una base de datos de SQL Server Express LocalDB. |
 | UpgradeNotSupportedNonMsolAccount |La [cuenta del conector AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) ya no es la cuenta de MSOL_ predeterminada. |
+| UpgradeNotSupportedNotConfiguredSignInMethod | Ha seleccionado *No configurar* como método de inicio de sesión. | 
+| UpgradeNotSupportedPtaSignInMethod | Ha seleccionado Autenticación de paso a través como método de inicio de sesión. |
 | UpgradeNotSupportedStagingModeEnabled |El servidor está establecido en [modo provisional](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Se ha habilitado la característica [Reescritura de usuarios](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 

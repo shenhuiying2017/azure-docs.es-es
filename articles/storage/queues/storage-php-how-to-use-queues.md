@@ -3,7 +3,7 @@ title: Uso de Queue Storage en PHP | Microsoft Docs
 description: "Aprenda a usar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en C++."
 documentationcenter: php
 services: storage
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 7582b208-4851-4489-a74a-bb952569f55b
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12ebb905184e74da534cd44e8314335145f7042d
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 5fa4e35184b39bd672bfc8b19b2d41acb164abdf
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Uso del almacenamiento de colas de PHP
@@ -27,16 +27,16 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Información general
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento Cola de Azure. Los ejemplos están escritos con las clases del SDK de Windows para PHP. Entre los escenarios descritos se incluyen insertar, ojear, obtener y eliminar mensajes de la cola, así como crear y eliminar colas.
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Azure Queue Storage. Los ejemplos están escritos mediante clases de la [biblioteca de cliente de Azure Storage para PHP][download]. Entre los escenarios descritos se incluyen insertar, ojear, obtener y eliminar mensajes de la cola, así como crear y eliminar colas.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>Creación de una aplicación PHP
-El único requisito a la hora de crear una aplicación PHP para obtener acceso al servicio Cola de Azure es que el código haga referencia a clases del SDK de Azure para PHP desde el código. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
+El único requisito a la hora de crear una aplicación PHP para obtener acceso al servicio Azure Queue Storage es que el código haga referencia a clases de la [biblioteca de cliente de Azure Storage para PHP][download]. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
 
-En esta guía, usará funciones del servicio Cola a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, rol de trabajo o sitio web de Azure.
+En esta guía, usará funciones del servicio Queue Storage a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, rol de trabajo o sitio web de Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Obtención de las bibliotecas de clientes de Azure
 [!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
@@ -49,18 +49,13 @@ Para usar las API de almacenamiento en cola de Azure, necesitará:
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder** .
 
-> [!NOTE]
-> En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el Compositor. Si las instaló manualmente, deberá hacer referencia al archivo del cargador automático `WindowsAzure.php` .
-> 
-> 
-
 ```php
 require_once 'vendor/autoload.php';
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
 ```
 
-En los ejemplos que aparecen a continuación, la instrucción `require_once` aparecerá siempre, pero solo se hará referencia a las clases necesarias para la ejecución del ejemplo.
+En los ejemplos siguientes, la instrucción `require_once` se muestra siempre, pero solo se hará referencia a las clases necesarias para la ejecución del ejemplo.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Configuración de una conexión de Almacenamiento de Azure
 Para crear una instancia de un cliente de almacenamiento en cola de Azure, primero debe disponer de una cadena de conexión válida. El formato de las cadenas de conexión del servicio Cola es:
@@ -80,17 +75,15 @@ UseDevelopmentStorage=true
 Para crear un cliente de cualquier servicio de Azure, debe usar la clase **ServicesBuilder** . Puede usar cualquiera de las técnicas siguientes:
 
 * pasarle directamente la cadena de conexión, o bien
-* usar **CloudConfigurationManager (CCM)** para buscar la cadena de conexión en varios orígenes externos:
-  * de manera predeterminada, admite un origen externo: variables de entorno.
-  * para agregar nuevos orígenes, amplíe la clase **ConnectionStringSource**
-
-En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
+* usar variables de entorno en la aplicación web para almacenar la cadena de conexión. Consulte el documento sobre la [configuración de aplicaciones web en Azure](../../app-service/web-sites-configure.md) para configurar cadenas de conexión.
+En los ejemplos descritos aquí, la cadena de conexión se pasa directamente.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 ```
 
@@ -100,9 +93,11 @@ Un objeto **QueueRestProxy** le permite crear una cola con el método **createQu
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateQueueOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -137,9 +132,11 @@ Para agregar un mensaje a una cola, use **QueueRestProxy->createMessage**. El m�
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateMessageOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -165,9 +162,11 @@ Puede ojear uno o varios mensajes en la parte delantera de una cola, sin quitarl
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\PeekMessagesOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -206,13 +205,15 @@ else{
 ```
 
 ## <a name="de-queue-the-next-message"></a>siguiente mensaje de la cola
-El código borra un mensaje de una cola en dos pasos. Primero llama a **QueueRestProxy->listMessages**, que hace que el mensaje sea invisible a cualquier otro código que esté leyendo de la cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. (si el mensaje no se elimina en este período, volverá a estar visible de nuevo en la cola). Para terminar de quitar el mensaje de la cola, debe llamar a **QueueRestProxy->deleteMessage**. Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
+El código borra un mensaje de una cola en dos pasos. Primero llama a **QueueRestProxy->listMessages**, que hace que el mensaje sea invisible a cualquier otro código que esté leyendo de la cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. (Si el mensaje no se elimina en este período, volverá a estar visible de nuevo en la cola). Para terminar de quitar el mensaje de la cola, debe llamar a **QueueRestProxy->deleteMessage**. Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
 
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -250,11 +251,13 @@ Puede cambiar el contenido de un mensaje local en la cola llamando a **QueueRest
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Get message.
 $listMessagesResult = $queueRestProxy->listMessages("myqueue");
@@ -293,9 +296,11 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola. En prim
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -341,8 +346,10 @@ Puede obtener una estimación del número de mensajes existentes en una cola. El
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -370,8 +377,10 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 ```php
 require_once 'vendor/autoload.php';
 
-use WindowsAzure\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+
+$connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>";
 
 // Create queue REST proxy.
 $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
@@ -393,11 +402,12 @@ catch(ServiceException $e){
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que está familiarizado con los aspectos básicos del almacenamiento en cola de Azure, use estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-* Visite el [Blog del equipo de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+* Consulte la [referencia de API para la biblioteca de cliente de Azure Storage para PHP](http://azure.github.io/azure-storage-php/).
+* Consulte el [ejemplo de cola avanzada](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
 Para obtener más información, consulte también el [Centro para desarrolladores de PHP](/develop/php/).
 
-[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 

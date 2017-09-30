@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/20/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: df8ac578a56de72df667b1fa7f90f981c79d9999
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 625bbf802888b70ccac57b7da3d7060a9706ddec
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Uso de MapReduce en Hadoop en HDInsight
@@ -40,7 +39,7 @@ Obtenga información sobre cómo ejecutar trabajos de MapReduce en clústeres de
 
 ## <a id="whatis"></a>Qué es MapReduce
 
-MapReduce de Hadoop es un marco de software para escribir trabajos que procesan enormes cantidades de datos. La entrada de datos se divide en fragmentos independientes que, a continuación, se procesan en paralelo a través de los nodos del clúster. Un trabajo de MapReduce consta de dos funciones:
+MapReduce de Hadoop es un marco de software para escribir trabajos que procesan enormes cantidades de datos. Los datos de entrada se dividen en fragmentos independientes. Cada fragmento se procesa en paralelo en todos los nodos del clúster. Un trabajo de MapReduce consta de dos funciones:
 
 * **Asignador**: consume datos de entrada, los analiza (normalmente con un filtro y operaciones de ordenación) y emite tuplas (pares de clave-valor)
 
@@ -50,7 +49,7 @@ En el siguiente diagrama se muestra un ejemplo de trabajo de MapReduce de recuen
 
 ![HDI.ProgramaRecuentoPalabras][image-hdi-wordcountdiagram]
 
-La salida de este trabajo es un recuento de las veces que aparece cada palabra en el texto que se ha analizado.
+La salida de este trabajo es un recuento de las veces que aparece cada palabra en el texto.
 
 * El asignador utiliza cada línea del texto de entrada como una entrada y la desglosa en palabras. Emite un par clave-valor cada vez que se detecta una palabra, seguida por un 1. La salida se ordena antes de enviarla al reductor.
 * El reductor suma estos recuentos individuales de cada palabra y emite un solo par clave-valor que contiene la palabra seguido de la suma de sus apariciones.

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 09/21/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: bcfffe05dbce2824ea4933997865e8c7e86610b6
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
 ms.contentlocale: es-es
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -42,9 +42,9 @@ Si las directivas de seguridad de TI no permiten que los equipos de la red se co
 ## <a name="system-requirements"></a>Requisitos del sistema
 Antes de comenzar, revise los detalles siguientes para comprobar que cumple los requisitos previos.
 
-* OMS solo admite Operations Manager 2016, Operations Manager 2012 SP1 UR6 y versiones posteriores y Operations Manager 2012 R2 UR2 y versiones posteriores.  Se agregó compatibilidad con proxy en Operations Manager 2012 SP1 UR7 y Operations Manager 2012 R2 UR3.
+* OMS solo admite Operations Manager 2016, Operations Manager 2012 SP1 UR10, y las versiones posteriores, y Operations Manager 2012 R2 UR11, y las versiones posteriores.
 * Todos los agentes de Operations Manager deben cumplir los requisitos mínimos de compatibilidad. Asegúrese de que los agentes están actualizados con los requisitos mínimos ya que, de lo contrario, se podría producir un error en el agente de tráfico de Windows y el registro de eventos de Operations Manager se podría llenar con muchos errores.
-* Una suscripción de OMS.  Para más información, consulte [Introducción a Log Analytics](log-analytics-get-started.md).
+* Una suscripción a Azure Log Analytics.  Para más información, consulte [Introducción a Log Analytics](log-analytics-get-started.md).
 
 ### <a name="network"></a>Red
 A continuación se muestra la información de configuración de proxy y firewall requerida para que el agente de Operations Manager, los servidores de administración y la Consola del operador se comuniquen con OMS.  El tráfico de cada componente es de salida (de la red al servicio OMS).     

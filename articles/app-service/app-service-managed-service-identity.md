@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 7aaf611a562d373a8cc1dad33963050d246b2882
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: fda9d6c12da382faed5312a677c533f24ffbd824
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -46,7 +46,7 @@ Para configurar una identidad de servicio administrada en el portal, primero ten
 
 ### <a name="using-an-azure-resource-manager-template"></a>Uso de una plantilla de Azure Resource Manager
 
-Se puede utilizar una plantilla de Azure Resource Manager para automatizar la implementación de los recursos de Azure. Para obtener más información acerca de la implementación en App Service y Functions, vea [Automating resource deployment in App Service](../app-service-web/app-service-deploy-complex-application-predictably.md) (Automatización de la implementación de recursos en App Service) y [Automatización de la implementación de recursos para una aplicación de función en Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+Se puede utilizar una plantilla de Azure Resource Manager para automatizar la implementación de los recursos de Azure. Para obtener más información acerca de la implementación en App Service y Functions, vea [Automating resource deployment in App Service](../app-service/app-service-deploy-complex-application-predictably.md) (Automatización de la implementación de recursos en App Service) y [Automatización de la implementación de recursos para una aplicación de función en Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
 Se puede crear cualquier recurso de tipo `Microsoft.Web/sites` con una identidad mediante la inclusión de la siguiente propiedad en la definición de recursos:
 ```json
@@ -103,12 +103,13 @@ Hay un protocolo de REST sencillo para obtener un token en App Service y Azure F
 
 En el caso de las aplicaciones y las funciones de .NET, la manera más sencilla de trabajar con una identidad de servicio administrada es utilizar el paquete Microsoft.Azure.Services.AppAuthentication. Esta biblioteca también le permitirá probar el código localmente en el equipo de desarrollo, con su cuenta de usuario de la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) o la autenticación integrada de Active Directory. En esta sección se muestra cómo empezar a trabajar con la biblioteca.
 
-1. Agregue una referencia al paquete de NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para la aplicación.
+1. Agregue referencias a los paquetes de NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) y [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) para la aplicación.
 
 2.  Agregue el siguiente código a su aplicación:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Azure.KeyVault;
 // ...
 var azureServiceTokenProvider = new AzureServiceTokenProvider();
 string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
@@ -143,6 +144,7 @@ Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 > |expires_on|La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché.|
 > |resource|El URI del identificador de la aplicación del servicio web de recepción.|
 > |token_type|Indica el valor de tipo de token. El único tipo que admite Azure AD es portador. Para obtener más información sobre los tokens de portador, consulte [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)[Marco de autorización de OAuth2.0: uso del token de portador (RFC 6750)].|
+
 
 Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de AAD](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
 
@@ -191,5 +193,14 @@ const getToken = function(resource, apiver, cb) {
     rp(options)
         .then(cb);
 }
+```
+
+En PowerShell:
+```powershell
+$apiVersion = "2017-09-01"
+$resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
+$tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVersion"
+$tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
+$accessToken = $tokenResponse.access_token
 ```
 

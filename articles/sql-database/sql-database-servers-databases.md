@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/19/2017
+ms.date: 09/13/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 4585be186554d5d7aa9bc79029b6f8506b278701
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 2ad643d5f099457018d02a43252db4c259f5b613
 ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -134,6 +134,7 @@ Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con
 |[Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|Obtiene reglas de firewall para un servidor|
 |[Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule)|Modifica una regla de firewall en un servidor.|
 |[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|Obtiene una regla de firewall de un servidor.|
+| New-AzureRmSqlServerVirtualNetworkRule | Permite crear una [*regla de red virtual*](sql-database-vnet-service-endpoint-rule-overview.md) basada en una subred que es un punto de conexión de servicio de red virtual. |
 
 > [!TIP]
 > Para obtener un tutorial de inicio rápido de PowerShell, vea [Creación de una sola instancia de Azure SQL Database con PowerShell](sql-database-get-started-portal.md). Para información sobre los scripts de ejemplo de PowerShell, consulte [Uso de PowerShell para crear una instancia única de Azure SQL Database y configurar una regla de firewall](scripts/sql-database-create-and-configure-database-powershell.md) y [Supervisión y escalado de una instancia única de SQL Database mediante PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
@@ -219,7 +220,7 @@ Para crear y administrar servidores, bases de datos y firewalls de Azure SQL, us
 |[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Devuelve una lista de bases de datos de un grupo elástico.|
 |[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Devuelve una lista de bases de datos dentro de un grupo elástico recomendado.|
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Devuelve una lista de bases de datos de un servidor.|
-|[Databases - Update](/api/sql/databases/update)|Actualiza una base de datos existente.|
+|[Databases - Update](/rest/api/sql/databases/update)|Actualiza una base de datos existente.|
 |[Firewall Rules - Create Or Update](/rest/api/sql/firewallrules/createorupdate)|Crea o actualiza una regla de firewall.|
 |[Firewall Rules - Delete](/rest/api/sql/firewallrules/delete)|Elimina una regla de firewall.|
 |[Firewall Rules - Get](/rest/api/sql/firewallrules/get)|Obtiene una regla de firewall.|
@@ -231,4 +232,3 @@ Para crear y administrar servidores, bases de datos y firewalls de Azure SQL, us
 - Para más información sobre el servicio Azure SQL Database, vea [¿Qué es el servicio Azure SQL Database?](sql-database-technical-overview.md).
 - Para obtener información sobre cómo migrar una base de datos de SQL Server a Azure, vea [Migración a Azure SQL Database](sql-database-cloud-migrate.md).
 - Para obtener información sobre las características admitidas, consulte el [artículo que trata sobre dicho tema](sql-database-features.md).
-

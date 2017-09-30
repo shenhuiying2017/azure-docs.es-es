@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: ea1666007b88cdf45017b0bd91e100dc1218fb2b
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 4ba4155515e587038ffe2dbca064ad27aca97445
 ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en el Servicio de aplicaciones de Azure
@@ -30,7 +30,7 @@ El Servicio de aplicaciones usa la identidad federada, en la cual un proveedor d
 Si desea comenzar inmediatamente, consulte uno de los siguientes tutoriales:
 
 * [Incorporación de la autenticación a la aplicación iOS][iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
-* [Autenticación de usuario para aplicaciones de API en Azure App Service][apia-user]
+* [Autenticación de usuario para API Apps en Azure App Service][apia-user]
 
 ## <a name="how-authentication-works-in-app-service"></a>Funcionamiento de la autenticación en el Servicio de aplicaciones
 Para autenticarse con uno de los proveedores de identidades, primero debe configurar el proveedor de identidades para obtener información sobre su aplicación. A continuación, el proveedor de identidades proporcionará los identificadores y secretos que se deben proporcionar al Servicio de aplicaciones. Esto completa la relación de confianza para que el Servicio de aplicaciones pueda validar las aserciones de usuario, como los tokens de autenticación, del proveedor de identidades.
@@ -69,9 +69,9 @@ Aunque puede conceder acceso a los usuarios a la aplicación, también puede con
 > 
 > 
 
-En los escenarios entre servicios, el Servicio de aplicaciones puede proteger la aplicación mediante Azure Active Directory. La aplicación de llamada solo debe proporcionar un token de autorización de una entidad de servicio de Azure Active Directory, obtenido al proporcionar el identificador y el secreto de cliente desde Azure Active Directory. Un ejemplo del uso de este escenario que usa aplicaciones de API de ASP.NET puede encontrarse en el tutorial [Autenticación de entidad de servicio para Aplicaciones de API en Azure App Service][apia-service].
+En los escenarios entre servicios, el Servicio de aplicaciones puede proteger la aplicación mediante Azure Active Directory. La aplicación de llamada solo debe proporcionar un token de autorización de una entidad de servicio de Azure Active Directory, obtenido al proporcionar el identificador y el secreto de cliente desde Azure Active Directory. Un ejemplo de este escenario que usa aplicaciones de API de ASP.NET puede encontrarse en el tutorial [Autenticación de entidad de servicio para API Apps][apia-service].
 
-Si desea usar la autenticación de Servicio de aplicaciones para controlar un escenario entre servicios, puede usar certificados de cliente o una autenticación básica. Para obtener información acerca de los certificados de cliente en Azure, consulte [Configuración de la autenticación mutua de TLS para una aplicación web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Para más información sobre la autenticación básica en ASP.NET, consulte [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters)(Filtros de autenticación en ASP.NET Web API 2).
+Si desea usar la autenticación de Servicio de aplicaciones para controlar un escenario entre servicios, puede usar certificados de cliente o una autenticación básica. Para obtener información acerca de los certificados de cliente en Azure, consulte [Configuración de la autenticación mutua de TLS para una aplicación web](app-service-web-configure-tls-mutual-auth.md). Para más información sobre la autenticación básica en ASP.NET, consulte [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters)(Filtros de autenticación en ASP.NET Web API 2).
 
 La autenticación de cuentas de servicio desde una aplicación lógica de Servicio de aplicaciones en una aplicación de API es un caso especial que se explica detalladamente en [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../logic-apps/logic-apps-custom-hosted-api.md).
 
@@ -150,14 +150,11 @@ Si desea usar el flujo dirigido al cliente para Google, use los siguientes recur
 
 * [Uso del SDK de inicio de sesión de Google para iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
-### <a name="api-applications"></a>Aplicaciones de API
-Los siguientes tutoriales muestran cómo proteger sus aplicaciones de API:
+<!-- ### API applications
+The following tutorials show how to protect your API apps:
 
-* [Autenticación de usuario para aplicaciones de API en Azure App Service][apia-user]
-* [Autenticación de entidad de servicio para Aplicaciones de API en Azure App Service][apia-service]
-
-[apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
-[apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
+* [User authentication for API Apps in Azure App Service][apia-user]
+* [Service principal authentication for API Apps in Azure App Service][apia-service] -->
 
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
@@ -167,11 +164,11 @@ Los siguientes tutoriales muestran cómo proteger sus aplicaciones de API:
 [Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
 [Cordova]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
 
-[AAD]: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook]: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md
-[Google]: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md
-[MSA]: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter]: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md
+[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
+[Google]: app-service-mobile-how-to-configure-google-authentication.md
+[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

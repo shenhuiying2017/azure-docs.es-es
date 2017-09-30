@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 266458323ca54d9805aea12108faed79e69d30b0
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 8b599c3e0e7d4fa3ae5bdb156191bff0553249ee
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 Managed Service Identity proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. 
 
-En este artículo, aprenderá a habilitar y quitar MSI para una máquina virtual Windows de Azure, mediante una plantilla de implementación de Azure Resource Manager.
+En este artículo, aprenderá a habilitar y quitar MSI de una máquina virtual de Azure mediante una plantilla de implementación de Azure Resource Manager.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -44,15 +44,17 @@ Como con Azure Portal y los scripts, las plantillas de Azure Resource Manager pr
 
 Independientemente de la forma que elija, la sintaxis de la plantilla es la misma durante la implementación inicial y la reimplementación, por lo que la habilitación de MSI en una máquina virtual nueva o existente se lleva a cabo de la misma manera. Asimismo, de forma predeterminada, Azure Resource Manager realiza una [actualización incremental](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) en las implementaciones:
 
-1. Después de cargar la plantilla en un editor, busque el recurso de interés `Microsoft.Compute/virtualMachines` dentro de la sección `resources`. El suyo puede diferir ligeramente con respecto a esta captura de pantalla, según el editor que use y de si está editando una plantilla para una implementación nueva o una existente:
+1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual. También tendrá que asegurarse de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual".
+
+2. Después de cargar la plantilla en un editor, busque el recurso de interés `Microsoft.Compute/virtualMachines` dentro de la sección `resources`. El suyo puede diferir ligeramente con respecto a esta captura de pantalla, según el editor que use y de si está editando una plantilla para una implementación nueva o una existente:
 
    >[!NOTE] 
-   > En el paso 2 también se da por supuesto que las variables `vmName`, `storageAccountName` y `nicName` se definen en la plantilla.
+   > En este ejemplo, se asumen que se han definido variables como `vmName`, `storageAccountName` y `nicName` en la plantilla.
    >
 
    ![Captura de pantalla de la plantilla antes: ubicar la máquina virtual](./media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
-2. Agregue la propiedad `"identity"` en el mismo nivel que la propiedad `"type": "Microsoft.Compute/virtualMachines"` utilizando la sintaxis siguiente:
+3. Agregue la propiedad `"identity"` en el mismo nivel que la propiedad `"type": "Microsoft.Compute/virtualMachines"` utilizando la sintaxis siguiente:
 
    ```JSON
    "identity": { 
@@ -60,10 +62,10 @@ Independientemente de la forma que elija, la sintaxis de la plantilla es la mism
    },
    ```
 
-3. A continuación, agregue la extensión MSI de máquina virtual como un elemento `resources` utilizando la sintaxis siguiente:
+4. A continuación, agregue la extensión MSI de máquina virtual como un elemento `resources` utilizando la sintaxis siguiente:
 
    >[!NOTE] 
-   > En el ejemplo siguiente se da por hecho que se está implementando una extensión de máquina virtual Windows (`ManagedIdentityExtensionForWindows`). También puede configurarla para Linux mediante `ManagedIdentityExtensionForLinux` en su lugar.
+   > En el ejemplo siguiente se da por hecho que se está implementando una extensión de máquina virtual Windows (`ManagedIdentityExtensionForWindows`). También puede configurarla para Linux utilizando `ManagedIdentityExtensionForLinux` en su lugar, para los elementos `"name"` y `"type"`.
    >
 
    ```JSON
@@ -88,13 +90,17 @@ Independientemente de la forma que elija, la sintaxis de la plantilla es la mism
    }
    ```
 
-4. Cuando haya terminado, la plantilla debería tener una apariencia similar a la del siguiente ejemplo:
+5. Cuando haya terminado, la plantilla debería tener una apariencia similar a la del siguiente ejemplo:
 
    ![Captura de pantalla de la plantilla después](./media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Eliminación de MSI de una máquina virtual de Azure
 
-Si tiene una máquina virtual que ya no necesita una MSI, basta con que quite los dos elementos que agregó en el ejemplo anterior: la propiedad `"identity"` de la máquina virtual y el recurso `"Microsoft.Compute/virtualMachines/extensions"`.
+Si tiene una máquina virtual que ya no necesita una identidad de servicio administrada:
+
+1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual".
+
+2. Quite los dos elementos que se agregaron en la sección anterior: la propiedad `"identity"` de la máquina virtual y el recurso `"Microsoft.Compute/virtualMachines/extensions"`.
 
 ## <a name="related-content"></a>Contenido relacionado
 

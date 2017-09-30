@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 78a6164e76f6ceab936874e68bd38bb4eb387e00
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 03fb9cc6633f81e284ae299f7b2ba4018d19cc73
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 Managed Service Identity proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. 
 
-En este artículo, aprenderá a habilitar y quitar MSI para una máquina virtual Windows de Azure, mediante la CLI de Azure.
+En este artículo, aprenderá a habilitar y quitar MSI de una máquina virtual de Azure mediante la CLI de Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -43,9 +43,9 @@ Para ejecutar los ejemplos de script de la CLI, tiene tres opciones:
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Habilitación de MSI durante la creación de una máquina virtual de Azure
 
-Se crea un nuevo recurso Windows Virtual Machine habilitado para MSI en un grupo de recursos nuevo, con los parámetros de configuración especificados. Tenga en cuenta que muchas de estas funciones pueden ejecutarse durante varios segundos o minutos antes de volver.
+Para crear una máquina virtual con MSI habilitado:
 
-1. Si no usa Azure Cloud Shell desde Azure Portal, primero inicie sesión en Azure mediante [az login](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure en la que desearía implementar la máquina virtual:
+1. Si no usa Azure Cloud Shell desde Azure Portal, primero inicie sesión en Azure con [az login](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure en la que desearía implementar la máquina virtual:
 
    ```azurecli-interactive
    az login
@@ -67,7 +67,7 @@ Se crea un nuevo recurso Windows Virtual Machine habilitado para MSI en un grupo
 
 Si tiene que habilitar MSI en una máquina virtual existente:
 
-1. Si no usa Azure Cloud Shell desde Azure Portal, primero inicie sesión en Azure mediante [az login](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure en la que desearía implementar la máquina virtual:
+1. Si no usa Azure Cloud Shell desde Azure Portal, primero inicie sesión en Azure con [az login](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual":
 
    ```azurecli-interactive
    az login
@@ -83,13 +83,13 @@ Si tiene que habilitar MSI en una máquina virtual existente:
 
 Si tiene una máquina virtual que ya no necesita una identidad de servicio administrada:
 
-1. Si no usa Azure Cloud Shell desde Azure Portal, primero inicie sesión en Azure con [az login](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure en la que desearía implementar la máquina virtual:
+1. Si no usa Azure Cloud Shell desde Azure Portal, primero inicie sesión en Azure con [az login](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual":
 
    ```azurecli-interactive
    az login
    ```
 
-2. Use el parámetro `-n ManagedIdentityExtensionForWindows` con [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) para quitar la identidad MSI:
+2. Use los modificadores `-n ManagedIdentityExtensionForWindows` o `-n ManagedIdentityExtensionForLinux` (en función del tipo de máquina virtual) con [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) para quitar el MSI:
 
    ```azurecli-interactive
    az vm extension delete --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -98,7 +98,10 @@ Si tiene una máquina virtual que ya no necesita una identidad de servicio admin
 ## <a name="related-content"></a>Contenido relacionado
 
 - [Información general de Managed Service Identity](msi-overview.md)
-- Este artículo se ha adaptado a partir de la guía de inicio rápido [Creación de una máquina virtual Windows con CLI](../virtual-machines/windows/quick-create-cli.md), que se ha modificado para incluir instrucciones específicas de MSI. 
+- Para ver guías de inicio rápido completas acerca de la creación de máquinas virtuales de Azure, consulte: 
+
+  - [Creación de una máquina virtual Windows con CLI](../virtual-machines/windows/quick-create-cli.md)  
+  - [Creación de una máquina virtual Linux con PowerShell](../virtual-machines/linux/quick-create-cli.md) 
 
 Use la siguiente sección de comentarios para proporcionar sus opiniones y ayudarnos a afinar y remodelar el contenido.
 

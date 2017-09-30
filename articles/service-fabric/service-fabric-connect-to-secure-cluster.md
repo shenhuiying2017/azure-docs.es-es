@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/01/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d6a13ceb8ccd9207ecacc166247535d496d5dec7
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 76606189e7bed1a5179c7486d7c10f3c253884b5
 ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="connect-to-a-secure-cluster"></a>Conexión a un clúster seguro
@@ -312,6 +312,8 @@ Para acceder a [Service Fabric Explorer](service-fabric-visualizing-your-cluster
 `http://<your-cluster-endpoint>:19080/Explorer`
 
 La dirección URL completa también está disponible en el panel de elementos esenciales del clúster del portal de Azure.
+
+Para conectarse a un clúster seguro en Windows u OS X mediante un explorador, puede importar el certificado de cliente y el explorador le solicitará el certificado que se usará para conectarse al clúster.  En las máquinas Linux, el certificado tendrá que importarse mediante la configuración avanzada del explorador (cada explorador tiene mecanismos diferentes) y habrá que apuntarlo a la ubicación del certificado del disco.
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Conexión a un clúster seguro mediante la CLI de Azure con Azure Active Directory
 

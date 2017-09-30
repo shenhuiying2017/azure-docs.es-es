@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: f9cc94ca1fc44d10af19debab49435b265bf6e7c
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Tutorial: configuración de Workday para aprovisionar automáticamente usuarios con Active Directory y Azure Active Directory locales
@@ -40,7 +39,7 @@ El [servicio de aprovisionamiento de usuarios de Azure Active Directory](active-
 
 El flujo de trabajo de aprovisionamiento de usuarios de Workday compatible con el servicio de aprovisionamiento de usuarios de Azure AD permite la automatización de los siguientes escenarios de recursos humanos y de administración del ciclo de vida de identidades:
 
-* **Contratación de nuevos empleados**: cuando se agrega un nuevo empleado a Workday, se creará automáticamente una cuenta de usuario en Active Directory, Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](active-directory-saas-app-provisioning.md), con la reescritura de la dirección de correo electrónico en Workday.
+* **Contratación de nuevos empleados**: cuando se agrega un nuevo empleado a Workday, se crea automáticamente una cuenta de usuario en Active Directory, Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](active-directory-saas-app-provisioning.md), con reescritura de la dirección de correo electrónico en Workday.
 
 * **Actualizaciones de atributos y de perfil de los empleados**: si se actualiza un registro de empleado en Workday (por ejemplo, el nombre, el cargo o el administrador), su cuenta de usuario se actualizará automáticamente en Active Directory, Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](active-directory-saas-app-provisioning.md).
 
@@ -62,9 +61,6 @@ En la situación descrita en este tutorial se supone que ya cuenta con los eleme
 * Permisos de administrador en Workday para crear un usuario de integración del sistema y efectuar cambios para probar los datos de los empleados con fines de pruebas
 * Para el aprovisionamiento de usuarios en Active Directory se necesita un servidor unido a un dominio que ejecute Windows Service 2012 o una versión posterior para poder hospedar el [agente de sincronización local](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) para la sincronización entre Active Directory y Azure AD.
-
-> [!NOTE]
-> Si el inquilino de Azure AD se encuentra en Europa, consulte la sección [Problemas conocidos](#known-issues), descrita más adelante.
 
 
 ### <a name="solution-architecture"></a>Arquitectura de la solución
@@ -187,7 +183,7 @@ En este paso, se conceden al nuevo grupo de seguridad permisos para las operacio
 3. En la lista de directivas de seguridad del área funcional System (Sistema), expanda **Security Administration** (Administración de seguridad) y seleccione la directiva de seguridad de dominio, **External Account Provisioning** (Aprovisionamiento de cuentas externas).  
    
     ![Directivas de seguridad de dominio](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "Directivas de seguridad de dominio")  
-4. Haga clic en **Edit Permissions** (Editar permisos) y, en la página de diálogo **Edit Permissions**, agregue el nuevo grupo de seguridad a la lista de grupos de seguridad con permisos de integración de **Get** y **Put**. 
+4. Haga clic en **Edit Permissions** (Editar permisos) y, en la página de diálogo **Edit Permissions** (Editar permisos), agregue el nuevo grupo de seguridad a la lista de grupos de seguridad con permisos de integración de **Get** y **Put**. 
    
     ![Editar permiso](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Editar permiso")  
 5. Repita el paso 1 anterior para volver a la pantalla para seleccionar las áreas funcionales y, esta vez, busque personal, seleccione el área funcional **Staffing** (Personal) y haga clic en el botón **OK** (Aceptar).
@@ -306,7 +302,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
       * **Hacer coincidir objetos con este atributo**: especifica si se debe usar o no esta asignación para identificar de forma unívoca a los usuarios entre Workday y Active Directory. Se suele establecer en el campo Id. del trabajador de Workday, que se suele asignar a uno de los atributos de id. de empleado de Active Directory.
 
-      * **Precedencia de coincidencia**: se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia no se evaluarán más atributos coincidentes.
+      * **Precedencia de coincidencia**: se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia, no se evaluarán más atributos coincidentes.
 
       * **Aplicar esta asignación**
        
@@ -340,7 +336,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 | **Fax**      | facsimileTelephoneNumber     |     |    Crear y Actualizar |
 | **Nombre**   | givenName       |     |    Crear y Actualizar |
 | **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | Crear y Actualizar |
-| **Mobile**  |    mobile       |     |       Escrito únicamente en Crear |
+| **Mobile**  |    mobile       |     |       Crear y Actualizar |
 | **EmailAddress**    | mail    |     |     Crear y Actualizar |
 | **ManagerReference**   | manager  |     |  Crear y Actualizar |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Crear y Actualizar |
@@ -350,7 +346,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 | **Apellidos**   |   sn   |     |  Crear y Actualizar |
 | **CountryRegionReference** |  st     |     | Crear y Actualizar |
 | **AddressLineData**    |  streetAddress  |     |   Crear y Actualizar |
-| **PrimaryWorkTelephone**  |  telephoneNumber   |     | Escrito únicamente en Crear |
+| **PrimaryWorkTelephone**  |  telephoneNumber   |     | Crear y Actualizar |
 | **BusinessTitle**   |  título     |     |  Crear y Actualizar |
 | **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Crear y Actualizar                                                   
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Crear y Actualizar |
@@ -382,6 +378,10 @@ Una vez instalado el agente, ejecute los siguientes comandos de PowerShell para 
 
 * Entrada: nombre y contraseña del usuario administrador global de su inquilino de Azure AD
 
+>[!IMPORTANT]
+>Actualmente hay un problema conocido con las credenciales de administrador global y es que no funcionan si usan un dominio personalizado (por ejemplo, admin@contoso.com). Como solución alternativa, cree y use una cuenta de administrador global con un dominio onmicrosoft.com (por ejemplo, admin@contoso.onmicrosoft.com).
+
+
 **Comando n.º 4**
 
 > Get-AdSyncAgentProvisioningTasks
@@ -410,8 +410,39 @@ Una vez instalado el agente, ejecute los siguientes comandos de PowerShell para 
 
 > net start aadsyncagent
 
+>[!TIP]
+>Además de los comandos "net" de Powershell, el servicio del agente de sincronización también pueden iniciarse y detenerse mediante **Services.msc**. Si se producen errores al ejecutar los comandos de Powershell, asegúrese de que **Microsoft Azure AD Connect Provisioning Agent** se ejecuta en **Services.msc**.
+
+![Services](./media/active-directory-saas-workday-inbound-tutorial/Services.png)  
+
+**Configuración adicional para clientes de la Unión Europea**
+
+Si su inquilino de Azure Active Directory se encuentra en uno de los centros de datos de la UE, siga los pasos adicionales que se describen a continuación.
+
+1. Abra **Services.msc** y detenga el servicio **Microsoft Azure AD Connect Provisioning Agent**.
+2. Vaya a la carpeta de instalación del agente (por ejemplo, C:\Program Files\Microsoft Azure AD Connect Provisioning Agent).
+3. Abra **SyncAgnt.exe.config** en un editor de texto.
+4. Reemplace https://manage.hub.syncfabric.windowsazure.com/Management por **https://eu.manage.hub.syncfabric.windowsazure.com/Management**.
+5. Reemplace https://provision.hub.syncfabric.windowsazure.com/Provisioning por **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**.
+6. Guarde el archivo **SyncAgnt.exe.config**.
+7. Abra **Services.msc** e inicie el servicio **Microsoft Azure AD Connect Provisioning Agent**.
+
+**Solución de problemas del agente**
+
+El [registro de eventos de Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) en la máquina Windows Server que hospeda el agente contiene eventos de todas las operaciones realizadas por el agente. Para ver estos eventos:
+    
+1. Abra **Eventvwr.msc**.
+2. Seleccione **Registros de Windows > Aplicación**.
+3. Vea todos los eventos registrados en el origen **AADSyncAgent**. 
+4. Compruebe los errores y las advertencias.
+
+Si hay un problema de permisos con Active Directory o con las credenciales de Azure Active Directory proporcionadas en los comandos de Powershell, verá un error como este: 
+    
+![Registros de eventos](./media/active-directory-saas-workday-inbound-tutorial/Windows_Event_Logs.png) 
+
+
 ### <a name="part-4-start-the-service"></a>Parte 4: inicio del servicio
-Después de las partes 1-3, puede volver a iniciar el servicio de aprovisionamiento en el portal de administración de Azure.
+Una vez que las partes 1-3 se han completado, puede volver a iniciar el servicio de aprovisionamiento en Azure Portal.
 
 1.  En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
 
@@ -419,13 +450,14 @@ Después de las partes 1-3, puede volver a iniciar el servicio de aprovisionamie
 
 3. Se iniciará la sincronización inicial, que puede tardar una cantidad de horas variable, según el número de usuarios que haya en Workday.
 
-4. En la pestaña **Registros de auditoría** se pueden ver distintos eventos de sincronización, como los usuarios que se excluyen de Workday y que después se agregan o se actualizan con Active Directory. **[Consulte la guía de creación de informes de aprovisionamiento para obtener instrucciones detalladas sobre cómo leer los registros de auditoría](active-directory-saas-provisioning-reporting.md)**.
+4. En cualquier momento, compruebe la pestaña **Registros de auditoría** en Azure Portal para ver las acciones que ha realizado el servicio de aprovisionamiento. Los registros de auditoría muestran todos los eventos de sincronización individuales realizados por el servicio de aprovisionamiento, por ejemplo, los usuarios que se leen fuera de Workday y que luego se agregan o actualizan en Active Directory. **[Consulte la guía de creación de informes de aprovisionamiento para obtener instrucciones detalladas sobre cómo leer los registros de auditoría](active-directory-saas-provisioning-reporting.md)**.
 
-5.  El registro de aplicaciones de Windows del equipo del agente mostrará todas las operaciones efectuadas a través del agente.
+5.  Compruebe el [registro de eventos de Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) en la máquina Windows Server que hospeda el agente para ver si hay nuevos errores o advertencias. Estos eventos se pueden ver si se inicia **Eventvwr.msc** en el servidor y se selecciona **Registros de Windows > Aplicación**. Todos los mensajes relacionados con el aprovisionamiento se registran en el origen **AADSyncAgent**. 
+    
 
-6. Una vez finalizado, escribirá un informe resumido de auditoría en la pestaña  **Aprovisionamiento**, tal y como se muestra a continuación.
+6. Una vez finalizada la operación, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
 
-![Portal de Azure](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
+![Azure Portal](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
 
 
 ## <a name="configuring-user-provisioning-to-azure-active-directory"></a>Configuración del aprovisionamiento de usuarios en Azure Active Directory
@@ -468,7 +500,7 @@ En las siguientes secciones se describe cómo configurar una conexión entre Wor
 
    * **Contraseña de administrador**: escriba la contraseña de la cuenta del sistema de integración de Workday.
 
-   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Debería ser similar a https://wd3-impl-services1.workday.com/ccx/service/contoso4, donde contoso4 se reemplaza por el nombre correcto del inquilino y wd3-impl se reemplaza por la cadena de entorno correcta (si es necesario).
+   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Debería ser similar a https://wd3-impl-services1.workday.com/ccx/service/contoso4, donde contoso4 se reemplaza por el nombre correcto del inquilino y wd3-impl se reemplaza por la cadena de entorno correcta. Si no se conoce esta dirección URL, trabaje con su asociado de integración o representante de soporte técnico de Workday para determinar la dirección URL correcta que se debe usar.
 
    * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
 
@@ -522,7 +554,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
    * **Hacer coincidir objetos con este atributo**: especifica si se debe usar o no esta asignación para identificar de forma unívoca a los usuarios entre Workday y Azure AD. Se suele establecer en el campo Id. del trabajador de Workday, que se suele asignar al atributo de id. de empleado (nuevo) o a un atributo de extensión de Azure AD.
 
-   * **Precedencia de coincidencia**: se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia no se evaluarán más atributos coincidentes.
+   * **Precedencia de coincidencia**: se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia, no se evaluarán más atributos coincidentes.
 
    * **Aplicar esta asignación**
 
@@ -543,7 +575,7 @@ Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 
 4. Los eventos de sincronización se pueden ver en la pestaña **Registros de auditoría**. **[Consulte la guía de creación de informes de aprovisionamiento para obtener instrucciones detalladas sobre cómo leer los registros de auditoría](active-directory-saas-provisioning-reporting.md)**.
 
-5. Una vez finalizado, escribirá un informe resumido de auditoría en la pestaña  **Aprovisionamiento**, tal y como se muestra a continuación.
+5. Una vez finalizada la operación, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
 
 
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Configuración de la reescritura de direcciones de correo electrónico en Workday
@@ -604,11 +636,13 @@ Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 
 4. Los eventos de sincronización se pueden ver en la pestaña **Registros de auditoría**. **[Consulte la guía de creación de informes de aprovisionamiento para obtener instrucciones detalladas sobre cómo leer los registros de auditoría](active-directory-saas-provisioning-reporting.md)**.
 
-5. Una vez finalizado, escribirá un informe resumido de auditoría en la pestaña  **Aprovisionamiento**, tal y como se muestra a continuación.
+5. Una vez finalizada la operación, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-* **Registros de auditoría en las configuraciones regionales europeas**: desde el lanzamiento de esta versión Technical Preview, hay un problema conocido relacionado con los [registros de auditoría](active-directory-saas-provisioning-reporting.md) en las aplicaciones de conector de Workday, que no aparecen en [Azure Portal](https://portal.azure.com) si el inquilino de Azure AD reside en un centro de datos europeo. Próximamente habrá disponible una corrección para este problema. Regrese a este espacio en un futuro próximo para comprobar si hay actualizaciones. 
+* Al ejecutar el comando **Add-ADSyncAgentAzureActiveDirectoryConfiguration** de Powershell, existe actualmente un problema conocido con las credenciales de administrador global, y es que no funcionan si usan un dominio personalizado (por ejemplo, admin@contoso.com). Como solución alternativa, cree y use una cuenta de administrador global en Azure AD con un dominio onmicrosoft.com (por ejemplo, admin@contoso.onmicrosoft.com).
+
+* Se ha resuelto un problema anterior en el que los registros de auditoría no aparecían en los inquilinos de Azure AD ubicados en la Unión Europea. Sin embargo, se requiere la configuración adicional del agente para inquilinos de Azure AD en la Unión Europea. Para más información, consulte [Parte 3: configuración del agente de sincronización local](#Part 3: Configure the on-premises synchronization agent).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Tutorial: configuración del inicio de sesión único entre Workday y Azure Active Directory](active-directory-saas-workday-tutorial.md)

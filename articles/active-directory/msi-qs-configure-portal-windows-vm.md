@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 9406ba2bbbea41f4677cd0d5aaddf16b0f4f26c8
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 169417530da21e0c8c58cbf770fd1d26660387f7
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 Managed Service Identity proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory. Puede usar esta identidad para autenticar a cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. 
 
-En este artículo, aprenderá a habilitar y quitar MSI para una máquina virtual Windows de Azure, mediante Azure Portal.
+En este artículo, aprenderá a habilitar MSI en una máquina virtual de Azure, y a quitarla de ella, mediante Azure Portal.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -35,13 +35,18 @@ En este artículo, aprenderá a habilitar y quitar MSI para una máquina virtual
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Habilitación de MSI durante la creación de una máquina virtual de Azure
 
-En el momento de redactar este artículo, no se admite la habilitación de MSI durante la creación de una máquina virtual en Azure Portal. En su lugar, consulte la guía de inicio rápido [Creación de una máquina virtual Windows con Azure Portal](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) para más información acerca de cómo crear una máquina virtual. A continuación, continúe con la siguiente sección para obtener información detallada sobre la habilitación de MSI.
+En el momento de redactar este artículo, no se admite la habilitación de MSI durante la creación de una máquina virtual en Azure Portal. En su lugar, para crear una máquina virtual consulte uno de los siguientes artículos de la guía de inicio rápido de creación de máquinas virtuales:
+
+- [Creación de una máquina virtual Windows desde Azure Portal](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Creación de una máquina virtuales Linux desde Azure Portal](../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
+
+A continuación, pase a siguiente sección, donde encontrará información detallada acerca de la habilitación de MSI en la máquina virtual.
 
 ## <a name="enable-msi-on-an-existing-azure-vm"></a>Habilitación de MSI en una máquina virtual de Azure existente
 
 Si tiene una máquina virtual que se aprovisionó originalmente sin una identidad MSI:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure en la que desearía implementar la máquina virtual.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure que contiene la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual".
 
 2. Vaya a la máquina virtual que desee.
 
@@ -53,7 +58,7 @@ Si tiene una máquina virtual que se aprovisionó originalmente sin una identida
 
 Si tiene una máquina virtual que ya no necesita una identidad de servicio administrada:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure en la que desearía implementar la máquina virtual.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure que contiene la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual".
 
 2. Vaya a la máquina virtual que desee.
 
@@ -64,7 +69,6 @@ Si tiene una máquina virtual que ya no necesita una identidad de servicio admin
 ## <a name="related-content"></a>Contenido relacionado
 
 - Para obtener información general sobre MSI, consulte [Managed Service Identity overview](msi-overview.md) (Introducción a Managed Service Identity).
-- Este artículo se ha adaptado a partir de la guía de inicio rápido [Creación de una máquina virtual Windows con Azure Portal](../virtual-machines/windows/quick-create-portal.md), que se ha modificado para incluir instrucciones específicas de MSI. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

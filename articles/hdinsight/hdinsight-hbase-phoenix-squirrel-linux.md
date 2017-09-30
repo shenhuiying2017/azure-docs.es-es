@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 2c7431723906c912eb2a38fb0600dd13d5bc46a5
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 07646927f7f2e829e4f4cc6ac5f51b2b381e9c5a
 ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDInsight
@@ -36,8 +36,7 @@ Aprenda a usar [Apache Phoenix](http://phoenix.apache.org/) en Azure HDInsight y
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de poder usar SQLLine, debe disponer de los siguientes elementos:
 
-* **Un clúster de HBase en HDInsight**. Para más información sobre el aprovisionamiento de un clúster de HBase, consulte la [introducción a Apache HBase en HDInsight][hdinsight-hbase-get-started].
-* **Conexión al clúster de HBase a través del protocolo de escritorio remoto**. Para más información, consulte [Administración de clústeres de Hadoop en HDInsight mediante Azure Portal][hdinsight-manage-portal].
+* **Un clúster de HBase en HDInsight**. Para crear uno, consulte [Introducción a Apache HBase en HDInsight](./hdinsight-hbase-tutorial-get-started.md).
 
 Cuando se conecte a un clúster de HBase, debe conectarse a una de las máquinas virtuales Zookeeper. Cada clúster de HDInsight tiene tres máquinas virtuales Zookeeper.
 
@@ -55,7 +54,7 @@ Cuando se conecte a un clúster de HBase, debe conectarse a una de las máquinas
 2. En SSH, escriba los siguientes comandos para ejecutar SQLLine:
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
-        ./sqlline.py <ClusterName>:2181:/hbase-unsecure
+        ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. Para crear una tabla de HBase e insertar algunos datos, ejecute los siguientes comandos:
 
         CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
@@ -84,7 +83,6 @@ En este artículo, ha aprendido a usar Apache Phoenix en HDInsight. Para más in
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
-[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md

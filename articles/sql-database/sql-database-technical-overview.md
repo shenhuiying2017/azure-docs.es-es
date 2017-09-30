@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 06/30/2017
+ms.date: 09/20/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 28aa6d79f999fe9b247d9bb2c61a149a21e72a4a
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 07c4b4cb920dca7d95caa2fc5f98b0d33ea51dff
 ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>¿Qué es el servicio Azure SQL Database? 
@@ -85,16 +85,20 @@ El contrato de nivel de servicio [(SLA)](http://azure.microsoft.com/support/lega
 
 Con SQL Database, obtendrá la inteligencia integrada que le ayudará a reducir drásticamente los costos de ejecutar y administrar bases de datos y maximiza el rendimiento y seguridad de la aplicación. Mediante la ejecución de millones de cargas de trabajo de clientes las 24 horas del día, SQL Database recopila y procesa una cantidad masiva de datos de telemetría y, al mismo tiempo, respeta totalmente la privacidad de los clientes. Varios algoritmos evalúan continuamente los datos de telemetría para que el servicio pueda obtener información de la aplicación y adaptarse a ella. En función de este análisis, el servicio proporciona recomendaciones para mejorar el rendimiento que se adaptan a su carga de trabajo concreta. 
 
-### <a name="automatic-performance-tuning"></a>Ajuste automático del rendimiento
+### <a name="automatic-performance-monitoring-and-tuning"></a>Supervisión y ajuste del rendimiento automático
 
-SQL Database proporciona información detallada de las consultas que necesita supervisar. SQL Database aprende sus patrones de base de datos y permite adaptar el esquema de la base de datos a su carga de trabajo. SQL Database proporciona recomendaciones para el ajuste del rendimiento mediante [SQL Database Advisor](sql-database-advisor.md), donde puede consultar las acciones de optimización y aplicarlas. Sin embargo, supervisar constantemente una base de datos es una tarea ardua y tediosa, sobre todo cuando se trabaja con muchas bases de datos. La administración de un número ingente de bases de datos podría ser imposible de realizar eficazmente, ni siquiera con todas las herramientas e informes que proporcionan SQL Database y Azure Portal. En lugar de supervisar y ajustar la base de datos manualmente, puede considerar la posibilidad de delegar algunas de las acciones de supervisión y ajuste en SQL Database con la característica de ajuste automático. SQL Database aplica automáticamente las recomendaciones y pruebas, y comprueba cada una de sus acciones de ajuste para garantizar que el rendimiento no deja de mejorar. De esta forma, SQL Database se adapta automáticamente a su carga de trabajo de una forma controlada y segura. El ajuste automático significa que el rendimiento de la base de datos se supervisa y compara meticulosamente antes y después de cada acción de ajuste, y si el rendimiento no mejora, la acción se revierte.
+SQL Database proporciona información detallada de las consultas que necesita supervisar. SQL Database aprende sus patrones de base de datos y permite adaptar el esquema de la base de datos a su carga de trabajo. SQL Database proporciona [recomendaciones para el ajuste del rendimiento](sql-database-advisor.md), donde puede consultar las acciones de ajuste y aplicarlas. 
+
+Sin embargo, supervisar constantemente una base de datos es una tarea ardua y tediosa, sobre todo cuando se trabaja con muchas bases de datos. [Intelligent Insights](sql-database-intelligent-insights.md) realiza este trabajo automáticamente mediante la supervisión del rendimiento de SQL Database a escala y le informa de los problemas de degradación del rendimiento, identifica la causa principal del problema y proporciona recomendaciones para la mejora del rendimiento cuando es posible.
+
+La administración de un número ingente de bases de datos podría ser imposible de realizar eficazmente, ni siquiera con todas las herramientas e informes que proporcionan SQL Database y Azure Portal. En lugar de supervisar y ajustar la base de datos manualmente, puede considerar la posibilidad de delegar algunas de las acciones de supervisión y ajuste en SQL Database con el [ajuste automático](sql-database-automatic-tuning.md). SQL Database aplica automáticamente las recomendaciones y pruebas, y comprueba cada una de sus acciones de ajuste para garantizar que el rendimiento no deja de mejorar. De esta forma, SQL Database se adapta automáticamente a su carga de trabajo de una forma controlada y segura. El ajuste automático significa que el rendimiento de la base de datos se supervisa y compara meticulosamente antes y después de cada acción de ajuste, y si el rendimiento no mejora, la acción se revierte.
 
 En la actualidad, muchos de nuestros asociados que ejecutan [aplicaciones SaaS multiinquilino](sql-database-design-patterns-multi-tenancy-saas-applications.md) sobre SQL Database confían en el ajuste automático del rendimiento para asegurarse de que sus aplicaciones siempre tienen un rendimiento estable y predecible. Para ellos, esta característica reduce enormemente el riesgo de que se produzca un incidente de rendimiento durante la noche. Además, puesto que una parte de su base de clientes también utiliza SQL Server, usan las mismas recomendaciones de indización que proporciona SQL Database para ayudar a sus clientes de SQL Server.
 
-Hay dos aspectos del ajuste automático disponibles en SQL Database:
+Hay dos aspectos del ajuste automático [disponibles en SQL Database](sql-database-automatic-tuning.md):
 
-- **[Administración de índices automática](sql-database-automatic-tuning.md#automatic-index-management)**: identifica tanto los índices que se deben agregar a la base de datos como los que se deben quitar.
-- **[Corrección automática de planes](sql-database-automatic-tuning.md#automatic-plan-choice-correction)**: identifica planes problemáticos y corrige los problemas de rendimiento de los planes de SQL (próximamente, ya disponible en SQL Server 2017).
+- **Administración de índices automática**: identifica tanto los índices que se deben agregar a la base de datos como los que se deben quitar.
+- **Corrección automática de planes**: identifica planes problemáticos y corrige los problemas de rendimiento de los planes de SQL (próximamente, ya disponible en SQL Server 2017).
 
 ### <a name="adaptive-query-processing"></a>Procesamiento adaptable de consultas
 
@@ -114,7 +118,7 @@ SQL Database proporciona varias [características integradas de seguridad y cump
 
 ### <a name="data-encryption-at-rest"></a>Cifrado de datos en reposo
 
-El [cifrado de datos transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) de SQL Database facilita la protección contra la amenaza de actividades malintencionadas, ya que la base de datos se cifra y descifra en tiempo real, se realizan copias de seguridad asociadas y archivos de registro de transacciones en reposo sin necesitar cambios en la aplicación. Desde mayo de 2017, todas las bases de datos SQL de Azure recién creadas tienen automáticamente la protección del cifrado de datos transparente (TDE). TDE es la probada tecnología de cifrado en reposo de SQL que requieren muchos estándares de cumplimiento normativo para proteger contra el robo de soportes de almacenamiento. Los clientes pueden administrar las claves de cifrado de TDE y otros secretos de una manera segura y compatible mediante Azure Key Vault.
+El [cifrado de datos transparente](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) de SQL Database facilita la protección contra la amenaza de actividades malintencionadas, ya que la base de datos se cifra y descifra en tiempo real, se realizan copias de seguridad asociadas y archivos de registro de transacciones en reposo sin necesitar cambios en la aplicación. Desde mayo de 2017, todas las bases de datos SQL de Azure recién creadas tienen automáticamente la protección del cifrado de datos transparente (TDE). TDE es la probada tecnología de cifrado en reposo de SQL que requieren muchos estándares de cumplimiento normativo para proteger contra el robo de soportes de almacenamiento. Los clientes pueden administrar las claves de cifrado de TDE y otros secretos de una manera segura y compatible mediante Azure Key Vault.
 
 ### <a name="data-encryption-in-motion"></a>Cifrado de datos en movimiento
 

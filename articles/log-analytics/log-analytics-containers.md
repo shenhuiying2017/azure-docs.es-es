@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/20/2017
 ms.author: magoedte;banders
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: cd21a08de9dbf795b9a295de22e55a24fa9535ef
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 562a7a73e2d440c0c3e3e8ab9e94ffd6c1fba7d9
 ms.contentlocale: es-es
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solución de Supervisión de contenedores de Azure Log Analytics
@@ -289,12 +289,12 @@ Si desea utilizar secretos para proteger el identificador del área de trabajo y
      WSID:   37 bytes  
     ```
 
-#### <a name="configure-an-oms-agent-for-kubernetes"></a>Configuración de un agente de OMS para Kubernetes
+#### <a name="configure-an-oms-linux-agent-for-kubernetes"></a>Configuración de un agente Linux de OMS para Kubernetes
 
-Para Kubernetes, se usa un script para generar el archivo .yaml de secretos para el identificador de área de trabajo y la clave principal. En la página [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes), hay archivos que se pueden usar con o sin la información secreta.
+En Kubernetes se usa un script para generar el archivo .yaml de secretos del identificador del área de trabajo y la clave principal para instalar el agente de OMS para Linux. En la página [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes), hay archivos que se pueden usar con o sin la información secreta.
 
-- El DaemonSet del agente de OMS predeterminado no tiene información secreta (omsagent.yaml)
-- El archivo yaml del DaemonSet del agente de OMS usa información secreta (omsagent-ds-secrets.yaml) con scripts de generación de secretos que genera el archivo yaml (omsagentsecret.yaml) de secretos.
+- El DaemonSet predeterminado del agente de OMS para Linux no tiene información de secretos (omsagent.yaml)
+- El archivo .yaml del DaemonSet del agente de OMS para Linux usa información de secretos (omsagent-ds-secrets.yaml) con scripts de generación de secretos para generar el archivo yaml (omsagentsecret.yaml) de secretos.
 
 Puede elegir crear DaemonSets de omsagent con o sin secretos.
 
@@ -371,7 +371,7 @@ Puede elegir crear DaemonSets de omsagent con o sin secretos.
     ```
 
 
-Para Kubernetes, use un script para generar el archivo .yaml de secretos para el identificador de área de trabajo y clave principal. Use la información de ejemplo siguiente con el [archivo yaml omsagent](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml) para proteger la información secreta.
+En Kubernetes, use un script para generar el archivo .yaml de secretos del identificador de área de trabajo y la clave principal para el agente de OMS para Linux. Use la información de ejemplo siguiente con el [archivo yaml omsagent](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml) para proteger la información de secretos.
 
 ```
 keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
@@ -387,6 +387,98 @@ Data
 WSID:   36 bytes
 KEY:    88 bytes
 ```
+
+#### <a name="configure-an-oms-agent-for-windows-kubernetes"></a>Configuración de un agente de OMS para Windows Kubernetes
+En Windows Kubernetes se usa un script para generar el archivo .yaml de secretos del identificador del área de trabajo y la clave principal para instalar el agente de OMS. En la página [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows), hay archivos que se pueden usar con la información de secretos.  El agente de OMS se debe instalar por separado en los nodos principal y de agente.  
+
+1. Para usar el DaemonSet del agente de OMS mediante información de secretos en el nodo maestro, primero inicie sesión y cree los secretos.
+    1. Copie el script y el archivo de plantilla secreto y asegúrese de que estén en el mismo directorio.
+        - Script de generación de secretos: secret-gen.sh
+        - Plantilla de secretos: secret-template.yaml
+
+    2. Ejecute el script, como en el ejemplo siguiente. El script pide el identificador del área de trabajo y la clave principal de OMS y, una vez que los escribe, se crea un archivo .yaml secreto para que pueda ejecutarlo.   
+
+        ```
+        #> sudo bash ./secret-gen.sh
+        ```
+    3. Ejecute ``` kubectl create -f omsagentsecret.yaml ``` para crear el daemon-set de omsagent
+    4. Para comprobarlo, ejecute lo siguiente:
+    
+        ``` 
+        root@ubuntu16-13db:~# kubectl get secrets
+        ```
+
+        La salida debe ser similar a lo siguiente:
+
+        ```
+        NAME                  TYPE                                  DATA      AGE
+        default-token-gvl91   kubernetes.io/service-account-token   3         50d
+        omsagent-secret       Opaque                                2         1d
+        root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+        Name:           omsagent-secret
+        Namespace:      default
+        Labels:         <none>
+        Annotations:    <none>
+    
+        Type:   Opaque
+    
+        Data
+        ====
+        WSID:   36 bytes
+        KEY:    88 bytes 
+        ```
+
+    5. Ejecute ```kubectl create -f ws-omsagent-de-secrets.yaml``` para crear el daemon-set de omsagent
+
+2. Compruebe que DaemonSet del agente de OMS está en ejecución, de manera similar a la siguiente:
+
+    ```
+    root@ubuntu16-13db:~# kubectl get deployment omsagent
+    NAME       DESIRED   CURRENT   NODE-SELECTOR   AGE
+    omsagent   1         1         <none>          1h
+    ```
+
+3. Para instalar el agente en el nodo de trabajo, en el que se ejecuta Windows, siga los pasos descritos en la sección [Instalación y configuración de hosts de contenedor de Windows](#install-and-configure-windows-container-hosts). 
+
+#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Uso de Helm para implementar el agente de OMS en Linux Kubernetes 
+Para usar Helm para implementar el agente de OMS en un entorno Linux Kubernetes, siga estos pasos.
+
+1. Ejecute ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms``` para crear el daemon-set de omsagent
+2. El resultado será similar al siguiente:
+
+    ```
+    NAME:   omsagent
+    LAST DEPLOYED: Tue Sep 19 20:37:46 2017
+    NAMESPACE: default
+    STATUS: DEPLOYED
+
+    RESOURCES:
+    ==> v1/Secret
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     3s
+
+    ==> v1beta1/DaemonSet
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         3s
+    ```
+3. Puede comprobar el estado de la omsagent. Para ello, debe ejecutar ```helm status "omsagent"``` y el resultado será similar al siguiente:
+
+    ```
+    keiko@k8s-master-3814F33-0:~$ helm status omsagent
+    LAST DEPLOYED: Tue Sep 19 20:37:46 2017
+    NAMESPACE: default
+    STATUS: DEPLOYED
+ 
+    RESOURCES:
+    ==> v1/Secret
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
+ 
+    ==> v1beta1/DaemonSet
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
+    ```
+Para más información, visite [Container Solution Helm Chart](https://aka.ms/omscontainerhelm).
 
 ### <a name="install-and-configure-windows-container-hosts"></a>Instalación y configuración de hosts de contenedor de Windows
 

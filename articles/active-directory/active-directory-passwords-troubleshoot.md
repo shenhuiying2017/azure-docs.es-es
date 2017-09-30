@@ -13,17 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 60d35b230534ca5721a49a770ea81cc79d52ec02
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: d33e516628c56a7aa038e37b4498461de17f8433
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/22/2017
 
 ---
-
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Cómo solucionar problemas de autoservicio de restablecimiento de contraseña
 
 Si tiene problemas con el autoservicio de restablecimiento de contraseña, los elementos siguientes pueden ayudarle a ponerse a trabajar rápidamente.
@@ -152,17 +151,21 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
 | 33008| ADPasswordPolicyError| Este evento se produce cuando el servicio de escritura diferida de contraseñas intenta establecer una contraseña en su directorio local que no cumple la duración de la contraseña, el historial, la complejidad o los requisitos de filtrado del dominio. <br> <br> Si tiene una vigencia mínima de contraseña y ha cambiado recientemente la contraseña desde la ventana de tiempo, no podrá volver a cambiarla hasta que alcance la duración especificada en el dominio. Con fines de prueba, la duración mínima debe establecerse en 0. <br> <br> Si tiene los requisitos del historial de contraseña habilitados, debe seleccionar una contraseña que no se haya utilizado en las últimas N veces, donde N es la configuración de la duración de la contraseña. Si selecciona una contraseña que se ha usado en las últimas N veces, verá un error en este caso. Con fines de prueba, el historial mínimo debe establecerse en 0. <br> <br> Si tiene requisitos de complejidad de contraseña, todos ellos se aplican cuando el usuario intenta cambiar o restablecer una contraseña. <br> <br> Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación.|
 | 33009| ADConfigurationError| Este evento indica que se ha producido un problema al escribir la contraseña en diferido en el directorio local por un problema de configuración con Active Directory. Compruebe el registro de eventos de la aplicación del equipo de Azure AD Connect para ver los mensajes del servicio ADSync, a fin de obtener más información sobre el error que se ha producido.|
 
-
 ## <a name="troubleshoot-password-writeback-connectivity"></a>Solución de problemas con la conectividad de la escritura diferida de contraseñas
 
 Si se producen interrupciones del servicio con el componente de escritura diferida de contraseñas de Azure AD Connect, aquí tiene algunos pasos que puede seguir para resolver este problema:
 
+* [Confirmación de la conectividad de la red](#confirm-network-connectivity)
 * [Reinicio del servicio de sincronización de Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Deshabilitar y volver a habilitar la característica de escritura diferida de contraseña](#disable-and-re-enable-the-password-writeback-feature)
 * [Instalación de la última versión de Azure AD Connect](#install-the-latest-azure-ad-connect-release)
 * [Solución de problemas de escritura diferida de contraseñas](#troubleshoot-password-writeback)
 
 En general, se recomienda que ejecute estos pasos en el orden anterior con el fin de recuperar el servicio de la manera más rápida.
+
+### <a name="confirm-network-connectivity"></a>Confirmación de la conectividad de la red
+
+El punto de error más común es la configuración incorrecta del firewall o los puertos del proxy y los tiempos de inactividad. Revise los requisitos de red en el artículo sobre la [profundización en el autoservicio de restablecimiento de contraseña de Azure AD](active-directory-passwords-how-it-works.md#network-requirements) para más información.
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Reinicio del servicio de sincronización de Azure AD Connect
 
