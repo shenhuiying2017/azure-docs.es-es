@@ -54,7 +54,7 @@ Los pasos siguientes le muestran cómo obtener el disco VHD que se copiará, cre
 
 1. Configure algunos parámetros. 
 
- ```powershell
+ ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
 $location = 'southeastasia' 
 $dataDiskName = 'ContosoMD_datadisk1' 
@@ -68,17 +68,17 @@ $snapshotName = 'ContosoMD_datadisk1_snapshot1'
 
 2. Obtenga el disco VHD que se copiará.
 
- ```powershell
+ ```azurepowershell-interactive
 $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
 ```
 3. Cree las configuraciones de la instantánea. 
 
- ```powershell
+ ```azurepowershell-interactive
 $snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
 ```
 4. Tome la instantánea.
 
- ```powershell
+ ```azurepowershell-interactive
 New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
 ```
 Si tiene previsto utilizar la instantánea para crear un disco administrado y conectarle una VM que precisa de un alto rendimiento, use el parámetro `-AccountType Premium_LRS` con el comando New-AzureRmSnapshot. El parámetro crea la instantánea para que se almacene como disco administrado Premium. Managed Disks Premium son más costosos que los Estándar. Por lo tanto, asegúrese de que realmente necesita discos Premium antes de usar el parámetro.

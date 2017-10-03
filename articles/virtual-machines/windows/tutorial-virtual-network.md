@@ -42,7 +42,7 @@ Una red virtual es una representación de su propia red en la nube. Una red virt
 
 Para poder crear otros recursos de Azure, tiene que crear un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myRGNetwork* en la ubicación *EastUS*:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
@@ -50,7 +50,7 @@ Una subred es un recurso secundario de una red virtual que le ayudará a definir
 
 Cree una subred con [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
 
-```powershell
+```azurepowershell-interactive
 $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myFrontendSubnet `
   -AddressPrefix 10.0.0.0/24
@@ -58,7 +58,7 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 Crear una red virtual denominada *myVNet* con *myFrontendSubnet* con [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
 
-```powershell
+```azurepowershell-interactive
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -73,7 +73,7 @@ Una máquina virtual debe tener un interfaz de red virtual (NIC) para comunicars
 
 Cree una dirección IP pública con [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
-```powershell
+```azurepowershell-interactive
 $pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -84,7 +84,7 @@ $pip = New-AzureRmPublicIpAddress `
 Cree una NIC con [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
 
 
-```powershell
+```azurepowershell-interactive
 $frontendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -95,13 +95,13 @@ $frontendNic = New-AzureRmNetworkInterface `
 
 Establezca el nombre de usuario y la contraseña que se necesitan para la cuenta de administrador en la máquina virtual con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential). Use estas credenciales para conectarse a la máquina virtual en pasos adicionales:
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
 Cree las máquinas virtuales con [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk), [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) y [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). 
 
-```powershell
+```azurepowershell-interactive
 $frontendVM = New-AzureRmVMConfig `
     -VMName myFrontendVM `
     -VMSize Standard_D1
@@ -139,7 +139,7 @@ Puede instalar IIS en *myFrontendVM* usando una sesión del Escritorio remoto. D
 
 Puede conseguir la dirección IP pública de *myFrontendVM* con [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). En el ejemplo siguiente se obtiene la dirección IP de *myPublicIPAddress* que se ha creado anteriormente:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName myRGNetwork `
     -Name myPublicIPAddress | select IpAddress
@@ -157,7 +157,7 @@ Ahora que ha iniciado sesión en *myFrontendVM*, puede usar una sola línea de P
 
 Use [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) para ejecutar la extensión de script personalizado que instala el servidor web de IIS:
 
-```powershell
+```azurepowershell-interactive
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
@@ -173,7 +173,7 @@ La comunicación interna de las máquinas virtuales puede configurarse con un NS
 
 Puede limitar el tráfico interno a *myBackendVM* solo desde *myFrontendVM* creando un NSG para la subred de "back-end". En el ejemplo siguiente se crea una regla NSG denominada *myBackendNSGRule* con [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
 
-```powershell
+```azurepowershell-interactive
 $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name myBackendNSGRule `
   -Protocol Tcp `
@@ -188,7 +188,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
 
 Agregue un nuevo grupo de seguridad de red denominado *myBackendNSG* con [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
 
-```powershell
+```azurepowershell-interactive
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -199,7 +199,7 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
 
 Adición de *myBackEndSubnet* a *myVNet* con [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig):
 
-```powershell
+```azurepowershell-interactive
 Add-AzureRmVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -VirtualNetwork $vnet `
@@ -217,7 +217,7 @@ La manera más fácil de crear la máquina virtual de "back-end "es utilizando u
 
 Creación de *myBackendNic*:
 
-```powershell
+```azurepowershell-interactive
 $backendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -227,13 +227,13 @@ $backendNic = New-AzureRmNetworkInterface `
 
 Establezca el nombre de usuario y la contraseña que se necesitan para la cuenta de administrador en la máquina virtual con Get-Credential:
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
 Creación de *myBackendVM*:
 
-```powershell
+```azurepowershell-interactive
 $backendVM = New-AzureRmVMConfig `
   -VMName myBackendVM `
   -VMSize Standard_D1

@@ -52,7 +52,7 @@ El segundo comando quita el disco de datos denominado DataDisk3 de la máquina v
 
 El último comando actualiza el estado de la máquina virtual para completar el proceso de quitar el disco de datos.
 
-```powershell
+```azurepowershell-interactive
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
 Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
 Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine

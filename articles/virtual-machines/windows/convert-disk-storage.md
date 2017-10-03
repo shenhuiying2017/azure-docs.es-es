@@ -39,7 +39,7 @@ En este artículo se muestra cómo convertir Managed Disks de estándar a premiu
 
 En el ejemplo siguiente se muestra cómo cambiar todos los discos de una máquina virtual del almacenamiento estándar al premium. Para usar discos administrados premium, la máquina virtual debe usar un [Tamaño de máquina virtual](sizes.md) que admita Premium Storage. En este ejemplo también se pasa a un tamaño que admite Premium Storage.
 
-```powershell
+```azurepowershell-interactive
 # Name of the resource group that contains the VM
 $rgName = 'yourResourceGroup'
 
@@ -82,7 +82,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 Puede que, en el caso de la carga de trabajo de desarrollo y pruebas, prefiera tener una combinación de discos estándar y premium para reducir el costo. Para ello, puede actualizar a Premium Storage solo los discos que requieren mejor rendimiento. En el ejemplo siguiente se muestra cómo cambiar un solo disco de una máquina virtual del almacenamiento estándar al premium, y viceversa. Para usar discos administrados premium, la máquina virtual debe usar un [Tamaño de máquina virtual](sizes.md) que admita Premium Storage. En este ejemplo también se pasa a un tamaño que admite Premium Storage.
 
-```powershell
+```azurepowershell-interactive
 
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk
