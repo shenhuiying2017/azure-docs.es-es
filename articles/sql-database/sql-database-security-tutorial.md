@@ -175,7 +175,7 @@ Auditoría de Azure SQL Database realiza un seguimiento de eventos de bases de d
 
     ![Hoja Auditoría](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. Si prefiere habilitar un tipo (¿o ubicación?) de auditoría distinto del especificado en el nivel de servidor, **active** la auditoría y elija el tipo de autoría **Blob **. Si está habilitada la auditoría de blobs del servidor, la auditoría configurada de base de datos se producirá de forma paralela a la auditoría de blobs del servidor.
+3. Si prefiere habilitar un tipo (¿o ubicación?) de auditoría distinto del especificado en el nivel de servidor, **active** la auditoría y elija el tipo de autoría **Blob** . Si está habilitada la auditoría de blobs del servidor, la auditoría configurada de base de datos se producirá de forma paralela a la auditoría de blobs del servidor.
 
     ![Activar la auditoría](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
