@@ -62,7 +62,7 @@ Los problemas siguientes son específicos de la depuración de aplicaciones de c
 
 Se trata de un problema conocido con el depurador de Visual Studio (msvsmon.exe), que actualmente no está diseñado para este escenario. En un futuro podría incluirse compatibilidad para este escenario. Para ver el resultado de la aplicación de consola en Visual Studio, utilice **Docker: Iniciar proyecto**, que es equivalente a **Iniciar sin depurar**.
 
-#### <a name="debugging-web-applications-with-the-release-configuration-fails-with-403-forbidden-error"></a>Se produce un error en la depuración de aplicaciones web con la configuración de versión con el error&403; Prohibido.
+#### <a name="debugging-web-applications-with-the-release-configuration-fails-with-403-forbidden-error"></a>Se produce un error en la depuración de aplicaciones web con la configuración de versión con el error 403 Prohibido.
 
 Para solucionar el problema, abra el archivo web.release.config en la solución y comente o elimine las líneas siguientes:
 

@@ -44,7 +44,7 @@ Si ha usado la solución de administración de actualizaciones, también puede q
 
 * Actualice las programaciones.  Cada uno tendrá nombres que coinciden con las implementaciones de actualizaciones que se ha creado.
 
-* Se crean grupos de trabajo híbridos para la solución.  Cada uno de ellos se llamará de forma similar a machine1.contoso.com_9ceb8108 -&26; c&9;-4051-b6b3-227600d715c8).
+* Se crean grupos de trabajo híbridos para la solución.  Cada uno de ellos se llamará de forma similar a  machine1.contoso.com_9ceb8108 - 26 c 9-4051-b6b3-227600d715c8).
 
 Si ha usado la solución de inicio y detención de máquinas virtuales durante las horas de trabajo, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
 
