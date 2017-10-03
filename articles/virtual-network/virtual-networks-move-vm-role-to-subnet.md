@@ -33,7 +33,7 @@ Puede usar PowerShell para mover las máquinas virtuales (clásicas) de una subr
 ¿Por qué mover máquinas virtuales a otra subred? La migración de subred es útil cuando la antigua subred se queda demasiado pequeña y no se puede expandir debido a que existen máquinas virtuales en ejecución en esa subred. En ese caso, puede crear una subred más grande y migrar las máquinas virtuales a esa nueva subred; a continuación, una vez finalizada la migración, puede eliminar la subred antigua vacía.
 
 ## <a name="how-to-move-a-vm-to-another-subnet"></a>Cómo mover una máquina virtual a otra subred
-Para mover una máquina virtual, ejecute el cmdlet de PowerShell Set-AzureSubnet, utilizando el ejemplo siguiente como plantilla. En este ejemplo, movemos TestVM (máquina virtual de prueba) desde la subred actual a Subnet-2 (subred&2;). Asegúrese de editar el ejemplo para reflejar su entorno. Tenga en cuenta que siempre que ejecute el cmdlet Update-AzureVM como parte de un procedimiento, se reiniciará la máquina virtual como parte del proceso de actualización.
+Para mover una máquina virtual, ejecute el cmdlet de PowerShell Set-AzureSubnet, utilizando el ejemplo siguiente como plantilla. En este ejemplo, movemos TestVM (máquina virtual de prueba) desde la subred actual a Subnet-2 (subred 2). Asegúrese de editar el ejemplo para reflejar su entorno. Tenga en cuenta que siempre que ejecute el cmdlet Update-AzureVM como parte de un procedimiento, se reiniciará la máquina virtual como parte del proceso de actualización.
 
     Get-AzureVM –ServiceName TestVMCloud –Name TestVM `
     | Set-AzureSubnet –SubnetNames Subnet-2 `
@@ -49,7 +49,7 @@ Si especificó una dirección IP privada interna estática para la máquina virt
     | Update-AzureVM
 
 ## <a name="to-move-a-role-instance-to-another-subnet"></a>Para mover una instancia de rol a otra subred
-Para mover una instancia de rol, edite el archivo CSCFG. En este ejemplo, se mueve "Role0" (rol&0;) en la red virtual *VNETName* de la subred actual a *Subnet-2* (subred&2;). Como ya se ha implementado la instancia de rol, solo tendrá que cambiar el nombre de la subred = Subnet-2 (subred&2;). Asegúrese de editar el ejemplo para reflejar su entorno.
+Para mover una instancia de rol, edite el archivo CSCFG. En este ejemplo, se mueve "Role0" (rol 0) en la red virtual *VNETName* de la subred actual a *Subnet-2* (subred 2). Como ya se ha implementado la instancia de rol, solo tendrá que cambiar el nombre de la subred = Subnet-2 (subred 2). Asegúrese de editar el ejemplo para reflejar su entorno.
 
     <NetworkConfiguration>
         <VirtualNetworkSite name="VNETName" />
