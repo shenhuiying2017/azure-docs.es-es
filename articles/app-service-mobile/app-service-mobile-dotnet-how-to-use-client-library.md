@@ -628,7 +628,7 @@ Se admiten dos flujos de autenticación: *administrado por cliente* y *administr
 > [!NOTE]
 > En las aplicaciones de producción se recomienda usar un flujo administrado por el cliente.
 
-Para configurar la autenticación, debe registrar la aplicación en uno o varios proveedores de identidades.  El proveedor de identidades generará un identificador y un secreto de cliente para la aplicación.  Estos valores se establecen en el back-end para habilitar la autenticación y autorización de Azure App Service.  Para obtener más información, siga las instrucciones detalladas del tutorial [Incorporación de la autenticación a la aplicación de Windows].
+Para configurar la autenticación, debe registrar la aplicación en uno o varios proveedores de identidades.  El proveedor de identidades generará un identificador y un secreto de cliente para la aplicación.  Estos valores se establecen en el back-end para habilitar la autenticación y autorización de Azure App Service.  Para obtener más información, siga las instrucciones detalladas del tutorial [Incorporación de la autenticación a su aplicación].
 
 En esta sección se tratan los siguientes temas:
 
@@ -1093,7 +1093,7 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[Incorporación de autenticación a la aplicación]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Incorporación de la autenticación a su aplicación]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
 [Agregar notificaciones de inserción a la aplicación]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [registrar la aplicación para usar el inicio de sesión de la cuenta Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
