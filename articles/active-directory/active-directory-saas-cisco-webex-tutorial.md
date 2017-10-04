@@ -67,7 +67,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Cisco Webex con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
 
-Como parte de este procedimiento, es necesario crear un certificado codificado en base&64;. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+Como parte de este procedimiento, es necesario crear un certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
 **Siga estos pasos para configurar el inicio de sesión único:**
 
@@ -96,12 +96,12 @@ Como parte de este procedimiento, es necesario crear un certificado codificado e
    
    ![Configuración de SSO federado](./media/active-directory-saas-cisco-webex-tutorial/IC777623.png "Configuración de SSO federado")  
    1. En la lista de **protocolos de federación**, seleccione **SAML 2.0**.
-   2. Cree un archivo **codificado en base&64;** a partir del certificado descargado.  
+   2. Cree un archivo **codificado en base 64** a partir del certificado descargado.  
     >[!TIP]
     >Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
     >  
-   3. Abra el certificado codificado en base&64; en el Bloc de notas y luego copie el contenido del mismo.
-   4. Haga clic en **Import SAML Metadata**(Importar metadatos de SAML) y, a continuación, pegue el certificado codificado base&64;.
+   3. Abra el certificado codificado en base 64 en el Bloc de notas y luego copie el contenido del mismo.
+   4. Haga clic en **Import SAML Metadata**(Importar metadatos de SAML) y, a continuación, pegue el certificado codificado base 64.
    5. En el Portal de Azure clásico, en la página del cuadro de diálogo **Configurar inicio de sesión único en Cisco Webex**, copie el valor de **URL del emisor** y péguelo en el cuadro de texto **Issuer for SAML (IdP ID)** (Emisor para SAML [Id. de IdP]).
    6. En el Portal de Azure clásico, en la página del cuadro de diálogo **Configurar inicio de sesión único en Cisco Webex**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Customer SSO Service Login URL** (URL de inicio de sesión de servicio SSO del cliente).
    7. En la lista **NameID Format** (Formato de NameID), seleccione **Email address** (Dirección de correo electrónico).

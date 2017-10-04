@@ -64,7 +64,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Central Desktop con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
 
-Como parte de este procedimiento, se requiere cargar un certificado codificado en base&64; en el inquilino de Central Desktop.  
+Como parte de este procedimiento, se requiere cargar un certificado codificado en base 64 en el inquilino de Central Desktop.  
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 **Siga estos pasos para configurar el inicio de sesión único:**

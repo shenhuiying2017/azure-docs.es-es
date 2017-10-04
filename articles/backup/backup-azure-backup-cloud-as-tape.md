@@ -50,7 +50,7 @@ El número total de "puntos de retención" especificado en esta directiva es de 
 ## <a name="example--putting-both-together"></a>Ejemplo: reunir ambos
 ![Pantalla de ejemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Directiva de retención diaria**: las copias de seguridad realizadas diariamente se almacenan durante&7; días.
+1. **Directiva de retención diaria**: las copias de seguridad realizadas diariamente se almacenan durante 7 días.
 2. **Directiva de retención semanal**: las copias de seguridad realizadas todos los días a medianoche y el sábado a las 18:00 h se conservan durante 4 semanas.
 3. **Directiva de retención mensual**: las copias de seguridad realizadas a medianoche y a las 18:00 h del último sábado de cada mes se conservarán durante 12 meses.
 4. **Directiva de retención anual**: las copias de seguridad realizadas del último sábado de cada mes de marzo se conservarán durante 10 años.

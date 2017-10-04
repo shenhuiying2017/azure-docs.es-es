@@ -25,7 +25,7 @@ ms.lasthandoff: 02/09/2017
 Este documento describe todas las opciones de integración y configuración disponibles para el SDK de Windows Universal para Azure Mobile Engagement.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de comenzar este tutorial, primero debe completar la [Introducción a Azure Mobile Engagement para aplicaciones Android](mobile-engagement-windows-store-dotnet-get-started.md), un tutorial de&15; minutos.
+Antes de comenzar este tutorial, primero debe completar la [Introducción a Azure Mobile Engagement para aplicaciones Android](mobile-engagement-windows-store-dotnet-get-started.md), un tutorial de 15 minutos.
 
 ## <a name="advanced-features"></a>Características avanzadas
 ### <a name="reporting-features"></a>Características de informes
