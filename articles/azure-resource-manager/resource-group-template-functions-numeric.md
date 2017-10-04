@@ -248,12 +248,12 @@ En el ejemplo siguiente se muestra cómo usar float para pasar parámetros a una
     "properties": {
         ...
         "parameters": {
-        "custom1": {
-            "value": "[float('3.0')]"
-        },
-        "custom2": {
-            "value": "[float(3)]"
-        },
+            "custom1": {
+                "value": "[float('3.0')]"
+            },
+            "custom2": {
+                "value": "[float(3)]"
+            },
 ```
 
 <a id="int" />

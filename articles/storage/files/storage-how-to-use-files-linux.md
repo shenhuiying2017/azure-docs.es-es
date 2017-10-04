@@ -81,7 +81,7 @@ ms.lasthandoff: 09/25/2017
 3. **Use el comando mount para montar el recurso compartido de Azure File**: no olvide reemplazar `<storage-account-name>`, `<share-name>`, `<storage-account-key>` y por la información correcta.
 
     ```
-    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=2.1,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
@@ -99,7 +99,7 @@ ms.lasthandoff: 09/25/2017
 3. **Use el siguiente comando para anexar la siguiente línea a `/etc/fstab`** : no olvide reemplazar `<storage-account-name>`, `<share-name>`, y `<storage-account-key>` por la información correcta.
 
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=2.1,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  

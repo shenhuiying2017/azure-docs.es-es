@@ -45,6 +45,8 @@ En el ejemplo siguiente se crea un grupo de recursos y se implementa una plantil
 
 ```powershell
 Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `

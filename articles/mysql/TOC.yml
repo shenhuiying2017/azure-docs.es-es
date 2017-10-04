@@ -35,7 +35,7 @@
   items:
     - name: 1 - Diseño de una base de datos
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-cli.md
@@ -87,17 +87,17 @@
   items:
     - name: Administración de un servicio
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-create-manage-server-portal.md
     - name: Reglas de firewall
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-manage-firewall-using-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Restauración de un servidor
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-restore-server-portal.md
     - name: Conexión de aplicaciones
       items:
@@ -109,7 +109,7 @@
           href: howto-connect-webapp.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: howto-server-parameters.md
 - name: Referencia
   items:
@@ -135,3 +135,5 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Opciones de soporte técnico
       href: 'https://azure.microsoft.com/support/options/'
+    - name: Testimonios de clientes
+      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'

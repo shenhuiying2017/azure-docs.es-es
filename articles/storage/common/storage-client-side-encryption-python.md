@@ -212,9 +212,9 @@ key_resolver.put_key(kek)
 
 # Define the encryption resolver_function.
 def my_encryption_resolver(pk, rk, property_name):
-        if property_name == 'foo':
-                return True
-        return False
+    if property_name == 'foo':
+        return True
+    return False
 
 # Set the KEK and key resolver on the service object.
 my_table_service.key_encryption_key = kek
@@ -242,3 +242,4 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 ## <a name="next-steps"></a>Pasos siguientes
 * Descargue el [paquete PyPi de Biblioteca de cliente de Almacenamiento de Azure para Java](https://pypi.python.org/pypi/azure-storage)
 * Descargue el [Código fuente de la Biblioteca de cliente de Almacenamiento de Azure para Python desde GitHub](https://github.com/Azure/azure-storage-python)
+

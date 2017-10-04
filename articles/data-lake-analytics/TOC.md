@@ -9,7 +9,7 @@
 
 # Cómo
 
-## Administración de cuentas de Data Lake Analytics
+## Administración con Data Lake Analytics
 ### [Portal de Azure](data-lake-analytics-manage-use-portal.md)
 ### [CLI de Azure](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
