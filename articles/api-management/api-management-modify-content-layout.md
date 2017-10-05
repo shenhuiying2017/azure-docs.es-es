@@ -24,9 +24,9 @@ ms.lasthandoff: 02/23/2017
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificación del contenido y el diseño de páginas en el portal para desarrolladores de Azure API Management
 Existen tres maneras fundamentales de personalizar el portal para desarrolladores en Azure API Management:
 
-* [Editar el contenido de las páginas estáticas y los elementos de diseño de página] [ modify-content-layout] (que se explica en esta guía)
-* [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores] [ customize-styles]
-* [Modificar las plantillas usadas para las páginas generadas por el portal] [ portal-templates] (por ejemplo, documentos de API, productos, autenticación de usuario, etc.)
+* [Editar el contenido de las páginas estáticas y los elementos de diseño de página][modify-content-layout] (que se explica en esta guía)
+* [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores][customize-styles]
+* [Modificar las plantillas usadas para las páginas generadas por el portal][portal-templates] (por ejemplo, documentos de API, productos, autenticación de usuario, etc.)
 
 ## <a name="page-structure"> </a>Estructura de las páginas del portal para desarrolladores
 
@@ -71,8 +71,8 @@ Haga clic en la página de **bienvenida** para editar lo que se muestra en la p�
 > 
 
 ## <a name="next-steps"> </a>Pasos siguientes
-* [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores] [ customize-styles]
-* [Modificar las plantillas usadas para las páginas generadas por el portal] [ portal-templates] (por ejemplo, documentos de API, productos, autenticación de usuario, etc.)
+* [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores][customize-styles]
+* [Modificar las plantillas usadas para las páginas generadas por el portal][portal-templates] (por ejemplo, documentos de API, productos, autenticación de usuario, etc.)
 
 [Structure of developer portal pages]: #page-structure
 [Modifying the contents of a layout widget]: #modify-layout-widget
