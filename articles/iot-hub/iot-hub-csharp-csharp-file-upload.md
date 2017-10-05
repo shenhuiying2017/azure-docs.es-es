@@ -191,12 +191,12 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 <!-- Links -->
 
-[Portal de Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Paquete NuGet del SDK de servicios IoT de Azure]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[paquete NuGet del SDK de servicios IoT de Azure ]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
