@@ -26,8 +26,8 @@
 
 ## Creación y administración de un clúster
 ### 1--Creación de un clúster en Azure
-#### [1a- Creación de un clúster de Windows seguro en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b- Creación de un clúster de Linux seguro en Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a Creación de un clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b Creación de un clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 # Muestras
@@ -198,7 +198,6 @@
 ### Compilación de un servicio de Reliable Actors
 #### Introducción
 ##### [C# en Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java en Linux](service-fabric-reliable-actors-get-started-java.md)
 ##### [Actor de Java en Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Envío de notificaciones](service-fabric-reliable-actors-events.md)
 #### [Configuración de recordatorios y temporizadores](service-fabric-reliable-actors-timers-reminders.md)

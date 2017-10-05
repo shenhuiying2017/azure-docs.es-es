@@ -119,7 +119,7 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-documentdb.md
-        - name: Event Hubs
+        - name: Centros de eventos
           href: functions-bindings-event-hubs.md
         - name: Archivo externo
           href: functions-bindings-external-file.md
@@ -145,6 +145,10 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
+    - name: Referencia de host.json
+      href: functions-host-json.md
+    - name: Referencia de configuración de aplicación
+      href: functions-app-settings.md
     - name: Referencia de OpenAPI
       href: functions-api-definition.md
 - name: Recursos

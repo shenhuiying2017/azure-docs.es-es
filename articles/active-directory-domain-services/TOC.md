@@ -17,7 +17,8 @@
 ## Unirse a un dominio administrado
 ### [Unirse a una máquina virtual de Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Unirse a una máquina virtual de Windows Server con PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Unirse a una máquina virtual Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrar un dominio administrado
 ### [Administrar un dominio administrado](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrar DNS en un dominio administrado](active-directory-ds-admin-guide-administer-dns.md)
@@ -36,7 +37,6 @@
 ## Solución de problemas
 ### [Preguntas más frecuentes](active-directory-ds-faqs.md)
 ### [Guía de solución de problemas](active-directory-ds-troubleshooting.md)
-### [Habilitación de la versión preliminar de la experiencia de Azure Portal](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Resolución de errores de inquilinos que no coinciden](active-directory-ds-mismatched-tenant-error.md)
 
 # Referencia

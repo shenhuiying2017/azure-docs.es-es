@@ -39,6 +39,8 @@
           href: backup-azure-vm-backup-faq.md
         - name: Preguntas más frecuentes sobre la copia de seguridad de archivos y carpetas con Azure Backup Agent
           href: backup-azure-file-folder-backup-faq.md
+        - name: Preguntas más frecuentes sobre la actualización automática del almacén de Backup
+          href: backup-upgrade-backup-vault.md
     - name: Control de acceso basado en roles
       href: backup-rbac-rs-vault.md
     - name: Seguridad para copias de seguridad híbridas

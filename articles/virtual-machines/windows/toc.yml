@@ -344,6 +344,8 @@
               href: troubleshoot-recovery-disks-portal.md
         - name: Uso de PerfInsights
           href: how-to-use-perfInsights.md
+        - name: Extensión de máquina virtual de diagnóstico de rendimiento
+          href: performance-diagnostics-vm-extension.md
 - name: Referencia
   items:
     - name: CLI de Azure

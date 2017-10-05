@@ -36,3 +36,4 @@ sections:
         items:
           - html: <a href="tutorial-review-usage">Revisión del uso y los costos para detectar anomalías y eficiencias</a>
           - html: <a href="tutorial-user-access">Asignación del acceso a los datos de Cost Management</a>
+          - html: <a href="tutorial-forecast-spending">Previsión de gastos futuros</a>
