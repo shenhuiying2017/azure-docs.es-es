@@ -379,7 +379,7 @@ Para escribir en HBase desde el clúster de Storm, debe proporcionar el bolt de 
     > Cuando se le solicite, escriba la contraseña de inicio de sesión del administrador de HDInsight.
 
     ```powershell
-    $clusterName = 'your_HDInsight_cluster_name`
+    $clusterName = 'your_HDInsight_cluster_name'
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HBASE/components/HBASE_MASTER" -Credential $creds
     $respObj = ConvertFrom-Json $resp.Content

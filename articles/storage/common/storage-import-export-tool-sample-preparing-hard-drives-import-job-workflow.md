@@ -35,7 +35,7 @@ Este ejemplo importa los datos siguientes en una cuenta de Azure Storage denomin
 |H:\Video\ |Una colección de vídeos|12 TB|
 |H:\Photo\ |Una colección de fotos|30 GB|
 |K:\Temp\FavoriteMovie.ISO|Una imagen de disco Blu-ray™|25 GB|
-|\\\bigshare\john\music\|Una colección de archivos de música en un recurso compartido de red|10 GB|
+|\\\bigshare\john\music\ |Una colección de archivos de música en un recurso compartido de red|10 GB|
 
 ## <a name="storage-account-destinations"></a>Destinos de la cuenta de almacenamiento
 
