@@ -846,7 +846,7 @@ Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Creación de una aplicación de Apache Cordova]: app-service-mobile-ios-get-started.md
+[Inicio rápido de Aplicaciones móviles de Azure]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
@@ -860,7 +860,7 @@ Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios 
 [Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[Esquema dinámico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
+[esquema dinámico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965

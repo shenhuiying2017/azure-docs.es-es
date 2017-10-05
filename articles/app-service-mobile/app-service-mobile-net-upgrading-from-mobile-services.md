@@ -64,7 +64,7 @@ El esquema completo del proceso de actualización es el siguiente:
 4. (Opcional) Eliminación de la instancia original migrada
 
 ## <a name="mobile-app-version"></a>Creación de una segunda instancia de aplicación
-El primer paso en la actualización es crear el recurso de aplicación móvil que hospedará la nueva versión de la aplicación. Si ya ha migrado un servicio móvil existente, conviene crear esta versión en el mismo plan de hospedaje. Abra el [Portal de Azure] y vaya a la aplicación migrada. Tome nota del Plan del Servicio de aplicaciones en el que se ejecuta.
+El primer paso en la actualización es crear el recurso de aplicación móvil que hospedará la nueva versión de la aplicación. Si ya ha migrado un servicio móvil existente, conviene crear esta versión en el mismo plan de hospedaje. Abra el [Azure Portal] y vaya a la aplicación migrada. Tome nota del Plan del Servicio de aplicaciones en el que se ejecuta.
 
 A continuación, cree la segunda instancia de aplicación siguiendo las [instrucciones de creación de back-end de .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Cuando se le pida que seleccione el Plan del Servicio de aplicaciones o el "plan de hospedaje", elija el plan de la aplicación migrada.
 
@@ -258,7 +258,7 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 
 <!-- URLs. -->
 
-[Portal de Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 [¿Qué es Aplicaciones móviles?]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
@@ -266,11 +266,11 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure Scheduler]: /en-us/documentation/services/scheduler/
+[Programador de Azure]: /en-us/documentation/services/scheduler/
 [trabajo web]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [Uso del SDK de servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Precios de App Service]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[precios del Servicio de aplicaciones]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Información general del SDK de .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 

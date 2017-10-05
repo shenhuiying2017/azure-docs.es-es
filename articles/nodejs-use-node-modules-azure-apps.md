@@ -88,7 +88,7 @@ Ahora que sabe cómo usar los módulos Node.js con Azure, obtenga información s
 
 Para más información, vea el [Centro para desarrolladores de Node.js](/nodejs/azure/).
 
-[Especificación de la versión de Node.js]: nodejs-specify-node-version-azure-apps.md
+[especificar la versión de Node.js]: nodejs-specify-node-version-azure-apps.md
 [usar la interfaz de la línea de comandos de Azure para Mac y Linux]:cli-install-nodejs.md
 [Scripts de implementación de sitios web personalizados con Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
 
