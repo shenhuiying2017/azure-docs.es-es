@@ -3,7 +3,7 @@ title: "Uso de etiquetas con formato JSON para programar el estado de la máquin
 description: "En este artículo se explica cómo usar cadenas JSON en las etiquetas para automatizar la programación de inicio y apagado de máquinas virtuales."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2

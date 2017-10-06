@@ -3,7 +3,7 @@ title: Prueba de un runbook en Azure Automation | Microsoft Docs
 description: "Antes de publicar un runbook en Automatización de Azure, puede probarlo para asegurarse de que funciona según lo previsto.  En este artículo se describe cómo probar un runbook y ver su salida."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 7f7db785-52c0-4613-aa12-b02fd32a5182

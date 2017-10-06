@@ -3,7 +3,7 @@ title: "¿Qué es Azure Automation? | Microsoft Docs"
 description: "Conozca el valor que aporta Automatización de Azure y obtenga respuestas a preguntas habituales para comenzar a crear, usar runbooks y DSC de Automatización de Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "qué es la automatización, automatización de azure, ejemplos de automatización de azure"

@@ -3,7 +3,7 @@ title: "Integración del código fuente de Azure Automation con GitHub Enterpris
 description: "Se describen los detalles de cómo configurar la integración con GitHub Enterprise para el control del código fuente de Runbooks de Automation."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: jwhit
 editor: 
 ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4

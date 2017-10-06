@@ -3,7 +3,7 @@ title: "Creación de una cuenta de usuario de Azure AD | Microsoft Docs"
 description: "En este artículo se describe cómo crear credenciales de cuentas de usuario de Azure AD para runbooks en Azure Automation para autenticarse en Azure y en Azure clásico."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "usuario de azure active directory, administración de servicios de azure, cuenta de usuario de azure ad"

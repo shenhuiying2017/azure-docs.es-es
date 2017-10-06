@@ -3,7 +3,7 @@ title: "Administración de datos de Azure Automation | Microsoft Docs"
 description: "Este artículo contiene varios temas para administrar un entorno de Automatización de Azure.  Actualmente incluye la retención de datos y la realización de copias de seguridad de la recuperación ante desastres en Automatización de Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a

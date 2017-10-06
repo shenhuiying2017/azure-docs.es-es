@@ -3,7 +3,7 @@ title: Quitar Hybrid Runbook Workers de Azure Automation | Microsoft Docs
 description: "En este artículo encontrará información sobre cómo administrar los Hybrid Runbook Workers de Azure Automation implementados que le permiten ejecutar runbooks en equipos en su centro de datos local o entorno de nube."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 

@@ -3,7 +3,7 @@ title: "Control de errores en runbooks gráficos de Azure Automation | Microsoft
 description: "En este artículo se describe cómo implementar la lógica de control de errores en runbooks gráficos de Azure Automation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 

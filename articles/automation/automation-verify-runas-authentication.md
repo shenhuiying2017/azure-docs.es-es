@@ -3,7 +3,7 @@ title: "Validación de la configuración de la cuenta de Azure Automation | Micr
 description: "En este artículo se describe cómo confirmar que la configuración de la cuenta de Automation es correcta."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

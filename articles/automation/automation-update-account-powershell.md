@@ -3,7 +3,7 @@ title: "Creación de una cuenta de ejecución de Azure Automation con PowerShell
 description: "En este artículo se describe cómo actualizar la cuenta de Automation con PowerShell para crear cuentas de ejecución si no ha realizado este paso durante la creación inicial desde el portal."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

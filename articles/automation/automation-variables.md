@@ -3,7 +3,7 @@ title: Recursos de variables en Azure Automation | Microsoft Docs
 description: "Los activos de variables son valores que están disponibles para todos los runbooks y configuraciones de DSC en Automatización de Azure.  En este artículo se explican los detalles de las variables y cómo trabajar con ellas en la creación de texto y gráficos."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec

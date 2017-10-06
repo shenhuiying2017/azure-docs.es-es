@@ -3,7 +3,7 @@ title: "Solución de inicio o detención de máquinas virtuales fuera de las hor
 description: "Las soluciones de administración de máquinas virtuales inician y detienen las máquinas virtuales de Azure Resource Manager según una programación y supervisan de forma proactiva la información de Log Analytics."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883

@@ -3,7 +3,7 @@ title: Tipos de runbook de Azure Automation | Microsoft Docs
 description: "Describe los distintos tipos de Runbooks que puede usar en la Automatización de Azure y las consideraciones que debe tener en cuenta al determinar qué tipo usar. "
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 9265c975-4281-4819-a84f-d86641277f36
