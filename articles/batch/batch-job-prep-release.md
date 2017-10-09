@@ -186,7 +186,7 @@ La captura de pantalla siguiente muestra la **hoja de tareas de preparación** e
 
 ## <a name="next-steps"></a>Pasos siguientes
 ### <a name="application-packages"></a>Paquetes de aplicación
-Además de la tarea de preparación del trabajo, puede usar la característica de [paquetes de aplicación](batch-application-packages.md) de Batch para preparar los nodos de proceso de cara a la ejecución de tareas. Esta característica es especialmente útil para implementar aplicaciones que no requieren que se ejecute un instalador, aplicaciones que contienen muchos archivos (más de&100;) o aplicaciones que requieren un control estricto de la versión.
+Además de la tarea de preparación del trabajo, puede usar la característica de [paquetes de aplicación](batch-application-packages.md) de Batch para preparar los nodos de proceso de cara a la ejecución de tareas. Esta característica es especialmente útil para implementar aplicaciones que no requieren que se ejecute un instalador, aplicaciones que contienen muchos archivos (más de 100) o aplicaciones que requieren un control estricto de la versión.
 
 ### <a name="installing-applications-and-staging-data"></a>Instalación de aplicaciones y datos de ensayo
 Este foro de MSDN proporciona información general de varios métodos de preparación de los nodos para la ejecución de tareas:
