@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0fd127293edfaf7eb19a4561ab8d0a19f993bcad
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
 ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -30,6 +30,8 @@ La plataforma [PowerApps](https://powerapps.microsoft.com) está diseñada para 
 En este tema compilará una aplicación basada en un escenario de mantenimiento para turbinas eólicas. En este tema, se muestra cómo llamar a la función que ha definido en [Create an OpenAPI definition for a function](functions-openapi-definition.md) (Creación de una definición de OpenAPI para una función). La función determina si resulta rentable una reparación de emergencia en una turbina eólica.
 
 ![Aplicación finalizada en PowerApps](media/functions-powerapps-scenario/finished-app.png)
+
+Para obtener información acerca de cómo llamar a la misma función desde Microsoft Flow, consulte [Call a function from Microsoft Flow](functions-flow-scenario.md) (Llamar a una función desde Microsoft Flow).
 
 En este tema, aprenderá cómo:
 
@@ -251,4 +253,4 @@ En este tema, ha aprendido cómo:
 
 Para obtener más información sobre PowerApps, consulte [Introducción a PowerApps](https://powerapps.microsoft.com/tutorials/getting-started/).
 
-Para obtener información sobre otro escenario interesante que usa Azure Functions, vea [Creación de una función que se integre con Azure Logic Apps](functions-twitter-email.md).
+Para obtener información acerca de otro escenario interesante que usa Azure Functions, consulte [Call a function from Microsoft Flow](functions-flow-scenario.md) (Llamar a una función desde Microsoft Flow) y [Creación de una función que se integre con Azure Logic Apps](functions-twitter-email.md).

@@ -1,6 +1,6 @@
 ---
-title: Enable CLI for Azure Stack users | Microsoft Docs
-description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack
+title: "Habilitación de la CLI de Azure para usuarios de Azure Stack | Microsoft Docs"
+description: "Obtenga información sobre cómo usar la interfaz de la línea de comandos (CLI) multiplataforma para administrar e implementar recursos en Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -12,28 +12,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 09/25/2017
 ms.author: sngun
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 2f7615e0f0928f4ef70f98b7e2b2dce823621314
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: d184bb9edbe2542d7321d8b9ccc5d23f2401f8d5
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="enable-cli-for-azure-stack-users"></a>Enable CLI for Azure Stack users
+# <a name="enable-azure-cli-for-azure-stack-users"></a>Habilitación de la CLI de Azure para usuarios de Azure Stack
 
-There aren't any Azure Stack operator specific tasks that you can perform by using CLI. But before users can manage resources through CLI, Azure Stack operators must provide them with the following:
+*Se aplica a: sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
-* **The Azure Stack CA root certificate** - The root certificate is required if your users are using CLI from a workstation outside the Azure Stack development kit.  
+No hay ninguna tarea específica del operador de Azure Stack que se pueda realizar con CLI. Pero antes de que los usuarios puedan administrar recursos a través de CLI, los operadores de Azure Stack deben proporcionarles lo siguiente:
 
-* **The virtual machine aliases endpoint** - This endpoint is required to create virtual machines by using CLI.
+* **El certificado raíz de CA de Azure Stack** es necesario si los usuarios usan la CLI desde una estación de trabajo fuera de Azure Stack Development Kit.  
 
-The following sections describe how to get these values.
+* **El punto de conexión de los alias de máquinas virtuales** proporciona un alias, como "UbuntuLTS" o "Win2012Datacenter", que hace referencia a un publicador de la imagen, una oferta, una SKU y una versión como un parámetro único al implementar máquinas virtuales.  
 
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Export the Azure Stack CA root certificate
+En las secciones siguientes se explica cómo obtener estos valores.
 
-The Azure Stack CA root certificate is available on the development kit and on a tenant virtual machine that is running within the development kit environment. Sign in to your development kit or the tenant virtual machine and run the following script to export the Azure Stack root certificate in PEM format:
+## <a name="export-the-azure-stack-ca-root-certificate"></a>Exportación del certificado raíz de CA de Azure Stack
+
+El certificado raíz de CA de Azure Stack está disponible en el kit de desarrollo y en una máquina virtual del inquilino que se ejecuta en el entorno del kit de desarrollo. Inicie sesión en el kit de desarrollo o la máquina virtual del inquilino y ejecute el script siguiente para exportar el certificado raíz de Azure Stack en formato PEM:
 
 ```powershell
 $label = "AzureStackSelfSignedRootCert"
@@ -52,18 +54,25 @@ Write-Host "Converting certificate to PEM format"
 certutil -encode root.cer root.pem
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Set up the virtual machine aliases endpoint
+## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Configuración del punto de conexión de alias de máquina virtual
 
-Azure Stack operators should set up a publicly accessible endpoint that contains virtual machine image aliases. Azure Stack operators must [Download the image to Azure Stack marketplace](azure-stack-download-azure-marketplace-item.md) before they add it to image aliases endpoint.
+Los operadores de Azure Stack deben configurar un punto de conexión accesible públicamente que hospede un archivo de alias de máquinas virtuales,  que es un archivo JSON que proporciona un nombre común para una imagen, que posteriormente se especifica al implementar una máquina virtual un parámetro de la CLI de Azure.  
+
+Antes de agregar una entrada a un archivo de alias, asegúrese de que [descarga las imágenes de Marketplace]((azure-stack-download-azure-marketplace-item.md) o que ha [descargado su propia imagen personalizada](azure-stack-add-vm-image.md).  Si publica una imagen personalizada, anote la información del publicador, oferta, SKU y versión que especificó en la publicación.  Si es una imagen de Marketplace, la información se puede ver mediante el cmdlet ```Get-AzureVMImage```.  
    
-For example, Azure contains uses following URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. The operator should set up a similar endpoint for Azure Stack with the images that are available in their marketplace.
+Hay disponible un [archivo de alias de ejemplo](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) con muchos alias de imágenes comunes que se puede usar como punto de partida.  Dicho archivo se debe hospedar en un espacio al que puedan acceder los clientes de la CLI.  Una forma de hacerlo es hospedarlo en una cuenta de almacenamiento de blobs y compartir la dirección URL con los usuarios:
 
-## <a name="next-steps"></a>Next steps
+1.  Descargue el [archivo de ejemplo](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) de GitHub.
+2.  Cree una cuenta de almacenamiento nueva en Azure Stack.  Cuando finalice, cree un nuevo contenedor de blobs.  Establezca la directiva de acceso en "público".  
+3.  Cargue el archivo JSON en el nuevo contenedor.  Una vez que haya finalizado, para ver la dirección URL del blob haga clic en el nombre del blob y, después, seleccione la dirección URL en las propiedades del blob.
 
-[Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
 
-[Connect with PowerShell](azure-stack-connect-powershell.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-[Manage user permissions](azure-stack-manage-permissions.md)
+[Implementación de plantillas con la CLI de Azure](azure-stack-deploy-template-command-line.md)
+
+[Conexión con PowerShell](azure-stack-connect-powershell.md)
+
+[Administración de permisos de usuario](azure-stack-manage-permissions.md)
 
 

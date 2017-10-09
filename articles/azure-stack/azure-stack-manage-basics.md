@@ -1,6 +1,6 @@
 ---
-title: Azure Stack administration basics | Microsoft Docs
-description: Learn what you need to know to administer Azure Stack.
+title: "Aspectos básicos de administración de Azure Stack | Microsoft Docs"
+description: Aprenda lo necesario para administrar Azure Stack.
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -12,108 +12,130 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/25/2017
 ms.author: twooley
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 73f2c739a792825ccccda39ca76abef2dd490808
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 04dea8f055eb562455b568c43553a6fefe749467
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="azure-stack-administration-basics"></a>Azure Stack administration basics
+# <a name="azure-stack-administration-basics"></a>Aspectos básicos de administración de Azure Stack
 
-There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as a cloud operator, and what you need to tell your users for them to become productive quickly.
+*Se aplica a: sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
-## <a name="understand-development-kit-builds"></a>Understand development kit builds
+Hay varias cosas que debe saber si no está familiarizado con la administración de Azure Stack. Esta guía proporciona información general acerca del rol de los operadores de Azure Stack, y de lo que debe decir a los usuarios para que aumenten su productividad rápidamente.
 
-Review the [What is Azure Stack?](azure-stack-poc.md) article to make sure you understand the purpose of the Azure Stack Development Kit, and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack Development Kit deployment](azure-stack-deploy-overview.md) quickstart.)
+## <a name="understand-the-builds"></a>Descripción de las compilaciones
 
-Like Azure, we innovate rapidly. We'll regularly release new builds. When you want to move to the latest build, you must [redeploy Azure Stack](azure-stack-redeploy.md). This process takes time, but the benefit is that you can try out the latest features. The documentation on our website reflects the latest release build.
+### <a name="integrated-systems"></a>Sistemas integrados
 
-## <a name="learn-about-available-services"></a>Learn about available services
+Si se usa un sistema integrado de Azure Stack, las versiones actualizadas de Azure Stack se distribuyen a través de paquetes de actualización. Para importar y aplicar estos paquetes, haga clic en el icono Actualizaciones del portal de administrador.
+ 
+### <a name="development-kit"></a>Kit de desarrollo
 
-You'll need an awareness of which services you can make available to your users. Azure Stack supports a subset of Azure services. The list of supported services will continue to evolve.
+Si usa Azure Stack Development Kit, consulte el artículo [What is Azure Stack?](azure-stack-poc.md) (¿Qué es Azure Stack?) para asegurarse de que comprende el propósito del kit de desarrollo y sus limitaciones. Debe usar el kit de desarrollo como un “espacio aislado” donde puede evaluar Azure Stack, y desarrollar y probar sus aplicaciones en un entorno que no es de producción. Para obtener información de implementación, consulte [Azure Stack Development Kit deployment quickstart](azure-stack-deploy-overview.md) (Guía de inicio rápido de implementación de Azure Stack Development Kit).
 
-**Foundational services**
+Como Azure, innovamos con rapidez. Publicaremos nuevas compilaciones con asiduidad. Si ejecuta el kit de desarrollo y desea pasar a la compilación más reciente, debe [volver a implementar Azure Stack](azure-stack-redeploy.md), no puede aplicar paquetes de actualización. Este proceso lleva tiempo, pero la ventaja es que puede probar las características más recientes. La documentación del kit de desarrollo que hay en nuestro sitio web refleja la versión de compilación más reciente.
 
-By default, Azure Stack includes the following "foundational services" when you deploy Azure Stack:
+## <a name="learn-about-available-services"></a>Información sobre los servicios disponibles
 
-- Compute
+Deberá saber qué servicios puede poner a disposición de los usuarios. Azure Stack admite un subconjunto de servicios de Azure. La lista de servicios admitidos continuará evolucionando.
+
+**Servicios fundamentales**
+
+De forma predeterminada, Azure Stack incluye los siguientes “servicios fundamentales” cuando se implementa Azure Stack:
+
+- Proceso
 - Storage
-- Networking
+- Redes
 - Key Vault
 
-With these foundational services, you can offer Infrastructure-as-a-Service (IaaS) to your users with minimal configuration.
+Con estos servicios fundamentales, puede ofrecer la infraestructura como servicio (IaaS) a los usuarios con una configuración mínima.
 
-**Additional services**
+**Servicios adicionales**
 
-Currently, we support the following additional Platform-as-a-Service (PaaS) services:
+Actualmente, se admiten los siguientes servicios de plataforma como servicio (PaaS) adicionales:
 
 - App Service
-- Azure Functions
-- SQL and MySQL databases
+- Funciones de Azure
+- Bases de datos SQL y MySQL
 
-These services require additional configuration before you can make them available to your users. For more information, see the "Tutorials" and the "How-to guides\Offer services" sections of our documentation.
+Estos servicios requieren una configuración adicional para que pueda ponerlos a disposición de los usuarios. Para más información, consulte las secciones "Tutoriales" y "Guías de procedimientos\Servicios de la oferta" de la documentación del operador de Azure Stack.
 
-**Service roadmap**
+**Mapa de ruta de los servicios**
 
-Azure Stack will continue to add support for Azure services. For the projected roadmap, see the [Hybrid Application Innovation with Azure and Azure Stack](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) whitepaper. You can also monitor the [Azure Stack blog posts](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) for new announcements.
+Azure Stack continuará agregando compatibilidad con los servicios de Azure. Para ve el mapa de ruta previsto, consulte las notas del producto [Azure Stack: una extensión de Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409). También puede supervisar las [publicaciones de blog de Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) para conocer los nuevos anuncios.
 
-## <a name="what-tools-do-i-use-to-manage"></a>What tools do I use to manage?
+## <a name="what-tools-do-i-use-to-manage"></a>¿Qué herramientas debo usar para la administración?
  
-You can use the [administrator portal](azure-stack-manage-portals.md) or PowerShell to manage Azure Stack. The easiest way to learn the basic concepts is through the portal. If you want to use PowerShell, there are preparation steps. You must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure-admin.md) PowerShell.
+Puede usar el [portal de administración](azure-stack-manage-portals.md) o PowerShell para administrar Azure Stack. La manera más fácil de aprender los conceptos básicos es a través del portal. Si quiere usar PowerShell, existen algunos pasos preparatorios. Debe [instalar](azure-stack-powershell-install.md) PowerShell, [descargar](azure-stack-powershell-download.md) módulos adicionales y [configurar](azure-stack-powershell-configure-admin.md) PowerShell.
 
-Azure Stack uses Azure Resource Manager as its underlying deployment, management, and organization mechanism. If you're going to manage Azure Stack and help support users, you should learn about Resource Manager. See the [Getting Started with Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) whitepaper.
+Azure Stack usa Azure Resource Manager como mecanismo subyacente de implementación, administración y organización. Si va a administrar Azure Stack y ayudar en el soporte técnico a los usuarios, debe obtener información sobre Resource Manager. Consulte las notas del producto [Getting Started with Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) (Introducción a Azure Resource Manager).
 
-## <a name="your-typical-responsibilities"></a>Your typical responsibilities
+## <a name="your-typical-responsibilities"></a>Sus responsabilidades típicas
 
-Your users want to use services. From their perspective, your main role is to make these services available to them. You must decide which services to offer, and make those services available by creating [quotas](azure-stack-setting-quotas.md), [plans](azure-stack-create-plan.md), and [offers](azure-stack-create-offer.md). 
+Los usuarios quieren usar los servicios. Desde la perspectiva de estos, su rol principal es poner estos servicios a su disposición. Debe decidir qué servicios se ofrecen y poner dichos servicios a disposición de los usuarios mediante la creación de planes, ofertas y cuotas. Para más información, consulte [Introducción a la oferta de servicios en Azure Stack](azure-stack-offer-services-overview.md). 
 
-You'll also need to add items to the marketplace, such as virtual machine images. The easiest way is to [download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md).
+También tendrá que agregar elementos al [Marketplace](azure-stack-marketplace.md), como imágenes de máquinas virtuales. La manera más fácil es [descargar elementos de Marketplace de Azure a Azure Stack](azure-stack-download-azure-marketplace-item.md).
 
 > [!NOTE]
-> If you want to test your plans, offers, and services, you should use the [user portal](azure-stack-manage-portals.md); not the administrator portal.
+> Si quiere probar los planes, las ofertas y los servicios, debe utilizar el [portal de usuarios](azure-stack-manage-portals.md), no el portal de administración.
 
-In addition to providing services, you must perform all the regular  duties of a cloud operator to keep Azure Stack up and running. These duties include the following:
+Además de ofrecer servicios, debe realizar todas las tareas habituales de un operador para mantener Azure Stack en funcionamiento. Estas tareas incluyen las siguientes:
 
-- Add user accounts (for [Azure Active Directory](azure-stack-add-new-user-aad.md) deployment or for [Active Directory Federation Services](azure-stack-add-users-adfs.md) deployment)
-- [Assign role-based access control (RBAC) roles](azure-stack-manage-permissions.md) (This is not restricted to administrators.)
-- [Monitor infrastructure health](azure-stack-monitor-health.md)
-- Manage [network](azure-stack-viewing-public-ip-address-consumption.md) and [storage](azure-stack-manage-storage-accounts.md) resources
-- Replace bad hardware
+- Agregar cuentas de usuario (para la implementación de [Azure Active Directory](azure-stack-add-new-user-aad.md) o de [Servicios de federación de Active Directory](azure-stack-add-users-adfs.md))
+- [Asignar roles de control de acceso basado en roles (RBAC)](azure-stack-manage-permissions.md) (esto no se restringe a los administradores).
+- [Supervisar el estado de la infraestructura](azure-stack-monitor-health.md)
+- Administrar los recursos de [red](azure-stack-viewing-public-ip-address-consumption.md) y [almacenamiento](azure-stack-manage-storage-accounts.md)
+- Reemplazar el hardware defectuoso, por ejemplo [reemplazar un disco con errores](azure-stack-replace-disk.md).
 
-## <a name="what-to-tell-your-users"></a>What to tell your users
+## <a name="what-to-tell-your-users"></a>Qué decirles a los usuarios
 
-You'll need to let your users know how to work with services in Azure Stack, how to connect to the development kit environment, and how to subscribe to offers.
+Deberá informar a los usuarios cómo trabajar con los servicios en Azure Stack, conectarse con el entorno y suscribirse a las ofertas. Además de toda la documentación personalizada que puede proporcionar a los usuarios, puede enviar a los usuarios al sitio de documentación de usuarios de Azure Stack.
 
-**Understand how to work with services in Azure Stack**
+**Información sobre cómo trabajar con servicios en Azure Stack**
 
-There's information your users must understand before they use services and build apps in Azure Stack. For example, there are specific PowerShell and API version requirements. Also, there are some feature deltas between a service in Azure and the equivalent service in Azure Stack. Make sure that your users review the following articles:
+Hay información que los usuarios deben comprender antes de usar los servicios y compilar aplicaciones en Azure Stack. Por ejemplo, existen requisitos específicos para las versiones de PowerShell y API. Además, existen algunas diferencias de características entre un servicio en Azure y el servicio equivalente en Azure Stack. Asegúrese de que los usuarios consulten los siguientes artículos:
 
-- [Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md)
-- [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
-- [Storage: differences and considerations](azure-stack-acs-differences-tp2.md)
+- [Key considerations: Using services or building apps for Azure Stack](user/azure-stack-considerations.md) (Consideraciones clave: uso de servicios o compilación de aplicaciones para Azure Stack)
+- [Consideraciones sobre máquinas virtuales en Azure Stack](user/azure-stack-vm-considerations.md)
+- [Storage: differences and considerations](user/azure-stack-acs-differences.md) (Storage: diferencias y consideraciones)
 
-The information in these articles summarizes the differences between a service in Azure and Azure Stack. It supplements the information that's available for an Azure service in the global Azure documentation. 
+La información de estos artículos resume las diferencias entre un servicio en Azure y Azure Stack. Complementa la información disponible para un servicio de Azure en la documentación global de Azure.
 
-**Connect to Azure Stack as a user**
+**Conexión a Azure Stack como usuario**
 
-In a development kit environment, if a user doesn't have Remote Desktop access to the development kit host, they must configure a virtual private network (VPN) connection before they can access Azure Stack. See [Connect to Azure Stack](azure-stack-connect-azure-stack.md). 
+En un entorno del kit de desarrollo, si un usuario no tiene acceso del Escritorio remoto al host del kit de desarrollo, debe configurar una conexión de red privada virtual (VPN) para poder obtener acceso a Azure Stack. Consulte [Conexión a Azure Stack](azure-stack-connect-azure-stack.md). 
 
-Your users will want to know how to [access the user portal ](azure-stack-manage-portals.md) or how to connect through PowerShell. If using PowerShell, users may have to register resource providers before they can use services. (A resource provider manages a service. For example, the networking resource provider manages resources such as virtual networks, network interfaces, and load balancers.) They must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure-user.md) PowerShell (which includes resource provider registration).
+Los usuarios querrán saber cómo [acceder al portal de usuarios](user/azure-stack-use-portal.md) o cómo conectarse a través de PowerShell. En un entorno de sistemas integrados, la dirección del portal de usuarios varía en función de la implementación. Tendrá que proporcionar a los usuarios la dirección URL correcta.
 
-**Subscribe to an offer**
+Si usa PowerShell, puede que los usuarios deban registrar proveedores de recursos para poder usar los servicios. (Un proveedor de recursos administra un servicio. Por ejemplo, el proveedor de recursos de red administra recursos, como redes virtuales, interfaces de red y equilibradores de carga). Debe [instalar](user/azure-stack-powershell-install.md) PowerShell, [descargar](user/azure-stack-powershell-download.md) módulos adicionales y [configurar](user/azure-stack-powershell-configure-user.md) PowerShell (que incluye el registro de proveedores de recursos).
 
-Before a user can access services, they must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that you've created as a cloud operator.
+**Suscripción a una oferta**
 
-## <a name="where-to-get-support"></a>Where to get support
+Para que un usuario pueda acceder a los servicios, debe [suscribirse a una oferta](azure-stack-subscribe-plan-provision-vm.md) que haya creado un operador.
 
-For the Azure Stack Development Kit, you can ask support-related questions in the [Microsoft forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). If you click the Help and support icon (question mark) in the upper-right corner of the administrator portal, and then click **New support request**, this opens the forums site directly. These forums are regularly monitored. Because the development kit is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
+## <a name="where-to-get-support"></a>Dónde obtener soporte técnico
 
-## <a name="next-steps"></a>Next steps
+### <a name="integrated-systems"></a>Sistemas integrados
 
-- [Region management in Azure Stack](azure-stack-region-management.md)
+En el caso de un sistema integrado, hay un proceso de escalamiento y resolución coordinado entre Microsoft y nuestros partners de hardware de fabricante de equipos originales (OEM).
+
+Si hay algún problema en los servicios en la nube, el soporte técnico se ofrece a través de los servicios de soporte al cliente de Microsoft (CSS). Si hace clic en el icono de Ayuda y soporte técnico (signo de interrogación), que encontrará en la esquina superior derecha del portal de administración, y después en **Nueva solicitud de soporte técnico**, se abrirá un sitio en el que se pueden abrir directamente solicitudes de soporte técnico.
+
+Si surge algún problema en la implementación, aplicación de revisiones y actualizaciones, hardware (incluidas las unidades reemplazables en campo) y cualquier software específico de una marca de hardware, como el software que se ejecuta en el host del ciclo de vida del hardware, en primer lugar póngase en contacto con su proveedor de hardware OEM.
+
+Para todo lo demás, póngase en contacto con el servicio de asistencia al cliente (CSS) de Microsoft.
+
+### <a name="development-kit"></a>Kit de desarrollo
+
+En el caso del kit de desarrollo, puede dirigir las preguntas relacionadas con el soporte técnico a los [foros de Microsoft](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Si hace clic el icono de ayuda y soporte técnico (signo de interrogación) en la esquina superior derecha del portal de administración y, a continuación, hace clic en **Nueva solicitud de soporte técnico**, se abrirá el sitio de foros directamente. Estos foros se supervisan periódicamente. Dado que el kit de desarrollo es un entorno de evaluación, el servicio de asistencia al cliente (CSS) de Microsoft no ofrece soporte técnico oficial.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Administración de regiones en Azure Stack](azure-stack-region-management.md)
 
 
 

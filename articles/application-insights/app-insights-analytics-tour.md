@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: edcf294856582569c00f7cf49beb3a481e28d7d8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ccea92dda99c3b76cbb7d37b20ce810b210a8217
 ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Un paseo por Analytics de Application Insights
@@ -58,6 +58,16 @@ Expanda cualquier elemento para ver los detalles:
 > Haga clic en el encabezado de una columna para cambiar el orden de los resultados disponibles en el explorador web. Tenga en cuenta que, para un conjunto grande de resultados, el número de filas que se descargan en el explorador es limitado. Esta forma de ordenación no siempre muestra los elementos mayores o menores reales. Para ordenar los elementos de forma confiable, use el operador `top` o `sort`.
 >
 >
+
+## <a name="query-across-applications"></a>Consultas entre aplicaciones
+Si desea combinar datos de varias aplicaciones de Application Insights, use la palabra clave **app** para especificar la aplicación junto con el nombre de tabla.  Esta consulta combina las solicitudes de dos aplicaciones diferentes mediante el comando **union**.
+
+
+```AIQL
+
+    union app('fabrikamstage').requests, app('fabrikamprod').requests
+    
+```
 
 ## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) y [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
 `take` resulta útil para obtener un ejemplo rápido de un resultado, pero muestra filas de la tabla sin ningún orden determinado. Para obtener una vista ordenada, use `top` (para un ejemplo) o `sort` (toda la tabla).

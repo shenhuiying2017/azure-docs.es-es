@@ -1,0 +1,45 @@
+---
+title: "Persistencia de archivos en Azure Cloud Shell (versión preliminar) | Microsoft Docs"
+description: "Tutorial de cómo Azure Cloud Shell persiste archivos."
+services: azure
+documentationcenter: 
+author: maertendmsft
+manager: timlt
+tags: azure-resource-manager
+ms.assetid: 
+ms.service: azure
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 07/17/2017
+ms.author: damaerte
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 933af3860bfe087a0b4db7eff53d4b978a1475da
+ms.contentlocale: es-es
+ms.lasthandoff: 09/25/2017
+
+---
+[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+
+## <a name="how-cloud-shell-works"></a>Cómo funciona Cloud Shell
+Cloud Shell conserva los archivos a través del método siguiente: 
+* Montaje del recurso compartido de archivos especificado como `clouddrive` en el directorio `$Home` para la interacción directa del recurso compartido de archivos.
+
+## <a name="list-cloud-drive-file-shares"></a>Enumeración de los recursos compartidos de archivos de Cloud Drive
+El comando `Get-CloudDrive` recupera la información del recurso compartido de archivos que Cloud Drive actualmente monta en Cloud Shell. <br>
+![Ejecución de Get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
+
+## <a name="unmount-cloud-drive"></a>Desmontaje de Cloud Drive
+Puede desmontar un recurso compartido de archivos montado en Cloud Shell en cualquier momento. Si se quitó el recurso compartido de archivos, se le pedirá crear y montar uno nuevo en la sesión siguiente.
+
+El comando `Dismount-CloudDrive` desmonta un recurso compartido de archivos desde la cuenta de almacenamiento actual. Desmontar Cloud Drive finaliza la sesión actual. Se le pedirá al usuario que cree y monte un recurso compartido de archivos nuevo durante la sesión siguiente.
+![Ejecución de Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
+
+[!include [features-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+
+## <a name="next-steps"></a>Pasos siguientes
+[Guía de inicio rápido de PowerShell](quickstart-powershell.md) <br>
+[Información sobre Azure File Storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Información sobre las etiquetas de Storage](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

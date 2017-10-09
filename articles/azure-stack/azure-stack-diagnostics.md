@@ -1,6 +1,6 @@
 ---
-title: Diagnostics in Azure Stack | Microsoft Docs
-description: How to collect log files for diagnostics in Azure Stack
+title: "Diagnósticos en Azure Stack | Microsoft Docs"
+description: "Cómo recopilar archivos de registro de diagnósticos en Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: adshar
@@ -12,34 +12,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/25/2017
 ms.author: adshar
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 70004cfd83360ac4c66fd4c90632d341709d2e6f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: d8f39d921222a3642e3da6e288b4ca11ae1ccaeb
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostics tools
- 
-Azure Stack is a large collection of components working together and interacting with each other. All these components  generate their own unique logs, which means that diagnosing issues can quickly become a challenging task, especially for errors coming from multiple interacting Azure Stack components. 
+# <a name="azure-stack-diagnostics-tools"></a>Herramientas de diagnóstico de Azure Stack
 
-Our diagnostics tools help make sure the log collection mechanism is easy and efficient. The following diagram shows how log collection tools in Azure Stack work:
+*Se aplica a: sistemas integrados de Azure Stack y Azure Stack Development Kit*
+ 
+Azure Stack es una gran colección de componentes que funcionan juntos e interactúan entre sí. Todos estos componentes generan sus propios registros únicos, lo que significa que los problemas de diagnóstico pueden convertirse rápidamente en una tarea difícil, especialmente en el caso de los errores procedentes de varios componentes que interactúan en Azure Stack. 
 
-![Log collection tools](media/azure-stack-diagnostics/image01.png)
- 
- 
-## <a name="trace-collector"></a>Trace Collector
- 
-The Trace Collector is enabled by default. It continuously runs in the background and collects all Event Tracing for Windows (ETW) logs from component services on Azure Stack and stores them on a common local share. 
+Nuestras herramientas de diagnóstico ayudan a asegurar que el mecanismo de recopilación de registros es fácil y eficaz. En el siguiente diagrama se muestra cómo funcionan las herramientas de recopilación de registros en Azure Stack:
 
-The following are important things to know about the Trace Collector:
+![Herramientas de recopilación de registros](media/azure-stack-diagnostics/image01.png)
  
-* The Trace Collector runs continuously with default size limits. The default maximum size allowed for each file (200 MB) is **not** a cutoff size. A size check occurs periodically (currently every 10 minutes) and if the current file is >= 200 MB, it is saved and a new file is generated. There is also an 8 GB (configurable) limit on the total file size generated per event session. Once this limit is reached, the oldest files are deleted as new ones are created.
-* There is a 5-day age limit on the logs. This limit is also configurable. 
-* Each component defines the trace configuration properties through a JSON file. The JSON files are stored in `C:\TraceCollector\Configuration`. If necessary, these files can be edited to change the age and size limits of the collected logs. Changes to these files require a restart of the *Microsoft Azure Stack Trace Collector* service for the changes to take effect.
-* The following example is a trace configuration JSON file for FabricRingServices Operations from the XRP VM: 
+ 
+## <a name="trace-collector"></a>Recopilador de seguimiento
+ 
+El recopilador de seguimiento está habilitado de forma predeterminada. Se ejecuta continuamente en segundo plano, recopila todos los registros de Seguimiento de eventos para Windows (ETW) de los servicios de componentes en Azure Stack y los almacena en un recurso compartido local. 
+
+A continuación, se incluyen aspectos importantes que hay que saber acerca del recopilador de seguimiento:
+ 
+* El recopilador de seguimiento se ejecuta sin interrupción con límites de tamaño predeterminados. El tamaño máximo predeterminado permitido para cada archivo (200 MB) **no** es un tamaño límite. Se realiza una comprobación de tamaño periódicamente (actualmente cada 10 minutos) y si el archivo actual es > = 200 MB, se guarda y se genera un nuevo archivo. También hay un límite de 8 GB (configurable) en el tamaño total del archivo generado por cada sesión de eventos. Una vez que se alcanza este límite, se eliminan los archivos más antiguos cuando se crean nuevos.
+* Los registros tienen un límite de antigüedad de 5 días. Este límite también es configurable. 
+* Cada componente define las propiedades de configuración de seguimiento a través de un archivo JSON. Los archivos JSON se almacenan en `C:\TraceCollector\Configuration`. Si es necesario, estos archivos se pueden editar para cambiar los límites de tamaño y de antigüedad de los registros recopilados. Al realizar cambios en estos archivos, será necesario reiniciar el servicio *Recopilador de seguimiento de Microsoft Azure Stack* para que los cambios surtan efecto.
+* El ejemplo siguiente incluye un archivo JSON de configuración de seguimiento para las operaciones FabricRingServices de la VM XRP: 
 
 ```
 {
@@ -63,57 +65,57 @@ The following are important things to know about the Trace Collector:
 
 * **MaxDaysOfFiles**
 
-    This parameter controls the age of files to keep. Older log files are deleted.
+    Este parámetro controla la antigüedad de los archivos que se van a conservar. Los archivos más antiguos se eliminan.
 * **MaxSizeInMB**
 
-    This parameter controls the size threshold for a single file. If the size is reached, a new .etl file is created.
+    Este parámetro controla el umbral de tamaño de un único archivo. Si se alcanza el tamaño, se crea un nuevo archivo .etl.
 * **TotalSizeInMB**
 
-    This parameter controls the total size of the .etl files generated from an event session. If the total file size is greater than this parameter value, older files are deleted.
+    Este parámetro controla el tamaño total de los archivos .etl generados a partir de una sesión de eventos. Si el tamaño total del archivo es mayor que el valor de este parámetro, se eliminan los archivos antiguos.
   
-## <a name="log-collection-tool"></a>Log collection tool
+## <a name="log-collection-tool"></a>Herramienta de recopilación de registros
  
-The PowerShell command `Get-AzureStackLog` can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
+El comando de PowerShell `Get-AzureStackLog` sirve para recopilar registros de todos los componentes en un entorno de Azure Stack. Los guarda en archivos ZIP en una ubicación definida por el usuario. Si nuestro equipo de soporte técnico necesita los registros para ayudarle a solucionar un problema, puede pedirle que ejecute esta herramienta.
 
 > [!CAUTION]
-> These log files may contain personally identifiable information (PII). Take this into account before you publicly post any log files.
+> Estos archivos de registro pueden contener información de identificación personal (PII). Tenga esto en cuenta antes de publicar los archivos de registro.
  
-We currently collect the following log types:
-*   **Azure Stack deployment logs**
-*   **Windows event logs**
-*   **Panther logs**
+Actualmente, recopilamos los siguientes tipos de registro:
+*   **Registros de implementación de Azure Stack**
+*   **Registros de eventos de Windows**
+*   **Registros de Panther**
 
-     To troubleshoot VM creation issues.
-*   **Cluster logs**
-*   **Storage diagnostic logs**
-*   **ETW logs**
+     Para solucionar problemas de creación de máquinas virtuales.
+*   **Registros de clúster**
+*   **Registros de diagnóstico de almacenamiento**
+*   **Registros de ETW**
 
-    These are collected by the Trace Collector and stored in a share from where `Get-AzureStackLog` retrieves them.
+    El recopilador de seguimiento los recopila y almacena en un recurso compartido del cual los recupera `Get-AzureStackLog`.
  
-To identify all the logs that get collected from all the components, refer to the `<Logs>` tags in the customer configuration file located at `C:\EceStore\<Guid>\<GuidWithMaxFileSize>`.
+Para identificar todos los registros que se recopilan desde todos los componentes, consulte las etiquetas `<Logs>` en el archivo de configuración del cliente ubicado en `C:\EceStore\<Guid>\<GuidWithMaxFileSize>`.
  
-### <a name="to-run-get-azurestacklog"></a>To run Get-AzureStackLog
-1.  Log in as AzureStack\AzureStackAdmin on the host.
-2.  Open a PowerShell window as an administrator.
-3.  Run `Get-AzureStackLog`.  
+**Para ejecutar Get-AzureStackLog**
+1.  Inicie sesión como AzureStack\AzureStackAdmin en el host.
+2.  Abra una ventana de PowerShell como administrador.
+3.  Ejecute `Get-AzureStackLog`.  
 
-    **Examples**
+    **Ejemplos**
 
-    - Collect all logs for all roles:
+    - Recopilar todos los registros de todos los roles:
 
         `Get-AzureStackLog -OutputPath C:\AzureStackLogs`
 
-    - Collect logs from VirtualMachines and BareMetal roles:
+    - Recopilar registros de los roles VirtualMachines y BareMetal:
 
         `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal`
 
-    - Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the past 8 hours:
+    - Recopilar registros de los roles VirtualMachines y BareMetal, filtrando por fecha los archivos de registro de las últimas 8 horas:
 
         `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date)`
 
-If the `FromDate` and `ToDate` parameters are not specified, logs are collected for the past 4 hours by default.
+Si no se especifican los parámetros `FromDate` y `ToDate`, se recopilan los registros de las últimas cuatro horas de forma predeterminada.
 
-Currently, you can use the `FilterByRole` parameter to filter log collection by the following roles:
+Actualmente, no se puede usar el parámetro `FilterByRole` para filtrar la colección de registros de los roles siguientes:
 
 |   |   |   |
 | - | - | - |
@@ -135,23 +137,33 @@ Currently, you can use the `FilterByRole` parameter to filter log collection by 
 | `WAS`                     | `WASPUBLIC`              | `WDS`                |
 
 
-A few things to note:
+Puntos a tener en cuenta:
 
-* This command takes some time for log collection based on which role logs are collected. Contributing factors include the time duration specified for log collection, and the numbers of nodes in the Azure Stack environment.
-* After log collection completes, check the new folder created in the `-OutputPath` parameter specified in the command.
-* A file called `Get-AzureStackLog_Output.log` is created in the folder containing the zip files and includes the command output, which can be used for troubleshooting any failures in log collection.
-* Each role has its logs inside an individual zip file. 
-* To investigate a specific failure, logs may be needed from more than one component.
-    -   System and Event logs for all infrastructure VMs are collected in the *VirtualMachines* role.
-    -   System and Event logs for all hosts are collected in the *BareMetal* role.
-    -   Failover Cluster and Hyper-V event logs are collected in the *Storage* role.
-    -   ACS logs are collected in the *Storage* and *ACS* roles.
-* For more details, you can refer to the customer configuration file. Investigate the `<Logs>` tags for the different roles.
+* Este comando tardará un rato en recopilar los registros en función de los registros del rol que se recopilen. Entre los factores que contribuyen, se incluye la duración especificada para la colección de registros y el número de nodos en el entorno de Azure Stack.
+* Una vez finalizada la recopilación de registros, compruebe la nueva carpeta creada en el parámetro `-OutputPath` especificado en el comando.
+* Un archivo denominado `Get-AzureStackLog_Output.log` se crea en la carpeta que contiene los archivos ZIP e incluye el resultado del comando, que se puede usar para solucionar problemas en la colección de registros.
+* Cada rol tiene sus registros dentro de un archivo ZIP individual. 
+* Para investigar un error específico, es posible que sean necesarios registros de más de un componente.
+    -   Los registros de eventos y del sistema de todas las máquinas virtuales de la infraestructura se recopilan en el rol *VirtualMachines*.
+    -   Los registros de eventos y del sistema de todos los hosts se recopilan en el rol *Storage*.
+    -   Los registros de eventos de Hyper-V y del clúster de conmutación por error se recopilan en el rol *Storage*.
+    -   Los registros de ACS se recopilan en los roles *Storage* y *ACS*.
+* Para obtener más información, consulte el archivo de configuración del cliente. Investigue los distintos roles de las etiquetas `<Logs>`.
 
 > [!NOTE]
-> We are enforcing size and age limits to the logs collected as it is essential to ensure efficient utilization of your storage space to make sure it doesn't get flooded with logs. Having said that, when diagnosing a problem you will often need logs that might not exist anymore due to these limits being enforced. Hence, it is **highly recommended** that you offload your logs to an external storage space (a storage account in public Azure, an additional on-prem storage device etc.) every 8 to 12 hours and keep them there for 1 - 3 months depending on your requirements.
+> Estamos aplicando límites en el tamaño y la antigüedad para los registros recopilados, ya que resulta esencial para garantizar un uso eficaz del espacio de almacenamiento y para asegurarse de que este no recibe demasiados registros. Dicho esto, cuando diagnostique un problema, a menudo necesitará registros que es posible que ya no existan debido a estos límites que se aplican. Por lo tanto, se **recomienda encarecidamente** descargar los registros en un espacio de almacenamiento externo (una cuenta de almacenamiento de Azure, un dispositivo de almacenamiento local adicional, etc.) cada 8 - 12 horas y conservarlos allí durante 1 - 3 meses, en función de los requisitos.
 
+### <a name="multi-node-considerations"></a>Consideraciones en caso de varios nodos
+Si desea recopilar registros en un entorno de varios nodos, tenga en cuenta las siguientes diferencias:
+* La función `get-date` no está la lista de permitidos en los entornos de varios nodos. Por lo tanto, debe especificar explícitamente una fecha. Por ejemplo:
 
-## <a name="next-steps"></a>Next steps
-[Microsoft Azure Stack troubleshooting](azure-stack-troubleshooting.md)
+   `-FromDate "Friday, August 18, 2017 6:34:48 AM" -ToDate "Friday, August 18, 2017 7:35:25 AM"`
+* Especifique una ruta de acceso UNC para la salida a una carpeta compartida en el host de ciclo de vida del hardware, o cualquier otra carpeta compartida a la que pueda acceder. Por ejemplo:
+
+   `Get-AzureStackLog -OutputSharePath \\10.193.128.250\logs -OutputShareCredential $sharecred`
+
+   El parámetro `-OutputShareCredential` le solicita credenciales para acceso a la carpeta compartida.
+
+## <a name="next-steps"></a>Pasos siguientes
+[Solución de problemas de Microsoft Azure Stack](azure-stack-troubleshooting.md)
 

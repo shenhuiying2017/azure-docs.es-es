@@ -1,6 +1,6 @@
 ---
-title: Manage permissions to resources per user in Azure Stack (service administrator and tenant) | Microsoft Docs
-description: As a service administrator or tenant, learn how to manage RBAC permissions.
+title: Administrar permisos para los recursos por usuario en Azure Stack (administrador de servicios e inquilino) | Microsoft Docs
+description: Si es administrador de servicios o inquilino, aprenda a administrar los permisos RBAC.
 services: azure-stack
 documentationcenter: 
 author: Heathl17
@@ -12,29 +12,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 80837ff9adb9b02b7a12ce1039e4c50be172bee8
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e558f9de9bc3182bbe20ceb9d8f3f96e47fa542c
 ms.contentlocale: es-es
-ms.lasthandoff: 03/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="manage-role-based-access-control"></a>Manage Role-Based Access Control
-A user in Azure Stack can be a reader, owner, or contributor for each instance of a subscription, resource group, or service. For example, User A might have reader permissions to Subscription 1, but have owner permissions to Virtual Machine 7.
+# <a name="manage-role-based-access-control"></a>Administrar el control de acceso basado en roles
 
-* Reader: User can view everything, but can’t make any changes.
-* Contributor: User can manage everything except access to resources.
-* Owner: User can manage everything, including access to resources.
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
-## <a name="set-access-permissions-for-a-user"></a>Set access permissions for a user
-1. Sign in with an account that has owner permissions to the resource you want to manage.
-2. In the blade for the resource, click the **Access** icon ![](media/azure-stack-manage-permissions/image1.png).
-3. In the **Users** blade, click **Roles**.
-4. In the **Roles** blade, click **Add** to add permissions for the user.
+En Azure Stack, un usuario puede ser un lector, propietario o colaborador de cada una de las instancias de una suscripción, grupo de recursos o servicio. Por ejemplo, el Usuario A puede tener permisos de lector en la Suscripción 1, pero tener permisos de propietario en la Máquina virtual 7.
 
-## <a name="next-steps"></a>Next steps
-[Add an Azure Stack tenant](azure-stack-add-new-user-aad.md)
+* Lector: el usuario puede ver todo el contenido, pero no puede realizar cambios.
+* Colaborador: el usuario pueden administrar todo el contenido, excepto el acceso a los recursos.
+* Propietario: el usuario puede administrar todo el contenido, incluido el acceso a los recursos.
+
+## <a name="set-access-permissions-for-a-user"></a>Establecimiento de los permisos de acceso de un usuario
+1. Inicie sesión con una cuenta que tenga permisos de propietario en el recurso que desea administrar.
+2. En la hoja para el recurso, haga clic en el icono **Acceso**![](media/azure-stack-manage-permissions/image1.png).
+3. En la hoja **Usuarios**, haga clic en **Roles**.
+4. En la hoja **Roles**, haga clic en **Agregar** para agregar permisos para el usuario.
+
+## <a name="next-steps"></a>Pasos siguientes
+[Add a new Azure Stack tenant account in Azure Active Directory](azure-stack-add-new-user-aad.md)
 
 

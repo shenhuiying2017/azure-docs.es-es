@@ -1,6 +1,6 @@
 ---
-title: Configure the Azure Stack operator's PowerShell environment | Microsoft Docs
-description: Learn how to Configure the Azure Stack operator's PowerShell environment.
+title: Configure el entorno de PowerShell del operador de Azure Stack | Microsoft Docs
+description: Aprenda a configurar el entorno de PowerShell del operador de Azure Stack.
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -12,47 +12,55 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/25/2017
 ms.author: sngun
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 34e3a52a7b26db2d1d713efd69719a253cef2d2d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 7e912dcbfd1c745df2a0fc8717a075c0476e8d60
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="configure-the-azure-stack-operators-powershell-environment"></a>Configure the Azure Stack operator's PowerShell environment
+# <a name="configure-the-azure-stack-operators-powershell-environment"></a>Configuración del entorno de PowerShell del operador de Azure Stack
 
-As an Azure Stack operator, you can configure your Azure Stack Development Kit's PowerShell environment. After you configure, you can use PowerShell to manage Azure Stack resources such as creating offers, plans, quotas, managing alerts, etc. This topic is scoped to use with the cloud operator environments only, if you want to set up PowerShell for the user environment, refer to [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) topic. 
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
-## <a name="prerequisites"></a>Prerequisites
+Como operador de Azure Stack, puede configurar el entorno de PowerShell en Azure Stack Development Kit. Después de la configuración, puede usar PowerShell para administrar los recursos de Azure Stack, como la creación de ofertas, los planes, las cuotas, la administración de alertas, etcétera. Este tema está pensado para limitarse únicamente a entornos de operadores en la nube, si desea configurar PowerShell para el entorno del usuario, consulte el tema [Configuración del entorno de PowerShell del usuario de Azure Stack](user/azure-stack-powershell-configure-user.md). 
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn): 
+## <a name="prerequisites"></a>Requisitos previos
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
+Implemente los siguientes requisitos previos desde el [kit de desarrollo](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) o desde un cliente externo basado en Windows, si está [conectado a través de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn): 
 
-## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>Configure the operator environment and sign in to Azure Stack
+* Instale los [módulos de Azure PowerShell compatibles con Azure Stack](azure-stack-powershell-install.md).  
+* Descargue las [herramientas necesarias para trabajar con Azure Stack](azure-stack-powershell-download.md).  
 
-Based on the type of deployment (Azure AD or AD FS), run one of the following script to configure the Azure Stack operator environment with PowerShell:
+## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>Configuración del entorno de operador e inicio de sesión en Azure Stack
 
-### <a name="azure-active-directory-aad-based-deployments"></a>Azure Active Directory (AAD) based deployments
+Según el tipo de implementación (Azure AD o AD FS), ejecute uno de los siguientes scripts para configurar el entorno del operador de Azure Stack con PowerShell (asegúrese de reemplazar los valores tenantName, ArmEndpoint y el punto de conexión GraphAudience de AAD de acuerdo con la configuración de su entorno):
+
+### <a name="azure-active-directory-aad-based-deployments"></a>Implementaciones basadas en Azure Active Directory (AAD)
        
   ```powershell
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
   Import-Module .\Connect\AzureStack.Connect.psm1
 
+  # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+  # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
+  $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
-    -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+    -ArmEndpoint $ArmEndpoint
 
   # Set the GraphEndpointResourceId value
   Set-AzureRmEnvironment `
     -Name "AzureStackAdmin" `
-    -GraphAudience "https://graph.windows.net/"
+    -GraphAudience $GraphAudience
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
@@ -65,22 +73,28 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -TenantId $TenantID 
   ```
 
-### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Active Directory Federation Services (AD FS) based deployments
+### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Implementaciones basadas en Servicios de federación de Active Directory (AD FS)
          
   ```powershell
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
   Import-Module .\Connect\AzureStack.Connect.psm1
 
+  # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+  # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+  $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
-    -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+    -ArmEndpoint $ArmEndpoint
 
   # Set the GraphEndpointResourceId value
   Set-AzureRmEnvironment `
     -Name "AzureStackAdmin" `
-    -GraphAudience "https://graph.local.azurestack.external/" `
+    -GraphAudience $GraphAudience `
     -EnableAdfsAuthentication:$true
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack     
@@ -94,14 +108,14 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -TenantId $TenantID 
   ```
 
-## <a name="test-the-connectivity"></a>Test the connectivity
+## <a name="test-the-connectivity"></a>Prueba de la conectividad
 
-Now that we've got everything set up, let's use PowerShell to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
+Ahora que todo está configurado, vamos a usar PowerShell para crear recursos en Azure Stack. Por ejemplo, puede crear un grupo de recursos para una aplicación y agregar una máquina virtual. Use el comando siguiente para crear un grupo de recursos denominado "MyResourceGroup":
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
-## <a name="next-steps"></a>Next steps
-* [Develop templates for Azure Stack](azure-stack-develop-templates.md)
-* [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
+## <a name="next-steps"></a>Pasos siguientes
+* [Desarrollo de plantillas para Azure Stack](user/azure-stack-develop-templates.md)
+* [Implementación de plantillas con PowerShell](user/azure-stack-deploy-template-powershell.md)

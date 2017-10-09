@@ -1,6 +1,6 @@
 ---
-title: Create a test VM in Azure Stack | Microsoft Docs
-description: Learn how to provision a test VM in Azure Stack as a cloud operator.
+title: "Creación de una máquina virtual de prueba en Azure Stack | Microsoft Docs"
+description: "Aprenda a aprovisionar una máquina virtual de prueba en Azure Stack como un operador en la nube."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -12,33 +12,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/21/2017
+ms.date: 9/25/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 4e3f90fe35b7fb2509db0eb7a467305f4c4167ef
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 98770945d5cccc27bfce971491e6ea30fee2460a
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="create-a-test-virtual-machine-in-azure-stack"></a>Create a test virtual machine in Azure Stack
-As a cloud operator, you can create a test virtual machine to validate your Azure Stack deployment.
+# <a name="create-a-test-virtual-machine-in-azure-stack"></a>Creación de una máquina virtual en Azure Stack
+
+*Se aplica a: Azure Stack Development Kit*
+
+Como operador en la nube, puede crear una máquina virtual de prueba para validar la implementación de [Azure Stack](azure-stack-poc.md).
 
 > [!NOTE]
-> Before you can provision virtual machines, you must [add the Windows Server 2016 Evaluation image to the Azure Stack marketplace](azure-stack-add-default-image.md).
+> Antes de poder aprovisionar las máquinas virtuales, debe [agregar la imagen de evaluación de Windows Server 2016 en Marketplace de Azure Stack](azure-stack-add-default-image.md).
 > 
 > 
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
-1. On the Azure Stack Development Kit host, [sign in](azure-stack-connect-azure-stack.md) to the administrator portal (`https://adminportal.local.azurestack.external`), and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval** > **Create**.  
-2. In the **Basics** blade, type a **Name**, **User name**, and **Password**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
-3. In the **Choose a size** blade, click **A1 Standard**, and then click **Select**.  
-4. In the **Settings** blade, accept the defaults and click **OK**
-5. In the **Summary** blade, click **OK** to create the virtual machine.  
-6. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
+## <a name="create-a-virtual-machine"></a>de una máquina virtual
+1. En servidor host de Azure Stack Development Kit, [inicie sesión en](azure-stack-connect-azure-stack.md) el portal del administrador (`https://adminportal.local.azurestack.external`) y, a continuación, haga clic en **Nuevo** > **Proceso** > **Windows Server 2016 Datacenter Eval** > **Crear**.  
+2. En la hoja **Aspectos básicos**, escriba un **Nombre**, **Nombre de usuario** y **Contraseña**. Elija una **suscripción**. Cree un **grupo de recursos** o seleccione uno existente y, a continuación, haga clic en **Aceptar**.  
+3. En la hoja **Elegir un tamaño**, haga clic en **A1 Estándar** y, después, en **Seleccionar**.  
+4. En la hoja de **configuración**, acepte los valores predeterminados y haga clic en **Aceptar**.
+5. En la hoja **Resumen**, haga clic en **Aceptar** para crear la máquina virtual.  
+6. Para ver la nueva máquina virtual, haga clic en **Todos los recursos** y, a continuación, busque la máquina virtual y haga clic en su nombre.
     ![](media/azure-stack-provision-vm/image06.png)
 
 
-## <a name="next-steps"></a>Next steps
-[Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)
+## <a name="next-steps"></a>Pasos siguientes
+[Usar los portales de administración y de usuarios en Azure Stack](azure-stack-manage-portals.md)
 

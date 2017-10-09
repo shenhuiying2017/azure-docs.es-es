@@ -1,6 +1,6 @@
 ---
-title: Download Azure Stack tools from GitHub | Microsoft Docs
-description: Learn how to download tools required to work with Azure Stack.
+title: Descarga de herramientas de Azure Stack desde GitHub | Microsoft Docs
+description: Aprenda a descargar las herramientas necesarias para trabajar con Azure Stack.
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -12,21 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: sngun
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: e8e4c7381e0bd9c036c6601fd0df9dba2a46391a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 20cac6eace89d86f8fa6d7640357e19c8d7359b3
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="download-azure-stack-tools-from-github"></a>Download Azure Stack tools from GitHub
+# <a name="download-azure-stack-tools-from-github"></a>Descarga de herramientas de Azure Stack desde GitHub
 
-AzureStack-Tools is a GitHub repository that hosts PowerShell modules that you can use to manage and deploy resources to Azure Stack. You can download and use these PowerShell modules to the Azure Stack Development Kit, or to a windows-based external client if you are planning to establish VPN connectivity. To obtain these tools, clone the GitHub repository or download the AzureStack-Tools folder. 
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
-To clone the repository, download [Git](https://git-scm.com/download/win) for Windows, open a Command Prompt window and run the following script:
+AzureStack-Tools es un repositorio de GitHub que hospeda módulos de PowerShell que puede usar para administrar e implementar recursos en Azure Stack. Puede descargar y usar estos módulos de PowerShell para Azure Stack Development Kit, o para un cliente externo basado en Windows, si va a establecer la conectividad VPN. Para obtener estas herramientas, clone el repositorio de GitHub o descargue la carpeta AzureStack-Tools. 
+
+Para clonar el repositorio, descargue [Git](https://git-scm.com/download/win) para Windows, abra una ventana del símbolo del sistema y ejecute el siguiente script:
 
 ```PowerShell
 # Change directory to the root directory 
@@ -39,7 +41,7 @@ git clone https://github.com/Azure/AzureStack-Tools.git --recursive
 cd AzureStack-Tools
 ```
 
-To download the tools folder, run the following script:
+Para descargar la carpeta de herramientas, ejecute el script siguiente:
 
 ```PowerShell
 # Change directory to the root directory 
@@ -60,24 +62,24 @@ cd AzureStack-Tools-master
 
 ```
 
-## <a name="functionalities-provided-by-the-modules"></a>Functionalities provided by the modules
+## <a name="functionalities-provided-by-the-modules"></a>Funcionalidades proporcionadas por los módulos
 
-The AzureStack-Tools repository contains PowerShell modules that support the following functionalities for Azure Stack:  
+El repositorio AzureStack-Tools contiene los módulos de PowerShell que admiten las siguientes funcionalidades para Azure Stack:  
 
-| Functionality | Description | who can use this module? |
+| Funcionalidad | Descripción | ¿Quién puede usar este módulo? |
 | --- | --- | --- |
-| [Cloud capabilities](azure-stack-validate-templates.md) | Use this module to get the cloud capabilities of a cloud. For example, you can get the cloud capabilities such as API version, Azure Resource Manager resources, VM extensions etc. for Azure Stack and Azure clouds using this module. | Azure Stack operators and users. |
-| [Azure Stack compute administration](azure-stack-add-vm-image.md) | Use this module to add or remove a VM image from the Azure Stack marketplace. | Azure Stack operators. |
-| [Azure Stack Infrastructure administration](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | Use this module to manage Azure Stack infrastructure VMs, alerts, updates etc. |  Azure Stack operators.|
-| [Resource Manager policy for Azure Stack](azure-stack-policy-module.md) | Use this module to configure an Azure subscription or an Azure resource group with the same versioning and service availability as Azure Stack. | Azure Stack operators and users. |
-| [Register with Azure](azure-stack-register.md) | Use this module to register your development kit instance with Azure. After registering, you can download the marketplace items from Azure and use them in Azure Stack. | Azure Stack operators. |
-| [Azure Stack deployment](azure-stack-run-powershell-script.md) | Use this module to prepare the Azure Stack host computer to deploy and redeploy by using the Azure Stack Virtual Hard Disk(VHD) image. | Azure Stack operators. |
-| [Connecting to Azure Stack](azure-stack-connect-powershell.md) | Use this module to connect to an Azure Stack instance through PowerShell and to configure VPN connectivity to Azure Stack. |Azure Stack operators and users. |
-| [Azure Stack service administration](azure-stack-create-offer.md) | Azure Stack operators can use this module to create a default tenant offer with unlimited quota across Compute, Storage, Network, and Key Vault services.   | Azure Stack operators.|
-| [Template validator](azure-stack-validate-templates.md) | Use this module to verify if an existing or a new template can be deployed to Azure Stack. | Azure Stack operators and users. |
+| [Funcionalidades en la nube](user/azure-stack-validate-templates.md) | Utilice este módulo para obtener las funcionalidades en la nube de una nube. Por ejemplo, con este módulo, puede obtener funcionalidades en la nube como la versión de API, los recursos de Azure Resource Manager, las extensiones de VM, etc. para las nubes de Azure Stack y Azure. | Operadores de nube y usuarios |
+| [Administración de procesos de Azure Stack](azure-stack-add-vm-image.md) | Utilice este módulo para agregar o quitar una imagen de máquina virtual desde el marketplace de Azure Stack. | Operadores de nube |
+| [Administración de la infraestructura de Azure Stack](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | Utilice este módulo para administrar las actualizaciones, las alertas, las máquinas virtuales de infraestructura de Azure Stack, etcétera. |  Operadores de nube|
+| [Directiva de Resource Manager para Azure Stack](user/azure-stack-policy-module.md) | Utilice este módulo para configurar una suscripción de Azure o un grupo de recursos de Azure con la misma disponibilidad de servicios y control de versiones que Azure Stack. | Operadores de nube y usuarios |
+| [Registro con Azure](azure-stack-register.md) | Utilice este módulo para registrar la instancia de Azure Stack Development Kit. Después del registro, puede descargar los elementos de marketplace de Azure y usarlos en Azure Stack. | Operadores de nube |
+| [Implementación de Azure Stack](azure-stack-run-powershell-script.md) | Utilice este módulo para preparar el equipo host de Azure Stack para implementar y volver a implementar con la imagen de disco duro virtual (VHD) de Azure Stack. | Operadores de nube |
+| [Conexión a Azure Stack](azure-stack-connect-powershell.md) | Utilice este módulo para conectarse a una instancia de Azure Stack a través de PowerShell y configurar la conectividad VPN a Azure Stack. | Operadores de nube y usuarios |
+| [Administración de servicios de Azure Stack](azure-stack-create-offer.md) | Los administradores de Azure Stack pueden usar este módulo para crear una oferta de inquilino predeterminada con una cuota ilimitada a través de los servicios Compute, Storage, Network y Key Vault.   | Operadores de nube|
+| [Validador de plantilla](user/azure-stack-validate-templates.md) | Utilice este módulo para comprobar si una plantilla nueva o existente puede implementarse en Azure Stack. | Operadores de nube y usuarios |
 
 
-## <a name="next-steps"></a>Next steps
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)   
-* [Connect to Azure Stack Development Kit over a VPN](azure-stack-connect-azure-stack.md)  
+## <a name="next-steps"></a>Pasos siguientes
+* [Configuración del entorno de PowerShell del usuario de Azure Stack](user/azure-stack-powershell-configure-user.md)   
+* [Conexión a Azure Stack Development Kit a través de una VPN](azure-stack-connect-azure-stack.md)  
 

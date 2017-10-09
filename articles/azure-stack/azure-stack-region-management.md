@@ -1,6 +1,6 @@
 ---
-title: Region management in Azure Stack | Microsoft Docs
-description: Overview of region management in Azure Stack.
+title: "Administración de regiones en Azure Stack | Microsoft Docs"
+description: "Introducción a la administración de regiones en Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: efemmano
@@ -12,43 +12,46 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 09/25/2017
 ms.author: efemmano
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 15a3bc9dce3cc76f98816ba5c88066fdc23cdbe1
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="region-management-in-azure-stack"></a>Region management in Azure Stack
-Azure Stack has the concept of regions, which are logical entities comprised of the hardware resources that make up the Azure Stack infrastructure. Inside Region management, you can find all resources that are required to successfully operate the Azure Stack infrastructure lifecycle.
+# <a name="region-management-in-azure-stack"></a>Administración de regiones en Azure Stack
 
-The Azure Stack Development Kit is a single-node deployment, and equals one region. If you set up another instance of the Azure Stack Development Kit on separate hardware, this instance is a different region.
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
-## <a name="information-available-through-the-region-management-tile"></a>Information available through the Region Management tile
-Azure Stack has a set of region management capabilities available in the **Region management** tile. This tile is available to a cloud administrator on the default dashboard in the administrator portal. Through this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
+Azure Stack tiene el concepto de regiones, que son entidades lógicas que constan de los recursos de hardware que conforman la infraestructura de Azure Stack. Dentro de Region Management (Administración de regiones), puede buscar todos los recursos necesarios para usar correctamente el ciclo de vida de la infraestructura de Azure Stack.
 
- ![The region management tile](media/azure-stack-manage-region/image1.png)
+Una implementación de sistema integrada (lo que se conoce como una *nube de Azure Stack*) constituye una región única. Cada Azure Stack Development Kit tiene una región, llamada **local**. Si implementa un segundo sistema integrado de Azure Stack o configura otra instancia del kit de desarrollo en otro hardware, esta nube de Azure Stack es una región diferente.
 
- If you click a region in the Region management tile, you can access the following information:
+## <a name="information-available-through-the-region-management-tile"></a>Información disponible a través del icono Administración de regiones
+Azure Stack tiene un conjunto de funciones de administración de regiones disponibles en la ventana **Region management** (Administración de regiones). Este icono está disponible para un nuevo operador de Azure Stack en el panel predeterminado del portal de administrador. A través de este icono, puede supervisar y actualizar su región de Azure Stack y sus componentes, que son específicos de cada región.
 
-  ![Description of panes on the Region management blade](media/azure-stack-manage-region/image2.png)
+ ![Icono Region Management](media/azure-stack-manage-region/image1.png)
 
-1. **The resource menu**. Here, you can access specific infrastructure management areas, and view and manage tenant resources such as storage accounts and virtual networks.
+ Si hace clic en una región en el icono Region Management (Administración de regiones), puede tener acceso a la siguiente información:
 
-2. **Alerts**. This tile lists system-wide alerts and provides details on each of those alerts.
+  ![Descripción de los paneles en la hoja Region Management](media/azure-stack-manage-region/image2.png)
 
-3. **Updates**. In this tile, you can view the current version of your Azure Stack infrastructure.
+1. **El menú de recursos**. Aquí, puede tener acceso a áreas de administración de infraestructura específicas y ver y administrar recursos de usuario, como cuentas de almacenamiento y redes virtuales.
 
-4. **Resource providers**. Resource providers is the place to manage the tenant functionality offered by the components required to run Azure Stack. Each resource provider comes with an administrative experience. This experience can include alerts for the specific provider, metrics, and other management capabilities specific to the resource provider.
+2. **Alertas**. Este icono muestra las alertas de todo el sistema y proporciona detalles sobre cada una.
+
+3. **Actualizaciones**. En este icono, puede ver la versión actual de la infraestructura de Azure Stack.
+
+4. **Proveedores de recursos**. Este es el lugar donde administrar la funcionalidad para los inquilinos proporcionada por los componentes necesarios para ejecutar Azure Stack. Cada proveedor de recursos viene con una experiencia administrativa. Esta experiencia puede incluir las alertas para el proveedor específico, métricas y otras funcionalidades de administración concretas para el proveedor de recursos.
  
-5. **Infrastructure roles**. Infrastructure roles are the components necessary to run Azure Stack. Only the infrastructure roles that report alerts are listed. By clicking a role, you can view the alerts associated with the specific role and the role instances where this role is running. Although there is the capability to start, restart, or shut down an infrastructure role instance, do **not** do this in a development kit environment. These options are designed only for a multi-node environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability.
+5. **Infrastructure roles** (Roles de infraestructura). Son los componentes necesarios para ejecutar Azure Stack. Se enumeran solo los roles de infraestructura que notifican alertas. Si hace clic en un rol, puede ver las alertas asociadas a él y las instancias de rol donde este rol se ejecuta. Aunque no exista la funcionalidad para iniciar, reiniciar o cerrar una instancia de rol de infraestructura, **no** haga esto en el entorno del kit de desarrollo. Estas opciones están diseñadas únicamente para un entorno de varios nodos, donde hay más de una instancia de rol por rol de infraestructura. Reiniciar una instancia de rol (especialmente AzS-Xrp01) en el kit de desarrollo provoca inestabilidad del sistema.
 
-## <a name="next-steps"></a>Next steps
-[Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md)
+## <a name="next-steps"></a>Pasos siguientes
+[Supervisar el estado y las alertas en Azure Stack](azure-stack-monitor-health.md)
 
-[Manage updates in Azure Stack](azure-stack-updates.md)
+[Administrar las actualizaciones en Azure Stack](azure-stack-updates.md)
 
 
 

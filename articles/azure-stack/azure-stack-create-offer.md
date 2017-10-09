@@ -1,6 +1,6 @@
 ---
-title: Create an offer in Azure Stack | Microsoft Docs
-description: As a cloud administrator, learn how to create an offer for your tenants in Azure Stack.
+title: "Creación de una oferta en Azure Stack | Microsoft Docs"
+description: Como administrador de la nube, aprenda a crear una oferta para los inquilinos en Azure Stack.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,41 +15,44 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 3d7360a1fb1c0cf42d77b3f39bf92c30438c2e01
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 76d038a0eb53cf5f22ed377354f5f09de2dc9c1b
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="create-an-offer-in-azure-stack"></a>Create an offer in Azure Stack
-[Offers](azure-stack-key-features.md) are groups of one or more plans that providers present to tenants to purchase or subscribe to. This document shows you how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
+# <a name="create-an-offer-in-azure-stack"></a>Creación de una oferta en Azure Stack
 
-1. Sign in to the Azure Stack administrator portal (https://adminportal.local.azurestack.external) > click **New** > **Tenant Offers + Plans** > **Offer**.
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+
+Las [Ofertas](azure-stack-key-features.md) son grupos de uno o varios planes que los proveedores presentan a los inquilinos para que estos los compren o se suscriban a ellos. Este documento muestra cómo crear una oferta que incluye el [plan que creó](azure-stack-create-plan.md) en el último paso. Esta oferta da a los suscriptores la capacidad de aprovisionar máquinas virtuales.
+
+1. Inicie sesión en el portal de administrador de Azure Stack (https://adminportal.local.azurestack.external) > haga clic en **New** > **Tenant Offers + Plans** >  **Offer** (Nuevo > Ofertas y planes de inquilino).
 
    ![](media/azure-stack-create-offer/image01.png)
-2. In the **New Offer** blade, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name and is the only information about the offer that the users will see when subscribing. Therefore, be sure to use an intuitive name that helps the user understand what comes with the offer. Only the admin can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
+2. En la hoja **Nueva oferta**, rellene el **Nombre para mostrar** y el **Nombre de recurso** y, a continuación, seleccione un **Grupo de recursos** nuevo o existente. El Nombre para mostrar es el nombre descriptivo de la oferta y es la única información acerca de la oferta que verán los usuarios cuando se suscriban. Por lo tanto, asegúrese de usar un nombre intuitivo que ayude al usuario a entender lo que incluye la oferta. Solo el administrador puede ver el nombre del recurso. Es el nombre que usan los administradores para trabajar con la oferta como un recurso de Administrador de recursos de Azure.
 
    ![](media/azure-stack-create-offer/image01a.png)
-3. Click **Base plans** and, in the **Plan** blade, select the plans you want to include in the offer, and then click **Select**. Click **Create** to create the offer.
+3. Haga clic en **Planes de base** y, en la hoja **Plan**, seleccione los planes que desea incluir en la oferta y, a continuación, haga clic en **Seleccionar**. Haga clic en **Crear** para crear la oferta.
 
    ![](media/azure-stack-create-offer/image02.png)
-4. Click **All Resources**, search for your new offer, click on the new offer, click **Change State**, and then click **Public**.
+4. Haga clic en **Todos los recursos**, busque la nueva oferta, haga clic en la nueva oferta, haga clic en **Cambiar estado** y, a continuación, haga clic en **Publicar**.
 
    ![](media/azure-stack-create-offer/image03.png)
 
-Offers must be made public for tenants to get the full view when subscribing. Offers can be:
+Las ofertas deben hacerse públicas para que los inquilinos obtengan la vista completa cuando se suscriban. Las ofertas pueden ser:
 
-* **Public**: Visible to tenants.
-* **Private**: Only visible to the cloud administrators. Useful while drafting the plan or offer, or if the cloud administrator wants to approve every subscription.
-* **Decommissioned**: Closed to new subscribers. The cloud administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
+* **Públicos**: visible para los inquilinos.
+* **Privadas**: solo son visibles para los administradores de la nube. Resulta útil durante la elaboración del plan o la oferta, o si el administrador de la nube desea aprobar todas las suscripciones.
+* **Retirados**: cerrados a nuevos suscriptores. El administrador de la nube puede usar las ofertas y planes retirados para evitar futuras suscripciones, pero dejar intactos los suscriptores actuales.
 
-Changes to the offer are not immediately visible to the tenant. To see the changes, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
+Los cambios en la oferta no son inmediatamente visibles para el inquilino. Para visualizar los cambios, es posible que tenga que cerrar sesión e iniciarla para ver la nueva suscripción en el "selector de suscripciones" al crear recursos o grupos de recursos.
 
 > [!NOTE]
->You can also create default offers, plans, and quotas by using PowerShell as explained in the [Azure Stack Service Administrator readme](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
+>También puede crear ofertas, planes y cuotas predeterminadas mediante PowerShell, como se explica en el [archivo Léame del administrador de servicios de Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
 >
 
 
-## <a name="next-steps"></a>Next steps
-[Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)
+## <a name="next-steps"></a>Pasos siguientes
+[Suscripción a una oferta y aprovisionamiento de una máquina virtual en Azure Stack](azure-stack-subscribe-plan-provision-vm.md)
 

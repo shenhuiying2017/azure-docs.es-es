@@ -1,6 +1,6 @@
 ---
-title: Using the administrator and user portals in Azure Stack | Microsoft Docs
-description: Learn the differences between the administrator and user portals in Azure Stack.
+title: "Uso del portal de administración de Azure Stack | Microsoft Docs"
+description: "Como operador de Azure Stack, debe aprender a usar el portal de administración."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -12,66 +12,75 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: twooley
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 066de8278d1ef4406cde837da4c7c65304854383
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3a1be7a08fab8ad0253f26e6a0683617bff4b7c9
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="using-the-administrator-and-user-portals-in-azure-stack"></a>Using the administrator and user portals in Azure Stack
+# <a name="using-the-administrator-portal-in-azure-stack"></a>Uso del portal de administración de Azure Stack
 
-There are two portals in Azure Stack; the administrator portal and the user portal (also referred to as the *tenant* portal). The portals are backed by separate instances of Azure Resource Manager.
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
-The following table shows how to connect to the portals and to Resource Manager endpoints in an Azure Stack Development Kit environment.
+Hay dos portales en Azure Stack: el portal de administración y el portal de usuarios (también llamado en ocasiones portal de *inquilinos*). Como operador de Azure Stack, puede usar el portal de administración para la administración y las operaciones diarias de Azure Stack. 
 
-|  Portal | Portal URL | Resource Manager endpoint URL |   
-| -------- | ------------- | ------- |  
-| Administrator | https://adminportal.local.azurestack.external  | https://adminmanagement.local.azurestack.external  |  
-| User | https://portal.local.azurestack.external | https://management.local.azurestack.external  |
+## <a name="access-the-administrator-portal"></a>Acceso al portal de administración
+
+En un entorno de kit de desarrollo, primero deberá asegurarse de que puede [conectarse al host del kit de desarrollo](azure-stack-connect-azure-stack.md) mediante Conexión a Escritorio remoto o una red privada virtual (VPN).
+
+Para acceder al portal de administración, vaya a la dirección URL del portal e inicie sesión con las credenciales de un operador de Azure Stack. En un sistema integrado, la dirección URL del portal varía según el nombre de la región y el nombre de dominio completo (FQDN) externo de la implementación de Azure Stack.
+
+| Environment | Dirección URL del portal de administración |   
+| -- | -- | 
+| Kit de desarrollo| https://adminportal.local.azurestack.external  |
+| Sistemas integrados | https://adminportal.&lt;*región*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
-## <a name="the-administrator-portal"></a>The administrator portal
+ ![El portal de administración](media/azure-stack-manage-portals/image1.png)
 
-The administrator portal enables a cloud operator to perform administrative and operational tasks. A cloud operator can do things such as:
-* monitor health and alerts
-* manage capacity
-* populate the marketplace
-* create plans and offers
-* create subscriptions for tenants
+En el portal de administración, puede hacer cosas como las siguientes:
 
-A cloud operator can also create resources such as virtual machines, virtual networks, and storage accounts.
+* Administrar la infraestructura (como el estado del sistema, las actualizaciones, la capacidad, etc.)
+* Rellenar el Marketplace.
+* Crear planes y ofertas.
+* Crear suscripciones para los usuarios.
 
- ![The administrator portal](media/azure-stack-manage-portals/image1.png)
-
- ## <a name="the-user-portal"></a>The user portal
-
- The user portal does not provide access to any of the administrative or operational capabilities of the administrator portal. In the user portal, a user can subscribe to public offers, and use the services that are made available through those offers.
-
-  ![The user portal](media/azure-stack-manage-portals/image2.png)
+En el icono del **tutorial de inicio rápido**, se incluyen vínculos a documentación en línea para las tareas más comunes.
  
- ## <a name="subscription-behavior"></a>Subscription behavior
- 
- Make sure that you understand the following differences between subscription behavior in the two portals.
+Aunque existe la posibilidad de que un operador cree recursos, como máquinas virtuales, redes virtuales y cuentas de almacenamiento en el portal de administración, debe [iniciar sesión en el portal de usuarios](user/azure-stack-use-portal.md) para crear y probar los recursos. (El vínculo **Crear una máquina virtual** del icono del tutorial de inicio rápido le permite crear una máquina virtual en el portal de administración; sin embargo, este procedimiento es solo para validar Azure Stack después de la implementación inicial).
 
- Administrator portal:
-* There is only one subscription that is available in the administrator portal. This subscription is the *Default Provider Subscription*. You can't add any other subscriptions for use in the administrator portal.
-* As a cloud operator, you can add subscriptions for your users (including yourself) from the administrator portal. Users (including yourself) can access and use these subscriptions from the user portal.
+## <a name="subscription-behavior"></a>Comportamiento de la suscripción
+ 
+Hay solo una suscripción que está disponible en el portal de administración. Esta suscripción es la *suscripción de proveedor predeterminada*. No se puede agregar ninguna otra suscripción para usarla en el portal de administración.
+
+Como operador de Azure Stack, puede agregar suscripciones para los usuarios (incluido usted mismo) desde el portal de administración. Los usuarios (incluido usted) pueden tener acceso a estas suscripciones y usarlas desde el portal de usuarios. El portal de usuarios no proporciona acceso a cualquiera de las funcionalidades administrativas u operativas del portal de administración.
+
+Los portales de administración y de usuarios se apoyan en instancias independientes de Azure Resource Manager. Debido a la separación de Resource Manager, las suscripciones no sirven en todos los portales. Por ejemplo, si, como operador de Azure Stack, inicia sesión en el portal de usuarios, no puede tener acceso a la suscripción de proveedor predeterminada. Por lo tanto, no tiene acceso a las funciones administrativas. Puede crear suscripciones para sí mismo a partir de ofertas públicas, pero se le considerará un usuario inquilino.
 
   >[!NOTE]
-  Because of the Azure Resource Manager separation, subscriptions do not cross portals. For example, if you as a cloud operator signs in to the user portal, you can't access the Default Provider Subscription. Therefore, you don't have access to any administrative functions. You can create subscriptions for yourself from public offers, but you are considered a tenant user.
+  En el entorno del kit de desarrollo, si un usuario pertenece al mismo directorio de inquilino que el operador de Azure Stack, no se le impide iniciar sesión en el portal de administración. Sin embargo, no tiene acceso a ninguna de las funciones administrativas. Además, desde el portal de administrador, no puede agregar suscripciones ni acceder a las ofertas disponibles en el portal de usuarios.
 
-User portal:
-* In the user portal, an account can have multiple subscriptions.
+## <a name="administrator-portal-tips"></a>Sugerencias del portal de administración
 
-  >[!NOTE]
-  In the development kit environment, if a tenant user belongs to the same directory as the cloud operator, they are not blocked from signing in to the administrator portal. However, they can't access any of the administrative functions. Also, they can't add subscriptions or access offers that are made available to them in the user portal.
+### <a name="customize-the-dashboard"></a>Personalización del panel
 
-## <a name="next-steps"></a>Next steps
+El panel contiene un conjunto de iconos predeterminados. Puede hacer clic en **Editar panel** para modificar el panel predeterminado o en **Nuevo panel** para agregar paneles personalizados. Puede agregar fácilmente iconos al panel. Por ejemplo, puede hacer clic en **Nuevo**, hacer clic con el botón derecho en **Ofertas y planes** y luego hacer clic en **Anclar al panel**.
 
-[Connect to Azure Stack](azure-stack-connect-azure-stack.md)
+### <a name="quick-access-to-online-documentation"></a>Acceso rápido a la documentación en línea
 
-[Region management in Azure Stack](azure-stack-region-management.md)
+Para acceder a la documentación del operador de Azure Stack, haga clic en el icono de Ayuda y soporte técnico (signo de interrogación) de la esquina superior derecha del portal de administración y luego haga clic en **Ayuda y soporte técnico**.
+
+### <a name="quick-access-to-help-and-support"></a>Acceso rápido a ayuda y soporte técnico
+
+Si hace clic el icono de ayuda y soporte técnico (signo de interrogación) en la esquina superior derecha del portal de administración y, a continuación, hace clic en **Nueva solicitud de soporte técnico**, sucede lo siguiente:
+
+- Si usa un sistema integrado, esta acción abre un sitio donde puede abrir directamente un vale de soporte técnico para los servicios de soporte al cliente de Microsoft (CSS). Consulte la sección sobre dónde obtener soporte técnico de [Conceptos básicos de administración de Azure Stack](azure-stack-manage-basics.md) para comprender cuándo debe acudir al soporte técnico de Microsoft o al soporte técnico del proveedor de hardware OEM (fabricante de equipo original).
+- Si usa el kit de desarrollo, esta acción abre directamente el sitio de foros de Azure Stack. Estos foros se supervisan periódicamente. Dado que el kit de desarrollo es un entorno de evaluación, no se ofrece ningún soporte técnico oficial a través de los servicios de soporte al cliente (CSS) de Microsoft.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Administración de regiones en Azure Stack](azure-stack-region-management.md)
 

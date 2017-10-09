@@ -1,6 +1,6 @@
 ---
-title: Create a Service Principal for Azure Stack | Microsoft Docs
-description: Describes how to create a new service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
+title: "Creación de una entidad de servicio de Azure Stack | Microsoft Docs"
+description: "Describe cómo crear una nueva entidad de servicio que puede usarse con el control de acceso basado en roles en Azure Resource Manager para administrar el acceso a los recursos."
 services: azure-resource-manager
 documentationcenter: na
 author: heathl17
@@ -11,84 +11,87 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/25/2017
 ms.author: helaw
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b3992b296d5a999601eb69b071559f9d37dacf8f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5787b25fb1dd7331e561798152678ed187e24d54
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="provide-applications-access-to-azure-stack"></a>Provide applications access to Azure Stack
-When an application needs access to deploy or configure resources through Azure Resource Manager in Azure Stack, you create a service principal, which is a credential for your application.  You can then delegate only the necessary permissions to that service principal.  
+# <a name="provide-applications-access-to-azure-stack"></a>Proporcionar a las aplicaciones acceso a Azure Stack
 
-As an example, you may have a configuration management tool that uses Azure Resource Manager to inventory Azure resources.  In this scenario, you can create a service principal, grant the reader role to that service principal, and limit the configuration management tool to read-only access. 
+*Se aplica a: sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
-Service principals are preferable to running the app under your own credentials because:
+Cuando una aplicación necesite acceso para implementar o configurar recursos a través de Azure Resource Manager en Azure Stack, cree una entidad de servicio, que es una credencial para la aplicación.  A continuación, puede delegar únicamente los permisos necesarios para esa entidad de servicio.  
 
-* You can assign permissions to the service principal that are different than your own account permissions. Typically, these permissions are restricted to exactly what the app needs to do.
-* You do not have to change the app's credentials if your responsibilities change.
-* You can use a certificate to automate authentication when executing an unattended script.  
+Por ejemplo, puede tener una herramienta de administración de configuración que use Azure Resource Manager para hacer un inventario de los recursos de Azure.  En este escenario, puede crear una entidad de servicio, concederle el rol de lector y limitar la herramienta de administración de configuración al acceso de solo lectura. 
 
-## <a name="getting-started"></a>Getting started
+Es preferible que las entidades de servicio ejecuten la aplicación con sus propias credenciales por los siguientes motivos:
 
-Depending on how you have deployed Azure Stack, you start by creating a service principal.  This document guides you through creating a service principal for both [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) and [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Once you've created the service principal, a set of steps common to both AD FS and Azure Active Directory are used to [delegate permissions](azure-stack-create-service-principals.md#assign-role-to-service-principal) to the role.     
+* Puede asignar permisos a la entidad de servicio diferentes a los de su cuenta. Normalmente, estos permisos están restringidos a exactamente aquello que la aplicación debe hacer.
+* No es necesario cambiar las credenciales de la aplicación si las responsabilidades cambian.
+* Puede usar un certificado para automatizar la autenticación al ejecutar un script desatendido.  
 
-## <a name="create-service-principal-for-azure-ad"></a>Create service principal for Azure AD
+## <a name="getting-started"></a>Introducción
 
-If you've deployed Azure Stack using Azure AD as the identity store, you can create service principals just like you do for Azure.  This section shows you how to perform the steps through the portal.  Check that you have the [required Azure AD permissions](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) before beginning.
+Dependiendo de cómo ha implementado Azure Stack, primero debe crear una entidad de servicio.  Este documento le guía a través del proceso de creación de una entidad de servicio para [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) y [Servicios de federación de Active Directory (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Una vez que haya creado la entidad de servicio, se usarán un conjunto de pasos comunes para AD FS y Azure Active Directory a fin de [delegar permisos](azure-stack-create-service-principals.md#assign-role-to-service-principal) al rol.     
 
-### <a name="create-service-principal"></a>Create service principal
-In this section, you create an application (service principal) in Azure AD that will represent your application.
+## <a name="create-service-principal-for-azure-ad"></a>Crear una entidad de servicio para Azure AD
 
-1. Log in to your Azure Account through the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **App registrations** > **Add**   
-3. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
+Si ha implementado Azure Stack con Azure AD como el almacén de identidades, puede crear entidades de servicio igual que hace para Azure.  En este tema se muestra cómo realizar estos pasos a través del portal.  Compruebe que tiene los [permisos de Azure AD necesarios](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de comenzar.
 
-You have created a service principal for your application.
+### <a name="create-service-principal"></a>Creación de una entidad de servicio
+En esta sección, creará una aplicación (entidad de servicio) en Azure AD que representará su aplicación.
 
-### <a name="get-credentials"></a>Get credentials
-When programmatically logging in, you use the ID for your application and an authentication key. To get those values, use the following steps:
+1. Inicie sesión en su cuenta de Azure mediante [Azure Portal](https://portal.azure.com).
+2. Seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Agregar**.   
+3. Proporcione un nombre y una dirección URL para la aplicación. Seleccione either **Web app / API** (Aplicación web/API) o **Nativa** para el tipo de aplicación que quiere crear. Después de configurar los valores, seleccione **Crear**.
 
-1. From **App registrations** in Active Directory, select your application.
+Creó una entidad de servicio para la aplicación.
 
-2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client id.
+### <a name="get-credentials"></a>Obtener credenciales
+Al iniciar sesión mediante programación, deberá usar el identificador de la aplicación y una clave de autenticación. Para obtener estos valores, use los pasos siguientes:
 
-     ![client id](./media/azure-stack-create-service-principal/image12.png)
-3. To generate an authentication key, select **Keys**.
+1. En **App registrations** (Registros de aplicaciones), en Active Directory, seleccione su aplicación.
 
-4. Provide a description of the key, and a duration for the key. When done, select **Save**.
+2. Copie el **id. de aplicación** y almacénelo en el código de la aplicación. Las aplicaciones de la sección de [aplicaciones de ejemplo](#sample-applications) hacen referencia a este valor como el id. de cliente.
 
-After saving the key, the value of the key is displayed. Copy this value because you are not able to retrieve the key later. You provide the key value with the application ID to sign as the application. Store the key value where your application can retrieve it.
+     ![ID. DE CLIENTE](./media/azure-stack-create-service-principal/image12.png)
+3. Para generar una clave de autenticación, seleccione **Claves**.
 
-![saved key](./media/azure-stack-create-service-principal/image15.png)
+4. Proporcione una descripción de la clave y una duración. Cuando haya terminado, seleccione **Guardar**.
+
+Después de guardar la clave, se muestra el valor de la clave. Copie este valor porque no podrá recuperarlo más adelante. Proporcione el valor de clave junto con el identificador de la aplicación para firmar en nombre de la aplicación. Guarde el valor de clave donde la aplicación pueda recuperarlo.
+
+![clave guardada](./media/azure-stack-create-service-principal/image15.png)
 
 
-Once complete, proceed to [assigning your application a role](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+Una vez que haya finalizado, [asigne un rol a la aplicación](azure-stack-create-service-principals.md#assign-role-to-service-principal).
 
-## <a name="create-service-principal-for-ad-fs"></a>Create service principal for AD FS
-If you have deployed Azure Stack with AD FS, you can use PowerShell to create a service principal, assign a role for access, and sign in from PowerShell using that identity.
+## <a name="create-service-principal-for-ad-fs"></a>Crear una entidad de servicio para AD FS
+Si ha implementado Azure Stack con AD FS, puede usar PowerShell para crear una entidad de servicio, asignar un rol para el acceso e iniciar sesión en Powershell con dicha identidad.
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de empezar
 
-[Download the tools required to work with Azure Stack to your local computer.](azure-stack-powershell-download.md)
+[Descargue las herramientas necesarias para trabajar con Azure Stack en el equipo local.](azure-stack-powershell-download.md)
 
-### <a name="import-the-identity-powershell-module"></a>Import the Identity PowerShell module
-After you download the tools, navigate to the downloaded folder and import the Identity PowerShell module by using the following command:
+### <a name="import-the-identity-powershell-module"></a>Importar el módulo de Identity PowerShell
+Después de descargar las herramientas, vaya a la carpeta descargada e importe el módulo de Identity PowerShell mediante el comando siguiente:
 
 ```PowerShell
 Import-Module .\Identity\AzureStack.Identity.psm1
 ```
 
-When you import the module, you may receive an error that says “AzureStack.Connect.psm1 is not digitally signed. The script will not execute on the system”. To resolve this issue, you can set execution policy to allow running the script with the following command in an elevated PowerShell session:
+Al importar el módulo, puede recibir un error que indique lo siguiente: "AzureStack.Connect.psm1 no está firmado digitalmente. El script no se ejecutará en el sistema". Para resolver este problema, puede configurar la directiva de ejecución para que permita la ejecución del script con el siguiente comando en una sesión de PowerShell con privilegios elevados:
 
 ```PowerShell
 Set-ExecutionPolicy Unrestricted
 ```
 
-### <a name="create-the-service-principal"></a>Create the service principal
-You can create a Service Principal by executing the following command, making sure to update the *DisplayName* parameter:
+### <a name="create-the-service-principal"></a>Creación de la entidad de servicio
+Puede crear una entidad de servicio mediante la ejecución del comando siguiente. Para ello, asegúrese también de actualizar el parámetro *DisplayName*:
 ```powershell
 $servicePrincipal = New-AzSADGraphServicePrincipal `
  -DisplayName "<YourServicePrincipalName>" `
@@ -96,11 +99,11 @@ $servicePrincipal = New-AzSADGraphServicePrincipal `
  -AdfsMachineName "AZS-ADFS01" `
  -Verbose
 ```
-### <a name="assign-a-role"></a>Assign a role
-Once the Service Principal is created, you must [assign it to a role](azure-stack-create-service-principals.md#assign-role-to-service-principal)
+### <a name="assign-a-role"></a>Asignar un rol
+Una vez que se crea la entidad de servicio, debe [asignarla a un rol](azure-stack-create-service-principals.md#assign-role-to-service-principal).
 
-### <a name="sign-in-through-powershell"></a>Sign in through PowerShell
-Once you've assigned a role, you can sign in to Azure Stack using the service principal with the following command:
+### <a name="sign-in-through-powershell"></a>Iniciar sesión a través de PowerShell
+Una vez que haya asignado un rol, puede iniciar sesión en Azure Stack a través de la entidad de servicio con el comando siguiente:
 
 ```powershell
 Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
@@ -110,32 +113,32 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -TenantId $directoryTenantId
 ```
 
-## <a name="assign-role-to-service-principal"></a>Assign role to service principal
-To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md).
+## <a name="assign-role-to-service-principal"></a>Asignar un rol a la entidad de servicio
+Para acceder a los recursos de la suscripción, debe asignarle a la aplicación un rol. Decida qué rol representa los permisos adecuados para la aplicación. Para obtener más información sobre los roles disponibles, vea [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
 
-You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
+Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores del ámbito. Por ejemplo, el hecho de agregar una aplicación al rol Lector para un grupo de recursos significa que esta puede leer el grupo de recursos y los recursos que contenga.
 
-1. In the Azure Stack portal, navigate to the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, select **Subscriptions**. You could instead select a resource group or resource.
+1. En el portal de Azure Stack, desplácese hasta el nivel de ámbito al que desea asignar la aplicación. Por ejemplo, para asignar un rol en el ámbito de suscripción, seleccione **Suscripciones**. También puede seleccionar un grupo de recursos o un recurso.
 
-2. Select the particular subscription (resource group or resource) to assign the application to.
+2. Seleccione la suscripción específica (grupo de recursos o recurso) a la que quiere asignar la aplicación.
 
-     ![select subscription for assignment](./media/azure-stack-create-service-principal/image16.png)
+     ![seleccionar suscripción para la asignación](./media/azure-stack-create-service-principal/image16.png)
 
-3. Select **Access Control (IAM)**.
+3. Seleccione **Access Control (IAM)**.
 
-     ![select access](./media/azure-stack-create-service-principal/image17.png)
+     ![seleccionar acceso](./media/azure-stack-create-service-principal/image17.png)
 
-4. Select **Add**.
+4. Seleccione **Agregar**.
 
-5. Select the role you wish to assign to the application.
+5. Seleccione el rol que quiere asignar a la aplicación.
 
-6. Search for your application, and select it.
+6. Busque la aplicación y selecciónela.
 
-7. Select **OK** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
+7. Seleccione **Aceptar** para finalizar la asignación del rol. Verá la aplicación en la lista de usuarios asignados a un rol para ese ámbito.
 
-Now that you've created a service principal and assigned a role, you can begin using this within your application to access Azure Stack resources.  
+Ahora que ha creado una entidad de servicio y le ha asignado un rol, puede empezar a usarla dentro de la aplicación para tener acceso a los recursos de Azure Stack.  
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Pasos siguientes
 
-[Add users for ADFS](azure-stack-add-users-adfs.md)
-[Manage user permissions](azure-stack-manage-permissions.md)
+[Add users for ADFS](azure-stack-add-users-adfs.md) (Agregar usuarios para ADFS)
+[Manage user permissions](azure-stack-manage-permissions.md) (Administrar permisos de usuario)

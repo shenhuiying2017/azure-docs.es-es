@@ -1,6 +1,6 @@
 ---
-title: Report Azure Stack usage data to Azure | Microsoft Docs
-description: Learn how to set up usage data reporting in Azure Stack.
+title: Notificar los datos de uso de Azure Stack a Azure | Microsoft Docs
+description: "Aprenda cómo configurar datos de uso de informes en Azure Stack."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -12,83 +12,86 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9bc202fe6aad70cb0f10a2da08e37428f78630d1
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 695b93a818d3c0e615bb79e0a2861e134b2f5c89
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="report-azure-stack-usage-data-to-azure"></a>Report Azure Stack usage data to Azure 
+# <a name="report-azure-stack-usage-data-to-azure"></a>Notificar los datos de uso de Azure Stack a Azure 
 
-Usage data, also called as consumption data represents the amount of resources used. In Azure Stack, usage data must be reported to Azure for billing purpose. Azure Stack cloud administrators should configure their Azure Stack instance to report usage data to Azure.
+Los datos de uso, también denominados datos de consumo, representan la cantidad de recursos usados. Los sistemas integrados de Azure Stack que usan el modelo de facturación basado en el consumo deben notificar datos de uso a Azure. Estos datos de uso se usan en la facturación. Es responsabilidad del operador de Azure Stack configurar su entorno de Azure Stack con los informes de datos de uso.
+
 
 > [!NOTE]
-> Usage data reporting is not required for the Azure Stack Development Kit, and users are not charged for consuming resources. However, Azure Stack cloud administrators can test this feature and provide feedback about it. When Azure Stack multi-node becomes generally available, all the multi-node environments must report usage data to Azure.
+> Los informes de datos de uso son obligatorios para los usuarios de sistemas integrados de Azure Stack con una licencia de modelo de pago por uso. Sin embargo, son opcionales para los clientes con una licencia de modelo de capacidad. En Azure Stack Development Kit, los operadores de nube pueden notificar datos de uso y probar la característica, sin embargo, no se les cobra por el uso que realicen. Para aprender más sobre los precios en Azure Stack, consulte la página [Cómo comprar Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
-![billing flow](media/azure-stack-usage-reporting/billing-flow.png)
+## <a name="usage-data-reporting-flow"></a>Flujo de informes de datos de uso
 
-Usage data is sent from Azure Stack to Azure through the Azure Bridge. In Azure, the commerce system processes the usage data and generates the bill. After the bill is generated, the Azure subscription owner can view and download it from the [Azure Account Center](https://account.windowsazure.com/Subscriptions). To learn about how Azure Stack is licensed, refer to the [Azure Stack packaging and pricing document](https://go.microsoft.com/fwlink/?LinkId=842847&clcid=0x409).
+Los datos de uso se envían desde Azure Stack a Azure a través de Azure Bridge. En Azure, el sistema commerce procesa los datos de uso y genera la factura. Cuando se genera la factura, el propietario de la suscripción de Azure puede verla y descargarla desde el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions). Para aprender cómo se autoriza el uso de Azure Stack, consulte el [documento de precios y empaquetado de Azure Stack](https://go.microsoft.com/fwlink/?LinkId=842847&clcid=0x409). 
 
-## <a name="set-up-usage-data-reporting"></a>Set up usage data reporting
+La imagen siguiente es una representación gráfica del flujo de datos de uso de Azure Stack:
 
-To set up usage data reporting in Azure Stack, you must [register your Azure Stack instance with Azure](azure-stack-register.md). As a part of the registration process, Azure Stack is configured with the Azure Bridge, which connects Azure Stack to Azure and sends the usage data. The following usage data is sent from Azure Stack to Azure:
+![flujo de facturación](media/azure-stack-usage-reporting/billing-flow.png)
 
-* **Meter ID** – Unique ID for the resource that was consumed.
-* **Quantity** – Amount of resource usage data that occurred in a certain time frame.
-* **Location** – Location where the current Azure Stack resource is deployed.
-* **Resource URI** – fully qualified URI of the resource for which usage is being reported. 
-* **Subscription ID** – Subscription ID of the Azure Stack user.
-* **Time** – Start and end time of the usage data. There is some delay between the time when these resources are consumed in Azure Stack and when the usage data is reported to commerce. Azure Stack aggregates usage data for every 24 hours and reporting usage data to commerce pipeline in Azure takes another few hours. So, usage that occurs shortly before midnight may show up in Azure the following day.
+## <a name="set-up-usage-data-reporting"></a>Configuración de informes de datos de uso
 
-## <a name="test-usage-data-reporting"></a>Test usage data reporting 
+Para configurar los informes de datos de uso en Azure Stack, debe [registrar la instancia de la Azure Stack con Azure](azure-stack-register.md). Como parte del proceso de registro, el componente Azure Bridge de Azure Stack está configurado para conectar Azure Stack a Azure. Después de configurar Azure Bridge, se envían los siguientes datos de uso a Azure: 
 
-1. To test usage data reporting, create a few resources in Azure Stack. For example, you can create a [storage account](azure-stack-provision-storage-account.md), [Windows Server VM](azure-stack-provision-vm.md) and a Linux VM with Basic and Standard SKUs to see how core usage is reported. The usage data for different types of resources are reported under different meters.  
+* **Id. de medidor**: Identificador único del recurso que se consumió.
+* **Cantidad**: cantidad de datos de uso de recursos.
+* **Ubicación**: Ubicación donde se implementa el recurso actual de Azure Stack.
+* **URI de recurso**: URI completo del recurso para el que se notifica el uso. 
+* **Id. de suscripción**: identificador de suscripción del usuario de Azure Stack.
+* **Tiempo**: Hora de inicio y finalización de los datos de uso. Existe algún retraso entre el momento en que se usan estos recursos en Azure Stack y el momento en que se notifican los datos de uso a commerce. Azure Stack agrega los datos de uso para cada 24 horas y los datos de uso de informes para la canalización del comercio en Azure llevan algunas horas más. Por lo tanto, el uso que se produce brevemente antes de medianoche puede aparecer en Azure al día siguiente.
 
-2. Leave your resources running for few hours. Usage information is collected approximately once every hour. After collecting, this data is transmitted to Azure and processed into the Azure commerce system. This process can take up to a few hours.  
+## <a name="test-usage-data-reporting"></a>Prueba de informes de datos de uso 
 
-3. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Azure account administrator and select the Azure subscription that you used to register the Azure Stack. You can view the Azure Stack usage data, the amount charged for each of the used resources as shown in the following image:  
-   ![billing flow](media/azure-stack-usage-reporting/pricng-details.png)
+1. Para probar los informes de datos de uso, cree unos pocos recursos en Azure Stack. Por ejemplo, puede crear una [cuenta de almacenamiento](azure-stack-provision-storage-account.md), una [máquina virtual Windows Server](azure-stack-provision-vm.md) y una máquina virtual Linux con SKU estándar y básico para ver cómo se informa del uso del núcleo. Los datos de uso para diferentes tipos de recursos se notifican en medidores diferentes.  
 
-For the Azure Stack Development Kit, Azure Stack resources are not charged so, the price is shown as $0.00. When Azure Stack multi-node becomes generally available, you can see the actual cost for each of these resources. 
+2. Deje que los recursos se ejecuten durante horas. Información de uso se recopila aproximadamente una vez cada hora. Después de recopilarse, estos datos se transmiten a Azure y se procesan en el sistema Azure commerce. Este proceso puede tardar varias horas.  
 
-## <a name="which-azure-stack-instances-are-charged"></a>Which Azure Stack instances are charged?
-Resource usage is free for Azure Stack Development Kit instances. 
+3. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de cuenta de Azure y seleccione la suscripción de Azure que usa para registrar Azure Stack. Puede ver los datos de uso de Azure Stack, la cantidad que se cobra por cada uno de los recursos usados, como se muestra en la siguiente imagen:  
 
-At general availability, Azure Stack multi-node systems are charged whereas the development kit environment remains available at no cost. For multi-node systems, workload VMs, Storage services, and App Services are charged. 
+   ![flujo de facturación](media/azure-stack-usage-reporting/pricing-details.png)
 
-## <a name="are-users-charged-for-the-infrastructure-vms"></a>Are users charged for the infrastructure VMs?
-No, the usage data for Azure Stack infrastructure VMs, which are created during deployment is reported to Azure, but there are no charges for these VMs. The infrastructure VMs include the VMs that are created by the Azure Stack deployment script, and the VMs that run Microsoft first-party resource providers such as Compute, Storage, SQL.
+En Azure Stack Development Kit, no se cobra por los recursos, así que el precio se muestra como 0,00 USD. En los sistemas integrados de Azure Stack, se muestra el costo real de cada uno de estos recursos.
 
-## <a name="what-azure-meters-are-used-when-reporting-usage-data"></a>What Azure meters are used when reporting usage data?
-The following are the two sets of meters that are used in usage data reporting:  
+## <a name="are-users-charged-for-the-infrastructure-virtual-machines"></a>¿Se cobra a los usuarios por las máquinas virtuales de infraestructura?
+No, los datos de uso de algunas máquinas virtuales del proveedor de recursos de Azure Stack y de las máquinas virtuales de infraestructura que se crean durante la implementación se notifican a Azure, pero no se cobra por ellos. 
 
-* **Full price meters** – used for resources associated with user workloads.  
-* **Admin meters** – used for infrastructure resources. These meters have a price of zero dollars.
+Los usuarios solo pagan por las máquinas virtuales que se crean con suscripciones de usuario. Por tanto, todas las cargas de trabajo se deben implementar con suscripciones de usuario a fin de cumplir los términos de licencia de Azure Stack.
 
-## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Which subscription is charged for the resources consumed?
-The subscription that is provided when [registering Azure Stack with Azure](azure-stack-register.md) is charged.
+## <a name="how-do-i-use-my-existing-windows-server-licenses-in-azure-stack"></a>¿Cómo se usan las licencias de Windows Server existentes en Azure Stack? 
+Las licencias de Windows Server existentes se pueden usar en Azure Stack. Este modelo se conoce como BYOL (traiga su propia licencia). El uso de licencias que ya posee evita la generación de metros de uso adicionales. Para usar sus licencias existentes, debe implementar las máquinas virtuales Windows Server como se describe en el tema [Ventaja de uso híbrido de Azure para Windows Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). 
 
-## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>What types of subscriptions are supported for usage data reporting?
-For the Azure Stack Development Kit, Enterprise Agreement (EA), Pay-as-you-go, and MSDN subscriptions support usage data reporting. 
+## <a name="what-azure-meters-are-used-when-reporting-usage-data-in-integrated-systems"></a>¿Qué medidores de Azure se usan para notificar datos de uso en sistemas integrados?
+* **Medidores de precio total**: Utilizados para los recursos asociados a las cargas de trabajo del usuario.  
+* **Medidores de administración**: Utilizados para los recursos de infraestructura. Estos medidores no tienen costo.
 
-## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Does usage data reporting work in sovereign clouds?
-In the Azure Stack Development Kit, usage data reporting requires subscriptions that are created in the global Azure system. Subscriptions created in one of the sovereign clouds (the Azure Government, Azure Germany, and Azure China clouds) cannot be registered with Azure, so they don’t support usage data reporting. 
+## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>¿Qué suscripción se cobra por los recursos consumidos?
+La suscripción que se proporciona cuando [se registra Azure Stack con Azure](azure-stack-register.md) se cobra.
 
-## <a name="can-an-administrator-test-usage-data-reporting-before-ga"></a>Can an administrator test usage data reporting before GA?
-Yes, Azure Stack administrators can test the usage data reporting by [registering](azure-stack-register.md) the development kit instance with Azure. After registering, usage data starts flowing from your Azure Stack instance to your Azure subscription. 
+## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>¿Qué tipos de suscripciones se admiten para informar de los datos de uso?
+En sistemas integrados de Azure Stack, se admiten suscripciones de Enterprise Agreement (EA) y CSP. 
 
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>How can users identify Azure Stack usage data in the Azure billing portal?
-Users can see the Azure Stack usage data in the usage details file. To know about how to get the usage details file, refer to the [download usage file from the Azure Account Center](../billing/billing-download-azure-invoice-daily-usage-date.md#download-usage-from-the-account-center-csv) article. The usage details file contains the Azure Stack meters that identify Azure Stack storage and VMs. All resources used in Azure Stack are reported under the region named “Azure Stack.”
+En Azure Stack Development Kit, las suscripciones Enterprise Agreement (EA), pago por uso, CSP y MSDN admiten la notificación de datos de uso.
 
-## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Why doesn’t the usage reported in Azure Stack match the report generated from Azure Account Center?
-There is a delay between when the usage data is generated in Azure Stack versus when it is submitted to Azure commerce. The delay is the time required to upload usage data from Azure Stack to Azure commerce. Due to this delay, usage that occurs shortly before midnight may show up in Azure the following day. If you use the [Azure Stack Usage APIs](azure-stack-provider-resource-api.md), and compare the results to the usage reported in the Azure billing portal, you can see a difference.
+## <a name="which-sovereign-clouds-support-usage-data-reporting"></a>¿Que nubes independientes admiten la notificación de datos de uso?
+Para la notificación de datos de uso en Azure Stack Development Kit, es necesario que se creen suscripciones en el sistema global de Azure. No se pueden registrar las suscripciones creadas en una de las nubes soberanas (nubes del Azure Government, Azure Germany y Azure China) con Azure, por lo que no admiten informes de datos de uso. 
 
-## <a name="next-steps"></a>Next steps
+## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>¿Cómo pueden identificar los usuarios los datos de uso de Azure Stack en el portal de facturación de Azure?
+Los usuarios pueden ver los datos de uso del Azure Stack en el archivo de detalles de uso. Para saber cómo obtener el archivo de detalles de uso, consulte el artículo [Descargar archivo de uso desde el Centro de cuentas de Azure](../billing/billing-download-azure-invoice-daily-usage-date.md#download-usage-from-the-account-center-csv). El archivo de detalles de uso contiene los medidores de Azure Stack que identifican las máquinas virtuales y el almacenamiento en Azure Stack. Todos los recursos usados en Azure Stack se notifican en la región denominada "Azure Stack".
 
-* [Provider usage API](azure-stack-provider-resource-api.md)  
-* [Tenant usage API](azure-stack-tenant-resource-usage-api.md)
-* [Usage FAQ](azure-stack-usage-related-faq.md)
+## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>¿Por qué el uso notificado en Azure Stack no coincide con el informe generado a partir del Centro de cuentas de Azure?
+Existe un retraso entre los datos de uso notificados por las API de uso de Azure Stack y los datos de uso que notifica el Centro de cuentas de Azure. El retraso es el tiempo que hace falta para cargar datos de uso de Azure Stack en Azure commerce. Debido a este retraso, el uso que se produce brevemente antes de medianoche puede aparecer en Azure al día siguiente. Puede ver la diferencia si usa las [API de uso de Azure Stack](azure-stack-provider-resource-api.md) y compara los resultados con el uso notificado en el portal de facturación de Azure.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [API de uso de proveedor](azure-stack-provider-resource-api.md)  
+* [API de uso de inquilino](azure-stack-tenant-resource-usage-api.md)
+* [Preguntas más frecuentes sobre uso](azure-stack-usage-related-faq.md)
