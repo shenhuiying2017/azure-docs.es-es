@@ -1,9 +1,25 @@
-title: Enviar identificadores contextuales de usuario para habilitar las experiencias de uso en Azure Application Insights | Microsoft Docs description: Realice un seguimiento de cómo los usuarios se desplazan por su servicio asignando a cada uno de ellos una cadena de identificador única y persistente en Application Insights.
-services: application-insights documentationcenter: '' author: abgreg manager: carmonm
-
-ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: csharp ms.topic: article ms.date: 08/02/2017 ms.author: bwren
+---
+title: "Envío de id. de contexto de usuario para habilitar experiencias de uso en Azure Application Insights | Microsoft Docs"
+description: "Realice un seguimiento de cómo los usuarios navegan por el servicio mediante la asignación a cada uno de ellos de una cadena de identificador única y persistente en Application Insights."
+services: application-insights
+documentationcenter: 
+author: abgreg
+manager: carmonm
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: csharp
+ms.topic: article
+ms.date: 08/02/2017
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e16866501fd34f0b998ba929771a423866759b55
+ms.contentlocale: es-es
+ms.lasthandoff: 09/20/2017
 
 ---
+
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar identificadores contextuales de usuario para habilitar las experiencias de uso en Azure Application Insights
 
 ## <a name="tracking-users"></a>Seguimiento de usuarios
@@ -81,3 +97,4 @@ Este ejemplo establece el identificador de usuario en un identificador que expir
     * [Embudos](usage-funnels.md)
     * [Retención](app-insights-usage-retention.md)
     * [Libros](app-insights-usage-workbooks.md)
+

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 252e1fb070bcdc11494f6f37a9a1ee03fa50509e
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ddfed2be315ae261e9c3015aa21d0b44405d6109
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Introducción a la supervisión de aplicaciones web de Azure con Application Insights
@@ -50,6 +50,7 @@ Use los botones *Habilitar profiler* o *Deshabilitar Profiler* de la hoja Config
 
 ![Hoja Configurar][linked app services]
 
+## <a name="disable-the-profiler"></a>Deshabilitar Profiler
 Si tiene que detener o reiniciar Profiler para una instancia de App Services, lo encontrará **en el recurso App Service**, en **Trabajos web**. Para eliminarlo, mire en **Extensiones**.
 
 ![Deshabilitación de Profiler para los trabajos web][disable-profiler-webjob]
@@ -91,9 +92,13 @@ Las columnas de la tabla son las siguientes:
 * **Recuento**: número de estas solicitudes en el intervalo de tiempo de la hoja.
 * **Valor medio**: tiempo típico que tarda la aplicación en responder a una solicitud. La mitas de todas las respuestas fueron más rápidas.
 * **95.° percentil** el 95 % de las respuestas fueron más rápidas. Si esta cifra se aleja mucho del valor medio, puede que haya un problema intermitente con la aplicación. (También es posible que se explique por una característica de diseño, como el almacenamiento en caché).
-* **Ejemplos**: icono que indica que el generador de perfiles ha capturado seguimientos de la pila para esta operación.
+* **Seguimientos de Profiler**: icono que indica que el generador de perfiles ha capturado seguimientos de la pila para esta operación.
 
-Haga clic en el icono de Ejemplos para abrir el explorador de seguimiento. El explorador muestra varios muestras capturadas por el generador de perfiles, clasificadas por tiempo de respuesta.
+Haga clic en el botón Ver para abrir el explorador de seguimiento. El explorador muestra varios muestras capturadas por el generador de perfiles, clasificadas por tiempo de respuesta.
+
+Si está utilizando la hoja de vista previa de rendimiento, vaya a la sección **Realizar acción** de la esquina inferior derecha para ver seguimientos de Profiler. Haga clic en el botón Seguimientos de Profiler.
+
+![Seguimientos de Profiler de vista previa de hoja Rendimiento de Application Insights][performance-blade-v2-examples]
 
 Seleccione una muestra para mostrar un desglose de nivel de código del tiempo dedicado a ejecutar la solicitud.
 
@@ -158,6 +163,10 @@ Se trata de una visualización de cómo varían con el tiempo las muestras inclu
 
 ## <a id="troubleshooting"></a>Solución de problemas
 
+### <a name="too-many-active-profiling-sessions"></a>Hay demasiadas sesiones de generación de perfiles activas
+
+Actualmente, puede habilitar el generador de perfiles en un máximo de 4 aplicaciones web de Azure y ranuras de implementación del mismo plan de servicio. Si observa que el trabajo web de Profiler notifica demasiadas sesiones activas de generación de perfiles, deberá cambiar algunas aplicaciones web a un plan de servicio diferente.
+
 ### <a name="how-can-i-know-whether-application-insights-profiler-is-running"></a>¿Cómo se puede saber si Application Insights Profiler se está ejecutando?
 
 El generador de perfiles se ejecuta como un trabajo web continuo de Aplicación web. Puede abrir el recurso Aplicación web en https://portal.azure.com y comprobar el estado de "ApplicationInsightsProfiler" en la hoja Trabajos Web. Si se está ejecutando, abra **Registros** para saber más.
@@ -204,10 +213,7 @@ Si está implementando la aplicación web de nuevo en un recurso de App Services
 La solución a este problema consiste en agregar los siguientes parámetros de implementación extra a la tarea de Web Deploy:
 
 ```
--skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
--skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
--skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
--skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
 ```
 
 Esto eliminará la carpeta que App Insights Profiler usa y desbloqueará el proceso de nueva implementación. No afectará a la instancia de Profiler que se está ejecutando actualmente.
@@ -237,6 +243,7 @@ La aplicación ASP.NET Core necesita instalar el paquete de Nuget Microsoft.Appl
 
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
+[performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
 [trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
 [trace-explorer-toolbar]: ./media/app-insights-profiler/trace-explorer-toolbar.png
 [trace-explorer-hint-tip]: ./media/app-insights-profiler/trace-explorer-hint-tip.png

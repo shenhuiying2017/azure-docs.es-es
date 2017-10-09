@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 1691d378263f6b4ce5072f5c621d8db02f774b5f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: acb6052343acc34eb2365017ac2a49f9a4af51a2
+ms.contentlocale: es-es
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referencia para desarrolladores de F# de Azure Functions
@@ -79,7 +80,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Registro
-Para registrar la salida en los [registros de streaming](../app-service-web/web-sites-streaming-logs-and-console.md) en F#, la función debe adoptar un argumento de tipo `TraceWriter`. Por coherencia, se recomienda que se le dé el nombre `log`a este argumento. Por ejemplo:
+Para registrar la salida en los [registros de streaming](../app-service/web-sites-enable-diagnostic-log.md) en F#, la función debe adoptar un argumento de tipo `TraceWriter`. Por coherencia, se recomienda que se le dé el nombre `log`a este argumento. Por ejemplo:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -280,10 +281,5 @@ Para obtener más información, consulte los siguientes recursos:
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 * [Prueba de Azure Functions](functions-test-a-function.md)
 * [Escalado de Azure Functions](functions-scale.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

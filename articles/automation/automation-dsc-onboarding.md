@@ -13,12 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 7aaede3e93938553ee6d372478e3516e72885057
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 581bee11729e6fef5dbe7e752962f7ab9896066b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Incorporación de máquinas para administrarlas con DSC de Automatización de Azure
@@ -36,6 +35,10 @@ DSC de Automatización de Azure puede usarse para administrar diversas máquinas
 * Máquinas físicas y virtuales con Linux locales, en Azure o en una nube que no sea Azure
 
 Además, si no está preparado para administrar la configuración de máquina desde la nube, DSC de Automatización de Azure también puede utilizarse como punto de conexión meramente informativo. Esto le permite establecer (insertar) la configuración deseada a través del DSC local y ver numerosos detalles de informe sobre el cumplimiento del nodo con el estado deseado en Automatización de Azure.
+
+> [!NOTE]
+> La administración de VM de Azure con DSC se incluye sin cargo adicional si la extensión de máquina virtual DSC instalada es mayor que 2.7.  Para obtener más información, consulte la página [**Precios de Automation**](https://azure.microsoft.com/en-us/pricing/details/automation/).
+
 
 En las secciones siguientes, se describe cómo incorporar cada tipo de máquina a DSC de Automatización de Azure.
 
@@ -123,15 +126,15 @@ Con DSC de Automatización de Azure, puede incorporar fácilmente máquinas virt
 
 En el [Portal de Azure](https://portal.azure.com/), vaya a la cuenta de Automatización de Azure en la que quiere incorporar máquinas virtuales. En el panel de la cuenta de Automation, haga clic en **Nodos de DSC** -> **Agregar máquina virtual de Azure**.
 
-En **Seleccionar máquinas virtuales que incorporar**, seleccione una o más máquinas virtuales de Azure para incorporarlas.
+Seleccione una máquina virtual de Azure para incorporarla.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_2.png)
+Si la máquina no tiene instalada la extensión de estado deseada de PowerShell y el estado de energía es "en ejecución", haga clic en **Conectar**.
 
-En **Configurar datos de registro**, escriba los [valores del Administrador de configuración local de DSC de PowerShell](https://msdn.microsoft.com/powershell/dsc/metaconfig4) necesarios para su caso de uso, así como, opcionalmente, una configuración de nodo para asignarla a la máquina virtual.
+En **Registro**, escriba los [valores del Administrador de configuración local de DSC de PowerShell](https://msdn.microsoft.com/powershell/dsc/metaconfig4) necesarios para su caso de uso, así como, opcionalmente, una configuración de nodo para asignarla a la máquina virtual.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_3.png)
+![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
-### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
+### <a name="azure-resource-manager-templates"></a>Plantillas de Azure Resource Manager
 
 Se pueden implementar máquinas virtuales de Azure e incorporarlas a DSC de Automatización de Azure mediante las plantillas del Administrador de recursos de Azure. Consulte la página sobre cómo [configurar una máquina virtual mediante la extensión DSC y DSC de Automatización de Azure](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) para ver una plantilla de ejemplo que incorpora una máquina virtual existente a DSC de Automatización de Azure. Para buscar la clave de registro y la dirección URL de registro tomadas como entrada en esta plantilla, consulte la sección [**Registro seguro**](#secure-registration) .
 

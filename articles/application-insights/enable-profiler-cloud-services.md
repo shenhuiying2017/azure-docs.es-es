@@ -1,5 +1,5 @@
 ---
-title: "Habilitación de Azure Application Insights Profiler para un recurso de Cloud Services | Microsoft Docs"
+title: Habilitar Azure Application Insights Profiler en recursos de Azure Compute | Microsoft Docs
 description: "Aprenda a configurar el generador de perfiles en una aplicación ASP.NET hospedada por un recurso de Azure Cloud Services."
 services: application-insights
 documentationcenter: 
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: c2cae6129386260f2bf35f75d44fa001f7541d40
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 65ba755f35df7bd09dd652ac6fccf96a878c6ca9
 ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -113,13 +113,15 @@ Existen varias maneras de publicar una aplicación en una máquina virtual de Az
 
 
 ## <a name="enable-the-profiler"></a>Habilitar el generador de perfiles
-1. Vaya a la hoja **Rendimiento** de Application Insights y seleccione **Configurar**.
-   
-   ![Icono Configurar](./media/enable-profiler-compute/enableprofiler1.png)
- 
+
+1. Vaya a la hoja **Rendimiento** de Application Insights y haga clic en **Generador de perfiles** en la esquina superior derecha para configurarlo.
+
+   ![Configurar el botón Profiler](./media/enable-profiler-compute/PerformanceTriageViewPofilerButton.png)
+
 2. Seleccione **Habilitar el generador de perfiles**.
-   
-   ![Icono Habilitar el generador de perfiles](./media/enable-profiler-compute/enableprofiler2.png)
+
+   ![Habilitar el botón Profiler](./media/enable-profiler-compute/enableprofiler2.png)
+
 
 ## <a name="add-a-performance-test-to-your-application"></a>Adición de una prueba de rendimiento a la aplicación
 Siga estos pasos para que podamos recopilar algunos datos de ejemplo que se mostrarán en Application Insights Profiler:
@@ -134,9 +136,15 @@ Siga estos pasos para que podamos recopilar algunos datos de ejemplo que se most
 
 1. Espere unos 10 o 15 minutos a que el generador de perfiles recopile y analice los datos. 
 
-2. Vaya a la hoja **Rendimiento** del recurso de Application Insights y observe cuál era el rendimiento de la aplicación en estado de carga.
+2. Vaya a la hoja **Rendimiento** del recurso de Application Insights y observe cuál era el rendimiento de la aplicación en estado de carga. Para centrarse en el funcionamiento lento de interés con suficientes datos de uso, ordene la cuadrícula operativa por la columna Recuento. Observe qué intervalos de duración tienen los seguimientos de Profiler examinando el canal de Profiler por encima de la distribución de duración. Tenga en cuenta que, cuanto más tiempo supervise la aplicación, más seguimientos recopilará Profiler y, por tanto, se cubrirá una mayor parte de la distribución en los ejemplos de nivel de código enriquecido compatibles con los seguimientos del generador de perfiles. 
 
-   ![Visualización del rendimiento](./media/enable-profiler-compute/aiperformance.png)
+   ![Seguimientos de Profiler en la vista de evaluación de prioridades de rendimiento](./media/enable-profiler-compute/PerformanceTriageViewProfilerTraces.png)
+
+    Puede acercarse al intervalo de duración de su interés, como el tercer pico alrededor del percentil 95. Esto restringirá el número de ejemplos y seguimientos de Profiler en los botones para Realizar acción. 
+
+    ![Acercar el intervalo de duración](./media/enable-profiler-compute/DurationRangeZoomedTo95th.png)
+
+    Ahora, haga clic en el botón **Seguimientos de Profiler** para abrir Profiler con el seguimiento adecuado.
 
 3. Seleccione **Ejemplos**, para abrir la hoja de **visualización de seguimientos**.
 

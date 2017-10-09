@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 09/19/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 8c73344b07e07cc89a18a10648b1a9c82c4b361a
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 6baffb1fb14a3b7ede5a754029b9efbaf543ea07
 ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnóstico de excepciones en aplicaciones web con Application Insights
@@ -58,15 +58,19 @@ En el código, tenga en cuenta que CodeLens muestra datos de las excepciones:
 ![Notificación de CodeLens de excepciones.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnóstico de errores mediante el Portal de Azure
-En la hoja de información general de Application Insights de su aplicación, el icono Errores muestra los gráficos de excepciones y las solicitudes HTTP con error, junto con una lista de las direcciones URL de solicitudes que provocan los errores más frecuentes.
+Application Insights incluye una experiencia APM seleccionada para ayudar a diagnosticar errores en las aplicaciones supervisadas. Para empezar, haga clic en la opción Errores del menú de recursos de Application Insights situado en la sección de investigación. Debería ver una vista de pantalla completa que muestra las tendencias de índice de errores de sus solicitudes: cuántas de ellas generan errores y cuántos usuarios se ven afectados. A la derecha, verá algunas de las distribuciones más útiles específicas de la operación con error seleccionada, incluidos los 3 códigos de respuesta principales, los 3 tipos principales de excepción y los 3 tipos principales de dependencia con error. 
 
-![Selección de Configuración, Errores](./media/app-insights-asp-net-exceptions/012-start.png)
+![Vista de evaluación de prioridades de errores (pestaña Operaciones)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
-Haga clic en uno de los tipos de excepción con error en la lista para obtener las repeticiones individuales de la excepción, donde puede ver los detalles y el seguimiento de la pila:
+En un solo clic, a continuación, puede revisar ejemplos representativos de cada uno de estos subconjuntos de operaciones. En concreto, para diagnosticar excepciones, puede hacer clic en el recuento de una excepción determinada para que se muestre una hoja de detalles de excepciones como esta:
 
-![Seleccione una instancia de una solicitud con error y, en los detalles de la excepción, obtenga las instancias de la excepción.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![Hoja de detalles de excepciones](./media/app-insights-asp-net-exceptions/ExceptionDetailsBlade.png)
 
-**También** puede hacerlo desde la lista de solicitudes y buscar excepciones relacionadas.
+**Como alternativa,** en lugar de observar las excepciones de una operación específica con errores, puede empezar desde la vista general de excepciones y cambiar a la pestaña Excepciones:
+
+![Vista de evaluación de prioridades de errores (pestaña Excepciones)](./media/app-insights-asp-net-exceptions/FailuresTriageView_Exceptions.png)
+
+Aquí puede ver todas las excepciones que se recopilan para la aplicación supervisada.
 
 *¿No se muestra ninguna excepción? Consulte [Captura de excepciones](#exceptions).*
 
@@ -431,7 +435,7 @@ Abra una hoja del Explorador de métricas, agregue un nuevo gráfico y seleccion
 
 .NET framework calcula la tasa contando el número de excepciones producidas en un intervalo y dividiéndolo por la duración del intervalo de tiempo.
 
-Tenga en cuenta que será diferente del recuento de "Excepciones" calculado por el portal de Application Insights contando los informes de TrackException. Los intervalos de muestreo son diferentes y el SDK no envía informes de TrackException para todas las excepciones, controladas y no controladas.
+Esto es diferente del recuento de "Excepciones" calculado por el portal de Application Insights contando los informes de TrackException. Los intervalos de muestreo son diferentes y el SDK no envía informes de TrackException para todas las excepciones, controladas y no controladas.
 
 ## <a name="video"></a>Vídeo
 

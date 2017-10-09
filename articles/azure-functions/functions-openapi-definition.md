@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: be871b1c5f131b0ff6de1f74ed3e6f12b7a482ce
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5aed57e69924f03221fc0d9909889358d80df9a4
 ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -113,7 +113,7 @@ Ahora ya existe una función que determina la rentabilidad de las reparaciones d
 
 ## <a name="generate-the-openapi-definition"></a>Generación de la definición de OpenAPI
 
-Ahora el usuario está listo para generar la definición de OpenAPI. Esta definición la pueden usar otras tecnologías Microsoft, como [API Apps](../app-service-api/app-service-api-dotnet-get-started.md), [PowerApps](functions-powerapps-scenario.md) y [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md), así como herramientas de desarrollador de terceros como [Postman](https://www.getpostman.com/docs/importing_swagger) y [muchos paquetes más](http://swagger.io/tools/).
+Ahora el usuario está listo para generar la definición de OpenAPI. Esta definición la pueden usar otras tecnologías Microsoft, como API Apps, [PowerApps](functions-powerapps-scenario.md) y [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), así como herramientas de desarrollador de terceros como [Postman](https://www.getpostman.com/docs/importing_swagger)y [muchos paquetes más](http://swagger.io/tools/).
 
 1. Seleccione solo los *verbos* compatibles con la API (en este caso, POST). Esto permite que la definición de la API generada sea más limpia.
 
@@ -175,20 +175,9 @@ Ahora el usuario está listo para generar la definición de OpenAPI. Esta defini
     Esta definición se describe como una _plantilla_ porque requiere más metadatos para ser una definición de OpenAPI completa. La definición se modificará en el paso siguiente.
 
 ## <a name="modify-the-openapi-definition"></a>Modificación de la definición de OpenAPI
-Ahora que se tiene una definición de plantilla, se puede modificar para proporcionar metadatos adicionales sobre las estructuras de datos y las operaciones de la API. Para este tutorial, simplemente puede pegar la definición modificada a continuación en el panel de **definición de la API** y hacer clic en **Guardar**.
+Ahora que se tiene una definición de plantilla, se puede modificar para proporcionar metadatos adicionales sobre las estructuras de datos y las operaciones de la API. En **Definición de la API**, elimine la definición generada desde `post` hasta la parte inferior de la definición, pegue el contenido siguiente y haga clic en **Guardar**.
 
 ```yaml
-swagger: '2.0'
-info:
-  title: Turbine Repair
-  version: 1.0.0
-host: function-demo-energy.azurewebsites.net
-basePath: /
-schemes:
-  - https
-  - http
-paths:
-  /api/TurbineRepair:
     post:
       operationId: CalculateCosts
       description: Determines if a technician should be sent for repair
@@ -248,7 +237,7 @@ securityDefinitions:
     in: query
 ```
 
-Ahora bien, es importante comprender los tipos de modificaciones que se realizaron en la plantilla predeterminada:
+En este caso, también podría, simplemente, pegar los metadatos actualizados, pero es importante comprender los tipos de modificaciones que se realizaron en la plantilla predeterminada:
 
 + Se especificó que la API genera y consume datos en formato JSON.
 

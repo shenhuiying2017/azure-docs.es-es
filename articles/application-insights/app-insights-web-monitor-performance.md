@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2015
+ms.date: 09/20/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 69ead621c179bf49f17ed3274be4b625fc587556
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 9efe10fa35c6a7c84e0d448bbe53127d16d20870
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="monitor-performance-in-web-applications"></a>Supervisar el rendimiento de aplicaciones web
@@ -117,9 +117,38 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 * Supervise el funcionamiento de la aplicación web junto con [Live Metrics Stream][livestream].
 * Capture el estado de una aplicación .Net con [Snapshot Debugger][snapshot].
 
-## <a name="find-and-fix-performance-bottlenecks-with-an-interactive-performance-investigation"></a>Búsqueda y corrección de cuellos de botella de rendimiento con la investigación interactiva del rendimiento
+>[!Note]
+> Estamos en proceso de transición de una investigación de rendimiento de Application Insights a una experiencia interactiva de pantalla completa. La siguiente documentación cubre la nueva experiencia en primer lugar y, a continuación, revisa la experiencia anterior, por si necesita tener acceso a ella, mientras sigue disponible durante toda la transición.
 
-Puede usar la nueva función de investigación interactiva del rendimiento de Application Insights para buscar las áreas de cualquier aplicación web que ralentizan el rendimiento general. Puede encontrar rápidamente las páginas concretas que funcionan con mayor lentitud y usar de forma rápida el [herramienta de generación de perfiles](app-insights-profiler.md) para ver si hay alguna correlación entre dichas páginas.
+## <a name="find-and-fix-performance-bottlenecks-with-an-interactive-full-screen-performance-investigation"></a>Búsqueda y corrección de cuellos de botella de rendimiento con la investigación interactiva del rendimiento a pantalla completa
+
+Puede usar la nueva función de investigación interactiva del rendimiento de Application Insights para revisar las operaciones de rendimiento lento de la aplicación web. Puede seleccionar una operación específica lenta rápidamente y usar [Profiler](app-insights-profiler.md) para encontrar la causa del funcionamiento lento en el código. Use la distribución de la nueva duración que se muestra para la operación seleccionada para evaluar rápidamente cómo perciben la experiencia los clientes. De hecho, para cada operación lenta, puede ver cuántas interacciones de usuario se vieron afectadas. En el siguiente ejemplo, hemos decidido echar un vistazo más de cerca a la experiencia de la operación GET Customers/Details. En la distribución de duración podemos ver que hay tres picos. El pico del extremo izquierdo es de, aproximadamente, 400 ms y representa una experiencia con una gran capacidad de respuesta. El pico intermedio es de, aproximadamente, 1,2 s y representa una experiencia mediocre. Finalmente, en 3,6 s tenemos un pequeño aumento que representa la experiencia de percentil 99, lo que podría hacer que nuestros clientes abandonaran insatisfechos. Esta experiencia es diez veces más lenta que la experiencia excelente de la misma operación. 
+
+![Tres picos de duración de GET Customers/Details](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
+
+Para obtener una mejor idea de las experiencias de usuario para esta operación, podemos seleccionar un intervalo de tiempo mayor. A continuación, podemos reducir el tiempo a un intervalo concreto en que la operación fue especialmente lenta. En el siguiente ejemplo hemos cambiado el valor predeterminado de 24 horas por el de 7 días y hemos ampliado el periodo entre 9:47 y 12:47 del martes 12 y el miércoles 13. Tenga en cuenta que la distribución de la duración y el número de seguimientos de Profiler y de ejemplo se han actualizado a la derecha.
+
+![Tres picos de duración para GET Customers/Details en un intervalo de 7 días en un periodo de tiempo](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+
+Para limitar las experiencias lentas, a continuación, ampliamos las duraciones situadas en el percentil entre 95 y 99. Estas representan el 4 de % de las interacciones del usuario que eran especialmente lentas.
+
+![Tres picos de duración para GET Customers/Details en un intervalo de 7 días en un periodo de tiempo](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+
+Ahora podemos observar los ejemplos representativos haciendo clic en el botón Ejemplos o los seguimientos de Profiler haciendo clic en el botón Seguimientos de Profiler. En este ejemplo hay cuatro seguimientos que se han recopilado para obtener clientes y detalles en el periodo de tiempo y el intervalo de duración de interés.
+
+A veces, el problema no estará en el código, sino en una dependencia que invoca el código. Puede cambiar a la pestaña Dependencias de la vista de evaluación de prioridades para investigar tales dependencias lentas. Tenga en cuenta que, de forma predeterminada, la vista de rendimiento muestra medias de tendencia, pero el dato relevante es el del percentil 95 (o 99, en caso de que esté supervisando un servicio muy consolidado). En el siguiente ejemplo, nos hemos centrado en la dependencia de blob de Azure lenta, donde se invocó PUT fabrikamaccount. Las buenas experiencias se agrupan alrededor de los 40 ms, mientras que las llamadas lentas a la misma dependencia son tres veces más lentas, aproximadamente 120 ms. No se necesitan muchas llamadas para que la operación respectiva se ralentice considerablemente. Puede profundizar en los ejemplos representativos y seguimientos de Profiler, exactamente igual que con la pestaña operaciones.
+
+![Tres picos de duración para GET Customers/Details en un intervalo de 7 días en un periodo de tiempo](./media/app-insights-web-monitor-performance/SlowDependencies95thTrend.png)
+
+Otra característica muy eficaz que es una novedad de la investigación de rendimiento interactivo de pantalla completa es la integración con Insights. Application Insights puede detectar y exponer regresiones de capacidad de respuesta de información, así como ayudarle a identificar propiedades comunes en el conjunto de muestra en que decidió centrarse. La mejor manera de buscar en todas las informaciones disponibles es cambiar a un intervalo de tiempo de 30 días y, a continuación, seleccionar Información general para ver información de todas las operaciones del mes pasado.
+
+![Tres picos de duración para GET Customers/Details en un intervalo de 7 días en un periodo de tiempo](./media/app-insights-web-monitor-performance/Performance30DayOveralllnsights.png)
+
+Application Insights en la nueva vista de evaluación de prioridades de rendimiento puede ayudarle a encontrar las agujas del pajar que provocan una mala experiencia para los usuarios de la aplicación web.
+
+## <a name="deprecated-find-and-fix-performance-bottlenecks-with-a-narrow-bladed-legacy-performance-investigation"></a>Obsoleto: Búsqueda y corrección de cuellos de botella de rendimiento con la investigación del rendimiento de hoja restringida anterior
+
+Puede usar la anterior función de investigación del rendimiento de hoja de Application Insights para buscar las áreas la aplicación web que ralentizan el rendimiento general. Puede buscar las páginas específicas que provocan la ralentización y usar [Profiler](app-insights-profiler.md) para detectar la causa raíz de estos problemas en el código. 
 
 ### <a name="create-a-list-of-slow-performing-pages"></a>Creación de una lista de páginas con un rendimiento lento 
 
