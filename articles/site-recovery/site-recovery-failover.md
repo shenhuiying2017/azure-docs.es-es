@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 09/25/2017
 ms.author: pratshar
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: 8be405f01d919e9581afca9101d811a045f4469a
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
 ms.contentlocale: es-es
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="failover-in-site-recovery"></a>Conmutación por error en Site Recovery
@@ -28,7 +28,7 @@ En este artículo se describe cómo se realiza la conmutación por error en máq
 1. Antes de realizar una conmutación por error, realice una [conmutación por error de prueba](site-recovery-test-failover-to-azure.md) para asegurarse de que todo funciona según lo previsto.
 1. [Prepare la red](site-recovery-network-design.md) en la ubicación de destino antes de realizar una conmutación por error.  
 
-Consulte en la siguiente tabla las opciones de conmutación por error proporcionadas por Azure Site Recovery para distintos escenarios de conmutación por error.
+Consulte en la siguiente tabla las opciones de conmutación por error proporcionadas por Azure Site Recovery. Estas opciones también se muestran para distintos escenarios de conmutación por error.
 
 | Escenario | Requisito de recuperación de la aplicación | Flujo de trabajo para Hyper-V | Flujo de trabajo para VMware
 |---|--|--|--|
@@ -44,7 +44,7 @@ En este procedimiento se describe cómo ejecutar una conmutación por error para
 
 1. Seleccione **Recovery Plans** > *nombreDePlanDeRecuperación*. Haga clic en **Conmutación por error**.
 2. En la pantalla **Conmutación por error**, seleccione el **Punto de recuperación** al que se va a realizar la conmutación por error. Puede seleccionar una de las siguientes opciones:
-    1.  **Última** (valor predeterminado): esta opción procesa primero todos los datos que se han enviado al servicio Site Recovery para crear un punto de recuperación para cada máquina virtual antes de conmutarla por error a dicho punto de recuperación. Esta opción ofrece el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual creada después de la conmutación por error tiene todos los datos que se han replicado en el servicio Site Recovery cuando se desencadenó la conmutación por error.
+    1.  **Más reciente** (valor predeterminado): esta opción inicia el trabajo procesando primero todos los datos que se han enviado al servicio de Site Recovery. El procesamiento de los datos crea un punto de recuperación para cada máquina virtual. La máquina virtual usa este punto de recuperación durante la conmutación por error. Esta opción ofrece el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual creada después de la conmutación por error tiene todos los datos que se han replicado en el servicio Site Recovery cuando se desencadenó la conmutación por error.
     1.  **Latest processed** (Último procesado): esta opción conmuta por error todas las máquinas virtuales del plan de recuperación al punto de recuperación más reciente que el servicio Site Recovery haya procesado. Cuando se realiza una conmutación por error de prueba de una máquina virtual, también se muestra la marca de tiempo del último punto de recuperación procesado. Si realiza una conmutación por error de un plan de recuperación, puede ir a cada máquina virtual y consultar el icono **Latest Recovery Points** (Puntos de recuperación más recientes) para obtener esta información. Como no se emplea ningún tiempo en procesar los datos sin procesar, esta es una opción de conmutación por error con un objetivo de tiempo de recuperación bajo.
     1.  **Latest app-consistent** (Más reciente coherente con la aplicación): esta opción conmuta por error todas las máquinas virtuales del plan de recuperación al último punto de recuperación coherente con la aplicación que haya procesado el servicio Site Recovery. Cuando se realiza una conmutación por error de prueba de una máquina virtual, también se muestra la marca de tiempo del último punto de recuperación coherente con la aplicación procesado. Si realiza una conmutación por error de un plan de recuperación, puede ir a cada máquina virtual y consultar el icono **Latest Recovery Points** (Puntos de recuperación más recientes) para obtener esta información.
     1.  **Latest multi-VM processed** (Últimas máquinas virtuales procesadas): esta opción solo está disponible para planes de recuperación que tienen al menos una máquina virtual con la coherencia para varias máquinas virtuales activada. Las máquinas virtuales que forman parte de un grupo de replicación conmutan por error al último punto de recuperación común coherente con varias máquinas virtuales. Otras máquinas virtuales conmutan por error a su punto de recuperación procesado más reciente.  
@@ -62,7 +62,7 @@ En este procedimiento se describe cómo ejecutar una conmutación por error para
 1. Seleccione **Shut down machine before beginning failover** (Apagar la máquina antes de comenzar la conmutación por error) si desea que Site Recovery intente apagar las máquinas virtuales de origen antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre.  
 
     > [!NOTE]
-    > En el caso de máquinas virtuales de Hyper-V, esta opción también intenta sincronizar los datos locales que aún no se hayan enviado al servicio antes de desencadenar la conmutación por error.
+    > Si las máquinas virtuales de Hyper-V están protegidas, la opción de apagado también intenta sincronizar los datos locales que aún no se hayan enviado al servicio antes de desencadenar la conmutación por error.
     >
     >
 
@@ -71,7 +71,7 @@ En este procedimiento se describe cómo ejecutar una conmutación por error para
 1. Realice la acción **Confirmar** una vez que quede satisfecho con la conmutación por error de la máquina virtual. Esto elimina todos los puntos de recuperación disponibles con el servicio y la opción **Cambiar punto de recuperación** dejará de estar disponible.
 
 ## <a name="planned-failover"></a>Conmutación por error planeada
-Las máquinas virtuales y los servidores físicos protegidos con Site Recovery también admiten la **conmutación por error planeada**. Se trata de una opción de conmutación por error sin pérdida de datos. Cuando se desencadena una conmutación por error planeada, primero se apagan las máquinas virtuales de origen, después se sincronizan los datos que correspondan y, por último, se desencadena la conmutación por error.
+Las máquinas virtuales y los servidores físicos protegidos con Site Recovery también admiten la **conmutación por error planeada**. La conmutación por error planeada es una opción de conmutación por error sin pérdida de datos. Cuando se desencadena una conmutación por error planeada, primero se apagan las máquinas virtuales de origen, después se sincronizan los datos que correspondan y, por último, se desencadena la conmutación por error.
 
 > [!NOTE]
 > Cuando se conmutan por error máquinas virtuales de Hyper-V un sitio local a otro, para regresar al sitio principal local, primero debe realizar una **replicación inversa** de la máquina virtual al sitio principal y, a continuación, desencadenar la conmutación por error. Si la máquina virtual principal no está disponible, antes de iniciar la **replicación inversa** tiene que restaurar la máquina virtual desde una copia de seguridad.   
@@ -95,7 +95,7 @@ Cuando se desencadena una conmutación por error, se realizan estos pasos:
 
 ## <a name="time-taken-for-failover-to-azure"></a>Tiempo necesario para la conmutación por error en Azure
 
-En algunos casos, la conmutación por error de máquinas virtuales requiere un paso intermedio adicional que normalmente tarda aproximadamente de 8 a 10 minutos en completarse. Estos casos son los siguientes:
+En algunos casos, la conmutación por error de máquinas virtuales requiere un paso intermedio adicional que normalmente tarda aproximadamente de 8 a 10 minutos en completarse. En los casos siguientes, el tiempo necesario para la conmutación por error será mayor de lo habitual:
 
 * Máquinas virtuales de VMware con el servicio de movilidad de una versión anterior a 9.8
 * Servidores físicos 
@@ -124,7 +124,9 @@ Es posible que desee automatizar determinadas acciones de la conmutación por er
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Una vez que finalizada la conmutación por error de las máquinas virtuales y cuando el centro de datos local esté disponible, debe [**volver a proteger**](site-recovery-how-to-reprotect.md) las máquinas virtuales de VMware en el centro de datos local.
+
+> [!WARNING]
+> Una vez que finalizada la conmutación por error de las máquinas virtuales y cuando el centro de datos local esté disponible, debe [**volver a proteger**](site-recovery-how-to-reprotect.md) las máquinas virtuales de VMware en el centro de datos local.
 
 Use la opción de[**conmutación por error planeada**](site-recovery-failback-from-azure-to-hyper-v.md) para la **conmutación por recuperación** de máquinas virtuales de Hyper-V hacia el entorno local desde Azure.
 

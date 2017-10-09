@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 09/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 07ad15c61bd4b3912dfa2f629218deebdebd6dc8
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 38f6f5ebe0c53bc4314fa11f0f8d4f00af6086dd
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/29/2017
 
 ---
-# <a name="code-and-test-azure-functions-locally"></a>Codificación y comprobación de las funciones de Azure en un entorno local
+# <a name="code-and-test-azure-functions-locally"></a>Codificación y comprobación de las funciones de Azure Functions en un entorno local
 
 A pesar de que [Azure Portal] proporciona un conjunto completo de herramientas para desarrollar y probar Azure Functions, muchos desarrolladores prefieren desarrollar productos localmente. Azure Functions facilita el uso de su editor de código favorito y de las herramientas de desarrollo locales para desarrollar y probar sus funciones en un equipo local. Las funciones pueden desencadenarse a partir de eventos de Azure, y puede depurar sus funciones en C# y JavaScript en el equipo local. 
 
@@ -29,25 +29,64 @@ Si es un desarrollador de C# de Visual Studio, Azure Functions también [permite
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalación de Azure Functions Core Tools
 
-Azure Functions Core Tools es una versión local del entorno de ejecución de Azure Functions que puede ejecutar en el equipo Windows local. No se trata de un emulador o simulador. Se trata del mismo entorno de ejecución que se usa en Functions en Azure.
+[Azure Functions Core Tools] es una versión local del entorno en tiempo de ejecución de Azure Functions que puede ejecutar en el equipo de desarrollo local. No se trata de un emulador o simulador. Se trata del mismo entorno de ejecución que se usa en Functions en Azure. Hay dos versiones de Azure Functions Core Tools, una para la versión 1.x del entorno en tiempo de ejecución y otra para la versión 2.x. Ambas versiones se proporcionan como un [paquete npm](https://docs.npmjs.com/getting-started/what-is-npm).
 
-[Azure Functions Core Tools] se proporciona como un paquete npm. Primero debe [instalar NodeJS](https://docs.npmjs.com/getting-started/installing-node), que incluye npm.  
+>[!NOTE]  
+> Antes de instalar cualquiera de ellas, debe [instalar NodeJS](https://docs.npmjs.com/getting-started/installing-node), que incluye npm. Para la versión 2.x de las herramientas, solo se admite Node.js 8.5 y versiones posteriores. 
 
->[!NOTE]
->En este momento el paquete Azure Functions Core Tools solo se puede instalar en equipos Windows. Esta restricción se debe a una limitación temporal del host de Functions.
+### <a name="version-1x-runtime"></a>Entorno en tiempo de ejecución versión 1.x
 
-[Azure Functions Core Tools] agrega los siguientes alias de comando:
+La versión original de las herramientas usa el entorno en tiempo de ejecución versión 1.x de Functions. Esta versión usa .NET Framework y solo se admite en equipos con Windows. Use el siguiente comando para instalar las herramientas de la versión 1.x:
+
+```bash
+npm install -g azure-functions-core-tools
+```
+
+### <a name="version-2x-runtime"></a>Entorno en tiempo de ejecución versión 2.x
+
+La versión 2.x de las herramientas usa el entorno en tiempo de ejecución 2.x de Azure Functions, que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core 2.x. Use esta versión para el desarrollo multiplataforma y cuando se necesite el entorno en tiempo de ejecución 2.x de Functions. 
+
+>[!IMPORTANT]   
+> Antes de instalar Azure Functions Core Tools, [instale .NET Core 2.0](https://www.microsoft.com/net/core).  
+>
+> El entorno en tiempo de ejecución 2.0 de Azure Functions está en versión preliminar y actualmente no se admiten todas las características de Azure Functions. Para más información, consulte los [problemas conocidos del entorno en tiempo de ejecución 2.0 de Azure Functions](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues). 
+
+ Use el siguiente comando para instalar las herramientas de la versión 2.0:
+
+```bash
+npm install -g azure-functions-core-tools@core
+```
+
+Para instalar en Ubuntu, use `sudo` como se indica a continuación:
+
+```bash
+sudo npm install -g azure-functions-core-tools@core
+```
+
+Para instalar en Mac OS y Linux, quizás necesite incluir la marca `unsafe-perm`, como se indica a continuación:
+
+```bash
+sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+## <a name="run-azure-functions-core-tools"></a>Ejecución de Azure Functions Core Tools
+ 
+Azure Functions Core Tools agrega los siguientes alias de comando:
 * **func**
 * **azfun**
 * **azurefunctions**
 
-Es posible utilizar cualquier de estos alias en lugar del alias `func` de este tema.
+Se puede utilizar cualquiera de estos alias donde se muestra `func` en los ejemplos.
+
+```
+func init MyFunctionProj
+```
 
 ## <a name="create-a-local-functions-project"></a>Creación de un proyecto local de Functions
 
-Cuando se ejecuta localmente, un proyecto de Functions es un directorio que tiene los archivos host.json y local.settings.json. Este directorio es el equivalente a una aplicación de función en Azure. Para obtener más información sobre la estructura de carpetas de Azure Functions, vea la [Guía para desarrolladores de Azure Functions](functions-reference.md#folder-structure).
+Cuando se ejecuta localmente, un proyecto de Functions es un directorio que tiene los archivos [host.json](functions-host-json.md) y [local.settings.json](#local-settings). Este directorio es el equivalente a una aplicación de función en Azure. Para obtener más información sobre la estructura de carpetas de Azure Functions, vea la [Guía para desarrolladores de Azure Functions](functions-reference.md#folder-structure).
 
-En el símbolo del sistema, ejecute el siguiente comando:
+En la ventana de terminal o desde un símbolo del sistema, ejecute el siguiente comando para crear el proyecto y el repositorio de Git local:
 
 ```
 func init MyFunctionProj
@@ -63,7 +102,7 @@ Created launch.json
 Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
-Para no participar en la creación de un repositorio Git, use la opción `--no-source-control [-n]`.
+Para crear el proyecto sin un repositorio Git local, use la opción `--no-source-control [-n]`.
 
 <a name="local-settings"></a>
 
@@ -90,9 +129,7 @@ El archivo local.settings.json almacena la configuración de la aplicación, las
 | Configuración      | Descripción                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | Cuando se establece en **true**, todos los valores se cifran con una clave de máquina local. Se usa con los comandos `func settings`. El valor predeterminado es **false**. |
-| **Valores** | Colección de opciones de configuración de la aplicación que se usa en la ejecución local. Agregue la configuración de la aplicación a este objeto.  |
-| **AzureWebJobsStorage** | Establece la cadena de conexión para la cuenta de Azure Storage que el entorno de ejecución de Azure Functions usa internamente. La cuenta de almacenamiento admite los desencadenadores de su función. Esta configuración de conexión de la cuenta de almacenamiento es necesaria para todas las funciones, salvo en el caso de las funciones desencadenadas de HTTP.  |
-| **AzureWebJobsDashboard** | Establece la cadena de conexión a la cuenta de Azure Storage que se usa para almacenar los registros de funciones. Este valor opcional hace que se pueda acceder a los registros en el portal.|
+| **Valores** | Colección de opciones de configuración de la aplicación que se usa en la ejecución local. **AzureWebJobsStorage** y **AzureWebJobsDashboard** son ejemplos; para obtener una lista completa, consulte la [referencia de las opciones de configuración de aplicaciones](functions-app-settings.md).  |
 | **Host** | La configuración que se muestra esta sección permite personalizar el proceso de host de Functions cuando se ejecuta localmente. | 
 | **LocalHttpPort** | Establece el puerto predeterminado que se usa cuando al ejecutar el host de Functions local (`func host start` y `func run`). La opción de línea de comandos `--port` tiene prioridad sobre este valor. |
 | **CORS** | Define los orígenes permitidos para el [uso compartido de recursos entre orígenes (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Los orígenes se proporcionan en una lista de valores separados por comas y sin espacios. Se admite el valor comodín (**\***), lo que permite realizar solicitudes desde cualquier origen. |
@@ -120,7 +157,7 @@ Para establecer un valor para las cadenas de conexión, puede realizar alguna de
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
     ```
-    func azure functionapp storage fetch-connection-string <StorageAccountName>
+    func azure storage fetch-connection-string <StorageAccountName>
     ```
     Ambos comandos requieren que primero inicie sesión en Azure.
 
@@ -168,7 +205,7 @@ func host start
 | **`--cors`** | Lista separada por comas de orígenes CORS, sin espacios en blanco. |
 | **`--nodeDebugPort -n`** | Puerto del depurador de nodo que se va a usar. Valor predeterminado: un valor de launch.json o 5858. |
 | **`--debugLevel -d`** | Nivel de seguimiento de la consola (desactivado, detallado, información, advertencia o error). Valor predeterminado: información.|
-| **`--timeout -t`** | Tiempo de espera en segundos para iniciar el host de Functions. Valor predeterminado: 20 segundos.|
+| **`--timeout -t`** | Tiempo de espera en segundos para que se inicie el host de Functions. Valor predeterminado: 20 segundos.|
 | **`--useHttps`** | Se enlaza a https://localhost:{port} en lugar de a http://localhost:{port}. De forma predeterminada, esta opción crea un certificado de confianza en el equipo.|
 | **`--pause-on-error`** | Se pone en pausa en espera de entrada adicional antes de salir del proceso. Resulta útil cuando se inicia Azure Functions Core Tools desde un entorno de desarrollo integrado (IDE).|
 
@@ -233,7 +270,18 @@ Puede usar las siguientes opciones:
 | **`--publish-local-settings -i`** |  Se publica la configuración de local.settings.json en Azure, se pide que se sobrescriba si la configuración ya existe.|
 | **`--overwrite-settings -y`** | Debe usarse con `-i`. Sobrescribe AppSettings en Azure con el valor local si es distinto. El valor predeterminado es Preguntar.|
 
-El comando `publish` carga el contenido del directorio del proyecto de Functions. Si elimina archivos localmente, el comando `publish` no los eliminará de Azure. Puede eliminar archivos de Azure con la [herramienta Kudu](functions-how-to-use-azure-function-app-settings.md#kudu) de [Azure Portal].
+Este comando se publica en una aplicación de función existente en Azure. Se produce un error cuando `<FunctionAppName>` no existe en la suscripción. Para obtener información sobre cómo crear una aplicación de función desde el símbolo del sistema o la ventana de Terminal mediante la CLI de Azure, consulte [Creación de una aplicación de función para la ejecución sin servidor](./scripts/functions-cli-create-serverless.md).
+
+El comando `publish` carga el contenido del directorio del proyecto de Functions. Si elimina archivos localmente, el comando `publish` no los eliminará de Azure. Puede eliminar archivos de Azure con la [herramienta Kudu](functions-how-to-use-azure-function-app-settings.md#kudu) de [Azure Portal].  
+
+>[!IMPORTANT]  
+> Cuando se crea una aplicación de función en Azure, se usa la versión 1.x del entorno en tiempo de ejecución de Functions de forma predeterminada. Para hacer que la aplicación de función use la versión 2.x del entorno en tiempo de ejecución, agregue la opción de configuración de aplicación `FUNCTIONS_EXTENSION_VERSION=beta`.  
+Use el siguiente código de la CLI de Azure para agregar esta opción de configuración a la aplicación de función: 
+```azurecli-interactive
+az functionapp config appsettings set --name <function_app> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_EXTENSION_VERSION=beta   
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 03fb9cc6633f81e284ae299f7b2ba4018d19cc73
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: fe276fe802eceb1f062ed8bda685dd44a1e3d175
 ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -45,7 +45,7 @@ Para ejecutar los ejemplos de script de la CLI, tiene tres opciones:
 
 Para crear una máquina virtual con MSI habilitado:
 
-1. Si no usa Azure Cloud Shell desde Azure Portal, primero inicie sesión en Azure con [az login](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure en la que desearía implementar la máquina virtual:
+1. Si usa la CLI de Azure en una consola local, lo primero que debe hacer es iniciar sesión en Azure mediante el [inicio de sesión de az](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure en la que desearía implementar la máquina virtual:
 
    ```azurecli-interactive
    az login
@@ -67,7 +67,7 @@ Para crear una máquina virtual con MSI habilitado:
 
 Si tiene que habilitar MSI en una máquina virtual existente:
 
-1. Si no usa Azure Cloud Shell desde Azure Portal, primero inicie sesión en Azure con [az login](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual":
+1. Si usa la CLI de Azure en una consola local, lo primero que debe hacer es iniciar sesión en Azure mediante el [inicio de sesión de az](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual":
 
    ```azurecli-interactive
    az login
@@ -83,7 +83,7 @@ Si tiene que habilitar MSI en una máquina virtual existente:
 
 Si tiene una máquina virtual que ya no necesita una identidad de servicio administrada:
 
-1. Si no usa Azure Cloud Shell desde Azure Portal, primero inicie sesión en Azure con [az login](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual":
+1. Si usa la CLI de Azure en una consola local, lo primero que debe hacer es iniciar sesión en Azure mediante el [inicio de sesión de az](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure que contenga la máquina virtual. Asegúrese también de que la cuenta pertenece a un rol que le conceda permisos de escritura en la máquina virtual, como "Colaborador de la máquina virtual":
 
    ```azurecli-interactive
    az login

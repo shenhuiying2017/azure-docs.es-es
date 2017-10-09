@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: b136d3841243ad7aa88786f76b2d31e5dfae9079
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: f2541b906a2c3a5bbdd384476ce99cad766a6c09
 ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -239,7 +239,8 @@ Un ejemplo de una regla que utiliza un atributo personalizado es
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Windows Azure AD Graph y la búsqueda del nombre en cuestión. Actualmente no se admiten atributos multivalor sincronizados desde Active Directory local. 
+El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Windows Azure AD Graph y la búsqueda del nombre en cuestión.
+Actualmente no se admiten atributos multivalor sincronizados desde Active Directory local.
 
 ## <a name="direct-reports-rule"></a>Regla de "subordinados directos"
 Puede crear un grupo con todos los subordinados directos de un administrador. Cuando los subordinados directos de un administrador cambien en el futuro, la pertenencia del grupo se ajustará automáticamente.
@@ -287,6 +288,19 @@ También puede crear una regla que selecciona objetos de dispositivo para la per
 > No se pueden crear estas reglas de dispositivo mediante la lista desplegable de "regla simple" en el Portal de Azure clásico.
 >
 >
+
+## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Cambio de la pertenencia dinámica a estática, y viceversa
+Es posible cambiar cómo se administra la pertenencia a un grupo. Esto es útil cuando desea mantener el mismo nombre de grupo y el identificador en el sistema, por lo que cualquier referencia existente al grupo sigue siendo válida; crear un nuevo grupo requeriría actualizar esas referencias.
+
+> [!WARNING]
+> Al cambiar un grupo estático existente a uno dinámico, se eliminarán todos sus miembros y, después, se procesará la regla de pertenencia para agregar nuevos miembros. Si el grupo se usa para controlar el acceso a las aplicaciones o los recursos, los miembros originales podrían perder el acceso hasta que se procese por completo la regla de pertenencia.
+>
+> Es un procedimiento recomendado para probar la nueva regla de pertenencia con antelación para asegurarse de que la nueva pertenencia al grupo es la que se preveía.
+
+1. En el [Portal de Azure clásico](https://manage.windowsazure.com), abra el grupo.
+2. Seleccione la pestaña **Configurar** para ver el estado actual de la pertenencia dinámica.
+3. Para convertir un grupo en estático, basta con cambiar la opción **Habilitar pertenencia dinámica** a **NO**. Haga clic en el botón **Guardar** en la barra de herramientas más abajo para confirmar. Los miembros existentes se mantendrán en el grupo y en el futuro no se procesará la regla de pertenencia.
+4. Para convertir un grupo en dinámico, cambie la opción a **Sí**, especifique la regla de pertenencia deseados y haga clic en **Guardar**. Se quitarán los miembros existentes y se iniciará la nueva regla de procesamiento para agregar nuevos miembros.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Estos artículos proporcionan información adicional sobre Azure Active Directory.

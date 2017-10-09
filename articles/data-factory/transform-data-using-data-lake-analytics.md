@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: shengc
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f72ee8b6ef51046a64e794b17d1c389a25246358
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformación de datos mediante la ejecución de scripts de U-SQL en Azure Data Lake Analytics 
@@ -123,7 +123,7 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 | name                | Nombre de la actividad en la canalización     | Sí      |
 | Descripción         | Texto que describe para qué se usa la actividad.  | No       |
 | type                | Para la actividad U-SQL de Data Lake Analytics, el tipo de actividad es **DataLakeAnalyticsU-SQL**. | Sí      |
-| linkedServiceName   | Servicio vinculado a Azure Data Lake Analytics. Para más información sobre el servicio vinculado, consulte el artículo [Servicios vinculados de Compute](compute-linked-services.md).  |          |
+| linkedServiceName   | Servicio vinculado a Azure Data Lake Analytics. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).  |Sí       |
 | scriptPath          | Ruta de acceso a la carpeta que contiene el script U-SQL. El nombre del archivo distingue mayúsculas de minúsculas. | Sí      |
 | scriptLinkedService | Servicio vinculado que se vincula al almacenamiento que contiene el script para la factoría de datos | Sí      |
 | degreeOfParallelism | Número máximo de nodos que se usará de forma simultánea para ejecutar el trabajo. | No       |
@@ -189,11 +189,11 @@ Es posible usar los parámetros dinámicos en su lugar. Por ejemplo:
 En este caso, los archivos de entrada se siguen tomando de la carpeta /datalake/input; los de salida se generan en la carpeta /datalake/output. Sin embargo, los nombres de archivo son dinámicos según la hora de inicio del segmento.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
+Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
 * [Actividad Hive](transform-data-using-hadoop-hive.md)
-* [Actividad Pig](transform-data-using-hadoop-pig.md)
-* [Actividad MapReduce](transform-data-using-hadoop-map-reduce.md)
+* [Actividad de Pig](transform-data-using-hadoop-pig.md)
+* [Actividad de MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)

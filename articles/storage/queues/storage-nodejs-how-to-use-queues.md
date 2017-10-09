@@ -3,7 +3,7 @@ title: Uso de Queue Storage en Node.js | Microsoft Docs
 description: Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Node.js.
 services: storage
 documentationcenter: nodejs
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: aec5eb551ef438015d4f6a3d1578d0fa890d737e
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 649c656b08c03ca9c902b0d80e77d9b3b662635b
 ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Uso del almacenamiento de colas de Node.js
@@ -341,9 +341,8 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
 [Creación de una aplicación web de Node.js en Azure App Service](../../app-service/app-service-web-get-started-nodejs.md)
-   
 
 
-[Compilación e implementación de una aplicación Node.js en una instancia de Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)   
-[Blog del equipo de Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/ [Compilación e implementación una aplicación web Node.js en Azure con Web Matrix]: https://www.microsoft.com/web/webmatrix/   
+
+[Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (Creación e implementación de una aplicación Node.js en un Servicio en la nube de Azure) [Blog del equipo de Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/ [Compilación e implementación una aplicación web Node.js en Azure con Web Matrix]: https://www.microsoft.com/web/webmatrix/
 

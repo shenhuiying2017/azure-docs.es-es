@@ -16,51 +16,51 @@ ms.date: 09/07/2017
 ms.author: jeedes
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: 70e495965287a0edcb31493b69311fe28e04f6dc
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 42da703203fbd4c9225b82d119b53e5d03c63aba
 ms.contentlocale: es-es
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opciones avanzadas de firma de certificados en el token SAML para aplicaciones previamente integradas en Azure Active Directory
-Hoy en día, Azure Active Directory admite miles de aplicaciones previamente integradas en la galería de aplicaciones de Azure AD, de las cuales más de 500 admiten el inicio de sesión único mediante el protocolo SAML 2.0. Cuando un usuario se autentica en una aplicación a través de Azure AD con SAML, Azure AD envía un token a la aplicación (mediante HTTP POST). A continuación, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML se firman con el certificado único que se genera en Azure AD. Este token SAML se firma con los algoritmos estándares concretos.
+En la actualidad Azure Active Directory (Azure AD) es compatible con miles de aplicaciones previamente integradas de la galería de aplicaciones de Azure Active Directory. Entre ellas se incluyen más de 500 aplicaciones que admiten el inicio de sesión único mediante el protocolo SAML 2.0. Cuando un usuario se autentica en una aplicación a través de Azure AD con SAML, Azure AD envía un token a la aplicación (mediante HTTP POST). Después, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML se firman con el certificado único que se genera en Azure AD y mediante algoritmos estándar específicos.
 
-Azure Active Directory usa algunos de los valores predeterminados para las aplicaciones de la galería. Los valores predeterminados se configuran según el requisito de la aplicación.
+Azure AD usa algunos de los valores predeterminados para las aplicaciones de la galería. Los valores predeterminados se configuran según los requisitos de la aplicación.
 
-Azure Active Directory admite la configuración avanzada de la firma de certificados. Para seleccionar estas opciones, active primero la casilla **SAML advance certificate signing settings** (Configuración avanzada de firma de certificados SAML) como se muestra a continuación.
+Azure AD admite la configuración avanzada de firma de certificado. Para seleccionar estas opciones, active primero la casilla **SAML advance certificate signing settings** (Configuración avanzada de firma de certificados SAML):
 
-![Opciones de firma de certificado][1]
+![Mostrar configuración avanzada de firma de certificado][1]
 
-Una vez que se activa esta casilla, puede configurar los valores de **Certificate signing options** (Opciones de firma de certificado) y **Certificate signing algorithm** (Algoritmo de firma de certificado).
+Una vez que se activa esta casilla, puede configurar las opciones de firma de certificado y el algoritmo correspondiente.
 
 ## <a name="certificate-signing-options"></a>Opciones de firma de certificado
 
-Estos son los tres tipos de opciones de firma de certificado que Azure AD admite.
+Azure AD admite tres opciones avanzadas de firma de certificado:
 
-1. **Firmar aserción SAML**: se trata de la opción predeterminada establecida para la mayoría de las aplicaciones de la galería. Si se selecciona esta opción, Azure AD como punto de distribución de emisión firma las aserciones SAML con el certificado X509 de la aplicación. También utiliza el algoritmo de firma, que se selecciona en la lista desplegable a continuación.
+* **Firmar aserción SAML** Esta opción predeterminada se establece para la mayoría de las aplicaciones de la galería. Si se selecciona esta opción, Azure AD como IdP firma la aserción SAML y el certificado X509 de la aplicación. También utiliza el algoritmo de firma, que se selecciona en la lista desplegable **Algoritmo de firma**.
 
-2. **Firmar respuesta SAML**: si se selecciona esta opción, Azure AD como punto de distribución de emisión firma la respuesta SAML con el certificado X509 de la aplicación. También utiliza el algoritmo de firma, que se selecciona en la lista desplegable a continuación.
+* **Firmar respuesta SAML** Si se selecciona esta opción, Azure AD como IdP firma la respuesta SAML con el certificado X509 de la aplicación. También utiliza el algoritmo de firma, que se selecciona en la lista desplegable **Algoritmo de firma**.
 
-3. **Firmar respuesta y aserción SAML**: si se selecciona esta opción, Azure AD como punto de distribución de emisión firma todo el token SAML con el certificado X509 de la aplicación. También utiliza el algoritmo de firma, que se selecciona en la lista desplegable a continuación.
+* **Firmar respuesta y aserción SAML** Si se selecciona esta opción, Azure AD como IdP firma la respuesta SAML con el certificado X509 de la aplicación. También utiliza el algoritmo de firma, que se selecciona en la lista desplegable **Algoritmo de firma**.
 
     ![Opciones de firma de certificado][4]
 
-## <a name="certificate-signing-algorithm"></a>Algoritmo de firma de certificado
+## <a name="certificate-signing-algorithms"></a>Algoritmos de firma de certificado
 
-Azure Active Directory admite dos tipos de algoritmo de firma para firmar la respuesta SAML.
+Azure AD admite dos algoritmos de firmas para firmar la respuesta SAML:
 
-1. SHA256: es el algoritmo predeterminado que Azure Active Directory utiliza para firmar la respuesta SAML. Es el más reciente y se trata como más seguro que SHA1. La mayor parte de las aplicaciones admiten el algoritmo SHA256. Si la aplicación solo admite Sha1 como algoritmo de firma, puede cambiarlo. En caso contrario, se recomienda utilizar el algoritmo SHA256 para firmar la respuesta SAML.
+* **SHA-256**. Azure AD utiliza este algoritmo predeterminado para firmar la respuesta SAML. Es el algoritmo más reciente y se considera más seguro que SHA-1. La mayoría de las aplicaciones admiten el algoritmo SHA-256. Si una aplicación solo admite SHA-1 como algoritmo de firma, puede cambiarlo. En caso contrario, se recomienda utilizar el algoritmo SHA-256 para firmar la respuesta SAML.
 
-    ![Algoritmo de firma de certificado SHA256][3]
+    ![Algoritmo de firma de certificado SHA-256][3]
 
-2. SHA1: es el algoritmo antiguo y no se trata como seguro. Si la aplicación admite solo este algoritmo de firma, puede seleccionar esta opción en la lista desplegable. Con esta opción, Azure AD firma la respuesta SAML con el algoritmo Sha1.
+* **SHA-1**. Es el algoritmo antiguo y se considera como menos seguro que SHA-256. Si la aplicación admite solo este algoritmo de firma, puede seleccionar esta opción en la lista desplegable **Algoritmo de firma**. Azure AD firma entonces la respuesta SAML con el algoritmo SHA-1.
 
-    ![Algoritmo de firma de certificado SHA1][2]
+    ![Algoritmo de firma de certificado SHA-1][2]
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-* [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md)
-* [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](develop/active-directory-saml-debugging.md)
+* [Configuración del inicio de sesión único en aplicaciones que no están en la galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md)
+* [Solución de problemas del inicio de sesión único basado en SAML](develop/active-directory-saml-debugging.md)
 
 <!--Image references-->
 
@@ -68,3 +68,4 @@ Azure Active Directory admite dos tipos de algoritmo de firma para firmar la res
 [2]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-algo-sha1.png
 [3]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-algo-sha256.png
 [4]: ./media/active-directory-enterprise-apps-advance-certificate-options/saml-signing-options.png
+

@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2e41c70b982b97c6aab7b6c0322c193c61370a26
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 2219aeb725b207fd92ff3e7603d7ee9c78f2844c
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
-# <a name="high-availability-ports-overview"></a>Introducción a los puertos de alta disponibilidad
+# <a name="high-availability-ports-overview-preview"></a>Introducción a los puertos de alta disponibilidad (versión preliminar)
 
 La SKU estándar de Azure Load Balancer introduce los puertos de alta disponibilidad (HA), una funcionalidad para distribuir el tráfico desde todos los puertos y para todos los protocolos admitidos. Durante la configuración de un equilibrador de carga interno, los usuarios pueden configurar una regla de puertos HA que establezca los puertos de front-end y back-end en **0** y el protocolo en **all** y, de esta forma, permitir el flujo de todo el tráfico a través de este equilibrador.
+
+>[!NOTE]
+> La característica Puertos de alta disponibilidad actualmente está en versión preliminar. Durante la versión preliminar, la característica podría no tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El algoritmo de equilibrio de carga sigue siendo el mismo y el destino se selecciona en función de las cinco tuplas <Dirección IP de origen, Puerto de origen, Dirección IP de destino, Puerto de destino, Protocolo>. Sin embargo, esta configuración permite que una única regla LB procese todo el tráfico disponible y reduce la complejidad de la configuración, además de los límites impuestos por el número máximo de reglas de equilibrio de carga que se pueden agregar.
 
@@ -43,6 +46,32 @@ En el ejemplo siguiente se presenta una implementación de red virtual de concen
 
 Figura 1: Red virtual de concentrador y radio con NVA implementada en modo de alta disponibilidad
 
+
+## <a name="region-availability"></a>Disponibilidad en regiones
+
+Actualmente, los puertos de alta disponibilidad están disponibles en las regiones siguientes:
+- Este de EE. UU. 2
+- Central EE. UU.:
+- Europa del Norte
+- Centro occidental de EE.UU.
+- Europa occidental
+- Sudeste asiático 
+
+## <a name="preview-sign-up"></a>Registro en versión preliminar
+
+Para participar en la versión preliminar de la característica de puertos de alta disponibilidad en la SKU estándar de Load Balancer, registre su suscripción para obtener acceso mediante PowerShell o la CLI de Azure 2.0.
+
+- Registro con PowerShell
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- Registro con la CLI de Azure 2.0
+
+    ```cli
+    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
+    ```
 ## <a name="caveats"></a>Advertencias
 
 A continuación se indican las configuraciones o excepciones admitidas en puertos HA:

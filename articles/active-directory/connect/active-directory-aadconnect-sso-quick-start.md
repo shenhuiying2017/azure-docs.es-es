@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -70,7 +70,10 @@ Siga estas instrucciones para verificar que ha habilitado SSO de conexión direc
 
 ## <a name="step-3-roll-out-the-feature"></a>Paso 3: Implementación de la característica
 
-Para implantar la característica a los usuarios, debe agregar un par de direcciones URL de Azure AD a la configuración de la zona de Intranet de los usuarios mediante la directiva de grupo en Active Directory.
+Para implantar la característica a los usuarios, debe agregar las siguientes direcciones URL de Azure AD a la configuración de la zona de Intranet de los usuarios mediante la directiva de grupo en Active Directory:
+
+- https://autologon.microsoftazuread-sso.com
+- https://aadg.windows.net.nsatc.net
 
 >[!NOTE]
 > Las siguientes instrucciones solo funcionan en Internet Explorer y Google Chrome en Windows (si comparte el mismo conjunto de direcciones URL de sitios de confianza que Internet Explorer). Lea la sección siguiente para obtener instrucciones para configurar Mozilla Firefox y Google Chrome en Mac.

@@ -1,3 +1,4 @@
+
 ---
 title: "Matriz de compatibilidad de la replicación en un sitio secundario con Azure Site Recovery | Microsoft Docs"
 description: Resumen de los sistemas operativos y los componentes compatibles con Azure Site Recovery.
@@ -14,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: db7ee5251f2e2016081e55ca4b295e284c8b08cf
+ms.translationtype: HT
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
 ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matriz de compatibilidad de la replicación en un sitio secundario con Azure Site Recovery
@@ -44,7 +45,7 @@ En este artículo se resumen los elementos que se admiten cuando usa Azure Site 
 
   >[!Note]
   > Actualmente, no se admiten las nubes VMM 2016 que combinan hosts de Windows Server 2016 y 2012 R2.
-
+  > Las configuraciones que incluyen la actualización de un SCVMM 2012 R2 a 2016 existente no son compatibles actualmente.
 ### <a name="host-servers"></a>Servidores host
 
 **Implementación** | **Soporte técnico**

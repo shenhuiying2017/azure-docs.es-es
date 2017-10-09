@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5c08b1361dfd2d13e0e7ca2ce6f9a2cf357a8dff
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: a6b3c346358e0aed4c60c4903932236edc237379
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -35,7 +35,7 @@ Figura 1 - Distribución de 5-tupla
 
 ## <a name="source-ip-affinity-mode"></a>Modo de afinidad de IP de origen
 
-Tenemos un nuevo modo de distribución llamado Afinidad de IP de origen (también conocido como afinidad de cliente o afinidad de IP de cliente). Para asignar el tráfico a los servidores disponibles, se puede configurar Azure Load Balancer para usar una 2-tupla (IP de origen, IP de destino) o una 3-tupla (IP de origen, IP de destino, protocolo). Al usar la afinidad de IP de origen, las conexiones iniciadas desde el mismo equipo cliente van al mismo extremo DIP.
+Tenemos un nuevo modo de distribución llamado Afinidad de IP de origen (también conocido como afinidad de cliente o afinidad de IP de cliente). Para asignar el tráfico a los servidores disponibles, se puede configurar Azure Load Balancer para usar una 2-tupla (IP de origen, IP de destino) o una 3-tupla (IP de origen, IP de destino, protocolo). Al usar la afinidad de IP de origen, las conexiones que se iniciaron desde el mismo equipo cliente van al mismo punto de conexión de DIP.
 
 En el siguiente diagrama, se ilustra una configuración de 2-tupla. Observe cómo la 2-tupla se ejecuta a través del equilibrador de carga en la máquina virtual 1 (VM1) de la que luego VM2 y VM3 realizan una copia de seguridad.
 
@@ -99,7 +99,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 ### <a name="cloud-service-configuration-to-change-distribution-mode"></a>Configuración de servicios en la nube para cambiar el modo de distribución
 
-Puede aprovechar el SDK de Azure para .NET 2.5 (que se publicará en noviembre) para actualizar el servicio en la nube. La configuración de extremo para los servicios en la nube se realiza en el archivo .csdef. Para actualizar el modo de distribución del equilibrador de carga para una implementación de servicios en la nube, se requiere una actualización de la implementación.
+Puede aprovechar el SDK de Azure para .NET 2.5 para actualizar el servicio en la nube. La configuración de extremo para los servicios en la nube se realiza en el archivo .csdef. Para actualizar el modo de distribución del equilibrador de carga para una implementación de servicios en la nube, se requiere una actualización de la implementación.
 Este es un ejemplo de los cambios de .csdef para la configuración de extremo:
 
 ```xml

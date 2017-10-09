@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 08/21/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e0df5b4c4ce23a746e60b491193e5a69df5ffdbd
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Creación y publicación de un producto en Marketplace
+
+*Se aplica a los sistemas integrados de Azure Stack y Azure Stack Development Kit*
+
 ## <a name="create-a-marketplace-item"></a>Creación de un elemento para Marketplace
 1. [Descargue](http://www.aka.ms/azurestackmarketplaceitem) la herramienta Azure Gallery Packager y el elemento de ejemplo de la plataforma Marketplace de Azure Stack.
 2. Abra el elemento de Marketplace de ejemplo y cambie el nombre de la carpeta **SimpleVMTemplate**. (Use el mismo nombre que el del elemento de Marketplace, por ejemplo, **Contoso.TodoList**). Esta carpeta contiene:
@@ -80,7 +83,7 @@ ms.lasthandoff: 09/25/2017
    | SubscriptionID |Identificador de suscripción de administrador de Azure. Puede recuperarlo mediante el uso de PowerShell. Si prefiere obtenerlo en el portal, vaya a la suscripción del proveedor y copie el identificador de suscripción. |
    | GalleryItemUri |URI del blob del paquete de la galería que ya se ha cargado en el almacenamiento. |
    | ApiVersion |Establecido como **2015-04-01**. |
-4. Vaya al portal. Ahora puede ver el elemento de Marketplace en el portal, como un administrador o como un inquilino.
+4. Vaya al portal. Ahora puede ver el elemento de Marketplace en el portal, como operador o como usuario.
    
    > [!NOTE]
    > El paquete puede tardar varios minutos en aparecer.

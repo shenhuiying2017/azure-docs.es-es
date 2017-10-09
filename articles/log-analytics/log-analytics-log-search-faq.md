@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -58,6 +58,18 @@ Puede usar la herramienta del convertidor de lenguaje en la página de búsqueda
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Pregunta: ¿Por qué los resultados de la consulta no están ordenados?
 Los resultados no se ordenan de forma predeterminada en el nuevo lenguaje de consulta.  Use el [operador sort](https://go.microsoft.com/fwlink/?linkid=856079) para ordenar los resultados en función de una o varias propiedades.
+
+### <a name="question-where-did-minify-go-after-i-upgraded"></a>Pregunta: ¿Dónde está la opción de minificación después de la actualización?
+La minificación es una característica que proporciona una vista resumida de los resultados de la búsqueda.  Después de la actualización, la opción de minificación ya no aparece en el portal de búsqueda de registros.  Puede obtener una funcionalidad similar con el nuevo lenguaje de búsqueda si usa [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) o [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | reduce by RenderedDescription
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | evaluate autocluster_v2()
+
 
 ### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Problema conocido: Los resultados de la búsqueda de una lista pueden incluir propiedades sin datos
 Los resultados de la búsqueda de registros de una lista pueden mostrar propiedades sin datos.  Antes de la actualización, estas propiedades no se incluirían.  Este problema se corregirá para que no se muestren las propiedades vacías.
@@ -124,9 +136,6 @@ Todas las soluciones continuarán funcionando en un área de trabajo actualizada
 
 ### <a name="known-issue-capacity-and-performance-solution"></a>Problema conocido: Solución Capacity and Performance
 Algunas de las partes de la vista [Capacity and Performance](log-analytics-capacity.md) pueden estar vacías.  Una corrección para este problema estará disponible pronto.
-
-### <a name="known-issue-device-health-solution"></a>Problema conocido: Solución Estado de dispositivos
-La [solución Estado de dispositivos](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) no recopilará datos en un área de trabajo actualizada.  Una corrección para este problema estará disponible pronto.
 
 ### <a name="known-issue-application-insights-connector"></a>Problema conocido: Application Insights Connector
 Las perspectivas de la [solución Application Insights Connector](log-analytics-app-insights-connector.md) no se admiten actualmente en un área de trabajo actualizada.  En estos momentos se está analizando una corrección para este problema.

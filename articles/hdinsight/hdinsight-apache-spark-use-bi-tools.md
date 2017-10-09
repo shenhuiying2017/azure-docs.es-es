@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 49dd161049ac442081fe6d26cf8bd3a56a2e0687
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 869a000909813e607620c47ef802b4043e37dfa9
 ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI mediante herramientas de visualización de datos con Azure HDInsight
@@ -146,7 +146,7 @@ Cuando haya guardado los datos como una tabla, puede usar Power BI para conectar
 
       ![Lista de tablas en el panel de Apache Spark BI](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "Lista de tablas en el panel de Apache Spark BI")
 
-8. Cree una visualización para mostrar la variación entre la temperatura objetivo y la real para cada edificio. Para visualizar los datos, seleccione **Gráfico de áreas** (se muestra en un cuadro rojo). Para definir el eje, arrastre y coloque el campo **BuildingID** en **Axis** (Eje) y los campos **ActualTemp**/**TargetTemp** en **Value** (Valor).
+8. Cree una visualización para mostrar la variación entre la temperatura objetivo y la real para cada edificio. Seleccione **Gráfico de áreas** (el icono que se muestra en el recuadro rojo), para visualizar los datos. Para definir el eje, arrastre y coloque el campo **BuildingID** en **Axis** (Eje) y los campos **ActualTemp**/**TargetTemp** en **Value** (Valor).
 
     ![Creación de visualizaciones de datos de Spark con Apache Spark BI](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "Creación de visualizaciones de datos de Spark con Apache Spark BI")
 

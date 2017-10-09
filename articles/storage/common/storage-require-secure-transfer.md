@@ -1,6 +1,6 @@
 ---
 title: Requerir transferencia segura en Azure Storage | Microsoft Docs
-description: "Obtenga información acerca de la característica \"Requerir transferencia segura\" de Azure Storage y cómo habilitarla."
+description: "Obtenga información acerca de la característica \"Se requiere transferencia segura\" de Azure Storage y cómo habilitarla."
 services: storage
 documentationcenter: na
 author: fhryo-msft
@@ -15,15 +15,15 @@ ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 96c641672ce6515fad3abc3fc0b8a6af037de346
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 5ec50ca23d9f7c92365492dfab42dc14a38699e2
 ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/28/2017
 
 ---
-# <a name="require-secure-transfer"></a>Requerir transferencia segura
+# <a name="require-secure-transfer-in-azure-storage"></a>Requerir transferencia segura en Azure Storage
 
-La opción "Se requiere transferencia segura" mejora la seguridad de su cuenta de almacenamiento, ya que solo permite enviar solicitudes a la cuenta de almacenamiento desde conexiones seguras. Por ejemplo, al llamar a las API de REST para acceder a una cuenta de almacenamiento, es preciso conectarse mediante HTTPS. Si "Se requiere transferencia segura" está habilitada, se rechazan todas las solicitudes en que se use HTTP.
+La opción "Se requiere transferencia segura" mejora la seguridad de su cuenta de almacenamiento, ya que solo permite enviar solicitudes a la cuenta desde conexiones seguras. Por ejemplo, al llamar a las API de REST para acceder a una cuenta de almacenamiento, es preciso conectarse mediante HTTPS. "Se requiere transferencia segura" rechaza las solicitudes que utilizan HTTP.
 
 Si se usa el servicio Azure Files, se produce un error en todas las conexiones sin cifrado cuando la opción "Se requiere transferencia segura" está habilitada. Aquí se incluyen los escenarios que usan SMB 2.1 y SMB 3.0 sin cifrado, y algunas versiones del cliente SMB de Linux. 
 
@@ -34,26 +34,26 @@ De forma predeterminada, la opción "Se requiere transferencia segura" está des
 
 ## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>Habilitación de "Se requiere transferencia segura" en Azure Portal
 
-La opción de "Se requiere transferencia segura" se puede habilitar cuando se crea una cuenta de almacenamiento en [Azure Portal](https://portal.azure.com)y para las cuentas de almacenamiento existentes.
+La opción de "Se requiere transferencia segura" se puede activar cuando se crea una cuenta de almacenamiento en [Azure Portal](https://portal.azure.com). También puede habilitarla para cuentas de almacenamiento existentes.
 
-### <a name="require-secure-transfer-when-you-create-a-storage-account"></a>Solicitud de transferencia segura al crear una cuenta de almacenamiento
+### <a name="require-secure-transfer-for-a-new-storage-account"></a>Solicitud de transferencia segura en una nueva cuenta de almacenamiento
 
-1. Abra la hoja **Crear cuenta de almacenamiento** en Azure Portal.
+1. Abra el panel **Crear cuenta de almacenamiento** en Azure Portal.
 1. En **Se requiere transferencia segura**, seleccione **Habilitado**.
 
-  ![captura de pantalla](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+  ![Creación de una hoja de la cuenta de almacenamiento](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>Solicitud de transferencia segura en una cuenta de almacenamiento existente
 
 1. Seleccione una cuenta de almacenamiento existente en Azure Portal.
-1. Seleccione **Configuración** en **CONFIGURACIÓN** en la hoja del menú de la cuenta de almacenamiento.
+1. En el panel de menú de la cuenta de almacenamiento, en **CONFIGURACIÓN**, seleccione **Configuración**.
 1. En **Se requiere transferencia segura**, seleccione **Habilitado**.
 
-  ![captura de pantalla](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+  ![Panel de menú de la cuenta de almacenamiento](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>Habilitación de "Se requiere transferencia segura" mediante programación
 
-El nombre del valor es _supportsHttpsTrafficOnly_ en las propiedades de la cuenta de almacenamiento. Puede habilitarlo con la API de REST, herramientas o bibliotecas:
+Para requerir una transferencia segura mediante programación, use la configuración de _supportsHttpsTrafficOnly_ en propiedades de la cuenta de almacenamiento mediante la API de REST, herramientas o bibliotecas:
 
 * [API de REST](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) (versión: 2016-12-01)
 * [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (versión: 4.1.0)
@@ -67,7 +67,7 @@ El nombre del valor es _supportsHttpsTrafficOnly_ en las propiedades de la cuent
 
 Para simplificar las pruebas con la API de REST, puede usar [ArmClient](https://github.com/projectkudu/ARMClient) para llamar desde la línea de comandos.
 
- Puede utilizar la línea de comandos siguiente para comprobar la configuración con la API de REST:
+ Utilice la siguiente línea de comandos siguiente para comprobar la configuración con la API de REST:
 
 ```
 # Login Azure and proceed with your credentials
@@ -76,7 +76,7 @@ Para simplificar las pruebas con la API de REST, puede usar [ArmClient](https://
 > armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
 ```
 
-En la respuesta, puede encontrar el valor _supportsHttpsTrafficOnly_. Sample:
+En la respuesta, puede encontrar el valor _supportsHttpsTrafficOnly_. Por ejemplo:
 
 ```Json
 
@@ -93,7 +93,7 @@ En la respuesta, puede encontrar el valor _supportsHttpsTrafficOnly_. Sample:
 
 ```
 
-Puede utilizar la línea de comandos siguiente para habilitar la configuración con la API de REST:
+Utilice la siguiente línea de comandos siguiente para habilitar la configuración con la API de REST:
 
 ```
 
@@ -104,7 +104,7 @@ Puede utilizar la línea de comandos siguiente para habilitar la configuración 
 
 ```
 
-Ejemplo de Input.json:
+A continuación se muestra un ejemplo de Input.json:
 ```Json
 
 {
@@ -117,5 +117,5 @@ Ejemplo de Input.json:
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Azure Storage proporciona un completo conjunto de funcionalidades de seguridad que, conjuntamente, permiten a los desarrolladores compilar aplicaciones seguras. Para obtener más detalles, visite la [Guía de seguridad para almacenamiento](storage-security-guide.md).
+Azure Storage proporciona un completo conjunto de funcionalidades de seguridad que, conjuntamente, permiten a los desarrolladores compilar aplicaciones seguras. Para obtener más detalles, vaya a la [Guía de seguridad para almacenamiento](storage-security-guide.md).
 

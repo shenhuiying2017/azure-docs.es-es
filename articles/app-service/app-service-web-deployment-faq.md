@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ae17a712b0b2a6ba0b9cdf4749fe2aa8b7f535fb
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: daecef7962ddee2f5e4b6a36c418619285f3ba5a
 ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la implementación en Web Apps en Azure
@@ -46,7 +46,7 @@ Para resolver este error, actualice al [SDK más reciente](https://azure.microso
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>¿Cómo se implementa una aplicación ASP.NET de Visual Studio en App Service?
 <a id="deployasp"></a>
 
-En el tutorial [Creación de una aplicación web ASP.NET en Azure](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started/) se muestra cómo implementar una aplicación web ASP.NET en una aplicación web en App Service mediante Visual Studio 2015.
+En el tutorial [Creación de una aplicación web ASP.NET en Azure](app-service-web-get-started-dotnet.md) se muestra cómo implementar una aplicación web ASP.NET en una aplicación web en App Service mediante Visual Studio 2017.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>¿Cuáles son los distintos tipos de credenciales de implementación?
 

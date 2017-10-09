@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: cfc95726c535aa49add98d700740b24bde5ea0f7
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 79d2f5265c05a1e5f83325295d3d750e1796e1cc
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -97,11 +97,11 @@ Si AD FS se ha configurado como el método de inicio de sesión _fuera_ del Asis
 
 Sí. Se admiten entornos de varios bosques si hay relaciones de confianza de bosque entre los bosques de AD y si el enrutamiento de sufijos de nombre está configurado correctamente.
 
-## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>¿Ofrecen los agentes de autenticación de paso a través la funcionalidad de equilibrio de carga?
+## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>¿Cuántos agentes de autenticación de paso a través es necesario instalar?
 
-No, la instalación de varios agentes de autenticación de paso a través solo garantiza una [alta disponibilidad](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), pero no el equilibrio de carga. Uno o dos agentes de autenticación pueden manejar la mayor parte de las solicitudes de inicio de sesión.
+La instalación de varios agentes de autenticación de paso a través garantiza una [alta disponibilidad](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Sin embargo, no proporciona equilibrio de carga. Uno o dos agentes de autenticación pueden manejar la mayor parte de las solicitudes de inicio de sesión.
 
-Las solicitudes de validación de contraseñas que los agentes de autenticación deben controlar son tareas ligeras. Por lo tanto, con un total de dos o tres agentes de autenticación se pueden manejar fácilmente las cargas máximas y las cargas medias de trabajo de la mayoría de los clientes.
+Considere la carga máxima y la carga media de las solicitudes de inicio de sesión que espera ver en el inquilino. Como referencia, un solo agente de autenticación puede controlar entre 300 000 y 400 000 autenticaciones por segundo en un servidor estándar con CPU de 4 núcleos y 16 GB de RAM. Para la mayoría de los clientes, dos o tres agentes de autenticación en total son suficientes para obtener alta disponibilidad y capacidad.
 
 Es recomendable instalar agentes de autenticación cerca de los controladores de dominio para mejorar la latencia de inicio de sesión.
 

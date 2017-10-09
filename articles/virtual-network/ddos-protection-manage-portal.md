@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2b55341a9d5107376557147913f4fb6cb3966bae
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 5c599b4cc867dbc9a081af3a081195b998f63954
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Administración de Protección contra DDoS de Azure estándar mediante Azure Portal
 
 >[!IMPORTANT]
->El servicio Protección contra DDoS de Azure estándar (Protección contra DDoS) se encuentra actualmente en la versión preliminar. El servicio Protección contra DDoS es compatible con un número limitado de recursos de Azure y en un determinado número de regiones. Necesita [registrarse en el servicio](http://aka.ms/ddosprotection) durante la versión preliminar limitada para habilitar Protección contra DDoS para su suscripción. Después de registrarse, el equipo de DDoS de Azure se pondrá en contacto con usted para guiarle en el proceso de habilitación. El servicio Protección contra DDoS está disponible en las regiones Este de EE. UU., Oeste de EE. UU. y Centro de EE. UU. Durante la versión preliminar, no se le cobrará por usar el servicio.
+>El servicio Protección contra DDoS de Azure estándar (Protección contra DDoS) se encuentra actualmente en la versión preliminar. El servicio Protección contra DDoS es compatible con un número limitado de recursos de Azure y en un determinado número de regiones. Necesita [registrarse en el servicio](http://aka.ms/ddosprotection) durante la versión preliminar limitada para habilitar Protección contra DDoS para su suscripción. Después de registrarse, el equipo de DDoS de Azure se pondrá en contacto con usted para guiarle en el proceso de habilitación. El servicio Protección contra DDoS está disponible en las regiones Este de EE. UU., Oeste de EE. UU. y Centro occidental de EE. UU. Durante la versión preliminar, no se le cobrará por usar el servicio.
 
 En este artículo se muestra cómo usar Azure Portal para habilitar y deshabilitar Protección contra DDoS, y cómo usar la telemetría para mitigar un ataque. 
 

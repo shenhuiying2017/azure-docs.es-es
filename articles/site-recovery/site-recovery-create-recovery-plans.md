@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/23/2017
+ms.date: 09/25/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 1b0d64cd592c4738311797b826e490639340f92a
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 81d8a6e3015ddc4241cce8e888d51d6e2b2cb173
 ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="create-recovery-plans"></a>Creación de planes de recuperación
@@ -26,7 +26,7 @@ ms.lasthandoff: 08/12/2017
 
 En este artículo se proporciona información sobre cómo crear y personalizar planes de recuperación en [Azure Site Recovery](site-recovery-overview.md).
 
-Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
  Cree planes de recuperación para realizar las siguientes tareas:
 
@@ -77,10 +77,13 @@ Si utiliza VMM en la implementación:
 * Asegúrese de que tiene al menos un servidor de biblioteca en la implementación de VMM. De forma predeterminada, la ruta de acceso del recurso compartido de biblioteca para un servidor VMM se encuentra localmente en el servidor VMM, con el nombre de carpeta MSCVMMLibrary.
     * Si la ruta de acceso del recurso compartido de biblioteca es remota (o local pero no se comparte con MSCVMMLibrary), configure el recurso compartido como se indica a continuación (por ejemplo, con \\\libserver2.contoso.com\share\):
       * Abra el Editor del Registro y vaya a **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-      * Edite el valor **ScriptLibraryPath** y colóquelo como \\libserver2.contoso.com\share\.. Especifique el nombre de dominio completo. Proporcione permisos a la ubicación del recurso compartido.
+      * Edite el valor **ScriptLibraryPath** y colóquelo como \\libserver2.contoso.com\share\.. Especifique el nombre de dominio completo. Proporcione permisos a la ubicación del recurso compartido. Tenga en cuenta que es el nodo raíz del recurso compartido. **Para comprobarlo, puede abrir para examinar la biblioteca en el nodo raíz en VMM. La ruta de acceso que se abre será la raíz de la ruta de acceso, la que tendrá que usar en la variable**.
       * Asegúrese de probar el script con una cuenta de usuario que tenga los mismos permisos que la cuenta del servicio VMM. Esto comprueba que los scripts probados de forma independiente se ejecuten de la misma manera que lo harán en planes de recuperación. En el servidor VMM, establezca que se omita la directiva de ejecución como se indica a continuación:
-        * Abra la consola de Windows PowerShell de 64 bits con privilegios elevados.
+        * Abra la consola de **Windows PowerShell de 64 bits** con privilegios elevados.
         * Escriba: **Set-executionpolicy bypass**. [Más información](https://technet.microsoft.com/library/ee176961.aspx).
+
+> [!IMPORTANT]
+> Debe establecer la directiva de ejecución en Omitir solo en PowerShell de 64 bits. Si se configura para PowerShell de 32 bits, los scripts no se ejecutarán.
 
 ## <a name="add-a-script-or-manual-action-to-a-plan"></a>Incorporación de un script o una acción manual a un plan
 

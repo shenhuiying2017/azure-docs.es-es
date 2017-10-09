@@ -16,10 +16,10 @@ ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ebafcb2463bc92f15c1299963e054fcddd47b0b3
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: c1b3feb79328269f4692d744e7a473397d0328c1
 ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="web-apps-overview"></a>Introducción a Aplicaciones web
@@ -40,7 +40,7 @@ En el Servicio de aplicaciones, una *aplicación web* son recursos de procesos q
 
 Los recursos de procesos pueden ser máquinas virtuales compartidas o dedicadas, según el plan de tarifa que elija. El código de la aplicación se ejecuta en una máquina virtual administrada que se aísla de otros clientes.
 
-El código puede utilizar cualquier lenguaje o marco que sea compatible con el [Servicio de aplicaciones de Azure](../app-service/app-service-web-overview.md), como ASP.NET, Node.js, Java, PHP o Python. También puede ejecutar scripts que usen [PowerShell y otros lenguajes de scripting](web-sites-create-web-jobs.md#acceptablefiles) en una aplicación web.
+El código puede utilizar cualquier lenguaje o marco que sea compatible con Azure App Service, como ASP.NET, Node.js, Java, PHP o Python. También puede ejecutar scripts que usen [PowerShell y otros lenguajes de scripting](web-sites-create-web-jobs.md#acceptablefiles) en una aplicación web.
 
 Para obtener ejemplos de escenarios de aplicación típicos en los que puede usar Web Apps, consulte [Escenarios de aplicaciones web](https://azure.microsoft.com/documentation/scenarios/web-app/) y la sección **Escenarios y recomendaciones** de [Comparación de Azure App Service, Virtual Machines, Service Fabric y Cloud Services](choose-web-site-cloud-service-vm.md#scenarios).
 

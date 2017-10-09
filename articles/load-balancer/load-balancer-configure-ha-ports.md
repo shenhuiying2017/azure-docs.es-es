@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 17fee798661b7db4f9933684fceefbfed51409cd
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Configuración de puertos de alta disponibilidad para el equilibrador de carga interno
 
 En este artículo se proporciona un ejemplo de implementación de puertos de alta disponibilidad en un equilibrador de carga interno. Para configuraciones específicas de dispositivos virtuales de red, consulte los sitios web del proveedor correspondiente.
+
+>[!NOTE]
+> La característica Puertos de alta disponibilidad actualmente está en versión preliminar. Durante la versión preliminar, la característica podría no tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En la figura 1 se muestra la configuración del ejemplo de implementación siguiente que se describe en este artículo:
 - Los dispositivos virtuales de red se implementan en el grupo back-end de un equilibrador de carga interno detrás de la configuración de los puertos de alta disponibilidad. 
@@ -37,6 +40,22 @@ En la figura 1 se muestra la configuración del ejemplo de implementación sigui
 ![implementación de puertos de alta disponibilidad de ejemplo](./media/load-balancer-configure-ha-ports/haports.png)
 
 Figura 1: Dispositivos virtuales de red implementados detrás de un equilibrador de carga interno con puertos de alta disponibilidad 
+
+## <a name="preview-sign-up"></a>Registro en versión preliminar
+
+Para participar en la versión preliminar de la característica de puertos de alta disponibilidad en la SKU estándar de Load Balancer, registre su suscripción para obtener acceso mediante PowerShell o la CLI de Azure 2.0.
+
+- Registro con PowerShell
+
+   ```powershell
+   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- Registro con la CLI de Azure 2.0
+
+    ```cli
+  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
+    ```
 
 ## <a name="configuring-ha-ports"></a>Configuración de puertos de alta disponibilidad
 

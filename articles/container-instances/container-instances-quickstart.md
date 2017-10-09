@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 09/26/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 012a48410bb08cb54f42a4f87e952f67ad18c112
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 71a16c71a18b63efe039d3a47ab6f2ce7244caba
 ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -41,7 +41,7 @@ Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido e
 
 Azure Container Instances son recursos de Azure y se deben colocar en un grupo de recursos de Azure, una colección lógica en la que se implementan y administran los recursos de Azure.
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#create).
+Cree un grupo de recursos con el comando [az group create][az-group-create].
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
@@ -51,13 +51,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Para crear un contenedor debe especificar un nombre, una imagen de Docker y un grupo de recursos de Azure. Dicho contenedor se puede exponer opcionalmente a Internet con una dirección IP pública. En este caso, se va a usar un contenedor que hospeda una aplicación web muy simple escrita en [Node.js](http://nodejs.org).
+Para crear un contenedor debe especificar un nombre, una imagen de Docker y un grupo de recursos de Azure para el comando [az container create][az-container-create]. Dicho contenedor se puede exponer opcionalmente a Internet con una dirección IP pública. En este caso, se va a usar un contenedor que hospeda una aplicación web muy simple escrita en [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public
 ```
 
-En pocos segundos, debería obtener una respuesta a su solicitud. Inicialmente, el contenedor estará en un estado de **creación**, pero debería comenzar en pocos segundos. Para comprobar el estado, use el comando `show`:
+En pocos segundos, debería obtener una respuesta a su solicitud. Inicialmente, el contenedor estará en un estado de **creación**, pero debería comenzar en pocos segundos. Para comprobar el estado, use el comando [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
@@ -87,7 +87,7 @@ Una vez que el contenedor pasa al estado **Correcto**, se puede acceder a él de
 
 ## <a name="pull-the-container-logs"></a>Extracción de los registros del contenedor
 
-Para extraer los registros del contenedor que creó, utilice el comando `logs`:
+Puede extraer los registros del contenedor que creó con el comando [az container logs][az-container-logs]:
 
 ```azurecli-interactive
 az container logs --name mycontainer --resource-group myResourceGroup
@@ -103,7 +103,7 @@ listening on port 80
 
 ## <a name="delete-the-container"></a>Eliminación del contenedor
 
-Cuando haya terminado con el contenedor, puede eliminarlo con el comando `delete`:
+Cuando haya terminado con el contenedor, puede eliminarlo con el comando [az container delete][az-container-delete]:
 
 ```azurecli-interactive
 az container delete --name mycontainer --resource-group myResourceGroup
@@ -119,6 +119,13 @@ Todo el código del contenedor utilizado en esta guía de inicio rápido está d
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
+[az-group-create]: /cli/azure/group?view=azure-cli-latest#az_group_create
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
+[az-container-delete]: /cli/azure/container?view=azure-cli-latest#az_container_delete
+[az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
+[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

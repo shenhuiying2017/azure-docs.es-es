@@ -15,10 +15,10 @@ ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: bf62fb21dfac99038e3b3759d9e78c6870f52f9e
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: ba236ad1327a7f3419d7c8cf7effc889a90dde61
 ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -111,6 +111,17 @@ ProxyPassword="Password"
   >[!WARNING]
   Si tiene conectados a este servidor de configuración de servidores de procesos de escalado horizontal, deberá [corregir la configuración del proxy de todos los servidores de proceso de escalado horizontal](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) de su implementación.
 
+## <a name="modify-user-accounts-and-passwords"></a>Modificación de las cuentas de usuario y contraseñas
+
+El archivo CSPSConfigTool.exe se utiliza para administrar las cuentas de usuario utilizadas para la **detección automática de máquinas virtuales de VMware** y para llevar a cabo la **instalación de inserción de Mobility Service en máquinas protegidas**. 
+
+1. Inicie sesión en el servidor de configuración.
+2. Inicie CSPSConfigtool.exe haciendo clic en el acceso directo disponible en el escritorio.
+3. Haga clic en la pestaña **Administrar cuentas**.
+4. Seleccione la cuenta para la que debe modificarse la contraseña y haga clic en el botón **Editar**.
+5. Escriba la nueva contraseña y haga clic en **Aceptar**.
+
+
 ## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>Volver a registrar un servidor de configuración con el mismo almacén de Recovery Services
   1. Inicie sesión en el servidor de configuración.
   2. Inicie el archivo cspsconfigtool.exe mediante el acceso directo del escritorio.
@@ -132,6 +143,10 @@ ProxyPassword="Password"
   Si tiene conectados servidores de procesos de escalado horizontal a este servidor de configuración, debe [volver a registrar todos los servidores de proceso de escalado horizontal](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) de su implementación.
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>Registro de un servidor de configuración con un almacén de Recovery Services diferente
+
+> [!WARNING]
+> El siguiente conjunto de pasos desasocia la configuración del almacén actual y se detendrá la replicación de todas las máquinas virtuales protegidas en el servidor de configuración.
+
 1. Inicie sesión en el servidor de configuración.
 2. En el símbolo del sistema de administrador, ejecute el comando
 
@@ -157,7 +172,7 @@ ProxyPassword="Password"
 ## <a name="updating-a-configuration-server"></a>Actualización de un servidor de configuración
 
 > [!WARNING]
-> Las actualizaciones solo se admiten hasta la versión N-4. Por ejemplo, si la versión más reciente en el mercado es la 9.11, a continuación, puede realizar la actualización de las versiones 9.10, 9,9, 9.8 o 9.7 directamente a la 9.11. Pero si su versión es la 9.6, o cualquier anterior, tendrá que actualizarla, como mínimo, a la 9.7 para poder aplicar las últimas actualizaciones al servidor de configuración. Los vínculos descarga de la versión anterior se pueden encontrar en [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) (Actualizaciones del servicio Azure Site Recovery)
+> Las actualizaciones solo se admiten hasta la versión N-4. Por ejemplo, si la versión más reciente en el mercado es la 9.11, a continuación, puede realizar la actualización de las versiones 9.10, 9,9, 9.8 o 9.7 directamente a la 9.11. Pero si su versión es la 9.6, o cualquier anterior, tendrá que actualizarla, como mínimo, a la 9.7 para poder aplicar las últimas actualizaciones al servidor de configuración. Los vínculos descarga de la versión anterior se pueden encontrar en [Azure Site Recovery service updates](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) (Actualizaciones del servicio Azure Site Recovery).
 
 1. Descargue al instalador de actualizaciones en el servidor de configuración.
 2. Para iniciar el instalador, haga doble clic en él.
@@ -227,6 +242,17 @@ La validez del certificado SSL para todas las instalaciones que han sucedido ant
 
   >[!TIP]
   Si, en lugar del botón **Renovar ahora**, ve un botón **Actualizar ahora**, significa que hay algunos componentes en su entorno que aún no se han actualizado a 9.4.xxxx.x o versiones superiores.
+
+## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>Renovación de un servidor de configuración si el certificado de Capa de sockets seguros (SSL) ha expirado
+
+1. Actualice el servidor de configuración a la [versión más reciente](http://aka.ms/unifiedinstaller).
+2. Si dispone de servidores de proceso de escalado horizontal, servidores de destino maestro para la conmutación por recuperación y servidores de proceso de conmutación por recuperación, actualícelos a la versión más reciente.
+3. Actualice Mobility Service en todas las máquinas virtuales protegidas a la versión más reciente.
+4. Inicie sesión en el servidor de configuración y abra un símbolo del sistema con privilegios de administrador.
+5. Vaya a la carpeta %ProgramData%\ASR\home\svsystems\bin.
+6. Ejecute RenewCerts.exe para renovar el certificado SSL en el servidor de configuración.
+7. Si el proceso es correcto, debe ver el mensaje "Certificate renewal is Success" (Renovación correcta del certificado).
+
 
 ## <a name="sizing-requirements-for-a-configuration-server"></a>Requisitos de tamaño de un servidor de configuración
 

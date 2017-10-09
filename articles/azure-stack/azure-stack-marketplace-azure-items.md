@@ -15,13 +15,15 @@ ms.topic: article
 ms.date: 8/11/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: aec0c8a7d5d0c219e5550e0a8aa9ecfa936ab051
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: ad65d0fe93a0b67772521c9020c288d0698a8cf0
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementos de Azure Marketplace disponibles para Azure Stack
+
+*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
 
 Microsoft Azure Stack es compatible con los siguientes elementos de Azure Marketplace:
 
@@ -118,7 +120,7 @@ Microsoft Azure Stack es compatible con los siguientes elementos de Azure Market
 | ![](media/azure-stack-marketplace-azure-items/resourcespace.png) | [ResourceSpace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.resourcespace?tab=Overview) | Sistema de administración de activos digitales para mejorar la colaboración. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.roundcube?tab=Overview) | Cliente IMAP basado en explorador con funcionalidad, como compatibilidad con MIME. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.rubystack?tab=Overview) | Entorno de desarrollo fácil de usar para Ruby on Rails. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO Panel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.seopanel?tab=Overview) | Aplicación de administración de SEO de código abierto para el seguimiento de varias páginas web. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO Panel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.seopanel?tab=Overview) | Aplicación de administración de SEO de código abierto para el seguimiento de varios sitios web. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/shopware.png) | [Shopware](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.shopware?tab=Overview) | Plataforma de comercio electrónico de código abierto. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Simple Machines Forum](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.simplemachinesforum?tab=Overview) | Software de foros sencillo para crear su propia comunidad en línea. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/spree.png) | [Spree](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.spree?tab=Overview) | Plataforma de comercio electrónico fácil de usar. | Bitnami |

@@ -16,16 +16,16 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 2943e0b119726b31dd6e6507d279f6c8f74df98b
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
-# <a name="get-started-using-cloud-app-discovery-in-azure-ad"></a>Introducción al uso de Cloud App Discovery en Azure AD
+# <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configuración de Cloud App Discovery en Azure Active Directory
 
-La versión preliminar pública de las mejoras de Cloud App Discovery en Azure AD ahora está disponible con una licencia P1 de Azure Active Directory Premium. Estas mejoras se basan en la integración con Microsoft Cloud App Security. Cloud App Discovery compara los registros de tráfico con el catálogo de Cloud App Security de más de 15 000 aplicaciones de nube para proporcionar información continua sobre el uso de la nube y shadow IT. 
+Las nuevas mejoras de Cloud App Discovery en Azure AD ya están disponibles con una licencia P1 de Azure Active Directory Premium. Estas mejoras se basan en la integración con Microsoft Cloud App Security. Cloud App Discovery compara los registros de tráfico con el catálogo de Cloud App Security de más de 15 000 aplicaciones de nube para proporcionar información continua sobre el uso de la nube y shadow IT. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,14 +33,14 @@ Su organización debe tener una licencia P1 de Azure AD Premium para usar el pro
 
 Para configurar Cloud App Discovery, debe ser un administrador global o un Lector de seguridad de Azure Active Directory. Un usuario con el rol de administrador tiene los mismos permisos en todas las aplicaciones de la nube a la que se ha suscrito su organización.
 
-## <a name="snapshot-and-continuous-reports"></a>Instantánea e informes continuados
+## <a name="setup-steps"></a>Pasos de configuración
 
-Puede generar dos tipos de informes:
+1. [Configure los informes de instantánea](cloudappdiscovery-set-up-snapshots.md) para comprobar el formato del registro, a fin de asegurarse de que los registros proporcionan información útil a Cloud App Discovery. También pueden proporcionar visibilidad ad hoc en los registros de tráfico que ha cargado manualmente desde los firewalls y servidores proxy.
 
-* Los **informes de instantáneas** proporcionan visibilidad ad hoc en los registros de tráfico que ha cargado manualmente desde los firewalls y servidores proxy. Puede utilizarlos para asegurarse de que los registros proporcionan información útil a Cloud App Discovery.
+2. [Configure informes continuos](https://docs.microsoft.com/cloud-app-security/discovery-docker) para analizar todos los registros que se desvían desde su red mediante el recopilador de registros de Cloud App Security. Puede utilizarlos para identificar nuevas aplicaciones y tendencias de uso.
 
-* Los **informes continuos** analizan todos los registros que se desvían desde su red mediante el [recopilador de registros de Cloud App Security](https://docs.microsoft.com/cloud-app-security/discovery-docker). Puede utilizarlos para identificar nuevas aplicaciones y tendencias de uso.
-
+3. Si los registros no se admiten actualmente, [configure un analizador de registros personalizado](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser) para que Cloud App Discovery pueda analizarlos.
+  
 ## <a name="log-processing-flow"></a>Flujo de proceso de registros
 
 La generación de informes puede tardar de unos minutos a varias horas, según la cantidad de datos. Esto es lo que se analiza:
@@ -134,8 +134,8 @@ Si no se admite el registro, seleccione **Otros** como el **origen de datos** y 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Use los vínculos siguientes para configurar el módulo mejorado de Cloud App Discovery en Azure AD.
+Use los vínculos siguientes para continuar con la configuración de Cloud App Discovery en Azure AD.
 
-* [Creación de informes de instantánea de Cloud App Discovery](cloudappdiscovery-set-up-snapshots.md)
-* [Configuración de la carga de registro automático para la creación de informes continuos](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [Creación de informes de instantánea](cloudappdiscovery-set-up-snapshots.md)
+* [Configuración de informes continuos](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Uso de un analizador de registros personalizado](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/18/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: f22bd42302b96118dba0d4e5e387c6798a0b8777
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 45953b4512cb2f602edbd837e62b9344c4211d03
 ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights 
@@ -87,9 +87,9 @@ En este escenario se ejecuta una captura especial del contador de rendimiento ju
 | E/S         | Solicitudes de datos por segundo             |
 |              | Solicitudes de lectura por segundo             |
 |              | Solicitudes de escritura por segundo            |
-| Latency      | Prom. de segundos/solicitud de datos         |
-|              | Prom. de segundos/lectura                 |
-|              | Prom. de segundos/escritura                |
+| Latency      | Media de solicitud de datos por segundo         |
+|              | Media de lectura por segundo                 |
+|              | Media de escritura por segundo                |
 | Tamaño de E/S      | Prom. de bytes/solicitud de datos       |
 |              | Prom. de bytes/lectura               |
 |              | Prom. de bytes/escritura              |
@@ -110,7 +110,7 @@ Al ejecutar una configuración personalizada, todos los seguimientos (diagnósti
 
 ## <a name="what-kind-of-information-is-collected-by-the-script"></a>¿Qué tipo de información recopila el script?
 
-Se recopila información sobre la máquina virtual con Windows, configuración de discos o bloques de almacenamiento, contadores de rendimiento, registros y diferentes seguimientos, según el escenario de rendimiento que se use:
+Se recopila información sobre la máquina virtual de Windows, la configuración de discos o bloques de almacenamiento, contadores de rendimiento, registros y diferentes seguimientos, según el escenario de rendimiento que se use:
 
 |Datos recopilados                              |  |  | Escenarios de rendimiento |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|

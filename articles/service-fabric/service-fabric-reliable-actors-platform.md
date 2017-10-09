@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 09/20/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 0a12da52b6e74c721cd25f89e7cde3c07153a396
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
 ms.contentlocale: es-es
-ms.lasthandoff: 04/14/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Uso de la plataforma Service Fabric por parte de actores confiables
@@ -31,7 +31,7 @@ En este artículo se explica cómo funciona Reliable Actors en la plataforma de 
 En conjunto, estos componentes forman el marco de trabajo de Reliable Actor.
 
 ## <a name="service-layering"></a>Servicio en capas
-Debido a que el propio servicio de actor es de tipo Reliable Services, todos los conceptos de [modelo de aplicación](service-fabric-application-model.md), ciclo de vida, [empaquetado](service-fabric-package-apps.md), [implementación](service-fabric-deploy-remove-applications.md), actualización y escalado de Reliable Services se aplican del mismo modo a los servicios de actor. 
+Debido a que el propio servicio de actor es de tipo Reliable Services, todos los conceptos de [modelo de aplicación](service-fabric-application-model.md), ciclo de vida, [empaquetado](service-fabric-package-apps.md), [implementación](service-fabric-deploy-remove-applications.md), actualización y escalado de Reliable Services se aplican del mismo modo a los servicios de actor.
 
 ![Servicio de actor en capas][1]
 
@@ -372,6 +372,35 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ```
 
 Cuando se usan GUID/UUID y cadenas, se aplica un algoritmo hash a los valores en un Int64. Sin embargo, cuando se brinda explícitamente un valor Int64 a una clase `ActorId`, el valor Int64 se asignará directamente a una partición sin otra aplicación del algoritmo hash. Puede usar esta técnica para controlar en qué partición se ubican los actores.
+
+## <a name="actor-using-remoting-v2-stack"></a>Actor que utiliza la pila de comunicación remota V2
+Con el paquete de NuGet 2.8, los usuarios ahora pueden utilizar la pila de comunicación remota V2, que tiene un mejor rendimiento y proporciona características como la serialización personalizada. La comunicación remota V2 no es compatible con la pila de comunicación remota existente (en adelante, la llamaremos la pila de comunicación remota V1).
+
+Los cambios siguientes son necesarios para usar la pila de comunicación remota V2.
+ 1. Agregue el siguiente atributo de ensamblado en las interfaces de actor.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   ```
+
+ 2. Compile y actualice los proyectos ActorService y Actor Client para empezar a usar la pila V2.
+
+### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Actualización del servicio de actor a la pila de comunicación remota V2 sin afectar a la disponibilidad del servicio
+Este cambio consiste en una actualización en dos pasos. Siga los pasos en la misma secuencia que se muestra.
+
+1.  Agregue el siguiente atributo de ensamblado en las interfaces de actor. Este atributo iniciará dos agentes de escucha para ActorService, el agente de escucha V1 (existente) y V2. Actualice ActorService con este cambio.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  ```
+
+2. Actualice ActorClients después de completar la actualización anterior.
+Este paso se asegura de que el proxy del actor use la pila de comunicación remota V2.
+
+3. Este paso es opcional. Cambie el atributo anterior para quitar el agente de escucha V1.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administración de estados de los actores](service-fabric-reliable-actors-state-management.md)

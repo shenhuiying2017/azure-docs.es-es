@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 95f14f2b77565b53c6e270f6afbf9873cdac606a
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 4abfdcc0a50c229555088dff0ac2c00c15f49218
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creación e instalación de archivos de configuración de cliente VPN para configuraciones de punto a sitio con autenticación con certificados nativos de Azure
@@ -45,26 +45,29 @@ Los archivos de configuración de cliente VPN están contenidos en un archivo zi
 
 Antes de comenzar, asegúrese de que todos los usuarios que se vayan a conectar tienen un certificado válido instalado en el dispositivo del usuario. Para más información acerca de cómo instalar un certificado de cliente, consulte el artículo sobre la [instalación de certificados de cliente](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
+Para generar archivos de configuración de cliente, puede usar PowerShell o Azure Portal. Cualquiera de los métodos devuelve el mismo archivo ZIP. Descomprima el archivo para ver las siguientes carpetas:
+
+  * **WindowsAmd64** y **WindowsX86**, que contienen los paquetes del instalador de Windows de 32 y 64 bits, respectivamente. El paquete del instalador **WindowsAmd64** es para todos los clientes de Windows de 64 bits, no solo de AMD.
+  * La carpeta **Genérico** contiene información general que usará para crear su propia configuración de cliente VPN, Ignórela. La carpeta Genérico se proporciona si se ha configurado la opción IKEv2 o SSTP + IKEv2 en la puerta de enlace. Si solo se ha configurado SSTP, la carpeta Genérico no aparece.
+
+### <a name="zipportal"></a>Generación de archivos mediante Azure Portal
+
+1. En Azure Portal, navegue a la puerta de enlace de red virtual correspondiente a la red virtual a la que desea conectarse.
+2. En la página de la puerta de enlace de red virtual, haga clic en **Configuración de punto a sitio**.
+3. En la parte superior de la página Configuración de punto a sitio, haga clic en **Download VPN client** (Descargar cliente de VPN). La generación del paquete de configuración del cliente tarda unos minutos.
+4. El explorador indica que hay disponible un archivo ZIP de configuración del cliente. Tiene el mismo nombre que su puerta de enlace. Descomprima el archivo para ver las carpetas.
+
+### <a name="zipps"></a>Generación de archivos mediante PowerShell
+
 1. Al generar archivos de configuración de cliente VPN, el valor de "-AuthenticationMethod" es "EapTIs". Genere los archivos de configuración de cliente VPN con el comando siguiente:
 
   ```powershell
-  New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls"
+  $profile=New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
+
+  $profile.VPNProfileSASUrl
   ```
-2. El comando anterior devuelve un vínculo que se usa para descargar los archivos de configuración del cliente. Copie y pegue el vínculo en un explorador web para descargar el archivo "VpnClientConfiguration.zip". Descomprima el archivo para ver las siguientes carpetas:
+2. Copie la dirección URL en el explorador para descargar el archivo ZIP y, luego, descomprima el archivo para ver las carpetas.
 
-  * **WindowsAmd64** y **WindowsX86**, que contienen los paquetes del instalador de Windows de 32 y 64 bits, respectivamente. El paquete del instalador **WindowsAmd64** es para todos los clientes de Windows de 64 bits, no solo de AMD.
-  * La carpeta **Genérico** contiene información general que usará para crear su propia configuración de cliente VPN, Ignórela. La carpeta Genérico se proporciona únicamente si se ha configurado la opción IKEv2 o SSTP + IKEv2 en la puerta de enlace. Si solo se ha configurado SSTP, la carpeta Genérico no aparece.
-
-### <a name="to-retrieve-client-configuration-files"></a>Recuperación de los archivos de configuración de cliente
-
-Si ya ha generado los archivos de configuración de cliente y solo necesita recuperarlos, puede usar el cmdlet "Get-AzureRmVpnClientConfiguration". El cmdlet "Get-AzureRmVpnClientConfiguration" devuelve una dirección URL (vínculo) desde donde puede descargar el archivo VpnClientConfiguration.zip. Si realiza cambios en la configuración de VPN de punto a sitio, como el tipo de protocolo de VPN o de autenticación, la configuración no se actualiza automáticamente. En su lugar, debe ejecutar el cmdlet "New-AzureRmVpnClientConfiguration" para volver a crear la configuración.
-
-Para recuperar los archivos de configuración de cliente generados anteriormente, use el ejemplo siguiente:
-
-```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW"
-```
- 
 ## <a name="installwin"></a>Instalación del paquete de configuración de cliente VPN de Windows
 
 Puede utilizar el mismo paquete de configuración de cliente VPN en todos los equipos cliente Windows, siempre que la versión coincida con la arquitectura del cliente. Para la lista de sistemas operativos de cliente compatibles, consulte la sección de punto a sitio de las [preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md#P2S).
@@ -77,7 +80,7 @@ Use estos pasos para configurar al cliente VPN de Windows nativo para la autenti
 
 ## <a name="installmac"></a>Instalación de la configuración de cliente VPN de Mac (OSX)
 
-Para todos los dispositivos Mac que se conecten a una red virtual de Azure, se debe crear una configuración de cliente VPN independiente. No se pueden reutilizar archivos de configuración para varios dispositivos Mac. Esto es porque, para estos dispositivos, debe especificar el certificado de usuario en los archivos de configuración de cliente VPN. La carpeta **Genérico** contiene toda la información necesaria para crear la configuración de cliente VPN, que son los archivos siguientes:
+Para todos los dispositivos Mac que se conecten a una red virtual de Azure, se debe crear una configuración de cliente VPN independiente. No se pueden reutilizar archivos de configuración para varios dispositivos Mac. Esto es porque, para estos dispositivos, debe especificar el certificado de usuario en los archivos de configuración de cliente VPN. La carpeta **Genérico** contiene toda la información necesaria para crear la configuración de cliente VPN, Si no ve la carpeta Genérico en la descarga, es posible que IKEv2 no se haya seleccionado como tipo de túnel. Una vez que se seleccione IKEv2, vuelva a generar el archivo ZIP para recuperar la carpeta Genérico. que son los archivos siguientes:
 
 * **VpnSettings.xml**, con configuración importante, como el tipo de túnel y la dirección del servidor. 
 * **VpnServerRoot.cer**, con el certificado raíz necesario para validar la puerta de enlace de VPN de Azure durante la instalación de la conexión de punto a sitio.
@@ -105,7 +108,7 @@ Haga clic en **Agregar** para importarlo.
 6. En **Choose An Identity** (Elegir una identidad) se muestra una lista de certificados para elegir. Seleccione el certificado adecuado y haga clic en **Continuar**.
 
   ![identidad](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
-7. En el campo **Id. local**, especifique el nombre del certificado (del paso 5). En este ejemplo, es "ikev2Client.com". A continuación, haga clic en el botón **Aplicar** para guardar los cambios.
+7. En el campo **Id. local**, especifique el nombre del certificado (del paso 6). En este ejemplo, es "ikev2Client.com". A continuación, haga clic en el botón **Aplicar** para guardar los cambios.
 
   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 8. En el cuadro de diálogo **Red**, haga clic en **Aplicar** para guardar los cambios. A continuación, haga clic en **Conectar** para iniciar la conexión de punto a sitio a la red virtual de Azure.
@@ -113,3 +116,4 @@ Haga clic en **Agregar** para importarlo.
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vuelva al artículo para [completar la configuración de la conexión de punto a sitio](vpn-gateway-howto-point-to-site-rm-ps.md).
+

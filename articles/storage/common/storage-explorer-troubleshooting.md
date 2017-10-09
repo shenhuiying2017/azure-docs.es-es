@@ -11,14 +11,14 @@ ms.service: virtual-machines
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: ba8a02e2faaa0affd68feebd2ae5efe64cded93f
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
 ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -67,7 +67,7 @@ Si no se encuentra ningún certificado autofirmado siguiendo los pasos anteriore
 
 Si no puede recuperar las suscripciones después de iniciar la sesión correctamente, siga estos pasos para solucionar este problema:
 
-- Compruebe que la cuenta tiene acceso a las suscripciones al iniciar sesión en el Azure Portal.
+- Verifique que la cuenta tiene acceso a las suscripciones al iniciar sesión en Azure Portal.
 
 - Asegúrese de que ha iniciado sesión usando el entorno correcto (Azure, Azure China, Azure Alemania, Azure US Government, o entorno personalizado o Azure Stack).
 

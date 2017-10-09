@@ -1,6 +1,6 @@
 ---
-title: "Creación de un clúster de Service Fabric en Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo crear un clúster de Windows en Azure mediante una plantilla."
+title: "Creación de un clúster de Azure Service Fabric en Azure | Microsoft Docs"
+description: "Obtenga información sobre cómo implementar un clúster de Azure Service Fabric con Linux en una instancia existente de Azure Virtual Network mediante PowerShell."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,32 +12,32 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5d56fd468998ee4b1253b47aa133812e0141062b
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 7cee4f8d68062dcfd2b6f61d55319160a2a80a98
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
-# <a name="deploy-a-secure-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Windows de Service Fabric seguro en una red virtual de Azure
-Este tutorial es la primera parte de una serie. Obtendrá información sobre cómo crear un clúster de Service Fabric (Windows) en ejecución en Azure y cómo implementarlo en una red virtual (VNET) y una subred existentes. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones.  Para crear un clúster de Linux, consulte [Create a secure Linux cluster on Azure using a template](service-fabric-tutorial-create-vnet-and-linux-cluster.md) (Creación de un clúster de Linux seguro en Azure mediante una plantilla).
+# <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Windows de Service Fabric en una red virtual de Azure
+Este tutorial es la primera parte de una serie. Obtendrá información sobre cómo implementar un clúster de Azure Service Fabric con Linux en una instancia existente de Azure Virtual Network (VNET) y en una subred mediante PowerShell. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones.  Para crear un clúster de Linux con la CLI de Azure, consulte [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) (Creación de un clúster de Linux seguro en Azure).
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de una red virtual en Azure mediante una plantilla
+> * Crear una red virtual en Azure mediante PowerShell
 > * Creación de un almacén de claves y carga de un certificado
-> * Creación de un clúster de Service Fabric seguro en Azure mediante una plantilla
+> * Crear un clúster de Service Fabric seguro en Azure PowerShell
 > * Protección del clúster con un certificado X.509
 > * Conexión a un clúster con PowerShell
 > * Eliminación de un clúster
 
 En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
-> * Creación de un clúster seguro en Azure mediante una plantilla
+> * Crear un clúster seguro en Azure
 > * [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -46,10 +46,7 @@ Antes de empezar este tutorial:
 - Instale el [SDK de Service Fabric y el módulo de PowerShell](service-fabric-get-started.md).
 - Instale la [versión 4.1 o superior del módulo de Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
-Los siguientes procedimientos crean un clúster de Service Fabric de cinco nodos. El clúster está protegido por un certificado autofirmado colocado en un almacén de claves. 
-
-Para calcular el costo producido por la ejecución de un clúster de Service Fabric en Azure, use la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/).
-Para más información sobre la creación de clústeres de Service Fabric, consulte el artículo [Creación de un clúster de Service Fabric con Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
+Los siguientes procedimientos crean un clúster de Service Fabric de cinco nodos. Para calcular el costo producido por la ejecución de un clúster de Service Fabric en Azure, use la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/).
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Inicio de sesión en Azure y selección de la suscripción
 En esta guía se usa Azure PowerShell. Al iniciar una nueva sesión de PowerShell, inicie sesión en su cuenta de Azure y seleccione su suscripción antes de ejecutar comandos de Azure.
@@ -181,33 +178,17 @@ Write-Host "Certificate Thumbprint: " $output.CertificateThumbprint
 ```
 
 ## <a name="deploy-the-service-fabric-cluster"></a>Implementación del clúster de Service Fabric
-Una vez implementados los recursos de red y cargado un certificado en un almacén de claves, el siguiente paso es implementar un clúster de Service Fabric a la red virtual, en la subred y el grupo de seguridad de red designados para el clúster de Service Fabric. Para este tutorial, la plantilla de Resource Manager para Service Fabric está preconfigurada para los nombres de la red virtual, la subred y el grupo de seguridad de red que configuró en un paso anterior.
-
-Descargue la plantilla de Resource Manager y el archivo de parámetros siguientes:
+Una vez implementados los recursos de red, el siguiente paso es implementar un clúster de Service Fabric a la red virtual, en la subred y el grupo de seguridad de red designados para el clúster de Service Fabric. La implementación de un clúster en una red virtual y subred (implementada anteriormente en este artículo) existentes requiere una plantilla de Resource Manager.  Para más información, vea [Creación de un clúster con Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Para esta serie de tutoriales, la plantilla está preconfigurada para usar los nombres de la red virtual, la subred y el grupo de seguridad de red que configuró en un paso anterior.  Descargue la plantilla de Resource Manager y el archivo de parámetros siguientes:
 - [cluster.json][cluster-arm]
 - [cluster.parameters.json][cluster-parameters-arm]
 
-Rellene los parámetros vacíos del archivo `cluster.parameters.json` para la implementación, incluida la [información del almacén de claves](service-fabric-cluster-creation-via-arm.md#set-up-a-key-vault) para el certificado del clúster.
+Complete los parámetros **clusterName**, **adminUserName**, **adminPassword**, **certificateThumbprint**, **certificateUrlValue** y **sourceVaultValue** vacíos en el archivo *cluster.parameters.json* para la implementación.  Si tiene un certificado existente cargado previamente en un almacén de claves, complete los valores **certificateThumbprint**, **certificateUrlValue** y **sourceVaultValue** para ese certificado.
 
 Use el siguiente comando de PowerShell para implementar la plantilla de Resource Manager y los archivos de parámetros para crear el clúster de Service Fabric:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
 ```
-
-## <a name="modify-the-certificate--access-service-fabric-explorer"></a>Modificación del certificado y acceso a Service Fabric Explorer 
-
-1. Haga doble clic en el certificado para abrir el Asistente para importar certificados.
-
-2. Utilice los valores predeterminados, pero asegúrese de activar la casilla **Marcar esta clave como exportable** en el paso de **protección de clave privada**. Visual Studio debe exportar el certificado al configurar Azure Container Registry para la autenticación de clúster de Service Fabric más adelante en este tutorial.
-
-3. Ahora puede abrir Service Fabric Explorer en un explorador. Para ello, vaya a la URL de **ManagementEndpoint** del clúster utilizando un explorador web y seleccione el certificado que guardó en la máquina.
-
->[!NOTE]
->Al abrir Service Fabric Explorer, verá un error de certificado, ya que está usando un certificado autofirmado. En Edge, debe hacer clic en *Detalles* y, luego, en el vínculo *Acceder a la página web*. En Chrome, debe hacer clic en *Avanzadas* y, luego, en el vínculo *continuar*.
-
->[!NOTE]
->Si se produce un error en la creación del clúster, siempre puede volver a ejecutar el comando, lo que actualiza los recursos ya implementados. Si se creó un certificado como parte de la implementación con errores, se genera uno nuevo. Para solucionar problemas de creación del clúster, consulte [Creación de un clúster de Service Fabric con Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="connect-to-the-secure-cluster"></a>Conexión al clúster seguro
 Conéctese al clúster mediante el módulo PowerShell de Service Fabric instalado con el SDK de Service Fabric.  En primer lugar, instale el certificado en el almacén personal (Mi) del usuario actual en el equipo.  Ejecute el siguiente comando de PowerShell:
@@ -237,13 +218,8 @@ Compruebe que está conectado y que el estado del clúster es correcto mediante 
 Get-ServiceFabricClusterHealth
 ```
 
-```azurecli
-sfctl cluster health
-```
-
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Un clúster está formado por muchos otros recursos de Azure, además del propio recurso del clúster. La manera más sencilla de eliminar el clúster y todos los recursos que consume es eliminar el grupo de recursos.
+En el resto de artículos de esta serie de tutoriales se usa el clúster que se acaba de crear. Si no va a pasar inmediatamente al siguiente artículo, puede eliminar el clúster para evitar incurrir en cargos. La manera más sencilla de eliminar el clúster y todos los recursos que consume es eliminar el grupo de recursos.
 
 Inicie sesión en Azure y seleccione el identificador de suscripción con el que quiere quitar el clúster.  Para encontrar el identificador de suscripción, inicie sesión en [Azure Portal](http://portal.azure.com). Elimine el grupo de recursos y todos los recursos de clúster mediante el cmdlet [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
@@ -259,14 +235,14 @@ Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
 En este tutorial, ha aprendido cómo:
 
 > [!div class="checklist"]
-> * Creación de una red virtual en Azure mediante una plantilla
+> * Crear una red virtual en Azure mediante PowerShell
 > * Creación de un almacén de claves y carga de un certificado
-> * Creación de un clúster de Service Fabric seguro en Azure mediante una plantilla
+> * Creación de un clúster de Service Fabric en Azure mediante PowerShell
 > * Protección del clúster con un certificado X.509
 > * Conexión a un clúster con PowerShell
 > * Eliminación de un clúster
 
-A continuación, avance hasta el siguiente tutorial para aprender a implementar una aplicación existente.
+A continuación, avance hasta el siguiente tutorial para aprender a implementar API Management con Service Fabric.
 > [!div class="nextstepaction"]
 > [Implementación de API Management](service-fabric-tutorial-deploy-api-management.md)
 

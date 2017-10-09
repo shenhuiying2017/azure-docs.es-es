@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f7351f310752803b910eef69e71d081ddc923c5e
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 279838150c94ab04eaea08dc30ee8b0f9f7ee3d5
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -30,7 +30,7 @@ Para completar esta guía de inicio rápido:
 
 - Necesitará una suscripción de Azure y una aplicación web Node.js existente.
 
-Si no tiene una aplicación web Node.js, puede crear una siguiendo la [guía de creación de una aplicación web Node.js](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs).
+Si no tiene una aplicación web Node.js, puede crear una siguiendo la [guía de creación de una aplicación web Node.js](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs).
  
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -69,7 +69,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
    npm install applicationinsights --save
    ```
 
-3. Edite el primer archivo .js de la aplicación y agregue las dos líneas siguientes a la parte superior del script. Si usa la [aplicación de inicio rápido de Node.js](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs), se modificará el archivo index.js. 
+3. Edite el primer archivo .js de la aplicación y agregue las dos líneas siguientes a la parte superior del script. Si usa la [aplicación de inicio rápido de Node.js](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs), se modificará el archivo index.js. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');

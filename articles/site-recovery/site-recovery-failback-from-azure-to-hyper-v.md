@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 3116e2c15242ea7be8eeb77281b40bc4b38b846e
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
 ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -38,6 +38,9 @@ Al iniciar una conmutación por error, la hoja le informa sobre la dirección de
 ## <a name="why-is-there-only-a-planned-failover-gesture-to-failback"></a>¿Por qué hay solo una acción de conmutación por error planeada para la conmutación por recuperación?
 Azure es un entorno de alta disponibilidad y las máquinas virtuales estarán siempre disponibles. La conmutación por recuperación es una actividad planeada que necesita un tiempo breve de inactividad para que las cargas de trabajo empiecen a ejecutarse de nuevo de forma local. No se prevé la pérdida de datos. Por lo tanto, hay solo una conmutación por error planeada, que desactivará las máquinas virtuales de Azure, descargará los cambios más recientes y garantizará que no se pierden datos.
 
+## <a name="do-i-need-a-process-server-in-azure-to-failback-to-hyper-v"></a>¿Se necesita un servidor de proceso en Azure para realizar la conmutación por recuperación en Hyper-v?
+No, solo se requiere un servidor de proceso cuando está protegiendo máquinas virtuales de VMware. No es necesario implementar componentes adicionales cuando se proteja o realice la conmutación por recuperación de máquinas virtuales de Hyper-v.
+
 ## <a name="initiate-failback"></a>Inicio de la conmutación por recuperación
 Después de la conmutación por error de la ubicación principal a la secundaria, las máquinas virtuales replicadas no están protegidas por Site Recovery y la ubicación secundaria actúa como ubicación principal. Siga estos procedimientos para realizar la conmutación por recuperación al sitio principal original. En este procedimiento se describe cómo ejecutar una conmutación por error planeada para un plan de recuperación. También puede ejecutar la conmutación por error para una única máquina virtual en la pestaña **Máquinas virtuales** .
 
@@ -53,10 +56,6 @@ Después de la conmutación por error de la ubicación principal a la secundaria
 
     >[!NOTE]
     >Se recomienda utilizar esta opción si ha estado trabajando con Azure durante un tiempo (un mes o más) o se ha eliminado la máquina virtual local. Esta opción no realiza cálculos de suma de comprobación.
-    >
-    >
-
-
 
 
 4. Si en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió al habilitarlo durante la instalación del proveedor en el servidor de VMM.
@@ -85,9 +84,13 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
 
     > [!NOTE]
     > Si cancela el trabajo de conmutación por recuperación durante el paso de sincronización de datos, la máquina virtual local tendrá un estado dañado. Esto se debe a que la sincronización de datos copia los datos más recientes de los discos de la máquina virtual de Azure a los discos de datos locales y puede que los datos de los discos no sean coherentes hasta que la sincronización se complete. Si se cancela la sincronización de datos, es posible que la máquina virtual local no arranque. Vuelva a desencadenar la conmutación por error para completar la sincronización de datos.
-    >
-    >
 
+## <a name="time-taken-to-failback"></a>Tiempo que se tarda en realizar la conmutación por recuperación
+El tiempo que se tarda en realizar la sincronización de datos y arrancar la máquina virtual depende de varios factores. Para tener una idea del tiempo que se tarda, se explica lo que ocurre durante la sincronización de datos.
+
+La sincronización de datos realiza una instantánea de los discos de la máquina virtual e inicia la comprobación bloque por bloque y calcula su suma de comprobación. Esta suma de comprobación calculada se envía a un entorno local para compararlo con la suma de comprobación local del mismo bloque. En el caso de que las sumas de comprobación coincidan, el bloque de datos no se transfiere. Si no coinciden, el bloque de datos se transfiere al entorno local. Este tiempo de transferencia depende del ancho de banda disponible. La velocidad de la suma de comprobación es de algunos GB por minuto. 
+
+Para acelerar la descarga de datos, puede configurar el agente de MARS para utilizar más subprocesos para equiparar la descarga. Vea [este documento](https://support.microsoft.com/en-us/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) sobre cómo cambiar los subprocesos de descarga en el agente.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

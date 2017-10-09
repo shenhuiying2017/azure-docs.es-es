@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2017
+ms.date: 09/28/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c863dbdcb242bdea208f7e72f6c1f61b5ba04844
-ms.openlocfilehash: 77d157800d71d1afc3411553b31c1182a1d0bc28
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 2728e8b1e190b4ecd0635925b96e97775564a2ee
 ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -72,7 +72,7 @@ Load Balancer estándar proporciona nuevas funcionalidades de diagnóstico multi
 
 | Métrica | Descripción |
 | --- | --- |
-| Disponibilidad de direcciones IP virtuales | Load Balancer estándar usa continuamente la ruta de acceso a los datos desde una región hasta el front-end de Load Balancer y, finalmente, hasta la pila de SDN que respalda la máquina virtual. Siempre que permanezcan las instancias correctas, la medida sigue la misma ruta de acceso que el tráfico con equilibrio de carga de las aplicaciones, y valida la ruta de acceso a los datos que podrían estar usando los clientes. La medida es invisible para la aplicación y no interfiere.|
+| Disponibilidad de VIP | Load Balancer estándar usa continuamente la ruta de acceso a los datos desde una región hasta el front-end de Load Balancer y, finalmente, hasta la pila de SDN que respalda la máquina virtual. Siempre que permanezcan las instancias correctas, la medida sigue la misma ruta de acceso que el tráfico con equilibrio de carga de las aplicaciones, y valida la ruta de acceso a los datos que podrían estar usando los clientes. La medida es invisible para la aplicación y no interfiere.|
 | Disponibilidad de DIP | Load Balancer estándar usa un servicio de sondeo de estado distribuido que supervisa el estado del punto de conexión de la aplicación de acuerdo a lo que ha configurado.  Esta métrica proporciona una vista agregada o filtrada por punto de conexión de cada punto de conexión de instancia individual del grupo de Load Balancer.  Puede ver cómo Load Balancer observa el estado de su aplicación según se indica en la configuración de sondeo de estado.
 | Paquetes SYN | Load Balancer estándar no termina las conexiones TCP ni interactúa con los flujos de paquetes TCP o UDP; los flujos y sus protocolos de enlace siempre son entre el origen y la instancia de máquina virtual. Para solucionar mejor todos los escenarios de protocolo TCP, puede hacer uso de esta métrica para comprender el número de intentos de conexión TCP realizados. Esta métrica informa del número de paquetes TCP SYN que se han recibido y puede reflejar los clientes que intentan establecer conexiones a su servicio.|
 | Conexiones SNAT | Load Balancer estándar informa del número de conexiones salientes enmascaradas al front-end de dirección IP pública.  Los puertos SNAT son un recurso agotable y esta métrica puede proporcionar una indicación de la dependencia que su aplicación tiene de SNAT en las conexiones salientes originadas.|
@@ -336,7 +336,7 @@ En la tabla siguiente se proporciona una comparación de límites y capacidades 
 | Diseño de grupo de back-end | Máquinas virtuales de un conjunto de disponibilidad o de un conjunto de escalado de máquinas virtuales de un conjunto de disponibilidad | Cualquier instancia de máquina virtual de la red virtual |
 | Puertos HA | No compatible | Disponible |
 | Diagnóstico | Limitado, solo público | Disponible |
-| Disponibilidad de direcciones IP virtuales  | No compatible | Disponible |
+| Disponibilidad de VIP  | No compatible | Disponible |
 | Movilidad rápida de IP | No compatible | Disponible |
 |Escenarios de zonas de disponibilidad | Solo zonal | Zonal, redundancia de zona, equilibrio de carga entre zonas |
 | Algoritmo de SNAT saliente | A petición | Asignado previamente |
@@ -349,7 +349,7 @@ En la tabla siguiente se proporciona una comparación de los límites y las capa
 | --- | --- | --- |
 | Escenarios de zonas de disponibilidad | Solo zonal | Con redundancia de zona (predeterminado), zonal (opcional) | 
 | Movilidad rápida de IP | No compatible | Disponible |
-| Disponibilidad de direcciones IP virtuales | No compatible | Disponible |
+| Disponibilidad de VIP | No compatible | Disponible |
 | Counters | No compatible | Disponible |
 | Grupo de seguridad de red (NSG) | Opcional en la NIC | Obligatorio |
 
@@ -369,6 +369,9 @@ Para participar en la versión preliminar de la SKU estándar de Load Balancer y
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
     ```
+
+>[!NOTE]
+>El registro de la característica Estándar de Load Balancer puede tardar hasta una hora.
 
 >[!NOTE]
 >Si desea usar zonas de disponibilidad con Load Balancer e IP pública, debe registrar también su suscripción en la versión preliminar de zonas de disponibilidad.

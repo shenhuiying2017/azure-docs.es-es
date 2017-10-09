@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3365bc81b17e0225652504a71d3aff42a399ce67
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
 ms.contentlocale: es-es
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotección desde Azure a un sitio local
@@ -29,10 +29,13 @@ ms.lasthandoff: 09/02/2017
 En este artículo se explica cómo reproteger máquinas virtuales de Azure desde Azure en un sitio local. Siga las instrucciones de este artículo cuando esté listo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que se hayan conmutado por error desde el sitio local en Azure (como se explica en [Replicación de máquinas virtuales VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> Si no puede conmutar por recuperación después de [finalizar la migración](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), mueva la máquina virtual a otro grupo de recursos o elimine una máquina virtual de Azure.
+> Si ha [finalizado la migración](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), ha trasladado la máquina virtual a otro grupo de recursos o ha eliminado la máquina virtual de Azure, no puede entonces realizar la conmutación por recuperación. Si deshabilita la protección de la máquina virtual, no es posible realizar la conmutación por recuperación.
 
 
 Cuando termine la reprotección y las máquinas virtuales protegidas se estén replicando, puede iniciar una conmutación por recuperación en las máquinas virtuales para llevarlas al sitio local.
+
+> [!NOTE]
+> Solo puede realizar la reprotección y efectuar la conmutación por recuperación de un host ESXi. No puede realizar la conmutación por recuperación de la máquina virtual en hosts de Hyper-v, estaciones de trabajo de VMware o cualquier otra plataforma de virtualización.
 
 Publique cualquier comentario o pregunta que tenga al final del artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -41,6 +44,11 @@ El siguiente vídeo es una breve introducción a la conmutación por error de Az
 
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+> [!IMPORTANT]
+> Durante la conmutación por error en Azure, es posible que no se pueda acceder al sitio local y, por lo tanto, el servidor de configuración puede estar no disponible o apagado. Durante la reprotección y la conmutación por recuperación, el servidor de configuración local debe estar ejecutándose y en un estado correcto de conexión.
+
+
 Cuando se prepare para reproteger máquinas virtuales, tome o considere las siguientes medidas de requisitos previos:
 
 * Si un servidor vCenter administra las máquinas virtuales en las que quiere conmutar por recuperación, asegúrese de tener los [permisos necesarios](site-recovery-vmware-to-azure-classic.md) para la detección de máquinas virtuales en servidores vCenter.
@@ -93,13 +101,15 @@ Pero si solo dispone de una VPN S2S, se recomienda implementar el servidor de pr
  ![Diagrama de la arquitectura de VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 
-Recuerde que la replicación solo se produce a través de la VPN S2S o el emparejamiento privado de la red ExpressRoute. Asegúrese de que hay suficiente ancho de banda disponible a través de ese canal de red.
+Recuerde que solo se realizará la replicación de Azure a local a través de la VPN S2S o el emparejamiento privado de la red ExpressRoute. Asegúrese de que hay suficiente ancho de banda disponible a través de ese canal de red.
 
 Para más información sobre cómo instalar un servidor de procesos basado en Azure, vea [Administración de un servidor de procesos que se ejecuta en Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
 > [!TIP]
 > Se recomienda usar un servidor de procesos basado en Azure durante la conmutación por recuperación. El rendimiento de replicación es mayor si el servidor de procesos está más próximo a la máquina virtual que se está replicando (la máquina conmutada por error en Azure). Pero durante la prueba de concepto (POC) o las demostraciones, puede usar el servidor de procesos local con ExpressRoute con emparejamiento privado para completar la POC más rápido.
 
+> [!NOTE]
+> La replicación de local a Azure se puede producir solo a través de Internet o ExpressRoute con emparejamiento público. La replicación de Azure a local se puede producir solo a través de VPN S2S o ExpressRoute con emparejamiento privado.
 
 
 #### <a name="what-ports-should-i-open-on-different-components-so-that-reprotection-can-work"></a>¿Qué puertos se deben abrir en distintos componentes para que la reprotección funcione?
@@ -248,7 +258,7 @@ Dicho error puede aparecer por dos motivos
 1. La máquina virtual que va a volver a proteger tiene Windows Server 2016. Actualmente este sistema operativo no es compatible con la conmutación por recuperación, pero lo será muy pronto.
 2. Ya existe una máquina virtual con el mismo nombre en el servidor de destino maestro al que se va a realizar la conmutación por recuperación.
 
-Para resolver este problema puede seleccionar otro servidor de destino de un host diferente, con el fin de que la reprotección cree la máquina en otro host, donde los nombres no entren en conflicto. También puede mover el servidor de destino maestro con vMotion a un host en el que no se produzca la colisión de nombres.
+Para resolver este problema puede seleccionar otro servidor de destino de un host diferente, con el fin de que la reprotección cree la máquina en otro host, donde los nombres no entren en conflicto. También puede mover el servidor de destino maestro con vMotion a un host en el que no se produzca la colisión de nombres. Si la máquina virtual existente es una máquina aislada, puede cambiarle el nombre para que se pueda crear la nueva máquina virtual en el mismo host ESXi.
 
 ### <a name="error-code-78093"></a>Código de error 78093
 
@@ -256,6 +266,10 @@ Para resolver este problema puede seleccionar otro servidor de destino de un hos
 
 Para volver a proteger una máquina virtual en la que se ha realizado la conmutación por error en la ubicación local, la máquina virtual de Azure debe estar en ejecución. Esto es para que el servicio de movilidad se registre con el servidor de configuración local y puede empezar a realizar la replicación mediante la comunicación con el servidor de procesos. Si el equipo está en una red incorrecta o no se ejecuta (bloqueado o apagado), el servidor de configuración no puede acceder al servicio de movilidad de la máquina virtual para iniciar la reprotección. Puede reiniciar la máquina virtual para que pueda volver a la comunicación con el entorno local. Reinicie el trabajo de reprotección después de iniciar la máquina virtual de Azure
 
+### <a name="error-code-8061"></a>Código de error 8061
 
+*El almacén de datos no es accesible desde el host ESXi.*
+
+Vea los [requisitos previos del destino principal](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) y los [almacenes de datos de soporte](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) para realizar la conmutación por recuperación.
 
 

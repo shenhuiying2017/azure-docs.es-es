@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 622604dc3ce69085feff6705168d58ad9938c429
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Conmutación por recuperación de Azure a un sitio local
@@ -27,7 +26,7 @@ ms.lasthandoff: 06/16/2017
 En este artículo se describe cómo conmutar por recuperación máquinas virtuales de Azure Virtual Machines al sitio local. Siga las instrucciones que se describen en este artículo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que se hayan conmutado por error del sitio local a Azure según el tutorial [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 
 > [!WARNING]
-> Si ha [finalizado la migración](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), ha trasladado la máquina virtual a otro grupo de recursos o ha eliminado la máquina virtual de Azure, no puede entonces realizar la conmutación por recuperación.
+> Si ha [finalizado la migración](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), ha trasladado la máquina virtual a otro grupo de recursos o ha eliminado la máquina virtual de Azure, no puede entonces realizar la conmutación por recuperación. Si deshabilita la protección de la máquina virtual, no es posible realizar la conmutación por recuperación.
 
 > [!NOTE]
 > Si ha conmutado máquinas virtuales de VMware, no podrá realizar la conmutación por recuperación en un host de Hyper-v.
@@ -65,9 +64,9 @@ Si conmuta por recuperación la máquina virtual original, deben cumplirse las s
 Si no existe máquina virtual local antes de volver a proteger la máquina virtual, el escenario se denomina recuperación a ubicación alternativa. El flujo de trabajo de reprotección vuelve a crear la máquina virtual local. Esto también hará que se produzca una descarga de datos completa.
 
 * Cuando se conmuta por recuperación a una ubicación alternativa, la máquina virtual se recupera en el mismo host ESX en el que se implementara el servidor de destino principal. El almacén de datos donde se creó el disco será el mismo que se seleccionó al volver a proteger la máquina virtual.
-* Solo se puede conmutar por recuperación a un almacén de datos del sistema de archivos de máquina virtual (VMFS). Si tiene un vSAN o RDM, la reprotección y la conmutación por recuperación no funcionarán.
+* Solo se puede conmutar por recuperación a un almacén de datos del sistema de archivos de máquina virtual (VMFS) o vSAN. Si tiene un RDM, la reprotección y la conmutación por recuperación no funcionarán.
 * La reprotección implica una gran transferencia de datos inicial seguida de los cambios. Este proceso se produce porque no existe máquina virtual local. Deben volver a replicarse todos los datos. Esta reprotección también tardará más tiempo que la recuperación de ubicación original.
-* No se puede conmutar por recuperación a discos basados en vSAN o RDM. En un almacén de datos VMFS solo pueden crearse discos de máquina virtual (VMDK) nuevos.
+* No se puede conmutar por recuperación a discos basados en RDM. En un almacén de datos VMFS/vSAN solo pueden crearse discos de máquina virtual (VMDK) nuevos.
 
 Cuando una máquina física conmuta por error en Azure, solo puede conmutar por recuperación como una máquina virtual de VMware (conocida también como P2A2V). Este flujo se enmarca en la recuperación de ubicación alternativa.
 
@@ -79,8 +78,11 @@ Antes de continuar, complete los pasos de reprotección para que las máquinas v
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Para la conmutación por recuperación se necesita un servidor de configuración local. Para que esta funcione, durante la conmutación por recuperación, la máquina virtual debe encontrarse en la base de datos del servidor de configuración. Por lo tanto, asegúrese de realizar una copia de seguridad programada periódica del servidor. En caso de desastre, tendrá que restaurarla con la misma dirección IP para que la conmutación por recuperación funcione.
-* El servidor de destino principal no debe tener ninguna instantánea antes de desencadenar la conmutación por recuperación.
+> [!IMPORTANT]
+> Durante la conmutación por error en Azure, es posible que no se pueda acceder al sitio local y, por lo tanto, el servidor de configuración puede estar no disponible o apagado. Durante la reprotección y la conmutación por recuperación, el servidor de configuración local debe estar ejecutándose y en un estado correcto de conexión.
+
+* Para la conmutación por recuperación se necesita un servidor de configuración local. El servidor debe estar en estado de ejecución y conectado al servicio de modo que su estado sea correcto. Para que esta funcione, durante la conmutación por recuperación, la máquina virtual debe encontrarse en la base de datos del servidor de configuración. Por lo tanto, asegúrese de realizar una copia de seguridad programada periódica del servidor. En caso de desastre, tendrá que restaurarla con la misma dirección IP para que la conmutación por recuperación funcione.
+* El servidor de destino principal no debe tener ninguna instantánea antes de desencadenar la reprotección/conmutación por recuperación.
 
 ## <a name="steps-to-fail-back"></a>Pasos para la conmutación por recuperación
 

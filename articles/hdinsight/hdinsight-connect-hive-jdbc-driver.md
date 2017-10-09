@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a62aef7b4bb7ebc085adbdbf0b58f2bb34730dcc
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: c57684133ac7e5dfd2cc273db0e1ceca78679178
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulta de Hive mediante el controlador JDBC en HDInsight
@@ -202,7 +202,7 @@ Ahora que aprendió a usar JDBC para que funcione con Hive, utilice los siguient
 * [Conexión de Excel a Hadoop en Azure HDInsight con Microsoft Hive ODBC Driver](./hdinsight-connect-excel-hive-odbc-driver.md).
 * [Conexión de Excel a Hadoop con Power Query](./hdinsight-connect-excel-power-query.md).
 * [Conectarse a Azure HDInsight y ejecutar consultas de Hive con Herramientas de Data Lake para Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
-* [Use Visual Studio Code for Hive, LLAP or pySpark](hdinsight-for-vscode.md) (Uso de Visual Studio Code para Hive, LLAP o pySpark)
+* [Uso de Herramientas de Azure HDInsight para Visual Studio Code](hdinsight-for-vscode.md).
 * [Carga de datos en HDInsight](hdinsight-upload-data.md)
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)

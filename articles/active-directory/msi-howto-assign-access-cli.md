@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/25/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: e6eede1c093145894f4330a0c4385969cd4dd7da
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: e77915c1d982ccf6262ffcbc09dc91dfd986dac5
 ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -43,7 +43,7 @@ Para ejecutar los ejemplos de script de la CLI, tiene tres opciones:
 
 Después de habilitar MSI en un recurso de Azure, [como una máquina virtual de Azure](msi-qs-configure-cli-windows-vm.md): 
 
-1. Si no usa Azure Cloud Shell desde Azure Portal, primero inicie sesión en Azure con [az login](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure en la que desearía implementar la máquina virtual:
+1. Si usa la CLI de Azure en una consola local, lo primero que debe hacer es iniciar sesión en Azure mediante el [inicio de sesión de az](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure en la que desearía implementar la máquina virtual:
 
    ```azurecli-interactive
    az login
@@ -52,7 +52,7 @@ Después de habilitar MSI en un recurso de Azure, [como una máquina virtual de 
 2. En este ejemplo, vamos a dar a una máquina virtual de Azure acceso a una cuenta de almacenamiento. En primer lugar, se usa [az resource list](/cli/azure/resource/#list) para obtener la entidad de servicio para la máquina virtual denominada "myVM", que se creó cuando se habilitó MSI en la máquina virtual:
 
    ```azurecli-interactive
-   $spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
+   spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
    ```
 
 3. Cuando ya se tenga el identificador de la entidad de servicio, se usa [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para conceder a la máquina virtual acceso de "lector" a una cuenta de almacenamiento denominada "myStorageAcct":

@@ -1,5 +1,5 @@
 ---
-title: "Búsquedas de registros en Log Analytics de OMS | Microsoft Docs"
+title: "Búsquedas de registros en Azure Log Analytics | Microsoft Docs"
 description: "Se requiere una búsqueda de registros para recuperar los datos de Log Analytics.  Este artículo describe cómo se usan las nuevas búsquedas de registros en Log Analytics y proporciona los conceptos que debe comprender antes de crear una."
 services: log-analytics
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/26/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 34f4af31773097eafe2613eb7f3400655c387a84
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: db271f5157fee29a5cc0c4534768bdb3c769ba74
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Descripción de las búsquedas de registros en Log Analytics
@@ -33,9 +33,9 @@ Se requiere una búsqueda de registros para recuperar los datos de Log Analytics
 
 Entre las distintas formas en que usará las búsquedas de registros en Log Analytics se incluyen las siguientes:
 
-- **Portales.** Puede realizar un análisis de datos interactivo en el repositorio con el [portal de búsqueda de registros](log-analytics-log-search-log-search-portal.md) o el [portal avanzado de análisis](https://go.microsoft.com/fwlink/?linkid=856587).  Esto le permite modificar la consulta y analizar los resultados en una gran variedad de formatos y visualizaciones.  La mayoría de las consultas que cree se iniciarán en uno de los portales y, posteriormente, se copiarán una vez que compruebe que funcionan según lo previsto.
+- **Portales.** Puede realizar un análisis de datos interactivo en el repositorio de Azure Portal o el [portal de análisis avanzado](https://go.microsoft.com/fwlink/?linkid=856587).  Esto le permite modificar la consulta y analizar los resultados en una gran variedad de formatos y visualizaciones.  La mayoría de las consultas que cree se iniciarán en uno de los portales y, posteriormente, se copiarán una vez que compruebe que funcionan según lo previsto.
 - **Reglas de alertas.** [Las reglas de alertas](log-analytics-alerts.md) identifican de manera proactiva los problemas de datos del área de trabajo.  Cada regla de alertas se basa en una búsqueda de registros que se ejecuta automáticamente a intervalos regulares.  Los resultados se inspeccionan para determinar si se debe crear una alerta.
-- **Vistas.**  Puede crear visualizaciones de datos que se incluyan en los paneles de usuario con el [diseñador de vistas](log-analytics-view-designer.md).  Las búsquedas de registros proporcionan los datos utilizados por [iconos](log-analytics-view-designer-tiles.md) y [elementos de visualización](log-analytics-view-designer-parts.md) en cada vista.  Puede explorar en profundidad los elementos de visualización en el portal de búsqueda de registros para realizar análisis adicionales de los datos.
+- **Vistas.**  Puede crear visualizaciones de datos que se incluyan en los paneles de usuario con el [diseñador de vistas](log-analytics-view-designer.md).  Las búsquedas de registros proporcionan los datos utilizados por [iconos](log-analytics-view-designer-tiles.md) y [elementos de visualización](log-analytics-view-designer-parts.md) en cada vista.  Puede explorar en profundidad los elementos de visualización en la página de búsqueda de registros para realizar análisis adicionales de los datos.
 - **Exportación.**  Cuando exporte datos desde el área de trabajo de Log Analytics a Excel o [Power BI](log-analytics-powerbi.md), cree una búsqueda de registros para definir los datos que se van a exportar.
 - **PowerShell.** Puede ejecutar un script de PowerShell desde una línea de comandos o un runbook de Azure Automation que utilice el cmdlet [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar los datos de Log Analytics.  Este cmdlet requiere una consulta para determinar los datos que se van a recuperar.
 - **API de Log Analytics.**  La [API de búsqueda de registros de Log Analytics](log-analytics-log-search-api.md) permite que cualquier cliente de API de REST recupere datos del área de trabajo.  La solicitud de API incluye una consulta que se ejecuta en Log Analytics para determinar los datos que se van a recuperar.
@@ -43,7 +43,7 @@ Entre las distintas formas en que usará las búsquedas de registros en Log Anal
 ![Búsqueda de registros](media/log-analytics-log-search-new/log-search-overview.png)
 
 ## <a name="how-log-analytics-data-is-organized"></a>Organización de los datos de Log Analytics
-Cuando compila una consulta, primero debe determinar las tablas que tienen los datos que está buscando. Cada [origen de datos](log-analytics-data-sources.md) y cada [solución](../operations-management-suite/operations-management-suite-solutions.md) almacena sus datos en tablas dedicadas en el área de trabajo de Log Analytics.  La documentación de cada origen de datos y solución incluye el nombre del tipo de datos que crea y una descripción de cada una de sus propiedades.     Muchas consultas solo necesitan datos de una sola tabla, pero otros usuarios pueden utilizar una variedad de opciones para incluir datos de varias tablas.
+Cuando compila una consulta, primero debe determinar las tablas que tienen los datos que está buscando. Cada [origen de datos](log-analytics-data-sources.md) y cada [solución](../operations-management-suite/operations-management-suite-solutions.md) almacena sus datos en tablas dedicadas en el área de trabajo de Log Analytics.  La documentación de cada origen de datos y solución incluye el nombre del tipo de datos que crea y una descripción de cada una de sus propiedades.  Muchas consultas solo necesitan datos de una sola tabla, pero otros usuarios pueden utilizar una variedad de opciones para incluir datos de varias tablas.
 
 ![Tablas](media/log-analytics-log-search-new/queries-tables.png)
 
@@ -90,5 +90,5 @@ Para obtener documentación completa sobre el lenguaje de consultas de Azure Log
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga información acerca de los [portales que puede utilizar para crear y editar búsquedas de registros](log-analytics-log-search-portals.md).
-- Consulte un [tutorial sobre cómo escribir consultas](https://go.microsoft.com/fwlink/?linkid=856078) mediante el nuevo lenguaje de consulta.
+- Consulte un [tutorial sobre cómo escribir consultas](log-analytics-tutorial-viewdata.md) mediante el nuevo lenguaje de consulta.
 

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ac702c356f0adc172674b2a3669de2a8d5dfd6ed
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics
@@ -30,6 +30,10 @@ En Log Analytics, puede aprovechar las búsquedas de registros mediante la creac
 > * Conocer cómo trabajar con datos de rendimiento
 
 Para completar el ejemplo en este tutorial, debe disponer de una máquina virtual existente [conectada al área de trabajo de Log Analytics](log-analytics-quick-collect-azurevm.md).  
+
+La creación y edición de consultas, además de trabajar de manera interactiva con los datos devueltos, se puede lograr de una de estas dos maneras.  En el caso de las consultas básicas, use la página Búsqueda de registros de Azure Portal. Para las consultas avanzadas, puede usar el portal de análisis avanzado. Para más información sobre la diferencia de funcionalidades entre ambos portales, consulte [Portales para la creación y edición de consultas de registros en Azure Log Analytics](log-analytics-log-search-portals.md)
+
+En este tutorial se usará Búsqueda de registros en Azure Portal. 
 
 ## <a name="log-in-to-azure-portal"></a>Iniciar sesión en Azure Portal
 Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com). 
@@ -44,7 +48,7 @@ Puede que el banner de la parte superior de la página del recurso de Log Analyt
 
 Log Analytics introdujo recientemente un nuevo lenguaje de consulta que facilita la creación de consultas, la correlación de datos desde varios orígenes y el análisis para identificación rápida de tendencias o problemas.
 
-La actualización es simple.  Para iniciar el proceso, haga clic en el banner de color púrpura en el que se lee **Obtenga más información y actualice**.  Lea la información adicional sobre la actualización en la página de información de la actualización y, después, haga clic en **Actualizar ahora**.
+La actualización es simple.  Para iniciar el proceso, haga clic en el banner en el que se lee **Obtenga más información y actualice**.  Lea la información adicional sobre la actualización en la página de información de la actualización y, después, haga clic en **Actualizar ahora**.
 
 Este proceso tardará varios minutos en completarse y, durante este período, puede realizar el seguimiento de su progreso en **Notificaciones** en el menú. Puede obtener más información sobre las [ventajas del nuevo lenguaje de consulta](log-analytics-log-search-upgrade.md#why-the-new-language).
 

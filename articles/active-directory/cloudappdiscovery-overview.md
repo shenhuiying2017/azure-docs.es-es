@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 46d21ac6fe0992ebe6dca93e8ebd381931e49962
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 59af2a5de5936d15456058aaeacfc334b9b34d4c
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="cloud-app-discovery-enhancements-in-azure-active-directory"></a>Mejoras de Cloud App Discovery en Azure Active Directory 
@@ -32,9 +32,14 @@ Más del 80 % de los empleados admite usar aplicaciones de SaaS no aprobadas par
 * **No requiere agentes** esta versión nueva de Cloud App Discovery no requiere agentes para su instalación en los dispositivos del usuario. En lugar de eso, la detección se realiza según los archivos de registro que importó desde los firewalls y los servidores proxy. Puede detectar aplicaciones en todo el tráfico de red de la organización, independientemente del dispositivo o del sistema operativo.
 * **Analistas y alertas en curso** Cloud App Discovery en Azure AD ahora ofrece análisis de riesgos en curso detallado así como brindar alertas cuando cree una aplicación nueva en la nube. Ahora puede obtener conocimientos más profundos del uso de la aplicación en la nube en su organización, como información sobre el tráfico de entrada, el tráfico de salida y los principales usuarios de aplicaciones detectadas.
 
-Si no tiene Activity Directory Premium, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) para más detalles.
-
-## <a name="next-steps"></a>Pasos siguientes
+Si no tiene Active Directory Premium, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) para más detalles.
 
 Use este vínculo para explorar la [nuevo experiencia de Cloud App Discovery en Azure AD](https://portal.cloudappsecurity.com).
 
+## <a name="next-steps"></a>Pasos siguientes
+Use los vínculos siguientes para configurar Cloud App Discovery en Azure AD.
+
+* [Introducción al uso de Cloud App Discovery](cloudappdiscovery-get-started.md)
+* [Creación de informes de instantánea](cloudappdiscovery-set-up-snapshots.md)
+* [Configuración de informes continuos](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [Uso de un analizador de registros personalizado](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

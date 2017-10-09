@@ -1,9 +1,9 @@
 ---
-title: "Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Data Disks"
+title: "Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks"
 description: "Obtenga información sobre las distintas formas de almacenar datos y acceder a ellos en Azure para que le sea más fácil decidir qué la tecnología usar."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 452030e2e55ebeae55be2bd858c59e45428c7621
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 192680cc3faee86c0a45bc9abe4b6579ec56f324
 ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
-# <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-data-disks"></a>Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Data Disks
+# <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
 
-Microsoft Azure proporciona varias características en Azure Storage para almacenar los datos en la nube y tener acceso a ellos. En este artículo se describen Azure Files, Azure Blobs y Azure Data Disks, y está diseñado para ayudarle a elegir entre estas características.
+Microsoft Azure proporciona varias características en Azure Storage para almacenar los datos en la nube y tener acceso a ellos. En este artículo se describen Azure Files, Azure Blobs y Azure Disks, y está diseñado para ayudarle a elegir entre estas características.
 
 ## <a name="scenarios"></a>Escenarios
 
-En la tabla siguiente se compara Azure Files, Azure Blobs y Azure Data Disks y se muestran los escenarios de ejemplo adecuados para cada uno.
+En la tabla siguiente se compara Azure Files, Azure Blobs y Azure Disks y se muestran los escenarios de ejemplo adecuados para cada uno.
 
 | Característica | Descripción | Cuándo se deben usar |
 |--------------|-------------|-------------|
 | **Archivos de Azure** | Proporciona una interfaz SMB, bibliotecas de cliente y una [interfaz de REST](/rest/api/storageservices/file-service-rest-api) que permite el acceso desde cualquier lugar a archivos almacenados. | Cuando desee migrar mediante lift-and-shift una aplicación a la nube que ya usa las API del sistema de archivos nativo para compartir datos entre ella y otras aplicaciones que se ejecutan en Azure.<br/><br/>Cuando desee almacenar herramientas de desarrollo y depuración a las que es necesario acceder desde muchas máquinas virtuales. |
 | **Azure Blobs** | Proporciona bibliotecas de cliente y una [interfaz de REST](/rest/api/storageservices/blob-service-rest-api) que permite que los datos no estructurados se almacenen y se acceda a ellos a gran escala en blobs en bloques. | Cuando desea que la aplicación admita escenarios de streaming y de acceso aleatorio.<br/><br/>Cuando desea poder tener acceso a datos de aplicación desde cualquier lugar. |
-| **Azure Data Disks** | Proporciona bibliotecas de cliente y una [interfaz de REST](/rest/api/compute/virtualmachines/virtualmachines-create-or-update) que permite que los datos se almacenen persistentemente y se acceda a ellos desde un disco duro virtual conectado. | Cuando desea migrar mediante lift-and-shift aplicaciones que usan las API del sistema de archivos nativo para leer y escribir datos en discos persistentes.<br/><br/>Cuando desea almacenar datos a los que no se necesita acceder desde fuera de la máquina virtual a la que está conectado el disco. |
+| **Azure Disks** | Proporciona bibliotecas de cliente y una [interfaz de REST](/rest/api/compute/manageddisks/disks/disks-rest-api) que permite que los datos se almacenen persistentemente y se acceda a ellos desde un disco duro virtual conectado. | Cuando desea migrar mediante lift-and-shift aplicaciones que usan las API del sistema de archivos nativo para leer y escribir datos en discos persistentes.<br/><br/>Cuando desea almacenar datos a los que no se necesita acceder desde fuera de la máquina virtual a la que está conectado el disco. |
 
 ## <a name="comparison-files-and-blobs"></a>Comparación: Azure Files y Azure Blobs
 
@@ -55,15 +55,15 @@ En la tabla siguiente se compara Azure Files con Azure Blobs.
 |Capacidad facturada|En función de los bytes escritos|Según el tamaño de archivo|  
 |Bibliotecas de clientes|Varios idiomas|Varios idiomas|  
   
-## <a name="comparison-files-and-data-disks"></a>Comparación: Azure Files y Azure Data Disks
+## <a name="comparison-files-and-disks"></a>Comparación: Azure Files y Azure Disks
 
-Azure Files complementa a Azure Data Disks. Solo se pueden conectar un disco de datos a una máquina virtual de Azure en cada momento. Los discos de datos son VHD de formato fijo almacenados como blobs en páginas en Azure Storage y los utiliza la máquina virtual para almacenar datos duraderos. Se puede acceder a los recursos compartidos de archivos de Azure Files de la misma manera que se accede al disco local (mediante API del sistema de archivos nativo) y se pueden compartir entre muchas máquinas virtuales.  
+Azure Files complementa a Azure Disks. Solo se pueden conectar un disco a una máquina virtual de Azure en cada momento. Los discos son VHD de formato fijo almacenados como blobs en páginas en Azure Storage y los utiliza la máquina virtual para almacenar datos duraderos. Se puede acceder a los recursos compartidos de archivos de Azure Files de la misma manera que se accede al disco local (mediante API del sistema de archivos nativo) y se pueden compartir entre muchas máquinas virtuales.  
  
-En la tabla siguiente se compara Azure Files con Azure Data Disks.  
+En la tabla siguiente se compara Azure Files con Azure Disks.  
  
 ||||  
 |-|-|-|  
-|**Atributo**|**Azure Data Disks**|**Archivos de Azure**|  
+|**Atributo**|**Azure Disks**|**Archivos de Azure**|  
 |Scope|Exclusivo para una máquina virtual individual|Acceso compartido entre varias máquinas virtuales|  
 |Instantáneas y copia|Sí|No|  
 |Configuración|Se conecta al iniciarse la máquina virtual|Se conecta una vez iniciada la máquina virtual|  
@@ -80,4 +80,5 @@ Al tomar decisiones sobre cómo se almacenan los datos y cómo se accede a ellos
   
 Algunas características SMB no son aplicables a la nube. Para más información, consulte [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) (Características que no admite el servicio Azure File).
   
-Para más información acerca de los discos de datos, consulte [Acerca de los discos y los discos duros virtuales para máquinas virtuales de Linux en Azure](../../virtual-machines/windows/about-disks-and-vhds.md) y [Conecte un disco de datos a una máquina virtual de Windows creada con el modelo de implementación clásica](../../virtual-machines/windows/classic/attach-disk.md).
+Para más información acerca de los discos, vea [Acerca de los discos y los discos duros virtuales para máquinas virtuales de Linux en Azure](../../virtual-machines/windows/about-disks-and-vhds.md) y [Conecte un disco de datos a una máquina virtual de Windows creada con el modelo de implementación clásica](../../virtual-machines/windows/classic/attach-disk.md).
+

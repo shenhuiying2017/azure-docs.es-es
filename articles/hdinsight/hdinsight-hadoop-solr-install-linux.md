@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ad930ca023a36fa5874483873c82fdba11d117c7
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c7a911474d6fb90f45565c90a72bfd407898ceba
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Instalación y uso de Solr en clústeres de Hadoop de HDInsight
@@ -40,7 +40,7 @@ Aprenda a instalar Solr en Azure HDInsight con acción de script. Solr es una ef
 > [!WARNING]
 > Los componentes proporcionados con el clúster de HDInsight son totalmente compatibles con Microsoft.
 >
-> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarlo a solucionar el problema. El soporte técnico de Microsoft puede no ser capaz de resolver problemas con componentes personalizados. Debe ponerse en contacto con las comunidades de código abierto para obtener ayuda. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) o [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org) (por ejemplo, [Hadoop](http://hadoop.apache.org/)).
+> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarlo a solucionar el problema. El soporte técnico de Microsoft puede no ser capaz de resolver problemas con componentes personalizados. Debe ponerse en contacto con las comunidades de código abierto para obtener ayuda. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org) (por ejemplo, [Hadoop](http://hadoop.apache.org/)).
 
 ## <a name="what-the-script-does"></a>Funcionamiento del script
 
@@ -59,7 +59,7 @@ En la siguiente ubicación se encuentra disponible un script de ejemplo para ins
 
 Para crear un clúster que tenga Solr instalado, siga los pasos del documento [Creación de clústeres de HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md). Durante el proceso de creación, siga estos pasos para instalar Solr:
 
-1. En la hoja __Resumen del clúster__, seleccione__Configuración avanzada__ y, después, __Acciones de script__. Use la siguiente información para rellenar el cuestionario:
+1. En la sección __Resumen del clúster__, seleccione__Configuración avanzada__ y, a continuación, __Acciones de script__. Use la siguiente información para rellenar el cuestionario:
 
    * **NOMBRE**: escriba un nombre descriptivo para la acción de script.
    * **URI DE SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -68,7 +68,7 @@ Para crear un clúster que tenga Solr instalado, siga los pasos del documento [C
    * **ZOOKEEPER**: active esta opción para instalar en el nodo Zookeeper.
    * **PARÁMETROS**: deje este campo en blanco.
 
-2. En la parte inferior de la hoja **Acciones de scripts**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Siguiente** para regresar a __Resumen del clúster__.
+2. En la parte inferior de la sección **Acciones de script**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Siguiente** para regresar a __Resumen del clúster__.
 
 3. En la página __Resumen del clúster__, seleccione __Crear__ para crear el clúster.
 

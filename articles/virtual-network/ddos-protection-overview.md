@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b0fa58c8bf0e50314c61272eb221878eca2c3def
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 0130823b6a6f5a4883ad640c9bcefc89b82b2cd1
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Introducción a Protección contra DDoS de Azure estándar
 
 >[!IMPORTANT]
->El servicio Protección contra DDoS de Azure estándar se encuentra actualmente en la versión preliminar. El servicio Protección contra DDoS estándar es compatible con un número limitado de recursos de Azure y en un determinado número de regiones. Necesita [registrarse en el servicio](http://aka.ms/ddosprotection) durante la versión preliminar limitada para habilitar Protección contra DDoS estándar para su suscripción. Después de registrarse, el equipo de DDoS de Azure se pondrá en contacto con usted para guiarle en el proceso de habilitación. El servicio Protección contra DDoS estándar está disponible en las regiones Este de EE. UU., Oeste de EE. UU. y Centro de EE. UU. Durante la versión preliminar, no se le cobrará por usar el servicio.
+>El servicio Protección contra DDoS de Azure estándar se encuentra actualmente en la versión preliminar. El servicio Protección contra DDoS estándar es compatible con un número limitado de recursos de Azure y en un determinado número de regiones. Necesita [registrarse en el servicio](http://aka.ms/ddosprotection) durante la versión preliminar limitada para habilitar Protección contra DDoS estándar para su suscripción. Después de registrarse, el equipo de DDoS de Azure se pondrá en contacto con usted para guiarle en el proceso de habilitación. El estándar de Protección contra DDoS está disponible en las regiones Este de EE. UU., Oeste de EE. UU. y Centro occidental de EE. UU. Durante la versión preliminar, no se le cobrará por usar el servicio.
 
 Los ataques de denegación de servicio distribuido (DDoS) son uno de los problemas de seguridad y disponibilidad más extendidos a los que se enfrentan los clientes que mueven sus aplicaciones a la nube. Un ataque DDoS intenta agotar los recursos de una aplicación haciendo que esta no esté disponible para los usuarios legítimos. Los ataques DDoS pueden ir dirigidos a cualquier punto de conexión que esté públicamente accesible a través de Internet.
 

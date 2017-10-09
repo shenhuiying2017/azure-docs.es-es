@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 310dcb176c2e1556af4ed0e0f50ea77c4644ec98
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Habilitación de escritura diferida de dispositivos
@@ -44,19 +44,27 @@ Esto ofrece seguridad adicional y la garantía de que el acceso a las aplicacion
 Lleve a cabo los siguientes pasos para prepararse para usar la reescritura de dispositivos.
 
 1. Desde el equipo donde está instalado Azure AD Connect, inicie PowerShell en modo elevado.
-2. Si el módulo de Active Directory PowerShell NO está instalado, instálelo mediante el siguiente comando:
-   
-   `Add-WindowsFeature RSAT-AD-PowerShell`
-3. Si NO está instalado el módulo de Azure Active Directory PowerShell, descárguelo e instálelo desde el [módulo de Azure Active Directory para Windows PowerShell (versión de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Este componente tiene una dependencia en el Ayudante para el inicio de sesión, que se instala con Azure AD Connect.
+2. Si el módulo de Active Directory PowerShell NO está instalado, instale Herramientas de administración remota del servidor que contiene el módulo AD PowerShell y dsacls.exe que se requiere para ejecutar el script.  Ejecute el siguiente comando:
+  
+   ``` powershell
+   Add-WindowsFeature RSAT-AD-Tools
+   ```
+
+3. Si NO está instalado el módulo de Azure Active Directory PowerShell, descárguelo e instálelo desde el [módulo de Azure Active Directory para Windows PowerShell (versión de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Este componente tiene una dependencia en el Ayudante para el inicio de sesión, que se instala con Azure AD Connect.  
 4. Con credenciales de administrador de organización, ejecute los comandos siguientes y luego salga de PowerShell.
    
-   `Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
-   
-   `Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
+   ``` powershell
+   Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+   ```
+
+   ``` powershell
+   Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}
+   ```
 
 Se necesitan credenciales de administrador de organización, puesto que es necesario realizar cambios en el espacio de nombres de configuración. Un administrador de dominio no tiene suficientes permisos.
 
-![Powershell para habilitar la escritura diferida de dispositivos](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+![Powershell para habilitar la escritura diferida de dispositivos](./media/active-directory-aadconnect-feature-device-writeback/powershell.png) d
+
 
 Description:
 

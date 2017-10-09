@@ -14,43 +14,81 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c06c089fb08c19b55246122201c378917a560e14
-ms.openlocfilehash: 3e4458f70afce9ebd9477b00afc39b6e84e49319
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: e40ba3d3035d5c04017a8ed558981b01fae40a13
 ms.contentlocale: es-es
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de esta sección es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en la aplicación.
 
-## <a name="clauses-and-scope-groups"></a>Cláusulas y grupos de ámbitos
-![Filtro de ámbito][1] 
+## <a name="scoping-filter-use-cases"></a>Casos en los que se usan los filtros de ámbito
 
-Los filtros de ámbito se definen mediante uno o varios **grupos de ámbitos**, y cada uno de ellos contiene una o varias **cláusulas**. Para ver las cláusulas de un grupo de ámbitos concreto, haga clic en la flecha situada a la izquierda del nombre del grupo para expandirlo.
+Un filtro de ámbito permite que el servicio de aprovisionamiento de Azure AD incluya o excluya a cualquier usuario que tenga un atributo que coincida con un valor específico. Por ejemplo, al aprovisionar los usuarios de Azure AD a una aplicación de SaaS que use un equipo de ventas, puede especificar que solo los usuarios que tengan un atributo de "departamento de ventas" deben estar incluidos en el proceso de aprovisionamiento.
 
-Una **cláusula** determina qué usuarios pueden pasar a través del filtro de ámbito mediante la evaluación de los atributos de cada usuario. Por ejemplo, podría tener una cláusula que requiere que el atributo "state" del usuario sea igual a Nueva York, de modo que solo se aprovisionará a los usuarios de Nueva York en la aplicación.
+Puede usar los filtros de ámbito de diversas maneras, según el tipo de conector de aprovisionamiento:
 
-![Nombre del grupo de ámbito][2] 
+* **Aprovisionamiento de salida de Azure AD a aplicaciones SaaS**: cuando Azure AD es el sistema de origen, las [asignaciones de usuarios y grupos](active-directory-coreapps-assign-user-azure-portal.md) son el método más común para determinar qué usuarios deben incluirse en el ámbito de aprovisionamiento. Estas asignaciones también se usan para habilitar el inicio de sesión único y proporcionan un único método para administrar el acceso y el aprovisionamiento. Igualmente, puede usar los filtros de ámbito de forma opcional como complemento a las asignaciones, o simplemente puede filtrar los usuarios según los valores de los atributos.
 
-Cada **grupo de ámbitos** comienza con una **cláusula** obligatoria, como se muestra en la captura de pantalla anterior. Esta cláusula sólo indica que primero es necesario asignar al usuario a la aplicación antes de que los filtros de ámbito lo evalúen. Esta cláusula no puede eliminarse ni modificarse.
+>[!TIP]
+> Puede deshabilitar la opción de aprovisionamiento basada en las asignaciones de una aplicación empresarial; para ello, establezca el menú **[Ámbito](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application)** que se encuentra en la configuración de aprovisionamiento en **Sincronizar todos los usuarios y grupos**. Gracias a esta opción y a los filtros de ámbito basados en los atributos, obtendrá un rendimiento más rápido que si usa asignaciones basadas en grupos.  
 
-Puede agregar cláusulas nuevas o grupos de ámbitos nuevos; para ello, haga clic en el botón correspondiente. Puede asignar un nombre a cada grupo de ámbitos; para ello, edite la propiedad **Nombre del grupo de ámbitos** .
+* **Aprovisionamiento de entrada desde aplicaciones HCM a Azure AD y Active Directory**: cuando una [aplicación HCM como Workday](active-directory-saas-workday-tutorial.md) desempeña el papel de sistema de origen, los filtros de ámbito son el método principal para determinar qué usuarios deberían aprovisionarse desde la aplicación HCM a Active Directory o a Azure Active Directory.
 
-## <a name="how-scoping-filters-are-evaluated"></a>Evaluación de los filtros de ámbito
-Durante el aprovisionamiento, probamos a cada usuario asignado con los filtros de ámbito para determinar si es posible dar acceso a un usuario a la aplicación. Puede considerar cada cláusula como una prueba que se debe superar para evitar que el filtro rechace a un usuario. 
+De forma predeterminada, los conectores de aprovisionamiento de Azure AD no tienen configurados los filtros de ámbito basados en atributos. 
 
-Si ha definido varios grupos de ámbitos, cada usuario debe pasar al menos uno de ellos para poder tener acceso a la aplicación. Dentro de cada grupo de ámbitos, sin embargo, el usuario debe pasar cada cláusula para pasar ese grupo de ámbitos específico. 
+## <a name="scoping-filter-construction"></a>Estructura de un filtro de ámbito
 
-En otras palabras, puede considerar los grupos de ámbitos como agrupaciones mediante el operador OR, y puede considerar las cláusulas contenidas en ellos como agrupaciones mediante el operador AND. Por ejemplo, considere el siguiente filtro de ámbito:
+Un filtro de ámbito consta de una o más **cláusulas**. Las cláusulas determinan qué usuarios pueden atravesar el filtro de ámbito mediante la evaluación de los atributos de cada usuario. Por ejemplo, podría tener una cláusula que requiere que el atributo "Estado" del usuario sea igual a "Nueva York", de modo que solo se aprovisionará a los usuarios de Nueva York en la aplicación. 
 
-![Nombre del grupo de ámbito][3]  
+Una sola cláusula define una única condición de un solo valor de atributo. Si se crean varias cláusulas en un filtro de ámbito único, se evalúan juntas mediante la función lógica "AND". Esto significa que todas las cláusulas deben evaluarse como "true" para que un usuario pueda ser aprovisionado.
+
+Por último, puede crear varios filtros de ámbito para una sola aplicación. Si hay varios filtros de ámbito, se evalúan juntos mediante la función lógica "OR". Esto significa que si todas las cláusulas de cualquiera de los filtros de ámbito configurados resultan ser "true", el usuario será aprovisionado.
+
+Cada usuario o grupo que procesa el servicio de aprovisionamiento de Azure AD se evalúa siempre de forma individual con cada filtro de ámbito.
+
+Como ejemplo, mire este filtro de ámbito:
+
+![Filtro de ámbito](./media/active-directory-saas-scoping-filters/scoping-filter.PNG) 
 
 Según este filtro de ámbito, los usuarios deben cumplir los siguientes criterios, a fin de que se les pueda aprovisionar:
 
-1. Se les debe haber asignado a la aplicación.
+1. Deben estar en Nueva York
 2. Deben trabajar en el departamento de ingeniería.
-3. Deben trabajar en San Francisco o Canadá.
+3. Su id. de empleado de la empresa debe estar entre 1.000.000 y 2.000.000
+4. El puesto no debe estar vacío ni ser un valor nulo
+
+## <a name="creating-scoping-filters"></a>Crear filtros de ámbito
+Los filtros de ámbito se configuran como parte de las asignaciones de atributos de cada conector de aprovisionamiento de usuarios de Azure AD. En el siguiente procedimiento se da por supuesto que ya ha configurado el aprovisionamiento automático de [una de las aplicaciones compatibles](active-directory-saas-tutorial-list.md), por lo que le agregaremos un filtro de ámbito.
+
+### <a name="to-create-a-scoping-filter"></a>Para crear un filtro de ámbito:
+1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
+2. Seleccione la aplicación para la que desea configurar el aprovisionamiento automático. Ejemplo: "ServiceNow"
+3. Seleccione la pestaña **Aprovisionamiento**.
+4. En la sección **Asignaciones**, seleccione la asignación para la que desea configurar un filtro de ámbito. Ejemplo: "Sincronizar usuarios de Azure Active Directory con ServiceNow".
+5. Seleccione el menú **Ámbito del objeto de origen**.
+6. Seleccione **Agregar filtro de ámbito**.
+7. Defina una cláusula seleccionando un **nombre de atributo** de origen, un **operador** y un **valor del atributo** para comparar. A continuación se muestran los operadores compatibles:
+   * **EQUALS**: esta cláusula devuelve "true" si el atributo que se evalúa coincide exactamente con el valor de la cadena de entrada (se distingue entre mayúsculas y minúsculas).
+   * **NOT EQUALS**: esta cláusula devuelve "true" si el atributo que se evalúa no coincide con el valor de la cadena de entrada (se distingue entre mayúsculas y minúsculas).
+   * **IS TRUE**: esta cláusula devuelve "true" si el atributo que se evalúa contiene un valor booleano de tipo "true".
+   * **IS FALSE**: esta cláusula devuelve "true" si el atributo que se evalúa contiene un valor booleano de tipo "false".
+   * **IS NULL**: esta cláusula devuelve "true" si el atributo que se evalúa está vacío.
+   * **IS NOT NULL**: esta cláusula devuelve "true" si el atributo que se evalúa no está vacío.
+   * **REGEX MATCH**: esta cláusula devuelve "true" si el atributo que se evalúa coincide con el patrón de una expresión regular. Ejemplo: ([1-9][0-9]) coincide con cualquier número entre 10 y 99.
+   * **NOT REGEX MATCH**: esta cláusula devuelve "true" si el atributo que se evalúa no coincide con el patrón de una expresión regular.
+8. Seleccione **Agregar nueva cláusula de control**.
+9. Si lo desea, repita los pasos 7 y 8 para agregar más cláusulas de control.
+10. En **Título del filtro de ámbito**, escriba el nombre del filtro de ámbito.
+11. Seleccione **Aceptar**.
+12. Seleccione **Aceptar** de nuevo en la pantalla de los filtros de ámbito (o repita los pasos 6 a 11 para agregar otro filtro de ámbito).
+13. Seleccione **Guardar** en la pantalla de asignación de atributos. 
+
+>[!IMPORTANT] 
+> Si guarda un nuevo filtro de ámbito, se realizará una sincronización completa de la aplicación y todos los usuarios del sistema de origen volverán a ser evaluados mediante el nuevo filtro de ámbito. Si un usuario de la aplicación que estaba en el ámbito de aprovisionamiento se encuentra ahora fuera del mismo, su cuenta se deshabilitará o se desaprovisionará de la aplicación.
+
 
 ## <a name="related-articles"></a>Artículos relacionados
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
@@ -61,8 +99,4 @@ Según este filtro de ámbito, los usuarios deben cumplir los siguientes criteri
 * [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](active-directory-scim-provisioning.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 
-<!--Image references-->
-[1]: ./media/active-directory-saas-scoping-filters/ic782811.png
-[2]: ./media/active-directory-saas-scoping-filters/ic782812.png
-[3]: ./media/active-directory-saas-scoping-filters/ic782813.png
 
