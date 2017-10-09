@@ -15,13 +15,16 @@ ms.topic: get-started-article
 ms.date: 8/23/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 9c65abd596b1a67175a4f91558c318f16ddbb11f
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 33906514955b76a3d6587b19899a0c76a09018a2
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cuota en Azure Stack
+
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+
 Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límites de recursos que puede aprovisionar o consumir una suscripción de usuario. Por ejemplo, una cuota podría permitir que un usuario creara hasta cinco máquinas virtuales. Cada recurso puede tener sus propios tipos de cuotas.
 
 ## <a name="compute-quota-types"></a>Tipos de cuota de proceso

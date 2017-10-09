@@ -15,13 +15,15 @@ ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4baa1b675d2930cd111b5b8368ac081dc2b77841
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 4d7c335a3c68cc9bb8cb0c823883716a3dd6620a
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Descarga de elementos de Marketplace desde Azure a Azure Stack
+
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
 Puesto que usted decide qué contenido desea incluir en su Marketplace de Azure Stack, debe tener en cuenta el contenido disponible en Azure Marketplace. Puede descargar de una lista protegida de elementos de Azure Marketplace que han sido previamente probados para su ejecución en Azure Stack. Puesto que se agregan nuevos elementos a esta lista con frecuencia, asegúrese de volver a consultar el nuevo contenido.
 
@@ -45,7 +47,7 @@ Para descargar elementos de Marketplace, primero debe [registrar Azure Stack en 
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
-6. Una vez finalizada la descarga, puede implementar el nuevo elemento de Marketplace como un operador en la nube o un usuario del inquilino. Haga clic en **+Nuevo**, busque entre las categorías el nuevo elemento de Marketplace y, a continuación, seleccione el elemento.
+6. Una vez finalizada la descarga, puede implementar el nuevo elemento de Marketplace como un usuario o un operador de Azure Stack. Haga clic en **+Nuevo**, busque entre las categorías el nuevo elemento de Marketplace y, a continuación, seleccione el elemento.
 7. Haga clic en **Crear** para abrir la experiencia de creación del elemento recién descargado. Siga las instrucciones paso a paso para implementar el elemento.
 
 ## <a name="next-steps"></a>Pasos siguientes

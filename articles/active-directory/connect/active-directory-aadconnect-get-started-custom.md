@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/02/2017
+ms.date: 09/27/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 51906e8d68b5f951a75b8141644bbaf4cf6a43ce
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: a3a4a90221821de690f72260b2adca07680d30a9
 ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
@@ -48,14 +48,14 @@ Después de instalar los componentes necesarios, se le pide que seleccione el m�
 
 ![Inicio de sesión del usuario](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
 
-| Inicio de sesión único | Description |
+| Inicio de sesión único | Descripción |
 | --- | --- |
-| Sincronización de contraseñas |Los usuarios pueden iniciar sesión en los servicios en la nube de Microsoft, como Office 365, con la misma contraseña que usan en su red local. Las contraseñas de usuario se sincronizan en Azure AD en forma de hash de contraseña y la autenticación tiene lugar en la nube. Consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) para más información. |
-|Autenticación de paso a través (versión preliminar)|Los usuarios pueden iniciar sesión en los servicios en la nube de Microsoft, como Office 365, con la misma contraseña que usan en su red local.  La contraseña de los usuarios se pasa al controlador de Active Directory local para su validación.
+| Sincronización de hash de contraseñas |Los usuarios pueden iniciar sesión en los servicios en la nube de Microsoft, como Office 365, con la misma contraseña que usan en su red local. Las contraseñas de usuario se sincronizan en Azure AD en forma de hash de contraseña y la autenticación tiene lugar en la nube. Consulte [Sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) para más información. |
+|Autenticación de paso a través|Los usuarios pueden iniciar sesión en los servicios en la nube de Microsoft, como Office 365, con la misma contraseña que usan en su red local.  La contraseña de los usuarios se pasa al controlador de Active Directory local para su validación.
 | Federación con AD FS |Los usuarios pueden iniciar sesión en los servicios en la nube de Microsoft, como Office 365, con la misma contraseña que usan en su red local.  Los usuarios se redirigen a su instancia local de AD FS para iniciar sesión y la autenticación se realiza de forma local. |
 | No configurar |No se instala ni configura ninguna característica. Elija esta opción si ya tiene un servidor de federación de terceros u otra solución existente ya instalada. |
 |Habilitar el inicio de sesión único|Esta opción está disponible tanto con la sincronización de contraseñas como con la autenticación de paso a través, y proporciona una experiencia de inicio de sesión único para los usuarios de escritorio de la red corporativa.  Para más información, consulte [Inicio de sesión único](active-directory-aadconnect-sso.md). </br>Tenga en cuenta para los clientes de AD FS esta opción no está disponible porque AD FS ya ofrece el mismo nivel de inicio de sesión único.</br>(si PTA no se libera al mismo tiempo)
-|Opción de inicio de sesión|Esta opción está disponible para los usuarios de la sincronización de contraseñas, y proporciona una experiencia de inicio de sesión único para los usuarios de escritorio de la red corporativa.  </br>Para más información, consulte [Inicio de sesión único](active-directory-aadconnect-sso.md). </br>Tenga en cuenta para los clientes de AD FS esta opción no está disponible porque AD FS ya ofrece el mismo nivel de inicio de sesión único.
+|Opción de inicio de sesión|Esta opción está disponible para los usuarios de la sincronización de hash de contraseñas y proporciona una experiencia de inicio de sesión único para los usuarios de escritorio de la red corporativa.  </br>Para más información, consulte [Inicio de sesión único](active-directory-aadconnect-sso.md). </br>Tenga en cuenta para los clientes de AD FS esta opción no está disponible porque AD FS ya ofrece el mismo nivel de inicio de sesión único.
 
 
 ### <a name="connect-to-azure-ad"></a>Conectarse a Azure
@@ -169,7 +169,7 @@ Esta pantalla le permite seleccionar las características opcionales para situac
 | Implementación híbrida de Exchange |La característica de implementación híbrida de Exchange permite la coexistencia de buzones de Exchange en un entorno local y en Office 365. Azure AD Connect sincroniza un conjunto específico de [atributos](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) de Azure AD en su directorio local. |
 | Carpetas públicas de correo de Exchange | La característica Carpetas públicas de correo de Exchange permite sincronizar objetos de carpeta pública habilitada para correo desde su instancia local de Active Directory con Azure AD. |
 | Aplicación Azure AD y filtro de atributos |Al habilitar la aplicación Azure AD y el filtro de atributos, se puede adaptar el conjunto de atributos sincronizados. Esta opción agrega dos páginas más de configuración al asistente. Para más información, consulte [Aplicación Azure AD y filtro de atributos](#azure-ad-app-and-attribute-filtering). |
-| Sincronización de contraseñas |Si seleccionó la federación como solución de inicio de sesión. puede habilitar esta solución. A continuación, la sincronización de contraseñas se puede usar como opción de copia de seguridad. Para más información, consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Si seleccionó la autenticación de paso a través, esta opción está habilitada de forma predeterminada para garantizar la compatibilidad a los clientes heredados y como opción de respaldo. Para más información, consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md).|
+| Sincronización de contraseñas |Si seleccionó la federación como solución de inicio de sesión. puede habilitar esta solución. A continuación, la sincronización de contraseñas se puede usar como opción de copia de seguridad. Para más información, consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Si seleccionó la autenticación de paso a través, esta opción también se puede habilitar para garantizar la compatibilidad a los clientes heredados y como opción de respaldo. Para más información, consulte [Sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md).|
 | Escritura diferida de contraseñas |Al habilitar la escritura diferida de contraseñas, los cambios de contraseña que se originan en Azure AD se escriben en su directorio local. Para más información, consulte [Introducción a la administración de contraseñas](../active-directory-passwords-getting-started.md). |
 | Escritura diferida de grupos |Si utiliza la característica **Grupos de Office 365** , estos grupos pueden estar representados en su instancia de Active Directory local. Esta opción solo está disponible si dispone de Exchange en su Active Directory local. Para más información, consulte [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Escritura diferida de dispositivos |Permite realizar una escritura diferida de objetos de dispositivo en Azure AD para su Active Directory local para escenarios de acceso condicional. Para más información, consulte [Habilitación de la escritura diferida de dispositivos](active-directory-aadconnect-feature-device-writeback.md). |

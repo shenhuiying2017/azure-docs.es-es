@@ -1,6 +1,6 @@
 ---
 title: Revisiones de acceso de Azure AD| Microsoft Docs
-description: "Puede controlar la pertenencia a grupos y el acceso a las aplicaciones para satisfacer el gobierno, la administración de riesgos y las iniciativas de cumplimiento de su organización aprovechando las revisiones de acceso de Azure Active Directory."
+description: "Puede controlar la pertenencia a grupos y el acceso a las aplicaciones para cumplir con las iniciativas de cumplimiento, administración de riesgos y gobierno de su organización aprovechando las revisiones de acceso de Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: markwahl-msft
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 6dee1ae6adc6a15d29cb97d815279b7e89306e86
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: d803e814828132aa5c8355de6192e45cd9e902b0
 ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 

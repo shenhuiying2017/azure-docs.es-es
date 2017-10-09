@@ -1,6 +1,6 @@
 ---
 title: "Suscripción a una oferta | Microsoft Docs"
-description: "Aprenda cómo se suscriben los inquilinos a las ofertas."
+description: "Aprenda cómo los usuarios se suscriben a una oferta."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,16 +15,19 @@ ms.topic: get-started-article
 ms.date: 7/03/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3cd87ebe9827249d32f15b5de0ad8521d0282c47
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: f70815b5e89753a4b0083ffbe10d9920062d1ff0
 ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="subscribe-to-an-offer"></a>Suscripción a una oferta
-Ahora que ha [creado una oferta](azure-stack-create-offer.md), compruebe que los inquilinos pueden crear una suscripción.
 
-1. [Inicie sesión](azure-stack-connect-azure-stack.md) el portal de inquilinos de Azure Stack (https://portal.local.azurestack.external/) y haga clic en **Obtener una suscripción**.
+*Se aplica a los sistemas integrados de Azure Stack y Azure Stack Development Kit*
+
+Ahora que ha [creado una oferta](azure-stack-create-offer.md), compruebe que los usuarios pueden crear una suscripción.
+
+1. [Inicie sesión](azure-stack-connect-azure-stack.md) el portal de usuarios de Azure Stack (https://portal.local.azurestack.external/) y haga clic en **Obtener una suscripción**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 2. En el campo **Nombre para mostrar**, escriba un nombre para la suscripción, haga clic en **Oferta**, haga clic en una de las ofertas en la hoja **Elija una oferta** y, después, haga clic en **Crear**.
@@ -35,9 +38,9 @@ Ahora que ha [creado una oferta](azure-stack-create-offer.md), compruebe que los
 Después de suscribirse a una oferta, actualice el portal para ver los servicios que forman parte de la nueva suscripción.
 
 ## <a name="subscribe-to-an-add-on-plan"></a>Suscripción a un plan complementario
-Si la oferta tiene algún plan complementario, los inquilinos pueden agregarlo a su suscripción en cualquier momento.  
+Si la oferta tiene algún plan complementario, los usuarios pueden agregarlo a su suscripción en cualquier momento.  
 
-1. En el portal de inquilinos, seleccione **más servicios** > **Suscripciones**.
+1. En el portal de usuarios, seleccione **Más servicios** > **Suscripciones**.
 
 2. Haga clic en la suscripción > botón **Agregar Plan** y seleccione el plan complementario.
 

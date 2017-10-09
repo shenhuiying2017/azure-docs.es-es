@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 601cfb136530d2595cded0dd147703d6b272c3ce
+ms.sourcegitcommit: d07d5d59632791a52bcb3a2f54bebe194cc76a54
+ms.openlocfilehash: 44eaaae123490934bc62b4ea30968656900d48fc
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 10/04/2017
 
 ---
 
@@ -64,7 +64,7 @@ Para obtener información sobre cómo crear su propio clúster, vea [Creación d
 >
 
 ### <a name="deploy-the-application-manifests"></a>Implementación de los manifiestos de aplicación 
-Instalación de la línea de comandos de Service Fabric (sfctl) en el entorno de la CLI
+Instalación de la [CLI de Service Fabric (sfctl)](service-fabric-cli.md) en el entorno de la CLI
 
 ```azurecli-interactive
 pip3 install --user sfctl 
@@ -82,7 +82,7 @@ Use el script de instalación proporcionado para copiar la definición de la apl
 ./install.sh
 ```
 
-Abra un explorador y navegue hasta Service Fabric Explorer en http://\<my-azure-service-fabric-cluster-url>:80 por ejemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Expanda el nodo Applications para comprobar que ahora hay una entrada para el tipo de aplicación de votación y la instancia que ha creado.
+Abra un explorador y navegue hasta Service Fabric Explorer en http://\<my-azure-service-fabric-cluster-url>:19080/Explorer - por ejemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Expanda el nodo Applications para comprobar que ahora hay una entrada para el tipo de aplicación de votación y la instancia que ha creado.
 
 ![Service Fabric Explorer][sfx]
 
@@ -95,7 +95,7 @@ Service Fabric se asegura de que sus instancias de contenedor se mueven automát
 
 Para conmutar por error el contenedor de front-end, siga estos pasos:
 
-1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
 2. Haga clic en el nodo **fabric:/Voting/azurevotefront** en la vista de árbol y expanda el nodo de partición (representado por un GUID). Observe el nombre de nodo de la vista de árbol, que le muestra los nodos en los que el contenedor se ejecuta actualmente (por ejemplo, `_nodetype_4`)
 3. Expanda el nodo **Nodos** en la vista de árbol. Haga clic en el botón de puntos suspensivos (tres puntos) situado junto al nodo que ejecuta el contenedor.
 4. Elija **Reiniciar** para reiniciar ese nodo y confirmar la acción de reinicio. El reinicio hace que el contenedor conmute por error a otro nodo del clúster.

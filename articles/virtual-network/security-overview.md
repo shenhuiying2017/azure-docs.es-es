@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 341128e4a1ad6902f6052eb954ffae08e5d78121
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
 ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="network-security"></a>Seguridad de las redes
@@ -129,7 +129,7 @@ Las reglas predeterminadas no se pueden quitar, pero puede reemplazarlas con reg
 * **Internet** (Resource Manager) (**INTERNET** para el modelo clásico): esta etiqueta denota el espacio de direcciones IP públicas de Azure. Las direcciones que abarca esta etiqueta se enumeran en el documento sobre el [espacio de direcciones IP públicas propiedad de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualiza periódicamente.
 * **AzureTrafficManager** (solo para Resource Manager): esta etiqueta denota el espacio de direcciones IP del servicio Azure Traffic Manager.
 * **Storage** (solo para Resource Manager): esta etiqueta denota el espacio de direcciones IP del servicio Azure Storage. Si especifica *Storage* como valor, el tráfico al almacenamiento se permite o se deniega. Si solo desea permitir el acceso al almacenamiento de una determinada [región](https://azure.microsoft.com/regions), puede especificarla. Por ejemplo, si desea permitir el acceso a Azure Storage solo en la región este de EE. UU., puede especificar *Storage.EastUS* como etiqueta de servicio. Etiquetas de servicio regionales adicionales disponibles: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS y Storage.WestUS2. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure Storage, pero no una cuenta de específica de este.
-* **Sql** (solo para Resource Manager): esta etiqueta denota los prefijos de direcciones de los servicios Azure SQL Database y Azure SQL Data Warehouse. Solo se pueden especificar regiones específicas para esta etiqueta de servicio. Por ejemplo, si desea permitir el acceso a Azure SQL Database solo en la región este de EE. UU., puede especificar *Sql.EastUS* como etiqueta de servicio. No se puede especificar Sql solo para todas las regiones de Azure, debe especificar las regiones individualmente. Otras etiquetas de servicio regionales disponibles: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS y Storage.WestUS2. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure SQL Database, pero no una cuenta de específica de este.
+* **Sql** (solo para Resource Manager): esta etiqueta denota los prefijos de direcciones de los servicios Azure SQL Database y Azure SQL Data Warehouse. Solo se pueden especificar regiones específicas para esta etiqueta de servicio. Por ejemplo, si desea permitir el acceso a Azure SQL Database solo en la región este de EE. UU., puede especificar *Sql.EastUS* como etiqueta de servicio. No se puede especificar Sql solo para todas las regiones de Azure, debe especificar las regiones individualmente. Otras etiquetas de servicios regionales disponibles: Sql.AustraliaEast, Sql.AustraliaSoutheast, Sql.EastUS, Sql.UKSouth, Sql.WestCentralUS, Sql.WestUS y Sql.WestUS2. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure SQL Database, pero no una cuenta de específica de este.
 
 > [!WARNING]
 > Las etiquetas de servicio AzureTrafficManager, Storage y Sql están disponibles en versión preliminar. Las características de la versión preliminar no tienen el mismo nivel de disponibilidad y confiabilidad que las características de la versión general. Las etiquetas de servicio solo están disponibles en las siguientes regiones: Este de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, oeste del Centro de EE. UU., Este de Australia, Sudeste de Australia y Sur de Reino Unido.
