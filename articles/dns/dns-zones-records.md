@@ -124,10 +124,10 @@ En el nivel de la API de REST de DNS de Azure, los valores de Etag se especifica
 
 | Encabezado | Comportamiento |
 | --- | --- |
-| Ninguna |PUT always succeeds (no Etag checks) |
-| If-match <etag> |PUT only succeeds if resource exists and Etag matches |
-| If-match * |PUT only succeeds if resource exists |
-| If-none-match * |PUT only succeeds if resource does not exist |
+| Ninguna |PUT siempre se realiza correctamente (sin comprobaciones de ETag) |
+| If-match <etag> |PUT solo se realiza correctamente si el recurso existe y ETag coincide |
+| If-match * |PUT solo se realiza correctamente si el recurso existe |
+| If-none-match * |PUT solo se realiza correctamente si el recurso no existe |
 
 
 ## <a name="limits"></a>límites
