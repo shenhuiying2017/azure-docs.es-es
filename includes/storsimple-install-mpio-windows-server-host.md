@@ -8,7 +8,7 @@
 3. En el **Asistente para agregar roles y características** , haga lo siguiente:
    
    * En la página **Antes de comenzar**, haga clic en **Siguiente**.
-   * En la página **Seleccionar tipo de instalación**, acepte la configuración predeterminada de **Instalación basada en características o en roles**. Haga clic en **Next**.
+   * En la página **Seleccionar tipo de instalación**, acepte la configuración predeterminada de **Instalación basada en características o en roles**. Haga clic en **Siguiente**.
      
        ![Asistente para agregar roles y características 2](./media/storsimple-install-mpio-windows-server/IC740999.png)
    * En la página **Seleccionar servidor de destino** y elija **Seleccionar un servidor del grupo de servidores**. El servidor host debería detectarse automáticamente. Haga clic en **Siguiente**.

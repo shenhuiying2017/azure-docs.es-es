@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Seguimiento de la comunicación B2B en Microsoft Operations Management Suite (OMS)
 
 Después de configurar la comunicación B2B entre dos procesos o aplicaciones empresariales mediante la cuenta de integración, esas entidades pueden intercambiar mensajes entre sí. Para comprobar si estos mensajes se procesan correctamente, puede realizar un seguimiento de los mensajes AS2, X12 y EDIFACT con [Azure Log Analytics](../log-analytics/log-analytics-overview.md) en [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Por ejemplo, puede usar estas capacidades de seguimiento basado en web para el seguimiento de mensajes:
@@ -34,7 +32,7 @@ Después de configurar la comunicación B2B entre dos procesos o aplicaciones em
 
 ## <a name="requirements"></a>Requisitos
 
-* Una aplicación lógica configurada con registro de diagnósticos. Aprenda [cómo crear una aplicación lógica](logic-apps-create-a-logic-app.md) y [cómo configurar el registro para esa aplicación lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Una aplicación lógica configurada con registro de diagnósticos. Obtenga información sobre [cómo crear una aplicación lógica](logic-apps-create-a-logic-app.md) y [cómo configurar el registro de esa aplicación lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Una cuenta de integración configurada con supervisión y registro. Aprenda [cómo crear una cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) y [cómo configurar la supervisión y el registro para esa cuenta](../logic-apps/logic-apps-monitor-b2b-message.md).
 

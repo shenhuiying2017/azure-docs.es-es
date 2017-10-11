@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.contentlocale: es-es
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migración de la plataforma de Azure Security Center
 
@@ -78,5 +77,4 @@ Junto con la migración de la plataforma, estamos implementando algunas otras ac
 - La recopilación de datos se exigirá y se habilitará automáticamente para los clientes del plan de tarifa Estándar.
 - Azure Security Center comenzará a detectar soluciones antimalware que no se implementaron mediante extensiones de Azure. En primer lugar estará disponible la detección de Symantec Endpoint Protection y Defender para Windows 2016.
 - Las directivas de prevención y las notificaciones solo se pueden configurar en el nivel de *Suscripción*. Sin embargo, aún se pueden establecer los precios en el nivel *Grupo de recursos*.
-
 

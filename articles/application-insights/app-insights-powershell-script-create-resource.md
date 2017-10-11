@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 4a7a4b719176a1d10bee2fc4f6b65204cc77bee8
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: a828af9c7d207dd84cc626fc70206018fd67e2dd
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Script de PowerShell para crear un recurso de Application Insights
 
@@ -114,5 +113,4 @@ Hay dos maneras de hacer que el valor iKey esté disponible para el SDK:
 * [Crear Application Insights y recursos de pruebas web a partir de plantillas](app-insights-powershell.md)
 * [Configurar la supervisión de diagnósticos de Azure con PowerShell](app-insights-powershell-azure-diagnostics.md) 
 * [Establecimiento de alertas mediante PowerShell](app-insights-powershell-alerts.md)
-
 

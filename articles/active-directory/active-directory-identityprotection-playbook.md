@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
-ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
-ms.contentlocale: es-es
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guía de Azure Active Directory Identity Protection
 Esta guía le ayudará a:
@@ -81,7 +80,7 @@ Simular la condición de viaje imposible es complicado porque el algoritmo utili
 5. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com) con las mismas credenciales que antes y pocos minutos después del inicio de sesión anterior.
 
 El inicio de sesión se mostrará en el panel de Identity Protection entre 2 y 4 horas después.<br>
-Debido a los complejo modelos de aprendizaje automático implicados, es posible que no se detecte.<br>  Puede replicar estos pasos para varias cuentas de Azure AD.
+Debido a los complejo modelos de aprendizaje automático implicados, es posible que no se detecte.<br> Puede replicar estos pasos para varias cuentas de Azure AD.
 
 ## <a name="simulating-vulnerabilities"></a>Simulación de puntos vulnerables
 Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede ser aprovechados por un actor perjudicial. Actualmente se exponen 3 tipos de puntos vulnerables en Azure AD Identity Protection que aprovechan otras características de Azure AD. Estos puntos vulnerables se mostrará en el panel de Identity Protection automáticamente una vez configuradas estas características.
@@ -110,7 +109,7 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 11. Haga clic en **Guardar**.
 12. Ahora puede probar el acceso condicional basado en riesgos mediante un inicio de sesión con un usuario con un nivel de riesgo elevado. Si el riesgo del usuario es Medio, en función de la directiva que establezca, se bloqueará el inicio de sesión o se forzará el cambio de contraseña. 
     <br><br>
-    ![Guía](./media/active-directory-identityprotection-playbook/201.png "Playbook")
+    ![Guía de](./media/active-directory-identityprotection-playbook/201.png "guía")
     <br>
 
 ## <a name="sign-in-risk"></a>Riesgo de inicio de sesión
@@ -120,7 +119,7 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 2. Vaya a **Identity Protection**.
 3. En la hoja principal de **Azure AD Identity Protection**, haga clic en **Configuración**. 
 4. En la hoja **Configuración del portal**, en **Reglas de seguridad**, haga clic en **Riesgo de inicio de sesión**.
-5. En la hoja **Riesgo de inicio de sesión**, seleccione **Activado** en **Habilitar regla**. 
+5. En el ** iniciar sesión en riesgo ** hoja, seleccione **en** en **Habilitar regla**. 
 6. Seleccione una de las siguientes opciones:
    
    a. Para bloquearlo, seleccione **Medio** en **Bloquear inicio de sesión**.
@@ -137,5 +136,4 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 
 ## <a name="see-also"></a>Otras referencias
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
 

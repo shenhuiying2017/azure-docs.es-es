@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2015
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: c369b22cf068a473343b006eb1b06fdd350d31db
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-monitor-cloud-services"></a>Supervisión de servicios en la nube
 [!INCLUDE [disclaimer](../../includes/disclaimer.md)]
@@ -42,7 +41,7 @@ Use los siguientes procedimientos para configurar la supervisión detallada o m�
 
 ### <a name="before-you-begin"></a>Antes de empezar
 * Cree una cuenta de almacenamiento *clásico* para almacenar los datos de supervisión. Puede utilizar cuentas de almacenamiento diferentes para roles diferentes. Para obtener más información, vea [Cómo crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
-* Active Diagnósticos de Azure en sus roles de servicios en la nube. Consulte [Configuración de Diagnósticos para Cloud Services](cloud-services-dotnet-diagnostics.md).
+* Active Diagnósticos de Azure en sus roles de servicios en la nube. Consulte [Configuración de Diagnósticos para servicios en la nube](cloud-services-dotnet-diagnostics.md).
 
 Asegúrese de que la cadena de conexión de diagnóstico está presente en la configuración de roles. No puede activar la supervisión detallada hasta que habilite Diagnósticos de Azure e incluya una cadena de conexión de diagnóstico en la configuración de roles.   
 
@@ -177,4 +176,3 @@ WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
 WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 ```
-

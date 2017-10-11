@@ -1,5 +1,4 @@
 ---
-
 title: "Adición o modificación de la información de perfil de un usuario en Azure Active Directory | Microsoft Docs"
 description: "En este artículo se explica cómo agregar el perfil de usuario, incluida la imagen de perfil, en Azure Active Directory."
 services: active-directory
@@ -16,13 +15,11 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: ccc6dfaf1653d5888541d78f5e9e20b183709574
-ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
-
-
+ms.openlocfilehash: 81d93563a3cbe47ebe12c7ac5de26c5bbc2bb8ff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Adición o modificación de la información de perfil de un usuario en Azure Active Directory
 En este artículo explica cómo agregar información de perfil de usuario, como una imagen de perfil o datos de autenticación por correo electrónico o teléfono, en Azure Active Directory (Azure AD). Para obtener más información sobre cómo agregar nuevos usuarios en su organización, consulte [Incorporación de nuevos usuarios a Azure Active Directory](active-directory-users-create-azure-portal.md).
@@ -47,4 +44,3 @@ En este artículo explica cómo agregar información de perfil de usuario, como 
 * [Asignación de un usuario a roles de administrador en Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Adición o modificación de la información de perfil de un usuario en Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Eliminación de un usuario de un directorio en Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
-

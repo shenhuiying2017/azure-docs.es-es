@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
-ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Administración de directivas básicas para un laboratorio de Azure DevTest Labs
 
 Azure DevTest Labs permite controlar los costos y desperdiciar lo mínimo posible en sus laboratorios gracias a la posibilidad de administrar políticas (configuración) en cada uno de ellos. En este artículo, empezará a trabajar con las directivas. Aprenderá a establecer dos de las directivas más importantes: limitar el número de máquinas virtuales que puede crear o reclamar un solo usuario, y configurar el apagado automático. Para ver cómo establecer todas las directivas de laboratorio, consulte el artículo [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
@@ -91,4 +89,3 @@ La directiva de inicio automático le permite especificar cuándo se deben inici
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md) (información sobre cómo modificar otras directivas de laboratorio) 
-

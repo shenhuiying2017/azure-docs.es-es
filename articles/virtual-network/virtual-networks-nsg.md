@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrado del tráfico de red con grupos de seguridad de red
 
@@ -263,4 +262,3 @@ Puesto que algunos de los grupos de seguridad de red están asociados a interfac
 * [Implementación de grupos de seguridad de red (clásicos)](virtual-networks-create-nsg-classic-ps.md).
 * [Administración de registros de grupo de seguridad de red](virtual-network-nsg-manage-log.md).
 * [Solución de problemas de grupo de seguridad de red] (virtual-network-nsg-troubleshoot-portal.md)
-

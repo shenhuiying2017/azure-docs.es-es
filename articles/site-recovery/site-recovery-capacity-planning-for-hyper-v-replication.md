@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
-ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
-ms.contentlocale: es-es
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 272b5abb5e6451164ca7900dda399b6aac65f986
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="run-the-hyper-v-capacity-planner-tool-for-site-recovery"></a>Ejecución de la herramienta de planeación de capacidad de Hyper-V para Site Recovery
 
@@ -135,4 +133,3 @@ Cuando haya terminado de planear la capacidad, puede comenzar a implementar Site
 * [Replicación de máquinas virtuales de Hyper-V de nubes VMM en Azure](site-recovery-vmm-to-azure.md)
 * [Replicación de máquinas virtuales de Hyper-V (sin VMM) en Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Replicación de máquinas virtuales de Hyper-V entre sitios VMM](site-recovery-vmm-to-vmm.md)
-

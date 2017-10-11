@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: jlembicz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6feadcc02aa0047dc2028d016687d3ad2859eb44
 ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
-ms.contentlocale: es-es
-ms.lasthandoff: 02/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Creación de un índice para documentos en varios idiomas en Búsqueda de Azure
 > [!div class="op_single_selector"]
 >
@@ -93,4 +91,3 @@ Si es desarrollador de. NET, tenga en cuenta que puede configurar los analizador
 [1]: ./media/search-language-support/AnalyzerTab.png
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
-

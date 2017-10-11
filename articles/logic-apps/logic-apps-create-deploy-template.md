@@ -15,13 +15,11 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: e736bf626cd379e1bffe2dbf023e86addb09539f
-ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
-
-
+ms.openlocfilehash: 9cfbb294010d48deaf4b4c78c6a6bcd59a387d87
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-templates-for-logic-apps-deployment-and-release-management"></a>Creación de plantillas para administrar la implementación y liberación de aplicaciones lógicas
 
@@ -110,4 +108,3 @@ Un escenario común para implementar y administrar un entorno es usar una herram
 
 <!-- Image References -->
 [1]: ./media/logic-apps-create-deploy-template/emptyreleasedefinition.png
-

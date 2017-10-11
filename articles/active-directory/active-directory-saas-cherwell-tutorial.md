@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 27fedb9caa1ef27693b2267df285d62aab78bc24
-ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Tutorial: Integración de Azure Active Directory con Cherwell
 
@@ -232,5 +231,4 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 [201]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cherwell-tutorial/tutorial_general_203.png
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Realización de streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple con .NET \n| Microsoft Docs"
+title: "Realización de streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple con .NET \r\n| Microsoft Docs"
 description: "Este tutorial le guía por los pasos para crear un canal que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits con .NET SDK."
 services: media-services
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: juliako;anilmur
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 997f1f731a7517f9dafa13097c7712eef7a099b8
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 22d63ff5e9fd33db8711b0c5125ab0882b9f6a74
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Cómo realizar el streaming en vivo con Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple con .NET
 > [!div class="op_single_selector"]
@@ -494,6 +493,5 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 
 

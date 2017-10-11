@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: b22e34f9ad0644def8a344b261077b44c34420cb
-ms.contentlocale: es-es
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: e2a70f2474298618dd8ee11c583f8f445d7eba7d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Consideraciones de diseño de identidad híbrida de Azure Active Directory
 Los dispositivos basados en el consumidor proliferan en el mundo empresarial y las aplicaciones de software como servicio (SaaS) basadas en la nube son fáciles de adoptar. Como resultado, resulta difícil mantener el control de acceso a las aplicaciones de los usuarios entre centros de datos internos y plataformas en la nube.  
@@ -63,5 +62,4 @@ Al final, obtendrá el diseño que mejor se adapte a sus necesidades y solo desp
 
 ## <a name="download-this-guide"></a>Descargar esta guía
 Puede descargar una versión pdf de la guía de consideraciones de diseño de identidad híbrida en la [galería de Technet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
-
 

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
 ms.openlocfilehash: 28f0542dbe87bb34c83a7852db7c3a9fef055ce9
-ms.contentlocale: es-es
-ms.lasthandoff: 02/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: integración de Azure Active Directory con TOPdesk - Secure
 El objetivo de este tutorial es mostrar la integración de Azure y TOPdesk - Secure.  
@@ -46,9 +45,9 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    
     ![Active Directory](./media/active-directory-saas-topdesk-secure-tutorial/IC700993.png "Active Directory")
 
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
+3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
    
     ![Aplicaciones](./media/active-directory-saas-topdesk-secure-tutorial/IC700994.png "Aplicaciones")
 
@@ -105,7 +104,7 @@ La configuración del inicio de sesión único para TOPdesk - Secure requiere ca
 
 6. En otra ventana del explorador web, inicie sesión en su **Portal de Azure clásico** como administrador.
 
-7. En la página de integración de la aplicación **TOPdesk - Secure**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+7. En el **TOPdesk - Secure** página de integración de aplicaciones, haga clic en **configurar inicio de sesión único** para abrir el ** configurar inicio de sesión único ** cuadro de diálogo.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "Configurar inicio de sesión único")
 
@@ -206,7 +205,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>Para asignar usuarios a TOPdesk - Secure, lleve a cabo los siguientes pasos:
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
-2. En la página de integración de la aplicación **TOPdesk - Secure**, haga clic en **Asignar usuarios**.
+2. En el ** TOPdesk - Secure ** página de integración de aplicaciones, haga clic en **asignar usuarios**.
    
     ![Asignar usuarios](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "Asignar usuarios")
 
@@ -215,5 +214,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
     ![Sí](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
 

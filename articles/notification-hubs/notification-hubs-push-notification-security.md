@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9128fa76cc0b0f4d879faaaf98d55b5b9180f46e
-
-
+ms.openlocfilehash: 7c3283799806135060bb8ca57ea398c93d1106bb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="security"></a>Seguridad
 ## <a name="overview"></a>Información general
@@ -45,10 +45,4 @@ De modo similar a otras entidades, las operaciones del Centro de notificaciones 
 | Manage |CRUD en los Centros de notificaciones (incluida la actualización de las credenciales de PNS y claves de seguridad) y registros de lectura basados en etiquetas |Crear/Actualizar/Eliminar Centros de notificaciones<br><br>Leer registros por etiqueta |
 
 Los Centros de notificaciones aceptan notificaciones concedidas por tokens de Control de acceso de Microsoft Azure y tokens de firma generados con claves compartidas configuradas directamente en el Centro de notificaciones.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

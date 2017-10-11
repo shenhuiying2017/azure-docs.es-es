@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 10f7b8f20cc41a5ebb1b1376e2bf17be02600ae4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Obtención de información mediante los datos de Azure Security Center con Power BI
 El [panel de Power BI](http://aka.ms/azure-security-center-power-bi) para Azure Security Center le permite visualizar, analizar y filtrar las recomendaciones y alertas de seguridad desde cualquier lugar, incluido su dispositivo móvil. Utilice el panel de Power BI para mostrar tendencias y patrones de ataque. Consulte alertas de seguridad por recursos o dirección IP de origen y riesgos de seguridad no solucionados por recursos o antigüedad.
@@ -120,4 +119,3 @@ En este documento, ha aprendido a usar Power BI en Azure Security Center. Para o
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
-

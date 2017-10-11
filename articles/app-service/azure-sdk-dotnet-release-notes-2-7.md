@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 877fb34d2fe5d4b85157a8338e180358d2226ef1
-
-
+ms.openlocfilehash: 9a69253129cdedc4f5d7e736d5bd8d6a68f95a1e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1
 ## <a name="overview"></a>Información general
@@ -63,7 +63,7 @@ En esta versión se han realizado las siguientes actualizaciones en Web Tools Ex
 #### <a name="known-issues"></a>Problemas conocidos
 Los nodos de ranura de implementación de aplicación web no aparecen en el nodo de ranura en Explorador de servidores  los nodos secundarios de ranura de implementación de aplicación web no se cargan en Cloud Explorer. Este problema se ha resuelto y preparado en la próxima versión SDK. 
 
-### <a name="a-namecloudexploreracloud-explorer-for-visual-studio-2015"></a><a name="cloud_explorer"></a>Cloud Explorer para Visual Studio de 2015
+### <a name="cloud_explorer"></a>Cloud Explorer para Visual Studio de 2015
 Azure SDK 2.7  incluye Cloud Explorer para Visual Studio de 2015, que le permitirá ver los recursos de Azure, inspeccionar sus propiedades y realizar acciones de desarrollador clave desde dentro de Visual Studio. 
 
 Cloud Explorer admite lo siguiente:
@@ -136,10 +136,4 @@ Los proyectos de LightSwitch no son compatibles con esta versión. Este problema
 [Publicación de anuncio de Azure SDK 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
 [Información de compatibilidad y retirada del SDK de Azure para .NET y API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

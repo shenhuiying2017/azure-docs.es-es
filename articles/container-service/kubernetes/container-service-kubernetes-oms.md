@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: bcb4a7a7d0b712ebe35a5a5bb063124be5095148
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: bd5c81435c091d25bc14710589b7c043e9f56a25
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>Supervisión de un clúster de Azure Container Service con Microsoft Operations Management Suite (OMS)
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -75,8 +73,7 @@ Para más información sobre la solución de contenedor, consulte [Solución Con
 ## <a name="installing-oms-on-kubernetes"></a>Instalación de OMS en Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Obtención de la clave y el identificador de área de trabajo
-Para que el agente OMS se comunique con el servicio tiene que configurarse con un identificador de área de trabajo y una clave de área de trabajo. Para obtener ambos tiene que crear una cuenta OMS en <https://mms.microsoft.com>.
-Siga los pasos para crear una cuenta. Una vez que haya terminado de crear la cuenta, tendrá que obtener su identificador y su clave haciendo clic en **Configuración**, luego en **Connected Sources** (Orígenes conectados) y, por último, en **Servidores Linux**, tal y como se muestra a continuación.
+Para que el agente OMS se comunique con el servicio tiene que configurarse con un identificador de área de trabajo y una clave de área de trabajo. Para obtener ambos tiene que crear una cuenta OMS en <https://mms.microsoft.com>. Siga los pasos para crear una cuenta. Una vez que haya terminado de crear la cuenta, tendrá que obtener su identificador y su clave haciendo clic en **Configuración**, luego en **Connected Sources** (Orígenes conectados) y, por último, en **Servidores Linux**, tal y como se muestra a continuación.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -131,4 +128,3 @@ Para proteger el identificador del área de trabajo de OMS y la clave, se puede 
 
 ### <a name="conclusion"></a>Conclusión
 Eso es todo. Pasados unos minutos, debería ver los datos que fluyen en el panel OMS.
-

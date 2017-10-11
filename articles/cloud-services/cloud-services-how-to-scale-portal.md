@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e9683d4c5779450fd67fa42ab13095c7f201b4cd
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Procedimiento para configurar el escalado automático para un servicio en la nube en el Portal
 > [!div class="op_single_selector"]
 > * [Portal de Azure](cloud-services-how-to-scale-portal.md)
@@ -114,4 +112,3 @@ Con esta configuración se elimina la escala automática del rol y podrá establ
 3. Las instancias del rol en las que se realizar la operación de escala.
 
 Después de configurar la configuración de escala, seleccione el icono de **Guardar** situado en la parte superior.
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 77097d59077cd8e199acdb5dc0d8427369565eea
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configuración de una conexión de red virtual a red virtual (clásico)
 
@@ -90,8 +89,8 @@ Cree dos redes virtuales en [Azure Portal](https://portal.azure.com). Si desea v
 Al usar el portal para crear una red virtual clásica, debe ir a la hoja de la red virtual siguiendo los pasos siguientes; en caso contrario, no aparece la opción para crear una red virtual clásica:
 
 1. Haga clic en "+" para abrir la hoja "Nuevo".
-2. En el campo "Buscar en el Marketplace", escriba "Virtual Network". Si en su lugar, selecciona Redes -> Virtual Network, no obtendrá la opción para crear una red virtual clásica.
-3. En la lista de resultados, busque "Virtual Network" y haga clic en él para abrir la hoja Virtual Network. 
+2. En el campo "Buscar en el Marketplace", escriba "Red virtual". Si en su lugar, selecciona Redes -> Red virtual, no obtendrá la opción para crear una red virtual clásica.
+3. En la lista de resultados, busque "Red virtual" y haga clic en él para abrir la hoja Red virtual. 
 4. En la hoja de la red virtual, seleccione "Clásica" para crear una red virtual clásica. 
 
 Si usa este artículo como ejercicio, puede usar los valores de ejemplo siguientes:
@@ -290,4 +289,3 @@ En los ejemplos, verá que la clave compartida es exactamente la misma. Siempre 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Compruebe las conexiones. Consulte [Comprobación de una conexión de VPN Gateway](vpn-gateway-verify-connection-resource-manager.md).
-

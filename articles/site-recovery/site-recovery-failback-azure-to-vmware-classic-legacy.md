@@ -14,13 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd@microsoft.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e6d0539c35d403c24ddd5e0b5d49f4d6116eead
-ms.openlocfilehash: 86f7e0565fe30af613f06764a494cbb996abcabe
-ms.contentlocale: es-es
-ms.lasthandoff: 01/30/2017
-
-
+ms.openlocfilehash: 3053fc622c6343898e2007b8aaafbe1fa8e6934e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-from-azure-to-vmware-with-azure-site-recovery-legacy"></a>Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos desde Azure hasta VMware con Azure Site Recovery (heredado)
 > [!div class="op_single_selector"]
@@ -356,4 +354,3 @@ Una vez que la conmutación por recuperación se haya completado, puede volver a
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Obtenga información](site-recovery-vmware-to-azure-classic.md) sobre la replicación de máquinas virtuales de VMware y servidores físicos a Azure mediante la implementación mejorada.
-

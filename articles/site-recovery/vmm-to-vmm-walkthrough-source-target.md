@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 07135e9b5e619971a59cc22ec68a0a4e8bcaabe1
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-6-set-up-the-replication-source-and-target"></a>Paso 6: Configuración de los valores de origen y de destino de la replicación
 
@@ -100,4 +99,3 @@ Seleccione el servidor VMM y la nube de destino:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya al [Paso 7: Configuración de la asignación de red](vmm-to-vmm-walkthrough-network-mapping.md).
-

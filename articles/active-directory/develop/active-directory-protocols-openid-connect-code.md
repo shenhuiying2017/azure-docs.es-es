@@ -15,15 +15,13 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
-ms.openlocfilehash: e41620d3192dbb77a26b79663494e441ccd96d40
-ms.contentlocale: es-es
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 1bb944997caa0c43354e82bf9b1a70e3e104a476
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorización del acceso a aplicaciones web con OpenID Connect y Azure Active Directory
+# Autorización del acceso a aplicaciones web con OpenID Connect y Azure Active Directory
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) es una capa de identidad sencilla creada basándose en el protocolo OAuth 2.0. OAuth 2.0 define los mecanismos para obtener y usar **tokens de acceso** para acceder a recursos protegidos, pero no determina métodos estándares para proporcionar información de identidad. OpenID Connect implementa la autenticación como una extensión al proceso de autorización de OAuth 2.0. Proporciona información sobre el usuario final con la forma de `id_token` que comprueba la identidad del usuario y proporciona información de perfil básica sobre dicho usuario.
 
 Nosotros recomendamos OpenID Connect si va a crear una aplicación web que está hospedada en un servidor y a la que se accede mediante un explorador.
@@ -31,12 +29,12 @@ Nosotros recomendamos OpenID Connect si va a crear una aplicación web que está
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
 
-## <a name="authentication-flow-using-openid-connect"></a>Flujo de autenticación con OpenID Connect
+## Flujo de autenticación con OpenID Connect
 El flujo de inicio de sesión más básico contiene los pasos siguientes, cada uno de los cuales se describe en detalle a continuación.
 
 ![Flujo de autenticación de OpenID Connect](media/active-directory-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
 
-## <a name="openid-connect-metadata-document"></a>Documento de metadatos de OpenID Connect
+## Documento de metadatos de OpenID Connect
 
 OpenID Connect describe un documento de metadatos que contiene la mayor parte de la información necesaria para que una aplicación realice el inicio de sesión. Esta información incluye las direcciones URL que se usan y la ubicación de las claves de firma pública del servicio. Se puede encontrar el documento de metadatos de OpenID Connect en:
 
@@ -60,7 +58,7 @@ Los metadatos son un documento de notación de objetos JavaScript (JSON) simple.
 }
 ```
 
-## <a name="send-the-sign-in-request"></a>Envío de la solicitud de inicio de sesión
+## Envío de la solicitud de inicio de sesión
 Cuando la aplicación web deba autenticar al usuario, debe dirigirlo al punto de conexión `/authorize` . Esta solicitud es similar al primer segmento del [flujo de código de autorización de OAuth 2.0](active-directory-protocols-oauth-code.md), con algunas diferencias importantes:
 
 * La solicitud debe incluir el ámbito `openid` en el parámetro `scope`.
@@ -97,7 +95,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 En este punto, se le pide al usuario que escriba sus credenciales y que complete la autenticación.
 
-### <a name="sample-response"></a>Respuesta de muestra
+### Respuesta de muestra
 Una respuesta de muestra, una vez que se haya autenticado el usuario, podría tener este aspecto:
 
 ```
@@ -113,7 +111,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | ID_token |El `id_token` que solicitó la aplicación. Puede usar el `id_token` para comprobar la identidad del usuario y comenzar una sesión con el usuario. |
 | state |Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Se utiliza normalmente un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](http://tools.ietf.org/html/rfc6749#section-10.12).  El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
 
-### <a name="error-response"></a>Respuesta de error
+### Respuesta de error
 Las respuestas de error también pueden enviarse al `redirect_uri` para que la aplicación pueda controlarlas adecuadamente:
 
 ```
@@ -129,7 +127,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | error |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error_description |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
 
-#### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de error correspondientes a errores de puntos de conexión de autorización
+#### Códigos de error correspondientes a errores de puntos de conexión de autorización
 En la tabla siguiente se describen los distintos códigos de error que pueden devolverse en el parámetro `error` de la respuesta de error.
 
 | Código de error | Description | Acción del cliente |
@@ -142,7 +140,7 @@ En la tabla siguiente se describen los distintos códigos de error que pueden de
 | temporarily_unavailable |De manera temporal, el servidor está demasiado ocupado para atender la solicitud. |Vuelva a intentarlo. La aplicación podría explicar al usuario que su respuesta se retrasó debido a una condición temporal. |
 | invalid_resource |El recurso de destino no es válido porque no existe, Azure AD no lo encuentra o no está configurado correctamente. |Este error indica que el recurso, en caso de que exista, no se ha configurado en el inquilino. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
 
-## <a name="validate-the-idtoken"></a>Validar el id_token
+## Validar el id_token
 Recibir un solo `id_token` no es suficiente para autenticar al usuario; debe validar la firma del id_token y comprobar las notificaciones del `id_token` según los requisitos de su aplicación. El punto de conexión de Azure AD usa tokens web JSON (JWT) y criptografía de clave pública para firmar los tokens y comprobar que son válidos.
 
 Puede elegir validar el `id_token` en el código de cliente, pero lo habitual es enviar el `id_token` a un servidor back-end y realizar allí la validación. Una vez haya validado la firma de `id_token`, se le solicita que compruebe algunas notificaciones.
@@ -155,7 +153,7 @@ Se recomienda que valide notificaciones adicionales según su escenario. Algunas
 
 Cuando haya validado `id_token`, puede iniciar una sesión con el usuario y usar las notificaciones de `id_token` para más información sobre el usuario de la aplicación. Esta información puede utilizarse para su visualización, registros, autorizaciones, etc. Para más información sobre los tipos de tokens y notificaciones, consulte [Referencia de tokens de Azure AD](active-directory-token-and-claims.md).
 
-## <a name="send-a-sign-out-request"></a>Envío de una solicitud de cierre de sesión
+## Envío de una solicitud de cierre de sesión
 Si desea cerrar la sesión del usuario de la aplicación, no es suficiente borrar las cookies de su aplicación; de lo contrario, termine la sesión con el usuario.  También debe redirigir al usuario a `end_session_endpoint` para que cierre la sesión.  Si no lo hace, el usuario tendrá que volver a autenticar la aplicación sin escribir sus credenciales de nuevo, ya que tienen un inicio de sesión único válido con el punto de conexión de Azure AD.
 
 Simplemente puede redirigir al usuario al `end_session_endpoint` que aparece en el mismo documento de metadatos OpenID Connect:
@@ -170,7 +168,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | --- | --- | --- |
 | post_logout_redirect_uri |recomendado |La dirección URL a la que se debe redirigir al usuario después de un cierre de sesión correcto.  Si no se incluye, se muestra un mensaje genérico al usuario. |
 
-## <a name="single-sign-out"></a>Cierre de sesión único
+## Cierre de sesión único
 Cuando redirige al usuario a `end_session_endpoint`, Azure AD borra la sesión del usuario del explorador. Sin embargo, el usuario podrá permanecer conectado a otras aplicaciones que utilizan Azure AD para la autenticación. Para permitir que esas aplicaciones cierren la sesión del usuario de manera simultánea, Azure AD envía una solicitud HTTP GET al elemento `LogoutUrl` registrado de todas las aplicaciones en las que tiene una sesión iniciada. Las aplicaciones deben responder a esta solicitud mediante la eliminación de la sesión que identifica al usuario y la devolución de una respuesta `200`.  Si quiere admitir el inicio de sesión único en la aplicación, debe implementar este elemento `LogoutUrl` en el código de la aplicación.  Puede habilitar `LogoutUrl` desde Azure Portal:
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
@@ -178,10 +176,10 @@ Cuando redirige al usuario a `end_session_endpoint`, Azure AD borra la sesión d
 3. En el panel de navegación izquierdo, elija **Azure Active Directory**, a continuación, elija **Registros de aplicaciones** y seleccione la aplicación.
 4. Haga clic en **Propiedades** y busque el cuadro de texto **URL de cierre de sesión**. 
 
-## <a name="token-acquisition"></a>Obtención de tokens
+## Obtención de tokens
 Muchas aplicaciones web no solo deben iniciar la sesión del usuario, sino también obtener acceso a un servicio web en nombre de ese usuario mediante OAuth. En este escenario se combina OpenID Connect para la autenticación de usuario, al tiempo que se obtiene a la vez un `authorization_code` que puede usarse para obtener `access_tokens` mediante el flujo de código de autorización de OAuth.
 
-## <a name="get-access-tokens"></a>Obtención de tokens de acceso
+## Obtención de tokens de acceso
 Para obtener tokens de acceso, debe modificar la solicitud anterior de inicio de sesión:
 
 ```
@@ -200,7 +198,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 
 Con la inclusión de los ámbitos de permiso en la solicitud y el uso de `response_type=code+id_token`, el punto de conexión de `authorize` garantiza que el usuario ha dado su consentimiento a los permisos indicados en el parámetro de consulta `scope`. Asimismo, devuelve a la aplicación un código de autorización para intercambiarlo por un token de acceso.
 
-### <a name="successful-response"></a>Respuesta correcta
+### Respuesta correcta
 Una respuesta correcta al usar `response_mode=form_post` tiene el siguiente aspecto:
 
 ```
@@ -217,7 +215,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | código |El authorization_code que solicitó la aplicación. La aplicación puede utilizar el código de autorización para solicitar un token de acceso para el recurso de destino. Los authorization_codes son de corta duración y normalmente expiran después de unos 10 minutos. |
 | state |Si se incluye un parámetro de estado en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debería comprobar que los valores de estado de la solicitud y la respuesta son idénticos. |
 
-### <a name="error-response"></a>Respuesta de error
+### Respuesta de error
 Las respuestas de error también pueden enviarse al `redirect_uri` para que la aplicación pueda controlarlas adecuadamente:
 
 ```
@@ -236,4 +234,3 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 Para ver una descripción de los posibles códigos de error y la acción recomendada que tiene que realizar el cliente, consulte la sección [Códigos de error correspondientes a errores de puntos de conexión de autorización](#error-codes-for-authorization-endpoint-errors).
 
 Una vez que ha obtenido un `code` de autorización y un `id_token`, puede iniciar la sesión del usuario y obtener tokens de acceso en su nombre.  Para iniciar la sesión del usuario, debe validar `id_token` exactamente como se ha descrito anteriormente. Para obtener los tokens de acceso, puede seguir los pasos que se describen en la sección "Uso del código de autorización para solicitar un token de acceso" de nuestra [documentación del protocolo OAuth](active-directory-protocols-oauth-code.md).
-

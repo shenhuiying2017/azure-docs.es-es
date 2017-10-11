@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: caf6b470c334793931594df56ee13c4de9c8ba93
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: 0ef256537bf095e2a5d582bd345a9c8dcede2095
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Implementación de una solución de hospedaje de contenedor de Docker mediante Azure Portal
 
@@ -212,4 +211,3 @@ Ahora que tiene un clúster funcionando, consulte los siguientes documentos para
 * [Administración de contenedores con la API de REST](container-service-mesos-marathon-rest.md)
 * [Administración de contenedores con Docker Swarm](container-service-docker-swarm.md)
 * [Trabajo con Azure Container Service y Kubernetes](../kubernetes/container-service-kubernetes-walkthrough.md)
-

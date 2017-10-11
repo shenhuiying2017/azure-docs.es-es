@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 0056c458cc002cbdb1b8dabefe0d11a8abd61179
-ms.contentlocale: es-es
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Administración de base datos en Almacenamiento de datos SQL de Azure
 Almacenamiento de datos SQL automatiza muchos aspectos de la administración de las bases de datos. Por ejemplo, para escalar el rendimiento solo necesita ajustar y pagar por el nivel adecuado de recursos de proceso y, a continuación, dejar que Almacenamiento de datos SQL haga todo el trabajo de escalado horizontal y escalado de nuevo.
@@ -115,4 +113,3 @@ Unos buenos principios de diseño de base de datos le facilitarán la administra
 
 <!--Other web references-->
 [Azure portal]: http://portal.azure.com/
-

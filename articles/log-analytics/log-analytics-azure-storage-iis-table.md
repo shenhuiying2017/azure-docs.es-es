@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: b40d7c0acd8cc6a672f25489b745561c24501482
-ms.contentlocale: es-es
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 459ef90ca1d76bada6565bfefd7b4bd1086197d5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Uso de Azure Blob Storage para el almacenamiento de tablas de Azure e IIS de eventos con Log Analytics
 
@@ -197,4 +195,3 @@ Revise el siguiente ejemplo de script, cópielo, modifíquelo según sea necesar
 * [Recopilación de registros y métricas de los servicios de Azure](log-analytics-azure-storage.md) para los servicios compatibles de Azure.
 * [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md) para más información sobre los datos.
 * [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para analizar los datos.
-

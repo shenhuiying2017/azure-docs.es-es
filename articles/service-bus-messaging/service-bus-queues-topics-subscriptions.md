@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 00f9f38fbae028486270053dedb4df580a3f1a44
-ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Colas, temas y suscripciones de Service Bus
 
@@ -166,5 +165,4 @@ Para más información y ejemplos del uso de la mensajería de Service Bus, cons
 * [Tutorial de REST de mensajería asincrónica de Service Bus](service-bus-brokered-tutorial-rest.md)
 * [Ejemplo de filtros de tema](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters)
 * [Mensajería asincrónica: ejemplo de filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
-
 

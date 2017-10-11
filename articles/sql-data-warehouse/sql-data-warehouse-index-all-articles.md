@@ -15,12 +15,11 @@ ms.topic: article
 ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.contentlocale: es-es
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Todos los temas del servicio Almacenamiento de datos SQL de Azure
 En este documento se muestran todos los temas relacionados directamente con el servicio **Almacenamiento de datos SQL** de Azure. Puede buscar en esta página web las palabras clave mediante **Ctrl+F**, para encontrar los temas de interés.
@@ -165,5 +164,4 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 | 85 |[Introducción a la detección de amenazas](sql-data-warehouse-security-threat-detection.md) |Cómo empezar a trabajar con la detección de amenazas |
 | 86 |[Límites de capacidad de Almacenamiento de datos SQL](sql-data-warehouse-service-capacity-limits.md) |Valores máximos para las conexiones, bases de datos, tablas y consultas de Almacenamiento de datos SQL. |
 | 87 |[Solución de problemas de Almacenamiento de datos SQL de Azure](sql-data-warehouse-troubleshoot.md) |Cómo solucionar los problemas de Almacenamiento de datos SQL de Azure. |
-
 

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
 ms.openlocfilehash: c19f81da495eb7116b62797d1755d312a23f3805
-ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Tutorial: Integración de Azure Active Directory con LCVista
 
@@ -114,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.lcvista.com/rainier/login`.
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.lcvista.com`    
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.lcvista.com` 
      
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con el identificador y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de soporte de cliente de LCVista](https://lcvista.com/contact) para obtener estos valores. 
@@ -246,5 +244,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 [201]: ./media/active-directory-saas-lcvista-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-lcvista-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-lcvista-tutorial/tutorial_general_203.png
-
 

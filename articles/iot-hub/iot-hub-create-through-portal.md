@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: dobett
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: bca7eea5f44bbed3b784b56edaac235161b43e5e
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
 
@@ -178,7 +177,7 @@ Siga estos vínculos para más información sobre la administración del Centro 
 * [Métricas de IoT Hub][lnk-metrics]
 * [Supervisión de operaciones][lnk-monitor]
 
-Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
 * [Simular un dispositivo con IoT Edge][lnk-iotedge]
@@ -202,4 +201,3 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-

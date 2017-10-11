@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
 ms.openlocfilehash: 3ab24f193c74449ae7414b4ea0675c0aae0211f4
-ms.contentlocale: es-es
-ms.lasthandoff: 03/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-user-defined-routes-udr-using-powershell"></a>Creación de rutas definidas por el usuario (UDR) con PowerShell
 
@@ -273,5 +272,4 @@ Para habilitar el reenvío IP en la NIC usada por **FW1**, siga estos pasos.
         EnableIPForwarding   : True
         NetworkSecurityGroup : null
         Primary              : True
-
 

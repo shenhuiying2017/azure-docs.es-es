@@ -15,13 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e94837bf79e42602e2f72cda747ea629eed45a20
-ms.openlocfilehash: 920940d8ebe23d24216d3e886bd8ae58be12ce34
-ms.contentlocale: es-es
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Creación de definiciones de flujo de trabajo para aplicaciones lógicas mediante JSON
 
@@ -277,9 +275,9 @@ En este caso, primero debemos obtener una lista de artículos. Según la categor
 
 Algunas observaciones a tener en cuenta aquí: 
 
-*    La función [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) comprueba si la categoría coincide con alguna de las categorías definidas conocidas.
+*   La función [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) comprueba si la categoría coincide con alguna de las categorías definidas conocidas.
 
-*    Una vez que se obtiene la categoría, se puede extraer el elemento de la asignación mediante corchetes: `parameters[...]`.
+*   Una vez que se obtiene la categoría, se puede extraer el elemento de la asignación mediante corchetes: `parameters[...]`.
 
 ## <a name="process-strings"></a>Cadenas de proceso
 
@@ -452,4 +450,3 @@ En la solicitud `PUT` real para las aplicaciones lógicas, puede proporcionar el
 En cada entorno puede proporcionar un valor diferente para el parámetro `connection`. 
 
 Consulte la [documentación sobre la API de REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) para conocer todas las opciones disponibles para crear y administrar aplicaciones lógicas. 
-

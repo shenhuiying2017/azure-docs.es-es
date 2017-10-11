@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 1acd4119ebf9c9fd364d0eddd970c362756309ee
-ms.contentlocale: es-es
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: e0d41d1933531c2c633613bcbc1bbcbf075d6a69
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Cómo elegir el tipo de aplicación que se debe usar al agregar una aplicación
 
 Este artículo le ayuda a comprender los cuatro tipos principales de aplicaciones que se pueden integrar con Azure AD:
@@ -174,4 +172,3 @@ Para establecer el modo de **inicio de sesión único** de una aplicación, siga
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Administración de aplicaciones con Azure Active Directory](active-directory-enable-sso-scenario.md)
-

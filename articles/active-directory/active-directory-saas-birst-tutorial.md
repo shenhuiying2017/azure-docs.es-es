@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 779f9e0a57ffb2274ea22a90ed9759734ab6916d
-ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Tutorial: Integración de Azure Active Directory con Birst Agile Business Analytics
 
@@ -99,7 +98,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 **Para configurar el inicio de sesión único de Azure AD con Birst Agile Business Analytics, siga estos pasos:**
 
-1. En Azure Portal, en la **página de integración de la aplicación** , haga clic en **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **** , haga clic en **Inicio de sesión único**.
 
     ![Configurar inicio de sesión único][4]
 
@@ -235,5 +234,4 @@ Al hacer clic en el icono de Birst Agile Business Analytics en el panel de acces
 [201]: ./media/active-directory-saas-birst-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-birst-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-birst-tutorial/tutorial_general_203.png
-
 

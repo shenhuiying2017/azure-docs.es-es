@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: b79ff3ece2df4c5d22fb65a1a62c8e8c5f1e2bdc
-ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
-
+ms.openlocfilehash: 0114f27f9b8ae76e1170d04ddf66e2c4bf20686a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>Uso de telemetría dinámica con la solución de supervisión remota preconfigurada
 
@@ -203,4 +202,3 @@ Ahora que ya sabe cómo utilizar la telemetría dinámico, puede obtener más in
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-node]: http://nodejs.org
-

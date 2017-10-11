@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-an-azure-traffic-manager-profile"></a>Administrar un perfil del Administrador de tráfico de Azure
 
 Los perfiles de Traffic Manager usan métodos de enrutamiento de tráfico para controlar la distribución del tráfico a los puntos de conexión de servicios en la nube o de sitios web. En este artículo se explica cómo crear y administrar estos perfiles.
@@ -76,4 +74,3 @@ Puede deshabilitar un perfil existente para que Traffic Manager no refiera solic
 * [Configuración del método de enrutamiento geográfico](traffic-manager-configure-geographic-routing-method.md) 
 * [Configuración del método de enrutamiento ponderado](traffic-manager-configure-weighted-routing-method.md)
 * [Configuración del método de enrutamiento de rendimiento](traffic-manager-configure-performance-routing-method.md)
-

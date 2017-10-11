@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 9218988c7daef20d03b1444b386dd03b815fbed0
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 01a2bb6d99776feec936315bc882c3097ce832d4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Uso de la CLI 2.0 para crear una aplicación de AAD y configurarla para acceder a la API de Azure Media Services
 
 En este tema se muestra cómo utilizar la CLI 2.0 para crear una aplicación de Azure Active Directory (Azure AD) y la entidad de servicio para acceder a recursos de Azure Media Services. 
@@ -68,4 +66,3 @@ Vea también [Administración del control de acceso basado en rol con la interfa
 ## <a name="next-steps"></a>Pasos siguientes
 
 Empiece a trabajar en la [carga de archivos en la cuenta](media-services-portal-upload-files.md).
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: bfba2cf38a0624e8480a32bf153f391d820da5a1
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Uso de DNS interno para la resolución de nombre de máquina virtual en Azure
 
 Este artículo muestra cómo establecer nombres de DNS internos estáticos para máquinas virtuales Linux mediante tarjetas NIC virtuales (VNic) y los nombres de etiqueta DNS. Los nombres de DNS estáticos se utilizan para los servicios de infraestructura permanente como un servidor de compilación Jenkins, que se usa para este documento o un servidor de Git.
@@ -185,4 +183,3 @@ Mediante el uso de los marcadores CLI para llamar a los recursos existentes, se 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de un entorno personalizado para una máquina virtual Linux mediante el uso de comandos de la CLI de Azure directamente](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Implementación y administración de máquinas virtuales con plantillas de Azure Resource Manager y la CLI de Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

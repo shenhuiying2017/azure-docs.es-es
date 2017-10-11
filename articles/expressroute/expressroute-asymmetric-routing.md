@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
 ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Enrutamiento asimétrico con varias rutas de acceso de red
 En este artículo se explica cómo el tráfico de red de reenvío y de retorno puede tomar distintas rutas cuando hay varias rutas de acceso disponibles entre el origen y el destino de la red.
@@ -72,5 +71,4 @@ Otra manera de resolver los problemas de enrutamiento asimétrico es mediante SN
 
 ## <a name="asymmetric-routing-detection"></a>Detección de enrutamiento asimétrico
 Traceroute es la mejor manera de asegurarse de que el tráfico de la red recorra la ruta de acceso prevista. Si espera que el tráfico del servidor SMTP local a Microsoft tome la ruta de acceso de Internet, realice el traceroute previsto del servidor SMTP a Office 365. El resultado validará que el tráfico sale de hecho de la red hacia Internet y no hacia ExpressRoute.
-
 

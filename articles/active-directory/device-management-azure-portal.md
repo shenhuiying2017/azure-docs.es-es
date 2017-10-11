@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 4b46e1627a229b0649d9ccd2550cd28fda9849f8
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="managing-devices-using-the-azure-portal---preview"></a>Administración de dispositivos con Azure Portal (versión preliminar)
 
@@ -197,7 +196,6 @@ Además de los filtros, puede buscar entradas concretas.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a la administración de dispositivos en Azure Active Directory](device-management-introduction.md)
-
 
 
 

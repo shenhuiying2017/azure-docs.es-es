@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 91e46d690d3e7c298bc3b4020cc383ca99c43c4f
-ms.contentlocale: es-es
-ms.lasthandoff: 03/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="application-architecture-on-azure"></a>Arquitectura de aplicaciones en Azure
 Para ayudar a proteger sus soluciones basadas en la nube en Microsoft Azure, es esencial contar con unos sólidos fundamentos en materia de arquitectura. De un buen conocimiento de la arquitectura de aplicaciones y servicios pueden sacar provecho arquitectos, diseñadores e implementadores. Estos conocimientos básicos lo ayudarán a comprender todos los componentes de sus soluciones basadas en la nube y facilitarán la integración de características de seguridad en todos los aspectos del diseño y la implementación.
@@ -56,4 +55,3 @@ La plantilla también está disponible fuera del curso.
 * [Ver el vídeo de entrenamiento](http://aka.ms/3dBlueprintTemplateVideo) primero para saber lo que puede hacer
 * Descargar la [plantilla de Visio de proyectos 3D de Microsoft](http://aka.ms/3DBlueprintTemplate)
 * Descargar los [símbolos de nube y empresariales](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) para utilizar con la plantilla 3D
-

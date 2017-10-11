@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: fe7f508ed1c4eb57663f7e252d286719af03dbb1
-ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 63f69756b3933fecdec75cc677e1098447e5b94e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronización de Azure AD Connect: Programador
 En este tema se describe el programador incorporado en la sincronización de Azure AD Connect (también denominado motor de sincronización).
@@ -173,4 +172,3 @@ Si inicia el Asistente para instalación, el programador se suspende temporalmen
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-

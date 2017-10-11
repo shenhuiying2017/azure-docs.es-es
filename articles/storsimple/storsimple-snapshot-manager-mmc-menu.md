@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b2be03e12b2deaecb352f8703650cf23cdefdebd
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 48f439a566a8067e153aab4fb789937d2f91268d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Uso de las acciones del menú de MMC en Administrador de instantáneas StorSimple
 
@@ -102,5 +100,4 @@ Puede usar el menú **Ayuda** para ver la Ayuda en línea disponible para Admini
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre la [interfaz de usuario de Snapshot Manager de StorSimple](storsimple-use-snapshot-manager.md).
 * Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
-
 

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 552794a2c7bba6f551ada5f431cacc236e7732a4
-ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Funcionamiento de la replicación de Hyper-V en Azure en Site Recovery
 
 
@@ -68,8 +65,7 @@ Aprenda sobre los requisitos previos de implementación y los requisitos de cada
 2. El trabajo comprueba que la máquina cumpla los requisitos previos e invoca [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) para que configure la replicación con su configuración.
 3. El trabajo comienza la replicación inicial con la invocación del método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) para inicializar una replicación completa de la máquina virtual y enviar los discos virtuales de la máquina virtual a Azure.
 4. Puede supervisar el trabajo en la pestaña **Trabajos**.
-        ![Lista Trabajos](media/site-recovery-hyper-v-azure-architecture/image1.png)
-        ![Detalles de Habilitar protección](media/site-recovery-hyper-v-azure-architecture/image2.png)
+        ![Lista Trabajos](media/site-recovery-hyper-v-azure-architecture/image1.png)![Detalles de Habilitar protección](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Replicación de los datos iniciales
 
@@ -126,4 +122,3 @@ Si se produce un error de replicación, se realiza un reintento de forma predefi
 ## <a name="next-steps"></a>Pasos siguientes
 
 Revise la [matriz de compatibilidad](site-recovery-support-matrix-to-azure.md).
-

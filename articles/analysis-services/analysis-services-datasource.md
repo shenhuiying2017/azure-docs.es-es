@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: a0fe91568d747148b3940e9c90db15481c765a9c
-ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 8bd6c3b5a923ce2f3cd0f60af82e59c5cc27cbb4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 Los servidores de Azure Analysis Services admiten la conexión a orígenes de datos en la nube y de forma local en su organización. Con el tiempo se van agregando más orígenes de datos compatibles, por lo que se recomienda consultarlos con asiduidad. 
@@ -103,5 +102,4 @@ Para orígenes de datos en la nube:
 ## <a name="next-steps"></a>Pasos siguientes
 Si tiene orígenes de datos locales, asegúrese de instalar la [puerta de enlace local](analysis-services-gateway.md).   
 Para aprender más acerca de la administración del servidor en SSDT o SSMS, consulte el artículo sobre la[administración del servidor](analysis-services-manage.md).
-
 

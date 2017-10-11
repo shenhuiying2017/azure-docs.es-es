@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
-ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # Llamadas entre servicios mediante la identidad de usuarios delegada en el flujo de On-Behalf-Of
 El flujo en nombre de OAuth 2.0 se usa en los casos en que una aplicación invoca un servicio o API web que a su vez debe llamar a otro servicio o API web. La idea es propagar la identidad y los permisos del usuario delegado a través de la cadena de solicitud. Para que el servicio de nivel intermedio realice solicitudes autenticadas al servicio de bajada, debe proteger un token de acceso de Azure Active Directory (Azure AD) en nombre del usuario.
@@ -113,7 +112,7 @@ Una solicitud de token de acceso entre servicios con un certificado contiene los
 | Aserción |requerido | Valor del token usado en la solicitud. |
 | client_id |requerido | El identificador de aplicación asignado al servicio de llamada durante el registro con Azure AD. Para buscar el identificador del identificador, en el Portal de administración de Azure, haga clic sucesivamente en **Active Directory**, en el directorio y en el nombre de la aplicación. |
 | client_assertion_type |requerido |El valor debe ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |requerido | Una aserción (un JSON Web Token) que necesita crear y firmar con el certificado que ha registrado como credenciales de la aplicación.  Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para obtener información sobre cómo registrar el certificado y el formato de la aserción.|
+| client_assertion |requerido | Aserción (un JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación.  Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para obtener información sobre cómo registrar el certificado y el formato de la aserción.|
 | resource |requerido | El URI del identificador de la aplicación del servicio de recepción (recurso seguro). Para buscar el URI del identificador, en el Portal de administración de Azure, haga clic sucesivamente en **Active Directory**, en el directorio, en el nombre de la aplicación, en **Toda la configuración** y, luego, en **Propiedades**. |
 | requested_token_use |requerido | Especifica cómo se debe procesar la solicitud. En el "flujo en nombre de", el valor debe ser **on_behalf_of**. |
 | ámbito |requerido | Lista de ámbitos separados por un espacio para la solicitud de token. Para OpenID Connect, el ámbito **openid** debe especificarse.|
@@ -201,4 +200,3 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 Obtenga más información sobre el protocolo OAuth 2.0 y conozca otra manera de realizar la autenticación entre servicios con las credenciales del cliente.
 * [Autenticación entre servicios mediante la concesión de credenciales de cliente de OAuth 2.0 en Azure AD](active-directory-protocols-oauth-service-to-service.md)
 * [OAuth 2.0 en Azure AD](active-directory-protocols-oauth-code.md)
-

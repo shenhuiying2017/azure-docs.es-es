@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
-ms.contentlocale: es-es
-ms.lasthandoff: 01/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Restricción del contenido de la red CDN de Azure por país
 
@@ -68,5 +67,4 @@ La característica **Filtrado geográfico** usa códigos de país para definir l
 * Esta característica no admite caracteres comodín (por ejemplo, ‘*’).
 * La configuración de filtrado geográfico asociada a la ruta de acceso relativa se aplicará de forma recursiva a esa ruta.
 * Solo se puede aplicar una regla a la misma ruta de acceso relativa (no se pueden crear varios filtros de país que señalen a la misma ruta de acceso relativa). Sin embargo, una carpeta puede tener varios filtros de país. Esto se debe a la naturaleza recursiva de los filtros de país. En otras palabras, se puede asignar un filtro de país diferente a una subcarpeta de una carpeta configurada previamente.
-
 

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/28/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a61c57cd74a0df8363648dd8df40e433b0e6489d
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-volumes-update-2"></a>Usar el servicio de Administrador de StorSimple para administrar volúmenes (Update 2)
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
@@ -274,5 +272,4 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda cómo [clonar un volumen de StorSimple](storsimple-clone-volume.md).
 * Aprenda a [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

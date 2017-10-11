@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 5/06/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: cb7a9f01e43d41eb7315cb37a41e69f044ce5566
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C: Registro e inicio de sesión de los consumidores en sus aplicaciones mediante directivas personalizadas
 Las directivas personalizadas son archivos de configuración que definen el comportamiento del inquilino de Azure AD B2C. Un desarrollador de identidades puede editarlas completamente para completar un número casi ilimitado de tareas.
@@ -41,7 +40,6 @@ Aprenda a usar determinadas características de Azure Active Directory B2C:
 
 ## <a name="whats-new"></a>Novedades
 Vuelva a esta sección a menudo para conocer los cambios futuros en Azure Active Directory B2C. También enviaremos tweets acerca de las actualizaciones mediante @AzureAD.
-
 
 
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
-ms.contentlocale: es-es
-ms.lasthandoff: 04/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>Creación de una puerta de enlace de aplicaciones para hospedar varias aplicaciones web
 
@@ -55,7 +54,7 @@ A continuación se muestran los pasos necesarios para crear una puerta de enlace
 1. Cree un grupo de recursos para el Administrador de recursos.
 2. Cree una red virtual, subredes y una IP pública para la puerta de enlace de aplicaciones.
 3. Cree un objeto de configuración de la Puerta de enlace de aplicaciones.
-4. Cree un recurso de Puerta de enlace de aplicaciones.
+4. Cree un recurso de Application Gateway.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Creación de un grupo de recursos para el Administrador de recursos
 
@@ -282,5 +281,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a proteger sitios web con [Firewall de aplicaciones web de Application Gateway (versión preliminar)](application-gateway-webapplicationfirewall-overview.md)
-
 

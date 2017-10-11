@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43b77cabdb2d8832bda8fd0b726ba27edb0a0602
-ms.openlocfilehash: 2992b074986a7b7f3244ce996f2b41269bff8bbd
-ms.contentlocale: es-es
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: ba5bdf7daba6086b70aec54ebe25d4445fa708c3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Agregar inicio de sesión a una aplicación web .NET MVC
 Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas.  En las aplicaciones web ASP.NET puede realizar esto con el OWIN middleware de Microsoft incluido en .NET Framework 4.5.
@@ -219,4 +217,3 @@ Para obtener recursos adicionales, consulte:
 
 ## <a name="get-security-updates-for-our-products"></a>Obtención de actualizaciones de seguridad para nuestros productos
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
-

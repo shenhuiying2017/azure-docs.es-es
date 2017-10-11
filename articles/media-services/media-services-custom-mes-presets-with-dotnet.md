@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ac35031290ec9ca6af3a8b05dc6fc82737fda0dd
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: b4d25f07349043da8cb745930fde3371c98f9960
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalización de valores preestablecidos de Media Encoder Standard
 
@@ -259,5 +258,4 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
-
 

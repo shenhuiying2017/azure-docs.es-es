@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Modelado de tipos de datos complejos en Azure Search
 Los conjuntos de datos externos usados para rellenar un índice de Azure Search a veces incluyen subestructuras jerárquicas o anidadas que no se dividen perfectamente en un conjunto de filas tabular. Algunos ejemplos de estas estructuras son varias ubicaciones y números de teléfono de un solo cliente, varios tamaños y colores de un único SKU, varios autores de un único libro, etc. En términos de modelado, puede que vea referirse a estas estructuras como *tipos de datos complejos*, *tipos de datos compuestos* o *tipos de datos agregados*, por nombrar algunos. **
@@ -138,5 +137,4 @@ En este [repositorio de GitHub](https://github.com/liamca/AzureSearchComplexType
 
 ## <a name="next-step"></a>Paso siguiente
 [Vote a favor de la compatibilidad nativa con tipos de datos complejos](https://feedback.azure.com/forums/263029-azure-search) en la página UserVoice de Azure Search y díganos qué le gustaría que tuviéramos en cuenta para la implementación de la característica. Puede ponerse en contacto conmigo directamente en Twitter en @liamca.
-
 

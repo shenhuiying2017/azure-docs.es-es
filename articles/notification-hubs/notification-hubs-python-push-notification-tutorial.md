@@ -14,11 +14,11 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9ceedb9940759427fc8cec74a1307e42472563a6
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Uso de los centros de notificaciones desde Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -266,7 +266,7 @@ Habilitar la propiedad de depuración durante el inicio del centro de notificaci
 
 La URL HTTP de la solicitud de envío del centro de notificación se anexa con una cadena de consulta de "prueba" como resultado. 
 
-## <a name="a-namecomplete-tutorialacomplete-the-tutorial"></a><a name="complete-tutorial"></a>Finalización del tutorial
+## <a name="complete-tutorial"></a>Finalización del tutorial
 Ahora puede completar el tutorial de introducción mediante el envío de notificaciones desde un back-end de Python.
 
 Inicialice el cliente de Centros de notificaciones (reemplace la cadena de conexión y el nombre del centro tal como se indica en el [tutorial de introducción]):
@@ -322,7 +322,7 @@ La ejecución del código Python debe generar una notificación que se mostrará
 
 ## <a name="examples"></a>Ejemplos:
 ### <a name="enabling-debug-property"></a>Habilitar la propiedad de depuración
-Al habilitar el indicador de depuración al inicializar NotificationHub, se mostrará el volcado de respuesta y solicitud HTTP detallado, así como NotificationOutcome de la manera siguiente donde podrá identificar qué encabezados HTTP se pasan en la solicitud y respuesta HTTP se recibió desde el centro de notificaciones:        ![][1]
+Al habilitar el indicador de depuración al inicializar NotificationHub, se mostrará el volcado de respuesta y solicitud HTTP detallado, así como NotificationOutcome de la manera siguiente donde podrá identificar qué encabezados HTTP se pasan en la solicitud y respuesta HTTP se recibió desde el centro de notificaciones: ![][1]
 
 El resultado detallado del centro de notificaciones se mostrará, por ejemplo, 
 
@@ -389,10 +389,4 @@ En este tema hemos visto cómo crear a un cliente REST de Python sencillo para c
 [3]: ./media/notification-hubs-python-backend-how-to/SendWithOneTag.png
 [4]: ./media/notification-hubs-python-backend-how-to/SendWithMultipleTags.png
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

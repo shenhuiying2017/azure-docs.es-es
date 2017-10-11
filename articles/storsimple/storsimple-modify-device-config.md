@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: v-sharos
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 5bfbeb038dbedae2bf77016abbc19458c3dc22c9
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-modify-your-storsimple-device-configuration"></a>Uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple
 ## <a name="overview"></a>Información general
@@ -119,5 +118,4 @@ Realice los pasos siguientes para intercambiar o volver a asignar las VIP para c
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [configurar MPIO para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 * Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

@@ -14,25 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 3f1933fc59862eca7ae6ee40bbd5136e449e5cf1
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Marco de seguridad: Auditoría y registro | Mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[Identificación de las entidades confidenciales de la solución e implementación de la auditoría de cambios](#sensitive-entities)</li></ul> |
 | **Aplicación web** | <ul><li>[Comprobación de que la auditoría y el registro se aplican en la aplicación](#auditing)</li><li>[Comprobación de que la rotación de registros y la separación están en funcionamiento](#log-rotation)</li><li>[Comprobación de que la aplicación no registra datos confidenciales del usuario](#log-sensitive-data)</li><li>[Comprobación de que los archivos de registro y auditoría tienen acceso restringido](#log-restricted-access)</li><li>[Comprobación de que se registran los eventos de administración de usuario](#user-management)</li><li>[Comprobación de que el sistema tiene defensas integradas contra usos indebidos](#inbuilt-defenses)</li><li>[Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service](#diagnostics-logging)</li></ul> |
 | **Base de datos** | <ul><li>[Comprobación de que está habilitada la auditoría de inicio de sesión en SQL Server](#identify-sensitive-entities)</li><li>[Habilitamiento de la detección de amenazas en Azure SQL](#threat-detection)</li></ul> |
-| **Azure Storage** | <ul><li>[Uso de Azure Storage Analytics para auditar el acceso de Azure Storage](#analytics)</li></ul> |
+| **Azure Storage** | <ul><li>Uso de [Análisis de Azure Storage para auditar el acceso de Azure Storage](#analytics)</li></ul> |
 | **WCF** | <ul><li>[Implementación de suficientes registros](#sufficient-logging)</li><li>[Implementación de un control suficiente de errores de auditoría](#audit-failure-handling)</li></ul> |
 | **API web** | <ul><li>[Comprobación de que la auditoría y el registro se aplican en Web API](#logging-web-api)</li></ul> |
 | **Puerta de enlace de campo de IoT** | <ul><li>[Comprobación de que se aplican la auditoría y registro adecuados en la puerta de enlace de campo](#logging-field-gateway)</li></ul> |
-| **Puerta de enlace de la nube de IoT** | <ul><li>[Comprobación de que se aplican la auditoría y registro adecuados en la puerta de enlace de nube](#logging-cloud-gateway)</li></ul> |
+| **Puerta de enlace de nube de IoT** | <ul><li>[Comprobación de que se aplican la auditoría y registro adecuados en la puerta de enlace de nube](#logging-cloud-gateway)</li></ul> |
 
 ## <a id="sensitive-entities"></a>Identificación de las entidades confidenciales de la solución e implementación de la auditoría de cambios
 
@@ -120,7 +118,7 @@ ms.lasthandoff: 08/23/2017
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | EnvironmentType: Azure |
 | **Referencias**              | N/D  |
-| **Pasos** | <p>Azure integra diagnósticos para ayudar a depurar App Service Web Apps. También se aplica a API Apps y Mobile Apps. App Service Web Apps ofrece la funcionalidad de diagnóstico para registrar información del servidor web y de la aplicación web.</p><p>De forma lógica, estos diagnósticos se dividen en diagnósticos del servidor web y diagnósticos de aplicaciones.</p>|
+| **Pasos** | <p>Azure integra diagnósticos para ayudar a depurar Aplicaciones web de App Service. También se aplica a aplicaciones móviles y aplicaciones de API. Aplicaciones web del Servicio de aplicaciones ofrece la funcionalidad de diagnóstico para registrar información del servidor web y de la aplicación web.</p><p>De forma lógica, estos diagnósticos se dividen en diagnósticos del servidor web y diagnósticos de aplicaciones.</p>|
 
 ## <a id="identify-sensitive-entities"></a>Comprobación de que está habilitada la auditoría de inicio de sesión en SQL Server
 
@@ -144,7 +142,7 @@ ms.lasthandoff: 08/23/2017
 | **Referencias**              | [Introducción a Detección de amenazas de SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
 | **Pasos** |<p>Detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad a la base de datos. La detección de amenazas ofrece un nuevo nivel de seguridad, que permite a los clientes detectar amenazas potenciales y responder a ellas a medida que se producen, gracias a las alertas de seguridad sobre actividades anómalas que se proporcionan.</p><p>Los usuarios pueden explorar los eventos sospechosos mediante la auditoría de Azure SQL Database para determinar si proceden de un intento de acceder a los datos en la base de datos, infringir su seguridad o aprovecharlos.</p><p>Detección de amenazas facilita la solución de las posibles amenazas a la base de datos sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de seguridad avanzada.</p>|
 
-## <a id="analytics"></a>Uso de Azure Storage Analytics para auditar el acceso de Azure Storage
+## <a id="analytics"></a>Uso de Análisis de Azure Storage para auditar el acceso de Azure Storage
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -152,8 +150,8 @@ ms.lasthandoff: 08/23/2017
 | **Fase de SDL**               | Implementación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D |
-| **Referencias**              | [Uso de Storage Analytics para supervisar el tipo de autorización](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
-| **Pasos** | <p>Para cada cuenta de almacenamiento, se puede habilitar Azure Storage Analytics para realizar el registro y almacenar datos de métricas. Los registros de Storage Analytics proporcionan información importante como, por ejemplo, el método de autenticación utilizado por un usuario al acceder al almacenamiento.</p><p>Esto puede resultar muy útil si se está esforzando por proteger el acceso al almacenamiento. Por ejemplo, en Blob Storage puede configurar todos los contenedores para que sean privados e implementar el uso de un servicio de Firma de acceso compartido en sus aplicaciones. Luego puede comprobar los registros periódicamente para ver si se ha accedido a los blobs mediante las claves de la cuenta de almacenamiento, lo que podría indicar una infracción de seguridad, o si los blobs son públicos pero no deberían serlo.</p>|
+| **Referencias**              | [Uso de Análisis de Storage para supervisar el tipo de autorización](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **Pasos** | <p>Para cada cuenta de almacenamiento, se puede habilitar el Análisis de Azure Storage para realizar el registro y almacenar datos de métricas. Los registros de análisis de almacenamiento proporcionan información importante como, por ejemplo, el método de autenticación utilizado por un usuario al acceder al almacenamiento.</p><p>Esto puede resultar muy útil si se está esforzando por proteger el acceso al almacenamiento. Por ejemplo, en el Almacenamiento de blobs puede configurar todos los contenedores para que sean privados e implementar el uso de un servicio de Firma de acceso compartido en sus aplicaciones. Luego puede comprobar los registros periódicamente para ver si se ha accedido a los blobs mediante las claves de la cuenta de almacenamiento, lo que podría indicar una infracción de seguridad, o si los blobs son públicos pero no deberían serlo.</p>|
 
 ## <a id="sufficient-logging"></a>Implementación de suficientes registros
 

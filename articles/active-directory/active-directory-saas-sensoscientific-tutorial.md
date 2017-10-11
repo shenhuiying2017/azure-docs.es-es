@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: fa6242cf7f9559ca394ffde2e5e734cb935b03dc
-ms.contentlocale: es-es
-ms.lasthandoff: 04/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutorial: Integración de Azure Active Directory con SensoScientific Wireless Temperature Monitoring System
 
@@ -236,5 +234,4 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 [201]: ./media/active-directory-saas-sensoscientific-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sensoscientific-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sensoscientific-tutorial/tutorial_general_203.png
-
 

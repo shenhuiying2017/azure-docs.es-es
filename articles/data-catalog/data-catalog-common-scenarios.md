@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 63f951fbfc9ab5adad8f9225c2827abcbdb7f784
-ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: e01e6fa3b9871541bf9573963ced05848a3726e3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Escenarios comunes de Azure Data Catalog
 En artículo se muestran escenarios comunes en los que Azure Data Catalog puede ayudar a su organización a obtener más valor de sus orígenes de datos existentes.
@@ -68,4 +67,3 @@ Esta transferencia continua de conocimientos tribales forma parte del proceso de
 Habitualmente, los expertos en datos documentan sus conocimientos y dicha documentación la comparten a través del correo electrónico o en forma de archivos de Word que dejan en un sitio de SharePoint del equipo. Aunque este método puede ser válido, presenta un nuevo problema de detección: ¿cómo se puede saber qué documentación existe y dónde encontrarla?
 
 Con Azure Data Catalog, su organización tiene una única ubicación central para almacenar y compartir estos conocimientos tribales y para facilitar su detección. En Data Catalog, los expertos en datos pueden anotar los recursos de datos directamente y proporcionar vínculos a la documentación existente. Cuando los miembros de la organización usen el catálogo para detectar un origen de datos, no solo encontrarán dicho origen, sino también los conocimientos que antes solo estaban en las mentes de los expertos de la organización.
-

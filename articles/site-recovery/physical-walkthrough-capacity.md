@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: rayne
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 971ad6dd39f94aa7944f6ed3b31bc3acc605d9a7
-ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-3-plan-capacity-and-scaling-for-physical-server-to-azure-replication"></a>Paso 3: Planeamiento de la capacidad y el escalado del servidor físico para la replicación en Azure
 
@@ -110,7 +109,7 @@ La manera en la que escalará los servidores depende de su preferencia con respe
 
 ## <a name="control-network-bandwidth"></a>Ancho de banda de red de control
 
-Después de ejecutar la [herramienta de planeamiento de implementación](site-recovery-deployment-planner.md) para calcular el ancho de banda necesario para la replicación (la replicación inicial y la delta), puede controlar la cantidad de ancho de banda utilizado para la replicación mediante un par de opciones:
+Después de ejecutar la [herramienta Deployment Planner](site-recovery-deployment-planner.md) para calcular el ancho de banda necesario para la replicación (la replicación inicial y la diferencial), puede controlar la cantidad de ancho de banda utilizado para la replicación mediante un par de opciones:
 
 * **Limitar ancho de banda**: el tráfico de VMware que se replica en Azure pasa a través de un servidor de procesos específico. También puede limitar el ancho de banda en las máquinas que se ejecutan como servidores de procesos.
 * **Influir en el ancho de banda**: puede influir en el ancho de banda utilizado para la replicación mediante un par de claves del Registro:
@@ -136,15 +135,14 @@ También puede utilizar el cmdlet [Set-OBMachineSetting](https://technet.microso
 
 ### <a name="influence-network-bandwidth-for-a-vm"></a>Control del uso de ancho de banda de red para una VM
 
-1. En el registro de la máquina virtual, vaya a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
+1. En el Registro de la máquina virtual, vaya a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
    * Para influir en el tráfico de ancho de banda en un disco de replicación, modifique el valor de **UploadThreadsPerVM** o cree la clave en caso de que no exista.
    * Para influir en el ancho de banda para el tráfico de conmutación por recuperación de Azure, modifique el valor de **DownloadThreadsPerVM**.
-2. El valor predeterminado es 4. En una red sobreaprovisionada, se deben cambiar los valores de estas claves de registro. El valor máximo es 32. Supervise el tráfico para optimizar el valor.
+2. El valor predeterminado es 4. En una red sobreaprovisionada, se deben cambiar los valores de estas claves del Registro. El valor máximo es 32. Supervise el tráfico para optimizar el valor.
 
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vaya al [Paso 4: Planeamiento de las redes](physical-walkthrough-network.md).
-
+Vaya a [Paso 4: Planeamiento de las redes](physical-walkthrough-network.md).

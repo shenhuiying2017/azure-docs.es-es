@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d1660c9ea528741ea02e6bbae7b1f8fd7afea0eb
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.contentlocale: es-es
-ms.lasthandoff: 02/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integración de Azure Active Directory con Coupa
 El objetivo de este tutorial es mostrar la integración de Azure y Coupa.  
@@ -46,8 +45,8 @@ El objetivo de esta sección es describir cómo se habilita la integración de l
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-coupa-tutorial/IC700993.png "Active Directory")
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
+2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
+3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
    
    ![Aplicaciones](./media/active-directory-saas-coupa-tutorial/IC700994.png "Aplicaciones")
 4. Haga clic en **Agregar** en la parte inferior de la página.
@@ -143,7 +142,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 **Para asignar usuarios a Coupa, lleve a cabo los siguientes pasos:**
 
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
-2. En la página de integración de aplicaciones de **Coupa**, haga clic en **Asignar usuarios**.
+2. En el ** Coupa ** página de integración de aplicaciones, haga clic en **asignar usuarios**.
    
    ![Asignar usuarios](./media/active-directory-saas-coupa-tutorial/IC791911.png "Asignar usuarios")
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
@@ -151,5 +150,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
    ![Sí](./media/active-directory-saas-coupa-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
-
 

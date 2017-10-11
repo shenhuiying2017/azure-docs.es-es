@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 23b6c0f7abd40d67792d45e4ea0fae02efeae861
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.openlocfilehash: fea4383e81f3ca21955252cf1d573f1b347b5a38
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-check-job-progress"></a>Comprobación del progreso del trabajo
 > [!div class="op_single_selector"]
@@ -31,12 +30,12 @@ ms.lasthandoff: 08/12/2017
 
 Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede ver el estado del trabajo mediante la propiedad State del trabajo. Para obtener más información sobre la propiedad State, consulte [Propiedades de la entidad Job](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
-## <a name="connect-to-media-services"></a>Conexión con Media Services
+## <a name="connect-to-media-services"></a>Conexión con Servicios multimedia
 
 Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Media Services. Debe realizar las llamadas posteriores al nuevo URI.
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
 
 ## <a name="check-job-progress"></a>Consulta del progreso del trabajo
 
@@ -70,7 +69,7 @@ Respuesta:
     {"odata.metadata":"https://media.windows.net/api/$metadata#Jobs","value":[{"Id":"nb:jid:UUID:f3c43f94-327f-2347-90bb-3bf79f8559f1","Name":"Encoding BigBuckBunny into to H264 Adaptive Bitrate MP4 Set 720p","Created":"2015-02-11T01:46:08.897","LastModified":"2015-02-11T01:46:08.897","EndTime":null,"Priority":0,"RunningDuration":0.0,"StartTime":"2015-02-11T01:46:16.58","State":2,"TemplateId":null,"JobNotificationSubscriptions":[]}]} 
 
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
@@ -79,4 +78,3 @@ Respuesta:
 ## <a name="see-also"></a>Otras referencias
 
 [Información general sobre la API de REST de operaciones de Azure Media Services](media-services-rest-how-to-use.md)
-

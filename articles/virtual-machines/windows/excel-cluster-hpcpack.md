@@ -15,13 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: acd2ee7fb94c43493ffd9ffee157f2c3e795b63e
-ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
-
-
+ms.openlocfilehash: 63babd94fdab15217cfb0757e4cd6efe458a628d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Introducción a la ejecución de cargas de trabajo de Excel y SOA en un clúster de HPC Pack en Azure
 En este artículo se muestra cómo implementar un clúster de Microsoft HPC Pack 2012 R2 en máquinas virtuales de Azure con una plantilla de inicio rápido de Azure, o bien, de manera opcional, un script de implementación de Azure PowerShell. El clúster usa imágenes de VM de Azure Marketplace diseñadas para ejecutar cargas de trabajo de Microsoft Excel o de Arquitectura orientada a servicios (SOA) con HPC Pack. Puede usar el clúster para ejecutar servicios de SOA y Excel HPC desde un equipo cliente local. Los servicios de Excel HPC incluyen la descarga de libros de Excel y las funciones definidas por el usuario de Excel o UDF.
@@ -363,4 +361,3 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [endpoint]: ./media/excel-cluster-hpcpack/endpoint.png
 [endpoint-new-portal]: ./media/excel-cluster-hpcpack/endpoint-new-portal.png
 [udf]: ./media/excel-cluster-hpcpack/udf.png
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: ea6b6651a32b9f259186991d9609301fd4dfa131
-ms.contentlocale: es-es
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 11e4bc7e71b4a94c3a0eda4275745b1beb44974d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Preguntas frecuentes sobre el Catálogo de datos de Azure
 En este artículo se responden algunas de las preguntas más frecuentes relativas al servicio Azure Data Catalog.
@@ -129,4 +128,3 @@ Para actualizar los metadatos de los recursos de datos que ya están registrados
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>No encuentro ninguna respuesta a mi pregunta. ¿Dónde puedo encontrarla?
 Vaya al [foro de Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9c40d273f102339fac8ea633c870b869d10106a7
-ms.openlocfilehash: ccbc051f49220e824782ed4831a31ab1a716570a
-ms.contentlocale: es-es
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 54ee403f283bc5dc79911e2e813dd513ff595828
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="integrate-azure-ad-with-xamarin-apps"></a>Integración de Azure AD con aplicaciones de Xamarin
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -196,4 +194,3 @@ Como referencia, descargue el [ejemplo completado](https://github.com/AzureADQui
 Ahora puede trasladarse a escenarios de identidad adicionales. Por ejemplo, pruebe [Protección de una API web de .NET con Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

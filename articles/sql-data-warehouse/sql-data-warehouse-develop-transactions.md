@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a0582c71e786ae5365e39a5f161b63e946435b2e
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>Transacciones en el Almacenamiento de datos SQL
 Como cabría esperar, el Almacenamiento de datos SQL admite transacciones como parte de la carga de trabajo de dicho servicio. Sin embargo, para garantizar que se mantiene a escala el rendimiento del Almacenamiento de datos SQL, algunas características están limitadas en comparación con SQL Server. En este artículo se destacan las diferencias entre las características y se enumeran las demás. 
@@ -191,4 +190,3 @@ Para más información acerca de la optimización de transacciones, consulte [Pr
 <!--MSDN references-->
 
 <!--Other Web references-->
-

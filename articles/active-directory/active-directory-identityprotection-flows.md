@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e81ef1d182108114305291273227ce2ac4dacf3f
-ms.contentlocale: es-es
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: e45936280b51fb2e54012a688fceddcc8dabe984
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiencias de inicio de sesión con Azure AD Identity Protection
 Con Azure Active Directory Identity Protection, puede:
@@ -112,5 +111,4 @@ Si se bloquea el inicio de sesión de los usuarios en peligro, un administrador 
 
 ## <a name="see-also"></a>Consulte también
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
-
 

@@ -16,12 +16,11 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
-ms.openlocfilehash: 2dc166a346c58d43e9ed60332f47619c1de89816
-ms.contentlocale: es-es
-ms.lasthandoff: 02/11/2017
-
+ms.openlocfilehash: d5e18f41d6eb69ccb7eafaa4de2646c4c38df5e2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="understanding-the-azure-active-directory-application-manifest"></a>Descripción del manifiesto de aplicación de Azure Active Directory
 Las aplicaciones que se integran con Azure Active Directory (AD) deben estar registradas con un inquilino de Azure AD y proporcionar una configuración persistente de identidad para la aplicación. Esta configuración se consulta en tiempo de ejecución, lo que habilita los escenarios que permiten una aplicación para externalizar y negociar la autenticación/autorización mediante Azure AD. Para más información sobre el modelo de aplicación de Azure AD, consulte el artículo [Integración de aplicaciones con Azure Active Directory][ADD-UPD-RMV-APP].
@@ -115,5 +114,4 @@ Use la siguiente sección de comentarios para proporcionar sus opiniones y ayuda
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
-
 

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 38d70ed302eeab912ce4fe33272f85e96f1b1eda
-ms.openlocfilehash: 6c85df6bbcf25e687881380fd68bb3ee861098e3
-ms.contentlocale: es-es
-ms.lasthandoff: 01/11/2017
-
-
+ms.openlocfilehash: a4729f70aae80a13233fbe96a5d8a56c0c9d01d3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Creación de una imagen personalizada a partir de un archivo VHD mediante PowerShell
 
 [!INCLUDE [devtest-lab-create-custom-image-from-vhd-selector](../../includes/devtest-lab-create-custom-image-from-vhd-selector.md)]
@@ -41,14 +38,14 @@ Los siguientes pasos le guían en la creación de una imagen personalizada a par
     Login-AzureRmAccount
     ```
 
-1.    Seleccione la suscripción de Azure deseada mediante una llamada al cmdlet **Select-AzureRmSubscription**. Reemplace el marcador de posición siguiente de la variable **$subscriptionId** por un identificador de suscripción válido de Azure. 
+1.  Seleccione la suscripción de Azure deseada mediante una llamada al cmdlet **Select-AzureRmSubscription**. Reemplace el marcador de posición siguiente de la variable **$subscriptionId** por un identificador de suscripción válido de Azure. 
 
     ```PowerShell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzureRmSubscription -SubscriptionId $subscriptionId
     ```
 
-1.    Obtenga el objeto de laboratorio mediante la llamada al cmdlet **Get-AzureRmResource**. Reemplace los siguientes marcadores de posición de las variables **$labRg** y **$labName** por los valores adecuados para su entorno. 
+1.  Obtenga el objeto de laboratorio mediante la llamada al cmdlet **Get-AzureRmResource**. Reemplace los siguientes marcadores de posición de las variables **$labRg** y **$labName** por los valores adecuados para su entorno. 
 
     ```PowerShell
     $labRg = '<Specify your lab resource group name here>'
@@ -56,20 +53,20 @@ Los siguientes pasos le guían en la creación de una imagen personalizada a par
     $lab = Get-AzureRmResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
     ```
  
-1.    Obtenga la cuenta de almacenamiento del laboratorio y sus valores de clave del objeto de laboratorio. 
+1.  Obtenga la cuenta de almacenamiento del laboratorio y sus valores de clave del objeto de laboratorio. 
 
     ```PowerShell
     $labStorageAccount = Get-AzureRmResource -ResourceId $lab.Properties.defaultStorageAccount 
     $labStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
     ```
 
-1.    Reemplace el siguiente marcador de posición de la variable **$vhdUri** por el identificador URI al archivo VHD cargado. Puede obtener el identificador URI del archivo VHD en la hoja del blob de la cuenta de almacenamiento en el portal de Azure.
+1.  Reemplace el siguiente marcador de posición de la variable **$vhdUri** por el identificador URI al archivo VHD cargado. Puede obtener el identificador URI del archivo VHD en la hoja del blob de la cuenta de almacenamiento en el portal de Azure.
 
     ```PowerShell
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
-1.    Cree la imagen personalizada mediante el cmdlet **New-AzureRmResourceGroupDeployment**. Reemplace los siguientes marcadores de posición de las variables **$customImageName** y **$customImageDescription** por nombres significativos en su entorno.
+1.  Cree la imagen personalizada mediante el cmdlet **New-AzureRmResourceGroupDeployment**. Reemplace los siguientes marcadores de posición de las variables **$customImageName** y **$customImageDescription** por nombres significativos en su entorno.
 
     ```PowerShell
     $customImageName = '<Specify the custom image name>'
@@ -101,7 +98,7 @@ $lab = Get-AzureRmResource -ResourceId ('/subscriptions/' + $subscriptionId + '/
 $labStorageAccount = Get-AzureRmResource -ResourceId $lab.Properties.defaultStorageAccount 
 $labStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
 
-# Set the URI of the VHD file.    
+# Set the URI of the VHD file.  
 $vhdUri = '<Specify the VHD URI here>'
 
 # Set the custom image name and description values.
@@ -123,4 +120,3 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Na
 ##<a name="next-steps"></a>Pasos siguientes
 
 - [Agregar una máquina virtual al laboratorio](./devtest-lab-add-vm-with-artifacts.md)
-

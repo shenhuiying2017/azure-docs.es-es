@@ -1,6 +1,6 @@
 ---
 title: "Obtención de un procesador de multimedia mediante REST | Microsoft Docs"
-description: Aprenda a crear un componente de procesador de multimedia para codificar, cifrar, descifrar o convertir el formato de contenido multimedia para Azure Media Services.
+description: Aprenda a crear un componente de procesador de multimedia para codificar, cifrar, descifrar o convertir el formato de contenido multimedia para Servicios multimedia de Azure.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 0650d3727df1b6738f140439ce4c22078d188d83
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.openlocfilehash: 4ad90ad979c5bd74fc55155098c88d5c13cb12e2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Obtención de una instancia del procesador de multimedia
 > [!div class="op_single_selector"]
@@ -29,7 +28,7 @@ ms.lasthandoff: 08/12/2017
 > 
 
 ## <a name="overview"></a>Información general
-En Media Services, un procesador multimedia es un componente que controla una tarea de procesamiento específica, como codificación, conversión de formato, cifrado o descifrado de contenido multimedia. Normalmente crea un procesador multimedia cuando crea una tarea para codificar, cifrar o convertir el formato de contenido multimedia.
+En los Servicios multimedia, un procesador multimedia es un componente que controla una tarea de procesamiento específica, como codificación, conversión de formato, cifrado o descifrado de contenido multimedia. Normalmente crea un procesador multimedia cuando crea una tarea para codificar, cifrar o convertir el formato de contenido multimedia.
 
 ## <a name="azure-media-processors"></a>Procesadores de multimedia de Azure 
 
@@ -39,14 +38,14 @@ En el siguiente tema se proporcionan listas de procesadores de multimedia:
 * [Procesadores de multimedia de Analytics](scenarios-and-availability.md#analytics-media-processors)
 
 >[!NOTE]
->Al obtener acceso a las entidades de Media Services, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
+>Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Conexión con Media Services
+## <a name="connect-to-media-services"></a>Conexión con Servicios multimedia
 
 Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Media Services. Debe realizar las llamadas posteriores al nuevo URI.
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
 
 ## <a name="get-a-media-processor"></a>Obtención de un procesador multimedia
 
@@ -83,7 +82,7 @@ Respuesta:
     }
 
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
@@ -91,5 +90,4 @@ Respuesta:
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el tema sobre la [codificación de un recurso](media-services-rest-get-started.md) , que le mostrará cómo utilizar el servicio Media Encoder estándar para codificar un recurso.
-
 

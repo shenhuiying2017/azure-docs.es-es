@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparación para la copia de seguridad de cargas de trabajo en Microsoft Azure
 > [!div class="op_single_selector"]
@@ -276,4 +275,3 @@ Puede usar estos artículos para mejorar la comprensión sobre la protección de
 * [Copia de seguridad de SQL Server](backup-azure-backup-sql.md)
 * [Copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
 * [Copia de seguridad de otro servidor](backup-azure-alternate-dpm-server.md)
-

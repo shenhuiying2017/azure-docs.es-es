@@ -12,12 +12,11 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: rupesk@microsoft.com
 ms.robots: NOINDEX, NOFOLLOW
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
 ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
-ms.contentlocale: es-es
-ms.lasthandoff: 08/07/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Guía para vendedores de Azure Marketplace
 
@@ -235,4 +234,3 @@ También se ofrece entrenamiento mediante una demostración grabada, un glosario
 Le damos la bienvenida a nuestra comunidad de vendedores de ISV y esperamos ver su oferta.
 
 ---
-

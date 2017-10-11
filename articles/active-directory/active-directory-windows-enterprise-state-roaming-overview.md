@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: ce78b996a5f45b0b074563bc50af5aaab85f2667
-ms.openlocfilehash: 56eacc48102302961132bba6d14838327a899c59
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: b3c01f8d332d26e92dc3052681a4b2c95142d440
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enterprise-state-roaming-overview"></a>Información general de Enterprise State Roaming
 Con Windows 10, los usuarios de [Azure Active Directory (Azure AD)](active-directory-whatis.md) obtienen la capacidad de sincronizar de forma segura su configuración de usuario y los datos de configuración de la aplicación en la nube. Enterprise State Roaming proporciona a los usuarios una experiencia unificada a través de sus dispositivos de Windows y reduce el tiempo necesario para configurar un nuevo dispositivo. Enterprise State Roaming funciona de forma similar a la [sincronización de configuración de consumidor](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) estándar que se presentó en Windows 8. Además, Enterprise State Roaming ofrece:
@@ -38,5 +37,4 @@ Enterprise State Roaming está disponible en varias regiones de Azure. En la pá
 | [Configuración de MDM y directivas de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md) |Windows 10 proporciona configuración de la directiva de directiva de grupo y de administración de dispositivos móviles (MDM) para limitar la sincronización de configuración. |
 | [Referencia de la configuración de movilidad de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) |Lo siguiente es una lista completa de todas las opciones que se movilizan o se copian en Windows 10. |
 | [Solución de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md) |En este tema se llevan a cabo algunos pasos básicos de solución de problemas y en él se incluye una lista de problemas conocidos. |
-
 

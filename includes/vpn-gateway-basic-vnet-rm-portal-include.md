@@ -18,7 +18,7 @@ Para crear una red virtual con el modelo de implementación de Resource Manager 
 10. **Ubicación**: seleccione la ubicación de la red virtual. La ubicación determina dónde van a residir los recursos que se implementen en esta red virtual.
 11. Seleccione **Anclar al panel** si desea encontrar la red virtual fácilmente en el panel y, luego, haga clic en **Crear**.
 
- ![Anclar al panel](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "Anclar al panel")
+ ![Anclar al panel](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "anclar al panel")
 12. Después de hacer clic en **Crear**, verá un icono en el panel que reflejará el progreso de la red virtual. El icono cambiará a medida que se vaya creando la red virtual.
 
   ![Creación de icono de red virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Creación de icono de red virtual")

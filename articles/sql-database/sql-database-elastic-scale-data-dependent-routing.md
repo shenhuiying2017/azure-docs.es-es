@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: ff9f3ee4e44f7d0b51a6724304b0ec0f967f7d88
-ms.contentlocale: es-es
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 6b68bbb0133afd1493acdb58f79f3eeaf6a8d7cd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-dependent-routing"></a>Enrutamiento dependiente de los datos
 **Enrutamiento dependiente de los datos** es la posibilidad de utilizar los datos de una consulta para enrutar la solicitud a una base de datos adecuada. Se trata de un patrón fundamental cuando se trabaja con bases de datos particionadas. El contexto de solicitud también puede utilizarse para enrutar la solicitud, en especial si la clave de particionamiento no forma parte de la consulta. Cada consulta o transacción específica en una aplicación que usa enrutamiento dependiente de los datos tiene restringido el acceso a una base de datos única por solicitud. En las herramientas de base de datos elástica de Azure SQL Database, este enrutamiento se efectúa con la **[clase ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** en aplicaciones ADO.NET.
@@ -128,5 +126,4 @@ Las propiedades de las transacciones están garantizadas para todas las operacio
 Para desasociar una partición, o volver a adjuntar una partición, consulte [Uso de la clase RecoveryManager para solucionar problemas de mapas de particiones](sql-database-elastic-database-recovery-manager.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

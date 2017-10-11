@@ -16,12 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: e35cea1a057b9c5f86325bfb6cf6e0e27f4ce203
-ms.contentlocale: es-es
-ms.lasthandoff: 04/06/2017
-
+ms.openlocfilehash: 3254fdd57cfcd170f22374c1e3b058e6081d8e8e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-powershell-samples"></a>Ejemplos de Azure PowerShell
 
@@ -47,4 +46,3 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash creados con Azure 
 |**Supervisión de la aplicación**||
 | [Supervisión de una aplicación web con registros de servidor web](./scripts/app-service-powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea una aplicación web de Azure, habilita el registro para ella y descarga los registros en el equipo local. |
 | | |
-

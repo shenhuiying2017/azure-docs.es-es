@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
-ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Uso de Azure Security Center para dar respuesta a incidentes
 Muchas organizaciones aprenden a responder a incidentes de seguridad solo después de sufrir un ataque. Para reducir los costos y los daños, es importante tener un plan de respuesta a incidentes implantado antes de que se produzca un ataque. Azure Security Center puede usarse en distintas fases de una respuesta a incidentes.
@@ -84,7 +83,7 @@ Judy ha iniciado sesión en Azure Portal y está trabajando en la consola de Sec
    > En este escenario, Judy va a realizar una evaluación de la alerta de actividad SQL malintencionada, como se muestra en la ilustración anterior.
    >
    >
-2. Hace clic en la alerta **Actividad SQL malintencionada** y revisa los recursos atacados en la hoja **Actividad SQL malintencionada**:  ![Detalles del incidente](./media/security-center-incident-response/security-center-incident-response-fig5.png).
+2. Haga clic en el **actividad SQL malintencionado** de alerta y revise los recursos atacados en el **actividad SQL malintencionado** hoja: ![detalles de incidentes](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     En esta hoja, Judy puede tomar notas relativas a los recursos atacados, cuántas veces ocurrió este ataque y cuándo se detectó.
 3. Hace clic en el **recurso atacado** para más información acerca de este ataque.
@@ -101,4 +100,3 @@ El equipo de respuesta a incidentes también puede aprovechar la funcionalidad [
 
 ## <a name="conclusion"></a>Conclusión
 Es muy importante que su organización forme un equipo antes de que se produzca un incidente, ya que influirá positivamente en cómo se manejan los incidentes. Tener las herramientas adecuadas para supervisar los recursos puede ayudar a este equipo a adoptar los pasos exactos para solucionar un incidente de seguridad. Las [funcionalidades de detección](security-center-detection-capabilities.md) de Security Center pueden ayudar a TI a responder a los incidentes de seguridad y corregir los problemas de seguridad rápidamente.
-

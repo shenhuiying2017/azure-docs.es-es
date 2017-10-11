@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/20/2016
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 307b327e4c04a0461e39930114eb193791cbda9a
-ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-dns-records-in-azure-dns-using-the-azure-cli-10"></a>Administración de registros de DNS en Azure DNS mediante la CLI de Azure 1.0
 
 > [!div class="op_single_selector"]
@@ -297,4 +295,3 @@ Se le pide que confirme la operación de eliminación. Para suprimir este mensaj
 Más información sobre [zonas y registros en Azure DNS](dns-zones-records.md).
 <br>
 Aprenda a [proteger las zonas y los registros](dns-protect-zones-recordsets.md) cuando se usa Azure DNS.
-

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3ba238e246c7a41f6489a2b3ac4e1c749267290d
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: fd0aab1a14bbd324e734e5efe8fe101e8a8dfefa
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Escenarios de uso y consideraciones de implementación de Azure AD Join
 ## <a name="usage-scenarios-for-azure-ad-join"></a>Escenarios de uso de Azure AD Join
@@ -83,5 +81,4 @@ Puede configurar unos valores que permitan a los usuarios y empleados usar sus d
 * [Conozca los escenarios de uso de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
-
 

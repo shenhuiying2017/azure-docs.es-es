@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: sutalasi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 28e905a20d878eab1428a4b88113544aa742124a
-ms.openlocfilehash: 9c34ea792aa561b8155a915845ffb857dfef7a90
-ms.contentlocale: es-es
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 73a1f19177f23441f5f7165cf2bc92ba85e62aa5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>Administración de una directiva de replicación de VMware en Azure
 
@@ -88,4 +86,3 @@ ms.lasthandoff: 02/21/2017
 
     > [!NOTE]
     > Una directiva de replicación no se puede eliminar si tiene al menos un servidor de configuración asociado. Asegúrese de que no hay elementos replicados que usen la directiva y elimine todos los servidores de configuración asociados antes de eliminar la directiva.
-

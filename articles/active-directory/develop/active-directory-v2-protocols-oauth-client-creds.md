@@ -1,4 +1,3 @@
-
 ---
 title: "Uso de Azure AD v2.0 para tener acceso a recursos seguros sin la interacción del usuario | Microsoft Docs"
 description: "Compile aplicaciones web mediante la implementación del protocolo de autenticación OAuth 2.0 de Azure AD."
@@ -16,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
-ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0
 Puede usar la [concesiones de credenciales de cliente de OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), a veces denominada *OAuth de dos días*, para obtener acceso a recursos hospedados en la Web mediante la identidad de una aplicación. Este tipo de concesión se usa principalmente para interacciones de servidor a servidor que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. A menudo, estos tipos de aplicaciones se conocen como *demonios* o *cuentas de servicio*.
@@ -231,4 +229,3 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## Código de ejemplo
 Para ver un ejemplo de una aplicación que implementa la concesión de credenciales de cliente mediante el uso del punto de conexión de consentimiento del administrador, consulte nuestro [ejemplo de código de demonio v2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-

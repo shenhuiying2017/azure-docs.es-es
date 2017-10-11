@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 5a3445aee7722579405b67830ca49ef8c0b29d0e
-ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introducción al Catálogo de datos de Azure
 El Catálogo de datos de Azure es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección para recursos de datos empresariales. Si desea información detallada, consulte [¿Qué es el Catálogo de datos de Azure](data-catalog-what-is-data-catalog.md).
@@ -363,5 +362,4 @@ En este tutorial ha explorado las funcionalidades esenciales del Catálogo de da
 * [Documentación de recursos de datos](data-catalog-how-to-documentation.md)
 * [Conexión a recursos de datos](data-catalog-how-to-connect.md)
 * [Cómo administrar recursos de datos](data-catalog-how-to-manage.md)
-
 

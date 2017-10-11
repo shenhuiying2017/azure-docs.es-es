@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ca8537a7e35e44efafb9b0a9d6ddefe069067475
-ms.openlocfilehash: de55bf7d9e68146745c90b96f280c8a71e27b2f9
-ms.contentlocale: es-es
-ms.lasthandoff: 03/02/2017
-
+ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Administración de metadatos de artefactos en cuentas de integración para aplicaciones lógicas
 
 Puede definir metadatos personalizados para artefactos en cuentas de integración y recuperar metadatos durante el tiempo de ejecución para su aplicación lógica. Por ejemplo, puede especificar metadatos para artefactos como asociados, acuerdos, esquemas y asignaciones: todos almacenan metadatos usando pares de clave-valor. Actualmente, los artefactos no pueden crear metadatos a través de la interfaz de usuario, pero puede usar API de REST para crear metadatos. Para agregar metadatos al crear o seleccionar un asociado, acuerdo o esquema en Azure Portal, elija **Editar como JSON**. Para recuperar metadatos de artefactos en aplicaciones lógicas, puede usar la característica	 Búsqueda de artefactos de la cuenta de integración.
@@ -33,7 +31,7 @@ Puede definir metadatos personalizados para artefactos en cuentas de integració
 
 2. Agregue un artefacto a su cuenta de integración, por ejemplo, un [asociado](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), un [acuerdo](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) o un [esquema](logic-apps-enterprise-integration-schemas.md).
 
-3.    Seleccione el artefacto, elija **Editar como JSON** y escriba los detalles de los metadatos.
+3.  Seleccione el artefacto, elija **Editar como JSON** y escriba los detalles de los metadatos.
 
     ![Introducción de los metadatos](media/logic-apps-enterprise-integration-metadata/image1.png)
 
@@ -45,7 +43,7 @@ Puede definir metadatos personalizados para artefactos en cuentas de integració
 
 3. En Diseñador de aplicación lógica, agregue un desencadenador como *Solicitud* o *HTTP* a su aplicación lógica.
 
-4.    Elija **Paso siguiente** > **Agregar una acción**. Busque una *integración* para poder encontrar y seleccionar **Búsqueda de artefactos de la cuenta de integración**.
+4.  Elija **Paso siguiente** > **Agregar una acción**. Busque una *integración* para poder encontrar y seleccionar **Búsqueda de artefactos de la cuenta de integración**.
 
     ![Seleccione Búsqueda de artefactos de la cuenta de integración.](media/logic-apps-enterprise-integration-metadata/image2.png)
 
@@ -70,4 +68,3 @@ Los metadatos del asociado tienen estos detalles de `routingUrl`:
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre los contratos](logic-apps-enterprise-integration-agreements.md "Información sobre los contratos de integración de empresas")  
-

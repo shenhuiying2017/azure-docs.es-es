@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b7ad7b91c6b836f26b45959ef65a99666a4bf69a
-ms.contentlocale: es-es
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: procesamiento de facturas de EDIFACT mediante los Servicios de BizTalk de Azure
 
@@ -281,5 +280,4 @@ El factor más importante al trabajar con lotes es la emisión real del lote, ta
 [16]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-16.PNG  
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG  
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
-
 

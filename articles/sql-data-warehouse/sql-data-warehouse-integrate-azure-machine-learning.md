@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 30dcbe33b359afc3f118effce07f6574bb35d5d5
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: c19860c6b5b1c15d1e29ddc67f9cf9ad4618725b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Uso de Aprendizaje automático de Azure con Almacenamiento de datos SQL
 Aprendizaje automático de Azure es un servicio de análisis predictivo completamente administrado que puede usar para crear modelos predictivos con sus datos en Almacenamiento de datos SQL y publicarlos después como servicios web listos para su consumo. Para aprender los conceptos básicos del análisis predictivo y el aprendizaje automático, lea [Introducción a Machine Learning en Azure][Introduction to Machine Learning on Azure].  Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][Create experiment tutorial].
@@ -136,4 +135,3 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
-

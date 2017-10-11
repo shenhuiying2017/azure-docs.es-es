@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedimientos recomendados de seguridad para las máquinas virtuales de Azure
 
@@ -128,4 +127,3 @@ Al analizar los [archivos de registro de diagnóstico de Azure](https://azure.mi
 También puede usar [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) para obtener una mayor visibilidad del estado de los recursos.
 
 Las organizaciones que no supervisan el rendimiento de la máquina virtual no pueden determinar si ciertos cambios en los patrones de rendimiento son normales o anómalos. Si la máquina virtual está consumiendo más recursos de lo habitual, una anomalía de este tipo podría indicar un posible ataque procedente de un recurso externo o un proceso en peligro que se está ejecutando en la máquina virtual.
-

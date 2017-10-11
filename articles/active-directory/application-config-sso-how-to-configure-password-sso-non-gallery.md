@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 03200aeb1b6ca6f01a78c95e9014f5290c114e6a
-ms.contentlocale: es-es
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: f629ec99824199306ebf825901beaa99d83d434d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 
 Además de las opciones que se encuentran en la Galería de aplicaciones de Azure AD, también puede agregar una **aplicación ajena a la galería** cuando la aplicación que desea no aparece ahí. Con esta funcionalidad, puede agregar cualquier aplicación que ya exista en su organización, o bien cualquier aplicación de terceros que puedan usar desde un proveedor que aún no forme parte de la [Galería de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
@@ -71,9 +69,9 @@ Para configurar una aplicación desde la galería de Azure AD, necesita seguir e
 
 Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
-1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -87,9 +85,9 @@ Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
 Tras un breve período, podrá ver la hoja de configuración de la aplicación.
 
-## <a name="configure-the-application-for-password-single-sign-on"></a>Configurar la aplicación para el inicio de sesión único con contraseña
+## <a name="configure-the-application-for-password-single-sign-on"></a>Configuración de la aplicación para el inicio de sesión único con contraseña
 
-Para configurar el inicio de sesión único para una aplicación, siga los pasos siguientes:
+Para configurar el inicio de sesión único para una aplicación, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
 
@@ -101,7 +99,7 @@ Para configurar el inicio de sesión único para una aplicación, siga los pasos
 
 5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-  * Si no ve que la aplicación que desea aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
 6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
 
@@ -109,9 +107,9 @@ Para configurar el inicio de sesión único para una aplicación, siga los pasos
 
 8.  Seleccione el modo de **Inicio de sesión con contraseña**.
 
-9.  Escriba la **URL de inicio de sesión**. Es la dirección URL en la que los usuarios escriben su nombre de usuario y contraseña para iniciar sesión. Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL.
+9.  Escriba la **dirección URL de inicio de sesión**. Es la dirección URL en la que los usuarios escriben su nombre de usuario y contraseña para iniciar sesión. Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL.
 
-10. Asigne los usuarios a la aplicación.
+10. Asigne usuarios a la aplicación.
 
 11. Además, también puede proporcionar credenciales en nombre del usuario; para ello, seleccione las filas de los usuarios, haga clic en **Actualizar credenciales** y escriba el nombre de usuario y la contraseña en nombre de los usuarios. En caso contrario, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
 
@@ -129,7 +127,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la **lista Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
 6.  Seleccione la aplicación que desea asignar a un usuario de la lista.
 
@@ -165,7 +163,7 @@ Para asignar uno o varios grupos a una aplicación directamente, siga los pasos 
 
 5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
-  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la **lista Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
 6.  Seleccione la aplicación que desea asignar a un usuario de la lista.
 
@@ -191,4 +189,3 @@ Tras un breve período, los usuarios que seleccionó podrán iniciar estas aplic
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
-

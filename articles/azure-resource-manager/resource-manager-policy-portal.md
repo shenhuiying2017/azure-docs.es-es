@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 868b2cc1559053057d17b34c03e2e31347f399bf
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-azure-portal-to-assign-and-manage-resource-policies"></a>Uso de Azure Portal para asignar y administrar directivas de recursos
 Azure Portal permite asignar directivas de recursos a suscripciones y grupos de recursos. La interfaz de usuario facilita la selección de la directiva que desea asignar y especificar los valores de los parámetros de dicha directiva para personalizar la configuración de directiva. 
@@ -84,5 +83,4 @@ Si ha definido directivas personalizadas en su suscripción, estarán disponible
 * Para obtener información acerca de la sintaxis JSON para definir directivas, consulte [Información general sobre las directivas de recursos](resource-manager-policy.md).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
 * El esquema de la directiva está publicado en [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
-
 

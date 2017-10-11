@@ -14,13 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guía de postproducción para ofertas de máquina virtual en Azure Marketplace
 En este artículo se explica cómo actualizar una oferta de máquina virtual activa en Azure Marketplace. Este artículo le conduce a través del proceso de adición de una o varias SKU a una oferta existente. También le indica cómo eliminar una oferta de máquina virtual activa o una SKU de Marketplace.
@@ -338,4 +336,3 @@ Para revertir la configuración de visibilidad de una SKU activa al valor de pro
 * [Obtención de soporte técnico como publicador](marketplace-publishing-get-publisher-support.md)
 * [Creación de una imagen de máquina virtual local](marketplace-publishing-vm-image-creation-on-premise.md)
 * [Creación de una máquina virtual que ejecuta Windows en el portal de vista previa de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

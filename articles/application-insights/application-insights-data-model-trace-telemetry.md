@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 178b1ec0edce5a3fb20dc5c591e12cfe6e721cf2
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: e1da0d6a6fbd9ca5486936c326ade667d7b01006
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Telemetría de seguimientos: modelo de datos de Application Insights
 
@@ -44,4 +43,3 @@ El nivel de gravedad del seguimiento. El valor puede ser `Verbose`, `Information
 - Consulte el [modelo de datos](application-insights-data-model.md) para ver los tipos y el modelo de datos de Application Insights.
 - [Escritura de telemetría de seguimiento personalizada](app-insights-api-custom-events-metrics.md#tracktrace)
 - Consulte las [plataformas](app-insights-platforms.md) compatibles con Application Insights.
-

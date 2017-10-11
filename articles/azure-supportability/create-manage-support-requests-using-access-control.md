@@ -7,14 +7,12 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d408dbd55fa667e150bb42ff0d1e4b3236c438e9
 ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.contentlocale: es-es
-ms.lasthandoff: 02/02/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Control de acceso basado en rol (RBAC) de Azure para controlar los derechos de acceso para crear y administrar solicitudes de soporte técnico
 
 El [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) permite realizar una administración detallada del acceso en Azure.
@@ -92,7 +90,7 @@ Desea conceder a Joe acceso a la capacidad de crear y administrar las incidencia
 
     ![Nueva solicitud de soporte](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Al hacer clic en "All support requests" (Todas las solicitudes de soporte) Joe puede ver la lista de solicitudes de soporte creada para esta suscripción.  ![Vista de detalles del caso](./media/create-manage-support-requests-using-access-control/case-details-view.png)
+8. Haga clic en "Todos admiten solicitudes" Juan puede ver la lista de solicitudes de soporte creada para esta suscripción ![caso la vista de detalles](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Eliminación del acceso a solicitud de soporte técnico en el Azure Portal
 
@@ -109,4 +107,3 @@ Cuando Joe inicia sesión en el portal e intenta crear una solicitud de soporte 
 Joe no ve ninguna de las solicitudes de soporte técnico al hacer clic en "All support requests" (Todas las solicitudes de soporte técnico)
 
 ![vista de detalles del caso-2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)
-

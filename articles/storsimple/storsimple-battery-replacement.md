@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: f8b89b3f6851ec9ee0570f551b5407419fdba2d6
-ms.contentlocale: es-es
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Reemplazar el módulo de baterías de reserva en el dispositivo StorSimple
 ## <a name="overview"></a>Información general
@@ -84,7 +83,7 @@ Realice los pasos siguientes para instalar el módulo de baterías de sustituci�
 1. Coloque el módulo de baterías de reserva en la orientación correcta en el PCM.
 2. Presione el asa del módulo de batería por completo para asentar el conector.
 3. Sustituya el PCM en el gabinete principal siguiendo las directrices de [Reemplazar un Módulo de alimentación y refrigeración en su dispositivo StorSimple](storsimple-power-cooling-module-replacement.md).
-4. Una vez completada la sustitución, vaya a **Dispositivos** > **Mantenimiento** > **Estado de hardware** en el Portal de Azure clásico. Compruebe el estado de la batería para asegurarse de que la instalación fue correcta. Un estado verde indica que el estado de la batería es correcto.
+4. Una vez completada la sustitución, vaya a **Dispositivos** > **Mantenimiento** >  **Estado de hardware** en el Portal de Azure clásico. Compruebe el estado de la batería para asegurarse de que la instalación fue correcta. Un estado verde indica que el estado de la batería es correcto.
 
 ## <a name="maintain-the-backup-battery-module"></a>Mantener el módulo de baterías de reserva
 En el dispositivo StorSimple, el módulo de baterías de reserva proporciona energía al controlador durante un evento de pérdida de alimentación. Permite que el dispositivo StorSimple guarde los datos críticos antes de apagar el equipo de una manera controlada. Con dos baterías totalmente cargadas en los PCM, el sistema puede controlar dos eventos de pérdida consecutivos.
@@ -111,5 +110,4 @@ Si aparece el estado **DEGRADADO** , se recomienda lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
-
 

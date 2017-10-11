@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.contentlocale: es-es
-ms.lasthandoff: 12/08/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Envío de correo electrónico con SendGrid desde Java
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en Java. Entre los escenarios descritos se incluyen **creación de correo electrónico**, **envío de correo electrónico**, **incorporación de archivos adjuntos**, **uso de filtros** y **actualización de propiedades**. Para obtener más información sobre SendGrid y el envío de correo electrónico, consulte la sección [Pasos siguientes](#next-steps) .
@@ -159,7 +158,7 @@ SendGrid proporciona funcionalidad de correo electrónico adicional mediante el 
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>Actualización de las propiedades del correo electrónico
-Es posible sobrescribir algunas propiedades de correo electrónico con **set*Property*** o anexarlas con **add*Property***.
+Algunas propiedades de correo electrónico se pueden sobrescribir con  **establecer*propiedad*** o estar anexados mediante  **agregar*propiedad***.
 
 Por ejemplo, para especificar direcciones de respuesta en **ReplyTo** , use el siguiente código:
 
@@ -195,4 +194,3 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
 [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
 [entrega de correo electrónico transaccional]: https://sendgrid.com/transactional-email
-

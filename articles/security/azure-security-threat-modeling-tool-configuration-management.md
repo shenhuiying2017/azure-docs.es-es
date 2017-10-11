@@ -14,24 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 114666d0c173786373e3bdd025027eb217922749
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="security-frame-configuration-management--mitigations"></a>Marco de seguridad: Administración de configuración | Mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
 | **Aplicación web** | <ul><li>[Implementación de la directiva de seguridad de contenido [CSP] y deshabilitación de Javascript en línea](#csp-js)</li><li>[Habilitación del filtro XSS del explorador](#xss-filter)</li><li>[Deshabilitación obligatoria del seguimiento y la depuración de las aplicaciones ASP.NET antes de la implementación](#trace-deploy)</li><li>[Acceso exclusivo a archivos JavaScript de terceros de orígenes de confianza](#js-trusted)</li><li>[Comprobación de que las páginas con autenticación con ASP.NET incorporan defensas contra el secuestro de clic](#ui-defenses)</li><li>[Comprobación de que solo se permiten orígenes de confianza si CORS está activado en las aplicaciones web ASP.NET](#cors-aspnet)</li><li>[Habilitación del atributo ValidateRequest en las páginas de ASP.NET](#validate-aspnet)</li><li>[Uso de las últimas versiones locales de las bibliotecas de JavaScript](#local-js)</li><li>[Deshabilitación del rastreo automático de MIME](#mime-sniff)</li><li>[Eliminación de encabezados de servidor estándar de los sitios web de Windows Azure para evitar la creación de huellas digitales](#standard-finger)</li></ul> |
 | **Base de datos** | <ul><li>[Configuración de Firewall de Windows para el acceso al motor de base de datos](#firewall-db)</li></ul> |
 | **API web** | <ul><li>[Comprobación de que solo se permiten orígenes de confianza si CORS está activado en ASP.NET Web API](#cors-api)</li><li>[Cifrado de secciones de los archivos de configuración de la API web que contienen datos confidenciales](#config-sensitive)</li></ul> |
-| **Dispositivo IoT** | <ul><li>[Comprobación de que todas las interfaces de administración están protegidas con credenciales seguras](#admin-strong)</li><li>[Comprobación de que no se puede ejecutar código desconocido en los dispositivos](#unknown-exe)</li><li>[Cifrado del sistema operativo y particiones adicionales en los dispositivos IoT con Bitlocker](#partition-iot)</li><li>[Comprobación de que solo se habilita el mínimo número de servicios o características en los dispositivos](#min-enable)</li></ul> |
+| **Dispositivo de IoT** | <ul><li>[Comprobación de que todas las interfaces de administración están protegidas con credenciales seguras](#admin-strong)</li><li>[Comprobación de que no se puede ejecutar código desconocido en los dispositivos](#unknown-exe)</li><li>[Cifrado del sistema operativo y particiones adicionales en los dispositivos IoT con Bitlocker](#partition-iot)</li><li>[Comprobación de que solo se habilita el mínimo número de servicios o características en los dispositivos](#min-enable)</li></ul> |
 | **Puerta de enlace de campo de IoT** | <ul><li>[Cifrado del sistema operativo y particiones adicionales en la puerta de enlace de campo de IoT con Bitlocker](#field-bit-locker)</li><li>[Comprobación de que las credenciales de inicio de sesión predeterminadas de la puerta de enlace de campo se modifican durante la instalación](#default-change)</li></ul> |
-| **Puerta de enlace de la nube de IoT** | <ul><li>[Comprobación de que la puerta de enlace de la nube implementa un proceso para mantener actualizado el firmware de los dispositivos conectados](#cloud-firmware)</li></ul> |
-| **Límite de confianza de la máquina** | <ul><li>[Comprobación de que los dispositivos tienen controles de seguridad de punto de conexión configurados según las directivas organizativas](#controls-policies)</li></ul> |
+| **Puerta de enlace de nube de IoT** | <ul><li>[Comprobación de que la puerta de enlace de la nube implementa un proceso para mantener actualizado el firmware de los dispositivos conectados](#cloud-firmware)</li></ul> |
+| **Límites de confianza de la máquina** | <ul><li>[Comprobación de que los dispositivos tienen controles de seguridad de punto de conexión configurados según las directivas organizativas](#controls-policies)</li></ul> |
 | **Azure Storage** | <ul><li>[Comprobación de la administración segura de las claves de acceso de almacenamiento de Azure](#secure-keys)</li><li>[Comprobación de que solo se permiten orígenes de confianza si CORS está activado en Azure Storage](#cors-storage)</li></ul> |
 | **WCF** | <ul><li>[Habilitación de la característica de limitación del servicio de WCF](#throttling)</li><li>[Revelación de información de WCF mediante metadatos](#info-metadata)</li></ul> | 
 
@@ -651,4 +649,3 @@ smb.HttpGetEnabled = false;
 smb.HttpGetUrl = new Uri(EndPointAddress); 
 Host.Description.Behaviors.Add(smb);
 ```
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7884032fd4b5a72ca7e2f2dc2830b0a7c2220e94
-ms.openlocfilehash: 5d8ddd4449d3b160dbca7496c801e75dcf4a44e5
-ms.contentlocale: es-es
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: 4f58a587c1f10aea1cee89e46fa9ec340e0d21c6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Validación de documentos XML con esquemas para Azure Logic Apps y Enterprise Integration Pack
 
@@ -60,11 +58,11 @@ Estos pasos difieren en función del nivel de acceso del contenedor de blob: **P
 
 **Para determinar este nivel de acceso**
 
-1.    Abra el **Explorador de Azure Storage**. 
+1.  Abra el **Explorador de Azure Storage**. 
 
-2.    En **Contenedores de blob**, seleccione el contenedor de blob que desee. 
+2.  En **Contenedores de blob**, seleccione el contenedor de blob que desee. 
 
-3.    Seleccione **Seguridad**, **Nivel de acceso**.
+3.  Seleccione **Seguridad**, **Nivel de acceso**.
 
 Si el nivel de acceso de seguridad de blob es **Público**, siga estos pasos.
 
@@ -134,5 +132,4 @@ Azure muestra un mensaje que indica que el esquema se ha cargado correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack").  
-
 

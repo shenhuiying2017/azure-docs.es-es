@@ -1,6 +1,6 @@
 ---
 title: "Administración de almacenes y servidores de Azure Recovery Services | Microsoft Docs"
-description: Use este tutorial para aprender a administrar almacenes y servidores de Azure Recovery Services.
+description: "Use este tutorial para aprender a administrar almacenes y servidores de Servicios de recuperación de Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 5922e308f5c205a07bd329c28322ae82cea0e1fa
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Supervisión y administración de almacenes y servidores de Azure Recovery Services para máquinas Windows
+# <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Supervisión y administración de almacenes y servidores de los Servicios de recuperación de Azure para máquinas Windows
 > [!div class="op_single_selector"]
 > * [Resource Manager](backup-azure-manage-windows-server.md)
 > * [Clásico](backup-azure-manage-windows-server-classic.md)
@@ -37,28 +36,28 @@ En este artículo encontrará información general sobre las tareas de administr
 
 El panel de almacén de Recovery Services muestra los detalles o los atributos de un almacén de Recovery Services.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) mediante la suscripción de Azure.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) mediante la suscripción de Azure.
 2. En el menú central, haga clic en **Más servicios**.
 
     ![Apertura de la lista de almacenes de Recovery Services paso 1.](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
 3. Quiere abrir un almacén de Recovery Services. En el cuadro de diálogo, comience a escribir **Recovery Services**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de Recovery Services** para mostrar la lista de almacenes de Recovery Services de la suscripción.
 
-    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
 
     Se abre la lista de almacenes de Recovery Services.
 
-    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
+    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. En la lista de almacenes, seleccione el nombre del almacén de Recovery Services que quiere abrir. Se abre la hoja del panel del almacén de Recovery Services.
+4. En la lista de almacenes, seleccione el nombre del almacén de Recovery Services que quiere abrir. Se abre la hoja del panel del almacén de Servicios de recuperación.
 
-    ![panel del almacén de Recovery Services](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![panel del almacén de Servicios de recuperación](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
     Ahora que ha abierto el almacén de Recovery Services, pruebe cualquiera de las tareas de supervisión o administración.
 
 ## <a name="monitor-backup-jobs-and-alerts"></a>Supervisión de trabajos y alertas de copia de seguridad
 
-Puede supervisar los trabajos y alertas desde el panel del almacén de Recovery Services, en el que encontrará:
+Puede supervisar los trabajos y alertas desde el panel del almacén de Servicios de recuperación, en el que encontrará:
 
 * Detalles de las alertas de copia de seguridad
 * Archivos y carpetas, así como las máquinas virtuales de Azure protegidas en la nube
@@ -72,8 +71,8 @@ Si hace clic en la información de cada uno de estos iconos, se abrirá la hoja 
 En la parte superior del panel:
 
 * El icono de configuración proporciona acceso a las tareas de copia de seguridad disponibles.
-* El icono de copia de seguridad: ayuda a realizar la copia de seguridad de nuevos archivos y carpetas (o máquinas virtuales de Azure) en el almacén de Recovery Services.
-* El icono de eliminación: en caso de que ya no se use un almacén de Recovery Services, puede eliminarlo para liberar espacio de almacenamiento. Este icono solo estará habilitado después de que todos los servidores protegidos se hayan eliminado del almacén.
+* El icono de copia de seguridad: ayuda a realizar la copia de seguridad de nuevos archivos y carpetas (o máquinas virtuales de Azure) en el almacén de Servicios de recuperación.
+* El icono de eliminación: en caso de que ya no se use un almacén de Servicios de recuperación, puede eliminarlo para liberar espacio de almacenamiento. Este icono solo estará habilitado después de que todos los servidores protegidos se hayan eliminado del almacén.
 
 ![Copia de seguridad de las tareas del panel](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
@@ -320,4 +319,3 @@ R3. A continuación figuran los casos en los que no se enviará la notificación
 * [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
 * Para obtener más información sobre Azure Backup, consulte [Información general de Azure Backup](backup-introduction-to-azure-backup.md)
 * Visite el [Foro de Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-

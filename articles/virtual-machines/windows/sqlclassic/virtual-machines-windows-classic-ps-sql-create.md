@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: jroth
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 8d7b9dc3df9c68a18c95fe71b100b516becd4b5c
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.openlocfilehash: c3bd4329e8a22ce8503d6593560d29c2a3135e83
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Aprovisionamiento de una máquina virtual de SQL mediante Azure PowerShell (clásico)
 
@@ -205,4 +204,3 @@ En muchos casos, el siguiente paso es migrar las bases de datos a esta nueva VM 
 Si también le interesa utilizar Azure Portal para crear máquinas virtuales de SQL, consulte [Provisioning a SQL Server Virtual Machine on Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)(Aprovisionamiento de una máquina virtual de SQL Server en Azure Portal). Tenga en cuenta que el tutorial que le guiará a través del portal crea máquinas virtuales con el modelo recomendado del Administrador de recursos, en lugar de con el modelo clásico usado en este tema de PowerShell.
 
 Además de estos recursos, le recomendamos que revise [otros temas relacionados con la ejecución de SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-

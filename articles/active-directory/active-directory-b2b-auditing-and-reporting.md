@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: ba782270f3280e52235bc13148d232284b55762a
-ms.contentlocale: es-es
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoría y generación de informes para usuarios de colaboración 2B
 Con usuarios invitados, cuenta con funcionalidades de auditoría similares a las que tiene con los usuarios miembros. A continuación, se muestra un ejemplo del historial de canje e invitación de los usuario Sam Oogle al que se acaba de invitar:
 
@@ -50,4 +47,3 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Asignación de notificaciones de usuario de colaboración B2B](active-directory-b2b-claims-mapping.md)
 * [Uso compartido externo de Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitaciones actuales de la colaboración B2B](active-directory-b2b-current-limitations.md)
-

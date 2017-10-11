@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: acc9160f86e58c7af4779a8bab5627dc5c5ad721
-ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutorial: Integración de Azure Active Directory con CS Stars
 
@@ -122,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+5. Haga clic en el botón **Guardar**.
 
     ![Configuración del inicio de sesión único](./media/active-directory-saas-cs-stars-tutorial/tutorial_general_400.png) 
 <CS>
@@ -226,5 +225,4 @@ Al hacer clic en el icono de CS Stars en el Panel de acceso, debería iniciar se
 [201]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_203.png
-
 

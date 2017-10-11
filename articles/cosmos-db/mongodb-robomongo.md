@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 8983594776a1bbe413a6d7cf2cd518f0e327648a
-ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Uso de Robomongo con una cuenta de Azure Cosmos DB: API para MongoDB
 Para conectarse a una cuenta de Azure Cosmos DB: API para MongoDB con Robomongo, debe hacer lo siguiente:
@@ -52,4 +51,3 @@ Tanto el **nombre de usuario** como la **contraseña** están en la información
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Explore [ejemplos](mongodb-samples.md) de Azure Cosmos DB: API para MongoDB.
-

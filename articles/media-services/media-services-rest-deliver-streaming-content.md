@@ -1,5 +1,5 @@
 ---
-title: "Publicación de contenido de Azure Media Services con REST"
+title: "Publicación de contenido de Servicios multimedia de Azure con REST"
 description: "Aprenda a crear un localizador que se usa para generar una dirección URL de streaming. El código usa API de REST."
 author: Juliako
 manager: cfowler
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 3aa6bdac17a78b78490f255b0e86e1c210b64cc6
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.openlocfilehash: d1e0a112040f6aa4cfa9e8c323507b1c0a223f3e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="publish-azure-media-services-content-using-rest"></a>Publicación de contenido de Azure Media Services con REST
+# <a name="publish-azure-media-services-content-using-rest"></a>Publicación de contenido de Servicios multimedia de Azure con REST
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)
@@ -39,15 +38,15 @@ En este tema se muestra cómo crear un localizador de streaming a petición para
 En la sección [siguiente](#types) se muestran los tipos de enumeración cuyos valores se usan en las llamadas REST.   
 
 > [!NOTE]
-> Al obtener acceso a las entidades de Media Services, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
+> Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 > 
 
-## <a name="connect-to-media-services"></a>Conexión con Media Services
+## <a name="connect-to-media-services"></a>Conexión con Servicios multimedia
 
 Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Media Services. Debe realizar las llamadas posteriores al nuevo URI.
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Creación de un localizador de streaming a petición
 Para crear el localizador de streaming a petición y obtener las direcciones URL, deberá hacer lo siguiente:
@@ -188,7 +187,7 @@ ejemplo:
         OnDemandOrigin = 2,
     }
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
@@ -198,5 +197,4 @@ ejemplo:
 [Información general sobre la API de REST de operaciones de Azure Media Services](media-services-rest-how-to-use.md)
 
 [Configuración de directivas de entrega de activos](media-services-rest-configure-asset-delivery-policy.md)
-
 

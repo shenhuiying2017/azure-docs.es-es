@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi;andkjell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
-ms.openlocfilehash: 3623537c80bd0e4190d1e51f289a4b194c13878d
-ms.contentlocale: es-es
-ms.lasthandoff: 01/25/2017
-
+ms.openlocfilehash: 6cf8debc6443bb60fc5f601ea4aa392eb2f13a8f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync: conceptos técnicos
 Este artículo es un resumen del tema [Descripción de la arquitectura](active-directory-aadconnectsync-technical-concepts.md).
@@ -91,4 +90,3 @@ Siempre que una regla se determina que tiene que crearse un nuevo objeto de espa
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
-

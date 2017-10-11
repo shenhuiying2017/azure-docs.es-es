@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/19/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 522b932ab055978c52f085dbaa36095bb6b77962
-ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-and-improve-performance"></a>Supervisión y mejora del rendimiento
 Azure SQL Database identifica posibles problemas en la base de datos y recomienda las acciones que pueden mejorar el rendimiento de la carga de trabajo mediante recomendaciones y acciones de optimización inteligentes.
@@ -77,5 +76,4 @@ Obtenga más información sobre esta página en el artículo **[Cómo usar infor
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Guía de rendimiento de Azure SQL Database](sql-database-performance-guidance.md)
 * [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md)
-
 

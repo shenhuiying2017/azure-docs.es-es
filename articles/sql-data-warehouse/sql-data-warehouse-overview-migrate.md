@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/27/2017
 ms.author: joeyong;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 771b9456e66b8a1e41f72340b695b19e2adaf793
-ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Migración de una solución a Azure SQL Data Warehouse
 Vea lo que supone migrar una solución de base de datos existente a Azure SQL Data Warehouse. 
@@ -78,4 +77,3 @@ El equipo de asesoramiento al cliente también cuenta con buenas directrices sob
 
 <!--Other Web references-->
 [Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-

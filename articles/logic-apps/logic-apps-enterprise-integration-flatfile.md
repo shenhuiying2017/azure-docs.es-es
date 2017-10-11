@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: b9b0f1970a5c7edeb9986c0d60c8bc249c50f2ac
-ms.contentlocale: es-es
-ms.lasthandoff: 01/31/2017
-
-
+ms.openlocfilehash: bc3430624844cdeb92958433fba295f67a8ae0ff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>Información general sobre Enterprise Integration Pack con archivos sin formato
 
@@ -29,7 +27,7 @@ Es posible que quiera codificar el contenido XML antes de enviarlo a un socio co
 ## <a name="create-the-flat-file-encoding-connector"></a>Creación del conector de codificación de archivos sin formato
 Siga estos pasos para agregar un conector de codificación de archivos planos a la aplicación lógica.
 
-1. Cree una aplicación lógica y [vincúlela a su cuenta de integración](logic-apps-enterprise-integration-accounts.md "Aprenda a vincular una cuenta de integración a una Aplicación lógica."). Esta cuenta contiene el esquema que se va a utilizar para codificar los datos XML.  
+1. Cree una aplicación lógica y [vincúlela a su cuenta de integración](logic-apps-enterprise-integration-accounts.md "Aprenda a vincular una cuenta de integración a una Aplicación lógica"). Esta cuenta contiene el esquema que se va a utilizar para codificar los datos XML.  
 2. Agregue un desencadenador **Request - When an HTTP request is received** (Solicitar: cuando se reciba una solicitud HTTP) a la aplicación lógica.  
    ![Captura de pantalla del desencadenador que va a seleccionar](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
 3. Agregue la acción de codificación de archivos planos de la siguiente manera:
@@ -86,5 +84,4 @@ Ahora puede probar el conector realizando una solicitud al punto de conexión HT
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack").  
-
 

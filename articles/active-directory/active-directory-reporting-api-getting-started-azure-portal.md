@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 08/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 9944cbd2b1b7c4acb18d37da1394c0bbc170f77d
-ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Introducción a la API de generación de informes de Azure Active Directory
 
@@ -44,5 +43,4 @@ Para conocer las preguntas más frecuentes, lea nuestras [Preguntas más frecuen
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si tiene curiosidad por ver todos los puntos de conexión disponibles de la API Graph de Azure AD, use este vínculo: [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
-
 

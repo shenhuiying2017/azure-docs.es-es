@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 0625787ddcbc0091e70b111f687e25929720ad15
-ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="receive-data-in-logic-apps-with-the-b2b-features-in-the-enterprise-integration-pack"></a>Recepción de datos en aplicaciones lógicas con las características B2B de Enterprise Integration Pack
 
@@ -112,4 +111,3 @@ Con esto, ya ha terminado de configurar la aplicación lógica de B2B. En una ap
 
 ## <a name="learn-more"></a>Más información
 [Más información acerca de Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
-

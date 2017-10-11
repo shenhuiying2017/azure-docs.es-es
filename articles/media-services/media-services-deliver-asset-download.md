@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 19f6ea37f892054ee5d7bf793a32364dff264058
-ms.contentlocale: es-es
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Entrega de un recurso mediante descarga
 En este tema se analizan las opciones para entregar recursos multimedia cargados en Media Services. Puede entregar contenido de los Servicios multimedia en diversos escenarios de aplicaciones. Puede descargar recursos multimedia o tener acceso a ellos mediante un localizador. Puede enviar contenido multimedia a otra aplicación o a otro proveedor de contenido. Para mejorar el rendimiento y la escalabilidad, también puede entregar contenido si utiliza una Red de entrega de contenido (CDN).
@@ -88,5 +87,4 @@ En este ejemplo se muestra cómo descargar recursos multimedia desde los Servici
 
 ## <a name="see-also"></a>Otras referencias
 [contenido por secuencias](media-services-deliver-streaming-content.md)
-
 

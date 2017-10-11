@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 8e2bd755d14319f8c66f7ae7ec64fbd10801b39d
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronización de datos sin conexión en Aplicaciones móviles de Azure
 ## <a name="what-is-offline-data-sync"></a>¿Qué es la sincronización de datos sin conexión?
@@ -102,4 +101,3 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 [Xamarin iOS: habilitar la sincronización sin conexión]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: habilitar la sincronización sin conexión]: app-service-mobile-xamarin-android-get-started-offline-data.md
 [Plataforma universal de Windows: habilitación de la sincronización sin conexión]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
-

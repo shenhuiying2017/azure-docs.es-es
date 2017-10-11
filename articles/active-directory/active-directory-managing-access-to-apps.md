@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d08131936f856ed671a2358867918d5ba40a5897
-ms.contentlocale: es-es
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: 46e001b440802e0d5d16b7cf75344c7b9ce6fad3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-access-to-apps"></a>Administración del acceso a las aplicaciones
 El acceso continuo a las aplicaciones, la evaluación del uso y la generación de informes siguen siendo un desafío después de que una aplicación se integra en el sistema de identidad de su organización. En muchos casos, el administrador de TI o el departamento de soporte técnico deben asumir un rol activo en la administración del acceso a las aplicaciones. En ocasiones, la asignación la realiza un equipo de TI general o departamental. En ocasiones, se pretende que la decisión de asignación se delegue en el responsable de la toma de decisiones, lo que requiere su aprobación antes de que TI realice la asignación.  Otras organizaciones invierten en integración con un sistema automatizado existente de administración de identidades y acceso, como Control de acceso basado en rol (RBAC) o Control de acceso basado en atributos (ABAC). Tanto la integración como el desarrollo de reglas tienden a ser procesos especializados y caros. La supervisión o la generación de informes en cualquier enfoque de administración requieren su propia inversión aparte que resulta costosa y compleja.
@@ -57,7 +55,7 @@ Los administradores pueden emplear el [acceso condicional de Azure AD](active-di
 ## <a name="how-can-i-get-started"></a>¿Cómo puedo comenzar?
 En primer lugar, si aún no usa Azure AD y es un administrador de TI:
 
-* [¡Pruébelo!](https://azure.microsoft.com/trial/get-started-active-directory/)  Puede suscribirse a una evaluación gratuita de 30 días hoy e implementar su primera solución en la nube en menos de 5 minutos con este vínculo.
+* [¡Pruébelo!](https://azure.microsoft.com/trial/get-started-active-directory/) Puede suscribirse a una evaluación gratuita de 30 días hoy e implementar su primera solución en la nube en menos de 5 minutos con este vínculo.
 
 Entre las características de Azure AD que permiten el uso compartido de las cuentas se incluyen las siguientes:
 
@@ -71,5 +69,4 @@ Entre las características de Azure AD que permiten el uso compartido de las cue
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 * [Protección de aplicaciones con acceso condicional](active-directory-conditional-access.md)
 * [Administración de grupos de autoservicio/SSAA](active-directory-accessmanagement-self-service-group-management.md)
-
 

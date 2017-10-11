@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c7b3441892484cf54e2055e9153858171d738e85
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: fe85a99a92fb39082cafe7422b356de1f20f14bd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Procedimientos de actualización del SDK de aplicaciones Windows Universal
 Si ya integró una versión anterior de Engagement en la aplicación, debería tener en cuenta los siguientes puntos a la hora de actualizar el SDK.
@@ -309,5 +308,4 @@ Ejemplos de elementos Capptain que se usan habitualmente:
 * GetCapptainPageName ahora se llama GetEngagementPageName
 
 Tenga en cuenta que el cambio de nombre también afecta a los métodos invalidados.
-
 

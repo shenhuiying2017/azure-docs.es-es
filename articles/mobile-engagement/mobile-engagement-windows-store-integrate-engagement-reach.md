@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8fc1faac88cab0e3d3755fdf16fe3d7188169961
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Integración del SDK de Cobertura de Windows Universal Apps
 Debe seguir el procedimiento de integración descrito en el documento [Integración del SDK de Windows Universal Engagement](mobile-engagement-windows-store-integrate-engagement.md) antes de seguir con esta guía.
@@ -280,7 +279,7 @@ Puede establecer la devolución de llamada en el método "Public App(){}" del ar
 > 
 > 
 
-## <a name="a-idpush-channel-sharinga-push-channel-sharing"></a><a id="push-channel-sharing"></a> Uso compartido de canal de inserción
+## <a id="push-channel-sharing"></a> Uso compartido de canal de inserción
 Si está usando las notificaciones de inserción para otra finalidad en la aplicación, tendrá que usar la característica de uso compartido del canal de inserción del SDK de Engagement. Esto es para evitar la inserción perdida.
 
 * Puede proporcionar su propio canal de inserción a la inicialización de Engagement Reach. El SDK lo usará en lugar de solicitar uno nuevo.
@@ -338,5 +337,4 @@ Ahora, para usar este protocolo, edite `App.xaml.cs` mediante el método `OnActi
                 }
               }
               #endregion
-
 

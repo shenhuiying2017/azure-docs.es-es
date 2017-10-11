@@ -16,13 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: cjiang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c1ce4284bc058096387986c8706ddc7317ee724
-ms.openlocfilehash: c2fd2a8f9eac4ef4d6f67ed924c77daa86cb81a8
-ms.contentlocale: es-es
-ms.lasthandoff: 02/11/2017
-
-
+ms.openlocfilehash: bad37f2447ac8de727326914b611f81effc9cf3f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="your-debit-card-or-credit-card-is-declined-at-azure-sign-up"></a>La tarjeta de débito o crédito se rechazó al suscribirse a Azure
 Si la tarjeta de débito o crédito se rechaza o no se acepta al suscribirse a Azure, puede que tenga que hacer frente a alguno de los siguientes problemas:
@@ -43,4 +41,3 @@ Después de registrarse, [administre su información de pago](billing-how-to-cha
 
 ## <a name="need-more-help-contact-support"></a>¿Necesita más ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
-

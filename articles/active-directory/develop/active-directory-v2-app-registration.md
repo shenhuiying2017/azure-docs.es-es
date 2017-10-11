@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: lenalepa
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
-ms.contentlocale: es-es
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: e6202aa8665c906382666fe08a561421e50e0a8d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Cómo registrar una aplicación con el punto de conexión v2.0
 Para crear una aplicación que acepte tanto el inicio de sesión de MSA como de Azure AD, tendrá que registrar primero una aplicación con Microsoft.  En este momento, no podrá usar ninguna aplicación existente que tenga con Azure AD o MSA. Tendrá que crear una completamente nueva.
@@ -56,5 +54,4 @@ Si lo desea, puede personalizar la apariencia de la página de inicio de sesión
 Ahora que tiene una aplicación de Microsoft, puede completar uno de nuestros tutoriales de inicio rápido de v2.0.  Estas son algunas recomendaciones:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
-
 

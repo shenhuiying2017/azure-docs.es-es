@@ -15,14 +15,12 @@ ms.date: 08/01/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
 ms.openlocfilehash: 1dde300780c8d1f7ea9eee4c92de06bcf70a1f12
-ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Uso de dominios personalizados en el proxy de la aplicación de Azure AD
 
 Al publicar una aplicación a través del proxy de la aplicación de Azure Active Directory, se crea una dirección URL externa a la que los usuarios se desplazan cuando trabajan de forma remota. Esta dirección URL obtiene el dominio predeterminado *yourtenant-msappproxy.net*. Por ejemplo, si publica una aplicación denominada Expenses y el inquilino se llama Contoso, la dirección URL externa sería https://expenses-contoso.msappproxy.net. Si quiere usar su propio nombre de dominio, configure un dominio personalizado para la aplicación. 
@@ -88,6 +86,5 @@ Actualmente, toda la administración de certificados es a través de páginas de
 * [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md) en las aplicaciones publicadas con la autenticación de Azure AD.
 * [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md) a las aplicaciones publicadas.
 * [Incorporación de su nombre de dominio personalizado a Azure AD](active-directory-domains-add-azure-portal.md)
-
 
 

@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: b94b2f867d30fe2c121904821404b8228ee1e899
-ms.contentlocale: es-es
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: e831048f34ecf6e89595adc4bfd58b5977e04bdb
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Uso del codificador FMLE para enviar una transmisión por secuencias en directo de velocidad de bits única
 > [!div class="op_single_selector"]
@@ -169,4 +168,3 @@ Consulte el tema de [solución de problemas](media-services-troubleshooting-live
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

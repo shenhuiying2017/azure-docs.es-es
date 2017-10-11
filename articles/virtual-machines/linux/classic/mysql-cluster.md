@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 4eaf86c9ac3e4dc2b51b88383626eda774cab0e9
-ms.contentlocale: es-es
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Uso de conjuntos de carga equilibrada para crear clústeres en MySQL en Linux
 > [!IMPORTANT]
@@ -339,4 +338,3 @@ Se aplican las siguientes limitaciones:
 * El equilibrador de carga necesita al menos cinco segundos para responder, por lo que las aplicaciones deben ser compatibles con clústeres y ser más tolerantes a errores de tiempo de espera. También pueden ayudar otras arquitecturas, como las colas de la aplicación y middlewares de consulta.
 * El ajuste de MySQL es necesario para garantizar que la escritura se realiza a un ritmo apropiado y las memorias caché se vacían en disco con la máxima frecuencia posible para minimizar la pérdida de memoria.
 * El rendimiento de escritura depende de la interconexión de las VM en la conmutación virtual ya que este es el mecanismo que usa DRBD para replicar el dispositivo.
-

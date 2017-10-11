@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 9c56bf57250093e5f76e2e4e02e8734af6cf4102
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.openlocfilehash: 171f27c92ee9de14301ebb664e9ba3bcd98c394d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure mediante PowerShell
 > [!div class="op_single_selector"]
@@ -111,4 +110,3 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [How to Configure Cloud Services](cloud-services-how-to-configure.md) (Configuración de Cloud Services)
 [Cloud services FAQ - Remote Desktop](cloud-services-faq.md) (Preguntas frecuentes sobre Cloud Services > Escritorio remoto)
-

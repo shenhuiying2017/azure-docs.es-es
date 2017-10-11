@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
-ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Conexión de Cosmos DB con Azure Search mediante indexadores
 
@@ -33,7 +32,7 @@ Si opta por la primera opción, el [Asistente para la importación de datos ](se
 > Cosmos DB es la siguiente generación de DocumentDB. Aunque cambie el nombre del producto, la sintaxis es la misma que antes. Siga con las especificaciones de `documentdb` como se indica en este artículo sobre el indexador. 
 
 > [!TIP]
-> Puede iniciar el asistente para **importar datos** del panel de Cosmos DB para simplificar la indexación para ese origen de datos. En el panel de navegación de la izquierda, vaya a **Colecciones** > **Agregar Azure Search** para empezar.
+> Puede iniciar el asistente para **importar datos** del panel de Cosmos DB para simplificar la indexación para ese origen de datos. En el panel de navegación de la izquierda, vaya a **Colecciones** > **Add Azure Search** (Añadir búsqueda de Azure) para empezar.
 
 <a name="Concepts"></a>
 ## <a name="azure-search-indexer-concepts"></a>Conceptos del indexador de Azure Search
@@ -298,4 +297,3 @@ En el ejemplo siguiente se crea un origen de datos con una directiva de eliminac
 
 * Para más información acerca de Azure Cosmos DB, consulte la [página de servicio de Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 * Para más información sobre Azure Search, vea la [página del servicio Search](https://azure.microsoft.com/services/search/).
-

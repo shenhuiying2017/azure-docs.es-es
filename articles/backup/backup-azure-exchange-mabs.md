@@ -1,5 +1,5 @@
 ---
-title: Copia de seguridad de un servidor Exchange en Azure Backup con el Azure Backup Server | Microsoft Docs
+title: Copia de seguridad de un servidor Exchange en Azure Backup con el servidor de copia de seguridad de Azure | Microsoft Docs
 description: "Obtenga información sobre cómo realizar una copia de seguridad de un servidor Exchange en Azure Backup con el Azure Backup Server"
 services: backup
 documentationcenter: 
@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 60b784fd00013c2b9504f8635c6b5c4c592563be
-ms.contentlocale: es-es
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Realice una copia de seguridad de un servidor Exchange en Azure Backup con el Azure Backup Server
+# <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Realice una copia de seguridad de un servidor Exchange en Azure Backup con el servidor de copia de seguridad de Azure
 En este artículo se describe cómo configurar un servidor de copia de seguridad de Microsoft Azure (MABS) para realizar una copia de seguridad de un servidor Microsoft Exchange en Azure.  
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de continuar, asegúrese de que el Azure Backup Server esté [instalado y preparado](backup-azure-microsoft-azure-backup.md).
+Antes de continuar, asegúrese de que el servidor de copia de seguridad de Azure esté [instalado y preparado](backup-azure-microsoft-azure-backup.md).
 
 ## <a name="mabs-protection-agent"></a>Agente de protección MABS
 Para instalar al agente de protección MABS en el servidor Exchange, siga estos pasos:
@@ -112,4 +111,3 @@ Para los puntos de recuperación en línea, existen cinco tipos de recuperación
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
-

@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
-
-
 # <a name="azure-network-security"></a>Azure Network Security
 
 Sabemos que la seguridad tiene la máxima prioridad en la nube y conocemos la importancia que tiene que buscar información exacta y a tiempo sobre la seguridad de Azure. Una de las mejores razones para usar Azure en sus aplicaciones y servicios es poder aprovechar su amplia gama de funcionalidades y herramientas de seguridad. Estas herramientas y funcionalidades permiten crear soluciones seguras en la plataforma Azure.
@@ -78,7 +75,7 @@ En este documento, se analizarán las siguientes funcionalidades empresariales d
 
 ### <a name="basic-network-connectivity"></a>Conectividad de red básica
 
-El servicio [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) le permite conectar de forma segura los recursos de Azure entre sí por medio de redes virtuales. Una red virtual es una representación de su propia red en la nube. Una red virtual es un aislamiento lógico de la infraestructura de red de Azure dedicada a su suscripción. También puede conectar redes virtuales entre sí o conectarlas a redes locales mediante VPN de sitio a sitio y [vínculos WAN](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) dedicados.
+El servicio [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) le permite conectar de forma segura los recursos de Azure entre sí por medio de redes virtuales. Una red virtual es una representación de su propia red en la nube. Una red virtual es un aislamiento lógico de la infraestructura de red de Azure dedicada a su suscripción. También se puede conectar redes virtuales entre sí y a las redes locales con VPN de sitio a sitio y dedicado [vínculos WAN](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![Conectividad de red básica](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -665,4 +662,3 @@ Obtener más información acerca de la seguridad con la lectura de algunos de nu
 -   [Cómo crea Microsoft su red global rápida y confiable](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
 
 -   [Impulso de la innovación en la red](https://azure.microsoft.com/blog/lighting-up-network-innovation/)
-

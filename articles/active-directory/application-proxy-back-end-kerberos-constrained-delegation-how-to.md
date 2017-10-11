@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 0651f497de446bd6b66f8eaccd7114d262925afd
-ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 3a768c30cb874d42d7b4fbd2eeaa6c0e23904e10
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application-to-use-kerberos-constrained-delegation"></a>Configuración de una aplicación de proxy de aplicación para que use la delegación limitada de Kerberos
 
 Los métodos disponibles para lograr el SSO en las aplicaciones publicadas puede variar ligeramente de una aplicación a otra y una de las opciones que el proxy de aplicación de Azure ofrece desde el principio es la delegación limitada de Kerberos (KCD). Esta consiste en un host de conector que está configurado para realizar la autenticación limitada de Kerberos en aplicaciones back-end en nombre de los usuarios.
@@ -171,4 +169,3 @@ Si todavía no puede solucionar el problema, el equipo de soporte técnico estar
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Configuración de la delegación limitada de Kerberos (KCD) en un dominio administrado](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
-

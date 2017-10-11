@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
-ms.contentlocale: es-es
-ms.lasthandoff: 01/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las condiciones de coincidencia disponibles para el [Motor de reglas](cdn-rules-engine.md) de Azure Content Delivery Network (CDN).
 
@@ -125,5 +123,4 @@ Carácter comodín de consulta de dirección URL | Compara los valores especific
 * [Expresiones condicionales del motor de reglas](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funciones del motor de reglas](cdn-rules-engine-reference-features.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
-
 

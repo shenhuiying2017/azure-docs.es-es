@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/15/2016
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 88d1f4e29f38ba1a6bef57c2da43bee205575eee
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Implementación de un clúster de HPC Pack 2016 en Azure
 
@@ -156,5 +155,4 @@ Haga clic en **Revisar los términos legales** para revisar los términos. Si lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Envíe los trabajos al clúster. Consulte [Envío de trabajos a un clúster de HPC Pack en Azure](hpcpack-cluster-submit-jobs.md) y [Manage an HPC Pack 2016 cluster in Azure using Azure Active Directory](hpcpack-cluster-active-directory.md) (Administración de un clúster de HPC Pack 2016 en Azure mediante Azure Active Directory).
-
 

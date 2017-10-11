@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 94744e8138d40dd777c0c004472804e3af6c0b1e
-ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
-
+ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="deploy-a-container-group"></a>Implementación de un grupo de contenedores
 
 Azure Container Instances admite compatible la implementación de varios contenedores en un solo host mediante un *grupo de contenedores*. Esto es útil cuando se crea un sidecar de aplicación para el registro, la supervisión o cualquier otra configuración donde un servicio necesita un segundo proceso asociado. 
@@ -203,4 +201,3 @@ En este documento se explican los pasos necesarios para implementar una instanci
 
 > [!div class="nextstepaction"]
 > [Tutorial de Azure Container Instances]: ./container-instances-tutorial-prepare-app.md
-

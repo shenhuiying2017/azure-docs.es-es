@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
-ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Diseño de patrones para plantillas de Azure Resource Manager cuando implementa soluciones complejas
 Con un enfoque flexible basado en plantillas de Azure Resource Manager, puede implementar topologías complejas de forma rápida y coherente. Puede adaptar estas implementaciones fácilmente a medida que evolucionan las ofertas centrales o para dar cabida a variantes para escenarios o clientes atípicos.
@@ -347,5 +346,4 @@ Si desea publicar la plantilla en Marketplace, establezca distintas copias de la
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-
 

@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.contentlocale: es-es
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
 ms.lasthandoff: 08/03/2017
-
 ---
-
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Diseño, compilación e implementación de Azure Logic Apps en Visual Studio
 
 Aunque [Azure Portal](https://portal.azure.com/) es un medio excelente de crear y administrar Azure Logic Apps, puede usar Visual Studio para diseñar, compilar e implementar sus aplicaciones lógicas. Visual Studio proporciona herramientas muy completas, como Diseñador de aplicación lógica, para crear aplicaciones lógicas, configurar las plantillas de implementación y automatización e implementarlas en cualquier entorno. 
@@ -238,4 +236,3 @@ Si tiene un proyecto de grupo de recursos existente, puede agregar la aplicació
 * [Ejemplos de aplicaciones lógicas y escenarios comunes](logic-apps-examples-and-scenarios.md)
 * [Aprenda a automatizar procesos empresariales con Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)
 * [Aprenda a integrar sus sistemas con Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
-

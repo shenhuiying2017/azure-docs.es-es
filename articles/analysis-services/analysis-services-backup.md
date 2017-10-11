@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bffa481a498b130ef1f2388a5ba856da5d164ee0
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
 Realizar una copia de seguridad de bases de datos de modelo tabular en Azure Analysis Services es casi lo mismo que en Analysis Services local. La diferencia principal es el lugar donde se almacenan los archivos de copia de seguridad. Los archivos de copia de seguridad se deben guardar en un contenedor de una [cuenta de almacenamiento de Azure](../storage/common/storage-create-storage-account.md). Puede usar una cuenta de almacenamiento y un contenedor que ya tenga o puede crear estos al configurar el almacenamiento para el servidor.
@@ -115,4 +113,3 @@ Use el cmdlet [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-servi
 [Cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md)  
 [Alta disponibilidad](analysis-services-bcdr.md)     
 [Administración de Azure Analysis Services](analysis-services-manage.md)
-

@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 66f733d7602a8d26627fcc205f357e7a4a266d11
-ms.openlocfilehash: b76ef954d8a00e190817e3d7f8e2b064210d0357
-ms.contentlocale: es-es
-ms.lasthandoff: 02/22/2017
-
-
+ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuración de Diagnósticos de Azure 1.2
 > [!NOTE]
@@ -206,4 +204,3 @@ Define las opciones de configuración para los datos de telemetría que se van a
 |Nombre del elemento|Descripción|  
 |------------------|-----------------|  
 |**DataSource**|Los registros de eventos de Windows que se van a recopilar. Atributo necesario:<br /><br /> **name**: la consulta de XPath que describe los eventos de Windows que se van a recopilar. Por ejemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recopilar todos los eventos, especifique "*".|
-

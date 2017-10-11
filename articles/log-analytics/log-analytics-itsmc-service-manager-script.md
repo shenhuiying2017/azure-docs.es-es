@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: v-jysur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>Creación de una aplicación web de Service Manager mediante el script automatizado (versión preliminar)
 
 Use el siguiente script para crear la aplicación web para la instancia de Service Manager. Aquí podrá obtener más información sobre la conexión de Service Manager: [Service Manager Web app](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service) (Aplicación web de Service Manager).
@@ -322,4 +320,3 @@ if(!$err)
 ```
 ## <a name="next-steps"></a>Pasos siguientes
 [Configuración de la conexión híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
-

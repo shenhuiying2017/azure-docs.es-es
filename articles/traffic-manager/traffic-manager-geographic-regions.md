@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: b273733f545d8d00d0ffaf4d783ba31ec91f1ec8
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Jerarquía de país o región usada por Azure Traffic Manager para el método de enrutamiento de tráfico geográfico
 
 En este artículo se muestran los países y las regiones que usa el método de enrutamiento de tráfico **geográfico** en Azure Traffic Manager. También puede obtener esta información mediante programación si llama a la [API de REST de Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
@@ -703,4 +701,3 @@ En este artículo se muestran los países y las regiones que usa el método de e
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre el [método de enrutamiento de tráfico geográfico en Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).
-

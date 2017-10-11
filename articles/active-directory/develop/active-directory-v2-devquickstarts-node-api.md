@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: d42b96b0fb02b6c2df364d5e19f3345991ee03b1
-ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
-
-
+ms.openlocfilehash: 94e945a52b9df7c495de1611baa08083357670c9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="secure-a-web-api-by-using-nodejs"></a>Protección de una API web mediante Node.js
 > [!NOTE]
@@ -31,7 +29,7 @@ ms.lasthandoff: 05/04/2017
 
 Cuando se utiliza el punto de conexión de la versión 2.0 de Azure Active Directory (Azure AD), puede usar tokens de acceso de [OAuth 2.0](active-directory-v2-protocols.md) para proteger su API web. Con los tokens de OAuth 2.0, los usuarios que tienen una cuenta Microsoft personal, y cuentas profesionales o educativas, pueden acceder de forma segura a su API web.
 
-*Passport* es middleware de autenticación para Node.js. Passport es flexible y modular, y se puede usar discretamente en cualquier aplicación web de Restify o basada en Express. En esta herramienta, un conjunto completo de estrategias admite la autenticación mediante un nombre de usuario y contraseña, Facebook, Twitter y mucho más. Hemos desarrollado una estrategia para Azure Active Directory. En este artículo se muestra cómo instalar el módulo y, luego, agregar el complemento `passport-azure-ad` de Azure AD.
+*Passport* es middleware de autenticación para Node.js. Passport, flexible y modular, se puede usar discretamente en cualquier aplicación web de Restify o basada en Express. En esta herramienta, un conjunto completo de estrategias admite la autenticación mediante nombre de usuario y contraseña, Facebook, Twitter y mucho más. Hemos desarrollado una estrategia para Azure AD. En este artículo se muestra cómo instalar el módulo y luego agregar el complemento `passport-azure-ad` de Azure AD.
 
 ## <a name="download"></a>Descargar
 El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs). Para seguir el tutorial, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip) o clonar el esqueleto:
@@ -41,7 +39,7 @@ El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQu
 La aplicación completa se ofrece al final de este tutorial.
 
 ## <a name="1-register-an-app"></a>1: Registro de una aplicación
-Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o siga estos [pasos detallados](active-directory-v2-app-registration.md) para registrar una aplicación. Asegúrese de lo siguiente:
+Cree una aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o siga estos [pasos detallados](active-directory-v2-app-registration.md) para registrar una aplicación. Asegúrese de lo siguiente:
 
 * Copie el **identificador de aplicación** asignado a la aplicación. Lo necesitará para este tutorial.
 * Agregar la plataforma **Móvil** a la aplicación.
@@ -753,10 +751,10 @@ return done(null, user, token);
 passport.use(oidcStrategy);
 ```
 
-Passport usa un patrón similar para todas sus estrategias (Twitter, Facebook, etc.) al que se ajustan todos los escritores de estrategias. Pase a la estrategia una función `function()` que usa un token y `done` como parámetros. La estrategia se devuelve cuando hace todo su trabajo. Almacene el usuario y guarde provisionalmente el token para no tener que volver a solicitarlo.
+Passport usa un patrón similar para todas sus estrategias (Twitter, Facebook, etc.) Todos los escritores de estrategias se ajustan a este patrón. Pase a la estrategia una función `function()` que use un token y `done` como parámetros. La estrategia se devuelve cuando hace todo su trabajo. Almacene el usuario y guarde provisionalmente el token para no tener que volver a solicitarlo.
 
 > [!IMPORTANT]
-> El código anterior toma cualquier usuario que pueda autenticarse en el servidor. Esto se conoce como registro automático. En un servidores de producción, no debería permitir que acceda cualquier usuario sin que antes pase por el proceso de registro que decida. Esto suele ser el patrón que se ven en las aplicaciones para consumidores. La aplicación podría permitir que se registre con Facebook, pero, luego, le pide que escriba información adicional. Si no usa un programa de línea de comandos para este tutorial, podría extraer el correo electrónico del objeto de token que se devuelve. Después, puede pedir al usuario que escriba información adicional. Puesto que se trata de un servidor de prueba, agregará el usuario directamente a la base de datos en memoria.
+> El código anterior adopta cualquier usuario que pueda autenticarse en el servidor. Esto se conoce como registro automático. En un servidores de producción, no debería permitir que acceda cualquier usuario sin que antes pase por el proceso de registro que decida. Esto suele ser el patrón que se ven en las aplicaciones para consumidores. La aplicación podría permitir que se registre con Facebook, pero, luego, le pide que escriba información adicional. Si no usa un programa de línea de comandos para este tutorial, podría extraer el correo electrónico del objeto de token que se devuelve. Luego, puede pedir al usuario que escriba información adicional. Puesto que se trata de un servidor de prueba, agregará el usuario directamente a la base de datos en memoria.
 > 
 > 
 
@@ -833,7 +831,7 @@ Una respuesta 401 indica que la capa de Passport intenta realizar la redirecció
 Ha avanzado todo lo posible con este servidor sin usar un cliente compatible con OAuth 2.0. Para ello, debe revisar un tutorial adicional.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Como referencia, se proporciona el ejemplo completado (sin sus valores de configuración) [en forma de archivo .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip). También puede clonarlo desde GitHub:
+Como referencia, se ofrece el ejemplo completado (sin sus valores de configuración) [en forma de archivo .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip). También puede clonarlo desde GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
@@ -841,10 +839,9 @@ Ahora puede pasar a temas más avanzados. Podría probar este: [Proteger una apl
 
 Estas son algunos recursos adicionales:
 
-* [Guía del desarrollador de Azure AD 2.0](active-directory-appmodel-v2-overview.md)
+* [Guía del desarrollador de Azure AD v2.0](active-directory-appmodel-v2-overview.md)
 * [Etiqueta "azure-active-directory" de Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ### <a name="get-security-updates-for-our-products"></a>Obtención de actualizaciones de seguridad para nuestros productos
-Le recomendamos suscribirse para recibir una notificación cuando se produzcan incidentes de seguridad. En la página [de notificaciones de seguridad técnicas de Microsoft](https://technet.microsoft.com/security/dd252948), suscríbase a las alertas de documentos informativos de seguridad.
-
+Le recomendamos suscribirse para recibir una notificación cuando se produzcan incidentes de seguridad. En la página [Notificaciones técnicas de seguridad de Microsoft](https://technet.microsoft.com/security/dd252948), suscríbase a las alertas de documentos informativos de seguridad.
 

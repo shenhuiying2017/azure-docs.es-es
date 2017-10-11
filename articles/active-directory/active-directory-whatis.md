@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: b6746afd508832afbd54153851b6f2ae404af147
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 Azure Active Directory (Azure AD) es el directorio basado en la nube de varios inquilinos y el servicio de administración de identidades de Microsoft. Azure AD combina servicios de directorio fundamentales, gobierno avanzado de la identidad y administración del acceso a las aplicaciones. Azure AD ofrece también una plataforma muy completa basada en estándares que permite a los desarrolladores proporcionar control de acceso a sus aplicaciones, en función de una directiva y reglas centralizadas. 
@@ -78,4 +77,3 @@ Para mejorar su instancia de Azure Active Directory, puede agregar funcionalidad
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Más información sobre los conceptos básicos de la administración de identidades y accesos de Azure](https://docs.microsoft.com/azure/active-directory/identity-fundamentals)
-

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7a702354de137e1bca033146626dad1ca53fd3ed
-ms.openlocfilehash: b644ef0a8da726b2b23a4bfc81516c112be2de2e
-ms.contentlocale: es-es
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 6e2fea882c248fa095a9d450ed54a7b4e64b45e1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-a-split-merge-service"></a>Implemente un servicio de división y combinación
 La herramienta de división y combinación permite mover los datos entre bases de datos particionadas. Consulte [Mover datos entre bases de datos en la nube escaladas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -344,5 +342,4 @@ En este caso, compruebe el archivo de configuración, en particular la configura
 [3]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/staging.png
 [4]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/upload.png
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
-
 

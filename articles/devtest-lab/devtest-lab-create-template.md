@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 38d70ed302eeab912ce4fe33272f85e96f1b1eda
 ms.openlocfilehash: 9983ea9b847f44ed18a6169a4bdb224b63626a64
-ms.contentlocale: es-es
-ms.lasthandoff: 01/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Crear una imagen personalizada a partir de un archivo VHD
 
 [!INCLUDE [devtest-lab-create-custom-image-from-vhd-selector](../../includes/devtest-lab-create-custom-image-from-vhd-selector.md)]
@@ -78,4 +76,3 @@ Los siguientes pasos le guían en la creación de una imagen personalizada a par
 ##<a name="next-steps"></a>Pasos siguientes
 
 - [Agregar una máquina virtual al laboratorio](./devtest-lab-add-vm-with-artifacts.md)
-

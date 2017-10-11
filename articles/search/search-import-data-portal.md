@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importación de datos en Búsqueda de Azure con el Portal
 Azure Portal incluye un asistente para **importar datos** en el panel de Azure Search que le permite cargar datos en un índice. 
@@ -120,5 +119,4 @@ Siga estos vínculos para más información sobre los indexadores:
 
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
-
 

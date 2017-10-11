@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 0a32c758693c1889d7acfa6510bffba46b7eabc2
-ms.contentlocale: es-es
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 829e0759f8aeb8758f6b8895b88b60b66ffb22ed
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Introducción a la autenticación de Azure AD mediante Azure Portal
 
@@ -36,7 +35,7 @@ Al utilizar la autenticación de Azure AD con Azure Media Services, tiene dos op
 - **Autenticación de entidad de servicio**. Autenticar un servicio. Las aplicaciones que normalmente utilizan este método de autenticación son aplicaciones que ejecutan servicios de demonio, servicios de nivel intermedio o trabajos programados: Web Apps, Function Apps, Logic Apps, API o un microservicio.
 
 > [!IMPORTANT]
-> Actualmente Media Services es compatible con el modelo de autenticación de Azure Access Control Service. Pero la autenticación de Access Control dejará de usarse el 1 de junio de 2018. Se recomienda migrar tan pronto como sea posible al modelo de autenticación de Azure AD.
+> Actualmente Media Services es compatible con el modelo de autenticación de Azure Access Control Service. Sin embargo, la autorización de Access Control dejará de usarse el 1 de junio de 2018. Se recomienda migrar tan pronto como sea posible al modelo de autenticación de Azure AD.
 
 ## <a name="select-the-authentication-method"></a>Selección del método de autenticación
 
@@ -112,4 +111,3 @@ Para editar la configuración o el manifiesto de la aplicación, haga clic en **
 ## <a name="next-steps"></a>Pasos siguientes
 
 Empiece a trabajar en la [carga de archivos en la cuenta](media-services-portal-upload-files.md).
-

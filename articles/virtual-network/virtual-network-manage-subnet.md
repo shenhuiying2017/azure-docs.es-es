@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 85ba6ef3e51c339a77eb9b4198c4f87e2a64cf09
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Incorporación, cambio o eliminación de una subred de red virtual
 
@@ -109,4 +108,3 @@ Solo se puede eliminar una subred si no tiene recursos. Si hay recursos en la su
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para crear una máquina virtual en una subred, vea [Create a virtual network and deploy VMs in the subnet (Crear una red virtual e implementar máquinas virtuales en la subred)](virtual-network-get-started-vnet-subnet.md#create-vms).
-

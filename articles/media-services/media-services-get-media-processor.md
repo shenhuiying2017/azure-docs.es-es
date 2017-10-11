@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: cb14bebfaf073cb38bdc1f1718ef3d8c7f6c45fc
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.openlocfilehash: c2cbe41b71afa8acc184f9d7f4cfe94686de783e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Obtención de una instancia de procesador multimedia
 > [!div class="op_single_selector"]
@@ -62,5 +61,4 @@ El siguiente método muestra cómo obtener una instancia del procesador multimed
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el tema sobre la [codificación de un recurso](media-services-dotnet-encode-with-media-encoder-standard.md) , que le mostrará cómo utilizar el servicio Media Encoder estándar para codificar un recurso.
-
 

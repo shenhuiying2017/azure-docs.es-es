@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: clemensv;hillaryc;sethm
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 2ef07d78a9d81fac933f2c3359e9ee48f86e6790
-ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -334,4 +333,3 @@ Para aprender más sobre AMQP, visite los siguientes vínculos:
 [Información general sobre AMQP para Service Bus]: service-bus-amqp-overview.md
 [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP de Service Bus para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-

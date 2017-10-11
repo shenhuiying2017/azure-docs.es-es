@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 ms.author: joflore
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 928de285e126a7f62ee075d1c02688bf8f388cb7
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="windows-server-active-directory-on-azure-vms"></a>Windows Server Active Directory en máquinas virtuales de Azure
 Este tema de navegación contiene vínculos a otros temas acerca de cómo implementar Servicios de dominio de Windows Server Active Directory o Servicios de federación de Active Directory en una máquina virtual de Azure.
@@ -37,5 +36,4 @@ Este tema de navegación contiene vínculos a otros temas acerca de cómo implem
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
-
 

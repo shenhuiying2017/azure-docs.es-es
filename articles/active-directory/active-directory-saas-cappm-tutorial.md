@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 4ca9268c26f681fcc96955b6161fe4a119b2dcf4
-ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Tutorial: Integración de Azure Active Directory con CA PPM
 
@@ -112,9 +110,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:  `https://ca.ondemand.saml.20.post.<companyname>`
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://ca.ondemand.saml.20.post.<companyname>`
     
-    b. En el cuadro de texto **URL de respuesta**, escriba:  `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
+    b. En el cuadro de texto **URL de respuesta**, escriba: `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
 
     > [!NOTE] 
     > Este valor no es real. Actualícelo con el identificador real. Póngase en contacto con el [equipo de soporte técnico de CA PPM](mailto:catechnicalsupport@ca.com) para obtener este valor.
@@ -226,5 +224,4 @@ Al hacer clic en el icono de CA PPM en el panel de acceso, debería iniciar sesi
 [201]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_203.png
-
 

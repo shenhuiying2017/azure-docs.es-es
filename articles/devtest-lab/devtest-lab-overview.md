@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
 ms.openlocfilehash: 62e2d214d6d685c7f27c8c45cae161eb25ed1cbd
-ms.lasthandoff: 04/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="about-azure-devtest-labs"></a>Acerca de Azure DevTest Labs
 ## <a name="overview"></a>Información general
@@ -50,5 +49,4 @@ Aproveche complementos ya creados o nuestra API para aprovisionar entornos de de
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Conceptos de DevTest Labs](devtest-lab-concepts.md)
-
 

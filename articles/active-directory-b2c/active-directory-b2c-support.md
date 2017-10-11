@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: ad02321c99c57d0f83f7eacb354e47d8c6d4d14f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: presentación de solicitudes de soporte técnico
 Puede presentar solicitudes de soporte técnico para Azure Active Directory (Azure AD) B2C en el Portal de Azure mediante estos pasos:
@@ -66,5 +65,4 @@ Si el paso 2 descrito anteriormente no le ha salido e intenta crear una solicitu
 > 
 
 ![Soporte técnico: Sin suscripción](./media/active-directory-b2c-support/support-no-sub.png)
-
 

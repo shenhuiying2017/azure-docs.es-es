@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: d63d4b6e9e230e814762aadbe57bb3971b129d95
-ms.contentlocale: es-es
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 5abddf3a8698e3eb39f118f54eeac62ce68fed39
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-application-consent-works"></a>Cómo funciona el consentimiento de la aplicación
 
 Este artículo le ayudará a obtener más información acerca del funcionamiento del marco de consentimiento de Azure AD para desarrollar aplicaciones de forma más eficaz.
@@ -34,4 +32,3 @@ Este artículo le ayudará a obtener más información acerca del funcionamiento
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Azure AD en StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

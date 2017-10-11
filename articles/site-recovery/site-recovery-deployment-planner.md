@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
-ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de VMware en Azure.
@@ -613,4 +612,3 @@ La versión preliminar pública 1.0 de Azure Site Recovery Deployment Planner pr
 * La herramienta funciona solo en escenarios de VMware a Azure, pero no para las implementaciones de Hyper-V a Azure. En el caso de los escenarios de Hyper-V a Azure, utilice la [herramienta de planeamiento de la capacidad de Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 * La operación GetThroughput no se admite en las regiones de Microsoft Azure de gobierno de EE.UU. y China.
 * La herramienta no puede generar perfiles de máquinas virtuales si el servidor vCenter tiene dos, o más, máquinas virtuales con el mismo nombre o dirección IP entre los distintos hosts de ESXi. En esta versión, la herramienta omite la generación de perfiles de los nombres o direcciones IP de máquinas virtuales duplicados de VMListFile. La solución alternativa consiste en generar perfiles de las máquinas virtuales mediante un host de ESXi, en lugar del servidor vCenter. Debe ejecutar una instancia para cada host de ESXi.
-

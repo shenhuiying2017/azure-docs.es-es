@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/11/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: b939f2af75723739ffab16d9a75ea8f6484e5e05
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.openlocfilehash: af1205f8c3e477d123d4835c80a68b3afd6ee5ad
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-manage-service-configurations-and-profiles"></a>Administración de configuraciones de servicio y perfiles
 ## <a name="overview"></a>Información general
@@ -102,5 +101,4 @@ Al ejecutar el asistente por primera vez, se crea un perfil predeterminado. Visu
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información acerca de cómo configurar otras partes de su proyecto de Azure desde Visual Studio, consulte [Configurar un proyecto de Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
-
 

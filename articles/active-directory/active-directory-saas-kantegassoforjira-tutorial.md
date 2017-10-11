@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 06a1d301818f025270137f7eaa9f40e5e4503112
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Tutorial: Integración de Azure Active Directory con Kantega SSO for JIRA
 
@@ -178,7 +177,7 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-kantegassoforjira-tutorial/addon7.png)
 
-    a. Seleccione **Archivo de metadatos en el equipo** y cargue el archivo de metadatos, que ha descargado desde Azure Portal.
+    a. Seleccione **Archivo de metadatos en el equipo** y cargue el archivo de metadatos que descargó desde Azure Portal.
 
     b. Haga clic en **Siguiente**.
 
@@ -336,5 +335,4 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_203.png
-
 

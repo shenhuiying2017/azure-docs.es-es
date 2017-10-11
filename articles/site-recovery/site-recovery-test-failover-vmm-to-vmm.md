@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: afc4790d5714ce7145c8f4291a05acc2e9882a9b
-ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="test-failover-vmm-to-vmm-in-site-recovery"></a>Conmutación por error de prueba (VMM a VMM) en Site Recovery
 
@@ -118,4 +117,3 @@ Se recomienda que, al realizar una conmutación por error de prueba, elija una r
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de ejecutar correctamente una conmutación por error de prueba, puede intentar una [conmutación por error](site-recovery-failover.md).
-

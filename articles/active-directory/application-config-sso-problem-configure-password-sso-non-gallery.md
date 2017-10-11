@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 2fc922cb591bcd9ef333fbe3d77ee3dd03005915
-ms.contentlocale: es-es
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 9c76b6f3495e2dd759a156fcef97b57aece8d632
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema en la configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 
 Este artículo le ayuda a conocer los problemas habituales a los que se enfrentan los usuarios al configurar un **inicio de sesión único con contraseña** con una aplicación ajena a la galería.
@@ -47,7 +45,7 @@ Para configurar **Inicio de sesión único basado en contraseña** para una apli
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -63,7 +61,7 @@ Para configurar **Inicio de sesión único basado en contraseña** para una apli
 
 8.  Seleccione el modo de **Inicio de sesión con contraseña**.
 
-9.  Escriba la **URL de inicio de sesión**. Es la dirección URL en la que los usuarios escriben su nombre de usuario y contraseña para iniciar sesión. **Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL que proporcione**.
+9.  Escriba la **dirección URL de inicio de sesión**. Es la dirección URL en la que los usuarios escriben su nombre de usuario y contraseña para iniciar sesión. **Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL que proporcione**.
 
 10. Haga clic en el botón **Save** (Guardar).
 
@@ -148,11 +146,11 @@ Si ninguno de estos métodos funciona, podemos ayudarle. Abra un caso de soporte
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Cómo instalar la extensión de explorador del Panel de acceso
 
-Para instalar la extensión de explorador del panel de acceso, siga estos pasos:
+Para instalar la extensión de explorador del Panel de acceso, siga estos pasos:
 
-1.  Abra el [panel de acceso](https://myapps.microsoft.com) en uno de los exploradores admitidos e inicie sesión como **usuario** en su instancia de Azure AD.
+1.  Abra el [Panel de acceso](https://myapps.microsoft.com) en uno de los exploradores admitidos e inicie sesión como **usuario** en su instancia de Azure AD.
 
-2.  Haga clic en una **aplicación de SSO con contraseña** en el panel de acceso.
+2.  Haga clic en una **aplicación de SSO con contraseña** en el Panel de acceso.
 
 3.  En el mensaje que le pregunta si desea instalar el software, seleccione **Instalar ahora**.
 
@@ -166,7 +164,7 @@ Para instalar la extensión de explorador del panel de acceso, siga estos pasos:
 
 También puede descargar la extensión para Chrome y Firefox desde los siguientes vínculos directos:
 
--   [Extensión del panel de acceso para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+-   [Extensión del Panel de acceso para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 -   [Extensión del panel de acceso para Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
@@ -260,5 +258,4 @@ A continuación se explica más en profundidad lo que significa cada uno de los 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
-
 

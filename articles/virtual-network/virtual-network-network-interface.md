@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: 7dafb491cec908ffbb3683991919654f3d3eb452
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
 Aprenda a crear, cambiar la configuración y eliminar una interfaz de red. Una interfaz de red permite que una máquina virtual de Azure se comunique con Internet, Azure y los recursos locales. Al crear una máquina virtual desde Azure Portal, este crea una interfaz de red con la configuración predeterminada. En su lugar, puede crear interfaces de red con una configuración personalizada y agregar una o varias interfaces de red a una máquina virtual al crearla. También puede cambiar la configuración predeterminada de la interfaz de red en una interfaz de red existente. En este artículo se explica cómo crear una interfaz de red con opciones personalizadas, cambiar la configuración existente, como la asignación de filtros de red (grupo de seguridad de red), la asignación de subredes, la configuración del servidor DNS y el reenvío IP, y, finalmente, cómo eliminar una interfaz de red.
@@ -191,4 +189,3 @@ Para crear una máquina virtual con varias interfaces de red o direcciones IP, l
 |Creación de una máquina virtual con varias NIC|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Creación de una máquina virtual con una sola interfaz de red y varias direcciones IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Creación de una máquina virtual con una sola interfaz de red y una dirección IPv6 privada (detrás de Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Plantilla de Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-

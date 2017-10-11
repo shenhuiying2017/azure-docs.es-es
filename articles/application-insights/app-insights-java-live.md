@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 878badf2753b4ceb471abc789e388fd784c4c42a
-ms.contentlocale: es-es
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: a2731e3e44f8f3d104d8abc7dbe71fe3a4c3a690
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights para aplicaciones web de Java que ya están activas
 
@@ -137,5 +136,4 @@ Y cuando vea las propiedades de una solicitud, podrá ver los eventos de telemet
 * [Configure las pruebas web](app-insights-monitor-web-app-availability.md) para comprobar que la aplicación efectivamente está activa y responde adecuadamente.
 * [Captura de seguimiento de registros](app-insights-java-trace-logs.md)
 * [Busque eventos y registros](app-insights-diagnostic-search.md) para ayudar a diagnosticar problemas.
-
 

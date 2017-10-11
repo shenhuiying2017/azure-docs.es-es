@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integración de Azure Active Directory con SAML SSO for Confluence by resolution GmbH
 
@@ -133,7 +131,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 6. Haga clic en el botón **Guardar** .
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)    
+    ![Configurar inicio de sesión único](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)  
     
 7. En otra ventana del explorador web, inicie sesión en el **Portal de administración de SAML SSO for Confluence by resolution GmbH** como administrador.
 
@@ -159,7 +157,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-samlssoconfluence-tutorial/addon9.png)
 
-13.    Haga clic en **Administrar**.
+13. Haga clic en **Administrar**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-samlssoconfluence-tutorial/addon10.png)
     
@@ -187,7 +185,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     d. Haga clic en el botón **Cargar**.
 
-    e. Lee los metadatos de IdP y rellena los campos tal y como se resalta en la captura de pantalla.    
+    e. Lee los metadatos de IdP y rellena los campos tal y como se resalta en la captura de pantalla. 
 18. Haga clic en el botón **Guardar configuración** para guardar la configuración.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
@@ -312,5 +310,4 @@ Para más información sobre el Panel de acceso, vea la [introducción al Panel 
 [201]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_203.png
-
 

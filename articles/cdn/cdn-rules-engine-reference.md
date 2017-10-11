@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: c10145661a8c575381493c9aaa901c3ef92c2e81
-ms.contentlocale: es-es
-ms.lasthandoff: 01/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-cdn-rules-engine"></a>Motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las características y las condiciones de coincidencia disponibles para el [Motor de reglas](cdn-rules-engine.md)de la Red de entrega de contenido (CDN) de Azure.
@@ -81,4 +80,3 @@ Espacio | Normalmente, un carácter de espacio se trata como un carácter litera
 * [Funciones del motor de reglas](cdn-rules-engine-reference-features.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
 * [Información general de la red CDN de Azure](cdn-overview.md)
-

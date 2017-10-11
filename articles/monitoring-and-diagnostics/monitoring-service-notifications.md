@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: c7ea129346c5fddcff9f824dc69478cf6fb1c67a
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: d85281c02b792921f12cc62e6d60bef3e7c13b3f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="service-health-notifications"></a>Notificaciones de estado del servicio
 ## <a name="overview"></a>Información general
@@ -83,4 +82,3 @@ Properties.communicationId | La comunicación de este evento está asociada.
 ## <a name="next-steps"></a>Pasos siguientes:
 Reciba [notificaciones de alertas cada vez que se publique una notificación de estado del servicio](monitoring-activity-log-alerts-on-service-notifications.md)  
 Más información sobre las [alertas del registro de actividad](monitoring-activity-log-alerts.md)
-

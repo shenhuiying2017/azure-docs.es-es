@@ -13,13 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creación de un servicio de Búsqueda de Azure en el portal
 
@@ -112,5 +110,4 @@ Después de aprovisionar un servicio Azure Search, está listo para [definir un 
 Para acceder al servicio mediante código o script, proporcione la dirección URL (*nombre_servicio*.search.windows.net) y una clave. Las claves de administrador conceden acceso completo; las claves de consulta conceden acceso de solo lectura. Consulte [Cómo usar Azure Search en .NET](search-howto-dotnet-sdk.md) para comenzar.
 
 Consulte [Compilación y consulta del primer índice](search-get-started-portal.md) para obtener un tutorial rápido basado en Azure Portal.
-
 

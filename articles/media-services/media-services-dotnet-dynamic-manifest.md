@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: juliako;cenkdin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 07239a392438afd9807ce69fba657c27e853a219
-ms.contentlocale: es-es
-ms.lasthandoff: 02/17/2017
-
+ms.openlocfilehash: 6c43473b86c14679ace558de478bd95f41d476da
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Creación de filtros con .NET SDK de Servicios multimedia de Azure
 > [!div class="op_single_selector"]
@@ -134,5 +133,4 @@ En los ejemplos siguientes se muestra cómo agregar filtros a sus URL de streami
 
 ## <a name="see-also"></a>Otras referencias
 [Información general de manifiestos dinámicos](media-services-dynamic-manifest-overview.md)
-
 

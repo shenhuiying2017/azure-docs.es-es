@@ -14,25 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Habilitación del cifrado para la cuenta de Azure Storage en Azure Security Center
 Azure Security Center puede recomendar que habilite el cifrado del servicio de Azure Storage para datos en reposo.
 
-El cifrado del servicio Storage (SSE) funciona mediante el cifrado de los datos cuando se escriben en Azure Storage y el descifrado de los datos antes de la recuperación.  SSE actualmente solo está disponible para Azure Blob service y puede usarse para blobs en bloques, blobs de página y blobs en anexos.  Para obtener más información, consulte [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md).
+El Cifrado de servicio de almacenamiento (SSE) funciona mediante el cifrado de los datos cuando se escriben en Azure Storage y el descifrado de los datos antes de la recuperación.  SSE actualmente solo está disponible para Azure Blob service y puede usarse para blobs en bloques, blobs de página y blobs en anexos.  Para obtener más información, consulte [Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md).
 
 
 > [!Note]
-> Después de habilitar el cifrado, se cifran únicamente los datos nuevos. Los blobs existentes en la cuenta de almacenamiento permanecen sin cifrar. Para cifrar los blobs existentes, consulte las [preguntas más frecuentes acerca del cifrado del servicio Storage para datos en reposo](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+> Después de habilitar el cifrado, se cifran únicamente los datos nuevos. Los blobs existentes en la cuenta de almacenamiento permanecen sin cifrar. Para cifrar los blobs existentes, consulte [Preguntas más frecuentes acerca de Cifrado del servicio de Almacenamiento para datos en reposo](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
 >
 >
 
-El cifrado del servicio Storage solo se admite en las cuentas de almacenamiento de Resource Manager. Las cuentas de almacenamiento clásico no se admiten en este momento. Para entender los modelos de implementación clásico y de Resource Manager, consulte [Modelos de implementación de Azure](../azure-classic-rm.md).
+El Cifrado del servicio de almacenamiento solo se admite en las cuentas de almacenamiento de Resource Manager. Las cuentas de almacenamiento clásico no se admiten en este momento. Para entender los modelos de implementación clásico y de Resource Manager, consulte [Modelos de implementación de Azure](../azure-classic-rm.md).
 
 > [!NOTE]
 > En este documento se presenta el servicio mediante una implementación de ejemplo.  Este documento no es una guía paso a paso.
@@ -54,7 +53,7 @@ Ahora ha habilitado el cifrado de almacenamiento para **storageacct1**.
 ## <a name="see-also"></a>Consulte también
 En este documento se muestra cómo implementar la recomendación de Azure Security Center "Habilitar el cifrado para la cuenta de Azure Storage". Para obtener más información acerca del cifrado de servicio de Azure Storage, vea lo siguiente:
 
-* [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md)
+* [Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md)
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
@@ -69,4 +68,3 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [1]: ./media/security-center-enable-encryption-for-storage-account/enable-encryption-for-storage-account.png
 [2]: ./media/security-center-enable-encryption-for-storage-account/enable-storage-encryption.png
 [3]: ./media/security-center-enable-encryption-for-storage-account/encryption-blade.png
-

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53fdf1fe661167b468ef602634528e4d4173f606
-
-
+ms.openlocfilehash: f59fbd18413fb44026d8c92b7f6940ed2f8a00a8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-cdn-endpoints-returning-404-statuses"></a>Solución de problemas de redes CDN que devuelven errores 404
 Este artículo le ayudará a solucionar los problemas con los [puntos de conexión de redes CDN](cdn-create-new-endpoint.md) que devuelven errores 404.
@@ -97,10 +97,4 @@ Por último, debemos comprobar la **ruta de acceso de origen**.  De manera prede
 Por ejemplo, en mi punto de conexión, quiero que todos los recursos de mi cuenta de almacenamiento estén disponibles, por lo que he dejado la **ruta de acceso de origen** en blanco.  Esto significa que una solicitud a `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` genera una conexión desde el punto de conexión a `cdndocdemo.core.windows.net` que solicita `/publicblob/lorem.txt`.  De la misma forma, una solicitud para `https://cdndocdemo.azureedge.net/donotcache/status.png` genera que el punto de conexión solicite `/donotcache/status.png` del origen.
 
 Pero ¿qué ocurre si no deseo utilizar la red CDN para cada ruta de acceso del origen?  Supongamos que solo deseo exponer la ruta de acceso de `publicblob` .  Si se escribe */publicblob* en el campo **Ruta de acceso de origen**, el punto de conexión insertará */publicblob* antes de cada solicitud realizada al origen,  lo que significa que la solicitud para `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` tomará la parte de la solicitud de la dirección URL, `/publicblob/lorem.txt`, y anexará `/publicblob` al principio. Esto producirá una solicitud para `/publicblob/publicblob/lorem.txt` desde el origen.  Si no se puede resolver esa ruta de acceso en un archivo real, el origen devolverá un error 404.  La dirección URL correcta para recuperar lorem.txt en este ejemplo sería realmente `https://cdndocdemo.azureedge.net/lorem.txt`.  Tenga en cuenta que no incluimos la ruta de acceso de */publicblob*, porque la parte de la solicitud de la dirección URL es `/lorem.txt` y el punto de conexión agrega `/publicblob`, lo que hace que `/publicblob/lorem.txt` sea la solicitud que se pasa al origen.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

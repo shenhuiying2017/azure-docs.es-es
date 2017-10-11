@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: e03d17992ee0b12049636e40188950bcc4a6f31e
-ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-4-set-up-a-vault-for-azure-to-azure-replication"></a>Paso 4: Configuración de un almacén de Azure para realizar la replicación de Azure
 
 Después de [planear redes](azure-to-azure-walkthrough-network.md), use este artículo para configurar un almacén para máquinas virtuales (VM) de Azure que realizan la replicación en otra región de Azure mediante el servicio [Azure Site Recovery](site-recovery-overview.md) en Azure Portal.
@@ -50,4 +48,3 @@ Después de [planear redes](azure-to-azure-walkthrough-network.md), use este art
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya a [Paso 5: Habilitación de la replicación](azure-to-azure-walkthrough-enable-replication.md)
-

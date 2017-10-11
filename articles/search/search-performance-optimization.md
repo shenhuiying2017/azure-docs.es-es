@@ -14,13 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Consideraciones sobre el rendimiento y la optimización de Búsqueda de Azure
 Una buena experiencia de búsqueda es clave para el éxito de muchas aplicaciones web y móviles. Desde el mercado inmobiliario al de vehículos usados o catálogos en línea, una búsqueda rápida y unos resultados pertinentes influirán en la experiencia del cliente. Este documento ofrece información sobre los procedimientos recomendados para sacar el máximo provecho de Búsqueda de Azure, especialmente en escenarios avanzados con requisitos sofisticados de escalabilidad, compatibilidad multilingüe o clasificación personalizada.  Además, este documento describe los aspectos internos y los enfoques que funcionan de forma eficaz en las aplicaciones de clientes reales.
@@ -115,4 +113,3 @@ Para más información sobre el rendimiento y para ver algunas demostraciones so
 [1]: ./media/search-performance-optimization/geo-redundancy.png
 [2]: ./media/search-performance-optimization/scale-indexers.png
 [3]: ./media/search-performance-optimization/geo-search-traffic-mgr.png
-

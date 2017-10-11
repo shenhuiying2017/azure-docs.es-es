@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: d73267d7a64221a3138af19e9a2d5dd15809b927
-ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-9-install-the-mobility-service"></a>Paso 9: Instalación del servicio de movilidad
 
 
@@ -46,7 +44,7 @@ Si quiere insertar la instalación de Mobility Service desde el servidor de proc
 1. Si no ha creado una cuenta, hágalo haciendo uso de estas instrucciones:
 
     - Puede usar una cuenta local o de dominio.
-    - Para Windows, si no utiliza una cuenta de dominio, debe deshabilitar el control de acceso de usuario remoto en la máquina local. Para hacerlo, en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
+    - Para Windows, si no utiliza una cuenta de dominio, debe deshabilitar Access Control de usuario remoto en la máquina local. Para hacerlo, en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
     - Si desea agregar la entrada del Registro de Windows desde una CLI, escriba:
 
         ```
@@ -66,4 +64,3 @@ Si quiere insertar la instalación de Mobility Service desde el servidor de proc
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya a [Paso 10: Habilitación de la replicación](physical-walkthrough-enable-replication.md)
-

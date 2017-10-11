@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 9258613161a61e36b1d0c5796d5763c916d66859
-ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>Replicación de máquinas virtuales de Azure entre regiones con Azure Site Recovery
 
 >Este artículo proporciona información general sobre los pasos necesarios para replicar Azure Virtual Machines (VM) en una región de Azure en máquinas virtuales de Azure situadas en una región distinta. 
@@ -74,6 +72,5 @@ Vaya a [Paso 5: Habilitación de la replicación](azure-to-azure-walkthrough-ena
 Una vez que termina la replicación inicial y que se está ejecutando la replicación diferencial, puede ejecutar una conmutación por error de prueba para asegurarse de que todo funciona según lo previsto.
 
 Vaya a [Paso 6: Ejecución de una conmutación por error de prueba](azure-to-azure-walkthrough-test-failover.md)
-
 
 

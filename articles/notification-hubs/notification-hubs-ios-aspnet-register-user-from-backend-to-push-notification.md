@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registro del usuario actual para las notificaciones de inserción mediante ASP.NET
 > [!div class="op_single_selector"]
@@ -111,7 +111,7 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
    > 
 8. En el archivo PushToUserAppDelegate.m, agregue el siguiente método de controlador:
    
-   * (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:                         [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:                         @"OK" otherButtonTitles:nil, nil];   [alert show]; }
+   * información de usuario de aplicación (void):(UIApplication *) aplicación didReceiveRemoteNotification:(NSDictionary *) {NSLog (@"% @", información de usuario);   UIAlertView * alerta = [[UIAlertView alloc] initWithTitle:@"Notification" mensaje: [información de usuario objectForKey:@"inAppMessage]" delegado: nil cancelButtonTitle: @ otherButtonTitles:nil "Aceptar", nulo];   [Mostrar alerta]; }
    
    Este método muestra una alerta en la interfaz de usuario cuando su aplicación recibe notificaciones durante su ejecución.
 9. Abra el archivo PushToUserViewController.m y escriba la siguiente implementación:
@@ -220,9 +220,3 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 [Notificación a los usuarios con los Centros de notificaciones]: /manage/services/notification-hubs/notify-users-aspnet
 
 [Introducción a los Centros de notificaciones]: /manage/services/notification-hubs/get-started-notification-hubs-ios
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

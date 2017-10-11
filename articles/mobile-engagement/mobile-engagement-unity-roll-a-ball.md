@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="a-idunity-roll-a-ballacreate-unity-roll-a-ball-game"></a><a id="unity-roll-a-ball"></a>Creación de un juego de Rodar la bola de Unity
+# <a id="unity-roll-a-ball"></a>Creación de un juego de Rodar la bola de Unity
 Este tutorial le lleva por los pasos principales de un tutorial ligeramente modificado del [juego de Rodar la bola de Unity](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial). Este juego de ejemplo consta de un objeto esférico, el "jugador", que controla el usuario de la aplicación, y el objetivo del juego consiste en ir recopilando los objetos recopilables al chocar con ellos. Se supone que está familiarizado con los aspectos básicos del entorno del Editor de Unity. Si se tropieza con algún problema, consulte el tutorial completo. 
 
 ### <a name="setting-up-the-game"></a>Configuración del juego
@@ -329,11 +329,5 @@ Con este tutorial concluye la creación de un juego básico con Unity, que puede
 
 
 
-
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

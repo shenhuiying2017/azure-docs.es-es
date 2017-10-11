@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 782c73f42e3db9c8b9fa87da171ab0c946922041
-ms.openlocfilehash: 2ed04f9de3c1a0f7ef6346a41ee16fb2924a52b4
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 43f8d338cf07999d7791cbd5d3e8ddcc0d6b2b59
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-are-storsimple-virtual-array-limits"></a>¿Qué son los límites de la matriz virtual de StorSimple?
 
@@ -29,5 +28,4 @@ Tenga en cuenta estos límites a medida que planea, implementa y maneja la matri
 
 ## <a name="storsimple-virtual-array-limits"></a>Límites de la matriz virtual de StorSimple
 [!INCLUDE [storsimple-virtual-array-limits](../../includes/storsimple-virtual-array-limits.md)]
-
 

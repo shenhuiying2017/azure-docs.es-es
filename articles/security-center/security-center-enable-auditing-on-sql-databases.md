@@ -1,6 +1,6 @@
 ---
 title: "Habilitación de las auditorías y la detección de amenazas en bases de datos de SQL Server en Azure Security Center| Microsoft Docs"
-description: "En este documento se muestra cómo implementar la recomendación de Azure Security Center **Habilitación de la auditoría y la detección de errores en bases de datos SQL**."
+description: "Este documento muestra cómo implementar la recomendación de Azure Security Center ** habilitar la detección de auditoría y de las amenazas en las bases de datos SQL **."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
 ms.openlocfilehash: 8f4febdaa4497fee0dc690b59cd6eaa415c5e5cf
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-databases-in-azure-security-center"></a>Habilitación de la auditoría y la detección de amenazas en bases de datos SQL en Azure Security Center
 Azure Security Center recomienda activar la auditoría y la detección de amenazas en todas las bases de datos SQL, en caso de que no se hayan habilitado aún las auditorías. La auditoría y la detección de amenazas pueden ayudarle a mantener el cumplimiento de normativas, conocer la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o violaciones de la seguridad sospechosas.
@@ -62,4 +61,3 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 <!--Image references-->
 [1]: ./media/security-center-enable-auditing-on-sql-databases/enable-auditing-on-sql-databases.png
 [2]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png
-

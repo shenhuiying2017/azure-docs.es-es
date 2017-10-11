@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 972cc48057c13271d725b0c973c3ccf651ad27c4
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 ## <a name="test-your-code"></a>Prueba del código
 
@@ -54,7 +53,6 @@ También debería aparecer información básica sobre el token obtenido a travé
 API Graph requiere el ámbito `user.read` para leer el perfil del usuario. Este ámbito se agrega automáticamente de forma predeterminada en todas las aplicaciones que se van a registrar en nuestro portal de registro. Otras API Graph, así como las API personalizadas para el servidor back-end, requieren ámbitos adicionales. Por ejemplo, para Graph, `Calendars.Read` es necesario para elaborar un listado de los calendarios del usuario. Para tener acceso al calendario del usuario en un contexto de una aplicación, debe agregar la información de registro de la aplicación delegada de `Calendars.Read` y, a continuación, agregar `Calendars.Read` a la llamada `AcquireTokenAsync`. Es posible que se pida al usuario algún consentimiento adicional a medida que aumente el número de ámbitos.
 
 <!--end-collapse-->
-
 
 
 

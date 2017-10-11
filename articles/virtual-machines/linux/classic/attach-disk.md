@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Acoplamiento de un disco de datos a una máquina virtual Linux
 > [!IMPORTANT] 
@@ -90,7 +89,7 @@ Puede acoplar tanto discos vacíos como discos que contengan datos a las máquin
     sudo fdisk /dev/sdc
     ```
 
-4. Cuando se le pida, escriba **n** para crear una partición.
+4. Cuando se le solicite, escriba  **n**  para crear una partición.
 
     ![Crear dispositivo](./media/attach-disk/fdisknewpartition.png)
 
@@ -235,4 +234,3 @@ Puede leer más sobre el uso de la máquina virtual con Linux en los siguientes 
 <!--Link references-->
 [Agent]:../agent-user-guide.md
 [Logon]:../mac-create-ssh-keys.md
-

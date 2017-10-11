@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: ea9ae8373ff67bf9557b06bbc8a4b0d82a03e2d0
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="application-gateway-redirect-overview"></a>Introducción a la redirección de Application Gateway
 
 Resulta un escenario común para muchas aplicaciones web el admitir la redirección automática de HTTP a HTTPS para asegurarse de que toda la comunicación entre la aplicación y sus usuarios se produce a través de una ruta de acceso cifrada. En el pasado, los clientes usaban técnicas como la creación de un grupo back-end dedicado cuya única finalidad era redirigir las solicitudes que recibía de HTTP a HTTPS.  La puerta de enlace de aplicaciones admite ahora la capacidad de redirigir el tráfico en Application Gateway. Esto simplifica la configuración de la aplicación, optimiza el uso de recursos y admite nuevos escenarios de redirección incluida la global y la basada en la ruta de acceso. La compatibilidad con la redirección de Application Gateway no se limita solo a la redirección de HTTP a HTTPS. Se trata de un mecanismo de redirección genérico, que permite la redirección del tráfico recibido en un agente de escucha a otro agente de escucha en Application Gateway. También admite la redirección a un sitio externo. La compatibilidad con la redirección de Application Gateway ofrece las siguientes funcionalidades:
@@ -37,4 +35,3 @@ Con este cambio, los clientes tendrían que crear un nuevo objeto de configuraci
 ### <a name="next-steps"></a>Pasos siguientes
 
 [Configuración de la redirección de direcciones URL en una puerta de enlace de aplicaciones](application-gateway-configure-redirect-powershell.md)
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: llamada a una API web de .NET desde una aplic. web de .NET
 
@@ -187,5 +186,4 @@ Siga el mismo patrón al enviar las solicitudes `POST` y `DELETE` a la API web, 
 ## <a name="run-the-sample-app"></a>Ejecutar la aplicación de ejemplo
 
 Por último, compile y ejecute ambas aplicaciones. Regístrese o inicie sesión en la aplicación y cree tareas para el usuario que ha iniciado sesión. Cierre la sesión y iníciela con otro usuario diferente. Cree tareas para ese usuario. Observe cómo se almacenan las tareas por usuario en la API, puesto que la API extrae la identidad del usuario del token que recibe. Intente también jugar con los ámbitos. Quite el permiso para "escribir" y, luego, intente agregar una tarea. Solo debe asegurarse de cerrar sesión cada vez que cambia el ámbito.
-
 

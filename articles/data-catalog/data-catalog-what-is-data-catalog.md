@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: c0cf2805de958c979def3f21eda59ec97fb91d33
-ms.contentlocale: es-es
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: a28a7679831201fcf3a9d1c15497ff706c2752a1
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="what-is-azure-data-catalog"></a>¿Qué es Azure Data Catalog?
 Azure Data Catalog es un servicio en la nube totalmente administrado cuyos usuarios pueden detectar los orígenes de datos que necesitan y comprender los orígenes de datos que encuentran. Al mismo tiempo, Data Catalog ayuda a las organizaciones a obtener más valor de sus inversiones existentes. 
@@ -76,4 +75,3 @@ Para más información acerca de las funcionalidades de Data Catalog, consulte:
 Para empezar a usar Data Catalog, vaya a:
 * [Microsoft Azure Data Catalog](https://www.azuredatacatalog.com)
 * [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md)
-

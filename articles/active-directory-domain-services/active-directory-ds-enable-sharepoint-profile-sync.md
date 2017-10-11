@@ -14,21 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ef700f9a27d27997d53143260603bda822aa104
-ms.openlocfilehash: b84853da989d18414a31cf5b178c6506abc56bbe
-ms.lasthandoff: 01/30/2017
-
-
+ms.openlocfilehash: c3c923b5c9cd652f0c5b0ec98c1cda740f180122
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>Configuración de un dominio administrado para admitir la sincronización de perfiles para SharePoint Server
 SharePoint Server incluye un servicio de perfiles de usuario que se usa para la sincronización de perfiles de usuario. Para configurar el servicio de perfiles de usuario, es necesario conceder los permisos apropiados en un dominio de Active Directory. Para más información, vea [Concesión de permisos de Active Directory Domain Services para la sincronización de perfiles en SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx).
 
 En este artículo se explica cómo configurar dominios administrados de Azure AD Domain Services para implementar el servicio de sincronización de perfiles de usuario de SharePoint Server.
 
 ## <a name="the-aad-dc-service-accounts-group"></a>El grupo “Cuentas de servicio de controlador de dominio de AAD”
-Un grupo de seguridad denominado “**Cuentas de servicio de controlador de dominio de AAD**” está disponible en la unidad organizativa “Usuarios” en el dominio administrado. Puede ver este grupo en el complemento MMC **Usuarios y equipos de Active Directory** del dominio administrado.
+Un grupo de seguridad denominado “**Cuentas de servicio de controlador de dominio de AAD**” está disponible en la unidad organizativa “Usuarios” en el dominio administrado. Puede ver este grupo en el complemento MMC **Usuarios y equipos de Active Directory**  del dominio administrado.
 
 ![Grupo de seguridad Cuentas de servicio de controlador de dominio de AAD](./media/active-directory-domain-services-admin-guide/aad-dc-service-accounts.png)
 
@@ -50,4 +48,3 @@ Puede agregar la cuenta de servicio usada para la sincronización de perfiles de
 
 ## <a name="related-content"></a>Contenido relacionado
 * [Referencia técnica - Concesión de permisos de Active Directory Domain Services para la sincronización de perfiles en SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx)
-

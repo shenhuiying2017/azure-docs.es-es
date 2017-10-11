@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: f164ac68ba6ec650bb3996b4aa870e1b98533a23
-ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-4-plan-networking-for-vmware-to-azure-replication"></a>Paso 4: Planeamiento de redes de VMware con replicación de Azure
 
 En este artículo se resumen las consideraciones de planeamiento de red al replicar máquinas virtuales VMware locales en Azure con el servicio [Azure Site Recovery](site-recovery-overview.md).
@@ -56,13 +54,13 @@ Veamos un ejemplo de conmutación por error a Azure.
  - Woodgrove tiene direcciones IP asignadas en el rango 172.16.1.0/24, 172.16.2.0/24 a los recursos que se ejecutan en Azure.
 
 
-Para que Woodgrove pueda replicar las máquinas virtuales en Azure mientras se conservan las direcciones IP, esto es lo que la compañía tiene que hacer:
+Para que Woodgrove pueda replicar sus máquinas virtuales en Azure y conservar las direcciones IP, la empresa debe hacer lo siguiente:
 
 1. Cree una red virtual de Azure. Debe ser una extensión de la red local, para que las aplicaciones puedan conmutar por error sin problemas.
 2. Azure permite agregar conectividad VPN de sitio a sitio, además de conectividad de punto a sitio, a las redes virtuales creadas en Azure.
 3. Al configurar la conexión de sitio a sitio en la red de Azure, solo puede enrutar el tráfico a la ubicación local (red local) si el intervalo de direcciones IP es distinto del intervalo de direcciones IP local.
     - Esto se debe a que Azure no admite subredes estiradas. Por lo que si tiene una subred local 192.168.1.0/24, no puede agregar una red local 192.168.1.0/24 en la red de Azure.
-    - Esto es normal, ya que Azure no sabe que no hay ninguna máquina virtual activa en la subred y que la subred solo se crea con fines de recuperación ante desastres.
+    - Esto es normal, ya que Azure no sabe que no hay ninguna máquina virtual activa en la subred y que se está creando la subred solo para fines de recuperación ante desastres.
     - Para poder distribuir correctamente el tráfico de red de una red Azure, las subredes de la red y la red local no deben estar en conflicto.
 
 ![Antes de la conmutación por error de la subred](./media/site-recovery-network-design/network-design7.png)
@@ -70,8 +68,8 @@ Para que Woodgrove pueda replicar las máquinas virtuales en Azure mientras se c
 ### <a name="before-failover"></a>Antes de la conmutación por error
 
 1. Cree una red adicional (por ejemplo, una red de recuperación). Se trata de la red en la que se crean las máquinas virtuales que han conmutado por error.
-2. Para asegurarse de que la dirección IP de una máquina virtual se conserva después de una conmutación por error, en las propiedades de la máquina virtual > **Configurar**, especifique la misma dirección IP que la máquina virtual tiene localmente y haga clic en **Guardar**.
-3. Cuando se produzca la conmutación por error de la máquina virtual, Azure Site Recovery le asignará la dirección IP especificada.
+2. Para asegurarse de que la dirección IP de una máquina virtual se conserva después de una conmutación por error, en las Propiedades de la máquina virtual > **Configurar**, especifique la misma dirección IP que la máquina virtual tiene localmente y haga clic en **Guardar**.
+3. Cuando se produzca la conmutación por error de la máquina virtual, Azure Site Recovery le asignará la dirección IP proporcionada.
 
     ![Propiedades de red](./media/site-recovery-network-design/network-design8.png)
 
@@ -91,4 +89,3 @@ En esta [entrada de blog](http://azure.microsoft.com/blog/2014/09/04/networking-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya al [Paso 5: Preparación de Azure](vmware-walkthrough-prepare-azure.md).
-

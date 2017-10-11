@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 3908c354a8551d7b16c759a48ef3e5316bfa11fa
 ms.openlocfilehash: 574c6877bddac8be7d6d541bfabbdc10f6be3101
-ms.lasthandoff: 02/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: integración de Azure Active Directory con Clarizen
 
@@ -106,7 +105,7 @@ Habilite el inicio de sesión único de Azure AD en Azure Portal y configure el 
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
 
-    ![Clic en "Crear un nuevo certificado"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)     
+    ![Clic en "Crear un nuevo certificado"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)  
 
 5. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una fecha de expiración. A continuación, haga clic en **Guardar**.
 
@@ -259,4 +258,3 @@ Al hacer clic en el icono de Clarizen en el panel de acceso, debería iniciar se
 [201]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_203.png
-

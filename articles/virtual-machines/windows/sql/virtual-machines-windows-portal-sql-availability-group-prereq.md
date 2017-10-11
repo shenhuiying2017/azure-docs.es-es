@@ -16,14 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Realización de los requisitos previos para crear grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure.
 
 En este tutorial se muestra cómo completar los requisitos previos para crear un [grupo de disponibilidad de SQL Server AlwaysOn en máquinas virtuales (VM) de Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md). Cuando haya completado los requisitos previos, tendrá un controlador de dominio, dos máquinas virtuales SQL Server y un servidor testigo en un único grupo de recursos.
@@ -43,7 +41,7 @@ En este tutorial se da por supuesto que tiene conocimientos básicos de grupos d
 Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas que disfrutan los suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-1. Inicie sesión en [Azure Portal](http://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
 2. Haga clic en **+** para crear un nuevo objeto en el portal.
 
    ![Nuevo objeto](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -56,7 +54,7 @@ Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](/pri
 6. En la hoja **Grupo de recursos**, en **Nombre del grupo de recursos**, escriba un nombre para el grupo de recursos. Por ejemplo, escriba **sql-ha-rg**.
 7. Si tiene varias suscripciones de Azure, compruebe que la suscripción es la suscripción de Azure en la que quiere crear el grupo de disponibilidad.
 8. Seleccione una ubicación. La ubicación es la región de Azure donde desea crear el grupo de disponibilidad. Para este tutorial, vamos a crear todos los recursos en una ubicación de Azure.
-9. Compruebe que la función **Anclar al panel** está activada. Este parámetro opcional coloca un acceso directo para el grupo de recursos en el panel de Azure Portal.
+9. Compruebe que la función **Anclar al panel** está activada. Este parámetro opcional coloca un acceso directo para el grupo de recursos en el panel del Portal de Azure.
 
    ![Grupos de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
 
@@ -151,7 +149,7 @@ Configure dos conjuntos de disponibilidad según los parámetros de la tabla sig
 | **Dominios de error** |3 |3 |
 | **Dominios de actualización** |5 |3 |
 
-Después de crear los conjuntos de disponibilidad, vuelva al grupo de recursos en Azure Portal.
+Después de crear los conjuntos de disponibilidad, vuelva al grupo de recursos en el Portal de Azure.
 
 ## <a name="create-domain-controllers"></a>Creación de controladores de dominio
 Después de haber creado la red, las subredes, los conjuntos de disponibilidad y un equilibrador de carga accesible desde Internet, está preparado para crear las máquinas virtuales para los controladores de dominio.
@@ -498,4 +496,3 @@ Repita estos pasos en la segunda máquina virtual con SQL Server.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de un grupo de disponibilidad de SQL Server AlwaysOn en máquinas virtuales de Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-

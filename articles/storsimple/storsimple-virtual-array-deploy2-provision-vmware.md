@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
 ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.lasthandoff: 03/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar una matriz virtual de StorSimple: Aprovisionamiento en VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -133,7 +133,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 19. En la página **Guest Operating System** (Sistema operativo invitado), seleccione **Windows** como **Guest Operating System** (Sistema operativo invitado). Para **Version** (Versión), en la lista desplegable, seleccione **Microsoft Windows Server 2012 (64 bits)**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
-20. En la página **CPU**, ajuste **Number of virtual sockets** (Número de sockets virtuales) y **Number of cores per virtual socket** (Número de núcleos por socket virtual) para que **Total number of cores** (Número total de núcleos) sea de 4 (o más). Haga clic en **Next**.
+20. En la página **CPU**, ajuste **Number of virtual sockets** (Número de sockets virtuales) y **Number of cores per virtual socket** (Número de núcleos por socket virtual) para que **Total number of cores** (Número total de núcleos) sea de 4 (o más). Haga clic en **Siguiente**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image21.png)
 21. En la página **Memoria** , especifique 8 GB (o más) de RAM. Haga clic en **Siguiente**.
@@ -148,7 +148,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 24. En la página **Selecta a Disk** (Seleccionar un disco), elija **Use an existing virtual disk** (Utilizar un disco virtual existente). Haga clic en **Siguiente**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image25.png)
-25. En la página **Select Existing Disk** (Seleccionar disco existente), en **Disk File Path** (Ruta de acceso de archivo de disco), haga clic en **Browse** (Examinar). Se abrirá un cuadro de diálogo **Examinar almacenes de datos** . Desplácese hasta la ubicación en la que cargó el VMDK. Ahora ve solo un archivo en el almacén de datos, ya que se han combinado los dos archivos que cargó al principio. Seleccione el archivo y haga clic en **Aceptar**. Haga clic en **Next**.
+25. En la página **Select Existing Disk** (Seleccionar disco existente), en **Disk File Path** (Ruta de acceso de archivo de disco), haga clic en **Browse** (Examinar). Se abrirá un cuadro de diálogo **Examinar almacenes de datos** . Desplácese hasta la ubicación en la que cargó el VMDK. Ahora ve solo un archivo en el almacén de datos, ya que se han combinado los dos archivos que cargó al principio. Seleccione el archivo y haga clic en **Aceptar**. Haga clic en **Siguiente**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image26.png)
 26. En la página **Advanced Options** (Opciones avanzadas), acepte el valor predeterminado y haga clic en **Next** (Siguiente).
@@ -166,7 +166,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 30. En la página **Select a Disk** (Seleccionar un disco), elija **Create a new virtual disk** (Crear un nuevo disco virtual). Haga clic en **Siguiente**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. En la página **Create a Disk** (Crear un disco), cambie el valor de **Disk Size** (Tamaño de disco) a 500 GB (o más). Aunque el requisito mínimo son 500 GB, siempre puede aprovisionar un disco más grande. Tenga en cuenta que no se puede expandir o reducir el disco una vez aprovisionado. Para obtener más información sobre el tamaño del disco para aprovisionar, revise la sección de ajuste de tamaño en el documento de [procedimientos recomendados](storsimple-ova-best-practices.md). En **Disk Provisioning** (Aprovisionamiento de disco), seleccione **Thin Provision** (Aprovisionamiento fino). Haga clic en **Next**.
+31. En la página **Create a Disk** (Crear un disco), cambie el valor de **Disk Size** (Tamaño de disco) a 500 GB (o más). Aunque el requisito mínimo son 500 GB, siempre puede aprovisionar un disco más grande. Tenga en cuenta que no se puede expandir o reducir el disco una vez aprovisionado. Para obtener más información sobre el tamaño del disco para aprovisionar, revise la sección de ajuste de tamaño en el documento de [procedimientos recomendados](storsimple-ova-best-practices.md). En **Disk Provisioning** (Aprovisionamiento de disco), seleccione **Thin Provision** (Aprovisionamiento fino). Haga clic en **Siguiente**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. En la página **Opciones avanzadas** , acepte el valor predeterminado.
@@ -243,4 +243,3 @@ Si encuentra cualquier otro error durante la configuración inicial mediante la 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Configurar la matriz virtual de StorSimple como servidor de archivos](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Configurar la matriz virtual de StorSimple como servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
-

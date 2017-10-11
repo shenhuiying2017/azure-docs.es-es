@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="security-frame-authorization--mitigations"></a>Marco de seguridad: Autorización | Mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
@@ -462,4 +460,3 @@ public class CustomController : ApiController
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
 | **Pasos** | La puerta de enlace de campo debe autorizar al llamador para comprobar si el llamador tiene los permisos necesarios para realizar la acción solicitada. Por ejemplo, debe haber diferentes permisos para una interfaz o API de usuario administrador que se usen para configurar una puerta de enlace de campo frente a los dispositivos que se conectan a ella.|
-

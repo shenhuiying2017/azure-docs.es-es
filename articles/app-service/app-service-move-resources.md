@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: zarizvi
-translationtype: Human Translation
-ms.sourcegitcommit: 078833a21cd309087b842e21e3fc730695c254dd
-ms.openlocfilehash: 89fdeca4ffc1a36e8aff829b00483f208fa03e0f
-ms.lasthandoff: 12/21/2016
-
-
+ms.openlocfilehash: 1b5059dc052005b6079f70ecf6771a3771df8d87
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="supported-move-configurations"></a>Configuraciones admitidas para traslados
 Puede trasladar recursos de aplicaciones web de Azure con la [API Trasladar recursos de Resource Manager](../azure-resource-manager/resource-group-move-resources.md).
@@ -31,6 +30,5 @@ Las aplicaciones web de Azure admiten actualmente los siguientes escenarios de t
    > Nota: El grupo de recursos de destino no puede contener ningún recurso Microsoft.Web en este escenario.
 
 * Trasladar aplicaciones web individuales a un grupo de recursos diferente, manteniéndolas hospedadas en el plan de App Service en que se encuentran actualmente (el plan de App Service se encuentra en el grupo de recursos anterior).
-
 
 

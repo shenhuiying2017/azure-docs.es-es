@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8dafdf8183e2a30773274c2433fbcb4346727996
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: 09d1649f0ca0cf4ca464d95b29461cad3fe51788
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configuración de conexiones de ExpressRoute y de sitio a sitio coexistentes (modelo de implementación clásica)
 > [!div class="op_single_selector"]
@@ -230,5 +229,4 @@ Si la puerta de enlace es /27 o mayor y la red virtual está conectada a través
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md)
-
 

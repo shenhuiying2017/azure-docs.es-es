@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b2eb87a88721a3fd1ecdfa573c6a6d49ed02d344
 ms.openlocfilehash: 84b707668dc45e92e6151f422f1c919f638533b1
-ms.contentlocale: es-es
-ms.lasthandoff: 02/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Tutorial: Integración de Azure Active Directory con SciQuest Spend Director
 El objetivo de este tutorial es mostrar cómo integrar SciQuest Spend Director con Azure Active Directory (Azure AD).  
@@ -260,5 +259,4 @@ Al hacer clic en el icono de SciQuest Spend Director en el Panel de acceso, debe
 [203]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_18.png
 [204]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_20.png
-
 

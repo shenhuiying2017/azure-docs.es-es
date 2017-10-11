@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/20/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 90ffd3dd1cf5068359afa1b60892cdee43ec0658
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>Diseñe su red para la recuperación ante desastres.
 
@@ -168,4 +167,3 @@ La entrada de blog [Networking Infrastructure Setup for Microsoft Azure as a Dis
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Obtenga información](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) sobre cómo Site Recovery asigna las redes de origen y de destino cuando se usa un servidor VMM para administrar el sitio principal.
-

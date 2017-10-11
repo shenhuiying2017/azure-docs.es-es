@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 54346a8e6f42fc81cd727db03c02f0e935db07d3
-ms.contentlocale: es-es
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 65509a65c2b34553822cc02d7a7fa5a614adc57f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>Supervisión de las consultas de usuario en Almacenamiento de datos SQL de Azure
 Información general de las consideraciones, prácticas recomendadas y tareas para supervisar las consultas de usuario en Almacenamiento de datos SQL.
@@ -45,4 +43,3 @@ Para obtener más sugerencias de administración, vaya a la [información genera
 
 
 <!--Other Web references-->
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/29/2016
 ms.author: golive
-translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 0f2f25175e3988c58961be3d23e0e7aabcb0da8d
-
-
+ms.openlocfilehash: f23d7374a8954a0a95853fa9e00b54a8d9c468c4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Ejemplo de uso: implementación continua en máquinas virtuales DSC de Automatización y Chocolatey
 En el mundo del desarrollo de software con DevOps, existen muchas herramientas que ayudan en diversos puntos de la canalización de integración continua.  Configuración de estado deseado (DSC) de Automatización de Azure es una opción nueva, y bienvenida, que puede ser de utilidad para los equipos de DevOps.  En este artículo, se muestra cómo configurar la implementación continua (CD) para un equipo de Windows.  Puede ampliar fácilmente la técnica para incluir tantos equipos de Windows como sean necesarios en el rol (por ejemplo, un sitio web) y, a partir de ahí, también a los roles adicionales.
@@ -176,10 +176,4 @@ El código fuente completo de este ejemplo de uso se encuentra en [este proyecto
 * [Información general de DSC de Automatización de Azure](automation-dsc-overview.md)
 * [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

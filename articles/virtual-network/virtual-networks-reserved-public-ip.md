@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 120ae95fe12daa8fc213d0062ca446d5c1b10134
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="reserved-ip-addresses-classic"></a>Direcciones IP reservadas (clásico)
 
@@ -48,11 +47,11 @@ Para más información sobre las direcciones IP en Azure, lea el artículo sobre
 1. ¿Puedo usar una IP reservada para todos los servicios de Azure? <br>
     No. Las IP reservadas solo pueden usarse para máquinas virtuales y roles de instancia del servicio en la nube que se hayan expuesto a través de una VIP.
 2. ¿Cuántas direcciones IP reservadas puedo tener? <br>
-    Para detalles, consulte el artículo sobre [límites de Azure](../azure-subscription-service-limits.md#networking-limits).
+    Para obtener más información, consulte el [Azure tiene una limitación](../azure-subscription-service-limits.md#networking-limits) artículo.
 3. ¿Hay un cargo por las IP reservadas? <br>
     A veces. Para detalles sobre los precios, consulte la página [Detalles de precios de las direcciones IP reservadas](http://go.microsoft.com/fwlink/?LinkID=398482).
 4. ¿Cómo se reserva una dirección IP? <br>
-    Puede usar PowerShell, la [API de REST de administración de Azure Management](https://msdn.microsoft.com/library/azure/dn722420.aspx) o [Azure Portal](https://portal.azure.com) para reservar una dirección IP de una región de Azure. Hay una dirección IP reservada asociada a su suscripción.
+    Puede usar PowerShell, la [API de REST de administración de Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx), o la [portal de Azure](https://portal.azure.com) para reservar una dirección IP en una región de Azure. Hay una dirección IP reservada asociada a su suscripción.
 5. ¿Puedo usar una IP reservada con redes virtuales basadas en grupos de afinidad? <br>
     No. Las IP reservadas solo se admiten en redes virtuales regionales. Las IP reservadas no se admiten para redes virtuales asociadas a grupos de afinidad. Para más información sobre cómo asociar una red virtual a una región o un grupo de afinidad, consulte el artículo [Redes virtuales regionales y grupos de afinidad](virtual-networks-migrate-to-regional-vnet.md).
 
@@ -168,5 +167,4 @@ También puede asociar una IP reservada a un servicio en la nube mediante un arc
 * Descubra cómo funcionan las [direcciones IP](virtual-network-ip-addresses-overview-classic.md) en el modelo de implementación clásica.
 * Obtenga más información acerca de las [direcciones IP privadas reservadas](virtual-networks-reserved-private-ip.md).
 * Obtenga más información acerca de las [direcciones IP públicas de nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md).
-
 

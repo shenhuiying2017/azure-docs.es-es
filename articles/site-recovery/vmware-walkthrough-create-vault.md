@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: dca95ad46b8de587140c3573ba6ed5702a122032
-ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-7-set-up-a-vault-for-vmware-replication-to-azure"></a>Paso 7: Configuración de un almacén para la replicación de VMware en Azure
 
@@ -48,5 +47,4 @@ Seleccione aquello que desea replicar y la ubicación donde se va a realizar la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ir a [Paso 8: Configuración de los valores de origen y destino](vmware-walkthrough-source-target.md)
-
+Vaya al [paso 8: configuración de los valores de origen y destino](vmware-walkthrough-source-target.md)

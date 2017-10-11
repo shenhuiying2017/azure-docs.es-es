@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: ad87534af448356b8cc80d8ddd278bfb8a9165e7
-ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>Tutorial: Integración de Azure Active Directory con vxMaintain
 
@@ -107,7 +106,7 @@ En esta sección, puede habilitar el inicio de sesión único de Azure AD en Azu
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL que tenga la siguiente sintaxis: `https://<company name>.verisae.com`.
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL que tenga la siguiente sintaxis: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`.
+    b. En el cuadro **URL de respuesta**, escriba una dirección URL que tenga la siguiente sintaxis: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
     > [!NOTE] 
     > Los valores anteriores no son reales. Actualícelos con el identificador y la URL de respuesta reales. Para obtener los valores, póngase en contacto con el [equipo de soporte técnico de vxMaintain](http://www.verisae.com/contact-us).
@@ -214,5 +213,4 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_203.png
-
 

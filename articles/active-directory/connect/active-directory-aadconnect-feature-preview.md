@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b110b2e3041cf7839d1bf1c4d384b28b243efbd8
-ms.openlocfilehash: c1653c769a6b42d18ffb0da71220ce06c6556587
-ms.contentlocale: es-es
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: cbf8f729d0ebfb271bb0d8702ac043442b42c262
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="more-details-about-features-in-preview"></a>Más detalles sobre las características de vista previa
 En este tema se describe cómo usar las características que actualmente forman parte de la versión preliminar.
@@ -53,4 +52,3 @@ Este grupo de Office 365 se representará como un grupo de distribución en AD D
 Continúe su [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-

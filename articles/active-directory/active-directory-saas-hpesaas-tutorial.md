@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 5e6f0da531df85359aa47477248dd020a039e7e3
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>Tutorial: integración de Azure Active Directory con HPE SaaS
 
@@ -223,5 +222,4 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_203.png
-
 
