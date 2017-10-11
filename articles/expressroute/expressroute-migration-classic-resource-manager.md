@@ -75,8 +75,9 @@ En esta sección se describen los pasos que se deben seguir para migrar una red 
 4. Valide, prepare y migre. Para mover la red virtual, use el siguiente fragmento de código de PowerShell:
 
   ```powershell
-  Move-AzureVirtualNetwork -Prepare $vnetName  
-  Move-AzureVirtualNetwork -Commit $vnetName
+  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
   ```
 
   También puede cancelar la migración mediante la ejecución del siguiente cmdlet de PowerShell:
