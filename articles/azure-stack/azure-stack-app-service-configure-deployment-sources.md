@@ -43,9 +43,9 @@ App Service en Azure Stack admite la implementación a petición de varios prove
 > [!NOTE]
 > Necesita una cuenta de GitHub para completar esta tarea.  Puede que desee usar una cuenta de su organización en lugar de una personal.
 
-1. Inicie sesión en GitHub, vaya a https://www.github.com/settings/developers y haga clic en **Register a new application ** (Registrar una nueva aplicación). ![GitHub - Registrar una nueva aplicación][3]
+1. Inicie sesión en GitHub, vaya a https://www.github.com/settings/developers y haga clic en **Register a new application** (Registrar una nueva aplicación). ![GitHub - Registrar una nueva aplicación][3]
 2. Escriba el **nombre de la aplicación**, por ejemplo, App Service en Azure Stack.
-3. Escriba la **dirección URL de la página principal**.  **La dirección URL de la página principal debe ser la dirección del portal de Azure Stack**; por ejemplo, https://portal.local.azurestack.external.
+3. Escriba la **dirección URL de la página principal**.  **La dirección URL de la página principal debe ser la dirección del portal de Azure Stack** por ejemplo, https://portal.local.azurestack.external.
 4. Escriba la **descripción de la aplicación**.
 5. Escriba la **URL de devolución de llamada de autorización**.  En una implementación de Azure Stack predeterminada, la dirección URL tiene el formato https://portal.local.azurestack.external/tokenauthorize. Si está usando otro dominio, sustituya el suyo por azurestack.local. ![GitHub - Registrar una nueva aplicación con los valores rellenados][4]
 6. Haga clic en **Register application** (Registrar aplicación).  Se le mostrará ahora con una página con el **identificador de cliente** y el **secreto de cliente** de la aplicación.

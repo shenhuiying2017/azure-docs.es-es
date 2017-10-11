@@ -2,7 +2,7 @@ En Cloud Shell, cree una [aplicación web](../articles/app-service/app-service-w
 
 La aplicación web ofrece un espacio de hospedaje para el código y proporciona una dirección URL para que pueda ver la aplicación implementada.
 
-En el siguiente comando, reemplace * \<app_name >* por un nombre único (los caracteres válidos son `a-z`, `0-9` y `-`). Si `<app_name>` no es único, obtendrá el mensaje de error "Ya existe un sitio web con el nombre especificado <app_name>". La dirección URL predeterminada de la aplicación web es `https://<app_name>.azurewebsites.net`. 
+En el siguiente comando, reemplace *\<app_name >* por un nombre único (los caracteres válidos son `a-z`, `0-9` y `-`). Si `<app_name>` no es único, obtendrá el mensaje de error "Ya existe un sitio web con el nombre especificado <app_name>". La dirección URL predeterminada de la aplicación web es `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git

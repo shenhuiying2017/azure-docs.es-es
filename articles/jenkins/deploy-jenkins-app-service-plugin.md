@@ -57,7 +57,7 @@ Se necesita una entidad de servicio de Azure para implementar en Azure.
 
 <ol>
 <li>Use la [CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) o [Azure Portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal) para crear una entidad de servicio de Azure</li>
-<li>En el panel de Jenkins, haga clic en **Credenciales -> System ->**(Credenciales -> Sistema). Haga clic en **Global credentials(unrestricted) ** [Credenciales (sin restricción) globales].</li>
+<li>En el panel de Jenkins, haga clic en **Credenciales -> System ->**(Credenciales -> Sistema). Haga clic en **Credenciales (sin restricción) globales**.</li>
 <li>Haga clic en **Add Credentials** (Agregar credenciales) para agregar una entidad de servicio de Microsoft Azure rellenando los datos correspondientes a Subscription ID (Identificador de suscripción), Client ID (Identificador de cliente), Client Secret (Secreto de cliente) y OAuth 2.0 Token Endpoint (Punto de conexión de token OAuth 2.0). Proporcione un identificador, **mySp**, para su uso en los siguientes pasos.</li>
 </ol>
 

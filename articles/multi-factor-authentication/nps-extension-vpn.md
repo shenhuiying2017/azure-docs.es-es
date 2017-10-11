@@ -204,7 +204,7 @@ En esta sección, configurará el servidor VPN para utilizar la autenticación R
 ### <a name="configure-authentication-provider"></a>Configuración del proveedor de autenticación
 1. En el servidor VPN, abra el Administrador del servidor.
 2. En el Administrador del servidor, haga clic en **Herramientas** y, a continuación, en **Enrutamiento y acceso remoto**.
-3. En la consola de Enrutamiento y acceso remoto, haga clic con el botón derecho en ** \[nombre del servidor\] (local)** y, a continuación, haga clic en **Propiedades**.
+3. En la consola de Enrutamiento y acceso remoto, haga clic con el botón derecho en **\[nombre del servidor\] (local)** y, a continuación, haga clic en **Propiedades**.
 
  ![Enrutamiento y acceso remoto](./media/nps-extension-vpn/image14.png)
  
