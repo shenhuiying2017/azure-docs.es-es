@@ -64,7 +64,7 @@ En [Uso de etiquetas para organizar los recursos de Azure](https://docs.microsof
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-### <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. La directiva que define podría requerir que todos los recursos tengan un valor para una etiqueta determinada. Para más información, vea [Configuración de directivas y programaciones](devtest-lab-set-lab-policy.md).
 * Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
 

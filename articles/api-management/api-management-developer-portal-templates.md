@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2434762c2a1174a40d9c6daad6c317bc3ca8f374
 ms.openlocfilehash: 40d25726d31d2018785b77d169a8811c565316bf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
-ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.contentlocale: es-es
+ms.lasthandoff: 02/23/2017
+
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Cómo personalizar el portal para desarrolladores de Administración de API de Azure mediante plantillas
 
 Existen tres maneras fundamentales de personalizar el portal para desarrolladores en Azure API Management:
 
 * [Editar el contenido de las páginas estáticas y los elementos de diseño de página][modify-content-layout]
-* [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores] [ customize-styles]
-* [Modificar las plantillas que se usan para las páginas generadas por el portal de] [ portal-templates] (que se explica en esta guía)
+* [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores][customize-styles]
+* [Modificar las plantillas que se usan para las páginas generadas por el portal de][portal-templates] (que se explica en esta guía)
 
 Las plantillas se usan para personalizar el contenido de las páginas del portal para desarrolladores generadas por el sistema (por ejemplo, documentos de API, productos, autenticación de usuario, etc.). Mediante la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y un conjunto proporcionado de recursos de cadena localizada, iconos y controles de página, dispone de una gran flexibilidad para configurar el contenido de las páginas según le convenga.
 
@@ -211,6 +212,7 @@ Para obtener información de referencia sobre plantillas del portal para desarro
 [api-management-reset-template]: ./media/api-management-developer-portal-templates/api-management-reset-template.png
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
+
 
 
 
