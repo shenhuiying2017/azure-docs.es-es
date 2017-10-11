@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35b51ab7fa40e16ebe5170c3dea33b02a653d23b
-
-
+ms.openlocfilehash: bc47589ac769d89b2aa7f7565d08555ace3119d9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="microsoft-security-response-center"></a>Centro de respuesta de seguridad de Microsoft
 Algunos de los expertos en seguridad con más experiencia del mundo dirigen el Centro de respuestas de seguridad de Microsoft (MSRC). Estos expertos identifican, supervisan, responden y resuelven los incidentes de seguridad y las vulnerabilidades locales en la nube a todas horas y todos los días del año.
@@ -39,9 +39,3 @@ Los programas de recompensa de Microsoft pagan a los investigadores por nuevas t
 Aprenda más acerca de estos programas en la página [MSRC Bug Bounty](https://technet.microsoft.com/security/dn425036) (Programas de recompensa de MSRC) y el [blog de MSRC](https://blogs.technet.microsoft.com/msrc/).
 
 Para aprender más acerca de MSRC, visite la [página principal MSRC](https://technet.microsoft.com/library/dn440717.aspx).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

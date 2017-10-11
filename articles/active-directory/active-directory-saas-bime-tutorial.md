@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 8f46ff1265d302ab114747b4b45227e58718166b
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integración de Azure Active Directory con Bime
 
@@ -203,9 +202,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en Bime, tienen que a
    
     ![Detalles del usuario](./media/active-directory-saas-bime-tutorial/ic775563.png "Detalles del usuario")
    
-    a. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso **Britta**.
+    a. En el cuadro de texto **Nombre**, escriba el nombre de usuario, en este caso **Britta**.
 
-    b. En el cuadro de texto **Last Name** (Apellidos), escriba el apellido del usuario, en este caso **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba el apellido del usuario, en este caso **Simon**.
  
     c. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario con el siguiente formato **brittasimon@contoso.com**.
 
@@ -271,5 +270,4 @@ Al hacer clic en el icono de Bime en el Panel de acceso, debería iniciar sesió
 [201]: ./media/active-directory-saas-bime-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-bime-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-bime-tutorial/tutorial_general_203.png
-
 

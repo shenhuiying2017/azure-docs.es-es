@@ -15,12 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
-ms.contentlocale: es-es
-ms.lasthandoff: 03/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Ejecución de un servidor de aplicaciones Java en una máquina virtual creada con el modelo de implementación clásico
 > [!IMPORTANT]
@@ -121,7 +120,7 @@ Para ver que Tomcat se ejecuta desde máquinas externas, deberá crear un extrem
 10. En la pantalla **Nombre**, especifique un nombre para la regla, por ejemplo **HttpIn** (sin embargo, no es necesario que el nombre de la regla coincida con el nombre del punto de conexión) y haga clic en **Finalizar**.  
     ![Nombre de la nueva regla de entrada][NewRuleName]
 
-En este momento, el sitio web de Tomcat debe ser visible desde un explorador externo. En la ventana de dirección del explorador, escriba una dirección URL con el formato **http://*su\_nombre de\_DNS*.cloudapp.net**, donde***su\_nombre de\_DNS*** es el nombre de DNS especificado cuando creó la máquina virtual.
+En este momento, el sitio web de Tomcat debe ser visible desde un explorador externo. En la ventana de dirección del explorador, escriba una dirección URL del formulario  **http://*su\_DNS\_nombre*. cloudapp.net**, donde ***su\_DNS\_nombre*** es el nombre DNS que especificó cuando creó la máquina virtual.
 
 ## <a name="application-lifecycle-considerations"></a>Consideraciones acerca del ciclo de vida de las aplicaciones
 * Puede crear su propio archivo de aplicación web (WAR) y agregarlo a la carpeta **webapps** . Por ejemplo, cree un proyecto web dinámico de Java Service Page (JSP) básico y expórtelo como archivo WAR. A continuación, copie el archivo WAR a la carpeta **webapps** de Apache Tomcat en la máquina virtual y, a continuación, ejecútelo en un explorador.
@@ -159,4 +158,3 @@ Puede obtener más información sobre otros servicios (como Azure Storage, Servi
 6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
 7. In the **New endpoint details** dialog box:
 -->
-

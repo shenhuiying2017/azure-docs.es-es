@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: adc0c4415e10ddd0b4994cecef17f026546e91a1
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-api-management-policy-reference"></a>Referencia de la directiva de Administración de API de Azure
 Esta sección proporciona un índice de las directivas en la [Referencia de la directiva de API Management de Azure][API Management policy reference]. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en API Management][Policies in API Management].
@@ -123,6 +122,5 @@ Para obtener más información acerca de las expresiones de directivas, vea el s
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 
 [Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
-
 
 

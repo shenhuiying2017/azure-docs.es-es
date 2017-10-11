@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 5f5cb4b9b6fcee6b56ccdcb6223afddd9de90fec
-ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-2-review-the-prerequisites-for-physical-server-to-azure-replication"></a>Paso 2: Revisión de los requisitos previos del servidor físico para la replicación en Azure
 
 Revise los requisitos previos que se resumen en la tabla.
@@ -53,4 +51,3 @@ Tenga en cuenta las limitaciones que se resumen en la tabla antes de la implemen
 
 - Si va a realizar una implementación completa, vaya al [Paso 3: Planeamiento de la capacidad](physical-walkthrough-capacity.md).
 - Si va a realizar una implementación de prueba sencilla, vaya al [Paso 4: Planeamiento de las redes](physical-walkthrough-network.md).
-

@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 09db38cfb5fb4277d4ca259eb10e388af33f1773
-ms.contentlocale: es-es
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: d6c1707f67d986487e5a45e76ffc9a02ddf16eb1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Google
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -32,7 +31,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 1. Inicie sesión en el [Portal de Azure]y vaya a la aplicación. Copie la **URL**, que se utilizará más adelante para configurar la aplicación de Google.
 2. Navegue al sitio web de [API de Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), inicie sesión con las credenciales de su cuenta de Google, haga clic en **Create Project** (Crear proyecto), especifique un **nombre de proyecto** y haga clic en **Create** (Crear).
 3. En **Social APIs** (API sociales), haga clic en **Google+ API** (API de Google+") y, luego, en **Enable** (Habilitar).
-4. En el panel de navegación izquierdo, haga clic en **Credentials(Credenciales)** > **OAuth consent screen (Pantalla de consentimiento de OAuth)**, seleccione su **dirección de correo electrónico**,  escriba un **nombre de producto** y haga clic en **Save (Guardar)**.
+4. En el panel de navegación izquierdo, haga clic en **Credentials** (Credenciales)  > **OAuth consent screen** (Pantalla de consentimiento de OAuth), seleccione su **dirección de correo electrónico**, escriba un **nombre de producto** y haga clic en **Save** (Guardar).
 5. En la pestaña **Credentials** (Credenciales), haga clic en **Create credentials** (Crear credenciales) > **OAuth client ID** (Id. de cliente de OAuth) y seleccione **Web application** (Aplicación web).
 6. Pegue la **URL** de App Service que copió anteriormente en **Authorized JavaScript Origins** (Orígenes de JavaScript autorizados) y luego pegue el identificador URI de redirección en **Authorized Redirect URI** (URI de redirección autorizado). El URI de redirección es la dirección URL de la aplicación anexada a la ruta de acceso, */.auth/login/google/callback*. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/google/callback`. Asegúrese de que está utilizando el esquema HTTPS. A continuación, haga clic en **Crear**.
 7. En la siguiente pantalla, tome nota de los valores de id. de cliente y el secreto del cliente.
@@ -69,5 +68,4 @@ De este modo ya estará listo para usar Google para realizar la autenticación e
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [Portal de Azure]: https://portal.azure.com/
-
 

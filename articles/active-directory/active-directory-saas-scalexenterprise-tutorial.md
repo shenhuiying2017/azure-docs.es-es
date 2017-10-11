@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
 ms.openlocfilehash: 0ebed0c2605862426384c0e219e52c9d626b6246
-ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integración de Azure Active Directory con ScaleX Enterprise
 
@@ -277,5 +276,4 @@ Al hacer clic en el icono de ScaleX Enterprise del panel de acceso, iniciará se
 [201]: ./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_203.png
-
 

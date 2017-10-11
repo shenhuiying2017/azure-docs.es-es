@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 4e2de9c4d1c0f92970911e132fffaacbd01d9ad0
-ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir marcos de confianza con el marco de experiencia de identidad de Azure AD B2C
 
 Las directivas personalizadas de Azure Active Directory B2C (Azure AD B2C) que utilizan el marco de experiencia de identidad proporcionan a la organización un servicio centralizado. Este servicio reduce la complejidad de la federación de identidades en una gran comunidad de interés. La complejidad se reduce a una relación de confianza única y un intercambio de metadatos único.
@@ -130,4 +128,3 @@ La interoperabilidad es otro desafío importante. Es necesario integrar proveedo
 Los recorridos de usuario incluyen perfiles de protocolo y metadatos que se usan para asociar la interoperabilidad en la red entre los usuarios de confianza y otros participantes. También existen reglas de tiempo de ejecución operativas que se aplican a los mensajes de solicitud y respuesta de intercambio de información de identidad para exigir el cumplimiento de las directivas publicadas como parte de la especificación de TF. La idea de recorridos de usuario es clave para la personalización de la experiencia del cliente. Además, arroja luz sobre cómo funciona el sistema en el nivel de protocolo.
 
 Sobre esa base, las aplicaciones y portales de usuarios de confianza pueden invocar, en función del contexto, directivas personalizadas de Azure AD B2C que aprovechan el marco de experiencia de identidad, al pasar el nombre de una directiva específica y obtener de forma exacta el comportamiento y el intercambio de información que quieren de manera sencilla, organizada y sin riesgo.
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 60abdc490cefc7362ca6ed0dec7dbfd53984201f
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: d3db9bee0558cac5fb4f5b8fb4ab67a35ce0f141
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-data-catalog-release-notes"></a>Notas de la versión del Catálogo de datos de Azure
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Notas de la versión del 20 de noviembre de 2015 del Catálogo de datos de Azure
@@ -78,4 +77,3 @@ Para obtener más información, vea [Configuración de directivas de autenticaci
 
 
 Para localizar el archivo RegistrationTool.exe.config, inicie la herramienta de registro y, a continuación, abra la utilidad Administrador de tareas de Windows. En la pestaña Detalles del Administrador de tareas, haga clic con el botón derecho en RegistrationTool.exe y elija Abrir ubicación de archivo en el menú emergente.
-

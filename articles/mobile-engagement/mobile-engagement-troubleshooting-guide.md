@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1947600f6167dff6ec4fa104b0f98200bcf2a2e1
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 93b5e3f4892f974bf9df28955956136528470e03
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement---troubleshooting-guide"></a>Azure Mobile Engagement: guía de solución de problemas
 ## <a name="introduction"></a>Introducción
@@ -115,5 +114,4 @@ Si no puede resolver el problema por sí mismo, puede realizar lo siguiente:
    * Id. de dispositivo
    * Versión de SDK de Mobile Engagement (por ejemplo, Android SDK v2.1.0)
    * Detalles del error con el mensaje de error exacto y el escenario
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Storage Service Encryption mediante claves administradas por el cliente en Azure Key Vault
 
@@ -108,7 +107,7 @@ R: No, no puede deshabilitar el cifrado mientras utiliza SSE con claves administ
 
 **P: ¿SSE está habilitado de manera predeterminada cuando creo una cuenta de almacenamiento?**
 
-R: SSE no viene habilitado de manera predeterminada; puede usar Azure Portal para habilitarlo. También puede habilitar de manera programática esta característica a través de la API de REST del proveedor de recursos de almacenamiento. 
+R: SSE no viene habilitado de manera predeterminada; puede usar el Portal de Azure para habilitarlo. También puede habilitar de manera programática esta característica a través de la API de REST del proveedor de recursos de almacenamiento. 
 
 **P: No puedo habilitar el cifrado en mi cuenta de almacenamiento.**
 
@@ -127,4 +126,3 @@ R: Envíe un mensaje de correo electrónico a [ssediscussions@microsoft.com](mai
 *   Para más información sobre el conjunto completo de funcionalidades de seguridad que ayudan a los desarrolladores a crear aplicaciones seguras, consulte la [Guía de seguridad de Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
 *   Para información general sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)
 *   Para una introducción sobre Azure Key Vault, consulte [Introducción al Almacén de claves de Azure](../../key-vault/key-vault-get-started.md).
-

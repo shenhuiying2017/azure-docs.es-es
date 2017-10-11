@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Administración de copias de seguridad de máquinas virtuales de Azure
 > [!div class="op_single_selector"]
@@ -171,7 +170,7 @@ Para detener la protección de una máquina virtual:
 
     Si no está seguro del nombre, mantenga el mouse sobre el signo de exclamación para verlo. Además, el nombre del elemento aparece debajo de **Detener copia de seguridad** en la parte superior de la hoja.
 4. Opcionalmente, añada un valor a los campos **Motivo** o **Comentario**.
-5. Para detener el trabajo de copia de seguridad del elemento actual, haga clic en el  ![botón Detener copia de seguridad](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
+5. Para detener el trabajo de copia de seguridad para el elemento actual, haga clic en ![botón de Detener copia de seguridad](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
 
     Un mensaje de notificación le confirma que se han detenido los trabajos de copia de seguridad.
 
@@ -220,10 +219,9 @@ Para eliminar datos de copia de seguridad en una máquina virtual con la *copia 
 
     Si no está seguro del nombre, mantenga el mouse sobre el signo de exclamación para verlo. Además, el nombre del elemento aparece debajo de **Eliminar datos de copia de seguridad** en la parte superior de la hoja.
 3. Opcionalmente, añada un valor a los campos **Motivo** o **Comentario**.
-4. Para eliminar los datos de copia de seguridad del elemento actual, haga clic en el  ![botón Detener copia de seguridad](./media/backup-azure-manage-vms/delete-button.png)
+4. Para eliminar los datos de copia de seguridad para el elemento actual, haga clic en ![botón de Detener copia de seguridad](./media/backup-azure-manage-vms/delete-button.png)
 
     Un mensaje de notificación le confirma que se han eliminado los datos de copia de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para información sobre cómo volver a crear una máquina virtual a partir de un punto de recuperación, consulte [Restauración de máquinas virtuales en Azure](backup-azure-restore-vms.md). Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md). Para más información sobre la supervisión de eventos, consulte [Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure](backup-azure-monitor-vms.md).
-

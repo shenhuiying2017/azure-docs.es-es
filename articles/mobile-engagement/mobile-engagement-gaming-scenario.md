@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>Implementación de Mobile Engagement con una aplicación de juegos
 ## <a name="overview"></a>Información general
@@ -62,12 +61,10 @@ Después de 3 meses, el director de proyectos móviles ha recopilado datos sufic
 * Los usuarios que han superado el nivel 20 empiezan a gastar más de 10 USD por semana.
 * Los usuarios tienden a comprar módulos premium en los niveles 16, 24 y 32.
 
-Gracias a este análisis, el director de proyectos móviles decide crear secuencias específicas de notificaciones push para aumentar las ventas en aplicación. Crea tres secuencias push denominadas: Programa de bienvenida, Programa de ventas y Programa de inactivos. Para más información, consulte los [cuadernos de estrategias](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)
-    ![][1]
+Gracias a este análisis, el director de proyectos móviles decide crear secuencias específicas de notificaciones push para aumentar las ventas en aplicación. Crea tres secuencias push denominadas: Programa de bienvenida, Programa de ventas y Programa de inactivos. Para obtener más información, consulte el [guías](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)![][1]
 
 <!--Image references-->
 
 [1]: ./media/mobile-engagement-game-scenario/notification-scenario.png
 
 <!--Link references-->
-

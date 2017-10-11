@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: f28d6fbfad9dae578a20db7218b7e3b174ed859c
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: integración de Azure Active Directory con TalentLMS
 
@@ -45,7 +44,7 @@ Para configurar la integración de Azure AD con TalentLMS, necesita los siguient
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, aquí puede obtener una versión de prueba de un mes: [oferta de prueba](https://azure.microsoft.com/pricing/free-trial/).
+- Si no dispone de un entorno de prueba de Azure AD, aquí puede obtener una versión de evaluación de un mes: [Oferta de prueba](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
@@ -213,9 +212,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en TalentLMS, deben a
    
     ![Agregar usuario](./media/active-directory-saas-talentlms-tutorial/IC777299.png "Agregar usuario")  
 
-    a. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso, **Britta**.
+    a. En el cuadro de texto **Nombre**, escriba el nombre de usuario, en este caso **Britta**.
 
-    b. En el cuadro de texto **Last Name** (Apellidos), escriba el apellido del usuario, en este caso, **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba el apellido del usuario, en este caso **Simon**.
  
     c. En el cuadro de texto **Email address** (Dirección de correo electrónico), escriba el correo electrónico del usuario, en este caso, **brittasimon@contoso.com**.
 
@@ -281,5 +280,4 @@ Al hacer clic en el icono de TalentLMS en el panel de acceso, debería iniciar s
 [201]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_203.png
-
 

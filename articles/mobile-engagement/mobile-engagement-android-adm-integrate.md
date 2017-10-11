@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 928c3d85f98f0bd073a5aaadf0ae4495840c5da6
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>Integración de ADM con Engagement
 > [!IMPORTANT]
@@ -109,4 +108,3 @@ Envíe sus credenciales de OAuth (Id. de cliente y secreto de cliente) en el Por
 [biblioteca de cliente ADM]:https://developer.amazon.com/sdk/adm/setup.html
 [integrado ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [este procedimiento]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
-

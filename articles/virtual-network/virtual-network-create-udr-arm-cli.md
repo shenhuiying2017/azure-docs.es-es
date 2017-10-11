@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: e5d9519998346619093f443b740c8904283f76e8
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>Creación de rutas definidas por el usuario (UDR) en la CLI de Azure 2.0
 
@@ -227,5 +226,4 @@ Para habilitar el reenvío IP en la NIC que ha usado **FW1**, siga los pasos sig
     Parámetros:
 
     **--ip-forwarding**: *true* o *false*.
-
 

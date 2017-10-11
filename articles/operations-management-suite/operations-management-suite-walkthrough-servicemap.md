@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.lasthandoff: 04/13/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Demostración autodidáctica de Operations Management Suite (OMS): Service Map
 Se trata de una demostración autodidáctica en la que se examina el uso de la [solución Service Map](operations-management-suite-service-map.md) en Operations Management Suite (OMS) para identificar y diagnosticar un problema simulado en una aplicación web.  Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios.  También consolida los datos recopilados por otros servicios OMS para ayudarle a analizar el rendimiento y a identificar problemas.  También podrá usar [búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md) para profundizar en los datos recopilados con el fin de identificar la causa principal del problema.
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="handle-content-types-in-logic-apps"></a>Administración de los tipos de contenido en las aplicaciones lógicas
 
@@ -111,5 +110,4 @@ Como la solicitud no es texto sin formato o JSON, se almacena en la acción como
 ```
 
 Actualmente no hay una función nativa para datos de formulario, por lo que puede seguir usando estos datos en un flujo de trabajo al acceder a ellos manualmente con una función como `@string(body('formdataAction'))`. Si quisiéramos que la solicitud saliente tuviera también el encabezado content type `application/x-www-url-formencoded`, solo tendría que agregarla al cuerpo de la acción sin realizar ninguna conversión como `@body('formdataAction')`. Sin embargo, este método solo funciona si el cuerpo es el único parámetro de la entrada `body`. Si intenta usar `@body('formdataAction')` en una solicitud `application/json`, obtendrá un error en tiempo de ejecución, ya que se envía el cuerpo codificado.
-
 

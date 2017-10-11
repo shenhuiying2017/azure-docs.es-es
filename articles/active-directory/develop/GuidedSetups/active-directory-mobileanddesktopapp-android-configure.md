@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 945b09ccdb7537987da33d32d94a3ccacd829ffd
-ms.contentlocale: es-es
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="create-an-application-express"></a>Creación de una aplicación (proceso rápido)
 Ahora tiene que registrar la aplicación en el *Portal de registro de aplicaciones de Microsoft*:
 1. Registre la aplicación en el [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
@@ -70,4 +69,3 @@ Abra `AndroidManifest.xml` (en `app` > `manifests`) Agregue la actividad siguien
 En `BrowserTabActivity`, reemplace `[Enter the application Id here]` por el identificador de aplicación.
 </li>
 </ol>
-

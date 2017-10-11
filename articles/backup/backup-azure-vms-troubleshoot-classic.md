@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: trinadhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 284a1b64fbb15d0aa800182c6671d447e191b76a
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solución de problemas de copia de seguridad de máquinas virtuales de Azure
 > [!div class="op_single_selector"]
-> * [Almacén de Servicios de recuperación](backup-azure-vms-troubleshoot.md)
-> * [Almacén de copia de seguridad](backup-azure-vms-troubleshoot-classic.md)
+> * [Almacén de Recovery Services](backup-azure-vms-troubleshoot.md)
+> * [Almacén de Backup](backup-azure-vms-troubleshoot-classic.md)
 >
 >
 
@@ -78,7 +77,7 @@ Puede solucionar los errores detectados al usar Copia de seguridad de Azure con 
 | Restauración |El Servicio en la nube alcanzó el límite del número de puntos de entrada finales, vuelva a intentar la operación mediante la especificación de otro servicio en la nube o mediante un extremo existente. |None |
 | Restauración |La cuenta de almacenamiento de destino y el almacén de copia de seguridad están en dos regiones diferentes: compruebe que la cuenta de almacenamiento especificada en la operación de restauración se encuentra en la misma región de Azure que el almacén de copia de seguridad. |None |
 | Restauración |La cuenta de almacenamiento especificada para la operación de restauración no se admite: solo se admiten las cuentas de almacenamiento básicas o estándar con una configuración de réplica con redundancia local o redundancia geográfica. Seleccione una cuenta de almacenamiento compatible |None |
-| Restauración |El tipo de cuenta de almacenamiento especificado para la operación de restauración no está en línea: asegúrese de que la cuenta de almacenamiento especificada en la operación de restauración está en línea |Esto puede suceder debido a un error transitorio en el almacenamiento de Azure o debido a una interrupción. Elija otra cuenta de almacenamiento. |
+| Restauración |El tipo de cuenta de almacenamiento especificado para la operación de restauración no está en línea: asegúrese de que la cuenta de almacenamiento especificada en la operación de restauración está en línea |Esto puede suceder debido a un error transitorio en Azure Storage o debido a una interrupción. Elija otra cuenta de almacenamiento. |
 | Restauración |Se alcanzó la cuota del grupo de recursos: elimine algunos grupos de recursos desde el portal de Azure o póngase en contacto con el soporte técnico de Azure para aumentar los límites. |None |
 | Restauración |La subred seleccionada no existe: seleccione una subred que exista |None |
 
@@ -115,4 +114,3 @@ Cómo comprobar la versión del agente de la máquina virtual en máquinas virtu
 
 1. Inicie sesión en la máquina virtual de Azure y vaya a la carpeta *C:\WindowsAzure\Packages*. El archivo WaAppAgent.exe debe estar ahí.
 2. Haga clic con el botón derecho en el archivo, desplácese hasta **Propiedades** y seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior.
-

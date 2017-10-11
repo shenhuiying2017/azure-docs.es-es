@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a67637d149a84313270c03d21acf8a9c1870be05
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="scoring-profiles-azure-search-rest-api-version-2015-02-28-preview"></a>Perfiles de puntuación (API de REST de Búsqueda de Azure: 2015-02-28-Preview)
 > [!NOTE]
 > En este artículo se describen los perfiles puntuación de la versión [2015-02-28-Preview](search-api-2015-02-28-preview.md). Actualmente, no hay ninguna diferencia entre la versión `2016-09-01` documentada en [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) y la versión `2015-02-28-Preview` que se describe aquí, pero ofrecemos este documento de todos modos para proporcionar cobertura de documentación en toda la API.
@@ -275,8 +274,7 @@ Las interpolaciones le permiten definir la pendiente con la que la potenciación
 * `Quadratic`: En comparación con una interpolación lineal que tiene una potenciación en reducción constante, Cuadrático provocará inicialmente una reducción a un ritmo inferior y, a continuación, a medida que se aproxima el final del intervalo, se reduce a un intervalo muy superior. Esta opción de interpolación no se permite en funciones de puntuación de etiquetas.
 * `Logarithmic`: En comparación con una interpolación lineal que tiene una potenciación en reducción constante, Logarítmico provocará inicialmente una reducción a un ritmo superior y, a continuación, a medida que se aproxima el final del intervalo, se reduce a un intervalo muy inferior. Esta opción de interpolación no se permite en funciones de puntuación de etiquetas.
 
-<a name="Figure1"></a>
- ![][1]
+<a name="Figure1"></a> ![][1]
 
 <a name="bkmk_boostdur"></a>
 
@@ -303,4 +301,3 @@ Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de 
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
-

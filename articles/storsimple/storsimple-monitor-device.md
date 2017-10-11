@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/16/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d45bb37c8417785db0ea38be4375a998b6d9f109
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-your-storsimple-device"></a>Uso del servicio StorSimple Manager para supervisar el dispositivo StorSimple.
 ## <a name="overview"></a>Información general
@@ -38,7 +37,7 @@ En el mismo dispositivo, se trazan las operaciones de E/S para los datos del dis
 
 ![Rendimiento de E/S del dispositivo a la nube](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainersM.png)
 
-Para el mismo dispositivo, se ha tomado una instantánea en la nube para datos de volumen a partir de las 2:00 p.m.. Esto da como resultado el flujo de datos del dispositivo a la nube. Las lecturas y escrituras se atendieron en la nube en esta duración. El gráfico de E/S muestra un pico en las distintas métricas, correspondiente a la hora cuando se tomó la instantánea. 
+Para el mismo dispositivo, se ha tomado una instantánea en la nube para datos de volumen a partir de las 2:00 p.m. Esto da como resultado el flujo de datos del dispositivo a la nube. Las lecturas y escrituras se atendieron en la nube en esta duración. El gráfico de E/S muestra un pico en las distintas métricas, correspondiente a la hora cuando se tomó la instantánea. 
 
 ![Rendimiento de E/S para el dispositivo a la nube después de la instantánea en la nube](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainers2M.png)
 
@@ -116,5 +115,4 @@ Los gráficos siguientes muestran el rendimiento de la red para Data 0 y Data 4,
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [usar el panel de dispositivos del servicio del Administrador de StorSimple](storsimple-device-dashboard.md).
 * Obtenga información sobre cómo [usar el servicio Administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

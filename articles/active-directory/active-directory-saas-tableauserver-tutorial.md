@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 6b35609d88fbbf649e15863901d521886db2a4d6
-ms.contentlocale: es-es
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integración de Azure Active Directory con Tableau Server
 
@@ -147,7 +146,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_certificate.png) 
 
-7. Haga clic en el botón **Guardar** .
+7. Haga clic en el botón **Guardar**.
 
     ![Configuración del inicio de sesión único](./media/active-directory-saas-tableauserver-tutorial/tutorial_general_400.png)
 <CS>
@@ -278,5 +277,4 @@ Para más información sobre el Panel de acceso, vea la [introducción al Panel 
 [201]: ./media/active-directory-saas-tableauserver-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tableauserver-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tableauserver-tutorial/tutorial_general_203.png
-
 

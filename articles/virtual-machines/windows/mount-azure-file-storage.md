@@ -13,14 +13,12 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-azure-file-shares-with-windows-vms"></a>Uso de recursos compartidos de archivos de Azure con máquinas virtuales de Windows 
 
 Puede usar recursos compartidos de archivos de Azure como una forma de almacenar archivos y acceder a ellos desde la VM. Por ejemplo, puede almacenar un script o un archivo de configuración de la aplicación que quiera que todas las máquinas virtuales compartan. En este tema, se muestra cómo crear un recurso compartido de archivos de Azure y cómo cargar y descargar archivos.
@@ -76,4 +74,3 @@ En esta sección se da por supuesto que ya tiene un recurso compartido de archiv
 ## <a name="next-steps"></a>Pasos siguientes
 
 También puede crear y administrar recursos compartidos de archivos con PowerShell. Para más información, vea [Introducción a Azure File Storage en Windows](../../storage/files/storage-dotnet-how-to-use-files.md).
-

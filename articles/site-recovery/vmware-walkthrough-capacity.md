@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: rayne
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: f5b334e594e3d002e1862b25c4faba7163efa7d4
-ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-3-plan-capacity-and-scaling-for-vmware-to-azure-replication"></a>Paso 3: Planeamiento de la capacidad y el escalado de VMware para la replicación en Azure
 
@@ -29,7 +28,7 @@ Publique cualquier comentario o pregunta en la parte inferior de este artículo,
 
 ## <a name="how-do-i-start-capacity-planning"></a>¿Cómo se puede iniciar el planeamiento de la capacidad?
 
-Recopile información sobre su entorno de replicación y luego planee la capacidad con esta información, junto con las consideraciones que se resaltan en este artículo.
+Recopile información sobre su entorno de replicación y, a continuación, puede planear la capacidad utilizando esta información junto con las consideraciones que se resaltan en este artículo.
 
 
 ## <a name="gather-information"></a>Recopilación de información
@@ -124,7 +123,7 @@ Siga estas instrucciones para configurar un servidor de procesos adicional. Desp
 
     ![Cambio del servidor de procesos](./media/vmware-walkthrough-capacity/migrate-ps3.png)
 3. En **Select target process server** (Seleccionar servidor de procesos de destino), elija el servidor de procesos que quiere usar y las máquinas virtuales que controlará el servidor.
-4. Haga clic en el icono de información. El espacio promedio que se necesita para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos aparecerá para ayudarlo a tomar decisiones relacionadas con la carga.
+4. Haga clic en el icono de información. El espacio promedio que se necesita para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos aparecerá para ayudarle a tomar decisiones relacionadas con la carga.
 5. Haga clic en la marca de verificación para comenzar a replicar en el nuevo servidor de procesos.
 
 ## <a name="control-network-bandwidth"></a>Ancho de banda de red de control
@@ -166,4 +165,3 @@ También puede utilizar el cmdlet [Set-OBMachineSetting](https://technet.microso
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya a [Paso 4: Planeamiento de las redes](vmware-walkthrough-network.md).
-

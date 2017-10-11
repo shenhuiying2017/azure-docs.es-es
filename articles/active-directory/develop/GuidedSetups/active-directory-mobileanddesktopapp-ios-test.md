@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 2420723eed9ae8ba1ba6156482ef4b4de9ce2fc0
-ms.contentlocale: es-es
-ms.lasthandoff: 08/15/2017
-
+ms.openlocfilehash: 4a88096d2b0a23708acdbc1798eac528599b4f71
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Prueba de consultas de la API de Microsoft Graph desde la aplicación iOS
 
@@ -42,7 +41,6 @@ Debería ver la información del perfil de usuario devuelta por la llamada a la 
 La API de Microsoft Graph requiere el ámbito `user.read` para leer el perfil del usuario. Este ámbito se agrega automáticamente de forma predeterminada en todas las aplicaciones que se van a registrar en nuestro portal de registro. Otras API de Microsoft Graph, así como las API personalizadas para el servidor back-end, pueden requerir ámbitos adicionales. Por ejemplo, para Microsoft Graph, se requiere el ámbito `Calendars.Read` para enumerar los calendarios del usuario. Para tener acceso al calendario del usuario en el contexto de una aplicación, debe agregar el permiso delegado `Calendars.Read` a la información del registro de la aplicación y, a continuación, agregar el ámbito `Calendars.Read` a la llamada a `acquireTokenSilent`. Es posible que se pida al usuario algún consentimiento adicional a medida que aumente el número de ámbitos.
 
 <!--end-collapse-->
-
 
 
 

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9d118e26340371d63d18b5e6793cbd51add3da55
-ms.contentlocale: es-es
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: ced7e23dca2ea7a9222648a79c2d0afc7c15001d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Solución de problemas de administración y desarrollo de aplicaciones de Azure Active Directory
 Este artículo le ayudará a encontrar documentos útiles relacionados con la solución de los problemas más comunes relativos a la administración de **aplicaciones empresariales** y el desarrollo de nuevas aplicaciones con el **Registro de aplicaciones**.
 
@@ -38,5 +36,4 @@ Los siguientes vínculos le llevarán a un mapa de contenido que le ayudará a r
 * [Problems Managing Access](active-directory-application-access-content-map.md) (Problemas de administración de acceso)
 * [Problems with the Access Panel](active-directory-application-access-panel-content-map.md) (Problemas con el panel de acceso)
 * [Problems with the Application Proxy](active-directory-application-proxy-content-map.md) (Problemas con el proxy de aplicación)
-* [Problems with Conditional Access](active-directory-application-conditional-access-content-map.md) (Problemas con el acceso condicional)
-
+* [Problemas con el acceso condicional](active-directory-application-conditional-access-content-map.md)

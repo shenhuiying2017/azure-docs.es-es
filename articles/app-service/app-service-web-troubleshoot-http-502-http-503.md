@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f6ef85e0c05911bb3ad13a8ffb029bf9fadd8bfd
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 397a6aaf7dc27adfa0fc0e722b8a2be5cc1d75f0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Solucionar los errores HTTP de "502 Puerta de enlace no válida" y "503 Servicio no disponible" en las aplicaciones web de Azure
 "502 Puerta de enlace no válida" y "503 Servicio no disponible" son errores comunes de su aplicación web hospedada en [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Este artículo le ayuda a solucionar estos errores.
@@ -45,7 +44,7 @@ El procedimiento de solución de problemas se puede dividir en tres tareas disti
 2. [Recopilación de datos](#collect)
 3. [Mitigación del problema](#mitigate)
 
-[Aplicaciones web del Servicio de aplicaciones](/services/app-service/web/) ofrece diversas opciones en cada paso.
+[Azure App Service Web Apps](/services/app-service/web/) ofrece diversas opciones en cada paso.
 
 <a name="observe" />
 
@@ -68,7 +67,7 @@ Algunas de las métricas que podría querer supervisar para su aplicación web s
 
 Para más información, consulte:
 
-* [Supervisión de Aplicaciones web en Servicio de aplicaciones de Azure](web-sites-monitor.md)
+* [Supervisión de aplicaciones web en Azure App Service](web-sites-monitor.md)
 * [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 <a name="collect" />
@@ -111,7 +110,7 @@ Para obtener más información sobre las características disponibles en Kudu, c
 
 ### <a name="3-mitigate-the-issue"></a>3. Mitigación del problema
 #### <a name="scale-the-web-app"></a>Escalado de la aplicación web
-En Azure App Service, puede ajustar la escala en la que se ejecuta la aplicación para aumentar el rendimiento y la capacidad de proceso. El escalado vertical de una aplicación web implica dos acciones relacionadas: cambiar el plan del Servicio de aplicaciones por un plan de tarifa más alto y configurar determinados valores después de haber cambiado a ese plan de tarifa más alto.
+En Azure App Service, puede ajustar la escala en la que se ejecuta la aplicación para aumentar el rendimiento y la capacidad de proceso. El escalado vertical de una aplicación web implica dos acciones relacionadas: cambiar el plan de App Service por un plan de tarifa más alto y configurar determinados valores después de haber cambiado a ese plan de tarifa más alto.
 
 Para obtener más información sobre el escalado, consulte [Escalado de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md).
 
@@ -130,5 +129,4 @@ Suele ser la manera más sencilla de recuperarse de problemas que solo tienen lu
  ![reiniciar la aplicación para solucionar los errores HTTP de 502 Puerta de enlace no válida y 503 Servicio no disponible](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 También puede administrar la aplicación web con Azure Powershell. Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
-
 

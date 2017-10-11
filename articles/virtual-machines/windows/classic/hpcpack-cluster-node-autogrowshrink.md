@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: 0dc0d15c64d8951c3c457df73588c37418a3c8a4
-ms.contentlocale: es-es
-ms.lasthandoff: 03/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Aumento y reducción automáticos de los recursos de clúster de HPC Pack en Azure según la carga de trabajo de clúster
 Si implementa nodos de "ráfaga" de Azure en su clúster de HPC Pack o crea un clúster de HPC Pack en máquinas virtuales de Azure, puede que quiera una manera de aumentar o reducir automáticamente recursos, como los nodos o los núcleos, según la carga de trabajo en el clúster. El escalado de los recursos del clúster de este modo le permite usar de forma más eficaz los recursos de Azure y controlar los costos.
@@ -76,7 +75,7 @@ Actualmente solo se pueden aumentar y reducir automáticamente los nodos de proc
 
     **DisplayName**: nombre para mostrar de la aplicación Azure Active Directory. Si la aplicación no existe, se crea en Azure Active Directory.
 
-    **Página principal**: la página principal de la aplicación. Puede configurar una dirección URL ficticia, como en el ejemplo anterior.
+    **Página principal** : la página principal de la aplicación. Puede configurar una dirección URL ficticia, como en el ejemplo anterior.
 
     **IdentifierUri**: identificador de la aplicación. Puede configurar una dirección URL ficticia, como en el ejemplo anterior.
 
@@ -255,4 +254,3 @@ Los trabajos configurados por la plantilla de trabajo predeterminada definen el 
 ```powershell
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
-

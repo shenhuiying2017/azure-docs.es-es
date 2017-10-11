@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 66ee6ce15e51b14366eac0512c899d1c425c6092
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurar el proxy web para el dispositivo StorSimple
 ## <a name="overview"></a>Información general
@@ -51,7 +50,7 @@ En las siguientes secciones se detallan cada uno de estos métodos.
 Puede utilizar al asistente de configuración que le guiará a través de los pasos de configuración del proxy web. Lleve a cabo los siguientes pasos para configurar el proxy web en su dispositivo.
 
 #### <a name="to-configure-web-proxy-via-the-setup-wizard"></a>Para configurar el proxy web mediante el asistente de instalación
-1. En el menú de la consola serie, elija la opción 1,** Iniciar sesión con acceso total** y escriba la **contraseña de administrador de dispositivo**. Escriba el siguiente comando para iniciar la sesión del asistente de configuración:
+1. En el menú de la consola serie, elija la opción 1, **Iniciar sesión con acceso total** y escriba la **contraseña de administrador de dispositivo**. Escriba el siguiente comando para iniciar la sesión del asistente de configuración:
    
     `Invoke-HcsSetupWizard`
 2. Si esta es la primera vez que utiliza el asistente de configuración para el registro de dispositivos, deberá configurar todos los valores de red requeridos hasta llegar a la configuración del proxy web. Si el dispositivo ya está registrado, puede aceptar todos los valores de red configurados hasta llegar a la configuración del proxy web. En el asistente para instalación, cuando se le solicite configurar los valores del proxy web, escriba **Sí**.
@@ -140,5 +139,4 @@ Si el proxy web se configuró de manera incorrecta, se mostrarán mensajes de er
 ## <a name="next-steps"></a>Pasos siguientes
 * Si experimenta problemas durante la implementación del dispositivo o la configuración de los valores de proxy web, vea [Solución de problemas de implementación del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 * Para obtener información sobre cómo usar el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

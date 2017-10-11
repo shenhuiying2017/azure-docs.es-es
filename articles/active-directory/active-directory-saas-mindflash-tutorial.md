@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 90de7b6a82d88f9407a35fbfebe8a652928d76cd
-ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Tutorial: Integración de Azure Active Directory con Mindflash
 
@@ -124,7 +123,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-mindflash-tutorial/tutorial_mindflash_certificate.png) 
 
-5. Haga clic en el botón **Guardar**.
+5. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-mindflash-tutorial/tutorial_general_400.png)
 
@@ -252,5 +251,4 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-mindflash-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-mindflash-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-mindflash-tutorial/tutorial_general_203.png
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/06/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
-ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
-ms.contentlocale: es-es
-ms.lasthandoff: 12/10/2016
-
+ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmisión del registro de actividad de Azure a centros de eventos
 El [**registro de actividades de Azure**](monitoring-overview-activity-logs.md) se puede transmitir casi en tiempo real a cualquier aplicación mediante la opción Exportar integrada en el portal o habilitando el identificador de regla de Bus Services en un perfil de registro por medio de los cmdlets de Azure PowerShell o la CLI de Azure.
@@ -80,5 +79,4 @@ El identificador de regla del Bus de servicio es una cadena con este formato: `{
 * [(Archivado del registro de actividades en una cuenta de almacenamiento)](monitoring-archive-activity-log.md)
 * [Lea la información general sobre el registro de actividades de Azure](monitoring-overview-activity-logs.md)
 * [Configure una alerta basada en un evento del registro de actividades](insights-auditlog-to-webhook-email.md)
-
 

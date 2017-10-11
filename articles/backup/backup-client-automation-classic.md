@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: saurse;markgal;nkolli;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: a8e20356ae383ee4fa2158ea544d5d0905028124
-ms.contentlocale: es-es
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
 > [!div class="op_single_selector"]
@@ -611,4 +610,3 @@ Para obtener más información sobre Azure Backup para Windows Server o cliente 
 
 * [Introducción a Azure Backup](backup-introduction-to-azure-backup.md)
 * [Copia de seguridad de servidores Windows](backup-configure-vault.md)
-

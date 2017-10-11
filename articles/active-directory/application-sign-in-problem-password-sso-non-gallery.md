@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4f8ebf5e734cc2e79819593c942f0e55227e522c
-ms.contentlocale: es-es
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: c90b61812affb7e7af05cf3e302d045958da59be
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único
 
 El Panel de acceso es un portal basado en web que permite que un usuario con una cuenta profesional o educativa en Azure Active Directory (Azure AD) vea e inicie aplicaciones basadas en la nube a las que el administrador de Azure AD le ha concedido acceso. Un usuario que posee ediciones de Azure AD también puede usar las funcionalidades de administración de grupos de autoservicio y aplicaciones a través del Panel de acceso. El Panel de acceso es independiente de Azure Portal y no requiere que los usuarios tengan una suscripción de Azure.
@@ -60,7 +58,7 @@ Para instalar la extensión de explorador del Panel de acceso, siga estos pasos:
 
 6.  Una vez instalada, **reinicie** la sesión del explorador.
 
-7.  Inicie sesión en el Panel de acceso y vea si puede **iniciar** las aplicaciones de SSO con contraseña.
+7.  Inicie sesión en el Panel de acceso y vea si puede **iniciar** las aplicaciones de SSO con contraseña
 
 También puede descargar la extensión para Chrome y Firefox desde los siguientes vínculos directos:
 
@@ -86,9 +84,9 @@ Siga la guía de [Solución de problemas de la extensión del Panel de acceso pa
 
 ## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Cómo configurar el inicio de sesión único con contraseña para una aplicación ajena a la galería
 
-Para configurar una aplicación desde la galería de Azure AD, necesita:
+Para configurar una aplicación desde la galería de Azure AD, realice los siguientes pasos:
 
--   [Incorporar una aplicación ajena a la galería](#add-a-non-gallery-application)
+-   [Incorporación de una aplicación ajena a la galería](#add-a-non-gallery-application)
 
 -   [Configurar la aplicación para el inicio de sesión único con contraseña](#configure-the-application-for-password-single-sign-on)
 
@@ -98,7 +96,7 @@ Para configurar una aplicación desde la galería de Azure AD, necesita:
 
 Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
-1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -114,9 +112,9 @@ Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
 Tras un breve período, podrá ver la hoja de configuración de la aplicación.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar la aplicación para el inicio de sesión único con contraseña
+### <a name="configure-the-application-for-password-single-sign-on"></a>Configuración de la aplicación para el inicio de sesión único con contraseña
 
-Para configurar el inicio de sesión único para una aplicación, siga los pasos siguientes:
+Para configurar el inicio de sesión único para una aplicación, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
 
@@ -136,11 +134,11 @@ Para configurar el inicio de sesión único para una aplicación, siga los pasos
 
 8.  Seleccione el modo de **Inicio de sesión con contraseña**.
 
-9.  Escriba la **dirección URL de inicio de sesión**. Es la dirección URL en la que los usuarios escriben su nombre de usuario y contraseña para iniciar sesión. Asegúrese de que los campos de inicio de sesión sean visibles en la dirección URL.
+9.  Escriba la **dirección URL de inicio de sesión**. Es la dirección URL en la que los usuarios escriben su nombre de usuario y contraseña para iniciar sesión. Asegúrese de que los campos de inicio de sesión estén visibles en la dirección URL.
 
-10. Asigne los usuarios a la aplicación.
+10. Asigne usuarios a la aplicación.
 
-11. Además, también puede proporcionar credenciales en nombre del usuario; para ello, seleccione las filas de los usuarios y haga clic en **Actualizar credenciales** y escriba el nombre de usuario y la contraseña en nombre de los usuarios. En caso contrario, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
+11. Además, también puede proporcionar credenciales en nombre del usuario; para ello, seleccione las filas de los usuarios, haga clic en **Actualizar credenciales** y escriba el nombre de usuario y la contraseña en nombre de los usuarios. En caso contrario, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
 
 ### <a name="assign-users-to-the-application"></a>Asignar usuarios a la aplicación
 
@@ -148,7 +146,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -158,7 +156,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
    * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación a la que desea asignar un usuario de la lista.
+6.  Seleccione la aplicación que desea asignar a un usuario de la lista.
 
 7.  Cuando se cargue la aplicación, haga clic en **Usuarios y grupos** desde el menú de navegación izquierdo de la aplicación.
 
@@ -178,13 +176,13 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 15. Haga clic en el botón **Asignar** para asignar la aplicación a los usuarios seleccionados.
 
-Tras un breve período, los usuarios que seleccionó podrán iniciar estas aplicaciones en el Panel de acceso.
+Tras un breve período, los usuarios que seleccionó podrán iniciar estas aplicaciones en el panel de acceso.
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Si después de seguir estos pasos el problema no se ha resuelto,
+## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Si después de seguir estos pasos, el problema no se ha resuelto,
 
 abra una incidencia de soporte técnico con la información siguiente si está disponible:
 
--   ID de error de correlación
+-   Id. de error de correlación
 
 -   UPN (dirección de correo electrónico del usuario)
 
@@ -198,5 +196,4 @@ abra una incidencia de soporte técnico con la información siguiente si está d
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
-
 

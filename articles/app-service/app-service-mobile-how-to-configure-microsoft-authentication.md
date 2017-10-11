@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 429e6f32a3bebe0e0759c675f61b9ee588e550d0
-ms.contentlocale: es-es
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: 67386b03ae4cc683fe00e11e8dad19d1442eff09
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de la cuenta Microsoft
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -44,7 +43,7 @@ En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para 
     > La contraseña es una credencial de seguridad importante. No la comparta con nadie ni la distribuya en una aplicación cliente.
 
 ## <a name="secrets"> </a>Incorporación de información de la cuenta de Microsoft a la aplicación de Servicio de aplicaciones
-1. En [Azure Portal], navegue hasta la aplicación y haga clic en **Configuración** > **Autenticación/autorización**.
+1. En [Azure Portal], navegue hasta la aplicación y haga clic en **Configuración** >  **Autenticación/autorización**.
 2. Si esta característica no está habilitada, **actívela**.
 3. Haga clic en **Cuenta Microsoft**. Pegue los valores de identificador de la aplicación y de contraseña que obtuvo previamente y habilite opcionalmente los ámbitos que requiere la aplicación. y, a continuación, haga clic en **Aceptar**.
    
@@ -68,4 +67,3 @@ De este modo ya estará listo para usar la cuenta Microsoft para realizar la aut
 
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure Portal]: https://portal.azure.com/
-

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9c6eab099057ef91f79ff1a97e1cc1bd397fc946
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: 9b8f96b34b53982c469273a3df9751ceb7930d60
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Uso de Operations Management Suite para supervisar un clúster DC/OS de Azure Container Service
 
 Microsoft Operations Management Suite (OMS) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura local y en la nube. La solución de contenedor es una solución de Log Analytics de OMS, que le permite ver el inventario de contenedor, el rendimiento y los registros en una sola ubicación. Puede auditar contenedores y solucionar problemas de los mismos mediante la visualización de los registros en una ubicación centralizada, así como encontrar contenedores ruidosos con un consumo excesivo.
@@ -52,8 +50,7 @@ En este artículo se supone que ha configurado un DC/OS y ha implementado aplica
 
 ![](media/container-service-monitoring-oms/image4.png)
 
-3. Aquí se le pedirá que escriba `wsid` (el identificador del área de trabajo de OMS) y `wskey` (la clave principal de OMS para el identificador del área de trabajo). Para obtener ambos `wsid` y `wskey` debe crear una cuenta OMS en <https://mms.microsoft.com>.
-Siga los pasos para crear una cuenta. Una vez que haya terminado de crear la cuenta, deberá obtener su `wsid` y `wskey` haciendo clic en **Configuración**, luego en **Orígenes conectados** y, por último, en **Servidores Linux**, tal y como se muestra a continuación.
+3. Aquí se le pedirá que escriba `wsid` (el identificador del área de trabajo de OMS) y `wskey` (la clave principal de OMS para el identificador del área de trabajo). Para obtener ambos `wsid` y `wskey` debe crear una cuenta OMS en <https://mms.microsoft.com>. Siga los pasos para crear una cuenta. Una vez que haya terminado de crear la cuenta, deberá obtener su `wsid` y `wskey` haciendo clic en **Configuración**, luego en **Orígenes conectados** y, por último, en **Servidores Linux**, tal y como se muestra a continuación.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -117,4 +114,3 @@ $ dcos package uninstall msoms
 ## <a name="next-steps"></a>Pasos siguientes
 
  Ahora que ha configurado OMS para supervisar los contenedores,[vea el panel de contenedor](../../log-analytics/log-analytics-containers.md).
-

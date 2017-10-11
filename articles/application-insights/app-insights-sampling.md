@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 611f4222b5ab1530658f612de39dd2712f98c250
-ms.openlocfilehash: cbc622a959c402fe25ce9ab026c1ae05f194d884
-ms.contentlocale: es-es
-ms.lasthandoff: 02/03/2017
-
+ms.openlocfilehash: ceaeced414c9c302fba335b4578bcdcbfaef0410
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -29,11 +28,11 @@ Cuando los recuentos de métrica se presentan al usuario en el portal, se renorm
 El muestreo reduce los costos de tráfico y datos y le ayuda a evitar la limitación.
 
 ## <a name="in-brief"></a>En resumen:
-* El muestreo conserva 1 en *n* registros y descarta el resto. Por ejemplo, podría retener los eventos de 1 a 5, una velocidad de muestreo del 20 %. 
+* Muestreo conserva 1 en  *n*  registra y descarta el resto. Por ejemplo, podría retener los eventos de 1 a 5, una velocidad de muestreo del 20 %. 
 * El muestreo se produce automáticamente si la aplicación envía una gran cantidad de telemetría en las aplicaciones de servidor web ASP.NET.
 * También puede establecer el muestreo manualmente, bien en el portal en la página de precios, bien en el SDK de ASP.NET en el archivo .config, también para reducir el tráfico de red.
 * Si registra eventos personalizados y desea asegurarse de que un conjunto de eventos se retienen o se descartan juntos, asegúrese de que tengan el mismo valor para OperationId.
-* El divisor de muestreo *n* se notifica en cada registro de la propiedad `itemCount`, que en la búsqueda aparece bajo el nombre descriptivo "recuento de solicitudes" o "recuento de eventos". Cuando el muestreo no está en funcionamiento, `itemCount==1`.
+* El divisor de muestreo  *n*  se notifica en cada registro de la propiedad `itemCount`, que en la búsqueda aparece bajo el nombre descriptivo "número de solicitudes" o "recuento de eventos". Cuando el muestreo no está en funcionamiento, `itemCount==1`.
 * Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](app-insights-analytics-tour.md#counting-sampled-data). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipos de muestreo
@@ -352,5 +351,4 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [filtro](app-insights-api-filtering-sampling.md) puede proporcionar un control más estricto de los SDK que envía.
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: eamono
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 4649e42a628307e15f8b067503e4e8e13f16f1af
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>Administración de Almacenamiento de Azure mediante Automatización de Azure
 Esta guía le ofrece el servicio Automatización de Azure y cómo se puede usar para simplificar la administración de blobs, tablas y colas de Almacenamiento de Azure.
@@ -44,5 +43,4 @@ La [Galería de runbooks de Automatización de Azure](https://azure.microsoft.co
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar blobs, tablas y colas de Almacenamiento de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
 Consulte el tutorial de Automatización de Azure [Crear o importar un Runbook en Automatización de Azure](../../automation/automation-creating-importing-runbook.md).
-
 

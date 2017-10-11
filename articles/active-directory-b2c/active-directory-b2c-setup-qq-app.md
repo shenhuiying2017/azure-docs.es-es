@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: b32e81494b8c84799485f154ae43ad30af394caa
-ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C: provisión de registro e inicio de sesión a los usuarios con cuentas de QQ
 
@@ -67,5 +66,4 @@ Para usar QQ como proveedor de identidades en Azure Active Directory (Azure AD) 
 7. Escriba la **Clave de la aplicación** que copió anteriormente como **Id. de cliente**.
 8. Escriba el **Secreto de la aplicación** que copió anteriormente como **Secreto de la aplicación**.
 9. Haga clic en **Aceptar** y luego en **Crear** para guardar la configuración de QQ.
-
 

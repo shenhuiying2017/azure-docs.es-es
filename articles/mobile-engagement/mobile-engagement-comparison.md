@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="comparing-azure-mobile-engagement-with-other-similar-azure-services"></a>Comparación de Azure Mobile Engagement con otros servicios similares de Azure
 La lista de servicios ofrecidos por Microsoft Azure no deja de crecer y, en ocasiones, es posible que se pregunte en qué se diferencia Azure Mobile Engagement de este otro servicio sobre el que acaba de leer u oír. En este artículo se intentan aclarar algunas ideas y se le indica que elija Azure Mobile Engagement cuando su uso le resulte más adecuado. 
@@ -63,5 +62,4 @@ Observemos algunos escenarios:
 Resumiendo, el propósito de Mobile Engagement no es simplemente recopilar los análisis, no es "otro producto de análisis de Microsoft". Se encarga de enviar notificaciones push dirigidas y, para ello, recopilamos datos de análisis del comportamiento, pero el foco sigue estando en el envío de notificaciones push con más sentido para los usuarios de la aplicación, para que no lo consideren como correo no deseado. 
 
 Para obtener más detalles, eche un vistazo a este [corto vídeo](mobile-engagement-overview.md) donde se resume Mobile Engagement. 
-
 

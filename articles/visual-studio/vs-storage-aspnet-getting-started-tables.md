@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7ac6e595b531a466744a357d0ca1bfa151105a97
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: 32a57e77bf6fe3cff88b9d6772ede9e6669ec75f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Table Storage y a Servicios conectados de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -714,4 +713,3 @@ Consulte más guías de características para obtener información acerca de otr
 
   * [Introducción a Azure Blob Storage y los servicios conectados de Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
   * [Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)
-

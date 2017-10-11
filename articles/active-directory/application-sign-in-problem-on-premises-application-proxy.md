@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 18c6e8cfff3647c05cc11c79c6740ef9493828f9
-ms.contentlocale: es-es
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 5687f789355cc9769d26b53e98486bb213c66419
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas de inicio de sesi처n en una aplicaci처n local mediante el proxy de aplicaci처n de Azure AD
 
 Si tiene problemas para iniciar sesi처n en una aplicaci처n local, puede intentar resolverlos con los pasos siguientes.
@@ -59,4 +57,3 @@ Los siguientes documentos pueden ayudarle a resolver algunos de los problemas m�
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Provisi처n de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
-

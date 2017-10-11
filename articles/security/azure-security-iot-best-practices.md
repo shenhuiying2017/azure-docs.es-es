@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cdb1436d33fed61210724d55ffbf06f653f24f7c
-
-
+ms.openlocfilehash: 8efc0053458e338ac1afe98d9ce970c1d5cbfa81
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="internet-of-things-security-best-practices"></a>Procedimientos recomendados de seguridad de Internet de las cosas
 La protección de la infraestructura de Internet de las cosas (IoT) es una tarea crítica para cualquier persona involucrada con soluciones de IoT. Debido al número de dispositivos implicados y la naturaleza distribuida de estos dispositivos, el impacto de un evento de seguridad relacionado con el compromiso de millones de dispositivos IoT no es trivial y puede tener un impacto masivo.
@@ -63,10 +63,4 @@ Siga las prácticas recomendadas que aparecen a continuación si es operador de 
 * **Auditar con frecuencia**: auditar infraestructura IoT para los problemas relacionados con la seguridad es clave al responder a incidentes de seguridad.
 * **Proteger físicamente la infraestructura IoT**: los peores ataques de seguridad contra la infraestructura IoT se inician mediante el acceso físico a los dispositivos.
 * **Proteger credenciales en la nube**: es posible que las credenciales de autenticación en la nube usadas para configurar y poner en funcionamiento una implementación de IoT sean la forma más fácil de obtener acceso y poner en peligro a un sistema IoT. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

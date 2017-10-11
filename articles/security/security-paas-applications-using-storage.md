@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: TomShinder
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 62c7b6706268e3c6e329f90651125fe299f61d67
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Protección de aplicaciones web y móviles PaaS con Azure Storage
 En este artículo se explican una serie de procedimientos recomendados de seguridad de Azure Storage para proteger aplicaciones web y móviles PaaS. Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
@@ -42,7 +41,7 @@ En este artículo se explican los siguientes procedimientos recomendados:
 - Cifrado de almacenamiento:
    - Cifrado del lado cliente para datos de gran valor
    - Azure Disk Encryption para máquinas virtuales (VM)
-   - Cifrado del servicio Storage
+   - Cifrado del servicio de almacenamiento
 
 ## <a name="access-protection"></a>Protección de acceso
 ### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>Uso de la firma de acceso compartido en lugar de una clave de cuenta de almacenamiento
@@ -84,7 +83,7 @@ Es posible que las organizaciones que no apliquen el control de acceso a los dat
 
 Para obtener más información sobre RBAC, consulte los siguientes artículos:
 
-- [Control de acceso basado en rol de Azure](../active-directory/role-based-access-control-configure.md)
+- [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md)
 - [Roles integrados para el control de acceso basado en rol de Azure](../active-directory/role-based-access-built-in-roles.md)
 - [Guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md) (para obtener información detallada sobre cómo proteger una cuenta de almacenamiento con RBAC)
 
@@ -98,11 +97,11 @@ El cifrado del lado cliente también permite controlar de forma exclusiva las cl
 El cifrado del lado cliente se integra en las bibliotecas de cliente de almacenamiento. de Java y .NET.  Consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](../storage/storage-client-side-encryption.md) para obtener información sobre cómo cifrar los datos en las aplicaciones cliente, y generar y administrar claves de cifrado.
 
 ### <a name="azure-disk-encryption-for-vms"></a>Azure Disk Encryption para máquinas virtuales
-Azure Disk Encryption es una funcionalidad que permite cifrar los discos de las máquinas virtuales IaaS con Windows y Linux. Azure Disk Encryption aprovecha la característica BitLocker de Windows, estándar en el sector, y la característica DM-Crypt de Linux para ofrecer cifrado de volumen para los discos de datos y del sistema operativo. La solución se integra con Azure Key Vault para ayudarlo a controlar y administrar los secretos y las claves de cifrado de discos en la suscripción de Key Vault. La solución también garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en Azure Storage.
+Azure Disk Encryption es una funcionalidad que permite cifrar los discos de las máquinas virtuales IaaS con Windows y Linux. Cifrado de discos de Azure aprovecha la característica BitLocker de Windows, estándar en el sector, y la característica DM-Crypt de Linux para ofrecer cifrado de volumen para los discos de datos y del sistema operativo. La solución se integra con Azure Key Vault para ayudarlo a controlar y administrar los secretos y las claves de cifrado de discos en la suscripción de Key Vault. La solución también garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en Azure Storage.
 
 Consulte [Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows](azure-security-disk-encryption.md).
 
-### <a name="storage-service-encryption"></a>Cifrado del servicio Storage
+### <a name="storage-service-encryption"></a>Cifrado del servicio de almacenamiento
 Cuando el [cifrado del servicio Storage](../storage/storage-service-encryption.md) está habilitado en File Storage, los datos se cifran automáticamente con el cifrado AES-256. Microsoft controla todo el proceso de cifrado, descifrado y administración de claves. Esta característica está disponible en los tipos de redundancia LRS y GRS.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -111,4 +110,3 @@ En este artículo se presenta una serie de procedimientos recomendados de seguri
 - [Protección de implementaciones de PaaS](security-paas-deployments.md)
 - [Protección de aplicaciones web y móviles PaaS con Azure App Services](security-paas-applications-using-app-services.md)
 - [Protección de bases de datos PaaS en Azure](security-paas-applications-using-sql.md)
-

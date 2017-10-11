@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 94b629a62c3a54eee69ee397b2f27e3f20b753d5
-ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-8-set-up-the-source-and-target-for-vmware-replication-to-azure"></a>Paso 8: Configuración del origen y el destino de la replicación de VMware en Azure
 
@@ -99,5 +98,4 @@ Antes de configurar el entorno de destino, asegúrese de tener una cuenta de Azu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ir al [Paso 9: Configuración de una directiva de replicación](vmware-walkthrough-replication.md)
-
+Vaya al [paso 9: configuración de una directiva de replicación](vmware-walkthrough-replication.md)

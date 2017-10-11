@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: fc1e1b2de0a138dbe88d794f802b002321948ab8
-ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Tutorial: Integración de Azure Active Directory con Lesson.ly
 
@@ -264,5 +263,4 @@ Al hacer clic en el icono de Lesson.ly en el panel de acceso, debería iniciar s
 [201]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_203.png
-
 

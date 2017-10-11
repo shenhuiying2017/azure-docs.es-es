@@ -12,12 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
 ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
-ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Vinculación de una suscripción de Azure a un inquilino de Azure B2C para pagar los cargos por uso
 
@@ -76,4 +75,3 @@ Al hacer clic en el recurso del inquilino de B2C, es posible
 Una vez que se han completados estos pasos en cada uno de los inquilinos B2C, la suscripción de Azure se factura según los detalles del Contrato Enterprise o directo de Azure.
 - Revisión del uso y facturación en la suscripción de Azure seleccionada
 - Revisión de los informes detallados de [uso diario mediante la API de Informes de uso](active-directory-b2c-reference-usage-reporting-api.md)
-

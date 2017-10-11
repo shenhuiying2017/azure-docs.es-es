@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: ec8bebf2854e84a37e84b45564e80fc20b63d8d8
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Conmutación por error a StorSimple Cloud Appliance
 
@@ -43,7 +42,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo StorSimple Cloud
 
 1.  Compruebe que el contenedor de volúmenes que desea conmutar por error tiene asociadas instantáneas en la nube. Para más información, vaya a [Use StorSimple Device Manager service to create backups](storsimple-8000-manage-backup-policies-u2.md) (Uso del servicio StorSimple Device Manager para crear copias de seguridad).
 2. Vaya al servicio Administrador de dispositivos de StorSimple y haga clic en **Dispositivos**. En la hoja **Dispositivos**, vaya a la lista de dispositivos conectados con su servicio.
-    ![Selección del dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
+    ![Seleccionar dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
 3. Seleccione su dispositivo de origen y haga clic en él. El dispositivo de origen tiene los contenedores de volúmenes que desea conmutar por error. Vaya a **Configuración > Contenedores de volúmenes**.
 
     ![Selección del dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
@@ -95,5 +94,4 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo StorSimple Cloud
 * Después de haber realizado una conmutación por error, puede que necesite [desactivar o eliminar el dispositivo StorSimple](storsimple-8000-deactivate-and-delete-device.md).
 
 * Para más información sobre cómo usar el servicio StorSimple Device Manager, vaya a [Use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md) (Uso del servicio StorSimple Device Manager para administrar el dispositivo StorSimple).
-
 

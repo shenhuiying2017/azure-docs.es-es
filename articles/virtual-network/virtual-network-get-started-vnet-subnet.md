@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-your-first-virtual-network"></a>Creación de su primera red virtual
 
 Aprenda a crear una red virtual con dos subredes, a crear dos máquinas virtuales y a conectar cada máquina virtual a una de las subredes, tal como se muestra en la siguiente imagen:
@@ -253,4 +251,3 @@ En este ejercicio, ha creado una red virtual y dos máquinas virtuales. Ha espec
 - [Interfaces de red](virtual-network-network-interface.md)
 - [Grupos de seguridad de red](virtual-networks-nsg.md)
 - [Máquinas virtuales](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-

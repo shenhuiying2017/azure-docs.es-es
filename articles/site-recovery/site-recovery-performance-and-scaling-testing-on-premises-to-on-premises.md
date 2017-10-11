@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: a9bec774b5482de87eefcd0c87844a2adbd98bbe
-ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Resultados de la prueba para la replicación de Hyper-V entre sitios locales con Site Recovery
 
@@ -187,4 +186,3 @@ La tabla resume las métricas de rendimiento y contadores que se midieron en la 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Configuración de la replicación entre dos sitios VMM locales](site-recovery-vmm-to-vmm.md)
-

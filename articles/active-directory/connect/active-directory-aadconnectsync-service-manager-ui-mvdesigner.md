@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: e3891911db57b7f5c792ee85f9ce7bd8a7eaea5c
-ms.contentlocale: es-es
-ms.lasthandoff: 03/04/2017
-
+ms.openlocfilehash: a7df245d41695dada42b0d1b267fbe9ef637ce13
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="sync-service-manager-metaverse-designer"></a>Diseñador de metaverso de Sync Service Manager
 
@@ -32,4 +31,3 @@ La mayoría de los clientes no tienen que configurar nada aquí.
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-

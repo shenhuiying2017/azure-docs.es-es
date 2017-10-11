@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: db6f5f95929503e82a529dba26b56af1edb0767f
-ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replicate-vmware-vms-to-azure-with-site-recovery"></a>Replicación de máquinas virtuales VMware en Azure con Site Recovery
 
@@ -34,10 +33,10 @@ En este artículo se ofrece información general sobre los pasos necesarios para
 
 Antes de empezar la implementación, revise la arquitectura del escenario y asegúrese de comprender todos los componentes que necesita implementar.
 
-Ir a [Paso 1: Revisión de la arquitectura](vmware-walkthrough-architecture.md)
+Vaya al [paso 1: revisión de la arquitectura](vmware-walkthrough-architecture.md)
 
 
-## <a name="step-2-review-prerequisites"></a>Paso 2: Revisión de los requisitos previos
+## <a name="step-2-review-prerequisites"></a>Paso 2: revisión de los requisitos previos
 
 Asegúrese de satisfacer los requisitos previos de cada componente de la implementación:
 
@@ -52,15 +51,15 @@ Ir a [Paso 2: Revisión de los requisitos previos y las limitaciones](vmware-wal
 
 Si está realizando una implementación completa, debe averiguar qué recursos de replicación necesita. Hay un par de herramientas disponibles para ayudarle a hacerlo. Vaya al paso 2. Si está realizando una configuración rápida para probar el entorno, puede omitir este paso.
 
-Vaya a [Paso 3: Planeamiento de la capacidad](vmware-walkthrough-capacity.md)
+Vaya al [paso 3: planeamiento de la capacidad](vmware-walkthrough-capacity.md)
 
-## <a name="step-4-plan-networking"></a>Paso 4: : Planeamiento de redes
+## <a name="step-4-plan-networking"></a>Paso 4: planeamiento de las redes
 
-Debe planear las redes para asegurarse de que las máquinas virtuales de Azure están conectadas a redes después de que se produzca la conmutación por error y tienen las direcciones IP correctas.
+Debe planear las redes para asegurarse de que las máquinas virtuales de Azure estén conectadas a redes después de que se produzca la conmutación por error y de que tengan la dirección IP correcta.
 
-Vaya al [Paso 4: Planeamiento de redes](vmware-walkthrough-network.md)
+Vaya al [paso 4: planeamiento de las redes](vmware-walkthrough-network.md)
 
-##  <a name="step-5-prepare-azure-resources"></a>Paso 5: Preparación de los recursos de Azure
+##  <a name="step-5-prepare-azure-resources"></a>Paso 5: preparación de los recursos de Azure
 
 Antes de empezar hay que configurar las redes y el almacenamiento de Azure. Puede hacerlo durante la implementación, pero se recomienda hacerlo antes de empezar.
 
@@ -78,7 +77,7 @@ Ir al [Paso 6: Preparación de VMware](vmware-walkthrough-prepare-vmware.md)
 
 ## <a name="step-7-set-up-a-vault"></a>Paso 7: Configuración de un almacén
 
-Hay que configurar un almacén de Recovery Services para organizar y administrar la replicación. Cuando configure el almacén, especifique lo que quiere replicar y en dónde.
+Debe configurar un almacén de Recovery Services para organizar y administrar la replicación. Cuando configure el almacén, especifique lo que quiere replicar y en dónde.
 
 Ir a [Paso 7: Configuración de un almacén](vmware-walkthrough-create-vault.md)
 
@@ -111,4 +110,3 @@ Ir a [Paso 11: Habilitación de la replicación](vmware-walkthrough-enable-repli
 Una vez que termina la replicación inicial y se está ejecutando la replicación diferencial, puede ejecutar una conmutación por error de prueba para asegurarse de que todo funciona según lo previsto.
 
 Ir a [Paso 12: Ejecución de una conmutación por error de prueba](vmware-walkthrough-test-failover.md)
-

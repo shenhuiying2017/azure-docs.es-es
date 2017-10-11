@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 1877e6ab19d504c8be6130578f17b608f123e20a
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-operational-security-checklist"></a>Lista de comprobación de seguridad operativa de Azure
 La implementación de una aplicación en Azure es un procedimiento rápido, sencilla y rentable. Antes de implementar la aplicación en la nube en producción, es útil disponer de una lista de comprobación que ayude en la evaluación de la aplicación en relación con una lista de acciones de seguridad operativas esenciales y recomendadas que tener en cuenta.
 
@@ -57,4 +55,3 @@ En este documento, se presentó la solución Seguridad y auditoría de OMS. Para
 - [Información general de Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview)
 - [Diseño y seguridad operativa](https://www.microsoft.com/trustcenter/security/designopsecurity)
 - [Guía de planeamiento y operaciones de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f05f188633e2d5103e29ae4501f7ea9a832acba
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: cd36e46821eb85db523a5c84ec44895f68cc60e1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Uso de Azure Media Packager para realizar tareas de paquetes estáticos
 > [!NOTE]
@@ -702,7 +701,7 @@ Si desea cifrar el HLS con AES-128, tendrá la opción de usar el cifrado dinám
 > [!NOTE]
 > Para convertir el contenido en HLS, primero debe convertir o codificar su contenido en Smooth Streaming.
 > Asimismo, para que HLS se cifre con AES, asegúrese de establecer las propiedades siguientes en el archivo MediaPackager_SmoothToHLS.xml: establezca la propiedad encrypt en true, establezca el valor de clave y el valor de keyuri para que apunte al servidor de autenticación o autorización.
-> Servicios multimedia creará un archivo de clave y lo coloca en el contenedor de recursos. Debe copiar el archivo /asset-containerguid/*.key en el servidor (o crear su propio archivo de clave) y, a continuación, eliminar el archivo *.key del contenedor de recursos.
+> Servicios multimedia creará un archivo de clave y lo coloca en el contenedor de recursos. Debe copiar el archivo /asset-containerguid/*.key en el servidor (o crear su propio archivo de clave) y, a continuación, elimine el archivo *.key del contenedor de activos.
 > 
 > 
 
@@ -1459,5 +1458,4 @@ Asegúrese de actualizar el código siguiente para que señale a la carpeta dond
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

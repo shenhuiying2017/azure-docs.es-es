@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: d2dd84007832c56f5893f0ea9f5effcf5ec5816b
-ms.contentlocale: es-es
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registro de una aplicación en un inquilino de Azure Active Directory
 
 Azure Portal se puede usar para registrar una aplicación en un inquilino de Azure Active Directory (Azure AD). Esto crea un identificador para la aplicación que le permite recibir tokens.
@@ -64,4 +62,3 @@ El editor de manifiestos en línea se puede usar para modificar determinadas pro
 
 1. Consulte las [guías de inicio rápido](active-directory-developers-guide.md) para ver tutoriales detallados de las aplicaciones que realizan la autenticación mediante Azure AD.
 2. Consulte la lista completa de ejemplos de código en [GitHub](https://github.com/azure-samples).
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 8ca3234e54d8736aa187195640a103ac6eb145e7
-ms.contentlocale: es-es
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 086e5a9622cad681cd282345d97e0c28ee7de2fa
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>¿Qué ha ocurrido a mi proyecto de WebApi (servicio conectado de Visual Studio Azure Active Directory)
 > [!div class="op_single_selector"]
@@ -111,5 +110,4 @@ La aplicación Azure Active Directory se actualizó para incluir el permiso *Lee
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
-
 

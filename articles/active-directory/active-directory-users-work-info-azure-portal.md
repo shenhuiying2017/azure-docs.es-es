@@ -1,5 +1,4 @@
 ---
-
 title: "Adición o modificación de la información del trabajo de un usuario en Azure Active Directory | Microsoft Docs"
 description: "En este artículo se explica cómo agregar números de teléfono, nombres de departamento y otra información de trabajo de un usuario en Azure Active Directory."
 services: active-directory
@@ -16,13 +15,11 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand;jeffsta
 ms.reviewer: jeffsta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: a7197ed0f08d38bb604641115a424b98ba5b5908
-ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
-
-
+ms.openlocfilehash: 9f4031da7c6dfbd329d14c52f3a569084edacf20
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-or-change-work-information-for-a-user-in-azure-active-directory"></a>Adición o modificación de la información de trabajo de un usuario en Azure Active Directory
 En este artículo se explica cómo agregar o cambiar información del trabajo, como números de teléfono o nombres de departamento de un usuario, en Azure Active Directory (Azure AD). Para obtener más información sobre cómo agregar nuevos usuarios en su organización, consulte [Incorporación de nuevos usuarios a Azure Active Directory](active-directory-users-create-external-azure-portal.md).
@@ -47,4 +44,3 @@ En este artículo se explica cómo agregar o cambiar información del trabajo, c
 * [Asignación de un usuario a roles de administrador en Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Adición o modificación de la información de perfil de un usuario en Azure Active Directory](active-directory-users-profile-azure-portal.md)
 * [Eliminación de un usuario de un directorio en Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
-

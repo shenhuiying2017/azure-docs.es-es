@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: d541bb19ba7e5ecb44c9fe91b1e232d4d9c2170e
-ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Configuración del rendimiento para contenedores de Azure Cosmos DB
 
 Puede configurar el rendimiento de los contenedores de Azure Cosmos DB en Azure Portal o mediante los SDK del cliente. 
@@ -88,4 +86,3 @@ No hay ninguna extensión de API de MongoDB para configurar el rendimiento. La r
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para aprender más sobre el aprovisionamiento y cómo pasar a escala planetaria con Cosmos DB, consulte [Partición y escalado en Cosmos DB](partition-data.md).
-

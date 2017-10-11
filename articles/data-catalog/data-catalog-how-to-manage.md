@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 391ea72390c589bf86ed9be58e44ce8b20eab837
-ms.contentlocale: es-es
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 8b9159b7bc4f7b2dac12d9012c6c903e75a6ac16
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Administración de recursos de datos en Azure Data Catalog
 ## <a name="introduction"></a>Introducción
@@ -74,4 +73,3 @@ Los administradores de Data Catalog son implícitamente copropietarios de todos 
 
 ## <a name="summary"></a>Resumen
 El modelo de micromecenazgo de Data Catalog para la detección de recursos de datos y metadatos permite que todos los usuarios del catálogo colaboren en él y lo detecten. La edición Estándar de Data Catalog está diseñada para la propiedad y administración con el fin de limitar la visibilidad y el uso de los recursos de datos específicos.
-

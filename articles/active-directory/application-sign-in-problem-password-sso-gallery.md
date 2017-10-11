@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 65bfb0a759a624c98a19f3c2c9c72aa5a6780df7
-ms.contentlocale: es-es
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: f8521d1386bba8004e84fe8862a5f59a65ea19ad
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único federado
 
 El Panel de acceso es un portal basado en web que permite que un usuario con una cuenta profesional o educativa en Azure Active Directory (Azure AD) vea e inicie aplicaciones basadas en la nube a las que el administrador de Azure AD le ha concedido acceso. Un usuario que posee ediciones de Azure AD también puede usar las funcionalidades de administración de grupos de autoservicio y aplicaciones a través del Panel de acceso. El Panel de acceso es independiente de Azure Portal y no requiere que los usuarios tengan una suscripción de Azure.
@@ -59,7 +57,7 @@ Para instalar la extensión de explorador del Panel de acceso, siga estos pasos:
 
 6.  Una vez instalada, **reinicie** la sesión del explorador.
 
-7.  Inicie sesión en el Panel de acceso y vea si puede **iniciar** las aplicaciones de SSO con contraseña.
+7.  Inicie sesión en el Panel de acceso y vea si puede **iniciar** las aplicaciones de SSO con contraseña
 
 También puede descargar la extensión para Chrome y Firefox desde los siguientes vínculos directos:
 
@@ -85,19 +83,19 @@ Siga la guía de [solución de problemas de la extensión del Panel de acceso pa
 
 ## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Configuración del inicio de sesión único con contraseña para una aplicación de la galería de Azure AD
 
-Para configurar una aplicación desde la galería de Azure AD, necesita:
+Para configurar una aplicación desde la galería de Azure AD, realice los siguientes pasos:
 
--   [Agregar una aplicación desde la galería de Azure AD](#_Add_an_application)
+-   [Incorporación de una aplicación desde la galería de Azure AD](#_Add_an_application)
 
 -   [Configurar la aplicación para el inicio de sesión único con contraseña](#configure-the-application-for-password-single-sign-on)
 
 -   [Asignar usuarios a la aplicación](#assign-users-to-the-application)
 
-### <a name="add-an-application-from-the-azure-ad-gallery"></a>Agregar una aplicación desde la galería de Azure AD
+### <a name="add-an-application-from-the-azure-ad-gallery"></a>Incorporación de una aplicación desde la galería de Azure AD
 
 Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
-1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -107,7 +105,7 @@ Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
 5.  Haga clic en el botón **Agregar** situado en la esquina superior derecha de la hoja **Aplicaciones empresariales**.
 
-6.  En el cuadro de texto **Escribir un nombre** de la sección **Agregar desde la galería**, escriba el nombre de la aplicación.
+6.  En el cuadro de texto **Escriba un nombre** de la sección **Agregar desde la galería**, escriba el nombre de la aplicación.
 
 7.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
 
@@ -119,7 +117,7 @@ Tras un breve período, podrá ver la hoja de configuración de la aplicación.
 
 ### <a name="configure-the-application-for-password-single-sign-on"></a>Configuración de la aplicación para el inicio de sesión único con contraseña
 
-Para configurar el inicio de sesión único para una aplicación, siga los pasos siguientes:
+Para configurar el inicio de sesión único para una aplicación, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
 
@@ -133,7 +131,7 @@ Para configurar el inicio de sesión único para una aplicación, siga los pasos
 
    * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
+6.  Seleccionar la aplicación que desea configurar para el inicio de sesión único
 
 7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
@@ -141,15 +139,15 @@ Para configurar el inicio de sesión único para una aplicación, siga los pasos
 
 9.  [Asigne usuarios a la aplicación](#_How_to_assign).
 
-10. Además, también puede proporcionar credenciales en nombre del usuario; para ello, seleccione las filas de los usuarios y haga clic en **Actualizar credenciales** y escriba el nombre de usuario y la contraseña en nombre de los usuarios. En caso contrario, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
+10. Además, también puede proporcionar credenciales en nombre del usuario; para ello, seleccione las filas de los usuarios, haga clic en **Actualizar credenciales** y escriba el nombre de usuario y la contraseña en nombre de los usuarios. En caso contrario, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
 
-### <a name="assign-users-to-the-application"></a>Asigne usuarios a la aplicación.
+### <a name="assign-users-to-the-application"></a>Asignar usuarios a la aplicación
 
 Para asignar uno o varios usuarios a una aplicación directamente, siga los pasos siguientes:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -188,7 +186,7 @@ abra una incidencia de soporte técnico con la información siguiente si está d
 
 -   UPN (dirección de correo electrónico del usuario)
 
--   TenantId
+-   TenantID
 
 -   Tipo de explorador
 
@@ -198,4 +196,3 @@ abra una incidencia de soporte técnico con la información siguiente si está d
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
-

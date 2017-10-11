@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: andredm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 72c695d08bdf5de003d51ffb0768184e1e4d00ba
-ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Visualización de asignaciones de acceso para usuarios y grupos en el portal de Azure
 > [!div class="op_single_selector"]
@@ -60,5 +59,4 @@ En esta hoja, puede eliminar las asignaciones de acceso que se asignaron directa
 
 * Vea una introducción al control de acceso basado en rol en [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](role-based-access-control-configure.md)
 * Consulte los [roles integrados en RBAC](role-based-access-built-in-roles.md)
-
 

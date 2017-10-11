@@ -16,19 +16,18 @@ ms.date: 07/06/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: end-user
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 9dbe88a59b68bfb424c43dd89acf55d8c73fdf39
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-help-with-two-step-verification"></a>Obtener ayuda con la verificación en dos pasos
 Este artículo responde a las preguntas más comunes que tienen las personas sobre la verificación en dos pasos. 
 
 ## <a name="why-do-i-have-to-perform-two-step-verification-can-i-turn-it-off"></a>¿Por qué es necesario realizar la verificación en dos pasos? ¿Puedo desactivarla?
 
-La verificación en dos pasos es una característica de seguridad que la organización decidió usar para proteger las cuentas del usuario. Es más segura que solo una contraseña, porque se basa en dos formas de autenticación: algo que usted sabe y algo que usted tiene. Lo que sabe es la contraseña. Lo que tiene con usted es un teléfono o un dispositivo que suele llevar consigo. Si su cuenta está protegida mediante una verificación en dos pasos, ningún hacker malintencionado podrá iniciar sesión como si fuera usted, ni siquiera aunque tenga la contraseña. No puede hacerlo porque no tiene acceso a su teléfono. 
+La verificación en dos pasos es una característica de seguridad que la organización decidió usar para proteger las cuentas del usuario. Es más segura que solo una contraseña, porque se basa en dos formas de autenticación: algo que usted sabe y algo que usted tiene. Lo que sabe es la contraseña. Lo que tiene con usted es un teléfono o un dispositivo del que suele disponer. Si su cuenta está protegida mediante una verificación en dos pasos, ningún hacker malintencionado podrá iniciar sesión como si fuera usted, ni siquiera aunque tenga la contraseña. No puede hacerlo porque no tiene acceso a su teléfono. 
 
 Microsoft ofrece la verificación en dos pasos, pero su organización decide usar la característica. No puede desentenderse si el departamento de TI se lo requiere, de la misma manera que no puede dejar de usar una contraseña para proteger su cuenta. 
 
@@ -95,5 +94,4 @@ Si probó estos pasos para solucionar los problemas pero estos no desaparecen, p
 ## <a name="related-topics"></a>Temas relacionados
 * [Administración de la configuración de la comprobación en dos pasos](multi-factor-authentication-end-user-manage-settings.md)  
 * [Preguntas más frecuentes de la aplicación Microsoft Authenticator](microsoft-authenticator-app-faq.md)
-
 

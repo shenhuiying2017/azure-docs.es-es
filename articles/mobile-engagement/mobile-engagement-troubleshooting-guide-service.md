@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 01862d158f4771989ae6eb3b20fe8e080123a231
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f13fd0540b783120014b3a8d4e41f78808c7fade
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-guide-for-service-issues"></a>Guía de solución de problemas de servicio
 Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobile Engagement se ejecuta.
@@ -89,5 +88,4 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
   * Use una coma "," como carácter separador (puede abrir una solicitud de servicio para solicitar cambiar el carácter separador de .csv de una coma "," a otro carácter como un punto y coma ";").
   * Use minúsculas para los valores booleanos "true" y "false".
   * Use un archivo que de tamaño inferior al tamaño máximo de archivo de 35 MB.
-
 

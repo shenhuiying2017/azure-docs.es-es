@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: deed3fbd7cd27f54767ae9b26c27c1e1a0106208
-ms.lasthandoff: 03/22/2017
-
-
+ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Vistas de las soluciones de administración en Operations Management Suite (OMS) (versión preliminar)
 > [!NOTE]
@@ -180,4 +179,3 @@ Por ejemplo, en el ejemplo siguiente se muestra un archivo de solución simple c
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtener información detallada sobre cómo crear [soluciones de administración](operations-management-suite-solutions-creating.md).
 * Incluir [runbooks de Automation en la solución de administración](operations-management-suite-solutions-resources-automation.md).
-

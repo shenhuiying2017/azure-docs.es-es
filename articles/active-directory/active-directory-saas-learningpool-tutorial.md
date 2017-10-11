@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 932f5f12c75299e532d3fa2c31f1805a7df30158
-ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Tutorial: Integración de Azure Active Directory con Learningpool Act
 
@@ -260,5 +259,4 @@ Al hacer clic en el icono de Learningpool Act en el panel de acceso, debería in
 [201]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_203.png
-
 

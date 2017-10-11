@@ -46,13 +46,13 @@
 
 # Temas relacionados
 ## [Stream Analytics](/azure/stream-analytics/)
-## [Event Hubs](/azure/event-hubs/)
-## [IoT Hub](/azure/iot-hub/)
-## [Machine Learning](/azure/machine-learning/)
+## [Centros de eventos](/azure/event-hubs/)
+## [Centro de IoT](/azure/iot-hub/)
+## [Aprendizaje automático](/azure/machine-learning/)
 
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-## [Preguntas más frecuentes](iot-suite-faq.md)
+## [P+F](iot-suite-faq.md)
 ## [Preguntas más frecuentes sobre fábrica conectada](iot-suite-faq-cf.md)
 ## [Ruta de aprendizaje del Conjunto de aplicaciones de IoT](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)

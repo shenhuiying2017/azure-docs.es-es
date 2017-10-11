@@ -15,14 +15,12 @@ ms.date: 06/26/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 1869b7a4ef42536a3cd909ba2983ae0fe97185a9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Exigencia de verificación en dos pasos para un usuario o grupo
 
 Existen dos enfoques para exigir la verificación en dos pasos. La primera opción consiste en habilitar a cada usuario individual para Azure Multi-factor Authentication (MFA). Cuando los usuarios se habilitan de forma individual, siempre realizan la verificación en dos pasos (con algunas excepciones, como cuando inician sesión desde direcciones IP de confianza o si se activa la característica recordar dispositivos). La segunda opción consiste en configurar una directiva de acceso condicional que requiere la verificación en dos pasos en determinadas condiciones.
@@ -82,7 +80,7 @@ Después de habilitar los usuarios, debe notificarlos por correo electrónico. D
 ### <a name="use-powershell"></a>Uso de PowerShell
 Para cambiar el estado de un usuario mediante [PowerShell de Azure AD](/powershell/azure/overview), debe cambiar `$st.State`. Hay tres estados posibles:
 
-* Enabled
+* habilitado
 * Aplicado
 * Disabled  
 
@@ -96,7 +94,7 @@ El uso de PowerShell es una buena opción cuando necesite habilitar usuarios de 
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-Este es un ejemplo:
+Aquí tiene un ejemplo:
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)

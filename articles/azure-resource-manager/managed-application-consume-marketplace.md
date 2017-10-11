@@ -10,14 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/11/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: baf456740bddd562391ed64d707f990c8921d710
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="consume-azure-managed-applications-in-the-marketplace"></a>Uso de aplicaciones administradas de Azure en Marketplace
 
 Tal y como se describe en el artículo [Información general de las aplicaciones administradas](managed-application-overview.md), hay dos escenarios en la experiencia completa. Uno es el publicador o proveedor que desea crear una aplicación administrada para que la utilicen los usuarios. El segundo es el usuario final de la aplicación administrada. Este artículo trata el segundo escenario. Describe cómo se puede implementar una aplicación administrada de Microsoft Azure Marketplace.

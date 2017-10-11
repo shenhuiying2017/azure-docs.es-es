@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
-ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integración de Azure Active Directory con SAML SSO for Jira by resolution GmbH
 
@@ -153,7 +151,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-samlssojira-tutorial/addon9.png)
 
-12.    Haga clic en **Administrar**.
+12. Haga clic en **Administrar**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-samlssojira-tutorial/addon10.png)
     
@@ -177,7 +175,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     d. Haga clic en el botón **Cargar**.
 
-    e. Lee los metadatos de IdP y rellena los campos tal y como se resalta en la captura de pantalla.    
+    e. Lee los metadatos de IdP y rellena los campos tal y como se resalta en la captura de pantalla. 
 
 16. Haga clic en el botón **Guardar configuración** para guardar la configuración.
 
@@ -251,7 +249,7 @@ En SAML SSO for Jira by resolution GmbH, el aprovisionamiento es una tarea manua
 
     d. En el cuadro de texto **Contraseña**, escriba la contraseña del usuario.
 
-    e. Haga clic en **Crear usuario**.    
+    e. Haga clic en **Crear usuario**.   
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -310,5 +308,4 @@ Para más información sobre el Panel de acceso, vea la [introducción al Panel 
 [201]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_203.png
-
 

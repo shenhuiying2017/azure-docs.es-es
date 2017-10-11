@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
-ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>Servicios de BizTalk: solución de problemas mediante registros de operaciones
 
@@ -38,7 +36,7 @@ Registros de operaciones es una característica de los Servicios de administraci
 ## <a name="view-biztalk-services-operation-logs"></a>Consulta de los registros de operaciones de los Servicios BizTalk
 1. En el Portal de Azure clásico, seleccione **Servicios de administración** y, después, seleccione la pestaña **Registros de operaciones**.
 2. Puede filtrar los registros en función de diferentes parámetros, como suscripción, intervalo de fechas, tipo de servicio (por ejemplo, Servicios de BizTalk), nombre de servicio o estado (de la operación, por ejemplo, Succeeded, Failed).
-3. Seleccione la marca de verificación para consultar la lista filtrada. En la imagen siguiente se muestran las actividades relacionadas con testbiztalkservice:  ![Ver registros de operaciones][ViewLogs]. 
+3. Seleccione la marca de verificación para consultar la lista filtrada. En la imagen siguiente se muestran las actividades relacionadas con testbiztalkservice: ![Ver registros de operaciones][ViewLogs]. 
 4. Para obtener más información sobre una operación específica, seleccione la fila y haga clic en **Detalles** en la barra de tareas situada en la parte inferior.
 
 ## <a name="bizops"></a>Seguimiento de operaciones mediante Servicios de administración de Azure
@@ -74,5 +72,4 @@ En la tabla siguiente se enumeran las operaciones cuyo seguimiento se realiza ut
 * [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
-
 

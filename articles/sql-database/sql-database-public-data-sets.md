@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 03/20/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 53ae23dba61cf835c6a4826b528772b1cd2e1622
-ms.contentlocale: es-es
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: b6f8d327123fc0ebe13790cbb3760f6eba90f5b5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de datos públicos para pruebas y prototipos
 
@@ -60,4 +59,3 @@ Consulte la siguiente lista de conjuntos de datos públicos que puede usar para 
 | [GitHub Archive](https://www.githubarchive.org/) | "GitHub Archive es un proyecto para registrar la escala de tiempo [de eventos] del GitHub público, archivarla y facilitar el acceso a ella para su posterior análisis". | Descargue los archivos de eventos con codificación JSON en formato .gz (Gzip) desde un cliente web. |
 | [Datos de actividad de GitHub procedentes del proyecto GHTorrent](http://ghtorrent.org/) | "El proyecto GHTorrent [es] un intento de crear un espejo de datos escalable, consultable y sin conexión de datos ofrecidos a través de la API de REST de GitHub. GHTorrent supervisa la escala de tiempo de los eventos públicos de GitHub. Para cada evento, recupera su contenido y sus dependencias, exhaustivamente". | Los volcados de la base de datos de MySQL están en formato CSV. |
 | [Volcado de datos de desbordamiento de pila](https://archive.org/details/stackexchange) | "Se trata de un volcado de memoria anonimizado de todo el contenido proporcionado por los usuarios en la red Stack Exchange [incluido Stack Overflow]". | "Cada sitio [por ejemplo, Stack Overflow] tiene el formato de un archivo independiente compuesto por archivos XML comprimidos mediante 7-zip con compresión bzip2. Cada archivo del sitio incluye publicaciones, usuarios, votos, comentarios, PostHistory y PostLinks". |
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 2ab1cf399f47e2c19647b2a2a82de5c11f08e8c8
-ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
-
-
+ms.openlocfilehash: 22387aadd8f53a65efb76a29a9403c46a2c25954
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a>Implementar la plantilla de Resource Manager privada con el token de SAS y la CLI de Azure
 
@@ -91,4 +89,3 @@ Para obtener un ejemplo del uso de un token de SAS con plantillas vinculadas, co
 * Para obtener un script de ejemplo completo que implementa una plantilla, vea [Deploy Resource Manager template script](resource-manager-samples-cli-deploy.md) (Implementar script de plantilla de Resource Manager).
 * Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md#parameters).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-

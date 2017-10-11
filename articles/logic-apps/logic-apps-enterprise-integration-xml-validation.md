@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 03cd3f4edd7bb7895efa02475411d813ef44b8b3
-ms.openlocfilehash: ae0bb2cb090402f61bb10299e50024f1f2938489
-ms.contentlocale: es-es
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: 8558efffa354cc4bb93820c837077ee997924c95
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="validate-xml-for-enterprise-integration"></a>Validación de documentos XML para la integración de empresas
 
@@ -62,5 +60,4 @@ Para probar la acción de validación realice una solicitud al punto de conexió
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Más información sobre Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")   
-
 

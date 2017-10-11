@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 553111d37543a0d5d6d3c89afab118b209704fec
-ms.openlocfilehash: b6ed4bd6898d54f6f9ef3206de38e2be6d2900be
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 1a4af8c9a5f30cf7ea24d587866d1b41ab9cfb2c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Software de terceros compatible con Azure AD Domain Services
 
 ## <a name="one-identity-authentication-services"></a>One Identity Authentication Services
@@ -42,4 +40,3 @@ One Identity Authentication Services permite a los sistemas Unix, Linux y Mac OS
 Red Hat Enterprise Linux es la plataforma empresaria del Linux líder del sector concebida para dar respuesta a las necesidades de las empresas modernas de hoy en día. Red Hat Enterprise Linux es la alternativa preferida para cargas de trabajo empresariales de máquinas virtuales de Linux en Microsoft Azure. Red Hat Enterprise Linux es una plataforma abierta, confiable y segura diseñada para los clientes que desean flexibilidad de implementación para sus cargas de trabajo críticas para el negocio (desde los centros de datos a las copias de seguridad en Azure) mediante un soporte estrechamente integrado y de nivel empresarial ofrecido por Red Hat y Microsoft.
 
 [Unión de Enterprise RedHat Linux 7.2 VM con Azure AD Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-

@@ -12,14 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 67edaa55d7ccd00d4aebb309f11bcf95486e87fa
-ms.contentlocale: es-es
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="pool-create-event"></a>Evento de creación del grupo
 
  Este evento se genera cuando se ha creado un grupo. El contenido del registro va a exponer información general acerca del grupo. Tenga en cuenta que si el tamaño de destino del grupo es mayor que 0 nodos de proceso, un evento de inicio de cambio de tamaño del grupo seguirá inmediatamente después de este evento.
@@ -99,4 +97,3 @@ ms.lasthandoff: 04/22/2017
 |Nombre del elemento|Tipo|Notas|
 |------------------|--------------|----------|
 |subnetId|String|Especifica el identificador de recursos de la subred en la que se crean los nodos de proceso del grupo.|
-

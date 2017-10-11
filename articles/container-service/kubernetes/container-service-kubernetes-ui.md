@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fbdd3c2450c5385b782d72eb90008a093f6a7298
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: e31f90d61fc61f17582372fe9f491a1e21f628b0
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Uso de la interfaz de usuario web de Kubernetes con Azure Container Service
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -134,5 +132,4 @@ Edite el campo `spec.replicas` para establecerlo en `2`y haga clic en **Update**
 Esto hará que el número de réplicas descienda a dos mediante la eliminación de uno de los pod.
 
  
-
 

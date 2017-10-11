@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fa1c3d9cb07d417f5dbde41d6269fb1d157c3104
-ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
-ms.contentlocale: es-es
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 8e3f496c2868cc3430e0efd47805aec2205168aa
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Compatibilidad con varios dominios para la federación con Azure AD
 La siguiente documentación proporciona orientación sobre cómo usar varios dominios y subdominios de nivel superior al federarse con Office 365 o con dominios de Azure AD.
@@ -67,7 +66,7 @@ Otra cosa que hace `-SupportMultipleDomain` es garantizar que el sistema de AD F
 
 Por lo tanto, durante la autenticación en Azure AD u Office 365, el elemento IssuerUri del token del usuario se usa para buscar el dominio en Azure AD.  Si no se encuentra una coincidencia, se producirá un error en la autenticación. 
 
-Por ejemplo, si el UPN de un usuario es bsimon@bmcontoso.com,, el elemento IssuerUri de los problemas de AD FS del token se establecerá en http://bmcontoso.com/adfs/services/trust. Coincidirá con la configuración de Azure AD y la autenticación se realizará correctamente.
+Por ejemplo, si un usuario del UPN es bsimon@bmcontoso.com, el elemento IssuerUri en los problemas de símbolo (token) de AD FS se establecerá en http://bmcontoso.com/adfs/services/trust. Coincidirá con la configuración de Azure AD y la autenticación se realizará correctamente.
 
 A continuación se muestra la regla de notificaciones personalizada que implementa esta lógica:
 
@@ -163,5 +162,4 @@ Siga los pasos indicados a continuación para agregar una notificación personal
     ![Reemplazar notificación](./media/active-directory-multiple-domains/sub2.png)
 
 5. Haga clic en Aceptar.  Haga clic en Aplicar.  Haga clic en Aceptar.  Cierre Administración de AD FS.
-
 

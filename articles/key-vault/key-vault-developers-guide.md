@@ -1,6 +1,6 @@
 ---
 title: "Guía del desarrollador de Azure Key Vault"
-description: "Los desarrolladores pueden usar Azure Key Vault\npara administrar las claves criptográficas en el entorno de Microsoft Azure."
+description: "Los desarrolladores pueden usar Azure Key Vault\r\npara administrar las claves criptográficas en el entorno de Microsoft Azure."
 services: key-vault
 author: BrucePerlerMS
 manager: mbaldwin
@@ -9,12 +9,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bruceper
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 115862aca98926e354e4703f86cb4a7e1d1f72a2
-ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
-
+ms.openlocfilehash: fec4769c0bd571edea84dd2f766bb907d8819be5
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
 
@@ -140,6 +139,5 @@ para ayudarle a controlar y administrar las claves y secretos de cifrado de disc
 
 - [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) (biblioteca principal Microsoft Azure Key Vault) proporciona las interfaces **IKey** e **IKeyResolver** para localizar las claves de los identificadores y realizar operaciones con ellas.
 - [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) (extensiones de Microsoft Azure Key Vault) proporcionan capacidades ampliadas para Azure Key Vault.
-
 
 

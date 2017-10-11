@@ -10,12 +10,11 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 977d47fb72d1c9e2a482602aacc456ae95547676
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 2aa9d10749b54537495ad3e09566c43718f67a9e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Diseño de la primera base de datos de Azure Database for PostgreSQL con Azure Portal
 
@@ -34,10 +33,10 @@ En este tutorial usará Azure Portal para aprender a hacer lo siguiente:
 ## <a name="prerequisites"></a>Requisitos previos
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en el portal de Azure
-Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-## <a name="create-an-azure-database-for-postgresql"></a>Creación de una base de datos de Azure Database for PostgreSQL
+## <a name="create-an-azure-database-for-postgresql"></a>Creación de una instancia de Azure Database for PostgreSQL
 
 Un servidor de Azure Database for PostgreSQL se crea con un conjunto definido de [recursos de proceso y almacenamiento](./concepts-compute-unit-and-storage.md). El servidor se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md).
 
@@ -204,4 +203,3 @@ En este tutorial, aprendió a usar Azure Portal y otras utilidades para hacer lo
 > * Restauración de datos
 
 A continuación, obtenga información sobre cómo usar la CLI de Azure para hacer tareas similares en el tutorial [Diseño de la primera base de datos de Azure Database for PostgreSQL con la CLI de Azure](tutorial-design-database-using-azure-cli.md)
-

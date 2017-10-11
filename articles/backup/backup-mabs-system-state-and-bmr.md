@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: markgal,masaran
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 30f70a702d7d9a3e1196c04096708c035e406607
-ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Realizar una copia de seguridad del estado del sistema y restaurar a una reconstrucción completa con Azure Backup Server
 
 Azure Backup Server realiza una copia de seguridad del estado del sistema y proporciona protección de reconstrucción completa (BMR).
@@ -227,5 +225,4 @@ Ejecute Copias de seguridad de Windows Server:
     Use el identificador de versión para iniciar la restauración del estado del sistema. En el símbolo del sistema, escriba: ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```.
 
     Confirme que quiere iniciar la recuperación. Puede ver el proceso en la ventana del símbolo del sistema. Se crea un registro de restauración. Después de la restauración, reinicie el servidor.
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 0aaa99dda44d2020afd3e841e84020eb4ff87a85
-ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="permissions-in-azure-security-center"></a>Permisos en Azure Security Center
 
 Azure Security Center usa el [control de acceso basado en roles (RBAC)](../active-directory/role-based-access-control-configure.md), que proporciona [roles integrados](../active-directory/role-based-access-built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios de Azure.
@@ -65,4 +63,3 @@ En este artículo se ha explicado cómo Security Center usa RBAC para asignar pe
 - [Supervisar el estado de seguridad de los recursos de Azure](security-center-monitoring.md)
 - [Responder a alertas de seguridad en Security Center](security-center-managing-and-responding-alerts.md)
 - [Supervisar soluciones de seguridad de asociados](security-center-partner-solutions.md)
-

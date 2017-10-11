@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-ms.contentlocale: es-es
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100.
 ## <a name="overview"></a>Información general
@@ -190,8 +189,8 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
    
    | Etiqueta | Description |
    | --- | --- |
-   |   0,1,4,5 |Interfaces de red de&1; GbE |
-   |   2,3 |Interfaces de red de&10; GbE |
+   |   0,1,4,5 |Interfaces de red de 1 GbE |
+   |   2,3 |Interfaces de red de 10 GbE |
    |   6 |Puertos serie |
 2. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. La configuración adicional requerida para alta disponibilidad y rendimiento se muestra mediante líneas de puntos.
 
@@ -218,7 +217,7 @@ Cuando se realiza el cableado del dispositivo, la configuración mínima requier
 
 Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
 
-* Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan&10; GbE) en cada controlador.
+* Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador.
 * Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. En la ilustración se muestran las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos.
 
 Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
@@ -248,5 +247,4 @@ Ahora su dispositivo dispondrá de los cables de alimentación, de acceso a la r
 
 ## <a name="next-steps"></a>Pasos siguientes
 Aprenda cómo [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
-
 

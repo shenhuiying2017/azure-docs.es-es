@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 0c37a035cfc782e05dd72da7323fe244eadc4ce9
-ms.contentlocale: es-es
-ms.lasthandoff: 01/12/2017
-
-
+ms.openlocfilehash: 3861814974b95f0c65879158cb02ec727a25c99f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Con Azure, SnelStart ha expandido rápidamente sus servicios empresariales con una cifra de 1000 nuevas bases de datos SQL de Azure cada mes
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
@@ -109,5 +107,4 @@ El objetivo inmediato de SnelStart es seguir aumentando la base de clientes sati
 * Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute).    
 * Si quiere conocer más información sobre Azure este artículo, lea [este artículo](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * Para obtener más información sobre SnelStart, vea [este artículo](http://www.snelstart.nl).
-
 

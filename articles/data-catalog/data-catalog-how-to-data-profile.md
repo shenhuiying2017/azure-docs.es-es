@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1d825277b63e00d93136161d50d780daa95ea8a7
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 8f4174f0ed74706b8275c8b1f0a62753f2834fa2
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="data-profile-data-sources"></a>Orígenes de datos de perfiles de datos
 ## <a name="introduction"></a>Introducción
@@ -93,4 +92,3 @@ La generación de perfiles de datos proporciona estadísticas e información sob
 ## <a name="see-also"></a>Otras referencias
 * [Registro de orígenes de datos](data-catalog-how-to-register.md)
 * [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md)
-

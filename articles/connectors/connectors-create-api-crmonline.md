@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Conexión a Dynamics 365 desde flujos de trabajo de aplicación lógica
 
 Con Logic Apps puede conectarse a Dynamics 365 (en línea) y crear flujos de negocio útiles que creen registros, actualicen elementos o devuelvan una lista de registros. Con el conector de Dynamics 365, puede:
@@ -174,4 +172,3 @@ Vea los desencadenadores y las acciones definidos en Swagger y vea también todo
 
 ## <a name="next-steps"></a>Pasos siguientes
 Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
-

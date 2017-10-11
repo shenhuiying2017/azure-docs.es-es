@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un Firewall y grupos de seguridad de red
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
 
 En este ejemplo se creará una red perimetral con un firewall, cuatro servidores Windows y grupos de seguridad de red. También le guiará por cada uno de los comandos pertinentes para que comprenda mejor cada paso. Hay también una sección llamada "Escenario de tráfico" para proporcionar información detallada paso a paso de cómo pasa el tráfico a través de los niveles de defensa de la red perimetral. Por último, en la sección de referencias está el código completo e instrucciones para crear este entorno para probar y experimentar con diferentes escenarios. 
 
-![Red perimetral de entrada con dispositivo virtual de red y grupo de seguridad de red][1]
+![Entrada de la red Perimetral con NVA y NSG][1]
 
 ## <a name="environment-description"></a>Descripción del entorno
 En este ejemplo hay una suscripción que contiene lo siguiente:
@@ -94,11 +94,11 @@ Para crear la siguiente regla (o comprobar las reglas predeterminadas existentes
 
 Cree una nueva regla y asígnele un nombre, como "WebTraffic". 
 
-El icono de regla de NAT de destino tiene este aspecto:  ![Icono de NAT de destino][2]
+El icono de regla de NAT de destino tiene el siguiente aspecto: ![icono de NAT de destino][2]
 
 La regla debe tener un aspecto similar al siguiente:
 
-![Regla de firewall][3]
+![Regla de Firewall][3]
 
 Aquí cualquier dirección entrante que alcanza el firewall que intenta llegar a HTTP (puerto 80 o 443 para HTTPS) se enviará fuera de interfaz de "DHCP1 Local IP" del firewall y se redirigirá al servidor web con la dirección IP de 10.0.1.5. Puesto que el tráfico entra en el puerto 80 y se dirige al servidor web en el puerto 80, no se necesita ningún cambio de puerto. Sin embargo, la lista de destino podría haber sido 10.0.1.5:8080 si nuestro servidor web escucha en el puerto 8080, convirtiendo, por tanto, el puerto de entrada 80 del firewall en el puerto 8080 de entrada del servidor web.
 
@@ -579,9 +579,3 @@ Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red p
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

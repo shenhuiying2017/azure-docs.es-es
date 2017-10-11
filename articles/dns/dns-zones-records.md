@@ -15,14 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 
 En esta página se explican los conceptos básicos sobre dominios, zonas DNS y registros y conjuntos de registros DNS, y cómo se admiten en DNS de Azure.
@@ -69,7 +67,7 @@ Estas restricciones surgen de los estándares DNS; no son limitaciones de DNS de
 
 El registro NS establecido en el vértice de la zona (nombre "@") se crea automáticamente con cada zona DNS y se elimina de forma automática cuando se elimina la zona (no se puede eliminar por separado).
 
-Este conjunto de registros contiene los nombres de los servidores de nombres Azure DNS asignados a la zona. Puede agregar más servidores de nombres a este conjunto de registros NS, para admitir dominios de hospedaje conjunto con más de un proveedor DNS. También puede modificar el TTL y los metadatos para este conjunto de registros. Sin embargo, no puede quitar ni modificar los servidores de nombres de Azure DNS rellenados previamente. 
+Este conjunto de registros contiene los nombres de los servidores de nombres Azure DNS asignados a la zona. Puede agregar más servidores de nombres a este conjunto de registros NS, para admitir dominios de hospedaje conjunto con más de un proveedor DNS. También puede modificar el TTL y los metadatos de este conjunto de registros. Sin embargo, no puede quitar ni modificar los servidores de nombres de Azure DNS rellenados previamente. 
 
 Tenga en cuenta que esto solo se aplica al conjunto de registros NS en el vértice de la zona. Otros conjuntos de registros NS de su zona (como los que se usan para delegar zonas secundarias) se pueden crear, modificar y eliminar sin restricciones.
 
@@ -124,10 +122,10 @@ En el nivel de la API de REST de DNS de Azure, los valores de Etag se especifica
 
 | Encabezado | Comportamiento |
 | --- | --- |
-| Ninguna |PUT siempre se realiza correctamente (sin comprobaciones de ETag) |
-| If-match <etag> |PUT solo se realiza correctamente si el recurso existe y ETag coincide |
-| If-match * |PUT solo se realiza correctamente si el recurso existe |
-| If-none-match * |PUT solo se realiza correctamente si el recurso no existe |
+| None |PUT always succeeds (no Etag checks) |
+| If-match <etag> |PUT only succeeds if resource exists and Etag matches |
+| If-match * |PUT only succeeds if resource exists |
+| If-none-match * |PUT only succeeds if resource does not exist |
 
 
 ## <a name="limits"></a>límites
@@ -140,4 +138,3 @@ Se aplican los límites predeterminados siguientes cuando se usa DNS de Azure:
 
 * Para empezar a usar DNS de Azure, vea cómo [crear una zona DNS](dns-getstarted-create-dnszone-portal.md) y [crear registros DNS](dns-getstarted-create-recordset-portal.md).
 * Para migrar una zona DNS existente, vea cómo [importar y exportar un archivo de zona DNS](dns-import-export.md).
-

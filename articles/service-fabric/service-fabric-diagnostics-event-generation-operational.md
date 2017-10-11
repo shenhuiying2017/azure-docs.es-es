@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 934719868ab9968db352db2b440014d35dbc0274
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="operational-channel"></a>Canal operativo 
 
 El canal operativo consta de registros de acciones de alto nivel llevadas a cabo por Service Fabric en los nodos y el clúster. Cuando los diagnósticos están habilitados para un clúster, el agente de Azure Diagnostics se implementa en el clúster y se configura de forma predeterminada para leer los registros del canal operativo. Obtenga más información sobre la configuración del [agente de Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para modificar la configuración de diagnósticos del clúster para seleccionar más registros o contadores de rendimiento. 
@@ -61,4 +59,3 @@ A continuación figura una lista completa de los registros proporcionados por Se
 * Obtenga más información sobre la [generación de eventos general en el nivel de plataforma ](service-fabric-diagnostics-event-generation-infra.md) en Service Fabric
 * Modificación de la configuración de [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para recopilar más registros
 * [Configuración de Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) para ver los registros de canal operativo
-

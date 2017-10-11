@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
-ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>La implementación de Azure Resource Manager frente a la implementación clásica: los modelos de implementación y el estado de los recursos
 En este tema, hablamos sobre el modelo de implementación de Azure Resource Manager y el modelo de implementación clásica, el estado de los recursos y por qué los recursos se han implementado con uno u otro. El modelo de implementación de Resource Manager y el modelo de implementación clásica representan dos formas diferentes de implementar y administrar las soluciones de Azure. Usted trabaja con ellos a través de dos conjuntos de API distintos y los recursos implementados pueden contener diferencias importantes. Los dos modelos no son totalmente compatibles entre sí. En este tema se describen esas diferencias.
@@ -218,5 +217,4 @@ Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de i
 ## <a name="next-steps"></a>Pasos siguientes
 * Para ver un tutorial sobre la creación de la plantilla que define una máquina virtual, una cuenta de almacenamiento y una red virtual, consulte [Tutorial de la plantilla de Resource Manager](resource-manager-template-walkthrough.md).
 * Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
-
 

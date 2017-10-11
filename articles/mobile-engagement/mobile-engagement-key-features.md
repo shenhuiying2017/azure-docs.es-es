@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 8270a223ca31c623c1b760a64c0e4d64fb85e080
-ms.contentlocale: es-es
-ms.lasthandoff: 12/08/2016
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement---key-features"></a>Azure Mobile Engagement: características principales
 En este artículo se proporciona una introducción de alto nivel sobre las características principales de la plataforma Mobile Engagement. 
@@ -142,7 +141,6 @@ En este artículo se proporciona una introducción de alto nivel sobre las carac
 [26]: ./media/mobile-engagement-key-features/push_personalized.png
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
-
 
 
 

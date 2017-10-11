@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-database-security-overview"></a>Introducción a la seguridad de base de datos de Azure
 
 La seguridad es un aspecto importante a la hora de administrar bases de datos y siempre ha sido una prioridad para Azure SQL Database. Azure SQL Database admite la seguridad de conexión con las reglas de firewall y el cifrado de conexión. Es compatible con la autenticación mediante nombre de usuario y contraseña y con la autenticación de Azure Active Directory, que usa las identidades administradas por Azure Active Directory. La autorización usa el control de acceso basado en roles.
@@ -219,4 +217,3 @@ Azure Marketplace combina los ecosistemas de asociados de Microsoft Azure en una
 - Obtenga más información sobre [los servicios Azure Security Center y Azure SQL Database](https://docs.microsoft.com/azure/security-center/security-center-sql-database).
 - Para obtener más información sobre la detección de amenazas, consulte [Detección de amenazas de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 - Para obtener más información, consulte [Mejora del rendimiento de la base de datos de SQL](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial). 
-

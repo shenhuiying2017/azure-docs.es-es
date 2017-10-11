@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/16/2017
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 057d4d7370207859617eb63238bf425bfa6d3e16
-ms.contentlocale: es-es
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="change-a-blob-path-from-the-default-path-private-preview"></a>Cambio del valor predeterminado de la ruta de acceso de un blob (versión preliminar privada)
 
 En este artículo se describe cómo configurar una función de Azure para cambiar el nombre de una ruta de acceso de archivo de blob predeterminada. 
@@ -242,4 +240,3 @@ Acaba de crear una función de Azure. Esta función se desencadena cada vez que 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Uso de la IU de StorSimple Data Manager para transformar los datos](storsimple-data-manager-ui.md)
-

@@ -15,12 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: 041a8835a1dd185739b23d4073fd5811bb4490b5
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 En este artículo se describe el modelo de datos utilizado para los datos de informes de inserción para Log Analytics. Con este modelo de datos, puede crear consultas personalizadas y paneles y utilizarlos en OMS. 
@@ -288,4 +287,3 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacé
 
 ## <a name="next-steps"></a>Pasos siguientes
 Cuando revise el modelo de datos para crear informes de Azure Backup, puede iniciar la [creación de un panel](../log-analytics/log-analytics-dashboards.md) en Log Analytics y OMS.
-

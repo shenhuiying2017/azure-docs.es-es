@@ -1,4 +1,4 @@
-En la tabla siguiente se enumeran los límites asociados a los diferentes niveles de servicio (S1, S2, S3, F1). Para obtener información sobre el costo de cada *unidad* en cada nivel, consulte los [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
+En la tabla siguiente se enumeran los límites asociados a los diferentes niveles de servicio (S1, S2, S3, F1). Para obtener información sobre el costo de cada *unidad* en cada nivel, consulte los [Precios del Centro de IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Recurso | S1 Estándar | S2 Estándar | S3 Estándar | F1 Gratis |
 | --- | --- | --- | --- | --- |
@@ -10,14 +10,14 @@ En la tabla siguiente se enumeran los límites asociados a los diferentes nivele
 > 
 > 
 
-En la tabla siguiente se enumeran los límites que se aplican a los recursos de IoT Hub:
+En la tabla siguiente se enumeran los límites que se aplican a los recursos de Centro de IoT:
 
 | Recurso | Límite |
 | --- | --- |
-| Cantidad máxima de centros de IoT de pago por suscripción a Azure |10 |
-| Cantidad máxima de centros de IoT gratuitos por suscripción a Azure |1 |
+| Cantidad máxima de Centros de IoT de pago por suscripción a Azure |10 |
+| Cantidad máxima de Centros de IoT gratis por suscripción a Azure |1 |
 | Número máximo de identidades del dispositivo<br/> devueltas en una sola llamada |1000 |
-| Retención máxima de mensajes de IoT Hub para los mensajes de dispositivo a la nube |7 días |
+| Retención máxima de mensajes del Centro de IoT para los mensajes de dispositivo a la nube |7 días |
 | Tamaño máximo de mensaje del dispositivo a la nube |256 KB |
 | Tamaño máximo de lote de dispositivo a la nube |256 KB |
 | Número máximo de mensajes en lote del dispositivo a la nube |500 |
@@ -43,7 +43,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 > [!NOTE]
 > Actualmente, el número máximo de dispositivos que pueden conectarse a un solo centro de IoT es de 500 000. Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/en-us/support/options/).
 
-El servicio IoT Hub limita las solicitudes cuando se superan las cuotas siguientes:
+El servicio de Centro de IoT limita las solicitudes cuando se superan las cuotas siguientes:
 
 | Limitación | Valor por centro |
 | --- | --- |

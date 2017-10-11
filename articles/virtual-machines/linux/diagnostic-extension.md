@@ -9,12 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -385,7 +384,7 @@ Elemento | Valor
 ------- | -----
 espacio de nombres | (Opcional) es el espacio de nombres OMI en el que la consulta debería ejecutarse. Si no se especifica, el valor predeterminado es "root/scx", implementado por los [proveedores multiplataforma de System Center](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | Es la consulta de OMI que va a ejecutarse.
-table | (Opcional) es la tabla de Azure Storage, en la cuenta de almacenamiento designada (consulte [Configuración protegida](#protected-settings)).
+table | (Opcional) es la tabla de almacenamiento de Azure, en la cuenta de almacenamiento designada (consulte [Configuración protegida](#protected-settings)).
 frequency | (Opcional) es el número de segundos entre la ejecución de la consulta. El valor predeterminado es de 300 (5 minutos) y el mínimo es de 15 segundos.
 sinks | (Opcional) es una lista separada por comas de nombres de receptores adicionales en los que deberían publicarse los resultados de las métricas de muestra sin procesar. Ni la extensión ni Métricas de Azure computan ninguna agregación de estos ejemplos sin procesar.
 
@@ -705,4 +704,3 @@ Consulte los [documentos de EventHubs](../../event-hubs/event-hubs-what-is-event
 * Cree alertas de métricas de [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) para las métricas que recopile.
 * Cree [gráficos de supervisión](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para las métricas.
 * Obtenga información sobre cómo [crear un conjunto de escalado de máquinas virtuales](/azure/virtual-machines/linux/tutorial-create-vmss) con sus propias métricas para controlar el escalado automático.
-

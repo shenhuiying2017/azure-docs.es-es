@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Queue Storage para supervisar las notificaciones sobre trabajos de Media Services | Microsoft Docs
-description: "Descubra cómo usar Azure Queue Storage para supervisar las notificaciones sobre trabajos de Media Services. El ejemplo de código está escrito en C# y utiliza el SDK de Media Services para .NET."
+description: "Descubra cómo usar el almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Servicios multimedia. El ejemplo de código está escrito en C# y utiliza el SDK de Servicios multimedia para .NET."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,14 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 269ff9adde706715ad5889170470821a884daf3d
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.openlocfilehash: 5ee89d0ae4c3c56d164aff4e321ee99f015ba4fb
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Uso de Azure Queue Storage para supervisar las notificaciones sobre trabajos de Media Services con .NET
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Uso del almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Servicios multimedia con .NET
 Al ejecutar trabajos de codificación, muchas veces se requiere una forma de hacer un seguimiento del progreso del trabajo. Puede configurar Media Services para entregar notificaciones a [Azure Queue Storage](../storage/storage-dotnet-how-to-use-queues.md). Puede supervisar el progreso del trabajo obteniendo notificaciones desde Queue Storage. 
 
 Se puede obtener acceso a los mensajes entregados al almacenamiento de cola desde cualquier lugar del mundo. La arquitectura de mensajería de Queue Storage es fiable y altamente escalable. El sondeo de mensajes en Queue Storage es preferible a otros métodos.
@@ -33,7 +32,7 @@ En este tema se muestra cómo obtener mensajes de notificación de Queue Storage
 ## <a name="considerations"></a>Consideraciones
 Tenga en cuenta lo siguiente al desarrollar aplicaciones de Media Services que usen Queue Storage:
 
-* Queue Storage no ofrece ninguna garantía de entrega ordenada de tipo primero en entrar, primero en salir (FIFO). Para obtener más información, consulte [Colas de Azure y de Azure Service Bus: comparación y diferencias](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* Queue Storage no ofrece ninguna garantía de entrega ordenada de tipo primero en entrar, primero en salir (FIFO). Para obtener más información, consulte [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 * Queue Storage no es un servicio de inserción. Tiene que sondear la cola.
 * Puede tener cualquier número de colas. Para obtener más información, consulte la [API de REST del servicio de cola](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
 * Queue Storage tiene algunas limitaciones y particularidades que deben tenerse en cuenta. Estas se describen en [Colas de Azure y de Azure Service Bus: comparación y diferencias](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
@@ -43,7 +42,7 @@ Tenga en cuenta lo siguiente al desarrollar aplicaciones de Media Services que u
 El ejemplo de código de esta sección realiza lo siguiente:
 
 1. Define la clase **EncodingJobMessage** que se asigna al formato de mensaje de notificación. El código deserializa los mensajes recibidos de la cola en objetos del tipo **EncodingJobMessage** .
-2. Carga la información de cuenta de almacenamiento y Media Services del archivo app.config. El ejemplo de código usa esta información para crear los objetos **CloudMediaContext** y **CloudQueue**.
+2. Carga la información de cuenta de almacenamiento y Servicios multimedia del archivo app.config. El ejemplo de código usa esta información para crear los objetos **CloudMediaContext** y **CloudQueue**.
 3. Crea la cola que va a recibir los mensajes de notificación sobre el trabajo de codificación.
 4. Crea el extremo de notificación que se asigna a la cola.
 5. Adjunta el extremo de notificación al trabajo y envía el trabajo de codificación. Puede tener varios extremos de notificación adjuntos a un trabajo.
@@ -356,10 +355,9 @@ El ejemplo anterior genera el siguiente resultado. Los valores variarán.
 
 
 ## <a name="next-step"></a>Paso siguiente
-Consulte las rutas de aprendizaje de Media Services.
+Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

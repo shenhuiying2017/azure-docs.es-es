@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9b22679c304248ed7ba7a6bd9eaf82b64f7143cf
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento de usuarios
 
@@ -74,7 +73,7 @@ Azure AD admite la capacidad de sincronizar automáticamente los detalles de la 
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**. 
 
-    ![aprovisionamiento](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![Aprovisionamiento](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
 5. En la sección **Credenciales de administrador**, escriba el token del secreto y la dirección URL del inquilino de su administrador de Workplace by Facebook.
 
@@ -88,7 +87,7 @@ Azure AD admite la capacidad de sincronizar automáticamente los detalles de la 
 
 10. En la sección **Attribute Mappings** (Asignaciones de atributos), revise los atributos de usuario que se sincronizan entre Azure AD y Workplace by Facebook. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Workplace by Facebook con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
-11. Para habilitar el servicio de aprovisionamiento de Azure AD para Workplace by Facebook cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+11. Para habilitar el servicio de aprovisionamiento de Azure AD para Workplace by Facebook, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
 12. Haga clic en **Guardar**.
 
@@ -101,5 +100,4 @@ Ahora puede crear una cuenta de prueba. Espere 20 minutos para comprobar que la 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Configuración del inicio de sesión único](active-directory-saas-workplacebyfacebook-tutorial.md)
-
 

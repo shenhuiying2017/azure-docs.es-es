@@ -1,5 +1,4 @@
 ---
-
 title: "¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B a Azure Active Directory? | Microsoft Docs"
 description: "La colaboración B2B permite a los trabajadores de la información agregar usuarios de su organización para el acceso a Azure AD | Microsoft Docs"
 services: active-directory
@@ -16,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: c6ca561d1a02e283c7932f08f53b8dd590208835
-ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B a Azure Active Directory?
 
 Los trabajadores de la información pueden usar el [panel de acceso a las aplicaciones](http://myapps.microsoft.com) para agregar usuarios de colaboración B2B a los grupos y las aplicaciones que administran.
@@ -55,4 +52,3 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
 * [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-

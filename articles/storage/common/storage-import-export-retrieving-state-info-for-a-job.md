@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
 ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
-ms.lasthandoff: 03/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Recuperación de la información de estado de un trabajo de Import/Export
 Puede llamar a la operación [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) para obtener información sobre trabajos tanto de importación como de exportación. Entre la información devuelta se incluyen los siguientes datos:
 
@@ -94,4 +92,3 @@ Cuando un trabajo o una unidad no pueda progresar normalmente a través de su ci
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Uso de la API de REST del servicio Azure Import/Export](storage-import-export-using-the-rest-api.md)
-

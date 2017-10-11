@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 703b516c8fd443d2bb751530a8f62496b020cb5d
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: 3cfcc5abbee03ca8fbbec4e4eae711e7c2d9deae
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Uso de Helm para implementar contenedores en un clúster de Kubernetes 
 
@@ -154,5 +153,4 @@ Ahora puede usar los comandos SQL estándar para crear bases de datos, tablas, e
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre cómo administrar gráficos de Kubernetes, vea la [Documentación de Helm](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
-
 

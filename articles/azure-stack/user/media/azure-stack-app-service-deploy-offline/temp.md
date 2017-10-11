@@ -1,1 +1,1 @@
-temp file
+archivos temporales

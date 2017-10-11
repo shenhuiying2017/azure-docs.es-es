@@ -9,14 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/20/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 49d1a893f4c7c7d99bf30ac7f7665c05019b02f4
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 3fbdb7741481bd3620466c3489d3609f9ea6961f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL mediante Azure Portal
 
 ## <a name="backup-happens-automatically"></a>Las copias de seguridad se realizan automáticamente
@@ -45,8 +43,8 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
    ![Azure Database for PostgreSQL - Información sobre restauración ](./media/postgresql-howto-restore-server-portal/3_restore.png)
   - **Punto de restauración**: seleccione el momento antes de que se modificara la base de datos.
-  - **Servidor de destino**: especifique el nombre del nuevo servidor donde desea restaurar.
-  - **Ubicación**: no se puede seleccionar la región; de forma predeterminada, es la misma que la del servidor de origen.
+  - **Servidor de destino**: especifique el nombre del nuevo servidor donde desea restaurar
+  - **Ubicación**: no se puede seleccionar la región; de forma predeterminada, es la misma que la del servidor de origen
   - **Plan de tarifa**: no se puede cambiar este valor al restaurar un servidor. Es el mismo que el del servidor de origen. 
 
 5. Haga clic en **Aceptar** para restaurar el servidor a un momento dado. 
@@ -55,4 +53,3 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Bibliotecas de conexiones de Azure Database para PostgreSQL](concepts-connection-libraries.md)
-

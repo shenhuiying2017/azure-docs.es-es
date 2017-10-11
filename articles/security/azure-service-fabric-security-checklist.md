@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: d0441f1e96e94352d4112ec387058b47074d8b0b
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Lista de comprobación de seguridad de Azure Service Fabric
 En este artículo se proporciona una sencilla lista de comprobación que le ayudará a proteger el entorno de Azure Service Fabric.
@@ -51,4 +50,3 @@ Utilice la siguiente lista de comprobación como ayuda para asegurarse de que no
 - [Proceso de actualización del clúster de Service Fabric y expectativas del usuario](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-upgrade)
 - [Administración de aplicaciones de Service Fabric en Visual Studio](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-manage-application-in-visual-studio).
 - [Introducción al modelo de mantenimiento de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-health-introduction).
-

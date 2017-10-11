@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
 ms.author: mthalman;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-up-service-fabric-continuous-integration-and-deployment-with-visual-studio-team-services"></a>Configuración de la integración continua y la implementación de Service Fabric con Visual Studio Team Services
 En este artículo se describen los pasos necesarios para configurar la integración continua y la implementación de una aplicación de Azure Service Fabric mediante Visual Studio Team Services (VSTS).
@@ -131,5 +130,4 @@ Para obtener más información sobre la integración continua con las aplicacion
 * [Página de inicio de la documentación de Team Services](https://www.visualstudio.com/docs/overview)
 * [Administración de compilaciones en Team Services](https://www.visualstudio.com/docs/build/overview)
 * [Administración de versiones en Team Services](https://www.visualstudio.com/docs/release/overview)
-
 

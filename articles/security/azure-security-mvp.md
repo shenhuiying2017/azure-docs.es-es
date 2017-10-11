@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4e9f0b21c731cfcba0019892f84872cc36125630
-
-
+ms.openlocfilehash: 9a9f4341aaca5bb6049c6d85993c92ea6dd1c8dd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-mvp-program"></a>Programa MVP de seguridad de Azure
 Los profesionales más valiosos (MVP) de Microsoft son líderes de la comunidad que han demostrado un compromiso ejemplar para ayudar a que otros usuarios saquen el máximo partido de su experiencia con las tecnologías de Microsoft. Comparten su experiencia técnica, sus conocimientos prácticos y su pasión excepcionales con la comunidad y con Microsoft.
@@ -30,9 +30,3 @@ Nos complace anunciar que Microsoft Azure ahora reconoce a los expertos de la co
 Aunque no hay que superar ninguna prueba de referencia para convertirse en MVP, entre los criterios que se evalúan se incluyen el impacto de las contribuciones de los candidatos en los foros en línea (como Microsoft Answers, TechNet y MSDN, creación de wikis y contenido online, conferencias y grupos de usuarios, podcasts, sitios web, blogs y participación en redes sociales, así como publicación de artículos y libros.
 
 ¿Es experto en la seguridad de Azure? ¿Conoce a alguien que lo sea? En ese caso, [propóngase asimismo o a otra persona](https://mvp.microsoft.com/Nomination/nominate-an-mvp) para convertirse en un MVP de seguridad de Azure hoy mismo.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

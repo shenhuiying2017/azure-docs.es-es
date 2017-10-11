@@ -9,14 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 06/08/2017
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: e746f28829063f8437ad408c4681f90aec6c0e0a
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Bibliotecas de conexiones de Azure Database for MySQL
 En este tema se muestra cada biblioteca o controlador que pueden usar los programas cliente al conectarse a Azure Database for MySQL.
 
@@ -39,4 +37,3 @@ MySQL ofrece conectividad de controlador de base de datos estándar para el uso 
 ## <a name="next-steps"></a>Pasos siguientes
 [Introducción a Azure Database for MySQL](./overview.md)
 [Conceptos de servidor en Azure Database for MySQL](./concepts-servers.md)
-

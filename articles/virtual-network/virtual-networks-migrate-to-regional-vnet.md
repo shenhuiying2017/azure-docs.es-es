@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: b9b3bd0f2184ac85261166d5fe2ab67e1bf319d4
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Migración de una red virtual (clásica) de un grupo de afinidad a una región
 
@@ -62,4 +61,3 @@ Por lo general, se recomienda no usar grupos de afinidad. Además del requisito 
 
 ## <a name="what-to-do-if-you-have-a-vm-classic-in-an-affinity-group"></a>Qué hacer si tiene una máquina virtual (clásica= en un grupo de afinidad
 No es necesario quitar las máquinas virtuales (clásicas) que están en un grupo de afinidad de dicho grupo. Una vez implementada una máquina virtual, se implementa en una sola unidad de escalado. Los grupos de afinidad pueden restringir el conjunto de tamaños de máquina virtual disponibles para una nueva implementación de máquina virtual, pero cualquier máquina virtual existente que esté implementa ya está restringida al conjunto de tamaños de máquina virtual disponible en la unidad de escalado en el que se implementa la máquina virtual. Dado que la máquina virtual se ha implementado en una unidad de escalado, quitar una máquina virtual de un grupo de afinidad no tiene ningún efecto en la máquina virtual.
-

@@ -13,12 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: kapiteir
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 5a21bcd9f12fc3f96b17a556ba15526c35ababe2
-ms.contentlocale: es-es
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticación basada en token (HTTP/2) para APNs
 ## <a name="overview"></a>Información general
@@ -119,4 +118,3 @@ A continuación se muestra un ejemplo de código que ilustra el uso correcto:
 
 ## <a name="reverting-to-using-certificate-based-authentication"></a>Volver a usar la autenticación basada en certificados
 Puede volver a usar en cualquier momento la autenticación basada en certificados. Para ello, use cualquiera de los métodos anteriores y pase las propiedades del certificado en lugar de las propiedades del token. Esta acción sobrescribe las credenciales almacenadas previamente.
-

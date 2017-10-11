@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Reenvío de datos de informes de DSC de Azure Automation a Log Analytics de OMS
 
@@ -197,5 +196,4 @@ Log Analytics proporciona mayor visibilidad operativa para los datos de DSC de A
 * Para aprender a crear diferentes consultas de búsqueda y a revisar los registros de DSC de Automation con Log Analytics, consulte el artículo [Búsqueda de datos mediante búsquedas de registros](../log-analytics/log-analytics-log-searches.md)
 * Para más información acerca del uso de DSC de Azure Automation, consulte [Introducción al DSC de Automatización de Azure](automation-dsc-getting-started.md)
 * Para más información acerca de Log Analytics de OMS y de los orígenes de recopilación de datos, consulte [Conexión de Almacenamiento de Azure con Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
-ms.contentlocale: es-es
-ms.lasthandoff: 12/06/2016
-
+ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Conexión de productos de seguridad a la solución Seguridad y auditoría de Operations Management Suite (OMS) 
 Este documento le ayuda a conectar sus productos de seguridad en la solución Seguridad y auditoría de OMS. Se admiten los siguientes orígenes:
@@ -64,7 +63,7 @@ En el equipo del agente, los eventos tienen que enviarse desde el demonio syslog
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. Descargue el archivo *security_events.conf* y colóquelo en */etc/opt/microsoft/omsagent/conf/omsagent.d/* en el equipo del agente OMS.
-4. Escriba el siguiente comando para reiniciar el demonio syslog:  *Para la ejecución de syslog-ng:*
+4. Escriba el siguiente comando para reiniciar el demonio syslog: *para syslog-ng ejecutar:*
     
     ```
     sudo service rsyslog restart
@@ -111,7 +110,6 @@ OMS admite el perfil de línea base de miembros de dominio en Windows Server 200
 En este documento, ha aprendido a conectar su solución CEF a OMS. Para obtener más información sobre Seguridad de OMS, consulte los siguientes artículos:
 
 * [Información general de Operations Management Suite (OMS)](operations-management-suite-overview.md)
-* [Supervisión de las alertas de seguridad y su respuesta en la solución Seguridad y auditoría de Operations Management Suite](oms-security-responding-alerts.md)
-* [Supervisión de los recursos en la solución Seguridad y auditoría de Operations Management Suite](oms-security-monitoring-resources.md)
-
+* [Supervisión de las alertas de seguridad y su respuesta en la solución Security and Audit de Operations Management Suite](oms-security-responding-alerts.md)
+* [Supervisión de los recursos en la solución Security and Audit de Operations Management Suite](oms-security-monitoring-resources.md)
 

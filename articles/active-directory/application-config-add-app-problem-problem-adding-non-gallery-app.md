@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 2dd8ed2cc0cd9575dcc56f489afa19a41cc9c10a
-ms.contentlocale: es-es
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: bb3fc7877f4e7cafc3904fc67abd87b897874d8a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-adding-a-non-gallery-application"></a>Problemas al agregar una aplicación que no pertenece a la galería
 
 Este artículo le ayuda a conocer los problemas habituales a los que se enfrentan los usuarios al agregar **aplicaciones personalizadas que no pertenecen a la galería** y los pasos que se deben dar para resolverlos. 
@@ -45,7 +43,7 @@ Si necesita ayuda para obtener más detalles sobre las aplicaciones personalizad
 
 Puede ver los detalles de cualquier notificación del portal si sigue los pasos siguientes:
 
-1.  Haga clic en el icono de **notificaciones** (la campana) de la esquina superior derecha de Azure Portal
+1.  Haga clic en el icono de **notificaciones** (la campana) de la esquina superior derecha de Azure Portal.
 
 2.  Seleccione cualquier notificación con un estado de **Error** (aquellas con un icono (!) de color rojo situado junto a ellas).
 
@@ -64,7 +62,7 @@ Puede ver los detalles de cualquier notificación del portal si sigue los pasos 
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Obtención de ayuda mediante el envío de detalles de la notificación a un ingeniero de soporte técnico
 
-Es muy importante que comparta **todos los detalles que se muestran a continuación** con un ingeniero de soporte técnico si necesita ayuda, para que puedan ayudarle rápidamente. Puede hacer esto fácilmente **realizando una captura de pantalla,** o haciendo clic en el **icono Copiar error**, que se encuentra a la derecha del cuadro de texto **Copiar error**.
+Es muy importante que comparta **todos los detalles que se muestran a continuación** con un ingeniero de soporte técnico si necesita ayuda, para que pueda ayudarle rápidamente. Puede hacer esto fácilmente **realizando una captura de pantalla** o haciendo clic en el **icono Copiar error**, que se encuentra a la derecha del cuadro de texto **Copiar error**.
 
 ## <a name="notification-details-explained"></a>Explicación de los detalles de la notificación
 
@@ -131,7 +129,6 @@ A continuación se explica más en profundidad lo que significa cada uno de los 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Administración de aplicaciones con Azure Active Directory](active-directory-enable-sso-scenario.md)
-
 
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: f9c1e41c423cc0d638d5c1d273d58b2fe713fa1c
-ms.openlocfilehash: 2aeb1f20255264ca97b8aff6bd506b5fa1832e28
-
-
+ms.openlocfilehash: e0c2d827553567ddbc7d006192dc35574e66f1cd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: una herramienta auxiliar que se usa para mostrar la característica de personalización de la interfaz de usuario de la página
 Este artículo es un complemento del [artículo principal sobre personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md) de Azure Active Directory (Azure AD) B2C. Los pasos siguientes describen cómo ejecutar la característica de personalización de la interfaz de usuario de la página mediante el contenido HTML y CSS de ejemplo que hemos proporcionado.
@@ -86,10 +86,4 @@ En el mismo repositorio, descomprima `B2CAzureStorageClient.zip` y ejecute el ar
 Ahora que ha cargado el contenido de ejemplo en su propia cuenta de almacenamiento, debe modificar la directiva de registro para que haga referencia a él. Repita los pasos de la sección anterior ["Personalización de la directiva"](#customize-your-policy) , esta vez usando las direcciones URL de su propia cuenta de almacenamiento. Por ejemplo, la ubicación de su archivo `unified.html` sería `<url-of-your-container>/wingtip/unified.html`.
 
 Ahora puede usar el botón **Ejecutar ahora** o su propia aplicación para volver a ejecutar la directiva. El resultado debería ser casi exactamente el mismo, ya que usó el mismo HTML y CSS de ejemplo en ambos casos. Sin embargo, las directivas ahora hacen referencia a su propia instancia de Almacenamiento de blobs de Azure, y tiene la posibilidad de editar y volver a cargar los archivos a su gusto. Para más información acerca de la personalización de HTML y CSS, consulte el [artículo principal sobre la personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

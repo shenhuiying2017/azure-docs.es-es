@@ -1,6 +1,6 @@
 ---
 title: "Uso de Azure Storage con una solución de integración continua Jenkins | Microsoft Docs"
-description: "En este tutorial se muestra cómo usar Azure Blob Service como repositorio para artefactos de compilación creados por una solución de integración continua Jenkins."
+description: "En este tutorial se muestra cómo usar el servicio BLOB de Azure como repositorio para artefactos de compilación creados por una solución de integración continua Jenkins."
 services: storage
 documentationcenter: java
 author: seguler
@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 174ac449e803ed5327468a38ea7264cb9923a877
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Uso del Almacenamiento de Azure con una solución de integración continua Jenkins
 ## <a name="overview"></a>Información general
@@ -32,8 +31,8 @@ Jenkins permite la integración continua de un proyecto de software al hacer pos
 
 Puede encontrar más información acerca de Jenkins en [Meet Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins).
 
-## <a name="benefits-of-using-the-blob-service"></a>Ventajas de usar Blob Service
-Las ventajas de usar Blob Service para hospedar los artefactos de compilación para el desarrollo ágil son:
+## <a name="benefits-of-using-the-blob-service"></a>Ventajas de usar el servicio BLOB
+Las ventajas de usar el servicio BLOB para hospedar los artefactos de compilación para el desarrollo ágil son:
 
 * Alta disponibilidad de sus artefactos de compilación o de sus dependencias descargables.
 * Rendimiento si la solución de integración continua Jenkins carga los artefactos de compilación
@@ -41,7 +40,7 @@ Las ventajas de usar Blob Service para hospedar los artefactos de compilación p
 * Control sobre las directivas de acceso de usuarios, con una opción entre acceso anónimo, acceso compartido basado en expiración, acceso mediante firma, acceso privado, etc.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para usar Blob Service con la solución de integración continua Jenkins, necesitará lo siguiente:
+Para usar el servicio BLOB con la solución de integración continua Jenkins, necesitará lo siguiente:
 
 * Una solución de integración continua Jenkins.
   
@@ -57,10 +56,10 @@ Para usar Blob Service con la solución de integración continua Jenkins, necesi
       Aunque una solución de integración continua Jenkins típica se configuraría para ejecutarse como un servicio, la ejecución del archivo war de Jenkins en la línea de comandos será suficiente para este tutorial.
 * Una cuenta de Azure. Puede iniciar sesión en una cuenta de Azure en <http://www.azure.com>.
 * Una cuenta de almacenamiento de Azure. Si aún no tiene una cuenta de almacenamiento, puede crearla con los pasos descritos en [Creación de una cuenta de almacenamiento](../common/storage-create-storage-account.md#create-a-storage-account).
-* Es recomendable estar familiarizado con la solución de integración continua Jenkins, pero no obligatorio, ya que a continuación se ilustrará un ejemplo básico con los pasos que debe seguir para usar Blob Service como repositorio para los artefactos de compilación de integración continua Jenkins.
+* Es recomendable estar familiarizado con la solución de integración continua Jenkins, pero no obligatorio, ya que a continuación se ilustrará un ejemplo básico con los pasos que debe seguir para usar el servicio BLOB como repositorio para los artefactos de compilación de integración continua Jenkins.
 
-## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Uso de Blob Service con la integración continua Jenkins
-Para usar Blob Service con Jenkins, necesitará instalar el complemento de almacenamiento de Azure, configurarlo para usar la cuenta de almacenamiento y, a continuación, crear una acción posterior a la compilación que cargue los artefactos de compilación en la cuenta de almacenamiento. Estos pasos se describen en las secciones siguientes.
+## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Uso del servicio BLOB con la integración continua Jenkins
+Para usar el servicio BLOB con Jenkins, necesitará instalar el complemento de almacenamiento de Azure, configurarlo para usar la cuenta de almacenamiento y, a continuación, crear una acción posterior a la compilación que cargue los artefactos de compilación en la cuenta de almacenamiento. Estos pasos se describen en las secciones siguientes.
 
 ## <a name="how-to-install-the-azure-storage-plugin"></a>Instalación del complemento de almacenamiento de Azure
 1. En el panel de Jenkins, haga clic en **Manage Jenkins**(Administrar Jenkins).
@@ -74,9 +73,9 @@ Para usar Blob Service con Jenkins, necesitará instalar el complemento de almac
 1. En el panel de Jenkins, haga clic en **Manage Jenkins**(Administrar Jenkins).
 2. En la página **Manage Jenkins** (Administrar Jenkins), haga clic en **Configure System** (Configurar sistema).
 3. En la sección **Microsoft Azure Storage Account Configuration** (Configuración de la cuenta de almacenamiento de Microsoft Azure):
-   1. Escriba el nombre de la cuenta de almacenamiento, que puede obtener en [Azure Portal](https://portal.azure.com).
-   2. Escriba la clave de la cuenta de almacenamiento, que también puede obtener en [Azure Portal](https://portal.azure.com).
-   3. Use el valor predeterminado para **Blob Service Endpoint URL** (Dirección URL del punto de conexión de Blob Service) si usa la nube pública de Azure. Si usa una nube de Azure distinta, use el punto de conexión tal y como se especifica en [Azure Portal](https://portal.azure.com) para la cuenta de almacenamiento. 
+   1. Escriba el nombre de la cuenta de almacenamiento, que puede obtener en el [Portal de Azure](https://portal.azure.com).
+   2. Escriba la clave de la cuenta de almacenamiento, que también puede obtener en el [Portal de Azure](https://portal.azure.com).
+   3. Use el valor predeterminado para **Blob Service Endpoint URL** (Dirección URL del extremo de servicio BLOB) si usa la nube pública de Azure. Si usa una nube de Azure distinta, use el punto de conexión tal y como se especifica en el [Portal de Azure](https://portal.azure.com) para la cuenta de almacenamiento. 
    4. Haga clic en **Validate storage credentials** (Validar credenciales de almacenamiento) para validar la cuenta de almacenamiento. 
    5. [Opcional] Si tiene más cuentas de almacenamiento que desea que estén disponibles para la integración continua Jenkins, haga clic en **Add more Storage Accounts**(Agregar más cuentas de almacenamiento).
    6. Haga clic en **Save** (Guardar) para guardar la configuración.
@@ -111,7 +110,7 @@ Con el fin de facilitar instrucciones, primero necesitaremos crear un trabajo qu
 12. Haga clic en **Save** (Guardar) para guardar la configuración.
 13. En el panel de Jenkins, haga clic en **Build Now** (Compilar ahora) para ejecutar **MyJob**. Examine el resultado de la consola para consultar el estado. Los mensajes de estado sobre el almacenamiento de Azure se incluirán en los resultados de la consola cuando la acción posterior a la compilación comience a cargar los artefactos de compilación.
 14. Tras completar el trabajo satisfactoriamente, abra el blob público si desea examinar los artefactos de compilación.
-    1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+    1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
     2. Haga clic en **Storage**(Almacenamiento).
     3. Haga clic en el nombre de la cuenta de almacenamiento que ha usado para Jenkins.
     4. Haga clic en **Containers**(Contenedores).
@@ -132,8 +131,8 @@ Si tiene elementos adicionales que desea descargar del almacenamiento de blobs d
 
 Después de ejecutar una compilación, puede comprobar la salida de la consola del historial de compilación, o examinar la ubicación de descarga, para ver si los blobs que esperaba se han descargado correctamente.  
 
-## <a name="components-used-by-the-blob-service"></a>Componentes usados por Blob Service
-A continuación se ofrece información general acerca de los componentes de Blob Service.
+## <a name="components-used-by-the-blob-service"></a>Componentes usados por el servicio BLOB
+A continuación se ofrece información general acerca de los componentes del servicio BLOB.
 
 * **Cuenta de almacenamiento**: todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Se trata del nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
 * **Contenedor**: un contenedor proporciona una agrupación de un conjunto de blobs. Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un número ilimitado de contenedores y un contenedor puede almacenar un número ilimitado de blobs.
@@ -142,7 +141,7 @@ A continuación se ofrece información general acerca de los componentes de Blob
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    (El formato anterior se aplica a la nube pública de Azure. Si usa una nube de Azure distinta, use el punto de conexión en [Azure Portal](https://portal.azure.com) para determinar el punto de conexión de la URL).
+    (El formato anterior se aplica a la nube pública de Azure. Si usa una nube de Azure distinta, use el punto de conexión en el [Portal de Azure](https://portal.azure.com) para determinar el punto de conexión de la URL).
   
     En el formato anterior, `storageaccount` representa el nombre de la cuenta de almacenamiento, `container_name` representa el nombre del contenedor y `blob_name` representa el nombre del blob. En el nombre del contenedor, puede tener varias rutas de acceso, separadas por una barra diagonal, **/**. El nombre de contenedor utilizado como ejemplo para este tutorial es **MyJob** y **${BUILD\_ID}/${BUILD\_NUMBER}** se ha usado para la ruta de acceso virtual común; como resultado, la URL del blob presenta el siguiente formato:
   
@@ -153,6 +152,6 @@ A continuación se ofrece información general acerca de los componentes de Blob
 * [SDK de almacenamiento de Azure para Java](https://github.com/azure/azure-storage-java)
 * [Referencia del SDK de cliente de almacenamiento de Azure](http://dl.windowsazure.com/storage/javadoc/)
 * [API de REST de servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog del equipo de Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
 Para más información, visite [Azure para desarrolladores de Java](/java/azure).

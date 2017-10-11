@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 4c0040db9e232b2bb1506282cad57175c61a5b81
-ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: b154a01d1690bff4950ebc1ff5a5b89894d4d111
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análisis de usuarios, sesiones y eventos en Application Insights
 
 Descubra cuándo los usuarios utilizan la aplicación web, en qué páginas que están más interesados, en qué ubicación se encuentran dichos usuarios, y los sistemas operativos y exploradores que emplean. Analice la telemetría de uso y de negocio con [Azure Application Insights](app-insights-overview.md).
@@ -74,5 +72,4 @@ La barra lateral de Información detallada muestra grandes grupos los usuarios q
     - [Flujos de usuario](app-insights-usage-flows.md)
     - [Libros](app-insights-usage-workbooks.md)
     - [Adición de contexto de usuario](app-insights-usage-send-user-context.md)
-
 

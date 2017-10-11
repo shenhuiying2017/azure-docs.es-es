@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 1996ec97e7c0d94c5606ca43bb5956548f1f3712
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Tutorial: Integración de Azure Active Directory con AirWatch
 
@@ -127,7 +126,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_configure.png) 
 
-6. Haga clic en el botón **Guardar** .
+6. Haga clic en el botón **Guardar**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-airwatch-tutorial/tutorial_general_400.png)
 <CS>
@@ -308,5 +307,4 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 [201]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_203.png
-
 

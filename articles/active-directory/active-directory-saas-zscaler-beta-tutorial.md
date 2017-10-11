@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 72b4efc6b3bb58e63a399ab26c42984f070d9307
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integración de Azure Active Directory con Zscaler Beta
 
@@ -147,7 +146,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. Haga clic en **Configure SAML Single Sign-On Parameters**(Configurar parámetros de inicio de sesión único SAML).
 
-11. En la página de diálogo **Configure SAML Single Sign-On Parameters** (Configurar parámetros de inicio de sesión único de SAML), realice estos pasos y luego haga clic en **Done** (Listo).
+11. En la página de diálogo **Configure SAML Single Sign-On Parameters** (Configurar parámetros de inicio de sesión único SAML), realice estos pasos y luego haga clic en **Done** (Listo)
 
     ![Inicio de sesión único](./media/active-directory-saas-zscaler-beta-tutorial/ic800209.png "Inicio de sesión único")
     
@@ -257,7 +256,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Zscaler Beta, debe
         
     ![Agregar usuario](./media/active-directory-saas-zscaler-beta-tutorial/ic781038.png "Agregar usuario")
    
-    a. Escriba el **Id. de usuario**, el **Nombre para mostrar del usuario**, la **Contraseña**, el valor para **Confirmar contraseña** y después seleccione **Grupos** y el **Departamento** de una cuenta de Azure AD válida que quiera aprovisionar.
+    a. Escriba el **identificador de usuario**, el **nombre para mostrar del usuario**, la **contraseña**, el valor de **Confirmar contraseña** y, después, seleccione **Grupos** y el valor de **Departamento** de una cuenta de Azure AD válida que quiera aprovisionar.
 
     b. Haga clic en **Guardar**.
 
@@ -319,5 +318,4 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-zscaler-beta-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zscaler-beta-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zscaler-beta-tutorial/tutorial_general_203.png
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: aabe99dbd375b80e4a87ca7a067927008672b4ed
-ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-10-enable-replication-for-hyper-v-vms-replicating-to-azure"></a>Paso 10: habilitación de la replicación para replicar máquinas virtuales de Hyper-V en Azure
 
 
@@ -81,5 +79,4 @@ Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en
 ## <a name="next-steps"></a>Pasos siguientes
 
 
-Vaya al [paso 11: ejecución de una conmutación por error de prueba](hyper-v-site-walkthrough-test-failover.md)
-
+Vaya a [Paso 11: Ejecución de una conmutación por error de prueba](hyper-v-site-walkthrough-test-failover.md)

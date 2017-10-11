@@ -14,12 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: fd3d28b133ef8e646f5c2f1c1127f654daa61b95
-ms.contentlocale: es-es
-ms.lasthandoff: 03/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="download-the-azure-sdk-for-php"></a>Descarga del SDK de Azure para PHP
 ## <a name="overview"></a>Información general
@@ -88,4 +87,3 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-

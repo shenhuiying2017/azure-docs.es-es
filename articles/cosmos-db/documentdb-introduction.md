@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
 ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
-ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Introducción a Azure Cosmos DB: API de DocumentDB
 
@@ -111,5 +110,4 @@ Sí, en la [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-
 ¿Ya tiene una cuenta de Azure? Entonces puede empezar a trabajar con Azure Cosmos DB; deje que nuestras [guías de inicio rápido](../cosmos-db/create-documentdb-dotnet.md) le indiquen el proceso de creación de una cuenta e iniciación a Cosmos DB.
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
-
 

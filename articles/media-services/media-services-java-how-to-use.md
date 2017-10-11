@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4cf3aaa9678c423c71cf542591a5a98547bb5cf5
-ms.contentlocale: es-es
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: 2294f3de094389f8aa500c75472e753339b18358
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Introducción a la entrega de contenido a petición mediante Java
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -31,7 +30,7 @@ Este tutorial le guiará por los pasos necesarios para implementar un servicio b
 Estos son los requisitos previos para completar el tutorial.
 
 * Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Una cuenta de Servicios multimedia. Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
+* Una cuenta de Media Services. Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
 * Las Bibliotecas de Azure para Java, que puede instalar desde el [Centro para desarrolladores de Java para Azure][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Uso de Servicios multimedia con Java
@@ -275,4 +274,3 @@ Para ver la documentación de Javadoc de Media Services, consulte la [documentac
 [Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
 [Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
 [Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
-

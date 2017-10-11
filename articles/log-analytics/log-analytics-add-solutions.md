@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adición de soluciones de administración de Azure Log Analytics al área de trabajo
 
@@ -138,18 +137,18 @@ El agente de Windows de Log Analytics y el agente de System Center Operations Ma
 
 ### <a name="insight--analytics--log-analytics"></a>Insight and Analytics/Log Analytics
 
-| Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Azure Storage | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
+| Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Análisis de registros de actividad | Las tablas de Azure |   |   |   |   |   | según notificación |
+| Análisis de registros de actividad | Azure |   |   |   |   |   | según notificación |
 | Evaluación de AD |Windows |&#8226; |&#8226; |  |  |&#8226; |7 días |
 | Estado de replicación de AD |Windows |&#8226; |&#8226; |  |  |&#8226; |5 días |
 | Estado de mantenimiento de los agentes | Windows y Linux | &#8226; | &#8226; |   |   | &#8226; | 1 minuto |
 | Administración de alertas (Nagios) |Linux |&#8226; |  |  |  |  |a la llegada |
 | Administración de alertas (Zabbix) |Linux |&#8226; |  |  |  |  |1 minuto |
 | Administración de alertas (Operations Manager) |Windows |  |&#8226; |  |&#8226; |&#8226; |3 minutos |
-| Application Insights Connector (versión preliminar) | Las tablas de Azure |   |   |   |   |   | según notificación |
-| Azure Application Gateway Analytics | Las tablas de Azure |   |   |   |   |   | según notificación |
-| Azure Network Security Group Analytics | Las tablas de Azure |   |   |   |   |   | según notificación |
+| Application Insights Connector (versión preliminar) | Azure |   |   |   |   |   | según notificación |
+| Azure Application Gateway Analytics | Azure |   |   |   |   |   | según notificación |
+| Azure Network Security Group Analytics | Azure |   |   |   |   |   | según notificación |
 | Azure SQL Analytics (versión preliminar) |Windows |  |  |  |  |  | 10 minutos |
 | Administración de la capacidad |Windows |&#8226; |&#8226; |  |  |&#8226; |a la llegada |
 | Contenedores | Windows y Linux | &#8226; | &#8226; |   |   |   | 3 minutos |
@@ -168,7 +167,7 @@ El agente de Windows de Log Analytics y el agente de System Center Operations Ma
 
 ### <a name="automation--control"></a>Automation & Control
 
-| Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Azure Storage | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
+| Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Automation Hybrid Worker | Windows | &#8226; | &#8226; |   |   |   | N/D |
 | Seguimiento de cambios |Windows |&#8226; |&#8226; |  |  |&#8226; |cada hora |
@@ -177,7 +176,7 @@ El agente de Windows de Log Analytics y el agente de System Center Operations Ma
 
 ### <a name="security--compliance"></a>Seguridad y cumplimiento
 
-| Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Azure Storage | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
+| Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Evaluación antimalware |Windows |&#8226; |&#8226; |  |  |&#8226; |cada hora |
 | Seguridad y auditoría<sup>1</sup> | Windows y Linux | parcial | parcial | parcial |   | parcial | varias |
@@ -193,16 +192,16 @@ El agente de Windows de Log Analytics y el agente de System Center Operations Ma
 
 ### <a name="protection--recovery"></a>Protección y recuperación
 
-| Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Azure Storage | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
+| Solución de administración | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Backup | Las tablas de Azure |   |   |   |   |   | N/D |
-| Azure Site Recovery | Las tablas de Azure |   |   |   |   |   | N/D |
+| Backup | Azure |   |   |   |   |   | N/D |
+| Azure Site Recovery | Azure |   |   |   |   |   | N/D |
 
 
 ### <a name="data-sources"></a>Orígenes de datos
 
 
-| Origen de datos | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Azure Storage | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
+| Origen de datos | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Registros de actividad de Azure |Windows |  |  |  |  |  |según notificación |
 | Registros de diagnóstico de Azure |Windows |  |  |  |  |  |según notificación |
@@ -211,10 +210,10 @@ El agente de Windows de Log Analytics y el agente de System Center Operations Ma
 | Registros IIS |Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutos |
 | Contadores de rendimiento |Windows |&#8226; |&#8226; |  |  |  |mínimo de 10 segundos, según lo programado |
 | Contadores de rendimiento |Linux |&#8226; |  |  |  |  |mínimo de 10 segundos, según lo programado |
-| syslog |Linux |&#8226; |  |  |  |  |De Azure Storage: 10 minutos; del agente: a la llegada |
-| Registros de eventos de seguridad de Windows |Windows |&#8226; |&#8226; |&#8226; |  |  |para Azure Storage: 10 minutos; para el agente: a la llegada |
+| syslog |Linux |&#8226; |  |  |  |  |De Almacenamiento de Azure: 10 minutos; del agente: a la llegada |
+| Registros de eventos de seguridad de Windows |Windows |&#8226; |&#8226; |&#8226; |  |  |para Almacenamiento de Azure: 10 minutos; para el agente: a la llegada |
 | Registros de Firewall de Windows |Windows |&#8226; |&#8226; |  |  |  |a la llegada |
-| Registros de eventos de Windows |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; |para Azure Storage: 10 minutos; para el agente: a la llegada |
+| Registros de eventos de Windows |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; |para Almacenamiento de Azure: 10 minutos; para el agente: a la llegada |
 
 
 
@@ -281,4 +280,3 @@ Invitamos a los clientes a las vistas previas privadas de diversas maneras, depe
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Busque en los registros](log-analytics-log-searches.md) para ver información detallada recopilada por las soluciones de administración.
-

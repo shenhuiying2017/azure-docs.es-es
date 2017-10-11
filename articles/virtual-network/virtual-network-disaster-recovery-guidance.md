@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dbb749b056c36f16e921933fb8345211e3eaa697
-
-
+ms.openlocfilehash: 4e125406d2e798138c45e3fbbf61a610afab69fc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="virtual-network--business-continuity"></a>Red virtual: continuidad del negocio
 ## <a name="overview"></a>Información general
@@ -46,10 +46,4 @@ Las instrucciones para crear una red virtual se encuentran [aquí](virtual-netwo
 R: Sí, puede crear dos redes virtuales con el mismo espacio de direcciones IP privadas y los recursos en dos regiones diferentes antes de que suceda algo. Si el cliente hospedaba los servicios orientados a Internet en la red virtual, podría haber configurado el Traffic Manager para distribuir geográficamente el tráfico en la región que está activa. Sin embargo, un cliente no puede conectar dos redes virtuales con el mismo espacio de direcciones con la red local, ya que esto causaría problemas de enrutamiento. Si se produjera un desastre y la pérdida de una red virtual en una región, el cliente podría conectar la otra red virtual en la región disponible con el mismo espacio de direcciones con la red local.
 
 Las instrucciones para crear una red virtual se encuentran [aquí](virtual-networks-create-vnet-arm-pportal.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

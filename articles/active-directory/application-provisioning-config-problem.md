@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: e15784a662b1691774eb3d9cc8b3fbe66ac67385
-ms.contentlocale: es-es
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 44e344095352f2bc6b27e389fc8be2cdf3e368d8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD
 
 La configuración del [aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) para una aplicación (si se admite) requiere que se sigan las instrucciones concretas para preparar la aplicación para el aprovisionamiento automático. A continuación, puede usar Azure Portal para configurar el servicio de aprovisionamiento para sincronizar las cuentas de usuario con la aplicación.
@@ -70,4 +68,3 @@ Cuando un usuario se muestra como "Omitido" en los registros de auditoría, es m
 
 #<a name="next-steps"></a>Pasos siguientes
 [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
-

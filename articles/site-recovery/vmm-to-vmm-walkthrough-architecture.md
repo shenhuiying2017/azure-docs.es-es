@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: b78cd0d5a5395873afaddc8856004775f447e8ea
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-a-secondary-site"></a>Paso 1: Revisión de la arquitectura para la replicación de Hyper-V a un sitio secundario
 
@@ -65,4 +64,3 @@ Esto es lo que necesita para la replicación de máquinas virtuales Hyper-V en u
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ir a [Paso 2: Revisión de los requisitos previos y las limitaciones](vmm-to-vmm-walkthrough-prerequisites.md).
-

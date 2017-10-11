@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2015
 ms.author: garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 87a27dbe9042973dcfa7e9a5a438773d1bbab4d3
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="cortana-intelligence-solution-template-architecture-for-demand-forecasting-of-energy"></a>Arquitectura de la plantilla de solución de Cortana Intelligence para la previsión de demanda de energía
 En el siguiente diagrama se ofrece información general de la arquitectura de la [plantilla de solución de Cortana Intelligence para la previsión de demanda de energía](cortana-analytics-playbook-demand-forecasting-energy.md).
@@ -30,4 +29,3 @@ Puede descargar una versión en tamaño completo del diagrama aquí: [Diagrama d
 ![Diagrama de la arquitectura de la plantilla de solución de Microsoft Cortana Intelligence para la previsión de demanda de energía][image]
 
 [image]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png
-

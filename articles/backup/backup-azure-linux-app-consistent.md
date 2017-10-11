@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 4/12/2017
 ms.author: anuragm;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure (versión preliminar)
 
 En este artículo, se describe el marco de trabajo de scripts anteriores y posteriores de Linux, y cómo se puede usar para realizar copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure.
@@ -99,4 +97,3 @@ Asegúrese de que agrega el registro adecuado al escribir el script anterior y e
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Configuración de la copia de seguridad en un almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
-

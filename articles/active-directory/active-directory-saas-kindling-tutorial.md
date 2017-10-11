@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 131c2c3f46c60193d512b1779e917c8322732fbc
-ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>Tutorial: Integración de Azure Active Directory con Kindling
 
@@ -114,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.kindlingapp.com`.
 
-    b.  En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:  `https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
+    b.  En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
 
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Kindling](mailto:support@kindlingapp.com) para obtener estos valores.
@@ -230,5 +228,4 @@ Al hacer clic en el icono de Kindling en el panel de acceso, debería iniciar se
 [201]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_203.png
-
 

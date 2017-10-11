@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 751b9b495fd368dff1f72429707f5f33a0ccb569
-ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="add-storage-to-azure-backup-server-v2"></a>Adición de almacenamiento a Azure Backup Server v2
 
 Azure Backup Server v2 incluye Modern Backup Storage de System Center 2016 Data Protection Manager. Modern Backup Storage proporciona ahorros de almacenamiento de hasta el 50 por ciento, copias de seguridad que son tres veces más rápidas y un almacenamiento más eficaz. También ofrece almacenamiento con reconocimiento de la carga de trabajo. 
@@ -101,8 +99,7 @@ Los cambios que realice con PowerShell se reflejan en la consola de administrado
 ## <a name="next-steps"></a>Pasos siguientes
 Después de instalar Backup Server, sepa cómo preparar el servidor o empezar a proteger la carga de trabajo.
 
-- [Preparación de cargas de trabajo de Backup Server](backup-azure-microsoft-azure-backup.md)
-- [Uso de Backup Server para hacer una copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md)
+- [Preparar cargas de trabajo de Backup Server](backup-azure-microsoft-azure-backup.md)
+- [Usar Backup Server para hacer una copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md)
 - [Uso de Backup Server para hacer una copia de seguridad de SQL Server](backup-azure-sql-mabs.md)
-
 

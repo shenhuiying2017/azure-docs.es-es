@@ -14,14 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: 078784bcdf7a3a6d4423389d2f5ca4ffdb67c89f
-ms.contentlocale: es-es
-ms.lasthandoff: 02/22/2017
-
-
-
+ms.openlocfilehash: e9036f92f6c76e8c4738ee981efa8a7b9791dcc7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)
 ![Consultas entre tablas de bases de datos diferentes][1]
@@ -184,10 +181,10 @@ Puede usar cadenas de conexión de SQL Server normales para conectar sus herrami
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener información general sobre las consultas elásticas, lea [este artículo de introducción a las consultas elásticas](sql-database-elastic-query-overview.md).
+* Para obtener información general sobre las consultas elásticas, consulte [Información general sobre las consultas elásticas](sql-database-elastic-query-overview.md).
 * Para obtener un tutorial sobre la creación de particiones verticales, consulte [Introducción a las consultas entre bases de datos (particiones verticales) (versión preliminar)](sql-database-elastic-query-getting-started-vertical.md).
 * Para obtener un tutorial sobre la creación de particiones horizontales (particionamiento), consulte [Introducción a las consultas elásticas para las particiones horizontales (particionamiento)](sql-database-elastic-query-getting-started.md).
-* Para ver la sintaxis y consultas de ejemplo para los datos con particionamiento horizontal, lea [Consulta de datos particionados horizontalmente.](sql-database-elastic-query-horizontal-partitioning.md)
+* Para ver la sintaxis y consultas de ejemplo para los datos con particionamiento horizontal, consulte [Consulta de datos particionados horizontalmente.](sql-database-elastic-query-horizontal-partitioning.md)
 * Consulte [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) para ver un procedimiento almacenado que ejecuta una instrucción de Transact-SQL en una sola instancia remota de Azure SQL Database o un conjunto de bases de datos que actúan como particiones en un esquema de particiones horizontales.
 
 
@@ -196,4 +193,3 @@ Puede usar cadenas de conexión de SQL Server normales para conectar sus herrami
 
 
 <!--anchors-->
-

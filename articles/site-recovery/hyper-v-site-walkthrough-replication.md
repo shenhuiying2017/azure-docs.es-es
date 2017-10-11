@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ca5bec5cf1152e6259b9fe7a869edd2d62b88e1a
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-9-set-up-a-replication-policy-for-hyper-v-vm-replication-to-azure"></a>Paso 9: configuración de una directiva de replicación para replicar máquinas virtuales de Hyper-V en Azure
 
 En este artículo se describe cómo configurar una directiva de replicación al replicar máquinas virtuales de Hyper-V en Azure mediante el servicio [Azure Site Recovery](site-recovery-overview.md) en Azure Portal.
@@ -58,4 +56,3 @@ Cuando se crea una nueva directiva, esta se asocia automáticamente con el sitio
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya a [Paso 10: Habilitación de la replicación](hyper-v-site-walkthrough-enable-replication.md)
-

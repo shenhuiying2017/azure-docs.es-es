@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 8212ff011633c3a89d3310e828b6d5f1cda6ce3f
-ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-7-set-up-a-vault-for-hyper-v-replication"></a>Paso 7: configuración de un almacén para la replicación de Hyper-V
 
 Este artículo describe cómo configurar un almacén y especificar qué se desea replicar desde la ubicación local en Azure mediante el servicio [Azure Site Recovery](site-recovery-overview.md) en Azure Portal.
@@ -35,7 +33,7 @@ Publique cualquier comentario o pregunta en la parte inferior de este artículo,
 
 
 
-## <a name="select-a-protection-goal"></a>Seleccione un objetivo de protección
+## <a name="select-a-protection-goal"></a>Selección de un objetivo de protección
 
 Seleccione aquello que desea replicar y la ubicación donde se va a realizar la replicación.
 
@@ -50,4 +48,3 @@ Seleccione aquello que desea replicar y la ubicación donde se va a realizar la 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya al [paso 8: configuración de los valores de origen y destino](hyper-v-site-walkthrough-source-target.md)
-

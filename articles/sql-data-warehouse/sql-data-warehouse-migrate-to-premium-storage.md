@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e66f808da8d301e0adc393ba0ae67ab8618ce814
-ms.openlocfilehash: e73e52665dd22e33054745907613c269b6d57915
-ms.contentlocale: es-es
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migración del almacenamiento de datos a Premium Storage
 Azure SQL Data Warehouse ha introducido recientemente [Premium Storage para poder predecir el rendimiento de manera más eficaz][premium storage for greater performance predictability]. El almacenamiento de datos existente en el almacenamiento estándar se puede migrar a Premium Storage. Puede aprovechar las ventajas de la migración automática, o si desea controlar cuándo realizar la migración (que implica cierto tiempo de inactividad), puede realizar la migración manualmente.
@@ -118,7 +116,7 @@ Con la migración a Premium Storage, también se aumenta la cantidad de archivos
 **Requisitos previos:**
 
 - El almacenamiento de datos se debe ejecutar con 1000 unidades de almacenamiento de datos o más (vea el [escalado de la potencia de proceso][scale compute power]).
-- El usuario que ejecuta el script debe tener el [rol mediumrc][mediumrc role] o superior. Para agregar un usuario a este rol, ejecute lo siguiente:     ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+- El usuario que ejecuta el script debe tener el [rol mediumrc][mediumrc role] o superior. Para agregar un usuario a este rol, ejecute lo siguiente: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
@@ -184,4 +182,3 @@ Si tiene problemas con el almacenamiento de datos, [cree una incidencia de sopor
 <!--Other Web references-->
 [Premium Storage for greater performance predictability]: https://azure.microsoft.com/en-us/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure Portal]: https://portal.azure.com
-

@@ -12,12 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 03/31/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 014959ed471f796d2184f0f8ff10d15cdc8a2ec6
-ms.contentlocale: es-es
-ms.lasthandoff: 04/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="synonym-preview-c-tutorial-for-azure-search"></a>Tutorial C# de sinónimos (versión preliminar) para Azure Search
 
@@ -168,4 +167,3 @@ Puede encontrar el código fuente completo de la aplicación de ejemplo usada en
 * Revise [cómo utilizar sinónimos en Azure Search](search-synonyms.md)
 * Revise la [documentación sobre el uso de sinónimos con la API de REST](https://aka.ms/rgm6rq)
 * Examine las referencias del [SDK para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) y la [API de REST](https://docs.microsoft.com/rest/api/searchservice/).
-

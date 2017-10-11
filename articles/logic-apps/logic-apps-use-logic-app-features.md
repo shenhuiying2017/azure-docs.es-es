@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.contentlocale: es-es
-ms.lasthandoff: 06/24/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-logic-apps-features"></a>Uso de las características de aplicaciones lógicas
 
@@ -122,8 +120,7 @@ En este ejemplo se muestra cómo actualizar la aplicación lógica existente, pa
 2. Vaya a la acción `When_a_feed-item_is_published`, busque la sección `queries` y reemplace el valor de consulta por: `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
 
     Para combinar dos o más cadenas, también puede usar la función `concat`. 
-    Por ejemplo, `"@concat('#',parameters('currentFeedUrl'))"` 
-    funciona igual que en el caso anterior.
+    Por ejemplo, `"@concat('#',parameters('currentFeedUrl'))"` funciona igual que el anterior.
 
 3.  Cuando termine, seleccione **Guardar**. 
 

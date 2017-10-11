@@ -1,6 +1,6 @@
 ---
 title: "Protección de Internet de las cosas (IoT) | Microsoft Docs"
-description: " Los servicios de Internet de las cosas (IoT) de Azure ofrecen una amplia gama de funcionalidades. Este artículo le permite comprender cómo proteger sus soluciones de IoT en Azure.. "
+description: " Los servicios de Internet de las cosas (IoT) de Azure ofrecen una amplia gama de funcionalidades. Este artículo le permite comprender cómo proteger sus soluciones de IoT en Azure. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
 ms.openlocfilehash: 3793f5453b74b6c06d9e58b426d89099298e1288
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="internet-of-things-security-overview"></a>Información general sobre seguridad de Internet de las cosas
 Los servicios de Internet de las cosas (IoT) de Azure ofrecen una amplia gama de funcionalidades. Estos servicios de nivel empresarial le permiten:
@@ -67,9 +67,3 @@ En este artículo se tratan los temas siguientes:
 * [Desarrollador de soluciones de IoT](../iot-suite/iot-security-best-practices.md#iot-solution-developer)
 * [Implementador de soluciones de IoT](../iot-suite/iot-security-best-practices.md#iot-solution-deployer)
 * [Operador de soluciones de IoT](../iot-suite/iot-security-best-practices.md#iot-solution-operator)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

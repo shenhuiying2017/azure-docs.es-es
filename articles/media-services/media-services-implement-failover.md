@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: eaa87671a90ab6b090fb04f346ef551edba4d173
-ms.contentlocale: es-es
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: aed104c9c74606e0ad69fc2d0bfb2f38d85d795d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Implementación de streaming de conmutación por error con Azure Media Services
 
@@ -948,5 +947,4 @@ Ahora puede usar un administrador de tráfico para enrutar solicitudes entre amb
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

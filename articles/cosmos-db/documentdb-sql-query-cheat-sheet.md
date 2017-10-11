@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: PDF de la hoja de referencia de consultas SQL de la API de DocumentDB
 La **Hoja de referencia rápida de consultas SQL de la API de DocumentDB de Azure Cosmos DB** ayuda a escribir consultas para datos de la API de DocumentDB rápidamente al mostrar las consultas de base de datos comunes, las palabras clave, las funciones integradas y los operadores en una hoja de referencia PDF fácil de imprimir. 
@@ -43,5 +42,4 @@ Descargue y use la hoja de referencia de consultas SQL para escribir consultas m
 
 ## <a name="release-notes"></a>Notas de la versión
 Actualizado el 29/7/2016 para incluir la parte superior.
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 6af6c10cef317453131197db74a9380518afadf0
-ms.lasthandoff: 12/02/2016
-
-
+ms.openlocfilehash: 3b6327b1f5150f32afd71639f32c55d823f1d1f0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="operations-management-suite-security-and-audit-solution-data-security"></a>Seguridad de datos de la solución Seguridad y auditoría de Operations Management Suite
 Para ayudar a los clientes a evitar, detectar y responder a amenazas, la [solución Seguridad y auditoría de Operations Management Suite (OMS)](operations-management-suite-overview.md) recopila y procesa los datos sobre los recursos, incluido lo siguiente:
@@ -57,7 +56,6 @@ La solución Seguridad y auditoría de OMS analiza los datos de sus Virtual Mach
 En este documento, ha aprendido cómo se administran y protegen los datos en OMS. Para aprender más acerca de la solución Seguridad y auditoría de OMS, consulte:
 
 * [Información general de Operations Management Suite (OMS)](operations-management-suite-overview.md)
-* [Supervisión de las alertas de seguridad y su respuesta en la solución Seguridad y auditoría de Operations Management Suite](oms-security-responding-alerts.md)
-* [Supervisión de los recursos en la solución Seguridad y auditoría de Operations Management Suite](oms-security-monitoring-resources.md)
-
+* [Supervisión de las alertas de seguridad y su respuesta en la solución Security and Audit de Operations Management Suite](oms-security-responding-alerts.md)
+* [Supervisión de los recursos en la solución Security and Audit de Operations Management Suite](oms-security-monitoring-resources.md)
 

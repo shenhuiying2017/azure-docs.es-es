@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
 ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.contentlocale: es-es
-ms.lasthandoff: 05/19/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Creación de programaciones complejas y periodicidad avanzada con Programador de Azure
 ## <a name="overview"></a>Información general
@@ -110,9 +108,9 @@ La siguiente tabla captura cómo *startTime* controla el modo en que se ejecuta 
 
 Veamos un ejemplo de lo que sucede cuando *startTime* se encuentra en el pasado, con *recurrence* pero sin *schedule*.  Suponga que la fecha y hora actual es 08-04-2015 13:00, *startTime* es 2015-04-07 14:00 y *recurrence* es de 2 días (definida con *frequency*: día e *interval*: 2.) Tenga en cuenta que *startTime* se encuentra en el pasado y se produce antes de la hora actual.
 
-En esas condiciones, la *primera ejecución* será el 2015-04-09 a las 14:00\. El motor de Scheduler calcula las repeticiones de la ejecución a partir de la hora de inicio.  Se descartan las instancias en el pasado. El motor utiliza la instancia siguiente que tiene lugar en el futuro.  En este caso, *startTime* es 2015-04-07 a las 2:00 p.m., así que la siguiente instancia es 2 días a partir de ese momento, que es el 2015-04-09 a las 2:00 p.m.
+En estas condiciones, el *primera ejecución* será 2015-04-09 a las 14:00\. El motor del Programador calcula las repeticiones de la ejecución desde la hora de inicio.  Se descartan las instancias en el pasado. El motor utiliza la instancia siguiente que tiene lugar en el futuro.  En este caso, *startTime* es 2015-04-07 a las 2:00 p.m., así que la siguiente instancia es 2 días a partir de ese momento, que es el 2015-04-09 a las 2:00 p.m.
 
-Tenga en cuenta que la primera ejecución sería la misma incluso si startTime es 2015-04-05 14:00 o 2015-04-01 14:00\. Después de ella, las sucesivas ejecuciones se calculan según la programación: así que serían el 2015-04-11 a las 2:00pm, luego el 2015-04-13 a las 2:00pm, después el 2015-04-15 a las 2:00pm, etc.
+Tenga en cuenta que la primera ejecución debería ser el mismo incluso si el valor de startTime 2015-04-05 14:00 o 14:00\ 2015-04-01. Después de la primera ejecución, las ejecuciones posteriores se calculan con la programación, por lo que se realizarían el 2015-04-11 a 2:00 p.m., a continuación el 2015-04-13 a las 2:00 p.m., después el+ 2015-04-15 a las 2:00 p.m., etc.
 
 Por último, cuando un trabajo tiene una programación, si no se establecen en la programación las horas y minutos, se asume el valor predeterminado de las horas y minutos de la primera ejecución, respectivamente.
 
@@ -136,7 +134,7 @@ En la siguiente tabla se describen los elementos de *schedule* con detalle:
 ## <a name="examples-recurrence-schedules"></a>Ejemplos: Programaciones de periodicidad
 A continuación de muestran unos ejemplos de programaciones de periodicidad, centrándose en el objeto de programación y sus subelementos.
 
-En las siguientes programaciones se supone que *interval* está establecido en 1\. Además, 1 debe asumir la frecuencia adecuada de acuerdo con lo que hay en *schedule*; por ejemplo, 1 no puede usar la frecuencia "day" y tiene una modificación "monthDays" en la programación. Estas restricciones se han descrito anteriormente.
+Asume que las programaciones por debajo de todos los *intervalo* está establecido en 1\. Asimismo, uno debe asumir la frecuencia correcta de acuerdo con lo que se encuentra en la *programación* – p. ej., uno no se usan una frecuencia de "day" y tiene una modificación de "días mes para" en la programación. Estas restricciones se han descrito anteriormente.
 
 | **Ejemplo** | **Descripción** |
 |:--- |:--- |
@@ -190,5 +188,4 @@ En las siguientes programaciones se supone que *interval* está establecido en 1
  [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
-
 

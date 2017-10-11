@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Uso de los Centros de notificaciones para enviar noticias de última hora
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -26,10 +26,10 @@ ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
 ## <a name="overview"></a>Información general
 Este tema muestra cómo puede usar Azure Notification Hubs para difundir notificaciones de noticias de última hora en una aplicación iOS. Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música, etc.
 
-Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para información sobre las etiquetas, consulte [Expresiones de etiqueta y enrutamiento de los Centros de notificaciones](notification-hubs-tags-segment-push-message.md).
+Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el Centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para información sobre las etiquetas, consulte [Expresiones de etiqueta y enrutamiento de los Centros de notificaciones](notification-hubs-tags-segment-push-message.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
-Este tema se basa en la aplicación que creó en [Introducción a los Notification Hubs][get-started]. Antes de comenzar este tutorial, debe haber completado [Introducción a Notification Hubs][get-started].
+Este tema se basa en la aplicación que creó en [Introducción a Notification Hubs][get-started]. Antes de comenzar este tutorial, debe haber completado la [Introducción a Notification Hubs][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Adición de una selección de categorías a la aplicación
 El primer paso es agregar los elementos de la interfaz de usuario al guión gráfico existente que permiten al usuario seleccionar las categorías que se van a registrar. Las categorías seleccionadas por un usuario se almacenan en el dispositivo. Cuando la aplicación se inicia, se crea un registro de dispositivos en el Centro de notificaciones con las categorías seleccionadas como etiquetas.
@@ -149,16 +149,16 @@ El primer paso es agregar los elementos de la interfaz de usuario al guión grá
 
     Tenga en cuenta que, en este punto, no debe haber otro código en el método **didRegisterForRemoteNotificationsWithDeviceToken** .
 
-1. Los métodos siguientes ya deben estar presentes en AppDelegate.m después de completar el tutorial [Introducción a Notification Hubs][get-started].  De lo contrario, agréguelos.
+1. Los métodos siguientes deben estar ya presentes en AppDelegate.m complete la [empezar a trabajar con los centros de notificaciones] [ get-started] tutorial.  De lo contrario, agréguelos.
    
-    -(void)MessageBox:(NSString *)title message:(NSString *)messageText  {
+    -(void) MessageBox:(NSString *) título mensaje:(NSString *) messageText {}
    
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
             cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
    
-   * (void)application:(UIApplication *)application didReceiveRemoteNotification:   (NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]]; }
+   * aplicación (void):(UIApplication *) aplicación didReceiveRemoteNotification: (NSDictionary *) información de usuario {NSLog (@"% @", información de usuario);   [mensaje self MessageBox:@"Notification": [valueForKey:@"alert [información de usuario objectForKey:@"aps"]"]]; }
    
    Este método controla las notificaciones recibidas cuando la aplicación está en ejecución mostrando un **UIAlert**sencillo.
 2. En ViewController.m, agregue una instrucción de importación para AppDelegate.h y copie el código siguiente en método **subscribe** generado por XCode. Este código actualizará el registro de notificación para usar las nuevas etiquetas de categoría que el usuario ha elegido en la interfaz de usuario.
@@ -212,7 +212,7 @@ Si no tiene acceso a Visual Studio, puede pasar a la siguiente sección y enviar
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="optional-send-notifications-from-the-device"></a>(Opcional) Enviar notificaciones desde el dispositivo
-Normalmente se pueden enviar notificaciones por un servicio de back-end pero puede enviar notificaciones de última hora directamente desde la aplicación. Para ello se actualizará el método `SendNotificationRESTAPI` que se define en el tutorial [Introducción a Notification Hubs][get-started].
+Normalmente se pueden enviar notificaciones por un servicio de back-end pero puede enviar notificaciones de última hora directamente desde la aplicación. Para ello se actualizará el `SendNotificationRESTAPI` método que hemos definido en el [empezar a trabajar con los centros de notificaciones] [ get-started] tutorial.
 
 1. En ViewController.m actualice el método `SendNotificationRESTAPI` como sigue para que tome un parámetro para la etiqueta de categoría y que envíe una notificación de [plantilla](notification-hubs-templates-cross-platform-push-messages.md) adecuada.
    
@@ -324,17 +324,11 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 
 
 <!-- URLs. -->
-[Notification Hubs de Service Bus (aplicaciones iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Uso de Notification Hubs para difundir noticias de última hora localizadas]: notification-hubs-ios-xplat-localized-apns-push-notification.md
-[Servicio móvil]: /develop/mobile/tutorials/get-started
-[Notificación a los usuarios con Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/dn530749.aspx
-[Procedimientos de los Centros de notificaciones para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 [Portal de Azure clásico]: https://manage.windowsazure.com
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

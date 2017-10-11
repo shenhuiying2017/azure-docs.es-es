@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 72591111f417267c1daaf13a40a499da42a2c303
-ms.contentlocale: es-es
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: a9da67373465cebbdbecae5c8fb8bd0a0ee3c171
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Configuración de una aplicación de proxy de aplicación para usar PingAccess
 
 Nuestra colaboración con PingAccess ahora nos permite extender las ventajas del proxy de aplicación a aquellas aplicaciones que usen la autenticación basada en el encabezado. Si las aplicaciones no utilizan encabezados, consulte nuestra [documentación sobre el inicio de sesión único](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) para ver detalles sobre otras opciones.
@@ -38,4 +36,3 @@ Para configurar una aplicación con PingAccess, hay cuatro pasos:
 4.  Configurar aplicaciones en PingAccess
 
 Para ver información detallada sobre cada uno de estos pasos, consulte nuestra [documentación sobre el inicio de sesión único con encabezados](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access).
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: e1da8bce96078a43c656f84005cefc8bbe81c9e3
-ms.contentlocale: es-es
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: es-ES
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="back-up-azure-virtual-machines-classic-portal"></a>Copia de seguridad de máquinas virtuales de Azure (Portal clásico)
 > [!div class="op_single_selector"]
@@ -200,4 +199,3 @@ Si surgen problemas al realizar la copia de seguridad de la máquina virtual, co
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administración y supervisión de las máquinas virtuales](backup-azure-manage-vms.md)
 * [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
-

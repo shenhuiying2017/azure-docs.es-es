@@ -17,7 +17,7 @@
 
 # Procedimientos
 ## Planeamiento y diseño
-### [Procedimientos recomendados](mobile-engagement-getting-started-best-practices.md)
+### [procedimientos recomendados](mobile-engagement-getting-started-best-practices.md)
 ### [Conceptos](mobile-engagement-concepts.md)
 ### [Definición de la estrategia de interacción](mobile-engagement-define-your-mobile-engagement-strategy.md)
 ### Escenarios
