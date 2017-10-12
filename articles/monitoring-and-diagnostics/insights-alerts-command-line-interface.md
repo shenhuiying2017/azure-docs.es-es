@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Creación de alertas de métricas en Azure Monitor para los servicios de Azure: CLI multiplataforma
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Siempre puede escribir un comando y agregar -help al final para obtener ayuda so
      *PT1M* es la granularidad de la medida disponible (intervalos de 1 minuto). El uso de distintas granularidades le brinda opciones de métricas diferentes.
 4. Para crear una regla de alerta basada en métricas, use un comando con el siguiente formato:
 
-    **azure insights alerts rule metric set** *[opciones] &lt;nombreRegla&gt; &lt;ubicación&gt; &lt;grupoRecursos&gt; &lt;tamañoVentana&gt; &lt;operador&gt; &lt;umbral&gt; &lt;idRecursoObjetivo&gt; &lt;nombreMétrica&gt; &lt;horaInserciónOperador&gt;*
+    **azure insights alerts rule metric set***[opciones] &lt;nombreRegla&gt;&lt;ubicación&gt;&lt;grupoRecursos&gt;&lt;tamañoVentana&gt;&lt;operador&gt;&lt;umbral&gt;&lt;idRecursoObjetivo&gt;&lt;nombreMétrica&gt;&lt;horaInserciónOperador&gt;*
 
     En el ejemplo siguiente se configura una alerta en un recurso de sitio web. La alerta se desencadena cada vez que se recibe constantemente cualquier tráfico durante 5 minutos y nuevamente cuando no se recibe tráfico durante 5 minutos.
 
@@ -124,7 +124,7 @@ Siempre puede escribir un comando y agregar -help al final para obtener ayuda so
     ```
 7. Para eliminar reglas, use un comando con este formato:
 
-    **insights alerts rule delete** [opciones] &lt;grupoRecursos&gt; &lt;nombreRegla&gt;
+    **insights alerts rule delete** [opciones] &lt;grupoRecursos&gt;&lt;nombreRegla&gt;
 
     Estos comandos eliminan las reglas que se crearon anteriormente en este artículo.
 

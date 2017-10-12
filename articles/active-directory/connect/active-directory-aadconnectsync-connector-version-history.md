@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connector-version-release-history"></a>Historial de versiones de conectores
 Los conectores de Forefront Identity Manager (FIM) y Microsoft Identity Manager (MIM) se actualizan con frecuencia.
@@ -32,11 +31,11 @@ En este tema se muestran todas las versiones de los conectores que se han public
 Vínculos relacionados:
 
 * [Descargar los últimos conectores](http://go.microsoft.com/fwlink/?LinkId=717495)
-* [conector LDAP genérico](active-directory-aadconnectsync-connector-genericldap.md) 
-* [conector SQL genérico](active-directory-aadconnectsync-connector-genericsql.md) 
-* [conector de servicios web](http://go.microsoft.com/fwlink/?LinkID=226245) 
-* [conector PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
-* [conector Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
+* [conector LDAP genérico](active-directory-aadconnectsync-connector-genericldap.md)
+* [conector SQL genérico](active-directory-aadconnectsync-connector-genericsql.md)
+* [conector de servicios web](http://go.microsoft.com/fwlink/?LinkID=226245)
+* [conector PowerShell](active-directory-aadconnectsync-connector-powershell.md)
+* [conector Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
@@ -209,4 +208,3 @@ Antes de marzo de 2016, los conectores se publicaban como temas de soporte técn
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: aca83d2de9247bedacce0fb03efe141d903d8605
-ms.openlocfilehash: f93d37ad5be4bf7fdc78d83ec68ba56a427b3e35
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 62d31ed486458245156f7fc832294d662c62991e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Conexión de Configuration Manager con Log Analytics
 Puede conectar System Center Configuration Manager a Log Analytics de OMS para sincronizar datos de recopilación de dispositivos. De este modo, los datos de la jerarquía de Configuration Manager estarán disponibles en OMS.
@@ -135,4 +134,3 @@ Al hacer clic en cualquiera de ellos, se abre Búsqueda, que muestra todos los g
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsqueda de registros](log-analytics-log-searches.md) para ver información detallada sobre los datos de Configuration Manager.
-

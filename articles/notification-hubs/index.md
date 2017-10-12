@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 8657415f61d9977ad90883278f8737609248fed6
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: f7b8560d4ce7374e36d5f7e8a5d2056396e4f089
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="notification-hubs-documentation"></a>Documentación de Notification Hubs
 
 Aprenda a usar Notification Hubs, un motor de notificaciones push multiplataforma y escalable, para enviar rápidamente millones de mensajes. Los tutoriales, las referencias de API y otra documentación muestran cómo configurar y enviar notificaciones push desde servidores back-end a cualquier dispositivo móvil. 
@@ -212,5 +210,4 @@ Aprenda a usar Notification Hubs, un motor de notificaciones push multiplataform
         </div>
     </li>
 </ul>
-
 

@@ -15,14 +15,12 @@ ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 47b17c0d81e8597d3125949b26906cc356a9af11
-ms.contentlocale: es-es
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabajo con servidores proxy locales existentes
 
 En este artículo se explica cómo configurar conectores del proxy de aplicación de Azure Active Directory (Azure AD) para que funcionen con servidores proxy de salida. Está destinado a clientes con entornos de red que tienen servidores proxy en la actualidad.
@@ -189,4 +187,3 @@ Si ve otros códigos de respuesta, como 407 o 502, el proxy requiere autenticaci
 - [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md)
 
 - Si tiene problemas de conectividad con los conectores, plantee una pregunta en el [foro de Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) o cree una incidencia para nuestro equipo de soporte técnico.
-

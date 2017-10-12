@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 7e5da1c32484b0b94d2ad32ead6bb7c28f9744aa
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos extendidos en Base de datos SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -147,7 +146,7 @@ SELECT
 ```
 
 
-<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
+<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a>&nbsp;
 
 ## <a name="targets-for-your-sql-database-event-sessions"></a>Destinos para las sesiones de eventos de Base de datos SQL
 
@@ -216,4 +215,3 @@ Hay otros temas de ejemplo de código para eventos extendidos disponibles en los
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
-

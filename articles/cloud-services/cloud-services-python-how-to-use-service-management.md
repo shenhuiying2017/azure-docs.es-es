@@ -14,28 +14,27 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>Uso de la administración de servicios con Python
 En esta guía se muestra cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** de [Azure SDK](https://github.com/Azure/azure-sdk-for-python) para Python admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [Portal de Azure clásico][management-portal] (como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos y máquinas virtuales**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
 
-## <a name="WhatIs"> </a>Qué es la administración de servicios
+## <a name="WhatIs"></a>Qué es la administración de servicios
 La API de administración de servicios proporciona acceso mediante programación a gran parte de la funcionalidad de administración de servicios disponible a través del [Portal de Azure clásico][management-portal]. El SDK de Azure para Python le permite administrar los servicios en la nube y las cuentas de almacenamiento.
 
 Para usar Service Management API, necesita [crear una cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="Concepts"> </a>Conceptos
+## <a name="Concepts"></a>Conceptos
 Azure SDK para Python ajusta la [API de administración de servicios de Azure][svc-mgmt-rest-api], que es una API de REST. Todas las operaciones de la API se realizan mediante SSL y se autentican mutuamente con los certificados X.509 v3. Se puede obtener acceso al servicio de administración desde un servicio que se ejecute en Azure, o bien directamente a través de Internet desde cualquier aplicación que envíe una solicitud HTTPS y reciba una respuesta HTTPS.
 
-## <a name="Installation"> </a>Instalación
+## <a name="Installation"></a>Instalación
 Todas las características descritas en este artículo están disponibles en el paquete `azure-servicemanagement-legacy` , que puede instalarse con pip. Para obtener más información sobre la instalación (por ejemplo, si no está familiarizado con Python), consulte este artículo: [Instalación de Python y el SDK](../python-how-to-install.md).
 
-## <a name="Connect"> </a>Conexión a la administración de servicios
+## <a name="Connect"></a>Conexión a la administración de servicios
 Para conectarse al punto de conexión de administración de servicios, necesita el identificador de suscripción de Azure y un certificado de administración válido. Puede obtener el identificador de la suscripción a través del [Portal de Azure clásico][management-portal].
 
 > [!NOTE]
@@ -89,7 +88,7 @@ Después de haber obtenido el identificador de la suscripción, creado un certif
 
 En el ejemplo anterior, `sms` es un objeto **ServiceManagementService** . La clase **ServiceManagementService** es la clase principal usada para administrar los servicios de Azure.
 
-## <a name="ListAvailableLocations"> </a>Enumeración de las ubicaciones disponibles
+## <a name="ListAvailableLocations"></a>Enumeración de las ubicaciones disponibles
 Para enumerar las ubicaciones disponibles para los servicios hospedados, use el método **list\_locations**:
 
     from azure import *
@@ -118,7 +117,7 @@ Al crear un servicio en la nube o un servicio de almacenamiento, deberá proporc
 * Australia Oriental
 * Sudeste de Australia
 
-## <a name="CreateCloudService"> </a>Creación de un servicio en la nube
+## <a name="CreateCloudService"></a>Creación de un servicio en la nube
 Al crear una aplicación y ejecutarla en Azure, al código y a la configuración se les denomina de forma conjunta un [servicio en la nube][cloud service] de Azure (conocido como un *servicio hospedado* en las versiones anteriores de Azure). El método **create\_hosted\_service** le permite crear un nuevo servicio hospedado, para lo que debe proporcionar un nombre de servicio hospedado (que debe ser exclusivo en Azure), una etiqueta (codificada automáticamente como base 64), una descripción y una ubicación.
 
     from azure import *
@@ -153,14 +152,14 @@ Si desea obtener información acerca de un servicio hospedado en particular, pue
 
 Después de haber creado un servicio en la nube, puede implementar el código en el servicio con el método **create\_deployment**.
 
-## <a name="DeleteCloudService"> </a>Eliminación de un servicio en la nube
+## <a name="DeleteCloudService"></a>Eliminación de un servicio en la nube
 Puede eliminar un servicio en la nube si transfiere el nombre del servicio al método **delete\_hosted\_service**:
 
     sms.delete_hosted_service('myhostedservice')
 
 Antes de eliminar un servicio, primero es necesario eliminar todas las implementaciones de dicho servicio. (Vea [Eliminación de una implementación](#DeleteDeployment) para obtener información detallada).
 
-## <a name="DeleteDeployment"> </a>Eliminación de una implementación
+## <a name="DeleteDeployment"></a>Eliminación de una implementación
 Para eliminar una implementación, use el método **delete\_deployment**. En el ejemplo siguiente se muestra cómo eliminar una implementación llamada `v1`.
 
     from azure import *
@@ -170,7 +169,7 @@ Para eliminar una implementación, use el método **delete\_deployment**. En el 
 
     sms.delete_deployment('myhostedservice', 'v1')
 
-## <a name="CreateStorageService"> </a>Creación de un servicio de almacenamiento
+## <a name="CreateStorageService"></a>Creación de un servicio de almacenamiento
 Un [servicio de almacenamiento](../storage/common/storage-create-storage-account.md) le proporciona acceso a [blobs](../storage/blobs/storage-python-how-to-use-blob-storage.md), [tablas](../cosmos-db/table-storage-how-to-use-python.md) y [colas](../storage/queues/storage-python-how-to-use-queue-storage.md). Para crear un servicio de almacenamiento, necesita un nombre para el servicio (entre 3 y 24 caracteres en minúscula y exclusivos en Azure), una descripción, una etiqueta (hasta 100 caracteres, codificados automáticamente como base64) y una ubicación. En el ejemplo siguiente se muestra cómo crear un servicio de almacenamiento mediante la definición de una ubicación.
 
     from azure import *
@@ -203,7 +202,7 @@ Puede enumerar las cuentas de almacenamiento y sus propiedades con el método **
         print('Location: ' + account.storage_service_properties.location)
         print('')
 
-## <a name="DeleteStorageService"> </a>Eliminación de un servicio de almacenamiento
+## <a name="DeleteStorageService"></a>Eliminación de un servicio de almacenamiento
 Puede eliminar un servicio de almacenamiento si transfiere el nombre de dicho servicio de almacenamiento al método **delete\_storage\_account**. Con la eliminación del servicio de almacenamiento también se eliminan todos los datos almacenados en el servicio (blobs, tablas y colas).
 
     from azure import *
@@ -213,7 +212,7 @@ Puede eliminar un servicio de almacenamiento si transfiere el nombre de dicho se
 
     sms.delete_storage_account('mystorageaccount')
 
-## <a name="ListOperatingSystems"> </a>Enumeración de los sistemas operativos disponibles
+## <a name="ListOperatingSystems"></a>Enumeración de los sistemas operativos disponibles
 Para enumerar los sistemas operativos que están disponibles para los servicios hospedados, use el método **list\_operating\_systems**:
 
     from azure import *
@@ -240,7 +239,7 @@ Como alternativa, también puede usar el método **list\_operating\_system\_fami
                 print('Version: ' + os.version)
         print('')
 
-## <a name="CreateVMImage"> </a>Creación de una imagen de sistema operativo
+## <a name="CreateVMImage"></a>Creación de una imagen de sistema operativo
 Para agregar una imagen del sistema operativo al repositorio de imágenes, use el método **add\_os\_image**:
 
     from azure import *
@@ -272,7 +271,7 @@ Para enumerar las imágenes del sistema operativo disponibles, use el método **
         print('Media link: ' + image.media_link)
         print('')
 
-## <a name="DeleteVMImage"> </a>Eliminación de una imagen de sistema operativo
+## <a name="DeleteVMImage"></a>Eliminación de una imagen de sistema operativo
 Para eliminar una imagen de usuario, use el método **delete\_os\_image**:
 
     from azure import *
@@ -285,7 +284,7 @@ Para eliminar una imagen de usuario, use el método **delete\_os\_image**:
     operation_result = sms.get_operation_status(result.request_id)
     print('Operation status: ' + operation_result.status)
 
-## <a name="CreateVM"> </a>Creación de una máquina virtual
+## <a name="CreateVM"></a>Creación de una máquina virtual
 Para crear una máquina virtual, primero debe crear un [servicio en la nube](#CreateCloudService).  A continuación, cree la implementación de máquina virtual con el método **create\_virtual\_machine\_deployment**:
 
     from azure import *
@@ -323,7 +322,7 @@ Para crear una máquina virtual, primero debe crear un [servicio en la nube](#Cr
         os_virtual_hard_disk=os_hd,
         role_size='Small')
 
-## <a name="DeleteVM"> </a>Eliminación de una máquina virtual
+## <a name="DeleteVM"></a>Eliminación de una máquina virtual
 Para eliminar una máquina virtual, primero debe eliminar la implementación con el método **delete\_deployment**:
 
     from azure import *
@@ -399,7 +398,7 @@ Para más información acerca de cómo capturar una máquina virtual Linux, cons
 
 Para más información acerca de cómo capturar una máquina virtual Windows, consulte [Captura de una máquina virtual Windows](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="What's Next"> </a>Pasos siguientes
+## <a name="What's Next"></a>Pasos siguientes
 Ahora que ha aprendido los conceptos básicos de la administración de servicios, puede tener acceso a la [Documentación de referencia completa de la API para el SDK de Azure para Python](http://azure-sdk-for-python.readthedocs.org/) y realizar tareas complejas fácilmente para administrar la aplicación Python.
 
 Para más información, vea el [Centro para desarrolladores de Python](/develop/python/).
@@ -427,4 +426,3 @@ Para más información, vea el [Centro para desarrolladores de Python](/develop/
 
 
 [cloud service]:/services/cloud-services/
-

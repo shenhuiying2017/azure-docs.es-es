@@ -8,14 +8,12 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: babanisa
+ms.openlocfilehash: eff2352066a76010d6d882a7b7e1961870cd2d46
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: cce058e75ebf49f53d11e3b5a87ea4625994db0f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-grid-subscription-schema"></a>Esquema de suscripción de Event Grid
 
 Para crear una suscripción de Event Grid, se envía una solicitud a la operación de suscripción Crear evento. Utilice el siguiente formato:
@@ -79,4 +77,4 @@ En el artículo se describen las propiedades y el esquema del cuerpo de la solic
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para ver una introducción a Event Grid, consulte el artículo donde se explica [qué es Event Grid](overview.md).
+* Para ver una introducción a Event Grid, consulte el artículo acerca de [qué es Event Grid](overview.md).

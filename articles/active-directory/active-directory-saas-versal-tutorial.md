@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 546610d05d0ed261f671df651cd6cc74837063f7
-ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>Tutorial: Integración de Azure Active Directory con Versal
 
@@ -225,5 +224,4 @@ Debe crear un curso, compartirlo con su organización y publicarlo para probar l
 [201]: ./media/active-directory-saas-versal-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-versal-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-versal-tutorial/tutorial_general_203.png
-
 

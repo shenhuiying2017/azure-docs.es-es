@@ -16,14 +16,12 @@ ms.date: 04/02/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
+ms.openlocfilehash: f4e67815cfe03c775dae83d214aea4f2ac37fcdc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: d12115be61ca00dfb86dd822ccae9f9096fa796a
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>La experiencia de inicio de sesión con Azure Multi-Factor Authentication
 > [!NOTE]
 > El propósito de este artículo es recorrer una experiencia de inicio de sesión típica. Para obtener ayuda sobre el inicio de sesión o resolver problemas, consulte [Problemas con Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
@@ -92,4 +90,3 @@ Si tiene problemas para iniciar sesión con la verificación en dos pasos, obten
 Aprenda a [administrar la configuración de la verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md).
 
 Descubra cómo [empezar a trabajar con la aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para que pueda utilizar las notificaciones para iniciar sesión, en lugar de textos y llamadas de teléfono.
-

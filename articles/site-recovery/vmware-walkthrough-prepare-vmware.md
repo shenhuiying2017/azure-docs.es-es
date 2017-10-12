@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 3e1c589030210c2eae1ad9c02811775d9d6365d4
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-6-prepare-on-premises-vmware-replication-to-azure"></a>Paso 6: Preparación de la replicación de VMware local a Azure
 
@@ -65,4 +64,3 @@ Si desea utilizar la instalación de inserción, debe preparar una cuenta que Si
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya al [paso 7: Creación de un almacén](vmware-walkthrough-create-vault.md)
-

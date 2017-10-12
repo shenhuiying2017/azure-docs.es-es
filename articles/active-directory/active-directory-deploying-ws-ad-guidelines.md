@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
 ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure
 Este artículo explica las importantes diferencias entre implementar Windows Server Active Directory Domain Services (ADDS) y Servicios de federación de Active Directory (ADFS) localmente en comparación con la implementación en máquinas virtuales de Microsoft Azure.

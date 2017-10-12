@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
 ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de VMware en Azure.
@@ -72,8 +72,7 @@ La herramienta tiene dos fases principales: la generación de perfiles y la gene
 
 > [!NOTE]
 >
->La herramienta puede generar perfiles solo de las máquinas virtuales con discos VMDK y RDM. No se pueden generar perfiles de máquinas virtuales con discos iSCSI o NFS. Site Recovery admite discos iSCSI y NFS para los servidores de VMware pero, como Deployment Planner no se encuentra dentro del invitado y solo genera perfiles mediante el uso de 
-contadores de rendimiento de vCenter, la herramienta ve estos tipos de disco.
+>La herramienta puede generar perfiles solo de las máquinas virtuales con discos VMDK y RDM. No se pueden generar perfiles de máquinas virtuales con discos iSCSI o NFS. Site Recovery admite discos iSCSI y NFS para los servidores de VMware pero, como Deployment Planner no se encuentra dentro del invitado y solo genera perfiles mediante el uso de contadores de rendimiento de vCenter, la herramienta ve estos tipos de disco.
 >
 
 ## <a name="download-and-extract-the-public-preview"></a>Descarga y extracción de la versión preliminar pública
@@ -272,7 +271,7 @@ El informe de Microsoft Excel generado contiene la siguiente información:
 * [Entrada](site-recovery-deployment-planner.md#input)
 * [Recomendaciones](site-recovery-deployment-planner.md#recommendations-with-desired-rpo-as-input)
 * [Recomendaciones: entrada de ancho de banda](site-recovery-deployment-planner.md#recommendations-with-available-bandwidth-as-input)
-* [VM<->Selección de ubicación de almacenamiento](site-recovery-deployment-planner.md#vm-storage-placement)
+* [VM&lt;-&gt;Selección de ubicación de almacenamiento](site-recovery-deployment-planner.md#vm-storage-placement)
 * [VM compatibles](site-recovery-deployment-planner.md#compatible-vms)
 * [VM incompatibles](site-recovery-deployment-planner.md#incompatible-vms)
 
@@ -479,7 +478,7 @@ Si las características de carga de trabajo de un disco lo colocan en la categor
 
 **Número de discos**: el número total de discos (VMDK) de la máquina virtual.
 
-**Tamaño de disco (en GB)**: el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
+**Tamaño de disco (en GB)** : el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
 **Núcleos**: el número de núcleos de CPU de la máquina virtual.
 
@@ -517,7 +516,7 @@ Si las características de carga de trabajo de un disco lo colocan en la categor
 
 **Número de discos**: el número total de VMDK de la máquina virtual.
 
-**Tamaño de disco (en GB)**: el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
+**Tamaño de disco (en GB)** : el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
 **Núcleos**: el número de núcleos de CPU de la máquina virtual.
 

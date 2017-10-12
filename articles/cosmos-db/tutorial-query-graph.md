@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: denlee
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 630aeba6a881c814a6afb030ad2c064055fc452f
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 81713c72da037f127e81239d214d7a877247dca1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: ¿cómo realizar consultas con la API Graph (versión preliminar)?
 
 La [API Graph](graph-introduction.md) de Azure Cosmos DB (versión preliminar) admite consultas de [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/). En este artículo se proporcionan consultas y documentos de ejemplo a modo de introducción. En el artículo [Compatibilidad con Gremlin](gremlin-support.md) se incluye una referencia de Gremlin detallada.
@@ -62,7 +60,7 @@ g.V().hasLabel('person').values('firstName')
 
 ## <a name="find-related-edges-and-vertices"></a>Búsqueda de bordes y vértices relacionados
 
-Hasta ahora, solo hemos visto operadores de consulta que funcionan en cualquier base de datos. Los gráficos son rápidos y eficientes para operaciones de cruce seguro si tiene que ir a bordes y vértices relacionados. Encontremos a todos los amigos de Thomas. Lo hacemos usando el paso `outE` de Gremlin para encontrar todos los bordes exteriores de Thomas y atravesando a continuación por los vértices interiores de esos bordes mediante el paso `inV` de Gremlin:
+Hasta ahora, solo hemos visto operadores de consulta que funcionan en cualquier base de datos. Los grafos son rápidos y eficientes para operaciones de cruce seguro si tiene que ir a bordes y vértices relacionados. Encontremos a todos los amigos de Thomas. Lo hacemos usando el paso `outE` de Gremlin para encontrar todos los bordes exteriores de Thomas y atravesando a continuación por los vértices interiores de esos bordes mediante el paso `inV` de Gremlin:
 
 ```cs
 g.V('thomas').outE('knows').inV().hasLabel('person')
@@ -74,7 +72,7 @@ La siguiente consulta realiza dos saltos para encontrar a todos los "amigos de l
 g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 
-Puede crear consultas más complejas e implementar una lógica de cruce seguro del gráfico eficaz con Gremlin, incluidas la combinación de expresiones de filtro, la realización de bucles mediante el paso `loop` y la implementación de la navegación condicional mediante el paso `choose`. Obtenga más información sobre lo que puede hacer con [Compatibilidad con Gremlin](gremlin-support.md).
+Puede crear consultas más complejas e implementar una lógica de cruce seguro del grafo eficaz con Gremlin, incluidas la combinación de expresiones de filtro, la realización de bucles mediante el paso `loop` y la implementación de la navegación condicional mediante el paso `choose`. Obtenga más información sobre lo que puede hacer con [Compatibilidad con Gremlin](gremlin-support.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

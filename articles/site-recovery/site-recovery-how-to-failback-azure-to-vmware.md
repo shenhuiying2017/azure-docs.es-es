@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Conmutación por recuperación de Azure a un sitio local
 
@@ -136,4 +135,3 @@ Una vez finalizado el trabajo de reprotección, la máquina virtual se replica d
 
 ## <a name="common-issues"></a>Problemas comunes
 Asegúrese de que vCenter está en estado conectado antes de realizar una conmutación por recuperación. En caso contrario, al desconectar los discos y adjuntarlos a la máquina virtual se producirá un error.
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8a8a400b87bacae7f0c34ad5643f66c078053f7a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Tutoriales de ciencia de datos de SQL Server mediante R, Python y T-SQL
 
 Estos tutoriales usan SQL Server, SQL Server R Services y servicios de Python de SQL Server para realizar análisis predictivos. El código R y Python se implementa en los procedimientos almacenados. Siguen los pasos descritos en el proceso de ciencia de datos en equipo. Para obtener información general sobre el proceso de ciencia de datos en equipo, consulte [Proceso de ciencia de datos](overview.md). 

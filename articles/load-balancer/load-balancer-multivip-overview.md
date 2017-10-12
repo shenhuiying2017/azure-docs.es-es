@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: chkuhtz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d9e88b859020be2a96a57a01e5624052ed134b64
-ms.contentlocale: es-es
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 1045a18f5fd9739a6028198deea129e9e621f127
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="multiple-vips-for-azure-load-balancer"></a>Varias IP virtuales para Azure Load Balancer
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
@@ -139,4 +137,3 @@ El tipo de regla de dirección IP flotante es el fundamento de varios modelos de
 * Con la regla de dirección IP flotante, la aplicación debe utilizar la DIP para los flujos salientes. Si la aplicación se enlaza a la dirección IP virtual configurada en la interfaz de bucle invertido en el sistema operativo invitado, a continuación, SNAT no está disponible para volver a escribir el flujo de salida y, por tanto, se produce un error en el flujo.
 * Las direcciones IP públicas repercuten en la facturación. Para obtener más información, vea [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Se aplican los límites de suscripción. Para más información, vea los [límites de servicio](../azure-subscription-service-limits.md#networking-limits) .
-

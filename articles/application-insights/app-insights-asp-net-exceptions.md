@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: bwren
+ms.openlocfilehash: d7603f47d985e1abbab96e931e46e37a8ecb4bc5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: 6baffb1fb14a3b7ede5a754029b9efbaf543ea07
-ms.contentlocale: es-es
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnóstico de excepciones en aplicaciones web con Application Insights
 Las excepciones en la aplicación web en directo se notifican mediante [Application Insights](app-insights-overview.md). Puede correlacionar las solicitudes con error con excepciones y otros eventos en el cliente y en el servidor, de modo que pueda diagnosticar rápidamente las causas.
@@ -33,8 +32,8 @@ Las excepciones en la aplicación web en directo se notifican mediante [Applicat
 * En algunos marcos de aplicaciones o con algunas opciones de configuración, debe realizar algunos pasos adicionales para capturar más excepciones:
   * [Formularios web](#web-forms)
   * [MVC](#mvc)
-  * [API web 1.*](#web-api-1)
-  * [API web 2.*](#web-api-2)
+  * [API web 1.*](#web-api-1x)
+  * [API web 2.*](#web-api-2x)
   * [WCF](#wcf)
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>Diagnóstico de excepciones mediante Visual Studio
@@ -445,4 +444,3 @@ Esto es diferente del recuento de "Excepciones" calculado por el portal de Appli
 * [Supervisar REST, SQL y otras llamadas a las dependencias](app-insights-asp-net-dependencies.md)
 * [Supervisar los tiempos de carga de página, las excepciones del explorador y las llamadas AJAX](app-insights-javascript.md)
 * [Supervisar los contadores de rendimiento](app-insights-performance-counters.md)
-

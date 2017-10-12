@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 1e0d4a29f59e48cac675e567fd84384b1b60d35f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 645a5dd16e72619e7c2470ab8f03098f0fa6c7f8
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimización del rendimiento y confiabilidad de Azure Functions
 
 En este artículo se proporcionan instrucciones para mejorar el rendimiento y la confiabilidad de sus aplicaciones de función. 
@@ -45,7 +43,7 @@ Los mensajes individuales de una cola de almacenamiento tienen un límite de tam
 
 Temas de Service Bus son útiles si necesita filtrado de mensajes antes del procesamiento.
 
-Los centros de eventos son útiles para admitir comunicaciones de gran volumen.
+Los concentradores de eventos son útiles para admitir comunicaciones de gran volumen.
 
 
 ## <a name="write-functions-to-be-stateless"></a>Escritura de funciones para que no tengan estado 
@@ -99,5 +97,4 @@ Para obtener más información, consulte los siguientes recursos:
 
 Como Azure Functions usa Azure App Service, también debe conocer las guías de App Service.
 * [Patterns and Practices HTTP Performance Optimizations](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/) (Patrones y procedimientos de optimización del rendimiento de HTTP)
-
 

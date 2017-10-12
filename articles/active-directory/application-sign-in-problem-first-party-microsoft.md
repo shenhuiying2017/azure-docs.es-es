@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 5638434270ee82d2b9737ea8eed8b5a8c62f7121
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de inicio de sesión en una aplicación de Microsoft
 
@@ -57,9 +57,9 @@ Estos son algunos problemas comunes que pueden surgir cuando los usuarios no pue
 
   * Asegurarse de que la **cuenta del usuario exista** en Azure Active Directory [Comprobar si existe una cuenta de usuario en Azure Active Directory](#problems-with-the-users-account)
 
-  * Asegurarse de que la cuenta del usuario está **habilitada** para los inicios de sesión [Comprobar el estado de la cuenta de un usuario](#problems-with-the-users-account)
+  * Que la cuenta del usuario está **habilitada** para los inicios de sesión. [Comprobar el estado de la cuenta de un usuario](#problems-with-the-users-account)
 
-  * Asegurarse de que la **contraseña del usuario no haya expirado o se haya olvidado** [Restablecer la contraseña del usuario](#reset-a-users-password) o [habilitar el autoservicio de restablecimiento de contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Que la **contraseña del usuario no ha expirado o se ha olvidado**. [Restablecer la contraseña del usuario](#reset-a-users-password) o [habilitar el autoservicio de restablecimiento de contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
    * Asegurarse de que **Multi-Factor Authentication** no bloquee el acceso del usuario [Comprobar el estado de la autenticación multifactor de un usuario](#check-a-users-multi-factor-authentication-status) o [comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info)
 
@@ -175,8 +175,7 @@ Para restablecer la contraseña de un usuario, siga estos pasos:
 
 Para habilitar el autoservicio de restablecimiento de contraseña, siga estos pasos de implementación:
 
--   [Permitir que los usuarios restablezcan sus contraseñas de Azure AD
-](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [Permitir que los usuarios restablezcan sus contraseñas de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
 
 -   [Permitir que los usuarios restablezcan o cambien sus contraseñas de AD locales](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 

@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 07/12/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 3c166acb17193caae32d7bad133ec510ff679353
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Datos distribuidos y tablas distribuidas para el procesamiento paralelo masivo (MPP)
 Obtenga información sobre cómo se distribuyen los datos de usuario en SQL Data Warehouse y Almacenamiento de datos paralelos de Azure, que son sistemas de procesamiento paralelo masivo (MPP) de Microsoft. Diseñar el almacenamiento de datos de tal forma que se utilicen los datos distribuidos de forma eficaz ayuda a lograr las ventajas de la arquitectura MPP de procesamiento de consultas. Algunas opciones de diseño de bases de datos pueden mejorar de manera significativa el rendimiento de las consultas.  

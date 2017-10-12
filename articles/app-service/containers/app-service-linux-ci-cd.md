@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 27a2c95c09197b3439d3fac7c74d253df2b32b1c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-with-azure-web-app-for-containers"></a>Implementación continua con Azure Web App for Containers
 
@@ -93,4 +92,3 @@ Cuando se actualiza la imagen, la aplicación web se actualizan automáticamente
 * [Cómo usar una imagen personalizada de Docker para Azure Web Apps for Containers](quickstart-custom-docker-image.md)
 * [Preguntas más frecuentes sobre Web App for Containers de Azure App Service ](./app-service-linux-faq.md) 
 * [Administración de Web Apps for Containers mediante la CLI de Azure 2.0](./app-service-linux-cli.md)
-

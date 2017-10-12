@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cd7dab8514b41d930d01fd134229cc9da48b18fe
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="machine-learning-anomaly-detection-api"></a>API de detección de anomalías de Machine Learning
 ## <a name="overview"></a>Información general
 La [API de detección de anomalías](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) es un ejemplo integrado en Azure Machine Learning que detecta anomalías en los datos de serie temporales con valores numéricos espaciados de manera uniforme en el tiempo.
@@ -192,5 +190,4 @@ La API ejecuta todos los detectores en los datos de la serie temporal y devuelve
 
 [1]: ./media/apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/apps-anomaly-detection-api/anomaly-detection-seasonal.png
-
 

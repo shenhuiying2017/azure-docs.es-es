@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="archive-azure-monitoring-data"></a>Archivado de datos de supervisión de Azure
 
 Varias capas de su entorno de Azure generan datos de registros y de métricas que pueden archivarse en una cuenta de Azure Storage. Puede que desee hacer esto para conservar un historial de los datos de supervisión a lo largo del tiempo en un almacén económico y que no admite búsquedas, una vez que haya transcurrido el período de retención en Log Analytics o Azure Monitor. En este tutorial, se recorre el proceso de configuración del entorno de Azure para archivar datos en una cuenta de almacenamiento.
@@ -164,4 +162,3 @@ En este tutorial, ha visto cómo configurar los datos de supervisión desde el e
 
 > [!div class="nextstepaction"]
 > [Introducción a Log Analytics](../log-analytics/log-analytics-get-started.md)
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 7eea3621a52bf13dc44e89c342c503905ff24a0d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
 Este artículo sirve de ayuda para encontrar información acerca de cómo solucionar los problemas comunes relativos al inicio de sesión único de conexión directa de Azure AD.
@@ -122,4 +120,3 @@ Si el procedimiento de solución de problemas no sirve de ayuda, restablezca man
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Paso 5. Habilite la característica en su inquilino
 
 Llame a `Enable-AzureADSSO` y escriba "true" en el mensaje `Enable: ` para activar la característica en su inquilino.
-

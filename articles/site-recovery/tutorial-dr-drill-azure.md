@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 15e4487217ec21bb33380422640cb19dfcbcee39
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de la exploración en profundidad de una recuperación ante desastres en Azure
 
@@ -46,7 +45,7 @@ Antes de ejecutar una conmutación por error de prueba, compruebe las propiedade
 4. Puede ver y modificar la configuración de red, incluida la red o subred en la que se va a ubicar la máquina virtual de Azure después de la conmutación por error y la dirección IP que se le va a asignar.
 5. En **Discos** puede ver información sobre los discos de datos y el sistema operativo de la máquina virtual.
 
-## <a name="run-a-test-failover-for-a-single-vm"></a>Ejecutar una conmutación por error de prueba para una sola máquina virtual
+## <a name="run-a-test-failover-for-a-single-vm"></a>Ejecutar una conmutación por error de prueba en una sola máquina virtual
 
 Cuando se ejecuta una conmutación por error de prueba, ocurre lo siguiente:
 
@@ -75,4 +74,3 @@ En algunos escenarios, la conmutación por error requiere un procesamiento adici
 
 > [!div class="nextstepaction"]
 > [Ejecución de una conmutación por error y una conmutación por recuperación entre máquinas de VMware locales](tutorial-vmware-to-azure-failover-failback.md).
-

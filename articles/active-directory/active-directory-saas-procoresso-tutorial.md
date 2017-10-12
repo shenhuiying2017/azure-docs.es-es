@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 042a41eaa6bb21670b4c12068f1b017222f64b99
-ms.contentlocale: es-es
-ms.lasthandoff: 04/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integración de Azure Active Directory con Procore SSO
 
@@ -283,5 +282,4 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 [201]: ./media/active-directory-saas-procoresso-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-procoresso-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-procoresso-tutorial/tutorial_general_203.png
-
 

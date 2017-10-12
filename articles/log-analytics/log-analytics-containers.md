@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: magoedte;banders
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 562a7a73e2d440c0c3e3e8ab9e94ffd6c1fba7d9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solución de Supervisión de contenedores de Azure Log Analytics
 
@@ -371,7 +370,7 @@ Puede elegir crear DaemonSets de omsagent con o sin secretos.
     ```
 
 
-En Kubernetes, use un script para generar el archivo .yaml de secretos del identificador de área de trabajo y la clave principal para el agente de OMS para Linux. Use la información de ejemplo siguiente con el [archivo yaml omsagent](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml) para proteger la información de secretos.
+En Kubernetes, use un script para generar el archivo .yaml de secretos del identificador de área de trabajo y la clave principal para el agente de OMS para Linux. Use la información de ejemplo siguiente con el [archivo yaml omsagent](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml) para proteger la información secreta.
 
 ```
 keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
@@ -666,4 +665,3 @@ Después de crear una consulta que encuentre útil, guárdela haciendo clic en *
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Búsqueda de registros](log-analytics-log-searches.md), para ver los registros de datos detallados de los contenedores.
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: tomfitz
 ms.openlocfilehash: 5b6ce5526f354008eb4a697deec737876f22391f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-name-and-type-for-child-resource-in-resource-manager-template"></a>Establecimiento del nombre y el tipo de recurso secundario en la plantilla de Resource Manager
 Al crear una plantilla, con frecuencia es necesario incluir un recurso secundario relacionado con uno primario. Por ejemplo, la plantilla puede incluir un servidor SQL Server y una base de datos. SQL Server es el recurso primario y la base de datos, el secundario. 

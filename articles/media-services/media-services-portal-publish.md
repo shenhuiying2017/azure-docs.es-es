@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 6759d3f49e15a3b01022df318a83563ad6bd859f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicación de contenido en Azure Portal
 > [!div class="op_single_selector"]
@@ -82,7 +81,7 @@ La dirección URL se agrega a la lista de **direcciones URL publicadas**.
 ## <a name="play-content-in-the-portal"></a>Reproducción de contenido en el portal
 Puede probar el vídeo en un reproductor de contenido en Azure Portal.
 
-Seleccione el vídeo y, a continuación, seleccione el botón **Reproducir**.
+Seleccione el vídeo y, a continuación, haga clic en el botón **Reproducir**.
 
 ![Reproducción de vídeo en Azure Portal](./media/media-services-portal-vod-get-started/media-services-play.png)
 
@@ -97,5 +96,4 @@ Se aplican algunas consideraciones:
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 

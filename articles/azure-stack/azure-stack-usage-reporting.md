@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 695b93a818d3c0e615bb79e0a2861e134b2f5c89
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="report-azure-stack-usage-data-to-azure"></a>Notificar los datos de uso de Azure Stack a Azure 
 
 Los datos de uso, también denominados datos de consumo, representan la cantidad de recursos usados. Los sistemas integrados de Azure Stack que usan el modelo de facturación basado en el consumo deben notificar datos de uso a Azure. Estos datos de uso se usan en la facturación. Es responsabilidad del operador de Azure Stack configurar su entorno de Azure Stack con los informes de datos de uso.

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 73bf4451ba1b71807e22440beecc73a7e8045c5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Creación y publicación de un producto en Administración de API de Azure
 En Administración de API de Azure, un producto contiene una o varias API, así como una cuota de uso y los términos de uso. Una vez publicado un producto, los desarrolladores pueden suscribirse al producto y comenzar a usar las API del producto. Este tema ofrece una guía para crear un producto, agregarle una API y publicarlo para los desarrolladores.
 
-## <a name="create-product"> </a>Creación de un producto
+## <a name="create-product"></a>Creación de un producto
 Las operaciones se agregan y se configuran para una API en el portal del publicador. Para obtener acceso al portal del publicador, haga clic en el **portal del publicador** en Azure Portal para el servicio API Management.
 
 ![Portal del publicador][api-management-management-console]
@@ -62,7 +62,7 @@ Una vez configuradas todas las opciones del nuevo producto, haga clic en **Guard
 
 Para configurar un producto, haga clic en el nombre del producto en la pestaña **Productos** .
 
-## <a name="add-apis"> </a>Incorporación de API a un producto
+## <a name="add-apis"></a>Incorporación de API a un producto
 La página **Productos** contiene cuatro vínculos de configuración: **Resumen**, **Configuración**, **Visibilidad** y **Suscriptores**. En la pestaña **Resumen** puede agregar API y publicar o anular la publicación de un producto.
 
 ![Resumen][api-management-new-product-summary]
@@ -73,7 +73,7 @@ Antes de publicar el producto, debe agregar una o más API. Para ello, haga clic
 
 Seleccione las API que desee y haga clic en **Guardar**.
 
-## <a name="add-description"> </a>Incorporación de información descriptiva a un producto
+## <a name="add-description"></a>Incorporación de información descriptiva a un producto
 La pestaña **Configuración** permite proporcionar información detallada sobre el producto como, por ejemplo, su finalidad, las API a las que ofrece acceso y otra información útil. El contenido se dirige a los desarrolladores que llamarán a la API y pueden escribirse en texto sin formato o marcado HTML.
 
 ![Product settings][api-management-product-settings]
@@ -86,12 +86,12 @@ Para permitir que las cuentas de desarrollador se suscriban varias veces al nuev
 
 Opcionalmente, rellene el campo **Términos de uso** que describe los términos de uso del producto que los suscriptores deben aceptar para usar el producto.
 
-## <a name="publish-product"> </a>Publicación de un producto
+## <a name="publish-product"></a>Publicación de un producto
 Para poder llamar a las API de un producto, este debe publicarse. En la pestaña **Resumen** correspondiente al producto, haga clic en **Publicar**, y luego en **Sí, publicarlo** para confirmar. Para convertir en privado un producto previamente publicado, haga clic en **Anular publicación**.
 
 ![Publish product][api-management-publish-product]
 
-## <a name="make-visible"> </a>Visibilidad de un producto para los desarrolladores
+## <a name="make-visible"></a>Visibilidad de un producto para los desarrolladores
 La pestaña **Visibilidad** permite elegir los roles que pueden ver el producto en el portal para desarrolladores y suscribirse al producto.
 
 ![Product visibility][api-management-product-visiblity]
@@ -102,12 +102,12 @@ Para habilitar o deshabilitar la visibilidad de un producto para los desarrollad
 > 
 > 
 
-## <a name="view-subscribers"> </a>Vista de los suscriptores de un producto
+## <a name="view-subscribers"></a>Vista de los suscriptores de un producto
 La pestaña **Suscriptores** muestra la lista de desarrolladores que se han suscrito al producto. Los detalles y la configuración de cada desarrollador se pueden ver haciendo clic en el nombre del desarrollador. En este ejemplo, ningún desarrollador se ha suscrito todavía al producto.
 
 ![Desarrolladores][api-management-developer-list]
 
-## <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Una vez agregadas las API que se deseen y publicado el producto, los desarrolladores pueden suscribirse al producto y comenzar a llamar a las API. Para obtener un tutorial que demuestre estos elementos, además de la configuración avanzada del producto, consulte el artículo que versa sobre la [creación y definición de configuraciones de productos avanzadas en Azure API Management][How create and configure advanced product settings in Azure API Management].
 
 Para obtener más información acerca de cómo trabajar con los productos, vea el siguiente vídeo.

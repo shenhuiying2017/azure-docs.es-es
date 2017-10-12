@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3b40a657ee8eb391d14a38cb95acc0729a8dda21
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Solución de problemas de Microsoft Azure Stack
 
@@ -97,7 +96,6 @@ Al conectarse a las suscripciones de inquilinos con PowerShell, observará que l
     * Un usuario puede ver el panel solo después de que restablezca la configuración del portal. (En el portal de usuarios, haga clic en el icono de configuración del portal, el icono de engranaje en la esquina superior derecha. En **Restaurar la configuración predeterminada**, haga clic en **Aplicar**).
     * Los títulos del panel pueden no aparecer. Si se produce este problema, debe volver a agregarlos manualmente.
     * Puede que algunos iconos no se muestren correctamente cuando los agrega por primera vez al panel. Para corregir este problema, actualice el explorador.
-
 
 
 

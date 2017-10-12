@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: dstefan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 2a555326e5bb2eb7b89e80be721b20488c4f7a2d
-ms.contentlocale: es-es
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: 7d43be3cbfd63b6bc5f06426e9810a37bbf3d071
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-ingredients"></a>Componentes de la guía de prueba de concepto de Azure Active Directory 
 

@@ -12,12 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
 ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-ms.contentlocale: es-es
-ms.lasthandoff: 12/10/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-index"></a>Creación de un índice de Búsqueda de Azure
 > [!div class="op_single_selector"]
@@ -66,5 +65,4 @@ Puede encontrar información más detallada sobre los [atributos de índice de A
 Al diseñar el índice, tómese su tiempo en la fase de planeación y reflexione cada decisión. Es importante que tenga en cuenta sus necesidades de negocio y experiencia de búsqueda como usuario al diseñar el índice ya que debe asignar a cada campo los [atributos adecuados](https://docs.microsoft.com/rest/api/searchservice/Create-Index). El cambio de un índice después de la implementación implica volver a generar y volver a cargar los datos.
 
 Si los requisitos de almacenamiento de datos cambian con el tiempo, puede aumentar o disminuir la capacidad agregando o quitando particiones. Para más información, consulte [Administración del servicio de búsqueda en Azure](search-manage.md) o [Límites de servicio](search-limits-quotas-capacity.md).
-
 

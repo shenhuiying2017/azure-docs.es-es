@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d8d45bad6205f0dbc449c86c453c9efc1bbb3da4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Movimiento de datos de MongoDB mediante Data Factory de Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](data-factory-on-premises-mongodb-connector.md)
-> * [Versión 2: versión preliminar](../connector-mongodb.md)
+> * [Versión 1: Disponibilidad general](data-factory-on-premises-mongodb-connector.md)
+> * [Versión 2: Versión preliminar](../connector-mongodb.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [MongoDB connector in V2](../connector-mongodb.md) (Conector de MongoDB en V2).
@@ -372,4 +371,3 @@ Consulte [Guía de optimización y rendimiento de la actividad de copia](data-fa
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) para obtener instrucciones paso a paso para crear una canalización de datos que mueva los datos de un almacén de datos local a un almacén de datos de Azure.
-

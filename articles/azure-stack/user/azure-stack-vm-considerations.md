@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7d841dba798c2b706c26dcf51361ce0447710b12
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Consideraciones sobre máquinas virtuales en Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
@@ -93,4 +91,3 @@ La lista de versiones de API y tipos de recursos admitidos puede variar si el op
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Cree una máquina virtual Windows con PowerShell en Azure Stack](azure-stack-quick-create-vm-windows-powershell.md)
-

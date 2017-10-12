@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7d914684a0ee5598cee7972b78c3ec6296184466
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copia de datos con Azure Cosmos DB como origen o destino mediante Azure Data Factory
 
@@ -55,7 +54,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Co
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **CosmosDb**. | Sí |
 | connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure Cosmos DB. Tenga en cuenta que debe especificar la información de la base de datos en la cadena de conexión como el ejemplo siguiente. Marque este campo como SecureString. |Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Azure Integration Runtime o Integration Runtime autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, se usará el entorno Azure Integration Runtime predeterminado. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
 
 **Ejemplo:**
 
@@ -80,7 +79,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Co
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Para ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. En esta sección se proporciona una lista de las propiedades que el conjunto de datos de Azure Cosmos DB admite.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. En esta sección se proporciona una lista de las propiedades que el conjunto de datos de Azure Cosmos DB admite.
 
 Para copiar datos con Azure Cosmos DB como origen o destino, establezca la propiedad type del conjunto de datos en **DocumentDbCollection**. Se admiten las siguientes propiedades:
 
@@ -116,7 +115,7 @@ En los almacenes de datos sin esquemas como Azure Cosmos DB, la actividad de cop
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
-Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que el receptor y el origen de Azure Cosmos DB admiten.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que el receptor y el origen de Azure Cosmos DB admiten.
 
 ### <a name="azure-cosmos-db-as-source"></a>Azure Cosmos DB como origen
 

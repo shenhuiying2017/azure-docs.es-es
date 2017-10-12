@@ -3,7 +3,7 @@ title: "API de facturación de Azure Enterprise | Microsoft Docs"
 description: "Obtenga información acerca de las API de informes que permiten a los clientes de Azure Enterprise extraer datos de consumo mediante programación."
 services: 
 documentationcenter: 
-author: aedwin
+author: anandedwin
 manager: aedwin
 editor: 
 tags: billing
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
+ms.openlocfilehash: 62a69aeb7499a961f95739fb3836942b670c7320
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: e3a5f9bcd6b54a51c29df649f1ae8ac185b153a1
-ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Información general de API de informes para clientes de Enterprise
 Las API de informes permiten a los clientes de Azure Enterprise extraer datos de facturación y consumo mediante programación en las herramientas de análisis de datos preferidas. 
@@ -36,16 +35,16 @@ Las API de informes permiten a los clientes de Azure Enterprise extraer datos de
 ## <a name="consumption-apis"></a>API de consumo
 Hay disponible un punto de conexión de Swagger [aquí](https://consumption.azure.com/swagger/ui/index) para la API descrita a continuación que debe habilitar una introspección sencilla de la API y la capacidad de generar SDK de cliente con [AutoRest](https://github.com/Azure/AutoRest) o [Swagger CodeGen](http://swagger.io/swagger-codegen/). Los datos a partir del 1 de mayo de 2014 están disponibles a través de esta API. 
 
-* **Saldos y resumen**: la [API de saldos y resumen](billing-enterprise-api-balance-summary.md) ofrece un resumen mensual de información sobre saldos, nuevas compras, gastos de servicios en Azure Marketplace, ajustes y gastos de uso por encima del límite.
+* **Saldos y resumen**: la [API de saldos y resumen](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) ofrece un resumen mensual de información sobre saldos, nuevas compras, gastos de servicios en Azure Marketplace, ajustes y gastos de uso por encima del límite.
 
-* **Detalles de uso**: la [API de detalles de uso](billing-enterprise-api-usage-detail.md) ofrece un desglose diario de cantidades consumidas y gastos estimados por una inscripción. El resultado también incluye información sobre instancias, medidores y departamentos. La API se puede consultar por período de facturación o por una fecha de inicio y finalización especificada. 
+* **Detalles de uso**: la [API de detalles de uso](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) ofrece un desglose diario de cantidades consumidas y gastos estimados por una inscripción. El resultado también incluye información sobre instancias, medidores y departamentos. La API se puede consultar por período de facturación o por una fecha de inicio y finalización especificada. 
 
-* **Gasto en la tienda Marketplace**: la [API de gastos en la tienda Marketplace](billing-enterprise-api-marketplace-storecharge.md) devuelve el desglose de los gastos de Marketplace basado en el uso por día para el período de facturación o las fechas de inicio y finalización especificadas (no se incluyen las cuotas de una vez).
+* **Gasto en la tienda Marketplace**: la [API de gastos en la tienda Marketplace](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) devuelve el desglose de los gastos de Marketplace basado en el uso por día para el período de facturación o las fechas de inicio y finalización especificadas (no se incluyen las cuotas de una vez).
 
-* **Hoja de precios**: la [API de hoja de precios](billing-enterprise-api-pricesheet.md) proporciona el tipo aplicable de cada medidor para la inscripción y el período de facturación determinados. 
+* **Hoja de precios**: la [API de hoja de precios](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) proporciona el tipo aplicable de cada medidor para la inscripción y el período de facturación determinados. 
 
 ## <a name="helper-apis"></a>API de ayuda
- **Enumerar períodos de facturación**: la [API de períodos de facturación](billing-enterprise-api-billing-periods.md) devuelve una lista de períodos de facturación que tienen datos de consumo para la inscripción especificada en orden cronológico inverso. Cada período contiene una propiedad que señala a la ruta de la API para los cuatro conjuntos de datos: BalanceSummary, UsageDetails, Marketplace Charges y Price Sheet.
+ **Enumerar períodos de facturación**: la [API de períodos de facturación](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) devuelve una lista de períodos de facturación que tienen datos de consumo para la inscripción especificada en orden cronológico inverso. Cada período contiene una propiedad que señala a la ruta de la API para los cuatro conjuntos de datos: BalanceSummary, UsageDetails, Marketplace Charges y Price Sheet.
 
 
 ## <a name="api-response-codes"></a>Códigos de respuesta de la API  
@@ -56,7 +55,6 @@ Hay disponible un punto de conexión de Swagger [aquí](https://consumption.azur
 |404| No disponible| Punto de conexión de informe no encontrado|
 |400| Bad Request| Parámetros no válidos: intervalos de fechas, números EA, etc.|
 |500| Error de servidor| Error inesperado al procesar la solicitud| 
-
 
 
 

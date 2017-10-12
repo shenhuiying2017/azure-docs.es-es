@@ -15,14 +15,12 @@ ms.workload: na
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
+ms.openlocfilehash: 2c0e5fe4f60738fcc1aa67a78674e6f3c62e5628
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: e68f06925fd7c72d72610ca68fab58a6fa2f4561
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con ACS Engine y modo Docker Swarm mediante Visual Studio Team Services
 
 *Este artículo se basa en el documento [Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con Docker Swarm mediante Visual Studio Team Services](container-service-docker-swarm-setup-ci-cd.md)*
@@ -257,4 +255,3 @@ Ahora que ha terminado con la configuración, es hora de probar esta nueva canal
 * Para más información sobre CI/CD con Visual Studio Team Services, consulte la [introducción a la compilación de VSTS](https://www.visualstudio.com/docs/build/overview).
 * Para más información acerca de ACS Engine, consulte el [repositorio de GitHub de ACS Engine](https://github.com/Azure/acs-engine).
 * Para más información acerca del modo de Docker Swarm, consulte la [introducción al modo de Docker Swarm](https://docs.docker.com/engine/swarm/).
-

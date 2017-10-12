@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/05/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 156dd1b7f928df22b3feb9e7a13396d3b53a91d7
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Movilidad y colaboración en Azure Machine Learning Workbench
 Este documento le guía sobre cómo Azure Machine Learning Workbench puede ayudar en la itinerancia de los proyectos entre máquinas, así como habilitar la colaboración con sus compañeros de equipo. 
 
@@ -125,5 +123,4 @@ Las cuentas de Experimentación de Azure Machine Learning, las áreas de trabajo
 Encuentre el recurso al que quiere agregar usuarios desde la vista Todos los recursos. Haga clic en el enlace Control de acceso (IAM) dentro de la página. Agregar usuarios 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
-
 

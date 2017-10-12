@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2e59a78f2c348b581155484d77e272a050da1f1d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de VMware locales para la recuperación ante desastres en Azure
 
@@ -116,4 +115,3 @@ Para conectarse a máquinas virtuales Linux mediante SSH después de la conmutac
 
 > [!div class="nextstepaction"]
 > [Configurar la recuperación ante desastres en Azure para máquinas virtuales de VMware](tutorial-vmware-to-azure.md)
-

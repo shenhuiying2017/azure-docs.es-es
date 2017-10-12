@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.openlocfilehash: f43f6e33976325920da9cf0f6aef6decae5bde26
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Prácticas recomendadas de seguridad para usar Azure Multi-Factor Authentication con cuentas de Azure AD
 
@@ -67,7 +67,7 @@ Puesto que la mayoría de los usuarios están acostumbrados a usar solo las cont
 ## <a name="best-practices-for-an-on-premises-deployment"></a>Procedimientos recomendados para una implementación local
 Si la compañía ha decidido aprovechar su propia infraestructura para habilitar MFA, es necesario implementar una instancia local de Servidor Azure Multi-Factor Authentication. En el diagrama siguiente se muestran los componentes del servidor MFA:
 
-![Componentes de servidor MFA predeterminados: consola, motor de sincronización, portal de administración, servicio en la nube](./media/multi-factor-authentication-security-best-practices/server.png) \*No se instalan de forma predeterminada \**Están instalados pero no habilitados de forma predeterminada
+![Componentes de servidor MFA predeterminados: consola, motor de sincronización, portal de administración, servicio en la nube](./media/multi-factor-authentication-security-best-practices/server.png)\*No se instalan de forma predeterminada \**Están instalados pero no habilitados de forma predeterminada
 
 El servidor Azure Multi-Factor Authentication puede proteger los recursos en la nube y los recursos locales mediante la federación. Debe disponer de AD FS y federarlo con el inquilino de Azure AD.
 Al configurar el servidor de Multi-Factor Authentication, tenga en cuenta los siguientes detalles:

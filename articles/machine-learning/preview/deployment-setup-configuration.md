@@ -1,5 +1,5 @@
 ---
-title: "Instalación y configuración de Administración de modelos de Azure Machine Learning| Documentos de Microsoft"
+title: "Instalación y configuración de Administración de modelos de Azure Machine Learning| Microsoft Docs"
 description: "Este documento describe los pasos y conceptos implicados en la instalación y configuración de Administración de modelos de Azure Machine Learning."
 services: machine-learning
 author: raymondlaghaeian
@@ -10,31 +10,30 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="model-management-setup"></a>Instalación de Administración de modelos
 
 Este documento ofrece una introducción al uso de Administración de modelos de Azure Machine Learning para implementar y administrar sus modelos de aprendizaje automático como servicios web. 
 
-Con Administración de modelos de Azure Machine Learning, puede implementar y administrar de forma eficiente modelos de aprendizaje automático que se han compilado utilizando un número de plataformas, entre las que se incluyen SparkML, Keras, TensorFlow, Microsoft Cognitive Toolkit o Python. 
+Con Administración de modelos de Azure Machine Learning, puede implementar y administrar de forma eficiente modelos de aprendizaje automático que se han compilado utilizando un número de plataformas entre las que se incluyen SparkML, Keras, TensorFlow, Microsoft Cognitive Toolkit o Python. 
 
 Al final de este documento, debe tener el entorno de administración de modelo configurado y listo para implementar los modelos de aprendizaje automático.
 
 ## <a name="what-you-need-to-get-started"></a>Qué necesita para empezar
 Para obtener el máximo partido de esta guía, debe tener acceso de propietario a una suscripción de Azure en la que pueda implementar los modelos.
-La CLI viene preinstalada en Azure Machine Learning Workbench y en las [Azure DSVM](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+La CLI viene preinstalada en Azure Machine Learning Workbench y en las instancias de [Azure DSVM](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Uso de la CLI
 Para usar las interfaces de línea de comandos (CLI) desde el área de trabajo, haga clic en **Archivo** -> **Abrir símbolo del sistema**. 
 
 En una instancia de Data Science Virtual Machine, conecte y abra el símbolo del sistema. Escriba `az ml -h` para ver las opciones. Para más información sobre los comandos, utilice la marca --help.
 
-En todos los otros sistemas, deberá instalar las CLI.
+En todos los demás sistemas, deberá instalar las CLI.
 
 ### <a name="installing-or-updating-on-windows"></a>Instalación (o actualización) en Windows
 
@@ -82,7 +81,7 @@ Para empezar, tiene que configurar el entorno de implementación. La configuraci
 
 Cuando realice la configuración del entorno:
 - Se le pide que inicie sesión en Azure. Para iniciar sesión use un explorador web para abrir la página https://aka.ms/devicelogin y escriba el código que se le ha proporcionado para autenticarse.
-- Durante el proceso de autenticación, el sistema solicita una cuenta con la que autenticar. Importante: Seleccione una cuenta que tenga una suscripción válida de Azure y los permisos necesarios para crear recursos en la cuenta. Cuando se haya realizado el inicio de sesión, se presenta la información de suscripción y se le pregunta si desea continuar con la cuenta seleccionada.
+- Durante el proceso de autenticación, el sistema solicita una cuenta con la que autenticar. Importante: seleccione una cuenta que tenga una suscripción válida de Azure y los permisos necesarios para crear recursos en la cuenta. Cuando se haya realizado el inicio de sesión, se presenta la información de suscripción y se le pregunta si desea continuar con la cuenta seleccionada.
 
 ### <a name="environment-setup"></a>Configuración del entorno
 Para iniciar el proceso de configuración, tiene que registrar al proveedor de entorno escribiendo el comando siguiente:
@@ -172,4 +171,3 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Pruebe uno de los muchos ejemplos en la galería.
-

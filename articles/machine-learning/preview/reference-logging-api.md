@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 1906425c6657fb6232a9dc306b05f9171c9c7bef
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="logging-api-reference"></a>Referencia de API de registro
 
 La biblioteca del registro de Azure ML permite que el programa emita las métricas y los archivos seguidos por el servicio de historial para su análisis posterior. Actualmente, se admiten algunos tipos básicos de archivos y métricas y el conjunto de tipos compatibles aumentará con futuras versiones del paquete de Python.
@@ -88,4 +86,3 @@ $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to cr
 ## <a name="next-steps"></a>Pasos siguientes
 - Revise [Clasificación del tutorial de IRIS, parte 2](tutorial-classifying-iris-part-2.md) para ver la API de registro en acción.
 - Revise [Cómo utilizar el historial de ejecución y las métricas de modelo en Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) para comprender un poco más cómo se puede usar el registro de las API en el historial de ejecución.
-

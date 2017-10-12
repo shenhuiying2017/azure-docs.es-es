@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 23d235d326273e7ec59feee6588a39f685401e52
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-10-run-a-test-failover-for-hyper-v-replication-to-a-secondary-site"></a>Paso 10: Ejecución de una conmutación por error de prueba para la replicación en un sitio secundario
 
@@ -56,4 +55,3 @@ Publique cualquier comentario que tenga en la parte inferior de este artículo, 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Después de probar la implementación, obtenga más información sobre otros tipos de [conmutación por error](site-recovery-failover.md).
-

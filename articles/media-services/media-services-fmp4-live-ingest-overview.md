@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
+ms.openlocfilehash: 6250b73504bec765b8299060a29e84e771791cc9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d1a9328333bb8198d77e4b5d11fd8c6637a9e440
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services
 En esta especificación se describe el protocolo y el formato para ingesta de streaming en vivo basada en MP4 fragmentado para Azure Media Services. Azure Media Services proporciona un servicio de streaming en vivo que los clientes pueden utilizar para la transmisión de eventos en directo y la difusión de contenido en tiempo real mediante el uso de Azure como plataforma en la nube. Este documento también describe las prácticas recomendadas para crear mecanismos de ingesta en vivo sólidos y de alta redundancia.
@@ -189,7 +188,7 @@ A continuación se muestra una implementación recomendada para pistas de audio 
 2. Use secuencias independientes para enviar las dos velocidades de bits de vídeos más bajas. Cada una de estas secuencias también DEBERÍA contener una copia de cada pista de audio única. Por ejemplo, cuando se admiten varios idiomas, estas secuencias DEBERÍAN contener pistas de audio para cada idioma.
 3. Use instancias de servidor independientes (de codificador) y envíe las secuencias redundantes mencionadas en (1) y (2). 
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
@@ -202,4 +201,3 @@ A continuación se muestra una implementación recomendada para pistas de audio 
 [image5]: ./media/media-services-fmp4-live-ingest-overview/media-services-image5.png
 [image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
 [image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
-

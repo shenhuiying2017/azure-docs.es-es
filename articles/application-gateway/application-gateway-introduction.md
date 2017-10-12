@@ -15,12 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
+ms.openlocfilehash: 33968b72d0da71577428937e5d293a40d62989f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: c8f54c81481ebced16ed259f07736b0a4bc80567
-ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-application-gateway"></a>Introducción a Application Gateway
 
@@ -42,7 +41,7 @@ Application Gateway proporciona actualmente las siguientes funcionalidades:
 * **[Enrutamiento multisitio](application-gateway-multi-site-overview.md)**: Application Gateway permite consolidar hasta 20 sitios web en una sola puerta de enlace de aplicaciones.
 * **[Compatibilidad con WebSocket](application-gateway-websocket.md)**: otra gran característica de Application Gateway es la compatibilidad nativa con WebSocket.
 * **[Supervisión de estado](application-gateway-probe-overview.md)**: Application Gateway proporciona supervisión de estado predeterminada de los recursos de back-end, así como sondeos para la supervisión en escenarios más específicos.
-* **[Directiva SSL y cifrados](application-gateway-ssl-policy-overview.md)** : esta característica ofrece la posibilidad de limitar las versiones del protocolo SSL y los conjuntos de cifrado compatibles y el orden en que se procesan.
+* **[Directiva SSL y cifrados](application-gateway-ssl-policy-overview.md)**: esta característica ofrece la posibilidad de limitar las versiones del protocolo SSL y los conjuntos de cifrado compatibles y el orden en que se procesan.
 * **[Solicitar redireccionamiento](application-gateway-redirect-overview.md)**: esta característica proporciona la funcionalidad para redirigir las solicitudes HTTP a un agente de escucha HTTPS.
 * **[Compatibilidad con servidores back-end multiinquilino](application-gateway-web-app-overview.md)**: Application Gateway admite la configuración de servicios back-end multiinquilino, por ejemplo, Azure Web Apps y API Gateway, como miembros del grupo de servidores back-end. 
 * **[Diagnóstico avanzado](application-gateway-diagnostics.md)**: Application Gateway proporciona registros de diagnóstico y acceso completos. Los registros de firewall están disponibles para los recursos de puerta de enlace de aplicaciones que tienen WAF habilitado.
@@ -107,4 +106,3 @@ Ahora que ya conoce cómo funciona Application Gateway, puede [crear una puerta 
 Para aprender a crear una puerta de enlace de aplicaciones mediante el enrutamiento de contenido basado en direcciones URL, vaya a [Creación de una puerta de enlace de aplicaciones mediante enrutamiento basado en direcciones URL](application-gateway-create-url-route-arm-ps.md) para obtener más información.
 
 Para aprender sobre algunas de las demás funcionalidades de red principales, consulte [Redes de Azure](../networking/networking-overview.md).
-

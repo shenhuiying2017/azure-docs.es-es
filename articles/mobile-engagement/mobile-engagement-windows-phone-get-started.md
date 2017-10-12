@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: d2334a59d83c90bdd02c4fa29261d36aad292892
-ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Introducción a Azure Mobile Engagement para aplicaciones Windows Phone Silverlight
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -41,7 +40,7 @@ En este tutorial se demuestra el escenario de difusión sencillo con Mobile Enga
 Este tutorial requiere lo siguiente:
 
 * Visual Studio 2013
-* [MicrosoftAzure.MobileEngagement] 
+* [MicrosoftAzure.MobileEngagement]
 
 > [!NOTE]
 > Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-phone-get-started).
@@ -165,4 +164,3 @@ Ahora debería ver una notificación en su dispositivo que se mostrará como una
 [3]: ./media/mobile-engagement-windows-phone-get-started/add-connection-string.png
 [5]: ./media/mobile-engagement-windows-phone-get-started/reach-capabilities.png
 [6]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
-

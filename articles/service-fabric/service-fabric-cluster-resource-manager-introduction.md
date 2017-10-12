@@ -14,14 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 3e8cd4dc8e960e38ba0e4a9a195b2f61d9ec1924
-ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Presentación de Cluster Resource Manager de Service Fabric
+# <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Presentación del Administrador de recursos de clúster de Service Fabric
 Tradicionalmente, administrar sistemas de TI o servicios en línea significaba dedicar máquinas físicas o virtuales específicas a esos servicios o sistemas específicos. Los servicios se diseñaban como capas. Podía haber una capa "web" y una capa "datos" o "almacenamiento". Las aplicaciones tenían un nivel de mensajería donde había solicitudes de flujo de entrada y salida, así como un conjunto de máquinas dedicado al almacenamiento en caché. Cada nivel o tipo de carga de trabajo tenía máquinas específicas dedicadas a ello: la base de datos contaba con un par de máquinas dedicadas, y los servidores web tenían algunas más. Si un tipo determinado de carga de trabajo provocaba que las máquinas en las que estaba se sobrecalentaran, se agregaban más máquinas con esa misma configuración a esa capa. Sin embargo, no todas las cargas de trabajo se podían escalar horizontalmente tan fácilmente, especialmente con la capa de datos tenía normalmente que reemplazar las máquinas con máquinas de mayor tamaño. Así de sencillo. Si se producía un error en una máquina, la parte afectada de la aplicación general se ejecutaba con una capacidad inferior hasta que pudiera restaurarse la máquina. Esto sigue siendo sencillo (aunque no necesariamente divertido).
 
 Sin embargo, ahora el sector de la arquitectura de software y servicio ha cambiado. Es más habitual que las aplicaciones hayan adoptado un diseño de escalado horizontal. Es habitual la compilación de aplicaciones con contenedores o microservicios (o ambos). Ahora, aunque todavía puede tener solo unas pocas máquinas, no se ejecutan como una única instancia de una carga de trabajo. Pueden incluso ejecutarse varias cargas de trabajo diferentes al mismo tiempo. Ahora tiene docenas de tipos de servicios distintos (ninguno de los cuales consume los recursos de toda una máquina), quizás cientos de instancias distintas de esos servicios. Cada instancia con nombre tendría una o más instancias o réplicas para alta disponibilidad (HA). Dependiendo de los tamaños de las cargas de trabajo y su nivel de ocupación, es probable que se encuentre con cientos o miles de máquinas. 
@@ -33,7 +32,7 @@ Puesto que la aplicación ya no es una serie de monolitos repartidos en varias c
 Como desarrolladores y operadores que tienen que trabajar en este entorno, querremos obtener ayuda para administrar esta complejidad. Empezar a contratar mano de obra para ocultar la complejidad del proceso no es probablemente la mejor solución. Así que, ¿qué hacemos?
 
 ## <a name="introducing-orchestrators"></a>Presentación de los organizadores
-"Orquestador" es el término general que se usa para los componentes de software que ayudan a los administradores a gestionar estos tipos de entornos. Los orquestadores son los componentes que reciben solicitudes como "Quiero que se ejecuten cinco copias de este servicio en mi entorno". Tratan de que el entorno coincida con el estado deseado, sin importar lo que suceda.
+"Orquestrador" es el término general que se usa para los componentes de software que ayudan a los administradores a gestionar estos tipos de entornos. Los orquestadores son los componentes que reciben solicitudes como "Quiero que se ejecuten cinco copias de este servicio en mi entorno". Tratan de que el entorno coincida con el estado deseado, sin importar lo que suceda.
 
 Los orquestadores (y no el personal humano) son los que entran en acción cuando una máquina falla o cuando una carga de trabajo finaliza por algún motivo inesperado. La mayoría de los orquestadores no solo administran los errores. Otras características que tienen es administrar implementaciones nuevas, controlar las actualizaciones y administrar el consumo de recursos y gobierno. Todos los orquestadores se dedican fundamentalmente a mantener el estado de configuración deseado en el entorno. Sabemos que lo que busca es poder indicarle a un orquestador qué quiere y dejar que haga el trabajo pesado. Aurora de Mesos, Docker Datacenter/Docker Swarm, Kubernetes y Service Fabric son ejemplos de orquestadores. Estos orquestadores están desarrollándose activamente para satisfacer las necesidades de cargas de trabajo reales en entornos de producción. 
 
@@ -61,7 +60,6 @@ Dado que Cluster Resource Manager es responsable de mover servicios de un lado a
 - Para más información sobre el flujo de información y la arquitectura dentro de Cluster Resource Manager, consulte [este artículo](service-fabric-cluster-resource-manager-architecture.md)
 - Cluster Resource Manager tiene muchas opciones para describir el clúster. Para obtener más información sobre las métricas, vea este artículo acerca de la [descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 - Para más información acerca de cómo configurar servicios, [lea sobre la configuración de servicios](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
-- Las métricas son el modo en que Cluster Resource Manager de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
-- Cluster Resource Manager trabaja con las funcionalidades de administración de Service Fabric. Para más información sobre esa integración, lea [este artículo](service-fabric-cluster-resource-manager-management-integration.md)
+- Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
+- El Administrador de recursos de clúster trabaja con las funcionalidades de administración de Service Fabric. Para más información sobre esa integración, lea [este artículo](service-fabric-cluster-resource-manager-management-integration.md)
 - Para más información sobre cómo Cluster Resource Manager administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md)
-

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
 ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restricción del acceso a través de puntos de conexión accesibles desde Internet en Azure Security Center
 Azure Security Center recomendará restringir el acceso a través de puntos de conexión accesibles desde Internet si alguno de los grupos de seguridad de red (NSG) tiene una o varias reglas de entrada que permitan el acceso desde cualquier dirección IP de origen. Al abrir el acceso a cualquier IP, los atacantes pueden lograr acceder a los recursos. Azure Security Center recomienda editar estas reglas de entrada para restringir el acceso a las direcciones IP de origen que realmente necesiten acceder.

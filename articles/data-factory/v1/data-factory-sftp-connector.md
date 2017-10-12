@@ -14,17 +14,16 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 48c56e2de40a3166f22db88850c6df2489a35e8e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Movimiento de datos de un servidor FTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](data-factory-sftp-connector.md)
-> * [Versión 2: versión preliminar](../connector-sftp.md)
+> * [Versión 1: Disponibilidad general](data-factory-sftp-connector.md)
+> * [Versión 2: Versión preliminar](../connector-sftp.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [SFTP connector in V2](../connector-sftp.md) (Conector de SFTP en V2).
@@ -417,4 +416,3 @@ Consulte [Guía de optimización y rendimiento de la actividad de copia](data-fa
 Consulte los artículos siguientes:
 
 * [Tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para la creación de una canalización con una actividad de copia.
-

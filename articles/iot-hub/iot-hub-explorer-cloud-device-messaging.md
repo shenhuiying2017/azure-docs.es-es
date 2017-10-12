@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: a7abb8fb279e134b7f23df779f1c4548a9feb82d
-ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 30151b7bdc544bc36e959cc3528d37897198fc7e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Uso de iothub-explorer para enviar y recibir mensajes entre el dispositivo y la instancia de IoT Hub
 
@@ -88,4 +87,3 @@ El comando hace parpadear el LED que está conectado al dispositivo y envía el 
 Ahora sabe cómo supervisar los mensajes del dispositivo a la nube y enviar mensajes de la nube al dispositivo entre el dispositivo de IoT y la instancia de Azure IoT Hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

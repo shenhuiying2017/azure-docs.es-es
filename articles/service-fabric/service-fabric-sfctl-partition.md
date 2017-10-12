@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: a5d0ff59803212403281063f47e706433cee64b4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consulte y administre las particiones para cualquier servicio.
@@ -67,7 +66,7 @@ Use ReplicasHealthStateFilter para filtrar la colección de objetos ReplicaHealt
 | --- | --- |
 | --debug                    | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                  | Muestra este mensaje de ayuda y sale.|
-| --output -o                | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.                Valor predeterminado: json.|
+| --output -o                | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.                Valor predeterminado: json.|
 | --query                    | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/. |
 | --verbose                  | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -89,7 +88,7 @@ El punto de conexión de las particiones devuelve información sobre la partici�
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
-| --output -o           | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o           | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query               | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -102,7 +101,7 @@ Obtiene la lista de particiones de un servicio de Service Fabric. El identificad
 
 |Argumento|Descripción|
 | --- | --- |
-| --service-id [Obligatorio]| La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI 'fabric:'. A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre del servicio es "fabric://myapp/app1/svc1", la identidad del servicio sería "myapp~app1~svc1" en 6.0+ y "myapp/app1/svc1" en las versiones anteriores.|
+| --service-id [Obligatorio]| La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre del servicio es "fabric://myapp/app1/svc1", la identidad del servicio sería "myapp~app1~svc1" en 6.0+ y "myapp/app1/svc1" en las versiones anteriores.|
 | --continuation-token| El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados.         Un continuation token con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el continuation token no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
 | --timeout -t        | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
@@ -112,7 +111,7 @@ Obtiene la lista de particiones de un servicio de Service Fabric. El identificad
 | --- | --- |
 | --debug             | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h           | Muestra este mensaje de ayuda y sale.|
-| --output -o         | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o         | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query             | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose           | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -134,7 +133,7 @@ Devuelve información sobre la partición especificada. La respuesta incluye una
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
-| --output -o           | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o           | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query               | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -156,7 +155,7 @@ Indica al clúster de Service Fabric que debería intentar recuperar una partici
 | --- | --- |
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
-| --output -o           | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o           | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query               | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -181,10 +180,10 @@ Esta API es útil para probar la conmutación por error. Si se utilizan como des
 | --- | --- |
 | --debug                         | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                       | Muestra este mensaje de ayuda y sale.|
-| --output -o                     | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.                     Valor predeterminado: json.|
+| --output -o                     | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.                     Valor predeterminado: json.|
 | --query                         | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose                       | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
-- Obtenga información sobre cómo utilizar la CLI de Service Fabric utilizando los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

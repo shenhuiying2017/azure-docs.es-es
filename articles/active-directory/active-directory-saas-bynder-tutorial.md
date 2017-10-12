@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 9062aea7813d62e9ef67e82d86ff4f63791f3355
-ms.contentlocale: es-es
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bynder"></a>Tutorial: Integración de Azure Active Directory con Bynder
 
@@ -107,7 +106,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 3. En la sección **Dominio y direcciones URL de Bynder**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
 
-    ![Información de inicio de sesión único de dominio y direcciones URL de Bynder](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_url.png)
+    ![Información acerca del inicio de sesión único de dominio y direcciones URL de Bynder](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_url.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<company name>.getbynder.com`
     
@@ -230,5 +229,4 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-bynder-tutorial/tutorial_general_203.png
-
 

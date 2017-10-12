@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c2c5aee3db11255be5a6fe405424c2cbb92c5b95
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Creación de una revisión de acceso de los miembros de un grupo o el acceso a la aplicación con Azure AD
 
 Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tienen acceso con privilegios que ya no necesitan.  Para reducir el riesgo derivado de las asignaciones de acceso obsoletas, los administradores pueden solicitar una revisión de los miembros del grupo o de los usuarios asignados a una aplicación creando una revisión de acceso. Las guías para [administrar el acceso de los usuarios](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md) y [administrar el acceso de los invitados](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md) proporcionan más información acerca de estos escenarios.  
@@ -51,6 +49,5 @@ Puede seguir el progreso de las revisiones a medida que los revisores las realiz
 Cuando se inicie una revisión de acceso, Azure AD enviará automáticamente a los revisores un correo electrónico solicitándoles que revisen el acceso. Si un usuario no recibió un correo electrónico, puede enviarle las instrucciones que se indican en el articulo sobre [cómo revisar el acceso](active-directory-azure-ad-controls-perform-access-review.md).  
 
 Una vez finalizado el período de revisión de acceso o cuando el administrador detenga la revisión, siga los pasos descritos en el artículo sobre [cómo realizar una revisión de acceso](active-directory-azure-ad-controls-complete-access-review.md) para ver los resultados y aplicarlos.
-
 
 

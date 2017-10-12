@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 2dd30470ee0f6c038a8601bfca73fc97091de2fa
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sfctl"></a>sfctl 
 Comandos para administrar clústeres y entidades de Service Fabric. Esta versión es compatible con el tiempo de ejecución de Service Fabric 6.0. Comandos siguen el patrón de nombre-verbo; consulte los siguientes subgrupos para obtener más información.
 

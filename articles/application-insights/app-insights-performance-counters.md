@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/11/2016
 ms.author: bwren
 ms.openlocfilehash: 038d6e051be8112b9264e7efa6485965d11e32c8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de rendimiento de sistema en Application Insights
 Windows proporciona una amplia variedad de [contadores de rendimiento](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters), como la ocupación de la CPU, memoria, disco y uso de la red. También puede definir sus propios contadores. [Application Insights](app-insights-overview.md) puede mostrar estos contadores de rendimiento si la aplicación se ejecuta en IIS en un host local o en una máquina virtual para la que tenga acceso administrativo. Los gráficos indican los recursos disponibles para su aplicación activa y pueden ayudar a identificar la carga no equilibrada entre las instancias de servidor.

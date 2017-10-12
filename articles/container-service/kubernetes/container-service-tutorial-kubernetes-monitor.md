@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ebf35877dcd6f980af75f46b437070a6a29b7c54
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Supervisión de un clúster de Kubernetes con Operations Management Suite
 
 La supervisión de su clúster de Kubernetes y de los contenedores es fundamental, sobre todo al administrar un clúster de producción a escala con varias aplicaciones. 
@@ -156,4 +154,3 @@ Siga este vínculo para ver ejemplos de scripts del servicio Container creados p
 
 > [!div class="nextstepaction"]
 > [Ejemplos de scripts de Azure Container Service](cli-samples.md)
-

@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 ms.openlocfilehash: 22cff47444306e599325ba3035d83a0266d69c72
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de Base de datos SQL
 El procesamiento de operaciones por lotes para Base de datos SQL de Azure mejora notablemente el rendimiento y la escalabilidad de las aplicaciones. Para comprender las ventajas, la primera parte de este artículo trata algunos resultados de pruebas de ejemplo que comparan solicitudes por lotes y secuenciales a una base de datos de SQL. El resto del artículo muestra las técnicas, los escenarios y las consideraciones para ayudarlo a usar el procesamiento por lotes correctamente en las aplicaciones de Azure.

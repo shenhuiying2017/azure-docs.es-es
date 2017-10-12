@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 899f20b3642612386f2513c9c8649cd845be826e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
 En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server. Para cargar o transferir macrodatos a SQL Database, es posible mejorar la importación de datos en SQL Database y las consultas posteriores mediante *tablas y vistas con particiones*. 
@@ -180,5 +179,4 @@ El siguiente script de PowerShell es un ejemplo de carga paralela de datos media
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Ejemplo de Tecnología y procesos de análisis avanzado en acción
 Para ver un tutorial de ejemplo completo del proceso de análisis de Cortana con un conjunto de datos público, consulte [Proceso de análisis de Cortana en acción: uso de SQL Server](sql-walkthrough.md).
-
 

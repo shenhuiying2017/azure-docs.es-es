@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 9/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: afeec92c40262903e6cfd3c6d75a595fead616e3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Máquinas virtuales disponibles para los usuarios de Azure Stack
 

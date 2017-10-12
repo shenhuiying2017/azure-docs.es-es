@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: xibingao;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b32aa2325a507f18ffc8b47cddde8637a0a8aabf
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-an-azure-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>Configuración de una máquina virtual de Azure como servidor del Bloc de notas de IPython para realizar análisis avanzados
 En este tema se muestra cómo aprovisionar y configurar una máquina virtual de Azure para análisis avanzado que se pueda usar como parte de un entorno de ciencia de datos. La máquina virtual Windows se configura con herramientas de compatibilidad como IPython Notebook, Explorador de Azure Storage y AzCopy, así como otras utilidades que son útiles para los proyectos de análisis avanzado. El Explorador de almacenamiento de Azure y AzCopy, por ejemplo, permite cargar de manera cómoda datos en el almacenamiento de blobs de Azure desde la máquina local o descargarlos en el equipo local desde el almacenamiento de blobs.
@@ -135,4 +134,3 @@ Los pasos siguientes del proceso de ciencia de datos en equipos se asignan en la
 [27]: ./media/setup-virtual-machine/create-virtual-machine-4.png
 [28]: ./media/setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/setup-virtual-machine/create-virtual-machine-6.png
-

@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 5b038f73cadc43207d86995a5323db6b5fe9b65d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox
 
@@ -167,4 +166,3 @@ Para enviar un proyecto a un emulador, siga estos pasos:
 - Aprenda a [usar las herramientas de HDInsight del kit de herramientas de Azure para Eclipse con el fin de crear aplicaciones Spark](hdinsight-apache-spark-eclipse-tool-plugin.md).
 
 - Si quiere obtener información sobre las herramientas de HDInsight para Eclipse, vea este vídeo sobre cómo [usar las herramientas de HDInsight para Eclipse para crear aplicaciones de Spark](https://mix.office.com/watch/1rau2mopb6fha).
-

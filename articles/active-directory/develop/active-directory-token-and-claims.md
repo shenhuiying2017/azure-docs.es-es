@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
-ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-token-reference"></a>Referencia de tokens de Azure AD
 Azure Active Directory (Azure AD) emite varios tipos de tokens de seguridad durante el procesamiento de cada flujo de autenticación. Este documento describe el formato, las características de seguridad y el contenido de cada tipo de token.
@@ -304,4 +303,3 @@ Además de las notificaciones, el token incluye un número de versión en **ver*
 ## <a name="related-content"></a>Contenido relacionado
 * Para más información acerca de la administración de la directiva de vigencia de token mediante la API de Azure AD Graph, consulte las [operaciones de directivas](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) y la [entidad de directiva](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) de Azure AD Graph.
 * Para más información y ejemplos acerca de cómo administrar las directivas a través de los cmdlets de PowerShell, incluidos ejemplos, consulte [Configurable Token Lifetimes in Azure Active Directory](../active-directory-configurable-token-lifetimes.md) (Vigencias de tokens configurables en Azure Active Directory). 
-

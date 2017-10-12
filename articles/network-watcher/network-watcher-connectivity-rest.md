@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
+ms.openlocfilehash: 802658b50d8e398451507ad11c76fedd0db697df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Comprobación de la conectividad con Azure Network Watcher usando Azure Portal
 
 > [!div class="op_single_selector"]
@@ -86,7 +84,7 @@ Ejecute el siguiente script para devolver una máquina virtual. Esta informació
 El código siguiente necesita valores para las siguientes variables:
 
 - **subscriptionId**: el identificador de suscripción que se usará.
-- **resourceGroupName**: el nombre del grupo de recursos que contiene máquinas virtuales.
+- **resourceGroupName**: el nombre de un grupo de recursos que contiene máquinas virtuales.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -463,7 +461,7 @@ null
 
 ### <a name="response"></a>Response
 
-El siguiente ejemplo es la respuesta que procede de la ejecución de la llamada API anterior. Cuando la comprobación es correcta, la propiedad `connectionStatus` se muestra como **Reachable** (accesible).  Se proporcionan los detalles sobre el número de saltos necesarios para llegar a la latencia y al blob de almacenamiento.
+El siguiente ejemplo es la respuesta que procede de la ejecución de la llamada API anterior. Como la comprobación es correcta, la propiedad `connectionStatus` se muestra como **Reachable** (accesible).  Se proporcionan los detalles sobre el número de saltos necesarios para llegar a la latencia y al blob de almacenamiento.
 
 ```json
 {
@@ -503,7 +501,6 @@ Aprenda a automatizar capturas de paquetes con las alertas de máquina virtual e
 Para comprobar si se permite cierto tráfico hacia o desde la máquina virtual, vea cómo [consultar la Comprobación del flujo de IP](network-watcher-check-ip-flow-verify-portal.md)
 
 <!-- Image references -->
-
 
 
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 ms.openlocfilehash: da28cbf5f6f91df1f89114a63bc3f2ebac0f6d73
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-security-overview"></a>Información general sobre seguridad de Azure Storage
 Azure Storage es la solución de almacenamiento en la nube para las aplicaciones modernas que dependen de la durabilidad, la disponibilidad y la escalabilidad para satisfacer las necesidades de sus clientes. Azure Storage proporciona un conjunto completo de funcionalidades de seguridad:
@@ -67,7 +67,7 @@ Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a 
 
 Más información acerca del cifrado de cliente:
 
-* [Cifrado del lado cliente para el Microsoft Azure Storage (versión preliminar)](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
+* [Cifrado del lado cliente para el Almacenamiento de Microsoft Azure (vista previa)](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
 * [Cloud security controls series: Encrypting Data in Transit (Serie de controles de seguridad en la nube: cifrado de datos en tránsito)](http://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>Cifrado en reposo
@@ -96,5 +96,5 @@ Azure Disk Encryption usa [Azure Key Vault](https://azure.microsoft.com/services
 
 Más información:
 
-* [¿Qué es Azure Key Vault?](../key-vault/key-vault-whatis.md)
-* [Introducción a Azure Key Vault](../key-vault/key-vault-get-started.md)
+* [¿Qué es el Almacén de claves de Azure?](../key-vault/key-vault-whatis.md)
+* [Introducción al Almacén de claves de Azure](../key-vault/key-vault-get-started.md)

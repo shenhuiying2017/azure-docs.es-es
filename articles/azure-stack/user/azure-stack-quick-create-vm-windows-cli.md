@@ -15,26 +15,25 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
+ms.openlocfilehash: 196bf4351ebd2bf977102571de385edae6f9612b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 3a4d6f23bd8824636b3babe208add92db6aab537
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Creación de una máquina virtual Windows en Azure Stack con la CLI de Azure
 
 La CLI de Azure se usa para crear y administrar recursos de Azure Stack desde la línea de comandos. En esta guía se detalla cómo usar la CLI de Azure para crear una máquina virtual Windows Server 2016 en Azure Stack. Después de crear la máquina virtual, se conectará con Escritorio remoto, instalará IIS y luego verá el sitio web predeterminado. 
 
-Antes de comenzar, asegúrese de que el operador de Azure Stack haya agregado la imagen "Windows Server 2016" a Marketplace de Azure Stack.  
+## <a name="prerequisites"></a>Requisitos previos 
 
-Azure Stack requiere una versión específica de la CLI de Azure para crear y administrar los recursos. Si no tiene la CLI de Azure configurada para Azure Stack, siga los pasos que se indican para [instalar y configurarla](azure-stack-connect-cli.md).
+* Asegúrese de que el operador de Azure Stack haya agregado la imagen "Windows Server 2016" a Marketplace de Azure Stack.  
 
+* Azure Stack requiere una versión específica de la CLI de Azure para crear y administrar los recursos. Si no tiene la CLI de Azure configurada para Azure Stack, siga los pasos que se indican para [instalarla y configurarla](azure-stack-connect-cli.md).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure Stack. Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#create). Hemos asignado los valores para todas las variables en este documento, puede usarlas tal cual o asignar un valor diferente. En el ejemplo siguiente, se crea un grupo de recursos denominado myResourceGroup en la ubicación local.
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure Stack. Desde el kit de desarrollo o el sistema integrado de Azure Stack, ejecute el comando [az group create](/cli/azure/group#create) para crear un grupo de recursos. Hemos asignado los valores para todas las variables en este documento, puede usarlas tal cual o asignar un valor diferente. En el ejemplo siguiente, se crea un grupo de recursos denominado myResourceGroup en la ubicación local.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -65,7 +64,7 @@ De forma predeterminada, solo se permiten conexiones RDP con las máquinas virtu
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
+## <a name="connect-to-the-virtual-machine"></a>Conexión a la máquina virtual
 
 Ejecute el comando siguiente para crear una sesión del Escritorio remoto con la máquina virtual. Reemplace la dirección IP con la dirección IP pública de la máquina virtual. Cuando se le solicite, escriba las credenciales usadas al crear la máquina virtual.
 
@@ -97,7 +96,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de una máquina virtual mediante una contraseña almacenada en el almacén de claves](azure-stack-kv-deploy-vm-with-secret.md)
-
-[Más información sobre Storage en Azure Stack](azure-stack-storage-overview.md)
-
+En esta guía rápida, ha implementado una máquina virtual Windows sencilla. Para aprender más sobre las máquina virtuales de Azure Stack, continúe con el artículo [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md) (Consideraciones sobre Virtual Machines en Azure Stack).

@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
 ms.openlocfilehash: 3178a09dab1cb972a3460d54dc9908fb95cce68b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de retirada de la familia 1 del SO invitado
 La retirada de la familia 1 del SO se anunció por primera vez el 1 de junio de 2013.

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2f90234bdd5c917a502d24cd16256bc11c7fbed0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Administración de un área de trabajo de Aprendizaje automático de Azure
 
@@ -136,5 +135,4 @@ En la página Configurar puede actualizar las propiedades siguientes:
 * **Descripción** permite escribir una descripción del servicio web. La descripción es un campo obligatorio.
 * **Registro** permite habilitar o deshabilitar el registro de errores en el punto de conexión. Para obtener más información sobre el registro, consulte [Habilitación del registro para los servicios web Machine Learning](web-services-logging.md).
 * **Habilitar datos de ejemplo** permite ofrecer datos de ejemplo que pueden usarse para probar el servicio de solicitud-respuesta. Si ha creado el servicio web en Estudio de aprendizaje automático de Microsoft Azure, los datos de ejemplo se toman de los utilizados para entrenar el modelo. Si ha creado el servicio mediante programación, los datos se extraen de los datos de ejemplo ofrecidos como parte del paquete JSON.
-
 

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c1061811d205494969047fa3f91cbf449a25d8ab
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Creación de clústeres de Hadoop en HDInsight mediante Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -596,4 +595,3 @@ azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adf
 ```
 
 El nombre del contenedor es *adfgetstarted*. Déjelo como está. De lo contrario, tendrá que actualizar la plantilla de Resource Manager. Si necesita ayuda con este script de la CLI, vea [Uso de la CLI de Azure con Almacenamiento de Azure](../storage/common/storage-azure-cli.md).
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: DavidBosland
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 97cd45563dbd2341620658e05dbbd9ff0519b1aa
-ms.contentlocale: es-es
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 5ac1f509ca90a09d8bd8e67a04df99516a6da072
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-the-azure-marketplace"></a>Visualización y cambio del "Incentivo de revendedores" para proveedores de soluciones en la nube de Azure Marketplace
 El 15 de marzo de 2016 pondremos el "Incentivo de revendedores" para proveedores de soluciones en la nube a disposición de los anunciantes de Marketplace.  El valor predeterminado para este valor incentivo es **Sí**.  Como anunciante, puede optar por no participar en el programa de incentivos.  En este artículo se muestra cómo cambiar la configuración en el perfil de anunciante para no participar en el programa.
@@ -46,4 +45,3 @@ Para ver o cambiar el estado del "Incentivo de revendedores", siga estos pasos:
 [2]: ./media/marketplace-publishing-csp-incentive/profile-boxes.png
 [3]: ./media/marketplace-publishing-csp-incentive/profile-publishers-boxes.png
 [4]: ./media/marketplace-publishing-csp-incentive/profile-publishers-change-boxes.png
-

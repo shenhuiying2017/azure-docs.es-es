@@ -39,7 +39,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/storage/blobs/storage-upload-process-images">Carga y recuperación de datos de imagen en la nube</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Desencadenamiento de Azure Functions para procesar blobs</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Desencadenamiento de Azure Functions para procesar blobs</a>
           - html: <a href="/azure/storage/blobs/storage-secure-access-application">Protección de los datos de la aplicación</a>
           - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Supervisión y solución de problemas de almacenamiento</a>
   - title: Muestras

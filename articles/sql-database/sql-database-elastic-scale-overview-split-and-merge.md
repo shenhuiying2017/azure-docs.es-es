@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: b2e45a77b900092390a2ca66a8d1286193023f29
-ms.contentlocale: es-es
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: b41b6d6be686168359a97eb7468351a105b748db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Moving data between scaled-out cloud databases (Mover datos entre bases de datos en la nube escaladas horizontalmente)
 Si es desarrollador de Software como servicio y su aplicación experimenta de pronto una demanda enorme, es necesario adaptarse al crecimiento. De este modo, agrega más bases de datos (particiones). ¿Cómo redistribuye los datos en las nuevas bases de datos sin interrumpir la integridad de los datos? Use la **herramienta de división y combinación** para mover datos desde bases de datos limitadas a las nuevas bases de datos.  
@@ -217,5 +215,4 @@ No es necesario aprovisionar una nueva base de datos de metadatos para que se ac
 [1]:./media/sql-database-elastic-scale-overview-split-and-merge/split-merge-overview.png
 [2]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics.png
 [3]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
-
 

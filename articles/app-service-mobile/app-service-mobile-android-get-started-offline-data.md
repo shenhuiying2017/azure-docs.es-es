@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.openlocfilehash: 304323c1816302e8c1f68f36a029aee55e02c54e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Activar la sincronización sin conexión para la aplicación móvil de Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -92,7 +92,7 @@ Cuando presione ese botón, se iniciará una nueva tarea en segundo plano. En pr
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
-* [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure] \( (nota: el vídeo trata sobre Mobile Services, pero la sincronización sin conexión funciona de forma similar en Azure Mobile Apps)\)
+* [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure]\( (nota: el vídeo trata sobre Mobile Services, pero la sincronización sin conexión funciona de forma similar en Azure Mobile Apps)\)
 
 <!-- URLs. -->
 

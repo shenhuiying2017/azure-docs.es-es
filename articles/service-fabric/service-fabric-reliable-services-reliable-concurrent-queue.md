@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: sangarg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: 122cb48149477f295a65b8ee623c647b6db10a86
-ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introducción a ReliableConcurrentQueue en Azure Service Fabric
 La cola simultánea confiable es una cola asincrónica, transaccional y replicada que presenta una alta simultaneidad para las operaciones de puesta en cola y eliminación de la cola. Está diseñada para ofrecer un alto rendimiento y una baja latencia al relajar la ordenación FIFO estricta que proporciona la [cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx) y, en su lugar, proporciona la ordenación de mejor esfuerzo.
@@ -345,4 +344,3 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Introducción a los servicios de la API web de Microsoft Azure Service Fabric](service-fabric-reliable-services-communication-webapi.md)
 * [Uso avanzado del modelo de programación de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 * [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-

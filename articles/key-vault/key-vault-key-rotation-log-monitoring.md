@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configuración de Azure Key Vault con la auditoría y la rotación de claves de un extremo a otro
 ## <a name="introduction"></a>Introducción
@@ -417,7 +416,7 @@ Llegados a este punto, la función ya está lista. No olvide volver a la pestañ
 ### <a name="azure-logic-app"></a>Aplicación lógica de Azure
 Ahora, debe crear una aplicación lógica de Azure que seleccione los eventos que la función inserta en la cola de Service Bus, analice el contenido y envíe un correo electrónico si se cumple una determinada condición.
 
-[Cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) en **Nuevo -> Aplicación lógica**.
+[Cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) en **Nuevo -&gt; Aplicación lógica**.
 
 Una vez creada, acceda a ella y elija **editar**. En el editor de la aplicación lógica, elija la **cola de Service Bus** y especifique las credenciales de Service Bus para conectarla a la cola.
 
@@ -438,4 +437,3 @@ Ahora, cree una acción en la opción **If no, do nothing** (Si no, no hacer nad
 En la acción, elija **Office 365 - send email**(Office 365 - enviar correo electrónico). Rellene los campos para crear el correo electrónico que se enviará cuando la condición definida devuelva **false**. Si no tiene Office 365, puede buscar otras alternativas para conseguir los mismos resultados.
 
 En este momento, tiene una canalización integral que, una vez por minuto, busca nuevos registros de auditoría del almacén de claves. Inserta los nuevos registros que encuentra en una cola de Service Bus. La aplicación lógica se activa cuando un nuevo mensaje llega a la cola. Si el *appid* dentro del evento no coincide con el identificador de la aplicación de la aplicación que llama, envía un correo electrónico.
-

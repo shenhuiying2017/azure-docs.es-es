@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: markvi
 ms.openlocfilehash: c944a355c07b96c27dcdd477f625638284eabdf3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -26,8 +26,8 @@ Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos d
 La sintaxis de expresiones para asignaciones de atributos recuerda a las funciones de Visual Basic para Aplicaciones (VBA).
 
 * Toda la expresión se tiene que definir en términos de funciones, que constan de un nombre seguido de argumentos entre paréntesis:  <br>
-  *NombreDeFunción (<< argumento 1 >>, <<argument N>>)*
-* Es posible anidar funciones dentro de otras. Por ejemplo: <br> *FunciónUno(FunciónDos(<<argument1>>))*
+  *NombreDeFunción (&lt;&lt; argumento 1 &gt;&gt;, &lt;<argument N>&gt;)*
+* Es posible anidar funciones dentro de otras. Por ejemplo: <br> *FunciónUno(FunciónDos(&lt;<argument1>&gt;))*
 * Puede transformar tres tipos diferentes de argumentos en funciones:
   
   1. Atributos, que deben ir entre corchetes. Por ejemplo: [NombreAtributo]
@@ -36,7 +36,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 * Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo: "Company name: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funciones
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Sustituya](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append)&nbsp;&nbsp;&nbsp;&nbsp;[FormatDateTime](#formatdatetime)&nbsp;&nbsp;&nbsp;&nbsp;[Join](#join)&nbsp;&nbsp;&nbsp;&nbsp;[Mid](#mid)&nbsp;&nbsp;&nbsp;&nbsp;[Not](#not)&nbsp;&nbsp;&nbsp;&nbsp;[Sustituya](#replace)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces)&nbsp;&nbsp;&nbsp;&nbsp;[Switch](#switch)
 
 - - -
 ### <a name="append"></a>Append

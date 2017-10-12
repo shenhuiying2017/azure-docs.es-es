@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/1/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
-ms.contentlocale: es-es
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso de grandes conjuntos de escalado de máquinas virtuales
 Ahora puede crear [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure con una capacidad de hasta 1000 máquinas virtuales. En este documento, un _conjunto de escalado de máquinas virtuales grande_ se define como un conjunto de escalado capaz de escalar a más de 100 máquinas virtuales. Esta funcionalidad se establece con una propiedad de conjunto de escalado (_singlePlacementGroup=False_). 
@@ -85,6 +84,5 @@ Para que un conjunto de escalado de máquinas virtuales existente pueda escalar 
 
 >[!NOTE] 
 Puede cambiar un conjunto de escalado para que admita más de un grupo de selección de ubicación, pero no al revés. Por lo tanto, asegúrese de que comprende las propiedades de los conjuntos de escalado grandes antes de convertirlos. En concreto, asegúrese de que no necesita el equilibrio de carga de nivel 4 con Azure Load Balancer.
-
 
 

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 22f2bcfdd8c3978a6924c8c8cdea2744001000fe
-ms.contentlocale: es-es
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 436bf5905d2b203dc4cceea97f4fb90593df7111
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federación de varias instancias de Azure AD con una instancia única de AD FS
 
 Una sola granja de AD FS de alta disponibilidad puede federar varios bosques si existe confianza bidireccional entre ellos. Estos bosques pueden corresponderse a la misma instancia de Azure Active Directory o no. En este artículo se proporcionan instrucciones para configurar la federación entre una sola implementación de AD FS y varios bosques que se sincronicen con instancias diferentes de Azure AD.
@@ -66,4 +64,3 @@ La operación anterior federará el dominio fabrikam.com con la misma instancia 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Conexión de Active Directory con Azure Active Directory](active-directory-aadconnect.md)
-

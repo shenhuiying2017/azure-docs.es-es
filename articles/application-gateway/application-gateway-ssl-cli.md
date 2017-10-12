@@ -13,18 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: a2c4062db821e39e1af4fa1d54da0121d3993db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 032a514ddab625e4f7c5ef23a1da03a0162f43e3
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL la CLI de Azure 2.0
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-ssl-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-ssl-arm.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-ssl-arm.md)
 > * [PowerShell clásico de Azure](application-gateway-ssl.md)
 > * [CLI de Azure 2.0](application-gateway-ssl-cli.md)
 
@@ -36,9 +35,9 @@ Para seguir los pasos de este artículo, es preciso [instalar la interfaz de la 
 
 ## <a name="required-components"></a>Componentes necesarios
 
-* **Grupo de servidores back-end:** lista de direcciones IP de los servidores back-end. Las direcciones IP de la lista deben pertenecer a la subred de la red virtual o ser una dirección IP pública o una dirección IP virtual (VIP).
+* **Back-end server pool** (Grupo de servidores back-end): lista de direcciones IP de los servidores back-end. Las direcciones IP de la lista deben pertenecer a la subred de la red virtual o ser una dirección IP pública o una dirección IP virtual (VIP).
 * **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
-* **Puerto front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
+* **Front-end port** (Puerto front-end): este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
 * **Agente de escucha:** tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga SSL).
 * **Regla:** la regla enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se va a dirigir el tráfico cuando llegue a un determinado agente de escucha. Actualmente, solo se admite la regla *básica* . La regla *básica* es la distribución de carga round robin.
 
@@ -193,4 +192,3 @@ Para más información sobre las opciones de equilibrio de carga en general, con
 
 * [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bd731c32d32063b54d5899db3b3a13a911ca79be
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalar y configurar la CLI para su uso con Azure Stack
 
@@ -211,5 +210,4 @@ Si el grupo de recursos se crea correctamente, el comando anterior da como resul
 [Implementación de plantillas con la CLI de Azure](azure-stack-deploy-template-command-line.md)
 
 [Administración de permisos de usuario](azure-stack-manage-permissions.md)
-
 

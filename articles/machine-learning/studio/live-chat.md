@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2bf63d41c9a06e724b971c2edb9e3127fe878b8e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-help-from-machine-learning-live-chat-support"></a>Obtener ayuda del soporte técnico por chat en tiempo real del Aprendizaje automático
 [Estudio de aprendizaje automático de Azure](what-is-ml-studio.md) proporciona una interfaz intuitiva para la creación de módulos de aprendizaje automático. Hay una [galería](gallery-how-to-use-contribute-publish.md) de ejemplos aportados por la comunidad que lo ayudarán a empezar a trabajar. Y hay un [foro](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) donde puede hacer preguntas para ayudarle a seguir avanzando. 
@@ -39,5 +38,4 @@ El chat en directo está formado por miembros del equipo de Machine Learning. Si
 Siempre puede publicar sus preguntas en el [foro de Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning), donde la verán los miembros del equipo de Machine Learning y otros desarrolladores y científicos de datos de conocimientos.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

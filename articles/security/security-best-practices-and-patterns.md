@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/06/2017
 ms.author: terrylan
 ms.openlocfilehash: 1cc0d2d1e9a62ff8531f963413ff573713d508ad
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Patrones y procedimientos recomendados de seguridad en Azure
 Actualmente se pueden consultar los siguientes artículos de patrones y procedimientos recomendados de seguridad de Azure. Asegúrese de visitar este sitio periódicamente para estar al tanto de las novedades de nuestra lista actualizada de patrones y procedimientos recomendados de seguridad de Azure:  

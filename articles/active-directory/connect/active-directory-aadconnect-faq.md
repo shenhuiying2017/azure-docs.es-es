@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Preguntas más frecuentes acerca de Azure Active Directory Connect
 
@@ -107,5 +106,4 @@ No.
 [Obtención de soporte técnico para Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 * Use este vínculo para obtener soporte técnico mediante el Portal de Azure.
-
 

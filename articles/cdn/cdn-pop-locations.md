@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: 44028b2ef268cb2deff273f755d2f5aeab5bdc17
-ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cdn-pop-locations"></a>Ubicaciones POP de CDN de Azure
 En este tema se enumeran las ubicaciones POP actuales para **Azure CDN de Verizon** y **Azure CDN de Akamai**.
@@ -46,5 +45,4 @@ En este tema se enumeran las ubicaciones POP actuales para **Azure CDN de Verizo
 
 ## <a name="see-also"></a>Otras referencias
 * [Azure CDN Edge Nodes API to get latest IP addresses for whitelisting](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes) (API de nodos perimetrales de la red CDN de Azure para obtener las direcciones IP más recientes para la creación de listas de direcciones permitidas)
-
 

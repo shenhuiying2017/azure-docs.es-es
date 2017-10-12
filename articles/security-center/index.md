@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 75d2819ed673b6283221d1e09507dd9f18a1bc99
-ms.openlocfilehash: 324192324831cbda13f23b784b37efcfd14808d3
-ms.contentlocale: es-es
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 8a17bd97f758db843cecc53b02722344d6b9d6dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-center-documentation"></a>Documentación de Security Center
 
@@ -97,6 +96,5 @@ Aprenda a usar Security Center para obtener visibilidad y control sobre la segur
         </div>
     </li>
 </ul>   
-
 
 

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d31ad53525ef75bdb61c42409dc07bba4138fc25
-ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 9da76bb5f649817cd2f027f3d0eb46d58a996b4f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Configuración de clústeres de HDInsight unidos a un dominio (versión preliminar) con Azure PowerShell
 Vea cómo configurar un clúster de HDInsight de Azure con Azure Active Directory (Azure AD) y [Apache Ranger](http://hortonworks.com/apache/ranger/) con Azure PowerShell. Se proporciona un script de Azure PowerShell para realizar la configuración más rápidamente y con menos errores. HDInsight unido a un dominio solo se puede configurar en clústeres basados en Linux. Para más información, consulte [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Introducción a los clústeres de HDInsight unidos a dominio (versión preliminar))
@@ -173,8 +172,8 @@ Otra opción para crear el clúster de HDInsight unido a un dominio es utilizar 
    * **Recuento de nodos de trabajo de clúster**: Seleccione el número de nodos de trabajo.
    * **Nombre de inicio de sesión y contraseña de clúster**: el nombre de inicio de sesión predeterminado es **admin**.
    * **Nombre de usuario y contraseña de SSH**: el nombre de usuario predeterminado es **sshuser**.  Puede cambiarlo. 
-   * **Id. de red virtual**: /subscriptions/&lt;Id.Suscripción>/resourceGroups/&lt;NombreGrupoRecursos>/providers/Microsoft.Network/virtualNetworks/&lt;NombreRedVirtual>
-   * **Subred de la red virtual**: /subscriptions/&lt;Id.Suscripción>/resourceGroups/&lt;NombreGrupoRecursos>/providers/Microsoft.Network/virtualNetworks/&lt;NombreRedVirtual>/subnets/Subnet1
+   * **Id. de red virtual**: /subscriptions/&lt;Id.Suscripción&gt;/resourceGroups/&lt;NombreGrupoRecursos&gt;/providers/Microsoft.Network/virtualNetworks/&lt;NombreRedVirtual&gt;
+   * **Subred de la red virtual**: /subscriptions/&lt;Id.Suscripción&gt;/resourceGroups/&lt;NombreGrupoRecursos&gt;/providers/Microsoft.Network/virtualNetworks/&lt;NombreRedVirtual&gt;/subnets/Subnet1
    * **Nombre de dominio**: contoso.onmicrosoft.com
    * **DN de unidad organizativa**: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
    * **DN de grupo de usuarios de clúster**: "\"CN=HiveUsers,OU=AADDC Users,DC=<DomainName>,DC=onmicrosoft,DC=com\""
@@ -191,5 +190,4 @@ Después de completar el tutorial, quizá desee eliminar el clúster. Con HDInsi
 
 * Para configurar directivas de Hive y ejecución de consultas de Hive, consulte [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) (Configuración de directivas de los clústeres de HDInsight unidos a dominio).
 * Para establecer conexiones mediante SSH a clústeres de HDInsight unidos a un dominio, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
-
 

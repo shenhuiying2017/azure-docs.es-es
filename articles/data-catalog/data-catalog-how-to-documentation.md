@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a869c52c3e3574e4ffc958a82daaa12b2f6cb6c1
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: ffe951f60afb57524568fe1ed3b3668d0088e124
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="document-data-sources"></a>Orígenes de datos de documentos
 ## <a name="introduction"></a>Introducción
@@ -52,4 +51,3 @@ El nivel de documentación puede oscilar desde describir las características y 
 
 ## <a name="summary"></a>Resumen
 La documentación de orígenes de datos con el **Catálogo de datos de Azure** puede crear una descripción de los recursos de datos con el detalle que sea necesario.  Mediante el uso de vínculos, puede vincular al contenido almacenado en un repositorio de contenido existente, lo que reúne los recursos de datos y los documentos existentes. Una vez que los usuarios descubran los recursos de datos adecuados, pueden tener un completo conjunto de documentación.
-

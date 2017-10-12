@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/15/2017
 ms.author: sethm
 ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Introducción a las API de .NET Framework de Event Hubs
 Este artículo resume algunas de las principales API de cliente de .NET Framework de Event Hubs. Existen dos categorías: API de administración y de tiempo de ejecución. Las API de tiempo de ejecución están compuestas por todas las operaciones necesarias para enviar y recibir un mensaje. Las operaciones de administración le permiten administrar un estado de entidad de centros de eventos mediante la creación, actualización y eliminación de entidades.

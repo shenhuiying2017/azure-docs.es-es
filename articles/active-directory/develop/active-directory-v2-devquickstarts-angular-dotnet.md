@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: c68180c0ecabf5c0732f0db77ef1f3cc93be965b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Agregar inicio de sesión a una aplicación de una página AngularJS (.NET)
 En este artículo vamos a agregar inicio de sesión con cuentas con tecnología de Microsoft a una aplicación AngularJS mediante el punto de conexión v2.0 de Azure Active Directory.  El punto de conexión v2.0 le permite realizar una sola integración en su aplicación y autenticar a los usuarios con cuentas tanto personales como educativas o profesionales.
@@ -228,8 +228,8 @@ return $http.get('/api/tasks');
 
 Para obtener más información sobre el punto de conexión v2.0, regrese a nuestra [guía para desarrolladores de v2.0](active-directory-appmodel-v2-overview.md).  Para obtener recursos adicionales, consulte:
 
-* [Ejemplos de Azure en GitHub >>](https://github.com/Azure-Samples)
-* [Azure AD en Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Ejemplos de Azure en GitHub &gt;&gt;](https://github.com/Azure-Samples)
+* [Azure AD en Stack Overflow &gt;&gt;](http://stackoverflow.com/questions/tagged/azure-active-directory)
 * Documentación de Azure AD en [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtención de actualizaciones de seguridad para nuestros productos

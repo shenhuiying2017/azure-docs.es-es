@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: cherylmc
+ms.openlocfilehash: 7805e7c91c49fe1ef2d92b64c62bbfd15ab492b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5ac679279bb977fb7d38b5046164d1b5f6a80e0a
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificado (clásica): Azure Portal
 
@@ -78,7 +77,7 @@ Antes de empezar, compruebe que tiene una suscripción a Azure. Si todavía no l
 
 Si no tiene una red virtual, créela. Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos. Para crear una red virtual mediante Azure Portal, siga estos pasos:
 
-1. Desde un explorador, vaya [Azure Portal](http://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
+1. Desde un explorador, vaya al [Portal de Azure](http://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
 2. Haga clic en **Nuevo**. En el campo **Buscar en el Marketplace**, escriba "Red virtual". En la lista de resultados, busque **Red virtual** y haga clic para abrir la página **Red virtual**.
 
   ![Búsqueda de la página Red virtual](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)

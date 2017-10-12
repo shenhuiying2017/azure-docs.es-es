@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 8babb0d016729f318442af93596d206c38d91206
-ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-6-run-a-test-failover-for-azure-vm-replication"></a>Paso 6: Ejecución de una conmutación por error de prueba para la replicación de VM de Azure
 
 Después de habilitar la replicación de la máquina virtual (VM) de Azure, siga los pasos descritos en este artículo para ejecutar la conmutación por error de una región de Azure a otra mediante el servicio [Azure Site Recovery](site-recovery-overview.md) en Azure Portal.
@@ -66,5 +64,4 @@ Después de realizar la conmutación por error, este tutorial se habrá completa
 - Obtenga más información sobre la conmutación por error de varias VM [con un plan de recuperación](site-recovery-create-recovery-plans.md).
 - Aprenda sobre el [uso de planes de recuperación](site-recovery-create-recovery-plans.md).
 - Más información sobre la [reprotección de máquinas virtuales de Azure](site-recovery-how-to-reprotect.md) después de una conmutación por error.
-
 

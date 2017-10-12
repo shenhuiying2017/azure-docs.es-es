@@ -17,12 +17,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
+ms.openlocfilehash: 14cd30f4f9ed77dca369452a680d621eb81d5a4e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 709541a88b2b15924b93c630693ad7a3f276e29c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Uso del coordinador de Oozie basado en tiempo con Hadoop en HDInsight para definir flujos de trabajo y coordinar trabajos
 En este artículo, obtenga información sobre cómo definir los flujos de trabajo y los coordinadores, así como el modo de desencadenar los trabajos del coordinador basados en el tiempo. Le resultará útil repasar el artículo [Uso de Oozie con HDInsight][hdinsight-use-oozie] antes de leer este artículo. Además de con Oozie, también puede programar trabajos usando Data Factory de Azure. Para obtener información sobre la factoría de datos de Azure, consulte [Uso de Pig y Hive con la factoría de datos](../data-factory/transform-data.md).
@@ -762,4 +761,3 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y un coordi
 [img-runworkflow-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.RunCoord.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-

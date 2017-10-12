@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0459eb5cc71939202c8491f6b2714e28bd8e202d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Administración del acceso de los usuarios con las revisiones de acceso de Azure AD
 
 Con Azure Active Directory, se puede asegurar fácilmente que los usuarios tienen el acceso adecuado, solicitando a los usuarios mismos o a alguien con capacidad de toma de decisiones, su participación en una revisión de acceso para recertificar (o "avalar") el acceso de los usuarios.  Los revisores pueden dar su aprobación para cada necesidad de acceso continuado de los usuarios, en función de las sugerencias de Azure AD. Cuando finaliza una revisión de los accesos, es posible hacer cambios y retirar accesos a los usuarios que ya no lo necesitan.
@@ -51,7 +49,6 @@ Puede tener uno o más usuarios como revisores en una revisión de acceso.
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Crear una revisión de acceso para los miembros de un grupo o el acceso a una aplicación](active-directory-azure-ad-controls-create-access-review.md)
-
 
 
 

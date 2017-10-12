@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>¿Debo elegir los servicios en la nube o alguna otra opción?
 ¿Son los servicios en la nube de Azure la opción que mejor se adapta a sus necesidades? Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cada una de ellas proporciona un conjunto diferente de servicios; por tanto, lo que elija dependerá exactamente lo intenta hacer.
@@ -63,5 +62,4 @@ La naturaleza de PaaS de Servicios en la nube tiene también otras implicaciones
 [Crear una aplicación de servicio en la nube en Node.js](cloud-services-nodejs-develop-deploy-app.md)  
 [Crear una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md)  
 [Creación de una aplicación de servicio en la nube en Python](cloud-services-python-ptvs.md)
-
 

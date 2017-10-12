@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Creación de un equilibrador de carga orientado a Internet mediante Azure Portal
 
 > [!div class="op_single_selector"]
@@ -65,7 +63,7 @@ Puede obtener más información sobre los componentes del equilibrador de carga 
 3. En la hoja **Crear equilibrador de carga** , escriba un nombre para el equilibrador de carga. En este caso, se llama **myLoadBalancer**.
 4. En **Tipo**, seleccione **Público**.
 5. En **Dirección IP pública**, cree una nueva dirección IP pública denominada **myPublicIP**.
-6. En Grupo de recursos, seleccione **myRG**. A continuación, seleccione una **ubicación** adecuada y haga clic en **Aceptar**. El equilibrador de carga empieza entonces a implementarse, y este proceso tarda unos minutos en completarse correctamente.
+6. En Grupo de recursos, seleccione **myRG**. A continuación, seleccione una **ubicación** adecuada y haga clic en **Aceptar**. El equilibrador de carga empieza entonces a implementarse y este proceso tarda unos minutos en completarse correctamente.
 
     ![Actualización de grupo de recursos de equilibrador de carga](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
@@ -116,4 +114,3 @@ Para eliminar un equilibrador de carga, seleccione el equilibrador de carga que 
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
-

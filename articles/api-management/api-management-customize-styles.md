@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 336d4f80f0357796fb29eb9314c11edfce831a69
-ms.openlocfilehash: bd08eb476a4bd7298c5650977b88ba0b24deddec
-ms.contentlocale: es-es
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: 89baf60d0204a1701e93309f09b90bc94c4ca57b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>Personalización del estilo del portal para desarrolladores en Azure API Management
 Existen tres maneras fundamentales de personalizar el portal para desarrolladores en Azure API Management:
 
 * [Editar el contenido de las páginas estáticas y los elementos de diseño de página][modify-content-layout]
-* [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores] [ customize-styles] (que se explica en esta guía)
-* [Modificar las plantillas usadas para las páginas generadas por el portal] [ portal-templates] (por ejemplo, documentos de API, productos, autenticación de usuario, etc.)
+* [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores][customize-styles] (que se explica en esta guía)
+* [Modificar las plantillas usadas para las páginas generadas por el portal][portal-templates] (por ejemplo, documentos de API, productos, autenticación de usuario, etc.)
 
-## <a name="change-headers-styling"> </a>Cambio del estilo de los elementos de página
+## <a name="change-headers-styling"></a>Cambio del estilo de los elementos de página
 
 Los colores, las fuentes, los tamaños, los espacios y otros elementos relacionados con el estilo de cualquier página del portal vienen definidos por las reglas de estilo. 
 
@@ -67,7 +66,7 @@ Se realiza una vista previa de los cambios en tiempo real, a medida que se lleva
 > 
 
 
-## <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo personalizar el contenido de páginas del portal para desarrolladores con las [plantillas del portal para desarrolladores](api-management-developer-portal-templates.md).
 
 [Change the styling of the headers]: #change-headers-styling
@@ -88,4 +87,3 @@ Se realiza una vista previa de los cambios en tiempo real, a medida que se lleva
 
 [bootstrap]: http://getbootstrap.com/
 [LESS variables]: http://getbootstrap.com/css/
-

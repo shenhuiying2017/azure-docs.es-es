@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 75213a4d0297c96ec32200158d8b60db4b8b2da4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="process-large-scale-datasets-using-data-factory-and-batch"></a>Procesamiento de datos a gran escala mediante Data Factory y Batch
 En este artículo se describe la arquitectura de una solución de ejemplo en la que se mueven y se procesan conjuntos de datos a gran escala de forma automática y programada. También se incluye un tutorial paso a paso para implementar la solución con Azure Data Factory y Azure Batch.
@@ -46,7 +45,7 @@ Factoría de datos es un servicio de integración de datos basado en la nube que
 
 Si no está familiarizado con Azure Data Factory, consulte los siguientes artículos, que le ayudarán a comprender la arquitectura e implementación de la solución que se describe en este artículo.  
 
-* [Introducción al servicio Azure Data Factory](data-factory-introduction.md)
+* [Introducción al servicio Data Factory de Azure](data-factory-introduction.md)
 * [Creación de la primera canalización de datos](data-factory-build-your-first-pipeline.md)   
 
 (Opcional) Para más información sobre Azure Data Factory, consulte la [ruta de aprendizaje de Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
@@ -65,12 +64,12 @@ En el diagrama, se muestra 1) cómo Data Factory organiza el movimiento y el pro
 
 La lista siguiente proporciona los pasos básicos del proceso. La solución incluye código y explicaciones para compilar la solución completa.
 
-1. **Configure Azure Batch con un grupo de nodos de proceso (máquinas virtuales)**. Puede especificar el número de nodos y el tamaño de cada nodo.
+1. **Configure Lote de Azure con un grupo de nodos de proceso (máquinas virtuales)**. Puede especificar el número de nodos y el tamaño de cada nodo.
 2. **Cree una instancia de Azure Data Factory** que esté configurada con entidades que representen Azure Blob Storage, el servicio de proceso Azure Batch, los datos de entrada y salida y un flujo de trabajo o una canalización con las actividades que mueven y transforman datos.
 3. **Cree una actividad personalizada de .NET en la canalización de Data Factory**. La actividad es el código de usuario que se ejecutará en el grupo de Azure Batch.
 4. **Almacene grandes cantidades de datos de entrada como blobs en Azure Storage**. Los datos se dividen en segmentos lógicos (normalmente, en función de la fecha y la hora).
 5. **Data Factory copia los datos que se procesan en paralelo** en la ubicación secundaria.
-6. **Data Factory ejecuta la actividad personalizada con el grupo que asigna Batch**. Además, puede ejecutar actividades al mismo tiempo. Cada actividad procesa un segmento de datos. Los resultados se almacenan en Azure Storage.
+6. **Data Factory ejecuta la actividad personalizada con el grupo que asigna Lote**. Además, puede ejecutar actividades al mismo tiempo. Cada actividad procesa un segmento de datos. Los resultados se almacenan en Azure Storage.
 7. **Data Factory mueve los resultados finales a una tercera ubicación**para que se distribuyan a través de una aplicación o para que se sigan procesando con otras herramientas.
 
 ## <a name="implementation-of-sample-solution"></a>Implementación de la solución de ejemplo
@@ -899,9 +898,9 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 ## <a name="references"></a>Referencias
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-  * [Introducción al servicio Azure Data Factory](data-factory-introduction.md)
+  * [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md)
   * [Introducción a Azure Data Factory](data-factory-build-your-first-pipeline.md)
-  * [Uso de actividades personalizadas en una canalización de Azure Data Factory](data-factory-use-custom-activities.md)
+  * [Uso de actividades personalizadas en una canalización de Factoría de datos de Azure](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
   * [Datos básicos de Azure Batch](../../batch/batch-technical-overview.md)
@@ -911,4 +910,3 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-

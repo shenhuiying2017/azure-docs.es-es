@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/30/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 8629235511e0dda149ceef6a9c834c3042f64f90
-ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Requisitos previos y lista de comprobación de ExpressRoute
 Para conectarse a Microsoft Cloud Services con ExpressRoute, debe comprobar que se han cumplido los requisitos enumerados en las secciones siguientes.
@@ -67,4 +66,3 @@ Si tiene pensado habilitar Dynamics 365 en ExpressRoute, revise los siguientes d
   * [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
   * [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
-

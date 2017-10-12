@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: edbed5654a4df8a28b43f03ffd0ac204e0d7f8b1
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comunes de Azure Cosmos DB
 En este artículo se proporciona información general acerca de varios casos de uso comunes de Azure Cosmos DB.  Las recomendaciones de este artículo sirven como punto de partida para desarrollar su aplicación con Cosmos DB.   
 
@@ -138,4 +136,3 @@ O bien, si desea leer más acerca de los usuarios que emplean Cosmos DB, tiene a
 * [Orange Tribes](https://customers.microsoft.com/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). Hay más para esa aplicación de alimentos de lo que parece.
 * [Real Madrid](https://customers.microsoft.com/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Real Madrid acerca el estadio a 450 millones de aficionados de todo el mundo con Microsoft Cloud.
 * [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services). TUKU hace que comprar un vehículo sea una experiencia divertida gracias a los servicios de Azure.
-

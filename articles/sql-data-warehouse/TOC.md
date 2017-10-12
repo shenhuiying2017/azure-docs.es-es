@@ -9,7 +9,7 @@
 
 ## [Tutorial para principiantes](sql-data-warehouse-get-started-tutorial.md)
 ## [Tutorial de consultas elásticas](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
-## [Procedimientos recomendados](sql-data-warehouse-best-practices.md)
+## [procedimientos recomendados](sql-data-warehouse-best-practices.md)
 ## [Administración](sql-data-warehouse-overview-manage.md)
 
 
@@ -114,7 +114,7 @@
 ## Administración de procesos
 
 ### [Información general](sql-data-warehouse-manage-compute-overview.md)
-### [Portal de Azure](sql-data-warehouse-manage-compute-portal.md)
+### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [API de REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)

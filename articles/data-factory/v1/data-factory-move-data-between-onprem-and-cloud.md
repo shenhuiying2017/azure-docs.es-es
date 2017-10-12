@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 712b29a347e246ad5afbf842930b0e01749c1203
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
 Este artículo proporciona información general sobre la integración de los almacenes de datos locales y los almacenes de datos en la nube mediante Data Factory. Este artículo se basa en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) y otros artículos de conceptos básicos de Data Factory: [conjuntos de datos](data-factory-create-datasets.md) y [canalizaciones](data-factory-create-pipelines.md).
@@ -413,4 +412,3 @@ En este paso, usará Azure Portal para supervisar lo que está ocurriendo en una
 ## <a name="next-steps"></a>Pasos siguientes
 * Vea el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para obtener todos los detalles sobre Data Management Gateway.
 * Consulte [Copia de datos de Azure Blob en Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) si necesita más información sobre el uso de la actividad de copia para mover datos desde un almacén de datos de origen a un almacén de datos receptor.
-

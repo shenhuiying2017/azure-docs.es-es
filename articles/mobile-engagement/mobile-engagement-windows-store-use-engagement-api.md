@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 75fc134a5535e6113331470cf61df9c06eb8e2ab
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-universal"></a>Cómo usar la API de Engagement en Windows Universal
 Este documento es un complemento al documento [Cómo integrar Engagement en Windows Universal](mobile-engagement-windows-store-integrate-engagement.md): en él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.

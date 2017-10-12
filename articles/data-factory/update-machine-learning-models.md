@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 062d82d1bb2126a5b135796a2b5fa00ccf02511d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
 Este artículo complementa el artículo de integración principal Azure Data Factory - Azure Machine Learning: [Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory](transform-data-using-machine-learning.md). Si aún no lo ha hecho, revise el artículo principal antes de leer este artículo. 
@@ -36,7 +35,7 @@ La siguiente imagen muestra la relación entre los servicios web de entrenamient
 
 ## <a name="azure-machine-learning-update-resource-activity"></a>Actividad Actualización de recurso de Azure Machine Learning 
 
-El siguiente fragmento JSON define una actividad de ejecución por lotes de Azure Machine Learning.
+El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure Machine Learning.
 
 ```json
 {
@@ -301,14 +300,13 @@ La canalización tiene dos actividades: **AzureMLBatchExecution** y **AzureMLUpd
 }
 ```
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
+Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
-* [Actividad U-SQL](transform-data-using-data-lake-analytics.md)
-* [Actividad Hive](transform-data-using-hadoop-hive.md)
-* [Actividad Pig](transform-data-using-hadoop-pig.md)
-* [Actividad MapReduce](transform-data-using-hadoop-map-reduce.md)
+* [Actividad de U-SQL](transform-data-using-data-lake-analytics.md)
+* [Actividad de Hive](transform-data-using-hadoop-hive.md)
+* [Actividad de Pig](transform-data-using-hadoop-pig.md)
+* [Actividad de MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)
-

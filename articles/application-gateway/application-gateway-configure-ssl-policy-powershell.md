@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
+ms.openlocfilehash: f3d3d2b1ef0957417e09bb2c9b3913cd366aaa4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: ece2549a607ffa06602c26cf77db93f67112d029
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versiones de directivas SSL y conjuntos de cifrado en Application Gateway
 
 Aprenda a configurar versiones de directivas SSL y conjuntos de cifrado en Application Gateway. Puede seleccionar entre una [lista de directivas predefinidas](#predefined-ssl-policies) que contienen diferentes configuraciones de las versiones de directivas SSL y conjuntos de cifrado habilitados. También tiene la posibilidad de definir una [directiva SSL personalizada](#configure-a-custom-ssl-policy) según sus requisitos.

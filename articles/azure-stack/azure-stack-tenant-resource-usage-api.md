@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2016
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2eaf1c766d6c86741cf0fd561c131eacb34d782
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tenant-resource-usage-api"></a>API de uso de recursos de inquilino
 Un inquilino puede utilizar la API de inquilino para ver los datos de uso de recursos del inquilino. Esta API es coherente con la API de uso de Azure (actualmente en la versión preliminar privada).
@@ -89,5 +88,4 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 [API de uso de recursos de proveedor](azure-stack-provider-resource-api.md)
 
 [Preguntas más frecuentes relacionadas con la utilización](azure-stack-usage-related-faq.md)
-
 

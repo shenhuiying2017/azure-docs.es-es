@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
-ms.openlocfilehash: 69fa0a7802ca39f86ada0af47b7a99e56436f973
-ms.contentlocale: es-es
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: fa91baf7c494941fccf0e6ca38b930f3c2a521ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guía de solución de problemas para el streaming en vivo
 En este tema se ofrecen sugerencias sobre cómo solucionar algunos problemas del streaming en vivo.
@@ -73,5 +72,4 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

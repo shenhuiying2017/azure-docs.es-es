@@ -15,12 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 54c0149a769e654139bbdf709802d49127f041ac
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-backups"></a>Copias de seguridad de SQL Data Warehouse
 SQL Data Warehouse ofrece copias de seguridad locales y geográficas como parte de sus funcionalidades de copia de seguridad de almacenamiento de datos. Aquí se incluyen instantáneas de Azure Storage Blob y almacenamiento con redundancia geográfica. Use copias de seguridad de almacenamiento de datos para restaurar el almacenamiento de datos a un punto de restauración en la región primaria o a una región geográfica diferente. En este artículo se explican los aspectos específicos de las copias de seguridad en SQL Data Warehouse.
@@ -119,5 +118,4 @@ El uso principal de copias de seguridad de almacenamiento de datos SQL consiste 
 * Para restaurar un almacenamiento de datos, consulte [Restauración de un almacenamiento de datos SQL](sql-data-warehouse-restore-database-overview.md).
 
 <!-- ### Tutorials -->
-
 

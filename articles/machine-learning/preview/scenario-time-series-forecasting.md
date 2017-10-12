@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="energy-demand-time-series-forecasting"></a>Previsión de las series temporales de demanda de energía
 
 
@@ -195,4 +193,3 @@ En este ejemplo, se implementa un servicio web en una máquina con Windows 10. C
 Este ejemplo muestra cómo crear una solución de previsión de series temporales de extremo a extremo con el propósito de realizar una previsión de la demanda de energía. Muchos de los principios explorados en este ejemplo se pueden aplicar a otros escenarios de previsión y a otros sectores.
 
 Este escenario muestra cómo Azure Machine Learning Workbench puede ayudar a un científico de datos a desarrollar soluciones prácticas con características útiles como el entorno de Jupyter Notebook y las funcionalidades de registro de métricas. El ejemplo también indica al lector cómo se puede operacionalizar e implementar un modelo mediante la CLI de operacionalización de Azure Machine Learning. Una vez implementado, la API del servicio web permite a los desarrolladores o ingenieros de datos integrar el modelo de previsión en una canalización de datos más amplia.
-

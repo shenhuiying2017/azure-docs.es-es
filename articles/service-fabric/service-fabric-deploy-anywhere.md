@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/19/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: e3cfad19e42af24edd68befd7b1eac8cef41a1d6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Creación de clústeres de Service Fabric en Windows Server o Linux
 Un clúster de Azure Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red en las que se implementan y administran los microservicios. Una máquina física o virtual que forma parte de un clúster se denomina nodo del clúster. Los clústeres pueden escalarse a miles de nodos. Si agrega nuevos nodos al clúster, Service Fabric reequilibra las réplicas e instancias de la partición del servicio en el número aumentado de nodos. El rendimiento general de la aplicación mejora y se reduce la contención para el acceso a la memoria. Si los nodos del clúster no se usan de forma eficaz, puede reducir su número de nodos. Service Fabric vuelve a reequilibrar las réplicas e instancias de la partición en el número reducido de nodos para aprovechar mejor el hardware de cada nodo.
@@ -65,8 +64,8 @@ Podrá crear clústeres en VM o equipos que ejecuten estos sistemas operativos (
 ## <a name="advantages-of-service-fabric-clusters-on-azure-over-standalone-service-fabric-clusters-created-on-premises"></a>Ventajas de los clústeres de Service Fabric en Azure frente a los clústeres independientes de Service Fabric creados de forma local
 La ejecución de clústeres de Service Fabric en Azure proporciona ventajas frente a la opción local. Por tanto, si no tiene necesidades específicas en cuanto al lugar donde se ejecutan los clústeres, le sugerimos que los ejecute en Azure. En Azure se proporciona integración con otras características y servicios de Azure, lo que facilita las operaciones y la administración del clúster y hace que sea más confiable.
 
-* **Azure Portal:** Azure Portal facilita la creación y la administración de clústeres.
-* **Azure Resource Manager:** el uso de Azure Resource Manager permite una administración sencilla de todos los recursos que usa el clúster como una unidad y simplifica el costo del seguimiento y la facturación.
+* **Portal de Azure:** el Portal de Azure facilita la creación y la administración de clústeres.
+* **Administrador de recursos de Azure:** el uso del Administrador de recursos de Azure permite una administración sencilla de todos los recursos que usa el clúster como una unidad y simplifica el costo del seguimiento y la facturación.
 * **Clúster de Service Fabric como recurso de Azure** Un clúster de Service Fabric es un recurso de Azure, de modo que puede ajustarlo como hace con otros recursos en Azure.
 * **Integración con la infraestructura de Azure** : Service Fabric se coordina con la infraestructura de Azure subyacente para el SO, la red y otras actualizaciones con el fin de mejorar la disponibilidad y la confiabilidad de las aplicaciones.  
 * **Diagnósticos:** en Azure se proporciona la integración con Diagnósticos y Log Analytics de Azure.
@@ -77,5 +76,4 @@ La ejecución de clústeres de Service Fabric en Azure proporciona ventajas fren
 * Creación de un clúster en máquinas virtuales o equipos que ejecutan Windows Server: [Creación y administración de un clúster que se ejecute en Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 * Creación de un clúster en VM o equipos que ejecutan Linux: [Crear un clúster Linux](service-fabric-cluster-creation-via-portal.md)
 * Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
-
 

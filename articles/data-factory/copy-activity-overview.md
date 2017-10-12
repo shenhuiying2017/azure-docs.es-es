@@ -11,21 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: jingwang
+ms.openlocfilehash: 784b9489911be0d9a559b6fe7795a6c2cbdb09fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4ea7220310f63108f8ec2fa1b28ddcaf992a3a51
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
 ## <a name="overview"></a>Información general
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-data-movement-activities.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-data-movement-activities.md)
 > * [Versión 2: versión preliminar](copy-activity-overview.md)
 
 En Azure Data Factory, puede usar la actividad de copia para copiar datos entre los almacenes de datos locales y en la nube. Una vez copiados los datos, se pueden analizar y transformar con más profundidad. La actividad de copia también puede utilizarse para publicar los resultados de transformación y análisis de inteligencia empresarial (BI) y el consumo de la aplicación.
@@ -33,7 +32,7 @@ En Azure Data Factory, puede usar la actividad de copia para copiar datos entre 
 ![Rol de actividad de copia](media/copy-activity-overview/copy-activity.png)
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Actividad de copia en V1](v1/data-factory-data-movement-activities.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Actividad de copia en V1](v1/data-factory-data-movement-activities.md).
 
 La actividad de copia se ejecuta en una instancia de [Integration Runtime](concepts-integration-runtime.md). Para otro escenario de copia de datos, se puede usar otro tipo de Integration Runtime:
 
@@ -156,7 +155,7 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | sqlDwPolyBase | Si se usa PolyBase cuando se copian datos en SQL Data Warehouse. | Booleano |
 | redshiftUnload | Si se usa UNLOAD cuando se copian datos desde Redshift. | Booleano |
 | hdfsDistcp | Si se usa DistCp cuando se copian datos desde HDFS. | Booleano |
-| effectiveIntegrationRuntime | Muestra el tipo de Integration Runtime que se usa para impulsar la ejecución de actividad con el formato "<IR name> (<region for Azure IR>)". | Texto (cadena) |
+| effectiveIntegrationRuntime | Muestra el tipo de Integration Runtime que se usa para impulsar la ejecución de actividad con el formato "`<IR name> (<region if it's Azure IR>)`". | Texto (cadena) |
 | usedCloudDataMovementUnits | Las unidades de movimiento de datos de nube efectivas durante la copia. | Valor Int32 |
 | redirectRowPath | Ruta de acceso al registro de las filas incompatibles omitidas en la instancia de Blob Storage que configura en "redirectIncompatibleRowSettings". Consulte el ejemplo siguiente. | Texto (cadena) |
 | billedDuration | La duración que se factura para el movimiento de datos. | Valor Int32 en segundos |
@@ -196,4 +195,3 @@ Consulte las guías de inicio rápido, los tutoriales y los ejemplos siguientes:
 - [Copia de datos de una ubicación a otra en la misma instancia de Azure Blob Storage](quickstart-create-data-factory-dot-net.md)
 - [Copia de datos de Azure Blob Storage a Azure SQL Database](tutorial-copy-data-dot-net.md)
 - [Copia de datos de un servidor SQL Server local a Azure](tutorial-hybrid-copy-powershell.md)
-

@@ -16,14 +16,12 @@ ms.date: 09/22/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.custom: it-pro
+ms.openlocfilehash: dd4cf725689739ce4c8b86a4d8203ffc5aff016b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 38e3f71fb4817de7aa95b99e662856f586e72530
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>Creación de informes de instantánea de Cloud App Discovery
 
 Antes de configurar el recopilador de registros automático, cargue manualmente un registro y deje que Cloud App Security lo analice. Si aún no tiene un registro y desea ver un ejemplo del aspecto de su registro, utilice el procedimiento siguiente para descargar un archivo de registro de ejemplo para ver cómo puede ser.
@@ -56,4 +54,3 @@ Antes de configurar el recopilador de registros automático, cargue manualmente 
 * [Introducción al uso de Cloud App Discovery en Azure AD](cloudappdiscovery-get-started.md)
 * [Configuración de la carga de registro automático para la creación de informes continuos](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Uso de un analizador de registros personalizado](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-

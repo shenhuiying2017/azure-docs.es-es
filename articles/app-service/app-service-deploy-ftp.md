@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: cephalin;dariac
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e3ac2f2156719ad975049b0c2b4cbca81d88e779
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementación de la aplicación en Azure App Service mediante FTP/S
 
 En este artículo se muestra cómo usar FTP o FTPS para implementar la aplicación web, el back-end de la aplicación móvil o la aplicación de API en [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -77,4 +75,3 @@ Para ver escenarios de implementación más avanzados, pruebe [Implementación e
 ## <a name="more-resources"></a>Más recursos
 
 * [Credenciales de implementación de Azure App Service](app-service-deploy-ftp.md)
-

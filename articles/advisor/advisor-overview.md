@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 35678142550f9f887562f311a5e7d9516495cf53
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 96925f251cf4984a11516a962740e19a7b9589dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-advisor"></a>Introducción a Azure Advisor
 
 Obtenga información sobre Azure Advisor y sus funcionalidades clave, y obtenga respuesta a las preguntas más frecuentes.
@@ -89,4 +87,3 @@ Para aprender más sobre las recomendaciones de Advisor, consulte:
 * [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
 * [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
 * [Recomendaciones sobre el costo de Advisor](advisor-cost-recommendations.md)
-

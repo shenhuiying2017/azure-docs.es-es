@@ -14,12 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Procedimientos de actualización del SDK web de Azure Mobile Engagement
 Si ya ha integrado una versión anterior del SDK web de Azure Mobile Engagement en su aplicación web, debe considerar los siguientes puntos al actualizar el SDK.
@@ -121,5 +120,4 @@ La cadena de conexión de la aplicación se muestra en el Portal de Azure.
 El objeto global de JavaScript `window.capptain` ha cambiado de nombre a `window.azureEngagement`, pero puede usar el alias `window.engagement` para las llamadas de API. No se puede utilizar el alias para definir la configuración del SDK.
 
 Por ejemplo: `capptain.deviceId` se convierte en `engagement.deviceId`, `capptain.agent.startActivity` se convierte en `engagement.agent.startActivity`, etc.
-
 

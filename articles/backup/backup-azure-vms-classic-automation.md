@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 8/2/2017
 ms.author: markgal;trinadhk;jimpark
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 5f0f06adb8177ce2d17aa0b40666470279c04e22
-ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>Uso de los cmdlets de AzureRM.Backup para realizar copias de seguridad de máquinas virtuales
 > [!div class="op_single_selector"]
@@ -358,4 +357,3 @@ Si quiere agregar funcionalidades gráficas a esta salida del informe, lea la in
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si prefiere usar PowerShell para interactuar con los recursos de Azure, consulte el artículo de PowerShell sobre cómo proteger Windows Server llamado [Implementación y administración de copias de seguridad en Azure para Windows Server](backup-client-automation-classic.md). También hay un artículo de PowerShell sobre cómo administrar las copias de seguridad DPM: [Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell](backup-dpm-automation-classic.md). Estos dos artículos tienen una versión para las implementaciones de Resource Manager, así como las implementaciones clásicas.
-

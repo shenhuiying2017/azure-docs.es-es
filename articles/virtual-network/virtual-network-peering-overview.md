@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 082cd8a6cf50f76c89fe5995047396c734f83034
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -42,7 +41,7 @@ Las ventajas del uso del emparejamiento de redes virtuales son las siguientes:
 
 ## <a name="requirements-constraints"></a>Requisitos y restricciones
 
-* Está generalmente disponible el emparejamiento de redes virtuales en las mismas regiones. El emparejamiento de redes virtuales en diferentes regiones está actualmente en versión preliminar en Centro-oeste de EE. UU., Canadá Central y Oeste de EE. UU. 2. Puede [registrar la suscripción para la versión preliminar](virtual-network-create-peering.md).
+* El emparejamiento de redes virtuales en las mismas regiones tiene disponibilidad general. El emparejamiento de redes virtuales en diferentes regiones está actualmente en versión preliminar en Centro-oeste de EE. UU., Canadá Central y Oeste de EE. UU. 2. Puede [registrar la suscripción para la versión preliminar.](virtual-network-create-peering.md)
     > [!WARNING]
     > Los emparejamientos de redes virtuales que se crean en este escenario no pueden tener el mismo nivel de disponibilidad y confiabilidad que los escenarios de la versión de disponibilidad general. Es posible que los emparejamientos de redes virtuales tengan funcionalidades limitadas y no estén disponibles en todas las regiones de Azure. Para las notificaciones más al día sobre disponibilidad y estado de esta característica, consulte la página de [actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) .
 
@@ -141,4 +140,3 @@ Hay un cargo nominal para el tráfico de entrada y salida que utiliza una conexi
 
 * Aprenda a crear una [topología de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 * Información acerca de toda la [configuración de emparejamiento de red virtual y cómo cambiarla](virtual-network-manage-peering.md)
-

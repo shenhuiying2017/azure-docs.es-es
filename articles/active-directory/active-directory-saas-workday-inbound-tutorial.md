@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
-ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Tutorial: configuración de Workday para aprovisionar automáticamente usuarios con Active Directory y Azure Active Directory locales
 El objetivo de este tutorial consiste en mostrarle los pasos que debe llevar a cabo para importar usuarios de Workday a Active Directory y Azure Active Directory, con la reescritura opcional de algunos atributos en Workday. 
@@ -652,4 +651,3 @@ Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
-

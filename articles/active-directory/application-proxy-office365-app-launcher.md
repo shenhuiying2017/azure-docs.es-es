@@ -15,14 +15,12 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 811adc81424b8e53a740ec34f77a7610fc2a72a8
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Establecimiento de una página principal personalizada para aplicaciones publicadas mediante el Proxy de aplicación de Azure AD
 
 En este artículo se explica cómo configurar aplicaciones para que dirijan a los usuarios a una página principal personalizada. Al publicar una aplicación con el proxy de la aplicación, se establece una dirección URL interna pero, a veces, esa no es la primera página que deben ver los usuarios. Establezca una página principal personalizada para que sus usuarios vayan a la página correcta cuando accedan a las aplicaciones. Sus usuarios podrán ver la página principal personalizada que ha establecido cuando accedan a las aplicaciones desde el Panel de acceso de Azure Active Directory o desde el iniciador de aplicaciones de Office 365.
@@ -144,4 +142,3 @@ Cree la dirección URL de la página principal y actualice la aplicación con es
 
 - [Habilitar el acceso remoto a SharePoint con el Proxy de aplicación de Azure AD](application-proxy-enable-remote-access-sharepoint.md)
 - [Habilitación del proxy de aplicación en Azure Portal](active-directory-application-proxy-enable.md)
-

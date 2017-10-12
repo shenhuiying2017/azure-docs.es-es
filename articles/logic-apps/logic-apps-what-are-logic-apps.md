@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
-ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 59d35852d6c703f3c96089a8bf426b57660441a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-logic-apps"></a>¿Qué es Logic Apps?
 Logic Apps es una manera de simplificar e implementar integraciones escalables y flujos de trabajo en la nube. Proporciona un diseñador visual para modelar y automatizar el proceso en una serie de pasos denominada flujo de trabajo.  Hay [muchos conectores](../connectors/apis-list.md) en la nube y locales para la integración rápida en servicios y protocolos.  Una aplicación lógica comienza con un desencadenador (como "Cuando se agrega una cuenta a Dynamics CRM") y después la activación puede comenzar muchas combinaciones de acciones, conversiones y lógicas de condiciones.
@@ -68,8 +67,8 @@ Las siguientes son algunas de las principales partes que componen la experiencia
 ## <a name="getting-started"></a>Introducción
 * Para empezar a trabajar con Logic Apps, siga el tutorial para la [creación de aplicaciones lógicas][create].  
 * [Ejemplos de aplicaciones lógicas y escenarios comunes](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Con Logic Apps puede automatizar procesos empresariales.](http://channel9.msdn.com/Events/Build/2016/T694) 
-* [Obtenga información acerca de cómo integrar sus sistemas con Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
+* [Con las aplicaciones lógicas puede automatizar procesos empresariales.](http://channel9.msdn.com/Events/Build/2016/T694) 
+* [Obtenga información acerca de cómo integrar sus sistemas con Aplicaciones lógicas](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: logic-apps-enterprise-integration-accounts.md
 [appservice]: ../app-service/app-service-web-overview.md
@@ -78,4 +77,3 @@ Las siguientes son algunas de las principales partes que componen la experiencia
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-

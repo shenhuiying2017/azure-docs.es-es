@@ -8,14 +8,12 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ajuste distribuido de hiperparámetros con Azure Machine Learning Workbench
 
 Este escenario muestra cómo usar Azure Machine Learning Workbench para escalar horizontalmente el ajuste de hiperparámetros de algoritmos de aprendizaje automático que implementan la API scikit-learn. Se muestra cómo configurar y usar un contenedor de Docker remoto y un clúster de Spark como un back-end de ejecución para el ajuste de hiperparámetros.
@@ -312,7 +310,6 @@ En este escenario, hemos mostrado cómo usar Azure Machine Learning Workbench pa
 ## <a name="references"></a>Referencias
 
 [1] T. Chen y C. Guestrin. [XGBoost: A Scalable Tree Boosting System](https://arxiv.org/abs/1603.02754) (XGBoost: sistema de potenciación de árboles escalable). KDD 2016.
-
 
 
 

@@ -15,12 +15,11 @@ ms.date: 06/06/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
-ms.openlocfilehash: e3ad33dd12b4fb831ba43738bc5af4e5561a0682
-ms.contentlocale: es-es
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: 7e6384ea8fea686b5cad1a3bc3007252b9cfcd65
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Servidor de Autenticación de Windows y Azure Multi-Factor Authentication
 Use la sección Autenticación de Windows del Servidor Azure Multi-Factor Authentication para habilitar y configurar la autenticación de Windows para las aplicaciones. Antes de configurar la autenticación de Windows, tenga en cuenta la lista siguiente:
@@ -51,4 +50,3 @@ Use la sección Autenticación de Windows del Servidor Azure Multi-Factor Authen
 - [Configuración de dispositivos de VPN de terceros para el servidor Azure MFA](multi-factor-authentication-advanced-vpn-configurations.md)
 
 - [Augment your existing authentication infrastructure with the NPS extension for Azure MFA](multi-factor-authentication-nps-extension.md) (Aumento de la infraestructura de autenticación existente con la extensión de NPS para Azure MFA)
-

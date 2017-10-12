@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/23/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: d9ec4556d57ff1975a93d806237ad0c7416b9988
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opciones y rendimiento de Azure Database for MySQL: información sobre el contenido disponible en cada plan de tarifa
 Al crear un servidor de Azure Database for MySQL, tiene que elegir entre tres opciones principales para configurar los recursos asignados a dicho servidor. Estas opciones afectan al rendimiento y la escala del servidor.
@@ -104,4 +103,3 @@ La duración de todo el proceso de escalado depende tanto del tamaño como del p
 ## <a name="next-steps"></a>Pasos siguientes
 - Para obtener más información sobre unidades de proceso, consulte [Explicación de las unidades de proceso](concepts-compute-unit-and-storage.md).
 - Obtenga información sobre cómo realizar las tareas de [Supervisión y escalado de un servidor de Azure Database for MySQL (Base de datos de Azure para MySQL) mediante la CLI de Azure](scripts/sample-scale-server.md).
-

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 09/08/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 228772ff6710596c916165a132db31f449d0a327
-ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: da4c5cd2c18e62ae40fe1c3f0a7fa014163b351c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Uso de PowerShell para configurar la auditoría y detección de amenazas en SQL Database
 
 Este script de ejemplo de PowerShell permite configurar la auditoría y detección de amenazas en SQL Database. 
@@ -32,7 +30,7 @@ Este script de ejemplo de PowerShell permite configurar la auditoría y detecci�
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Configuración de la detección de amenazas y auditoría")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Configure auditing and threat detection")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -62,4 +60,3 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 
 Encontrará más ejemplos de scripts de PowerShell de SQL Database en los [scripts de PowerShell de Azure SQL Database](../sql-database-powershell-samples.md).
-

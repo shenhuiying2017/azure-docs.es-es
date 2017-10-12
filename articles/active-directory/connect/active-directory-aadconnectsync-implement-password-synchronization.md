@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 0cb1b04bcfab1f1864ae0ce867be02a8bf8c827c
-ms.contentlocale: es-es
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: db9b1578a235be9018fc1985cc75a0a05ee47b3a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="implement-password-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de contraseña mediante la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -183,4 +182,3 @@ Si tiene problemas con la sincronización de contraseña, vea [Solución de prob
 ## <a name="next-steps"></a>Pasos siguientes
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-

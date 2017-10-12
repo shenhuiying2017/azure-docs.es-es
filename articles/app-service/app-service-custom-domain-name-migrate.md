@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migración de un nombre de DNS activo a Azure App Service
 
@@ -55,9 +54,9 @@ El registro TXT que necesita depende en el registro DNS que desea migrar. Para o
 
 | Ejemplo de registro DNS | Host TXT | Valor TXT |
 | - | - | - |
-| @ (raíz) | _awverify_ | _&lt;nombreaplic>.azurewebsites.net_ |
-| www (sub) | _awverify.www_ | _&lt;nombreaplic>.azurewebsites.net_ |
-| \* (comodín) | _awverify.\*_ | _&lt;nombreaplic>.azurewebsites.net_ |
+| @ (raíz) | _awverify_ | _&lt;nombreaplic&gt;.azurewebsites.net_ |
+| www (sub) | _awverify.www_ | _&lt;nombreaplic&gt;.azurewebsites.net_ |
+| \* (comodín) | _awverify.\*_ | _&lt;nombreaplic&gt;.azurewebsites.net_ |
 
 En la página de registros DNS, tenga en cuenta el tipo de registro del nombre DNS que desee migrar. App Service es compatible con las asignaciones de CNAME y registros A.
 
@@ -116,8 +115,8 @@ Para el ejemplo de dominio raíz de `contoso.com`, reasigne el registro A o CNAM
 | Ejemplo de FQDN | Tipo de registro | Host | Valor |
 | - | - | - | - |
 | contoso.com (raíz) | Una  | `@` | Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
-| www.contoso.com (sub) | CNAME | `www` | _&lt;nombreaplic>.azurewebsites.net_ |
-| \*.contoso.com (comodín) | CNAME | _\*_ | _&lt;nombreaplic>.azurewebsites.net_ |
+| www.contoso.com (sub) | CNAME | `www` | _&lt;nombreaplic&gt;.azurewebsites.net_ |
+| \*.contoso.com (comodín) | CNAME | _\*_ | _&lt;nombreaplic&gt;.azurewebsites.net_ |
 
 Guarde la configuración.
 
@@ -129,4 +128,3 @@ Obtenga información sobre cómo vincular un certificado SSL a App Service.
 
 > [!div class="nextstepaction"]
 > [Enlazar un certificado SSL personalizado a Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
-

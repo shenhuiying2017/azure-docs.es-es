@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1a4f2d69907d220a8bbec5087ba431dc243c46d6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Cómo usar el historial de ejecución y las métricas de modelo de Azure Machine Learning Workbench
 
@@ -243,4 +242,3 @@ Estas funciones están disponibles para ayudarle con el proceso de experimentaci
 Esperamos que las encuentre útiles y agradeceríamos mucho sus comentarios.
 Esta es nuestra implementación inicial, pero tenemos una gran cantidad de mejoras planeadas.
 Esperamos poder implementarlas de forma continua en Azure Machine Learning Workbench. 
-

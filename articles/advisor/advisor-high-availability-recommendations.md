@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 23c159471a6e5a7ad9cb545840e8afd3ac72ecba
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 7b63de2453180e562596c211d40cebe85b95bd54
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advisor-high-availability-recommendations"></a>Recomendaciones sobre alta disponibilidad de Advisor
 
 Azure Advisor lo ayuda a garantizar y mejorar la continuidad de las aplicaciones empresariales críticas. Puede obtener recomendaciones sobre alta disponibilidad de Advisor en la pestaña **High Availability** (Alta disponibilidad) del panel de Advisor.
@@ -87,5 +85,4 @@ Para más información acerca de las recomendaciones de Advisor, consulte:
 * [Recomendaciones sobre el costo de Advisor](advisor-performance-recommendations.md)
 * [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
 * [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
-
 

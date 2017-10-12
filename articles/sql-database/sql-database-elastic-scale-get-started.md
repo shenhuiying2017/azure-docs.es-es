@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 637463399593f4bc9ff5bfcbf67bf93b816efc7f
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introducción a las herramientas de Elastic Database
 Este documento le presenta la experiencia de desarrollador mediante la ejecución de la aplicación de ejemplo. El ejemplo crea una aplicación particionada sencilla y explora las capacidades clave de las herramientas de Elastic Database. El ejemplo muestra funciones de la [biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md).
@@ -98,5 +97,4 @@ Para más información sobre las herramientas de Elastic Database, vea las sigui
 [2]: ./media/sql-database-elastic-scale-get-started/click-online.png
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
-
 

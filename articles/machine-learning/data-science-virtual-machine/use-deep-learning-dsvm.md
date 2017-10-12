@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9bc56d242abde919f6150b88c81921d409e1d94c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Usar Deep Learning Virtual Machine
 
@@ -36,7 +35,6 @@ Además de los ejemplos basados en marcos, también se proporciona un conjunto d
 2. [Guía de procedimientos para crear una solución integral para detectar productos dentro de imágenes](https://github.com/Azure/cortana-intelligence-product-detection-from-images): La detección de imágenes es una técnica con la que se puede buscar y clasificar objetos dentro de imágenes. Esta tecnología tiene el potencial de aportar grandes ventajas a muchos ámbitos comerciales de uso real. Por ejemplo, los minoristas pueden aplicar esta técnica para determinar qué producto ha seleccionado un cliente de una estantería. A su vez, esta información permite que las tiendas administren el inventario de productos. 
 
 3. [Clasificación de documentos de texto](https://github.com/anargyri/lstm_han): En este tutorial se muestra cómo crear y entrenar dos arquitecturas de red neuronal diferentes (red de atención jerárquica y red de memoria a corto y largo plazo) para la clasificación de documentos de texto mediante la API de Keras para el aprendizaje profundo. Keras es un front-end de tres de los marcos de aprendizaje profundo más conocidos: Microsoft Cognitive Toolkit, TensorFlow y Theano.
-
 
 
 

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/30/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1f646016158c212747d7f9841449c348b41f9a15
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Guía de recuperación ante desastres para datos de Data Lake Store
 
@@ -46,5 +45,4 @@ Las organizaciones también pueden habilitar un [registro de diagnóstico](data-
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
-
 

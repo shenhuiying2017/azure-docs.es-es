@@ -18,10 +18,10 @@ ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Aplicaciones, permisos y consentimiento en Azure Active Directory
 Dentro de Azure Active Directory puede agregar aplicaciones a su directorio.  Las aplicaciones pueden variar según el tipo de aplicación.  Para ver las aplicaciones en el portal clásico, seleccione un directorio y elija las aplicaciones.

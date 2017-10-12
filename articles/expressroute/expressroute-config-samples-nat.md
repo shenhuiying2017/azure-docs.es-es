@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b77a20274e22827aaa8aa4d354b62d086a19b206
 ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Ejemplos de configuración de enrutadores para configurar y administrar NAT
 En esta página se proporcionan ejemplos de configuración de NAT para enrutadores Cisco serie ASA y Juniper serie SRX. Solo pretenden ser ejemplos de carácter informativo y no se deben usar tal cual. Puede trabajar con el proveedor para elaborar las configuraciones adecuadas para la red. 
@@ -318,5 +317,4 @@ Consulte ejemplos en la página [Ejemplos de configuración de enrutamiento ](ex
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.
-
 

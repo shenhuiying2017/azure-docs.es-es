@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: d61da54fc3172a730740e2b94a89fe787c4f121d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 59942e989d622c2486edf181d76e13344c71e6f9
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Habilitación de los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux
 
@@ -132,5 +131,4 @@ Para modificar la configuración de un servicio, siga estos pasos:
    > es posible que las entradas del botón **Reiniciar** botón sean diferentes en otros servicios.
 
 8. Una vez haya reiniciado los servicios, pulse el botón **Acciones de servicio** para **Desactivar el modo de mantenimiento**. Esto hará que Ambari reanude la supervisión de alertas para el servicio.
-
 

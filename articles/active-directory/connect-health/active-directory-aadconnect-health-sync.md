@@ -15,10 +15,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Supervisión de Azure AD Connect sync con Azure AD Connect Health
 La siguiente documentación es específica de la supervisión de sincronización de Azure AD Connect (Sync) con Azure AD Connect Health.  Para obtener información sobre la supervisión de AD FS con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md). Para obtener información adicional sobre la supervisión de los Servicios de dominio de Active Directory con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
@@ -67,8 +67,7 @@ Esta característica proporciona un informe sobre los errores de sincronización
 * El informe contiene los errores registrados por el cliente de sincronización (Azure AD Connect versión 1.1.281.0 o superior).
 * Incluye los errores producidos en la última operación de sincronización en el motor de sincronización ("Exportación" en Azure AD Connector).
 * El agente de Azure AD Connect Health para la sincronización debe tener conectividad saliente a los puntos de conexión necesarios para que el informe incluya los datos más recientes.
-* El informe se **actualiza cada 30 minutos** con los datos cargados por el agente de Azure AD Connect Health para la sincronización.
-  Ofrece las siguientes funcionalidades principales:
+* El informe se **actualiza cada 30 minutos** con los datos cargados por el agente de Azure AD Connect Health para la sincronización. Ofrece las siguientes funcionalidades principales:
 
   * Categorización de errores
   * Lista de objetos con error por categoría

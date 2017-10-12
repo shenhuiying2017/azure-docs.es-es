@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Herramientas de ingesta de datos de Data Science Virtual Machine
 
 Uno de los primeros pasos técnicos en un proyecto de inteligencia artificial o ciencia de datos es identificar los conjuntos de datos que se van a usar y colocarlos en el entorno de análisis. Data Science Virtual Machine (DSVM) proporciona herramientas y bibliotecas para traer datos de distintos orígenes a un almacenamiento de datos de análisis local en el DSVM o en una plataforma de datos local o en la nube. 
@@ -98,4 +96,3 @@ Estas son algunas herramientas de movimiento de datos que se pueden encontrar en
 |  ¿Cómo se usa o ejecuta?    |   Inicie "Microsoft Data Management Gateway" desde el menú Inicio.    |
 | Vínculos a ejemplos      | [Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx)      |
 | Herramientas relacionadas en DSVM      | AzCopy, AdlCopy y bcp    |
-

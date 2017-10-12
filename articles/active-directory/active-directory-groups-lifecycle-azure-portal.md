@@ -16,14 +16,12 @@ ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
+ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: f4efac7b74620e68e727292e02a5a904b03d6e2f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-office-365-groups-expiration-preview"></a>Configuración de la expiración de grupos de Office 365 (versión preliminar)
 
 Ahora puede administrar el ciclo de vida de grupos de Office 365 estableciendo la expiración de los grupos de Office 365 que seleccione. Una vez establecida esta expiración, se les pide a los propietarios de esos grupos que renueven los grupos si todavía los necesitan. Los grupos de Office 365 que no se renueven se eliminarán. Los propietarios del grupo o el administrador pueden restaurar en 30 días los grupos de Office 365 que se hayan eliminado.  
@@ -81,4 +79,3 @@ En estos artículos se proporciona información adicional sobre los grupos de Az
 * [Administrar miembros de un grupo](active-directory-groups-members-azure-portal.md)
 * [Administrar la pertenencia a grupos](active-directory-groups-membership-azure-portal.md)
 * [Administrar reglas dinámicas de los usuarios de un grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-

@@ -15,12 +15,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: andrela
+ms.openlocfilehash: 943e355ffcc6c0670585936ec2e559b7fb592ff5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 264a9e8f109ff77d8fbd81f01ba40d21aebea538
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Uso de Java para consultar una base de datos SQL de Azure
 
@@ -48,7 +47,7 @@ Para completar este tutorial, asegúrese de cumplir los siguientes requisitos pr
 
 Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor, el nombre de la base de datos y la información de inicio de sesión.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**. 
 3. En la página **Información general** de la base de datos, revise el nombre completo del servidor tal como se muestra en la siguiente imagen: puede mantener el ratón sobre el nombre del servidor para que aparezca la opción **Haga clic aquí para copiar**.  
 
@@ -161,5 +160,4 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 - [Diseño de su primera base de datos SQL de Azure](sql-database-design-first-database.md)
 - [Controlador JDBC de Microsoft para SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Informe de los problemas y realización de preguntas](https://github.com/microsoft/mssql-jdbc/issues)
-
 

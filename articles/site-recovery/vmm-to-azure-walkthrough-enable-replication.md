@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 96a817e43a830e836f2faa4603fc88ed9c0b1828
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-11-enable-replication-to-azure-for-hyper-v-vms-in-vmm-clouds"></a>Paso 11: Habilitación de la replicación en Azure de máquinas virtuales de Hyper-V en nubes de VMM
 
@@ -82,4 +81,3 @@ Puede hacer un seguimiento del progreso del trabajo **Habilitar protección** en
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ir a [Paso 12: Ejecución de una conmutación por error de prueba](vmm-to-azure-walkthrough-test-failover.md)
-

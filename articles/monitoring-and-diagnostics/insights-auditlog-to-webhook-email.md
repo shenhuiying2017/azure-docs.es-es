@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
 ms.openlocfilehash: 341ab32ad0ec691285fbf1537ee298ab30156a5d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Llamada a un webhook cuando se activan alertas del registro de actividades de Azure
 Los webhooks permiten enrutar una notificación de alerta de Azure a otros sistemas para su procesamiento posterior o acciones personalizadas. Puede usar un webhook en una alerta para enrutarla a servicios que envían SMS, registran errores, notifican a un equipo mediante servicios de chat y mensajería o llevan a cabo otras acciones diversas. En este artículo se describe cómo establecer un webhook al que llamar cuando se activa una alerta del registro de actividades de Azure. También muestra el aspecto de la carga útil para HTTP POST a un webhook. Para información sobre la configuración y el esquema de una alerta de métrica de Azure, [consulte esta página en su lugar](insights-webhooks-alerts.md). También puede configurar una alerta de registro de actividad para enviar correo electrónico cuando se active.

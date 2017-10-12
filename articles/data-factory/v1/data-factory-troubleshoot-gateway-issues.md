@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d8ad132ec47a81971a3405970eeddab3b1598ff3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solución de problemas con Data Management Gateway
 En este artículo se ofrece información sobre la solución de problemas con Data Management Gateway.
@@ -287,4 +286,3 @@ Puede obtener información detallada de los registros de la puerta de enlace en 
  Al solucionar problemas relacionados con la puerta de enlace, busque eventos de error en el Visor de eventos.
 
 ![Puerta de enlace de administración de datos: Registros en el Visor de eventos](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
-

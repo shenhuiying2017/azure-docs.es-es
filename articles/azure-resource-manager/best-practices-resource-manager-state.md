@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
-ms.contentlocale: es-es
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: e163f3c2e9a78b057dc2a7a42924c59d0aac3fab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Uso compartido del estado en y desde las plantillas de Azure Resource Manager
 En este tema se muestran los procedimientos recomendados para administrar y compartir el estado en las plantillas. Los parámetros y variables que se muestran en este tema son ejemplos del tipo de objetos que puede definir para organizar con facilidad sus requisitos de implementación. Desde estos ejemplos, puede implementar sus propios objetos con valores de propiedad que tengan sentido para su entorno.
@@ -440,4 +439,3 @@ Al definir la máquina virtual, establece **osProfile** a la variable que creó.
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener información sobre las secciones de la plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md)
 * Para ver las funciones que están disponibles en una plantilla, consulte [Funciones de plantillas de Azure Resource Manager](resource-group-template-functions.md)
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6d7e9be25badbd83ee613518ba768d98334a5f4d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory: funciones y variables del sistema
 Este artículo proporciona información sobre las funciones y las variables compatibles con Azure Data Factory.
@@ -229,5 +228,4 @@ Para leer los datos del día anterior en lugar del día representado por SliceSt
 ```
 
 Consulte el tema [Cadenas con formato de fecha y hora personalizado](https://msdn.microsoft.com/library/8kb3ddd4.aspx), en el que se describen las diferentes opciones de formato que puede usar (por ejemplo: aa frente a aaaa). 
-
 

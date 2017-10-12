@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: tamram
+ms.openlocfilehash: e7b32aa2de5d6501e8d7894a936e9ab8b2f4f42f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a854a0033c365336c5ab13fb65524d84da92618c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-microsoft-azure-storage"></a>Introducción a Microsoft Azure Storage
 
 Microsoft Azure Storage es un servicio en la nube administrado por Microsoft que proporciona almacenamiento altamente disponible, seguro, duradero, escalable y redundante. Microsoft se encarga del mantenimiento y soluciona automáticamente los problemas críticos. 
@@ -206,7 +204,7 @@ Es posible acceder a los recursos de Azure Storage por medio de cualquier lengua
 ### <a name="azure-storage-data-services"></a>Servicios de datos de Azure Storage
 * [API de REST de servicios de almacenamiento](/rest/api/storageservices/)
 * [Biblioteca de cliente de Storage para .NET](https://docs.microsoft.com/dotnet/api/?view=azurestorage-8.1.1)
-* [Biblioteca de cliente de Storage para C++](https://github.com/Azure/azure-storage-cpp)
+* [Biblioteca de cliente de almacenamiento para C++](https://github.com/Azure/azure-storage-cpp)
 * [Biblioteca de cliente de Storage para Java/Android](https://azure.microsoft.com/develop/java/)
 * [Biblioteca de cliente de Storage para Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
 * [Biblioteca de cliente de Storage para PHP](https://azure.microsoft.com/develop/php/)
@@ -299,7 +297,7 @@ To learn more about Azure Storage, explore these resources:
 * [Uso de Queue Storage en Ruby](../storage-ruby-how-to-use-queue-storage.md)
 
 ### <a name="for-python-developers"></a>Para desarrolladores de Python
-* [Uso de Blob Storage en Python](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Uso del almacenamiento de blobs de Python](../blobs/storage-python-how-to-use-blob-storage.md)
 * [Desarrollo para Azure Files con Python](../files/storage-python-how-to-use-file-storage.md)
 * [Uso de Table Storage en Python](../../cosmos-db/table-storage-how-to-use-python.md)
 * [Uso de Queue Storage en Python](../storage-python-how-to-use-queue-storage.md)

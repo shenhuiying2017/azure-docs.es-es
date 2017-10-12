@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 63c270affca31d3db7e03116f5e287d8569b0dae
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-stack-portal"></a>Uso del portal de Azure Stack
 
@@ -38,7 +37,7 @@ El operador de Azure Stack (un proveedor de servicios o un administrador de su o
 
 ## <a name="customize-the-dashboard"></a>Personalización del panel
 
-El panel contiene un conjunto de títulos predeterminados. Puede hacer clic en **Editar panel** para modificar el panel predeterminado, o en **Nuevo panel** para agregar paneles personalizados. Puede agregar fácilmente iconos al panel. Por ejemplo, puede hacer clic en **Nuevo**, hacer clic con el botón derecho en **Proceso** y luego hacer clic en **Anclar al panel**.
+El panel contiene un conjunto de iconos predeterminados. Puede hacer clic en **Editar panel** para modificar el panel predeterminado o en **Nuevo panel** para agregar paneles personalizados. Puede agregar fácilmente iconos al panel. Por ejemplo, puede hacer clic en **Nuevo**, hacer clic con el botón derecho en **Proceso** y luego hacer clic en **Anclar al panel**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Creación de una suscripción y examen de los recursos disponibles
  
@@ -74,4 +73,3 @@ Si usa Azure Stack Development Kit, el [foro de Azure Stack](https://social.msdn
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md) (Consideraciones clave: uso de servicios o compilación de aplicaciones para Azure Stack)
-

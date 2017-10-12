@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: d3ba8cb1f7e1d4332f7912848e8b6902d9acf909
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Tutorial: Integración de Azure Active Directory con RealtimeBoard
 
@@ -147,7 +146,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_02.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Usuario**.
+3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
 
     ![Botón Agregar](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_03.png)
 
@@ -159,7 +158,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
-    c. Marque la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
     d. Haga clic en **Crear**.
  
@@ -226,5 +225,4 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_203.png
-
 
