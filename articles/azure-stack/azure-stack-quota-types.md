@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 33906514955b76a3d6587b19899a0c76a09018a2
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cuota en Azure Stack
 
@@ -66,4 +65,3 @@ Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límite
 [Más información acerca de planes, ofertas y cuotas.](azure-stack-plan-offer-quota-overview.md)
 
 [Crear cuotas durante la creación de un plan.](azure-stack-create-plan.md)
-

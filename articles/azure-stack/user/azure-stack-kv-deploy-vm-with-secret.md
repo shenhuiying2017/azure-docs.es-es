@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3292a2dfefc17e5034c66122a3eab24d6c03e694
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Creación de una máquina virtual mediante la recuperación de la contraseña almacenada en un almacén de claves
 
@@ -30,7 +29,7 @@ En este artículo, se le guiará por los pasos necesarios para implementar una m
 ## <a name="prerequisites"></a>Requisitos previos
  
 * Debe suscribirse a una oferta que incluya el servicio Key Vault.  
-* [Instalación de PowerShell para Azure Stack.](azure-stack-powershell-install.md)  
+* [Instale PowerShell para Azure Stack.](azure-stack-powershell-install.md)  
 * [Configuración del entorno de PowerShell del usuario de Azure Stack.](azure-stack-powershell-configure-user.md)
 
 Los pasos siguientes describen el proceso necesario para crear una máquina virtual mediante la recuperación de la contraseña almacenada en un almacén de claves:
@@ -124,5 +123,4 @@ Cuando la plantilla se ha implementado correctamente, se producen en la siguient
 [Implementación de una aplicación de ejemplo con Key Vault](azure-stack-kv-sample-app.md)
 
 [Implementación de una máquina virtual con un certificado de Key Vault](azure-stack-kv-push-secret-into-vm.md)
-
 

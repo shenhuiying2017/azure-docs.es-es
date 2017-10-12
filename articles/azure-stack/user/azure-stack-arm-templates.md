@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7648855011e8f77c35713d2d2ae50f2e474a08a6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Uso de plantillas de Administrador de recursos de Azure en Azure Stack
 
@@ -74,5 +73,4 @@ Para cancelar la implementación de una plantilla en ejecución, use el cmdlet `
 [Implementación de plantillas con el portal](azure-stack-deploy-template-portal.md)
 
 [Información general sobre Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
-
 

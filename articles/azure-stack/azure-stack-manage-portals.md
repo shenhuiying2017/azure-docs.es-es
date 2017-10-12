@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3a1be7a08fab8ad0253f26e6a0683617bff4b7c9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Uso del portal de administración de Azure Stack
 
@@ -78,9 +77,8 @@ Para acceder a la documentación del operador de Azure Stack, haga clic en el ic
 Si hace clic el icono de ayuda y soporte técnico (signo de interrogación) en la esquina superior derecha del portal de administración y, a continuación, hace clic en **Nueva solicitud de soporte técnico**, sucede lo siguiente:
 
 - Si usa un sistema integrado, esta acción abre un sitio donde puede abrir directamente un vale de soporte técnico para los servicios de soporte al cliente de Microsoft (CSS). Consulte la sección sobre dónde obtener soporte técnico de [Conceptos básicos de administración de Azure Stack](azure-stack-manage-basics.md) para comprender cuándo debe acudir al soporte técnico de Microsoft o al soporte técnico del proveedor de hardware OEM (fabricante de equipo original).
-- Si usa el kit de desarrollo, esta acción abre directamente el sitio de foros de Azure Stack. Estos foros se supervisan periódicamente. Dado que el kit de desarrollo es un entorno de evaluación, no se ofrece ningún soporte técnico oficial a través de los servicios de soporte al cliente (CSS) de Microsoft.
+- Si usa el kit de desarrollo, esta acción abre directamente el sitio de foros de Azure Stack. Estos foros se supervisan periódicamente. Dado que el kit de desarrollo es un entorno de evaluación, el servicio de asistencia al cliente (CSS) de Microsoft no ofrece soporte técnico oficial.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Administración de regiones en Azure Stack](azure-stack-region-management.md)
-

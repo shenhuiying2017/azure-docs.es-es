@@ -1,6 +1,6 @@
 ---
 title: "Creación de una oferta en Azure Stack | Microsoft Docs"
-description: Como administrador de la nube, aprenda a crear una oferta para los inquilinos en Azure Stack.
+description: Como administrador de la nube, aprenda a crear una oferta para los usuarios de Azure Stack.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: erikje
+ms.openlocfilehash: 269a6106f657536ba74be366f842b2f9cd86c5dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 76d038a0eb53cf5f22ed377354f5f09de2dc9c1b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Creación de una oferta en Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
-Las [Ofertas](azure-stack-key-features.md) son grupos de uno o varios planes que los proveedores presentan a los inquilinos para que estos los compren o se suscriban a ellos. Este documento muestra cómo crear una oferta que incluye el [plan que creó](azure-stack-create-plan.md) en el último paso. Esta oferta da a los suscriptores la capacidad de aprovisionar máquinas virtuales.
+Las [ofertas](azure-stack-key-features.md) son grupos de uno o varios planes que los proveedores presentan a los usuarios para que estos los compren o se suscriban a ellos. Este documento muestra cómo crear una oferta que incluye el [plan que creó](azure-stack-create-plan.md) en el último paso. Esta oferta da a los suscriptores la capacidad de aprovisionar máquinas virtuales.
 
 1. Inicie sesión en el portal de administrador de Azure Stack (https://adminportal.local.azurestack.external) > haga clic en **New** > **Tenant Offers + Plans** >  **Offer** (Nuevo > Ofertas y planes de inquilino).
 
@@ -40,19 +39,18 @@ Las [Ofertas](azure-stack-key-features.md) son grupos de uno o varios planes que
 
    ![](media/azure-stack-create-offer/image03.png)
 
-Las ofertas deben hacerse públicas para que los inquilinos obtengan la vista completa cuando se suscriban. Las ofertas pueden ser:
+Las ofertas deben hacerse públicas para que los usuarios obtengan la vista completa cuando se suscriban. Las ofertas pueden ser:
 
-* **Públicos**: visible para los inquilinos.
+* **Públicas**: visibles para los usuarios.
 * **Privadas**: solo son visibles para los administradores de la nube. Resulta útil durante la elaboración del plan o la oferta, o si el administrador de la nube desea aprobar todas las suscripciones.
 * **Retirados**: cerrados a nuevos suscriptores. El administrador de la nube puede usar las ofertas y planes retirados para evitar futuras suscripciones, pero dejar intactos los suscriptores actuales.
 
-Los cambios en la oferta no son inmediatamente visibles para el inquilino. Para visualizar los cambios, es posible que tenga que cerrar sesión e iniciarla para ver la nueva suscripción en el "selector de suscripciones" al crear recursos o grupos de recursos.
+Los cambios en la oferta no son inmediatamente visibles para el usuario. Para visualizar los cambios, es posible que tenga que cerrar sesión e iniciarla para ver la nueva suscripción en el "selector de suscripciones" al crear recursos o grupos de recursos.
 
 > [!NOTE]
 >También puede crear ofertas, planes y cuotas predeterminadas mediante PowerShell, como se explica en el [archivo Léame del administrador de servicios de Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
 >
 
 
-## <a name="next-steps"></a>Pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 [Suscripción a una oferta y aprovisionamiento de una máquina virtual en Azure Stack](azure-stack-subscribe-plan-provision-vm.md)
-

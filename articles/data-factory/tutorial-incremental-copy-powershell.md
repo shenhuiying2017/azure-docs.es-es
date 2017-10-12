@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
+ms.openlocfilehash: 91b632b6d2c2917acf17e9d89c1b5a4b0f8b1c33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 6a73e7818edfb796b7294f6794d2652c5feedf5c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage
-Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo controlados por datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI). 
+Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI). 
 
 Durante el recorrido de integración de datos, uno de los escenarios ampliamente usados consiste en cargar de forma incremental los datos periódicamente para actualizar el resultado de los análisis actualizados después del análisis y las cargas de datos iniciales. En este tutorial, se centrará en cargar únicamente registros nuevos o actualizados desde los orígenes de datos en los receptores de datos. Esto resulta más eficiente comparado con las completas, especialmente para los conjuntos de datos de gran tamaño.    
 
@@ -32,8 +30,8 @@ En este tutorial, realizará los siguientes pasos:
 
 > [!div class="checklist"]
 > * Preparación del almacén de datos para almacenar el valor de marca de agua   
-> * Creación de una factoría de datos
-> * Creación de servicios vinculados 
+> * Creación de una factoría de datos.
+> * Cree servicios vinculados. 
 > * Creación de los conjuntos de datos de marca de agua, de origen y del receptor
 > * Creación de una canalización
 > * Ejecución de la canalización
@@ -173,7 +171,7 @@ END
 
     Tenga en cuenta los siguientes puntos:
 
-    * El nombre del generador de datos de Azure debe ser único global. Si recibe el siguiente error, cambie el nombre y vuélvalo a intentar.
+    * El nombre del generador de datos de Azure debe ser único global. Si recibe el siguiente error, cambie el nombre y vuelva a intentarlo.
 
         ```
         The specified Data Factory name '<data factory name>' is already in use. Data Factory names must be globally unique.
@@ -727,7 +725,6 @@ Pase al tutorial siguiente para obtener información acerca de la transformació
 
 > [!div class="nextstepaction"]
 >[Transformar datos con un clúster de Spark en la nube](tutorial-transform-data-spark-powershell.md)
-
 
 
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: efemmano
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="region-management-in-azure-stack"></a>Administración de regiones en Azure Stack
 
@@ -52,7 +51,6 @@ Azure Stack tiene un conjunto de funciones de administración de regiones dispon
 [Supervisar el estado y las alertas en Azure Stack](azure-stack-monitor-health.md)
 
 [Administrar las actualizaciones en Azure Stack](azure-stack-updates.md)
-
 
 
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c54dca9d734cf909cf20d5235a90b9b46f0af11c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provider-resource-usage-api"></a>API de uso de recursos de proveedor
 El proveedor de condiciones se aplica al administrador de servicios y a los proveedores delegados. El operador de Azure Stack y los proveedores delegados pueden usar la API de uso del proveedor para ver el uso de sus inquilinos directos. Por ejemplo, P0 puede llamar a la API de proveedores para obtener información del uso directo de P1 y de P2, y P1 puede llamarla para obtener información de uso sobre P3 y P4.
@@ -94,5 +93,4 @@ meterID1",
 [Referencia de la API de uso de recursos de inquilino](azure-stack-tenant-resource-usage-api.md)
 
 [Preguntas más frecuentes relacionadas con la utilización](azure-stack-usage-related-faq.md)
-
 

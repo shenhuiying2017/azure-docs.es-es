@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2cad56caa182a9abdca02944000b1506953af3f4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-users-in-the-azure-stack-development-kit"></a>Incorporación de usuarios a Azure Stack Development Kit
 
@@ -31,6 +30,5 @@ Para agregar usuarios adicionales a la implementación del kit de desarrollo, de
 4.  Haga clic en **Action** > **New** > **User** (Acción > Nuevo > Usuario).
 5.  En la ventana New Object - User (Nuevo objeto: usuario), proporcione una contraseña y confírmela.
 6.  Haga clic en **Next** (Siguiente) para finalizar los valores y haga clic en Finish (Finalizar) para crear el usuario.
-
 
 

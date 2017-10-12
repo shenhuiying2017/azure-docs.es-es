@@ -7,14 +7,12 @@ ms.author: xiaofmao
 ms.date: 9/25/2017
 ms.topic: get-started-article
 ms.service: azure-stack
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5b2898c64c0f1b5d804e63fa4e4e1218fa7a672c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Empezar a trabajar con herramientas de desarrollo de Azure Stack Storage
 
 *Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
@@ -146,7 +144,7 @@ Los siguientes tutoriales de Azure Blob Storage son aplicables a Azure Stack. Te
 * [Uso de Blob Storage en Java](../../storage/blobs/storage-java-how-to-use-blob-storage.md)
 * [Cómo usar Blob Storage desde Node.js]../../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
 * [Uso del almacenamiento de blobs en C++](../../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Uso de Blob Storage en PHP](../../storage/blobs/storage-php-how-to-use-blobs.md)
+* [Uso del almacenamiento de blobs de PHP](../../storage/blobs/storage-php-how-to-use-blobs.md)
 * [Uso de Azure Blob Storage desde Python](../../storage/blobs/storage-python-how-to-use-blob-storage.md)
 * [Uso de Blob Storage en Ruby](../../storage/blobs/storage-ruby-how-to-use-blob-storage.md)
 
@@ -156,11 +154,11 @@ Los siguientes tutoriales de Azure Queue Storage son aplicables a Azure Stack. T
 
 * [Introducción a Azure Queue Storage mediante .NET](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Uso de Queue Storage en Java](../../storage/queues/storage-java-how-to-use-queue-storage.md)
-* [Uso de Queue Storage en Node.js](../../storage/queues/storage-nodejs-how-to-use-queues.md)
+* [Uso del almacenamiento de colas de Node.js](../../storage/queues/storage-nodejs-how-to-use-queues.md)
 * [Uso del almacenamiento de colas en C++](../../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
-* [Uso de Queue Storage en PHP](../../storage/queues/storage-php-how-to-use-queues.md)
+* [Uso del almacenamiento de colas de PHP](../../storage/queues/storage-php-how-to-use-queues.md)
 * [Uso de Queue Storage en Python](../../storage/queues/storage-python-how-to-use-queue-storage.md)
-* [Uso de Queue Storage en Ruby](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
+* [Uso del almacenamiento de colas de Ruby](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
 
 
 ## <a name="table-storage"></a>Almacenamiento de tablas
@@ -177,4 +175,4 @@ Los siguientes tutoriales de Azure Table Storage son aplicables a Azure Stack. T
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* [Introducción a Almacenamiento de Microsoft Azure](../../storage/common/storage-introduction.md)

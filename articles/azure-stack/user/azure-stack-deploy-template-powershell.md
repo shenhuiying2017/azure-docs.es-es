@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e4837be016b569dbd0b4bf8e071e6381b8daa85f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-templates-in-azure-stack-using-powershell"></a>Implementación de plantillas en Azure Stack con PowerShell
 
-*Se aplica a: sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
 Use PowerShell para implementar las plantillas de Azure Resource Manager en el kit de desarrollo de Azure Stack.  Las plantillas de Resource Manager implementan y aprovisionan todos los recursos para su aplicación en una única operación coordinada.
 
@@ -61,5 +60,4 @@ El disco duro virtual usado en esta plantilla de ejemplo es WindowsServer-2012-R
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Implementación de plantillas con Visual Studio](azure-stack-deploy-template-visual-studio.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: sngun
+ms.openlocfilehash: 43781cb025865df1d228376f57412f3d482d3ad0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 62f467f1dae5a2cb04e5230ed43b77ec3ec8c1a1
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Agregación de la imagen de máquina virtual Windows Server 2016 en Marketplace de Azure Stack
 
@@ -141,7 +140,7 @@ Para asegurarse de que la imagen de máquina virtual Windows Server 2016 tiene l
 |Parámetros de New-AzsServer2016VMImage|¿Necesario?|Descripción|
 |-----|-----|------|
 |ISOPath|Sí|La ruta de acceso completa a la imagen ISO de Windows Server 2016 descargada.|
-|Net35|No|Este parámetro permite instalar el runtime de .NET 3.5 en la imagen de Windows Server 2016. De forma predeterminada, este valor se establece en true. Es obligatorio que la imagen contenga el runtime de .NET 3.5 para instalar los proveedores de recursos SQL y MYSQL. |
+|Net35|No|Este parámetro permite instalar el runtime de .NET 3.5 en la imagen de Windows Server 2016. De forma predeterminada, este valor se establece en true.|
 |Versión|No|Este parámetro le permite elegir si desea agregar una imagen de Windows Server 2016 **Básica** o **Completa** o **Ambas**. De forma predeterminada, este valor se establece en "Full".|
 |VHDSizeInMB|No|Establece el tamaño (en MB) de la imagen de disco duro virtual que se va a agregar a su entorno de Azure Stack. De forma predeterminada, este valor se establece en 40.960 MB.|
 |CreateGalleryItem|No|Especifica si se debe crear un elemento de Marketplace para la imagen de Windows Server 2016. De forma predeterminada, este valor se establece en true.|
@@ -153,4 +152,3 @@ Para asegurarse de que la imagen de máquina virtual Windows Server 2016 tiene l
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Aprovisionamiento de una máquina virtual](azure-stack-provision-vm.md)
-

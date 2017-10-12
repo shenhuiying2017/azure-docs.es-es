@@ -1,5 +1,4 @@
 ---
-
 title: "¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B? | Microsoft Docs"
 description: "Un administrador puede agregar usuarios invitados a Azure AD de una organización asociada con la colaboración de Azure Active Directory B2B."
 services: active-directory
@@ -16,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 7f33165141f31c1b495313f2da0d6e4681bdf8f2
-ms.lasthandoff: 03/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="how-do-azure-active-directory-admins-add-b2b-collaboration-users"></a>¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?
 
 Los administradores globales y limitados pueden usar [Azure Portal](https://portal.azure.com) para invitar usuarios de colaboración B2Bal directorio, a cualquier grupo o a cualquier aplicación.
@@ -70,4 +66,3 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Personalización y API de colaboración B2B de Azure Active Directory](active-directory-b2b-api.md)
 * [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-

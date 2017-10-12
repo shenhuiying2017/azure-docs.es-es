@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1e0ced4b2d65456034ba3f8543152702c089a0b0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-role-based-access-control"></a>Administrar el control de acceso basado en roles
 
@@ -38,6 +37,5 @@ En Azure Stack, un usuario puede ser un lector, propietario o colaborador de cad
 4. En la hoja **Roles**, haga clic en **Agregar** para agregar permisos para el usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 
 

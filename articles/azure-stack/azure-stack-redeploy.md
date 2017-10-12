@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 891cde9b16bbbb51729129b6ad7a0f3794307baa
-ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="redeploy-azure-stack"></a>Nueva implementación de Azure Stack
 Para volver a implementar Azure Stack, debe empezar desde el principio, tal y como se describe a continuación.
@@ -32,5 +31,4 @@ Para volver a implementar Azure Stack, debe empezar desde el principio, tal y co
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Conexión a Azure Stack](azure-stack-connect-azure-stack.md)
-
 
