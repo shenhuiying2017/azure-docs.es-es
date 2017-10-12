@@ -291,4 +291,3 @@ Para conocer los límites de SQL Database, vea [Límites de recursos de SQL Data
 
 [Tamaños de Cloud Services](cloud-services/cloud-services-sizes-specs.md)
 
-
