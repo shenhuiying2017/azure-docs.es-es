@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: 9b39c949e33dfbcc75ba8c09d6b38e4bdb243766
 ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.contentlocale: es-es
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Aplicación de ejemplo que usa claves y secretos almacenados en un almacén de claves
 
 En este artículo, le mostraremos cómo ejecutar una aplicación de ejemplo (HelloKeyVault) que recupera las claves y secretos de un almacén de claves en Azure Stack.
@@ -147,7 +145,6 @@ La aplicación inicia una sesión en Azure AD y, a continuación, utiliza ese to
 [Implementación de una máquina virtual con una contraseña de Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Implementación de una máquina virtual con un certificado de Key Vault](azure-stack-kv-push-secret-into-vm.md)
-
 
 
 

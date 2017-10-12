@@ -13,14 +13,12 @@ ms.devlang: na
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: fbc0fd12999c9085c3c364f0d7115eb1ab1ddd74
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Uso de la extensión Visual Studio Code para crear plantillas de Azure Resource Manager
 En este artículo se muestran las ventajas de instalar y usar la extensión de herramientas de Azure Resource Manager en Visual Studio Code. Puede crear plantillas de Resource Manager en VS Code sin la extensión, pero la extensión proporciona opciones de autocompletar que simplifican el desarrollo de la plantilla. Sugiere funciones de plantilla, parámetros y variables que están disponibles en la plantilla.
 
@@ -300,4 +298,3 @@ az group delete --name examplegroup
 * Para aprender más sobre la estructura de una plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para obtener información acerca de las propiedades de una cuenta de almacenamiento, consulte la [referencia de plantillas de cuentas de almacenamiento](/azure/templates/microsoft.storage/storageaccounts).
 * Para ver plantillas completas de muchos tipos diferentes de soluciones, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
-

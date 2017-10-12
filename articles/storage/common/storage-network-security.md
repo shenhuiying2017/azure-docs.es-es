@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/25/2017
 ms.author: cbrooks
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de52e9cb32e28d2f40a56743ed759b5d5d0a63f0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configuración de Firewalls y redes virtuales de Azure Storage (versión preliminar)
 Azure Storage proporciona un modelo de seguridad por niveles que le permite proteger las cuentas de almacenamiento en un conjunto específico de redes permitidas.  Cuando se configuran las reglas de red, solo las aplicaciones de redes permitidas pueden acceder a una cuenta de almacenamiento.  Al llamar a desde una red permitida, las aplicaciones seguirán requiriendo la autorización adecuada (clave de acceso válida o token de SAS) para acceder a la cuenta de almacenamiento.
@@ -367,4 +366,3 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 Obtenga más información acerca de los puntos de conexión de servicio de red de Azure en [Puntos de conexión de servicio](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 Profundice en la seguridad de Azure Storage en la [Guía de seguridad de Azure Storage](storage-security-guide.md).
-

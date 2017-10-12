@@ -15,14 +15,12 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
+ms.openlocfilehash: ef922668f080b8f02f07c2f9724f5a98171fb754
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 67581624ca00893176e6d31c7b2de92a19fe966a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opciones de configuración avanzada para la extensión NPS para Multi-Factor Authentication
 
 La extensión Servidor de directivas de redes (NPS) amplía las características de Azure Multi-Factor Authentication basadas en la nube a la infraestructura local. En este artículo se supone que ya tiene la extensión instalada y ahora desea saber cómo personalizarla conforme a sus necesidades. 

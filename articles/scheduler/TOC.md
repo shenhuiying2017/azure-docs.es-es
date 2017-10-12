@@ -1,7 +1,7 @@
 
 
 # Información general
-## [¿Qué es Scheduler?](scheduler-intro.md)
+## [¿Qué es Programador?](scheduler-intro.md)
 
 # Introducción
 ## [Creación y administración de trabajos](scheduler-get-started-portal.md)

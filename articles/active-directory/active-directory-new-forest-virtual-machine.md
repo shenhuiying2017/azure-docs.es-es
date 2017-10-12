@@ -16,10 +16,10 @@ ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
 ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalación de un bosque nuevo de Active Directory en una red virtual de Azure
 En este tema se muestra la creación de un nuevo entorno de Windows Server Active Directory en una red virtual de Azure en una máquina virtual (VM) de una [red virtual de Azure](../virtual-network/virtual-networks-overview.md). En este caso, la red virtual de Azure no está conectada a una red de un entorno local.

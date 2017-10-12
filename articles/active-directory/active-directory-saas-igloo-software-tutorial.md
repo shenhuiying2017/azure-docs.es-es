@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: ab3891e11eb33b4d233e4fc967a40c7df06e4f4e
-ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Tutorial: Integración de Azure Active Directory con Igloo Software
 
@@ -281,5 +280,4 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-igloo-software-tutorial/tutorial_general_203.png
-
 

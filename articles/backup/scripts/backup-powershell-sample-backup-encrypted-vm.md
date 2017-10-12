@@ -16,14 +16,12 @@ ms.workload: storage-backup-recovery
 ms.date: 09/07/2017
 ms.author: markgal
 ms.custom: mvc
+ms.openlocfilehash: 4376add4a2e51806bd5db228ad2fe2afcf2e4f57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 321a034340fb31efc1b539ba1a5ab5a34661cb63
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Copia de seguridad de una máquina virtual de Azure cifrada con PowerShell
 
 Este script crea un almacén de Recovery Services con almacenamiento con redundancia geográfica (GRS) para una máquina virtual de Azure cifrada. Se aplica la directiva de protección predeterminada al almacén. La directiva genera una copia de seguridad diaria de la máquina virtual y conserva cada copia de seguridad durante 30 días. El script también desencadena el punto de recuperación inicial para la máquina virtual y retiene ese punto de recuperación durante 365 días. 
@@ -65,5 +63,4 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
-
 

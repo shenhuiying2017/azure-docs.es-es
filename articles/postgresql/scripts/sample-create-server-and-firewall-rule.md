@@ -12,10 +12,10 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.date: 05/31/2017
 ms.openlocfilehash: e545b568cd57fdcf28ab33a5ebfa34a495111c7f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Creación de una base de datos de Azure para el servidor PostgreSQL y configuración de una regla de firewall mediante la CLI de Azure
 Este script de la CLI de ejemplo crea un servidor de Azure Database for PostgreSQL (Base de datos de Azure para PostgreSQL) y configura una regla de firewall de nivel de servidor. Después de ejecutar el script correctamente, el servidor PostgreSQL es accesible desde todos los servicios de Azure y la dirección IP configurada.
@@ -26,11 +26,11 @@ Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecu
 
 ## <a name="sample-script"></a>Script de ejemplo
 En este script de ejemplo, edite las líneas resaltadas para personalizar el nombre de usuario y la contraseña de administrador.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh?highlight=15-16 "Cree una instancia de Azure Database for PostgreSQL y una regla de firewall de nivel de servidor.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for PostgreSQL, and server-level firewall rule.")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos y todos los recursos asociados.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/delete-postgresql.sh "Elimine el grupo de recursos.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/delete-postgresql.sh "Delete the resource group.")]
 
 ## <a name="script-explanation"></a>Explicación del script
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.

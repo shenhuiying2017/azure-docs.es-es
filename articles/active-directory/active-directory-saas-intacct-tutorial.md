@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: c203b192b9da0d280cbd7f6c123219242ee4a3d1
-ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Tutorial: integración de Azure Active Directory con Intacct
 
@@ -274,5 +273,4 @@ Al hacer clic en el icono de Intacct. en el panel de acceso, debería iniciar se
 [201]: ./media/active-directory-saas-intacct-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-intacct-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-intacct-tutorial/tutorial_general_203.png
-
 

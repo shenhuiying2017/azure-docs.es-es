@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
 ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campos personalizados de Log Analytics
 La característica **Custom Fields** (Campos personalizados) de Log Analytics le permite ampliar los registros existentes en el repositorio de OMS agregando sus propios campos de búsqueda.  Los campos personalizados se rellenan automáticamente a partir de los datos extraídos de otras propiedades del mismo registro.

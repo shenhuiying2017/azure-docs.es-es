@@ -16,10 +16,10 @@ ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 7389f55ee6fef9548abb0ca4ac1bbd0399868d47
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Agregar inicio de sesión a una aplicación de escritorio de Windows
 Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones de escritorio compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas.  También permite que la aplicación se comunique de forma segura con una API web back-end, así como con [Microsoft Graph](https://graph.microsoft.io) y algunas de las [API unificadas de Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -255,8 +255,8 @@ Ahora puede pasar a temas más avanzados.  Es posible que desee probar:
 
 Para obtener recursos adicionales, consulte:  
 
-* [La guía del desarrollador de v2.0 >>](active-directory-appmodel-v2-overview.md)
-* [Etiqueta "msal" de StackOverflow >>](http://stackoverflow.com/questions/tagged/msal)
+* [La guía del desarrollador de v2.0 &gt;&gt;](active-directory-appmodel-v2-overview.md)
+* [Etiqueta "msal" de StackOverflow &gt;&gt;](http://stackoverflow.com/questions/tagged/msal)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtención de actualizaciones de seguridad para nuestros productos
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.

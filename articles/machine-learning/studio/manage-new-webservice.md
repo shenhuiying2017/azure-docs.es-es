@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2fc71d3a03ff978485104bcd1cd9391c1d5ee392
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Administración de un servicio web mediante el portal Servicios web Azure Machine Learning
 Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
@@ -188,5 +187,4 @@ Para administrar cuentas adicionales que dispongan de acceso al área de trabajo
 > El vínculo **Iniciar sesión en ML Studio** permite abrir Machine Learning Studio mediante la cuenta Microsoft en la que haya iniciado la sesión actual. La cuenta de Microsoft que usó para iniciar sesión en el Portal de Azure clásico para crear un área de trabajo no tiene automáticamente permiso para abrir el área de trabajo. Para abrir un área de trabajo, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo. También puede hacerlo si recibe una invitación del propietario para unirse al área de trabajo.
 > 
 > 
-
 

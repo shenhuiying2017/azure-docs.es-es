@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d184bb9edbe2542d7321d8b9ccc5d23f2401f8d5
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Habilitación de la CLI de Azure para usuarios de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
 No hay ninguna tarea específica del operador de Azure Stack que se pueda realizar con CLI. Pero antes de que los usuarios puedan administrar recursos a través de CLI, los operadores de Azure Stack deben proporcionarles lo siguiente:
 
@@ -74,5 +73,4 @@ Hay disponible un [archivo de alias de ejemplo](https://raw.githubusercontent.co
 [Conexión con PowerShell](azure-stack-connect-powershell.md)
 
 [Administración de permisos de usuario](azure-stack-manage-permissions.md)
-
 

@@ -15,14 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: cc5ec6022cede019541d697905aa068b88d25ee4
-ms.contentlocale: es-es
-ms.lasthandoff: 03/22/2017
-
-
-
+ms.openlocfilehash: 1e0df958a2f18fe1e988168918e5cfd293f84e64
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-sample-data-into-sql-data-warehouse"></a>Carga de datos de ejemplo en Almacenamiento de datos SQL
 Siga estos pasos sencillos para cargar la base de datos de ejemplo de Adventure Works en Almacenamiento de datos SQL. Estos scripts utilizan primero sqlcmd para ejecutar instrucciones SQL que crearán tablas y vistas. Cuando se hayan creado las tablas, los scripts usarán bcp para cargar los datos.  Si todavía no tiene instaladas estas herramientas, siga estos vínculos para [instalar bcp][install bcp] e [instalar sqlcmd][install sqlcmd].
@@ -93,4 +90,3 @@ Ahora que tuvo la oportunidad de probar algunas consultas con datos de ejemplo, 
 
 <!--Other Web references-->
 [Adventure Works Sample Scripts for SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
-

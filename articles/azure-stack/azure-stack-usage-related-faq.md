@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 166147c8cb4949be1b23e0a06868e66c8a5844f4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Preguntas frecuentes sobre la API de uso de Azure Stack 
 En este artículo se responde a algunas preguntas frecuentes sobre la API de uso de Azure Stack.
@@ -31,7 +30,7 @@ Actualmente, se informa del uso de red, almacenamiento y proveedores de recursos
 | --- | --- | --- | --- | --- | 
 | **Red** |F271A8A388C44D93956A063E1D2FA80B |Uso de la dirección IP estática |Direcciones IP|Número de direcciones IP usadas | 
 | |9E2739BA86744796B465F64674B822BA |Uso de la dirección IP dinámica |Direcciones IP|Número de direcciones IP usadas | 
-| **Storage** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*horas |Capacidad total utilizada por las tablas |
+| **Almacenamiento** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*horas |Capacidad total utilizada por las tablas |
 | | B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*horas |Capacidad total consumida por blobs en páginas |
 | | B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*horas |Capacidad total consumida por la cola |
 | | 09F8879E-87E9-4305-A572-4B7BE209F857 |BlockBlobCapacity |GB\*horas |Capacidad total consumida por blobs en bloques |
@@ -47,7 +46,7 @@ Actualmente, se informa del uso de red, almacenamiento y proveedores de recursos
 | **Proceso** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Horas de tamaño de la máquina virtual base |Minutos de núcleo virtual | Número de núcleos virtuales multiplicado por los minutos durante los cuales se ejecutó la máquina virtual |
 | |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Horas de tamaño de la máquina virtual Windows |Minutos de núcleo virtual | Número de núcleos virtuales multiplicado por los minutos durante los cuales se ejecutó la máquina virtual |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |Horas de tamaño de la máquina virtual |Horas de la máquina virtual |Captura de la máquina virtual base y Windows. No se ajusta para los núcleos virtuales |
-| **Key Vault** | EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Transacciones de Key Vault | Número de solicitudes en 10 000 s| Número de solicitudes de API de REST recibidas por plan de datos de Key Vault |
+| **Almacén de claves** | EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Transacciones de Key Vault | Número de solicitudes en 10 000 s| Número de solicitudes de API de REST recibidas por plan de datos de Key Vault |
 
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>¿Cómo se comparan las API de uso de Azure Stack con la [API de uso de Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (actualmente en versión preliminar pública)?
 * La API de uso de inquilinos es coherente con la API de Azure, con una excepción: actualmente, la marca *showDetails* no se admite en Azure Stack.
@@ -81,5 +80,4 @@ Actualmente, *solo se puede consultar mediante el tiempo notificado*.
 [API de uso de recursos del proveedor](azure-stack-provider-resource-api.md)
 
 [API de uso de recursos del inquilino](azure-stack-tenant-resource-usage-api.md)
-
 

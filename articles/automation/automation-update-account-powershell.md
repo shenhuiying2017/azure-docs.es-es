@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d34bb4a285f77f5c21a4af2d544bda3221d59e8d
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: fb23b3ea41910687fd586f80e5dd327344991e0f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="update-automation-run-as-account-using-powershell"></a>Actualización de una cuenta de ejecución de Automation mediante PowerShell
 Puede usar PowerShell para actualizar su cuenta de Automation existente si:
 
@@ -272,4 +270,3 @@ Una vez que el script se ejecuta correctamente, observe lo siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de las entidades de servicio, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/active-directory-application-objects.md).
 * Para más información acerca de los certificados y de los servicios de Azure, consulte [Introducción a los certificados para los servicios en la nube de Azure](../cloud-services/cloud-services-certs-create.md).
-

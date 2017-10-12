@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/12/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 4eb0e7bcc14722010121c2a5945509d6ed736f4f
-ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
-
+ms.openlocfilehash: 16da4e1732445b2480daf18130ea74935c6e6c49
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Envío de eventos a Azure Event Hubs mediante .NET Framework
 
@@ -46,7 +45,7 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **Remitente** y luego haga clic en **Administrar paquetes NuGet para la solución**. 
-3. Haga clic en la pestaña **Examinar** y luego busque `Microsoft Azure Service Bus`. Haga clic en **Instalar**y acepte las condiciones de uso. 
+3. Haga clic en la pestaña **Examinar** y luego busque `WindowsAzure.ServiceBus`. Haga clic en **Instalar**y acepte las condiciones de uso. 
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
@@ -114,5 +113,4 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
-
 

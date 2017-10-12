@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>Cómo integrar la cobertura de Engagement en iOS
 Debe seguir el procedimiento de integración que se describe en el documento [Integración de Engagement en iOS](mobile-engagement-ios-integrate-engagement.md) antes de seguir esta guía.
@@ -502,4 +501,3 @@ Al igual que para la personalización de notificación avanzada, se recomienda m
     }
 
     @end
-

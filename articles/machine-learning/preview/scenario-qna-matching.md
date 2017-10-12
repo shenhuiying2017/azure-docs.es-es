@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 ms.manager: tihazen
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Correspondencia entre preguntas y respuestas mediante Azure Machine Learning Workbench
 Responder a preguntas abiertas es difícil y a menudo requiere un esfuerzo manual por parte de expertos en la materia (SME). Para ayudar a reducir la demanda de expertos en la materia internos, las empresas a menudo crean listas con las preguntas más frecuentes (P+F) como forma de ayudar a los usuarios. Este ejemplo muestra varios métodos eficaces de aprendizaje automático para hacer corresponder consultas abiertas con pares de preguntas/respuestas de P+F ya existentes. Este ejemplo muestra un sencillo proceso de desarrollo para compilar una solución de este tipo mediante Azure Machine Learning Workbench. 
 
@@ -162,4 +160,3 @@ Algunos aspectos destacados de este ejemplo son:
 Timothy J. Hazen, Fred Richardson, [_Modeling Multiword Phrases with Constrained Phrases Tree for Improved Topic Modeling of Conversational Speech_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf) (Modelado de frases de varias palabras con árbol de frases restringido para mejorar el modelado de temas de conversación). Taller de tecnología del lenguaje hablado (SLT), IEEE de 2012. IEEE, 2012.
 
 Timothy J. Hazen, [_MCE Training Techniques for Topic Identification of Spoken Audio Documents_](http://ieeexplore.ieee.org/abstract/document/5742980/) (Técnicas de entrenamiento de MCE para la identificación de temas en documentos de audio hablados) en la biblioteca de transacciones de IEEE sobre audio, voz y procesamiento del lenguaje), vol. 19, núm. 8, pp 2451-2460, noviembre de 2011.
-

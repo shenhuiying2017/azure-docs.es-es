@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 09/16/2017
 ms.author: snmuvva
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="near-real-time-metric-alerts-preview"></a>Alertas de métricas casi en tiempo real (versión preliminar)
 Azure Monitor ahora admite un nuevo tipo de alerta de métricas denominada alertas de métricas casi en tiempo real (versión preliminar) Esta característica actualmente está en su versión preliminar pública.
 Estas alertas se diferencian de las alertas de métricas normales de varias maneras:
@@ -74,7 +72,7 @@ Actualmente, las alertas de métricas casi en tiempo real solo pueden crearse me
 4. Asígnele un **nombre** a la regla de alerta y elija una **descripción**, que también se muestra los correos electrónicos de notificación.
 5. Seleccione la **métrica** que desea supervisar y elija un valor de **Condición**, **Agregación de tiempo** y **Umbral** para la métrica. Como alternativa, seleccione otra **métrica** que desee supervisar y elija un valor de **Condición**, **Agregación de tiempo** y **Umbral** para la segunda métrica. 
 
-    ![Agregar alerta de métricas casi en tiempo real1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png) ![Agregar alerta de métricas casi en tiempo real2](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
+    ![Agregar alerta de métricas casi en tiempo real1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png)![Agregar alerta de métricas casi en tiempo real2](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
 6. Elija el **período** de la regla de métrica que se debe cumplir antes de que se desencadene la alerta. Por ejemplo, si usa el período “En los últimos 5 minutos” y la alerta busca una CPU por encima del 80 % (y Datos de entrada de red por encima de 500 MB), la alerta se desencadena cuando la CPU ha estado por encima del 80 % durante 5 minutos de manera uniforme. Una vez que se desencadena por primera vez, se vuelve a desencadenar cuando la CPU se mantiene por debajo del 80% durante 5 minutos. La alerta se evalúa según la **Frecuencia de evaluación**.
 
 
@@ -95,7 +93,6 @@ Una vez que haya creado una alerta, puede seleccionarla y:
 * Ver un gráfico que muestre el umbral de las métricas y los valores reales del día anterior.
 * Editar la alerta o eliminarla.
 * **Deshabilitar** la alerta, si desea dejar de recibir notificaciones de esa alerta de manera temporal, o **habilitarla** si desea reanudar sus notificaciones.
-
 
 
 

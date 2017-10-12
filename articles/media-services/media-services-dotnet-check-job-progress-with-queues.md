@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: juliako
 ms.openlocfilehash: 5ee89d0ae4c3c56d164aff4e321ee99f015ba4fb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Uso del almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Servicios multimedia con .NET
 Al ejecutar trabajos de codificación, muchas veces se requiere una forma de hacer un seguimiento del progreso del trabajo. Puede configurar Media Services para entregar notificaciones a [Azure Queue Storage](../storage/storage-dotnet-how-to-use-queues.md). Puede supervisar el progreso del trabajo obteniendo notificaciones desde Queue Storage. 

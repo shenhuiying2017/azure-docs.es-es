@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: dc2ed59d6adaca97b23dddcb7ec968d90171b483
-ms.contentlocale: es-es
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Seleccione, administre y opere clústeres de Service Fabric.
@@ -92,7 +91,7 @@ El valor es 4. - Error: filtro que asocia la entrada con el valor de HealthState
 | --- | --- |
 | --debug                        | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                      | Muestra este mensaje de ayuda y sale.|
-| --output -o                    | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.                    Valor predeterminado: json.|
+| --output -o                    | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.                    Valor predeterminado: json.|
 | --query                        | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
 | --verbose                      | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -113,7 +112,7 @@ Obtiene el manifiesto de clúster de Service Fabric. El manifiesto de clúster c
 | --- | --- |
 | --debug  | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h| Muestra este mensaje de ayuda y sale.|
-| --output -o | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query  | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
 | --verbose| Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -136,7 +135,7 @@ Aprovisiona el código o los paquetes de configuración de un clúster de Servic
 | --- | --- |
 | --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h  | Muestra este mensaje de ayuda y sale.|
-| --output -o| Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o| Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
 | --verbose  | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -163,7 +162,7 @@ Si se conecta al clúster segura, especifique un archivo de certificado (.crt) y
 | --- | --- |
 | --debug           | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h         | Muestra este mensaje de ayuda y sale.|
-| --output -o       | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o       | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query           | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
 | --verbose         | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -184,7 +183,7 @@ Deshace el aprovisionamiento del código o los paquetes de configuración de un 
 | --- | --- |
 |--debug         | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
  |   --help -h       | Muestra este mensaje de ayuda y sale.|
- |   --output -o     | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+ |   --output -o     | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
  |   --query         | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y
                       ejemplos.|
  |   --verbose       | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
@@ -216,7 +215,7 @@ El delta se mide entre el estado de los nodos del dominio de actualización al p
 | --- | --- |
 |--debug                               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 |    --help -h                             | Muestra este mensaje de ayuda y sale.|
-|    --output -o                           | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.
+|    --output -o                           | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.
                                             Valor predeterminado: json.|
 |    --query                               | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más
                                             información y ejemplos.|
@@ -225,4 +224,4 @@ El delta se mide entre el estado de los nodos del dominio de actualización al p
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
-- Obtenga información sobre cómo utilizar la CLI de Service Fabric utilizando los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

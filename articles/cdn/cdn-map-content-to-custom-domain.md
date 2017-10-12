@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: cd6db44f7776859d1e6a893543cf0666182ca41a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="map-azure-cdn-content-to-a-custom-domain"></a>Asignación del contenido de la red CDN de Azure a un dominio personalizado
 Puede asignar un dominio personalizado a un punto de conexión de CDN para utilizar su propio nombre de dominio en direcciones URL para el contenido almacenado en caché, en lugar de utilizar un subdominio de azureedge.net.

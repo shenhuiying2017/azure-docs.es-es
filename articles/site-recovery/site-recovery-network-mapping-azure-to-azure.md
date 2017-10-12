@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 34f5caa13aa94dc982ed497d7c8ddeceed61a6d8
-ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Asignación de red entre dos regiones de Azure
 
@@ -99,4 +98,3 @@ Puede modificar la dirección IP de destino en cada interfaz de red si va a la c
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre [Networking guidance for replicating Azure VMs](site-recovery-azure-to-azure-networking-guidance.md) (Instrucciones de redes para la replicación de máquinas virtuales de Azure).
-

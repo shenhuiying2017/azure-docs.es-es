@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de la versión de Azure BizTalk Services
 
@@ -222,5 +221,4 @@ En este documento los términos "canalizaciones" y "puentes" se usan indistintam
 
 ### <a name="concepts"></a>Conceptos
 [Servicios de BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
-
 

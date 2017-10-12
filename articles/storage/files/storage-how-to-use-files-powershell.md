@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f919e1880f709b416867a29de14f1dcc63a165fe
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-powershell-to-manage-azure-files"></a>Uso de PowerShell para administrar Azure Files
 Puede usar Azure PowerShell para crear y administrar recursos compartidos de archivos.
@@ -98,6 +97,6 @@ Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -Des
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los vínculos siguientes para más información acerca Azure Files.
 
-* [P+F](../storage-files-faq.md)
+* [Preguntas más frecuentes](../storage-files-faq.md)
 * [Solución de problemas en Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Solución de problemas en Linux](storage-troubleshoot-linux-file-connection-problems.md)    

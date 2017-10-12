@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 363fdd9f1de933bb4050f91e1e111aaf3e419058
-ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 3983055cd580c263d39b908c61a16ed14353c9a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Análisis de seguridad de una máquina virtual con la vista de grupos de seguridad mediante PowerShell
 
 > [!div class="op_single_selector"]
@@ -131,6 +129,5 @@ NetworkInterfaces : [
 ## <a name="next-steps"></a>Pasos siguientes
 
 Visite [Automate NSG auditing with Azure Network Watcher Security group view](network-watcher-nsg-auditing-powershell.md) (Automatización de la auditoría de grupos de seguridad de red (NSG) con la vista de grupos de seguridad de Azure Network Watcher) para aprender a automatizar la validación de grupos de seguridad de red.
-
 
 

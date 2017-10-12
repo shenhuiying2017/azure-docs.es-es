@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
 ms.author: erikje
+ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bfed4c557a420eda14cafe5b1cf8ad11476e2d79
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Introducción a los planes, ofertas, cuotas y suscripciones
 
-*Se aplica a: Azure Stack Development Kit*
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
-[Azure Stack](azure-stack-poc.md) le permite proporcionar una amplia variedad de servicios, como máquinas virtuales, bases de datos SQL Server, SharePoint, Exchange e incluso [elementos de Azure Marketplace](azure-stack-marketplace-azure-items.md). Como operador de nube, debe configurar y entregar esos servicios en Azure Stack por medio de planes, ofertas y cuotas.
+[Azure Stack](azure-stack-poc.md) le permite proporcionar una amplia variedad de servicios, como máquinas virtuales, bases de datos SQL Server, SharePoint, Exchange e incluso [elementos de Azure Marketplace](azure-stack-marketplace-azure-items.md). Como operador de Azure Stack, debe configurar y entregar esos servicios en Azure Stack por medio de planes, ofertas y cuotas.
 
 Las ofertas contienen uno o varios planes y cada plan incluye uno o varios servicios. Al crear planes y combinarlos en diferentes ofertas, puede controlar:
 - los servicio y los recursos a los que pueden acceder los usuarios
@@ -44,7 +43,7 @@ Después de haber creado la oferta, los usuarios pueden suscribirse a ella para 
 
 ## <a name="plans"></a>Planes
 
-Los planes son agrupaciones de uno o varios servicios. Como operador de nube, [creará planes](azure-stack-create-plan.md) para ofrecer a sus usuarios. A su vez, los usuarios se suscriben a las ofertas para usar los planes y los servicios que incluyen. Cuando cree los planes, asegúrese de establecer las cuotas, definir los planes base y considerar la inclusión de planes complementarios opcionales.
+Los planes son agrupaciones de uno o varios servicios. Como operador de Azure Stack, [creará planes](azure-stack-create-plan.md) para ofrecer a sus usuarios. A su vez, los usuarios se suscriben a las ofertas para usar los planes y los servicios que incluyen. Cuando cree los planes, asegúrese de establecer las cuotas, definir los planes base y considerar la inclusión de planes complementarios opcionales.
 
 ### <a name="quotas"></a>Cuotas
 
@@ -69,7 +68,7 @@ Cuando se [crea una oferta](azure-stack-create-offer.md), debe incluir al menos 
 
 ## <a name="subscriptions"></a>Suscripciones
 
-Una suscripción es la forma en que los inquilinos acceden a las ofertas. Si es un operador de nube de un proveedor de servicios, los usuarios (inquilinos) le compran sus servicios mediante la suscripción a sus ofertas. Si es un operador de nube de una organización, los usuarios (empleados) pueden suscribirse a los servicios que les ofrece sin pagar. Cada combinación de un usuario con una oferta es una suscripción única. Por lo tanto, un usuario puede tener suscripciones a varias ofertas, pero cada suscripción se aplica solo a una oferta. Los planes, las ofertas y las cuotas solo se aplican a cada suscripción única, no se pueden compartir entre suscripciones. Cada recurso que crea un usuario está asociado a una suscripción.
+Una suscripción es la forma en que los inquilinos acceden a las ofertas. Si es un operador de Azure Stack de un proveedor de servicios, los usuarios (inquilinos) le compran sus servicios mediante la suscripción a sus ofertas. Si es un operador de Azure Stack de una organización, los usuarios (empleados) pueden suscribirse a los servicios que les ofrece sin pagar. Cada combinación de un usuario con una oferta es una suscripción única. Por lo tanto, un usuario puede tener suscripciones a varias ofertas, pero cada suscripción se aplica solo a una oferta. Los planes, las ofertas y las cuotas solo se aplican a cada suscripción única, no se pueden compartir entre suscripciones. Cada recurso que crea un usuario está asociado a una suscripción.
 
 
 ### <a name="default-provider-subscription"></a>Suscripción de proveedor predeterminada
@@ -79,4 +78,3 @@ La suscripción de proveedor predeterminada se crea automáticamente al implemen
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Creación de un plan](azure-stack-create-plan.md)
-

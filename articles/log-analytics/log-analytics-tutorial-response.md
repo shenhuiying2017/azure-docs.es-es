@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ccf0bd57b7f54b1d8d57b460df9bb381b29ee381
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="respond-to-events-with-log-analytics-alerts"></a>Respuesta a eventos con las alertas de Log Analytics
 Las alertas de Log Analytics identifican información importante en el repositorio de Log Analytics.  Se crean mediante reglas de alerta que ejecutan automáticamente búsquedas de registro en intervalos regulares, y si los resultados de la búsqueda de registro coinciden con criterios determinados, se crea un registro de alerta y se puede configurar para realizar una respuesta automatizada.  Este tutorial es la continuación del tutorial [Creación y uso compartido de paneles de datos de Log Analytics](log-analytics-tutorial-dashboards.md).   

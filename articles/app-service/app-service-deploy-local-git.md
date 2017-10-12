@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
+ms.openlocfilehash: ed0239df7bf1e4d37987aaa929d0c67bec595b30
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: a2884faf41a450e136b6b5ebca208f0238d84080
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local en el Servicio de aplicaciones de Azure
 En este tutorial se muestra cómo implementar la aplicación en [Azure Web Apps](app-service-web-overview.md) desde un repositorio de Git en el equipo local. El Servicio de aplicaciones admite este enfoque con la opción de implementación **Git local** en el [Portal de Azure].  
@@ -181,4 +180,3 @@ git config --global http.postBuffer 524288000
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
-

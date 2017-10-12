@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
 ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introducción al Programador de Azure en el Portal de Azure
 Es fácil crear trabajos programados en el Programador de Azure. En este tutorial, aprenderá a crear un trabajo: También aprenderá las funcionalidades de supervisión y administración del Programador.
@@ -30,14 +30,14 @@ Es fácil crear trabajos programados en el Programador de Azure. En este tutoria
     ![][marketplace-create]
 3. Vamos a crear un trabajo que simplemente selecciona http://www.microsoft.com/ con una solicitud GET. En la pantalla **Trabajo del Programador** , escriba la siguiente información:
    
-   1. **Nombre:** `getmicrosoft`  
+   1. **Nombre:**`getmicrosoft`  
    2. **Suscripción** : su suscripción a Azure.   
    3. **Colección de trabajos:** seleccione una colección de trabajos existente o haga clic en **Crear nueva** y escriba un nombre.
 4. Después, en **Configuración de la acción**, defina los siguientes valores:
    
-   1. **Tipo de acción:** ` HTTP`  
-   2. **Método:** `GET`  
-   3. **URL:** ` http://www.microsoft.com`  
+   1. **Tipo de acción:**` HTTP`  
+   2. **Método:**`GET`  
+   3. **URL:**` http://www.microsoft.com`  
       
       ![][action-settings]
 5. Por último, vamos a definir una programación. El trabajo se puede definir como un trabajo único, pero vamos a seleccionar una programación de periodicidad:

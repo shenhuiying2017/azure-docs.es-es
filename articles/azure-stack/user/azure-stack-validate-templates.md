@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Compruebe las plantillas para Azure Stack con el validador de plantilla
 
 *Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
@@ -102,5 +100,4 @@ Los archivos descargados incluyen un archivo predeterminado *AzureStackCloudCapa
 ## <a name="next-steps"></a>Pasos siguientes
  - [Implementar plantillas en Azure Stack](azure-stack-arm-templates.md)
  - [Desarrollo de plantillas para Azure Stack](azure-stack-develop-templates.md)
-
 

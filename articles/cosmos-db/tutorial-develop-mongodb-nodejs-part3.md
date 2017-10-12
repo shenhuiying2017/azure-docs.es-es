@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 1fb8d7b9f1014f37f0f3afa20605fce10c45a967
-ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Creación de una aplicación de MongoDB con Angular y Azure Cosmos DB - Parte 3: Creación de la interfaz de usuario con Angular
 
@@ -559,4 +558,3 @@ Puede continuar con la siguiente parte del tutorial para crear una cuenta de Azu
 
 > [!div class="nextstepaction"]
 > [Creación de una cuenta de Azure Cosmos DB mediante la CLI de Azure](tutorial-develop-mongodb-nodejs-part4.md)
-

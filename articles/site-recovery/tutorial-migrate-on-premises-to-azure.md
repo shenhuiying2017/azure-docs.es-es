@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/16/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbee77e669f49bdebb57121df8672a9253945b3c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
 
@@ -108,7 +107,7 @@ Ejecute una conmutación por error para las máquinas que desea migrar.
 
 
 > [!WARNING]
-> **Don't cancel a failover in progress** (No cancelar una conmutación por error en curso): antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no replica la máquina virtual de nuevo.
+> **No cancele una conmutación por error en curso**: antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no replica la máquina virtual de nuevo.
 
 En algunos escenarios, la conmutación por error requiere un procesamiento adicional que tarda aproximadamente de ocho a diez minutos en completarse. Puede observar tiempos de conmutación por error de prueba más largos en los servidores físicos, las máquinas de VMware Linux, las máquinas virtuales de VMware que no tienen el servicio DHCP habilitado y las máquinas virtuales de VMware que no tienen los siguientes controladores de arranque: storvsc, vmbus, storflt, intelide y atapi.
 
@@ -117,4 +116,3 @@ En algunos escenarios, la conmutación por error requiere un procesamiento adici
 
 > [!div class="nextstepaction"]
 > [Replicación de máquinas virtuales de Azure en otra región después de la migración a Azure](site-recovery-azure-to-azure-after-migration.md)
-

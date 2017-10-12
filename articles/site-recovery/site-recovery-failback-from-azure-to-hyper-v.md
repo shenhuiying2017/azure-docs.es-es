@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Conmutación por recuperación en Site Recovery para máquinas virtuales de Hyper-V
 
 En este artículo se describe cómo se realiza la conmutación por recuperación en máquinas virtuales protegidas con Site Recovery.
@@ -98,4 +96,3 @@ Para acelerar la descarga de datos, puede configurar el agente de MARS para util
 Una vez haya completado el trabajo de conmutación por recuperación, realice la acción **Confirmar** en la máquina virtual. La confirmación elimina la máquina virtual de Azure y sus discos, y la prepara para volver a protegerla.
 
 Después de **Confirmar**, puede iniciar la *Replicación inversa*. Esto iniciará la protección de la máquina virtual del entorno local a Azure. Tenga en cuenta que esto solo replicará los cambios, ya que la máquina virtual se ha desactivado en Azure y solo envía los cambios incrementales.
-

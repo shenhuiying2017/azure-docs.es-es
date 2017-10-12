@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 6d517c5e302ac36e5bba2053998c75f8f4d42683
-ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: Integración de Azure Active Directory con SAP Business Object Cloud
 
@@ -298,5 +297,4 @@ Para más información sobre el panel de acceso, consulte [Introducción al pane
 [201]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapboc-tutorial/tutorial_general_203.png
-
 

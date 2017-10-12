@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 95962833f853886476630d703c8959bad1852e50
-ms.contentlocale: es-es
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implementación de una solución de equilibrador de carga orientado a Internet con IPv6 mediante el uso de una plantilla
 
 > [!div class="op_single_selector"]
@@ -136,4 +134,3 @@ En la plantilla de ejemplo usada en este artículo se incluyen las variables y l
 | lbName |Especifique el nombre del equilibrador de carga. Este nombre se muestra en el portal o se usa al hacer referencia a él con un comando de la CLI o de PowerShell. |
 
 Las variables restantes de la plantilla contienen valores derivados que se asignan cuando Azure crea los recursos. No cambie esas variables.
-

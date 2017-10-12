@@ -16,10 +16,10 @@ ms.workload: identity
 ms.date: 04/12/2017
 ms.author: sasubram
 ms.openlocfilehash: ba782270f3280e52235bc13148d232284b55762a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoría y generación de informes para usuarios de colaboración 2B
 Con usuarios invitados, cuenta con funcionalidades de auditoría similares a las que tiene con los usuarios miembros. A continuación, se muestra un ejemplo del historial de canje e invitación de los usuario Sam Oogle al que se acaba de invitar:

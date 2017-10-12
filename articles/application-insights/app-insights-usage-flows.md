@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: cfreeman
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: d17ed3dff08f00a1d6a2108608e42b29f95fbd84
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Análisis de patrones de navegación del usuario mediante Flujos de usuarios de Application Insights
 
 ![Herramienta Flujos de usuarios de Application Insights](./media/app-insights-usage-flows/flows.png)
@@ -27,10 +25,10 @@ ms.lasthandoff: 08/16/2017
 La herramienta Flujos de usuarios permite visualizar cómo navegan los usuarios por las páginas y características del sitio. Resulta idónea para responder a preguntas del tipo:
 * ¿Cómo salen los usuarios de una página del sitio?
 * ¿En qué hacen clic los usuarios en una página del sitio?
-* ¿Dónde están los lugares que los usuarios renuevan con más frecuencia desde su sitio?
+* ¿Dónde están los lugares que los usuarios abandonan con más frecuencia en su sitio?
 * ¿Hay lugares donde los usuarios repitan la misma acción una y otra vez?
 
-La herramienta Flujos de usuarios se inicia a partir de una vista de página inicial o evento que especifique. En función de esta vista de página o evento personalizado, Flujos de usuario mostrará las vistas de página y eventos personalizados que los usuarios enviaron inmediatamente después durante una sesión, los que enviaron dos pasos después, y así sucesivamente. Aparecen líneas de varios grosores que muestran cuántas veces han seguido cada ruta los usuarios. Los nodos especiales de "Fin de la sesión" muestran cuántos usuarios no enviaron vistas de páginas ni eventos personalizados después del nodo anterior, destacando los momentos en los que los usuarios abandonaron su sitio.
+La herramienta Flujos de usuarios se inicia a partir de una vista de página o evento que especifique. En función de esta vista de página o evento personalizado, Flujos de usuario mostrará las vistas de página y eventos personalizados que los usuarios enviaron inmediatamente después durante una sesión, los que enviaron dos pasos después, y así sucesivamente. Aparecen líneas de varios grosores que muestran cuántas veces han seguido cada ruta los usuarios. Los nodos especiales de "Fin de la sesión" muestran cuántos usuarios no enviaron vistas de páginas ni eventos personalizados después del nodo anterior, destacando los momentos en los que los usuarios abandonaron su sitio.
 
 
 
@@ -43,7 +41,7 @@ La herramienta Flujos de usuarios se inicia a partir de una vista de página ini
 
 ![Elegir un evento inicial para Flujos de usuarios](./media/app-insights-usage-flows/flows-initial-event.png)
 
-Para empezar a responder a las preguntas con la herramienta Flujos de usuarios, elija una vista de página inicial o evento personalizado que sirva como punto inicial de la visualización:
+Para empezar a responder a las preguntas con la herramienta Flujos de usuarios, elija una vista de página inicial o un evento personalizado que sirva como punto de partida de la visualización:
 1. Haga clic en el vínculo del título "¿Qué hacen los usuarios después de...?" o haga clic en el botón Editar. 
 2. Seleccione una vista de página o un evento personalizado de la lista desplegable "Evento inicial".
 3. Haga clic en "Crear grafo".
@@ -70,15 +68,15 @@ Si el evento inicial es una vista de página, la primera columna ("Paso 1") de l
 
 Si el evento inicial es un evento personalizado, la primera columna muestra lo que los usuarios hicieron justo después de realizar esa acción. Al igual que con las vistas de página, vea si el comportamiento que se ha observado en los usuarios se corresponde con las expectativas y objetivos del equipo. Por ejemplo, si el evento inicial seleccionado es "Elemento agregado al carro de la compra", mire a ver si aparecen poco después "Ir a Finalizar la compra" y "Compra terminada" en la visualización. Si el comportamiento del usuario es muy diferente del esperable, use la visualización para entender si los usuarios se sienten "atraídos" por el diseño actual de su sitio.
 
-## <a name="where-are-the-places-that-users-churn-most-from-your-site"></a>¿Dónde están los lugares que los usuarios renuevan con más frecuencia desde su sitio?
+## <a name="where-are-the-places-that-users-churn-most-from-your-site"></a>¿Dónde están los lugares que los usuarios abandonan con más frecuencia en su sitio?
 
-Observe los nodos de "Fin de la sesión" que aparecen en la parte de arriba de una columna de la visualización, especialmente al principio de un flujo. Esto significa que muchos usuarios probablemente renovaron desde su sitio después de seguir la ruta de acceso anterior de páginas e interacciones de la interfaz de usuario. En algunas ocasiones, esta renovación es previsible como, por ejemplo, después de completar una compra en un sitio de comercio electrónico, pero la renovación suele ser una señal de problemas de diseño, bajo rendimiento u otros problemas del sitio que se pueden mejorar.
+Observe los nodos de "Fin de la sesión" que aparecen en la parte de arriba de una columna de la visualización, especialmente al principio de un flujo. Esto significa que muchos usuarios probablemente abandonaron su sitio después de seguir la ruta de acceso anterior de páginas e interacciones de la interfaz de usuario. En algunas ocasiones, aunque el abandono es previsible, como, por ejemplo, después de completar una compra en un sitio de comercio electrónico, este suele ser indicativo de problemas de diseño, bajo rendimiento u otras cuestiones mejorables.
 
-Tenga en cuenta que los nodos "Fin de la sesión" se basan únicamente en la telemetría recopilada por este recurso de Application Insights. Si Application Insights no recibe datos de telemetría de ciertas interacciones del usuario, puede que los usuarios hayan seguido interactuando con el sitio de esas maneras después de que la herramienta Flujos de usuarios indique que la sesión ha finalizado.
+Tenga en cuenta que los nodos "Fin de la sesión" se basan únicamente en la telemetría recopilada por este recurso de Application Insights. Aunque Application Insights no reciba datos de telemetría de ciertas interacciones de usuario, los usuarios pueden haber seguido interactuando con el sitio de esas maneras después de que la herramienta Flujos de usuarios indicase que la sesión había finalizado.
 
 ## <a name="are-there-places-where-users-repeat-the-same-action-over-and-over"></a>¿Hay lugares donde los usuarios repitan la misma acción una y otra vez?
 
-Busque una vista de página o un evento personalizado que repitan muchos usuarios en los pasos subsiguientes de la visualización. Normalmente, esto significa que los usuarios están realizando acciones repetitivas en su sitio. Si observa mucha repetición, considere la posibilidad de cambiar el diseño de su sitio o agregar nuevas funcionalidades para reducir la repetición. Por ejemplo, agregue la funcionalidad de edición en masa si observa que los usuarios realizan acciones repetitivas en cada fila de un elemento de tabla.
+Busque una vista de página o un evento personalizado que repitan muchos usuarios en los pasos subsiguientes de la visualización. Normalmente, esto significa que los usuarios están realizando acciones repetitivas en su sitio. Si observa mucha repetición, para reducirla, considere la posibilidad de cambiar el diseño de su sitio o agregar nuevas funcionalidades. Por ejemplo, agregue la funcionalidad de edición en masa si observa que los usuarios realizan acciones repetitivas en cada fila de un elemento de tabla.
 
 ## <a name="common-questions"></a>Preguntas frecuentes
 

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 80bc573233b73882d4bce553de1a627ae76ed1b4
-ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: e6c82973032b88e7ed16baf6ce71086d9d86d902
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>Use PowerShell para configurar la replicación geográfica activa para una instancia única de Azure SQL Database
 
 En este ejemplo de script de PowerShell se configura una replicación geográfica activa para una única instancia de Azure SQL Database y se conmuta por error a una réplica secundaria de Azure SQL Database.
@@ -32,7 +30,7 @@ En este ejemplo de script de PowerShell se configura una replicación geográfic
 
 ## <a name="sample-scripts"></a>Scripts de ejemplo
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1?highlight=17-20 "Configuración de la replicación geográfica activa para una base de datos única")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1?highlight=17-20 "Set up active geo-replication for single database")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -66,4 +64,3 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 
 Encontrará más ejemplos de scripts de PowerShell de SQL Database en los [scripts de PowerShell de Azure SQL Database](../sql-database-powershell-samples.md).
-

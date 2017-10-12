@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: a3eedacac5efb53f82e46a56285713dece56ffe8
-ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-fabric-with-azure-api-management-overview"></a>Información general de Service Fabric con Azure API Management
 
 Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end para proporcionar un único punto de entrada para usuarios, dispositivos u otras aplicaciones. En Service Fabric, una puerta de enlace puede ser cualquier servicio sin estado como una [aplicación ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) u otro servicio designado para la entrada de tráfico, como [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) o [Azure API Management](https://docs.microsoft.com/azure/api-management/).

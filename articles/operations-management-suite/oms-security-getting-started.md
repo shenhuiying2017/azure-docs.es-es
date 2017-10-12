@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
-ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: eb5283c8f32fddaa8a20a565e4b877821de979a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Introducción a la solución Seguridad y auditoría de Operations Management Suite
 Este documento le ayuda a empezar a trabajar rápidamente con las funcionalidades de la solución Seguridad y auditoría de Operations Management Suite (OMS) al guiarle a través de cada opción.
@@ -198,7 +197,6 @@ La lista de consultas comunes de seguridad disponible puede ser útil para obten
 En este documento, se presentó la solución Seguridad y auditoría de OMS. Para obtener más información sobre Seguridad de OMS, consulte los siguientes artículos:
 
 * [Información general de Operations Management Suite (OMS)](operations-management-suite-overview.md)
-* [Supervisión de las alertas de seguridad y su respuesta en la solución Seguridad y auditoría de Operations Management Suite](oms-security-responding-alerts.md)
+* [Supervisión de las alertas de seguridad y su respuesta en la solución Security and Audit de Operations Management Suite](oms-security-responding-alerts.md)
 * [Supervisión de los recursos en la solución Seguridad y auditoría de Operations Management Suite](oms-security-monitoring-resources.md)
-
 

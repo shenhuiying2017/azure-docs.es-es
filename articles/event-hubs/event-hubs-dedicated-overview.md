@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sethm;babanisa
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: db8b119178de0e565b2064e9a52d5e9989d60d38
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 
 La capacidad *dedicada de Event Hubs* ofrece implementaciones de un único inquilino para los clientes con los requisitos más exigentes. A escala completa, Azure Event Hubs puede incorporar más de dos millones de eventos por segundo o hasta 2 GB por segundo de telemetría con un almacenamiento totalmente duradero y una latencia inferior al segundo. Esto también permite soluciones integradas mediante el procesamiento en tiempo real y por lotes en el mismo sistema. Con [Event Hubs Capture](event-hubs-capture-overview.md) incluido en la oferta, un solo flujo permite canalizaciones en tiempo real y basadas en lotes, lo cual reduce la complejidad de la solución.
@@ -70,4 +68,3 @@ Para obtener información detallada sobre el precio, consulte los siguientes ví
 
 - [Precios de Event Hubs dedicado](https://azure.microsoft.com/pricing/details/event-hubs/). También puede ponerse en contacto con su representante de ventas de Microsoft o el Servicio de soporte técnico de Microsoft para obtener detalles adicionales sobre la capacidad dedicada de Event Hubs.
 - En [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md) se proporciona información sobre los precios, así como respuestas a algunas preguntas frecuentes acerca de Event Hubs. 
-

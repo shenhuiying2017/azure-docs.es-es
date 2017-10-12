@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Introducción a Microsoft Azure
 Microsoft Azure es la plataforma de aplicaciones de Microsoft para la nube pública.  El objetivo de este artículo es proporcionarle los cimientos para entender los conceptos básicos de Azure, incluso si no sabe nada de la informática en la nube.
@@ -423,7 +422,7 @@ Si está con alguna configuración en la que hay muchos mensajes que son importa
 
 ### <a name="biztalk-services"></a>Servicios de BizTalk
 ![Servicios de BizTalk](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
- *Ilustración: BizTalk Services ofrece la posibilidad de transformar formatos de mensajes XML en la nube.*
+ *Ilustración: Servicios de BizTalk ofrece la posibilidad de transformar formatos de mensajes XML en la nube.*
 
 En ocasiones requiere conectar sistemas que se comunican mediante diferentes formatos de mensajería. Es habitual en las empresas contar con diferentes esquemas de bases de datos y formatos de mensajería XML, incluso si hay un estándar común disponible. En lugar de escribir mucho código personalizado, puede utilizar BizTalk Server en un sistema local para integrar varios sistemas.  Servicios de BizTalk de Azure ofrece el mismo tipo de servicio, pero en la nube. Puede pagar solo por lo que utiliza y no preocuparse por la escalación como haría en el entorno local.
 
@@ -538,4 +537,3 @@ SendGrid es una aplicación de la Tienda Azure que le permite enviar correo elec
 Ahora que ha captado la idea general, el siguiente paso es programar su primera aplicación de Azure. Elija su lenguaje, [obtenga el SDK adecuado](/downloads/)y ¡a por ello!. La informática en nube es el nuevo estándar, comience ya.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: fd500fdd4c8642bad96dcf71eebcf1fad461a35f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Error inesperado al otorgar consentimiento a una aplicación
 
@@ -30,7 +30,7 @@ Esto produce que se muestre una solicitud de consentimiento, que generalmente oc
 Determinadas condiciones deben cumplirse para que un usuario otorgue su consentimiento a los permisos que requiere una aplicación. Si no se cumplen estas condiciones, pueden producirse varios errores. Entre ellos se incluyen los siguientes:
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Error por solicitud de permisos no autorizados
-* **AADSTS90093:** &lt;clientAppDisplayName&gt; solicita uno o más permisos que no está autorizado a conceder. Póngase en contacto con el administrador, que puede dar su consentimiento para esta aplicación en su nombre.
+* **AADSTS90093:**&lt;clientAppDisplayName&gt; solicita uno o más permisos que no está autorizado a conceder. Póngase en contacto con el administrador, que puede dar su consentimiento para esta aplicación en su nombre.
 
 Este error se produce cuando un usuario que no es administrador de la empresa intenta usar una aplicación que está solicitando permisos que solo un administrador puede conceder. Este error se puede solucionar si un administrador otorga el acceso a la aplicación en nombre de la organización.
 
@@ -50,7 +50,7 @@ Este error indica que se ha producido un problema de servicio intermitente. Se p
 Póngase en contacto con el desarrollador de aplicaciones.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>Error de recurso no disponible en el inquilino
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; solicitó permiso para acceder al recurso &lt;resourceAppDisplayName&gt; que no está disponible en su organización &lt;tenantDisplayName&gt;. 
+* **AADSTS65005:**&lt;clientAppDisplayName&gt; solicitó permiso para acceder al recurso &lt;resourceAppDisplayName&gt; que no está disponible en su organización &lt;tenantDisplayName&gt;. 
 
 Asegúrese de que este recurso esté disponible o póngase en contacto con un administrador de &lt;tenantDisplayName&gt;.
 

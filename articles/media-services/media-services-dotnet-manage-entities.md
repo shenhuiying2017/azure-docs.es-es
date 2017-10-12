@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
-ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Administración de activos y entidades relacionadas con el SDK de Servicios multimedia para .NET
 > [!div class="op_single_selector"]
@@ -404,5 +403,4 @@ En el ejemplo de código siguiente se muestra cómo obtener una referencia a una
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

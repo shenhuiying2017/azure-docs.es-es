@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e5787bed43d8e327774d2cbea7e8875b56903cf6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="collect-data-about-azure-virtual-machines"></a>Recopilación de datos acerca de máquinas virtuales de Azure
 [Azure Log Analytics](log-analytics-overview.md) puede recopilar datos directamente de máquinas virtuales de Azure y otros recursos del entorno en un único repositorio para una correlación y análisis detallados.  Esta guía de inicio rápido muestra cómo configurar y recopilar datos de VM Linux o Windows en Azure con unos pasos sencillos.  
  
@@ -97,4 +95,3 @@ Para obtener información sobre cómo ver y analizar los datos, continúe con el
 
 > [!div class="nextstepaction"]
 > [Ver o analizar datos en Log Analytics](log-analytics-tutorial-viewdata.md)
-

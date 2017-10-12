@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: ae7eab97c1da1113b0248b74a9dd67de8ce49e36
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="managing-azure-batch-pools-with-azure-cli"></a>Administración de grupos de Azure Batch con la CLI de Azure
 
 Estos scripts muestran algunas de las herramientas disponibles en la CLI de Azure para crear y administrar grupos de nodos de ejecución en el servicio de Azure Batch.
@@ -39,11 +37,11 @@ Los grupos de Batch se pueden configurar de dos formas, ya sea con una configura
 
 ## <a name="pool-with-cloud-service-configuration-sample-script"></a>Grupo con script de ejemplo de configuración de Cloud Services
 
-[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "Administración de grupos de Cloud Services")]
+[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "Manage Cloud Services Pools")]
 
 ## <a name="pool-with-virtual-machine-configuration-sample-script"></a>Grupo con script de ejemplo de configuración de Virtual Machine
 
-[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Administración de grupos de Virtual Machine")]
+[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Manage Virtual Machine Pools")]
 
 ## <a name="clean-up-pools"></a>Limpieza de grupos
 
@@ -79,5 +77,4 @@ Cada comando de la tabla crea un vínculo a documentación específica del coman
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Puede encontrar ejemplos de script adicionales de la CLI de Batch en la [documentación de la CLI de Azure Batch](../batch-cli-samples.md).
-
 

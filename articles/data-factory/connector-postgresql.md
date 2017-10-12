@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2670be1af310ecd57952465fdf7ebd21513eb63
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copia de datos desde PostgreSQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,7 +60,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado PostgreSQL:
 | schema | Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |No |
 | nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos PostgreSQL. |Sí |
 | Contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString. |Sí |
-| connectVia | El tipo de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo:**
 
@@ -89,7 +88,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado PostgreSQL:
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Para ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de PostgreSQL.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de PostgreSQL.
 
 Para copiar datos desde PostgreSQL, establezca la propiedad type del conjunto de datos en **RelationalTable**. Se admiten las siguientes propiedades:
 
@@ -117,7 +116,7 @@ Para copiar datos desde PostgreSQL, establezca la propiedad type del conjunto de
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
-Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que admite el origen de PostgreSQL.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que admite el origen de PostgreSQL.
 
 ### <a name="postgresql-as-source"></a>PostgreSQL como origen
 

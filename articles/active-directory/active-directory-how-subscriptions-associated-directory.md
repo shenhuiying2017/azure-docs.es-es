@@ -16,12 +16,11 @@ ms.date: 08/24/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
+ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 283c9903501a1e497e4dde81146d21edb869e9e2
-ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Asociación de las suscripciones de Azure con Azure Active Directory
 Este artículo contiene información sobre la relación entre una suscripción de Azure y Azure Active Directory (AD) y cómo agregar una suscripción existente al directorio de Azure AD.
@@ -48,13 +47,14 @@ Al suscribirse en cualquiera de estos servicios en la nube de Microsoft, obtiene
 ## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Para agregar una suscripción existente a su directorio Azure AD
 Debe iniciar sesión con una cuenta que exista tanto en el directorio actual con el que está asociado la suscripción como en el directorio al que desea agregarla. 
 
-1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Home/Index) con una cuenta que sea administrador de cuenta de la suscripción cuya suscripción quiere transferir.
+1. Inicie sesión en el [Centro de cuentas de Azure](https://account.azure.com/Subscriptions) con una cuenta que sea administrador de cuenta de la suscripción cuya suscripción quiere transferir.
 2. Asegúrese de que el usuario que va a ser el propietario de la suscripción está en el directorio de destino.
 3. Haga clic en **Transferir suscripción**.
 4. Especifique el destinatario. El destinatario obtiene automáticamente un correo electrónico con un vínculo de aceptación.
 5. El destinatario hace clic en el vínculo y sigue las instrucciones, incluyendo la especificación de su información de pago. Cuando el destinatario finaliza correctamente, se transfiere la suscripción. 
 6. El directorio predeterminado de la suscripción se cambia al directorio donde está el usuario.
 
+Para más información, consulte [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md)
 
 ## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>Sugerencias para administrar una suscripción y un directorio
 Los roles administrativos de una suscripción de Azure administran los recursos vinculados a la suscripción de Azure. En esta sección se explican las diferencias entre los administradores de suscripciones de Azure y los administradores de directorios de Azure AD. Los roles administrativos y otras sugerencias para administrar la suscripción se tratan en [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles.md).
@@ -78,4 +78,3 @@ Una persona puede tener ambos roles, pero no es obligatorio. El administrador gl
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
-

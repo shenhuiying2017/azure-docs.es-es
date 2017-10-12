@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 09/26/2017
 ms.author: jingwang
 robots: noindex
+ms.openlocfilehash: d2681e629d478208301091571d77a3c283a8e774
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 042b81cd2228ac87bcb6c654776a9c235920b77e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Movimiento de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -70,7 +69,11 @@ Un servicio vinculado vincula un almacén de datos a una factoría de datos. Se 
 | accessKeyID |Id. de la clave de acceso secreta. |string |Sí |
 | secretAccessKey |La propia clave de acceso secreta. |Cadena secreta cifrada |Sí |
 
-Este es un ejemplo:
+>[!NOTE]
+>Este conector requiere claves de acceso para que la cuenta de IAM pueda copiar datos de Amazon S3. Aún no se admite la [credencial de seguridad temporal](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).
+>
+
+Aquí tiene un ejemplo:
 
 ```json
 {
@@ -364,4 +367,3 @@ Consulte los artículos siguientes:
 * Para aprender sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory y las diversas formas de optimizarlo, consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md).
 
 * Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para instrucciones paso a paso para crear una canalización con una actividad de copia.
-

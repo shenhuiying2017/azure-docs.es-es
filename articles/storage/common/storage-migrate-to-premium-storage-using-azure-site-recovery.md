@@ -1,6 +1,6 @@
 ---
 title: "Migración a Azure Premium Storage mediante Azure Site Recovery | Microsoft Docs"
-description: "Migre las máquinas virtuales existentes a Azure Premium Storage mediante Site Recovery. Premium Storage le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en máquinas virtuales de Azure."
+description: "Migre las máquinas virtuales existentes a Azure Premium Storage mediante Site Recovery. El Almacenamiento premium le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en máquinas virtuales de Azure."
 services: storage
 cloud: Azure
 documentationcenter: na
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 45d89cb9b51e7091f8921d3f58d3a4594851ca7f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migración a Premium Storage mediante Azure Site Recovery
 
@@ -242,4 +241,3 @@ Consulte también los siguientes recursos para más información sobre Azure Sto
 [13]:./media/storage-migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-13.png
 [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png
 [15]:./media/storage-migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-14.png
-

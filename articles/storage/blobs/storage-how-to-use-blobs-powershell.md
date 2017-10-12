@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Realización de operaciones en Azure Blob Storage con Azure PowerShell
 
 El Almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos de objetos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. Este artículo trata las operaciones básicas en Azure Blob Storage como la carga, descarga y eliminación de blobs. Aprenderá a:
@@ -59,7 +57,7 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 ## <a name="upload-blobs-into-a-container"></a>Carga de blobs en un contenedor
 
-Azure Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas.  Los archivos VHD utilizados para respaldar VM IaaS son blobs en páginas. Los blobs en anexos se utilizan para el registro, por ejemplo cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los archivos almacenados en Blob Storage son blobs en bloques. 
+Azure Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas.  Los archivos VHD utilizados para respaldar VM IaaS son blobs en páginas. Los blobs en anexos se utilizan para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los archivos almacenados en Blob Storage son blobs en bloques. 
 
 Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y luego consiga una referencia al blob en bloques en ese contenedor. Una vez que tenga la referencia de blob, puede cargar datos en él mediante [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Esta operación crea el blob si todavía no existe o lo sobrescribe si ya existe.
 

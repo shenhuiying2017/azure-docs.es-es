@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 04dea8f055eb562455b568c43553a6fefe749467
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-stack-administration-basics"></a>Aspectos básicos de administración de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
 Hay varias cosas que debe saber si no está familiarizado con la administración de Azure Stack. Esta guía proporciona información general acerca del rol de los operadores de Azure Stack, y de lo que debe decir a los usuarios para que aumenten su productividad rápidamente.
 
@@ -136,6 +135,5 @@ En el caso del kit de desarrollo, puede dirigir las preguntas relacionadas con e
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Administración de regiones en Azure Stack](azure-stack-region-management.md)
-
 
 

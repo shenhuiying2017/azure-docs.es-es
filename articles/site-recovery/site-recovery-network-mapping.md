@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: b1b8b1ebc013a5dfb69528f9353369e18f84e61f
-ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="plan-network-mapping-for-hyper-v-vm-replication-with-site-recovery"></a>Planear la asignación de red para la replicación de máquinas virtuales de Hyper-V con Site Recovery
 
 
@@ -139,4 +136,3 @@ Se cambia la asignación de redes de VMNetwork1-Chicago. | VM-1 se conectará a 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre la [planificación de la infraestructura de red](site-recovery-network-design.md).
-

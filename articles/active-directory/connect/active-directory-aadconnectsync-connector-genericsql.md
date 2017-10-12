@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: b7e99f8a4d7bc1cd30c71ce08ad38c13203f8b69
-ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: a84096ba53a308855beedd76d9dec827c025cd57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referencia técnica del conector de SQL genérico
 En este artículo se describe el conector de SQL genérico. El artículo se aplica a los siguientes productos:
@@ -307,4 +306,3 @@ Si elige la opción Consulta SQL, la exportación requiere tres consultas difere
 
 ## <a name="troubleshooting"></a>Solución de problemas
 * Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-

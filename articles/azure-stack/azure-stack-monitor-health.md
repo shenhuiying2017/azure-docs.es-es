@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Supervisar el estado y las alertas en Azure Stack
 
@@ -76,4 +75,3 @@ Después de que la instancia de rol de la infraestructura vuelve a estar en lín
 [Administrar las actualizaciones en Azure Stack](azure-stack-updates.md)
 
 [Administración de regiones en Azure Stack](azure-stack-region-management.md)
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>¿Qué hay diferente en el punto de conexión v2.0?
 Si está familiarizado con Azure Active Directory o ha integrado aplicaciones con Azure AD en el pasado, puede que haya algunas diferencias en el punto de conexión v2.0 que no se espera.  Este documento describe esas diferencias para su comprensión.
@@ -127,4 +125,3 @@ Las notificaciones en tokens emitidas por el extremo de v2.0 no serán idéntica
 
 ## <a name="limitations"></a>Limitaciones
 Es necesario tener en cuenta algunas restricciones cuando se usa el punto v2.0.  Consulte el [documento de limitaciones de v2.0](active-directory-v2-limitations.md) para ver si alguna de estas restricciones se aplica a su escenario concreto.
-

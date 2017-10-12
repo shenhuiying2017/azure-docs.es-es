@@ -1,4 +1,3 @@
-
 ---
 title: "Azure Data Factory - Casos prácticos de clientes | Microsoft Docs"
 description: "Obtenga información sobre la manera en que algunos de nuestros clientes han venido utilizando la Factoría de datos de Azure."
@@ -16,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1868e4b96f3d062de1efb7c56c86aae3b0de9097
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - Casos prácticos de clientes
 Factoría de datos es un servicio de administración de información basado en la nube que automatiza el movimiento y la transformación de datos. Los clientes de numerosos sectoress usan la Factoría de datos y otros servicios de Azure para crear su canalizaciones de análisis y solucionar sus problemas empresariales.  Aprenda directamente de nuestros clientes cómo y por qué usan la Factoría de datos.
@@ -49,4 +47,3 @@ Factoría de datos es un servicio de administración de información basado en l
 
 ## <a name="microsoft-studio"></a>Microsoft Studios
 [Delivering epic Xbox experiences by analyzing hundreds of billions of game events each day](https://customers.microsoft.com/en-us/story/xboxunlimited) (Ofrecimiento de experiencias de Xbox épicas mediante el análisis de cientos de miles de millones de eventos de juegos cada día)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 630d86ed7e3558ae2c8a62f4e1a94f10ca11812d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Implementación de plantillas con el portal de Azure Stack
 
@@ -38,5 +37,4 @@ Las plantillas de Resource Manager implementan y aprovisionan todos los recursos
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Implementación de plantillas en Azure Stack con PowerShell](azure-stack-deploy-template-powershell.md)
-
 

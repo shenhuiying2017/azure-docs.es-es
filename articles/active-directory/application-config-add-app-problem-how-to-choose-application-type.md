@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: e0d41d1933531c2c633613bcbc1bbcbf075d6a69
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Cómo elegir el tipo de aplicación que se debe usar al agregar una aplicación
 
@@ -71,9 +71,9 @@ Los modos de **inicio de sesión único** admitidos para aplicaciones de Azure A
 
 -   **Se desactivó el inicio de sesión único de Azure AD.**: elija el **modo de inicio de sesión único** Se desactivó el inicio de sesión único de Azure AD, si aún no está preparado para integrar esta aplicación con el inicio de sesión único de Azure AD, o simplemente la está probando.
 
--   **Inicio de sesión vinculado**: elija el **modo de inicio de sesión** [Inicio de sesión vinculado](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si tiene una aplicación que ya está conectada con una solución de inicio de sesión único existente, o si solo desea publicar un simple vínculo para sus usuarios en su [Panel de acceso a las aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) o en su [selector de aplicaciones de Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none).
+-   **Inicio de sesión vinculado**: elija el **modo de inicio de sesión**[Inicio de sesión vinculado](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si tiene una aplicación que ya está conectada con una solución de inicio de sesión único existente, o si solo desea publicar un simple vínculo para sus usuarios en su [Panel de acceso a las aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) o en su [selector de aplicaciones de Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none).
 
--   **Inicio de sesión basado en contraseña**: elija el **modo de inicio de sesión único** [Inicio de sesión con contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si su aplicación representa un campo de nombre de usuario y contraseña HTML y quiere almacenar ese nombre de usuario y contraseña de forma segura para reproducirlos en la aplicación más adelante.
+-   **Inicio de sesión basado en contraseña**: elija el **modo de inicio de sesión único**[Inicio de sesión con contraseña](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si su aplicación representa un campo de nombre de usuario y contraseña HTML y quiere almacenar ese nombre de usuario y contraseña de forma segura para reproducirlos en la aplicación más adelante.
 
 -   **Inicio de sesión basado en SAML**: elija el modo de inicio de sesión único [Inicio de sesión basado en SAML](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) si su aplicación admite los protocolos SAML o OpenID Connect, o si desea poder asignar usuarios a roles de aplicación específicos en función de reglas definidas en sus notificaciones SAML*.
 
@@ -134,7 +134,7 @@ Para establecer el modo de **inicio de sesión único** de una aplicación, siga
 
 -   **Aprovisionamiento manual**: elija el modo de aprovisionamiento [Manual](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) si dispone de cuentas existentes o desea administrar cuentas para esta aplicación fuera de Azure AD.
 
--   **Aprovisionamiento automático**: elija el **modo de aprovisionamiento** [Automático](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) si quiere habilitar el aprovisionamiento automático basado en API o el desaprovisionamiento de las cuentas de usuario para esta aplicación. 
+-   **Aprovisionamiento automático**: elija el **modo de aprovisionamiento**[Automático](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) si quiere habilitar el aprovisionamiento automático basado en API o el desaprovisionamiento de las cuentas de usuario para esta aplicación. 
 
    >[!NOTE]
    >Esta opción solo está disponible para aplicaciones dentro de la categoría **destacada** de la [Galería de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#the-new-and-improved-application-gallery).

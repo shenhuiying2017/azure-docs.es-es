@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
+ms.openlocfilehash: 84111b37f5cdecf377442bca0b15af2092d57414
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: fa77eaf44f4d90d1a78f5de69e36432a53d80ecd
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar Reliable Services con estado
 Hay dos conjuntos de valores de configuración para los servicios de confianza. Un conjunto es global para todos los servicios de confianza del clúster, mientras que el otro conjunto es específico para un servicio de confianza determinado.
@@ -187,5 +186,4 @@ Los parámetros SharedLogId y SharedLogPath siempre se usan en conjunto para obl
 ## <a name="next-steps"></a>Pasos siguientes
 * [Depuración de la aplicación del Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
 * [Referencia para desarrolladores de servicios confiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
 

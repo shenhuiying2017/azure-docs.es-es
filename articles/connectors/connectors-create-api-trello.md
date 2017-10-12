@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: 526a14710f24ee4a4b61a11873aa6caa0b47dc10
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-trello-connector"></a>Introducción al conector Trello
 Trello le ofrece perspectiva sobre todos los proyectos, en el trabajo y en casa.  Es una manera fácil, gratis, flexible y visual de administrar los proyectos y organizar todo.  Conéctese a Trello para administrar los paneles, listas y tarjetas.

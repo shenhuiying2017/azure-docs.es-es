@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 13dc1b516946aadc9c8a57a55768113bc925e63e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: uso de un clúster de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB
 
@@ -47,7 +46,7 @@ Este es un extracto de las 20 primeras columnas de dos observaciones (filas) de 
 
 Hay valores que faltan en las columnas numéricas y de categorías de este conjunto de datos. A continuación, se describe un método sencillo para controlar los valores que faltan. Más adelante, se describen detalles adicionales de los datos cuando se almacenen en tablas de Hive.
 
-**Definición:** *Porcentaje de clics (CTR, del inglés Click-through rate):* es el porcentaje de clics que se hacen en los datos. En este conjunto de datos de Criteo, el valor de CTR es aproximadamente del 3,3 % (o 0,033).
+**Definición:***Porcentaje de clics (CTR, del inglés Click-through rate):* es el porcentaje de clics que se hacen en los datos. En este conjunto de datos de Criteo, el valor de CTR es aproximadamente del 3,3 % (o 0,033).
 
 ## <a name="mltasks"></a>Ejemplos de tareas de predicción
 En este tutorial, se describen dos problemas de predicción de ejemplo:
@@ -166,7 +165,7 @@ Observamos que todas estas tablas son externas ya que simplemente señalan a ubi
         hive
    
      Ahora, en la línea de comandos de REPL, la consulta se ejecuta al cortarla y pegarla.
-2. **Guardar las consultas en un archivo y ejecutar el comando**: el segundo método consiste en guardar las consultas en un archivo .hql ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) y, después, emitir el comando siguiente para ejecutar la consulta:
+2. **Guardar las consultas en un archivo y ejecutar el comando**: el segundo método consiste en guardar las consultas en un archivo .hql ([sample&amp;#95;hive&amp;#95;create&amp;#95;criteo&amp;#95;database&amp;#95;and&amp;#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) y, después, emitir el comando siguiente para ejecutar la consulta:
    
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -631,5 +630,4 @@ Tenga en cuenta que reemplazamos la clave de API predeterminada por la clave de 
 Podemos ver que para los dos ejemplos de prueba por los que hemos preguntado (en el marco JSON del script de python), obtenemos respuestas con el formato "Scored Labels, Scored Probabilities" (Etiquetas puntuadas, Probabilidades puntuadas). Tenga en cuenta que, en este caso, elegimos los valores predeterminados que proporciona el código predefinido (0 para todas las columnas numéricas y la cadena "value" para todas las columnas de categorías).
 
 Con esto concluye nuestro tutorial completo que muestra cómo controlar un conjunto de datos grande mediante Azure Machine Learning. Hemos empezado con un terabyte de datos, hemos creado un modelo de predicción y lo hemos implementado como un servicio web en la nube.
-
 

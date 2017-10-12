@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 2835a72fc90d1fd39af73c6907648908e5d9fdeb
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: fd72faf6c3a410242fd36a1abf4c556712c6beaf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: use SQL Server Management Studio para conectarse a los datos y realizar consultas en ellos
 
@@ -42,7 +41,7 @@ Antes de empezar, asegúrese de que ha instalado la versión más reciente de [S
 
 Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor, el nombre de la base de datos y la información de inicio de sesión.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**. 
 3. En la página **Introducción** de la base de datos, revise el nombre completo del servidor, tal como se muestra en la imagen siguiente. Mantenga el puntero sobre el nombre del servidor hasta que aparezca la opción **Haga clic para copiar**.
 
@@ -172,4 +171,3 @@ Utilice el código siguiente para eliminar el nuevo producto que ha agregado ant
 - Para conectarse y consultar con Java, vea [Conexión y consultas con Java](sql-database-connect-query-java.md).
 - Para conectarse y consultar con Python, vea [Conexión y consultas con Python](sql-database-connect-query-python.md).
 - Para conectarse y consultar con Ruby, vea [Conexión y consultas con Ruby](sql-database-connect-query-ruby.md).
-

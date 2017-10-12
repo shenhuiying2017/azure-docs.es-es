@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: ee334186dffaa1f88cf05717b6a5ba1e819a8cdc
-ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
 
 Hay muchas preguntas que se plantean con frecuencia acerca de qué puede hacer Service Fabric y cómo se debe usar. En este documento se incluyen muchas de esas preguntas y sus respuestas.
@@ -153,4 +150,3 @@ Actualmente no hay planes para abrir el código del tiempo de ejecución de Serv
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Obtenga información sobre conceptos fundamentales de Service Fabric y procedimientos recomendados](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
-

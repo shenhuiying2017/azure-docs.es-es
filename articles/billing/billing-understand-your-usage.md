@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 0d4f2e19ec3417b7ca111f777e34b1ce66ddb32d
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Descripción de los términos de los cargos de uso detallados de Microsoft Azure 
 El archivo CSV de cargos de uso detallados contiene los cargos por uso diario y por medidor del periodo de facturación actual. 
@@ -90,4 +89,3 @@ Los servicios externos (también conocidos como pedidos de Marketplace) se propo
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?) para resolver el problema rápidamente.
-

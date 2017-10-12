@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 948c894cba1b8bb513a26d720cbe433b38353d03
-ms.contentlocale: es-es
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: a9593d5f198e05db80451a599428a296ed02e781
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Tutorial: Habilitar la telemetría para Microsoft Dynamics CRM Online con Application Insights
 En este artículo se muestra cómo obtener datos de telemetría de [Microsoft Dynamics CRM Online](https://www.dynamics.com/) con [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Analizaremos el proceso completo para agregar scripts de Application Insights a la aplicación, capturar datos y visualizar datos.
@@ -143,4 +142,3 @@ Puede realizar un análisis todavía más exhaustivo si [exporta los datos a Mic
 * [¿Qué es Application Insights?](app-insights-overview.md)
 * [Application Insights para páginas web](app-insights-javascript.md)
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
-

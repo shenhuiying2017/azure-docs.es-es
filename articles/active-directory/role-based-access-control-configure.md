@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
+ms.openlocfilehash: 9df7f7851ef1fc6b4ed03b981aa5062d6b0913ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure
 > [!div class="op_single_selector"]
@@ -34,7 +33,7 @@ Dentro de cada suscripción, puede conceder hasta 2000 asignaciones de roles.
 Puede ver quién tiene acceso a un recurso, a un grupo de recursos o a una suscripción desde la hoja principal del [Portal de Azure](https://portal.azure.com). Por ejemplo, queremos ver quién tiene acceso a uno de nuestros grupos de recursos:
 
 1. Seleccione **Grupos de recursos** en la barra de navegación de la izquierda.  
-    ![Grupos de recursos: icono](./media/role-based-access-control-configure/resourcegroups_icon.png)
+    ![Grupos de recursos - icono](./media/role-based-access-control-configure/resourcegroups_icon.png)
 2. Seleccione el nombre del grupo de recursos en la hoja **Grupos de recursos** .
 3. Seleccione **Control de acceso (IAM)** en el menú izquierdo.  
 4. La hoja Control de acceso muestra todos los usuarios, los grupos y las aplicaciones a los que se ha concedido acceso al grupo de recursos.  
@@ -80,5 +79,4 @@ Puede asignar roles y administrar el acceso con los comandos de RBAC de Azure en
 * [Creación de un informe del historial de cambios de acceso](role-based-access-control-access-change-history-report.md)
 * Consulte los [roles integrados en RBAC](role-based-access-built-in-roles.md)
 * Defina sus propios [Custom Roles in Azure RBAC](role-based-access-control-custom-roles.md)
-
 

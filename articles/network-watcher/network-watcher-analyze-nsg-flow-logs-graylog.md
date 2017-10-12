@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Administre y analice registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Graylog.
 
 Los [registros de flujo de grupo de seguridad de red](network-watcher-nsg-flow-logging-overview.md) proporcionan información que se usa para comprender el tráfico IP de entrada y salida para las interfaces de red de Azure. Los registros de flujo muestran los flujos de entrada y salida en función de cada regla de grupo de seguridad de red, la interfaz de red a la que se aplica el flujo, información de 5-tupla (IP de origen y de destino, puerto de origen y de destino, protocolo) sobre el flujo, y si se permitió o denegó el tráfico.
@@ -249,4 +247,3 @@ Mediante la integración de Network Watcher con Graylog, ahora tenemos una forma
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a visualizar los registros de flujo de grupo de seguridad de red con Power BI en el artículo [Visualización de registros de flujo del grupo de seguridad de red con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
-

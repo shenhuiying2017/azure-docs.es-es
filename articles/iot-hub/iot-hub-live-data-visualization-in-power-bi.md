@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
 ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI
 
@@ -57,7 +57,7 @@ Aprenderá a visualizar los datos del sensor en tiempo real que recibe el centro
 
    **Nombre del trabajo**: el nombre del trabajo. El nombre debe ser único globalmente.
 
-   **Grupo de recursos**: use el mismo grupo de recursos que usa el IoT Hub.
+   **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
 
    **Ubicación**: use la misma ubicación que el grupo de recursos.
 

@@ -10,14 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4cd77c4ae4d9487aad11ea790c5d88a4eaff6077
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 871887e67d686a965a0648d2c6f0c72b3008db05
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor de Azure Database for PostgreSQL mediante la CLI de Azure
 
 Use Azure Database for PostgreSQL para restaurar una base de datos de servidor a una fecha de 7 a 35 días antes.
@@ -71,4 +69,3 @@ Una vez finalizada la restauración, busque el servidor nuevo y compruebe que lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Bibliotecas de conexiones de Azure Database para PostgreSQL](concepts-connection-libraries.md)
-

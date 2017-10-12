@@ -12,18 +12,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/29/2017
+ms.date: 10/2/2017
 ms.author: sumukhs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 9610c37111bf8fd36c1eaea4f48e46953661aacf
-ms.contentlocale: es-es
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: d3424aa7a8e0f6011bbef4aa61274c1f598f5c86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-<a id="configuring-reliable-actors--kvsactorstateprovider" class="xliff"></a>
-# Configuración de Reliable Actors: KVSActorStateProvider
+# <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configuración de Reliable Actors: KVSActorStateProvider
 Puede modificar la configuración predeterminada de KVSActorStateProvider cambiando el archivo settings.xml que se genera en la raíz del paquete de Microsoft Visual Studio en la carpeta Config del actor especificado.
 
 El tiempo de ejecución de Azure Service Fabric busca los nombres de sección predefinidos en el archivo settings.xml y usa los valores de configuración mientras crea los componentes en tiempo de ejecución subyacentes.
@@ -33,26 +30,21 @@ El tiempo de ejecución de Azure Service Fabric busca los nombres de sección pr
 > 
 > 
 
-<a id="replicator-security-configuration" class="xliff"></a>
-## Configuración de seguridad del replicador
+## <a name="replicator-security-configuration"></a>Configuración de seguridad del replicador
 Las configuraciones de seguridad del replicador se utilizan para proteger el canal de comunicación que se usa durante la replicación. Esto significa que los servicios no ven el tráfico de replicación de unos y los otros, lo que garantiza que los datos de alta disponibilidad también están protegidos.
 De forma predeterminada, una sección de configuración de seguridad vacía impide la seguridad de replicación.
 
-<a id="section-name" class="xliff"></a>
-### Nombre de sección
+### <a name="section-name"></a>Nombre de sección
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-<a id="replicator-configuration" class="xliff"></a>
-## Configuración de replicador
+## <a name="replicator-configuration"></a>Configuración de replicador
 Las configuraciones de replicador configuran el replicador que es responsable de hacer que el proveedor de estado del actor resulte altamente confiable.
 La configuración predeterminada es generada por la plantilla de Visual Studio y debe ser suficiente. En esta sección se habla sobre las configuraciones adicionales que están disponibles para optimizar el replicador.
 
-<a id="section-name" class="xliff"></a>
-### Nombre de sección
+### <a name="section-name"></a>Nombre de sección
 &lt;ActorName&gt;ServiceReplicatorConfig
 
-<a id="configuration-names" class="xliff"></a>
-### Nombres de configuración
+### <a name="configuration-names"></a>Nombres de configuración
 | Nombre | Unidad | Valor predeterminado | Comentarios |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0.015 |Período de tiempo durante el que el replicador del secundario espera después de recibir una operación antes de enviar una confirmación al principal. El resto de confirmaciones que se enviarán para las operaciones que se procesan dentro de este intervalo se envían como una respuesta. |
@@ -62,24 +54,20 @@ La configuración predeterminada es generada por la plantilla de Visual Studio y
 | MaxPrimaryReplicationQueueSize |Número de operaciones |1024 |Número máximo de operaciones de la cola principal. Una operación se libera después de que el replicador principal reciba una confirmación de todos los replicadores secundarios. Este valor debe ser mayor que 64 y una potencia de 2. |
 | MaxSecondaryReplicationQueueSize |Número de operaciones |2048 |Número máximo de operaciones de la cola secundaria. Una operación se libera después de que su estado pase a ser de alta disponibilidad mediante persistencia. Este valor debe ser mayor que 64 y una potencia de 2. |
 
-<a id="store-configuration" class="xliff"></a>
-## Configuración de almacén
+## <a name="store-configuration"></a>Configuración de almacén
 Las configuraciones de almacén se usan para configurar el almacén local que se usa para conservar el estado que se está replicando.
 La configuración predeterminada es generada por la plantilla de Visual Studio y debe ser suficiente. En esta sección se habla sobre las configuraciones adicionales que están disponibles para optimizar el almacén local.
 
-<a id="section-name" class="xliff"></a>
-### Nombre de sección
+### <a name="section-name"></a>Nombre de sección
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
-<a id="configuration-names" class="xliff"></a>
-### Nombres de configuración
+### <a name="configuration-names"></a>Nombres de configuración
 | Nombre | Unidad | Valor predeterminado | Comentarios |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Milisegundos |200 |Establece el intervalo máximo de procesamiento por lotes de las confirmaciones del almacén local duradero. |
 | MaxVerPages |Número de páginas |16384 |El número máximo de páginas de versión en la base de datos del almacén local. Determina el número máximo de transacciones pendientes. |
 
-<a id="sample-configuration-file" class="xliff"></a>
-## Archivo de configuración de ejemplo
+## <a name="sample-configuration-file"></a>Archivo de configuración de ejemplo
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -101,9 +89,7 @@ La configuración predeterminada es generada por la plantilla de Visual Studio y
    </Section>
 </Settings>
 ```
-<a id="remarks" class="xliff"></a>
-## Comentarios
+## <a name="remarks"></a>Comentarios
 El parámetro BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "0" ofrecerá la menor latencia posible, a costa del rendimiento (como deben enviarse y procesarse más mensajes de confirmación, cada uno con menos confirmaciones).
 Cuanto mayor sea el valor de BatchAcknowledgementInterval, mayor será el rendimiento general de la replicación a costa de una mayor latencia de la operación. Esto se traduce directamente en la latencia de transacciones confirmadas.
-
 

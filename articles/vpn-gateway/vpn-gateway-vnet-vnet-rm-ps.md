@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
+ms.openlocfilehash: 537e80937289d6b46283843c2ee0725e7e08fefc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 8c42c0046ccaa98c572134042fbbb7e883ef93c3
-ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante PowerShell
 
@@ -29,7 +28,7 @@ En este artículo se explica cómo crear una conexión de VPN Gateway entre rede
 Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y utilizan PowerShell. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI de Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal de Azure clásico](vpn-gateway-howto-vnet-vnet-portal-classic.md)

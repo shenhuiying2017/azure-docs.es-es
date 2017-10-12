@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2017
 ms.author: ganesr;cherylmc
+ms.openlocfilehash: 336f68308f7d4b4dd3c7476a4fabd793939e9e85
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 964ea38569062a7127f60dd6309b328db263bf6f
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migración de las redes virtuales asociadas de ExpressRoute del portal clásico a Resource Manager
 
@@ -91,4 +90,3 @@ En esta sección se describen los pasos que se deben seguir para migrar una red 
 * [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 * [FAQs: Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md) (Preguntas frecuentes: Migración compatible con la plataforma de recursos de IaaS desde el modelo de implementación clásica a Azure Resource Manager)
 * [Revisión de los errores y mitigaciones más comunes en la migración](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

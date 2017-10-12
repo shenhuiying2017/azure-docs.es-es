@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-frame-authorization--mitigations"></a>Marco de seguridad: Autorización | Mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
-| **Límites de confianza de la máquina** | <ul><li>[Comprobación de que hay configuradas ACL adecuadas para restringir el acceso no autorizado a los datos en el dispositivo](#acl-restricted-access)</li><li>[Comprobación de que el contenido de la aplicación confidencial del usuario se almacena en el directorio del perfil de usuario](#sensitive-directory)</li><li>[Comprobación de que las aplicaciones implementadas se ejecutan con privilegios mínimos](#deployed-privileges)</li></ul> |
+| **Límite de confianza de la máquina** | <ul><li>[Comprobación de que hay configuradas ACL adecuadas para restringir el acceso no autorizado a los datos en el dispositivo](#acl-restricted-access)</li><li>[Comprobación de que el contenido de la aplicación confidencial del usuario se almacena en el directorio del perfil de usuario](#sensitive-directory)</li><li>[Comprobación de que las aplicaciones implementadas se ejecutan con privilegios mínimos](#deployed-privileges)</li></ul> |
 | **Aplicación web** | <ul><li>[Aplicación de un orden secuencial al procesar flujos de lógica empresarial](#sequential-logic)</li><li>[Implementación de un mecanismo de limitación de velocidad para impedir la enumeración](#rate-enumeration)</li><li>[Comprobación de que se aplica la autorización adecuada y se cumple el principio de privilegios mínimos](#principle-least-privilege)</li><li>[Las decisiones sobre la autorización para acceder a recursos y lógicas empresariales no deben basarse en parámetros de solicitud entrantes](#logic-request-parameters)</li><li>[Comprobación de que no es posible enumerar ni acceder al contenido ni los recursos mediante navegación forzada](#enumerable-browsing)</li></ul> |
 | **Base de datos** | <ul><li>[Comprobación de que se emplean cuentas con privilegios mínimos para conectarse al servidor de base de datos](#privileged-server)</li><li>[Implementación de seguridad de nivel de fila (RLS) para impedir que los inquilinos accedan a los datos de los demás](#rls-tenants)</li><li>[El rol sysadmin solo debe tener a los usuarios válidos necesarios](#sysadmin-users)</li></ul> |
 | **Puerta de enlace de nube de IoT** | <ul><li>[Conexión a la puerta de enlace de la nube mediante tokens con privilegios mínimos](#cloud-least-privileged)</li></ul> |

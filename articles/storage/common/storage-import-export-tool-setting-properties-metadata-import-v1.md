@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 77bdaa5559de86cd1de9f30e70656e47fd5719e2
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>Establecimiento de las propiedades y los metadatos durante el proceso de importación
 Al ejecutar la herramienta Microsoft Azure Import/Export para preparar las unidades, puede especificar propiedades y metadatos que se establecerán en los blobs de destino. Siga estos pasos:  
   
@@ -72,4 +70,3 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Formato de archivo de propiedades y metadatos del servicio Import-Export](../storage-import-export-file-format-metadata-and-properties.md)
-

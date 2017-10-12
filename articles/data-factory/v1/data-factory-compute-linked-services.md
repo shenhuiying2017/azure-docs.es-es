@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bccdfdc486f5e79f034c5a940e42c5f230283a50
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 > [!NOTE]
@@ -467,5 +466,4 @@ Cree un servicio vinculado de Almacenamiento de datos SQL y úselo con la [activ
 
 ## <a name="sql-server-linked-service"></a>Servicio vinculado de SQL Server
 Cree un servicio vinculado de SQL Server y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Data Factory. Consulte el artículo sobre el [conector de SQL Server](data-factory-sqlserver-connector.md#linked-service-properties) para más información acerca de este servicio vinculado.
-
 

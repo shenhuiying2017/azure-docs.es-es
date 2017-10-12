@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 58f3d160c1f2a32025b706f10863e0055d67bfcd
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Solución de problemas de HDFS mediante Azure HDInsight
 
 Obtenga información sobre los principales problemas y sus soluciones al trabajar con cargas útiles del Sistema de archivos distribuido de Hadoop (HDFS) en Apache Ambari.
@@ -234,4 +232,3 @@ El clúster de HDInsight se ha reducido verticalmente hasta quedar muy pocos nod
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
-

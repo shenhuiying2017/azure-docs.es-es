@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 68820f9c018b1076bae8dc0195906d0f34590748
-ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 1eb2e0c467d4fb4cb263047caf58d36231578d9a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo 
 
 Sondee la maquinaria que mantiene operativa la aplicación web, ya activa y en producción, con Live Metrics Stream de [Application Insights](app-insights-overview.md). Seleccione métricas y contadores de rendimiento y fíltrelos para inspeccionarlos en tiempo real sin que el servicio se vea afectado. Inspeccione seguimientos de la pila procedentes de ejemplos de errores de solicitudes y excepciones. Junto con [Profiler](app-insights-profiler.md), el [depurador de instantáneas](app-insights-snapshot-debugger.md) y la [prueba de rendimiento](app-insights-monitor-web-app-availability.md#performance-tests), Live Metrics Stream proporciona una herramienta de diagnóstico eficaz y no invasiva para sitios web activos.
@@ -161,4 +159,3 @@ Si quiere ver el efecto que tendría un aumento de carga, use la hoja Prueba de 
 * [Uso de la Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
 * [Generador de perfiles](app-insights-profiler.md)
 * [Depurador de instantáneas](app-insights-snapshot-debugger.md)
-

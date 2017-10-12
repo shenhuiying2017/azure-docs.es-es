@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: daleche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ae081fc0432e36bf9f4d4f06f289386ddce37990
-ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 5260d6afd24ae0a9c60ee609b54f04bf901f219d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Acciones para solucionar problemas, diagnosticar y evitar errores de conexión y errores transitorios en Base de datos SQL
 En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar los errores de conexión y los errores transitorios que la aplicación cliente encuentra cuando interactúa con Base de datos SQL de Azure. Aprenda a configurar la lógica de reintento, generar la cadena de conexión y ajustar otros valores de conexión.
@@ -337,19 +336,19 @@ Las siguientes clases de EntLib60 son especialmente útiles para la lógica de r
 
 *En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:*
 
-* **RetryPolicy** 
+* **RetryPolicy**
   
-  * **ExecuteAction** 
-* **ExponentialBackoff** 
-* **SqlDatabaseTransientErrorDetectionStrategy** 
-* **ReliableSqlConnection** 
+  * **ExecuteAction**
+* **ExponentialBackoff**
+* **SqlDatabaseTransientErrorDetectionStrategy**
+* **ReliableSqlConnection**
   
-  * **ExecuteCommand** 
+  * **ExecuteCommand**
 
 En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
 
-* **AlwaysTransientErrorDetectionStrategy** 
-* **NeverTransientErrorDetectionStrategy** 
+* **AlwaysTransientErrorDetectionStrategy**
+* **NeverTransientErrorDetectionStrategy**
 
 Estos son vínculos a información sobre EntLib60:
 
@@ -447,5 +446,4 @@ public bool IsTransient(Exception ex)
 * Para solucionar otros problemas comunes de la conexión de Base de datos SQL de Azure, visite [Solución de problemas de conexión de Base de datos SQL de Azure](sql-database-troubleshoot-common-connection-issues.md).
 * [Agrupación de conexiones de SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 * [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
-
 

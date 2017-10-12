@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 26e5e9f8882cc764922a2cbf0f39e7a3d1b6995b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Reemplazar un disco físico en Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
@@ -76,4 +74,3 @@ Si el trabajo de reparación del disco virtual parece que no avanza, ejecute el 
   ````PowerShell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ```` 
-

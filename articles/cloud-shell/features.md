@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 158b0b65ba53630050275c910f2a7acfc39b8759
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Características y herramientas para Bash en Azure Cloud Shell
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
@@ -77,4 +75,3 @@ Los archivos fuera de `$Home` y el estado de la máquina no se conservan entre s
 ## <a name="next-steps"></a>Pasos siguientes
 [Guía de inicio rápido de Bash en Cloud Shell](quickstart.md) <br>
 [Más información sobre la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/)
-

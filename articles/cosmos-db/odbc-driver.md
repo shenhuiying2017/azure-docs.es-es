@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
 ms.openlocfilehash: 2df792c00b7a789dbefa64bfe0245f1ad73c3faa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
 
@@ -65,7 +65,7 @@ Ahora empecemos con el controlador ODBC.
 4. Haga clic en el botón **Probar** para asegurarse de que puede conectarse a su cuenta de Azure Cosmos DB. 
 5. Haga clic en **Opciones avanzadas** y establezca los siguientes valores:
     - **Query Consistency** (Coherencia de consultas): seleccione el [nivel de coherencia](consistency-levels.md) para las operaciones. El valor predeterminado es Sesión.
-    - **Número de reintentos**: escriba el número de veces que se a volver a intentar una operación si la solicitud inicial no se completa debido a una limitación de servicio.
+    - **Número de reintentos**: escriba el número de veces que se volverá a intentar una operación si la solicitud inicial no se completa debido a una limitación de servicio.
     - **Archivo de esquema**: dispone de varias opciones.
         - De forma predeterminada, dejando esta entrada tal cual (en blanco), el controlador busca todas las coleccionas en los datos de la primera página para determinar el esquema de cada colección. Esto se conoce como asignación de colección. Sin un archivo de esquema definido, el controlador tiene que realizar el examen para cada sesión de controlador y podría dar lugar a un tiempo de inicio mayor de una aplicación con DSN. Se recomienda asociar siempre un archivo de esquema para un DSN.
         - Si ya tiene un archivo de esquema (posiblemente uno que creó mediante el [Editor de esquemas](#schema-editor)), puede hacer clic en **Examinar**, navegar al archivo, hacer clic en **Guardar** y, luego, hacer clic en **Aceptar**.

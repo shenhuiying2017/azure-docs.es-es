@@ -16,20 +16,18 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
+ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8274d48db034c8a2634ab28bd634c024b8ea055c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Empaquetar e implementar contenedores como aplicación de Service Fabric
 
 Este tutorial es la segunda parte de una serie. En este tutorial, se emplea una herramienta de generador de plantillas (Yeoman) para generar una definición de aplicación de Service Fabric. Por lo tanto, esta aplicación se puede usar para implementar contenedores en Service Fabric. En este tutorial, aprenderá a: 
 
 > [!div class="checklist"]
-> * Instalar Yeoman.  
+> * Instalación de Yeoman  
 > * Crear un paquete de aplicación con Yeoman.
 > * Definir la configuración en el paquete de aplicación para su uso con contenedores.
 > * Compilar la aplicación  
@@ -375,6 +373,5 @@ Vaya al siguiente tutorial para obtener información acerca de la conmutación p
 
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png
-
 
 

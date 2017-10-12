@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/04/2017
 ms.author: juliako;anilmur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 38c3637cc477e24ac8d056611e7fda9a4d693cdb
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 2a175aed40b9775d9a4de6877eb3467b43819568
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-overview"></a>Introducción a Azure Media Services 
 
@@ -52,7 +51,7 @@ Para compilar soluciones de Media Services, puede usar:
 
 * [API de REST de Media Services](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * Uno de los SDK de cliente disponibles:
-    * [SDK de Azure Media Services para .NET](https://github.com/Azure/azure-sdk-for-media-services)
+    * [SDK de Servicios multimedia de Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services)
     * [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java)
     * [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php)
     * [Azure Media Services para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (es decir, una versión de un SDK de Node.js que no sea de Microsoft. Su mantenimiento corre a cargo de una comunidad y actualmente no tiene una cobertura del 100 % de las API de AMS).
@@ -88,4 +87,3 @@ Para obtener información acerca de la disponibilidad en los centros de datos, c
 ## <a name="provide-feedback"></a>Envío de comentarios
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

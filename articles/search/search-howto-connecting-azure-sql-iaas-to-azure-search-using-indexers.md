@@ -14,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: bb61330ba5511955e0da16dcd5b8b19529d0e44b
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configuración de una conexión desde un indexador de Azure Search a SQL Server en una máquina virtual de Azure
 Como se indicó en [Conexión de Azure SQL Database a Azure Search con indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creación de indexadores en **SQL Server en VM de Azure** (o **VM de SQL Azure** para abreviar) es compatible con Azure Search, pero hay varios requisitos previos relacionados con la seguridad de los que hay que ocuparse en primer lugar. 
@@ -88,5 +87,4 @@ Si utiliza Azure Portal para crear un indexador, la lógica del portal de Azure 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Dejando a un lado la configuración, ya puede especificar un servicio SQL Server en la máquina virtual de Azure como origen de los datos de un indexador de Azure Search. Consulte [Conexión de Azure SQL Database a Azure Search con indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para más información.
-
 

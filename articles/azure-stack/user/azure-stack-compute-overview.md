@@ -7,12 +7,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introducción a máquinas virtuales de Azure Stack
 
@@ -130,6 +129,5 @@ En la tabla siguiente se muestran algunas maneras en que puede obtener informaci
 Puede usar el botón **Conectar** en el portal de Azure Stack para conectarse a la máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md) (Consideraciones para máquinas virtuales de Azure Stack)
-
+* [Consideraciones sobre máquinas virtuales en Azure Stack](azure-stack-vm-considerations.md)
 

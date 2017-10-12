@@ -10,14 +10,12 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 08/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 46aee37a00a923addc08dd185ce0326a64ccb48c
-ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Creación de un servidor de Azure Database for MySQL mediante Azure Portal
 Azure Database for MySQL es un servicio administrado que se usa para ejecutar, administrar y escalar bases de datos MySQL de alta disponibilidad en la nube. Esta guía de inicio rápido muestra cómo crear un servidor de Azure Database for MySQL en unos cinco minutos mediante Azure Portal.  
 
@@ -49,7 +47,7 @@ Para crear un servidor de Azure Database for MySQL, siga estos pasos:
     Confirmar contraseña | *Su elección*| La contraseña confirmada de la cuenta de administrador.
     Ubicación | *Región más cercana a los usuarios*| La ubicación más cercana a los usuarios u otras aplicaciones de Azure.
     Versión | *La versión más reciente*| La versión más reciente (a menos que tenga requisitos específicos que requieran otra versión).
-    Plan de tarifa  | **Básico**, **50 unidades de proceso**, **50 GB** | El nivel de servicio y el nivel de rendimiento de la base de datos nueva. Seleccione **Nivel básico** en la pestaña de la parte superior. Haga clic en el extremo izquierdo del control deslizante **Unidades de proceso** para ajustar el valor en la cantidad más baja disponible para este tutorial rápido. Haga clic en **Aceptar** para guardar este plan de tarifa. Para más información, consulte la siguiente captura de pantalla.
+    Plan de tarifa  | **Básico**, **50 unidades de proceso**, **50 GB** | El nivel de servicio y el nivel de rendimiento de la base de datos nueva. Seleccione **Nivel básico** en la pestaña de la parte superior. Haga clic en el extremo izquierdo del control deslizante **Unidades de proceso** para ajustar el valor en la cantidad más baja disponible para este tutorial rápido. Haga clic en **Aceptar** para guardar este plan de tarifa. Para obtener más información, consulte la siguiente captura de pantalla.
     Anclar al panel | Comprobar | Permite realizar un seguimiento fácil del servidor en la página del panel frontal de Azure Portal.
 
     > [!IMPORTANT]
@@ -74,7 +72,7 @@ El servicio Azure Database for MySQL crea un firewall en el nivel de servidor. E
 
     En esta guía de inicio rápido, vamos a permitir que todas las direcciones IP entren en el servidor, para lo que rellenaremos los cuadros de texto de todas las columnas con los valores siguientes:
 
-    Nombre de regla | Dirección IP inicial | Dirección IP final 
+    Nombre de la regla | Dirección IP inicial | Dirección IP final 
     ---|---|---
     AllowAllIps (permitir todas las direcciones IP) |  0.0.0.0 | 255.255.255.255
 
@@ -229,5 +227,4 @@ Para eliminar solo el servidor recién creado, siga estos pasos:
 
 > [!div class="nextstepaction"]
 > [Diseño de la primera base de datos de Azure Database for MySQL](./tutorial-design-database-using-portal.md)
-
 

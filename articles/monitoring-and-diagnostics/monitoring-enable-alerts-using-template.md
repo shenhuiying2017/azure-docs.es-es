@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 6/21/2017
 ms.author: johnkem
 ms.openlocfilehash: ac12605636d21fd0b5c89512c454ef2d899ef6dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager
 En este artículo se describe cómo se puede utilizar una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métrica de Azure. Esto permite configurar automáticamente las alertas en los recursos cuando se crean para asegurarse de que todos los recursos se supervisan correctamente.

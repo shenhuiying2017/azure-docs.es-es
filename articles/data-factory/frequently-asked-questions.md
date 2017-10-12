@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 95b088d2fdc331dc33e973172d32892693fcb648
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory: preguntas más frecuentes
 Este artículo se aplica a la versión 2 del servicio de Azure Data Factory. Proporciona una lista de preguntas más frecuentes (P+F) y sus respuestas.  
@@ -33,14 +32,14 @@ La versión 2 de Azure Data Factory se basa en el servicio de transformación y 
 - Escala y flujo de control
 - Implementación y ejecución de paquetes SSIS en Azure
 
-Tras el lanzamiento de la versión 1, detectamos que los clientes necesitaban diseñar escenarios de integración de datos híbridos complejos que requerían tanto el movimiento de datos como el procesamiento en la nube, local y en las VM en la nube. Estos requisitos pusieron de manifiesto la necesidad de transferir y procesar los datos dentro de entornos de VNET protegidos y escalar horizontalmente la potencia de procesamiento a petición.
+Tras el lanzamiento de la versión 1, detectamos que los clientes necesitaban diseñar escenarios de integración de datos híbridos complejos que requerían tanto el movimiento de datos como el procesamiento en la nube, local y en las máquinas virtuales en la nube. Estos requisitos pusieron de manifiesto la necesidad de transferir y procesar los datos dentro de entornos de VNET protegidos y escalar horizontalmente la potencia de procesamiento a petición.
 
-Como las canalizaciones de datos se han convertido en una parte fundamental de una estrategia de análisis empresarial, hemos observado que estas actividades requieren una programación flexible para admitir cargas de datos incrementales y ejecuciones desencadenadas por eventos. Por último, como las complejidades de las orquestaciones aumentan, también lo hacen los requisitos para que el servicio admita los paradigmas comunes de flujo de trabajo, como el procesamiento condicional, la bifurcación y el bucle.
+Como las canalizaciones de datos se han convertido en una parte fundamental de una estrategia de análisis de negocios, hemos observado que estas actividades requieren una programación flexible para admitir cargas de datos incrementales y ejecuciones desencadenadas por eventos. Por último, como las complejidades de las orquestaciones aumentan, también lo hacen los requisitos para que el servicio admita los paradigmas comunes de flujo de trabajo, como el procesamiento condicional, la bifurcación y el bucle.
 
-Con la versión 2, también puede migrar paquetes existentes de SQL Server Integration Services (SSIS) a la nube para elevar y desplazar SSIS como un servicio de Azure administrado dentro de ADF utilizando una nueva característica de "Integration Runtimes" (IR). Al girar una IR de SSIS en la versión 2, tiene la capacidad de ejecutar, administrar, supervisar y generar paquetes SSIS en la nube.
+Con la versión 2, también puede migrar paquetes existentes de SQL Server Integration Services (SSIS) a la nube para elevar y desplazar SSIS como un servicio de Azure administrado dentro de ADF utilizando una nueva característica de "Integration Runtimes" (IR). Al poner en marcha un IR de SSIS en la versión 2, tiene la capacidad de ejecutar, administrar, supervisar y generar paquetes SSIS en la nube.
 
 ### <a name="control-flow-and-scale"></a>Escala y flujo de control 
-Para admitir los diferentes patrones y flujos de integración en el almacén de datos actual, Data Factory ha habilitado un nuevo modelo de canalización de datos flexible que ya no está asociado con los datos de serie temporal. Con esta versión, puede modelar condicionales y la bifurcación en el flujo de control de una canalización de datos, así como pasar explícitamente los parámetros dentro y entre estos flujos.
+Para admitir los diferentes patrones y flujos de integración en el almacenamiento de datos actual, Data Factory ha habilitado un nuevo modelo de canalización de datos flexible que ya no está asociado con los datos de serie temporal. Con esta versión, puede modelar condicionales y la bifurcación en el flujo de control de una canalización de datos, así como pasar explícitamente los parámetros dentro y entre estos flujos.
 
 Ahora tiene la libertad de modelar cualquier estilo de flujo necesario para la integración de datos y enviarlo a petición o varias veces en una programación horaria. A continuación, se indican algunos flujos comunes ya habilitados que anteriormente no eran posibles:   
 
@@ -55,18 +54,18 @@ Ahora tiene la libertad de modelar cualquier estilo de flujo necesario para la i
     - Containers de bucle
         - Para cada 
 - Flujos basados en el desencadenador
-    - Las canalizaciones se pueden activar a petición o por tiempo
+    - Las canalizaciones se pueden activar a petición o por tiempo de reloj
 - Flujos delta
     - Use parámetros y defina el nivel máximo de la copia delta al mover tablas de dimensiones o de referencia desde un almacén relacional de forma local o en la nube para cargar los datos en el lago 
 
 Para obtener más información, consulte el siguiente [tutorial: flujo de control](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Implementación de paquetes SSIS en Azure 
-Si desea mover las cargas de trabajo SSIS, puede crear una versión 2 de Data Factory y proporcionar un SSIS Integration Runtime (IR) de Azure. SSIS IR de Azure es un clúster totalmente administrado de VM de Azure (nodos) que se dedica a ejecutar los paquetes SSIS en la nube. Para obtener instrucciones detalladas, vea el tutorial: [implementación de paquetes SSIS en Azure](tutorial-deploy-ssis-packages-azure.md). 
+Si desea mover las cargas de trabajo SSIS, puede crear una versión 2 de Data Factory y aprovisionar una instancia de SSIS Integration Runtime (IR) de Azure. SSIS IR de Azure es un clúster totalmente administrado de máquinas virtuales de Azure (nodos) que se dedica a ejecutar los paquetes SSIS en la nube. Para obtener instrucciones detalladas, vea el tutorial: [implementación de paquetes SSIS en Azure](tutorial-deploy-ssis-packages-azure.md). 
  
 
 ### <a name="sdks"></a>SDK
-Si es un usuario avanzado y busca una interfaz de programación, la versión 2 le proporciona un amplio conjunto de SDK que se pueden usar para crear, administrar y supervisar canalizaciones mediante su IDE favorito.
+Si es un usuario avanzado y busca una interfaz programática, la versión 2 le proporciona un amplio conjunto de SDK que se pueden usar para crear, administrar y supervisar canalizaciones mediante su IDE favorito.
 
 - SDK de .NET: el SDK de .NET se actualiza para la versión 2. 
 - PowerShell: los cmdlets de PowerShell se actualizan para la versión 2. La versión 2 de los cmdlets tienen **DataFactoryV2** en el nombre. Por ejemplo: Get-AzureRmDataFactoryV2. 
@@ -102,7 +101,7 @@ Si es nuevo en Azure Data Factory, inicie directamente con la versión 2. Si ya 
 Una suscripción de Azure puede tener una o varias instancias de Azure Data Factory (o factorías de datos). Azure Data Factory está compuesto por cuatro componentes principales que trabajan juntos para proporcionar una plataforma en la que pueda crear flujos de trabajo orientados a datos con pasos para moverlos y transformarlos.
 
 ### <a name="pipeline"></a>Canalización
-Una factoría de datos puede tener una o más canalizaciones. La canalización es una agrupación lógica de actividades para realizar una unidad de trabajo. Juntas, las actividades de una canalización realizan una tarea. Por ejemplo, una canalización podría contener un grupo de actividades que ingiere datos de un blob de Azure y luego ejecutar una consulta de Hive en un clúster de HDInsight para particionar los datos. La ventaja de esto es que la canalización le permite administrar las actividades como un conjunto en lugar de tener que administrar cada una de ellas individualmente. Las actividades de una canalización se pueden encadenar juntas para operar de forma secuencial o pueden funcionar de forma independiente en paralelo
+Una factoría de datos puede tener una o más canalizaciones. La canalización es una agrupación lógica de actividades para realizar una unidad de trabajo. Juntas, las actividades de una canalización realizan una tarea. Por ejemplo, una canalización podría contener un grupo de actividades que ingiere datos de un blob de Azure y luego ejecutar una consulta de Hive en un clúster de HDInsight para particionar los datos. La ventaja de esto es que la canalización le permite administrar las actividades como un conjunto en lugar de tener que administrar cada una de ellas individualmente. Las actividades de una canalización se pueden encadenar juntas para operar de forma secuencial o pueden funcionar de forma independiente en paralelo.
 
 ### <a name="activity"></a>Actividad
 Las actividades representan un paso del procesamiento en una canalización. Por ejemplo, puede utilizar una actividad de copia para copiar datos de un almacén de datos a otro. De igual forma, puede usar una actividad de Hive, que ejecuta una consulta de Hive en un clúster de Azure HDInsight para transformar o analizar los datos. Data Factory admite tres tipos de actividades: actividades de movimiento de datos, actividades de transformación de datos y actividades de control
@@ -116,30 +115,30 @@ Los servicios vinculados son muy similares a las cadenas de conexión que define
 Los servicios vinculados se utilizan con dos fines en Data Factory:
 
 - Para representar un **almacén de datos** que incluye, entre otros, una instancia de SQL Server local, una base de datos de Oracle, un recurso compartido de archivos o una cuenta de Azure Blob Storage. Para obtener una lista de almacenes de datos compatibles, consulte el artículo [actividad de copia](copy-activity-overview.md).
-- Para representar un **recurso de proceso** que puede hospedar la ejecución de una actividad. Por ejemplo, la actividad HDInsightHive se ejecuta en un clúster de Hadoop para HDInsight. Consulte el artículo sobre [transformación de datos](transform-data.md) para ver una lista de los entornos de procesos y actividades de transformación admitidos.
+- Para representar un **recurso de proceso** que puede hospedar la ejecución de una actividad. Por ejemplo, la actividad HDInsightHive se ejecuta en un clúster de Hadoop para HDInsight. Consulte el artículo sobre [transformación de datos](transform-data.md) para ver una lista de los entornos de proceso y las actividades de transformación admitidos.
 
 ### <a name="triggers"></a>Desencadenadores
 Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Hay diferentes tipos de desencadenadores para distintos tipos de eventos. En el caso de la versión preliminar, admitimos el desencadenador de programador de reloj. 
 
 
 ### <a name="pipeline-runs"></a>Ejecuciones de la canalización
-Una ejecución de la canalización es una instancia de la ejecución de la canalización. Normalmente, las instancias de ejecuciones de canalización se crean al pasar argumentos a parámetros definidos en las canalizaciones. Los argumentos se pueden pasar manualmente o dentro de la definición del desencadenador
+Una ejecución de la canalización es una instancia de la ejecución de la canalización. Normalmente, las instancias de ejecuciones de canalización se crean al pasar argumentos a parámetros definidos en las canalizaciones. Los argumentos se pueden pasar manualmente o dentro de la definición del desencadenador.
 
 ### <a name="parameters"></a>parameters
 Los parámetros son pares clave-valor de configuración de solo lectura.  Los parámetros se definen en la canalización y los argumentos para los parámetros definidos se pasan durante la ejecución desde el contexto de ejecución creado por un desencadenador o una canalización que se ejecuta manualmente. Las actividades dentro de la canalización consumen los valores de parámetro.
-Un conjunto de datos es un parámetro fuertemente tipado y una entidad reutilizable o a la que se puede hacer referencia. Una actividad puede hacer referencia a conjuntos de datos y puede consumir las propiedades definidas en la definición de conjunto de datos
+Un conjunto de datos es un parámetro fuertemente tipado y una entidad reutilizable o a la que se puede hacer referencia. Una actividad puede hacer referencia a conjuntos de datos y puede consumir las propiedades definidas en la definición de conjunto de datos.
 
 Un servicio vinculado también es un parámetro fuertemente tipado que contiene la información de conexión a un almacén de datos o en un entorno de proceso. También es una entidad reutilizable o a la que se puede hacer referencia.
 
 ### <a name="control-flow"></a>Flujo de control
-Orquestación de actividades de canalización que incluye el encadenamiento de actividades en una secuencia, la bifurcación y parámetros que se pueden definir en el nivel de canalización y los argumentos se pasan al invocar la canalización a petición o desde un desencadenador. También incluye el paso a estado personalizado y los contenedores de bucle, es decir, los iteradores para cada.
+Orquestación de actividades de canalización que incluye el encadenamiento de actividades en una secuencia, la bifurcación, y los parámetros que se pueden definir en el nivel de canalización y argumentos que se pasan al invocar la canalización a petición o desde un desencadenador. También incluye el paso a un estado personalizado y contenedores de bucle, es decir, los iteradores Para cada.
 
 
 Para más información sobre los conceptos de Data Factory, consulte los siguientes artículos:
 
-- [Conjuntos de datos y servicios vinculados](concepts-datasets-linked-services.md)
+- [Dataset and linked services](concepts-datasets-linked-services.md) (Conjuntos de datos y servicios vinculados)
 - [Canalizaciones y actividades](concepts-pipelines-activities.md)
-- [Integration Runtime](concepts-integration-runtime.md)
+- [Integration runtime](concepts-integration-runtime.md) (Tiempo de ejecución de integración)
 
 ## <a name="what-is-the-pricing-model-for-data-factory"></a>¿Qué es el modelo de precios de Data Factory?
 Vea la página de [detalles de precios de Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/) para obtener información al respecto.
@@ -194,5 +193,4 @@ Para obtener instrucciones paso a paso para crear una factoría de datos de la v
 
 - [Guía de inicio rápido:creación de una factoría de datos](quickstart-create-data-factory-dot-net.md)
 - [Tutorial: copia de datos en la nube](tutorial-copy-data-dot-net.md)
-
 

@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9799498a11449a9ed496d0fdb40312603eda064e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tools-for-azure-stack-storage"></a>Herramientas de Azure Stack Storage
 
-*Se aplica a: sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
 Microsoft Azure Stack proporciona un conjunto de servicios de almacenamiento para discos, blobs, tablas, colas y funcionalidad de administración de cuentas. Puede usar un conjunto de herramientas de Azure Storage si desea administrar o mover datos a Azure Stack Storage, o desde él. En este artículo se proporciona una descripción general de las herramientas disponibles.
 
@@ -233,6 +232,5 @@ Para más información acerca del Explorador de Microsoft Azure Storage, consult
 * [Conexión del Explorador de Storage a una suscripción de Azure Stack](azure-stack-storage-connect-se.md)
 * [Introducción al Explorador de Storage (versión preliminar)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md) (Azure Stack Storage: diferencias y consideraciones)
-* [Introducción a Microsoft Azure Storage](../../storage/common/storage-introduction.md)
-
+* [Introducción a Almacenamiento de Microsoft Azure](../../storage/common/storage-introduction.md)
 

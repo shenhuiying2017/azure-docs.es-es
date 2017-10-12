@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
+ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 55ec52dd0d94a0347cc67a8785b89611da955111
-ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Supervisión de las puertas de enlace de VPN con la solución de problemas de Network Watcher
 
 Obtener información detallada sobre el rendimiento de la red es fundamental para proporcionar servicios de confianza a los clientes. Por lo tanto, es fundamental detectar rápidamente las condiciones de interrupción de la red y tomar medidas correctivas para mitigar los efectos de la condición de interrupción. Azure Automation permite implementar y ejecutar una tarea de forma programática a través de runbooks. El uso de Azure Automation crea una receta perfecta para realizar la supervisión continua y proactiva de la red y crear alertas.
@@ -201,4 +199,3 @@ Ahora que comprende mejor cómo integrar la solución de problemas de Network Wa
 [8]: ./media/network-watcher-monitor-with-azure-automation/figure8.png
 [9]: ./media/network-watcher-monitor-with-azure-automation/figure9.png
 [10]: ./media/network-watcher-monitor-with-azure-automation/figure10.png
-

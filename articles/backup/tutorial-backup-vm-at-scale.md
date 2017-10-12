@@ -8,14 +8,12 @@ ms.author: markgal
 ms.date: 09/16/2017
 ms.topic: article
 ms.service: backup
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f144db921a8b2d01dbfe883a48574c4fabdae6f7
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 
 Al realizar una copia de seguridad de datos en Azure, almacena esos datos en un recurso de Azure que se denomina “almacén de Recovery Services”. El recurso de almacén de Recovery Services está disponible en el menú Configuración de la mayoría de los servicios de Azure. La ventaja de tener el almacén de Recovery Services integrado en el menú Configuración de la mayoría de los servicios de Azure facilita enormemente la copia de seguridad de datos. Sin embargo, resulta tedioso trabajar individualmente con cada base de datos o máquina virtual de la empresa. ¿Qué ocurre si desea realizar una copia de seguridad de los datos de todas las máquinas virtuales de un departamento o una ubicación? Es fácil realizar la copia de seguridad de varias máquinas virtuales mediante la creación de una directiva de copia de seguridad y la aplicación de esa directiva a las máquinas virtuales deseadas. Este tutorial explica cómo realizar lo siguiente:
@@ -174,7 +172,7 @@ Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial se usa Azure Portal para:
+En este tutorial se usa Azure Portal para las siguientes acciones:
 
 > [!div class="checklist"]
 > * Creación de un almacén de Recovery Services
@@ -187,4 +185,3 @@ Continúe con el tutorial siguiente para restaurar una máquina virtual de Azure
 
 > [!div class="nextstepaction"]
 > [Restaurar máquinas virtuales mediante la CLI](./tutorial-restore-disk.md)
-

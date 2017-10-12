@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbec5773987b29eb62d10d17b88efcda29889612
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Conexión de productos o servicios de ITSM con IT Service Management Connector (versión preliminar)
 En este artículo se proporciona información sobre cómo conectar su producto o servicio de ITSM a IT Service Management Connector en OMS y administrar de forma centralizada los elementos de trabajo. Para más información sobre IT Service Management Connector, vea [Introducción](log-analytics-itsmc-overview.md).
@@ -369,4 +368,3 @@ Para generar el identificador o clave de cliente para Cherwell, utilice el proce
  - [Creación de elementos de trabajo de ITSM desde registros de OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
 
 - [Ver análisis de registros para la conexión](log-analytics-itsmc-overview.md#using-the-solution)
-

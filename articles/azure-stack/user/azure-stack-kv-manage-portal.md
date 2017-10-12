@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 41cbe1526368dd88fe98f92937c6ef2b65f24682
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Administrar Key Vault en Azure Stack mediante el portal
 
 Puede administrar KeyValut en Azure Stack mediante el portal de Azure Stack. En este artículo, encontrará ayuda para empezar a crear y administrar Key Vault en Azure Stack. 
@@ -101,6 +99,5 @@ Después de que el secreto se cree correctamente, puede seleccionarlo en la hoja
 ## <a name="next-steps"></a>Pasos siguientes
 * [Implementar una VM mediante la recuperación de la contraseña almacenada en un almacén de claves](azure-stack-kv-deploy-vm-with-secret.md)  
 * [Implementar una VM con un certificado almacenado en un almacén de claves](azure-stack-kv-push-secret-into-vm.md)     
-
 
 

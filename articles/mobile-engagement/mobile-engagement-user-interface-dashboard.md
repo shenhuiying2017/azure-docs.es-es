@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Cómo ver y administrar los gráficos de datos de la aplicación
 La sección del panel de la interfaz de usuario permite a los clientes crear gráficos personalizados para maximizar su tiempo al proporcionar la información exacta que desean en lugar de buscar en la sección de análisis. Un panel muestra las tendencias de la aplicación y los recuentos de usuarios activos para las distintas versiones de la aplicación durante un momento dado (hora/día/semana/mes/personalizado). Las tendencias mostradas se basan en los últimos 7 días.

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>Conexión a Azure Stack
 
@@ -107,7 +106,6 @@ Conéctese a la instancia de Azure Stack mediante cualquiera de los dos métodos
 Para probar la conexión del portal, abra un explorador de Internet y navegue hasta el portal de usuario (https://portal.local.azurestack.external/), inicie sesión y cree recursos.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 
 
 

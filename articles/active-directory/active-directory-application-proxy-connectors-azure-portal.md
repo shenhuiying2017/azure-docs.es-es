@@ -16,14 +16,14 @@ ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
+> * [Portal de Azure](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-application-proxy-connectors.md)
 >
 

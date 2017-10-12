@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27.017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 2bbab5f1ac0efe9632ad6c818504584e2503cf15
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-1-review-the-architecture-for-vmware-replication-to-azure"></a>Paso 1: Revisión de la arquitectura para la replicación de VMware en Azure
 
 En este artículo se describen los componentes y los procesos usados al replicar máquinas virtuales de VMware locales en Azure mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
@@ -87,4 +85,3 @@ Hay varios requisitos para la conmutación por recuperación:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya a [Paso 2: Comprobación de los requisitos previos y las limitaciones](vmware-walkthrough-prerequisites.md)
-

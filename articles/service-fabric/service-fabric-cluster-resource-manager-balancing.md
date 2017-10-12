@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 06d65878d84fb845cf0c4c333a1e2d12b0aaec2f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Equilibrio del clúster de Service Fabric
 Cluster Resource Manager de Service Fabric admite cambios dinámicos de carga, en respuesta a las incorporaciones y las eliminaciones de nodos o servicios. También corrige automáticamente las infracciones de restricciones y reequilibra el clúster de manera proactiva. ¿Pero con qué frecuencia se realizan estas acciones y qué las activa?
@@ -215,4 +214,3 @@ Cluster Resource Manager averigua automáticamente qué servicios están relacio
 [Image3]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png
 [Image4]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
-

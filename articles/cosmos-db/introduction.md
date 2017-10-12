@@ -15,14 +15,12 @@ ms.topic: overview
 ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: fe4c79f4e71d885e22bbcf31869b809f5d7fe1a4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
 
 Azure Cosmos DB es la base de datos multimodelo de distribución global de Microsoft. Con tan solo un clic, Azure Cosmos DB permite escalar de forma elástica e individual el rendimiento y el almacenamiento en cualquiera de las regiones geográficas de Azure. Ofrece garantía de rendimiento, latencia, disponibilidad y coherencia con [acuerdos de nivel de servicio](https://aka.ms/acdbsla) (SLA)  integrales, algo que no ofrece ningún otro servicio de base de datos.
@@ -100,4 +98,3 @@ Comience a usar Azure Cosmos DB con una de nuestras guías rápidas:
 * [Introducción a la API MongoDB para Azure Cosmos DB](create-mongodb-nodejs.md)
 * [Introducción a la API Graph para Azure Cosmos DB](create-graph-dotnet.md)
 * [Introducción a la API Table para Azure Cosmos DB](create-table-dotnet.md)
-

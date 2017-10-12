@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: tamram
+ms.openlocfilehash: 1ed933493da1842201bb9293f514ea4d0e7a75ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 47a1d2b87269d40716b3dae02276207060b41c24
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento del almacenamiento de Azure
 ## <a name="overview"></a>Información general
@@ -83,5 +82,4 @@ Puede obtener recomendaciones detalladas sobre el diseño de la estrategia de pa
 * [Replicación de almacenamiento de Azure](../storage-redundancy.md)
 * [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](../storage-performance-checklist.md)
 * [Almacenamiento de Microsoft Azure: un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
 

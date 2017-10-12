@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2ef4385b3307c58d97012c3d0a732da5fbf82ea8
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Invocación del procedimiento almacenado desde la actividad de copia en Azure Data Factory
 Cuando se copian datos en [SQL Server](data-factory-sqlserver-connector.md) o [Azure SQL Database](data-factory-azure-sql-connector.md), puede configurar **SqlSink** en la actividad de copia para invocar un procedimiento almacenado. Es posible que desee usar el procedimiento almacenado para realizar cualquier procesamiento adicional (combinar columnas, buscar valores, inserciones en varias tablas, etc.) necesario antes de insertar datos en la tabla de destino. Esta característica aprovecha los [parámetros con valores de tabla](https://msdn.microsoft.com/library/bb675163.aspx). 
 
@@ -94,4 +92,3 @@ Revise los siguientes artículos de conectores para ver ejemplos completos de JS
 
 - [Azure SQL Database](data-factory-azure-sql-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)
-

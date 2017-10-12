@@ -15,36 +15,35 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
+ms.openlocfilehash: de2ff697c083493b43ab0d1b5bcde532c28684e4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: d868ce59fcb09bae8c111da3892af33317003474
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Creación de una máquina virtual Linux con la CLI de Azure en Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack*
 
 La CLI de Azure se usa para crear y administrar recursos de Azure Stack desde la línea de comandos. Esta guía de inicio rápido detalla el uso de la CLI de Azure para crear una máquina virtual de Linux en Azure Stack.  Una vez creada la VM, se instala un servidor web y se abre el puerto 80 para permitir el tráfico web.
 
-Antes de comenzar, asegúrese de que el operador de Azure Stack haya agregado la imagen "Ubuntu Server 16.04 LTS" a Marketplace de Azure Stack.  
+## <a name="prerequisites"></a>Requisitos previos 
 
-Azure Stack requiere una versión específica de la CLI de Azure para crear y administrar los recursos. Si no tiene la CLI de Azure configurada para Azure Stack, siga los pasos que se indican para [instalarla y configurarla](azure-stack-connect-cli.md).
+* Asegúrese de que el operador de Azure Stack haya agregado la imagen "Ubuntu Server 16.04 LTS" a Marketplace de Azure Stack. 
 
-Finalmente, se debe crear una clave SSH pública con el nombre id_rsa.pub en el directorio .ssh del perfil de usuario de Windows. Para más información sobre la creación de claves SSH, consulte [Creación de claves SSH en Windows](../../virtual-machines/linux/ssh-from-windows.md). 
+* Azure Stack requiere una versión específica de la CLI de Azure para crear y administrar los recursos. Si no tiene la CLI de Azure configurada para Azure Stack, inicie sesión en el [kit de desarrollo](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o en un cliente externo basado en Windows si está [conectado a través de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn), y siga los pasos para [instalar y configurar la CLI de Azure](azure-stack-connect-cli.md).
 
+* Se debe crear una clave SSH pública con el nombre id_rsa.pub en el directorio .ssh del perfil de usuario de Windows. Para más información sobre la creación de claves SSH, consulte [Creación de claves SSH en Windows](../../virtual-machines/linux/ssh-from-windows.md). 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure Stack. Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#create). Hemos asignado los valores para todas las variables en este documento, puede usarlas tal cual o asignar un valor diferente. En el ejemplo siguiente, se crea un grupo de recursos denominado myResourceGroup en la ubicación local.
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure Stack. Desde el kit de desarrollo o el sistema integrado de Azure Stack, ejecute el comando [az group create](/cli/azure/group#create) para crear un grupo de recursos. Hemos asignado los valores para todas las variables en este documento, puede usarlas tal cual o asignar un valor diferente. En el ejemplo siguiente, se crea un grupo de recursos denominado myResourceGroup en la ubicación local.
 
 ```cli
 az group create --name myResourceGroup --location local
 ```
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-a-virtual-machine"></a>de una máquina virtual
 
 Cree una máquina virtual con el comando [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una máquina virtual denominada myVM. En este ejemplo se usa Demouser como el nombre de usuario administrativo y Demouser@123 como la contraseña. Actualice estos valores a un valor apropiado para su entorno. Estos valores son necesarios al conectarse a la máquina virtual.
 
@@ -107,8 +106,5 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de una máquina virtual mediante una contraseña almacenada en el almacén de claves](azure-stack-kv-deploy-vm-with-secret.md)
-
-[Más información sobre Storage en Azure Stack](azure-stack-storage-overview.md)
-
+En este inicio rápido, ha implementado una máquina virtual Linux sencilla. Para aprender más sobre las máquina virtuales de Azure Stack, continúe con el artículo [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md) (Consideraciones acerca de máquinas virtuales de Azure Stack).
 

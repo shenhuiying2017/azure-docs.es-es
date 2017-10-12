@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
+ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 18aa9837742082535a115efd47bdc4b8dfda8a6b
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-network-monitoring-overview"></a>Información general sobre la supervisión de red de Azure
 
 Los clientes pueden crear una red integral en Azure mediante la orquestación y composición de varios recursos de red individuales como, por ejemplo, redes virtuales, ExpressRoute, Application Gateway, equilibradores de carga y muchos más. Se puede supervisar cada uno de los recursos de la red. Nos referimos a esta supervisión como supervisión en el nivel de recurso.
@@ -133,7 +131,6 @@ Obtenga información sobre las demás [funcionalidades de red](../networking/net
 [logs]: ./media/network-watcher-monitoring-overview/logs.png
 [metrics]: ./media/network-watcher-monitoring-overview/metrics.png
 [nsl]: ./media/network-watcher-monitoring-overview/nsl.png
-
 
 
 

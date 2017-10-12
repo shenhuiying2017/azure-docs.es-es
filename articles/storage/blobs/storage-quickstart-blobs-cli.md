@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c9b7e7a1fbc6b67821183ce31bdf2527de490c92
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Transferencia de objetos a y desde Azure Blob Storage mediante la CLI de Azure
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Este tutorial de inicio rápido detalla el uso de la CLI de Azure para cargar y descargar datos a y desde el Azure Blob Storage.
@@ -97,7 +95,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si ya no necesita ninguno de los recursos del grupo de recursos, incluida la cuenta de almacenamiento que creó en este tutorial de inicio rápido, elimine el grupo de recursos con el comando [az group delete](/cli/azure/group#delete).
+Si ya no necesita ninguno de los recursos del grupo de recursos, incluida la cuenta de almacenamiento que creó en esta guía de inicio rápido, elimine el grupo de recursos con el comando [az group delete](/cli/azure/group#delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -109,4 +107,3 @@ En este tutorial de inicio rápido aprendió a transferir archivos entre un disc
 
 > [!div class="nextstepaction"]
 > [Operaciones de Blob Storage con la CLI de Azure](storage-how-to-use-blobs-cli.md)
-

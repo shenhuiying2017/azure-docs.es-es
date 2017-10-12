@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 604cc41e2a7e0858c6926ef3a2199dfd6ca2943f
-ms.contentlocale: es-es
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 7a20cd8f3c2f304d12a49755dbe6e04f9b1d36df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="language-elements"></a>Elementos de lenguaje
 ## <a name="core-elements"></a>Elementos principales
@@ -61,11 +59,11 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="wildcard-characters-to-match"></a>Caracteres comodín que deben coincidir
 * [= (Igual a)](https://msdn.microsoft.com/library/ms175118.aspx)
-* [> (Mayor que)](https://msdn.microsoft.com/library/ms178590.aspx)
-* [< (Menor que)](https://msdn.microsoft.com/library/ms179873.aspx)
-* [>= (Mayor o igual que)](https://msdn.microsoft.com/library/ms181567.aspx)
-* [<= (Menor o igual que)](https://msdn.microsoft.com/library/ms174978.aspx)
-* [<> (No igual a)](https://msdn.microsoft.com/library/ms176020.aspx)
+* [&gt; (Mayor que)](https://msdn.microsoft.com/library/ms178590.aspx)
+* [&lt; (Menor que)](https://msdn.microsoft.com/library/ms179873.aspx)
+* [&gt;= (Mayor o igual que)](https://msdn.microsoft.com/library/ms181567.aspx)
+* [&lt;= (Menor o igual que)](https://msdn.microsoft.com/library/ms174978.aspx)
+* [&lt;&gt; (No igual a)](https://msdn.microsoft.com/library/ms176020.aspx)
 * [!= (No igual a)](https://msdn.microsoft.com/library/ms190296.aspx)
 * [AND](https://msdn.microsoft.com/library/ms188372.aspx)
 * [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
@@ -77,13 +75,13 @@ ms.lasthandoff: 04/03/2017
 * [O bien](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Operadores bit a bit
-* [& (AND bit a bit)](https://msdn.microsoft.com/library/ms174965.aspx)
+* [&amp; (AND bit a bit)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (OR bit a bit)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (OR exclusiva bit a bit)](https://msdn.microsoft.com/library/ms190277.aspx)
 * [~ (NOT bit a bit)](https://msdn.microsoft.com/library/ms173468.aspx)
 * [^= (OR EQUALS exclusiva bit a bit)](https://msdn.microsoft.com/library/cc627413.aspx)
 * [|= (OR EQUALS bit a bit)](https://msdn.microsoft.com/library/cc627409.aspx)
-* [&= (AND EQUALS bit a bit)](https://msdn.microsoft.com/library/cc627427.aspx)
+* [&amp;= (AND EQUALS bit a bit)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## <a name="functions"></a>Funciones
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
@@ -289,4 +287,3 @@ Para obtener más información de referencia, vea [Información general de refer
 [SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-

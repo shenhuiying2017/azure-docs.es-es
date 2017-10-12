@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
 La delegación le permite usar su sitio web actual para controlar el inicio de sesión y la suscripción de los desarrolladores, así como sus suscripciones a productos, en contraposición al uso de la funcionalidad integrada en el portal para desarrolladores. Esto habilita su sitio web como propietario de los datos de usuario para poder realizar la validación de estos pasos de forma personalizada.
 
-## <a name="delegate-signin-up"> </a>Delegación de inicios de sesión y suscripciones de desarrolladores
+## <a name="delegate-signin-up"></a>Delegación de inicios de sesión y suscripciones de desarrolladores
 Para delegar el inicio de sesión y la suscripción de los desarrolladores a su sitio web actual, deberá crear un extremo especial de delegación en el sitio que funcione como punto de entrada de cualquier solicitud de este tipo que se inicie en el portal para desarrolladores de Administración de API.
 
 El flujo de trabajo final será el siguiente:
@@ -44,7 +44,7 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
 
 1. Recibir una solicitud de la forma siguiente:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL de la página de origen}&salt={string}&sig={string}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&amp;returnUrl={URL de la página de origen}&amp;salt={string}&amp;sig={string}*
    > 
    > 
    
@@ -88,7 +88,7 @@ Debe pasar los siguientes parámetros de consulta para las operaciones de admini
 * **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
 * **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
 
-## <a name="delegate-product-subscription"> </a>Delegación de suscripciones a productos
+## <a name="delegate-product-subscription"></a>Delegación de suscripciones a productos
 La delegación de una suscripción a productos funciona de forma similar a la delegación de inicio de sesión y suscripción de usuario. El flujo de trabajo final sería el siguiente:
 
 1. El desarrollador selecciona un producto en el portal para desarrolladores de Administración de API y hace clic en el botón Suscribir.
@@ -101,7 +101,7 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
 
 1. Recibir una solicitud de la forma siguiente:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operación}&productId={producto al que se suscribe}&userId={usuario que realiza la solicitud}&salt={cadena}&sig={cadena}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operación}&amp;productId={producto al que se suscribe}&amp;userId={usuario que realiza la solicitud}&amp;salt={cadena}&amp;sig={cadena}*
    > 
    > 
    
@@ -126,7 +126,7 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
 3. Realice cualquier procesamiento de la suscripción a producto en función del tipo de operación solicitada en **operation** ; por ejemplo, facturación, preguntas adicionales, etc.
 4. Tras la correcta suscripción del usuario al producto por su parte, suscriba al usuario al producto de Administración de API [llamando a la API de REST para la suscripción del producto].
 
-## <a name="delegate-example-code"> </a> Ejemplo de código
+## <a name="delegate-example-code"></a> Ejemplo de código
 Estos ejemplos de código muestran cómo aprovechar la *clave de validación de delegación*, que se establece en la pantalla de delegación del portal del publicador para crear un HMAC que se utiliza para validar la firma, probando la validez del valor returnUrl que se ha pasado. El mismo código funciona para productId y userId con pequeñas modificaciones.
 
 **Código C# para generar el hash de returnUrl**

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/06/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a96150a6a7f83d1c220e0450f7704634a1f6ed1b
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 5c8f4c784eed7b64810a3dd1c36c043d22a66936
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>Creación del primer clúster independiente de Service Fabric
 Puede crear un clúster independiente de Service Fabric en cualquier máquina virtual o equipo que ejecute Windows Server 2012 R2 o Windows Server 2016, en el entorno local o en la nube. Esta guía de inicio rápido lo ayuda a crear un clúster independiente de desarrollo en tan solo unos minutos.  Cuando haya terminado, tendrá un clúster de tres nodos que se ejecuta en un único equipo y donde puede implementar aplicaciones.
 
@@ -95,4 +93,3 @@ Ahora que ha configurado un clúster independiente de desarrollo, consulte los a
 * [Implemente aplicaciones mediante PowerShell](service-fabric-deploy-remove-applications.md).
 
 [service-fabric-explorer]: ./media/service-fabric-get-started-standalone-cluster/sfx.png
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
+ms.openlocfilehash: e8106805d21b325e33fb3ab376db75cd783b9042
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 3d01763709e58d25047a6dec4361bcf6553d54e0
-ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configuración del firewall de aplicaciones web en una puerta de enlace de aplicaciones nueva o existente
 
@@ -201,7 +200,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## <a name="get-an-application-gateway-dns-name"></a>Obtención del nombre DNS de una puerta de enlace de aplicaciones
 
-Una vez que se crea la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Si se utiliza una dirección IP pública, la puerta de enlace de aplicaciones necesita un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales pueden llegar a la puerta de enlace de aplicaciones, utilice un registro CNAME que apunte al punto de conexión público de la puerta de enlace de aplicaciones. Para más información, consulte [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+Una vez creada la puerta de enlace, el siguiente paso consiste en configurar el front-end para la comunicación. Si se utiliza una dirección IP pública, la puerta de enlace de aplicaciones necesita un nombre DNS asignado dinámicamente (estos nombres no son descriptivos). Para asegurarse de que los usuarios finales pueden llegar a la puerta de enlace de aplicaciones, utilice un registro CNAME que apunte al punto de conexión público de la puerta de enlace de aplicaciones. Para más información, consulte [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
 
 Para configurar un alias, recupere los detalles de la puerta de enlace de aplicaciones y su nombre de IP o DNS asociado mediante el elemento PublicIPAddress asociado a dicha puerta de enlace de aplicaciones. Utilice el nombre DNS de la puerta de enlace de aplicaciones para crear un registro CNAME, que hace que las dos aplicaciones web apunten a este nombre DNS. No es recomendable utilizar registros de tipo A, ya que la VIP podría cambiar al reiniciarse la puerta de enlace de aplicaciones.
 
@@ -236,4 +235,3 @@ DnsSettings              : {
 Si desea configurar un registro de diagnóstico para incluir todos los eventos que se detecten o se impidan con una puerta de enlace de aplicaciones web, consulte [Diagnósticos de Application Gateway](application-gateway-diagnostics.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
-

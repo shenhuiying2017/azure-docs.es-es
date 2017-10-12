@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 *Se aplica a: Azure Stack Development Kit*
 
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adición de una nueva cuenta de inquilino de Azure Stack en Azure Active Directory
@@ -37,7 +35,7 @@ Debe tener una suscripción de Azure para usar el Portal de Azure.
 5. Haga clic en **Agregar usuario**.
 6. En el **Asistente para agregar usuario**, en la lista **Tipo de usuario**, elija **nuevo usuario de la organización**.
 7. En el cuadro **Nombre de usuario** escriba un nombre para el usuario.
-8. En el asistente **@**, seleccione la entrada apropiada.
+8. En el asistente **@** , seleccione la entrada apropiada.
 9. Haga clic en la flecha siguiente.
 10. En la página **Perfil de usuario** del asistente, escriba un **Nombre**, **Apellidos** y **Nombre para mostrar**.
 11. En la lista **Rol**, seleccione **Usuario**.
@@ -74,5 +72,4 @@ Si no tiene una suscripción de Azure, no puede usar Azure Portal para agregar u
 
 1. Inicie sesión en Microsoft Azure con la nueva cuenta. Cambie la contraseña cuando se le solicite.
 2. Inicie sesión en `https://portal.local.azurestack.external` con la nueva cuenta para ver el portal del inquilino.
-
 

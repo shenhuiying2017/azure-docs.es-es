@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: c37fc0b701b668ab6bb9213a487ec8baa33fe663
-ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Realización de operaciones de Blob Storage con la CLI de Azure
 
 El Almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos de objetos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. Este tutorial trata las operaciones básicas en Azure Blob Storage como la carga, descarga y eliminación de blobs. Aprenderá a:
@@ -76,7 +74,7 @@ az storage container set-permission \
 
 ## <a name="upload-a-blob-to-a-container"></a>Carga de un blob en un contenedor
 
-Blob Storage admite blobs en bloque, blobs en anexos y blobs en páginas. Los blobs en bloques son el tipo más común de blob almacenado en Azure Storage. Los blobs en anexos se usan cuando los datos tienen que agregarse a un blob existente sin modificar el contenido que ya tiene, como, por ejemplo, para realizar operaciones de registro. Los blobs en páginas respaldan los archivos VHD de máquinas virtuales IaaS.
+Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los blobs en bloques son el tipo más común de blob almacenado en Azure Storage. Los blobs en anexos se usan cuando los datos tienen que agregarse a un blob existente sin modificar el contenido que ya tiene, como, por ejemplo, para realizar operaciones de registro. Los blobs en páginas respaldan los archivos VHD de máquinas virtuales IaaS.
 
 En este ejemplo, se carga un blob en el contenedor que creamos en el último paso con el comando [az storage blob upload](/cli/azure/storage/blob#upload).
 
@@ -283,4 +281,3 @@ Los siguientes recursos proporcionan información adicional acerca de cómo trab
   * [Referencia de comandos de la CLI de Azure 2.0](/cli/azure/)
 * Explorador de almacenamiento de Microsoft Azure
   * El [Explorador de Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
-

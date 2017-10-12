@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 4dee49f99118cc99c21ce23e32db3686c58cf4a9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Creación de una aplicación de MongoDB con Angular y Azure Cosmos DB (parte 6): incorporación de las funciones Post, Put y Delete a la aplicación
 
@@ -199,5 +198,4 @@ En esta parte del tutorial, ha hecho lo siguiente:
 > * Agregó las funciones Post, Put y Delete a la aplicación 
 
 Compruebe pronto si hay otros vídeos en esta serie de tutoriales.
-
 

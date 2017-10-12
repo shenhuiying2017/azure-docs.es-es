@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 7b5f976eb2d51eb86761a2bd0be6adb45ca87681
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Información general de Azure Stack Marketplace
 
-*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
 Marketplace es un conjunto de servicios, aplicaciones y recursos personalizados para Azure Stack, como redes, máquinas virtuales, almacenamiento, etc. Es el lugar donde los usuarios vienen para crear nuevos recursos e implementar nuevas aplicaciones. Piense que es como un catálogo de compras donde los usuarios pueden examinar y elegir los elementos que se quieren usar. Los usuarios, para utilizar un elemento de Marketplace, deben suscribirse a una oferta que les concede acceso al elemento.
 
@@ -46,5 +45,4 @@ Cada elemento publicado en Marketplace utiliza un formato denominado paquete de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Crear y publicar un elemento en Marketplace](azure-stack-create-and-publish-marketplace-item.md)
-
 

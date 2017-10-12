@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Consideraciones de la plantilla de Azure Resource Manager
 
-*Se aplica a: sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
 Al desarrollar la aplicación, es importante garantizar la portabilidad de las plantillas entre Azure y Azure Stack.  Este tema proporciona consideraciones para el desarrollo de [plantillas](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) de Azure Resource Manager, por lo que puede crear un prototipo de la implementación de prueba y la aplicación en Azure sin acceder a un entorno de Azure Stack.
 
@@ -80,5 +79,4 @@ Las plantillas de Resource Manager usan un atributo location para incluir recurs
 * [Implementación de plantillas con PowerShell](azure-stack-deploy-template-powershell.md)
 * [Implementación de plantillas con la CLI de Azure](azure-stack-deploy-template-command-line.md)
 * [Implementación de plantillas con Visual Studio](azure-stack-deploy-template-visual-studio.md)
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 645f68d836babf11f32fc391e6dacc9430f0070c
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedaje de varios sitios de Puerta de enlace de aplicaciones
 
@@ -130,5 +129,4 @@ No se requiere ningún cambio en la regla de enrutamiento. La regla de enrutamie
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que conoce el hospedaje de varios sitios, vaya a la sección sobre cómo [crear una puerta de enlace de aplicaciones mediante el hospedaje de varios sitios](application-gateway-create-multisite-azureresourcemanager-powershell.md) para crear una puerta de enlace de aplicaciones con la capacidad de admitir más de una aplicación web.
-
 

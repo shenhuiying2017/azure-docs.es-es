@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: anajod
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a8763c01cba4e5a9eaa3b7842b627d6eb9661a95
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Agregar imágenes de Linux a Azure Stack
 
@@ -97,5 +96,4 @@ Puede preparar su propia imagen de Linux con una de las siguientes instrucciones
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Introducción a la oferta de servicios en Azure Stack](azure-stack-offer-services-overview.md)
-
 

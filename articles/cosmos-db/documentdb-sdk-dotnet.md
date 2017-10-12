@@ -16,10 +16,10 @@ ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 317792e04244a96cf8e47bc7e4a7f633f7a6d8c3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>SDK de .NET para Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -198,9 +198,9 @@ ms.lasthandoff: 08/18/2017
 * Upsert implementada, métodos de UpsertXXXAsync agregados
 * Mejoras de rendimiento para todas las solicitudes
 * Compatibilidad del proveedor LINQ con los métodos condicionales, de fusión y CompareTo para cadenas
-* **[Corregido]** proveedor LINQ--> la implementación del método Contains en List para generar el mismo SQL que en IEnumerable y en una matriz
+* **[Corregido]** proveedor LINQ--&gt; la implementación del método Contains en List para generar el mismo SQL que en IEnumerable y en una matriz
 * **[Corregido]** BackoffRetryUtility usa el mismo HttpRequestMessage de nuevo en lugar de crear uno nuevo al reintentar
-* **[Obsoleto]** UriFactory.CreateCollection--> debería usar ahora UriFactory.CreateDocumentCollection
+* **[Obsoleto]** UriFactory.CreateCollection--&gt; debería usar ahora UriFactory.CreateDocumentCollection
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 * **[Corregido]** Problemas de localización al usar la información de referencia cultural diferente de EN como nl-NL etc. 
@@ -214,7 +214,7 @@ ms.lasthandoff: 08/18/2017
   * **Math** : Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate
   * **String** : Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper
   * **Array** : Concat, Contains, Count
-  * **IN** 
+  * **IN**
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 * Se agregó compatibilidad para la modificación de las directivas de indexación.

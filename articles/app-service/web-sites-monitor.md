@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 25d3776920d683fffedcd8ac6ed0e84dfe875974
-ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Supervisión de Aplicaciones en Azure App Service
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) proporciona una funcionalidad de supervisión integrada en [Azure Portal](https://portal.azure.com).
@@ -64,7 +63,7 @@ Si la cuota de **sistema de archivos** se supera, se producirá un error en toda
 Las cuotas se pueden incrementar o quitar de la aplicación actualizando el plan de App Service.
 
 ### <a name="metrics"></a>Métricas
-**Métricas** proporcionan información acerca de la aplicación o el comportamiento del plan de App Service.
+**Métricas** proporcionan información acerca de la aplicación o el comportamiento del plan del Servicio de aplicaciones.
 
 Para una **aplicación**, estas son las métricas disponibles:
 
@@ -139,7 +138,7 @@ El servicio registra y agrega las métricas para una aplicación y el plan de Ap
 Puede revisar el estado de las distintas **cuotas** y **métricas** que afectan a una aplicación en [Azure Portal](https://portal.azure.com).
 
 ![][quotas]
-Las **cuotas** se encuentran en Configuración >**Cuotas**. La experiencia de usuario permite revisar: (1) el nombre de las cuotas, (2) su intervalo de restablecimiento, (3) su límite actual y (4) su valor actual.
+Las **cuotas** se encuentran en Configuración &gt;**Cuotas**. La experiencia de usuario permite revisar: (1) el nombre de las cuotas, (2) su intervalo de restablecimiento, (3) su límite actual y (4) su valor actual.
 
 ![][metrics]
 Se puede acceder a las **métricas** directamente desde la hoja de recursos. También puede personalizar el gráfico si (1) **hace clic** en él y selecciona (2) **Editar gráfico**.
@@ -169,4 +168,3 @@ Las aplicaciones de App Service hospedadas en planes de App Service básicos, es
 [http403]: ./media/web-sites-monitor/http403.png
 [quotas]: ./media/web-sites-monitor/quotas.png
 [metrics]: ./media/web-sites-monitor/metrics.png
-

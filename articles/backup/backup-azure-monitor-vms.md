@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
 ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure
 Las alertas son las respuestas del servicio que indican que se ha alcanzado o superado un umbral de evento. Saber cuándo comenzaron los problemas puede ser vital para reducir los costos del negocio. Las alertas no se producen de forma programada por lo general, por lo que resulta útil conocerlas tan pronto como se produjeron. Por ejemplo, cuando se produce un error en un trabajo de copia de seguridad o de restauración, se produce una alerta en los cinco minutos siguientes al error. En el panel del almacén, el icono Alertas de copias de seguridad muestra eventos de nivel crítico y de advertencia. En la configuración de Alertas de copias de seguridad, puede ver todos los eventos. Pero, ¿qué hacer si se produce una alerta cuando está trabajando en otro asunto? Si no sabe cuándo se produce la alerta, esto puede ser un inconveniente secundario o puede llegar incluso a comprometer los datos. Para asegurarse de que las personas adecuadas se enteran de una alerta cuando esta se produce, configure el servicio para enviar notificaciones de alerta por correo electrónico. Para más información acerca de cómo configurar las notificaciones por correo electrónico, consulte [Configuración de notificaciones](backup-azure-monitor-vms.md#configure-notifications).

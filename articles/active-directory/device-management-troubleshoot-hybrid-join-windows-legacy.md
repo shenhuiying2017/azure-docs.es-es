@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 715fca79e488ae3759926181c244a42026f4a554
-ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory 
 
@@ -57,7 +56,7 @@ En este tema se proporcionan instrucciones sobre cómo resolver problemas potenc
 - La reinstalación del sistema operativo o la anulación del registro y el nuevo registro de forma manual pueden crear un nuevo registro en Azure AD y generar varias entradas en la pestaña de información de USUARIO de Azure Portal. 
 
 
-## <a name="step-1-retrieve-the-registration-status"></a>Paso 1: Recuperación del estado del registro 
+## <a name="step-1-retrieve-the-registration-status"></a>Paso 1: Recuperar el estado del registro 
 
 **Para verificar el estado del registro:**  
 
@@ -111,4 +110,3 @@ También puede encontrar la información de estado en el registro de eventos en 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si tiene preguntas, consulte las [preguntas más frecuentes sobre la administración de dispositivos](device-management-faq.md).  
-

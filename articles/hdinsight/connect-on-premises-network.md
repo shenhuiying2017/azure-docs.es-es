@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 27a5d0e69ec9c47feab2b23d7c79fe2547edfc08
-ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Conexión de HDInsight a la red local
 
 Obtenga información sobre cómo conectar HDInsight a la red local mediante redes virtuales de Azure y una puerta de enlace de VPN. En este documento se brinda información de planeación sobre:
@@ -343,4 +341,3 @@ Para conectarse directamente a HDInsight a través de la red virtual, use los pa
 * Para más información sobre los grupos de seguridad de red, vea [Grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
 
 * Para más información sobre las rutas definidas por el usuario, vea [Rutas definidas por el usuario y reenvío IP](../virtual-network/virtual-networks-udr-overview.md).
-

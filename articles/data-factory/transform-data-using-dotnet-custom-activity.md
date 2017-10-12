@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 24f15168fd716cf317087b8a2ad19b66574ce569
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Factoría de datos de Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -261,4 +260,3 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de Spark](transform-data-using-spark.md)
 * [Actividad de ejecución de Batch de Machine Learning](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)
-

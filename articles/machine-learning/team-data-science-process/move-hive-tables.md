@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e879ab2874cb3298de4b0929b286482d824e8309
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creación de tablas de Hive y carga de datos desde Azure Blob Storage
 En este tema se presentan consultas genéricas de Hive que crean tablas de Hive y cargan datos desde Azure Blob Storage. También se ofrecen algunas instrucciones acerca de las particiones de tablas de subárbol y de cómo utilizar el formato ORC para mejorar el rendimiento de las consultas.
@@ -143,11 +142,11 @@ Esta es la consulta de subárbol que crea una tabla de subárbol.
 
 Estas son las descripciones de los campos que los usuarios necesitan para conectar y otras configuraciones:
 
-* **&#60;nombre de base de datos>**: nombre de la base de datos que los usuarios desean crear. Si los usuarios solo desean usar la base de datos predeterminada, se puede omitir la consulta *crear base de datos...*
-* **&#60;nombre de tabla>**: nombre de la tabla que los usuarios quieren crear en la base de datos especificada. Si los usuarios desean usar la base de datos predeterminada, puede hacer referencia directamente a la tabla *&#60;nombre de tabla>* sin &#60;nombre de base de datos>.
-* **&#60;separador de campos>**: separador que delimita los campos del archivo de datos que se cargará en la tabla de Hive.
-* **&#60;line separator>**: separador que delimita las líneas del archivo de datos.
-* **&#60;storage location>**: la ubicación de Azure Storage para guardar los datos de tablas de Hive. Si los usuarios no especifican *LOCATION &#60;ubicación de almacenamiento>*, la base de datos y las tablas se almacenan de forma predeterminada en el directorio *hive/warehouse/* del contenedor predeterminado del clúster Hive. Si un usuario desea especificar la ubicación de almacenamiento, esta debe estar dentro del contenedor predeterminado para la base de datos y las tablas. A esta ubicación tiene que hacerse referencia como ubicación relativa al contenedor predeterminado del clúster con el formato *'wasb:///&#60;directory 1>/'* o *'wasb:///&#60;directory 1>/&#60;directory 2>/'*, etc. Después de ejecutar la consulta, se crean los directorios relativos dentro del contenedor predeterminado.
+* **&amp;#60;nombre de base de datos&gt;**: nombre de la base de datos que los usuarios desean crear. Si los usuarios solo desean usar la base de datos predeterminada, se puede omitir la consulta *crear base de datos...*
+* **&amp;#60;nombre de tabla&gt;**: nombre de la tabla que los usuarios quieren crear en la base de datos especificada. Si los usuarios desean usar la base de datos predeterminada, puede hacer referencia directamente a la tabla *&#60;nombre de tabla>* sin &#60;nombre de base de datos>.
+* **&amp;#60;separador de campos&gt;**: separador que delimita los campos del archivo de datos que se cargará en la tabla de Hive.
+* **&amp;#60;line separator&gt;**: separador que delimita las líneas del archivo de datos.
+* **&amp;#60;storage location&gt;**: la ubicación de Azure Storage para guardar los datos de tablas de Hive. Si los usuarios no especifican *LOCATION &#60;ubicación de almacenamiento>*, la base de datos y las tablas se almacenan de forma predeterminada en el directorio *hive/warehouse/* del contenedor predeterminado del clúster Hive. Si un usuario desea especificar la ubicación de almacenamiento, esta debe estar dentro del contenedor predeterminado para la base de datos y las tablas. A esta ubicación tiene que hacerse referencia como ubicación relativa al contenedor predeterminado del clúster con el formato *'wasb:///&#60;directory 1>/'* o *'wasb:///&#60;directory 1>/&#60;directory 2>/'*, etc. Después de ejecutar la consulta, se crean los directorios relativos dentro del contenedor predeterminado.
 * **TBLPROPERTIES("skip.header.line.count"="1")**: si el archivo de datos tiene una línea de encabezado, los usuarios deben agregar esta propiedad **al final** de la consulta *create table*. De lo contrario, se carga la línea de encabezado como registro en la tabla. Si el archivo de datos no tiene una línea de encabezado, se puede omitir esta configuración en la consulta.
 
 ## <a name="load-data"></a>Carga de datos en tablas de Hive
@@ -155,7 +154,7 @@ Esta es la consulta de subárbol que carga datos en una tabla de subárbol.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **&#60;ruta de acceso a datos de blob>**: si el archivo de blob que se va a cargar en la tabla de Hive se encuentra en el contenedor predeterminado del clúster Hadoop de HDInsight, *&#60;ruta de acceso a datos de blob>* debe tener el formato "*wasb:///&#60;directorio de este contenedor>/&#60;nombre del archivo de blob>"*. El archivo blob también puede estar en un contenedor adicional del clúster de Hadoop de HDInsight. En este caso, *&#60;ruta de acceso a datos de blob>* debería tener el formato *"wasb://&#60;nombre del contenedor>@&#60;nombre de cuenta de almacenamiento>.blob.core.windows.net/&#60;nombre de archivo de blob>"*.
+* **&amp;#60;ruta de acceso a datos de blob&gt;**: si el archivo de blob que se va a cargar en la tabla de Hive se encuentra en el contenedor predeterminado del clúster Hadoop de HDInsight, *&amp;#60;ruta de acceso a datos de blob&gt;* debe tener el formato "*wasb:///&amp;#60;directorio de este contenedor&gt;/&amp;#60;nombre del archivo de blob&gt;"*. El archivo blob también puede estar en un contenedor adicional del clúster de Hadoop de HDInsight. En este caso, *&#60;ruta de acceso a datos de blob>* debería tener el formato *"wasb://&#60;nombre del contenedor>@&#60;nombre de cuenta de almacenamiento>.blob.core.windows.net/&#60;nombre de archivo de blob>"*.
 
   > [!NOTE]
   > Los datos blob que se van a cargar en la tabla de subárbol tienen que estar en el contenedor adicional o predeterminado de la cuenta de almacenamiento para el clúster de Hadoop. De lo contrario, la consulta *LOAD DATA* genera un error indicando que no puede obtener acceso a los datos.
@@ -236,4 +235,3 @@ Es seguro quitar *&#60;nombre de la tabla de archivo de texto externo>* cuando u
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
 Después de seguir este procedimiento, debe tener una tabla con datos en el formato ORC lista para su uso.  
-

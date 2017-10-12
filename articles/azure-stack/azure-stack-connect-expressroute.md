@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Conexión de Azure Stack a Azure mediante ExpressRoute
 
 *Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
-Hay dos métodos admitidos para conectar redes virtuales en Azure Stack a redes virtuales en Azure:
+Hay dos métodos admitidos para conectar redes virtuales de Azure Stack a redes virtuales de Azure:
    * **De sitio a sitio**
 
      Una conexión VPN sobre IPsec (IKE v1 e IKE v2). Este tipo de conexión requiere un dispositivo VPN o RRAS. Para obtener más información, consulte [Conectar Azure Stack a Azure mediante VPN](azure-stack-connect-vpn.md).

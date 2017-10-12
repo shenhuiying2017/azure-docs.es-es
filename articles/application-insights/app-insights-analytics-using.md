@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
+ms.openlocfilehash: 49edbaad0af2eeef4b8c348b9fd34e37ba7e80e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 28d32d1e2d82519fc7b2ad4edca8435c3759594f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Uso de Analytics en Application Insights
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Log Analytics.
@@ -111,7 +110,7 @@ Si cree que no ve todos los resultados que esperaba, puede deberse a los motivos
   * [top 100 by timestamp](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 
   * [take 100](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)
   * [summarize ](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) 
-  * [where timestamp > ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
+  * [where timestamp &gt; ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
 
 (¿Desea más de 10 000 filas? Considere el uso de [Exportación continua](app-insights-export-telemetry.md). Analytics está diseñado para el análisis, no para la recuperación de datos sin procesar.)
 
@@ -135,7 +134,7 @@ En un gráfico de tiempo, si se produce un pico o salto repentino en los datos, 
 ![Analytics Diagnostics](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Anclar al panel
-Puede anclar un diagrama o una tabla a uno de sus [paneles compartidos](app-insights-dashboards.md) ; simplemente haga clic en la chincheta. (Es posible que necesite [actualizar el paquete de precios de la aplicación](app-insights-pricing.md) para activar esta característica). 
+Puede anclar un diagrama o una tabla a uno de sus [paneles compartidos](app-insights-dashboards.md) ; simplemente haga clic en la chincheta. 
 
 ![Haga clic en la chincheta](./media/app-insights-analytics-using/pin-01.png)
 
@@ -238,5 +237,4 @@ Si usa [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-start
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
 

@@ -12,12 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: denlee
+ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 02d4042803bdbc3b982019e0e5d3bcd7ed3e0173
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introducción a las API Graph de Azure Cosmos DB
 
@@ -147,6 +146,5 @@ Estos son algunos escenarios donde se puede usar la compatibilidad con gráficos
 ## <a name="next-steps"></a>Pasos siguientes
 Para aprender más sobre la compatibilidad con grafos en Azure Cosmos DB:
 
-* Empiece con el [tutorial de grafos en Azure Cosmos DB](create-graph-dotnet.md).
+* Empiece con el [tutorial de gráficos en Azure Cosmos DB](create-graph-dotnet.md).
 * Obtenga más información sobre cómo [consultar grafos en Azure Cosmos DB mediante Gremlin](gremlin-support.md).
-

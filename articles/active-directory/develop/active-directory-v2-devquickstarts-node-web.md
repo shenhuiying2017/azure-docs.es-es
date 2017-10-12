@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: 6d49c742f72440e22830915c90de009d9188db2a
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-nodejs-web-app"></a>Agregar inicio de sesión a una aplicación web Node.js
 
@@ -422,5 +421,4 @@ Estos son algunos recursos adicionales:
 
 ### <a name="get-security-updates-for-our-products"></a>Obtención de actualizaciones de seguridad para nuestros productos
 Le recomendamos suscribirse para recibir una notificación cuando se produzcan incidentes de seguridad. En la página [Notificaciones técnicas de seguridad de Microsoft](https://technet.microsoft.com/security/dd252948), suscríbase a las alertas de documentos informativos de seguridad.
-
 

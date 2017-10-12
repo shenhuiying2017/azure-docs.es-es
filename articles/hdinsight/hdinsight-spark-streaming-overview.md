@@ -1,6 +1,6 @@
 ---
-title: "¿Qué es el streaming de Spark en Azure HDInsight? | Microsoft Docs"
-description: "En este artículo se describe cómo usar las aplicaciones de streaming de Spark en los clústeres de HDInsight Spark."
+title: "¿Qué es Spark Streaming en Azure HDInsight? | Microsoft Docs"
+description: "En este artículo se describe cómo usar las aplicaciones de Spark Streaming en los clústeres de HDInsight Spark."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -16,35 +16,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: ramoha
+ms.openlocfilehash: e80b69fa3e60618dbaccd612114200a941019854
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 7608951ffb79d945ce3271792e7cf1a0d0b254b3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="overview-of-spark-streaming"></a>Introducción al streaming de Spark
+# <a name="overview-of-spark-streaming"></a>Introducción a Spark Streaming
 
-El streaming de Spark proporciona una funcionalidad de procesamiento de flujo de datos en los clústeres de HDInsight Spark, con una garantía de que cualquier evento de entrada se procesa exactamente una vez, aunque se produzca un error de nodo. Una secuencia de Spark es un trabajo de ejecución prolongada que recibe datos de entrada de una gran variedad de orígenes —como Azure Event Hubs, Azure IoT Hub, Kafka, Flume, Twitter, ZeroMQ y sockets TCP sin procesar— o de sistemas de archivos HDFS de supervisión. A diferencia de los procesos controlados exclusivamente por eventos, una secuencia de Spark procesa datos de entrada por lotes en ventanas de tiempo, por ejemplo, un intervalo de 2 segundos y, luego, transforma cada lote de datos mediante operaciones de asignación, reducción, combinación y extracción. Después, escribe los datos transformados en sistemas de archivos, bases de datos, paneles y la consola.
+Spark Streaming proporciona una funcionalidad de procesamiento de flujo de datos en los clústeres de HDInsight Spark, con una garantía de que cualquier evento de entrada se procesa exactamente una vez, aunque se produzca un error de nodo. Un flujo de Spark es un trabajo de ejecución prolongada que recibe datos de entrada de una gran variedad de orígenes —como Azure Event Hubs, Azure IoT Hub, Kafka, Flume, Twitter, ZeroMQ y sockets TCP sin procesar— o de sistemas de archivos HDFS de supervisión. A diferencia de los procesos controlados exclusivamente por eventos, un flujo de Spark procesa datos de entrada por lotes en ventanas de tiempo, por ejemplo, un intervalo de 2 segundos y, luego, transforma cada lote de datos mediante operaciones de asignación, reducción, combinación y extracción. Después, escribe los datos transformados en sistemas de archivos, bases de datos, paneles y la consola.
 
-![Procesamiento de secuencias con el streaming de HDInsight y Spark](./media/hdinsight-spark-streaming-overview/hdinsight-spark-streaming.png)
+![Procesamiento de flujos con Spark Streaming y HDInsight](./media/hdinsight-spark-streaming-overview/hdinsight-spark-streaming.png)
 
-Las aplicaciones de streaming de Spark deben esperar unas fracciones de segundo para recopilar cada *microlote* de eventos antes de enviar ese lote para procesarlo. En cambio, una aplicación controlada por eventos procesa cada evento inmediatamente. La latencia de streaming de Spark suele ser de unos segundos. Las ventajas del enfoque de los microlotes son procesamientos de datos más eficaces y cálculos agregados más sencillos.
+Las aplicaciones de Spark Streaming deben esperar unas fracciones de segundo para recopilar cada *microlote* de eventos antes de enviar ese lote para procesarlo. En cambio, una aplicación controlada por eventos procesa cada evento inmediatamente. La latencia de Spark Streaming suele ser de unos segundos. Las ventajas del enfoque de los microlotes son una mayor eficacia del procesamiento de datos y cálculos agregados más sencillos.
 
 ## <a name="introducing-the-dstream"></a>Introducción a los flujos DStream
 
-El streaming de Spark representa un flujo continuo de datos entrantes que utilizan un *flujo discretizado* llamado "DStream". Los flujos DStream pueden crearse a partir de orígenes de entrada como centros de eventos o Kafka, o bien aplicando transformaciones a otro flujo DStream.
+Spark Streaming representa un flujo continuo de datos entrantes que utilizan un *flujo discretizado* llamado "DStream". Los flujos DStream pueden crearse a partir de orígenes de entrada, como Event Hubs o Kafka, o bien aplicando transformaciones a otro flujo DStream.
 
 Un flujo DStream proporciona una capa de abstracción basada en los datos del evento sin procesar. 
 
-Comience con un solo evento, por ejemplo, una lectura de temperatura en un termostato conectado. Cuando este evento llega a la aplicación de streaming de Spark, se almacena de forma confiable, es decir, se replica en varios nodos. Esta tolerancia a errores garantiza que un error de un solo nodo no provocará la pérdida del evento. El núcleo de Spark usa una estructura de datos que distribuye los datos en varios nodos del clúster, donde cada nodo suele mantener sus propios datos en memoria para garantizar un rendimiento óptimo. Esta estructura de datos se denomina "*conjunto de datos distribuido resistente*" (RDD).
+Comience con un solo evento, por ejemplo, una lectura de temperatura en un termostato conectado. Cuando este evento llega a la aplicación de Spark Streaming, se almacena de forma confiable, es decir, se replica en varios nodos. Esta tolerancia a errores garantiza que un error de un solo nodo no provocará la pérdida del evento. El núcleo de Spark usa una estructura de datos que distribuye los datos en varios nodos del clúster, donde cada nodo suele mantener sus propios datos en memoria para garantizar un rendimiento óptimo. Esta estructura de datos se denomina *conjunto de datos distribuido resistente* (RDD).
 
-Cada RDD representa eventos recopilados a través de un período definido por el usuario llamado "intervalo entre lotes". Cuando transcurre cada intervalo entre lotes, se genera un nuevo diseño que contiene todos los datos de ese intervalo. El conjunto continuo de RDD se recopila en un flujo DStream. Por ejemplo, si el intervalo entre lotes es de un segundo, el flujo DStream emite un lote cada segundo con un RDD que contiene todos los datos ingeridos durante ese segundo. Al procesar el flujo DStream, el evento de temperatura se muestra en uno de estos lotes. Una aplicación de streaming de Spark procesa los lotes que contienen los eventos y, en última instancia, actúa en los datos almacenados en cada RDD.
+Cada RDD representa eventos recopilados a través de un período definido por el usuario llamado "intervalo entre lotes". Cuando transcurre cada intervalo entre lotes, se genera un nuevo diseño que contiene todos los datos de ese intervalo. El conjunto continuo de RDD se recopila en un flujo DStream. Por ejemplo, si el intervalo entre lotes es de un segundo, el flujo DStream emite un lote cada segundo con un RDD que contiene todos los datos ingeridos durante ese segundo. Al procesar el flujo DStream, el evento de temperatura se muestra en uno de estos lotes. Una aplicación de Spark Streaming procesa los lotes que contienen los eventos y, en última instancia, actúa en los datos almacenados en cada RDD.
 
-![DStream de ejemplo con eventos de temperatura ](./media/hdinsight-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+![Flujo DStream de ejemplo con eventos de temperatura ](./media/hdinsight-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
-## <a name="structure-of-a-spark-streaming-application"></a>Estructura de una aplicación de streaming de Spark
-Una aplicación de streaming de Spark es una aplicación de ejecución prolongada que recibe datos de orígenes de ingesta, aplica transformaciones para procesar los datos y, luego, los envía a uno o varios destinos. La estructura de una aplicación de streaming de Spark tiene dos partes principales. En primer lugar, definirá el origen de los datos, qué procesamiento hay que realizar en ellos y el destino de los resultados. En segundo lugar, ejecutará la aplicación de forma indefinida y esperará una señal de detención.
+## <a name="structure-of-a-spark-streaming-application"></a>Estructura de una aplicación de Spark Streaming
+Una aplicación de Spark Streaming es una aplicación de ejecución prolongada que recibe datos de orígenes de ingesta, aplica transformaciones para procesar los datos y, luego, los envía a uno o varios destinos. La estructura de una aplicación de Spark Streaming tiene dos partes principales. En primer lugar, definirá el origen de los datos, qué procesamiento hay que realizar en ellos y el destino de los resultados. En segundo lugar, ejecutará la aplicación de forma indefinida y esperará una señal de detención.
 
 Por ejemplo, aquí se muestra una aplicación sencilla que recibe una línea de texto a través de un socket TCP y cuenta el número de veces que aparece cada palabra.
 
@@ -53,8 +52,8 @@ Por ejemplo, aquí se muestra una aplicación sencilla que recibe una línea de 
 La definición de la lógica de la aplicación consta de cuatro pasos:
 
 1. Crear un objeto StreamingContext
-2. Crear un DStream a partir del objeto StreamingContext
-3. Aplicar transformaciones al DStream
+2. Crear un flujo DStream a partir del objeto StreamingContext
+3. Aplicar transformaciones al flujo DStream
 4. Generar los resultados
 
 Esta definición es estática y no se procesa ningún dato hasta que se ejecuta la aplicación.
@@ -64,13 +63,13 @@ Cree un objeto StreamingContext desde el objeto SparkContext que apunta al clús
 
     val ssc = new StreamingContext(spark, Seconds(1))
 
-#### <a name="create-a-dstream"></a>Creación de un DStream
-Con la instancia del objeto StreamingContext que creó, cree un DStream de entrada para el origen de entrada. En este caso, nos fijaremos en la apariencia de los archivos nuevos en el almacenamiento predeterminado asociado al clúster de HDInsight.
+#### <a name="create-a-dstream"></a>Creación de un flujo DStream
+Con la instancia del objeto StreamingContext que creó, cree un flujo DStream de entrada para el origen de entrada. En este caso, nos fijaremos en la apariencia de los archivos nuevos en el almacenamiento predeterminado asociado al clúster de HDInsight.
 
     val lines = ssc.textFileStream("/uploads/2017/01/")
 
 #### <a name="apply-transformations"></a>Aplicación de transformaciones
-Implemente el procesamiento aplicando transformaciones en el DStream. Nuestra aplicación recibe una línea de texto a la vez desde el archivo, divide cada línea en palabras y, luego, utiliza un patrón de asignación-reducción para contar el número de veces que aparece cada palabra.
+Implemente el procesamiento aplicando transformaciones en el flujo DStream. Nuestra aplicación recibe una línea de texto a la vez desde el archivo, divide cada línea en palabras y, luego, utiliza un patrón de asignación-reducción para contar el número de veces que aparece cada palabra.
 
     val words = lines.flatMap(_.split(" "))
     val pairs = words.map(word => (word, 1))
@@ -87,9 +86,9 @@ Inicie la aplicación de streaming y ejecútela hasta que se reciba una señal d
     ssc.start()            
     ssc.awaitTermination()
 
-Para obtener más información sobre la API de streaming de Spark, además de los orígenes de eventos, las transformaciones y las operaciones de salida que se admiten, consulte la [guía de programación de streaming de Spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
+Para obtener más información sobre la API de Spark Streaming, además de los orígenes de eventos, las transformaciones y las operaciones de salida que se admiten, consulte [Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html) (Guía de programación de Spark Streaming).
 
-La siguiente aplicación de ejemplo es independiente, así que puede ejecutarla en un [cuaderno de Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md). En el ejemplo, creamos un origen de datos ficticio en la clase DummySource que genera el valor de un contador y la hora actual en milisegundos cada cinco segundos. Creamos un nuevo objeto StreamingContext que tiene un intervalo entre lotes de 30 segundos. Cada vez que se crea un lote, examina el RDD generado, lo convierte en una trama de datos de Spark y crea una tabla temporal en esa trama de datos.
+La siguiente aplicación de ejemplo es independiente, así que puede ejecutarla en un [cuaderno de Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md). En el ejemplo, creamos un origen de datos ficticio en la clase DummySource que genera el valor de un contador y la hora actual en milisegundos cada cinco segundos. Creamos un nuevo objeto StreamingContext que tiene un intervalo entre lotes de 30 segundos. Cada vez que se crea un lote, examina el RDD generado, lo convierte en un objeto DataFrame de Spark y crea en él una tabla temporal.
 
     class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
@@ -151,7 +150,7 @@ El resultado tendrá un aspecto similar al siguiente:
 Esperamos ver seis valores, ya que el objeto DummySource crea un valor cada 5 segundos y emitimos un lote cada 30 segundos.
 
 ## <a name="sliding-windows"></a>Ventanas deslizantes
-Si quiere realizar cálculos agregados en el flujo DStream durante un período concreto, por ejemplo, para obtener una temperatura media durante los últimos 2 segundos, puede usar las operaciones de ventana deslizante incluidas con el streaming de Spark. Una ventana deslizante se define como tener una duración (la longitud de la ventana) y el intervalo durante el cual el contenido de la ventana se evalúa (el intervalo de deslizamiento).
+Si quiere realizar cálculos agregados en el flujo DStream durante un período concreto, por ejemplo, para obtener una temperatura media durante los últimos 2 segundos, puede usar las operaciones de ventana deslizante incluidas con Spark Streaming. Una ventana deslizante es aquella que tiene una duración (la longitud de la ventana) y un intervalo durante el cual se evalúa su contenido (el intervalo de deslizamiento).
 
 Estas ventanas deslizantes se pueden superponer; por ejemplo, puede definir una ventana con una longitud de 2 segundos, que se desliza cada segundo. Es decir, cada vez que realice un cálculo de agregación, la ventana incluirá los datos del último segundo de la ventana anterior, además de cualquier dato nuevo del siguiente segundo.
 
@@ -199,13 +198,13 @@ Después del primer minuto, se generarán 12 entradas: 6 entradas de cada uno de
 | 11 | 1497316344339
 | 12 | 1497316349361
 
-Las funciones de ventana deslizante disponibles en la API de streaming de Spark incluyen las funciones window, countByWindow, reduceByWindow y countByValueAndWindow. Para obtener más información sobre estas funciones, consulte el artículo sobre [transformaciones en flujos DStream](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html#transformations-on-dstreams).
+Las funciones de ventana deslizante disponibles en la API de Spark Streaming incluyen las funciones window, countByWindow, reduceByWindow y countByValueAndWindow. Para obtener más información sobre estas funciones, consulte [Transformations on DStreams](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html#transformations-on-dstreams) (Transformaciones en flujos DStream).
 
 ## <a name="checkpointing"></a>Puntos de control
-Para proporcionar resistencia y tolerancia a errores, el streaming de Spark se basa en los puntos de control para garantizar que el procesamiento de flujos puede continuar sin interrupciones, aunque se produzcan errores de nodo. En HDInsight, Spark crea puntos de control en un almacenamiento duradero (Azure Storage o Data Lake Store). Estos puntos de control almacenan los metadatos de la aplicación de streaming como la configuración, las operaciones definidas por la aplicación, y todos los lotes que se ponen en cola, pero no se procesan. En algunos casos, los puntos de control también guardarán los datos en los RDD para reducir el tiempo que se tarda en volver a generar el estado de los datos a partir de los que haya presente en los RDD que administra Spark.
+Para proporcionar resistencia y tolerancia a errores, Spark Streaming se basa en los puntos de control para garantizar que el procesamiento de flujos puede continuar sin interrupciones, aunque se produzcan errores de nodo. En HDInsight, Spark crea puntos de control en un almacenamiento duradero (Azure Storage o Data Lake Store). Estos puntos de control almacenan los metadatos de la aplicación de streaming, como la configuración, las operaciones definidas por la aplicación y todos los lotes que se ponen en cola pero no se procesan. En algunos casos, los puntos de control también guardarán los datos en los RDD para reducir el tiempo que se tarda en volver a generar el estado de los datos a partir de lo que haya presente en los RDD que administra Spark.
 
-## <a name="deploying-spark-streaming-applications"></a>Implementación de aplicaciones de streaming de Spark
-Normalmente, compilará su aplicación de streaming de Spark localmente y, luego, la implementará en Spark en HDInsight copiando el archivo JAR que contiene la aplicación en el almacenamiento predeterminado asociado al clúster de HDInsight. Después, puede iniciar la aplicación mediante las API de REST de LIVY disponibles en el clúster. Se trata de una operación POST cuyo cuerpo incluye un documento JSON que proporciona la ruta de acceso al archivo JAR, el nombre de la clase cuyo método principal define y ejecuta la aplicación de streaming y, opcionalmente, los requisitos de recursos del trabajo (por ejemplo, el número de ejecutores, memoria y núcleos) y los parámetros de configuración que requiere el código de la aplicación.
+## <a name="deploying-spark-streaming-applications"></a>Implementación de aplicaciones de Spark Streaming
+Normalmente, compilará su aplicación de Spark Streaming localmente y, luego, la implementará en Spark en HDInsight copiando el archivo JAR que contiene la aplicación en el almacenamiento predeterminado asociado al clúster de HDInsight. Después, puede iniciar la aplicación mediante las API de REST de LIVY disponibles en el clúster. Se trata de una operación POST cuyo cuerpo incluye un documento JSON que proporciona la ruta de acceso al archivo JAR, el nombre de la clase cuyo método principal define y ejecuta la aplicación de streaming y, opcionalmente, los requisitos de recursos del trabajo (por ejemplo, el número de ejecutores, memoria y núcleos) y los parámetros de configuración que requiere el código de la aplicación.
 
 ![Ventana de ejemplo con eventos de temperatura después del deslizamiento](./media/hdinsight-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 

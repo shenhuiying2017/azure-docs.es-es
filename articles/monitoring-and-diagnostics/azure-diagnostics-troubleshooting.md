@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solución de problemas de Azure Diagnostics
 En este artículo se proporciona información para la solución de problemas relacionados con el uso de Azure Diagnostics. Para obtener información sobre Azure Diagnostics, consulte la [introducción a Azure Diagnostics](azure-diagnostics.md).
@@ -300,4 +299,3 @@ La experiencia del portal de las máquinas virtuales muestra de forma predetermi
 - Si usa caracteres comodín (\*) en los nombres de los contadores de rendimiento, el portal no podrá correlacionar el contador configurado y el recopilado.
 
 **Mitigación**: cambiar el idioma de la máquina a inglés en las cuentas del sistema. Para ello, seleccione **Panel de control** > **Región** > **Administración** > **Copiar configuración**. A continuación, anule la selección de la opción **Cuentas de sistema y de pantalla de bienvenida** para que el lenguaje personalizado no se aplique a la cuenta del sistema. Igualmente, asegúrese de que no usa caracteres comodín si el portal va a ser su experiencia de consumo principal.
-

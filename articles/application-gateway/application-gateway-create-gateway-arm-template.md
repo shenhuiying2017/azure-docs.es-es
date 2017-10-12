@@ -13,20 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
+ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f44e33ef722cd30787a9d2942ec55ceb73174978
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Creación de una instancia de Application Gateway con la plantilla de Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
+> * [Portal de Azure](application-gateway-create-gateway-portal.md)
+> * [PowerShell de Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Plantilla de Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
+> * [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure](application-gateway-create-gateway-cli.md)
 
 Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona solicitudes HTTP de enrutamiento del rendimiento y conmutación por error y entre distintos servidores, independientemente de que se encuentren en la nube o en el entorno local. Application Gateway proporciona numerosas características del controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, y muchas más. Para encontrar una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md).
@@ -244,5 +243,4 @@ Si desea más información acerca de las opciones de equilibrio de carga en gene
 
 * [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
 

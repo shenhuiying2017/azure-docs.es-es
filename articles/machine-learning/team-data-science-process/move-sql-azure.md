@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2d0c36990ba897bef83601bd4295518618224733
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover datos a una base de datos de SQL de Azure para Aprendizaje automático de Azure
 En este tema se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de datos almacenados en un servidor de SQL Server local a Azure SQL Database. Estas tareas para mover datos a la nube forman parte del proceso de ciencia de datos en equipos.
@@ -78,4 +77,3 @@ Los pasos para usar la copia de seguridad y restauración de la base de datos so
 El procedimiento para mover datos a una instancia de Azure SQL Database con Azure Data Factory (ADF) se explica en el tema [Mover datos desde un servidor SQL Server local a SQL Azure con Azure Data Factory](move-sql-azure-adf.md). En este tema se muestra cómo mover datos desde una base de datos local de SQL Server a una instancia de Azure SQL Database a través de Azure Blob Storage con Azure Data Factory (ADF).
 
 Considere el uso de ADF cuando los datos deban migrarse continuamente en un escenario híbrido con acceso a recursos locales y de nube, y cuando los datos se transfieran o deban modificarse o tener lógica de negocios agregada mientras se migran. La ADF permite la programación y supervisión de trabajos mediante scripts JSON sencillos que administran el movimiento de datos de forma periódica. La ADF también tiene otras capacidades como la compatibilidad con operaciones complejas.
-

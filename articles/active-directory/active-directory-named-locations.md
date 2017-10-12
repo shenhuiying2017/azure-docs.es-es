@@ -11,15 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/20/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: e11f19d518b22a7be4f8daf93304821b42e94a9b
-ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Ubicaciones con nombre en Azure Active Directory
 
@@ -52,7 +51,7 @@ Para configurar una ubicación con nombre:
 
 6. En la hoja **Nuevo**, haga lo siguiente:
 
-    ![La hoja Nuevo](./media/active-directory-named-locations/08.png)
+    ![La hoja Nuevo](./media/active-directory-named-locations/56.png)
 
     a. En el cuadro **Nombre**, escriba el nombre de la ubicación con nombre.
 
@@ -75,5 +74,4 @@ Para configurar una ubicación con nombre:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de los eventos de riesgo, consulte [Eventos de riesgo de Azure Active Directory](active-directory-reporting-risk-events.md).
-
 

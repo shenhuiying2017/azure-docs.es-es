@@ -14,16 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 45f1c61189b338d38681c8e93be01953da65913f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de servidores físicos y máquinas virtuales de VMware replicados en Azure
 
-En este tutorial se describe cómo conmutar por error una máquina virtual de VMware en Azure. Después de conmutar por error, conmute por recuperación a su sitio local cuando esté disponible. En este tutorial, aprenderá a:
+En este tutorial se describe cómo conmutar por error una máquina virtual de VMware en Azure. Después de que ha conmutado por error, conmutará por recuperación a su sitio local cuando esté disponible. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Comprobar las propiedades de máquinas virtuales de VMware para comprobar que se cumplen los requisitos de Azure.
@@ -71,9 +70,9 @@ Compruebe las propiedades de la máquina virtual y asegúrese de que la máquina
 1. En **Configuración** > **Elementos replicados**, haga clic en VM > **Conmutación por error**.
 
 2. En **Conmutación por error**, seleccione un **punto de recuperación** en el que realizar la conmutación por error. Puede seleccionar una de las siguientes opciones:
-   - **Último** (valor predeterminado): esta opción procesa primero todos los datos enviados a Site Recovery. Ofrece el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual de Azure creada después de la conmutación por error tiene todos los datos que se replicaron en Site Recovery cuando se desencadenó la conmutación por error.
-   - **Procesado recientemente**: con esta opción se realiza una conmutación por error de la máquina virtual al último punto de recuperación procesado por Site Recovery. Esta opción proporciona un objetivo de tiempo de recuperación (RTO) bajo, ya que no se emplea tiempo en el procesamiento de datos sin procesar.
-   - **Más reciente coherente con la aplicación**: esta opción conmuta por error la máquina virtual en el punto de recuperación más reciente coherente con la aplicación que haya procesado Site Recovery.
+   - **Último** (valor predeterminado): esta opción procesa primero todos los datos enviados a Site Recovery. Ofrece el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual de Azure creada después de la conmutación por error tiene todos los datos replicados en Site Recovery al desencadenarse la conmutación por error.
+   - **Procesado más recientemente**: con esta opción se realiza una conmutación por error de la máquina virtual al último punto de recuperación procesado por Site Recovery. Esta opción proporciona un objetivo de tiempo de recuperación (RTO) bajo, ya que no se invierte tiempo en el procesamiento de datos sin procesar.
+   - **Más reciente coherente con la aplicación**: esta opción conmuta por error la máquina virtual al punto de recuperación más reciente coherente con la aplicación que haya procesado Site Recovery.
    - **Personalizado**: especifique un punto de recuperación.
 
 3. Seleccione **Shut down machine before beginning failover** (Apagar la máquina antes de comenzar la conmutación por error) para intentar apagar las máquinas virtuales de origen antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
@@ -83,7 +82,7 @@ Compruebe las propiedades de la máquina virtual y asegúrese de que la máquina
 5. Después de la comprobación, **confirme** la conmutación por error. Este proceso eliminará todos los puntos de recuperación disponibles.
 
 > [!WARNING]
-> **Don't cancel a failover in progress** (No cancelar una conmutación por error en curso): antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual.
+> **No cancele una conmutación por error en curso**: antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual.
 > Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no replica la máquina virtual de nuevo.
 
 En algunos escenarios, la conmutación por error requiere un procesamiento adicional que tarda aproximadamente de ocho a diez minutos en completarse. Puede observar tiempos de conmutación por error de prueba más largos en los servidores físicos, las máquinas de VMware Linux, las máquinas virtuales de VMware que no tienen el servicio DHCP habilitado y las máquinas virtuales de VMware que no tienen los siguientes controladores de arranque: storvsc, vmbus, storflt, intelide y atapi.
@@ -154,4 +153,3 @@ Los datos ahora deben volver a estar en el sitio local, pero no se está replica
 2. Seleccione el servidor de procesos que se usa para enviar los datos replicados a Azure y haga clic en **Aceptar**.
 
 Una vez completada la reprotección, la máquina virtual se vuelve a replicar en Azure y podrá ejecutar una conmutación por error según sea necesario.
-

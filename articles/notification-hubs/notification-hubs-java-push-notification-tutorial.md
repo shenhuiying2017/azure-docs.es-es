@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 41f978750ddef9f7e878c65b0017e909720154aa
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Uso de los Centros de notificaciones desde Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -271,7 +271,7 @@ El objeto de notificación es simplemente un cuerpo con encabezados, algunos mé
 
 La ejecución del código de Java debe generar ahora una notificación que aparece en el dispositivo de destino.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tema hemos mostrado cómo crear un simple cliente REST en Java para Centros de notificaciones. Desde aquí puede:
 
 * Descargue el [SDK de Java]completo, que contiene todo el código SDK. 
@@ -283,17 +283,11 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
   * [Envío de notificaciones entre plataformas a usuarios autenticados]
 
 [SDK de Java]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Tutorial introductorio]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Introducción a los Centros de notificaciones]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Envío de noticias de última hora]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
 [Envío de noticias de última hora localizadas]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Envío de notificaciones a usuarios autenticados]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
 [Envío de notificaciones entre plataformas a usuarios autenticados]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

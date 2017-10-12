@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 45b2a500751830f6ca19fe8450a7781cb0fcb618
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-premium-azure-redis-cache-with-clustering"></a>Creación de una caché en Azure Redis Cache premium con agrupación en clústeres
 
 En este escenario, aprenderá cómo crear Azure Redis Cache de nivel Premium de 6 GB con la agrupación en clústeres habilitada y dos particiones.

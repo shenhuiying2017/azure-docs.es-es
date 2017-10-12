@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9bd7a76ef644df3db72ce95a3ef89a04bec1381f
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 029939eabc7283d7591576fa1b14731a9e626a88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Acceso a Azure Data Lake Store desde máquinas virtuales de una red virtual de Azure
 Azure Data Lake Store es un servicio de PaaS que se ejecuta en direcciones IP de Internet pública. Normalmente, cualquier servidor que puede conectarse a la Internet pública también puede conectarse a los puntos de conexión de Azure Data Lake Store. De forma predeterminada, todas las máquinas virtuales que se encuentran en redes virtuales de Azure pueden acceder a Internet y, por tanto, a Azure Data Lake Store. Sin embargo, se puede configurar que las máquinas virtuales de una red virtual no tengan acceso a Internet. Estas máquinas virtuales tampoco pueden acceder a Azure Data Lake Store. Puede bloquear el acceso a la Internet pública a las máquinas virtuales de las redes virtuales de Azure con cualquiera de los siguientes enfoques.
@@ -55,5 +54,4 @@ Cuando se configura un circuito ExpressRoute, los servidores locales pueden acce
 ## <a name="see-also"></a>Otras referencias
 * [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
 * [Protección de los datos almacenados en Azure Data Lake Store](data-lake-store-security-overview.md)
-
 

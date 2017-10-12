@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
 ms.openlocfilehash: 50eed9aed417778bd497f55e20c8e732fdae9cf9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Use OLTP en memoria para mejorar el rendimiento de las aplicaciones en SQL Database
 [OLTP en memoria](sql-database-in-memory.md) puede utilizarse para mejorar el rendimiento del procesamiento de transacciones, la ingesta de datos y los escenarios de datos transitorios, en instancias [premium](sql-database-service-tiers.md) de Azure SQL Database sin aumentar el plan de tarifa. 

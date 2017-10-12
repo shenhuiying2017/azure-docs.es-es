@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a3e4c989c1dbb31b237115acfcc032aa2dee4f2a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-the-deep-learning-virtual-machine"></a>Introducción a Deep Learning Virtual Machine
 
 ## <a name="why-deep-learning-virtual-machine"></a>¿Por qué Deep Learning Virtual Machine? 
@@ -40,4 +38,3 @@ Empiece a trabajar con Deep Learning Virtual Machine con los pasos siguientes:
 * [Usar Deep Learning Virtual Machine](use-deep-learning-dsvm.md)
 * [Referencia de las herramientas](dsvm-deep-learning-ai-frameworks.md)
 * [Ejemplos](dsvm-samples-and-walkthroughs.md)
-

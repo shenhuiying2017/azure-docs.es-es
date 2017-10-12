@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>Aplicaciones web, móviles y de API disponibles para los usuarios de Azure Stack
 
@@ -75,7 +74,7 @@ Ahora que ha implementado el proveedor de recursos de App Service y ha creado un
 
 ### <a name="create-a-dnn-app"></a>Creación de una aplicación DNN    
 
-1. Haga clic en **+** > **Ver todo** > **DNN Platform preview (Versión preliminar de la plataforma DNN)** > **Crear**.
+1. Haga clic en  **+**   >  **Ver todo** > **DNN Platform preview** (Versión preliminar de la plataforma DNN)  > **Crear**.
 2. Escriba *AppDNN* en **Nombre de la aplicación** y seleccione **OfertaDePruebaDeAppService** en **Suscripción**.
 3. Haga clic en **Configurar los valores obligatorios** > **Crear nuevo** > escriba un nombre de **Plan de App Service**.
 4. Haga clic en **Nivel de precios** > **F1 gratuito** > **Seleccionar** > **Aceptar**.
@@ -93,4 +92,3 @@ Prosiga con el siguiente tutorial para aprender a:
 
 > [!div class="nextstepaction"]
 > [Implementar aplicaciones en Azure y Azure Stack](user/azure-stack-solution-pipeline.md)
-

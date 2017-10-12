@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Reentrenamiento de un servicio web clásico
 El servicio web predictivo que implementó es el punto de conexión de puntuación predeterminado. Los puntos de conexión predeterminados se mantienen sincronizados con los experimentos de entrenamiento y puntuación originales y, por tanto, el modelo entrenado de un punto de conexión predeterminado no se puede reemplazar. Para reciclar el servicio web, debe agregar un nuevo punto de conexión al servicio web. 
@@ -146,5 +145,4 @@ Mediante el uso de las API de reentrenamiento, puede actualizar el modelo entren
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Solución de problemas del reentrenamiento de un servicio web clásico de Aprendizaje automático de Azure](troubleshooting-retraining-models.md)
-
 

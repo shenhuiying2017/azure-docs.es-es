@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c473d4adf3b87fe6dc9fa89e0bae112bf27d47ed
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]
@@ -541,7 +540,7 @@ Haga clic en el icono **Métricas de la factoría de datos**:
 ![Icono Métricas de la factoría de datos](./media/data-factory-monitor-manage-pipelines/data-factory-metrics-tile.png)
 
 En la hoja **Métrica**, haga clic en **+ Agregar alerta** en la barra de herramientas.
-![Hoja Métrica de la factoría de datos > Agregar alerta](./media/data-factory-monitor-manage-pipelines/add-alert.png)
+![Hoja Métrica de la factoría de datos &gt; Agregar alerta](./media/data-factory-monitor-manage-pipelines/add-alert.png)
 
 En la página **Agregar una regla de alerta**, realice los pasos siguientes y haga clic en **Aceptar**.
 
@@ -659,4 +658,3 @@ Puede mover una factoría de datos a un grupo de recursos o una suscripción dif
 Junto con la factoría de datos, también puede mover todos los recursos relacionados (como las alertas asociadas a la factoría de datos).
 
 ![Cuadro de diálogo Mover recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
-

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 04/14/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: da3399b9c6642435dc7b40ed1c843217c984d15e
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Unidades de transacción de bases de datos (DTU) y unidades de transacción de bases de datos elásticas (eDTU)
 Este artículo describe las unidades de transacción de bases de datos (DTU) y las unidades de transacción de bases de datos elásticas (eDTU) y qué sucede cuando se alcanza el número máximo de DTU o eDTU.  
@@ -65,4 +64,3 @@ Los niveles de rendimiento se calibran y rigen para proporcionar los recursos ne
 * Consulte [Nivel de servicio](sql-database-service-tiers.md) para obtener información sobre las DTU y eDTU disponibles para las bases de datos únicas y para los grupos elásticos, así como los límites de recursos distintos de la CPU, la memoria, la E/S de datos y la E/S de registro de transacciones .
 * Consulte [Información de rendimiento de consultas de SQL Database](sql-database-query-performance.md) para comprender el consumo (DTU).
 * Para comprender la metodología detrás de la carga de trabajo de pruebas comparativas de OLTP utilizada para determinar la combinación de DTU, consulte [Información general sobre la prueba comparativa SQL Database](sql-database-benchmark-overview.md) .
-

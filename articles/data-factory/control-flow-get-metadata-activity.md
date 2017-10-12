@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
 La actividad GetMetadata se puede usar para recuperar metadatos de datos en Azure Data Factory. Esta actividad solo se admite para las factorías de datos de la versión 2. Se puede usar en los escenarios siguientes:
@@ -101,7 +100,7 @@ fieldList | Enumera los tipos de información de metadatos necesarios.  | <ul><l
 dataset | Conjunto de datos de referencia cuya actividad de metadatos debe recuperar la actividad GetMetadata. <br/><br/>El tipo de conjunto de datos admitido actualmente es Azure Blob. Las dos subpropiedades son: <ul><li><b>referenceName</b>: Referencia a un conjunto de datos existente de Azure Blob</li><li><b>type</b>: Puesto que se hace referencia al conjunto de datos, es del tipo "DatasetReference"</li></ul> |    <ul><li>String</li><li>DatasetReference</li></ul> | Sí
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea otras actividades de flujo de control compatibles con Data Factory: 
+Consulte otras actividades de flujo de control compatibles con Data Factory: 
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Para cada actividad](control-flow-for-each-activity.md)

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 77bc78e7ed27f1566e5e5f6a3539c93c9aa73e2d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reciclaje de un servicio web nuevo basado en Resource Manager mediante los cmdlets de PowerShell para administración de Machine Learning
 Al volver a entrenar un servicio web nuevo, actualice la definición del servicio web predictiva para hacer referencia al nuevo modelo entrenado.  
@@ -107,5 +106,4 @@ Con el uso de los cmdlets de administración de PowerShell para Machine Learning
 
 * Reentrenamiento de modelos periódicos con nuevos datos.
 * Distribución de un modelo entre los clientes con el fin de permitirles reentrenar el modelo mediante sus propios datos.
-
 

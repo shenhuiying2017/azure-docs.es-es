@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
+ms.openlocfilehash: d3b04dcc856d4637cf7029701a5e169d3096d15c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 43a08898abecb220f3df892473dddfb2729f0561
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="variable-assets-in-azure-automation"></a>Recursos de variables en Automatización de Azure
 
@@ -206,5 +205,4 @@ La imagen siguiente muestra las actividades de ejemplo para actualizar una varia
 
 * Para obtener más información sobre cómo conectar actividades en la creación gráfica, consulte [Vínculos y flujo de trabajo en Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md#links-and-workflow)
 * Para empezar a trabajar con cuadernos gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md) 
-
 

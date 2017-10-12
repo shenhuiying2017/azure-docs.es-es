@@ -13,13 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
---- 
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
+---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Guía de publicación de Cortana Intelligence en AppSource
 
 ## <a name="overview"></a>Información general
@@ -116,5 +115,4 @@ En primer lugar, felicidades por haber publicado la aplicación.
 El nivel de devoluciones que obtenga de la publicación de la aplicación en AppSource depende considerablemente de qué efecto tenga en la audiencia objetivo. Vea [Growth-Hacking your Cortana Intelligence app on AppSource](http://aka.ms/aagrowthhackguide) (Impulso de la rentabilidad de su aplicación de Cortana Intelligence en AppSource) para obtener más detalles sobre cómo puede maximizar las devoluciones.
 
 Si tiene alguna pregunta o sugerencia, póngase en contacto con nosotros en <appsourcecissupport@microsoft.com>.
-
 

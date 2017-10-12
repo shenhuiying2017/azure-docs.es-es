@@ -17,10 +17,10 @@ ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 34a3dd318cb9896342fce870922ecd113b3ed08d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-a-web-app-with-web-server-logs"></a>Supervisión de una aplicación web con registros de servidor web
 
@@ -30,7 +30,7 @@ Si es necesario, instale Azure PowerShell con la instrucción que se encuentra e
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-powershell[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Supervisión de una aplicación web con registros de servidor web")]
+[!code-powershell[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Monitor a web app with web server logs")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 

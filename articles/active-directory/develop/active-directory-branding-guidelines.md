@@ -16,10 +16,10 @@ ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
 ms.openlocfilehash: 4f6806cde52ce965a8f78a5cce8a24c3d1248594
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="branding-guidelines-for-applications"></a>Directrices de personalización de marca para aplicaciones
 En este tema, se describen las directrices de personalización de marca que hay que usar al desarrollar aplicaciones con Azure Active Directory (Azure AD). Gracias a ellas, podrá dirigir a los clientes cuando estos quieran usar su cuenta profesional o educativa (administrada en Azure AD), o su cuenta personal, para suscribirse a la aplicación o iniciar sesión en ella.
@@ -57,7 +57,7 @@ Después de que los administradores den su consentimiento para la aplicación, p
 
 Sin embargo, se recomienda que escriba un texto explicativo en lugar de confiar en los botones. Por ejemplo:
 
-> *Si ya usa Office 365 u otro servicio de negocio de Microsoft, solo tiene que conceder acceso a <nombre_su_aplicación> para que acceda a los datos de su organización. De esta forma, los usuarios podrán acceder a <nombre_su_aplicación> con sus cuentas profesionales.*
+> *Si ya usa Office 365 u otro servicio de negocio de Microsoft, solo tiene que conceder acceso a &lt;nombre_su_aplicación&gt; para que acceda a los datos de su organización. De esta forma, los usuarios podrán acceder a <nombre_su_aplicación> con sus cuentas profesionales.*
 > 
 > 
 

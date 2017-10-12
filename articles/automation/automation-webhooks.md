@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 6c65427fcd18e41a90dfb872aa9525f758b17b87
-ms.contentlocale: es-es
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: d384a1f6e0f6bf49cf94020265fe5675ffc0029d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Inicio de un runbook de Azure Automation con un webhook
 Un *webhook* le permite iniciar un runbook determinado en Automatización de Azure a través de una sola solicitud HTTP. Esto permite a los servicios externos, como Visual Studio Team Services, GitHub, Log Analytics de Microsoft Operations Management Suite o aplicaciones personalizadas, iniciar runbooks sin necesidad de implementar una solución completa mediante la API de Azure Automation.  
@@ -267,4 +266,3 @@ El siguiente runbook de ejemplo se desencadena cuando se activa la regla de aler
 * Para más información sobre las distintas maneras de iniciar un runbook, vea [Inicio de un runbook](automation-starting-a-runbook.md).
 * Para más información sobre cómo ver el estado de un trabajo de runbook, vea [Ejecución de un runbook en Azure Automation](automation-runbook-execution.md).
 * Para más información sobre cómo utilizar Azure Automation para tomar medidas relativas a las alertas de Azure, vea [Escenario de Azure Automation: corrección de las alertas de la máquina virtual de Azure](automation-azure-vm-alert-integration.md).
-

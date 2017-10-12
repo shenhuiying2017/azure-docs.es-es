@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: e31bcfce2c66d9428535fb51c4bbe11bc103a1ad
-ms.contentlocale: es-es
-ms.lasthandoff: 06/21/2017
-
+ms.openlocfilehash: 001d80ce42f0e87276e59d70dffb75eb561d96cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Trabajo con orígenes de macrodatos en el Catálogo de datos de Azure
 ## <a name="introduction"></a>Introducción
@@ -68,4 +67,3 @@ Los patrones que se han descritos en la sección anterior son solo dos formas de
 
 ## <a name="summary"></a>Resumen
 El registro de orígenes de datos en **Catálogo de datos de Azure** facilita su detección y comprensión. Mediante el registro y anotación de los archivos y directorios de macrodatos que representan conjuntos de datos lógicos, puede facilitar a los usuarios la búsqueda y el uso de los orígenes de macrodatos que necesitan.
-

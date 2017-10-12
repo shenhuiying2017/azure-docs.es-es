@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bc14c051fb0f518b1cff2236a61d24cb052700f0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-inspectors-for-this-preview"></a>Inspectores admitidos para esta versión preliminar
 En este documento se describe el conjunto de inspectores disponibles en esta versión preliminar.
 
@@ -113,4 +111,3 @@ Mapa con puntos trazados, suponiendo que se han especificado la latitud y la lon
 ### <a name="actions"></a>Acciones
 Este inspector admite el filtrado mediante la selección de puntos en el mapa. Presione la tecla Control y, después, haga clic y arrastre con el mouse para formar un cuadrado alrededor de los puntos. Después, aplique los filtros como se ha descrito anteriormente.
 Es posible cambiar el tamaño del mapa rápidamente para mostrar todos los puntos posibles y ninguno más. Para ello, presione la **E** situada en el lado izquierdo del mapa.
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Uso del servicio Azure Import/Export para la copia de datos sin conexión en Data Lake Store
 En este artículo, aprenderá a copiar conjuntos de datos de gran tamaño (más de 200 GB) en Azure Data Lake Store mediante el empleo de métodos de copia sin conexión, como el [servicio Azure Import/Export](../storage/common/storage-import-export-service.md). En concreto, el archivo de ejemplo que utilizamos en este artículo tiene 339 420 860 416 bytes; es decir, ocupa unos 319 GB de espacio en disco. Llamaremos a este archivo "319GB.tsv".
@@ -212,4 +211,3 @@ Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importe
 * [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
 * [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
-

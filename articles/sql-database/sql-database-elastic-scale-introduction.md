@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 2a7c761062dcf5da016a2e106274839f5f6c0d13
-ms.contentlocale: es-es
-ms.lasthandoff: 04/20/2017
-
-
+ms.openlocfilehash: 5bb6d17ffd047ae91476c52750f293414d1dfdd5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalado horizontal con Base de datos SQL de Azure
 Es muy fácil escalar horizontalmente bases de datos de SQL Azure mediante las herramientas de **Base de datos elástica** . Estas herramientas y características permiten usar los recursos prácticamente ilimitados de bases de datos de **Base de datos SQL de Azure** con el fin de crear soluciones para cargas de trabajo transaccionales y, especialmente, aplicaciones de software como servicio (SaaS). Las características de la base de datos elástica se componen de lo siguiente:
@@ -105,5 +103,4 @@ Para ver los detalles del grupo elástico, consulte [Consideraciones de precio y
 [2]:./media/sql-database-elastic-scale-introduction/h_versus_vert.png
 [3]:./media/sql-database-elastic-scale-introduction/overview.png
 [4]:./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
-
 

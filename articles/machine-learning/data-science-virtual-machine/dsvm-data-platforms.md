@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9b8beb51c555c6125fa3b0abbad892d627a180b9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-platforms"></a>Plataformas de datos
 
 Data Science Virtual Machine (DSVM) permite crear los análisis en una amplia variedad de plataformas de datos. Además de interfaces para plataformas de datos remotos, DSVM proporciona una instancia local para el desarrollo rápido y la creación de prototipos. 
@@ -106,5 +104,4 @@ Puede detener los servicios relacionados de Hadoop cuando no los necesite; para 
 
 
 Bibliotecas para acceder a datos de Azure Blob o Azure Data Lake Storage (ADLS) y utilizando las bibliotecas de aprendizaje automático de MMLSpark de Microsoft están preinstaladas en $SPARK_HOME/JAR. Estos archivos JAR se carga automáticamente cuando se inicia Spark. De forma predeterminada Spark utiliza datos en el disco local. Para que la instancia de Spark en DSVM acceda a los datos almacenados en Azure Blob o ADLS es necesario crear o configurar el archivo `core-site.xml` basado en la plantilla que se encuentra en $SPARK_HOME/conf/core-site.xml.template (donde hay marcadores de posición para las configuraciones de Blob y ADLS) con las credenciales adecuadas para Azure Blob y Azure Data Lake Storage. Encontrar más pasos para crear las credenciales del servicio ADLS [aquí](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). Una vez que las credenciales para Azure Blob o ADLS se escriben en el archivo core-site.xml, puede hacer referencia a los datos almacenados en esos orígenes con el prefijo URI de wasb: / / o adl: / /. 
-
 

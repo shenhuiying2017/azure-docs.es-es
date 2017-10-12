@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: sstein
 ms.openlocfilehash: 1925d4ff8f5b16a0df56de987f8653cfd8441c52
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Query Performance Insight de Base de datos SQL de Azure
 La administración y ajuste del rendimiento de las bases de datos relacionales son tareas difíciles que requieren una gran inversión de tiempo y muchos conocimientos. Información de rendimiento de consultas permite dedicar menos tiempo a la solución de problemas de rendimiento de bases de datos, ya que proporciona:

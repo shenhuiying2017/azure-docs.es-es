@@ -15,12 +15,11 @@ ms.date: 06/21/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: cd3548e4e4ff71aeb3c3fd30eb6c162a70d90879
-ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integración de aplicación SaaS con Azure Active Directory
 
@@ -34,7 +33,7 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 
 | Logotipo | Tutorial de aplicación para inicio de sesión único | Tutorial de aplicación para aprovisionamiento de usuarios |
 | :---: | :--- | :--- |
-| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-andfrankly-tutorial.png)| [&frankly](active-directory-saas-andfrankly-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-andfrankly-tutorial.png)| [&amp;frankly](active-directory-saas-andfrankly-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_AtTask.png)| [@Task](active-directory-saas-attask-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-10000ftplans-tutorial.png)| [10,000ft Plans](active-directory-saas-10000ftplans-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/saasapp_123contactform.png)| [123ContactForm](active-directory-saas-123contactform-tutorial.md)|
@@ -352,7 +351,7 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-symantec-tutorial.png)| [Symantec Web Security Service (WSS)](active-directory-saas-symantec-tutorial.md)||
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Syncplicity.png)| [Syncplicity](active-directory-saas-syncplicity-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Synergi.png)| [Synergi](active-directory-saas-synergi-tutorial.md)|
-| ![Logotipo](./media/active-directory-saas-tutorial-list/saasapp_tandeexpress.png)| [T&E Express](active-directory-saas-tyeexpress-tutorial.md)|
+| ![Logotipo](./media/active-directory-saas-tutorial-list/saasapp_tandeexpress.png)| [T&amp;E Express](active-directory-saas-tyeexpress-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_TableauOnline.png)| [Tableau Online](active-directory-saas-tableauonline-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Tableau.png)| [Tableau Server](active-directory-saas-tableauserver-tutorial.md)|
 | ![Logotipo](./media/active-directory-saas-tutorial-list/active-directory-saas-talentlms-tutorial.png)| [TalentLMS](active-directory-saas-talentlms-tutorial.md)|
@@ -418,4 +417,3 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
-

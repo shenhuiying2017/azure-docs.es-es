@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
 ms.openlocfilehash: 9e14e95793bcc81ad46783fd50ba223eec4ea360
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Agregue autenticación a su aplicación de Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -338,7 +338,7 @@ En esta sección se muestra cómo implementar la interfaz **IAuthenticate** en p
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha completado este tutorial de autenticación básica, considere la posibilidad de continuar con uno de los siguientes tutoriales:
 
-* [Incorporación de notificaciones push a su aplicación](app-service-mobile-xamarin-forms-get-started-push.md)
+* [Agregar notificaciones push a la aplicación](app-service-mobile-xamarin-forms-get-started-push.md)
 
   : aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar Azure Notification Hubs para enviar notificaciones push.
 * [Activación de la sincronización sin conexión para la aplicación de Windows](app-service-mobile-xamarin-forms-get-started-offline-data.md)

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
+ms.openlocfilehash: 13297eafd957d926dfd311a14c4ba9351e55e2bc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ac51126fa1f71b2efc1d3054b2cee328bae94bca
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copia de datos con SQL Server como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +59,7 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
 | connectionString |Especifique la información de connectionString necesaria para conectarse a la base de datos SQL Server mediante autenticación de SQL o autenticación de Windows. Marque este campo como SecureString. |Sí |
 | userName |Especifique el nombre de usuario si usa la autenticación de Windows. Ejemplo: **nombreDeDominio\\nombreDeUsuario**. |No |
 | Contraseña |Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString. |No |
-| connectVia | El tipo de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar Integration Runtime autohospedado o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará la opción predeterminada, Azure Integration Runtime. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |No |
 
 **Ejemplo 1: con autenticación de SQL**
 
@@ -111,7 +110,7 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Para ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de SQL Server.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de SQL Server.
 
 Para copiar datos con la base de datos SQL Server como origen o destino, establezca la propiedad type del conjunto de datos en **SqlServerTable**. Se admiten las siguientes propiedades:
 
@@ -141,7 +140,7 @@ Para copiar datos con la base de datos SQL Server como origen o destino, estable
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
-Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que admiten el origen y receptor de SQL Server.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que admiten el origen y receptor de SQL Server.
 
 ### <a name="sql-server-as-source"></a>SQL Server como origen
 
@@ -152,7 +151,7 @@ Si va a copiar datos desde SQL Server, establezca el tipo de origen de la activi
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **SqlSource** | Sí |
 | SqlReaderQuery |Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |No |
-| storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son: pares nombre/valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
+| storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son: pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
 
 **Puntos a tener en cuenta:**
 
@@ -257,7 +256,7 @@ Si va a copiar datos en SQL Server, establezca el tipo de receptor de la activid
 | writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (valor predeterminado = 10000) |
 | writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |No |
 | sqlWriterStoredProcedureName |Nombre del procedimiento almacenado que actualiza e inserta (operación de upsert) datos en la tabla de destino. |No |
-| storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son: pares nombre/valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
+| storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son: pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
 | sqlWriterTableType |Especifique el nombre del tipo de tabla que se usará en el procedimiento almacenado anterior. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. |No |
 | preCopyScript |Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en SQL Server en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. |No |
 

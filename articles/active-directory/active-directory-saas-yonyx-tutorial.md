@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 522f440a0b3746e1101aed845678b3930e030fec
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutorial: integración de Azure Active Directory con Yonyx Interactive Guides
 
@@ -233,5 +232,4 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-yonyx-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-yonyx-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-yonyx-tutorial/tutorial_general_203.png
-
 

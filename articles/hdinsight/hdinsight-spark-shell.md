@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2017
 ms.author: maxluk
+ms.openlocfilehash: 48c6a24f6c820eaf09da6fa3a0a496ddbef1e7a0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 108b2e25dee63a15ac703d2a9b617bfb155f95da
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-spark-from-the-spark-shell"></a>Ejecución de Spark desde el shell de Spark
 
@@ -79,5 +78,4 @@ El comando de shell de Spark (`spark-shell`, `pyspark`, o `sparkR`) admite mucho
 - Para obtener información general, consulte [Introducción a Spark en Azure HDInsight](hdinsight-apache-spark-overview.md).
 - Si quiere trabajar con SparkSQL y los clústeres de Spark, lea [Creación de un clúster de Apache Spark en Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 - Para escribir aplicaciones que procesen datos de streaming con Spark, consulte el artículo que explica [qué es el streaming estructurado de Spark](hdinsight-spark-streaming-overview.md).
-
 

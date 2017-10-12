@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Creación y publicación de un producto en Marketplace
 
-*Se aplica a los sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
 ## <a name="create-a-marketplace-item"></a>Creación de un elemento para Marketplace
 1. [Descargue](http://www.aka.ms/azurestackmarketplaceitem) la herramienta Azure Gallery Packager y el elemento de ejemplo de la plataforma Marketplace de Azure Stack.
@@ -160,5 +159,4 @@ Los iconos y el texto de los elementos de Marketplace, tal como se muestran en e
 
 ### <a name="marketplace-item-details-blade"></a>Hoja de detalles de elemento de Marketplace
 ![Hoja de detalles de elemento de Marketplace](media/azure-stack-marketplace-item-ui-reference/image3.png)
-
 

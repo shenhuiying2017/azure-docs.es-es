@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2f2125e739b738847e03ce429d65801969611685
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Lenguajes admitidos en Data Science Virtual Machine 
 
 Data Science Virtual Machine (DSVM) incorpora varios lenguajes predefinidos y herramientas de desarrollo para compilar sus aplicaciones de AI. Estos son algunos de los más destacados. 
@@ -199,6 +197,5 @@ La ubicación predeterminada de Julia es un entorno global que todos los usuario
 **node.js**: node.js está disponible en la edición para Windows y Linux de DSVM y establecido en la ruta de acceso. Puede escribir el comando `node` o `npm` en el símbolo del sistema (Windows) o en el shell Bash (Linux) para obtener acceso a node.js. En Windows, la extensión de las Herramientas de Node.js para Visual Studio se instala para proporcionar un IDE gráfico para desarrollar su aplicación node.js. 
 
 **F#**: Disponible en Windows y accesible a través de la edición Visual Studio Community o en un `Developer Command Prompt for Visual Studio`, donde solo puede ejecutar el comando `fsc`. 
-
 
 

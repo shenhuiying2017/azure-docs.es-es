@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/02/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 1e2ce06f5993280dbdb67121849591e67f7979e9
-ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-azure-service-bus-connector"></a>Introducción al conector del Bus de servicio de Azure
 Conéctese al Bus de servicio de Azure para enviar y recibir mensajes. Puede realizar acciones como enviar a la cola, enviar al tema, recibir de la cola, recibir de la suscripción, etc.
@@ -52,5 +51,4 @@ Vea los desencadenadores y las acciones definidos en Swagger y vea también todo
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Crear una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
-
 

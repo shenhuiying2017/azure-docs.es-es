@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
 ms.openlocfilehash: c4e8ceee4104c3d3a6c3e6b79322ba1cf8463b22
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>Introducción al SDK de Windows Phone Silverlight para Azure Mobile Engagement
 Comience aquí para obtener los detalles sobre cómo integrar Azure Mobile Engagement en una aplicación de Windows Phone Silverlight. Si primero quiere probarlo, asegúrese de completar nuestro [tutorial de 15 minutos](mobile-engagement-windows-phone-get-started.md).

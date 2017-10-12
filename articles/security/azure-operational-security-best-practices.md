@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: ed3c4bf2dcdda3e04a18682da568ae73f41bb37d
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 Con seguridad operativa de Azure, se hace referencia a los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Microsoft Azure. La seguridad operativa de Azure se basa en una plataforma que incorpora el conocimiento adquirido a través de diversas funcionalidades exclusivas de Microsoft, incluido el ciclo de vida de desarrollo de seguridad (SDL) de Microsoft, el programa Microsoft Security Response Center y un conocimiento en profundidad del panorama de amenazas de ciberseguridad.
 
@@ -178,4 +176,3 @@ Estas son algunas de las prácticas incluidas en la lista de Azure DevOps en est
 - Más información acerca de la [Seguridad operativa de Azure](https://docs.microsoft.com/azure/security/azure-operational-security).
 - Para más información, consulte [Detección de amenazas y prevención con seguridad avanzada en la nube](https://www.microsoft.com/cloud-platform/security-and-compliance).
 - [Introducción a la solución Seguridad y auditoría de Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started).
-

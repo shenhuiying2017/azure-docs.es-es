@@ -11,14 +11,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-serverless-api-using-azure-functions"></a>Creación de una API sin servidor mediante Azure Functions
 
 En este tutorial, aprenderá cómo Azure Functions permite crear API de gran escalabilidad. Azure Functions incluye una colección de enlaces y desencadenadores HTTP integrados que facilitan la creación de un punto de conexión en diversos lenguajes, como Node.JS, C# y muchos más. En este tutorial, va a personalizar un desencadenador HTTP para administrar acciones específicas en el diseño de la API. También va a prepararse para ampliar su API integrándola con Servidores proxy de Azure Functions y configurando API simuladas. Todo esto se logra en un entorno de proceso sin servidor de Functions, por lo que no tiene que preocuparse de escalar los recursos; puede centrarse simplemente en la lógica de la API.
@@ -195,4 +193,3 @@ Las siguientes referencias pueden serle de ayuda a medida que sigue desarrolland
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
 [Uso de Servidores proxy de Azure Functions (versión preliminar)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
-

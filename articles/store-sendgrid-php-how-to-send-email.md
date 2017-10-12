@@ -14,12 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
 ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.contentlocale: es-es
-ms.lasthandoff: 12/08/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Uso del servicio de correo electrónico SendGrid desde PHP
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en PHP.
@@ -399,4 +398,3 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [entrega de correo electrónico transaccional]: https://sendgrid.com/transactional-email
 [sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
 [Compositor]: https://getcomposer.org/download/
-

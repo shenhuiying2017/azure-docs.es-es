@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.openlocfilehash: 4b0a57c3bab688487eb9a50461b406e1a6e477c6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Activación de la sincronización sin conexión para la aplicación de Windows
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -44,7 +44,7 @@ Las características sin conexión de Aplicaciones móviles de Azure permiten in
 1. Instale el [entorno en tiempo de ejecución de SQLite para la plataforma universal de Windows](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 2. En Visual Studio, abra el Administrador de paquetes NuGet en el proyecto de aplicación de UWP que completó en el tutorial [Creación de una aplicación para Windows].
     Busque e instale el paquete NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
-3. En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** > **Agregar referencia...** > **Universal de Windows** > **Extensiones** y después habilite tanto **SQLite para la Plataforma universal de Windows** como **Tiempo de ejecución de Visual C++ 2015 para Aplicaciones de la Plataforma universal de Windows**.
+3. En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** > **Agregar referencia...** >**Universal de Windows**>**Extensiones** y después habilite tanto **SQLite para la Plataforma universal de Windows** como **Tiempo de ejecución de Visual C++ 2015 para Aplicaciones de la Plataforma universal de Windows**.
 
     ![Incorporación de referencia de SQLite UWP][1]
 4. Abra el archivo MainPage.xaml.cs y quite la definición `#define OFFLINE_SYNC_ENABLED`.

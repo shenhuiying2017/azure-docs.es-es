@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ac93b5eb4228cef373428b7b69932d5993d54fa0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dns-in-azure-stack"></a>DNS en Azure Stack
 
@@ -85,10 +84,10 @@ En el nivel de la API de REST de DNS de Azure Stack, los valores de ETag se espe
 
 | Encabezado | Comportamiento|
 |--------|---------|
-| None   | PUT always succeeds (no Etag checks)|
-| If-match| PUT only succeeds if resource exists and Etag matches|
-| If-match *| PUT only succeeds if resource exists|
-| If-none-match *| PUT only succeeds if resource does not exist|
+| Ninguna   | PUT siempre se realiza correctamente (sin comprobaciones de ETag)|
+| If-match| PUT solo se realiza correctamente si el recurso existe y ETag coincide|
+| If-match *| PUT solo se realiza correctamente si el recurso existe|
+| If-none-match *| PUT solo se realiza correctamente si el recurso no existe|
 
 ### <a name="limits"></a>límites
 
@@ -102,4 +101,3 @@ Se aplican los límites predeterminados siguientes cuando se usa el DNS de Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Presentación de iDNS para Azure Stack](azure-stack-understanding-dns.md)
-

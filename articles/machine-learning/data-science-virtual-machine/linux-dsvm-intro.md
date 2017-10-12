@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e36c28ef1c05dcdcebc7372316c7f144c92fd02f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Aprovisionamiento de una instancia de Data Science Virtual Machine de Linux CentOS en Azure
 
@@ -251,7 +250,7 @@ Para acceder a **Postgres**:
 En la VM se instalan las siguientes herramientas de Azure:
 
 * **Interfaz de la línea de comandos de Azure**: la CLI de Azure permite crear y administrar recursos de Azure mediante comandos de shell. Para invocar las herramientas de Azure, escriba **azure help**. Para obtener más información, consulte la [página de documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Explorador de Microsoft Azure Storage**: el explorador de Microsoft Azure Storage es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Azure Storage y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de almacenamiento desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Tiene que haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
+* **Explorador de almacenamiento de Microsoft Azure**: explorador de Almacenamiento de Microsoft Azure es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Almacenamiento de Azure y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de almacenamiento desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Tiene que haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
 * **Bibliotecas de Azure**: a continuación, figuran algunas de las bibliotecas preinstaladas.
   
   * **Python**: las bibliotecas relacionadas con Azure en Python que están instaladas son **azure**, **azureml**, **pydocumentdb** y **pyodbc**. Las tres primeras bibliotecas permiten acceder a los servicios de Azure Storage, a Azure Machine Learning y a Azure Cosmos DB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a SQL Server, Azure SQL Database y Azure SQL Data Warehouse desde Python mediante una interfaz ODBC. Escriba **pip list** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en los entornos de Python 2.7 y 3.5.
@@ -374,5 +373,4 @@ A continuación, mostramos cómo puede continuar con las tareas de aprendizaje y
 * Explore las diversas herramientas de ciencia de datos en la máquina virtual de ciencia de datos probando las herramientas descritas en este artículo. También puede ejecutar *dsvm-more-info* en el shell de la máquina virtual para obtener un introducción básica y referencias para consultar más información sobre las herramientas instaladas en la máquina virtual.  
 * Aprenda a crear soluciones analíticas completas mediante el uso sistemático del [proceso de ciencia de datos en equipo](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visite la [Galería de Cortana Analytics](http://gallery.cortanaanalytics.com) para ver ejemplos de aprendizaje automático y de análisis de datos con Cortana Analytics Suite.
-
 

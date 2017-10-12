@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
-ms.openlocfilehash: 6ad91429794e465be7cb26963d032d9357143053
-ms.contentlocale: es-es
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 2328fe6e6b35ce523f8bf90cbe6159c7ba23d697
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Administración de la configuración de la comprobación en dos pasos
 Este artículo ofrece respuestas a preguntas acerca de cómo actualizar la configuración de actualización en dos pasos o la autenticación multifactor. Si tiene problemas para iniciar sesión en su cuenta, consulte [Problemas con la comprobación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md) para obtener ayuda para la solución de problemas.
@@ -71,4 +70,3 @@ Cuando desinstala la aplicación del dispositivo o restablece el dispositivo, no
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtener sugerencias para solucionar problemas y necesita ayuda [Problemas con la comprobación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md)
 * Configure [contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) para las aplicaciones que no admiten la comprobación en dos pasos.
-

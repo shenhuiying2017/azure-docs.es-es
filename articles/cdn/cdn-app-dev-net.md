@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2d7b2f5feefc4d25c36a5fd30ca1d666b904f58
-
-
+ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de la red de entrega de contenido (CDN) de Azure
 > [!div class="op_single_selector"]
@@ -340,10 +340,4 @@ Para ver el proyecto de este tutorial terminado, [descargue el ejemplo](https://
 Para ver más documentación sobre la biblioteca de administración de red CDN de Azure para .NET, consulte la [referencia en MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
 Administre sus recursos de red CDN con [PowerShell](cdn-manage-powershell.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

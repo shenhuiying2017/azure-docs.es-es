@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 30173f8eea2ccbbcd44018596cf34b3769a64b50
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
 La actividad de búsqueda puede usarse para leer o buscar un registro, un nombre de tabla o un valor de cualquier origen externo. Además, las actividades posteriores pueden hacer referencia a esta salida. 
@@ -244,4 +243,3 @@ Consulte otras actividades de flujo de control compatibles con Data Factory:
 - [Para cada actividad](control-flow-for-each-activity.md)
 - [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md)
 - [Actividad web](control-flow-web-activity.md)
-

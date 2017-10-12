@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 18719a8f49c74973947517161f7306c233a9323f
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificación de mensajes X12 para Azure Logic Apps con Enterprise Integration Pack
 
@@ -100,5 +99,4 @@ Vea los [detalles de Swagger](/connectors/x12/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Más información sobre Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack") 
-
 

@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
+ms.openlocfilehash: 030a09c05ac4b480c9326b8a9ebc585339f312b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7d2bc89943087323e92cf06981bbacaf4b8ff060
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Roles web y de trabajo de Python con herramientas de Python para Visual Studio
 
@@ -64,7 +63,7 @@ Puede agregar roles web o de trabajo a un servicio en la nube que ya existe en c
 
 ![Comando Agregar rol](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
-Su servicio en la nube puede contener roles implementados en diferentes lenguajes.  Por ejemplo, puede tener un rol web de Python implementado con Django, con Python o con roles de trabajo de C#.  Puede comunicarse fácilmente entre sus roles usando colas de Service Bus o colas de almacenamiento.
+Su servicio en la nube puede contener roles implementados en diferentes lenguajes.  Por ejemplo, puede tener un rol web de Python implementado con Django, con Python o con roles de trabajo de C#.  Puede comunicarse fácilmente entre sus roles usando colas del Bus de servicio o colas de almacenamiento.
 
 ## <a name="install-python-on-the-cloud-service"></a>Instalación de Python en el servicio en la nube
 > [!WARNING]
@@ -367,4 +366,3 @@ Para más información sobre el uso de servicios de Azure desde roles web y de t
 [Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/
-

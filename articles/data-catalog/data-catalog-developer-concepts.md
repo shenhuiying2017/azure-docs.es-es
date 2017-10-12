@@ -16,10 +16,10 @@ ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
 ms.openlocfilehash: f48eb610b47820e6d7438520a00a5e6dfe879e01
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceptos para desarrolladores del Catálogo de datos de Azure
 **Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que proporciona capacidades de detección de origen de datos y para metadatos de origen de datos de micromecenazgo. Los desarrolladores pueden usar el servicio a través de sus API de REST. Comprender los conceptos que se implementa en el servicio es importante para los desarrolladores para integrarse correctamente con **Catálogo de datos de Azure**.

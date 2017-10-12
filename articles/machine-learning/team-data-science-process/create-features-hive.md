@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0c8c2ab8c7daceb13fd39d2a109148a40430d59a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Crear características para datos en un clúster de Hadoop mediante consultas de Hive
 Este documento muestra cómo crear características para los datos almacenados en un clúster de Hadoop para HDInsight de Azure mediante consultas de Hive. Estas consultas de Hive usan funciones definidas por el usuario (UDF), los scripts para los que se ofrecen.
@@ -169,5 +168,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
         set mapreduce.reduce.java.opts=-Xmx8192m;
         set mapred.reduce.tasks=128;
         set mapred.tasktracker.reduce.tasks.maximum=128;
-
 

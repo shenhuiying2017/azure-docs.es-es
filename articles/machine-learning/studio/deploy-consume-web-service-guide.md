@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9841b61c21586976ee06ffc1fe4d01e3fc3428b6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Servicios web Azure Machine Learning: Implementación y consumo
 Puede usar Azure Machine Learning para implementar flujos de trabajo y modelos de aprendizaje automático como servicios web. Estos servicios web pueden usarse después para llamar a los modelos de aprendizaje automático de las aplicaciones a través de Internet para que realicen predicciones en tiempo real o en modo por lotes. Como estos servicios web son RESTFul, se los puede llamar desde diversos lenguajes de programación y plataformas como .NET y Java, y aplicaciones como Excel.
@@ -97,4 +96,3 @@ Puede descargar una plantilla de Excel para consumir el servicio web:
 
 ### <a name="from-a-rest-based-client"></a>Desde un cliente basado en REST
 Los servicios web Azure Machine Learning son API de RESTful. Puede consumir estas API desde varias plataformas como. NET, Python, R, Java, etc. La página **Consumo** del servicio web en el [portal de Servicios web Microsoft Azure Machine Learning](https://services.azureml.net) incluye código de ejemplo que le ayudará a empezar. Para más información, consulte [Consumo de servicios web de Azure Machine Learning](consume-web-services.md).
-

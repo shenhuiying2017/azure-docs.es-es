@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
-ms.openlocfilehash: 82d5e525859ebe03b152c63e4debbae469049c12
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Realización de detección de intrusiones en la red con Azure Network Watcher y herramientas de código abierto
 
 Las capturas de paquetes son un componente clave de la implementación de sistemas de detección de intrusiones de red (IDS) y de la ejecución de supervisión de seguridad de la red (NSM). Existen varias herramientas IDS de código abierto que procesan las capturas de paquetes y buscan firmas de posibles intrusiones y actividad malintencionada. Con las capturas de paquetes que proporciona Network Watcher, puede analizar la red en busca de intrusiones o vulnerabilidades de carácter dañino.
@@ -82,7 +80,7 @@ Si bien los registros que produce Suricata contienen información valiosa sobre 
 
 #### <a name="install-elasticsearch"></a>Instalación de Elasticsearch
 
-1. La versión 5.0 y superior de Elastic Stack requiere Java 8. Ejecute el comando `java -version` para comprobar la versión. Si no tiene instalado Java, consulte la documentación en el [sitio web de Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
+1. La versión 5.0 y superiores de Elastic Stack requieren Java 8. Ejecute el comando `java -version` para comprobar la versión. Si no tiene instalado Java, consulte la documentación en el [sitio web de Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
 1. Descargue el paquete binario correcto para su sistema:
 
     ```
@@ -91,9 +89,9 @@ Si bien los registros que produce Suricata contienen información valiosa sobre 
     sudo /etc/init.d/elasticsearch start
     ```
 
-    Otros métodos de instalación se pueden encontrar en [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html) (Instalación de Elasticsearch).
+    Puede encontrar otros métodos de instalación en [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html) (Instalación de Elasticsearch).
 
-1. Compruebe que Elasticsearch se está ejecutando con el comando:
+1. Compruebe que Elasticsearch se esté ejecutando con el comando:
 
     ```
     curl http://127.0.0.1:9200
@@ -116,7 +114,7 @@ Si bien los registros que produce Suricata contienen información valiosa sobre 
     }
     ```
 
-Para obtener más instrucciones sobre cómo instalar Elasticsearch, consulte la página de [instalación](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
+Para más instrucciones sobre cómo instalar Elasticsearch, consulte la página de [instalación](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
 
 ### <a name="install-logstash"></a>Instalación de Logstash
 
@@ -126,7 +124,7 @@ Para obtener más instrucciones sobre cómo instalar Elasticsearch, consulte la 
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. A continuación, debemos configurar Logstash para leer la salida del archivo eve.json. Cree un archivo logstash.conf mediante:
+1. A continuación, se debe configurar Logstash para que lea la salida del archivo eve.json. Cree un archivo logstash.conf mediante:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -297,4 +295,3 @@ Aprenda a visualizar los registros de flujo de grupos de seguridad de red con Po
 [5]: ./media/network-watcher-intrusion-detection-open-source-tools/figure5.png
 [6]: ./media/network-watcher-intrusion-detection-open-source-tools/figure6.png
 [7]: ./media/network-watcher-intrusion-detection-open-source-tools/figure7.png
-

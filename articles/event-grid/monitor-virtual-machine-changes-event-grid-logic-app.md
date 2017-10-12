@@ -11,14 +11,12 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: LADocs; estfan
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 4d4c16860dbec10162797a13c8f9f57106abd17f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps
 
 Puede iniciar automáticamente el [flujo de trabajo de una aplicación lógica](../logic-apps/logic-apps-what-are-logic-apps.md) cuando se producen eventos específicos en recursos de Azure o de otros fabricantes. Estos recursos pueden publicar esos eventos en una [cuadrícula de eventos Azure](../event-grid/overview.md). A su vez, la cuadrícula de eventos envía esos eventos a los suscriptores que tienen colas, webhooks o [centros de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) como puntos de conexión. Como suscriptor, su aplicación lógica puede esperar esos eventos desde la cuadrícula de eventos antes de ejecutar flujos de trabajo automatizados para llevar a cabo ciertas tareas, sin escribir código.
@@ -51,7 +49,7 @@ En este tutorial, aprenderá a:
 
 En primer lugar, cree una aplicación lógica y agregue un desencadenador de la cuadrícula de eventos que supervise el grupo de recursos de la máquina virtual. 
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
 
 2. En la esquina superior izquierda del menú principal de Azure, elija **Nuevo** > **Integración empresarial** > **Aplicación lógica**.
 

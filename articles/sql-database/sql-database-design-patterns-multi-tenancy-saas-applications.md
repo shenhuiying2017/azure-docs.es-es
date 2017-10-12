@@ -16,13 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
-ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Modelos de diseño para las aplicaciones SaaS multiinquilino y Azure SQL Database
 En este artículo aprenderá sobre los requisitos y modelos de arquitectura de datos comunes de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino que se ejecutan en un entorno de nube. También se explican los factores que debe tener en cuenta, así como las ventajas y desventajas de los distintos modelos de diseño. Los grupos y herramientas elásticos de Base de datos SQL de Azure pueden ayudarle a satisfacer necesidades específicas sin poner en peligro otros objetivos.
@@ -169,5 +167,4 @@ Aprenda a [supervisar y administrar un grupo elástico](sql-database-elastic-poo
 ## <a name="questions-and-feature-requests"></a>Preguntas y solicitudes de características
 
 Si tiene preguntas, nos encontrará en el [foro de Base de datos SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Agregue una solicitud de característica en el [foro de comentarios de Base de datos SQL](https://feedback.azure.com/forums/217321-sql-database/).
-
 

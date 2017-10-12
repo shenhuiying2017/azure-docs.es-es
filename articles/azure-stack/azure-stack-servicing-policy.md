@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2c99f19b30d2cdfdf65dea6dd3909b88ffc15dd
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-stack-servicing-policy"></a>Directiva de mantenimiento de Azure Stack
 
@@ -67,6 +66,5 @@ En la tabla siguiente se muestran las versiones de actualización, su requisito 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Administrar las actualizaciones en Azure Stack](azure-stack-updates.md)
-
 
 

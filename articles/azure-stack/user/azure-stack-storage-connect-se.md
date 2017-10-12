@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8cd52e9561f2ad92664c01959df8919aa56e8738
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Conexión del Explorador de Storage a una suscripción de Azure Stack
 
@@ -113,4 +112,3 @@ Ahora ya está listo para conectar el Explorador de Storage a una suscripción d
 [29]: ./media/azure-stack-storage-connect-se/add-azure-stack-account.png
 [30]: ./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png
 [31]: ./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png
-

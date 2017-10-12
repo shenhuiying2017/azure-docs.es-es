@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 3711363dea77a2671a8d35a92895bee91a803bc0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-container-service-kubernetes-windows-cluster"></a>Creación de un clúster de Azure Container Service con Kubernetes para Windows
 
 En este ejemplo se crea un clúster de Azure Container Service que ejecuta Kubernetes para los contenedores basados en Windows.
@@ -69,4 +67,3 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Puede encontrar ejemplos de script adicionales de la CLI de Azure Container Service en la [documentación de Azure Container Service](../cli-samples.md).
-

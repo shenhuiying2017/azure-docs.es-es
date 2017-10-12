@@ -12,12 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ceecc718f8198e9a88cae4acbe97e7f26d95f984
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="executing-data-sources-and-data-preparation-packages-from-python"></a>Ejecutar paquetes de preparación de datos y de orígenes de datos desde Python
 
@@ -51,4 +50,3 @@ El módulo `azureml.dataprep.package` contiene tres funciones que ejecutan un fl
 - `dataflow_idx` es el índice de base cero del flujo de datos del paquete que se va a ejecutar. Si el flujo de datos especificado hace referencia a otros flujos de datos o a otros orígenes de datos, también se ejecutarán.
 - `secrets` es un diccionario opcional que asigna claves a los secretos.
 - `spark` es un booleano opcional que especifica si se debe devolver una trama de datos de Spark o una trama de datos de Pandas. De forma predeterminada, Azure ML Workbench determina qué tipo de trama de datos se va a devolver en tiempo de ejecución en función del contexto.
-

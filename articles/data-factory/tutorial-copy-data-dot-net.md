@@ -3,7 +3,7 @@ title: Copia de datos de Azure Blob Storage a SQL Database | Microsoft Docs
 description: "Este tutorial proporciona instrucciones detalladas sobre cómo copiar datos desde Azure Blob Storage a Azure SQL Database."
 services: data-factory
 documentationcenter: 
-author: sharonlo101
+author: linda33wj
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -11,24 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2017
-ms.author: shlo
+ms.date: 09/26/2017
+ms.author: jingwang
+ms.openlocfilehash: 6f1a93c2906eaab82dcfb9bae1ee4a54dce300bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 80abdd1524160427c17e05bd0086d2c7f6a54910
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copia de datos del blob de Azure a Azure SQL Database mediante Azure Data Factory
-Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo controlados por datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Con Azure Data Factory, puede crear y programar flujos de trabajo controlados por datos (llamados canalizaciones) que pueden ingerir datos de distintos almacenes de datos, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse, para que los consuman las aplicaciones de inteligencia empresarial (BI). 
+Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI). 
 
 En este tutorial, creará una canalización de Data Factory que copia datos de Azure Blob Storage a Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) (Almacenes de datos admitidos).
 
 En este tutorial, realizará los siguientes pasos:
 
 > [!div class="checklist"]
-> * Creación de una factoría de datos
+> * Creación de una factoría de datos.
 > * Creación de servicios vinculados con Azure SQL Database y Azure Storage
 > * Creación de conjuntos de datos de Azure SQL Database y el blob de Azure
 > * Creación de una canalización que contiene una actividad de copia
@@ -41,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Cuenta de Almacenamiento de Azure**. Blob Storage se puede usar como almacén de datos de **origen**. Si no tiene ninguna cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
+* **Cuenta de Almacenamiento de Azure**. Blob Storage se puede usar como almacén de datos de **origen**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
 * **Base de datos de SQL Azure**. La base de datos se puede usar como almacén de datos **receptor**. Si no tiene ninguna instancia de Azure SQL Database, consulte el artículo [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
 * **Visual Studio** 2015 o 2017. En el tutorial de este artículo se usa Visual Studio 2017.
 * **Descargue e instale [SDK de .NET de Azure](http://azure.microsoft.com/downloads/)**.
@@ -164,7 +163,7 @@ Con Visual Studio 2015 o 2017, cree una aplicación de consola .NET de C#.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-Agregue el código siguiente al método **Main** que crea una **factoría de datos**.
+Agregue el código siguiente al método **main** que crea una **factoría de datos**.
 
 ```csharp
 // Create a data factory
@@ -295,7 +294,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(sqlDataset, client.Serializati
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 
-Agregue el código siguiente al método **Main** que crea una **canalización con una actividad de copia**. En este tutorial, esta canalización contiene una actividad: la actividad de copia, que toma el conjunto de datos del blob como origen y el conjunto de datos SQL como receptor. Obtenga más información en la sección [Copy Activity Overview](copy-activity-overview.md) (Información general de actividad de copia) sobre los detalles de la actividad de copia.
+Agregue el código siguiente al método **main** que crea una **canalización con una actividad de copia**. En este tutorial, esta canalización contiene una actividad: la actividad de copia, que toma el conjunto de datos del blob como origen y el conjunto de datos SQL como receptor. Obtenga más información en la sección [Copy Activity Overview](copy-activity-overview.md) (Información general de actividad de copia) sobre los detalles de la actividad de copia.
 
 ```csharp
 // Create a pipeline with copy activity
@@ -510,7 +509,6 @@ Checking copy activity run details...
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
   "usedCloudDataMovementUnits": 2,
   "billedDuration": 2
-
 }
 
 Press any key to exit...
@@ -518,10 +516,10 @@ Press any key to exit...
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-La canalización de este ejemplo copia los datos de una ubicación a otra en una instancia de Azure Blob Storage. Ha aprendido a realizar lo siguiente: 
+La canalización de este ejemplo copia los datos de una ubicación a otra en una instancia de Azure Blob Storage. Ha aprendido a: 
 
 > [!div class="checklist"]
-> * Creación de una factoría de datos
+> * Creación de una factoría de datos.
 > * Creación de servicios vinculados con Azure SQL Database y Azure Storage
 > * Creación de conjuntos de datos de Azure SQL Database y el blob de Azure
 > * Creación de una canalización que contiene una actividad de copia
@@ -533,4 +531,3 @@ Pase al tutorial siguiente para obtener información sobre cómo copiar datos de
 
 > [!div class="nextstepaction"]
 >[Copiar datos del entorno local a la nube](tutorial-hybrid-copy-powershell.md)
-

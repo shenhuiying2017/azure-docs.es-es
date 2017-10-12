@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.custom: oldportal;it-pro;
+ms.openlocfilehash: 497beb75d1bd4c0709929948a9f857a034364f44
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Administración del directorio para la suscripción de Office 365 en Azure
 En este artículo se describe cómo administrar un directorio que se creó para una suscripción de Office 365 mediante el Portal de Azure clásico. Para iniciar sesión en el Portal de Azure clásico, es preciso ser administrador de servicios o coadministrador de una suscripción de Azure. Si aún no dispone de una suscripción de Azure, desde este vínculo puede registrarse ahora mismo para disfrutar de una [evaluación gratuita durante 30 días](https://azure.microsoft.com/trial/get-started-active-directory/) e implementar su primera solución en la nube en menos de 5 minutos. Asegúrese de que utiliza la misma cuenta profesional o educativa que utilizó para iniciar sesión en Office 365.
@@ -34,8 +34,8 @@ Si ya tiene una suscripción a Azure, el proceso para administrar un directorio 
 
 | Subscription | Office 365 | Las tablas de Azure |
 | --- | --- | --- |
-|   Nombre para mostrar |Contoso |Directorio de Azure Active Directory (Azure AD) predeterminado |
-|   Nombre de dominio |contoso.com |msmithhotmail.onmicrosoft.com |
+|   Nombre para mostrar | Contoso | Directorio de Azure Active Directory (Azure AD) predeterminado |
+|   Nombre de dominio | contoso.com | msmithhotmail.onmicrosoft.com |
 
 Michael Smith desea administrar las identidades de usuario en el directorio Contoso, ya que ha iniciado sesión en Azure con su cuenta de Microsoft. Quiere habilitar características de Azure AD, como la autenticación multifactor. El diagrama siguiente puede ayudarle a ilustrar el proceso.
 
@@ -70,4 +70,3 @@ Ahora supongamos que Jane Doe necesita administrar sitios web y recursos de la b
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la relación entre suscripciones y directorios, consulte [Asociación de una suscripción con un directorio](active-directory-how-subscriptions-associated-directory.md).
-

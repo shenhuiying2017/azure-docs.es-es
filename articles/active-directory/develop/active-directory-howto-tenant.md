@@ -16,10 +16,10 @@ ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.openlocfilehash: fe33d490b754e2f793f5c7a13dc55ca038b1b71c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Obtención de un inquilino de Azure Active Directory
 En Azure Active Directory (Azure AD), un [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) es un representante de una organización.  Se trata de una instancia dedicada del servicio de Azure AD que recibe una organización y que posee cuando registra un servicio en la nube de Microsoft, como Azure, Microsoft InTune u Office 365.  Cada inquilino de Azure AD es distinto e independiente de los demás inquilinos de Azure AD.  

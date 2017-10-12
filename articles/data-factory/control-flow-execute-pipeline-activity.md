@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
+ms.openlocfilehash: 39f687a4de9a79e88d11e246cd0097dd9346c0ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 81d631291c5b375cf7425b0089caf6a97ec3b598
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Actividad de ejecución de canalización en Azure Data Factory
 La actividad de ejecución de canalización permite que una canalización de Data Factory invoque otra canalización.
@@ -252,7 +251,7 @@ La canalización principal reenvía estos valores a la canalización invocada, c
 
 ```
 ## <a name="next-steps"></a>Pasos siguientes
-Vea otras actividades de flujo de control compatibles con Data Factory: 
+Consulte otras actividades de flujo de control compatibles con Data Factory: 
 
 - [Para cada actividad](control-flow-for-each-activity.md)
 - [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md)

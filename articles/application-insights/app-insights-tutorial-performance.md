@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 411e10367f02846261f9fcc7717b5abb147b2c09
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 32311136a670261952d9bd0cf372e10a83cfe745
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Búsqueda y diagnóstico de problemas de rendimiento con Azure Application Insights
 
 Azure Application Insights recopila datos de telemetría de cualquier aplicación para ayudarle a analizar su funcionamiento y rendimiento.  Esta información se puede usar para identificar los problemas que se pueden producir o las mejoras en la aplicación que más afectarían a los usuarios.  En este tutorial se recorre todo el proceso de análisis del rendimiento tanto de los componentes de servidor de una aplicación como de la perspectiva del cliente.  Aprenderá a:
@@ -127,4 +125,3 @@ Ahora que ha aprendido a identificar las excepciones en tiempo de ejecución, pa
 
 > [!div class="nextstepaction"]
 > [Alerta por el estado de una aplicación](app-insights-tutorial-alert.md)
-

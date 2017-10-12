@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/03/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 29ccdc9eca9911b2f550f9e09da83d0b1d30f9db
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Creación de una máquina virtual e inclusión de un certificado recuperado de un almacén de claves
 
@@ -28,7 +27,7 @@ En este artículo le ayuda a crear una máquina virtual en Azure Stack y a inser
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Debe suscribirse a una oferta que incluya el servicio Key Vault. 
-* [Instalación de PowerShell para Azure Stack.](azure-stack-powershell-install.md)  
+* [Instale PowerShell para Azure Stack.](azure-stack-powershell-install.md)  
 * [Configuración del entorno de PowerShell del usuario de Azure Stack](azure-stack-powershell-configure-user.md)
 
 Un almacén de claves en Azure Stack se utiliza para almacenar certificados. Los certificados son útiles en varios escenarios diferentes. Por ejemplo, considere un escenario en el que haya una máquina virtual en Azure Stack que está ejecutando una aplicación que necesita un certificado. Este certificado se puede utilizar para cifrar, para la autenticación en Active Directory, o para SSL en un sitio web. Tener el certificado guardado en un almacén de claves, le ayuda a cerciorarse de que está seguro.
@@ -178,6 +177,5 @@ Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Vers
 
 * [Implementación de una máquina virtual con una contraseña de Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
 * [Permitir el acceso de una aplicación a Key Vault](azure-stack-kv-sample-app.md)
-
 
 

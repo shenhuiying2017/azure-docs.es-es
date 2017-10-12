@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7535a21b80a753f7334bd99d4ac9dc8ca8d43f6b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: consideraciones de seguridad para el movimiento de datos
 ## <a name="introduction"></a>Introducción
 En este artículo se describe la infraestructura de seguridad básica que utilizan los servicios de movimiento de datos en Azure Data Factory para proteger los datos. Los recursos de administración de Azure Data Factory están integrados en la infraestructura de seguridad de Azure y aplican todas las medidas de seguridad que ofrece Azure.
@@ -192,4 +190,3 @@ Los siguientes almacenes de datos en la nube necesitan una lista de direcciones 
 Para información sobre el rendimiento de la actividad de copia, consulte la [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md).
 
  
-

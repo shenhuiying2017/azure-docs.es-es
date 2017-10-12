@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d5785c81fb597e7d30eb7d3a880e7194d8358ed5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Trabajo con datos geoespaciales de ubicación y de GeoJSON en Azure Cosmos DB
 Este artículo es una introducción a la funcionalidad geoespacial en [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Después de leer este artículo, podrá responder a las preguntas siguientes:

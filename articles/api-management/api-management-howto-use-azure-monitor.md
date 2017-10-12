@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 717e033aa4bbd4dd8ebcc727c3f551aee81770dc
-ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-api-management-with-azure-monitor"></a>Supervisión de API Management con Azure Monitor
 Azure Monitor es un servicio de Azure que proporciona un único origen para la supervisión de todos los recursos de Azure. Con Azure Monitor, puede visualizar, consultar, redirigir y archivar las métricas y los registros procedentes de recursos de Azure como API Management, así como tomar medidas relacionadas. 
@@ -143,4 +142,3 @@ Para más información sobre cómo usar los registros de diagnóstico, consulte 
 [activity-logs-blade]: ./media/api-management-azure-monitor/api-management-activity-logs-blade.png
 [alert-rules-blade]: ./media/api-management-azure-monitor/api-management-alert-rules-blade.png
 [diagnostic-logs-blade]: ./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png
-

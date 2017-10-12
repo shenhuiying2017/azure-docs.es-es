@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar;chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c83c4db0ada77998354b3fca4e2297335899a9bd
-ms.openlocfilehash: 20a3277370583ccf93b36191a70149ed7d814238
-ms.contentlocale: es-es
-ms.lasthandoff: 02/16/2017
-
+ms.openlocfilehash: 8d3b922f3d50b645ac9db2cc879a319df1262e0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Actualización de la aplicación de Service Fabric: temas avanzados
 ## <a name="adding-or-removing-services-during-an-application-upgrade"></a>Adición o eliminación de servicios durante la actualización de una aplicación
@@ -100,4 +99,3 @@ Puede controlar cómo se actualiza una aplicación usando [parámetros de actual
 Consiga que sus actualizaciones de aplicaciones sean compatibles aprendiendo a usar la [serialización de datos](service-fabric-application-upgrade-data-serialization.md).
 
 Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
-

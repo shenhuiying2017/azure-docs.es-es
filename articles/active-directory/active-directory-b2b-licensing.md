@@ -17,14 +17,12 @@ ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: sasubram
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: dfef32c05af157ae8d3a5434016f87f488a35051
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Guía de concesión de licencias de colaboración B2B de Azure Active Directory
 
 Puede usar funcionalidades de colaboración B2B en Azure AD para invitar a usuarios invitados en su inquilino de Azure AD, que de este modo tienen acceso a servicios de Azure AD y otros recursos de la organización. Si quiere proporcionar acceso a las características de Azure AD de pago, a esos usuarios invitados de colaboración B2B se les deben proporcionar las licencias de Azure AD adecuadas. 
@@ -86,4 +84,3 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
 * [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-
