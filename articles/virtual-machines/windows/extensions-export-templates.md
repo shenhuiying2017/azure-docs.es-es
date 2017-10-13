@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: cc3c705f1c9123de75ced016a5b39eb1a86b0f73
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportación de grupos de recursos que contienen extensiones de VM
 
 Los grupos de recursos de Azure se pueden exportar a una nueva plantilla de Resource Manager que, después, se puede volver a implementar. El proceso de exportación interpreta los recursos existentes y crea una plantilla de Resource Manager que, cuando se implementa, da como resultado un grupo de recursos similar. Cuando se usa la opción de exportación del grupo de recursos en un grupo de recursos que contiene extensiones de máquina virtual, se deben tener en cuenta varios elementos, como la compatibilidad de extensión y la configuración protegida.
@@ -166,4 +164,3 @@ En el ejemplo de la extensión `IaasDiagnostic`, se crearán los siguientes par�
 ```
 
 En este momento, la plantilla se puede implementar mediante cualquier método de implementación de plantilla.
-

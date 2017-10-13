@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
-ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integración del Administrador de recursos de clúster con la administración de clústeres de Service Fabric
 Cluster Resource Manager de Service Fabric no impulsa las actualizaciones en Service Fabric, pero participa. Cluster Resource Manager contribuye a la administración, en primer lugar, realizando un seguimiento del estado deseado del clúster y los servicios que contiene. Además, envía informes de mantenimiento cuando no puede colocar el clúster en la configuración deseada. Por ejemplo, si no hay capacidad suficiente, Cluster Resource Manager envía advertencias y errores de estado que indican el problema. Otro aspecto de la integración tiene que ver con el funcionamiento de las actualizaciones. Durante ellas, Cluster Resource Manager modifica ligeramente su comportamiento.  
@@ -183,7 +182,7 @@ a través de ClusterConfig.json para las implementaciones independientes o Templ
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>Restricciones de dominio de error y dominio de actualización
 Cluster Resource Manager desea mantener los servicios repartidos entre dominios de error y de actualización. Y este requisito lo modela como una restricción dentro del motor de Cluster Resource Manager. Para más información sobre cómo se usan y su comportamiento específico, consulte el artículo sobre la [configuración del clúster](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
 
-Cluster Resource Manager puede necesitar empaquetar un par de réplicas en un dominio de actualización para administrar actualizaciones, errores u otras infracciones de restricción. El empaquetado en dominios de error o de actualización solo sucede cuando hay varios errores u otras renovaciones en el sistema que impiden la correcta colocación. Si desea evitar el empaquetado incluso durante estas situaciones, puede usar la [directiva de colocación](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing) `RequireDomainDistribution`. Sin embargo, considere detenidamente esta decisión, ya que puede afectar a la disponibilidad del servicio y a la confiabilidad, como efecto secundario.
+Cluster Resource Manager puede necesitar empaquetar un par de réplicas en un dominio de actualización para administrar actualizaciones, errores u otras infracciones de restricción. El empaquetado en dominios de error o de actualización solo sucede cuando hay varios errores u otras renovaciones en el sistema que impiden la correcta colocación. Si desea evitar el empaquetado incluso durante estas situaciones, puede usar la directiva de colocación `RequireDomainDistribution` [](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). Sin embargo, considere detenidamente esta decisión, ya que puede afectar a la disponibilidad del servicio y a la confiabilidad, como efecto secundario.
 
 Si el entorno está configurado correctamente, todas las restricciones se respetan completamente, incluso durante las actualizaciones. Lo que realmente importa es que Cluster Resource Manager vigila las restricciones y, cuando detecta una infracción, lo notifica inmediatamente e intenta corregir el problema.
 
@@ -210,4 +209,3 @@ Por regla general, quiere que la actualización se complete, aunque el clúster 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Empiece desde el principio y [obtenga una introducción a Cluster Resource Manager de Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-

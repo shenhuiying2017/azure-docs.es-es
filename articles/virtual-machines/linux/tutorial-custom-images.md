@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/21/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d32980f05ad17a76793021d0a5355d597974a4e4
-ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 23212bc947dc523561acdf9d1ca784d1bab2c84c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Crear una imagen personalizada de una máquina virtual de Azure mediante la CLI
 
 Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas pueden usarse para configuraciones de arranque como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. En este tutorial, creará su propia imagen personalizada de una máquina virtual de Azure. Aprenderá a:
@@ -145,5 +143,4 @@ Avance al siguiente tutorial para obtener información sobre máquinas virtuales
 
 > [!div class="nextstepaction"]
 > [Creación de máquinas virtuales de alta disponibilidad](tutorial-availability-sets.md).
-
 

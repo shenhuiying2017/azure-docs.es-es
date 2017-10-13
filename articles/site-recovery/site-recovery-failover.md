@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="failover-in-site-recovery"></a>Conmutación por error en Site Recovery
 En este artículo se describe cómo se realiza la conmutación por error en máquinas virtuales y en servidores físicos protegidos con Site Recovery.
@@ -131,4 +130,3 @@ Es posible que desee automatizar determinadas acciones de la conmutación por er
 Use la opción de[**conmutación por error planeada**](site-recovery-failback-from-azure-to-hyper-v.md) para la **conmutación por recuperación** de máquinas virtuales de Hyper-V hacia el entorno local desde Azure.
 
 Si se ha producido una conmutación por error de una máquina virtual de Hyper-V a otro centro de datos local administrado por un servidor de VMM y el centro de datos principal está disponible, use la **replicación inversa** para iniciar la replicación hacia el centro de datos principal.
-

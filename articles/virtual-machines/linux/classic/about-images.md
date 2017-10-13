@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 187642db18806f4034dcecf4c25b5c71028fdfe3
-ms.contentlocale: es-es
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-images-for-linux-virtual-machines"></a>Acerca de las imágenes para las máquinas virtuales Linux
 > [!IMPORTANT]
@@ -35,4 +34,3 @@ Para ver ejemplos del uso de las herramientas, consulte [Comandos de la CLI de A
 
 ## <a name="next-steps"></a>Pasos siguientes
 También puede [cargar su propia imagen](create-upload-vhd.md).
-

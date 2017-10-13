@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
+ms.openlocfilehash: eb2fbd16980eadfce15227b6ba07f00c47b672ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 5a5fc9bac4f0ee54532f34fe957e3722123df178
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Instalación de Mobility Service (VMware o físico a Azure)
 Azure Site Recovery Mobility Service captura escrituras de datos en un equipo y, a continuación, las reenvía al servidor en proceso. Implemente Mobility Service en cualquier equipo (máquina virtual VMware o servidor físico) que quiera replicar en Azure. Puede implementar Mobility Service en los servidores que desee proteger mediante los métodos siguientes:
 
@@ -91,7 +89,7 @@ Después de instalar Mobility Service, en Azure Portal, seleccione el botón **+
 ## <a name="update-mobility-service"></a>Actualiza Mobility Service
 
 > [!WARNING]
-> Asegúrese de que el servidor de configuración, los servidores de procesos de escalado horizontal y los servidores de destino principales que forman parte de la implementación estén actualizados antes de empezar a actualizar Mobility Service en los servidores protegidos. Lea más en [How to update your Configuration Server](site-recovery-vmware-to-azure-manage-configuration-server.md#updating-a-configuration-server) (Actualización del servidor de configuración) y [How to update your Scale-out Process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server) (Actualización de los servidores de proceso de escalado horizontal).
+> Asegúrese de que el servidor de configuración, los servidores de procesos de escalado horizontal y los servidores de destino principales que forman parte de la implementación estén actualizados antes de empezar a actualizar Mobility Service en los servidores protegidos. Lea más en [How to update your Configuration Server](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) (Actualización del servidor de configuración) y [How to update your Scale-out Process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server) (Actualización de los servidores de proceso de escalado horizontal).
 
 1. En Azure Portal, vaya a la vista <Your Vault> -> Elementos replicados.
 2. Si el **servidor de configuración** ya se ha actualizado a la versión más reciente, verá una notificación que indicará que la *nueva actualización del agente de replicación de recuperación de sitio está disponible. Haga clic para instalar*.
@@ -125,4 +123,3 @@ MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\
 ```
 uninstall.sh -Y
 ```
-

@@ -15,17 +15,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 4eb66ed71efa79a1bbec5adaec757329fe2d7ad3
-ms.contentlocale: es-es
-ms.lasthandoff: 03/25/2017
-
+ms.openlocfilehash: ebacbe74607db38be34b6878745e17bb6de8817a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-a-virtual-machine-for-a-web-application-with-visual-studio"></a>Creación de una máquina virtual para una aplicación web con Visual Studio
 > [!IMPORTANT] 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
 
 [!INCLUDE [virtual-machines-common-classic-web-app-visual-studio](../../../../includes/virtual-machines-common-classic-web-app-visual-studio.md)]
-
 

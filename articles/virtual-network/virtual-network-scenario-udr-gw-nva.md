@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fb8d59469eadad51dcf269ec8ff2829b2f8ef922
-
-
+ms.openlocfilehash: 8e464348660114f5e99b4739bb7761b7e53ebf99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-appliance-scenario"></a>Escenario de aplicación virtual
 Un escenario común entre los clientes de Azure de mayor tamaño es la necesidad de ofrecer una aplicación en 2 niveles expuesta a Internet a la vez que permiten el acceso al nivel posterior desde un centro de datos local. Este documento le guiará en un escenario con Rutas definidas por el usuario (UDR), una Puerta de enlace de VPN y aplicaciones virtuales de red para implementar un entorno de 2 niveles que cumple los siguientes requisitos:
@@ -167,10 +167,4 @@ Para implementar este escenario, siga estos pasos de alto nivel.
 3. Aprovisione los recursos que son parte de **AZURERG**.
 4. Aprovisione el túnel de **onpremvnet** a **azurevnet**.
 5. Una vez que se aprovisionen todos los recursos, inicie sesión en **onpremvm2** y haga ping a 10.0.3.101 para probar la conectividad entre **onpremsn2** y **azsn3**.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

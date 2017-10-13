@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/16/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e9b5773f0152a8ff377169041b28fa1782288217
-
-
+ms.openlocfilehash: 2fc50f7faddb4b61ea5e7d328469fc3cc0eb6f3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-update-02-release-notes---january-2015"></a>Notas de la versión 0.2 de la actualización de la serie StorSimple 8000 - enero de 2015
 ## <a name="overview"></a>Información general
@@ -71,10 +71,4 @@ Esta versión no contiene las actualizaciones para el controlador SCSI conectado
 
 ## <a name="virtual-device-updates-in-the-january-release"></a>Actualizaciones del dispositivo virtual en la versión de enero
 Esta versión contiene una imagen actualizada para el dispositivo virtual. Todos los dispositivos virtuales creados después del 20 de enero de 2015 mostrarán la versión del software como 6.3.9600.17361.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
