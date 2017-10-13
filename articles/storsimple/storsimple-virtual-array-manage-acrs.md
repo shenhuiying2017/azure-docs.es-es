@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 94a25f63887aea4eb71420dbd7ddc536e9f8d644
 ms.openlocfilehash: 2ce65aa4efba735305208f7a6d761bc2814d1b8f
-ms.contentlocale: es-es
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Uso de StorSimple Device Manager para administrar los registros de control de acceso para StorSimple Virtual Array
 
@@ -130,5 +129,4 @@ Realice los pasos siguientes para eliminar un registro de control de acceso.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre la [adición de volúmenes y la configuración de ACR](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume).
-
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 94658dfcf93e821e24cabb1f010f8dce0c014700
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnóstico de la conectividad local a través de puertas de enlace de VPN
 
 Azure VPN Gateway le permite crear soluciones híbridas que dan soluciones a la necesidad de una conexión segura entre su red local y la red virtual de Azure. Como sus necesidades son únicas, también lo es la elección del dispositivo VPN local. Azure admite actualmente [varios dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que se validan constantemente en asociación con los proveedores de los dispositivos. Revise los valores de configuración específicos del dispositivo antes de configurar el dispositivo VPN local. Igualmente, Azure VPN Gateway está configurado con un conjunto de [parámetros de IPsec admitidos](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que se utilizan para establecer conexiones. Actualmente no hay ninguna manera de especificar o seleccionar una combinación específica de parámetros de IPsec desde Azure VPN Gateway. Para establecer una conexión correcta entre la red local y Azure, la configuración del dispositivo VPN local debe estar de acuerdo con los parámetros de IPsec prescritos por Azure VPN Gateway. Si la configuración es incorrecta, se produce una pérdida de conectividad y además, hasta ahora, solucionar estos problemas no era algo trivial y normalmente se tardaban horas en identificar y corregir el problema.
@@ -115,4 +113,3 @@ La característica de solución de problemas de Azure Network Watcher le permite
 Aprenda a comprobar la conectividad de VPN Gateway con PowerShell y Azure Automation visitando [Supervisión de las puertas de enlace de VPN con la solución de problemas de Azure Network Watcher](network-watcher-monitor-with-azure-automation.md)
 
 [1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png
-

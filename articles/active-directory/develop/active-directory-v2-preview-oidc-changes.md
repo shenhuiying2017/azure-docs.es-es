@@ -16,10 +16,10 @@ ms.date: 09/16/2016
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: ae73833a68db14804dc40eaf07ff7d3effaa9052
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="important-updates-to-the-v20-authentication-protocols"></a>Actualizaciones importantes de los protocolos de autenticación de la versión 2.0
 ¡Atención, desarrolladores! Durante las próximas dos semanas realizaremos algunas actualizaciones en nuestros protocolos de autenticación v2.0 que pueden suponer importantes cambios para cualquier aplicación que se haya escrito durante el período de vista previa.  

@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae37f49916445a9486457af61aa9bf8bc1d7eb87
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sustitución de un componente de hardware en el dispositivo StorSimple serie 8000
 
@@ -51,12 +51,12 @@ Familiarícese con la información de seguridad acerca de su dispositivo y los i
 
 Antes de intentar reemplazar un componente, considere la siguiente información.
 
-![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png) ![Electrical Shock Icon](./media/storsimple-hardware-component-replacement/Electric.png) **¡ADVERTENCIA** 
+![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png)![Electrical Shock Icon](./media/storsimple-hardware-component-replacement/Electric.png)**¡ADVERTENCIA** 
 
 * Conecte una buena descarga a tierra en sí mismo mediante una descarga electrostática o alfombra antiestática al manipular los módulos y los componentes del dispositivo StorSimple.
 * No toque los circuitos. Utilice las asas y las guías proporcionadas al manipular los componentes que pueden tener circuitos expuestos.
 
-![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png) ![Notice Icon](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **AVISO:**
+![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png)![Notice Icon](./media/storsimple-hardware-component-replacement/NoticeIcon.png)**AVISO:**
 
 Al reemplazar un módulo, **NUNCA deje un compartimento vacío en la parte posterior del gabinete**. Obtenga un módulo de reemplazo o vacío antes de quitar la parte problemática.
 

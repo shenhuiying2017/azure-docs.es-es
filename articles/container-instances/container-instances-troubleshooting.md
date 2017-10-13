@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: ff6da0ce95d0405714602c3872da34a2bff344d3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Solución de problemas en las implementaciones en Azure Container Instances
 
 Este artículo muestra cómo solucionar problemas al implementar contenedores en Azure Container Instances. También se describen algunos de los problemas comunes con los que puede encontrarse.
@@ -226,4 +224,3 @@ Este error indica que, debido a una carga elevada en la región en la que está 
 * Especifique la configuración de CPU y memoria más baja para el contenedor
 * Implemente en una región distinta de Azure
 * Implemente en un momento posterior
-

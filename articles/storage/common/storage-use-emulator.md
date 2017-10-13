@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
+ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: eef0ff164b2857172fc24d8a0af7beddb29b262c
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 
@@ -266,4 +265,3 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 * Evaluación del emulador de almacenamiento de código abierto multiplataforma [Azurite](https://github.com/arafato/azurite), mantenido por la comunidad. 
 * [Ejemplos de Azure Storage mediante .NET](../storage-samples-dotnet.md) contiene vínculos a varios ejemplos de código que puede usar al desarrollar su aplicación.
 * Puede usar el [Explorador de Microsoft Azure Storage](http://storageexplorer.com) para trabajar con recursos de su cuenta de nube de Storage y del emulador de almacenamiento.
-

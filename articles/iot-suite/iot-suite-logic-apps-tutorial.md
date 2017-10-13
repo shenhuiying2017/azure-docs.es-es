@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: corywink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
-ms.contentlocale: es-es
-ms.lasthandoff: 03/10/2017
-
+ms.openlocfilehash: 7dbfef6d2bcac81d89ed0e3cf36d4c75a264cba7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Tutorial: Conexión de una aplicación lógica a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT de Azure
 La solución preconfigurada de supervisión remota del [conjunto de aplicaciones de IoT de Microsoft Azure][lnk-internetofthings] constituye una excelente forma de empezar a trabajar rápidamente con una serie de características de extremo a extremo que ejemplifica una solución de IoT. Este tutorial le mostrará cómo agregar una aplicación lógica a su solución preconfigurada de supervisión remota de dicho conjunto de aplicaciones. Estos pasos muestran cómo puede aprovechar aún más la solución de IoT conectándola a un proceso empresarial.
@@ -172,4 +171,3 @@ Ahora que ha utilizado una aplicación lógica para conectar la solución precon
 [lnk-devsetup]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/dev-setup.md
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
-

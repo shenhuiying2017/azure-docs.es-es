@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 44e344095352f2bc6b27e389fc8be2cdf3e368d8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD
 
@@ -31,7 +31,7 @@ Una vez que el servicio está configurado, se puede extraer la mayor parte de la
 
 -   **Registros de auditoría**: los registros de auditoría de aprovisionamiento registran todas las operaciones realizadas por el servicio de aprovisionamiento, incluidas las consultas en Azure AD de los usuarios asignados que pertenecen al ámbito de aprovisionamiento. Consulte la existencia de esos usuarios en la aplicación de destino y compare los objetos de usuario entre el sistema. Después, agregue, actualice o deshabilite la cuenta de usuario en el sistema de destino en función de la comparación. Puede acceder a los registros de auditoría de aprovisionamiento en Azure Portal, en la pestaña **Azure Active Directory &gt; Aplicaciones empresariales &gt; \[Nombre de la aplicación\] &gt; Registros de auditoría**. Filtre los registros en la categoría **Aprovisionamiento de cuentas** para ver solo los eventos de aprovisionamiento para esa aplicación.
 
--   **Estado de aprovisionamiento**: se puede ver un resumen de aprovisionamiento de la última ejecución del aprovisionamiento para una aplicación determinada en la sección **Azure Active Directory &gt; Aplicaciones empresariales &gt; \[Nombre de la aplicación\] &gt;Aprovisionamiento**, en la parte inferior de la pantalla bajo la configuración del servicio. En esta sección se resume cuántos usuarios (o grupos) se están sincronizando actualmente entre ambos sistemas y si se han producido errores. Los detalles del error se encuentran en los registros de auditoría. Tenga en cuenta que el estado de aprovisionamiento no se rellena hasta que se ha completado una sincronización inicial completa entre Azure AD y la aplicación.
+-   **Estado de aprovisionamiento**: se puede ver un resumen de aprovisionamiento de la última ejecución del aprovisionamiento para una aplicación determinada en la sección **Azure Active Directory &gt; Aplicaciones empresariales &gt;\[Nombre de la aplicación\]&gt;Aprovisionamiento**, en la parte inferior de la pantalla bajo la configuración del servicio. En esta sección se resume cuántos usuarios (o grupos) se están sincronizando actualmente entre ambos sistemas y si se han producido errores. Los detalles del error se encuentran en los registros de auditoría. Tenga en cuenta que el estado de aprovisionamiento no se rellena hasta que se ha completado una sincronización inicial completa entre Azure AD y la aplicación.
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Áreas problemáticas generales con el aprovisionamiento que tener en cuenta
 
@@ -58,7 +58,7 @@ Para que funcione el aprovisionamiento, Azure AD necesita credenciales válidas 
 
 Cuando un usuario se muestra como "Omitido" en los registros de auditoría, es muy importante que lea los detalles ampliados en el mensaje del registro para determinar la razón. Algunas razones y soluciones habituales son:
 
--   **Se ha configurado un filtro de ámbito** **que está filtrando al usuario por un valor de atributo**. Para más información sobre los filtros de ámbito, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
+-   **Se ha configurado un filtro de ámbito****que está filtrando al usuario por un valor de atributo**. Para más información sobre los filtros de ámbito, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
 
 -   **El usuario no está autorizado de forma efectiva.** Si ve un mensaje de error de este tipo, se debe a que hay un problema con el registro de asignación de usuarios almacenado en Azure AD. Para corregir este problema, cancele la asignación del usuario (o grupo) de la aplicación y vuelva a repetirla. Para más información sobre la asignación, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
 

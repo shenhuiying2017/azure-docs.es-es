@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bb777d41570d7b1dc97402d532519488912948e3
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Creación y administración de máquinas virtuales Windows en Azure con Python
 
 Las [máquinas virtuales de Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) necesitan varios recursos de Azure compatibles. En este artículo se trata la creación, la administración y la eliminación de recursos de máquina virtual con Python. Aprenderá a:
@@ -576,5 +574,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 - Si se han producido problemas durante la implementación, el paso siguiente será consultar [Solución de problemas de implementaciones de grupo de recursos con Azure Portal](../../resource-manager-troubleshoot-deployments-portal.md)
 - Más información acerca de la [biblioteca de Python de Azure](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-
 

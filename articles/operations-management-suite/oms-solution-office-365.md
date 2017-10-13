@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: dcc44986acbb76eafc3cfacb79acf237802de021
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="office-365-solution-in-operations-management-suite-oms"></a>Solución Office 365 de Operations Management Suite (OMS)
 
@@ -305,4 +304,3 @@ Si la solución de Office 365 no está recopilando datos según lo previsto, com
 * Usar Búsquedas de registros en [Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre la actualización.
 * [Cree sus propios paneles](../log-analytics/log-analytics-dashboards.md) para mostrar las consultas de búsqueda favoritas de Office 365.
 * [Cree alertas](../log-analytics/log-analytics-alerts.md) para recibir notificaciones proactivas de actividades importantes de Office 365.  
-

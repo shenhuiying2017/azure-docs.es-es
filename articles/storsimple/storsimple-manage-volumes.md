@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/11/2016
 ms.author: v-sharos
 ms.openlocfilehash: 31ed9dad8ba56a3746873b7b35e678e97743fbfe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-volumes"></a>Usar el servicio de Administrador de StorSimple para administrar volúmenes
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
@@ -121,7 +121,7 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
    3. En la lista de discos, seleccione el volumen que actualizó, haga clic en él con el botón derecho y seleccione **Extender volumen**. Se iniciará el Asistente para extender volúmenes. Haga clic en **Siguiente**.
    4. Complete el asistente aceptando los valores predeterminados que se proporcionan. Cuando el asistente haya finalizado, el volumen debería mostrar el aumento de tamaño.
 
-![Vídeo disponible](./media/storsimple-manage-volumes/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-manage-volumes/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo que muestra cómo expandir un volumen, haga clic [aquí](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 

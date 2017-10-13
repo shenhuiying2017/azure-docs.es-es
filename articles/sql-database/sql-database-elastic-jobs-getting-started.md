@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 12f84f7ee418955f34316686c836a8697be94ea2
-ms.contentlocale: es-es
-ms.lasthandoff: 04/10/2017
-
-
+ms.openlocfilehash: 05c20e880d4eb1eacdecc0c4c7e7491dfe1e6a89
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introducción a Trabajos de base de datos elástica
 Trabajos de base de datos elástica (vista previa) para Base de datos SQL de Azure permite ejecutar de forma confiable scripts de T-SQL que abarcan varias bases de datos al tiempo que realizan reintentos automáticos y ofrecen garantías de finalización futura. Para obtener más información sobre la característica de base de datos elástica, vea la [página de introducción a la característica](sql-database-elastic-jobs-overview.md).
@@ -480,4 +478,3 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-

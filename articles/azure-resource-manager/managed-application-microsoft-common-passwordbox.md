@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 196a4b8f77145f83e46b4b23e148bb3a9dffc1b5
-ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 7b2277f9e1446b42d85180e2a8baa2bcc0df147f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.PasswordBox
 Control que puede usarse para proporcionar una contraseña y confirmarla. Use este elemento al [crear una aplicación administrada de Azure](managed-application-publishing.md).
@@ -62,4 +61,3 @@ Control que puede usarse para proporcionar una contraseña y confirmarla. Use es
 * Para una introducción a las aplicaciones administradas, consulte la [introducción a las aplicaciones administradas de Azure](managed-application-overview.md).
 * Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Para ver una descripción de las propiedades comunes de los elementos de interfaz de usuario, consulte [Elementos CreateUiDefinition](managed-application-createuidefinition-elements.md).
-

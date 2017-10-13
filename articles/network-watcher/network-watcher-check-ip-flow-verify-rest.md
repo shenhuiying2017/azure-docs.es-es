@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 6d3ce00a7d4f9c0cd57fa8815625a1065b03b5b5
-ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 3ccef9ef521b86ffc1eb6047174f4f9e5d9e4296
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Comprobar si se permite o se deniega el tráfico con la Comprobación del flujo de IP, un componente de Azure Network Watcher
 
@@ -167,7 +166,6 @@ La respuesta que recibe indica si el tráfico se permite o deniega. La respuesta
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si el tráfico sufre bloqueos, y no debería ser así, consulte [Administración de grupos de seguridad de red mediante el portal](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para más información acerca de los grupos de seguridad de red.
-
 
 
 

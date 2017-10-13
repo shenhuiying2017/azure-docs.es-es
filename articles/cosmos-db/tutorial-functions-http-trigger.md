@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: mvc
 ms.date: 09/25/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 86a660309fd3fd80f10f706ff460af2309c12174
-ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Creación de un desencadenador HTTP de Azure Functions con un enlace de entrada de Azure Cosmos DB
 
 Azure Cosmos DB es una base de datos de varios modelos distribuida globalmente que no tiene esquema ni servidor. Azure Functions es un servicio de procesos sin servidor que le permite ejecutar código a petición. Empareje estos dos servicios de Azure y tendrá la base de una arquitectura sin servidor que le permite centrarse en la creación de aplicaciones fantásticas y no preocuparse acerca del aprovisionamiento y el mantenimiento de servidores que cubran las necesidades del proceso y de la base de datos necesita.
@@ -277,4 +275,3 @@ Ahora puede continuar a la sección de conceptos para obtener más información 
 > [Distribución global](distribute-data-globally.md) 
 
 Este artículo se basa en uno de los blogs de la serie [Schemaless & Serverless de Brady Gaster](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless). Para ver otras publicaciones de la serie, visite dicho blog.
-

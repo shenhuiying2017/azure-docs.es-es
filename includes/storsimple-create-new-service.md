@@ -21,7 +21,7 @@
    
    ![Creación de servicios](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-![Vídeo disponible](./media/storsimple-create-new-service/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-create-new-service/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo que muestra cómo crear un nuevo servicio StorSimple Manager, haga clic en [aquí](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
 

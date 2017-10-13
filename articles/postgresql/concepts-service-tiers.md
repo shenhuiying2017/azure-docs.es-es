@@ -10,12 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/31/2017
+ms.openlocfilehash: 59ac187e50527517c402a5cc2aa871717dde5650
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: e141c15b9999a33206285290b9a34c8616bf3791
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opciones y rendimiento de Azure Database for PostgreSQL: información sobre lo que está disponible en cada plan de tarifa
 Al crear un servidor de Azure Database for PostgreSQL, tiene que elegir entre tres opciones principales para configurar los recursos asignados a dicho servidor. Estas opciones afectan al rendimiento y la escala del servidor.
@@ -105,4 +104,3 @@ La duración de todo el proceso de escalado depende tanto del tamaño como del p
 ## <a name="next-steps"></a>Pasos siguientes
 - Para más información sobre las unidades de proceso, consulte [Explicación de las unidades de proceso](concepts-compute-unit-and-storage.md).
 - Más información en [Supervisión y escalado de un solo servidor PostgreSQL mediante la CLI de Azure](scripts/sample-scale-server-up-or-down.md).
-

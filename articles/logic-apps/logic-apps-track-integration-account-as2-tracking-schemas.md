@@ -16,10 +16,10 @@ ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 31bd296dc5ed5ac6998a6c05ee80fd38b12d662c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Inicio o habilitación del seguimiento de mensajes AS2 y MDN para supervisar propiedades de mensaje, errores y éxitos
 Puede usar estos esquemas de seguimiento de AS2 en su cuenta de integración de Azure para ayudarle a supervisar las transacciones de negocio a negocio (B2B):

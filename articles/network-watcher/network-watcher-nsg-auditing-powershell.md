@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
-ms.openlocfilehash: a91da330e677c85f16f6f4e506613576b6507d7c
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 57f2200e541eeb629f72d60ffa0acb2d8233c018
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatización de la auditoría de grupos de seguridad de red con la vista de grupo de seguridad de Azure Network Watcher
 
 Los clientes a menudo se enfrentan al desafío de comprobar la posición de seguridad de su infraestructura. Este desafío es similar para sus máquinas virtuales en Azure. Es importante contar con un perfil de seguridad similar basado en las reglas del grupo de seguridad de red (NSG) aplicadas. Mediante la vista de grupo de seguridad, ahora puede obtener la lista de reglas que se aplican a una máquina virtual dentro de un NSG. Puede definir un perfil de seguridad principal del NSG e iniciar la vista del grupo de seguridad con un ritmo semanal, comparar el resultado con el perfil principal y crear un informe. De este modo puede identificar con facilidad todas las máquinas virtuales que no cumplen con el perfil de seguridad recomendado.
@@ -190,7 +188,6 @@ SideIndicator            : <=
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si se cambió la configuración, consulte [Administración de grupos de seguridad de red](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para realizar un seguimiento de los grupos de seguridad de red y las reglas de seguridad que pueden estar afectados.
-
 
 
 

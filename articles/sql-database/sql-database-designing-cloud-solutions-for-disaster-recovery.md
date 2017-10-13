@@ -16,12 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 09/08/2017
 ms.author: sashan
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 5a8b7711d6576edcc470886f27aa61ac04944002
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Diseño de servicios de alta disponibilidad con Azure SQL Database
 
@@ -34,7 +33,7 @@ En este escenario, las aplicaciones tienen las siguientes características:
 *   El nivel web y la capa de datos deben colocarse para reducir la latencia y el costo de tráfico. 
 *   Básicamente, el tiempo de inactividad es un riesgo empresarial más alto para estas aplicaciones que la pérdida de datos.
 
-En este caso, la topología de implementación de la aplicación está optimizada para el tratamiento de desastres regionales cuando tiene que realizarse la conmutación por error conjunta de todos los componentes de aplicación. En el diagrama siguiente se muestra esta topología. Para la redundancia geográfica, los recursos de la aplicación se implementan en la región A y B. Sin embargo, no se utilizan los recursos de la región B hasta que se produce un error en la región A. Se configura un grupo de conmutación por error entre las dos regiones para administrar la conmutación por error, la replicación y la conectividad de base de datos. El servicio web de ambas regiones está configurado para tener acceso a la base de datos mediante el agente de escucha de lectura y escritura **&lt;nombre del grupo de conmutación por error&gt;.database.windows.net** (1). Traffic Manager se configura para usar el [método de enrutamiento de prioridad](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+En este caso, la topología de implementación de la aplicación está optimizada para el tratamiento de desastres regionales cuando tiene que realizarse la conmutación por error conjunta de todos los componentes de aplicación. En el diagrama siguiente se muestra esta topología. Para la redundancia geográfica, los recursos de la aplicación se implementan en la región A y B. Sin embargo, no se utilizan los recursos de la región B hasta que se produce un error en la región A. Se configura un grupo de conmutación por error entre las dos regiones para administrar la conmutación por error, la replicación y la conectividad de base de datos. El servicio web de ambas regiones está configurado para tener acceso a la base de datos mediante el agente de escucha de lectura y escritura  **&lt;nombre del grupo de conmutación por error&gt;. database.windows.net** (1). Traffic Manager se configura para usar el [método de enrutamiento de prioridad](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
 > [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) se usa en este artículo únicamente con fines ilustrativos. Puede usar cualquier solución de equilibrio de carga que admita el método de enrutamiento de prioridad.    
@@ -161,6 +160,6 @@ Su estrategia de recuperación ante desastres en la nube puede combinar o amplia
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md)
+* Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Continuidad empresarial con Base de datos SQL de Azure](sql-database-business-continuity.md)
 * Para obtener información acerca de los grupos de conmutación por error y la replicación geográfica, vea [Replicación geográfica activa](sql-database-geo-replication-overview.md).  
 * Para saber cómo utilizar la replicación geográfica activa con los grupos elásticos, consulte [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

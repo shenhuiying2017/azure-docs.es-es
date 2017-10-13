@@ -15,12 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 32d4b4a7db134975158e53fc964c24b52b14a1e1
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="_Toc395783175"></a>Creación de una aplicación web de Node.js con Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -540,5 +539,4 @@ Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
-
 

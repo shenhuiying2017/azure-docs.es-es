@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Configuración de clústeres de HDInsight unidos a un dominio (versión preliminar)
 
@@ -302,8 +302,8 @@ Otra opción para crear el clúster de HDInsight unido a un dominio es utilizar 
    * **Recuento de nodos de trabajo de clúster**: Seleccione el número de nodos de trabajo.
    * **Nombre de inicio de sesión y contraseña de clúster**: el nombre de inicio de sesión predeterminado es **admin**.
    * **Nombre de usuario y contraseña de SSH**: el nombre de usuario predeterminado es **sshuser**.  Puede cambiarlo. 
-   * **Id. de red virtual**: /subscriptions/&lt;Id.Suscripción>/resourceGroups/&lt;NombreGrupoRecursos>/providers/Microsoft.Network/virtualNetworks/&lt;NombreRedVirtual>
-   * **Subred de la red virtual**: /subscriptions/&lt;Id.Suscripción>/resourceGroups/&lt;NombreGrupoRecursos>/providers/Microsoft.Network/virtualNetworks/&lt;NombreRedVirtual>/subnets/Subnet1
+   * **Id. de red virtual**: /subscriptions/&lt;Id.Suscripción&gt;/resourceGroups/&lt;NombreGrupoRecursos&gt;/providers/Microsoft.Network/virtualNetworks/&lt;NombreRedVirtual&gt;
+   * **Subred de la red virtual**: /subscriptions/&lt;Id.Suscripción&gt;/resourceGroups/&lt;NombreGrupoRecursos&gt;/providers/Microsoft.Network/virtualNetworks/&lt;NombreRedVirtual&gt;/subnets/Subnet1
    * **Nombre de dominio**: contoso.onmicrosoft.com
    * **DN de unidad organizativa**: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
    * **Nombres de dominio del grupo de usuarios del clúster**: [\"HiveUsers\"]

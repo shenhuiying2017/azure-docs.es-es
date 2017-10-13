@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
 ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-virtual-network"></a>Creación de su primera red virtual
 
@@ -56,7 +56,7 @@ Para crear una red virtual con dos subredes, complete los pasos siguientes. Se s
     |**Nombre de subred**|*Front-end*|El nombre de la subred debe ser único dentro de la red virtual.|
     |**Intervalo de direcciones de subred**|*10.0.0.0/24*| El intervalo que especifique debe pertenecer al espacio de direcciones definido para la red virtual.|
     |**Suscripción**|*[Su suscripción]*|Seleccione una suscripción en la que crear la red virtual. Una red virtual existe dentro de una sola suscripción.|
-    |**Grupos de recursos**|**Crear nuevo:** *MyRG*|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción seleccionada. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups).|
+    |**Grupos de recursos**|**Crear nuevo:***MyRG*|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción seleccionada. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups).|
     |**Ubicación**|*Oeste de EE. UU.*| Normalmente se selecciona la ubicación más próxima a su ubicación física.|
 
     La red virtual tarda unos segundos en crearse. Una vez creada, se ve el panel de Azure Portal.

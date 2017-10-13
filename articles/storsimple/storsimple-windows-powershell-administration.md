@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: alkohli@microsoft.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f9e97bb2352231b46bdf66b1165bf22ec639fddf
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: af135518f66eb8c94c183f28191f016fcd601ae1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Usar Windows PowerShell para StorSimple para administrar su dispositivos
 ## <a name="overview"></a>Información general
@@ -164,7 +163,7 @@ Puede actualizar fácilmente la Ayuda en la interfaz de Windows PowerShell. Real
 
 #### <a name="to-update-cmdlet-help"></a>Para actualizar la Ayuda del cmdlet
 1. Inicie Windows PowerShell con la opción **Ejecutar como administrador** .
-2. En el símbolo del sistema, escriba:  `Update-Help`
+2. En el símbolo del sistema, escriba: `Update-Help`
 3. Se instalarán los archivos de Ayuda actualizados.
 4. Una vez instalados los archivos de ayuda, escriba: `Get-Help Get-Command`. Esto mostrará una lista de cmdlets para que la Ayuda está disponible.
 
@@ -175,5 +174,4 @@ Puede actualizar fácilmente la Ayuda en la interfaz de Windows PowerShell. Real
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si experimenta problemas con el dispositivo StorSimple al realizar uno de los flujos de trabajo anteriores, vea [Herramientas para solucionar problemas en implementaciones de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-
 

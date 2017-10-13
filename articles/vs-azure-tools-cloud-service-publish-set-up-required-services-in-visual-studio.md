@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
+ms.openlocfilehash: cc4fb87e559f554634ae062a59bee31f0831da64
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 967501fa8ac4b2471a62afabc18a12a71776eaac
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio"></a>Preparación para publicar o implementar una aplicación de Azure desde Visual Studio
 ## <a name="overview"></a>Información general
@@ -124,4 +123,3 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de la publicación de aplicaciones en Azure desde Visual Studio, consulte [Publicar un servicio en la nube mediante Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
-

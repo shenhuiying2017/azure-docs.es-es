@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: davidmu
 ms.custom: mvc
+ms.openlocfilehash: bbd0658a3bafc1b82ff6ddd39a4d23d015188337
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 54a4a37d581f023610cd61835bdc76814fbd46e0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Administración de máquinas virtuales Windows y redes virtuales de Azure con Azure PowerShell
 
 Las máquinas virtuales de Azure utilizan las redes de Azure para la comunicación de red interna y externa. En este tutorial, creará varias máquinas virtuales (VM) en una red virtual y configurará la conectividad de red entre ellas. Aprenderá a:
@@ -281,4 +279,3 @@ Prosiga con el siguiente tutorial para aprender a supervisar la protección de d
 
 > [!div class="nextstepaction"]
 > [Copia de seguridad de máquinas virtuales Windows en Azure](./tutorial-backup-vms.md)
-

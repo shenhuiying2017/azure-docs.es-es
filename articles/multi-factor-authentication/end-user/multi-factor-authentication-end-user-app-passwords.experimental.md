@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 1ecc2bdef5ff7ef8ed8dded7dc12428ce9657821
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>¿Qué son las contraseñas de aplicación en Azure Multi-Factor Authentication?
 Determinadas aplicaciones sin explorador, como el cliente de correo electrónico nativo de Apple que usa Exchange Active Sync, actualmente no admiten la autenticación multifactor. La autenticación multifactor se habilita por usuario.  Esto significa que un usuario no puede usar la autenticación multifactor si:
@@ -63,7 +62,7 @@ Durante el inicio de sesión inicial, se le ofrece una contraseña de aplicació
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Administración de contraseñas de aplicación en Azure Portal
 Si utiliza la verificación en dos pasos con Azure, le interesará crear contraseñas de aplicación a través de Azure Portal.
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>Creación de contraseñas de aplicación en Azure Portal
+### <a name="to-create-app-passwords-in-the-azure-portal"></a>Creación de contraseñas de aplicación en el Portal de Azure
 1. Inicie sesión en el portal clásico de Azure.
 2. En la parte superior, haga clic con el botón derecho en su nombre de usuario y seleccione Comprobación de seguridad adicional.
 3. En la página de proofup, en la parte superior, seleccione las contraseñas de aplicación
@@ -74,7 +73,7 @@ Si utiliza la verificación en dos pasos con Azure, le interesará crear contras
    ![Nube](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
 
 
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Para eliminar contraseñas de aplicación en Azure Portal
+### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Para eliminar contraseñas de aplicación en el Portal de Azure
 1. Inicie sesión en el portal clásico de Azure.
 2. En la parte superior, haga clic con el botón derecho en su nombre de usuario y seleccione Comprobación de seguridad adicional.
 3. En la parte superior, al lado de la comprobación de seguridad adicional, seleccione **contraseñas de aplicación.**
@@ -123,4 +122,3 @@ Si no está seguro de cómo usar la autenticación multifactor, siempre puede ca
 - [Administrar la configuración de la verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md)
 
 - Pruebe la [aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para verificar los inicios de sesión con las notificaciones de aplicación, en lugar de recibir llamadas o textos. 
-

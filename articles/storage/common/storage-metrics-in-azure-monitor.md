@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
+ms.openlocfilehash: d30a99044e335723e5d2c4bbd71fab7e4fd51145
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: b9fac8796b9cb36418d4494eaaf8080744321e19
-ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-storage-metrics-in-azure-monitor-preview"></a>Métricas de Azure Storage en Azure Monitor (versión preliminar)
 
 Con las métricas de Azure Storage puede analizar tendencias de uso, hacer un seguimiento de las solicitudes y diagnosticar los problemas de su cuenta de almacenamiento.
@@ -240,7 +238,7 @@ Azure Storage proporciona las siguientes métricas de transacciones en Azure Mon
 
 | Nombre de métrica | Descripción |
 | ------------------- | ----------------- |
-| Transactions | El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. <br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensiones aplicables: ResponseType, GeoType, ApiName ([definición](#metrics-dimensions))<br/> Ejemplo de valor: 1024 |
+| Transacciones | El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. <br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensiones aplicables: ResponseType, GeoType, ApiName ([definición](#metrics-dimensions))<br/> Ejemplo de valor: 1024 |
 | Ingress | La cantidad de datos de entrada. Este número incluye la entradas desde un cliente externo en Azure Storage, así como la entrada dentro de Azure. <br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensiones aplicables: GeoType, ApiName ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 1024 |
 | Egress | La cantidad de datos de salida. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables. <br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensiones aplicables: GeoType, ApiName ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 1024 |
 | SuccessServerLatency | El tiempo medio que se usa para que Azure Storage procese una solicitud correcta . Este valor no incluye la latencia de red especificada en SuccessE2ELatency. <br/><br/> Unidad: milisegundos <br/> Tipo de agregación: promedio <br/> Dimensiones aplicables: GeoType, ApiName ([definición](#metrics-dimensions)) <br/> Ejemplo de valor: 1024 |
@@ -267,4 +265,3 @@ Las métricas heredades están disponibles en paralelo con las métricas de Azur
 ## <a name="see-also"></a>Otras referencias
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-

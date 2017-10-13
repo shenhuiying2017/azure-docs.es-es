@@ -16,12 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.openlocfilehash: 47e7db5462ecf3a2211538b1f46ed0571980b15b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 3ae0f28272d70a63b74a9f249566ae789f07aad5
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>Creación de una aplicación web de .NET Core en un contenedor de Linux en Azure
 
@@ -186,4 +185,3 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 
 > [!div class="nextstepaction"]
 > [Compilación de una aplicación web .NET Core y SQL Database en Azure Web Apps for Containers](tutorial-dotnetcore-sqldb-app.md)
-

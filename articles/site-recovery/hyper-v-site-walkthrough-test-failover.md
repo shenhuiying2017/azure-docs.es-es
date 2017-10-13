@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0974b9eda2cb7e3ba54a4a0fad0a768db644caf9
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-11-run-a-test-failover-for-hyper-v-replication-to-azure"></a>Paso 11: Ejecución de una conmutación por error de prueba para la replicación de Hyper-V en Azure
 
 En este artículo se describe cómo ejecutar una conmutación por error de prueba de máquinas virtuales de Hyper-V locales (no administradas mediante System Center VMM) a Azure, mediante el servicio [Azure Site Recovery](site-recovery-overview.md) de Azure Portal.
@@ -100,5 +98,4 @@ Ahora, ejecute una conmutación por error de prueba para asegurarse de que todo 
 
 - [Aprenda más](site-recovery-failover.md) sobre los diferentes tipos de conmutación por error y cómo ejecutarlos.
 - [Lea sobre la conmutación por recuperación](site-recovery-failback-from-azure-to-hyper-v.md), para realizarla y replicar máquinas virtuales de Azure de nuevo en el sitio de Hyper-V local principal.
-
 

@@ -12,15 +12,14 @@ ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 7/26/2017
 ms.author: v-six
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c91a34eb34a73abe5c5ac2bb6aeb08c818a97856
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: cb514d211450bfe012ac9024e191239adf7166ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Solución de errores de asignación al implementar Servicios en la nube de Azure
 ## <a name="summary"></a>Resumen
@@ -72,4 +71,3 @@ A continuación se presentan los escenarios de asignación comunes que ocasionan
    * Siga el punto 2 anterior y asegúrese de especificar la nueva dirección IP reservada en el CSCFG del servicio.
 4. Quitar el grupo de afinidad para nuevas implementaciones - Ya no se recomienda utilizar grupos de afinidad. Siga los pasos del punto 1 anterior para implementar un nuevo servicio en la nube. Asegúrese de que el servicio en la nube no se encuentra en un grupo de afinidad.
 5. Convertir a una red virtual regional - Consulte [Migración de grupos de afinidad a una red virtual regional](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-

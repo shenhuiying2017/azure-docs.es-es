@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: bwren
+ms.openlocfilehash: c12b225aa351d0c272243469550791a6840091e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 692cd9e3113589142a7df84da88215eabe8f10fd
-ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para los Servicios en la nube de Azure
 [Application Insights](https://azure.microsoft.com/services/cloud-services/)puede supervisar la disponibilidad, el rendimiento, los errores y el uso de las [aplicaciones de Azure Cloud Services][start] mediante la combinación de datos de los SDK de Application Insights con los datos de [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) desde Cloud Services. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
@@ -105,7 +104,7 @@ Esta opción ofrece la posibilidad de agregar telemetría de empresa personaliza
 
 En Visual Studio, configure el SDK de Application Insights para cada proyecto de aplicación en la nube.
 
-1. **Roles web**: haga clic con el botón derecho en el proyecto y elija **Configurar Application Insights** o **Agregar > Telemetría de Application Insights**.
+1. **Roles web**: haga clic con el botón derecho en el proyecto y elija **Configurar Application Insights** o **Agregar &gt; Telemetría de Application Insights**.
 
 2. **Roles de trabajo**: 
  * Haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes de NuGet**.
@@ -252,4 +251,3 @@ Si tiene una aplicación móvil de cliente, inserte algún código para enviar e
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 
-

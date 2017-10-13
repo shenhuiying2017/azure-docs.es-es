@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 635e44a7ec6f9244f5fe75eb5ad947cdd8ae59a4
-ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 69c06c9607e13c2bcffa946d6bbff9bad310ccf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="createuidefinition-elements"></a>Elementos CreateUiDefinition
 En este artículo se describen el esquema y las propiedades de todos los elementos compatibles de CreateUiDefinition. Use estos elementos al [crear una aplicación administrada de Azure](managed-application-publishing.md). El esquema de la mayoría de los elementos es el siguiente:
@@ -67,4 +66,3 @@ La documentación de cada elemento contiene un ejemplo de interfaz de usuario, u
 ## <a name="next-steps"></a>Pasos siguientes
 * Para una introducción a las aplicaciones administradas, consulte la [introducción a las aplicaciones administradas de Azure](managed-application-overview.md).
 * Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](managed-application-createuidefinition-overview.md).
-

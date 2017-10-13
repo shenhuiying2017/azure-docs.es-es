@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 06bfb75a07b7902fcf245271def5d40e9941a89e
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 36df5bc0a019f4197d40fd6fa5a2a9957820c8b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatización de procesos de Application Insights con Logic Apps
 
 ¿Se encuentra a menudo ejecutando las mismas consultas en los datos de telemetría para comprobar si el servicio está funcionando correctamente? ¿Desea automatizar estas consultas para encontrar tendencias y anomalías, y crear sus propios flujos de trabajo en función de ellas? Azure Application Insights Connector (versión preliminar) para Logic Apps es la herramienta adecuada para este fin.
@@ -139,7 +137,6 @@ Cuando se ejecuta la aplicación lógica, los destinatarios que haya especificad
 
 
 <!--Link references-->
-
 
 
 

@@ -8,14 +8,12 @@ ms.author: cbrooks
 ms.date: 08/18/2017
 ms.topic: article
 ms.service: storage
+ms.openlocfilehash: 1a489f199bcc955fd14e82d16670d854305b00c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: a68d5c4ee8ad69cd888765a96566a7ca6c13cff3
-ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado (versión preliminar)
 
 Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa la CLI de Azure para suscribirse a los eventos de Blob Storage y desencadenar el evento para ver el resultado. 
@@ -145,4 +143,3 @@ Ahora que sabe cómo crear suscripciones a temas y eventos, obtenga más informa
 
 - [Reacción a eventos de Blob Storage](storage-blob-event-overview.md)
 - [About Event Grid](../../event-grid/overview.md) (Acerca de Event Grid)
-

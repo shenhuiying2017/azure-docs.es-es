@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: ec4b06a341f74e021a8745bfb324358c0a12b6ec
-ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: adb00e28b0b204858a763f83836ee2ac96f8f9e4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Supervisión de la seguridad de máquinas virtuales mediante Azure Security Center
 
@@ -79,7 +78,7 @@ Para configurar una directiva para un grupo de recursos concreto, siga estos pas
 
 En esta página también se puede desactivar la recopilación de datos de un grupo de recursos concreto.
 
-En el ejemplo siguiente, se ha creado una directiva única para un grupo de recursos denominado *myResoureGroup*. En esta directiva, se han desactivado las recomendaciones tanto para el cifrado de disco como para el firewall de aplicaciones web.
+En el ejemplo siguiente, se ha creado una directiva única para un grupo de recursos denominado *myResoureGroup*. En esta directiva, se han desactivado las recomendaciones tanto para el cifrado de disco como para el Firewall de aplicaciones web.
 
 ![Directiva única](./media/tutorial-azure-security/unique-policy.png)
 
@@ -137,7 +136,7 @@ Seleccione cualquiera de las alertas para ver información acerca de ella. Por e
 ![Ataque de RDP](./media/tutorial-azure-security/rdp-attack.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha configurado Azure Security Center y, después, ha revisado las máquinas virtuales de Security Center. Ha aprendido a:
+En este tutorial, configurará Azure Security Center y, luego, revisó las máquinas virtuales de Security Center. Ha aprendido a:
 
 > [!div class="checklist"]
 > * Configuración de una recolección de datos
@@ -149,4 +148,3 @@ En el siguiente tutorial aprenderá a crear una canalización de CI/CD con Visua
 
 > [!div class="nextstepaction"]
 > [Canalización de CI/CD de Visual Studio Team Services](./tutorial-vsts-iis-cicd.md)
-

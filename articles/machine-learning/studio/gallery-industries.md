@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0dec0f47eced45c496399bc6b84169116dcc551d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="discover-industry-specific-solutions-in-the-cortana-intelligence-gallery"></a>Descubrimiento de soluciones específicas del sector en la Galería de Cortana Intelligence
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -47,8 +46,7 @@ Desde esta página, puede examinar todos los recursos de la Galería. También p
 
  Haga clic en cualquier elemento de la galería para abrir la página de detalles del artículo para obtener más información.
 
-**[IR A LA GALERÍA >>](http://gallery.cortanaintelligence.com)**
+**[IR A LA GALERÍA &gt;&gt;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 6fd0e32374827b249f5aba1cbfc39117c88c6272
-ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 En este tema se indica cómo usar Azure Functions para crear un trabajo programado que limpie hileras de una tabla en Azure SQL Database. La nueva función C# se crea a partir de una plantilla de desencadenador de temporizador predefinida de Azure Portal. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como un valor de configuración en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. Para que la función procese ciertas operaciones CRUD en una tabla de Mobile Apps, debería usar enlaces de [Mobile Apps](functions-bindings-mobile-apps.md) en su lugar.
@@ -125,4 +124,3 @@ Para obtener más función sobre Functions, consulte los siguientes temas:
   contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
 * [Prueba de Azure Functions](functions-test-a-function.md)  
   describe las diversas herramientas y técnicas para probar sus funciones.  
-

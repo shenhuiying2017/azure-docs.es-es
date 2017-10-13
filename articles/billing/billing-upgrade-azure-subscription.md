@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: e3975d65fca54f9c1b58175f5f48f91a7cb67987
-ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Actualización de la suscripción de Microsoft Imagine Azure o la prueba gratuita al plan de pago por uso
 

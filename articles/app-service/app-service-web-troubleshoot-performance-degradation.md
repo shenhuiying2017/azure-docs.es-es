@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Solucionar los problemas de rendimiento reducido de aplicaciones web en Azure App Service
 Este artículo lo ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones web de [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -68,7 +68,7 @@ Algunas de las métricas que podría querer supervisar para su aplicación web s
 
 Para más información, consulte:
 
-* [Supervisión de aplicaciones web en Azure App Service](web-sites-monitor.md)
+* [Supervisión de Aplicaciones web en Servicio de aplicaciones de Azure](web-sites-monitor.md)
 * [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 #### <a name="monitor-web-endpoint-status"></a>estado de extremo web

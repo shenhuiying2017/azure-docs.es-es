@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/22/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: d152444f38e7a09b97ce7cb9778d8c67a0a5a421
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir puertos para un clúster de Service Fabric
 
 El equilibrador de carga que se implementa con el clúster de Azure Service Fabric dirige el tráfico a la aplicación que se ejecuta en un nodo. Si cambia la aplicación para usar otro puerto, debe exponer ese puerto (o enrutar un puerto diferente) en Azure Load Balancer.

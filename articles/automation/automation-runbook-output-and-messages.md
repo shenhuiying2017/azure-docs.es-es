@@ -3,7 +3,7 @@ title: Salidas de runbook y mensajes en Azure Automation | Microsoft Docs
 description: "Describe cómo crear y recuperar los mensajes de salida y error de los runbooks en Automatización de Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 13a414f5-0e2c-4be2-9558-a3e3ec84b6b2
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 505834d7354fb920e7ebd931e3bb31d837a79077
-ms.openlocfilehash: 6f01f97e38aa271034741c8a5e2f8057ab61fcd7
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 212aa4ede83b7c9f3240f8f32073bb7b87bda06d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Salidas de runbook y mensajes en la Automatización de Azure
 La mayoría de los runbooks de Automatización de Azure generan alguna forma de salida, como el mensaje de error que verá el usuario o un objeto complejo que será consumido por otro flujo de trabajo. Windows PowerShell le ofrece [varios flujos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para enviar la salida desde un script o flujo de trabajo. Automatización de Azure funciona con cada uno de estos flujos de forma diferente, y es aconsejable que siga los procedimientos recomendados sobre cómo usar cada uno de ellos cuando cree un runbook.
@@ -226,5 +225,4 @@ Para más información sobre cómo configurar la integración con Log Analytics 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md)
 * Para comprender cómo diseñar y usar Runbooks secundarios, consulte [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md)
-
 

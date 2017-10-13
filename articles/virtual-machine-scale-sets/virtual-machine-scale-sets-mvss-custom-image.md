@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Incorporación de una imagen personalizada a una plantilla de un conjunto de escalado de Azure
 
 Este artículo le enseña cómo modificar la [plantilla de conjunto de escalado mínimo viable](./virtual-machine-scale-sets-mvss-start.md) para implementar a partir de una imagen personalizada.
@@ -119,4 +117,3 @@ En este ejemplo, se usa la función `resourceId` para obtener el identificador d
 ## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

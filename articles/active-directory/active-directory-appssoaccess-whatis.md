@@ -16,12 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: cb41fbd7ca931df52ba8e5304459bb04298a108c
-ms.contentlocale: es-es
-ms.lasthandoff: 02/16/2017
-
+ms.openlocfilehash: 97df68d446755414cbd427d59f399d6430580f42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?
 Inicio de sesión único significa poder tener acceso a todas las aplicaciones y los recursos que necesita para hacer negocios, iniciando iniciar sesión una sola vez usando una única cuenta de usuario. Una vez que ha iniciado sesión, puede tener acceso a todas las aplicaciones que necesite sin tener que autenticarse (por ejemplo, escribiendo una contraseña) una segunda vez.
@@ -207,4 +206,3 @@ Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel
 [4]: ./media/active-directory-appssoaccess-whatis/officeapphub.png
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
-

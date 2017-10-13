@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: db8d7b0e117276dd63ee83a1c2337e69253184b8
-ms.contentlocale: es-es
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: 8772a9a21a0c99994ac9bcf10ea7b13c35bac6c2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Solución de problemas cuando no hay datos: Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Falta parte de mi telemetría
@@ -159,11 +158,9 @@ Consulte [telemetría de dependencias](app-insights-asp-net-dependencies.md) y [
 ## <a name="no-performance-data"></a>Sin datos de rendimiento
 Los datos de rendimiento (CPU, velocidad de E/S, etc.) están disponibles para [servicios web de Java](app-insights-java-collectd.md), [aplicaciones de escritorio de Windows](app-insights-windows-desktop.md), [servicios y aplicaciones web IIS si instala el Monitor de estado](app-insights-monitor-performance-live-website-now.md) y [Azure Cloud Services](app-insights-azure.md). Los encontrará en la sección Configuración > Servidores.
 
-No están disponibles para los sitios web de Azure.
-
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>No hay datos (de servidor) desde que se publicó la aplicación en el servidor
 * Compruebe que realmente copió todas las DLL de Microsoft.ApplicationInsights en el servidor, junto con Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll.
-* En el firewall, es posible que tenga que [abrir algunos puertos TCP](app-insights-ip-addresses.md#data-access-api).
+* En el firewall, es posible que tenga que [abrir algunos puertos TCP](app-insights-ip-addresses.md).
 * Si tiene que usar un servidor proxy para enviar fuera de la red corporativa, establezca el valor [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) en el archivo Web.config.
 * Windows Server 2008: asegúrese de haber instalado las siguientes actualizaciones: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
@@ -184,5 +181,4 @@ La ciudad, región y dimensiones del país proceden de las direcciones IP y no s
 
 ## <a name="still-not-working"></a>Sigue sin funcionar...
 * [Foro de Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-
 

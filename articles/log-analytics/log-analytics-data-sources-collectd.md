@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: a63b15ca5126b45451f0694c9ee75d7b67b1ceaf
-ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Recopilación de datos de CollectD en agentes de Linux en Log Analytics
 [CollectD](https://collectd.org/) es un demonio de Linux de código abierto que recopila periódicamente métricas de rendimiento de aplicaciones e información de nivel de sistema. Las aplicaciones de ejemplo incluyen la máquina virtual Java (JVM), MySQL Server y Nginx. En este artículo se proporciona información sobre la recopilación de datos de rendimiento de CollectD en Log Analytics.
@@ -28,7 +27,7 @@ Puede encontrar una lista completa de los complementos disponibles en la [tabla 
 
 ![Introducción a CollectD](media/log-analytics-data-sources-collectd/overview.png)
 
-La siguiente configuración de CollectD se incluye en el agente de OMS para Linux para enrutar a este los datos de CollectD.
+La siguiente configuración de CollectD se incluye en OMS Agent para Linux para enrutar a este los datos de CollectD.
 
     LoadPlugin write_http
 
@@ -78,7 +77,7 @@ El agente de OMS para Linux también escucha en el puerto 26000 las métricas de
 Estos son los pasos básicos para configurar la recopilación de datos de CollectD en Log Analytics.
 
 1. Configure CollectD para enviar datos al agente de OMS para Linux mediante el complemento write_http.  
-2. Configure al agente de OMS para Linux para escuchar datos de CollectD en el puerto adecuado.
+2. Configure OMS Agent para Linux para escuchar datos de CollectD en el puerto adecuado.
 3. Reinicie CollectD y el agente de OMS para Linux.
 
 ### <a name="configure-collectd-to-forward-data"></a>Configuración de CollectD para reenviar datos 
@@ -123,5 +122,4 @@ Para mantener un modelo conocido entre las métricas de infraestructura ya recop
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones. 
 * Use [Campos personalizados](log-analytics-custom-fields.md) para analizar datos de registros de Syslog en campos individuales.
-
 

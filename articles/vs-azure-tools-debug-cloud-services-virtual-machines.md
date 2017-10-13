@@ -14,12 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: dd9019a6feb86d90fc6219b06bf1e69da4c2b18f
-ms.contentlocale: es-es
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 66f0a9b591b812a52dc6037dcfcb64a2c250f05c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Depuración de una máquina virtual o un servicio en la nube de Azure en Visual Studio
 Visual Studio proporciona distintas opciones para la depuración de servicios en la nube y máquinas virtuales de Azure.
@@ -27,7 +26,7 @@ Visual Studio proporciona distintas opciones para la depuración de servicios en
 ## <a name="debug-your-cloud-service-on-your-local-computer"></a>Depuración del servicio en la nube en el equipo local
 Puede ahorrar tiempo y dinero si utiliza el emulador de proceso de Azure para depurar su servicio en la nube en un equipo local. La depuración de un servicio localmente antes de su implementación puede mejorar la fiabilidad y el rendimiento sin pagar por tiempo de proceso. No obstante, pueden producirse algunos errores solo al ejecutar un servicio en la nube en el propio Azure. Puede depurar estos errores si habilita la depuración remota al publicar el servicio y luego adjuntar el depurador a una instancia de rol.
 
-El emulador simula el servicio de proceso de Azure y se ejecuta en el entorno local para que pueda probar y depurar el servicio en la nube antes de implementarlo. El emulador administra el ciclo de vida de sus instancias de rol y proporciona acceso a recursos simulados, tales como el almacenamiento local. Al depurar o ejecutar el servicio desde Visual Studio, este entorno inicia automáticamente el emulador como una aplicación en segundo plano y después implementa el servicio en el emulador. Puede utilizar el emulador para ver su servicio cuando se ejecuta en el entorno local. Puede ejecutar la versión completa o la versión Express del emulador. (A partir de Azure 2.3, la versión Express del emulador es la opción predeterminada). Consulte [Using Emulator Express to Run and Debug a Cloud Service Locally](https://msdn.microsoft.com/library/dn339018.aspx) (Uso del emulador rápido para ejecutar y depurar localmente un servicio en la nube).
+El emulador simula el servicio de proceso de Azure y se ejecuta en el entorno local para que pueda probar y depurar el servicio en la nube antes de implementarlo. El emulador administra el ciclo de vida de sus instancias de rol y proporciona acceso a recursos simulados, tales como el almacenamiento local. Al depurar o ejecutar el servicio desde Visual Studio, este entorno inicia automáticamente el emulador como una aplicación en segundo plano y después implementa el servicio en el emulador. Puede utilizar el emulador para ver su servicio cuando se ejecuta en el entorno local. Puede ejecutar la versión completa o la versión Express del emulador. (A partir de Azure 2.3, la versión Express del emulador es la opción predeterminada). Consulte [Using Emulator Express to Run and Debug a Cloud Service Locally](vs-azure-tools-emulator-express-debug-run.md) (Uso del emulador rápido para ejecutar y depurar localmente un servicio en la nube).
 
 ### <a name="to-debug-your-cloud-service-on-your-local-computer"></a>Para depurar el servicio en la nube en el equipo local
 1. En la barra de menús, elija **Depurar**, **Iniciar depuración** para ejecutar el proyecto de servicio en la nube de Azure. Como alternativa, puede presionar F5. Verá un mensaje que indica que el emulador de proceso se está iniciando. Cuando se inicia el emulador, el icono de bandeja del sistema lo confirma.
@@ -166,4 +165,3 @@ Los proyectos ASP.NET de Visual Studio ofrecen una opción para crear una práct
 ## <a name="next-steps"></a>Pasos siguientes
 * Use **Intellitrace** para recopilar un registro de llamadas y eventos de un servidor de versión. Consulte [Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado](http://go.microsoft.com/fwlink/?LinkID=623016).
 * Use **Diagnósticos de Azure** para registrar información detallada del código que se ejecuta en los roles, bien sea en el entorno de desarrollo o en Azure. Consulte [Recopilación de datos de registro mediante Diagnósticos de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
-

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-container-to-azure-container-instances"></a>Implementación de un contenedor en Azure Container Instances
 
 Esta es la tercera parte de un tutorial de tres. En las secciones anteriores, [se creó una imagen de contenedor](container-instances-tutorial-prepare-app.md) y [se insertó en una instancia de Azure Container Registry](container-instances-tutorial-prepare-acr.md). En esta sección se completa el tutorial con la implementación del contenedor en Azure Container Instances. Los pasos completados incluyen:
@@ -106,4 +104,3 @@ En este tutorial se completó el proceso de implementar los contenedores en Azur
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
-

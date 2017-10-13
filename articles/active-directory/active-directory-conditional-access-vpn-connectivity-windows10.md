@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 540d8974ee2c02f80bccf28764b4d0d243e98d85
-ms.contentlocale: es-es
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-conditional-access-for-virtual-private-network-connectivity-preview"></a>Acceso condicional de Azure Active Directory para la conectividad de redes privadas virtuales (versión preliminar)
 
@@ -180,5 +179,4 @@ Esta sección le proporciona instrucciones para configurar la directiva de acces
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte [Enhancing remote access in Windows 10 with an automatic VPN profile](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile) (Mejora del acceso remoto en Windows 10 con un perfil VPN automático) para obtener información acerca de cómo ha implementado Microsoft esta característica.    
-
 

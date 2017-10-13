@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d92c8df7ad8cf522079bdea86e7b33d8441452ab
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="team-data-science-process-overview"></a>Introducción al proceso de ciencia de datos en equipo
 
@@ -108,4 +107,3 @@ En la mayoría de las organizaciones la introducción de procesos presenta ciert
 ## <a name="next-steps"></a>Pasos siguientes
 
 En [Team Data Science Process: Roles and tasks](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) (Proceso de ciencia de datos en equipo: roles y tareas) se subrayan los roles y sus tareas asociadas en un equipo de ciencia de datos que se estandariza en este proceso. 
-

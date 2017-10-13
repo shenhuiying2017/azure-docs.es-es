@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 6f51f0585dfc75d28da72d1056ef7173c06b24fd
-ms.contentlocale: es-es
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 099f40d00753b7c86ba726a818f17d440a125221
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrate existing databases to scale-out (Migrar bases de datos existentes de escalado horizontal)
 Administre fácilmente sus bases de datos existentes particionadas con escalado horizontal mediante las herramientas de Base de datos SQL de Azure (como la [biblioteca de cliente de Bases de datos elásticas](sql-database-elastic-database-client-library.md)). Primero debe convertir un conjunto existente de bases de datos para utilizar [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md). 
@@ -172,5 +170,4 @@ Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de SQL D
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
 [2]: ./media/sql-database-elastic-convert-to-use-elastic-tools/rangemapping.png
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
-ms.contentlocale: es-es
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solución de Azure Key Vault Analytics en Log Analytics
 
@@ -75,7 +74,7 @@ En la siguiente tabla se muestran los métodos de recopilación de datos y otros
 
 | Plataforma | Agente directo | Agente System Center Operations Manager | Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
-| Las tablas de Azure |  |  |&#8226; |  |  | a la llegada |
+| Azure |  |  |&#8226; |  |  | a la llegada |
 
 ## <a name="use-azure-key-vault"></a>Uso de Azure Key Vault
 Después de [instalar la solución](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), vea los datos de Key Vault haciendo clic en icono de **Azure Key Vault** desde la página **Introducción** de Log Analytics.
@@ -153,4 +152,3 @@ Los datos recopilados antes del cambio no aparecen en la nueva solución. Puede 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados sobre los datos de Azure Key Vault.
-

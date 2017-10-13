@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/02/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: b7abbce10fc808458a75a4a81a6ab73f46fb19fd
-ms.contentlocale: es-es
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 9279fea482fcd8716bcd996985e10f500a4775ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="encrypt-a-windows-virtual-machine-with-azure-powershell"></a>Cifrado de una máquina virtual Windows con Azure PowerShell
 
 Este script crea un almacén Azure Key Vault seguro, claves de cifrado, una entidad de servicio de Azure Active Directory y una máquina virtual (VM) Windows. La máquina virtual, a continuación, se cifra mediante la clave de cifrado del almacén de claves y las credenciales de la entidad de servicio.
@@ -33,7 +31,7 @@ Este script crea un almacén Azure Key Vault seguro, claves de cifrado, una enti
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/encrypt-vm/encrypt-windows-vm.ps1 "Cifrado de discos de máquina virtual")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/encrypt-vm/encrypt-windows-vm.ps1 "Encrypt VM disks")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 
@@ -73,4 +71,3 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 
 Encontrará más ejemplos de scripts de Azure PowerShell de máquina virtual en la [documentación sobre máquinas virtuales Windows de Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

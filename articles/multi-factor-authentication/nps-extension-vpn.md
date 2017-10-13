@@ -16,14 +16,12 @@ ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
-ms.contentlocale: es-es
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-your-vpn-infrastructure-with-azure-multi-factor-authentication-mfa-using-the-network-policy-server-nps-extension-for-azure"></a>Este artículo describe la integración de la infraestructura de VPN con Azure Multi-Factor Authentication (MFA) utilizando la extensión Servidor de directivas de redes (NPS) para Azure
 
 ## <a name="overview"></a>Información general
@@ -204,7 +202,7 @@ En esta sección, configurará el servidor VPN para utilizar la autenticación R
 ### <a name="configure-authentication-provider"></a>Configuración del proveedor de autenticación
 1. En el servidor VPN, abra el Administrador del servidor.
 2. En el Administrador del servidor, haga clic en **Herramientas** y, a continuación, en **Enrutamiento y acceso remoto**.
-3. En la consola de Enrutamiento y acceso remoto, haga clic con el botón derecho en **\[nombre del servidor\] (local)** y, a continuación, haga clic en **Propiedades**.
+3. En la consola de Enrutamiento y acceso remoto, haga clic con el botón derecho en  **\[nombre del servidor\] (local)** y, a continuación, haga clic en **Propiedades**.
 
  ![Enrutamiento y acceso remoto](./media/nps-extension-vpn/image14.png)
  
@@ -476,5 +474,4 @@ Para más información, consulte [Integración de la infraestructura NPS existen
 [Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS](multi-factor-authentication-get-started-server-rdg.md)
 
 [Integración de los directorios locales con Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
-
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: fc98bdd8b3597810b0c07563af507e93c611f769
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Planeación de la capacidad para las aplicaciones de Service Fabric
 En este documento se ofrece información sobre cómo estimar la cantidad de recursos (CPU, RAM o almacenamiento en disco) que necesita para ejecutar las aplicaciones de Azure Service Fabric. Es normal que las necesidades de recursos cambien con el paso del tiempo. Normalmente necesitará menos recursos mientras desarrolla o prueba su servicio y luego una cantidad mayor cuando pase a producción y su aplicación se vuelva cada vez más popular. Al diseñar la aplicación, piense en los requisitos a largo plazo y haga elecciones que permitan escalar el servicio para adaptarse a las elevadas exigencias de los clientes.

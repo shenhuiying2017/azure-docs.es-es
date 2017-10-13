@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f9d586a140b27f672f8cff463ba0607e2bd844f
-ms.openlocfilehash: 6f2a184242f3f69bdc4a15ac02c095a45c723565
-ms.contentlocale: es-es
-ms.lasthandoff: 02/08/2017
-
+ms.openlocfilehash: 127fd6e3012bdb0788ed23ae5e8921df651d863b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="more-telemetry-from-application-insights"></a>Más telemetría desde Application Insights
 Una vez que haya [agregado Application Insights a su código de ASP.NET](app-insights-asp-net.md), puede realizar varias acciones para obtener más datos de telemetría. 
@@ -31,7 +30,6 @@ Una vez que haya [agregado Application Insights a su código de ASP.NET](app-ins
 |[Asegúrese de que se genera buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) mediante MSBuild.|[Generación de anotaciones en gráficos de métricas](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/).
 |[Cree eventos y métricas personalizados](app-insights-api-custom-events-metrics.md).|Recuento de métricas y eventos empresariales, seguimiento de uso detallado y mucho más.|
 |[Genere un perfil del sitio activo.](https://aka.ms/AIProfilerPreview)|Intervalos de función detallados de la aplicación web activa.|
-
 
 
 

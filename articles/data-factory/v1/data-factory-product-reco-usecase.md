@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 578ccb162e91d3ec7befb53b09400fc49c5ba37a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-case---product-recommendations"></a>Caso de uso: recomendaciones de productos
 Data Factory de Azure es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Consulte la página [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) para más información sobre este conjunto de aplicaciones. En este documento se describe un caso de uso común que los usuarios de Azure ya resolvieron e implementaron mediante Data Factory de Azure y otros servicios del componente Cortana Intelligence.
@@ -60,5 +59,4 @@ Por último, el conjunto de resultados de las recomendaciones de productos perso
 Al optimizar su estrategia de recomendación de productos y alinearla con los objetivos empresariales, la solución cumplió los objetivos de marketing y comercialización de los distribuidores en línea. Además, pudieron operacionalizar y administrar el flujo de trabajo de recomendaciones de productos de forma confiable, eficiente y rentable. El enfoque les facilitó la actualización de su modelo y el ajuste de su efectividad en función de las medidas de conversión de clic a ventas. Mediante Azure Data Factory, pudieron abandonar la tan costosa y laboriosa administración manual de los recursos en la nube y pasar a su administración a petición. Por lo tanto, consiguieron ahorrar tiempo y dinero y reducir el tiempo de implementación de la solución. Las vistas de linaje de datos y el estado de funcionamiento del servicio ahora se pueden visualizar y solucionar problemas fácilmente con la supervisión de factoría de datos intuitiva y la administración de interfaz de usuario disponible en el Portal de Azure. Su solución ahora se puede programar y administrar para que los datos terminados se generen y proporcionen a sus usuarios de forma confiable, y los datos y las dependencias de procesamiento se administran automáticamente sin intervención humana.
 
 Gracias a esta experiencia de compra personalizada, el distribuidor en línea creó una experiencia del cliente más competitiva y atractiva y, por tanto, que aumenta la satisfacción general del cliente y las ventas.
-
 

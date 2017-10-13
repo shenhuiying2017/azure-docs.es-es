@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: d45a43d1d4304fd0028d15b4797228a22cc6e76f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuales de una plantilla de Azure Resource Manager
 
 En este artículo se explican los aspectos de una plantilla de Azure Resource Manager que se aplican a las máquinas virtuales. En este artículo no se describe una plantilla completa para crear una máquina virtual. Para ello, necesita definiciones de recursos de cuentas de almacenamiento, interfaces de red, direcciones IP públicas y redes virtuales. Para obtener más información sobre cómo se pueden definir estos recursos juntos, consulte el [tutorial de plantilla de Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
@@ -460,4 +458,3 @@ No pasa nada por usar la misma plantilla para crear o actualizar recursos existe
 - Cree su propia plantilla con las [Creación de plantillas de Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Implemente la plantilla que creó mediante [Creación de una máquina virtual Windows con una plantilla de Resource Manager](ps-template.md).
 - Aprenda a administrar la máquina virtual que ha creado repasando el tema [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

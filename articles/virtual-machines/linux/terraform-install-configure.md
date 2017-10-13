@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2017
 ms.author: echuvyrov
-ms.translationtype: HT
-ms.sourcegitcommit: 8727e15448a74b68277c5bdd82c573e817254f80
 ms.openlocfilehash: da567097be38ac649c6bf1de1508de24d21cb877
-ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure 
 En este artículo se describen los pasos necesarios para instalar y configurar Terraform para aprovisionar recursos, tales como máquinas virtuales, en Azure. Obtendrá información sobre cómo crear y usar credenciales de Azure para habilitar Terraform para aprovisionar recursos en la nube de forma segura.
 
@@ -130,4 +128,3 @@ Además, si usa Terraform con Azure Government, Azure Alemania o Azure China, de
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ya ha instalado Terraform y configurado las credenciales de Azure para poder iniciar la implementación de la infraestructura en su suscripción de Azure. Ahora, obtenga información acerca de cómo [Crear infraestructura con Terraform](terraform-create-complete-vm.md).
-

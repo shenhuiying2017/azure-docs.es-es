@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1e3dc7e1375488ae9473cdd26f4d00871a091fbd
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Novedades de Aprendizaje automático de Azure
 
@@ -53,5 +52,4 @@ ms.lasthandoff: 09/25/2017
 * Ofrece una nueva página de prueba de servicio de ejecución por lotes con datos de ejemplos e historial de envío de trabajos.
 
 Además, Machine Learning Studio se ha actualizado para poder implementar según el modelo de servicios web nuevo o seguir implementando con el modelo de servicios web clásico. 
-
 

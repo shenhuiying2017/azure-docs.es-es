@@ -15,14 +15,12 @@ ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 2721b41e8736c9ebd75cd098ad376018b4563d3f
-ms.contentlocale: es-es
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: fd284542e1de65f323f1e3a092689f847e025be6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-or-update-mono-on-hdinsight"></a>Instalación o actualización de Mono en HDInsight
 
 Obtenga información sobre cómo instalar una versión específica de [Mono](https://www.mono-project.com) en HDInsight 3.4 o superior.

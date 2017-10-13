@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Tutorial de Azure WCF Relay
 
@@ -694,11 +693,11 @@ namespace Microsoft.ServiceBus.Samples
 
     Este un ejemplo del resultado de la ventana de consola. Tenga en cuenta que los valores que se proporcionan aquí se ofrecen solamente como un ejemplo.
 
-    `Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
+    `Your Service Namespace: myNamespace``Your SAS Key: <SAS key value>`
 
     La aplicación del servicio imprime en la ventana de la consola la dirección en la que está escuchando, tal y como se muestra en el ejemplo siguiente.
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/``Press [Enter] to exit`
 10. En la ventana de la consola de **EchoClient** escriba la misma información que especificó anteriormente para la aplicación de servicio. Siga los pasos anteriores para especificar los mismos valores de espacio de nombres de servicio y clave SAS para la aplicación cliente.
 11. Tras especificar estos valores, el cliente abrirá un canal al servicio y se le solicitará que escriba algo de texto, como se muestra en el siguiente ejemplo de salida de consola.
 
@@ -727,4 +726,3 @@ Para más información sobre Azure Relay, consulte los siguientes temas:
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png
 [5]: ./media/service-bus-relay-tutorial/set-projects.png
 [6]: ./media/service-bus-relay-tutorial/set-depend.png
-

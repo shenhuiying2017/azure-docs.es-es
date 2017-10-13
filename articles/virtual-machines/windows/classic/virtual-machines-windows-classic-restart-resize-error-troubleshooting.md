@@ -15,12 +15,11 @@ ms.workload: required
 ms.date: 06/13/2017
 ms.devlang: na
 ms.author: delhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 7fe0636366c60d4679cfc69bd96cd532695b080e
-ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
-
+ms.openlocfilehash: e2053a0a78519a1c4a503dc1f620d99cfe20b69c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure
 > [!div class="op_single_selector"]
@@ -84,5 +83,4 @@ Si el servicio en la nube existente no está asociado a una red virtual basada e
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si se producen problemas al crear una máquina virtual con Windows en Azure, vea [Solución de problemas de implementación con la creación de una máquina virtual con Windows en Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

@@ -16,14 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3396f21a36a1dc4de620416d2d863a291c1f67b9
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 5312bf6b81d1cc48490b71c3f77323cca23e1559
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-a-web-app-to-a-sql-database"></a>Conexión de una aplicación web a una base de datos SQL
 
 En este escenario aprenderá a crear una instancia de Azure SQL Database y una aplicación web de Azure. Y, después, vinculará la base de datos SQL a la aplicación web mediante la configuración de la aplicación.
@@ -32,7 +30,7 @@ Si es necesario, instale Azure PowerShell con la instrucción que se encuentra e
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-powershell[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Conexión de una aplicación web a una base de datos SQL")]
+[!code-powershell[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect a web app to a SQL database")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 
@@ -61,4 +59,3 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 Para más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 
 Puede encontrar ejemplos de Azure PowerShell para Azure App Service Web Apps en los [ejemplos de PowerShell](../app-service-powershell-samples.md).
-

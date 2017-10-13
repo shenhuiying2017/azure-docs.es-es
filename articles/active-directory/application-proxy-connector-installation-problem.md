@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 3dabb8adb67345c56750bb88373f5f740aa19036
-ms.contentlocale: es-es
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 91b3f6f3c8339647f568a509e9efd8e1fffb13dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema al instalar el conector de agente del proxy de aplicación
 
 El conector del proxy de aplicación de Microsoft AAD es un componente de dominio interno que utiliza conexiones salientes para establecer la conectividad desde el punto de conexión disponible en la nube hacia el dominio interno.
@@ -72,4 +70,3 @@ Seleccione su cuenta de usuario y "Rol del directorio" en el menú resultante. C
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md)
-

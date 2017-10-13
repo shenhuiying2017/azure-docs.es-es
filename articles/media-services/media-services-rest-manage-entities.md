@@ -1,6 +1,6 @@
 ---
 title: "Administración de entidades de Media Services con REST| Microsoft Docs"
-description: "Obtenga información sobre cómo administrar las entidades de Media Services con la API de REST."
+description: "Obtenga información sobre cómo administrar las entidades de Servicios multimedia con la API de REST."
 author: juliako
 manager: cfowler
 editor: 
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
+ms.openlocfilehash: a336907b605da962f835b8057ac6071f480cd85e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 1e4336bef9324b5aa9456135cac9b71d19e02050
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Administración de entidades de Media Services con REST 
 > [!div class="op_single_selector"]
@@ -28,7 +27,7 @@ ms.lasthandoff: 08/12/2017
 > 
 > 
 
-Microsoft Azure Media Services es un servicio REST basado en OData v3. Puede agregar, consultar, actualizar y eliminar entidades prácticamente del mismo modo que con cualquier otro servicio de OData. Se indicarán las excepciones cuando proceda. Para obtener más información sobre OData, consulte la [documentación de Open Data Protocol](http://www.odata.org/documentation/).
+Servicios multimedia de Microsoft Azure es un servicio REST basado en OData v3. Puede agregar, consultar, actualizar y eliminar entidades prácticamente del mismo modo que con cualquier otro servicio de OData. Se indicarán las excepciones cuando proceda. Para obtener más información sobre OData, consulte la [documentación de Open Data Protocol](http://www.odata.org/documentation/).
 
 En este tema se muestra cómo administrar entidades de Azure Media Services con REST.
 
@@ -37,17 +36,17 @@ En este tema se muestra cómo administrar entidades de Azure Media Services con 
 
 ## <a name="considerations"></a>Consideraciones  
 
-Al obtener acceso a las entidades de Media Services, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
+Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Conexión con Media Services
+## <a name="connect-to-media-services"></a>Conexión con Servicios multimedia
 
 Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Media Services. Debe realizar las llamadas posteriores al nuevo URI.
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
 
 ## <a name="adding-entities"></a>Incorporación de entidades
-Todas las entidades de Media Services se agregan a un conjunto de entidades, como recursos, a través de una solicitud HTTP POST.
+Todas las entidades de Servicios multimedia se agregan a un conjunto de entidades, como recursos, a través de una solicitud HTTP POST.
 
 En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy.
 
@@ -120,7 +119,7 @@ El ejemplo siguiente devuelve todos los JobTemplates con el nombre "SampleTempla
     Host: media.windows.net
 
 > [!NOTE]
-> Media Services no admite la operación $expand, ni los métodos no admitidos de LINQ que se describen en las consideraciones sobre LINQ (Servicios de datos de WCF).
+> Servicios multimedia no admite la operación $expand, ni los métodos no admitidos de LINQ que se describen en las consideraciones sobre LINQ (Servicios de datos de WCF).
 > 
 > 
 
@@ -157,7 +156,7 @@ En el ejemplo de código siguiente se muestra cómo actualizar la propiedad Name
     {"Name" : "NewName" }
 
 ## <a name="deleting-entities"></a>Eliminación de entidades
-Las entidades pueden eliminarse en Media Services mediante una solicitud HTTP DELETE. Según la entidad, el orden con que se eliminan las entidades puede ser importante. Por ejemplo, entidades como Assets requieren que revoque (o elimine) todos los localizadores que hagan referencia a ese recurso específico antes de eliminar el recurso.
+Las entidades pueden eliminarse en Servicios multimedia mediante una solicitud HTTP DELETE. Según la entidad, el orden con que se eliminan las entidades puede ser importante. Por ejemplo, entidades como Assets requieren que revoque (o elimine) todos los localizadores que hagan referencia a ese recurso específico antes de eliminar el recurso.
 
 En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó para cargar un archivo en el almacenamiento de blobs.
 
@@ -171,10 +170,9 @@ En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó par
     Host: media.windows.net
     Content-Length: 0
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

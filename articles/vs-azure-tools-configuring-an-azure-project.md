@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/06/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 11a56418156a46e1fcef7b8d1c6003990000046f
-ms.contentlocale: es-es
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 799715093bd1a8c8e77e6cdb7168670dc263dfa5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Configuración de un proyecto de servicio en la nube de Azure con Visual Studio
 Es posible configurar un proyecto de servicio en la nube de Azure dependiendo de los requisitos para dicho proyecto. Puede establecer las propiedades del proyecto para las siguientes categorías:
@@ -51,5 +50,4 @@ Es posible configurar un proyecto de servicio en la nube de Azure dependiendo de
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración de un proyecto de Azure mediante varias configuraciones de servicio](vs-azure-tools-multiple-services-project-configurations.md)
-
 

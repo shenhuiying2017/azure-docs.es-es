@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 47d119e4e4fd1420186e8600c8c085ab939fa6a5
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-database-application-development-overview"></a>Introducción al desarrollo de aplicaciones en SQL Database
 Este artículo le lleva por las consideraciones básicas que debe tener en cuenta un desarrollador al escribir código para conectarse a Base de datos SQL de Azure.
@@ -77,4 +76,3 @@ La escala elástica simplifica el proceso de escalado y reducción horizontal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Explore todas las [funcionalidades de Base de datos SQL](sql-database-technical-overview.md).
-

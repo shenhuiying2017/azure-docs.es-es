@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a37aed8b3321d3518ffd73e09f5bb21266a7e577
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Tutorial: Supervisar y actualizar una máquina virtual Windows con Azure PowerShell
 
 La supervisión de Azure usa agentes para recopilar datos de arranque y de rendimiento de máquinas virtuales de Azure, almacenar estos datos en Azure Storage y permitir el acceso a ellos a través del portal, el módulo de Azure PowerShell y la CLI de Azure. La administración de actualizaciones permite administrar las actualizaciones y las revisiones para las máquinas virtuales Windows de Azure.
@@ -123,7 +121,7 @@ Si no se cumplen estos requisitos previos, aparece un banner que le ofrece la op
 Haga clic en el banner para habilitar la solución. Si se detecta la falta de alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
 
 * Área de trabajo de [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Automation](../../automation/automation-offering-get-started.md)
+* [Automatización](../../automation/automation-offering-get-started.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitado en la máquina virtual.
 
 Se abre la pantalla **Habilitar la administración de actualizaciones**. Configure las opciones y haga clic en **Habilitar**.

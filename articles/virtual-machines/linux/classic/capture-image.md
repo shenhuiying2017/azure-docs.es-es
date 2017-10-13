@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: ecde5dd3211bfbb290e6910d7d55136d079c6cf3
-ms.contentlocale: es-es
-ms.lasthandoff: 06/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Captura de una máquina virtual clásica con Linux para usarla como imagen
 > [!IMPORTANT]
@@ -106,10 +105,9 @@ La imagen está lista para usarse para crear VM. Puede usar el comando de la CLI
 
 También puede usar [Azure Portal](http://portal.azure.com) para crear una máquina virtual personalizada mediante el método **Imagen** y seleccionar la imagen que ha creado. Para más información, consulte [Creación de una máquina virtual con Linux personalizada][How to Create a Custom Virtual Machine].
 
-**Consulte también:** [Guía de usuario del Agente de Linux de Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+**Consulte también:**[Guía de usuario del Agente de Linux de Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]:create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk.md
 [How to Create a Linux Virtual Machine]:create-custom.md
-

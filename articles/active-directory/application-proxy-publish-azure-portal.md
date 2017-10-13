@@ -15,15 +15,12 @@ ms.date: 07/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: e00a939f2b20ab8e0a2ddf0ff91e59db440213ac
-ms.contentlocale: es-es
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicación de aplicaciones mediante el proxy de aplicación de Azure AD
 
 > [!div class="op_single_selector"]
@@ -106,4 +103,3 @@ En el explorador, navegue a la dirección URL externa que configuró durante el 
 - [Descargue conectores](active-directory-application-proxy-enable.md) y [cree grupos de conectores](active-directory-application-proxy-connectors-azure-portal.md) para publicar aplicaciones en ubicaciones y redes independientes.
 
 - [Configure el inicio de sesión único](application-proxy-sso-azure-portal.md) para la aplicación publicada recientemente.
-

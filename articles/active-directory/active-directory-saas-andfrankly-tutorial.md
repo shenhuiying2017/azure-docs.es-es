@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
 ms.openlocfilehash: ea18a9f9bff258337a3de6d7703b4c548efa37df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutorial: integración de Azure Active Directory con &frankly
 
@@ -55,7 +55,7 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 ## <a name="adding-frankly-from-the-gallery"></a>Adición de &frankly desde la galería
 Para configurar la integración de &frankly en Azure AD, deberá agregar &frankly desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar &frankly desde la galería, realice los pasos siguientes:**
+**Para agregar &amp;frankly desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
@@ -88,7 +88,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con &frankly, e
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de &frankly](#creating-a-frankly-test-user)**: para tener un homólogo de Britta Simon en &frankly que esté vinculado a su representación en Azure AD.
+3. **[Creación de un usuario de prueba de &amp;frankly](#creating-a-frankly-test-user)**: para tener un homólogo de Britta Simon en &amp;frankly que esté vinculado a su representación en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
@@ -96,7 +96,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con &frankly, e
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación &frankly.
 
-**Para configurar el inicio de sesión único de Azure AD con &frankly, realice los pasos siguientes:**
+**Para configurar el inicio de sesión único de Azure AD con &amp;frankly, realice los pasos siguientes:**
 
 1. En Azure Portal, en la página de integración de la aplicación **&frankly**, haga clic en **Inicio de sesión único**.
 
@@ -176,7 +176,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ![Asignar usuario][200] 
 
-**Para asignar Britta Simon a &frankly, realice los pasos siguientes:**
+**Para asignar Britta Simon a &amp;frankly, realice los pasos siguientes:**
 
 1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
 

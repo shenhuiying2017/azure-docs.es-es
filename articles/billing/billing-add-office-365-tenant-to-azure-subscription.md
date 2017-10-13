@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/13/2017
 ms.author: cjiang
+ms.openlocfilehash: e6300932d044ec9a4f88eb5bd5977220ed11d513
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: b7b3e4539110f68e1e6ef4a75110924a27b40c49
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="link-an-office-365-tenant-to-an-azure-subscription"></a>Vinculación de un inquilino de Office 365 a una suscripción de Azure
 Vincule las suscripciones independientes de Azure y Office 365 para poder acceder al inquilino de Office 365 desde su suscripción de Azure. Para vincular sus suscripciones, inicie sesión en Azure con la cuenta de administrador de servicio de Azure, agregue un directorio y agregue las cuentas profesionales o educativas de Office 365 al inquilino de Azure Active Directory.
@@ -94,5 +93,4 @@ Para agregar un administrador a su suscripción de Azure, consulte [Adición o c
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
-
 

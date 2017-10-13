@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: da79c2451463794f7a205182830b6be53134507f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>La identidad híbrida requería puertos y protocolos
 El documento siguiente es una referencia técnica sobre los puertos y protocolos para implementar una solución de identidad híbrida. Use la siguiente ilustración y consulte la tabla correspondiente.
@@ -105,5 +104,4 @@ En esta tabla se describen los siguientes puertos y protocolos de salida que son
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b: Puntos de conexión para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
 Para ver una lista de puntos de conexión, consulte [la sección de requisitos para el agente de Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-agent-install.md#requirements).
-
 

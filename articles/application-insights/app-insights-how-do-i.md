@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 618fcfa3354ef5900d89546ffb7c222a852fe4f8
-ms.contentlocale: es-es
-ms.lasthandoff: 05/22/2017
-
+ms.openlocfilehash: ef63e06c0621753e0a706d6efb709b943e38ee42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-do-i--in-application-insights"></a>¿Cómo ... en Application Insights?
 ## <a name="get-an-email-when-"></a>Recibir un correo electrónico cuando...
@@ -162,4 +161,3 @@ Entre las métricas que se pueden mostrar en el Explorador de métricas se encue
 ### <a name="to-display-more-performance-counters"></a>Para mostrar más contadores de rendimiento
 * En primer lugar, [agregue un nuevo gráfico](app-insights-metrics-explorer.md) y compruebe si el contador está en el conjunto básico que se ofrece.
 * Si no es así, [agregue el contador al conjunto recopilado por el módulo del contador de rendimiento](app-insights-performance-counters.md).
-

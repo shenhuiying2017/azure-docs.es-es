@@ -17,12 +17,11 @@ ms.devlang: azurecli
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 9d16d16f0e57fab9f1827c37f181e579c627b3d9
 ms.openlocfilehash: 9db7d300b745001906bdc38769dcbe6e4d7c7b83
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adición de un disco a una máquina virtual de Linux
 En este artículo se muestra cómo conectar un disco persistente a la máquina virtual para que se puedan conservar los datos, incluso si la máquina virtual se vuelve a aprovisionar por mantenimiento o cambio de tamaño. 
@@ -269,5 +268,4 @@ Hay dos maneras de habilitar la compatibilidad con TRIM en su máquina virtual L
 * Recuerde que el nuevo disco no está disponible en la máquina virtual si esta se reinicia a menos que escriba dicha información en su archivo [fstab](http://en.wikipedia.org/wiki/Fstab) .
 * Revise las recomendaciones para [optimizar el rendimiento de la máquina Linux](optimization.md) para asegurarse de que la máquina virtual Linux está configurada correctamente.
 * Amplíe la capacidad de almacenamiento mediante la adición de discos adicionales y [configure RAID](configure-raid.md) para obtener un mayor rendimiento.
-
 

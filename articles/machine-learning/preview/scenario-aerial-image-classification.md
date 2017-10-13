@@ -8,14 +8,12 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 09/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 43b124fc3eb72adc5d299b218c9e16ec83d1a240
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="aerial-image-classification"></a>Clasificación de imágenes aéreas
 
 Este ejemplo muestra cómo utilizar Azure Machine Learning Workbench para la coordinación de entrenamiento distribuido y la operacionalización de modelos de clasificación de imagen. Usamos el paquete [Microsoft Machine Learning para Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) para caracterizar imágenes con modelos CNTK previamente entrenados y para entrenar clasificadores utilizando las características derivadas. A continuación, se aplican los modelos entrenados de forma paralela a grandes conjuntos de imágenes en la nube. Estos pasos se realizan en un clúster de [Spark de Azure HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/apache-spark/), lo que nos permite escalar la velocidad de entrenamiento y de operacionalización mediante la agregación o eliminación de nodos de trabajo.
@@ -270,4 +268,3 @@ To dive deeper into this example:
 - Examine the sample scripts for statements calling the `blob_service`. Check that you understand how trained models and predictions are stored and retrieved from the cloud.
 - Explore the contents of the containers created in your blob storage account. Ensure that you understand which script or command is responsible for creating each group of files.
 - Modify the training script to train a different MMLSpark model type or to change the model hyperparameters. Use the run history feature to determine whether your changes increased or decreased the model's accuracy.
-

@@ -8,14 +8,12 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a61357b6ba75566e0ad4d3300cc602333ece0563
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de Azure Event Grid
 
 En este artículo se proporcionan las propiedades y los esquemas de los eventos. Los eventos constan de un conjunto de cinco propiedades de cadena y un objeto de datos obligatorios. Las propiedades son comunes a todos los eventos de cualquier anunciante. El objeto de datos contiene propiedades específicas de cada anunciante. Para los temas de sistema, estas propiedades son específicas del proveedor de recursos, como Azure Storage o Azure Event Hubs.
@@ -126,7 +124,7 @@ Los grupos de recursos ahora pueden emitir eventos de administración de Azure R
 
 
 
-## <a name="event-hubs"></a>Event Hubs
+## <a name="event-hubs"></a>Centros de eventos
 
 A día de hoy, los eventos de Event Hubs solo se generan cuando se envía automáticamente un archivo al almacenamiento mediante la característica Captura.
 
@@ -235,4 +233,3 @@ En el ejemplo siguiente se muestra un evento de tema personalizado:
 
 * Para una introducción a Azure Event Grid, consulte el artículo de [introducción a Event Grid](overview.md).
 * Para más información acerca de la creación de una suscripción de Azure Event Grid, consulte [Esquema de suscripción de Event Grid](subscription-creation-schema.md).
-

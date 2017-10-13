@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b502a586cdb7351d5b22c6b0db966723b8ebb7b4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="team-data-science-process-roles-and-tasks"></a>Roles y tareas del proceso de ciencia de datos en equipo
 
 El proceso de ciencia de datos en equipo es una plataforma desarrollada por Microsoft que proporciona una metodología estructurada para crear soluciones de análisis predictivo y aplicaciones inteligentes de un modo eficaz. En este artículo se describen los roles clave del personal y sus tareas asociadas, que se administran mediante un equipo de ciencia de datos en equipo que estandariza este proceso. 

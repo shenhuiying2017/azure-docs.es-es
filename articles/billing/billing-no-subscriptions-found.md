@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
+ms.openlocfilehash: 19f27aa81d7b5e03828f18f5a38cf3362df17694
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 7d6f16f9aad41cc2867ce86361fcea2f93aca7c5
-ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Error No se encontraron suscripciones en Azure Portal o en el Centro de cuentas de Azure
 
 Puede recibir un mensaje de error "No se encontraron suscripciones" cuando intente iniciar sesión en [Azure Portal](https://portal.azure.com/) o en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions). En este artículo se brinda una solución para este problema.
@@ -57,4 +55,3 @@ Compruebe si la cuenta que ha usado es el administrador de cuentas. Para comprob
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) para resolver el problema rápidamente. 
-

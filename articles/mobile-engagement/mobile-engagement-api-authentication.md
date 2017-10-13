@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: bf8cd0d645d8a5992864c8a3820ac2049a3ff630
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: b05181d9252c0a804648e01b4058019278ae5abe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Autenticación con las API de REST de Mobile Engagement
 ## <a name="overview"></a>Información general
@@ -94,7 +93,7 @@ Debe seguir el conjunto de instrucciones indicado más abajo para realizar la in
    
    * **URL de solicitud** como *https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
    * **Encabezado Content-Type HTTP** como *application/x-www-form-urlencoded*
-   * **Cuerpo de solicitud HTTP** como *grant\_type=client\_credentials&client_id={CLIENT\_ID}&client_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
+   * **Cuerpo de solicitud HTTP** como *grant\_type=client\_credentials&amp;client_id={CLIENT\_ID}&amp;client_secret={CLIENT\_SECRET}&amp;resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
      
      La siguiente es una solicitud de ejemplo:
      
@@ -129,9 +128,9 @@ Ahora que tiene un token válido, está listo para realizar las llamadas de API.
    
     Para obtener los parámetros, haga clic en el nombre de la aplicación y luego en el Panel; así aparecerá una página similar a la siguiente con los tres parámetros.
    
-   * **1** `{subscription-id}`
-   * **2** `{app-collection}`
-   * **3** `{app-resource-name}`
+   * **1**`{subscription-id}`
+   * **2**`{app-collection}`
+   * **3**`{app-resource-name}`
    * **4** El nombre de su grupo de recursos será **MobileEngagement** a menos que haya creado uno nuevo. 
      
      ![Parámetros de URI de la API de Mobile Engagement][2]
@@ -149,7 +148,6 @@ Ahora que tiene un token válido, está listo para realizar las llamadas de API.
 [2]: ./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
-
 
 
 

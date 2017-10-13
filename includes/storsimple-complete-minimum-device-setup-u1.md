@@ -16,7 +16,7 @@
 
     ![Interfaces de red de la instalación mínima del dispositivo StorSimple](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-    Las direcciones IP fijas del controlador se usan para el mantenimiento de las actualizaciones del dispositivo y, por tanto, las direcciones IP fijas deben ser enrutables y poder conectarse a Internet. Para comprobar que son enrutables, use el cmdlet [Test-HcsmConnection][Test]. En el ejemplo siguiente se muestra que las direcciones IP fijas del controlador se enrutan a Internet y pueden tener acceso a los servidores de Microsoft Update. 
+    Las direcciones IP fijas del controlador se usan para el mantenimiento de las actualizaciones del dispositivo y, por tanto, las direcciones IP fijas deben ser enrutables y poder conectarse a Internet. Para comprobar que sus IP de controlador fijas son enrutables, use el cmdlet [Test-HcsmConnection][Test]. En el ejemplo siguiente se muestra que las direcciones IP fijas del controlador se enrutan a Internet y pueden tener acceso a los servidores de Microsoft Update. 
 
      ![Test-HcsmConnection que muestra direcciones IP enrutables](./media/storsimple-complete-minimum-device-setup-u1/Test-HcsmConnectionOutputRegisteredDevice.png)
 
@@ -24,7 +24,7 @@
    Volverá a la página **Inicio rápido** del dispositivo.
    
    > [!NOTE]
-   > Puede modificar la configuración restante del dispositivo en cualquier momento accediendo a la página **Configurar** .
+   > Puede modificar la configuración restante del dispositivo en cualquier momento accediendo a la página **Configurar** del dispositivo.
    > 
    > 
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: bd1c860db026f948202cd1f3aa763b4547c597b4
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementación de una máquina virtual de Azure con C# y una plantilla de Resource Manager
 En este artículo se muestra cómo implementar una plantilla de Azure Resource Manager con C#. La plantilla que crea implementa una sola máquina virtual que ejecuta Windows Server en una nueva red virtual con una sola subred.
@@ -330,4 +329,3 @@ Esta aplicación de consola tardará unos cinco minutos en ejecutarse completame
 ## <a name="next-steps"></a>Pasos siguientes
 * Si se produjeron problemas durante la implementación, el paso siguiente sería consultar [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Obtenga información sobre cómo implementar una máquina virtual y los recursos de apoyo leyendo [Implementación de una máquina virtual de Azure con C#](csharp.md).
-

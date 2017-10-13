@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 8f1936fac543f559a44ad0f9c35b30d1a92dce68
-ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-clone-a-volume"></a>Usar el servicio StorSimple Manager para clonar un volumen
 [!INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
@@ -80,7 +79,7 @@ Las secciones siguientes describen situaciones de ejemplo en las que pueden usar
 ### <a name="item-level-recovery-with-a-transient-clone"></a>Recuperación de nivel de elemento con un clon transitorio
 Necesita recuperar un archivo de presentación de Microsoft PowerPoint de un año de antigüedad. El administrador de TI identifica la copia de seguridad específica de ese período de tiempo y, a continuación, filtra el volumen. El administrador clona el volumen, busca el archivo que necesita y se lo proporciona. En este escenario, se usa un clon transitorio. 
 
-![Vídeo disponible](./media/storsimple-clone-volume/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-clone-volume/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo en el que se muestra cómo puede usar el clon y restaurar las características de StorSimple para recuperar archivos eliminados, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
@@ -90,5 +89,4 @@ Necesita comprobar un error de prueba en el entorno de producción. Puede crear 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 * Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

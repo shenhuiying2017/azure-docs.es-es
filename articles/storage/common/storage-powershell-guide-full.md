@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: tamram
+ms.openlocfilehash: 019da8eb9e42894fa3592cd11cce1dc6754290f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8306ae5d4a943b9246da1d941725150c60026ca5
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Almacenamiento de Azure
 ## <a name="overview"></a>Información general
 Azure PowerShell es un módulo que ofrece cmdlets para administrar Azure mediante Windows PowerShell. Es un Shell de línea de comandos y un lenguaje de scripting basados en tareas y diseñados especialmente para la administración del sistema. Con PowerShell, podrá controlar y automatizar fácilmente la administración de los servicios y aplicaciones de Azure. Por ejemplo, puede usar los cmdlets para realizar las mismas tareas que podría realizar a través de [Azure Portal](https://portal.azure.com).
@@ -848,4 +846,3 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
-

@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: johnkem
+ms.openlocfilehash: a4ceb822e0ec3e1c1dc31ece1db761834e795f6c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 5c96a1cfa56d1535549cb15d5a7bcf03bd11e723
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
 El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos.
@@ -415,4 +414,3 @@ Esta categoría contiene el registro de los eventos relacionados con el funciona
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre el registro de actividad (antes, Registros de auditoría)](monitoring-overview-activity-logs.md)
 * [Transmisión del registro de actividad de Azure a centros de eventos](monitoring-stream-activity-logs-event-hubs.md)
-

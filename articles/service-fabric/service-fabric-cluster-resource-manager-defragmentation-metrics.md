@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 0b8b2bad967532bb0040407dc6a3a7b9599576d2
-ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentación de métricas y carga en Service Fabric
 La estrategia predeterminada de Cluster Resource Manager de Service Fabric para administrar métricas de carga en el clúster es distribuir la carga. Al tener la seguridad de que los nodos se utilizan por igual, se evitan zonas activas e inactivas que conducen a la contención y el desperdicio de recursos. La distribución de las cargas de trabajo en el clúster es también lo más seguro si se quiere sobrevivir a los errores dado que de esta forma se garantiza que un error no se llevará un gran porcentaje de una carga de trabajo dada. 
@@ -98,7 +97,6 @@ a través de ClusterConfig.json para las implementaciones independientes o Templ
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Cluster Resource Manager tiene muchas opciones para describir el clúster. Para más información sobre ellas, consulte este artículo sobre cómo [describir un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
-- Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
+- Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre las métricas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png
-

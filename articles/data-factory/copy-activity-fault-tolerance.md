@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d96c89ed3650c09ac6465e30754ef1155b06d601
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +30,7 @@ La actividad de copia de Azure Data Factory ofrece dos maneras de tratar filas i
 - Se puede continuar copiando todos los datos a través de la incorporación de tolerancia a errores y la omisión de filas de datos incompatibles. Además, puede registrar las filas incompatibles en Azure Blob Storage. Luego puede examinar el registro para obtener información sobre la causa del error, corregir los datos en el origen de datos y reintentar la actividad de copia.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea [la tolerancia a errores de la actividad de copia en V1](v1/data-factory-copy-activity-fault-tolerance.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea [la tolerancia a errores de la actividad de copia en V1](v1/data-factory-copy-activity-fault-tolerance.md).
 
 
  ## <a name="supported-scenarios"></a>Escenarios admitidos
@@ -101,6 +100,5 @@ Consulte los otros artículos de la actividad de copia:
 
 - [Información general de la actividad de copia](copy-activity-overview.md)
 - [Rendimiento de la actividad de copia](copy-activity-performance.md)
-
 
 

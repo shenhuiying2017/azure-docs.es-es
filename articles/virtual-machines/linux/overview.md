@@ -15,12 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: d0c6523b4d90c29781d256b2882b0935b50e2af9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 392ed1b7ac5f543b322024f4b771c73bf865e970
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-and-linux"></a>Azure y Linux
 Microsoft Azure es una colección cada vez mayor de servicios en la nube, públicos e integrados, que incluyen servicios de análisis, máquinas virtuales, bases de datos, móviles, de red, de almacenamiento y web, ideales para hospedar sus soluciones.  Microsoft Azure proporciona una plataforma informática escalable que permite pagar solo por lo que use, cuando lo desee, sin tener que invertir en hardware local.  Azure está listo cuando tenga que escalar sus soluciones vertical y horizontalmente a cualquier escala que necesite para atender las necesidades de sus clientes.
@@ -139,4 +138,3 @@ Ahora, la máquina virtual se está ejecutando en Azure y ya puede iniciar sesi�
 Ya tiene una visión general de Linux en Azure.  El siguiente paso consiste en empezar a crear algunas máquinas virtuales.
 
 * [Explore nuestra creciente lista de scripts de ejemplo para tareas comunes mediante la CLI de Azure](cli-samples.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dde6242211ca3d8d7b47c0ec4a01965e1439adeb
-ms.openlocfilehash: d3b900b40f683cd446b41696c4f9e617299bf0b1
-ms.contentlocale: es-es
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: beace24fa00c85a5038a3c39ae8f76af5fd12111
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Pasos siguientes y cómo administrar Azure AD Connect
 Utilice los procedimientos operativos de este artículo para personalizar Azure Active Directory (Azure AD) Connect para satisfacer las necesidades y requisitos de su organización.  
@@ -72,5 +71,4 @@ En la tabla siguiente se proporciona un resumen de estas tareas y una breve desc
 | **Habilitar el modo provisional** |Información provisional que no se sincroniza inmediatamente y no se exporta a Azure AD ni a Active Directory local.  Con esta función puede obtener una vista previa de las sincronizaciones antes de que se produzcan. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre la [integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
+Más información acerca de la [integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

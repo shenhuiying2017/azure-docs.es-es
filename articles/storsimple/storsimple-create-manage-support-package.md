@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42b245d4e205dffda7ec62199ced3834c278a466
-
-
+ms.openlocfilehash: 32d20e7a8adcfc646c592213fe7395b87a93c985
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-a-storsimple-support-package"></a>Crear y administrar paquetes de soporte técnico de StorSimple
 ## <a name="overview"></a>Información general
@@ -166,10 +166,4 @@ A continuación se muestra un ejemplo que muestra cómo descifrar, editar y volv
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda cómo [usar paquetes de soporte y registros de dispositivos para solucionar los problemas de implementación de su dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

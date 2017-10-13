@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: tomfitz
 ms.openlocfilehash: 868b2cc1559053057d17b34c03e2e31347f399bf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-portal-to-assign-and-manage-resource-policies"></a>Uso de Azure Portal para asignar y administrar directivas de recursos
 Azure Portal permite asignar directivas de recursos a suscripciones y grupos de recursos. La interfaz de usuario facilita la selección de la directiva que desea asignar y especificar los valores de los parámetros de dicha directiva para personalizar la configuración de directiva. 

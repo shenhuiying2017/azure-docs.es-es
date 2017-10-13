@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 116eaa59eb60833036ad4d3c975c0b86e525f625
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="team-lead-tasks"></a>Tareas del responsable de equipo
 
 En este tema se describen las tareas que debe realizar un responsable de equipo en su equipo de ciencia de datos. El objetivo es establecer un entorno de colaboración de equipo que se normaliza en el [Proceso de ciencia de datos en equipo](overview.md) (TDSP). TDSP es una metodología de ciencia de datos ágil e iterativa para proporcionar soluciones de análisis predictivo y aplicaciones inteligentes de manera eficiente. Está diseñado para ayudar a mejorar la colaboración y el aprendizaje en equipo. El proceso es una extracción de los procedimientos recomendados y las estructuras, tanto de Microsoft como de la industria, que son necesarios para la correcta implementación de iniciativas de ciencia de datos con el fin de ayudar a las empresas a darse cuenta verdaderamente de las ventajas de sus programas de análisis. Puede encontrar un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso en [Roles y tareas del Proceso de ciencia de datos en equipo](roles-tasks.md).
@@ -73,9 +71,9 @@ Para cumplir los requisitos previos, es necesario realizar las tareas asignadas 
 - El administrador del grupo debe haber configurado el **servidor VSTS del grupo** (o la cuenta de grupo en otras plataformas de hospedaje de código).
 - El administrador del grupo debe haber configurado el **repositorio GroupProjectTemplate** (R1) en la cuenta de grupo en la plataforma de hospedaje de código que planee usar.
 - Tiene **autorización** en la cuenta de grupo para crear repositorios para su equipo.
-- Git debe estar instalado en la máquina. Si usa una instancia de Data Science Virtual Machine (DSVM), Git se ha instalado previamente y está listo para continuar. En caso contrario, consulte el [anexo de plataformas y herramientas](platforms-and-tools.md#appendix).  
+- Git debe estar instalado en la máquina. Si usa una instancia de Data Science Virtual Machine (DSVM), Git se ha instalado previamente y está listo para continuar. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).  
 - Si usa una **DSVM de Windows**, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en su máquina. En el archivo README.md, desplácese a la sección **Descargar e instalar** y haga clic en el *instalador más reciente*. Este paso le lleva a la página más reciente del instalador. Descargue al instalador .exe desde aquí y ejecútelo. 
-- Si usa una **DSVM de Linux**, cree una clave pública SSH en su DSVM y agréguela al servidor de VSTS del grupo. Para más información acerca de SSH, consulte la sección acerca de cómo **crear una clave pública SSH** en el [anexo de plataformas y herramientas](platforms-and-tools.md#appendix). 
+- Si usa una instancia de **DSVM de Linux**, cree una clave pública SSH en su DSVM y agréguela al servidor de VSTS del grupo. Para más información acerca de SSH, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
     
 ## <a name="1-create-a-team-project-and-repositories"></a>1. Creación de un proyecto de equipo y de los repositorios
 
@@ -414,7 +412,7 @@ En la página principal del servidor de VSTS de su grupo, haga clic en el **icon
 
 Estos son vínculos a descripciones más detalladas de los roles y tareas definidas por el proceso de ciencia de datos en equipo:
 
-- [Tareas del administrador del grupo en un equipo de ciencia de datos](group-manager-tasks.md)
+- [Tareas del administrador de grupo en un equipo de ciencia de datos](group-manager-tasks.md)
 - [Tareas del responsable de equipo en un equipo de ciencia de datos](team-lead-tasks.md)
 - [Tareas del responsable de proyecto en un equipo de ciencia de datos](project-lead-tasks.md)
 - [Colaboradores individuales del proyecto en un equipo de ciencia de datos](project-ic-tasks.md)

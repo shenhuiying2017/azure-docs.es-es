@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3ca1710c969b9bc5a1f56dc53f52c706e1ed07cd
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="combine-columns-by-example-transformation"></a>Transformación Combinar columnas por ejemplos
 Esta transformación permite al usuario agregar una nueva columna mediante la combinación de valores de varias columnas. El usuario puede especificar un separador o proporcionar ejemplos de valores combinados para realizar esta transformación. Cuando el usuario proporciona ejemplos de combinación, la transformación se controla por medio del mismo motor **por ejemplos** que se usa en la transformación **Derivar columna por ejemplos**.
 
@@ -74,5 +72,4 @@ El valor en **negrita** se proporciona como ejemplo.
 |16|Ene|2017|22|34|56|16-Ene-2016 15:01:56 (hora de verano del Pacífico)|
 |23|Mar|2017|01|55|25|23-Mar-2016 15:01:25 (hora de verano del Pacífico)|
 |16|Abr|2017|11|34|36|16-Abr-2016 15:01:36 (hora de verano del Pacífico)|
-
 

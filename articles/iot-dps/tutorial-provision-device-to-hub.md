@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: bf50699d2dc67294d554ba15713254a8b88d8ade
-ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Aprovisionamiento del dispositivo en una instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning
 
 En el tutorial anterior, aprendió a configurar un dispositivo para conectarse al servicio Device Provisioning. En este tutorial, aprenderá a usar este servicio para aprovisionar el dispositivo en una única instancia de IoT Hub mediante **_listas de inscripción_**. En este tutorial se muestra cómo realizar las siguientes acciones:
@@ -95,7 +93,7 @@ Una vez que arranque el dispositivo, se deben realizar las siguientes acciones. 
     ![Conexión correcta al centro en el portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha aprendido a:
+En este tutorial, ha aprendido cómo:
 
 > [!div class="checklist"]
 > * Inscribir el dispositivo
@@ -106,4 +104,3 @@ Pase al siguiente tutorial para aprender a aprovisionar varios dispositivos en c
 
 > [!div class="nextstepaction"]
 > [Aprovisionamiento de dispositivos en instancias de IoT Hub con equilibrio de carga](./tutorial-provision-multiple-hubs.md)
-

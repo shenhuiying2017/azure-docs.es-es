@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 5dc4a98bf889d38c62c76364289c2d58c14d771e
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Conmutación por error y recuperación ante desastres para dispositivos de StorSimple de la serie 8000
 
@@ -140,5 +139,4 @@ Si ha conmutado por error el dispositivo, elija una de las opciones siguientes:
 
 * [Desactivar o eliminar el dispositivo de StorSimple](storsimple-8000-deactivate-and-delete-device.md).
 * [Usar el servicio Administrador de dispositivos de StorSimple para administrar el dispositivo de StorSimple](storsimple-8000-manager-service-administration.md).
-
 

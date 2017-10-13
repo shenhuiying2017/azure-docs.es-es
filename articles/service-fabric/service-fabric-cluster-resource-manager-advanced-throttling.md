@@ -1,6 +1,6 @@
 ---
 title: "Limitación de Cluster Resource Manager de Service Fabric | Microsoft Docs"
-description: Aprenda a configurar las limitaciones que presenta Cluster Resource Manager de Service Fabric.
+description: Aprenda a configurar las limitaciones proporcionadas por Cluster Resource Manager de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 22223923f6783f11178b44c3c3087f17eb8dc41b
-ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Limitación de Cluster Resource Manager de Service Fabric
 Aunque haya configurado correctamente Cluster Resource Manager, el clúster puede ver alterado su comportamiento. Por ejemplo, podría haber errores simultáneos de nodos y de dominios de error. ¿Qué pasaría si esto sucediera durante una actualización? Cluster Resource Manager siempre intenta corregirlo todo y consume los recursos del clúster tratando de reorganizar y corregir el clúster. Las limitaciones contribuyen a ofrecer un mecanismo de protección a fin de que el clúster pueda usar los recursos para estabilizarse: el nodo se recupera, las particiones de red se reparan y los bits corregidos se implementan.
 
@@ -29,7 +27,7 @@ Para ayudarle con este tipo de situaciones, Cluster Resource Manager de Service 
 
 Si modifica las limitaciones de Cluster Resource Manager, debe ajustarlas a la carga real esperada. Tal vez necesite implementar ciertas limitaciones, aunque esto signifique que el clúster tarde más en estabilizarse en algunas situaciones. Es preciso realizar pruebas para determinar los valores correctos de las limitaciones. Las limitaciones deben suficientemente altas para que el clúster responda a los cambios en una cantidad de tiempo razonable y suficientemente bajas para evitar realmente el consumo excesivo de recursos. 
 
-Hemos observado que, la mayoría de las veces, los clientes usan estas limitaciones porque ya estaban en un entorno con restricción de recursos. Entre los ejemplos estaría un ancho de banda de red limitado en nodos individuales o discos que no pueden crear muchas réplicas con estado en paralelo por limitaciones de rendimiento. Sin limitaciones, las operaciones podrían sobrecargar estos recursos, lo que provocaría que las operaciones no se realizaran o fueran lentas. En estas situaciones, los clientes usaban las limitaciones y sabían que aumentaban la cantidad de tiempo que el clúster tardaría en llegar a un estado estable. Los clientes también comprendían que podían terminar ejecutándose con una menor confiabilidad general mientras estaban con limitaciones.
+Hemos observado que, la mayoría de las veces, los clientes usan estas limitaciones porque ya estaban en un entorno con restricción de recursos. Entre los ejemplos estaría un ancho de banda de red limitado en nodos individuales o discos que no pueden crear muchas réplicas con estado en paralelo por limitaciones de rendimiento. Sin limitaciones, las operaciones podrían sobrecargar estos recursos, lo que provocaría que las operaciones no se realizaran o fueran lentas. En estas situaciones, los clientes usaban las limitaciones y sabían que aumentaban la cantidad de tiempo que el clúster tardaría en llegar a un estado estable. Los clientes también comprendían que podían terminar ejecutándose con una confiabilidad general menor mientras estaban con restricciones.
 
 
 ## <a name="configuring-the-throttles"></a>Configuración de las limitaciones
@@ -94,5 +92,4 @@ La configuración de estas limitaciones sigue el mismo patrón que las limitacio
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para más información sobre la forma en que Cluster Resource Manager administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md)
-- Cluster Resource Manager tiene muchas opciones para describir el clúster. Para obtener más información sobre ellas, consulte [Descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
-
+- Cluster Resource Manager tiene muchas opciones para describir el clúster. Para obtener más información sobre ellas, consulte este artículo [Descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).

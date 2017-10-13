@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
+ms.openlocfilehash: 792e8c7efb2a627fbc1abde1389015949d5931e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4db7552a1b76c89151405c55c8682abbb5326bb6
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-queues"></a>Introducción a las colas
 
@@ -53,6 +52,5 @@ El servicio Cola contiene los siguientes componentes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Cree una cuenta de almacenamiento](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [crear una cuenta de almacenamiento](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 * [Introducción a las colas con .NET](storage-dotnet-how-to-use-queues.md)
-

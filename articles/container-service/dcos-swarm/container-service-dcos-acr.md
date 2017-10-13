@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
+ms.openlocfilehash: 7fdcff5ed93e56e4ac70dd9dcee0056a4cbef0bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fa07135d550bf9ea0f6d1e03089b988cf0d5dddc
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Use ACR con un clúster de DC/OS para implementar la aplicación
 
@@ -130,7 +129,7 @@ Ahora desde una máquina de desarrollo, o cualquier otro sistema con Docker inst
 Cree un contenedor a partir de la imagen de Ubuntu.
 
 ```azurecli-interactive
-docker run ubunut --name base-image
+docker run ubuntu --name base-image
 ```
 
 Ahora capture el contenedor en una nueva imagen. El nombre de la imagen debe incluir el nombre `loginServer` del registro de contenedor con un formato de `loginServer/imageName`.
@@ -208,4 +207,3 @@ En este tutorial, configuró DC/OS para usar Azure Container Registry, incluidas
 > * Configuración de la autenticación de ACR en un clúster de DC/OS
 > * Carga de una imagen en Azure Container Registry
 > * Ejecución de una imagen de contenedor de Azure Container Registry
-

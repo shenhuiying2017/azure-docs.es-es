@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a853b4dbd1952ba4ea8ee68ea3ca98f588bb71a2
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mapping-an-existing-web-service-to-odata-through-csdl"></a>Asignación de un servicio web existente a OData a través de CSDL
 > [!IMPORTANT]
@@ -47,7 +47,7 @@ El **flujo de datos** va en la dirección opuesta:
 
 Para obtener información sobre Atom, Atom Pub y el protocolo OData en que se basan las extensiones de Azure Marketplace, revise: [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)
 
-Extracto del vínculo anterior:       *"El propósito del protocolo Open Data (en adelante, OData) es brindar un protocolo basado en REST para las operaciones de tipo CRUD (crear, leer, actualizar y eliminar) en los recursos expuestos como servicios de datos. Un "servicio de datos" es un punto de conexión donde hay datos expuestos desde una o más "colecciones", cada una de las cuales con cero o más "entradas", que consisten en pares de tipo nombre-valor. OData es publicado por Microsoft según los estándares OASIS (Organización para el fomento de los estándares de información estructurada) para que cualquier persona que así lo desee pueda crear servidores, clientes o herramientas sin regalías ni restricciones".*
+Extracto del vínculo anterior: *"El propósito del protocolo Open Data (en adelante, OData) es brindar un protocolo basado en REST para las operaciones de tipo CRUD (crear, leer, actualizar y eliminar) en los recursos expuestos como servicios de datos. Un "servicio de datos" es un punto de conexión donde hay datos expuestos desde una o más "colecciones", cada una de las cuales con cero o más "entradas", que consisten en pares de tipo nombre-valor. OData es publicado por Microsoft según los estándares OASIS (Organización para el fomento de los estándares de información estructurada) para que cualquier persona que así lo desee pueda crear servidores, clientes o herramientas sin regalías ni restricciones".*
 
 ### <a name="three-critical-pieces-that-have-to-be-defined-by-the-csdl-are"></a>El CSDL debe definir tres partes fundamentales:
 * El **punto de conexión** del proveedor de servicios: La dirección web (URI) del servicio.
@@ -140,8 +140,7 @@ A continuación, aparece un ejemplo del CSDL: (copie y pegue el CSDL de ejemplo 
 * MyCompany en la PPUI se relaciona con el **Nombre para mostrar del publicador** de la interfaz de usuario de [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) .
 * La API se relaciona con una web o un servicio de datos (un plan en la PPUI)
 
-**Jerarquía:**
- una empresa (proveedor de contenido) es propietaria de ofertas que tienen planes, es decir, servicios, que se alinean con una API.
+**Jerarquía:** una empresa (proveedor de contenido) es propietaria de ofertas que tienen planes, es decir, servicios, que se alinean con una API.
 
 ### <a name="webservice-csdl-example"></a>Ejemplo de CSDL de servicio web
 Se conecta a un servicio que expone un punto de conexión de aplicaciones web (como una aplicación C#).
@@ -317,10 +316,4 @@ Se conecta a un servicio que expone una vista o una tabla de base de datos como 
 * Si está interesado en conocer los nodos específicos y sus parámetros, consulte el artículo [Understanding the nodes schema for mapping an existing web service to OData through CSDL](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) , donde encontrará definiciones y explicaciones, ejemplos y contexto de caso de uso.
 * Si está interesado en revisar ejemplos, consulte el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md) , donde encontrará ejemplos de código y una explicación del contexto y la sintaxis del código.
 * Para volver a la ruta de acceso prescrita para publicar un servicio de datos en Azure Marketplace, consulte el artículo [Data Service Publishing Guide for the Azure Marketplace](marketplace-publishing-data-service-creation.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

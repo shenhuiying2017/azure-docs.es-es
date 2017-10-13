@@ -15,24 +15,23 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d423304c84bd03477f5e9ee2edb4763e2ae8d5b5
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Movimiento de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](data-factory-amazon-redshift-connector.md)
-> * [Versión 2: versión preliminar](../connector-amazon-redshift.md)
+> * [Versión 1: Disponibilidad general](data-factory-amazon-redshift-connector.md)
+> * [Versión 2: Versión preliminar](../connector-amazon-redshift.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte [Amazon Redshift connector in V2](../connector-amazon-redshift.md) (Conector de Amazon Redshift en V2).
 
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos de Amazon Redshift. El artículo se basa en la información general sobre el movimiento de datos con la actividad de copia que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md). 
 
-Data Factory actualmente solo admite mover datos de Amazon Redshift a un [almacén de datos de receptor compatible](data-factory-data-movement-activities.md#supported-data-stores-and-formats). No se admite el movimiento de datos de otros almacenes de datos a Amazon Redshift.
+Data Factory, actualmente, solo permite mover datos de Amazon Redshift a un [almacén de datos de receptor compatible](data-factory-data-movement-activities.md#supported-data-stores-and-formats). No se admite el movimiento de datos de otros almacenes de datos a Amazon Redshift.
 
 > [!TIP]
 > Para obtener el mejor rendimiento al copiar grandes cantidades de datos de Amazon Redshift, considere usar el comando **UNLOAD** integrado de Redshift a través de Amazon Simple Storage Service (Amazon S3). Para más información, consulte [Uso de UNLOAD para copiar datos de Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
@@ -46,7 +45,7 @@ Puede crear una canalización con una actividad de copia para mover los datos de
 
 La manera más fácil de crear una canalización es usar el Asistente para copia de Azure Data Factory. Para un tutorial rápido sobre cómo crear una canalización con el Asistente para copia, consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md).
 
-También puede crear una canalización mediante Azure Portal, Visual Studio, Azure PowerShell u otros. También puede utilizar plantillas de Azure Resource Manager, la API de .NET o la API de REST para crear la canalización. Para instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia, consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+También puede crear una canalización mediante Azure Portal, Visual Studio, Azure PowerShell u otras herramientas. También puede utilizar plantillas de Azure Resource Manager, la API de .NET o la API de REST para crear la canalización. Para instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia, consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor: 
 
@@ -102,7 +101,7 @@ Como alternativa, puede utilizar el tipo **RelationalSource**, que incluye Amazo
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Uso de UNLOAD para copiar datos de Amazon Redshift
 
-El comando [**UNLOAD**](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) de Amazon Redshift descarga los resultados de una consulta a uno o varios archivos en Amazon S3. Amazon recomienda este comando para copiar conjunto de datos grandes de Redshift.
+El comando [**UNLOAD**](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) de Amazon Redshift descarga los resultados de una consulta a uno o varios archivos en Amazon S3. Amazon recomienda este comando para copiar conjuntos de datos grandes de Redshift.
 
 **Ejemplo: Copia de datos de Amazon Redshift a Azure SQL Data Warehouse**
 
@@ -356,4 +355,3 @@ Obtenga información sobre los factores clave que afectan el rendimiento de la a
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ver instrucciones paso a paso sobre cómo crear una canalización con la actividad de copia.
-

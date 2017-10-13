@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 7533fe3758860111ae6c26630effedd673734b63
-ms.contentlocale: es-es
-ms.lasthandoff: 04/04/2017
-
-
+ms.openlocfilehash: 43582ae805d560e72fb8d03ab8e0abee4c4325b7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Control de acceso en Azure Data Lake Store
 
@@ -130,7 +128,7 @@ En la hoja **Data Explorer** (Explorador de datos) de la cuenta de Data Lake Sto
 
 ![ACL de Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-En esta hoja, en la sección superior se muestra una descripción general de los permisos que tiene. (En la captura de pantalla, el usuario es Bob). Después, se muestran los permisos de acceso. Después, en la hoja **Acceso**, haga clic en **Vista simple** para usar la vista más simple.
+En esta hoja, en la sección superior se muestra una descripción general de los permisos que tiene. (En la captura de pantalla, el usuario es Bob). Después, se muestran los permisos de acceso. Después, en la hoja **Acceso**, haga clic en **Vista simple**  para usar la vista más simple.
 
 ![ACL de Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
@@ -342,4 +340,3 @@ No.
 ## <a name="see-also"></a>Consulte también
 
 * [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
-

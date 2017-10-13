@@ -12,15 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 18541c68b02ae1b59ae4a6a85122dff614c9978c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure 
 
 Si tiene varias suscripciones, puede organizarlas en contenedores llamados "grupos de administración" para ayudarle a administrar el acceso, la directiva, los costos y el cumplimiento en las suscripciones. A modo de ejemplo, puede aplicar directivas a un grupo de administración que limiten qué tipos de recursos se pueden crear.
@@ -93,6 +90,5 @@ El Administrador de recursos permite crear directivas personalizadas para admini
 
 > [!Note]
 > La directiva no se aplica a través de los directorios. 
-
 
 

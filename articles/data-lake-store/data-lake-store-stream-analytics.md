@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4ecf4f8594f7a274bec231fb74c4caa22c3cc354
-ms.openlocfilehash: b5f2ae124ca3276e15e0d1f75d655ec346bf8ee8
-ms.contentlocale: es-es
-ms.lasthandoff: 01/06/2017
-
-
+ms.openlocfilehash: 92ddf9619a0db398f7866aab60e834f09add3e7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Transmisión de datos del blob de Almacenamiento de Azure al Almacén de Data Lake mediante el Análisis de transmisiones
 En este artículo aprenderá a utilizar el Almacén de Azure Data Lake como salida para un trabajo de Análisis de transmisiones de Azure. Este artículo muestra un escenario simple que lee datos desde un blob de Almacenamiento de Azure (entrada) y los escribe en el Almacén de Data Lake (salida).
@@ -129,4 +127,3 @@ Primero debe crear un trabajo de Análisis de transmisiones que incluya un orige
 
 ## <a name="see-also"></a>Consulte también
 * [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
-

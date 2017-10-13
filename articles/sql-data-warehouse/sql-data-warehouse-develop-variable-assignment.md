@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 045d5148cd3f12dac63c961ccf7c953d355ed725
-ms.contentlocale: es-es
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-variables-in-sql-data-warehouse"></a>Asignación de variables en el Almacenamiento de datos SQL
 Las variables en el Almacenamiento de datos SQL se establecen mediante las instrucciones `DECLARE` o `SET`.
@@ -79,4 +78,3 @@ Para más sugerencias sobre desarrollo, consulte la [información general sobre 
 <!--MSDN references-->
 
 <!--Other Web references-->
-

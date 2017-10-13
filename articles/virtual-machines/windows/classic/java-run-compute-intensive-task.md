@@ -15,12 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 290a9dc5ca67495da18d88b61dce1d8b6becea61
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Ejecución de una tarea de Java de proceso intensivo en una máquina virtual
 > [!IMPORTANT] 
@@ -68,7 +67,7 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
    3. Especifique una región, un grupo de afinidad o una red virtual. En este tutorial, especifique una región como **Oeste de EE. UU**.
    4. En **Cuenta de almacenamiento**, seleccione **Usar una cuenta de almacenamiento generada automáticamente**.
    5. En **Conjunto de disponibilidad**, seleccione **(Ninguno)**.
-   6. Haga clic en **Next**.
+   6. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo final **Configuración de la máquina virtual** :
    1. Acepte las entradas de extremo predeterminadas.
    2. Haga clic en **Completo**.
@@ -523,4 +522,3 @@ En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para sa
 [properties_pane]:media/java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
 [default_key]:media/java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../../../java-add-certificate-ca-store.md
-

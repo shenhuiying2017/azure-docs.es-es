@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
 ms.openlocfilehash: d6c1707f67d986487e5a45e76ffc9a02ddf16eb1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Google
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -27,7 +27,7 @@ En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para 
 
 Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Google asociada a una dirección de correo electrónico verificada. Para crear una cuenta de Google, vaya a [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-## <a name="register"> </a>Registro de la aplicación con Google
+## <a name="register"></a>Registro de la aplicación con Google
 1. Inicie sesión en el [Portal de Azure]y vaya a la aplicación. Copie la **URL**, que se utilizará más adelante para configurar la aplicación de Google.
 2. Navegue al sitio web de [API de Google](http://go.microsoft.com/fwlink/p/?LinkId=268303), inicie sesión con las credenciales de su cuenta de Google, haga clic en **Create Project** (Crear proyecto), especifique un **nombre de proyecto** y haga clic en **Create** (Crear).
 3. En **Social APIs** (API sociales), haga clic en **Google+ API** (API de Google+") y, luego, en **Enable** (Habilitar).
@@ -40,7 +40,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
     > El secreto de cliente es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
 
 
-## <a name="secrets"> </a>Adición de información de Google a la aplicación
+## <a name="secrets"></a>Adición de información de Google a la aplicación
 1. Vuelva al [Portal de Azure]y vaya a la aplicación. Haga clic en **Configuración** y luego en **Autenticación/autorización**.
 2. Si esta característica no está habilitada, mueva el interruptor a la posición de **activada**.
 3. Haga clic en **Google**. Pegue los valores de identificador de la aplicación y de secreto de la aplicación que obtuvo previamente y habilite opcionalmente los ámbitos que requiere la aplicación. y, a continuación, haga clic en **Aceptar**.
@@ -53,7 +53,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 De este modo ya estará listo para usar Google para realizar la autenticación en la aplicación.
 
-## <a name="related-content"> </a>Contenido relacionado
+## <a name="related-content"></a>Contenido relacionado
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Anchors. -->

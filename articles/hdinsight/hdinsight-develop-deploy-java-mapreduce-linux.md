@@ -16,12 +16,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 11d63f22204eb2acb530378f53ac72f16a35a4f2
-ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>Desarrollo de programas MapReduce de Java para Hadoop en HDInsight
 
@@ -313,5 +312,4 @@ Para más información, consulte también el [Centro de desarrolladores de Java]
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-
 

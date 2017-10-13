@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 86f1f8f0aaa9a699d2f816781cef65cda868ee55
-ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Mejora del rendimiento comprimiendo archivos en la red CDN de Azure
 La compresión es un método sencillo y eficaz para mejorar la velocidad de transferencia de archivos y aumentar el rendimiento de carga de página al reducir el tamaño del archivo antes de que se envíe desde el servidor. Este método reduce los costos de ancho de banda y proporciona una mayor capacidad de respuesta para los usuarios.
@@ -139,5 +138,4 @@ No se puede habilitar o deshabilitar la compresión de los tipos mencionados med
 
 ## <a name="see-also"></a>Otras referencias
 * [Solución de problemas de compresión de archivos de red CDN](cdn-troubleshoot-compression.md)    
-
 

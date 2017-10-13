@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Carga de datos en SQL Data Warehouse con Data Factory
 
 Puede usar Azure Data Factory para cargar datos en Azure SQL Data Warehouse desde cualquiera de los [almacenes de datos de origen compatibles](../data-factory/copy-activity-overview.md). Por ejemplo, puede cargar datos desde una base de datos SQL de Azure o una base de datos de Oracle en una instancia de SQL Data Warehouse mediante Data Factory. El tutorial de este artículo muestra cómo cargar datos desde una base de datos de SQL Server local en una instancia de SQL Data Warehouse.
@@ -165,4 +163,3 @@ Para explorar los datos en SQL Data Warehouse, consulte los artículos siguiente
 
 <!-- Azure references -->
 [Portal de Azure]: https://portal.azure.com
-

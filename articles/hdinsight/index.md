@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7d639ca03261f3a9cad537dd92103c5aa6cd0af9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="azure-hdinsight-documentation"></a>Documentación de Azure HDInsight
 
 Aprenda a usar Hadoop en la nube en HDInsight para analizar datos de streaming o históricos. En los tutoriales y otra documentación, se muestra cómo crear clústeres, cómo procesar y analizar macrodatos, y cómo desarrollar soluciones con Hadoop, Spark, HBase, R Server, Storm y otras tecnologías en el ecosistema de Hadoop.
@@ -198,6 +196,5 @@ Aprenda a usar Hadoop en la nube en HDInsight para analizar datos de streaming o
         </div>
     </li>
 </ul>
-
 
 

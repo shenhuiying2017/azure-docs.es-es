@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
+ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 918f454784a9676297077c2e94c3e49ab2872d2f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Creación y carga de un VHD de FreeBSD en Azure
 En este artículo se muestra cómo crear y cargar un disco duro virtual (VHD) que contenga el sistema operativo FreeBSD. Después de cargarlo, puede utilizarlo como su propia imagen para crear una máquina virtual (VM) en Azure.
@@ -125,7 +124,7 @@ Necesita una cuenta de almacenamiento de Azure para cargar un archivo .vhd, que 
     ![Crear rápidamente una cuenta de almacenamiento](./media/freebsd-create-upload-vhd/Storage-quick-create.png)
 4. Rellene los campos de la manera siguiente:
 
-   * En el campo **URL** , escriba un nombre de subdominio que vaya a usar en la URL de la cuenta de almacenamiento. Esta entrada puede contener de 3 a 24 números y letras minúsculas. Este nombre se convierte en el nombre del host dentro de la dirección URL que se usó para direccionar los recursos de Azure Blob Storage, Azure Queue Storage o Azure Table Storage de la suscripción.
+   * En el campo **URL** , escriba un nombre de subdominio que vaya a usar en la URL de la cuenta de almacenamiento. Esta entrada puede contener de 3 a 24 números y letras minúsculas. Este nombre se convierte en el nombre del host dentro de la dirección URL que se usó para direccionar el Almacenamiento de blobs de Azure, el Almacenamiento en cola de Azure o los recursos de Almacenamiento de tablas de Azure de la suscripción.
    * En la lista desplegable **Ubicación/grupo de afinidad**, seleccione una **ubicación o grupo de afinidad** para la cuenta de almacenamiento. Un grupo de afinidad le permite colocar sus servicios y almacenamiento en la nube en el mismo centro de datos.
    * En el campo **Replicación**, decida si va a usar la replicación **Redundancia geográfica** para la cuenta de almacenamiento. La replicación geográfica está activada de forma predeterminada. Esta opción replica los datos en una ubicación secundaria, sin coste, por lo que su almacenamiento conmuta por error a esa ubicación si se produce un error importante en la ubicación principal. La ubicación secundaria se asigna automáticamente y no se puede cambiar. Si necesita más control sobre la ubicación del almacenamiento en la nube debido a requisitos legales o las directivas de su organización, puede desactivar la replicación geográfica. Sin embargo, tenga en cuenta que si más tarde activa la replicación geográfica, deberá pagar una cuota de transferencia de datos puntual para replicar los datos existentes en la ubicación secundaria. Los servicios de almacenamiento sin replicación geográfica se ofrecen con descuento. Puede encontrar más información sobre la administración de la replicación geográfica de cuentas de almacenamiento aquí: [Replicación de Azure Storage](../../../storage/common/storage-redundancy.md).
 
@@ -175,10 +174,10 @@ Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el e
    Para más información sobre cómo instalar Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="step-4-upload-the-vhd-file"></a>Paso 4: Carga del archivo .vhd
-Cuando carga el archivo .vhd, puede colocarlo en cualquier parte de Blob Storage. A continuación se muestran algunos términos que se van a usar al cargar el archivo:
+Cuando carga el archivo .vhd, puede colocarlo en cualquier parte del Almacenamiento de blobs. A continuación se muestran algunos términos que se van a usar al cargar el archivo:
 
-* **URLBlobStorage** es la dirección URL de la cuenta de almacenamiento que ha creado en el paso 2.
-* **SuCarpetaDeImágenes** es el contenedor de Blob Storage en el que desea almacenar las imágenes.
+* **URLAlmacenamientoDeBlobs** es la dirección URL de la cuenta de almacenamiento que ha creado en el paso 2.
+* **SuCarpetaDeImágenes** es el contenedor de Almacenamiento de blobs en el que desea almacenar las imágenes.
 * **VHDName** es la etiqueta que aparece en el Portal de Azure clásico para identificar el disco duro virtual.
 * **PathToVHDFile** es la ruta de acceso completa y el nombre del archivo .vhd.
 
@@ -207,4 +206,3 @@ Después de cargar el archivo .vhd, puede agregarlo como imagen a la lista de im
 5. Una vez completado el aprovisionamiento, verá que la máquina virtual de FreeBSD se ejecuta en Azure.
 
     ![Imagen de FreeBSD en Azure](./media/freebsd-create-upload-vhd/freebsdimageinazure.png)
-

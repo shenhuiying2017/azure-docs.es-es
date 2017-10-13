@@ -8,21 +8,20 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: jingwang
+ms.openlocfilehash: 1263f2cdf6a6467d973f838bb380bd00ce52ba1d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e3907f024808b2c7f5e48e6e04811f5da71b9856
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copia de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: disponibilidad general](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Versión 2: versión preliminar](connector-amazon-simple-storage-service.md)
 
-En este artículo se resume el uso de la actividad de copia en Azure Data Factory para copiar datos hacia Azure Blob Storage y desde este servicio. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se resume el uso de la actividad de copia en Azure Data Factory para copiar datos a Azure Blob Storage y desde este servicio. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general (GA), vea el artículo sobre la [versión 1 del conector de Amazon S3](v1/data-factory-amazon-simple-storage-service-connector.md).
@@ -56,7 +55,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado Amazon S3:
 | type | La propiedad type debe establecerse en: **AmazonS3**. | Sí |
 | accessKeyID | Id. de la clave de acceso secreta. |Sí |
 | secretAccessKey | La propia clave de acceso secreta. Marque este campo como SecureString. |Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Azure Integration Runtime o Integration Runtime autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, se usará el entorno Azure Integration Runtime predeterminado. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
+
+>[!NOTE]
+>Este conector requiere claves de acceso para que la cuenta de IAM pueda copiar datos de Amazon S3. Aún no se admite la [credencial de seguridad temporal](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).
+>
 
 Aquí tiene un ejemplo:
 
@@ -82,7 +85,7 @@ Aquí tiene un ejemplo:
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Para ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. En esta sección se proporciona una lista de las propiedades que el conjunto de datos de Amazon S3 admite.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. En esta sección se proporciona una lista de las propiedades que el conjunto de datos de Amazon S3 admite.
 
 Para copiar datos desde Amazon S3, establezca la propiedad type del conjunto de datos en **AmazonS3Object**. Se admiten las siguientes propiedades:
 
@@ -158,7 +161,7 @@ Para copiar datos desde Amazon S3, establezca la propiedad type del conjunto de 
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
-Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que el receptor y el origen de Azure Data Lake admiten.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que el receptor y el origen de Azure Data Lake admiten.
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 como origen
 
@@ -166,8 +169,8 @@ Para copiar datos desde Amazon S3, establezca el tipo de origen de la actividad 
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **FileSystemSource**. |Sí |
-| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False**. | No |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **FileSystemSource** |Sí |
+| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | No |
 
 **Ejemplo:**
 

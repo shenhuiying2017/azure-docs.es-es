@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dekapur
+ms.openlocfilehash: d66f02051279d1cfe685fdae6aa8a035f4edd5aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e37a68fcf645cf1056b70e520545fb3ce7c22946
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>Protección de un clúster independiente en Windows mediante certificados X.509
 Este artículo describe cómo proteger la comunicación entre los diversos nodos del clúster de Windows independiente, así cómo autenticar a los clientes que se conectan a él, mediante certificados X.509. Esto garantiza que solo los usuarios autorizados pueden tener acceso al clúster y a las aplicaciones implementadas, y realizar tareas de administración.  La seguridad basada en certificados se debe haber habilitado en el clúster al crearlo.  
@@ -327,5 +326,4 @@ Para quitar el clúster, conéctese al nodo del clúster en el que descargó el 
 > Una configuración incorrecta de un certificado puede impedir que el clúster se muestre durante la implementación. Para realizar un autodiagnóstico de los problemas de seguridad, consulte en el grupo del Visor de eventos *Registros de aplicaciones y servicios* > *Microsoft Service Fabric*.
 > 
 > 
-
 

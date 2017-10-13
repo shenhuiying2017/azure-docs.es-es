@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 3a58c50d1187b9cca9490ad725b14617b4a98efe
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="design-your-first-azure-sql-database"></a>Diseño de la primera instancia de Azure SQL Database
 
 Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Microsoft Cloud ("Azure"). En este tutorial, aprenderá a usar Azure Portal y [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) para: 
@@ -341,4 +339,3 @@ Avance hasta el próximo tutorial para obtener información sobre cómo diseñar
 
 > [!div class="nextstepaction"]
 >[Diseño de una base de datos de Azure SQL Database y conexión con C# y ADO.NET](sql-database-design-first-database-csharp.md)
-

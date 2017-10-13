@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: eacfac5971396590ce2e65613701e8980e6b1b21
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: c8b700d13e4645d408e4e752a541e521ef93a6e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-docker-host-with-powershell"></a>Creación de un host de Docker con PowerShell
 
 Este script crea una máquina virtual con Docker habilitado e inicia un contenedor que ejecuta NGINX. Una vez que el script se ha ejecutado, puede acceder al servidor web NGINX es accesible mediante el FQDN de la máquina virtual de Azure. 
@@ -34,7 +32,7 @@ Este script crea una máquina virtual con Docker habilitado e inicia un contened
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-powershell[principal](../../../powershell_scripts/virtual-machine/create-docker-host/create-docker-host.ps1 "Creación de host de Docker")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-docker-host/create-docker-host.ps1 "Create Docker host")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 
@@ -68,4 +66,3 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 
 Encontrará más ejemplos de scripts de PowerShell de máquina virtual en la [documentación sobre máquinas virtuales Linux de Azure](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

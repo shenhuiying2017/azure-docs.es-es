@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
+ms.openlocfilehash: 592a8716dd15b25b14fed145c11e5f5714cdd41c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4a0b047ce5c6706b51e96e8cc160c610625869e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 ## <a name="overview"></a>Información general
@@ -29,7 +28,7 @@ Este artículo ofrece una visión general de cada una de estas características 
 
 Estos son los temas que se tratarán en este artículo:
 
-* [Seguridad en el plano de la administración](#management-plane-security): protección de la cuenta de almacenamiento
+* [Seguridad en el plano de la administración](#management-plane-security) : protección de la cuenta de almacenamiento
 
   El plano de la administración está compuesto por los recursos que se usan para administrar la cuenta de almacenamiento. En esta sección, hablaremos sobre el modelo de implementación de Azure Resource Manager y cómo usar el control de acceso basado en roles (RBAC) para controlar el acceso a las cuentas de almacenamiento. También hablaremos acerca de cómo administrar las claves de cuenta de almacenamiento y cómo volver a generarlas.
 * [Seguridad en el plano de los datos](#data-plane-security) : protección del acceso a los datos
@@ -96,7 +95,7 @@ Estos son los puntos principales que necesita saber acerca del uso del control d
 * [Administración del control de acceso basado en rol con la API de REST](../../active-directory/role-based-access-control-manage-access-rest.md)
 
   En este artículo se muestra cómo utilizar la API de REST para administrar el control de acceso basado en rol.
-* [Referencia de API de REST de proveedor de recursos de Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)
+* [Referencia de API de REST de proveedor de recursos de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Esta es la referencia para las API que puede usar para administrar la cuenta de almacenamiento mediante programación.
 * [Developer’s guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/) (Guía del desarrollador para la autenticación con la API de Azure Resource Manager)
@@ -152,7 +151,7 @@ Nota: Se recomienda usar solo una de las claves en todas las aplicaciones al mis
 * [Operaciones en cuentas de almacenamiento](https://msdn.microsoft.com/library/ee460790.aspx)
 
   Este artículo de la referencia de API de REST del administrador de servicios de almacenamiento contiene vínculos a artículos específicos sobre la recuperación y la regeneración de las claves de cuenta de almacenamiento mediante la API de REST. Nota: Esto se dirige a las cuentas de almacenamiento Estándar.
-* [Say goodbye to key management – manage access to Azure Storage data using Azure AD (Adiós a administración de claves: administre el acceso a los datos de Azure Storage con Azure AD)](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
+* [Say goodbye to key management – manage access to Azure Storage data using Azure AD (Adiós a administración de claves: administre el acceso a los datos de Almacenamiento de Azure con Azure AD)](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
 
   Este artículo muestra cómo utilizar Active Directory para controlar el acceso a las claves de Azure Storage en Azure Key Vault. También muestra cómo utilizar un trabajo de Azure Automation para regenerar las claves cada hora.
 
@@ -249,7 +248,7 @@ Para más información sobre el uso de Firmas de acceso compartido y Directivas 
 
 * Autenticación
 
-  * [Autenticación para los servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+  * [Autenticación para los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Tutorial de introducción a las Firmas de acceso compartido
 
   * [Getting Started with Shared Access Signatures (SAS) (Introducción a las Firmas de acceso compartido)](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
@@ -438,7 +437,7 @@ Puede utilizar el Analizador de mensajes de Microsoft para ver y analizar estos 
 * [Storage Analytics](../storage-analytics.md)
 
   Este artículo ofrece una visión general de Storage Analytics y explica cómo habilitarlo.
-* [Formato del registro de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343259.aspx)
+* [Formato del registro del análisis de almacenamiento](https://msdn.microsoft.com/library/azure/hh343259.aspx)
 
   Este artículo ilustra el formato del registro de Storage Analytics y detalla los campos que incluye, como el tipo de autenticación, que indica el tipo de autenticación utilizado para la solicitud.
 * [Supervisión de una cuenta de almacenamiento en Azure Portal](../storage-monitor-storage-account.md)
@@ -498,7 +497,7 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 * [Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los servicios de Azure Storage en MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Se trata de la documentación de referencia para la compatibilidad con el uso compartido de recursos entre orígenes para los servicios de Azure Storage. Contiene vínculos a artículos que se aplican a cada servicio de almacenamiento, se muestra un ejemplo y se explica cada elemento en el archivo del uso compartido de recursos entre orígenes.
-* [Microsoft Azure Storage: Introducing CORS (Microsoft Azure Storage: Introducción a uso compartido de recursos entre orígenes)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Microsoft Azure Storage: Introducing CORS (Almacenamiento de Microsoft Azure: Introducción a uso compartido de recursos entre orígenes)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   Se trata de un vínculo al artículo inicial del blog en el que se anuncia el uso compartido de recursos entre orígenes y se muestra cómo utilizarlo.
 
@@ -518,7 +517,7 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 
    **Recursos**
 
-* [Why We're Not Recommending “FIPS Mode” Anymore](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx) (Por qué ya no recomendamos el "modo FIPS")
+* [Why We're Not Recommending “FIPS Mode” Anymore](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/) (Por qué ya no recomendamos el "modo FIPS")
 
   En este artículo de blog se proporciona información general de FIPS y se explica por qué no se habilita el modo FIPS de forma predeterminada.
 * [FIPS 140 Validation (Validación FIPS 140)](https://technet.microsoft.com/library/cc750357.aspx)
@@ -527,4 +526,3 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 * ["Criptografía de sistema: usar FIPS algoritmos compatibles con para cifrado, firma y operaciones hash" efectos de la configuración de seguridad en Windows XP y en versiones posteriores de Windows](https://support.microsoft.com/kb/811833)
 
   Este artículo aborda el uso del modo FIPS en equipos más antiguos de Windows.
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6f1234381a6aad9632d88825aab1a5bf304a20fb
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 80955535c8d863cd3d8d1b77e2ab8bc016b6d9f3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales
 Puede reducir y escalar horizontalmente los conjuntos de escalado de máquinas virtuales según umbrales de métricas de rendimiento, siguiendo una programación periódica o por una fecha determinada. También puede configurar notificaciones de correo electrónico y webhook para las acciones de escalado. Este tutorial muestra un ejemplo de configuración de todos estos objetos utilizando una plantilla de Resource Manager en un conjunto de escalado de máquinas virtuales.
 
@@ -255,4 +253,3 @@ Siga estos vínculos para más información sobre el escalado automático:
 [Administración del escalado automático con CLI](insights-cli-samples.md#autoscale)
 
 [Configuración de webhooks y notificaciones por correo electrónico en el escalado automático](insights-autoscale-to-webhook-email.md)
-

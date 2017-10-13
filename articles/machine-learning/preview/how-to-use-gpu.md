@@ -10,15 +10,14 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
+ms.openlocfilehash: 7c0dab5ab2d7342ce4de8899040478a6143c184b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b75b9d82bd6c1e7e7a98fcff6497dbf3a765dcb8
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Uso de GPU en Azure Machine Learning
-La unidad de procesamiento gráfico (GPU) es comúnmente usada para procesar tareas que consumen muchos recursos informáticos que se pueden producir normalmente al entrenar determinados modelos de redes neuronales. Mediante las GPU, puede reducir considerablemente el tiempo de entrenamiento de los modelos. En este documento, aprenderá a configurar Azure ML Workbench para usar [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) equipada con GPU como destino de ejecución. 
+La unidad de procesamiento gráfico (GPU) es comúnmente usada para procesar tareas que consumen muchos recursos informáticos que se pueden producir normalmente al entrenar determinados modelos de redes neuronales. Mediante las GPU, puede reducir considerablemente el tiempo de entrenamiento de los modelos. En este documento, aprenderá a configurar Azure ML Workbench para usar [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) equipada con GPU como destino de ejecución. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Para seguir los pasos de esta guía, primero debe [instalar Azure ML Workbench](quickstart-installation.md).
@@ -152,4 +151,3 @@ Free memory: 11.11GiB
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea un ejemplo de uso de GPU para acelerar el aprendizaje de red neuronal profundo en la galería de Azure ML.
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b9582ccab1e0c580fe09de39e55ea0660c3866d0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -119,8 +118,8 @@ Si va a copiar datos desde Azure SQL Database, establezca el tipo de origen de l
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SqlSource**. | Sí |
-| SqlReaderQuery |Utilice la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. |No |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SqlSource** | Sí |
+| SqlReaderQuery |Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |No |
 | storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son: pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
 
@@ -128,9 +127,9 @@ Si va a copiar datos desde Azure SQL Database, establezca el tipo de origen de l
 
 - Si se especifica **sqlReaderQuery** para SqlSource, la actividad de copia ejecuta la consulta en el origen de Base de datos SQL de Azure para obtener los datos. Como alternativa, puede indicar un procedimiento almacenado mediante la especificación de **sqlReaderStoredProcedureName** y **storedProcedureParameters** (si el procedimiento almacenado toma parámetros).
 - Si no especifica "sqlReaderQuery" ni "sqlReaderStoredProcedureName", las columnas definidas en la sección "structure" (estructura) del conjunto de datos JSON se usan para crear una consulta (`select column1, column2 from mytable`) y ejecutarla en Azure SQL Database. Si la definición del conjunto de datos no tiene la estructura, se seleccionan todas las columnas de la tabla.
-- Cuando use **sqlReaderStoredProcedureName**, necesitará especificar un valor para la propiedad ficticia **tableName** del conjunto de datos JSON.
+- Cuando use **sqlReaderStoredProcedureName**, necesitará especificar un valor para la propiedad ficticia **tableName** del JSON del conjunto de datos.
 
-**Ejemplo: Uso de la consulta SQL**
+**Ejemplo: con la consulta SQL**
 
 ```json
 "activities":[
@@ -162,7 +161,7 @@ Si va a copiar datos desde Azure SQL Database, establezca el tipo de origen de l
 ]
 ```
 
-**Ejemplo: Uso del procedimiento almacenado**
+**Ejemplo: con el procedimiento almacenado**
 
 ```json
 "activities":[
@@ -223,13 +222,13 @@ Si va a copiar datos en Azure SQL Database, establezca el tipo de receptor de la
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SqlSink**. | Sí |
-| writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 10000) |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SqlSink** | Sí |
+| writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 10 000) |
 | writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |No |
 | sqlWriterStoredProcedureName |Nombre del procedimiento almacenado que actualiza e inserta (operación de upsert) datos en la tabla de destino. |No |
 | storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son: pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
 | sqlWriterTableType |Especifique el nombre del tipo de tabla que se usará en el procedimiento almacenado anterior. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. |No |
-| preCopyScript |Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure SQL Database en cada ejecución. Puede utilizar esta propiedad para limpiar los datos cargados previamente. |No |
+| preCopyScript |Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure SQL Database en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. |No |
 
 > [!TIP]
 > Cuando se copien datos en Azure SQL Database, la actividad de copia anexa datos a la tabla del receptor de forma predeterminada. Para llevar a cabo una operación UPSERT o una lógica de negocios adicional, use el procedimiento almacenado de SqlSink. Obtenga más información en [Invocación del procedimiento almacenado para el receptor de SQL](#invoking-stored-procedure-for-sql-sink).
@@ -380,7 +379,7 @@ Al copiar datos en Azure SQL Database, se puede configurar e invocar un procedim
 
 Cuando los mecanismos de copia integrada no prestan el servicio, se puede utilizar un procedimiento almacenado. Normalmente, se suele realizar al realizar operaciones UPSERT (actualización e inserción) y procesos adicionales (combinación de columnas, búsqueda de valores adicionales, inserción en varias tablas, etc.) antes de la inserción final de los datos de origen en la tabla de destino.
 
-En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para realizar una operación UPSERT en una tabla de Azure SQL Database. Supongamos que los datos de entrada y la tabla "Marketing" del receptor tienen tres columnas (ProfileID, State y Category), realice una operación UPSERT en función de la columna ProfileID y aplíquela solo a una categoría específica.
+En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para realizar una operación UPSERT en una tabla de Azure SQL Database. Supongamos que los datos de entrada y la tabla "Marketing" del receptor tienen tres columnas (ProfileID, State y Category), realice una operación UPSERT en función de la columna "ProfileID" y aplíquela solo a una categoría específica.
 
 **Conjunto de datos de salida**
 

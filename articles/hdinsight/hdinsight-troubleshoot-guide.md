@@ -12,15 +12,12 @@ ms.devlang: na
 ms.topic: landing - page
 ms.date: 7/06/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: f246c6d1355220314a2f56aa91634625ec352c69
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Solución de problemas mediante Azure HDInsight
 
 | Carga de trabajo de Apache | Preguntas más frecuentes |
@@ -40,4 +37,3 @@ ms.lasthandoff: 08/23/2017
 | Registros y volcados de memoria | - [Acceso a registros de aplicación de YARN en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Habilitación de los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [Análisis de registros de HDInsight](hdinsight-debug-jobs.md)|
 | Errors | - [Entender y resolver errores recibidos de WebHCat en HDInsight](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Corrección de un error de memoria insuficiente de Hive en Azure HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Herramientas | - [Uso de vistas de Ambari para depurar trabajos de Tez](hdinsight-debug-ambari-tez-view.md)<br>- [Optimización de consultas de Hive](hdinsight-hadoop-optimize-hive-query.md) |
-

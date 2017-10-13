@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
 ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-versions-in-azure-search"></a>Versiones de API en Búsqueda de Azure
 Azure Search implementa las actualizaciones de características de forma regular. A veces, aunque no siempre, estas actualizaciones nos obligan a publicar una nueva versión de la API para mantener la compatibilidad con versiones anteriores. La publicación de una nueva versión le permite controlar cuándo y cómo integrar en su código las actualizaciones del servicio de búsqueda.

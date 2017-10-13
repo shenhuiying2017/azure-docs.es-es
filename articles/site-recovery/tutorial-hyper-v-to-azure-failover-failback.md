@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/15/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e1cc21661450a983c25b24fe2a6228e26ceecec6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Conmutar por error y conmutar por recuperación máquinas virtuales de Hyper-V replicadas en Azure
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) administra y coordina la replicación, la conmutación por error y la conmutación por recuperación de máquinas locales y máquinas virtuales (VM) de Azure.
 
-En este tutorial se describe cómo conmutar por error una máquina virtual de Hyper-V en Azure. Después de conmutar por error, conmute por recuperación a su sitio local cuando esté disponible. En este tutorial, aprenderá a:
+En este tutorial se describe cómo conmutar por error una máquina virtual de Hyper-V en Azure. Después de que ha conmutado por error, conmutará por recuperación a su sitio local cuando esté disponible. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Conmutar por error máquinas virtuales de Hyper-V del entorno local a Azure
@@ -81,8 +79,8 @@ Compruebe las propiedades de la máquina virtual y asegúrese de que la máquina
 
 Puede ejecutar una conmutación por error normal o planeada para máquinas virtuales de Hyper-V.
 
-- Use una conmutación por error normal para las interrupciones inesperadas. Al ejecutar esta conmutación por error, crea una máquina virtual de Azure y la enciende. Ejecute la conmutación por error en un punto de recuperación concreto. Puede producirse una pérdida de datos, en función del punto de recuperación que use.
-- Puede usar una conmutación por error planeada para el mantenimiento o durante una interrupción esperada. Esta opción no produce la pérdida de datos. Cuando se desencadena una conmutación por error planeada, las máquinas virtuales de origen se apagan. Los datos no sincronizados se sincronizan y se desencadena la conmutación por error.
+- Use una conmutación por error normal para las interrupciones inesperadas. Al ejecutar esta conmutación por error, crea una máquina virtual de Azure y la enciende. Ejecute la conmutación por error en un punto de recuperación concreto. Dependiendo del punto de recuperación que use, puede producirse pérdida de datos.
+- Puede usar una conmutación por error planeada para el mantenimiento o durante una interrupción esperada. Esta opción no proporciona pérdida de datos. Cuando se desencadena una conmutación por error planeada, las máquinas virtuales de origen se apagan. Los datos no sincronizados se sincronizan y se desencadena la conmutación por error.
 
 En este procedimiento se describe cómo se ejecuta una conmutación por error normal.
 
@@ -130,5 +128,4 @@ Realice la conmutación por error de Azure al sitio local y empiece a replicar l
 
 > [!NOTE]
 > La replicación inversa solo replica los cambios que se han producido desde que se ha apagado la máquina virtual de Azure, y solo se envían los cambios incrementales.
-
 

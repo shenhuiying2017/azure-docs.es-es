@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 105fc51c2d1152a40a5757985da47330e0b7b8cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>Incorporación de operaciones a una API en Administración de API de Azure
 Es necesario agregar operaciones para poder utilizar una API en Administración de API. En esta guía se muestra cómo agregar y configurar diferentes tipos de operaciones a una API en Administración de API.
 
-## <a name="add-operation"> </a>Agregar una operación
+## <a name="add-operation"></a>Agregar una operación
 Las operaciones se agregan y se configuran para una API en el portal del publicador. Para obtener acceso al portal del publicador, haga clic en el **portal del publicador** en Azure Portal para el servicio API Management.
 
 ![Portal del publicador][api-management-management-console]
@@ -66,7 +66,7 @@ Nombre para **mostrar** y **Descripción** ofrecen una descripción de la operac
 
 La descripción de la operación se puede especificar como texto sin formato o HTML en el cuadro de texto **Descripción** .
 
-## <a name="operation-caching"> </a>Almacenamiento en caché de operaciones
+## <a name="operation-caching"></a>Almacenamiento en caché de operaciones
 El almacenamiento en caché de respuestas reduce la latencia que perciben los consumidores de la API, rebaja el consumo de ancho de banda y disminuye la carga en el servicio web HTTP que implementa la API. 
 
 Para habilitar fácil y rápidamente el almacenamiento en caché de la operación, seleccione la pestaña **Caching** y active la casilla **Habilitar**.
@@ -81,7 +81,7 @@ Se usan claves de caché para diferenciar entre respuestas de forma que la respu
 > 
 > 
 
-## <a name="request-parameters"> </a>Parámetros de solicitud
+## <a name="request-parameters"></a>Parámetros de solicitud
 Los parámetros de la operación se administran en la pestaña Parámetros. Los parámetros especificados en **Modelo de URL** en la pestaña **Firma** se agregan automáticamente y solo pueden cambiarse modificando el modelo de URL. Se pueden introducir manualmente parámetros adicionales.
 
 Para agregar un nuevo parámetro de consulta, haga clic en **Agregar parámetro de consulta** y especifique la siguiente información:
@@ -94,7 +94,7 @@ Para agregar un nuevo parámetro de consulta, haga clic en **Agregar parámetro 
 
 ![Parámetros de solicitud][api-management-request-parameters]
 
-## <a name="request-body"> </a>Cuerpo de la solicitud
+## <a name="request-body"></a>Cuerpo de la solicitud
 Si la operación lo permite (por ejemplo, PUT, POST) y requiere un cuerpo, puede proporcionar un ejemplo del mismo en todos los formatos de representación compatibles (por ejemplo, json, XML). 
 
 > El cuerpo de la solicitud solo se usa a efectos de documentación y no se valida.
@@ -109,7 +109,7 @@ Haga clic en **Agregar representación**, comience a escribir el nombre del tipo
 
 Además de las representaciones, también puede especificar una descripción opcional de texto en el cuadro de texto **Descripción** .
 
-## <a name="responses"> </a>Respuestas
+## <a name="responses"></a>Respuestas
 Es recomendable proporcionar ejemplos de respuestas para todos los códigos de estado que puede producir la operación. Cada código de estado puede tener más de un ejemplo de cuerpo de respuesta, uno para cada tipo de contenido admitido. 
 
 Para agregar una respuesta, haga clic en **Agregar** y comience a escribir el código de estado que desee. En este ejemplo, el código de estado es **200 OK**. Cuando el código aparezca en la lista desplegable, selecciónelo; el código de respuesta se creará y se agregará a la operación.
@@ -128,7 +128,7 @@ Si lo desea, agregue una descripción opcional en el cuadro de texto **Descripci
 
 Una vez configurada la operación, haga clic en **Guardar**.
 
-## <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API al producto y publicarlo para que los desarrolladores pueden llamar a las operaciones.
 
 * [Creación y publicación de un producto][How to create and publish a product]

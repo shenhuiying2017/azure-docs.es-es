@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.openlocfilehash: 6ec74ae0b0931f3fed99a43f4f7e58f9d425b138
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Vista previa de uso de disco para un trabajo de exportación
 Antes de crear un trabajo de exportación, debe elegir un conjunto de blobs que se van a exportar. El servicio Microsoft Azure Import/Export permite usar una lista de rutas de acceso de blob o prefijos de blob para representar los blobs que ha seleccionado.  
@@ -31,12 +31,12 @@ Puede usar los parámetros siguientes al usar el comando `PreviewExport` de la h
 
 |Parámetro de línea de comandos|Descripción|  
 |--------------------------|-----------------|  
-|**/logdir:**<DirectorioRegistro\>|Opcional. El directorio de registro. Los archivos de registro detallados se escribirán en este directorio. Si no se especifica un directorio de registro, se usará el directorio actual como directorio de registro.|  
-|**/sn:**<NombreCuentaAlmacenamiento\>|Obligatorio. El nombre de la cuenta de almacenamiento para el trabajo de exportación.|  
-|**/sk:**<ClaveCuentaAlmacenamiento\>|Necesario únicamente si no se especifica un contenedor SAS. La clave de cuenta para la cuenta de almacenamiento correspondiente al trabajo de exportación.|  
-|**/csas:**<SasContenedor\>|Requerido únicamente si no se especifica una clave de cuenta de almacenamiento. El contenedor SAS para enumerar los blobs que se van a exportar en el trabajo de exportación.|  
-|**/ExportBlobListFile:**<ArchivoListaBlobExportación\>|Obligatorio. Ruta de acceso al archivo XML que contiene una lista de rutas de acceso de blob o prefijos de ruta de acceso para los blobs que se van a exportar. El formato de archivo usado en el elemento `BlobListBlobPath` de la operación [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) de la API de REST del servicio Import/Export.|  
-|**/DriveSize:**<TamañoUnidad\>|Obligatorio. El tamaño de las unidades que se van a usar para un trabajo de exportación, *por ejemplo*, 500 GB o 1,5 TB.|  
+|**/logdir:**&lt;DirectorioRegistro\>|Opcional. El directorio de registro. Los archivos de registro detallados se escribirán en este directorio. Si no se especifica un directorio de registro, se usará el directorio actual como directorio de registro.|  
+|**/sn:**&lt;NombreCuentaAlmacenamiento\>|Obligatorio. El nombre de la cuenta de almacenamiento para el trabajo de exportación.|  
+|**/sk:**&lt;ClaveCuentaAlmacenamiento\>|Necesario únicamente si no se especifica un contenedor SAS. La clave de cuenta para la cuenta de almacenamiento correspondiente al trabajo de exportación.|  
+|**/csas:**&lt;SasContenedor\>|Requerido únicamente si no se especifica una clave de cuenta de almacenamiento. El contenedor SAS para enumerar los blobs que se van a exportar en el trabajo de exportación.|  
+|**/ExportBlobListFile:**&lt;ArchivoListaBlobExportación\>|Obligatorio. Ruta de acceso al archivo XML que contiene una lista de rutas de acceso de blob o prefijos de ruta de acceso para los blobs que se van a exportar. El formato de archivo usado en el elemento `BlobListBlobPath` de la operación [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) de la API de REST del servicio Import/Export.|  
+|**/DriveSize:**&lt;TamañoUnidad\>|Obligatorio. El tamaño de las unidades que se van a usar para un trabajo de exportación, *por ejemplo*, 500 GB o 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Ejemplo de línea de comandos
 

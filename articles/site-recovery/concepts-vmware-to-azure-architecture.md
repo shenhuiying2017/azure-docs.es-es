@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: ac1151d15a88650f5845cb879cd210e9f7cba0fd
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="vmware-to-azure-replication-architecture"></a>Arquitectura de replicación de VMware a Azure
 
 En este artículo se describen la arquitectura y los procesos que se usan al replicar, conmutar por error y recuperar máquinas virtuales VMware entre un sitio VMware local y Azure, mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
@@ -80,7 +78,7 @@ Cuando el sitio local principal esté disponible de nuevo, podrá realizar una c
     - Fase 2: Ejecute una conmutación por error en el sitio local.
     - Fase 3: .Una vez que las cargas de trabajo realizaron la conmutación por recuperación, vuelve a habilitar la réplica para las máquinas virtuales locales.
 
-**Conmutación por recuperación de VMware desde Azure**
+**Conmutación por recuperación VMware desde Azure**
 
 ![Conmutación por recuperación](./media/concepts-vmware-to-azure-architecture/enhanced-failback.png)
 

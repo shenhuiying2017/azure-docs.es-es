@@ -15,12 +15,11 @@ ms.topic: quickstart
 ms.date: 6/7/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
+ms.openlocfilehash: d12e3be2d6658d2a6cc18ed6ad9a149235b8b581
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: d4b84efa3370308d1d99a9361acad1801aa5330b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Creación de su primera aplicación web de Java en Azure
 
@@ -200,4 +199,3 @@ Aparece la página **Información general**. Esta página proporciona una visió
 
 > [!div class="nextstepaction"]
 > [Asignación de un dominio personalizado](app-service-web-tutorial-custom-domain.md)
-

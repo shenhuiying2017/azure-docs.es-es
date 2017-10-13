@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
 ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Obtención de la aprobación previa a través del programa Microsoft Azure Certified
 En este artículo se proporcionan instrucciones sobre cómo conseguir la certificación de Microsoft Azure para poder publicar la solución en Azure Marketplace y disfrutar de las ventajas del marketing. Para obtener información general detallada del programa Microsoft Azure Certified y sus ventajas, visite [http://azure.com/certified](http://azure.com/certified).

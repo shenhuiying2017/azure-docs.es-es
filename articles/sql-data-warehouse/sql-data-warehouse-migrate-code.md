@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/23/2017
 ms.author: joeyong;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
-ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migración del código SQL a Almacenamiento de datos SQL
 En este artículo se explican los cambios de código que probablemente tenga que realizar al migrar el código desde otra base de datos a SQL Data Warehouse. Algunas características de Almacenamiento de datos SQL pueden mejorar significativamente el rendimiento, ya que están diseñadas para trabajar directamente en un modo distribuido. Sin embargo, para mantener el rendimiento y la escala, también hay algunas características que no están disponibles.
@@ -33,8 +32,7 @@ En la lista siguiente se resumen las características más comunes que SQL Data 
 * [Instrucción MERGE][merge statement]
 * combinaciones entre bases de datos
 * [Cursores][cursors]
-* <seg>
-  [INSERT..EXEC][INSERT..EXEC]</seg>
+* [INSERT..EXEC][INSERT..EXEC]
 * cláusula OUTPUT
 * funciones insertadas definidas por el usuario
 * funciones de múltiples instrucciones
@@ -138,4 +136,3 @@ Para ver una lista completa de todas las instrucciones de T-SQL admitidas, vea [
 <!--MSDN references-->
 
 <!--Other Web references-->
-

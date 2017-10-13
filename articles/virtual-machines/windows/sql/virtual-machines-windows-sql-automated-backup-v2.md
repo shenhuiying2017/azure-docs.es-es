@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/05/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.contentlocale: es-es
-ms.lasthandoff: 04/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Copia de seguridad automatizada v2 para Azure Virtual Machines con SQL Server 2016 (Resource Manager)
 
 > [!div class="op_single_selector"]
@@ -72,7 +70,7 @@ En la siguiente tabla se describen las opciones que pueden configurarse para Cop
 | --- | --- | --- |
 | **Copia de seguridad automatizada** | Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita la copia de seguridad automatizada para una VM de Azure que ejecuta SQL Server 2016 Standard o Enterprise. |
 | **Período de retención** | 1-30 días (30 días) | El número de días para retener copias de seguridad. |
-| **Storage Account** | Cuenta de almacenamiento de Azure | Una cuenta de almacenamiento de Azure que usar para almacenar archivos de Copia de seguridad automatizada en Almacenamiento de blobs. Se crea un contenedor en esta ubicación para guardar todos los archivos de copia de seguridad. La convención de nomenclatura de los archivos de copia de seguridad agrega la fecha, la hora y el GUID de base de datos. |
+| **Storage Account** | Cuenta de Azure Storage | Una cuenta de Azure Storage que usar para almacenar archivos de Copia de seguridad automatizada en Blob Storage. Se crea un contenedor en esta ubicación para guardar todos los archivos de copia de seguridad. La convención de nomenclatura de los archivos de copia de seguridad agrega la fecha, la hora y el GUID de base de datos. |
 | **Cifrado** |Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita el cifrado. Cuando se habilita el cifrado, los certificados usados para restaurar la copia de seguridad se ubican en la cuenta de almacenamiento especificada en el mismo contenedor de **copia de seguridad automatizada** con la misma convención de nomenclatura. Si la contraseña cambia, se genera un nuevo certificado con esa contraseña, pero el certificado antiguo permanece para restaurar copias de seguridad anteriores. |
 | **Password** |Texto de contraseña | Una contraseña para claves de cifrado. Esto solo es necesario si se habilita el cifrado. Para restaurar una copia de seguridad cifrada, debe disponer de la contraseña correcta y del certificado relacionado que se usó en el momento en el que se realizó la copia de seguridad. |
 
@@ -133,7 +131,7 @@ Puede usar Azure Portal para configurar Copia de seguridad automatizada v2 duran
 
 Utilice Azure Portal para configurar la opción Copia de seguridad automatizada v2 cuando cree una nueva máquina virtual con SQL Server 2016 en el modelo de implementación de Resource Manager. 
 
-En la hoja **Configuración de SQL Server**, seleccione **Copia de seguridad automatizada**. La siguiente captura de pantalla del Portal de Azure muestra la hoja **Copia de seguridad automatizada de SQL** .
+En la hoja **Configuración de SQL Server**, seleccione **Copia de seguridad automatizada**. La siguiente captura de pantalla de Azure Portal muestra la hoja **Copia de seguridad automatizada de SQL** .
 
 ![Configuración de Copia de seguridad automatizada de SQL en el Portal de Azure](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
 
@@ -154,7 +152,7 @@ En la hoja **Configuración de SQL Server**, haga clic en el botón **Editar** d
 
 Cuando termine, haga clic en el botón **Aceptar** situado en la parte inferior de la hoja **Configuración de SQL Server** para guardar los cambios.
 
-Si habilita Copia de seguridad automatizada por primera vez, Azure configura el Agente de IaaS de SQL Server en segundo plano. Durante este tiempo, es posible que el Portal de Azure no muestre que se ha configurado Copia de seguridad automatizada. Espere unos minutos hasta que el agente se instale y configure. Después, el Portal de Azure mostrará la nueva configuración.
+Si habilita Copia de seguridad automatizada por primera vez, Azure configura el Agente de IaaS de SQL Server en segundo plano. Durante este tiempo, es posible que Azure Portal no muestre que se ha configurado Copia de seguridad automatizada. Espere unos minutos hasta que el agente se instale y configure. Después, el Portal de Azure mostrará la nueva configuración.
 
 ## <a name="configuration-with-powershell"></a>Configuración con PowerShell
 
@@ -326,10 +324,9 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 ## <a name="next-steps"></a>Pasos siguientes
 Copia de seguridad automatizada v2 configura Copia de seguridad administrada en máquinas virtuales de Azure. Por lo tanto, es importante [revisar la documentación de la Copia de seguridad administrada](https://msdn.microsoft.com/library/dn449496.aspx) para comprender el comportamiento y las implicaciones.
 
-Puede encontrar directrices adicionales sobre la copia de seguridad y la restauración para SQL Server en máquinas virtuales de Azure en el siguiente tema: [Copias de seguridad y restauración para SQL Server en Máquinas virtuales de Azure](virtual-machines-windows-sql-backup-recovery.md).
+Puede encontrar directrices adicionales sobre la copia de seguridad y la restauración para SQL Server en máquinas virtuales de Azure en el siguiente tema: [Copias de seguridad y restauración para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
 Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-Para más información sobre cómo ejecutar SQL Server en máquinas virtuales de Azure, consulte [Introducción a SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
+Para más información sobre cómo ejecutar SQL Server en máquinas virtuales de Azure, consulte [Introducción a SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
-ms.contentlocale: es-es
-ms.lasthandoff: 02/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-load-balancing-services-in-azure"></a>Uso de servicios de equilibrio de carga en Azure
 
 ## <a name="introduction"></a>Introducción
@@ -212,4 +210,3 @@ Ahora se configuran la dirección IP y el puerto de front-end del equilibrador d
 * [¿Qué es Traffic Manager?](traffic-manager-overview.md)
 * [Introducción a Application Gateway](../application-gateway/application-gateway-introduction.md)
 * [Información general sobre Azure Load Balancer](../load-balancer/load-balancer-overview.md)
-

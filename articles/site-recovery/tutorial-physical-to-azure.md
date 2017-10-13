@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2f9a5092d4dacce8aa1630830499635b3b4eb151
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -38,7 +37,7 @@ Este tutorial muestra cómo configurar la recuperación ante desastres de servid
 
 Para completar este tutorial:
 
-- Asegúrese de entender la [arquitectura del escenario y los componentes](concepts-physical-to-azure-architecture.md).
+- Asegúrese de entender la [arquitectura y los componentes del escenario](concepts-physical-to-azure-architecture.md).
 - Revise los [requisitos de compatibilidad](site-recovery-support-matrix-to-azure.md) de todos los componentes.
 - Asegúrese de que los servidores que quiere replicar cumplen los [requisitos de VM de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 - Prepare Azure. Necesita una suscripción de Azure, una red virtual de Azure y una cuenta de almacenamiento.
@@ -51,7 +50,7 @@ Para completar este tutorial:
 Obtenga una [cuenta de Microsoft Azure](http://azure.microsoft.com/).
 
 - Puede comenzar con una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Obtenga información sobre los [precios de Site Recovery](site-recovery-faq.md#pricing) además de obtener [detalles sobre los precios](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Obtenga información sobre los [precios de Site Recovery](site-recovery-faq.md#pricing) y conozca los [detalles de los precios](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Averigüe qué [regiones se admiten](https://azure.microsoft.com/pricing/details/site-recovery/) en Site Recovery.
 
 ### <a name="verify-azure-account-permissions"></a>Comprobación de los permisos de cuenta de Azure
@@ -185,4 +184,3 @@ Para supervisar los servidores que agregue, puede comprobar la última hora de d
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Obtención de detalles de recuperación ante desastres](tutorial-dr-drill-azure.md)
-

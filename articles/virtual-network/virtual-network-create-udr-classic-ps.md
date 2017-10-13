@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
 ms.openlocfilehash: e9564d223cb85529f1fa97bc398d35c6debcedae
-ms.contentlocale: es-es
-ms.lasthandoff: 03/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Control del enrutamiento y uso de aplicaciones virtuales (clásico) mediante PowerShell
 
@@ -117,4 +116,3 @@ Para habilitar el reenvío IP en la máquina virtual FW1, complete los pasos sig
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `
     | Set-AzureIPForwarding -Enable
     ```
-

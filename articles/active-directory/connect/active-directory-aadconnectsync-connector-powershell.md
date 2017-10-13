@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
-ms.contentlocale: es-es
-ms.lasthandoff: 02/06/2017
-
+ms.openlocfilehash: 0e5ccf5a38072e31d85bbc63eb0c608b0c34cfc2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Referencia técnica del conector de Windows PowerShell
 En este artículo se describe el conector de Windows PowerShell. El artículo se aplica a los siguientes productos:
@@ -343,4 +342,3 @@ Sustituya el nombre del conector de Windows PowerShell por el marcador de posici
 [pwdex2]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
-

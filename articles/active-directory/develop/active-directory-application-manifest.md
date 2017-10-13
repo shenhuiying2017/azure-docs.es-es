@@ -17,10 +17,10 @@ ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
 ms.openlocfilehash: d5e18f41d6eb69ccb7eafaa4de2646c4c38df5e2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-the-azure-active-directory-application-manifest"></a>Descripción del manifiesto de aplicación de Azure Active Directory
 Las aplicaciones que se integran con Azure Active Directory (AD) deben estar registradas con un inquilino de Azure AD y proporcionar una configuración persistente de identidad para la aplicación. Esta configuración se consulta en tiempo de ejecución, lo que habilita los escenarios que permiten una aplicación para externalizar y negociar la autenticación/autorización mediante Azure AD. Para más información sobre el modelo de aplicación de Azure AD, consulte el artículo [Integración de aplicaciones con Azure Active Directory][ADD-UPD-RMV-APP].

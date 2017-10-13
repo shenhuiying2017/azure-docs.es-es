@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: c8b39c9215675d8073f896f934339e7cd55334cc
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Tutorial: integración de Azure Active Directory con Showpad
 
@@ -254,5 +253,4 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_203.png
-
 

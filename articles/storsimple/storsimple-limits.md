@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dd9e7f672a9f991fd06530a968a3369b752148a2
 ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
-ms.contentlocale: es-es
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>¿Cuáles son los límites del sistema de StorSimple serie 8000?
 ## <a name="overview"></a>Información general
@@ -50,7 +49,7 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 | Velocidad de procesamiento de instantáneas en la nube |15 minutos/TB. |<ul><li>Tiempo mínimo para que la instantánea en la nube esté lista para cargarse (por TB de datos del volumen asociado en la copia de seguridad). </li><li> El tiempo total de la instantánea en la nube se calcula mediante la suma de este tiempo al de carga de la instantánea, que se ve afectado por el ancho de banda de Internet en la nube. |
 | Rendimiento máximo de lectura y escritura del cliente (cuando se obtiene desde la capa SSD)* |920/720 MB/s con una sola interfaz de red de 10 GbE |Hasta 2x con MPIO y dos interfaces de red. |
 | Rendimiento máximo de lectura y escritura del cliente (cuando se obtiene desde la capa HDD)* |120/250 MB/s | |
-| Rendimiento máximo de lectura y escritura de cliente (cuando se obtiene desde la capa de la nube)*para Update 3 y posterior** |40/60 MB/s para volúmenes en capas<br><br>80/60 MB/s para volúmenes en capas con una opción de archivado seleccionada durante la creación de volumen |El rendimiento de lectura depende de que los clientes generen y mantengan una profundidad de cola de E/S suficiente. <br><br>La velocidad conseguida depende de la velocidad de la cuenta de almacenamiento subyacente utilizada. |
+| Rendimiento máximo de lectura y escritura de cliente (cuando se obtiene desde la capa de la nube) * para Update 3 y posterior** |40/60 MB/s para volúmenes en capas<br><br>80/60 MB/s para volúmenes en capas con una opción de archivado seleccionada durante la creación de volumen |El rendimiento de lectura depende de que los clientes generen y mantengan una profundidad de cola de E/S suficiente. <br><br>La velocidad conseguida depende de la velocidad de la cuenta de almacenamiento subyacente utilizada. |
 
 &#42; Se midió el rendimiento máximo por tipo de E/S con escenarios de escritura y de lectura del 100%. Es posible que el rendimiento real sea inferior y dependa de las condiciones de la red y de la mezcla de E/S.
 
@@ -58,5 +57,4 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 
 ## <a name="next-steps"></a>Pasos siguientes
 Revise los [Requisitos del sistema StorSimple](storsimple-system-requirements.md). 
-
 

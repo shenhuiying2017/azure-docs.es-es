@@ -1,7 +1,7 @@
 # Información general
 ## [¿Qué es Azure Security Center?](security-center-intro.md)
 ## [Información detallada con Power BI](security-center-powerbi.md)
-## [Seguridad de los datos](security-center-data-security.md)
+## [Seguridad de datos](security-center-data-security.md)
 ## Escenarios
 ### [Respuesta a los incidentes](security-center-incident-response.md)
 ### [Recomendaciones de uso para mejorar la seguridad](security-center-using-recommendations.md)
@@ -19,6 +19,7 @@
 # Cómo
 
 ## Directiva de seguridad
+### [Información general](security-center-policies-overview.md)
 ### [Recopilación de datos](security-center-enable-data-collection.md)
 ### [Directiva de seguridad](security-center-policies.md)
 ### [Notificaciones por correo electrónico](security-center-provide-security-contact-details.md)
@@ -53,7 +54,6 @@
 #### [Instalación de Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Reiniciar tras actualizar el sistema](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Corrección de vulnerabilidades del SO](security-center-remediate-os-vulnerabilities.md)
-#### [Resolver alertas de estado de Endpoint Protection](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Actualizar versión del sistema operativo](security-center-update-os-version.md)
 #### [Evaluación de vulnerabilidades no instalada](security-center-vulnerability-assessment-recommendations.md)
 ### [Supervisión del estado de la seguridad](security-center-monitoring.md)

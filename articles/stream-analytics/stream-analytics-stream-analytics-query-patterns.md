@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: a27bae1828bd469d4439e0ce43098edd73f54243
-ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Stream Analytics
 ## <a name="introduction"></a>Introducción
@@ -226,7 +225,7 @@ GROUP BY
 
 
 **Explicación:**
-**COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
+** COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Ejemplo de consulta: determinar si un valor ha cambiado
 **Descripción**: busque un valor anterior para determinar si es diferente del valor actual.
@@ -462,7 +461,7 @@ Por ejemplo, supongamos que, por error, todos los vehículos tienen un peso inco
         AND previousWeight > 20000
 ````
 
-**Explicación**: use **LAG** para ver el flujo de entrada que se produjo durante veinticuatro horas y busque instancias donde**StartFault** y **StopFault** superan el peso de <20 000.
+**Explicación**: use **LAG** para ver el flujo de entrada que se produjo durante veinticuatro horas y busque instancias donde**StartFault** y **StopFault** superan el peso de &lt;20 000.
 
 ## <a name="query-example-fill-missing-values"></a>Ejemplo de consulta: rellenar los valores que faltan
 **Descripción**: para la transmisión de eventos con valores que faltan, genere una transmisión de eventos con intervalos regulares.
@@ -510,10 +509,9 @@ Por ejemplo, genere un evento cada cinco segundos que notifique el punto de dato
 Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
+* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.lasthandoff: 04/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de almacenamiento de Azure
 A partir de la versión 2013-08-15, los servicios de almacenamiento de Azure admiten Uso compartido de recursos entre orígenes (CORS) para los servicios de blob, tablas, colas y archivos. CORS es una característica de HTTP que permite que una aplicación web que se ejecuta en un dominio tenga acceso a recursos de otro dominio. Los exploradores web implementan una restricción de seguridad denominada [directiva del mismo origen](http://www.w3.org/Security/wiki/Same_Origin_Policy) que impide que una página web llame a las API de otro dominio diferente; CORS proporciona una forma segura de permitir que un dominio (el dominio de origen) llame a las API de otro dominio. Consulte la [especificación CORS](http://www.w3.org/TR/cors/) para obtener más detalles sobre CORS.
@@ -190,5 +189,4 @@ Las solicitudes preparatorias erróneas no se cargan en cuenta.
 [Definición de las propiedades del servicio Tabla](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [Especificación de uso compartido de recursos entre orígenes de W3C](http://www.w3.org/TR/cors/)
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Uso compartido de paneles de Azure mediante el control de acceso basado en rol
 Después de configurar un panel, puede publicarlo y compartirlo con otros usuarios de su organización. Mediante el [control de acceso basado en rol](../active-directory/role-based-access-control-configure.md)de Azure puede permitir que otros usuarios vean su panel. Asigne un usuario o grupo de usuarios a un rol y ese rol definirá si los usuarios pueden ver o modificar el panel publicado. 
@@ -77,5 +76,4 @@ Tras esto, el panel ya se ha publicado. Si son adecuados los permisos heredados 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una lista de roles, consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
 * Para más información acerca de cómo administrar los recursos, consulte [Administración de los recursos de Azure a través del Portal](resource-group-portal.md).
-
 

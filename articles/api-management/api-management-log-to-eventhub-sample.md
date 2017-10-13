@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: 70ee752c5639c90f77dde104ce85eec0a1062300
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Supervisión de API con Administración de API de Azure, Centros de eventos y Runscope
 El [servicio Administración de API](api-management-key-concepts.md) proporciona muchas capacidades para mejorar el procesamiento de solicitudes de HTTP enviadas a la API HTTP. Sin embargo, la existencia de las solicitudes y respuestas son transitorias. Se realiza la solicitud y fluye a través del servicio Administración de API a la API de back-end. La API procesa la solicitud y se pasa una respuesta al consumidor de API. El servicio Administración de API mantiene algunas estadísticas importantes acerca de las API que se muestran en el panel del portal de Publisher, pero aparte de eso, los detalles desaparecen.

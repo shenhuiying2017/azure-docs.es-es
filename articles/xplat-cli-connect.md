@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
-ms.contentlocale: es-es
-ms.lasthandoff: 03/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-in-to-azure-from-the-azure-cli"></a>Inicio de sesión en Azure desde la CLI de Azure
 La CLI de Azure es un conjunto de comandos de código abierto y multiplataforma para trabajar con recursos de Azure. En este artículo se describen las distintas maneras de proporcionar las credenciales de su cuenta de Azure apara conectar la CLI de Azure a su suscripción de Azure:
@@ -166,4 +165,3 @@ Si las suscripciones asociadas a la cuenta solo se autentican con Active Directo
 * Para usar los comandos de la CLI de Azure, consulte [Comandos de la CLI de Azure en el modo de Resource Manager](virtual-machines/azure-cli-arm-commands.md) y [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * Si desea obtener más información acerca de la CLI de Azure, descargar el código fuente, informar sobre problemas o colaborar con el proyecto, visite el [Repositorio de GitHub para la CLI de Azure](https://github.com/azure/azure-xplat-cli).
 * Si tiene problemas al usar la CLI de Azure o Azure, visite los [Foros de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
-

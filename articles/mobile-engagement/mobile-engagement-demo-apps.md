@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/10/2016
 ms.author: piyushjo
 ms.openlocfilehash: 8381edb569e19a85c1259f7791b477cfa6e51ea3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-demo-app"></a>Aplicación de demostración de Azure Mobile Engagement
 Se ha publicado una aplicación de demostración de Azure Mobile Engagement para las plataformas **iOS**, **Android** y **Windows** para ayudarle a encontrar recursos útiles y obtener más información acerca de Mobile Engagement.

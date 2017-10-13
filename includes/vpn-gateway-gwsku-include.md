@@ -22,7 +22,7 @@ Las nueva SKU de puerta de enlace simplifican los conjuntos de características 
 
 | **SKU**| **Características**|
 | ---    | ---         |
-|**Básica**   | **VPN basada en ruta**: 10 túneles con P2S, sin autenticación RADIUS, sin IKEv2<br>**VPN basada en directivas**: (IKEv1): 1 túnel; sin P2S|
+|**Básico**   | **VPN basada en ruta**: 10 túneles con P2S, sin autenticación RADIUS, sin IKEv2<br>**VPN basada en directivas**: (IKEv1): 1 túnel; sin P2S|
 | **VpnGw1, VpnGw2 y VpnGw3** | **VPN basada en enrutamiento**: hasta 30 túneles (*), P2S, BGP, activo-activo, directiva de IPsec/IKE personalizada, coexistencia de VPN y ExpressRoute |
 |        |             |
 

@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4c4391cecaf10428b5d4cacf3b39e6a08d417053
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Referencia sobre la API de la cuenta de Administración de modelos de Azure Machine Learning
 
@@ -700,8 +699,8 @@ Detalles del error del servicio Administración de modelos.
 
 |Nombre|Descripción|Esquema|
 |---|---|---|
-|**code**  <br>*requerido*|Código de error|cadena|
-|**message**  <br>*requerido*|mensaje de error|cadena|
+|**code**  <br>*obligatorio*|Código de error|cadena|
+|**message**  <br>*obligatorio*|mensaje de error|cadena|
 
 
 <a name="errorresponse"></a>
@@ -711,9 +710,9 @@ Detalles del error del servicio Administración de modelos.
 
 |Nombre|Descripción|Esquema|
 |---|---|---|
-|**code**  <br>*requerido*|Código de error|cadena|
+|**code**  <br>*obligatorio*|Código de error|cadena|
 |**details**  <br>*opcional*|Una matriz de objetos de detalles del error.|< [ErrorDetail](#errordetail) > array|
-|**message**  <br>*requerido*|Mensaje de error|cadena|
+|**message**  <br>*obligatorio*|Mensaje de error|cadena|
 |**statusCode**  <br>*opcional*|Código de estado HTTP|integer|
 
 
@@ -745,11 +744,11 @@ Solicitud para crear una imagen de Azure Machine Learning
 
 |Nombre|Descripción|Esquema|
 |---|---|---|
-|**computeResourceId**  <br>*requerido*|El identificador del entorno creado en el proceso de Machine Learning|cadena|
+|**computeResourceId**  <br>*obligatorio*|El identificador del entorno creado en el proceso de Machine Learning|cadena|
 |**descripción**  <br>*opcional*|El texto de descripción de la imagen|cadena|
-|**imageType**  <br>*requerido*||[ImageType](#imagetype)|
-|**manifestId**  <br>*requerido*|El identificador del manifiesto desde el que se creará la imagen|cadena|
-|**name**  <br>*requerido*|El nombre de la imagen|cadena|
+|**imageType**  <br>*obligatorio*||[ImageType](#imagetype)|
+|**manifestId**  <br>*obligatorio*|El identificador del manifiesto desde el que se creará la imagen|cadena|
+|**name**  <br>*obligatorio*|El nombre de la imagen|cadena|
 
 
 <a name="imagetype"></a>
@@ -766,15 +765,15 @@ El manifiesto de Azure Machine Learning
 
 |Nombre|Descripción|Esquema|
 |---|---|---|
-|**assets**  <br>*requerido*|La lista de recursos|< [Asset](#asset) > array|
+|**assets**  <br>*obligatorio*|La lista de recursos|< [Asset](#asset) > array|
 |**createdTime**  <br>*opcional*  <br>*solo lectura*|La hora de creación del manifiesto (UTC)|string (date-time)|
 |**descripción**  <br>*opcional*|El texto de descripción del manifiesto|cadena|
-|**driverProgram**  <br>*requerido*|El programa del controlador del manifiesto.|cadena|
+|**driverProgram**  <br>*obligatorio*|El programa del controlador del manifiesto.|cadena|
 |**id**  <br>*opcional*|El identificador del manifiesto|cadena|
 |**modelIds**  <br>*opcional*|Lista de identificadores de modelo de los modelos registrados. La solicitud producirá un error si cualquiera de los modelos incluidos no está registrado|< string > array|
 |**modelType**  <br>*opcional*|Especifica que los modelos ya se han registrado con el servicio Administración de modelos|enum (Registered)|
-|**name**  <br>*requerido*|El nombre del manifiesto|cadena|
-|**targetRuntime**  <br>*requerido*||[TargetRuntime](#targetruntime)|
+|**name**  <br>*obligatorio*|El nombre del manifiesto|cadena|
+|**targetRuntime**  <br>*obligatorio*||[TargetRuntime](#targetruntime)|
 |**version**  <br>*opcional*  <br>*solo lectura*|La versión del manifiesto asignada por el servicio Administración de modelos|integer|
 |**webserviceType**  <br>*opcional*|Especifica el tipo deseado de servicio web que se creará a partir del manifiesto|enum (Realtime)|
 
@@ -789,11 +788,11 @@ Instancia de un modelo de Azure Machine Learning
 |**createdAt**  <br>*opcional*  <br>*solo lectura*|La hora de creación del modelo (UTC)|string (date-time)|
 |**descripción**  <br>*opcional*|El texto de descripción del modelo|cadena|
 |**id**  <br>*opcional*  <br>*solo lectura*|El identificador del modelo|cadena|
-|**mimeType**  <br>*requerido*|El tipo MIME del contenido del modelo. Para más información sobre el tipo MIME, abra https://www.iana.org/assignments/media-types/media-types.xhtml|cadena|
-|**name**  <br>*requerido*|El nombre del modelo|cadena|
+|**mimeType**  <br>*obligatorio*|El tipo MIME del contenido del modelo. Para más información sobre el tipo MIME, abra https://www.iana.org/assignments/media-types/media-types.xhtml|cadena|
+|**name**  <br>*obligatorio*|El nombre del modelo|cadena|
 |**etiquetas**  <br>*opcional*|Lista de etiquetas del modelo|< string > array|
 |**unpack**  <br>*opcional*|Indica si necesitamos desempaquetar el modelo durante la creación de la imagen de Docker.|boolean|
-|**url**  <br>*requerido*|La dirección URL del modelo. Normalmente se coloca una dirección URL SAS aquí.|cadena|
+|**url**  <br>*obligatorio*|La dirección URL del modelo. Normalmente se coloca una dirección URL SAS aquí.|cadena|
 |**version**  <br>*opcional*  <br>*solo lectura*|La versión del modelo asignada por el servicio Administración de modelos|integer|
 
 
@@ -861,12 +860,12 @@ Solicitud para crear un servicio
 |---|---|---|
 |**appInsightsEnabled**  <br>*opcional*|Habilita Application Insights para un servicio|boolean|
 |**autoScaler**  <br>*opcional*||[AutoScaler](#autoscaler)|
-|**computeResource**  <br>*requerido*||[ComputeResource](#computeresource)|
+|**computeResource**  <br>*obligatorio*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*opcional*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*opcional*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*requerido*|La imagen para crear el servicio|cadena|
+|**imageId**  <br>*obligatorio*|La imagen para crear el servicio|cadena|
 |**maxConcurrentRequestsPerContainer**  <br>*opcional*|Número máximo de solicitudes simultáneas  <br>**Valor mínimo**: `1`|integer|
-|**name**  <br>*requerido*|El nombre del servicio|cadena|
+|**name**  <br>*obligatorio*|El nombre del servicio|cadena|
 |**numReplicas**  <br>*opcional*|El número de réplicas de pod que se ejecutan en un momento dado. No se puede especificar si el escalador automático está habilitado.  <br>**Valor mínimo**: `0`|integer|
 
 
@@ -889,7 +888,7 @@ Estado detallado del servicio
 |---|---|---|
 |**createdAt**  <br>*opcional*|La hora de creación del servicio (UTC)|string (date-time)|
 |**id**  <br>*opcional*|El identificador de servicio|cadena|
-|**image**  <br>*opcional*||[Imagen](#image)|
+|**imagen**  <br>*opcional*||[Imagen](#image)|
 |**manifest**  <br>*opcional*||[Manifest](#manifest)|
 |**models**  <br>*opcional*|Lista de modelos|< [Model](#model) > array|
 |**name**  <br>*opcional*|El nombre del servicio|cadena|
@@ -898,7 +897,7 @@ Estado detallado del servicio
 |**updatedAt**  <br>*opcional*|La hora de la última actualización (UTC)|string (date-time)|
 |**appInsightsEnabled**  <br>*opcional*|Habilita Application Insights para un servicio|boolean|
 |**autoScaler**  <br>*opcional*||[AutoScaler](#autoscaler)|
-|**computeResource**  <br>*requerido*||[ComputeResource](#computeresource)|
+|**computeResource**  <br>*obligatorio*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*opcional*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*opcional*||[ModelDataCollection](#modeldatacollection)|
 |**maxConcurrentRequestsPerContainer**  <br>*opcional*|Número máximo de solicitudes simultáneas  <br>**Valor mínimo**: `1`|integer|
@@ -929,7 +928,6 @@ Tipo de entorno de ejecución de destino.
 
 |Nombre|Descripción|Esquema|
 |---|---|---|
-|**properties**  <br>*requerido*||< string, string > map|
-|**runtimeType**  <br>*requerido*|Especifica el entorno de ejecución|enum (SparkPython, Python)|
-
+|**properties**  <br>*obligatorio*||< string, string > map|
+|**runtimeType**  <br>*obligatorio*|Especifica el entorno de ejecución|enum (SparkPython, Python)|
 

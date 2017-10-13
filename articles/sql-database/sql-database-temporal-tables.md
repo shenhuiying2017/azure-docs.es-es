@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sql-database
 ms.date: 01/10/2017
 ms.author: bonova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: e00345ddd9e52e2613789ba78c48e8f993d2415c
-ms.contentlocale: es-es
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: d84db682089c65c2716d2d9bd92f7bc0ac47af27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introducción a las tablas temporales de Base de datos SQL de Azure
 Las tablas temporales son una nueva característica de programación de Base de datos SQL de Azure que permiten realizar un seguimiento del historial completo de los cambios en los datos y analizarlo, sin necesidad de codificación personalizada. Las tablas temporales mantienen datos estrechamente relacionados con el contexto de tiempo para que se puedan interpretar los hechos almacenados como válidos solo dentro del período específico. Esta propiedad de las tablas temporales permite un análisis eficaz basado en el tiempo y obtener información detalladas de la evolución de los datos.
@@ -199,5 +197,4 @@ Con tablas temporales con versión del sistema, la tabla de historial puede aume
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información detallada sobre tablas temporales, consulte la [documentación de MSDN](https://msdn.microsoft.com/library/dn935015.aspx).
 Visite Channel 9 para oír un [caso de éxito de implementación temporal de cliente real](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) y ver una [demostración temporal en directo](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
-
 

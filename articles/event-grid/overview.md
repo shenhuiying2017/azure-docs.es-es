@@ -8,14 +8,12 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: babanisa
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 358c1f4bca2ced207caf599db2fb1453ca8bc41e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="an-introduction-to-azure-event-grid"></a>Una introducción a Azure Event Grid
 
 Azure Event Grid permite crear fácilmente aplicaciones con arquitecturas basadas en eventos. Seleccione el recurso de Azure al que le gustaría suscribirse y asigne el controlador de eventos o el punto de conexión de WebHook para enviar el evento. Event Grid tiene compatibilidad integrada para eventos procedentes de los servicios de Azure, como los blobs de almacenamiento y los grupos de recursos. Event Grid también tiene soporte personalizado para aplicaciones y eventos de otros fabricantes, con temas personalizados y webhooks personalizados. 
@@ -65,7 +63,7 @@ Actualmente, los siguientes servicios de Azure tienen compatibilidad de publicad
 
 * Grupos de recursos (operaciones de administración)
 * Suscripciones de Azure (operaciones de administración)
-* Event Hubs
+* Centros de eventos
 * Temas personalizados
 
 Otros servicios de Azure se agregarán este año.

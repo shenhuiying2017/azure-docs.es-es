@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 3ad1bfe2c45fd087f094aad5b2028ab488dbb2a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fb00711c762aa67c632d1cc582741970e3df0ef2
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creación de paneles de indicadores clave de rendimiento (KPI) personalizados con Azure Application Insights
 
 Puede crear varios paneles en Azure Portal de manera que cada uno incluya iconos en los que se visualicen datos procedentes de varios recursos de Azure en diferentes suscripciones y grupos de recursos.  Puede anclar distintos gráficos y vistas de visión de Azure Application Insights para crear paneles personalizados que le proporcionen una descripción completa del estado y el rendimiento de la aplicación.  Este tutorial le guía a través de la creación de un panel personalizado que incluye varios tipos de datos y visualizaciones de Azure Application Insights.  Aprenderá a:

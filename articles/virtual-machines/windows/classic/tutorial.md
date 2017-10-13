@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
 ms.openlocfilehash: 0981872ff819fdf49a9cc97afce3c212013ce76b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Creación de una máquina virtual que ejecuta Windows en el Portal de Azure
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ También puede crear máquinas virtuales con sus [propias imágenes](createuploa
 
 <!-- 02/27/2017 Video removed as it was based on the classic portal. -->
 
-## <a id="createvirtualmachine"> </a>Creación de la máquina virtual
+## <a id="createvirtualmachine"></a>Creación de la máquina virtual
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes

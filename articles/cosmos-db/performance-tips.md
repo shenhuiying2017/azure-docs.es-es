@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
+ms.openlocfilehash: cf7ba26369b3978bb0c2ad5e903a7aee804017ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: cab019480a14de1a1481abee800553c6545add70
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Sugerencias de rendimiento para Azure Cosmos DB
 Azure Cosmos DB es una base de datos distribuida rápida y flexible que se escala sin problemas con una latencia y un rendimiento garantizados. No es necesario realizar cambios de arquitectura importantes ni escribir código complejo para escalar la base de datos con Cosmos DB. Escalar o reducir verticalmente es tan sencillo como realizar una única llamada de API o con el [método SDK](set-throughput.md#set-throughput-sdk). Sin embargo, como el acceso a Cosmos DB se realiza mediante llamadas de red, puede realizar optimizaciones en el lado cliente para conseguir un rendimiento máximo.
@@ -145,14 +144,8 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
     - Para aplicaciones web de ASP.NET implementadas en Azure, se puede hacer eligiendo la **Plataforma de 64 bits** en **Configuración de la aplicación** en Azure Portal.
 
 ## <a name="indexing-policy"></a>Directiva de indexación
-1. **Uso de la indexación diferida para lograr tasas de ingesta más rápidas a horas punta**
-
-    Cosmos DB le permite especificar, en el nivel de colección, una directiva de indexación que le permite elegir si quiere que los documentos de una colección se indexen o no automáticamente.  Además, puede elegir entre actualizaciones de índices sincrónicas (coherentes) y asincrónicas (diferidas). De forma predeterminada, el índice se actualiza de forma sincrónica con cada inserción, reemplazo o eliminación de un documento de la colección. El modo sincrónico permite que las consultas tengan el mismo [nivel de coherencia](consistency-levels.md) que el de las lecturas de los documentos sin demoras en la actualización de los índices.
-
-    La indexación diferida se puede considerar en escenarios en los que los datos se escriben en ráfagas y desea amortizar el trabajo necesario para indexar el contenido durante un período de tiempo más prolongado. También permite usar de forma eficaz el rendimiento aprovisionado y atender a las solicitudes de escritura en las horas punta con una latencia mínima. Sin embargo, es importante advertir que cuando la indexación diferida está habilitada, los resultados de consulta serán a la larga coherentes con independencia del nivel de coherencia configurado para la cuenta de Cosmos DB.
-
-    Por lo tanto, el modo de indexación coherente (IndexingPolicy.IndexingMode está establecido en Coherente) genera el mayor gasto de unidad de solicitud por escritura (IndexingPolicy.IndexingMode está establecido en Diferido) y la ausencia de indexación (IndexingPolicy.Automatic está establecido en False) tiene cero costos de indexación en el momento de la escritura.
-2. **Exclusión de rutas de acceso sin utilizar de la indexación para acelerar las escrituras**
+ 
+1. **Exclusión de rutas de acceso sin utilizar de la indexación para acelerar las escrituras**
 
     La directiva de indexación de Cosmos DB también le permite especificar las rutas de acceso de documentos que se incluirán en la indexación o se excluirán de esta mediante el aprovechamiento de las rutas de acceso de indexación (IndexingPolicy.IncludedPaths y IndexingPolicy.ExcludedPaths). El uso de rutas de acceso de indexación puede ofrecer un rendimiento de escritura mejorado y un almacenamiento de índices reducido en escenarios en los que los patrones de consulta se conocen de antemano, dado que los costos de indexación están directamente correlacionados con el número de rutas de acceso únicas indexadas.  Por ejemplo, el código siguiente muestra cómo excluir una sección completa de los documentos (también conocido como subárbol) de la indexación usando el comodín "*".
 
@@ -214,4 +207,3 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 Si quiere ver una aplicación de ejemplo usada para evaluar Cosmos DB en escenarios de alto rendimiento en un pequeño número de máquinas cliente, consulte [Pruebas de escala y rendimiento con Cosmos DB](performance-testing.md).
 
 Para más información sobre cómo diseñar la aplicación para escalarla y obtener un alto rendimiento, consulte [Partición y escalado en Azure Cosmos DB](partition-data.md).
-

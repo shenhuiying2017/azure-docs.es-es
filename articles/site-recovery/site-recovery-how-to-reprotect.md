@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotección desde Azure a un sitio local
 
@@ -271,5 +270,4 @@ Para volver a proteger una máquina virtual en la que se ha realizado la conmuta
 *El almacén de datos no es accesible desde el host ESXi.*
 
 Vea los [requisitos previos del destino principal](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) y los [almacenes de datos de soporte](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) para realizar la conmutación por recuperación.
-
 

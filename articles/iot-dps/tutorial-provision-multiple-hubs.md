@@ -12,21 +12,18 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 4842944cd0d980fb7e817165da23b9c3c4037e94
-ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Aprovisionamiento de dispositivos en instancias de IoT Hub con equilibrio de carga
 
 Este tutorial muestra cómo aprovisionar dispositivos para varias instancias de IoT Hub con equilibrio de carga mediante el servicio Device Provisioning (DPS). En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Usar Azure Portal para aprovisionar un segundo dispositivo en una segunda instancia de IoT Hub 
+> * Usar Azure Portal para aprovisionar un segundo dispositivo en un segundo centro de IoT 
 > * Agregar una entrada de la lista de inscripción en el segundo dispositivo
 > * Establecer la directiva de asignación de DPS en **distribución uniforme**
 > * Vincular la nueva instancia de IoT Hub a DPS
@@ -75,7 +72,7 @@ Vincule el DPS y la instancia de IoT Hub para que el DPS pueda registrar los dis
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a:
+En este tutorial, ha aprendido cómo:
 
 > [!div class="checklist"]
 > * Usar Azure Portal para aprovisionar un segundo dispositivo en un segundo centro de IoT 
@@ -88,4 +85,3 @@ En este tutorial, ha aprendido a:
 > [!div class="nextstepaction"]
 > [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
 -->
-

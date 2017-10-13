@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4264af14370557c55050b0c4951812090d33d7a9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Factoría de datos de Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](data-factory-use-custom-activities.md)
-> * [Versión 2: versión preliminar](../transform-data-using-dotnet-custom-activity.md)
+> * [Versión 1: Disponibilidad general](data-factory-use-custom-activities.md)
+> * [Versión 2: Versión preliminar](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [Custom activities in V2](../transform-data-using-dotnet-custom-activity.md) (Actividades personalizadas en V2).
@@ -114,7 +113,7 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
      <li>Seleccione <b>C:\ADFGetStarted</b> como <b>Ubicación</b>.</li>
      <li>Haga clic en <b>Aceptar</b> para crear el proyecto.</li>
    </ol>
-2. Haga clic en **Herramientas**, seleccione **Administrador de paquetes de NuGet** y haga clic en **Consola del Administrador de paquetes**.
+2.Haga clic en **Herramientas**, seleccione **Administrador de paquetes de NuGet** y haga clic en **Consola del Administrador de paquetes**.
 3. En la Consola del Administrador de paquetes, ejecute el siguiente comando para importar **Microsoft.Azure.Management.DataFactories**.
 
     ```PowerShell
@@ -1177,4 +1176,3 @@ El ejemplo de [Azure Data Factory: entorno local](https://github.com/gbrueckl/Az
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
-

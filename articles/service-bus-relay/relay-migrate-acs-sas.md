@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: fb331bf6e11ac8378004c6da73b589130f9a8ddf
-ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar desde Azure Active Directory Access Control Service a la autorización de Firma de acceso compartido
 
 Históricamente, las aplicaciones de Azure Relay tenían la posibilidad de usar dos modelos de autorización diferentes: el modelo de token de [Firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md), proporcionado directamente por el servicio Relay, y un modelo federado donde la administración de las reglas de autorización ocurría de manera interna por medio de [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS), y los tokens obtenidos de ACS se pasaban a Relay para autorizar el acceso a las funciones que se querían.
@@ -67,6 +65,5 @@ Para más información sobre la autenticación de Azure Relay, vea los siguiente
 
 * [Autenticación y autorización en Azure Relay](relay-authentication-and-authorization.md)
 * [Autenticación en Service Bus con Firmas de acceso compartido](../service-bus-messaging/service-bus-sas.md)
-
 
 

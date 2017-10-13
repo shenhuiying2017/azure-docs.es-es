@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: eea563ccbceab0833fb5e5eaf75e3a4347ef1ea4
-ms.contentlocale: es-es
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 89d76c5d00f8a438cfec7fd1568d4735f0a65327
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-policies"></a>Directivas de administración de API
 En esta sección se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](api-management-howto-policies.md).  
@@ -66,7 +65,7 @@ En esta sección se proporciona una referencia para las siguientes directivas de
   
     -   [Establecer método de solicitud](api-management-advanced-policies.md#SetRequestMethod) : le permite cambiar el método HTTP de una solicitud.  
   
-    -   [Set status code](api-management-advanced-policies.md#SetStatus) (Establecer código de estado): cambia el código de estado HTTP al valor especificado.  
+    -   [Establecimiento de código de estado](api-management-advanced-policies.md#SetStatus): cambia el código de estado HTTP al valor especificado.  
   
     -   [Seguimiento](api-management-advanced-policies.md#Trace): agrega una cadena a la salida de [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/).  
   
@@ -122,4 +121,3 @@ En esta sección se proporciona una referencia para las siguientes directivas de
   
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo trabajar con directivas, consulte a [Directivas de API Management](api-management-howto-policies.md).  
-

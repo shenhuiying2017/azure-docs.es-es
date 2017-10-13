@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/06/2017
 ms.author: maroche
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novedades en el Catálogo de datos de Azure
 De forma periódica se publican actualizaciones de **Azure Data Catalog**. No todas las versiones incluyen nuevas características de cara al usuario, ya que algunas se centran en las funcionalidades del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio Azure Data Catalog.
@@ -264,5 +263,4 @@ A partir de agosto de 2015 se han agregado las siguientes funcionalidades a Azur
 * Hemos agregado un nuevo botón de "Usuario" y un menú a la barra de navegación superior. Este menú permite al usuario ver la cuenta usada para iniciar sesión en Catálogo de datos de Azure y cerrar la sesión si así lo desea. Este menú también muestra el nombre del catálogo, lo que resulta útil para los desarrolladores que usan la API de REST de Catálogo de datos de Azure.
 * Solo en la edición estándar: al agregar propietarios a los recursos de datos, Catálogo de datos de Azure ahora admite tanto cuentas de usuario como grupos de seguridad como propietarios. Para agregar un grupo de seguridad como propietario de los activos de datos seleccionados, puede especificar el nombre para mostrar del grupo o la dirección de correo electrónico UPN del grupo, si tiene alguna.
 * Compatibilidad con orígenes de datos de almacenamiento de blobs de Azure. Los usuarios pueden registrarse ahora y detectar el almacenamiento de blobs de Azure y los directorios.
-
 

@@ -12,12 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 22389ba85edb119acdd21b63f2deae2d71f31373
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-preparation-user-guide"></a>Guía de usuario sobre preparación de los datos 
 La experiencia de preparación de datos proporciona numerosas funciones enriquecidas. A continuación se documentan las partes más importantes de la experiencia.
@@ -110,4 +109,3 @@ Todas las operaciones realizadas en el flujo de datos al que se hace referencia 
 [Apéndice 8: Orígenes de datos de ejemplo en Python](data-prep-appendix8-sample-source-connections-python.md)  
 [Apéndice 9: Conexiones de destino de ejemplo en Python](data-prep-appendix9-sample-destination-connections-python.md)  
 [Apéndice 10: Transformaciones de columna de ejemplo en Python](data-prep-appendix10-sample-custom-column-transforms-python.md)  
-

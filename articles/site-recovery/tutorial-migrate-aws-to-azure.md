@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aa378c167c81617bc13baa65335335a749d13516
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -253,7 +252,7 @@ Ejecute una conmutación por error real para las instancias de EC2 a fin de migr
     ![Completar migración](./media/tutorial-migrate-aws-to-azure/complete-migration.png)
 
 > [!WARNING]
-> **Don't cancel a failover in progress** (No cancelar una conmutación por error en curso): antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no replica la máquina virtual de nuevo.  
+> **No cancele una conmutación por error en curso**: antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.  
 
 
     
@@ -264,4 +263,3 @@ En este tema, ha aprendido cómo migrar instancias de EC2 de AWS en máquinas vi
 
 > [!div class="nextstepaction"]
 > [Tutoriales de máquinas virtuales Windows de Azure](../virtual-machines/windows/tutorial-manage-vm.md)
-

@@ -26,7 +26,7 @@
         ![Agregar volumen](./media/storsimple-create-volume/AddVolume2-include.png)
 4. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Se creará un volumen con la configuración especificada.
 
-![Vídeo disponible](./media/storsimple-create-volume/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-create-volume/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo que muestre cómo crear un volumen de StorSimple, haga clic [aquí](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 

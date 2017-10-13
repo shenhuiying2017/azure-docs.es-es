@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 71da98bf6d53ab50df4f6e40cf0b548752d10f93
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-backup-server"></a>Solución de problemas de Azure Backup Server
 
 Puede solucionar los errores detectados al usar Azure Backup Server con la información incluida en la tabla siguiente.
@@ -89,4 +87,3 @@ Siga estos [pasos de solución de problemas] (https://docs.microsoft.com/en-us/a
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
 | Intentando configurar las notificaciones por correo electrónico con una cuenta de Office 365. | obteniendo el identificador de error: 2013| **Causa:**<br/> Intentar usar la cuenta de Office 365 <br/> **Acción recomendada:**<br/> En primer lugar, hay que asegurarse de que la opción para permitir la retransmisión anónima en un conector de recepción para el servidor DPM, está configurada en Exchange. En este vínculo se indica cómo configurarla: http://technet.microsoft.com/en-us/library/bb232021.aspx <br/> Si no puede usar una retransmisión SMTP interna y necesita configurarla con un servidor Office 365, puede configurar IIS para que actúe como retransmisión. <br/> Debe configurar el servidor DPM para poder retransmitir el protocolo SMTP a Office 365 con IIS (consulte https://technet.microsoft.com/en-us/library/aa995718(v=exchg.65).aspx) para configurar IIS de modo que retransmita a Office 365 <br/> Nota importante: En el paso 3->g->ii, procure usar el formato user@domain.com y NO dominio\usuario <br/> Indique a DPM que use el nombre del servidor local como servidor SMTP, el puerto 587, y, a continuación, el correo electrónico del usuario del que deben provenir los mensajes de correo electrónico. <br/> El nombre de usuario y la contraseña en la página de configuración SMTP de DPM deben ser una cuenta de dominio del dominio DPM. <br/> Nota: Al cambiar la dirección del servidor SMTP, realice el cambio a la nueva configuración, cierre el cuadro de configuración y, a continuación, vuelva a abrirlo para asegurarse de que refleja el nuevo valor.  No basta con cambiar y probar para adoptar la nueva configuración, de modo que se recomienda realizar esta prueba. <br/> En cualquier momento durante este proceso, puede borrar esta configuración cerrando la consola de DPM y modificando las siguientes claves del Registro:<br/> HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Elimine las claves SMTPPassword y SMTPUserName. <br/> Puede agregarlas de nuevo en la interfaz de usuario cuando la inicie otra vez.
-

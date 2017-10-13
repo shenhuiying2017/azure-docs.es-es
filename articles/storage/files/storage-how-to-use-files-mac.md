@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montaje de un recurso compartido de archivos de Azure mediante SMB con macOS
 [Azure Files](storage-files-introduction.md) es el servicio de Microsoft que permite crear y utilizar recursos compartidos de archivos en red en Azure utilizando el estándar del sector. Los recursos compartidos de archivos de Azure se pueden montar en macOS Sierra (10.12) y El Capitan (10.11). En este artículo se muestran dos maneras diferentes para montar un recurso compartido de archivos de Azure en macOS, con la interfaz de usuario de Finder y utilizando el Terminal.
 
@@ -68,6 +66,6 @@ ms.lasthandoff: 09/25/2017
 Consulte los vínculos siguientes para más información acerca Azure Files.
 
 * [Artículo de soporte técnico de Apple: cómo conectarse con uso compartido de archivos en el equipo Mac](https://support.apple.com/HT204445)
-* [P+F](../storage-files-faq.md)
+* [Preguntas más frecuentes](../storage-files-faq.md)
 * [Solución de problemas en Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Solución de problemas en Linux](storage-troubleshoot-linux-file-connection-problems.md)    

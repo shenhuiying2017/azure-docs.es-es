@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: ffa2eaf3680e68ac14aabf49b6308caeb173fd43
-ms.contentlocale: es-es
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Creación de un origen de eventos para el entorno de Time Series Insights mediante el portal Ibiza
 
 El origen de eventos de Time Series Insights se deriva de un agente de eventos, como Azure Event Hubs. Time Series Insights se conecta directamente a los orígenes de eventos e ingiere el flujo de datos sin necesidad de que los usuarios escriban una sola línea de código. Actualmente, Time Series Insights es compatible tanto con Azure Event Hubs como con Azure IoT Hubs. En el futuro, se agregarán más orígenes de eventos.
@@ -55,4 +53,3 @@ Tras la creación del origen de eventos, Time Series Insights iniciará automát
 
 * [Envío de eventos](time-series-insights-send-events.md) al origen de eventos
 * Vea el entorno en el [portal de Time Series Insights](https://insights.timeseries.azure.com)
-

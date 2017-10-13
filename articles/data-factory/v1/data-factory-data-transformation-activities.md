@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8f6c428d6b7d5b9cab823c2a2408b895bb2c05a3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar datos en Azure Data Factory
 > [!div class="op_single_selector"]
@@ -97,5 +96,4 @@ Azure Data Factory admite las siguientes actividades de transformación de datos
 | [Procedimiento almacenado](data-factory-stored-proc-activity.md) |SQL Azure, Almacenamiento de datos SQL de Azure o SQL Server |
 | [U-SQL de análisis con Data Lake](data-factory-usql-activity.md) |Análisis con Azure Data Lake |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Lote de Azure |
-
 

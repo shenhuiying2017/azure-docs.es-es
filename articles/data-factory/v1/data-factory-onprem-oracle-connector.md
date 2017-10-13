@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a06f328eba83fda6cf12a7b81f2ab4dfcd95ec3a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copia de datos con una instancia local Oracle como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](data-factory-onprem-oracle-connector.md)
-> * [Versión 2: versión preliminar](../connector-oracle.md)
+> * [Versión 1: Disponibilidad general](data-factory-onprem-oracle-connector.md)
+> * [Versión 2: Versión preliminar](../connector-oracle.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [Oracle connector in V2](../connector-oracle.md) (Conector de Oracle en V2).
@@ -384,7 +383,7 @@ El ejemplo copia datos de un blob a una tabla de una base de datos de Oracle loc
 }
 ```
 
-**Servicio vinculado Azure Blob Storage:**
+**Servicio vinculado de almacenamiento de blobs de Azure:**
 ```json
 {
     "name": "StorageLinkedService",
@@ -608,4 +607,3 @@ Cuando se copian datos desde almacenes de datos relacionales, hay que tener pres
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.
-

@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 231dd61f95267b3a504ed70e9b3a5abc470b69b2
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restauración de archivos en un equipo de Windows Server o cliente de Windows mediante el modelo de implementación de Resource Manager
 > [!div class="op_single_selector"]
-> * [Azure Portal](backup-azure-restore-windows-server.md)
+> * [Portal de Azure](backup-azure-restore-windows-server.md)
 > * [Portal clásico](backup-azure-restore-windows-server-classic.md)
 >
 >
@@ -184,4 +183,3 @@ Si la recuperación sigue sin funcionar, reinicie el cliente y el servidor. Si n
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Ahora que ha recuperado los archivos y las carpetas, puede [administrar las copias de seguridad](backup-azure-manage-windows-server.md).
-

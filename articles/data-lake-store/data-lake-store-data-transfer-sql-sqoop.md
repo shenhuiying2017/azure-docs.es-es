@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 53bf33f6027f1f365bd92251490d5c851fb83f8b
-ms.contentlocale: es-es
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: ac73006f3589bf6d8adb0d7935b694b444d1415c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-between-data-lake-store-and-azure-sql-database-using-sqoop"></a>Copia de datos entre Almacén de Data Lake y Base de datos SQL de Azure mediante Sqoop
 Aprenda a usar Apache Sqoop para importar y exportar datos entre Base de datos SQL de Azure y Almacén de Data Lake.
@@ -144,4 +143,3 @@ Para optimizar el rendimiento del trabajo de Scoop con el fin de copiar datos en
 * [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
 * [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
-

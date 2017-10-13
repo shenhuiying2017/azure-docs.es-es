@@ -15,12 +15,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
+ms.openlocfilehash: 029fb8ddad84b297d99509a0a9ad35d9548e5c00
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 07ad266ad87028996c4a7b3e4365c11b019f8529
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>Inicio de sesión en Azure como una organización
 Hasta hace poco, solo era posible registrarse para obtener una suscripción a Microsoft Azure con su cuenta Microsoft (Windows Live ID). Azure ahora es compatible con cualquiera de los dos métodos de cuenta siguientes para registrarse:
@@ -37,5 +36,4 @@ Hasta hace poco, solo era posible registrarse para obtener una suscripción a Mi
 * [Blog de Microsoft Azure](https://azure.microsoft.com/blog/)
 * [¿Qué es Azure AD?](active-directory-whatis.md)
 * [Uso de la infraestructura de identidad local en la nube](active-directory-aadconnect.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Uso de la CLI de Azure 1.0 con Azure Storage
 
@@ -84,11 +83,11 @@ Para obtener más información sobre las suscripciones a Azure, consulte [Asigna
 5. En el equipo local, abra el editor de texto que desee (por ejemplo, vim). Escriba el script anterior en un editor de texto.
 6. Ahora deberá actualizar las variables del script basadas en la configuración.
 
-   * **<storage_account_name>** Use el nombre proporcionado en el script o escriba un nuevo nombre para la cuenta de almacenamiento. **Importante:** el nombre de la cuenta de almacenamiento debe ser exclusivo en Azure. También debe estar en minúscula.
-   * **<storage_account_key>** La clave de acceso de su cuenta de almacenamiento.
-   * **<container_name>** Use el nombre proporcionado en el script o escriba un nuevo nombre para el contenedor.
-   * **<image_to_upload>** Escriba una ruta de acceso a una imagen en el equipo local, por ejemplo: "~/images/HolaMundo.png".
-   * **<destination_folder>** Escriba una ruta de acceso a un directorio local para almacenar los archivos descargados desde Azure Storage, por ejemplo: "~/imágenesDescargadas".
+   * **&lt;storage_account_name&gt;** Use el nombre proporcionado en el script o escriba un nuevo nombre para la cuenta de almacenamiento. **Importante:** el nombre de la cuenta de almacenamiento debe ser exclusivo en Azure. También debe estar en minúscula.
+   * **&lt;storage_account_key&gt;** La clave de acceso de su cuenta de almacenamiento.
+   * **&lt;container_name&gt;** Use el nombre proporcionado en el script o escriba un nuevo nombre para el contenedor.
+   * **&lt;image_to_upload&gt;** Escriba una ruta de acceso a una imagen en el equipo local, por ejemplo: "~/images/HolaMundo.png".
+   * **&lt;destination_folder&gt;** Escriba una ruta de acceso a un directorio local para almacenar los archivos descargados desde Azure Storage, por ejemplo: "~/imágenesDescargadas".
 7. Después de haber actualizado las variables necesarias en vim, presione las combinaciones de teclas `ESC`, `:`, `wq!` para guardar el script.
 8. Para ejecutar este script, solo es preciso escribir el nombre del archivo de script en la consola de bash. Una vez que se ejecuta el script, debería tener una carpeta de destino local que incluyera el archivo de imagen descargado. La siguiente captura de pantalla le muestra un ejemplo del resultado:
 
@@ -242,4 +241,3 @@ Aquí puede encontrar la referencia a los comandos de la CLI de Azure 1.0 para t
 * [Comandos de la CLI de Azure en modo de Azure Service Management (asm)](../../cli-install-nodejs.md)
 
 También puede probar la [CLI de Azure 2.0 (versión preliminar)](../storage-azure-cli.md), una CLI de última generación escrita en Python que se usa con el modelo de implementación de Resource Manager.
-

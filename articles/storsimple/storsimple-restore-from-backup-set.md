@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 12484338f5b4d489604d70a657ef0992b6267297
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar un volumen de StorSimple de un conjunto de copia de seguridad
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
@@ -81,12 +80,11 @@ Antes de iniciar una restauración en un volumen, asegúrese de que el volumen e
 6. Revise la información de restauración y haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). Se iniciará un trabajo de restauración que se puede ver accediendo a la página **Trabajos** . 
 7. Una vez completada la restauración, puede comprobar que los volúmenes de la copia de seguridad sustituyeron el contenido de los volúmenes.
 
-![Vídeo disponible](./media/storsimple-restore-from-backup-set/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-restore-from-backup-set/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo en el que se muestra cómo puede usar el clon y restaurar las características de StorSimple para recuperar archivos eliminados, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [Administrar volúmenes de StorSimple](storsimple-manage-volumes.md).
 * Obtenga información sobre cómo [usar el servicio del administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

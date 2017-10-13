@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2017
 ms.author: kraigb
+ms.openlocfilehash: f4cd8ccc3b186cf2b4178b7d8a98d8928c705cbc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 729e953cae9d65e637be0fdaec9027312fdb6c6a
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configuración y uso del emulador de almacenamiento con Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -55,6 +54,5 @@ La primera vez que ejecute o depure el servicio desde Visual Studio, el emulador
 El emulador de almacenamiento proporciona una interfaz de usuario para ver el estado de los servicios de almacenamiento local y para iniciarlos, detenerlos y restablecerlos. Una vez que se ha iniciado el servicio del emulador de almacenamiento, puede mostrar la interfaz de usuario o iniciar o detener el servicio haciendo clic con el botón derecho en el icono del área de notificación para el Emulador de Microsoft Azure en la barra de tareas de Windows.
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Visualización de los datos del emulador de almacenamiento en el Explorador de servidores
-El nodo Azure Storage, en el Explorador de servidores, permite ver los datos y cambiar la configuración para los datos de blob y tabla en sus cuentas de almacenamiento, incluido el emulador de almacenamiento. Consulte [Administración de recursos de Azure Blob Storage con el Explorador de Storage (versión preliminar)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) para más información.
-
+El nodo Almacenamiento de Azure en el Explorador de servidores permite ver los datos y cambiar la configuración para los datos de blob y tabla en sus cuentas de almacenamiento, incluido el emulador de almacenamiento. Consulte [Administración de recursos de Azure Blob Storage con el Explorador de Storage (versión preliminar)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) para más información.
 

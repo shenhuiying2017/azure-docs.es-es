@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b76253fad43be231591023c4d4466bf6e3f329a0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="server-workload-forecasting-on-terabytes-data"></a>Previsión de carga de trabajo del servidor en terabytes de datos
 
 Este ejemplo muestra cómo pueden usar los científicos de datos Azure ML Workbench para desarrollar soluciones que requieren el uso de macrodatos. Se muestra cómo un usuario, mediante el uso de Azure ML Workbench, puede seguir una ruta que comienza a partir de una muestra de un conjunto de datos de gran tamaño, realiza la preparación de los datos en iteraciones, lleva a cabo ingeniería y aprendizaje automático y, eventualmente, extiende el proceso al conjunto completo de datos de gran tamaño. 
@@ -433,4 +431,3 @@ Este ejemplo describe cómo usar Azure ML Workbench para entrenar un modelo de a
 
 Los usuarios pueden extender el código para explorar la validación cruzada y el ajuste de hiperparámetros. Para más información sobre la validación cruzada y el ajuste de hiperparámetros, consulte https://github.com/Azure/MachineLearningSamples-DistributedHyperParameterTuning.  
 Para más información acerca de la previsión de series temporales, consulte https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting.
-

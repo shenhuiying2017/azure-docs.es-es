@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 85911fcc66dcedff0d43bd986bce4500a1a2f00b
-
-
+ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple
 ## <a name="overview"></a>Información general
@@ -57,7 +57,7 @@ Esta sección contiene la lista de dispositivos que se implementaron correctamen
 | Versión del sistema operativo del conmutador |JunOS 12.3R9.4 |
 | Modelo de blade |Puertos incorporados (PIC 0) |
 | Proveedor de transceptor |Juniper |
-| Modelo de transceptor |Número de pieza 740-021308  <br></br>  Número de pieza 740-030658 |
+| Modelo de transceptor |Número de pieza 740-021308  <br></br> Número de pieza 740-030658 |
 | Versión del firmware del transceptor |Rev 01 versión 0.0 (comunicado) |
 | Modelo de cable |Jumper dúplex LC/LC 50/125µ, OM3, LSZH |
 | Modelo de StorSimple |8600 |
@@ -122,10 +122,4 @@ En la tabla siguiente se enumeran los conmutadores y módulos compatibles con Me
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Obtenga más información sobre los componentes de hardware de StorSimple y su estado](storsimple-monitor-hardware-status.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

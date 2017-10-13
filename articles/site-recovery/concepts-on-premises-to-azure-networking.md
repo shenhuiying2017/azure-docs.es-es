@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/12/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 01c8e664465350b9dd382502c65cc3fda350797c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="networking-for-vm-connectivity-after-failover"></a>Redes para la conectividad de máquinas virtuales después de la conmutación por error
 
@@ -91,7 +90,6 @@ En esta [entrada de blog](http://azure.microsoft.com/blog/2014/09/04/networking-
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Ejecución de una conmutación por error](site-recovery-failover.md)
-
 
 
 

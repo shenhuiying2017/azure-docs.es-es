@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 7028cdacf7d597c238bf29bd26bbd44705d66224
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="devtest-labs-concepts"></a>Conceptos de DevTest Labs
 ## <a name="overview"></a>Información general
@@ -91,4 +90,3 @@ Todos los conceptos tratados en este artículo pueden configurarse mediante el u
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de un laboratorio en DevTest Labs](devtest-lab-create-lab.md)
-

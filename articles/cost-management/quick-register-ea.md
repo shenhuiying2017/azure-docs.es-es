@@ -10,15 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 5b2fa44eaf801715d50282b4c1460c58d3631637
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrar un Contrato Enterprise de Azure y ver datos de costo
 
 El Contrato Enterprise se usa para registrarse en la Administración de costos de Azure de Cloudyn. Este registro le proporciona acceso al portal de Cloudyn. En esta guía de inicio rápido se detalla el proceso de registro necesario para crear una suscripción de evaluación de Cloudyn e iniciar sesión en el portal de Cloudyn. También se muestra cómo empezar a ver inmediatamente los datos de costo.
@@ -29,8 +26,8 @@ El Contrato Enterprise se usa para registrarse en la Administración de costos d
 
 ## <a name="create-a-trial-registration"></a>Crear un registro de evaluación
 
-1. En el portal de Azure, haga clic en **Administración de costos + facturación** en la lista de servicios.
-2. En **Overview** (Información general), haga clic en **Administración de costos**  
+1. En Azure Portal, haga clic en **Administración de costos + facturación** en la lista de servicios.
+2. En **Overview** (Información general), haga clic en **Administración de costos**.  
     ![Página Administración de costos](./media/quick-register-ea/cost-mgt-billing-service.png)
 3. En la página **Administración de costos**, haga clic en **Go to Cost Management** (Ir a Administración de costos) para abrir la página de registro de Cloudyn en una ventana nueva.
 4. En la página de registro de evaluación del portal de Cloudyn, escriba el nombre de la compañía y, después, seleccione **Azure Enterprise Enrollment Administrator** (Administrador de inscripciones Enterprise de Azure).  
@@ -48,8 +45,7 @@ El Contrato Enterprise se usa para registrarse en la Administración de costos d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, se usa la información de su Contrato Enterprise de Azure para registrarse en Administración de costos. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para obtener más información acerca de Azure Cost Management de Cloudyn, consulte el tutorial de Administración de costos.
+En esta guía de inicio rápido, se usa la información de su Contrato Enterprise de Azure para registrarse en Administración de costos. También se inicia sesión en el portal de Cloudyn para que pueda empezar a visualizar los datos de costo. Para obtener más información acerca de Administración de costos de Azure de Cloudyn, continúe con el tutorial de Administración de costos.
 
 > [!div class="nextstepaction"]
 > [Ver datos de costo](./tutorial-review-usage.md)
-

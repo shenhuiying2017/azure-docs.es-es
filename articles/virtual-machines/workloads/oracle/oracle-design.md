@@ -15,15 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
+ms.openlocfilehash: 1af7e1d40a0eb129875dd6a30ac899f2025bee13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9bd9ff35cebc2aeaf0558dcf1a37887050682f0a
-ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
 ## <a name="assumptions"></a>Supuestos
@@ -54,7 +51,7 @@ En la tabla siguiente se enumeran algunas de las diferencias entre una implement
 > | **Mantenimiento planeado** |Aplicación de revisiones/actualizaciones|[Conjuntos de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (aplicación de revisiones o actualizaciones administradas por Azure) |
 > | **Recurso** |Dedicado  |Compartido con otros clientes|
 > | **Regiones** |Centros de datos |[Pares de región](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
-> | **Storage** |SAN/discos físicos |[Almacenamiento administrado por Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **Almacenamiento** |SAN/discos físicos |[Almacenamiento administrado por Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Escala** |Escalado vertical |Escalado horizontal|
 
 
@@ -238,4 +235,3 @@ Después de que se instala y configura el entorno de Azure, el siguiente paso es
 
 - [Tutorial: Creación de máquinas virtuales de alta disponibilidad](../../linux/create-cli-complete.md)
 - [Ejemplos de la CLI de Azure para implementación de máquinas virtuales](../../linux/cli-samples.md)
-

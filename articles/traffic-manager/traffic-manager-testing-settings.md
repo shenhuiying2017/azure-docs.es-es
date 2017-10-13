@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
-ms.contentlocale: es-es
-ms.lasthandoff: 03/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="verify-traffic-manager-settings"></a>Comprobación de la configuración de Traffic Manager
 
 Para probar la configuración de Traffic Manager, debe tener varios clientes, en diversas ubicaciones, desde los que pueda ejecutar las pruebas. Después, desactive los puntos de conexión en el perfil de Traffic Manager de uno en uno.
@@ -76,4 +74,3 @@ Como alternativa, existen servicios gratuitos en la Web para indagación y búsq
 * [Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-routing-methods.md)
 * [Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
 * [Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
-

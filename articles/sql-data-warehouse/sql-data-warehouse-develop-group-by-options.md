@@ -16,10 +16,10 @@ ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Opciones de Group by en Almacenamiento de datos SQL
 La cláusula [GROUP BY][GROUP BY] se usa para agregar datos a un conjunto de filas de resumen. También cuenta con algunas opciones que amplían su funcionalidad y que es necesario solucionar ya que no son directamente compatibles con Almacenamiento de datos SQL de Azure.

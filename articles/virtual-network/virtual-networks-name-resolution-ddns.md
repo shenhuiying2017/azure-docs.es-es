@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: garbrad
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 440a062e5fff73526b2d77d7d0a7c52ca72a66f1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Uso de DNS dinámico para registrar nombres de host en su propio servidor DNS
 [Azure ofrece resolución de nombres](virtual-networks-name-resolution-for-vms-and-role-instances.md) para las máquinas virtuales y las instancias de rol. Sin embargo, cuando la resolución de nombres tiene que ir más allá de lo que Azure ofrece, puede proporcionar sus propios servidores DNS. Esto le ofrece la capacidad de personalizar su solución DNS para satisfacer sus propias necesidades específicas. Por ejemplo, puede que necesite acceder a los recursos locales a través del controlador de dominio de Active Directory.
@@ -68,5 +67,4 @@ Cuando usa un servidor DNS de Windows, puede usar la autenticación Kerberos con
 En caso de ser necesario, puede agregar un sufijo de búsqueda DNS a las máquinas virtuales. El sufijo DNS se especifica en el archivo */etc/resolv.conf* . La mayoría de las distribuciones de Linux administran automáticamente el contenido de este archivo, por lo que normalmente no se puede editar. Sin embargo, puede reemplazar el sufijo si usa el comando *supersede* del cliente DHCP. Para hacerlo, en */etc/dhcp/dhclient.conf*, debe agregar lo siguiente:
 
         supersede domain-name <required-dns-suffix>;
-
 

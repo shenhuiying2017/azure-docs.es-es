@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
-ms.contentlocale: es-es
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>Directivas entre dominios de Administración de API
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -61,7 +60,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |entre dominios|Elemento raíz. Los elementos secundarios deben ajustarse a la [especificación de archivos de directivas entre dominios de Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sí|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.  
+ Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound  
   
@@ -145,7 +144,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |preflight-result-max-age|El encabezado `Access-Control-Max-Age` de la respuesta preparatoria se establecerá en el valor de este atributo e influirá en la posibilidad de que el agente del usuario pueda almacenar en caché la respuesta preparatoria.|No|0|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.  
+ Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound  
   
@@ -176,7 +175,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |----------|-----------------|--------------|  
 |jsonp|Elemento raíz.|Sí|  
   
-### <a name="attributes"></a>Attributes  
+### <a name="attributes"></a>Atributos  
   
 |Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedimientos recomendados para el Servicio de aplicaciones de Azure
 En este artículo se resumen los procedimientos recomendados para usar el [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -50,5 +49,4 @@ Cuando aparecen errores de copia de seguridad, revise los resultados más recien
 
 ## <a name="nodejs"></a>Cuando se implementan nuevas aplicaciones de Node.js en el Servicio de aplicaciones de Azure
 La configuración predeterminada del Servicio de aplicaciones de Azure para las aplicaciones Node.js tiene que como objetivo satisfacer mejor los requisitos de las aplicaciones más comunes. Si considera que la configuración de la aplicación Node.js va a beneficiarse del ajuste personalizado para mejorar el rendimiento o para optimizar el uso de recursos para los recursos de la CPU, memoria o red, podría consultar nuestras prácticas recomendadas y pasos para solucionar problemas. En este artículo se describe las opciones de IISNode que pueda necesitar para configurar una aplicación de Node.js, así como los distintos escenarios o problemas de dicha aplicación. También se muestra cómo solucionar estos problemas: [Guía de procedimientos recomendados y solución de problemas para aplicaciones Node en Aplicaciones web de Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md).   
-
 

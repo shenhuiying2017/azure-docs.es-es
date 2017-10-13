@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
+ms.openlocfilehash: 7d0400c834767736f63bc30a7bc2495dc6ee6e36
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: a5f49933a626faa19e56aad33714efb1d8741746
-ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementación de Azure Virtual Machines para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -606,8 +605,8 @@ En Azure Portal, especifique los siguientes parámetros para la plantilla:
       * [Microsoft Azure Storage][dbms-guide-2.3] en [Implementación de DBMS de Azure Virtual Machines para SAP en NetWeaver][dbms-guide]
       * [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure][storage-premium-storage-preview-portal]
       * [Introducción a Microsoft Azure Storage][storage-introduction]
-  * **User Image VHD URI** (URI del VHD de la imagen del usuario) (solo plantilla de imagen de disco sin administrar): identificador URI del disco duro virtual de la imagen de SO privada; por ejemplo, https://&lt;nombreDeCuenta>.blob.core.windows.net/vhds/userimage.vhd.
-  * **User image storage account** (Cuenta de almacenamiento de imagen de usuario) (solo plantilla de imagen de disco sin administrar): nombre de la cuenta de almacenamiento donde se almacena la imagen de sistema operativo privada, por ejemplo, &lt;nombreDeCuenta> en https://&lt;nombreDeCuenta>.blob.core.windows.net/vhds/userimage.vhd.
+  * **User Image VHD URI** (URI del VHD de la imagen del usuario) (solo plantilla de imagen de disco sin administrar): identificador URI del disco duro virtual de la imagen de SO privada; por ejemplo, https://&lt;nombreDeCuenta&gt;.blob.core.windows.net/vhds/userimage.vhd.
+  * **User image storage account** (Cuenta de almacenamiento de imagen de usuario) (solo plantilla de imagen de disco sin administrar): nombre de la cuenta de almacenamiento donde se almacena la imagen de sistema operativo privada, por ejemplo, &lt;nombreDeCuenta&gt; en https://&lt;nombreDeCuenta&gt;.blob.core.windows.net/vhds/userimage.vhd.
   * **userImageId** (solo plantilla de imagen de Managed Disks): id. de la imagen de Managed Disks que se va a utilizar.
   * **Admin username** (Nombre de usuario de administrador) y **Admin password** (Contraseña de administrador): nombre de usuario y contraseña.
 
@@ -693,7 +692,7 @@ En Azure Portal, especifique los siguientes parámetros para la plantilla:
       * [Microsoft Azure Storage][dbms-guide-2.3] en [Implementación de DBMS de Azure Virtual Machines para SAP en NetWeaver][dbms-guide]
       * [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure][storage-premium-storage-preview-portal]
       * [Introducción a Microsoft Azure Storage][storage-introduction]
-  * **OS disk VHD URI** (URI del VHD de disco de SO) (plantilla de disco sin administrar): identificador URI del disco de sistema operativo privado; por ejemplo, https://&lt;nombreDeCuenta>.blob.core.windows.net/vhds/osdisk.vhd.
+  * **OS disk VHD URI** (URI del VHD de disco de SO) (plantilla de disco sin administrar): identificador URI del disco de sistema operativo privado; por ejemplo, https://&lt;nombreDeCuenta&gt;.blob.core.windows.net/vhds/osdisk.vhd.
   * **Id. de Managed Disks del SO** (solo plantilla de Managed Disks): el id. del disco del SO de Managed Disks, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
   * **New or existing subnet** (Subred nueva o existente): determina si es necesario crear una red virtual y una subred nuevas o si se debe usar una que ya exista. Si ya tiene una red virtual conectada a la red local, seleccione **Existing** (Existente).
   * **Subnet ID** (Id. de subred): identificador de la subred a la que se conectarán las máquinas virtuales. Seleccione la subred de la VPN o la red virtual de Azure ExpressRoute que se usará para conectar la máquina virtual a la red local. Normalmente, el identificador tiene este aspecto:
@@ -1132,4 +1131,3 @@ Un demonio recopila las métricas de rendimiento en Azure, y obtiene datos de va
 Para ver una lista completa y actualizada de los problemas conocidos, consulte la nota de SAP [1999351], que contiene información adicional sobre la solución de problemas de la supervisión mejorada de Azure para SAP.
 
 Si la solución de problemas descrita en la nota de SAP [1999351] no resuelve el problema, vuelva a ejecutar el script de configuración `Set-AzureRmVMAEMExtension` tal y como se describe en [Configuración de la extensión de supervisión mejorada de Azure para SAP][deployment-guide-4.5]. Puede que tenga que esperar una hora porque los contadores de diagnóstico o análisis de almacenamiento no se crean de inmediato una vez habilitados. Si el problema continúa, abra un mensaje de servicio al cliente de SAP acerca del componente BC-OP-NT-AZR para una máquina virtual Windows o BC-OP-LNX-AZR para una máquina virtual Linux.
-

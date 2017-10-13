@@ -14,16 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6356b4e69892b90ff74aa9db0157930dc00f4a08
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: c182cc2062ada40029504de5b2b64b021c614ce6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-# Escenarios de capacidad de prueba de Service Fabric: comunicación del servicio
-<a id="service-fabric-testability-scenarios-service-communication" class="xliff"></a>
+# <a name="service-fabric-testability-scenarios-service-communication"></a>Escenarios de capacidad de prueba de Service Fabric: comunicación del servicio
 Los microservicios y los estilos de arquitectura orientados a servicios emergen naturalmente en Service Fabric de Azure. En estos tipos de arquitecturas distribuidas, las aplicaciones de microservicio divididas en componentes suelen constar de varios servicios que necesitan comunicarse entre sí. Incluso en los casos más simples, por lo general dispone al menos de un servicio web sin estado y de un servicio de almacenamiento de datos con estado que necesitan comunicarse.
 
 La comunicación entre servicios es un punto crítico de integración de una aplicación, ya que cada servicio expone una API remota a otros servicios. El trabajo con un conjunto de límites de API que implican E/S requiere generalmente tomar algunas precauciones y realizar una buena cantidad de pruebas y validaciones.
@@ -36,8 +33,7 @@ Existen numerosas consideraciones que deben tenerse en cuenta cuando estos lími
 
 Tanto si utiliza uno de los componentes de comunicación de servicio integrados que aporta Service Fabric como si crea uno propio, la prueba de las interacciones entre los servicios es fundamental para garantizar la resistencia de la aplicación.
 
-## Preparación para el desplazamiento de los servicios
-<a id="prepare-for-services-to-move" class="xliff"></a>
+## <a name="prepare-for-services-to-move"></a>Preparación para el desplazamiento de los servicios
 Las instancias de los servicios pueden desplazarse con el tiempo. Esto ocurre especialmente cuando se configuran con métricas de carga para el equilibrio óptimo personalizado de los recursos. Service Fabric mueve las instancias de servicio para maximizar su disponibilidad incluso durante las actualizaciones, las conmutaciones por error, el escalado horizontal y otras situaciones diversas que se producen durante el ciclo de vida de un sistema distribuido.
 
 Dado que los servicios se desplazan en el clúster, hay dos escenarios que los clientes y otros servicios deben estar preparados para controlar al comunicarse con un servicio:
@@ -51,8 +47,7 @@ El control correcto de estas situaciones es importante para lograr que un sistem
 * Puede haber un aumento temporal de latencia del servicio mientras la instancia de servicio inicia de nuevo su agente de escucha. Esto depende de la rapidez con que el servicio abra el agente de escucha después de mover la instancia de servicio.
 * Las conexiones existentes deben cerrarse y volverse a abrir después de que el servicio se haya abierto en un nuevo nodo. Un cierre o un reinicio estables del nodo permiten que se produzca un cierre estable de las conexiones existentes.
 
-### Pruébelo: mover instancias de servicio
-<a id="test-it-move-service-instances" class="xliff"></a>
+### <a name="test-it-move-service-instances"></a>Pruébelo: mover instancias de servicio
 Mediante las herramientas de capacidad de prueba de Service Fabric, es posible crear un escenario de prueba para probar estas situaciones de maneras diferentes:
 
 1. Mover la réplica principal de un servicio con estado.
@@ -76,14 +71,12 @@ Mediante las herramientas de capacidad de prueba de Service Fabric, es posible c
    
     ```
 
-## Mantener la disponibilidad del servicio
-<a id="maintain-service-availability" class="xliff"></a>
+## <a name="maintain-service-availability"></a>Mantener la disponibilidad del servicio
 Como plataforma, Service Fabric está diseñado para ofrecer una alta disponibilidad de los servicios. Sin embargo, los problemas de infraestructura subyacentes pueden provocar que no exista disponibilidad en casos extremos. Es importante probar también estos escenarios.
 
 Los servicios con estado utilizan un sistema basado en cuórum para la replicación de estado, lo que permite ofrecer una alta disponibilidad. Esto significa que debe haber un cuórum de réplicas disponible para realizar operaciones de escritura. En casos excepcionales, como en un error generalizado de hardware, puede que no esté disponible el cuórum de réplicas. En estos casos, no podrá realizar operaciones de escritura, pero sí podrá realizar operaciones de lectura.
 
-### Pruébelo: falta de disponibilidad de la operación de escritura
-<a id="test-it-write-operation-unavailability" class="xliff"></a>
+### <a name="test-it-write-operation-unavailability"></a>Pruébelo: falta de disponibilidad de la operación de escritura
 Mediante las herramientas de capacidad de prueba de Service Fabric, puede insertar un error que provoca la pérdida de cuórum como prueba. Aunque una situación de este tipo es poco habitual, es importante que los clientes y los servicios que dependen de un servicio con estado estén preparados para controlar situaciones en las que no pueden realizar solicitudes de escritura al mismo. También es importante que el propio servicio con estado sea consciente de esta posibilidad y pueda comunicarla correctamente a los autores de llamadas.
 
 Puede provocar la pérdida de cuórum con el cmdlet **Invoke-ServiceFabricPartitionQuorumLoss** de PowerShell:
@@ -96,10 +89,8 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 En este ejemplo, `QuorumLossMode` se establece en `QuorumReplicas` para indicar que queremos provocar la pérdida de quórum sin desconectar todas las réplicas. De este modo, las operaciones de lectura sigan siendo posibles. Para probar un escenario en el que no esté disponible una partición completa, puede establecer este modificador en `AllReplicas`.
 
-## Pasos siguientes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Pasos siguientes
 [Más información sobre las acciones de capacidad de prueba](service-fabric-testability-actions.md)
 
 [Más información sobre los escenarios de capacidad de prueba](service-fabric-testability-scenarios.md)
-
 

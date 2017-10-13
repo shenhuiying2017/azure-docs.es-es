@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 78725c9d23e13d307821a188028ef573d1def038
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Equilibrio de carga de contenedores en un clúster DC/OS de Azure Container Service
 En este artículo, exploramos cómo crear un equilibrador de carga interno en una instancia de Azure Container Service administrada por DC/OS mediante Marathon-LB. Esta configuración le permite escalar aplicaciones horizontalmente. También le permite aprovechar sacar provecho de los clústeres de agente públicos y privados mediante la colocación de los equilibradores de carga en el clúster público y los contenedores de su aplicación en el clúster privado. En este tutorial, hizo lo siguiente:

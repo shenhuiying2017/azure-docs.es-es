@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 07759a590e3a4e061a1c5727428d2c7c2a655f51
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Cómo usar Jupyter Notebooks de Azure Machine Learning Workbench
 
@@ -109,5 +108,4 @@ Ahora puede hacer clic en un archivo del bloc de notas `.ipynb`, abrirlo y estab
 ## <a name="next-steps"></a>Pasos siguientes
 - Para obtener información acerca de cómo usar Jupyter Notebook, consulte la [documentación oficial de Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    
 - Para obtener una descripción más detallada del entorno de ejecución de experimentación de Azure Machine Learning, revise [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md) (Información general del servicio de ejecución de experimentación de Azure Machine Learning).
-
 

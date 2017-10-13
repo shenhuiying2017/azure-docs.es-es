@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1206d7444f32216597a6f546c71131b2de0ec3f8
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f62254b2a7df50aa55a2a49009702848a9aecebd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-for-expressroute-in-the-classic-portal"></a>Creación de una red virtual para ExpressRoute en el Portal clásico
 Los pasos de este artículo le guiarán en la configuración de una red virtual y una puerta de enlace de red virtual para su uso con ExpressRoute mediante el modelo de implementación clásica y el portal clásico.
@@ -76,5 +75,4 @@ Si ya dispone de una red virtual clásica, puede configurarla para conectarse a 
 ## <a name="next-steps"></a>Pasos siguientes
 * Si quiere agregar máquinas virtuales a la red virtual, consulte las [rutas de aprendizaje de máquinas virtuales](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/).
 * Si quiere obtener más información sobre ExpressRoute, consulte [Información técnica de ExpressRoute](expressroute-introduction.md).
-
 

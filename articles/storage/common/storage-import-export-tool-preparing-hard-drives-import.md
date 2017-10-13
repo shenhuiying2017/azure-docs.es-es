@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 23f2640bc71bc4eba0f3fc76014cce4a298bfcfa
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparación de unidades de disco duro para un trabajo de importación
 
@@ -86,7 +85,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | --- | --- |
 | BasePath | **[Obligatorio]**<br/>El valor de este parámetro representa el origen donde se encuentran los datos que desea importar. La herramienta copiará de forma recursiva todos los datos que se encuentran en esta ruta de acceso.<br><br/>**Valores permitidos**: estos deben constituir una ruta de acceso válida en el equipo local o una ruta de acceso a un recurso compartido válida, que sean accesibles para el usuario. La ruta del directorio debe ser una ruta absoluta (no una ruta de acceso relativa). Si la ruta de acceso finaliza en "\\", representa un directorio; por otro lado, una ruta de acceso que no termine en "\\" representa un archivo.<br/>No se permite ninguna expresión regular en este campo. Si la ruta de acceso contiene espacios, póngala entre "".<br><br/>**Ejemplo**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **[Obligatorio]**<br/> La ruta de acceso al directorio virtual de destino en la cuenta de Windows Azure Storage. El directorio virtual puede existir ya o no. Si no existe, el servicio Import/Export creará uno.<br/><br/>Asegúrese de utilizar nombres de contenedor válidos al especificar los directorios virtuales de destino o blobs. Tenga en cuenta que los nombres de contenedor deben estar en minúsculas. Para más información sobre las reglas de nomenclatura de contenedores, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Si solo se especifica la raíz, la estructura de directorios del origen se replica en el contenedor de blob de destino. Si se desea una estructura de directorios diferente que la del origen, se necesitan varias filas de asignación en el archivo CSV.<br/><br/>Puede especificar un contenedor o un prefijo de blob como music/70s/. El directorio de destino debe comenzar con el nombre del contenedor, seguido por una barra diagonal "/" y puede incluir opcionalmente un directorio virtual de blobs que termina por "/".<br/><br/>Si el contenedor de destino es el contenedor raíz, debe especificar de forma explícita el contenedor raíz, incluida la barra diagonal, como $root/. Puesto que los blobs del contenedor raíz no pueden incluir "/" en sus nombres, los subdirectorios del directorio de origen no se copiarán si el directorio de destino es el contenedor raíz.<br/><br/>**Ejemplo**<br/>Si la ruta de acceso del blob de destino es https://mystorageaccount.blob.core.windows.net/video, el valor de este campo puede ser video/  |
-| BlobType | **[Opcional]** block &#124; page<br/>Actualmente el servicio Import/Export admite 2 tipos de blobs. Blobs en páginas y blobs en bloques. De forma predeterminada, todos los archivos se importarán como blobs en bloque. Y \*.vhd y \*.vhdx se importarán como blobs en páginas. Hay un límite para el tamaño permitido de los blobs en bloque y los blobs en página. Consulte [Objetivos de escalabilidad de Storage](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) para más información.  |
+| BlobType | **[Opcional]** block &amp;#124; page<br/>Actualmente el servicio Import/Export admite 2 tipos de blobs. Blobs en páginas y blobs en bloques. De forma predeterminada, todos los archivos se importarán como blobs en bloque. Y \*.vhd y \*.vhdx se importarán como blobs en páginas. Hay un límite para el tamaño permitido de los blobs en bloque y los blobs en página. Consulte [Objetivos de escalabilidad de Storage](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) para más información.  |
 | Disposition | **[Opcional]**  rename | no-overwrite | overwrite <br/> Este campo especifica el comportamiento de copia solo durante la importación, es decir , cuando se están cargando datos en la cuenta de almacenamiento desde el disco. Las opciones disponibles son: rename&#124;overwite&#124;no-overwrite. El valor predeterminado es "rename" si no se especifica nada. <br/><br/>**Rename**: si hay un objeto con el mismo nombre, crea una copia en el destino.<br/>Overwrite: sobrescribe el archivo con el archivo más reciente. El archivo con la modificación más reciente gana.<br/>**No-overwrite**: omite la sobrescritura del archivo si ya está presente.|
 | MetadataFile | **[Opcional]** <br/>El valor de este campo es el archivo de metadatos que se puede proporcionar si es necesario mantener los metadatos de los objetos o proporcionar metadatos personalizados. Ruta de acceso al archivo de metadatos para los blobs de destino. Para obtener más información, consulte [Formato de archivo de propiedades y metadatos del servicio Import/Export](../storage-import-export-file-format-metadata-and-properties.md). |
 | PropertiesFile | **[Opcional]** <br/>Ruta de acceso al archivo de propiedades para los blobs de destino. Para obtener más información, consulte [Formato de archivo de propiedades y metadatos del servicio Import/Export](../storage-import-export-file-format-metadata-and-properties.md). |
@@ -418,4 +417,3 @@ La herramienta WAImportExport lee y escribe archivos lote por lote, un lote cont
 * [Reparación de un trabajo de importación](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Reparación de un trabajo de exportación](storage-import-export-tool-repairing-an-export-job-v1.md)
 * [Solución de problemas de la herramienta Azure Import/Export](storage-import-export-tool-troubleshooting-v1.md)
-

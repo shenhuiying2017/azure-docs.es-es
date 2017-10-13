@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d59fcba3467e1739c1782a896fc9b5542422e884
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: ef6f34404b97a6972fc136262920a1bdbc4117b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-guide-for-push-and-reach-issues"></a>Guía de solución de problemas de inserción y cobertura
 Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobile Engagement envía información a los usuarios.
@@ -100,5 +99,4 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 * Iniciar más de una campaña al mismo tiempo puede provocar que se tarde más tiempo en analizar su base de usuarios (intente iniciar solo una campaña a la vez con un máximo de cuatro, y efectúe la orientación solamente a los usuarios activos para que los usuarios antiguos no se tengan que analizar).
 * Si utiliza la opción "Omitir audiencia, la inserción se enviará a los usuarios a través de la API" de la sección "Campaña" de una campaña de cobertura, la campaña NO se enviará automáticamente, deberá enviarla de forma manual mediante la API de cobertura.
 * Si usa una categoría personalizada en cobertura para mostrar las notificaciones de la aplicación, deberá seguir el ciclo de vida correcto de una notificación, o puede que la notificación no se borre cuando el usuario la descarte.
-
 

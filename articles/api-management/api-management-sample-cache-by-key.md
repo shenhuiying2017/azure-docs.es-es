@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 24cbe51ef5a453d06e9f70e1e2146479935c5bf5
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 4a41e4e0be44e855ead253ad76fe5a3af52070ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Almacenamiento en caché personalizado en Administración de API de Azure
 El servicio Administración de API de Azure integra compatibilidad para [el almacenamiento en caché de respuestas HTTP](api-management-howto-cache.md) mediante el uso de la dirección URL como clave. La clave se puede modificar por los encabezados de solicitud con las propiedades `vary-by` . Esto es útil para almacenar en caché las respuestas HTTP completas (también conocidas como representaciones), pero a veces resulta útil almacenar en caché solo una parte de una representación. Las nuevas directivas [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) y [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) permiten almacenar y recuperar fragmentos arbitrarios de datos desde las definiciones de directiva. Esta capacidad también agrega valor a la directiva [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) previamente introducida porque ahora se puede almacenar en caché las respuestas desde servicios externos.
@@ -281,5 +280,4 @@ La libertad de utilizar la caché de Administración de API de Azure para almace
 
 ## <a name="next-steps"></a>Pasos siguientes
 Envíenos sus comentarios sobre este tema en la conversación Disqus si hay otros escenarios en los que estas directivas se hayan habilitado para usted, o si existen escenarios que le gustaría conseguir pero que actualmente no cree posibles.
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: magoedte; bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portales para la creación y edición de consultas de registros en Azure Log Analytics
 
@@ -47,5 +46,4 @@ Debido a sus características avanzadas, normalmente usará el portal de anális
 
 - Vea un tutorial sobre el uso de la [búsqueda de registros](log-analytics-tutorial-viewdata.md) para aprender a crear consultas mediante el lenguaje de consultas.
 - Consulte el [portal de análisis avanzados](https://go.microsoft.com/fwlink/?linkid=856587) para crear sofisticadas consultas y usarlas como entorno de desarrollo de las búsquedas de registros.
-
 

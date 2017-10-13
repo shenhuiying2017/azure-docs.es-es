@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
+ms.openlocfilehash: 60139ff36b66432620591ceaf201e046ad30217f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 83cb82b9807718e7a509312d159eb766a5da1d2c
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación
 
 Este artículo le guiará por el proceso completo de preparar las unidades para un trabajo de importación.
@@ -133,4 +131,3 @@ Cuando se hayan completado las sesiones de copia, podrá desconectar las dos uni
 
 * [Preparación de unidades de disco duro para un trabajo de importación](../storage-import-export-tool-preparing-hard-drives-import.md)
 * [Quick reference for frequently used commands for import jobs](../storage-import-export-tool-quick-reference.md) (Referencia rápida para comandos usados con frecuencia)
-

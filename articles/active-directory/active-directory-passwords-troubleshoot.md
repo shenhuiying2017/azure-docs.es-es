@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: d33e516628c56a7aa038e37b4498461de17f8433
-ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Cómo solucionar problemas de autoservicio de restablecimiento de contraseña
 
@@ -276,8 +275,7 @@ Los vínculos siguientes proporcionan información adicional sobre el restableci
 * [**Implementación**](active-directory-passwords-best-practices.md): planee e implemente SSPR en sus usuarios mediante las instrucciones que se encuentran aquí.
 * [**Personalización**](active-directory-passwords-customize.md): personalice el aspecto de la experiencia SSPR para su empresa.
 * [**Directiva**](active-directory-passwords-policy.md): conozca y establezca directivas de contraseñas de Azure AD.
-* [**Escritura diferida de contraseñas** ](active-directory-passwords-writeback.md): cómo funciona la escritura diferida de contraseñas con su directorio local.
+* [**Escritura diferida de contraseñas**](active-directory-passwords-writeback.md): cómo funciona la escritura diferida de contraseñas con su directorio local.
 * [**Informes**](active-directory-passwords-reporting.md): descubra si, cuándo y dónde sus usuarios acceden a la funcionalidad SSPT.
 * [**Profundización técnica**](active-directory-passwords-how-it-works.md): conozca lo que hay detrás para comprender cómo funciona.
 * [**Preguntas más frecuentes**](active-directory-passwords-faq.md): ¿Cómo? ¿Por qué? ¿Qué? ¿Dónde? ¿Quién? ¿Cuándo? - Respuestas a preguntas que siempre ha querido hacer
-

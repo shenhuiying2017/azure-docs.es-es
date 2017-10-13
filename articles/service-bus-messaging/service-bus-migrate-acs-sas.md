@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar desde Azure Active Directory Access Control Service a la autorización de Firma de acceso compartido
 
 Históricamente, las aplicaciones de Service Bus tenían la posibilidad de usar dos modelos de autorización diferentes: el modelo de token de [Firma de acceso compartido (SAS)](service-bus-sas.md), proporcionado directamente por Service Bus, y un modelo federado donde la administración de las reglas de autorización ocurría de manera interna por medio de [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS), y los tokens obtenidos de ACS se pasaban a Service Bus para autorizar el acceso a las funciones que se querían.
@@ -68,5 +66,4 @@ Para más información sobre la autenticación de Service Bus, vea los siguiente
 * [Autenticación y autorización de Bus de servicio](service-bus-authentication-and-authorization.md)
 * [Autenticación en Service Bus con Firmas de acceso compartido](service-bus-sas.md)
 * [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-
 

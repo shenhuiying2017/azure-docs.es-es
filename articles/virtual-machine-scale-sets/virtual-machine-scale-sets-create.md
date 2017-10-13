@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 32af01aa545c541688128a7ae6bbb82a0e046f2d
-ms.contentlocale: es-es
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>Creación e implementación de un conjunto de escalado de máquinas virtuales
 Los conjuntos de escalado de máquinas virtuales facilitan la implementación y administración de máquinas virtuales idénticas como conjunto. Los conjuntos de escala proporcionan una capa de proceso altamente escalable y personalizable para aplicaciones de gran escala y admiten imágenes de la plataforma Windows, imágenes de la plataforma Linux, imágenes personalizadas y extensiones. Para más información sobre los conjuntos de escalado, consulte [Conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-overview.md).
 
@@ -209,4 +207,3 @@ Azure Portal proporciona una forma cómoda de crear rápidamente un conjunto de 
 Más información sobre los [discos de datos](virtual-machine-scale-sets-attached-disks.md).
 
 Aprenda a [administrar las aplicaciones](virtual-machine-scale-sets-deploy-app.md).
-

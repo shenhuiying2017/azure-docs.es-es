@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 292598b79b9b9749de8c4994de32349625611195
-ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
-
-
+ms.openlocfilehash: cd5db703ab0b89b8597c99c0d536bc07f883ebc6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-azure-marketplace-seller-insights-portal"></a>Cómo usar el portal Seller Insights de Azure Marketplace
 
@@ -418,4 +416,3 @@ Utilice las siguientes cuentas Microsoft y cuentas profesionales o educativas pa
 [33]: ./media/marketplace-publishing-report-seller-insights-user-guide/support-fill-out-and-submit.png
 [34]: ./media/marketplace-publishing-report-seller-insights-user-guide/feedback-form.png
 [35]: ./media/marketplace-publishing-report-seller-insights-user-guide/help.png
-

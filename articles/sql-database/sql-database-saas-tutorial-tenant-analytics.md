@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
-ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Extracción de datos de las bases de datos de inquilino en una base de datos de análisis para el análisis sin conexión
 
@@ -53,13 +52,13 @@ Los scripts SaaS de Wingtip y el código fuente de la aplicación están disponi
 Para realizar este tutorial debe tener una base de datos implementada para capturar los resultados de la ejecución de trabajos de scripts, que contienen consultas que devuelven resultados. Vamos a crear una base de datos denominada tenantanalytics con este fin.
 
 1. Abra …\\Learning Modules\\Operational Analytics\\Tenant Analytics\\*Demo-TenantAnalyticsDB.ps1* en *PowerShell ISE* y establezca el valor siguiente:
-   * **$DemoScenario** = **2** *Deploy operational analytics database*
+   * **$DemoScenario** = **2***Deploy operational analytics database*
 1. Presione **F5** para ejecutar el script de demostración (que llama al script *Deploy-TenantAnalyticsDB.ps1*) que crea la base de datos de análisis de inquilino.
 
 ## <a name="create-some-data-for-the-demo"></a>Crear algunos datos para la demostración
 
 1. Abra …\\Learning Modules\\Operational Analytics\\Tenant Analytics\\*Demo-TenantAnalyticsDB.ps1* en *PowerShell ISE* y establezca el valor siguiente:
-   * **$DemoScenario** = **1** *Purchase tickets for events at all venues*
+   * **$DemoScenario** = **1***Purchase tickets for events at all venues*
 1. Presione **F5** para ejecutar el script y crear un historial de compra de entradas.
 
 
@@ -120,4 +119,3 @@ En este tutorial, ha aprendido cómo:
 
 * Otros [tutoriales basados en la aplicación SaaS de Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Trabajos elásticos](sql-database-elastic-jobs-overview.md)
-

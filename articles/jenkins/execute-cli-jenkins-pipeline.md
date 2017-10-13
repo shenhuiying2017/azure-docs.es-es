@@ -15,14 +15,12 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
+ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: a1f5329e4e33ae20541e2fdaa09f4609296bddd5
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementación en Azure App Service con Jenkins y la CLI de Azure
 Para implementar una aplicación web de Java en Azure, puede utilizar la CLI de Azure en [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). En este tutorial, creará una canalización de CI/CD en una máquina virtual de Azure, y aprenderá los siguientes temas:
 
@@ -93,7 +91,7 @@ Una vez preparado el plan, la CLI de Azure muestra un resultado similar al ejemp
 
 ### <a name="create-an-azure-web-app"></a>Creación de una aplicación web de Azure
 
- Use el comando de la CLI [az webapp create ](/cli/azure/appservice/web#create) para crear una definición de aplicación web en el plan de App Service `myAppServicePlan`. La definición de la aplicación web proporciona una dirección URL para acceder a la aplicación y configura varias opciones para implementar el código en Azure. 
+ Use el comando de la CLI [az webapp create ](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) para crear una definición de aplicación web en el plan de App Service `myAppServicePlan`. La definición de la aplicación web proporciona una dirección URL para acceder a la aplicación y configura varias opciones para implementar el código en Azure. 
 
 ```azurecli-interactive
 az webapp create \
@@ -233,4 +231,3 @@ En este tutorial, ha configurado una canalización de Jenkins que extrae del rep
 > * Preparación de un repositorio de GitHub
 > * Creación de una canalización de Jenkins
 > * Ejecución de la canalización y comprobación de la aplicación web
-

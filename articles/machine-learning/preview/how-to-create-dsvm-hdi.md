@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
+ms.openlocfilehash: 7325d15cc4bec5f0df50be222e1f0988775ded2c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 049478baa108b94c042575a5e29bdc513e527542
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Creación de DSVM y el clúster de HDI Spark como destinos de procesos
 
 Mediante la incorporación de destinos de procesos adicionales como DSVM (Data Science Virtual Machine) basado en Ubuntu y Apache Spark para el clúster de Azure HDInsight es fácil escalar vertical y horizontalmente el experimento de aprendizaje automático. Este artículo le guía por los pasos necesarios para crear dichos destinos de procesos en Azure. Para más información acerca de los destinos de procesos de Azure Machine Learning, consulte [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md) (Introducción al servicio de ejecución de experimentos de Azure Machine Learning).
@@ -187,4 +185,3 @@ Más información sobre:
 - [Azure Machine Learning Workbench execution configuration files](experiment-execution-configuration-reference.md) (Archivos de configuración de ejecución de Azure Machine Learning Workbench)
 - [Apache Spark para HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 - [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
-

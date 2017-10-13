@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: ce2f9311775389366c66323070254f721f0896ab
-ms.contentlocale: es-es
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: a4d3a45d4bf83754fba363cdb3f3688d7218baa4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Conexión de equipos sin acceso a Internet a OMS mediante OMS Gateway
 
 En este documento se describe la forma en que los equipos administrados por OMS y supervisados por System Center Operations Manager pueden enviar datos al servicio de OMS cuando no tienen acceso a Internet. OMS Gateway, un proxy de reenvío de HTTP que admite la tunelización de HTTP con el comando HTTP CONNECT, puede recopilar datos y enviarlos al servicio de OMS en su nombre.  
@@ -212,13 +210,13 @@ Utilice las siguientes tablas para identificar la dirección URL de cada ubicaci
 
 Si el equipo se registra automáticamente como Hybrid Runbook Worker para que las revisiones se apliquen mediante la solución de administración de actualizaciones, siga estos pasos:
 
-1. Agregue las direcciones URL del servicio de datos en tiempo de ejecución del trabajo a la lista de hosts permitidos de OMS Gateway. Por ejemplo:  `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Agregue las direcciones URL del servicio de datos en tiempo de ejecución del trabajo a la lista de hosts permitidos de OMS Gateway. Por ejemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 2. Reinicie el servicio de OMS Gateway mediante el siguiente cmdlet de PowerShell: `Restart-Service OMSGatewayService`
 
 Si el equipo está incorporado en Azure Automation mediante el cmdlet de registro de Hybrid Runbook Worker, siga estos pasos:
 
 1. Agregue la dirección URL del registro del servicio Agente en la lista de hosts permitidos de OMS Gateway. Por ejemplo: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-2. Agregue las direcciones URL del servicio de datos en tiempo de ejecución del trabajo a la lista de hosts permitidos de OMS Gateway. Por ejemplo:  `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+2. Agregue las direcciones URL del servicio de datos en tiempo de ejecución del trabajo a la lista de hosts permitidos de OMS Gateway. Por ejemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 3. Reinicie el servicio de OMS Gateway.
     `Restart-Service OMSGatewayService`
 
@@ -292,4 +290,3 @@ También puede dejar sus comentarios acerca de OMS o Log Analytics en el [foro d
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Agregue orígenes de datos](log-analytics-data-sources.md) para recopilar datos de los orígenes conectados del área de trabajo de OMS y almacenarlos en el repositorio de OMS.
-

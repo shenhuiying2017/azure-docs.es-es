@@ -15,12 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 6527e624ce9c911b201881ffd409c57b2f065ef3
-ms.contentlocale: es-es
-ms.lasthandoff: 06/22/2017
-
+ms.openlocfilehash: 5b6694afc0bafaf2be5f98c625dd6724b91234fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>¿Qué relevancia tiene Azure Multi-Factor Authentication para mí?
 Ha recibido un correo electrónico de alguien en el departamento de TI o su jefe, que le informa de que se ha agregado una comprobación de seguridad adicional a su cuenta.  ¿Qué quiere decir esto?
@@ -48,4 +47,3 @@ Seleccione uno de estos temas para empezar.
 | [Cambio de la configuración](multi-factor-authentication-end-user-manage-settings.md) |Muestra cómo se puede cambiar los ajustes de la configuración, como el número de teléfono o el método de inscripción preferido. |
 | [Ayuda con las contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) |Obtenga información sobre cómo crear y utilizar las contraseñas de aplicación. |
 | [Uso de la aplicación móvil](microsoft-authenticator-app-how-to.md) |La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Habilitación de la sincronización sin conexión con aplicaciones móviles iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -271,7 +271,7 @@ Cuando el almacén local se sincroniza con el servidor, se usa el método **MSSy
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Sincronización de datos sin conexión en Mobile Apps]
-* [Cloud Cover: sincronización sin conexión en Azure Mobile Services] \(El vídeo trata sobre Mobile Services, pero la sincronización sin conexión de Mobile Apps funciona de forma similar.\)
+* [Cloud Cover: sincronización sin conexión en Azure Mobile Services]\(El vídeo trata sobre Mobile Services, pero la sincronización sin conexión de Mobile Apps funciona de forma similar.\)
 
 <!-- URLs. -->
 

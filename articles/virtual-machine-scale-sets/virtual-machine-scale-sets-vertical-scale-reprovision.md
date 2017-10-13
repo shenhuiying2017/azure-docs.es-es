@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: guybo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 9159a5a9041864fe06785829121233379c46bb03
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Autoescala vertical con conjuntos de escalado de máquinas virtuales
 Este artículo describe cómo escalar verticalmente [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/) de Azure con o sin reaprovisionamiento. Para el escalado vertical de máquinas virtuales que no están en conjuntos de escalado, consulte [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Escalado vertical de máquinas virtuales de Azure con Automatización de Azure).
@@ -127,4 +126,3 @@ En este artículo se mostraron ejemplos sencillos de escalado vertical. Con esto
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
-

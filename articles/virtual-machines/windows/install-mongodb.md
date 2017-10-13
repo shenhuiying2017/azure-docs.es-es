@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: db1a550b9273925b304fe4280f2a1b0e115f856d
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Instalación y configuración de MongoDB en una máquina virtual Windows en Azure
 [MongoDB](http://www.mongodb.org) es una conocida base de datos NoSQL de código abierto y alto rendimiento. Este artículo le guía a través de la instalación y configuración de MongoDB en una máquina virtual (VM) con Windows Server 2012 R2 en Azure. También es posible [instalar MongoDB en una máquina virtual Linux en Azure](../linux/install-mongodb.md).
@@ -112,8 +111,7 @@ Para empezar a instalar y configurar MongoDB, [inicie sesión en la máquina vir
     Para más información acerca de cómo crear el servicio MongoDB, consulte [Configure a Windows Service for MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#mongodb-as-a-windows-service) (Configuración de un servicio de Windows para MongoDB).
 
 ## <a name="test-the-mongodb-instance"></a>Prueba de la instancia de MongoDB
-Con MongoDB ejecutándose como una instancia individual o instalado como un servicio, ya puede comenzar la creación y uso de las bases de datos. Para iniciar el shell administrativo de MongoDB, abra otra 
-ventana del símbolo del sistema en el menú **Inicio** y escriba el siguiente comando:
+Con MongoDB ejecutándose como una instancia individual o instalado como un servicio, ya puede comenzar la creación y uso de las bases de datos. Para iniciar el shell administrativo de MongoDB, abra otra ventana del símbolo del sistema en el menú **Inicio** y escriba el siguiente comando:
 
 ```
 mongo  
@@ -165,5 +163,4 @@ Si es necesario, cree una regla de grupo de seguridad de red para permitir el ac
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial ha aprendido a instalar y configurar MongoDB en una máquina virtual Windows. Ahora puede acceder a MongoDB en una máquina virtual Windows siguiendo los temas avanzados de la [documentación de MongoDB](https://docs.mongodb.com/manual/).
-
 

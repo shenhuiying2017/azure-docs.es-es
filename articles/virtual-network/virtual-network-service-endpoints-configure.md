@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 9c953e697d5d1c6e53df8eaf72c4e4fbd83ca286
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configuración de los puntos de conexión de servicio de Virtual Network
 
@@ -397,4 +396,3 @@ Para obtener más instrucciones para proteger los recursos de servicio en las re
 [Protección de cuentas de Azure Storage para las redes virtuales](https://docs.microsoft.com/azure/storage/common/storage-network-security)
 
 [Protección de cuentas de Azure SQL para las redes virtuales](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
-

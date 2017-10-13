@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 74b04cb7737011423556cbd956ecef770ac82ad4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Estudios técnicos de implementaciones para clientes de Azure SQL Database
 
@@ -39,4 +38,3 @@ ms.lasthandoff: 09/09/2017
 - [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): este breve caso práctico destaca los procedimientos recomendados y las lecciones aprendidas a partir de la experiencia del equipo de producto de Dynamics 365 for Operations en la migración a Azure SQL Database a fin de proporcionar a los clientes una oferta de software como servicio (SaaS) completamente administrada. Con Azure SQL Database, el equipo de Dynamics 365 for Operations pudo administrar y usar el servicio con bastante menos personal y escalarlo fácilmente gracias a las características de capacidad de administración listas para usar, como copias de seguridad automáticas de bases de datos, retención de copias de seguridad de bases de datos, alta disponibilidad y recuperación ante desastres. Esto, junto con la posibilidad de aprovisionar bases de datos con apenas automatización, llevaron a que Azure SQL Database fuera una buena plataforma para poner en marcha servicios a gran escala.
 
 - [Microsoft OneDrive y SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states): este breve caso práctico refleja el relato detrás del traslado de Microsoft OneDrive y SharePoint Online a Azure SQL Database y se describe cómo esta migración habilitó la administración de capacidad elástica prácticamente ilimitada a la vez que se redujeron los costos operativos y la sobrecarga de infraestructura.
-

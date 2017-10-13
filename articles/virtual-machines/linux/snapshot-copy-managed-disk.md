@@ -13,12 +13,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 2/6/2017
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 22013ec8e5531a2f61d811300bce016fcde5ab86
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: c91367ef11c9d531bebac7c069d2df586607ec29
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Creación de una copia de un VHD almacenado como un disco administrado de Azure mediante instantáneas administradas
 Cree una instantánea de un disco administrado para copias de seguridad o cree un disco administrado a partir de la instantánea y conéctelo a una máquina virtual de prueba para fines de solución de problemas. Una instantánea administrada es una copia completa a partir de un momento específico de un disco administrado de VM. Crea una copia de solo lectura del VHD y, de forma predeterminada, se almacena como un Disco administrado estándar. 
@@ -80,6 +79,5 @@ La salida debe tener un aspecto similar al siguiente:
 9. Haga clic en **Create**(Crear).
 
 Si tiene previsto utilizar la instantánea para crear un disco administrado y conectarle una VM que precisa de un alto rendimiento, use el parámetro `--sku Premium_LRS` con el comando `az snapshot create`. De esta forma, se crea la instantánea para que se almacene como un disco administrado premium. Los Managed Disks Premium tienen un rendimiento mayor porque son discos de estado sólido (SSD), pero cuestan más que los discos estándar (HDD).
-
 
 

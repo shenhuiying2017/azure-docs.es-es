@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-an-azure-subscription-or-management-group"></a>Búsqueda de un grupo de administración o una suscripción de Azure
 
 Si tiene dificultades para encontrar una suscripción o un grupo de administración en Azure, puede que esté buscando en el directorio equivocado. Esta situación puede darse cuando la cuenta existe en varios directorios de Azure Active Directory. Cada [directorio activo es independiente](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence) y el acceso no se hereda a través de directorios.      
@@ -55,7 +53,6 @@ Puede mover una suscripción al directorio asociado a los grupos de administraci
 
 
  
-
 
 
 

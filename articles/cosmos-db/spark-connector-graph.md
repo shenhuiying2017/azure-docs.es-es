@@ -15,12 +15,11 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: khdang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 4f35ed6399df777edd90d1944f22dce91e76952f
-ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 3ba34ac177cb9b88030be85288e3b3a429d4fd8f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB: análisis de gráficos mediante Spark y Apache TinkerPop Gremlin
 
@@ -257,7 +256,7 @@ Cuando se compiló TinkerPop3 en el paso anterior, el proceso también extrajo t
     export HADOOP_HOME=${HADOOP_HOME:-/usr/hdp/current/hadoop-client}
     ```
 
-## <a name="prepare-the-graph-configuration"></a>Preparación de la configuración de gráficos
+## <a name="prepare-the-graph-configuration"></a>Preparación de la configuración de grafos
 
 1. Cree un archivo de configuración con los parámetros de conexión de Azure Cosmos DB y la configuración de Spark, y colóquelo en `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`.
 
@@ -406,4 +405,3 @@ Para demostrar cómo se conserva un gráfico en Azure Cosmos DB, en este ejemplo
 En este artículo de inicio rápido, ha aprendido cómo trabajar con gráficos mediante la combinación de Azure Cosmos DB y Spark.
 
 > [!div class="nextstepaction"]
-

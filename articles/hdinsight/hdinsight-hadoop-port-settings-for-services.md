@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
+ms.openlocfilehash: 1ad536a53d64b0144f6396393830bc0c5cbe4fb1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: f4e42ca177ac6c11111d4ffc0d772cafc13f8657
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Hadoop en HDInsight
 
@@ -30,17 +29,17 @@ En este documento se proporciona una lista de puertos que se usan con los servic
 
 Los clústeres de HDInsight basados en Linux solo exponen tres puertos públicamente en Internet: 22, 23 y 443. Estos puertos se usan para el acceso seguro al clúster mediante SSH y a los servicios expuestos a través del protocolo HTTPS seguro.
 
-Internamente, HDInsight se implementa mediante varias Azure Virtual Machines (los nodos del clúster) que se ejecutan en Azure Virtual Network. Desde dentro de la red virtual, puede acceder a los puertos no expuestos a través de Internet. Por ejemplo, si se conecta a uno de los nodos principales con SSH, desde él puede acceder directamente a los servicios que se ejecutan en los nodos del clúster.
+Internamente, HDInsight se implementa mediante varias Azure Virtual Machines (los nodos del clúster) que se ejecutan en una red virtual de Azure. Desde dentro de la red virtual, puede acceder a los puertos no expuestos a través de Internet. Por ejemplo, si se conecta a uno de los nodos principales con SSH, desde él puede acceder directamente a los servicios que se ejecutan en los nodos del clúster.
 
 > [!IMPORTANT]
-> Si no especifica Azure Virtual Network como una opción de configuración de HDInsight, automáticamente se crea una. Sin embargo, no puede unir otras máquinas (por ejemplo, otras Azure Virtual Machines o su equipo de desarrollo de cliente) a esta red virtual.
+> Si no especifica una red virtual de Azure como una opción de configuración de HDInsight, automáticamente se crea una. Sin embargo, no puede unir otras máquinas (por ejemplo, otras Azure Virtual Machines o su equipo de desarrollo de cliente) a esta red virtual.
 
 
-Para unir equipos adicionales a la red virtual, debe crear primero la red virtual y luego especificarla al crear el clúster de HDInsight. Para más información, consulte [Extensión de las funcionalidades de HDInsight con Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
+Para unir equipos adicionales a la red virtual, debe crear primero la red virtual y luego especificarla al crear el clúster de HDInsight. Para más información, consulte [Extensión de las funcionalidades de HDInsight con Red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="public-ports"></a>Puertos públicos
 
-Todos los nodos de un clúster de HDInsight se encuentran en Azure Virtual Network y no son accesibles directamente desde Internet. Una puerta de enlace pública proporciona acceso desde Internet a los puertos siguientes, que son comunes a todos los tipos de clúster de HDInsight.
+Todos los nodos de un clúster de HDInsight se encuentran en una red virtual de Azure y no son accesibles directamente desde Internet. Una puerta de enlace pública proporciona acceso desde Internet a los puertos siguientes, que son comunes a todos los tipos de clúster de HDInsight.
 
 | Servicio | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |

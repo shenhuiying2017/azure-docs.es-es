@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: bwren
+ms.openlocfilehash: 5f8814ee943424c1c278ab3732129d4459f83819
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 054e49478e70aeb15a012592fbb9642c39a60496
-ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 Azure Application Insights muestra los datos de la aplicación en un *recurso*de Microsoft Azure. Por tanto, la creación de un nuevo recurso forma parte de la [configuración de Application Insights para supervisar una aplicación nueva][start]. En muchos casos, la creación de un recurso puede realizarla automáticamente el IDE. Pero en algunos casos, creará un recurso manualmente. Por ejemplo, para tener recursos independientes para las compilaciones de desarrollo y producción de la aplicación.
@@ -60,7 +59,7 @@ Use la clave de instrumentación para configurar [el SDK que instala en la aplic
 El SDK incluye módulos estándar que envían telemetría sin tener que escribir código. Para realizar un seguimiento de las acciones del usuario o diagnosticar los problemas con más detalle, [use la API][api] para enviar su propia telemetría.
 
 ## <a name="monitor"></a>Visualización de los datos de telemetría
-Cierre la hoja de inicio rápido para volver a la hoja de aplicación en Azure Portal.
+Cierre la hoja de inicio rápido para volver a la hoja de aplicación en el portal de Azure.
 
 Haga clic en el icono de búsqueda para ver la [Búsqueda de diagnóstico][diagnostic], donde aparecen los primeros eventos. 
 
@@ -81,5 +80,4 @@ Puede escribir un [script de PowerShell](app-insights-powershell.md) para crear 
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [start]: app-insights-overview.md
-
 

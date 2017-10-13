@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 649c656b08c03ca9c902b0d80e77d9b3b662635b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Uso del almacenamiento de colas de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -345,4 +344,3 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 
 
 [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (Creación e implementación de una aplicación Node.js en un Servicio en la nube de Azure) [Blog del equipo de Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/ [Compilación e implementación una aplicación web Node.js en Azure con Web Matrix]: https://www.microsoft.com/web/webmatrix/
-

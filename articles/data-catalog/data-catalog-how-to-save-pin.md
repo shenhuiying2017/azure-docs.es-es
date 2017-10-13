@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 23f38693939ef0dc893ef77267811b176d3083d1
-ms.contentlocale: es-es
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 8c319d0dcbe8b95af11b8be2368a9348b260446c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Guardar búsquedas y anclar recursos de datos en Azure Data Catalog
 ## <a name="introduction"></a>Introducción
@@ -85,4 +84,3 @@ La página principal del portal de Data Catalog incluye una sección **Mis recur
 
 ## <a name="summary"></a>Resumen
 Azure Data Catalog proporciona funciones que le permiten detectar fácilmente los orígenes de datos que necesita, por lo que usted y los demás miembros de la organización pueden dedicar menos tiempo a buscar datos y más tiempo a trabajar con ellos. Las búsquedas guardadas y los recursos de datos anclados se basan en estas funciones centrales para que los usuarios puedan identificar fácilmente los orígenes de datos con los que trabajan repetidamente.
-

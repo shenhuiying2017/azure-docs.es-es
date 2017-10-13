@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: adegeo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
-ms.contentlocale: es-es
-ms.lasthandoff: 07/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Procedimiento para usar el escalado automático y los conjuntos de escalado de máquinas virtuales
 El escalado automático de máquinas virtuales en un conjunto de escalado consiste en la creación o eliminación de máquinas del conjunto según sea necesario para cumplir los requisitos de rendimiento. A medida que crece el volumen de trabajo, una aplicación puede requerir recursos adicionales para poder realizar sus tareas de manera eficaz.
@@ -229,7 +228,7 @@ En estos momentos, puede obtener una cantidad limitada de información mediante 
 
 * **Explorador de recursos de Azure**  
 Se trata de la mejor herramienta para explorar el estado actual del conjunto e escalado. Siga esta ruta de acceso y debería ver la vista de instancia del conjunto de escala que creó:  
-**Subscriptions > {su suscripción} > resourceGroups > {su grupo de recursos} > providers > Microsoft.Compute > virtualMachineScaleSets > {su conjunto de escalado} > virtualMachines**
+**Subscriptions &gt; {su suscripción} &gt; resourceGroups &gt; {su grupo de recursos} &gt; providers &gt; Microsoft.Compute &gt; virtualMachineScaleSets &gt; {su conjunto de escalado} &gt; virtualMachines**
 
 * **Azure PowerShell**  
 Use este comando para obtener información:
@@ -251,4 +250,3 @@ Use este comando para obtener información:
 * Información acerca del [Uso de registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
 
 * Más información sobre los [escenarios avanzados de escalado automático](virtual-machine-scale-sets-advanced-autoscale.md).
-

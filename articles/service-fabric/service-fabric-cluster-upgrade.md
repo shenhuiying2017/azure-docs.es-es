@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/10/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Actualización de un clúster de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -165,7 +164,7 @@ Además de la capacidad de configurar el modo de actualización del clúster, aq
 ### <a name="certificates"></a>Certificados
 Puede agregar nuevos o eliminar fácilmente los certificados del clúster y el cliente a través del portal. Consulte [este documento para obtener instrucciones detalladas](service-fabric-cluster-security-update-certs-azure.md)
 
-![Captura de pantalla que muestra las huellas digitales del certificado en Azure Portal.][CertificateUpgrade]
+![Captura de pantalla que muestra las huellas digitales del certificado en el portal de Azure.][CertificateUpgrade]
 
 ### <a name="application-ports"></a>Puertos de aplicación
 Puede cambiar los puertos de aplicación cambiando las propiedades del recurso del equilibrador de carga asociado al tipo de nodo. Puede usar el portal o Resource Manager de PowerShell directamente.
@@ -224,4 +223,3 @@ Si debe actualizar la imagen de sistema operativo en las máquinas virtuales del
 [ARMUpgradeMode]: ./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG
 [Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
 [Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
-

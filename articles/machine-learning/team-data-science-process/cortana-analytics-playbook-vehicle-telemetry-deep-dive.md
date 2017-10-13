@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4050fdc2056df395bbcc37e3783f61eebd90f80a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Cuaderno de estrategias de soluciones de análisis de telemetría de vehículo: profundización en la solución
 Este **menú** vincula a las secciones de este cuaderno de estrategias. 
@@ -377,7 +376,7 @@ Para más información sobre todas las funcionalidades basadas en ventanas de Az
 
 Como parte de la solución se incluye una aplicación que ponga en funcionamiento el modelo de aprendizaje automático en tiempo real. Esta aplicación denominada "RealTimeDashboardApp" se crea y configura como parte de la implementación de la solución. Esta aplicación hace lo siguiente:
 
-1. Escucha a una instancia de Event Hubs donde Stream Analytics publica los eventos en un patrón de forma continua. ![Consulta de Stream Analytics para la publicación de datos](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-stream-analytics-query-for-publishing.png) *Figura 14: Consulta de Stream Analytics para publicar los datos en una instancia de Centros de eventos de salida* 
+1. Escucha a una instancia de Event Hubs donde Stream Analytics publica los eventos en un patrón de forma continua. ![Consulta de Stream Analytics para la publicación de datos](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-stream-analytics-query-for-publishing.png)*Figura 14: Consulta de Stream Analytics para publicar los datos en una instancia de Centros de eventos de salida* 
 2. Para cada evento que recibe esta aplicación: 
    
    * Procesa los datos con el punto de conexión de puntuación de solicitud-respuesta de Aprendizaje automático (RRS). El punto de conexión RRS se publica automáticamente como parte de la implementación.
@@ -699,5 +698,4 @@ Haga clic aquí para obtener instrucciones detalladas sobre cómo configurar los
 
 ## <a name="summary"></a>Resumen
 Este documento contiene un desglose detallado de la solución de análisis de telemetría de vehículos. Se presenta un patrón de arquitectura lambda para análisis en tiempo real y de procesamiento por lotes con predicciones y acciones. Este patrón se aplica a una amplia gama de casos de uso que requieren análisis con ruta de acceso activa (en tiempo real) y la ruta de acceso frío (lote). 
-
 

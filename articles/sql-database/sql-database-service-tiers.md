@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 08/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 0183e9c60da7c216a6268dfec3874eb76270f71d
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Qué son los niveles de servicio de Azure SQL Database
 
@@ -80,5 +79,4 @@ Para más información sobre las opciones específicas de niveles de rendimiento
 - Más información sobre [límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-subscription-service-limits.md).
 * Más información sobre [DTU y eDTU](sql-database-what-is-a-dtu.md).
 * Más información sobre la supervisión del uso de DTU en [Supervisión y optimización del rendimiento](sql-database-troubleshoot-performance.md).
-
 

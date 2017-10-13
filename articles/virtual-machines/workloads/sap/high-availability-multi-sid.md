@@ -1,4 +1,3 @@
-
 ---
 title: "Creación de una configuración de varios SID de SAP en Azure | Microsoft Docs"
 description: "Guía de alta disponibilidad para la configuración de varios SID de SAP NetWeaver en máquinas virtuales Windows"
@@ -18,14 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fa235754b02e20286cf13da3c7ac47fe12a2c236
-ms.contentlocale: es-es
-ms.lasthandoff: 04/03/2017
-
+ms.openlocfilehash: c813329b6fed2a2c23e59f1bdfd2d3babae0e724
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Creación de una configuración de varios SID de SAP NetWeaver
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -673,4 +670,3 @@ El procedimiento general es el siguiente:
 - [Límites de redes - Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Varias IP virtuales para Azure Load Balancer][load-balancer-multivip-overview]
 - [Guía de alta disponibilidad para SAP NetWeaver en máquinas virtuales Windows][sap-ha-guide]
-

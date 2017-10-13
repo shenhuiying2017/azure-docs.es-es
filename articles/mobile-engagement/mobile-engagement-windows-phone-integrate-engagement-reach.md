@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 0738f33df94d14fbb393bfaaf09e94c6560213cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-phone-silverlight-reach-sdk-integration"></a>Integración del SDK de cobertura de Windows Phone Silverlight
 Debe seguir el procedimiento de integración descrito en el documento [Integración del SDK de Windows Phone Silverlight Engagement](mobile-engagement-windows-phone-integrate-engagement.md) antes de seguir con esta guía.

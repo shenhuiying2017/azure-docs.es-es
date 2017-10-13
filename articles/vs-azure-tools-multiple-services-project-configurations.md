@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
+ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 24b2530b23211c654072a6edc8a31e53989bf0a8
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Configuración de su proyecto Azure mediante varias configuraciones de servicio
 Un proyecto de servicio en la nube de Azure incluye dos archivos de configuración: ServiceDefinition.csdef y ServiceConfiguration.cscfg. Estos archivos están empaquetados con la aplicación de servicio en la nube de Azure y se implementan en Azure.
@@ -106,5 +105,4 @@ Para configurar los valores que se aplican a todo un proyecto de servicio en la 
 | Eventos de compilación |Desde esta página, puede establecer los eventos anteriores y posteriores a la compilación. |
 | Desarrollo |Desde esta página, puede especificar las instrucciones de la configuración de compilación y las condiciones bajos las cuales se ejecutan los eventos posteriores a la compilación. |
 | Web |Desde esta página, puede configurar los valores relacionados con el servidor web. |
-
 

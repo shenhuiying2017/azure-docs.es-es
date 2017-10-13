@@ -1,4 +1,3 @@
-
 ---
 title: "Preguntas más frecuentes sobre Azure Backup Agent | Microsoft Docs"
 description: "Respuestas a preguntas habituales sobre cómo funciona Azure Backup Agent y los límites de copia de seguridad y retención."
@@ -16,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
+ms.openlocfilehash: 227cdc87f3e2c8ed393145f4bbde7f74606bdf3b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b9d022c780b618825bb2416f3834e4ada280092f
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="questions-about-the-azure-backup-agent"></a>Preguntas sobre Azure Backup Agent
 Este artículo contiene las respuestas a preguntas comunes que le ayudan a comprender rápidamente los componentes de Azure Backup Agent. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Copia de seguridad de Azure en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
@@ -128,4 +125,3 @@ El agente de Copia de seguridad de Azure usa NTFS. La [especificación de longit
  
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Aparece la advertencia: "Azure Backups have not been configured for this server" (No se ha configurado Azure Backup para este servidor) aunque he configurado una directiva de copia de seguridad <br/>
 Esta advertencia se produce cuando la configuración de programación de la copia de seguridad almacenada en el servidor local no es la misma que la configuración del almacén de copia de seguridad. Cuando el servidor o la configuración se recuperan a un estado válido conocido, las programaciones de copia de seguridad pueden perder la sincronización. Si recibe esta advertencia, [vuelva a configurar la directiva de copia de seguridad](backup-azure-manage-windows-server.md) y elija **Ejecutar copia de seguridad ahora** para volver a sincronizar el servidor local con Azure.
-

@@ -13,12 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 52f05ee8a5c07fc008da40aef12d1ad8e8136429
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Aspectos básicos de la administración de identidades de Azure
 Cada vez más recursos digitales corporativos residen fuera de la red corporativa, en la nube y en dispositivos, y disponer de una solución de administración de acceso y de identidades basada en la nube se está convirtiendo en una necesidad. Las identidades basadas en la nube constituyen ahora la mejor manera de mantener el control y la visibilidad sobre el modo y el momento en que los usuarios acceden a las aplicaciones y los datos corporativos.

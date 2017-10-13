@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
 ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guía de postproducción para ofertas de máquina virtual en Azure Marketplace
 En este artículo se explica cómo actualizar una oferta de máquina virtual activa en Azure Marketplace. Este artículo le conduce a través del proceso de adición de una o varias SKU a una oferta existente. También le indica cómo eliminar una oferta de máquina virtual activa o una SKU de Marketplace.
@@ -27,13 +27,13 @@ Después de que una oferta o SKU se haya almacenado provisionalmente en [Azure P
 
 * **Offer Identifier** (Identificador de oferta): En el Portal de publicación, vaya a **Máquinas virtuales** y seleccione la oferta. A continuación, haga clic en **IMÁGENES DE LA MÁQUINA VIRTUAL** > **Offer Identifier** (Identificador de oferta).
 * **SKU Identifier** (Identificador de SKU): En el Portal de publicación, vaya a **Máquinas virtuales** y seleccione la oferta. A continuación, haga clic en **SKU** > **Add a SKU** (Agregar una SKU).
-* **Publisher Namespace** (Espacio de nombres de publicador): En el Portal de publicación vaya a **Máquinas virtuales** > **Walkthrough (Tutorial)** > **Tell Us About Your Company (Indíquenos la información de su empresa)** (esta opción se encuentra en el paso 2 sobre registro de la empresa) > **Publisher Namespace (Espacio de nombres de publicador)** > **Espacio de nombres**.
+* **Publisher Namespace** (Espacio de nombres de publicador): En el Portal de publicación vaya a **Máquinas virtuales** > **Walkthrough (Tutorial)** > **Tell Us About Your Company (Indíquenos la información de su empresa)** (esta opción se encuentra en el paso 2 sobre registro de la empresa) &gt; **Publisher Namespace (Espacio de nombres de publicador)** > **Espacio de nombres**.
 
 Después de que una oferta o SKU aparezca en [Marketplace](http://azure.microsoft.com/marketplace), no podrá cambiar los siguientes cuadros de texto:
 
 * **Offer Identifier** (Identificador de oferta): En el Portal de publicación, vaya a **Máquinas virtuales** y seleccione la oferta. A continuación, haga clic en **IMÁGENES DE LA MÁQUINA VIRTUAL** > **Offer Identifier** (Identificador de oferta).
 * **SKU Identifier** (Identificador de SKU): En el Portal de publicación, vaya a **Máquinas virtuales** y seleccione la oferta. A continuación, haga clic en **SKU** > **Add a SKU** (Agregar una SKU).
-* **Publisher Namespace** (Espacio de nombres de publicador): En el Portal de publicación vaya a **Máquinas virtuales** > **Walkthrough (Tutorial)** > **Tell Us About Your Company (Indíquenos la información de su empresa)** (esta opción se encuentra en el paso 2 sobre registro de la empresa) > **Publisher Namespace (Espacio de nombres de publicador)** > **Espacio de nombres**.
+* **Publisher Namespace** (Espacio de nombres de publicador): En el Portal de publicación vaya a **Máquinas virtuales** > **Walkthrough (Tutorial)** > **Tell Us About Your Company (Indíquenos la información de su empresa)** (esta opción se encuentra en el paso 2 sobre registro de la empresa) &gt; **Publisher Namespace (Espacio de nombres de publicador)** > **Espacio de nombres**.
 * **Puertos**: En el Portal de publicación, vaya a **Máquinas virtuales** y seleccione la oferta. A continuación, haga clic en **IMÁGENES DE LA MÁQUINA VIRTUAL** > **Open Ports** (Abrir puertos).
 * **Pricing Change of listed SKU(s) (Cambio de precios de las SKU activas)**
 * **Billing Model Change of listed SKU(s) (Cambio del modelo de facturación de las SKU activas)**

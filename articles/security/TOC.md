@@ -84,7 +84,7 @@
 ## [Microsoft Security Response Center](azure-security-response-center.md)
 ## [Pruebas de penetración](azure-security-pen-testing.md)
 ## [Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
-## [Key Vault](../key-vault/key-vault-whatis.md)
+## [Almacén de claves](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

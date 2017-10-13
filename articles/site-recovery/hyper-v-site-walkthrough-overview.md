@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: da10b213bc2543942b5ac77cf5c5d8547c00220c
-ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="replicate-hyper-v-virtual-machines-without-vmm-to-azure"></a>Replicación de máquinas virtuales de Hyper-V (sin VMM) en Azure 
 
 > [!div class="op_single_selector"]
@@ -109,4 +107,3 @@ Vaya al [paso 10: habilitación de la replicación](hyper-v-site-walkthrough-ena
 Una vez que termina la replicación inicial y que se está ejecutando la replicación diferencial, puede ejecutar una conmutación por error de prueba para asegurarse de que todo funciona según lo previsto.
 
 Vaya al [paso 11: ejecución de una conmutación por error de prueba](hyper-v-site-walkthrough-test-failover.md)
-

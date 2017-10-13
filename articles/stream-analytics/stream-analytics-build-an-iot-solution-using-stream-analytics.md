@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilación de una solución de IoT con Stream Analytics
 ## <a name="introduction"></a>Introducción
@@ -319,8 +319,7 @@ Para más información, puede leer sobre las construcciones de [Administración 
 ## <a name="testing-azure-stream-analytics-queries"></a>Pruebas de consultas de Análisis de transmisiones de Azure
 Ahora que hemos escrito nuestra primera consulta de Azure Stream Analytics, es momento de probarla usando los archivos de datos de ejemplo ubicados en la carpeta TollApp en la siguiente ruta:
 
-<seg>
-  **..\\TollApp\\TollApp\\Datos**</seg>
+**..\\TollApp\\TollApp\\Datos**
 
 Esta carpeta contiene los archivos siguientes:
 

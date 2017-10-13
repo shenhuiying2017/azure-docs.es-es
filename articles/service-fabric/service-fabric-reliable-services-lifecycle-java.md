@@ -13,14 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 80eb68346dd05c256c60725eb082aa0651fe7cbd
-ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="reliable-services-lifecycle-overview"></a>Información general del ciclo de vida de Reliable Services
 > [!div class="op_single_selector"]
 > * [C# en Windows](service-fabric-reliable-services-lifecycle.md)
@@ -80,4 +78,3 @@ Al cerrar un servicio sin estado, se sigue el mismo patrón, solo que en orden i
 * [Introducción a Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
 * [Uso avanzado de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
-

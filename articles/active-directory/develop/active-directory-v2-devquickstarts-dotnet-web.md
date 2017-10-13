@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: ba5bdf7daba6086b70aec54ebe25d4445fa708c3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Agregar inicio de sesión a una aplicación web .NET MVC
 Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas.  En las aplicaciones web ASP.NET puede realizar esto con el OWIN middleware de Microsoft incluido en .NET Framework 4.5.
@@ -208,12 +208,12 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora puede pasar a temas más avanzados.  También puede probar lo siguiente:
 
-[Proteger una API web con el punto de conexión v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Proteger una API web con el punto de conexión v2.0 &gt;&gt;](active-directory-devquickstarts-webapi-dotnet.md)
 
 Para obtener recursos adicionales, consulte:
 
-* [La guía del desarrollador de v2.0 >>](active-directory-appmodel-v2-overview.md)
-* [Etiqueta "azure-active-directory" de StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [La guía del desarrollador de v2.0 &gt;&gt;](active-directory-appmodel-v2-overview.md)
+* [Etiqueta "azure-active-directory" de StackOverflow &gt;&gt;](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtención de actualizaciones de seguridad para nuestros productos
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.

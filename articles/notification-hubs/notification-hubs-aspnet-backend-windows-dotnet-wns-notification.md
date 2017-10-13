@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c0b963ef661612b1a176dd8e5f01d56e61eb5acb
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-notification-hubs-notify-users-with-net-backend"></a>Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -345,9 +345,3 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 [Inserción segura]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

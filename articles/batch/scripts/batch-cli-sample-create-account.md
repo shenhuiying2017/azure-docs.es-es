@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-batch-account-with-the-azure-cli"></a>Creación de una cuenta de Batch con la CLI de Azure
 
 Este script crea una cuenta de Azure Batch y muestra cómo se pueden consultar y actualizar las distintas propiedades de la cuenta.
@@ -34,14 +32,14 @@ Instale la CLI de Azure con las instrucciones que se encuentran en la [guía de 
 
 Cuando crea una cuenta de Batch, la configuración predeterminada indica que el servicio de Batch asigna de forma interna sus nodos de ejecución. Los nodos de ejecución asignados estarán sujetos a una cuota de núcleos independiente y la cuenta se puede autenticar ya sea a través de credenciales clave compartidas o un token de Azure Active Directory.
 
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Creación de cuenta")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="batch-account-using-user-subscription-sample-script"></a>Cuenta de Batch con un script de ejemplo de suscripción de usuario
 
 También puede optar porque Batch cree los nodos de ejecución en su propia suscripción de Azure.
 Las cuentas que asignan nodos de ejecución en la suscripción se deben autenticar a través de un token de Azure Active Directory y los nodos de ejecución asignados se contabilizarán en la cuota de suscripciones. Para crear una cuenta de este modo, debe especificar una referencia de Key Vault cuando cree la cuenta.
 
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Creación de una cuenta con suscripción de usuario")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -73,4 +71,3 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una cue
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Puede encontrar ejemplos de script adicionales de la CLI de Batch en la [documentación de la CLI de Azure Batch](../batch-cli-samples.md).
-

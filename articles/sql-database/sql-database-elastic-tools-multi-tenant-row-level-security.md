@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: thmullan;torsteng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 09e3828172d06a8c7ef39c89e69653c48a7e729e
-ms.contentlocale: es-es
-ms.lasthandoff: 04/10/2017
-
-
+ms.openlocfilehash: 73f1210b8d1f5ceca8fac9534d498bdc23d96d48
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
 Las [herramientas de bases de datos elásticas](sql-database-elastic-scale-get-started.md) y la [seguridad de nivel de fila (RLS)](https://msdn.microsoft.com/library/dn765131) ofrecen un conjunto eficaz de funciones para el escalado de manera flexible y eficaz del nivel de datos de una aplicación de múltiples inquilinos con Azure SQL Database. Consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md) para obtener más información. 
@@ -318,6 +316,5 @@ Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de SQL D
 <!--Image references-->
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
-
 
 

@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: ashishtha
+ms.openlocfilehash: d08a9a7cc82095b0a90abd98bd4f6d13cdadb671
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 54e53c98390b44ee5f298d5f61c13a4d299e5ae1
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 
@@ -78,7 +77,7 @@ Si recibe un error de NoRegisteredProviderFound o MissingSubscriptionRegistratio
 3. Haga clic en el nombre del clúster. Si la lista de clústeres es extensa, puede usar el filtro de la parte superior de la página.
 4. Haga clic en un clúster de la lista para ver la página de información general:
 
-    ![Aspectos básicos de clústeres de HDInsight de Azure Portal](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **Menú de información general:**
+    ![Aspectos básicos de clústeres de HDInsight de Azure Portal](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)**Menú de información general:**
     * **Panel**: abre el panel del clúster, que es la web de Ambari para clústeres basados en Linux.
     * **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
     * **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
@@ -362,4 +361,3 @@ En este artículo ha aprendido algunas funciones administrativas básicas. Para 
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Línea de comandos de Hadoop"
-

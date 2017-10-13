@@ -10,14 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 58ac7665abf7e75a43bb0b92bdf6f41005c3efe8
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicaciones administradas de Azure en Marketplace
 
  Los MSP, ISV e integradores de sistemas (SI) pueden usar las aplicaciones administradas de Azure para ofrecer sus soluciones a todos los clientes de Azure Marketplace. Estas soluciones reducen la sobrecarga de mantenimiento para los clientes. Los publicadores pueden vender la infraestructura y el software a través de Marketplace. Pueden asociar los servicios y el soporte técnico operativo a las aplicaciones administradas. Para más información, consulte [Información general sobre las aplicaciones administradas](managed-application-overview.md).
@@ -279,4 +277,3 @@ Después de rellenar todas las secciones, seleccione **Publicar** para comenzar 
 * Para información sobre cómo usar una aplicación administrada de Marketplace, consulte [Uso de aplicaciones administradas de Azure en Marketplace](managed-application-consume-marketplace.md).
 * Para información sobre cómo publicar una aplicación administrada del catálogo de servicios, consulte [Creación y publicación de una aplicación administrada del catálogo de servicios](managed-application-publishing.md).
 * Para información sobre cómo usar una aplicación administrada del catálogo de servicios, consulte [Uso de una aplicación administrada del catálogo de servicios](managed-application-consumption.md).
-

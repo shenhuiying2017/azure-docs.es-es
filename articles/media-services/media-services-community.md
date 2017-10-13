@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 735f8d81ce089727b14b8b67de7233ab71fc5abd
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: ef77ed3a4efee7ebcdd716376be78db38ce46f8f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-community"></a>Comunidad de Servicios multimedia de Azure
 Esta página de la comunidad de Servicios multimedia de Azure (AMS) describe diferentes maneras de obtener actualizaciones de AMS, ver nuevos vídeos y podcasts, hacer preguntas y comentarios.   
@@ -60,5 +59,4 @@ La siguiente tabla enumera el correo electrónico de los subequipos de las carac
 | Reproductor multimedia de Azure |ampinfo@microsoft.com |
 | Azure Media Explorer |amse@microsoft.com |
 | Diseñador de flujo de trabajo |mepd@microsoft.com |
-
 

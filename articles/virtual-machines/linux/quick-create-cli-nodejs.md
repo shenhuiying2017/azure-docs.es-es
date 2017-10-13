@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
+ms.openlocfilehash: e4ae8a3bd138da963d6d559b29484248b20b7075
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: ec1b34e4f539d2e95bb1f99fca3a6a0ec682ef51
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Creación de una máquina virtual Linux con la CLI de Azure 1.0
 
@@ -208,4 +207,3 @@ El comando `azure vm quick-create` es una forma rápida de implementar una máqu
 * [Creación de una máquina virtual Linux protegida con SSH en Azure mediante plantillas](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 También puede [usar el controlador `docker-machine` de Azure con diversos comandos para crear rápidamente una máquina virtual Linux como host de docker](docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bc01e5427f32e9532e39694f6de9f0b1146eda35
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Creación de un recurso compartido de archivos en Azure Files
 Puede crear recursos compartidos de archivos de Azure mediante [Azure Portal](https://portal.azure.com/), los cmdlets de PowerShell, las bibliotecas de cliente o la API de REST de Azure Storage. En este tutorial, aprenderá a:
@@ -95,6 +94,6 @@ Para prepararse para usar PowerShell, descargue e instale los cmdlets de Azure P
 
 Consulte los vínculos siguientes para más información acerca Azure Files.
 
-* [P+F](../storage-files-faq.md)
+* [Preguntas más frecuentes](../storage-files-faq.md)
 * [Solución de problemas en Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Solución de problemas en Linux](storage-troubleshoot-linux-file-connection-problems.md)   

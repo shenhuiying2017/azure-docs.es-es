@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
 
@@ -168,7 +167,7 @@ Ahora que hemos echado un vistazo a cómo especificar las rutas de acceso, echem
 Azure Cosmos DB admite los tipos de índice Hash e Intervalo para cada ruta de acceso (que puede configurar para las cadenas, números o ambos).
 
 * **Hash** admite consultas de igualdad y JOIN eficientes. Para la mayoría de los casos de uso, los índices hash no requieren una precisión mayor que el valor predeterminado de 3 bytes. El tipo de datos puede ser Cadena o Número.
-* **Intervalo** admite consultas de igualdad, consultas de intervalo (con >, <, >=, <=, !=) y consultas Order By eficientes. De forma predeterminada, las consultas Order By también requieren una precisión índice máximo (-1). El tipo de datos puede ser Cadena o Número.
+* **Intervalo** admite consultas de igualdad, consultas de intervalo (con &gt;, &lt;, &gt;=, &lt;=, !=) y consultas Order By eficientes. De forma predeterminada, las consultas Order By también requieren una precisión índice máximo (-1). El tipo de datos puede ser Cadena o Número.
 
 Azure Cosmos DB también admite la clase de índice Espacial para cada ruta de acceso, que se puede especificar para el tipo de datos Punto, Polígono o LineString. El valor en la ruta especificada debe ser un fragmento de GeoJSON válido como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
@@ -413,5 +412,4 @@ Siga los vínculos que aparecen a continuación para obtener ejemplos de adminis
 1. [Ejemplos de código de administración de índices de la API .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [Operaciones de recopilación de la API de REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Consulta con SQL](documentdb-sql-query.md)
-
 

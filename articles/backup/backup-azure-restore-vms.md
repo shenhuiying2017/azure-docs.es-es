@@ -15,16 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: trinadhk; jimpark;
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: fc52c909df5e91741ec1fa21fb911487be039fdc
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-virtual-machines-in-azure"></a>Restauración de máquinas virtuales en Azure
 > [!div class="op_single_selector"]
-> * [Restauración de máquinas virtuales en Azure Portal](backup-azure-arm-restore-vms.md)
+> * [Restauración de máquinas virtuales en el Portal de Azure](backup-azure-arm-restore-vms.md)
 > * [Restauración de máquinas virtuales en el portal clásico](backup-azure-restore-vms.md)
 >
 >
@@ -70,7 +69,7 @@ Restaure una máquina virtual en una nueva máquina virtual desde las copias de 
         El nombre del servicio en la nube que se seleccione debe ser único global. Por lo general, el nombre del servicio en la nube está asociado a una dirección URL pública, que tiene el siguiente formato: [servicioEnLaNube].cloudapp.net. Azure no permite crear un servicio en la nube si ya se ha utilizado el nombre. Si decide crear un nuevo servicio en la nube, se le dará el mismo nombre que a la máquina virtual, en cuyo caso el nombre de la máquina virtual seleccionado debe ser suficientemente exclusivo como para aplicarlo al servicio en la nube asociado.
 
         Solo se muestran servicios en la nube y redes virtuales que no están asociados con ningún grupo de afinidad en los detalles de la instancia de restauración. [Más información](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-2. Seleccione una cuenta de almacenamiento para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede seleccionar desde cuentas de almacenamiento existentes en la misma región que el almacén de copia de seguridad de Azure. No se admiten cuentas de almacenamiento redundantes de zona ni de Premium Storage.
+2. Seleccione una cuenta de almacenamiento para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede seleccionar desde cuentas de almacenamiento existentes en la misma región que el almacén de copia de seguridad de Azure. No se admiten cuentas de almacenamiento redundantes de zona ni de almacenamiento Premium.
 
     Si no hay ninguna cuenta de almacenamiento con configuración compatible, cree una cuenta de almacenamiento de configuración admitida antes de iniciar la operación de restauración.
 
@@ -98,7 +97,7 @@ Una vez finalizada la operación de restauración, se marcará como completada e
 
 ![Trabajo de restauración completado](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Después de restaurar la máquina virtual, puede que necesite volver a instalar las extensiones existentes en la máquina virtual original y [modificar los extremos](../virtual-machines/windows/classic/setup-endpoints.md) de la máquina virtual en Azure Portal.
+Después de restaurar la máquina virtual, puede que necesite volver a instalar las extensiones existentes en la máquina virtual original y [modificar los extremos](../virtual-machines/windows/classic/setup-endpoints.md) de la máquina virtual en el Portal de Azure.
 
 ## <a name="post-restore-steps"></a>Pasos posteriores a la restauración
 Si utiliza una distribución de Linux basada en cloud-init, como Ubuntu, la contraseña se bloqueará después de la restauración por seguridad. Use la extensión VMAccess en la máquina virtual restaurada para [restablecer la contraseña](../virtual-machines/linux/classic/reset-access.md). Se recomienda utilizar claves SSH en estas distribuciones para evitar que se restablezca la contraseña después de la restauración.
@@ -115,7 +114,7 @@ Copia de seguridad de las máquinas virtuales de controlador de dominio (DC) es 
 Desde la perspectiva de Active Directory, una VM de Azure es como cualquier otra VM de un hipervisor admitido moderno. La principal diferencia respecto a los hipervisores locales es que no hay ninguna consola de VM disponible en Azure. Es necesaria una consola para determinados escenarios, como para una recuperación mediante una copia de seguridad de reconstrucción completa (BMR). Sin embargo, la restauración de una VM desde el almacén de Backup es una sustitución completa para una BMR. El modo de restauración de Active Directory (DSRM) también está disponible, de modo que todos los escenarios de recuperación de Active Directory son viables. Para obtener más información general, consulte [Consideraciones relacionadas con la copia de seguridad y la restauración para controladores de dominio virtualizados](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) y [Planning for Active Directory Forest Recovery](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx) (Planificación de la recuperación de bosques de Active Directory).
 
 ### <a name="single-dc-in-a-single-domain"></a>Controlador de dominio único en un solo dominio
-Se puede restaurar la máquina virtual (como cualquier otra máquina virtual) desde Azure Portal o mediante PowerShell.
+Se puede restaurar la máquina virtual (como cualquier otra máquina virtual) desde el Portal de Azure o mediante PowerShell.
 
 ### <a name="multiple-dcs-in-a-single-domain"></a>Varios controladores de dominio en un solo dominio
 Cuando se pueda acceder a otros controladores de dominio del mismo dominio a través de la red, el controlador de dominio se podrá restaurar como cualquier VM. Si se trata del último controlador de dominio que queda en el dominio o bien se lleva a cabo una recuperación en una red aislada, debe seguirse el procedimiento de recuperación de bosques.
@@ -167,4 +166,3 @@ Con el fin de volver a crear por completo los discos de máquina virtual posteri
 ## <a name="next-steps"></a>Pasos siguientes
 * [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
 * [Administración de máquinas virtuales](backup-azure-manage-vms.md)
-

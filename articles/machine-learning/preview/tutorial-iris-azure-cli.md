@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c2a3b9702afd99c29b64133a05515a1b5f395130
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Tutorial: clasificación Iris mediante la interfaz de línea de comandos
 Los servicios de Azure Machine Learning (versión preliminar) son una solución integrada de análisis avanzado y ciencia de datos de un extremo a otro diseñada para que los científicos de datos profesionales preparen datos, desarrollen experimentos e implementen modelos a escala de nube.
 
@@ -180,7 +178,7 @@ Con alguna creatividad, es fácil crear un script de Python que envíe los exper
 python run.py
 ```
 
-## <a name="step-5-view-run-history"></a>Paso 5. Visualización del historial de ejecución
+## <a name="step-5-view-run-history"></a>Paso 5. Ver historial de ejecución
 El siguiente comando enumera todas las ejecuciones anteriores. 
 
 ```bash
@@ -273,5 +271,4 @@ En este tutorial, ha aprendido a usar las características de la versión prelim
 > * Crear una cuenta de administración del modelo para la administración del modelo
 > * Crear un entorno para implementar un servicio web
 > * Implementar un servicio web y realizar la puntuación con nuevos datos
-
 

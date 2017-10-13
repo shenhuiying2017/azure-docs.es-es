@@ -15,17 +15,16 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3334230097c3c0932fd732ff3f4e9c0aa35dbcc0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-by-using-copy-activity"></a>Movimiento de datos con la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](data-factory-data-movement-activities.md)
-> * [Versión 2: versión preliminar](../copy-activity-overview.md)
+> * [Versión 1: Disponibilidad general](data-factory-data-movement-activities.md)
+> * [Versión 2: Versión preliminar](../copy-activity-overview.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [Copy Activity in V2](../copy-activity-overview.md) (Actividad de copia en V2).
@@ -216,4 +215,3 @@ La asignación de un determinado sistema de tipo nativo a .NET para el almacén 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener más información acerca de la actividad de copia, consulte [Copia de datos de Blob Storage a Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md)para obtener más información sobre cómo mover datos de un almacén de datos local a uno en la nube.
-

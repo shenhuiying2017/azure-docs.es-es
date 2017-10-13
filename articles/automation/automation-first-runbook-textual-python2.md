@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 26a1681e662814fbe513bec1b8d2bc040885d632
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="my-first-python-runbook"></a>Mi primer runbook de Python
 
 > [!div class="op_single_selector"]
@@ -216,4 +214,3 @@ Haga clic en **Aceptar** para iniciar el runbook. El runbook se ejecuta e inicia
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
 * Para obtener más información sobre los tipos de Runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
 * Para más información sobre cómo desarrollar para Azure con Python, vea [Azure para desarrolladores de Python](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
-

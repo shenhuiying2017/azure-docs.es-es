@@ -13,23 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-copy-activity-performance.md)
-> * [Versión 2: versión preliminar](copy-activity-performance.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-copy-activity-performance.md)
+> * [Versión 2: Versión preliminar](copy-activity-performance.md)
 
 
 Copiar actividad de Azure Data Factory ofrece una solución de carga de datos de alto rendimiento fiable y segura de primera clase. Le permite copiar decenas de terabytes de datos al día en una amplia variedad de almacenes de datos locales y en la nube. Un rendimiento acelerado de la carga de datos es clave para garantizar que puede centrarse en el problema principal de los "macrodatos": crear soluciones de análisis avanzadas y profundizar en todos esos datos.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general (GA), consulte [Rendimiento de la actividad de copia en Data Factory versión 1](v1/data-factory-copy-activity-performance.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general (GA), consulte [Rendimiento de la actividad de copia en Data Factory versión 1](v1/data-factory-copy-activity-performance.md).
 
 Azure proporciona un conjunto de soluciones de almacén de datos y almacenamiento de datos de clase empresarial, y la actividad de copia ofrece una experiencia de carga de datos enormemente optimizada que es fácil de configurar e instalar. Con solo una actividad de copia, puede conseguir:
 
@@ -403,4 +402,3 @@ Consulte los otros artículos de la actividad de copia:
 - [Información general de la actividad de copia](copy-activity-overview.md)
 - [Asignación de esquemas de la actividad de copia](copy-activity-schema-and-type-mapping.md)
 - [Tolerancia a errores de la actividad de copia](copy-activity-fault-tolerance.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 0c0b9875b4153edcc0ec0096577d041d394a842f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Ejecución de NAMD con Microsoft HPC Pack en nodos de proceso de Linux en Azure
 Este artículo muestra una manera de ejecutar una carga de trabajo de informática de alto rendimiento (HPC) de Linux en máquinas virtuales de Azure. Aquí configurará un clúster de [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) en Azure con nodos de ejecución de Linux y ejecutará una simulación [NAMD](http://www.ks.uiuc.edu/Research/namd/) para calcular y visualizar la estructura de un sistema biomolecular grande.  
@@ -233,7 +232,7 @@ Ahora está listo para enviar un trabajo NAMD en el administrador de clústeres 
 6. Haga clic en **Editar tareas** en el panel de navegación izquierdo y, luego, haga clic en **Agregar** para agregar una tarea al trabajo.    
 7. En la página **Task Details and I/O Redirection** (Detalles de la tarea y redirección de E/S), establezca los valores siguientes:
    
-   * **Línea de comandos** -
+   * **Línea de comandos**-
      `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
      
      > [!TIP]
@@ -397,4 +396,3 @@ exit ${RTNSTS}
 [creds]:media/hpcpack-cluster-namd/creds.png
 [task_details]:media/hpcpack-cluster-namd/task_details.png
 [vmd_view]:media/hpcpack-cluster-namd/vmd_view.png
-

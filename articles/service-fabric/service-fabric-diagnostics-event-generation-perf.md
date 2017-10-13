@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="performance-metrics"></a>Métricas de rendimiento
 
 Se deben recopilar métricas para comprender el rendimiento de un clúster, así como de las aplicaciones se ejecutan en él. Para los clústeres de Service Fabric, recomendamos recopilar los siguientes contadores de rendimiento.
@@ -81,4 +79,3 @@ Si usa Reliable Collections, se recomienda agregar `Avg. Transaction ms/Commit` 
 
 * Aprenda más sobre la [generación de eventos en el nivel de plataforma ](service-fabric-diagnostics-event-generation-infra.md) en Service Fabric.
 * Recopile las métricas de rendimiento mediante [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)
-

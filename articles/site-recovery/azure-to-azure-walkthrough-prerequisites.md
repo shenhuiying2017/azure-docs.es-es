@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: d38fc766d5226be7161433555da9622e006c80e9
-ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-2-before-you-start"></a>Paso 2: antes de comenzar
 
 Una vez que ha revisada la [arquitectura](azure-to-azure-walkthrough-architecture.md) para la replicación de máquinas virtuales (VM) de Azure entre regiones de Azure con [Azure Site Recovery](site-recovery-overview.md), use este artículo para comprobar los requisitos previos.
@@ -74,4 +72,3 @@ Consulte la siguiente tabla. Obtenga una lista completa de los requisitos de com
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya a [Paso 3: planeamiento de las redes](azure-to-azure-walkthrough-network.md) para configurar la conectividad saliente.
-

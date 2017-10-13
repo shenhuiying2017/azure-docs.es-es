@@ -11,15 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="derive-column-by-example-transformation"></a>Transformación Derivar columna por ejemplos
 
 La transformación **Derivar columna por ejemplos** permite que los usuarios creen un derivado de una o varias columnas existentes usando ejemplos proporcionados por el usuario del resultado derivado. El derivado puede ser cualquier combinación de las transformaciones de cadena, fecha y número admitidas. 
@@ -390,4 +387,3 @@ En algunos casos no se puede encontrar una transformación que se ajuste a los e
 
 ### <a name="reference"></a>Referencia
 En [esta publicación](https://www.microsoft.com/en-us/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/) encontrará más información sobre la tecnología Transformación de cadena por ejemplo.
-

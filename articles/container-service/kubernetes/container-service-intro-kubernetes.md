@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
+ms.openlocfilehash: 92cdbe20e7a2974a734dfed5294c547866050290
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: ed3193cce078b4b81f269fe01a40d3aa4465782d
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-container-service-for-kubernetes"></a>Introducción a Azure Container Service para Kubernetes
 Azure Container Service para Kubernetes simplifica la creación, configuración y administración de un clúster de máquinas virtuales preconfiguradas para ejecutar aplicaciones en contenedor. Esto le permite usar sus conocimientos o recurrir a un importante y creciente grupo de expertos comunitarios para implementar y administrar aplicaciones basadas en contenedores en Microsoft Azure.

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
-ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Expansión del disco del sistema operativo en una máquina virtual Linux mediante la CLI de Azure 1.0
 Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una máquina virtual Linux de Azure. Puede [agregar discos de datos](add-disk.md) para proporcionar espacio de almacenamiento adicional, pero puede que también desee expandir el disco del sistema operativo. En este artículo se detalla cómo expandir el disco del sistema operativo para una máquina virtual Linux mediante discos no administrados con la CLI de Azure 1.0.
 
@@ -77,4 +75,3 @@ En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si necesita almacenamiento adicional, también puede [agregar discos de datos a una máquina virtual Linux](add-disk.md). Para más información acerca del cifrado de disco, consulte [Cifrado de discos en una máquina virtual Linux mediante la CLI de Azure](encrypt-disks.md).
-

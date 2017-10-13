@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Solución de problemas de los grupos de seguridad de red utilizando Azure Portal
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Puede ver una lista completa de las reglas de seguridad vigentes en una NIC, des
     Tenga en cuenta las siguientes secciones que puede observar en la imagen:
    
    * **Ámbito:** establecido en *VM1*, la máquina virtual que seleccionó en el paso 3.
-   * **Interfaz de red:** *VM1- NIC1* está seleccionada. Una máquina virtual puede tener varias interfaces de red (NIC). Cada NIC puede tener sus propias reglas de seguridad vigentes. Para solucionar un problema, puede que necesite ver las reglas de seguridad vigentes para cada NIC.
+   * **Interfaz de red:***VM1- NIC1* está seleccionada. Una máquina virtual puede tener varias interfaces de red (NIC). Cada NIC puede tener sus propias reglas de seguridad vigentes. Para solucionar un problema, puede que necesite ver las reglas de seguridad vigentes para cada NIC.
    * **Associated NSGs** (NSG asociados): los NSG se pueden aplicar a la NIC y la subred a la que la NIC está conectada. En la imagen, se ha aplicado un NSG tanto a la NIC como a la subred a la que está conectada. Puede hacer clic en los nombres de los NSG para modificar directamente las reglas de los mismos.
    * **Pestaña VM1-nsg:** la lista de reglas que se muestran en la imagen es para el NSG aplicado a la NIC. Azure crea varias reglas predeterminadas cuando se crea un NSG. Las reglas predeterminadas no se pueden quitar, pero puede reemplazarlas con reglas de prioridad más alta. Para más información acerca de las reglas predeterminadas, consulte el artículo de [información general sobre los grupos de seguridad de red](virtual-networks-nsg.md#default-rules) .
    * **Columna Destino:** algunas de las reglas tienen texto en la columna, mientras que otras tienen prefijos de direcciones. El texto es el nombre de las etiquetas predeterminadas que se aplicaron a la regla de seguridad cuando se creó. Las etiquetas son identificadores proporcionados por el sistema que representan varios prefijos. Seleccionar una regla con una etiqueta, como *AllowInternetOutBound*, coloca los prefijos en la hoja **Address prefixes** (Prefijos de dirección).

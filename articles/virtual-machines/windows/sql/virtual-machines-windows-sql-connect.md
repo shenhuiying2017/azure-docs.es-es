@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/14/2017
 ms.author: jroth
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 67ba43f9456bbeffbf602067586143c4c68af672
-ms.contentlocale: es-es
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Conexión a una máquina virtual de SQL Server en Azure (Administrador de recursos)
 > [!div class="op_single_selector"]
@@ -138,4 +137,4 @@ En los pasos siguientes se muestra cómo crear una etiqueta opcional de DNS para
 
 Para ver las instrucciones de aprovisionamiento además de estos pasos de conectividad, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-Para ver otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).

@@ -71,10 +71,12 @@
           href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
 - name: Referencia
   items:
-    - name: CLI de Azure 2.0
+    - name: CLI de Azure
       href: /cli/azure/acs
+    - name: PowerShell
+      href: /powershell/module/azurerm.compute
     - name: REST
-      href: /rest/api/container-services
+      href: /rest/api/container-service
 - name: Recursos
   items:
     - name: Azure Roadmap

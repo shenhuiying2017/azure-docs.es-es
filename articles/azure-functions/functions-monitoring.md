@@ -15,14 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
+ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 90720774f956149dc159de1d5457e556a52ddc82
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
 ## <a name="overview"></a>Información general 
@@ -456,7 +454,7 @@ El parámetro `tagOverrides` establece `operation_Id` en el identificador de inv
 
 ### <a name="dependencies"></a>Dependencias
 
-Las dependencias no se muestran automáticamente, pero puede escribir código personalizado para mostrarlas. El código de ejemplo en la [sección de telemetría personalizada de C#](#create-custom-telemetry-data-in-c-function-code) muestra cómo hacerlo. El código de ejemplo da como resultado un *mapa de aplicación* de Application Insights, que tiene este aspecto:
+Las dependencias no se muestran automáticamente, pero puede escribir código personalizado para mostrarlas. El código de ejemplo en la [sección de telemetría personalizada de C#](#custom-telemetry-in-c-functions) muestra cómo hacerlo. El código de ejemplo da como resultado un *mapa de aplicación* de Application Insights, que tiene este aspecto:
 
 ![Mapa de aplicación](media/functions-monitoring/app-map.png)
 
@@ -521,4 +519,3 @@ Para más información, vea [How to: Stream logs for web apps (Cómo: Transmitir
 
 > [!div class="nextstepaction"]
 > [Más información acerca de la plataforma de registro que usa Functions](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
-

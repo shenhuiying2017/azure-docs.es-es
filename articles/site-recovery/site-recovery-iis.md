@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: b23624fc7e82af1cb593a1aedd138ae0d6637ae7
-ms.contentlocale: es-es
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 4ac79df703de00ac009d9845772d8be740e74f29
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Replicación de una aplicación web basada en IIS de niveles múltiples con Azure Site Recovery
 
@@ -166,4 +165,3 @@ Siga [estas directrices](site-recovery-failover.md) cuando realice una conmutaci
 
 ## <a name="next-steps"></a>Pasos siguientes
 Puede obtener más información sobre la [replicación de otras aplicaciones](site-recovery-workload.md) a través de Site Recovery.
-

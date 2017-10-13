@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/29/2017
 ms.author: kumud
 ms.custom: 
+ms.openlocfilehash: 756496e5291d932ee9ac89265291e6892c4304fd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fcefa16112e29c897d72ade80bc612b7765c578d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Envío de medidas de usuarios reales a Traffic Manager con Visual Studio Mobile Center
 
 >[!NOTE]
@@ -110,5 +108,4 @@ Para usar Real User Measurements, realice el procedimiento siguiente:
 - [Suscríbase](https://mobile.azure.com) a Mobile Center.
 - Aprenda más sobre los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md) que admite el Administrador de tráfico.
 - Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-create-profile.md)
-
 

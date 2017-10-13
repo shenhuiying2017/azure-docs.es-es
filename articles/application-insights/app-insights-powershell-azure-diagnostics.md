@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2015
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: df5fe5808a0fb6c2d580f35ed8430b52f34a4110
-ms.contentlocale: es-es
-ms.lasthandoff: 11/16/2016
-
+ms.openlocfilehash: 3b6da89cc33cda713b483a2af3cbb493a03d6bec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Uso de PowerShell para configurar Application Insights para una aplicación web de Azure
 [Microsoft Azure](https://azure.com) puede [configurarse para que envíe diagnósticos de Azure](app-insights-azure-diagnostics.md) a [Azure Application Insights](app-insights-overview.md). Los diagnósticos están relacionados con Servicios en la nube de Azure y Máquinas virtuales de Azure. Complementan la telemetría que se envía desde la aplicación mediante el SDK de Application Insights. Como parte de la automatización del proceso de creación de nuevos recursos en Azure, puede configurar diagnósticos mediante PowerShell.
@@ -138,5 +137,4 @@ Para quitar la extensión de diagnóstico de cada rol individual:
 * [Supervisión de aplicaciones de Servicios en la nube de Azure con Application Insights](app-insights-cloudservices.md)
 * [Envío de Azure Diagnostics a Application Insights](app-insights-azure-diagnostics.md)
 * [Automatización de la configuración de alertas](app-insights-powershell-alerts.md)
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: ea90a62ffee9c766985f76e1c0abc1585bebc69b
-ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: c9772df2c216d465ca6e90e69bce011969dd4f02
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico
 
@@ -127,4 +126,3 @@ Id. de correlación | [GUID](https://en.wikipedia.org/wiki/Universally_unique_id
 * [Escalado de trabajos de Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referencia de lenguaje de consulta de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

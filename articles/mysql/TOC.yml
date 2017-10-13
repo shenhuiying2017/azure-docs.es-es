@@ -109,8 +109,10 @@
           href: howto-connect-webapp.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-server-parameters.md
+        - name: CLI de Azure
+          href: howto-configure-server-parameters-using-cli.md
 - name: Referencia
   items:
     - name: CLI de Azure
@@ -119,6 +121,8 @@
       href: /rest/api/mysql
 - name: Recursos
   items:
+    - name: Plantillas de implementación
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Precios

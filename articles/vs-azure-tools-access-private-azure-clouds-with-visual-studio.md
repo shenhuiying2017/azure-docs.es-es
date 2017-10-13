@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/19/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: b29a3299433e57709ea31de3c7849230ea09c09a
-ms.contentlocale: es-es
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: b2578c837732ab05d538e9b896ed3a3035075a70
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>Acceso a nubes privadas de Azure con Visual Studio
 De forma predeterminada, Visual Studio admite extremos REST de nube pública de Azure. En este tema, aprenderá a usar el certificado de la nube privada para acceder a la nube privada desde Visual Studio e interactuar con ella.
@@ -54,4 +53,3 @@ De forma predeterminada, Visual Studio admite extremos REST de nube pública de 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Publicación en un servicio en la nube de Azure desde Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 - [Descarga e importación de la configuración de publicación y la información de suscripción](https://msdn.microsoft.com/library/dn385850\(v=nav.70\).aspx)
-

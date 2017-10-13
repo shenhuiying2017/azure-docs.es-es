@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100.
 ## <a name="overview"></a>Información general
@@ -30,7 +30,7 @@ En los pasos siguientes se proporcionan instrucciones claras y detalladas sobre 
 ### <a name="prepare-to-unpack-your-device"></a>Preparación para desempaquetar el dispositivo
 Antes de desempaquetar el dispositivo, revise la información siguiente.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)**ADVERTENCIA**
 
 1. Asegúrese de que haya dos personas disponibles para administrar el peso del revestimiento de hardware si lo está manejando de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
 2. Coloque la caja en una superficie plana y nivelada.
@@ -86,7 +86,7 @@ El dispositivo debe instalarse en un bastidor estándar de 19 pulgadas con poste
 2. Compruebe que la ubicación en la que desea efectuar la instalación dispone de alimentación de CA estándar de una fuente independiente o una unidad de distribución de energía (PDU) en bastidor con una fuente de alimentación ininterrumpida (UPS).
 3. Asegúrese de que haya disponible una ranura 2U en el bastidor en el que desea montar el dispositivo.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)**ADVERTENCIA**
 
 Asegúrese de que haya dos personas disponibles para administrar el peso del dispositivo si está instalando el dispositivo de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
 

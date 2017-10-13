@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Supervisión y actualización de una máquina virtual Linux en Azure
 
@@ -191,7 +190,7 @@ Si no se cumplen estos requisitos previos, aparece un banner que le ofrece la op
 Haga clic en el banner para habilitar la solución. Si se detecta la falta de alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
 
 * Área de trabajo de [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Automation](../../automation/automation-offering-get-started.md)
+* [Automatización](../../automation/automation-offering-get-started.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) está habilitado en la máquina virtual.
 
 Se abre la pantalla **Habilitar la administración de actualizaciones**. Configure las opciones y haga clic en **Habilitar**.
@@ -290,4 +289,3 @@ Pase al siguiente tutorial para obtener información sobre Azure Security Center
 
 > [!div class="nextstepaction"]
 > [Administración de la seguridad de máquinas virtuales](./tutorial-azure-security.md)
-

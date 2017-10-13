@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5c3e4a4d98922533bcf901108d58329cb951b01c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Uso del Almacén de Azure Data Lake para requisitos de macrodatos
 Hay cuatro fases principales en el procesamiento de macrodatos:
@@ -133,4 +132,3 @@ Puede utilizar una combinación de servicios para crear representaciones visuale
 
 * Para empezar, puede usar [Azure Data Factory para mover datos desde Data Lake Store a Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md).
 * Después, puede [integrar Power BI con Almacenamiento de datos SQL de Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) para crear una representación visual de los datos.
-

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
 ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Ejecución de Cassandra con Linux en Azure y acceso desde Node.js
 > [!IMPORTANT] 
@@ -457,7 +457,7 @@ Verá una pantalla como la siguiente:
 
 Tenga en cuenta que el espacio de claves que creó en el paso 4 utiliza SimpleStrategy con un replication_factor de 3. SimpleStrategy se recomienda para las implementaciones de un solo centro de datos, mientras que NetworkTopologyStrategy para implementaciones de varios centros de datos. Un replication_factor de 3 proporcionará tolerancia a errores de nodo.
 
-## <a id="tworegion"> </a>Proceso de implementación de varias regiones
+## <a id="tworegion"></a>Proceso de implementación de varias regiones
 Aprovechará la implementación de región única completada y repetirá el mismo proceso para la instalación de la segunda región. La diferencia clave entre la implementación de región única o múltiple es la configuración de túnel VPN para la comunicación entre regiones; empezaremos con la instalación de red, aprovisionamiento de las máquinas virtuales y configuración de Cassandra.
 
 ### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>Paso 1: Creación de la red virtual en la segunda región

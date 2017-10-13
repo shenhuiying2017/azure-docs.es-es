@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ecf1fc38d2b9fd54fe5b00db616224a0848179fe
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-load-balancer-overview"></a>Información general sobre el Equilibrador de carga de Azure
 
 Equilibrador de carga de Azure proporciona una alta disponibilidad y un elevado rendimiento de red para sus aplicaciones. Se trata de un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye el tráfico entrante entre las instancias de servicio correctas de los servicios que se definen en un conjunto de carga equilibrada.
@@ -103,5 +101,4 @@ Los grupos de back-end de Load Balancer pueden contener cualquier SKU de máquin
 - Cree un [equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-portal.md)
 
 - Información acerca de las demás [funcionalidades de red](../networking/networking-overview.md) clave de Azure.
-
 

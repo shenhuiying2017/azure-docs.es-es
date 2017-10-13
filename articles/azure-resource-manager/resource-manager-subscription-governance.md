@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Scaffolding empresarial de Azure: gobierno de suscripción preceptivo
 Cada vez son más las empresas que adoptan la tecnología de nube pública para ganar agilidad y flexibilidad. Aprovechan los puntos fuertes de la nube para generar ingresos u optimizar los recursos de la empresa. Microsoft Azure proporciona un gran número de servicios que las empresas pueden ensamblar como bloques de creación con el objetivo de abordar diversas aplicaciones y cargas de trabajo. 
@@ -255,5 +254,4 @@ Quizás, uno de los principales impedimentos para adoptar la tecnología de nube
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Ahora que ha obtenido información sobre el gobierno de suscripciones, es hora de ver estas recomendaciones en la práctica. Vea [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md) (Ejemplos de implementación de un sistema de gobierno de suscripciones).
-
 

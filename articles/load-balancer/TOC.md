@@ -1,5 +1,5 @@
 # Información general
-## [¿Qué es Load Balancer?](load-balancer-overview.md)
+## [¿Qué es el equilibrador de carga?](load-balancer-overview.md)
 ## [¿Qué es Load Balancer Estándar?](load-balancer-standard-overview.md)
 ## [Equilibrador de carga de Internet](load-balancer-internet-overview.md)
 ## [Equilibrador de carga interno](load-balancer-internal-overview.md)
@@ -73,7 +73,7 @@
 ## [Virtual Network](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 ## [Máquina virtual](/azure/virtual-machines/)
-## [Traffic Manager](/azure/traffic-manager/)
+## [Administrador de tráfico](/azure/traffic-manager/)
 ## [DNS](/azure/dns/)
 
 # Recursos

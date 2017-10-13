@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 53be05593c3733ccb27979a3a026414013125779
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: bb690bf86743136778e01b480b98c9cc08211839
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advisor-security-recommendations"></a>Recomendaciones sobre seguridad de Advisor
 
@@ -47,11 +46,11 @@ Para obtener más información sobre las recomendaciones de seguridad, consulte 
 5. Seleccione la suscripción para la que desea recibir las recomendaciones y haga clic en **Obtener recomendaciones**.
 
 > [!NOTE]
-> Para acceder a las recomendaciones de Advisor, primero debe *registrar su suscripción* en dicha solución. Una suscripción se registra cuando el *propietario de esta* inicia el panel de Advisor y hace clic en el botón **Obtener recomendaciones**. Esta operación *solo se realiza una vez*. Una vez registrada la suscripción, puede acceder a las recomendaciones de Advisor como *Propietario*, *Contribuidor* o *Lector* de aquella, de un grupo de recursos o de un recurso concreto.
+> Para acceder a las recomendaciones de Advisor, primero debe *registrar su suscripción* en dicha solución. Una suscripción se registra cuando el *propietario de esta* inicia el panel de Advisor y hace clic en el botón **Obtener recomendaciones**. Esta operación *solo se realiza una vez*. Una vez registrada la suscripción, puede acceder a las recomendaciones de Advisor como *Propietario*, *Contribuidor* o *Lector* para una suscripción, un grupo de recursos o un recurso concreto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre las recomendaciones de Advisor, consulte:
+Para aprender más sobre las recomendaciones de Advisor, consulte:
 * [Introducción a Advisor](advisor-overview.md)
 * [Introducción a Advisor](advisor-get-started.md)
 * [Recomendaciones sobre el costo de Advisor](advisor-performance-recommendations.md)
@@ -60,4 +59,3 @@ Para obtener más información sobre las recomendaciones de Advisor, consulte:
 
 
  
-

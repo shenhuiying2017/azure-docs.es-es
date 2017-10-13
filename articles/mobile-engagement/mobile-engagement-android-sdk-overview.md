@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Integración del SDK de Android para Azure Mobile Engagement
 > [!div class="op_single_selector"]
@@ -59,14 +58,13 @@ Puede agregar estas características:
 
 ### <a name="430-06272017"></a>4.3.0 (27/06/2017)
 * Compatibilidad con Android 8 (las versiones anteriores del SDK no funcionarán en Android 8).
-* Ya no hay dependencia de la biblioteca de soporte.
-* Quite la clase `EngagementFragmentActivity`.
-* Debido a [límites de ejecución en segundo plano](https://developer.android.com/preview/features/background.html) en Android 8, puede que los registros en segundo plano se retrasen hasta que el usuario interactúe con el dispositivo. Esto tendrá efecto en que las estadísticas sobre la campaña de inserción **entregada** y la **notificación del sistema mostrada** se retrasen si el dispositivo estaba en suspensión (la notificación todavía se mostrará, sonará y vibrará en tiempo real sin problemas).
+* Desaparece la dependencia de la biblioteca de soporte.
+* Se quita la clase `EngagementFragmentActivity`.
+* Debido a los [límites de ejecución en segundo plano](https://developer.android.com/preview/features/background.html) en Android 8, puede que los registros en segundo plano se retrasen hasta que el usuario interactúe con el dispositivo, lo que provocará que las estadísticas sobre la campaña de inserción **entregada** y la **notificación del sistema mostrada** se retrasen si el dispositivo estaba en suspensión (la notificación se mostrará, sonará y vibrará en tiempo real sin problemas).
 * Debido a [límites de ubicación en segundo plano](https://developer.android.com/preview/features/background-location-limits.html), la ubicación en tiempo real no se actualizará con frecuencia en Android 8.
 
 Para todas las versiones, consulte las [notas de la versión completas](mobile-engagement-android-release-notes.md).
 
 ## <a name="upgrade-procedures"></a>Procedimientos de actualización
 Si ya ha integrado una versión anterior de nuestro SDK en su aplicación, consulte [Procedimientos de actualización](mobile-engagement-android-upgrade-procedure.md).
-
 

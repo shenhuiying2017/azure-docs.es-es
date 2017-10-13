@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 16ce99cab9077450a5cfa8e95f7e306ffc1afb6d
-
-
+ms.openlocfilehash: 374cc179e13c00e439415e3df16e0c6d5ccba5e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Almacenamiento y visualización de los datos de diagnóstico en Almacenamiento de Azure
 Los datos de diagnóstico no se almacenan de forma permanente a menos que se transfieran al emulador de almacenamiento de Microsoft Azure o a Almacenamiento de Azure. Una vez que se encuentren almacenados, los datos se pueden ver con una de las diversas herramientas disponibles.
@@ -84,10 +84,4 @@ Existen varias herramientas para ver los datos una vez que se transfieren al alm
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Seguimiento del flujo en una aplicación de servicios en la nube con Diagnósticos de Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -59,10 +59,10 @@
 ## [REST](/rest/api/dns/)
 
 # Temas relacionados
-## [Application Gateway](/azure/application-gateway/)
+## [Puerta de enlace de aplicaciones](/azure/application-gateway/)
 ## [Virtual Network](/azure/virtual-network/)
 ## [Máquina virtual](/azure/virtual-machines/)
-## [Load Balancer](/azure/load-balancer/)
+## [Equilibrador de carga](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 ## [Aplicaciones web](/azure/app-service/)
 

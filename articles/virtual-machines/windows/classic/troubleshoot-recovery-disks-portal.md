@@ -13,14 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/21/2017
 ms.author: genli
+ms.openlocfilehash: 740512083caa880753c8d18556af980b9c478ba2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 8449a01675f9e7024fb866921258fa7bcdaf1144
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-a-windows-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>Solución de problemas de una máquina virtual clásica Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación
 
 [!INCLUDE [virtual-machines-classic-recovery-disks-portal](../../../../includes/virtual-machines-classic-recovery-disks-portal.md)]
@@ -29,4 +27,3 @@ ms.lasthandoff: 07/25/2017
 Si tiene problemas para conectarse a la máquina virtual, consulte [Solución de problemas de conexiones RDP a una máquina virtual de Azure](../troubleshoot-rdp-connection.md). 
 
 Para problemas con el acceso a aplicaciones que se ejecutan en su máquina virtual, consulte [Solucionar problemas de conectividad de aplicaciones en una máquina virtual Windows](../troubleshoot-app-connection.md).
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Formato del archivo de manifiesto de servicio de Azure Import/Export
 El archivo de manifiesto de la unidad describe la asignación entre los blobs de Azure Blob Storage y los archivos de la unidad que componen un trabajo de importación o exportación. En el caso de una operación de importación, el archivo de manifiesto se crea como parte del proceso de preparación de la unidad y se almacena en la unidad antes de que esta se envíe al centro de datos de Azure. Durante una operación de exportación, el servicio Azure Import/Export crea y almacena el manifiesto en la unidad.  

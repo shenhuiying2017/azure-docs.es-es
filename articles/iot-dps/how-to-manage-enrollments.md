@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: c230e73f83d8acd0f142e037f70a80c9e0e4107e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-manage-device-enrollments-in-the-iot-hub-device-provisioning-service"></a>Administración de las inscripciones de dispositivos en el servicio IoT Hub Device Provisioning
 
 Una *inscripción de dispositivos* crea un registro de un único dispositivo o grupo de dispositivos que, en algún momento, se registrará en el servicio Azure IoT Hub Device Provisioning. El registro de inscripción contiene la configuración inicial preferida para los dispositivos como parte de la inscripción, incluida la instancia de IoT. En este artículo se muestra cómo administrar las inscripciones de dispositivos para el servicio de aprovisionamiento.
@@ -76,7 +74,6 @@ Cuando no sea necesario aprovisionar dispositivos en alguna instancia de IoT Hub
 5. Una vez completada la acción, verá que se ha eliminado la entrada de la lista de inscripciones de dispositivos. 
  
     ![Eliminación de la inscripción en el portal](./media/how-to-manage-enrollments/remove-enrollment.png)
-
 
 
 

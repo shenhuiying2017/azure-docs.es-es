@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
 ms.openlocfilehash: 86b9a3d93745045904c6038583b9bc6ebac5667e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario
 
@@ -48,7 +48,7 @@ En este artículo se utilizan los términos que se definen a continuación:
 
 Para obtener información de informes para una aplicación de aprovisionamiento determinada, inicie el [Portal de administración de Azure](https://portal.azure.com) y vaya a la aplicación empresarial para la que se ha configurado el aprovisionamiento. Por ejemplo, si va a aprovisionar usuarios para LinkedIn Elevate, la ruta de navegación a los detalles de la aplicación es la siguiente:
 
-**Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones > LinkedIn Elevate**
+**Azure Active Directory &gt; Aplicaciones empresariales &gt; Todas las aplicaciones &gt; LinkedIn Elevate**
 
 Desde aquí, puede acceder al informe de resumen de aprovisionamiento y a los registros de auditoría de aprovisionamiento, que se describen a continuación.
 

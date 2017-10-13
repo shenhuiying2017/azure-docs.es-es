@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
-ms.contentlocale: es-es
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -124,7 +123,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |vary-by-developer-groups|Se establece en `true` para almacenar en caché las respuestas por rol de usuario.|No|false|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.  
+ Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound  
   
@@ -190,7 +189,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |----------|-----------------|--------------|  
 |cache-store|Elemento raíz.|Sí|  
   
-### <a name="attributes"></a>Attributes  
+### <a name="attributes"></a>Atributos  
   
 |Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
@@ -233,7 +232,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |----------|-----------------|--------------|  
 |cache-lookup-value|Elemento raíz.|Sí|  
   
-### <a name="attributes"></a>Attributes  
+### <a name="attributes"></a>Atributos  
   
 |Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
@@ -242,7 +241,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |variable-name|Nombre de la [variable de contexto](api-management-policy-expressions.md#ContextVariables) a la que se asignará el valor buscado si la búsqueda tiene éxito. Si se produce un error de búsqueda, se asignará a la variable el valor del atributo `default-value` o `null`, si se omite el atributo `default-value`.|Sí|N/D|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.  
+ Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error  
   
@@ -276,7 +275,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |----------|-----------------|--------------|  
 |cache-store-value|Elemento raíz.|Sí|  
   
-### <a name="attributes"></a>Attributes  
+### <a name="attributes"></a>Atributos  
   
 |Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
@@ -285,7 +284,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |value|El valor que se almacenará en la caché.|Sí|N/D|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.  
+ Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error  
   
@@ -316,14 +315,14 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |----------|-----------------|--------------|  
 |cache-remove-value|Elemento raíz.|Sí|  
   
-#### <a name="attributes"></a>Attributes  
+#### <a name="attributes"></a>Atributos  
   
 |Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
 |key|La clave del valor anteriormente almacenado en caché que se quitará de la memoria caché.|Sí|N/D|  
   
 #### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.  
+ Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error  
   

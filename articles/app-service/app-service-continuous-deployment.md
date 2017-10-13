@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: ef5924607868bcb3dc35e279539b78d5a0e17c1a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementación continua en el Servicio de aplicaciones de Azure
 En este tutorial se muestra cómo configurar un flujo de trabajo de implementación continua para sus aplicaciones de [Azure Web Apps](app-service-web-overview.md). La integración del Servicio de aplicaciones con BitBucket, GitHub y [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) hace posible un flujo de trabajo de implementación continuo en el que Azure extrae las actualizaciones más recientes del proyecto publicado en uno de estos servicios. La implementación continua representa una buena opción para los proyectos donde se integran contribuciones diversas y frecuentes.
@@ -96,4 +95,3 @@ Para deshabilitar la implementación continua
 [Crear un repositorio (GitHub)]: https://help.github.com/articles/create-a-repo
 [Crear un repositorio (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [introducción a VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
-

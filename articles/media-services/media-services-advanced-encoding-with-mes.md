@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 25a13ad3738286795f45bbdec681614356bd3db8
-ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 8de3bdd45261c84a0e1bb90f1c58863ad740dd5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Codificación avanzada mediante la personalización de valores preestablecidos de MES 
 
 ## <a name="overview"></a>Información general
@@ -1044,4 +1042,3 @@ Puede utilizar el valor "0" para indicar al codificador que pase por alto los me
 
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
-

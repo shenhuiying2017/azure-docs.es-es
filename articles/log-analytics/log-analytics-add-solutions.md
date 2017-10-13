@@ -16,10 +16,10 @@ ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adición de soluciones de administración de Azure Log Analytics al área de trabajo
 
@@ -85,7 +85,7 @@ Todas las soluciones de la tabla siguiente están disponibles en Azure Portal y 
 | [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md)     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)   | |
 | [Azure SQL Analytics (versión preliminar)](log-analytics-azure-sql.md)                                                       | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br>Por&nbsp;nodo&nbsp;(OMS)                                                                          | Requiere que el área de trabajo de Log Analytics esté vinculada a una cuenta de Automation|
 | [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)   | |
-|[Backup](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insight and Analytics</li></ul>                                   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)                                                                       | Requiere un almacén de Backup clásico.<br> No disponible para agregar desde Azure Portal o Marketplace. |
+|[Copia de seguridad](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insight and Analytics</li></ul>                                   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)                                                                       | Requiere un almacén de Backup clásico.<br> No disponible para agregar desde Azure Portal o Marketplace. |
 | [Capacity and Performance (versión preliminar)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)   | |
 | [Seguimiento de cambios](log-analytics-change-tracking.md)                                       | <ul><li>Automation and Control</li></ul>                                  | Gratuito<br> Por&nbsp;nodo&nbsp;(OMS)                                                                         | Requiere que el área de trabajo de Log Analytics esté vinculada a una cuenta de Automation |
 | [Contenedores](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Estándar<br> Premium&nbsp;(OMS)<br> Por&nbsp;GB&nbsp;(independiente)<br> Por&nbsp;nodo&nbsp;(OMS)   | |

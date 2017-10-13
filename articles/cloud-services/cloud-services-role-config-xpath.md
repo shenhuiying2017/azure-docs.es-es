@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
-ms.contentlocale: es-es
-ms.lasthandoff: 04/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Exponer los valores de configuración de rol como una variable de entorno con XPath
 En el archivo de definición de servicio de un rol web o trabajo en el servicio en la nube, puede exponer los valores de configuración en tiempo de ejecución como variables de entorno. Se admiten los siguientes valores de XPath (que se corresponden con valores de API).
@@ -168,5 +167,4 @@ Obtenga más información sobre el archivo [ServiceConfiguration.cscfg](cloud-se
 Cree un paquete [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) .
 
 Habilite [Escritorio remoto](cloud-services-role-enable-remote-desktop.md) para un rol.
-
 

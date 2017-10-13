@@ -16,10 +16,10 @@ ms.custom: partners
 ms.date: 01/30/2017
 ms.author: kevin;barbkess
 ms.openlocfilehash: 892a7f2727ab899ef539ac4ae06a8669512e6fef
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Socios de integración de datos de Almacenamiento de datos SQL
 Para crear la solución de almacenamiento de datos de un extremo a otro, elija entre una amplia variedad de herramientas líderes del sector. En este artículo se destacan las empresas asociadas de Microsoft con soluciones de integración de datos compatibles con Almacenamiento de datos SQL de Azure.

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
 ms.openlocfilehash: 2f73266b65a4eda6c8751a2d56bc3f11bf4e6a57
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-resources-in-operations-management-suite-security-and-audit-solution"></a>Supervisión de los recursos en la solución Seguridad y auditoría de Operations Management Suite
 Este documento le ayuda a usar las capacidades de Seguridad y auditoría de OMS para supervisar los recursos e identificar los problemas de seguridad.

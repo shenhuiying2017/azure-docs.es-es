@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 522e33b399f2648427464b439bc4405e9e8097cd
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-azure-hdinsight-hadoop-clusters-for-the-team-data-science-process"></a>Personalización de los clústeres de Hadoop de HDInsight de Azure para el proceso de ciencia de datos en equipos | Azure
 En este artículo se describe cómo personalizar un clúster de Hadoop para HDInsight mediante la instalación de Anaconda de 64 bits (Python 2.7) en cada nodo cuando el clúster se aprovisiona como un servicio HDInsight. También muestra cómo obtener acceso al nodo principal para enviar trabajos personalizados al clúster. Esta personalización provoca que muchos módulos populares de Python incluidos en Anaconda estén disponibles convenientemente para su uso en funciones definidas por el usuario (UDF) que están diseñadas para procesar los registros de Hive en el clúster. Para obtener instrucciones sobre los procedimientos utilizados en este escenario, consulte [Cómo enviar consultas de Hive](move-hive-tables.md#submit).
@@ -89,5 +88,4 @@ Después de habilitar el acceso remoto, haga clic en **CONECTAR** en la parte in
 Los pasos siguientes del proceso de análisis avanzado se asignan en el [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) y pueden incluir otros que muevan datos a HDInsight, los procese y muestree en esa plataforma con el fin de prepararlos para el aprendizaje a partir de los datos mediante Azure Machine Learning.
 
 Consulte [Envío de consultas de Hive](move-hive-tables.md#submit) para obtener instrucciones sobre cómo acceder a los módulos de Python que se incluyen en Anaconda desde el nodo principal del clúster en las funciones definidas por el usuario (UDF) que se usan para procesar registros de Hive almacenados en el clúster.
-
 

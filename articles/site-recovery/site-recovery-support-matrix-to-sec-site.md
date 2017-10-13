@@ -1,4 +1,3 @@
-
 ---
 title: "Matriz de compatibilidad de la replicación en un sitio secundario con Azure Site Recovery | Microsoft Docs"
 description: Resumen de los sistemas operativos y los componentes compatibles con Azure Site Recovery.
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
-ms.contentlocale: es-es
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matriz de compatibilidad de la replicación en un sitio secundario con Azure Site Recovery
 
@@ -139,4 +137,3 @@ Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos 
 
 - [Replicar las máquinas virtuales de Hyper-V en nubes VMM en una nube secundaria](site-recovery-vmm-to-vmm.md)
 - [Replicación de máquinas virtuales de VMware y servidores físicos en un sitio secundario](site-recovery-vmware-to-vmware.md)
-

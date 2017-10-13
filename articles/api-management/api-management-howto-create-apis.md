@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: ab08256fbc3caca05bf23a12016ad2acf4fc7412
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-apis-in-azure-api-management"></a>Creación de API en Administración de API de Azure
 En Administración de API, una API representa un conjunto de operaciones que puede invocarse por las aplicaciones cliente. Se crean nuevas API en el portal del publicador y luego se agregan las operaciones deseadas. Una vez agregadas las operaciones, la API se agrega a un producto y se puede publicar. Una vez publicada una API, pueden usarla y suscribirse a ella los desarrolladores.
 
 Esta guía muestra el primer paso del proceso: cómo crear y configurar una nueva API en Administración de API. Para obtener más información sobre cómo agregar operaciones y publicar un producto, consulte [Incorporación de operaciones a una API][How to add operations to an API] y [Creación y publicación de un producto][How to create and publish a product].
 
-## <a name="create-new-api"> </a>Creación de una API
+## <a name="create-new-api"></a>Creación de una API
 Las API se crean y se configuran en el portal del publicador. Para obtener acceso al portal del publicador, haga clic en el **portal del publicador** en Azure Portal para el servicio API Management.
 
 ![Portal del publicador][api-management-management-console]
@@ -54,7 +54,7 @@ Una vez configurados los valores que se desean, haga clic en **Guardar**. Una ve
 
 ![API summary][api-management-api-summary]
 
-## <a name="configure-api-settings"> </a>Definición de la configuración de la API
+## <a name="configure-api-settings"></a>Definición de la configuración de la API
 Puede usar la pestaña **Configuración** para comprobar y editar la configuración de una API. **Nombre de la API web**, **URL de servicio web** y **Sufijo de URL de la API web** se establecen inicialmente al crear la API y se pueden modificar aquí. **Descripción** proporciona una descripción opcional y **Esquema de URL de la API web** determina qué protocolos se pueden usar para tener acceso a la API.
 
 ![API settings][api-management-api-settings]
@@ -67,7 +67,7 @@ La pestaña **Seguridad** también se puede usar para configurar la **Autorizaci
 
 Haga clic en **Guardar** para guardar los cambios que efectúe en la configuración de la API.
 
-## <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Una vez creada una API y definida la configuración, los pasos siguientes permiten agregar las operaciones a la API, agregar la API a un producto y publicarlo para ponerlo a disposición de los desarrolladores. Para obtener más información, consulte los siguientes artículos.
 
 * [Incorporación de operaciones a una API][How to add operations to an API]

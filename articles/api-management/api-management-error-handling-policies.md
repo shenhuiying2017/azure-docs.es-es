@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 672b36fc80d8826247b3104ca8c5ffb13e45fa59
-ms.contentlocale: es-es
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>Control de errores en las directivas de API Management
 Azure API Management proporciona un objeto `ProxyError` que permite a los publicadores responder a las condiciones de error que se pueden producir durante el procesamiento de solicitudes en el proxy. Para acceder al objeto `ProxyError` se usa la propiedad [context.LastError](api-management-policy-expressions.md#ContextVariables). Este objeto se puede usar en las directivas de la sección de directivas `on-error`. En este tema se proporciona una referencia a las funcionalidades de control de errores de Azure API Management.  
@@ -86,7 +85,7 @@ Azure API Management proporciona un objeto `ProxyError` que permite a los public
 |Nombre|Tipo|Descripción|Obligatorio|  
 |----------|----------|-----------------|--------------|  
 |Origen|string|Nombre del elemento donde se produjo el error. Puede ser el nombre de una directiva o el nombre de un paso de canalización integrado.|Sí|  
-|Motivo|string|Código de error sencillo de usar en la máquina, que se puede utilizar en el control de errores.|No|  
+|Motivo|string|Código de error reconocible por la máquina, que se puede utilizar en el control de errores.|No|  
 |Message|string|Descripción del error legible para el usuario.|Sí|  
 |Scope|string|Nombre del ámbito donde se produjo el error; podría ser "global", "producto", "api" u "operación"|No|  
 |Sección|string|Nombre de la sección donde se produjo el error; podría ser: "entrada", "back-end", "salida" o "error".|No|  

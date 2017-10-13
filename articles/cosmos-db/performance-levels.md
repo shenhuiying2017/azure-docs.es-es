@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retirada de los niveles de rendimiento S1, S2 y S3
 
@@ -179,4 +178,3 @@ Para obtener más información sobre los precios y la administración de datos c
 1.  [Partición de datos en Cosmos DB](documentdb-partition-data.md). Información sobre la diferencia entre un contenedor de partición única y contenedores con particiones, así como sugerencias sobre cómo implementar una estrategia de particiones para escalar sin problemas.
 2.  [Precios de Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Aprenda sobre los costes de rendimiento del aprovisionamiento y el consumo de almacenamiento.
 3.  [Unidades de solicitud](request-units.md). Información sobre el consumo de rendimiento para diferentes tipos de operaciones; por ejemplo, lectura, escritura o consulta.
-

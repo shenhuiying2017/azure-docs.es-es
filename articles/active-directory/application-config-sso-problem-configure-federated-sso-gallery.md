@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: b8c189865c27566e3265f14eb54cb5ea4a005dc5
-ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 290ca66048281de5e031b0404919bed84ab19ffa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problemas en la configuración del inicio de sesión único federado para una aplicación de la galería de Azure AD
 
 Si se produce un problema al configurar una aplicación. Compruebe que ha seguido todos los pasos del tutorial de la aplicación. En la configuración de la aplicación, tiene documentación en línea sobre cómo configurarla. También para instrucciones detalladas paso a paso, acceda a la [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).
@@ -111,4 +109,3 @@ Para obtener información sobre cómo personalizar las notificaciones de atribut
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Administración de aplicaciones con Azure Active Directory](active-directory-enable-sso-scenario.md)
-

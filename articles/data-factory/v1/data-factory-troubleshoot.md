@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de40d4afce48e94df0f69c5edca46838268a5e29
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Solución de problemas de la factoría de datos
 En este artículo se proporcionan consejos para solución de problemas surgidos al usar Data Factory de Azure. Este artículo no incluye todos los posibles problemas que pueden aparecer al usar el servicio, pero trata algunos de ellos, así como consejos para solución de problemas generales.   
@@ -152,4 +151,3 @@ Consulte [Monitor Data Factory pipelines using Azure PowerShell](data-factory-bu
 [image-data-factory-troubleshoot-walkthrough2-slice-activity-runs]: ./media/data-factory-troubleshoot/Walkthrough2DataSliceActivityRuns.png
 
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
-

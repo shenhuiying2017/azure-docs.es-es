@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
 ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.contentlocale: es-es
-ms.lasthandoff: 07/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configuración de ASM de Oracle en una máquina virtual Linux en Azure  
 
 Las máquinas virtuales de Azure proporcionan un entorno informático completamente configurable y flexible. En este tutorial se aborda la implementación de máquinas virtuales de Azure básicas combinada con la instalación y configuración de Automated Storage Management (ASM) de Oracle.  Aprenderá a:
@@ -589,4 +587,3 @@ az group delete --name myResourceGroup
 [Tutorial: Configuración de Oracle GoldenGate](Configure-oracle-golden-gate.md)
 
 Revise [Diseño de una base de datos de Oracle](oracle-design.md)
-

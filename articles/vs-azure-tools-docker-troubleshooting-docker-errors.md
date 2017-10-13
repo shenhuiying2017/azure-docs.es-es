@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 649cc1a78f3a9f343533cb18fb7d763e4f9ea196
 ms.openlocfilehash: 89fa04a1107b6abb49aefd68066443717ac9b731
-ms.contentlocale: es-es
-ms.lasthandoff: 02/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-visual-studio-docker-development"></a>Solución de problemas de desarrollo de Docker en Visual Studio
 
 Cuando se trabaja con la versión preliminar de Visual Studio Tools para Docker, pueden surgir ciertos problemas debido a la propia naturaleza de la versión preliminar.
@@ -147,4 +145,3 @@ Después de desinstalar e instalar extensiones, la memoria caché de Managed Ext
     ```
 1. Abra Visual Studio.
 1. Vuelva a probar el escenario.
-

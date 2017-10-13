@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d7333f9752a9e03c1087a4bc588284b418d8926
-ms.openlocfilehash: 4a80252f139d653ff8788b3c1a6a075448cb48e7
-ms.contentlocale: es-es
-ms.lasthandoff: 02/14/2017
-
+ms.openlocfilehash: d9f53148787729d29a0a89cce1b8b2b83ba228f8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Integración de Azure AD con una aplicación Apache Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -76,7 +75,7 @@ Cada plataforma de destino tiene diferentes requisitos previos:
   * Instale el [Kit de desarrollo de Java (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o una versión posterior. Asegúrese de que `JAVA_HOME` (variable de entorno) se haya configurado correctamente según la ruta de instalación de JDK (por ejemplo, C:\Archivos de programa\Java\jdk1.7.0_75).
   * Instale el [SDK de Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) y agregue la ubicación `<android-sdk-location>\tools` (por ejemplo, C:\tools\Android\android-sdk\tools) a su variable de entorno `PATH`.
   * Abra Android SDK Manager (por ejemplo, a través del terminal: `android`) e instale:
-    * *Android 5.0.1 (API 21)* 
+    * *Android 5.0.1 (API 21)*
     * *Herramientas de compilación de SDK de Android*, versión 19.1.0 o posterior
     * *Repositorio compatible con Android* (extras)
 
@@ -292,4 +291,3 @@ Como referencia, en [GitHub](https://github.com/AzureADQuickStarts/NativeClient-
 Ahora puede pasar a escenarios más avanzados (y, por lo tanto, más interesantes). Quizá quiera intentar: [Proteger una API web de Node.js con Azure AD](active-directory-devquickstarts-webapi-nodejs.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

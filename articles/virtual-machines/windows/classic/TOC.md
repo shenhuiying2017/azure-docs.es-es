@@ -1,5 +1,5 @@
 # Información general
-## [Acerca de las máquinas virtuales](../../virtual-machines-windows-about.md)
+## [Acerca de las máquinas virtuales](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Discos y VHD](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Redes virtuales](../../../virtual-network/virtual-networks-overview.md)
 ## [Preguntas más frecuentes](faq.md)

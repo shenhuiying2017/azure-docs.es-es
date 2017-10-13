@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
-ms.contentlocale: es-es
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-traffic-manager-profile"></a>Crear un perfil de Traffic Manager
 
 En este artículo se describe se puede crear un perfil con el tipo de enrutamiento por **prioridad** para enrutar a los usuarios a dos puntos de conexión de Azure Web Apps. Mediante el uso del tipo de enrutamiento por **prioridad**, todo el tráfico se enruta al primer punto de conexión, mientras que el segundo se conserva como copia de seguridad. Como resultado, los usuarios se pueden enrutar al segundo punto de conexión si el primero tiene un estado incorrecto.
@@ -73,7 +71,6 @@ Si ya no los necesita, elimine el grupo de recursos y el perfil de Traffic Manag
 - Más información sobre los [tipos de enrutamiento](traffic-manager-routing-methods.md).
 - Más información sobre los [tipos de punto de conexión](traffic-manager-endpoint-types.md).
 - Más información sobre la [supervisión de los puntos de conexión](traffic-manager-monitoring.md).
-
 
 
 

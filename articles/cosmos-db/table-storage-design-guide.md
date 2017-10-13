@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 02/28/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: fd34fb135c76eed4041c29e00e98dde330dfe3f3
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Storage: diseño de tablas escalables y eficientes
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -168,7 +167,7 @@ En estas listas se resumen algunas de las instrucciones claves que debe tener en
 Diseñe una solución de Table service cuya *lectura* sea eficaz:
 
 * ***Diseño para realizar consultas en aplicaciones con muchas lecturas.*** Al diseñar las tablas, piense en las consultas (especialmente las sensibles a la latencia) que ejecutará antes de pensar cómo actualizará las entidades. Normalmente esto produce una solución eficiente y de rendimiento.  
-* ***Especificar tanto PartitionKey como RowKey en sus consultas.*** *consultas puntuales* como estas son las consultas más eficaces de Table service.  
+* ***Especificar tanto PartitionKey como RowKey en sus consultas.*** *consultas puntuales* como estas son las consultas más eficaces de servicio de tabla.  
 * ***Tenga en cuenta la posibilidad de almacenar copias duplicadas de las entidades.*** El almacenamiento en tablas es barato por lo que puede almacenar la misma entidad varias veces (con claves diferentes) para permitir que se realicen consultas más eficaces.  
 * ***Considere la posibilidad de desnormalizar sus datos.*** El almacenamiento en tablas es barato, por tanto, piense en desnormalizar sus datos. Por ejemplo, almacene entidades de resumen para que las consultas para datos agregados solo necesiten acceder a una única entidad.  
 * ***Use valores de clave compuestos.*** Las únicas claves de las que dispone son **PartitionKey** y **RowKey**. Por ejemplo, s los valores de clave compuestos para habilitar rutas de acceso con clave alternativas a las entidades.  
@@ -252,7 +251,7 @@ Table Service indexará automáticamente las entidades mediante los valores **Pa
 Muchos diseños deben cumplir los requisitos para habilitar la búsqueda de entidades según varios criterios. Por ejemplo, localizar las entidades employee en función de correo electrónico, Id. de empleado o apellido. Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan estos tipos de requisitos y describen las formas de solucionar el hecho de que Table Service no proporciona índices secundarios:  
 
 * [Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
-* [Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
+* [Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern) : almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey** .  
 * [Patrón de entidades de índice](#index-entities-pattern): mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Ordenación de los datos de Table service
@@ -272,10 +271,10 @@ Para actualizar o eliminar una entidad, debe poder identificarla mediante el uso
 
 Los modelos siguientes de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan la optimización del rendimiento o la inserción, actualización y las operaciones de eliminación:  
 
-* [Patrón de eliminación de gran volumen](#high-volume-delete-pattern): habilitar la eliminación de un gran volumen de entidades mediante el almacenamiento de todas las entidades para su eliminación simultánea en su propia tabla independiente; elimine las entidades mediante la eliminación de la tabla.  
+* [Patrón de eliminación de gran volumen](#high-volume-delete-pattern) : habilitar la eliminación de un gran volumen de entidades mediante el almacenamiento de todas las entidades para su eliminación simultánea en su propia tabla independiente; elimine las entidades mediante la eliminación de la tabla.  
 * [Patrón de serie de datos](#data-series-pattern): almacenar una serie de datos completa en una sola entidad para minimizar el número de solicitudes que realice.  
 * [Patrón de entidades amplio](#wide-entities-pattern): usar varias entidades físicas para almacenar entidades lógicas con más de 252 propiedades.  
-* [Patrón de entidades de gran tamaño](#large-entities-pattern): use Blob Storage para almacenar valores de propiedad de gran tamaño.  
+* [Patrón de entidades de gran tamaño](#large-entities-pattern) : use el almacenamiento de blobs para almacenar valores de propiedad de gran tamaño.  
 
 ### <a name="ensuring-consistency-in-your-stored-entities"></a>Garantizar la coherencia en las entidades almacenadas
 El otro factor clave que afecta a su elección de claves para optimizar las modificaciones de datos es cómo garantizar la coherencia mediante el uso de transacciones atómicas. Solo puede utilizar un EGT para operar en las entidades almacenadas en la misma partición.  
@@ -283,9 +282,9 @@ El otro factor clave que afecta a su elección de claves para optimizar las modi
 Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan la administración de coherencia:  
 
 * [Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
-* [Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey** .  
-* [Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern): habilitar el comportamiento final coherente a través de límites de partición o los límites del sistema de almacenamiento mediante el uso de las colas de Azure.
-* [Patrón de entidades de índice](#index-entities-pattern): mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.  
+* [Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern) : almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey** .  
+* [Patrón final coherente de transacciones](#eventually-consistent-transactions-pattern) : habilitar el comportamiento final coherente a través de límites de partición o los límites del sistema de almacenamiento mediante el uso de las colas de Azure.
+* [Patrón de entidades de índice](#index-entities-pattern) : mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.  
 * [Patrón de desnormalización](#denormalization-pattern): combinar datos relacionados entre sí en una sola entidad para recuperar todos los datos que necesita con una consulta de punto único.  
 * [Patrón de serie de datos](#data-series-pattern): almacenar una serie de datos completa en una sola entidad para minimizar el número de solicitudes que realice.  
 
@@ -587,7 +586,7 @@ Para habilitar la búsqueda por apellido con la estructura de entidad mostrada a
 * Cree entidades de índice en la misma partición que las entidades employee.  
 * Cree entidades de índice en una tabla o una partición independiente.  
 
-<u>Opción n.º 1: Usar Blob Storage</u>  
+<u>Opción n.º 1: Usar el almacenamiento de blobs</u>  
 
 Para la primera opción, cree un blob para cada apellido único y, en cada almacén de blobs, una lista de valores **PartitionKey** (departamento) y **RowKey** (identificador de empleado) para los empleados que tienen ese apellido. Al agregar o eliminar a un empleado debe asegurarse de que el contenido del blob relevante es coherente con las entidades employee.  
 
@@ -1545,5 +1544,4 @@ También nos gustaría dar las gracias a los siguientes MVP de Microsoft por sus
 [27]: ./media/storage-table-design-guide/storage-table-design-IMAGE27.png
 [28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
-
 

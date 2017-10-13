@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a2b14dd39c0247c35ef006385eceebfa4fbe82d9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Hoja de referencia rápida de una canalización de datos automatizada para las predicciones de aprendizaje automático de Azure
 La **hoja de referencia rápida de canalización de datos automatizada de aprendizaje automático de Microsoft Azure** le ayuda a navegar por la tecnología que puede usar para obtener sus datos para su servicio web de aprendizaje automático donde se puede puntuar por su modelo de análisis predictivo.
@@ -43,5 +42,4 @@ Descargar aquí la hoja de referencia rápida: **[hoja de referencia rápida de 
 * Para obtener una explicación de cómo utilizar un servicio web de puntuación, vea [Cómo consumir un servicio web Azure Machine Learning](../studio/consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

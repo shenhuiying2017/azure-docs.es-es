@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/30/2017
 ms.author: jonbeck
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 68e4afcedffbb6c70eae83eae18b242b408a15a4
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: fe8997a17d8d0b843e89f63f25ace86e15d0ad69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="memory-optimized"></a>Memoria optimizada
 
 
@@ -39,4 +37,3 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
-

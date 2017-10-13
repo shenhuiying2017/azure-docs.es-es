@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 08/02/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: a80b207f591bd888d4749287527013c5e554fb6e
-ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creación de consultas para enumerar los recursos de Batch con eficacia
 
@@ -60,7 +59,7 @@ IPagedEnumerable<CloudTask> completedTasks =
     batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
-En este caso de ejemplo, si hay miles de tareas en el trabajo, los resultados de la segunda consulta normalmente se devolverán más rápido que en la primera consulta. [A continuación](#efficient-querying-in-batch-net)encontrará más información sobre el uso de ODATADetailLevel al enumerar elementos con la API de .NET para Batch.
+En este caso de ejemplo, si hay miles de tareas en el trabajo, los resultados de la segunda consulta normalmente se devolverán más rápido que en la primera consulta. [A continuación](#efficient-querying-in-batch-net)encontrará más información sobre el uso de ODATADetailLevel al enumerar elementos con la API de Lote de .NET.
 
 > [!IMPORTANT]
 > Es muy recomendable suministrar *siempre* un objeto ODATADetailLevel a las llamadas de la lista de la API de .NET para garantizar la máxima eficacia y rendimiento de su aplicación. La especificación de un nivel de detalle puede ayudarle a reducir los tiempos de respuesta del servicio de Batch, a mejorar la utilización de la red y a minimizar el uso de la memoria por parte de las aplicaciones cliente.
@@ -246,7 +245,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 
 ## <a name="next-steps"></a>Pasos siguientes
 ### <a name="parallel-node-tasks"></a>Tareas paralelas de nodo
-[Maximizar el uso de recursos de proceso de Azure Batch con tareas simultáneas nodo](batch-parallel-node-tasks.md) es otro artículo relacionada con rendimiento de aplicaciones de Batch. Algunos tipos de cargas de trabajo pueden beneficiarse de la ejecución de tareas paralelas en una menor cantidad de nodos de proceso que, sin embargo, sean de mayor tamaño. Consulte la sección [Escenario de ejemplo](batch-parallel-node-tasks.md#example-scenario) en el artículo para obtener detalles sobre dicho escenario.
+[Maximizar el uso de recursos de proceso de Lote de Azure con tareas simultáneas nodo](batch-parallel-node-tasks.md) es otro artículo relacionada con rendimiento de aplicaciones de Lote. Algunos tipos de cargas de trabajo pueden beneficiarse de la ejecución de tareas paralelas en una menor cantidad de nodos de proceso que, sin embargo, sean de mayor tamaño. Consulte la sección [Escenario de ejemplo](batch-parallel-node-tasks.md#example-scenario) en el artículo para obtener detalles sobre dicho escenario.
 
 ### <a name="batch-forum"></a>Foro de Batch
 El [foro de Azure Batch][forum] en MSDN es un lugar excelente para debatir y formular preguntas sobre el servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio Batch.

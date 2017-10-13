@@ -15,14 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Selección de SKU o plan de tarifa de Búsqueda de Azure
 En Azure Search, un [servicio se aprovisiona](search-create-service-portal.md) en un plan de tarifa específico o SKU. Las opciones incluyen los niveles **Gratis**, **Básico** o **Estándar**; **este último** está disponible en varias configuraciones y capacidades.
 
@@ -115,4 +113,3 @@ Una vez que sepa qué SKU se ajusta a sus requisitos, consulte cuáles son los s
 
 * [Creación de un servicio Búsqueda de Azure mediante el Portal de Azure](search-create-service-portal.md)
 * [Planeación de la capacidad en Búsqueda de Azure](search-capacity-planning.md)
-

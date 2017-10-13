@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 8922c65a1755343e19072a0594b800838a5e1cf9
-ms.contentlocale: es-es
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: f2f696a3bbe7893c1f521a3e5588f4f93805d6a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Introducción a Application Insights con Java en Eclipse
 El SDK de Application Insights envía telemetría desde la aplicación web de Java para que se pueda analizar el uso y el rendimiento. El complemento Eclipse de Application Insights instala automáticamente el SDK en el proyecto para que obtenga la telemetría de serie, además de una API que puede usar para escribir la telemetría personalizada.   
@@ -236,4 +235,3 @@ Puede insertar código en el JavaScript de la página web y en Java del servidor
 [metrics]: app-insights-metrics-explorer.md
 [track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-javascript.md
-

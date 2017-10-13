@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ac58c5e8f43a1e6bab1023826818cc3641cad54a
-ms.openlocfilehash: f0da57cc74e190e6684036c8a793dface3c6dd74
-ms.contentlocale: es-es
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="media-services-documentation"></a>Documentación de Media Services
 
 Aprenda a hacer streaming a petición de vídeo de calidad o a difundirlo en directo con Media Services, una plataforma en la nube extensible. En los tutoriales, las referencias de API y otra documentación, se muestra cómo entregar de forma segura secuencias de audio o vídeo, a petición y en directo, que se escalan a millones de usuarios.
@@ -212,5 +210,4 @@ Aprenda a hacer streaming a petición de vídeo de calidad o a difundirlo en dir
         </div>
     </li>
 </ul>
-
 

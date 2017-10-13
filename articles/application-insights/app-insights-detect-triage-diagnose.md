@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/26/2017
 ms.author: bwren
+ms.openlocfilehash: 05362ab6567d8dbc44f4015c77203eb1abfc2914
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: afcfc6bb27506dbcc44217680e779318107b33d9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Información general de Application Insights para DevOps
 
@@ -236,4 +235,3 @@ Puede comenzar a trabajar de varias maneras, según las características de la a
 * Aplicaciones ya implementadas hospedadas en [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) o [Azure](app-insights-azure.md).
 * [Páginas web](app-insights-javascript.md): aplicación de una sola página o una página web normal. Use esta característica por su cuenta o además de las opciones de servidor.
 * [Pruebas de disponibilidad](app-insights-monitor-web-app-availability.md) para probar la aplicación desde la red Internet pública.
-

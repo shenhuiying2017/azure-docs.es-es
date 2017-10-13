@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: 9dd451f994940d7cc3a59bd7fd08a8f067345e34
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 42e1743b67a46c9eac6cce44852ea3a48fd38e5a
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Supervisión de un clúster de DC/OS de Azure Container Service con Datadog
 En este artículo, implementaremos agentes Datadog en todos los nodos de agente del clúster del servicio de contenedores de Azure. Necesita una cuenta con Datadog para esta configuración. 
@@ -50,5 +49,4 @@ Después, escriba la clave de API en la configuración de Datadog dentro de Univ
 ![Configuración de Datadog en Universe en DC/OS](./media/container-service-monitoring/datadog3.png) 
 
 En la configuración anterior, las instancias se establecen en 10000000 para que, siempre que se agregue un nuevo nodo al clúster de Datadog, se implemente automáticamente un agente en ese nodo nuevo. Se trata de una solución provisional. Una vez que haya instalado el paquete, debe volver al sitio web de Datadog y buscar "[Dashboards](https://app.datadoghq.com/dash/list)" (Paneles). Desde allí, verá los paneles de integración y personalizados. El [panel de Docker](https://app.datadoghq.com/screen/integration/docker) tendrá todas las métricas de contenedor que necesita para supervisar el clúster. 
-
 

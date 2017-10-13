@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: b315a37f72f34d45bb55c2bbe6be20cca8c42424
-ms.contentlocale: es-es
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 39cbd30102813a4502cd25811589d04a9adb0aa5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk"></a>Creación de una máquina virtual Windows a partir de un disco especializado
 
@@ -323,5 +322,4 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para iniciar sesión en la nueva máquina virtual, examine la máquina virtual en el [Portal](https://portal.azure.com), haga clic en **Conectar**y abra el archivo RDP del Escritorio remoto. Utilice las credenciales de cuenta de la máquina virtual original para iniciar sesión en la nueva máquina virtual. Para más información, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows Server e inicio de sesión en ella](connect-logon.md).
-
 

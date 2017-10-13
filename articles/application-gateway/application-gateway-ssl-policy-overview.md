@@ -1,4 +1,4 @@
----   
+---
 title: "Introducción a las directivas SSL para Azure Application Gateway| Microsoft Docs"
 description: "Información acerca de cómo le permite Azure Application Gateway configurar la directiva SSL"
 services: application gateway
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: ec36af282bbfdc22ff88082412dd18cd2a85f245
-ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-   
-
 # <a name="application-gateway-ssl-policy-overview"></a>Introducción a la directiva SSL de Application Gateway
 
 Puede utilizar Azure Application Gateway para centralizar la administración de certificados SSL y reducir la sobrecarga de cifrado y descifrado de una granja de servidores back-end. Este control centralizado de SSL también le permite especificar una directiva SSL central que se adapte a los requisitos de seguridad de la organización. Esto le ayuda a cumplir los requisitos de cumplimiento normativo, así como las directrices de seguridad y los procedimientos recomendados.
@@ -107,4 +104,3 @@ Application Gateway admite los siguientes conjuntos de cifrado desde los que pue
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si desea aprender a configurar la descarga de SSL, consulte [Configuración de una directiva SSL en Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
-

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
 ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos
 Con esta guía de supervisión y solución de problemas aprenderá a realizar el seguimiento del estado de mantenimiento de la replicación y técnicas de solución de problemas de Azure Site Recovery.
@@ -140,14 +140,14 @@ Para generar una incidencia de soporte técnico para Azure Site Recovery, pónga
 * [Conservación de la letra de la unidad para máquinas virtuales protegidas que se conmutaron por error o se migraron a Azure](http://support.microsoft.com/kb/3031135)
 * [Administración del uso de ancho de banda de red de protección de instalaciones locales a Azure](https://support.microsoft.com/kb/3056159)
 * [Azure Site Recovery: error "No se encontró el recurso de clúster" al tratar de habilitar la protección de una máquina virtual](http://support.microsoft.com/kb/3010979).
-* [Understand & Troubleshoot Hyper-V Replica Guide](http://social.technet.microsoft.com/wiki/contents/articles/21948.hyper-v-replica-troubleshooting-guide.aspx) (Guía de descripción y solución de problemas de Réplica de Hyper-V)
+* [Understand &amp; Troubleshoot Hyper-V Replica Guide](http://social.technet.microsoft.com/wiki/contents/articles/21948.hyper-v-replica-troubleshooting-guide.aspx) (Guía de descripción y solución de problemas de Réplica de Hyper-V)
 
 ## <a name="common-azure-site-recovery-errors-and-their-resolutions"></a>Errores comunes de Azure Site Recovery y sus soluciones
 A continuación, se muestran los errores comunes y sus soluciones. Cada uno de los errores se documenta en una página Wiki independiente.
 
 ### <a name="general"></a>General
-* <span style="color:green;">NUEVO</span> [Trabajos que presentan el error "Operación en curso". Error 505, 514, 532.](http://social.technet.microsoft.com/wiki/contents/articles/32190.azure-site-recovery-jobs-failing-with-error-an-operation-is-in-progress-error-505-514-532.aspx)
-* <span style="color:green;">NUEVO</span> [Trabajos que presentan el error "Servidor no conectado a Internet". Error 25018.](http://social.technet.microsoft.com/wiki/contents/articles/32192.azure-site-recovery-jobs-failing-with-error-server-isn-t-connected-to-the-internet-error-25018.aspx)
+* <span style="color:green;">NUEVO</span>[Trabajos que presentan el error "Operación en curso". Error 505, 514, 532.](http://social.technet.microsoft.com/wiki/contents/articles/32190.azure-site-recovery-jobs-failing-with-error-an-operation-is-in-progress-error-505-514-532.aspx)
+* <span style="color:green;">NUEVO</span>[Trabajos que presentan el error "Servidor no conectado a Internet". Error 25018.](http://social.technet.microsoft.com/wiki/contents/articles/32192.azure-site-recovery-jobs-failing-with-error-server-isn-t-connected-to-the-internet-error-25018.aspx)
 
 ### <a name="setup"></a>Configuración
 * [El servidor Virtual Machine Manager no se puede registrar debido a un error interno. Consulte la vista de trabajos en el portal de Site Recovery para obtener más detalles sobre el error. Vuelva a ejecutar la configuración para registrar el servidor.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
@@ -160,9 +160,9 @@ A continuación, se muestran los errores comunes y sus soluciones. Cada uno de l
 * [No se puede seleccionar la cuenta de almacenamiento dentro de la suscripción durante la configuración de la protección.](http://social.technet.microsoft.com/wiki/contents/articles/32027.can-t-select-the-storage-account-within-the-subscription-while-configuring-protection.aspx)
 
 ### <a name="protection"></a>Protección
-* <span style="color:green;">NUEVO</span> [Habilitar protección presenta el error "No se pudo configurar la protección para la máquina virtual". Error 60007, 40003.](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx)
-* <span style="color:green;">NUEVO</span> [Habilitar protección presenta el error "No se pudo habilitar la protección para la máquina virtual". Error 70094.](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
-* <span style="color:green;">NEW</span> [Error de migración en vivo 23848: La máquina virtual se va a mover con el tipo Live. Esto podría afectar al estado de protección de la recuperación de la máquina virtual.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
+* <span style="color:green;">NUEVO</span>[Habilitar protección presenta el error "No se pudo configurar la protección para la máquina virtual". Error 60007, 40003.](http://social.technet.microsoft.com/wiki/contents/articles/32194.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-configured-for-the-virtual-machine-error-60007-40003.aspx)
+* <span style="color:green;">NUEVO</span>[Habilitar protección presenta el error "No se pudo habilitar la protección para la máquina virtual". Error 70094.](http://social.technet.microsoft.com/wiki/contents/articles/32195.azure-site-recovery-enable-protection-failing-with-error-protection-couldn-t-be-enabled-for-the-virtual-machine-error-70094.aspx)
+* <span style="color:green;">NEW</span>[Error de migración en vivo 23848: La máquina virtual se va a mover con el tipo Live. Esto podría afectar al estado de protección de la recuperación de la máquina virtual.](http://social.technet.microsoft.com/wiki/contents/articles/32021.live-migration-error-23848-the-virtual-machine-is-going-to-be-moved-using-type-live-this-could-break-the-recovery-protection-status-of-the-virtual-machine.aspx)
 * [Error al habilitar la protección, ya que el agente no está instalado en el equipo host.](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 * [No se encuentra un host adecuado para la máquina virtual de réplica debido a unos recursos de ejecución bajos.](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
 * [No se puede encontrar un host adecuado para la máquina virtual de réplica debido a que no se conectó una red lógica.](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)

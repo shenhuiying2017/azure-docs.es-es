@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; mandia
 ms.openlocfilehash: 161adeacd6da2b15225c8a4ddae171e19e539967
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-logic-app-using-a-template"></a>Creación de una aplicación lógica mediante una plantilla
 Las plantillas proporcionan una forma rápida de utilizar distintos conectores dentro de una aplicación lógica. Logic Apps incluye plantillas de Azure Resource Manager para crear una aplicación lógica que puede utilizarse para definir flujos de trabajo empresariales. Puede especificar qué recursos se implementan y cómo definir parámetros al implementar la aplicación lógica. Puede usar esta plantilla para sus propios escenarios empresariales o personalizarla para satisfacer sus necesidades.

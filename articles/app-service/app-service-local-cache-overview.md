@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cfowler
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 75f2dcb80514105ed663ba1fe5f7adccc05af1fc
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Información general de caché local del Servicio de aplicaciones de Azure
 El contenido de una aplicación web de Azure se almacena en Almacenamiento de Azure y surge de manera duradera como un recurso compartido de contenido. Este diseño está pensado para trabajar con una amplia gama de aplicaciones y tiene los siguientes atributos:  
@@ -115,4 +114,3 @@ La caché local ayuda a evitar que la aplicación web relacionada con el almacen
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>¿La caché local evita que los directorios se copien en la unidad local con mayor rapidez?
 Como parte del paso que copia el contenido de almacenamiento, se excluye cualquier carpeta que se denomine "repositorio". Esto es útil con escenarios donde el contenido del sitio puede contener un repositorio de control de código fuente que no puedan ser necesarios en la operación rutinaria de la aplicación web. 
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 5448247428ab96887470c6b53f7a9b3dcd9238f0
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-backup-policies-update-2"></a>Usar el servicio de Administrador de StorSimple para administrar directivas de copia de seguridad (Update 2)
 [!INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
@@ -59,7 +58,7 @@ Agregue una directiva de copia de seguridad para programar automáticamente sus 
 
 [!INCLUDE [storsimple-add-backup-policy-u2](../../includes/storsimple-add-backup-policy-u2.md)]
 
-![Vídeo disponible](./media/storsimple-manage-backup-policies-u2/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-manage-backup-policies-u2/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo en el que se muestra cómo crear una directiva de copia de seguridad local o en la nube, haga clic [aquí](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
@@ -85,5 +84,4 @@ Realice los pasos siguientes en el Portal de Azure clásico para crear una direc
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

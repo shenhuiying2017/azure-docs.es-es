@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: da5bddba3a1fad74b2ee08fd2f34d1b01c7345c8
-ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con PowerShell
 
@@ -236,7 +235,7 @@ Para crear una puerta de enlace de VPN para la red virtual de RM, siga estas ins
   Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
   ```
 
-## <a name="localsite"></a>Sección 3: Modificación de la configuración del sitio local de la red virtual clásica
+## <a name="localsite"></a>Sección 3: modificación de la configuración del sitio local de la red virtual clásica
 
 En esta sección trabajará con la red virtual clásica. Reemplace la dirección IP de marcador de posición que ha utilizado al especificar la configuración del sitio local que se usará para conectarse a la puerta de enlace de la red virtual de Resource Manager. 
 
@@ -309,5 +308,4 @@ La creación de una conexión entre las puertas de enlace requiere PowerShell. D
 ## <a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
-
 

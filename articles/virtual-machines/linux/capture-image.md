@@ -15,12 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen de una máquina virtual o un disco duro virtual
 
@@ -145,4 +144,3 @@ Puede crear varias VM a partir de la imagen de VM de origen. Si necesita realiza
 - Use esta nueva imagen para implementaciones futuras. Si lo desea, elimine la imagen original.
 
 Para obtener más información sobre la administración de las máquinas virtuales con la CLI, vea [CLI de Azure 2.0](/cli/azure/overview).
-

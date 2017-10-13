@@ -14,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
+ms.openlocfilehash: 9540522a945e1ea2a09456b42d64b7b94753791f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: bba6f2afb79063409f2a0a5119f7809a2445e29f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](application-gateway-ssl-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-ssl-arm.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-ssl-arm.md)
 > * [PowerShell clásico de Azure](application-gateway-ssl.md)
 > * [CLI de Azure 2.0](application-gateway-ssl-cli.md)
 
@@ -100,7 +99,7 @@ Una configuración de puerta de enlace de aplicaciones consta de varios valores.
 Los valores son:
 
 * **Back-end server pool** (Grupo de servidores back-end): lista de direcciones IP de los servidores back-end. Las direcciones IP de la lista deben pertenecer a la subred de la red virtual o ser una dirección VIP/IP pública.
-* **Back-end server pool settings** (Configuración del grupo de servidores back-end): cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
+* **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
 * **Front-end port** (Puerto front-end): este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
 * **Agente de escucha**: el agente de escucha tiene un puerto front-end, un protocolo (Http o Https; estos valores distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
 * **Regla:** la regla enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se va a dirigir el tráfico cuando llegue a un determinado agente de escucha. Actualmente, solo se admite la regla *básica* . La regla *básica* es la distribución de carga round robin.
@@ -109,7 +108,7 @@ Los valores son:
 
 Para la configuración de certificados SSL, el protocolo de **HttpListener** debería cambiar a **Https** (con distinción entre mayúsculas y minúsculas). Agregue el elemento **SslCert** a **HttpListener** con el valor establecido en el mismo nombre que utilizó en la sección [Carga de certificados SSL](#upload-ssl-certificates). El puerto front-end debe actualizarse a **443**.
 
-**Para habilitar la afinidad basada en cookies**: puede configurar una puerta de enlace de aplicaciones para asegurarse de que las solicitudes de una sesión de cliente siempre se dirigen a la misma máquina virtual de la granja de servidores web. Para conseguirlo, inserte una cookie de sesión que permita a la puerta de enlace dirigir el tráfico de forma adecuada. Para habilitar la afinidad basada en cookies, establezca **CookieBasedAffinity** en **Habilitado** en el elemento **BackendHttpSettings**.
+**Para habilitar la afinidad basada en cookies:** puede configurar una puerta de enlace de aplicaciones para asegurarse de que las solicitudes de una sesión de cliente siempre se dirigen a la misma máquina virtual de la granja de servidores web. Para conseguirlo, inserte una cookie de sesión que permita a la puerta de enlace dirigir el tráfico de forma adecuada. Para habilitar la afinidad basada en cookies, establezca **CookieBasedAffinity** en **Habilitado** en el elemento **BackendHttpSettings**.
 
 Puede llevar a cabo la configuración mediante la creación de un objeto de configuración o usando un archivo XML de configuración.
 Para establecer la configuración con un archivo XML, use el siguiente ejemplo:
@@ -211,4 +210,3 @@ Para más información sobre las de opciones de equilibrio de carga en general, 
 
 * [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

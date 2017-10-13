@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Servicios y tecnologías de seguridad de Azure
 En nuestras conversaciones con los clientes de Azure actuales y futuros, se nos pregunta a menudo si tenemos una lista de todos los servicios y tecnologías relacionados con la seguridad que ofrece Azure.
@@ -73,4 +72,3 @@ A continuación se proporciona nuestro esfuerzo inicial para proporcionar una li
 * [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md)
 * [Administrador de tráfico de Azure](../traffic-manager/traffic-manager-overview.md)
 * [Habilitación del proxy de la aplicación de Azure AD](../active-directory/active-directory-application-proxy-enable.md)
-

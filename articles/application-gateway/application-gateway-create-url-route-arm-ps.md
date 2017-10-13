@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
+ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: b1ed7d5693ff7e6730255462411d462694b730e1
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>Crear una puerta de enlace de aplicaciones mediante el enrutamiento basado en rutas de acceso
 
@@ -48,7 +47,7 @@ Las solicitudes de http://contoso.com/image* se enrutan al grupo de servidores d
 
 ## <a name="requirements-to-create-an-application-gateway"></a>Requisitos para crear una puerta de enlace de aplicaciones
 
-* **Grupo de servidores back-end:** lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la subred de la red virtual o deben ser una dirección IP o IP virtual pública.
+* **Back-end server pool** (Grupo de servidores back-end): lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la subred de la red virtual o deben ser una dirección IP o IP virtual pública.
 * **Configuración del grupo de servidores back-end:** Puerto, protocolo y afinidad basada en cookies. Están vinculados a un grupo y se aplican a todos los servidores del grupo.
 * **Puerto front-end:** Puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
 * **Agente de escucha**: Tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
@@ -221,9 +220,9 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 Configuración de rutas de acceso de reglas de URL para los grupos de back-end En este paso se configura la ruta de acceso relativa que usa Application Gateway y se define la asignación entre la ruta de dirección URL y el grupo de servidores back-end que se asigna para administrar el tráfico entrante.
 
 > [!IMPORTANT]
-> Cada ruta de acceso debe comenzar con una "/" y solo se permiten los asteriscos al final. Algunos ejemplos válidos son /xyz, /xyz* o /xyz/*. La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer "?" o "#", y esos caracteres no se permiten. 
+> Cada ruta de acceso debe comenzar con una "/" y solo se permiten los asteriscos al final. Algunos ejemplos válidos son /xyz, /xyz*, o /xyz/*. La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer "?" o "#", y esos caracteres no se permiten. 
 
-En el ejemplo siguiente se crean dos reglas: una para la ruta de acceso "/image/", que enruta el tráfico al grupo **pool1** de servidores back-end y otra para la ruta de acceso "/video/", que enruta el tráfico al grupo **pool2** de servidores back-end. Estas reglas garantizan que el tráfico de cada conjunto de direcciones URL se enrute al servidor back-end. Por ejemplo, http://contoso.com/image/figure1.jpg se dirige al grupo **pool1** y http://contoso.com/video/example.mp4 se dirige al grupo **pool2**.
+En el ejemplo siguiente se crean dos reglas: una para la ruta de acceso "/image/" que enruta el tráfico al grupo **pool1** de servidores back-end y otra para la ruta de acceso "/video/", que enruta el tráfico al grupo **pool2** de servidores back-end. Estas reglas garantizan que el tráfico de cada conjunto de direcciones URL se enrute al servidor back-end. Por ejemplo, http://contoso.com/image/figure1.jpg se dirige al grupo **pool1** y http://contoso.com/video/example.mp4 se dirige al grupo **pool2**.
 
 ```powershell
 $imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
@@ -296,5 +295,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si quiere obtener información sobre la descarga de la Capa de sockets seguros (SSL), vea [Configuración de una puerta de enlace de aplicaciones para la descarga de SSL mediante Azure Resource Manager](application-gateway-ssl-arm.md).
-
 

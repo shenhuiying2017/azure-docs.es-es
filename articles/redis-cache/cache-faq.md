@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: sdanie
 ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-redis-cache-faq"></a>P+F de Azure Redis Cache
 Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas para Azure Redis Cache.
@@ -34,7 +34,7 @@ Si su pregunta no aparece aquí, háganoslo saber y lo ayudaremos a encontrar un
 ## <a name="azure-redis-cache-basics"></a>Conceptos básicos de Azure Redis Cache
 Las preguntas más frecuentes de esta sección tratan algunos de los aspectos básicos de Azure Redis Cache.
 
-* [¿Qué es Azure Redis Cache?](#what-is-azure-redis-cache)
+* [¿Qué es Caché en Redis de Azure?](#what-is-azure-redis-cache)
 * [Introducción a Azure Redis Cache](#how-can-i-get-started-with-azure-redis-cache)
 
 Las siguientes preguntas y respuestas abordan los conceptos básicos y las cuestiones sobre Azure Redis Cache; en una de las otras secciones de preguntas más frecuentes encontrará las respuestas.
@@ -56,7 +56,7 @@ Las siguientes preguntas y respuestas abordan los conceptos básicos y las cuest
 * [¿Qué clientes de Caché en Redis puedo usar?](#what-redis-cache-clients-can-i-use)
 * [¿Hay un emulador local para Azure Redis Cache?](#is-there-a-local-emulator-for-azure-redis-cache)
 * [¿Cómo puedo ejecutar comandos de Redis?](#how-can-i-run-redis-commands)
-* [¿Por qué Azure Redis Cache no tiene una referencia de biblioteca de clases MSDN como otros servicios de Azure?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
+* [¿Por qué Caché en Redis de Azure no tiene una referencia de biblioteca de clases MSDN como otros servicios de Azure?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
 * [¿Puedo usar Azure Redis Cache como caché de la sesión PHP?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
 * [¿Cuáles son las bases de datos de Redis?](#what-are-redis-databases)
 

@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
-ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Búsqueda de imágenes de maquina virtual Linux en Azure Marketplace con la CLI de Azure
 En este tema se describe cómo usar la CLI de Azure 2.0 para buscar imágenes de VM en Azure Marketplace. Utilice esta información para especificar una imagen de Marketplace cuando cree una máquina virtual Linux.
@@ -259,4 +258,3 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 ```
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora puede elegir de forma precisa la imagen que desee usar tomando nota del valor URN. Pase este valor con el parámetro `--image` cuando cree una máquina virtual con el comando [az vm create](/cli/azure/vm#create). Recuerde que puede reemplazar de forma opcional el número de versión del URN por "latest". Esta versión es siempre la versión más actualizada de la distribución. Para crear una máquina virtual rápidamente con la información del URN, vea [Creación y administración de máquinas virtuales Linux con la CLI de Azure](tutorial-manage-vm.md).
-

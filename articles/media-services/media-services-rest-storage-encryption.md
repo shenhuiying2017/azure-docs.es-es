@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
+ms.openlocfilehash: 1979f5bf5e8cab88dab5fba49018afacf24504b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 17cf10fe1edd46d84806ac4fe09b757c75730356
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Cifrado del contenido con cifrado de almacenamiento
 
@@ -38,21 +37,21 @@ Este artículo proporciona información general del cifrado de almacenamiento de
 
 Si desea entregar un recurso de almacenamiento cifrado, debe configurar la directiva de entrega de recursos. Antes de poder transmitir el recurso, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada. Para obtener más información, consulte [Configuración de directivas de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
 
-Al obtener acceso a las entidades de Media Services, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md). 
+Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md). 
 
-## <a name="connect-to-media-services"></a>Conexión con Media Services
+## <a name="connect-to-media-services"></a>Conexión con Servicios multimedia
 
 Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Media Services. Debe realizar las llamadas posteriores al nuevo URI.
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
 
 ## <a name="storage-encryption-overview"></a>Información general del cifrado de almacenamiento
 El cifrado de almacenamiento de AMS aplica el cifrado de modo **AES-CTR** a todo el archivo.  El modo AES-CTR es un cifrado de bloques que puede cifrar los datos de longitud arbitraria sin necesidad de relleno. Funciona mediante el cifrado de un bloque de contador con el algoritmo de AES y, a continuación, aplicando XOR al resultado de AES con los datos para el cifrado o el descifrado.  El bloque de contador utilizado se crea copiando el valor de InitializationVector en bytes de 0 a 7 del valor de contador y los bytes de 8 y 15 del valor de contador se establecen en cero. Del bloque de contador de 16 bytes, los bytes de 8 a 15 (es decir, los bytes menos significativos) se utilizan como un entero sin firmar de 64 bits simple que se incrementa en uno por cada bloque siguiente de datos procesados y se mantiene en el orden de bytes de la red. Tenga en cuenta que si este entero alcanza el valor máximo (0xFFFFFFFFFFFFFFFF), incrementarlo restablece el contador de bloque a cero (bytes de 8 a 15) sin que afecte a los otros 64 bits del contador (es decir, bytes de 0 a 7).   Para mantener la seguridad del cifrado del modo AES-CTR, el valor de InitializationVector para un identificador de clave determinado para cada clave de contenido debe ser único para cada archivo y los archivos deben tener una longitud inferior a 2^64 bloques.  Esto es para asegurarse de que un valor de contador nunca se reutiliza con una clave determinada. Para obtener más información sobre el modo CTR, consulte [esta página de la wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (el artículo de la wiki utiliza el término "Nonce" en lugar de "InitializationVector").
 
 Utilice **cifrado de almacenamiento** para cifrar el contenido no cifrado de manera local mediante el cifrado AES de 256 bits y luego cargarlo al almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
 
-Para entregar a un recurso cifrado de almacenamiento, debe configurar la directiva de entrega del recurso para que Media Services sepa cómo desea entregar el contenido. Antes de poder transmitir el activo, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada (por ejemplo, AES, cifrado común o sin cifrado).
+Para entregar a un recurso cifrado de almacenamiento, debe configurar la directiva de entrega del recurso para que Servicios multimedia sepa cómo desea entregar el contenido. Antes de poder transmitir el activo, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada (por ejemplo, AES, cifrado común o sin cifrado).
 
 ## <a name="create-contentkeys-used-for-encryption"></a>Creación de ContentKeys para el cifrado
 Los recursos cifrados tienen que estar asociados con la clave de cifrado de almacenamiento. Debe crear la clave de contenido que se utilizará para el cifrado antes de crear los archivos de recursos. En esta sección se describe cómo crear una clave de contenido.
@@ -65,7 +64,7 @@ A continuación se muestran los pasos generales para generar claves de contenido
 2. Llame a los métodos [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) y [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obtener el certificado X.509 correcto que debe usarse para cifrar la clave de contenido.
 3. Cifre la clave de contenido con la clave pública del certificado X.509. 
    
-   El SDK de Media Services para .NET usa RSA con OAEP al realizar el cifrado.  Puede ver un ejemplo de .NET en la [función EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+   El SDK de Servicios multimedia para .NET SDK usa RSA con OAEP al realizar el cifrado.  Puede ver un ejemplo de .NET en la [función EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Cree un valor de suma de comprobación calculado con el identificador de clave y la clave de contenido. El siguiente ejemplo de .NET calcula la suma de comprobación con la parte del GUID del identificador de clave y la clave de contenido sin cifrar.
 
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
@@ -102,7 +101,7 @@ A continuación se muestran los pasos generales para generar claves de contenido
     ---|---
     Id | El identificador de ContentKey que generamos nosotros mismos utilizando el siguiente formato “nb:kid:UUID:<NEW GUID>”.
     ContentKeyType | Este es el tipo de clave de contenido en forma de entero para esta clave de contenido. Pasamos el valor 1 para el cifrado del almacenamiento.
-    EncryptedContentKey | Creamos un valor de clave de contenido que es un valor de 256 bits (32 bytes). La clave se cifra con el certificado X.509 de cifrado de almacenamiento que recuperamos de Microsoft Azure Media Services mediante la ejecución de una solicitud HTTP GET para los métodos de GetProtectionKeyId y GetProtectionKey. A modo de ejemplo, vea el siguiente código. NET: el método **EncryptSymmetricKeyData** definido [aquí](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    EncryptedContentKey | Creamos un valor de clave de contenido que es un valor de 256 bits (32 bytes). La clave se cifra con el certificado X.509 de cifrado de almacenamiento que recuperamos de Servicios multimedia de Microsoft Azure mediante la ejecución de una solicitud HTTP GET para los métodos de GetProtectionKeyId y GetProtectionKey. A modo de ejemplo, vea el siguiente código. NET: el método **EncryptSymmetricKeyData** definido [aquí](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Es el identificador de la clave de protección para el certificado X.509 de cifrado de almacenamiento que se usó para cifrar la clave de contenido.
     ProtectionKeyType | Es el tipo de cifrado para la clave de protección que se usó para cifrar la clave de contenido. Este valor es StorageEncryption(1) en nuestro ejemplo.
     Checksum |Suma de comprobación calculada de MD5 para la clave de contenido. Se calcula mediante el cifrado del identificador de contenido con la clave de contenido. El código de ejemplo muestra cómo calcular la suma de comprobación.
@@ -296,7 +295,7 @@ Respuesta:
     HTTP/1.1 204 No Content 
 
 ## <a name="create-an-assetfile"></a>Creación de AssetFile
-La entidad [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa un archivo de audio o vídeo que se almacena en un contenedor de blobs. Un archivo de recursos siempre está asociado a un recurso y un recurso puede contener uno o varios archivos de recursos. La tarea de Media Services produce un error si un objeto de archivo de recursos no está asociado a un archivo digital de un contenedor de blobs.
+La entidad [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa un archivo de audio o vídeo que se almacena en un contenedor de blobs. Un archivo de recursos siempre está asociado a un recurso y un recurso puede contener uno o varios archivos de recursos. La tarea de Servicios multimedia produce un error si un objeto de archivo de recursos no está asociado a un archivo digital de un contenedor de blobs.
 
 Tenga en cuenta que la instancia de **AssetFile** y el archivo multimedia real son dos objetos distintos. La instancia de AssetFile contiene metadatos sobre el archivo multimedia, mientras que el archivo multimedia contiene el contenido multimedia real.
 
@@ -361,4 +360,3 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
        "MimeType":"video/mp4",
        "ContentChecksum":null
     }
-

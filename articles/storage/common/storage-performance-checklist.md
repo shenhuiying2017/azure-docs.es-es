@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
+ms.openlocfilehash: 6f5a136d1be7a4bb4093baad820271770305b718
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d2683bf9a2833485467bf2b4edff527876102f7d
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage
 ## <a name="overview"></a>Información general
@@ -247,7 +246,7 @@ Para obtener más información, consulte [Copia de blobs](http://msdn.microsoft.
 #### <a name="subheading18"></a>Uso de AzCopy
 El equipo de Azure Storage ha lanzado "AzCopy", una herramienta de línea de comandos diseñada para facilitar la transferencia masiva de muchos blobs a, desde y entre cuentas de almacenamiento.  Esta herramienta está optimizada para este escenario y puede lograr altas tasas de transferencia.  Su uso es muy recomendable para escenarios de carga, descarga y copia en masa. Para obtener más información, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).  
 
-#### <a name="subheading19"></a>Servicio Azure Import/Export
+#### <a name="subheading19"></a>Servicio de importación y exportación de Azure
 Para volúmenes muy grandes de datos (más de 1 TB), Azure Storage ofrece el servicio Import/Export, que permite realizar operaciones de carga y descarga desde Blob Storage enviando unidades de disco duro.  Puede poner sus datos en una unidad de disco duro y enviarla a Microsoft para cargarlos o enviar una unidad de disco duro vacía a Microsoft para descargar datos.  Para más información, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../storage-import-export-service.md).  Esto puede ser mucho más eficiente que cargar y descargar este volumen de datos a través de la red.  
 
 ### <a name="subheading20"></a>Uso de metadatos

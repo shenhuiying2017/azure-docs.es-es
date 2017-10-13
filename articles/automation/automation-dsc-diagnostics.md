@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: eslesar
 ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Reenvío de datos de informes de DSC de Azure Automation a Log Analytics de OMS
 
@@ -32,8 +32,7 @@ El estado de cumplimiento se puede ver en Azure Portal, o con PowerShell, tanto 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para empezar a enviar los registros de 
-DSC de Automation a Log Analytics, necesita:
+Para empezar a enviar los registros de DSC de Automation a Log Analytics, necesita:
 
 * La versión de noviembre de 2016, o una posterior, de [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 * Una cuenta de Automatización de Azure Para más información, consulte [Introducción a Azure Automation](automation-offering-get-started.md)

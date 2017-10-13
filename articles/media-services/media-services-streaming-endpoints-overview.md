@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: cbdc964b16cbc6cf291dbc4b6f60b20d67d9fc41
-ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="streaming-endpoints-overview"></a>Información general de los puntos de conexión de streaming 
 
@@ -112,5 +111,4 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

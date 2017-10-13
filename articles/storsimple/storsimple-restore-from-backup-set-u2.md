@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/22/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 99b76e3bc2939c65654cbf606fda6f8a45e0c44b
-ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set-update-2"></a>Restaurar un volumen de StorSimple de un conjunto de copia de seguridad (Update 2)
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
@@ -108,7 +107,7 @@ Puede usar la página **Catálogo de Backup** para restaurar el volumen StorSimp
 7. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png). Se inicia un trabajo de restauración. Puede verlo accediendo a la página **Trabajos**. 
 8. Una vez completada la restauración, puede comprobar que los volúmenes de la copia de seguridad sustituyeron el contenido de los volúmenes.
 
-![Vídeo disponible](./media/storsimple-restore-from-backup-set-u2/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-restore-from-backup-set-u2/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo en que se muestra cómo usar las características de clonación y restauración en StorSimple para recuperar archivos eliminados, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
@@ -120,5 +119,4 @@ Para completar correctamente la operación de restauración, desconecte el volum
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [Administrar volúmenes de StorSimple](storsimple-manage-volumes-u2.md).
 * Obtenga información sobre cómo [usar el servicio del administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

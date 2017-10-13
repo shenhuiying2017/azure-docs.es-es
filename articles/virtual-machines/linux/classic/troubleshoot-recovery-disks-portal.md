@@ -13,14 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/21/2017
 ms.author: genli
+ms.openlocfilehash: 15f55995177f743b58c1ab8fd5c628b9001da7fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 03be07e91baeb209c4528eea54145762e897590e
-ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-a-linux-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>Solución de problemas de una máquina virtual clásica Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación
 
 [!INCLUDE [virtual-machines-classic-recovery-disks-portal](../../../../includes/virtual-machines-classic-recovery-disks-portal.md)]
@@ -29,4 +27,3 @@ ms.lasthandoff: 07/25/2017
 Si tiene problemas para conectar con la máquina virtual, vea [Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure que producen error o se rechazan](../troubleshoot-ssh-connection.md). 
 
 En caso de problemas para acceder a aplicaciones en ejecución en la máquina virtual, vea [Solución de problemas de conectividad de aplicaciones en una máquina virtual de Linux en Azure](../troubleshoot-app-connection.md).
-

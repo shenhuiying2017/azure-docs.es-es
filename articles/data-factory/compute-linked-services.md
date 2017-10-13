@@ -12,12 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 07d702e34e1574161a64af9a4724a66879a0ba05
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 En este artículo se explican distintos entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles acerca de las distintas configuraciones (a petición frente traiga su propia) admitidas por la Factoría de datos al configurar servicios vinculados que vinculan estos entornos de procesos a una Factoría de datos de Azure.
@@ -113,7 +112,7 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 | additionalLinkedServiceNames | Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight, de forma que el servicio Factoría de datos pueda registrarlas en su nombre. Estas cuentas de almacenamiento deben estar en la misma región que el clúster de HDInsight, que se crea en la misma región que la cuenta de almacenamiento especificada por linkedServiceName. | No       |
 | osType                       | Tipo de sistema operativo. Los valores permitidos son: Linux y Windows (solo para HDInsight 3.3). El valor predeterminado es Linux. | No       |
 | hcatalogLinkedServiceName    | Nombre del servicio vinculado de SQL de Azure que apunta a la base de datos de HCatalog. El clúster de HDInsight a petición se creará usando la base de datos SQL de Azure como metaalmacén. | No       |
-| connectVia                   | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado de HDInsight. Para el servicio vinculado de HDInsight a petición, solo admite Azure Integration Runtime. Si no se especifica, se usará el entorno Azure Integration Runtime predeterminado. | No       |
+| connectVia                   | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado de HDInsight. Para el servicio vinculado de HDInsight a petición, solo admite Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. | No       |
 
 > [!IMPORTANT]
 > HDInsight es compatible con varias versiones de clústeres de Hadoop que se pueden implementar. Cada versión crea una versión específica de la distribución HortonWorks Data Platform (HDP) y un conjunto de componentes que están incluidos en esa distribución. La lista de versiones admitidas de HDInsight se sigue actualizando para proporcionar las correcciones y componentes de ecosistema más recientes de Hadoop. Asegúrese de que siempre hace referencia a la información más reciente de [Versiones compatibles de HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) para asegurarse de que usa una versión compatible de HDInsight. 
@@ -295,7 +294,7 @@ Puede crear un servicio vinculado de HDInsight de Azure para registrar su propio
 | nombre de usuario          | Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. | Sí      |
 | contraseña          | Especifique la contraseña para la cuenta de usuario.   | Sí      |
 | linkedServiceName | Nombre del servicio vinculado para Azure Storage que hace referencia al almacenamiento Azure Blob Storage que usa el clúster de HDInsight. <p>Actualmente, no se puede especificar un servicio vinculado de Azure Data Lake Store para esta propiedad. Puede acceder a los datos de Azure Data Lake Store desde scripts de Hive o Pig si el clúster de HDInsight tiene acceso a Data Lake Store. </p> | Sí      |
-| connectVia        | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará el entorno Azure Integration Runtime predeterminado. | No       |
+| connectVia        | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. | No       |
 
 > [!IMPORTANT]
 > HDInsight es compatible con varias versiones de clústeres de Hadoop que se pueden implementar. Cada versión crea una versión específica de la distribución HortonWorks Data Platform (HDP) y un conjunto de componentes que están incluidos en esa distribución. La lista de versiones admitidas de HDInsight se sigue actualizando para proporcionar las correcciones y componentes de ecosistema más recientes de Hadoop. Asegúrese de que siempre hace referencia a la información más reciente de [Versiones compatibles de HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) para asegurarse de que usa una versión compatible de HDInsight. 
@@ -349,7 +348,7 @@ Consulte los temas siguientes si no está familiarizado con el servicio Lote de 
 | batchUri          | Dirección URL a la cuenta de Azure Batch, con el formato https://*nombrecuentabatch.región*.batch.azure.com. | Sí      |
 | poolName          | Nombre del grupo de máquinas virtuales.    | Sí      |
 | linkedServiceName | Nombre del servicio vinculado de Almacenamiento de Azure asociado a este servicio vinculado de Lote de Azure. Este servicio vinculado se usa para los archivos de almacenamiento provisional necesarios para ejecutar la actividad. | Sí      |
-| connectVia        | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará el entorno Azure Integration Runtime predeterminado. | No       |
+| connectVia        | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. | No       |
 
 ## <a name="azure-machine-learning-linked-service"></a>Servicio vinculado de Azure Machine Learning
 Un servicio vinculado de aprendizaje automático de Azure se crea para registrar un punto de conexión de puntuación por lotes de aprendizaje automático en una factoría de datos.
@@ -386,7 +385,7 @@ Un servicio vinculado de aprendizaje automático de Azure se crea para registrar
 | servicePrincipalId     | Especifique el id. de cliente de la aplicación.     | Obligatorio si se especifica updateResourceEndpoint |
 | servicePrincipalKey    | Especifique la clave de la aplicación.           | Obligatorio si se especifica updateResourceEndpoint |
 | tenant                 | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Obligatorio si se especifica updateResourceEndpoint |
-| connectVia             | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará el entorno Azure Integration Runtime predeterminado. | No                                       |
+| connectVia             | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. | No                                       |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Servicio vinculado de Azure Data Lake Analytics
 Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un servicio de proceso de Azure Data Lake Analytics a una instancia de Azure Data Factory. La actividad de U-SQL de Data Lake Analytics de la canalización hace referencia a este servicio vinculado. 
@@ -430,7 +429,7 @@ Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un ser
 | servicePrincipalId   | Especifique el id. de cliente de la aplicación.     | Sí                                      |
 | servicePrincipalKey  | Especifique la clave de la aplicación.           | Sí                                      |
 | tenant               | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí                                      |
-| connectVia           | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará el entorno Azure Integration Runtime predeterminado. | No                                       |
+| connectVia           | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. | No                                       |
 
 
 

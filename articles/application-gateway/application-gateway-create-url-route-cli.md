@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: 10d01d5d80e2d111d6b39598eed3612f80162b23
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: c617006bcb122cd3191f5da3ff08191e3c55b04b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing-with-azure-cli-20"></a>Creación de una puerta de enlace de aplicaciones con enrutamiento basado en rutas de acceso con la CLI de Azure 2.0
 
@@ -100,7 +99,7 @@ En este paso, se configura la ruta de acceso de dirección URL relativa que usa 
 > [!IMPORTANT]
 > Cada una de las rutas debe comenzar por "/" y el único lugar donde se permite un asterisco es al final. Algunos ejemplos válidos son /xyz, /xyz* o /xyz/*. La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer "?" o "#", y esos caracteres no se permiten. 
 
-En el siguiente ejemplo se crea una regla para la ruta de acceso /images/*, que enruta el tráfico al back-end **imagesBackendPool**. Esta regla garantiza que el tráfico se enruta al back-end para cada conjunto de direcciones URL. Por ejemplo, http://adatum.com/images/figure1.jpg va a **imagesBackendPool**. Si la ruta de acceso no coincide con ninguna de las reglas de ruta de acceso predefinidas, la configuración de asignación de ruta de acceso de regla también configura un grupo de direcciones de back-end predeterminado. Por ejemplo, http://adatum.com/shoppingcart/test.html irá a **pool1**, ya que es el grupo predeterminado del tráfico no coincidente.
+En el siguiente ejemplo se crea una regla para la ruta de acceso /images/* que enruta el tráfico al back-end **imagesBackendPool**. Esta regla garantiza que el tráfico se enruta al back-end para cada conjunto de direcciones URL. Por ejemplo, http://adatum.com/images/figure1.jpg va a **imagesBackendPool**. Si la ruta de acceso no coincide con ninguna de las reglas de ruta de acceso predefinidas, la configuración de asignación de ruta de acceso de regla también configura un grupo de direcciones de back-end predeterminado. Por ejemplo, http://adatum.com/shoppingcart/test.html irá a **pool1** ya que es el grupo predeterminado del tráfico no coincidente.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -124,4 +123,3 @@ Si quiere obtener información sobre la descarga de Capa de sockets seguros (SSL
 [1]: ./media/application-gateway-create-url-route-cli/figure1.png
 [2]: ./media/application-gateway-create-url-route-cli/figure2.png
 [3]: ./media/application-gateway-create-url-route-cli/figure3.png
-

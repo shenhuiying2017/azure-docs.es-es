@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 3fe57e9c22d04a3557978093ce3fe86613c5c1d6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>¿Qué es el aprovisionamiento automático de usuarios para aplicaciones SaaS?
@@ -99,7 +98,7 @@ En la pantalla de administración de aplicaciones, el aprovisionamiento se confi
 
 * **Filter on attribute values** (Filtrar por valores de atributo): el menú "Ámbito de objeto de origen" en las asignaciones de atributos permite el filtrado según valores de atributo determinados. Por ejemplo, puede especificar que solo los usuarios con el atributo "Department" (Departamento) de "Sales" (Ventas) deben estar en el ámbito del aprovisionamiento.
 
-* **Filter on assignments** (Filtrar por asignaciones): el menú "Ámbito" en la sección Aprovisionamiento > Configuración del portal le permite especificar si solo los usuarios y los grupos "asignados" deben estar en el ámbito de aprovisionamiento o si se deben aprovisionar todos los usuarios del directorio de Azure AD. Para obtener más información sobre la "asignación" de usuarios y grupos, consulte [Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
+* **Filter on assignments** (Filtrar por asignaciones): el menú "Ámbito" en la sección Aprovisionamiento &gt; Configuración del portal le permite especificar si solo los usuarios y los grupos "asignados" deben estar en el ámbito de aprovisionamiento o si se deben aprovisionar todos los usuarios del directorio de Azure AD. Para obtener más información sobre la "asignación" de usuarios y grupos, consulte [Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md).
     
 * La **configuración** controla el funcionamiento del servicio de aprovisionamiento de una aplicación, tanto si se está ejecutando como si no.
 
@@ -162,5 +161,4 @@ Póngase en contacto con nosotros a través del [foro de comentarios de Azure Ac
 * [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](active-directory-scim-provisioning.md)
 * [Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
-
 

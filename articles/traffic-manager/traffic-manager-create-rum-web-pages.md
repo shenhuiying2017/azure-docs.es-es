@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ce5d333ad5d339b64d1fc1d081651052f71a8b67
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Envío de medidas de usuarios reales a Azure Traffic Manager mediante páginas web
 
 >[!NOTE]
@@ -76,5 +74,4 @@ Después de haber obtenido la clave RUM, el siguiente paso es insertar este cód
 - Aprenda [cómo funciona el Administrador de tráfico](traffic-manager-overview.md)
 - Aprenda más sobre los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md) que admite el Administrador de tráfico.
 - Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-create-profile.md)
-
 

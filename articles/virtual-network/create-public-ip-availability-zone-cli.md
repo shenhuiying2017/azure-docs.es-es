@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: ef93d43bbd0c58950027810c8c335d9076574326
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-cli"></a>Creación de una dirección IP pública en una zona de disponibilidad con la CLI de Azure
 
 Puede implementar una dirección IP pública en una zona de disponibilidad de Azure (versión preliminar). Una zona de disponibilidad es una zona separada físicamente en una región de Azure. Obtenga información sobre cómo:
@@ -36,7 +34,7 @@ Puede implementar una dirección IP pública en una zona de disponibilidad de Az
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute una versión de la CLI de Azure posterior a la versión 2.0.17. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
-> Las zonas de disponibilidad están en versión preliminar y están listas para escenarios de desarrollo y pruebas. El soporte técnico está disponible para determinados recursos y regiones de Azure, así como determinadas familias de tamaños de VM. Para más información sobre los primeros pasos y qué recursos, regiones y familias de tamaños de VM de Azure puede probar con las zonas de disponibilidad, vea [Azure Load Balancer Standard overview (Preview)](https://docs.microsoft.com/azure/availability-zones/az-overview) [Introducción a Azure Load Balancer estándar (versión preliminar)]. Para soporte técnico, eche un vistazo a [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) o [Creación de una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md).
+> Las zonas de disponibilidad están en versión preliminar y están listas para escenarios de desarrollo y pruebas. El soporte técnico está disponible para recursos y regiones de Azure, y familias de tamaños de máquina virtual seleccionados. Para más información sobre cómo empezar a trabajar y qué recursos, regiones y familias de tamaños de máquina virtual de Azure puede probar con las zonas de disponibilidad, consulte la [introducción a las zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview). Para soporte técnico, eche un vistazo a [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) o [Creación de una solicitud de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md).
 
 ## <a name="create-a-zonal-public-ip-address"></a>Crear una dirección IP pública zonal
 
@@ -61,4 +59,3 @@ az network public-ip show --resource-group myResourceGroup --name myPublicIp
 
 - Más información sobre [zonas de disponibilidad](https://docs.microsoft.com/azure/availability-zones/az-overview)
 - Más información sobre [direcciones IP públicas](../virtual-network/virtual-network-public-ip-address.md) 
-

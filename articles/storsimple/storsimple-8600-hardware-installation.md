@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/24/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-ms.contentlocale: es-es
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600.
 ## <a name="overview"></a>Información general
@@ -31,7 +30,7 @@ En los pasos siguientes se proporcionan instrucciones claras y detalladas sobre 
 ### <a name="prepare-to-unpack-your-device"></a>Preparación para desempaquetar el dispositivo
 Antes de desempaquetar el dispositivo, revise la información siguiente.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **¡ADVERTENCIA!**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)**¡ADVERTENCIA!**
 
 1. Asegúrese de que haya dos personas disponibles para administrar el peso del dispositivo si lo está manejando de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
 2. Coloque la caja en una superficie plana y nivelada.
@@ -89,7 +88,7 @@ Los receptáculos deben instalarse en un bastidor estándar de 19 pulgadas con p
 2. Compruebe que la ubicación en la que desea efectuar la instalación dispone de alimentación de CA estándar de una fuente independiente o una unidad de distribución de energía (PDU) en bastidor con una fuente de alimentación ininterrumpida (UPS).
 3. Asegúrese de que haya disponible una ranura 4U (2 X 2U) en el bastidor en el que desea montar los receptáculos.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **¡ADVERTENCIA!**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)**¡ADVERTENCIA!**
 
  Asegúrese de que haya dos personas disponibles para administrar el peso del dispositivo si está instalando el dispositivo de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
 
@@ -204,8 +203,8 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
    
    | Etiqueta | Description |
    | --- | --- |
-   |   0,1,4,5 |Interfaces de red de&1; GbE |
-   |   2,3 |Interfaces de red de&10; GbE |
+   |   0,1,4,5 |Interfaces de red de 1 GbE |
+   |   2,3 |Interfaces de red de 10 GbE |
    |   6 |Puertos serie |
 2. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. Para obtener un alto rendimiento y disponibilidad, la configuración adicional requerida se muestra mediante líneas de puntos).
 
@@ -234,7 +233,7 @@ Cuando se realiza el cableado del dispositivo, la configuración mínima requier
 
 Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
 
-* Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan&10; GbE) en cada controlador.
+* Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador.
 * Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. En la ilustración se muestran las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos. Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
@@ -253,8 +252,8 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 5. Configure la conexión serie del modo indicado a continuación:
    
    * 115.200 baudios
-   * Bits de datos:&8;
-   * Bit de parada:&1;
+   * Bits de datos: 8
+   * Bit de parada: 1
    * Sin paridad
    * Control de flujo establecido en **Ninguno**
 6. Presione INTRO en la consola para comprobar que la conexión funciona. Debería aparecer un menú de consola serie.
@@ -268,5 +267,4 @@ Ha completado el cableado de alimentación, acceso a la red y conexión en serie
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
-
 

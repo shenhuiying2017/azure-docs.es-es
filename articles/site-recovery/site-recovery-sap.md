@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: manayar
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 951980eeba61e53c983d5b23c301c81eee9528bd
-ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Protección de la implementación de una aplicación SAP NetWeaver de niveles múltiples mediante Azure Site Recovery
 
@@ -119,4 +118,3 @@ Siga [estas directrices](site-recovery-failover.md) cuando realice una conmutaci
 Más información acerca de cómo crear una solución de recuperación ante desastres para las implementaciones SAP NetWeaver con Azure Site Recovery en [estas notas del producto](http://aka.ms/asr-sap). Las notas del producto también incluyen recomendaciones para distintas arquitecturas SAP, listas de aplicaciones admitidas y los tipos de máquina virtual para SAP en Azure, y describen los posibles planes de pruebas para la solución de recuperación ante desastres.
 
 Obtenga más información sobre la [replicación de otras cargas de trabajo](site-recovery-workload.md) con Site Recovery.
-

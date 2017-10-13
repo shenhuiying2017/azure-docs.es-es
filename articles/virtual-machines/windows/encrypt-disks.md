@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/10/2017
 ms.author: iainfou
 ms.openlocfilehash: 98b42b252a601af090579e3939f3c7ab91c3803b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Cómo cifrar discos virtuales en una máquina virtual de Windows
 Para mejorar la seguridad y el cumplimiento de las máquinas virtuales, se pueden cifrar los discos virtuales en Azure. Los discos se cifran mediante claves criptográficas que están protegidas en Azure Key Vault. Estas claves criptográficas se pueden controlar y se puede auditar su uso. En este artículo se detalla cómo cifrar los discos virtuales en una máquina virtual de Windows con Azure PowerShell. También se puede [cifrar una máquina virtual de Linux mediante la CLI 2.0 de Azure](../linux/encrypt-disks.md).

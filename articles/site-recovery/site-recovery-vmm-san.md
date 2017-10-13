@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 29084a52aca22b31a2fa42660ec2cdf050aec7ca
-ms.contentlocale: es-es
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 3df38802fcdc86e4553253d38c49faff455f873e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-vms-in-vmm-clouds-to-a-secondary-site-with-azure-site-recovery-by-using-san"></a>Replicación de máquinas virtuales de Hyper-V (en nubes VMM) en un sitio secundario con Azure Site Recovery mediante SAN
 
@@ -350,4 +348,3 @@ Pruebe la implementación para asegurarse de que la conmutación por error de la
 ## <a name="next-steps"></a>Pasos siguientes
 
 Cuando haya ejecutado una conmutación por error de prueba para comprobar que su entorno funciona según lo esperado, consulte [Conmutación por error en Site Recovery](site-recovery-failover.md) para conocer los diferentes tipos de conmutaciones por error.
-

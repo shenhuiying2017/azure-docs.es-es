@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: e97f22340f869ef31d7b4c7b9857bf0d1d5400c5
-ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
-
+ms.openlocfilehash: bda16be1094276fcecef1e708f9d7db307d94a89
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-azure-iot-edge-gateway-to-the-remote-monitoring-preconfigured-solution-and-send-telemetry-from-a-sensortag"></a>Conectar la puerta de enlace de Azure IoT Edge a la solución preconfigurada de supervisión remota y enviar telemetría desde un dispositivo SensorTag
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
 ms.openlocfilehash: b65a33989a045a3e0b57fda522a9bc3b0770c7f3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Tutorial: integración de Azure Active Directory con Gigya
 
@@ -143,8 +143,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     b. En el cuadro de texto **Emisor**, pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal. 
    
-    c. En el cuadro de texto **Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único), pegue el valor de 
-**Dirección URL del servicio de inicio de sesión único** que ha copiado de Azure Portal.
+    c. En el cuadro de texto **Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único), pegue el valor de **Dirección URL del servicio de inicio de sesión único** que ha copiado de Azure Portal.
    
     d. En el cuadro de texto **Name ID Format** (Formato de id. de nombre), pegue el valor de **Formato de identificador de nombre** que haya copiado de Azure Portal.
    

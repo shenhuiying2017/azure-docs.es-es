@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f7a924b576690f5b76418a3de6221ef6c39c39f0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Mover datos hacia y desde Azure Blob Storage de Azure con AzCopy
 AzCopy es una utilidad de línea de comandos diseñada para realizar operaciones de carga, descarga y copia de datos a y desde los servicios Table Storage, File Storage y Blob Storage de Microsoft Azure.
@@ -89,5 +88,4 @@ Para transferir blobs de un contenedor de Azure a otro, use el siguiente comando
 > 3. No se puede especificar un **archivo de blob específico** para descargar mediante el parámetro */Source* . Para descargar un archivo específico, especifique el nombre del archivo blob que se va a descargar mediante el parámetro */Pattern* . **/S** se puede usar para que AzCopy busque de forma recursiva un patrón de nombre de archivo. Sin el parámetro de patrón, AzCopy descargará todos los archivos en ese directorio.
 > 
 > 
-
 

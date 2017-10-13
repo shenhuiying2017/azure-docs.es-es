@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c772fa16b94d09e0fc0450ce86503553c26f8a24
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="machine-learning-and-data-science-tools"></a>Herramientas de aprendizaje automático y ciencia de datos
 Data Science Virtual Machine (DSVM) tiene un amplio conjunto de herramientas y bibliotecas para el aprendizaje automático, disponibles en lenguajes conocidos como Python, R o Julia. 
 
@@ -77,7 +75,7 @@ A continuación se muestran algunas de las herramientas de aprendizaje automáti
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | Un marco de gradient boosting (GBDT, GBRT, GBM o MART) rápido, distribuido y de alto rendimiento que se basa en algoritmos de árboles de decisión, que se usa para la clasificación y muchas otras tareas relacionadas con el aprendizaje automático.    |
-| Versiones compatibles de DSVM      | Windows, Linux    |
+| Versiones de DSVM compatibles      | Windows, Linux    |
 | Usos típicos      | Marco de gradient boosting de uso general      |
 | ¿Cómo se configura/instala en DSVM?      | En Windows, LightGBM se instala en forma de paquete de Python. En Linux, el archivo ejecutable de la línea de comandos se encuentra en `/opt/LightGBM/lightgbm`; luego se instala el paquete de R y los paquetes de Python.     |
 | Vínculos a ejemplos      | [Guía de LightGBM](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
@@ -87,7 +85,7 @@ A continuación se muestran algunas de las herramientas de aprendizaje automáti
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | Plataforma de AI de código abierto que admite el aprendizaje automático en memoria, distribuido, rápido y escalable  |
-| Versiones compatibles de DSVM      | Linux   |
+| Versiones de DSVM compatibles      | Linux   |
 | Usos típicos      | ML escalable, distribuido y de uso general   |
 | ¿Cómo se configura/instala en DSVM?      | H2O se instala en `/dsvm/tools/h2o`.      |
 | ¿Cómo se usa/ejecuta?      | Conéctese a la máquina virtual con X2Go. Inicie un nuevo terminal y ejecute `java -jar /dsvm/tools/h2o/current/h2o.jar`. Luego, inicie un explorador web y conéctese a `http://localhost:54321`.      |
@@ -95,4 +93,3 @@ A continuación se muestran algunas de las herramientas de aprendizaje automáti
 | Herramientas relacionadas en DSVM      | Apache Spark, MXNet, XGBoost, Sparkling Water y Deep Water    |
 
 Hay muchas más bibliotecas de ML en DSVM, como el famoso paquete `scikit-learn`, incluido en la distribución de Anaconda Python que se instala en DSVM. Asegúrese de revisar la lista de paquetes disponibles en Python, R y Julia ejecutando los administradores de paquetes correspondientes. 
-

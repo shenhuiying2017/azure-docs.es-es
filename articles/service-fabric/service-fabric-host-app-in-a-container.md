@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 021c695a91ff46274b2a5174918711d04bcff239
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Implementación de una aplicación .NET de un contenedor de Windows en Azure Service Fabric
 
 En este tutorial se muestra cómo implementar una aplicación ASP.NET existente en un contenedor de Windows en Azure.
@@ -253,4 +251,3 @@ Advance to the next tutorial to learn how to bind a custom SSL certificate to it
 [image-source-control]: media/service-fabric-host-app-in-a-container/add-to-source-control.png
 [image-publish-repo]: media/service-fabric-host-app-in-a-container/publish-repo.png
 [image-setup-ci]: media/service-fabric-host-app-in-a-container/configure-continuous-integration.png
-

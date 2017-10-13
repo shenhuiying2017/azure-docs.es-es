@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 2d77e95a4e99679686839959bf6330f1e29f870b
-ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 64dec0bb789fe6e07975b1d403b6a37b5c2c2ed8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure brinda a GEP alcance global y mayor eficacia
 ![Logotipo de GEP](./media/sql-database-implementation-gep/geplogo.png)
@@ -105,5 +103,4 @@ Desde que GEP migró los centros de datos locales a Azure y desarrolló SMART by
 * Huzaifa Matawala, director asociado y arquitecto de GEP
 * Sathyan Narasingh, administrador de ingeniería de GEP
 * Deepa Velukutty, arquitecto de bases de datos de GEP
-
 

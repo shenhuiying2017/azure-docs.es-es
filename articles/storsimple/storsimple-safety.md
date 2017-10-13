@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
 ms.openlocfilehash: a178e8880bcbcada9d66eaacf5ccbdb7c55957cb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar y operar el dispositivo StorSimple de forma segura
 ![Icono Advertencia](./media/storsimple-safety/IC740879.png)
-![Icono Leer el aviso de seguridad](./media/storsimple-safety/IC740885.png) **LEER LA INFORMACIÓN DE SEGURIDAD Y SALUD**
+![Icono Leer el aviso de seguridad](./media/storsimple-safety/IC740885.png)**LEER LA INFORMACIÓN DE SEGURIDAD Y SALUD**
 
 Lea toda la información de seguridad y salud de esta guía que sea aplicable a su dispositivo de Microsoft Azure StorSimple Conserve todas las guías impresas entregadas con su dispositivo de StorSimple para futuras referencias. Si no se siguen las instrucciones y se configura, usa y cuida adecuadamente este producto, puede aumentar el riesgo de lesiones graves o muerte, o bien de daños en el dispositivo o dispositivos. También hay disponible una [versión descargable de esta guía](http://www.microsoft.com/download/details.aspx?id=44233).
 
@@ -31,18 +31,18 @@ Estos son los iconos que encontrará cuando revise las precauciones de seguridad
 
 | Icono | Description |
 |:--- |:--- |
-| ![Icono Peligro](./media/storsimple-safety/IC740879.png) **PELIGRO** |Indica una situación peligrosa que, si no se evita, causará la muerte o lesiones graves. Esta palabra de aviso se debe limitar a las situaciones más extremas. |
-| ![Icono Advertencia](./media/storsimple-safety/IC740879.png) **ADVERTENCIA** |Indica una situación peligrosa que, si no se evita, podría causar la muerte o lesiones graves. |
-| ![Icono Advertencia](./media/storsimple-safety/IC740879.png) **PRECAUCIÓN** |Indica una situación peligrosa que, si no se evita, podría causar lesiones leves o graves. |
-| ![Icono Aviso](./media/storsimple-safety/IC740881.png) **AVISO:** |Indica información considerada importante, pero no relacionada con la peligrosidad. |
-| ![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png) **Peligro de descarga eléctrica** |Alta tensión |
-| ![Icono Peso pesado](./media/storsimple-safety/IC740883.png) **Peso pesado** | |
-| ![Icono No contiene piezas reparables por el usuario](./media/storsimple-safety/IC740879.png) **No contiene piezas reparables por el usuario** |No acceder sin la formación adecuada. |
+| ![Icono Peligro](./media/storsimple-safety/IC740879.png)**PELIGRO** |Indica una situación peligrosa que, si no se evita, causará la muerte o lesiones graves. Esta palabra de aviso se debe limitar a las situaciones más extremas. |
+| ![Icono Advertencia](./media/storsimple-safety/IC740879.png)**ADVERTENCIA** |Indica una situación peligrosa que, si no se evita, podría causar la muerte o lesiones graves. |
+| ![Icono Advertencia](./media/storsimple-safety/IC740879.png)**PRECAUCIÓN** |Indica una situación peligrosa que, si no se evita, podría causar lesiones leves o graves. |
+| ![Icono Aviso](./media/storsimple-safety/IC740881.png)**AVISO:** |Indica información considerada importante, pero no relacionada con la peligrosidad. |
+| ![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png)**Peligro de descarga eléctrica** |Alta tensión |
+| ![Icono Peso pesado](./media/storsimple-safety/IC740883.png)**Peso pesado** | |
+| ![Icono No contiene piezas reparables por el usuario](./media/storsimple-safety/IC740879.png)**No contiene piezas reparables por el usuario** |No acceder sin la formación adecuada. |
 | ![Icono Leer el aviso de seguridad](./media/storsimple-safety/IC740885.png)**Lea todas las instrucciones primero** | |
-| ![Icono Sugerencia peligrosa](./media/storsimple-safety/IC740886.png) **Sugerencia peligrosa** | |
+| ![Icono Sugerencia peligrosa](./media/storsimple-safety/IC740886.png)**Sugerencia peligrosa** | |
 
 ## <a name="handling-precautions"></a>Precauciones en la manipulación
-![Icono Advertencia](./media/storsimple-safety/IC740879.png) ![Icono Peso pesado](./media/storsimple-safety/IC740883.png) **ADVERTENCIA** 
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Peso pesado](./media/storsimple-safety/IC740883.png)**ADVERTENCIA** 
 
 Para reducir el riesgo de lesiones:
 
@@ -51,7 +51,7 @@ Para reducir el riesgo de lesiones:
 * No levante el alojamiento por las asas de los módulos de alimentación y refrigeración (PCM) ubicadas en la parte posterior de la unidad. No están diseñadas para soportar el peso.
 
 ## <a name="connection-precautions"></a>Precauciones en la conexión
-![Icono Advertencia](./media/storsimple-safety/IC740879.png) ![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png) **ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png)**ADVERTENCIA**
 
 Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 
@@ -61,7 +61,7 @@ Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 * Asegúrese siempre de que la conexión de alimentación está desconectada antes de extraer un PCM del alojamiento.
 * Dado que el enchufe del cable de la fuente de alimentación es el dispositivo de desconexión principal, asegúrese de que los enchufes están ubicados cerca del equipo y que se pueden acceder con facilidad.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png) ![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png) **ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png)**ADVERTENCIA**
 
 Para reducir la probabilidad de sobrecalentamiento o de incendio de las conexiones eléctricas:
 
@@ -70,7 +70,7 @@ Para reducir la probabilidad de sobrecalentamiento o de incendio de las conexion
 * Para cumplir con los requisitos de seguridad, de emisiones y térmicos aplicables, no se debe retirar ninguna cubierta y todas las bahías deben estar llenas con módulos de complemento o unidad de relleno.
 * Asegúrese de que el equipo se usa de la manera especificada por el fabricante. Si el equipo se usa de manera diferente a la especificada por el fabricante, la protección proporcionada por el equipo puede verse afectada.
 
-![Icono Aviso](./media/storsimple-safety/IC740881.png) **AVISO:**
+![Icono Aviso](./media/storsimple-safety/IC740881.png)**AVISO:**
 
 Para una operación apropiada del equipo y evitar daños en el producto:
 
@@ -81,7 +81,7 @@ Para una operación apropiada del equipo y evitar daños en el producto:
 ## <a name="rack-system-precautions"></a>Precauciones del sistema en bastidor
 Se deben tener en cuenta los requisitos de seguridad siguientes al montar el dispositivo en un gabinete de bastidor.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png) ![Icono Sugerencia peligrosa](./media/storsimple-safety/IC740886.png) **ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Sugerencia peligrosa](./media/storsimple-safety/IC740886.png)**ADVERTENCIA**
 
 Para reducir la probabilidad de lesiones debido a un vuelco:
 
@@ -89,7 +89,7 @@ Para reducir la probabilidad de lesiones debido a un vuelco:
 * Al cargar un bastidor, llénelo de abajo hacia arriba y vacíelo de arriba hacia abajo.
 * No deslice más de un alojamiento fuera del bastidor a la vez para evitar el peligro de que se caiga.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png) ![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png) **ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png)**ADVERTENCIA**
 
 Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 
@@ -98,7 +98,7 @@ Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 * El diseño del sistema de distribución eléctrica debe tomar en consideración la fuga a tierra total de todas las fuentes de alimentación de todos los alojamientos. Tenga en cuenta que cada fuente de alimentación de cada alojamiento tiene una corriente de fuga a tierra de 1,0 mA como máximo a 60 Hz, 264 voltios. El bastidor puede requerir el etiquetado de “CORRIENTE DE FUGA ALTA. Es fundamental que haya una conexión a tierra antes de realizar la conexión a una fuente”.
 * El bastidor, cuando se configura con los alojamientos, debe cumplir los requisitos de seguridad de UL 60950-1 e IEC 60950-1/EN 60950-1.
 
-![Icono Aviso](./media/storsimple-safety/IC740881.png) **AVISO:**
+![Icono Aviso](./media/storsimple-safety/IC740881.png)**AVISO:**
 
 Para la refrigeración adecuada del sistema en bastidor:
 
@@ -108,13 +108,13 @@ Para la refrigeración adecuada del sistema en bastidor:
 ## <a name="power-cooling-module-pcm-precautions"></a>Precauciones en el módulo de alimentación y refrigeración (PCM)
 El dispositivo está diseñado para operar con dos PCM. Cada uno de los PCM tiene una fuente de alimentación y un ventilador de dos ejes. Durante una condición crítica, el sistema permite que se produzca un error en una fuente de alimentación mientras continúa con las operaciones normales. Dos PCM (y por consiguiente dos fuentes de alimentación) deben estar siempre instalados. Un solo PCM no proporciona alimentación redundante. Por lo tanto, un error en uno de los PCM puede ocasionar inactividad o una posible pérdida de datos.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png) ![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png) **ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Descarga eléctrica](./media/storsimple-safety/IC740882.png)**ADVERTENCIA**
 
 Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 
 * No quite las cubiertas del PCM. Existe peligro de descargas eléctricas en su interior. Para devolver el PCM y obtener un reemplazo, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-![Icono Aviso](./media/storsimple-safety/IC740881.png) **AVISO:**
+![Icono Aviso](./media/storsimple-safety/IC740881.png)**AVISO:**
 
 Para una operación apropiada del equipo y evitar daños en el producto:
 
@@ -122,7 +122,7 @@ Para una operación apropiada del equipo y evitar daños en el producto:
 * No quite un PCM a menos que pueda instalar su reemplazo inmediatamente. El alojamiento no puede operarse sin todos los módulos en su lugar.
 
 ## <a name="electrostatic-discharge-esd-precautions"></a>Precauciones en cuanto a las descargas electrostáticas (ESD)
-![Icono Aviso](./media/storsimple-safety/IC740881.png) **AVISO:**
+![Icono Aviso](./media/storsimple-safety/IC740881.png)**AVISO:**
 
 Respete las siguientes precauciones relacionadas con ESD.
 
@@ -134,7 +134,7 @@ Respete las siguientes precauciones relacionadas con ESD.
 ## <a name="battery-disposal-precautions"></a>Precauciones al desechar la batería
 La fuente de alimentación usa una batería especial para proteger el contenido de la memoria durante interrupciones de alimentación temporales de corta duración. La batería está asentada en el PCM. Recuerde la siguiente información sobre la batería.
 
-![Icono Advertencia](./media/storsimple-safety/IC740879.png) **ADVERTENCIA**
+![Icono Advertencia](./media/storsimple-safety/IC740879.png)**ADVERTENCIA**
 
 Para reducir el riesgo de cortocircuito, incendio, explosión, lesiones o muerte:
 
@@ -142,7 +142,7 @@ Para reducir el riesgo de cortocircuito, incendio, explosión, lesiones o muerte
 * No la desensamble, rompa, caliente por encima de los 60 grados Celsius (140 grados Fahrenheit) ni incinere. Reemplace la batería del PCM solo por una batería suministrada. Si se usa otra batería, se puede presentar riesgo de incendio o explosión.
 * Use topes finales protectores en las baterías si se han quitado de la fuente de alimentación.
 
-![Icono Aviso](./media/storsimple-safety/IC740881.png) **AVISO:**
+![Icono Aviso](./media/storsimple-safety/IC740881.png)**AVISO:**
 
 Cuando se envían o transportan las baterías por aire, siga el documento IATA Lithium Battery Guidance disponible en [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
 ms.openlocfilehash: 263a381dc72105eea60ad9b39434599ff04a4531
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Uso de Servicios multimedia de Azure para entregar licencias de DRM a claves de AES
 Servicios de multimedia de Azure (AMS) le permite introducir, codificar, agregar protección de contenido y transmitir el contenido (consulte [este](media-services-protect-with-drm.md) artículo para ver los detalles). Sin embargo, hay clientes que solo desean usar AMS para entregar licencias y claves, y realizar la codificación, el cifrado y el streaming mediante sus servidores locales. Este artículo describe cómo puede usar AMS para entregar licencias de PlayReady y Widevine, pero realizar el resto con los servidores locales. 
@@ -40,7 +40,7 @@ Puede descargar el ejemplo descrito en este artículo [aquí](https://github.com
 1. Configure el entorno de desarrollo y rellene el archivo app.config con la información de la conexión, como se describe en [Desarrollo de Media Services con .NET](media-services-dotnet-how-to-use.md). 
 2. Agregue los siguientes elementos al elemento **appSettings** definido en el archivo app.config:
 
-    <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
+    <add key="Issuer" value="http://testacs.com"/><add key="Audience" value="urn:test"/>
 
 ## <a name="net-code-example"></a>Ejemplo de código .NET
 

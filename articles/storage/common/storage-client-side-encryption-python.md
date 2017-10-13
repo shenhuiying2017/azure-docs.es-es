@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
+ms.openlocfilehash: bf6696cfdfe9fc18dd2f000162a4e787a7ca6e21
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 25a376b2e54953602b66abc3bae878f09a776a80
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Cifrado del lado cliente con Python para Almacenamiento de Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -242,4 +241,3 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 ## <a name="next-steps"></a>Pasos siguientes
 * Descargue el [paquete PyPi de Biblioteca de cliente de Almacenamiento de Azure para Java](https://pypi.python.org/pypi/azure-storage)
 * Descargue el [Código fuente de la Biblioteca de cliente de Almacenamiento de Azure para Python desde GitHub](https://github.com/Azure/azure-storage-python)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Descripción del esquema de nodos para la asignación de un servicio web existente a OData mediante CSDL
 > [!IMPORTANT]
@@ -54,13 +53,13 @@ Encontrará más información sobre este nodo [aquí][MSDNFunctionImportLink](ht
 Éstos son los atributos adicionales (o adiciones a los atributos) que expone el nodo FunctionImport:
 
 **d:BaseUri**: la plantilla de URI para el recurso de REST que se expone en Marketplace. Marketplace usa la plantilla para construir consultas en el servicio web REST. La plantilla del identificador URI contiene marcadores de posición para los parámetros cuyo formato es {parameterName}, donde parameterName es el nombre del parámetro. Ejemplo: apiVersion={versiónDeAPI}.
-Los parámetros pueden aparecer como parámetros URI o como parte de la ruta de acceso de URI. En el caso de la apariencia de la ruta de acceso siempre son obligatorios (no se pueden marcar como que admitan valores NULL). *Ejemplo:* `d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
+Los parámetros pueden aparecer como parámetros URI o como parte de la ruta de acceso de URI. En el caso de la apariencia de la ruta de acceso siempre son obligatorios (no se pueden marcar como que admitan valores NULL). *Ejemplo:*`d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
 
 **Name**: el nombre de la función importada.  No puede ser igual que otros nombres definidos en el CSDL.  Ejemplo: Name = "GetModelUsageFile"
 
-**EntitySet** *(opcional)*: si la función devuelve una colección de tipos de entidad, el valor de **EntitySet** tiene que ser el conjunto de entidades al que pertenece la colección. De lo contrario, el atributo **EntitySet** no debe usarse. *Ejemplo:* `EntitySet="GetUsageStatisticsEntitySet"`
+**EntitySet***(opcional)*: si la función devuelve una colección de tipos de entidad, el valor de **EntitySet** tiene que ser el conjunto de entidades al que pertenece la colección. De lo contrario, el atributo **EntitySet** no debe usarse. *Ejemplo:*`EntitySet="GetUsageStatisticsEntitySet"`
 
-**ReturnType** *(opcional)* : especifica el tipo de elementos que devuelve el URI.  No utilice este atributo si la función no devuelve un valor. Estos son los tipos que se admiten:
+**ReturnType***(opcional)* : especifica el tipo de elementos que devuelve el URI.  No utilice este atributo si la función no devuelve un valor. Estos son los tipos que se admiten:
 
 * **Collection (<Entity type name>)**: especifica una colección de tipos de entidad definidos. El nombre está presente en el atributo Name del nodo EntityType. Un ejemplo es Collection(WXC.HourlyResult).
 * **Raw (<mime type>)**: especifica un documento o blob sin procesar que se devuelve al usuario. Un ejemplo es Raw(image/jpeg). Otros ejemplos:
@@ -76,7 +75,7 @@ Los parámetros pueden aparecer como parámetros URI o como parte de la ruta de 
 * **PageSize:** la paginación se expresa mediante una página y un tamaño lógicos (elementos por página). Page representa la página actual que se devuelve. Valor de parámetro: $page
 * **Size:** size representa el número de elementos devueltos para cada página. Valor de parámetro: $size
 
-**d:AllowedHttpMethods** *(opcional)* : especifica el verbo que se controla mediante el recurso REST. Además, restringe el verbo que se acepta al valor especificado.  Valor predeterminado = POST.  *Ejemplo:* `d:AllowedHttpMethods="GET"` las opciones disponibles son:
+**d:AllowedHttpMethods***(opcional)* : especifica el verbo que se controla mediante el recurso REST. Además, restringe el verbo que se acepta al valor especificado.  Valor predeterminado = POST.  *Ejemplo:*`d:AllowedHttpMethods="GET"` las opciones disponibles son:
 
 * **GET:** normalmente se usa para devolver datos
 * **POST:** normalmente se usa para insertar datos nuevos
@@ -85,7 +84,7 @@ Los parámetros pueden aparecer como parámetros URI o como parte de la ruta de 
 
 Los nodos secundarios adicionales (no cubiertos por la documentación de CSDL) del nodo FunctionImport son:
 
-**d:RequestBody** *(opcional)* : el cuerpo de la solicitud se usa para indicar que la solicitud espera un cuerpo para enviarlo. Los parámetros se pueden proporcionar en el cuerpo de solicitud. Se expresa en entre corchetes, por ejemplo, {parameterName}. Dichos parámetros se asignan desde la entrada del usuario al cuerpo que se transfiere al servicio del proveedor de contenido. El elemento requestBody tiene un atributo con el nombre httpMethod. El atributo permite dos valores:
+**d:RequestBody***(opcional)* : el cuerpo de la solicitud se usa para indicar que la solicitud espera un cuerpo para enviarlo. Los parámetros se pueden proporcionar en el cuerpo de solicitud. Se expresa en entre corchetes, por ejemplo, {parameterName}. Dichos parámetros se asignan desde la entrada del usuario al cuerpo que se transfiere al servicio del proveedor de contenido. El elemento requestBody tiene un atributo con el nombre httpMethod. El atributo permite dos valores:
 
 * **POST:** se usa si la solicitud es un HTTP POST
 * **GET:** se usa si la solicitud es un HTTP GET
@@ -107,25 +106,25 @@ Los nodos secundarios adicionales (no cubiertos por la documentación de CSDL) d
 * **d:Prefix:** el prefijo del espacio de nombres, como se ve en los resultados XML que devuelve el servicio, por ejemplo, f:FirstName o f:LastName, donde f es el prefijo.
 * **d:Uri:** el identificador URI completo del espacio de nombres usado en el documento de resultados. Representa el valor en que se resuelve el prefijo en tiempo de ejecución.
 
-**d:ErrorHandling** *(opcional)* : este nodo contiene las condiciones para el control de errores. Todas las condiciones se validan con el resultado que devuelve el servicio del proveedor de contenido. Si alguna de ellas coincide con el código de error HTTP propuesto, se devuelve un mensaje de error al usuario final.
+**d:ErrorHandling***(opcional)* : este nodo contiene las condiciones para el control de errores. Todas las condiciones se validan con el resultado que devuelve el servicio del proveedor de contenido. Si alguna de ellas coincide con el código de error HTTP propuesto, se devuelve un mensaje de error al usuario final.
 
-**d:ErrorHandling** *(opcional)* y **d:Condition** *(opcional)*: un nodo de condición contiene una condición que se comprueba en el resultado que devuelve el servicio del proveedor de contenido. Estos son los atributos **requeridos** :
+**d:ErrorHandling***(opcional)* y **d:Condition***(opcional)*: un nodo de condición contiene una condición que se comprueba en el resultado que devuelve el servicio del proveedor de contenido. Estos son los atributos **requeridos** :
 
 * **d:Match:** expresión XPath que valida si un nodo o valor determinados están presentes en el XML de salida del proveedor de contenido. XPath se ejecuta contra la salida y debe devolver true si la condición es una coincidencia o false en caso contrario.
 * **d:HttpStatusCode:** el código de estado HTTP que debe devolver Marketplace en el caso de que se dé la condición. Marketplace señaliza los errores al usuario mediante los códigos de estado HTTP. Vea una lista de los códigos de estado HTTP en https://es.wikipedia.org/wiki/Anexo:Códigos_de_estado_HTTP.
 * **d:ErrorMessage:** el mensaje de error que se devuelve (con el código de estado HTTP) al usuario final. Debe ser de un mensaje de error descriptivo que no contenga secretos.
 
-**d:Title** *(opcional)* : permite la descripción del título de la función. El valor del título procede de:
+**d:Title***(opcional)* : permite la descripción del título de la función. El valor del título procede de:
 
 * El atributo de asignación opcional (una expresión xpath) que especifica dónde encontrar el título en la respuesta que devuelve la solicitud de servicio.
 * O bien, el título especificado como valor del nodo.
 
-**d:Rights** *(opcional)* : los derechos (por ejemplo, copyright) asociados con la función. El valor de los derechos procede de:
+**d:Rights***(opcional)* : los derechos (por ejemplo, copyright) asociados con la función. El valor de los derechos procede de:
 
 * El atributo de asignación opcional (una expresión xpath) que especifica dónde encontrar los derechos en la respuesta que devuelve la solicitud de servicio.
 * O bien, los derechos especificados como valor del nodo.
 
-**d:Description** *(opcional)* : una breve descripción de la función. El valor de la descripción procede de:
+**d:Description***(opcional)* : una breve descripción de la función. El valor de la descripción procede de:
 
 * El atributo de asignación opcional (una expresión xpath) que especifica dónde encontrar la descripción en la respuesta que devuelve la solicitud de servicio.
 * O bien, la descripción especificada como valor del nodo.
@@ -151,25 +150,25 @@ Los nodos secundarios adicionales (no cubiertos por la documentación de CSDL) d
 ## <a name="parameter-node"></a>Nodo Parameter
 Este nodo representa un parámetro que se expone como parte de la plantilla del identificador URI o cuerpo de la solicitud que se ha especificado en el nodo FunctionImport.
 
-[Aquí](http://msdn.microsoft.com/library/ee473431.aspx) encontrará una página muy útil con información sobre el nodo “Parameter Element” (si es necesario, use la lista desplegable **Otras versiones** para ver otra versión de la documentación). *Ejemplo:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
+[Aquí](http://msdn.microsoft.com/library/ee473431.aspx) encontrará una página muy útil con información sobre el nodo “Parameter Element” (si es necesario, use la lista desplegable **Otras versiones** para ver otra versión de la documentación). *Ejemplo:*`<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
 
 | Atributo del parámetro | Es obligatorio | Valor |
 | --- | --- | --- |
-| Nombre |Sí |El nombre del parámetro. Distingue mayúsculas de minúsculas  Coincide con el uso de mayúsculas y minúsculas en BaseUri. **Ejemplo:** `<Property Name="IsDormant" Type="Byte" />` |
-| Tipo |Sí |El tipo de parámetro. El valor tiene que ser un tipo **EDMSimpleType** o un tipo complejo que se encuentre dentro del ámbito del modelo. Para más información, consulte "Tipos que se admiten en parámetros y propiedades".  (Distingue mayúsculas de minúsculas. El primer carácter está en mayúsculas y el resto en minúsculas.)  Vea también [Tipos de modelos conceptuales (CSDL)][MSDNParameterLink](http://msdn.microsoft.com/library/bb399548.aspx). **Ejemplo:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
-| Mode |No |**In**, Out o InOut, según si el parámetro es un parámetro de entrada, de salida o de entrada y salida. ("IN" es el único disponible en Azure Marketplace). **Ejemplo:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
-| MaxLength |No |La longitud máxima permitida del parámetro. **Ejemplo:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
-| Precision |No |La precisión del parámetro. **Ejemplo:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
-| Escala |No |La escala del parámetro. **Ejemplo:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
+| Nombre |Sí |El nombre del parámetro. Distingue mayúsculas de minúsculas  Coincide con el uso de mayúsculas y minúsculas en BaseUri. **Ejemplo:**`<Property Name="IsDormant" Type="Byte" />` |
+| Tipo |Sí |El tipo de parámetro. El valor tiene que ser un tipo **EDMSimpleType** o un tipo complejo que se encuentre dentro del ámbito del modelo. Para más información, consulte "Tipos que se admiten en parámetros y propiedades".  (Distingue mayúsculas de minúsculas. El primer carácter está en mayúsculas y el resto en minúsculas.)  Vea también [Tipos de modelos conceptuales (CSDL)][MSDNParameterLink](http://msdn.microsoft.com/library/bb399548.aspx). **Ejemplo:**`<Property Name="LimitedPartnershipID " Type="Int32" />` |
+| Mode |No |**In**, Out o InOut, según si el parámetro es un parámetro de entrada, de salida o de entrada y salida. ("IN" es el único disponible en Azure Marketplace). **Ejemplo:**`<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
+| MaxLength |No |La longitud máxima permitida del parámetro. **Ejemplo:**`<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
+| Precision |No |La precisión del parámetro. **Ejemplo:**`<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
+| Escala |No |La escala del parámetro. **Ejemplo:**`<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
 
 Estos son los atributos que se han agregado a la especificación de CSDL:
 
 | Atributo del parámetro | Description |
 | --- | --- |
-| **d:Regex** *(opcional)* |Instrucción Regex que se usa para validar el valor de entrada del parámetro. Si el valor de entrada no coincide con la instrucción, el valor se rechaza. Esto permite especificar también un conjunto de valores posibles, por ejemplo, ^[0-9]+?$ para permitir solo números. **Ejemplo:** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="Un nombre no puede contener espacios ni caracteres no alfanuméricos o distintos del inglés" d:SampleValues="George |
-| **d:Enum** *(opcional)* |Lista de valores válidos para el parámetro separada por barras verticales. Es preciso que el tipo de los valores coincida con el tipo definido del parámetro. Ejemplo: `inglés |
-| **d.: Nullable** *(opcional)* |Permite definir si un parámetro puede ser nulo. El valor predeterminado es: true. Sin embargo, los parámetros que se exponen como parte de la ruta de acceso de la plantilla del identificador URI no pueden ser nulos. Cuando el atributo se establece en false para estos parámetros, se reemplaza la entrada del usuario. **Ejemplo:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
-| **d:SampleValue** *(opcional)* |Valor de ejemplo que se muestra en forma de nota al cliente en la interfaz de usuario.  Se pueden agregar varios valores con una lista separada por barras verticales, como `a |
+| **d:Regex***(opcional)* |Instrucción Regex que se usa para validar el valor de entrada del parámetro. Si el valor de entrada no coincide con la instrucción, el valor se rechaza. Esto permite especificar también un conjunto de valores posibles, por ejemplo, ^[0-9]+?$ para permitir solo números. **Ejemplo:** `&lt;Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="Un nombre no puede contener espacios ni caracteres no alfanuméricos o distintos del inglés" d:SampleValues="George |
+| **d:Enum***(opcional)* |Lista de valores válidos para el parámetro separada por barras verticales. Es preciso que el tipo de los valores coincida con el tipo definido del parámetro. Ejemplo: `inglés |
+| **d.: Nullable***(opcional)* |Permite definir si un parámetro puede ser nulo. El valor predeterminado es: true. Sin embargo, los parámetros que se exponen como parte de la ruta de acceso de la plantilla del identificador URI no pueden ser nulos. Cuando el atributo se establece en false para estos parámetros, se reemplaza la entrada del usuario. **Ejemplo:**`<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
+| **d:SampleValue***(opcional)* |Valor de ejemplo que se muestra en forma de nota al cliente en la interfaz de usuario.  Se pueden agregar varios valores con una lista separada por barras verticales, como `a |
 
 ## <a name="entitytype-node"></a>Nodo EntityType
 Este nodo representa uno de los tipos que Marketplace devuelve al usuario final. También contiene la asignación de la salida que devuelve el servicio del proveedor de contenido a los valores que se devuelven al usuario final.
@@ -178,8 +177,8 @@ Este nodo representa uno de los tipos que Marketplace devuelve al usuario final.
 
 | Nombre del atributo | Es obligatorio | Valor |
 | --- | --- | --- |
-| Nombre |Sí |El nombre del tipo de entidad. **Ejemplo:** `<EntityType Name="ListOfAllEntities" d:Map="//EntityModel">` |
-| BaseType |No |El nombre de otro tipo de entidad que sea el tipo base del tipo de entidad que se define. **Ejemplo:** `<EntityType Name="PhoneRecord" BaseType="dqs:RequestRecord">` |
+| Nombre |Sí |El nombre del tipo de entidad. **Ejemplo:**`<EntityType Name="ListOfAllEntities" d:Map="//EntityModel">` |
+| BaseType |No |El nombre de otro tipo de entidad que sea el tipo base del tipo de entidad que se define. **Ejemplo:**`<EntityType Name="PhoneRecord" BaseType="dqs:RequestRecord">` |
 
 Estos son los atributos que se han agregado a la especificación de CSDL:
 
@@ -198,7 +197,7 @@ La expresión XPath sería /foo/bar porque cada instancia del nodo bar es el nod
 ## <a name="property-node"></a>Nodo Property
 Este nodo contiene una propiedad del registro.
 
-En [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx) encontrará más información sobre este nodo (si es necesario, use la lista desplegable **Otras versiones** para ver otra versión de la documentación). *Ejemplo:* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
+En [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx) encontrará más información sobre este nodo (si es necesario, use la lista desplegable **Otras versiones** para ver otra versión de la documentación). *Ejemplo:*`<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
         <Property Name="Name"     Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
         ...
         </EntityType>`
@@ -237,7 +236,7 @@ Aquí, la expresión XPath sería ./bar/baz0 para obtener el nodo baz0 del servi
 
 **d:isExposed** : determina si se expone el esquema de tabla (generalmente true). Consulte DataService CSDL Example
 
-**d:IsView** *(opcional)* : true si se basa en una vista, en lugar de en una tabla.  Consulte DataService CSDL Example
+**d:IsView***(opcional)* : true si se basa en una vista, en lugar de en una tabla.  Consulte DataService CSDL Example
 
 **d:Tableschema** : consulte DataService CSDL Example
 
@@ -273,4 +272,3 @@ Aquí, la expresión XPath sería ./bar/baz0 para obtener el nodo baz0 del servi
 * Si está interesado en conocer el proceso general de asignación de OData y su finalidad, consulte el artículo [Mapping an existing web service to OData through CSDL](marketplace-publishing-data-service-creation-odata-mapping.md) , donde podrá encontrar definiciones, información sobre las estructuras e instrucciones.
 * Si está interesado en ver ejemplos, consulte el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md) , donde podrá ver ejemplos de código y comprender el contexto y la sintaxis del código.
 * Para volver a la ruta de acceso prescrita para publicar un servicio de datos en Azure Marketplace, consulte el artículo [Data Service Publishing Guide for the Azure Marketplace](marketplace-publishing-data-service-creation.md).
-

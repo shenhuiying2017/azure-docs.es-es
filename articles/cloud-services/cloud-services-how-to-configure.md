@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 39bb294c96ce0c12d91cf8b3488ac3e1a7b2f7b2
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Configuración de servicios en la nube
 > [!div class="op_single_selector"]
@@ -77,5 +76,4 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
 * [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
 * [Habilitar la conexión a Escritorio remoto para un rol de servicios en la nube de Azure](cloud-services-role-enable-remote-desktop.md)
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
-
 

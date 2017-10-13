@@ -13,14 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
 ms.openlocfilehash: f332b8ac091b75a23489ac27f15ad1fd10d24ec6
-ms.contentlocale: es-es
-ms.lasthandoff: 08/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Copia de seguridad de SAP HANA basada en instantáneas de almacenamiento
 
 ## <a name="introduction"></a>Introducción
@@ -170,4 +168,3 @@ Si fuese posible apagar SAP HANA antes de las instantáneas de blob, el procedim
 * [Guía de copia de seguridad de SAP HANA en Azure Virtual Machines](sap-hana-backup-guide.md) ofrece una introducción e información sobre los pasos iniciales.
 * [Azure Backup de SAP HANA en el nivel de archivo](sap-hana-backup-file-level.md) describe la opción de copia de seguridad basada en archivos.
 * Para obtener información sobre cómo establecer la alta disponibilidad y planear la recuperación ante desastres de SAP HANA en Azure (instancias grandes), vea [Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure (instancias grandes)](hana-overview-high-availability-disaster-recovery.md).
-

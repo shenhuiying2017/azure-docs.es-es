@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -417,4 +416,3 @@ Para obtener información general de la experiencia de usuario relacionada, cons
 * [Azure Active Directory Identity Protection: desbloqueo de usuarios](active-directory-identityprotection-unblock-howto.md)
 
 * [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: 07c0265490cfae733133b6e0c938f90f9b392da4
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Administración de API de Azure
 Si decide publicar y administrar las API a través de Administración de API de Azure, podrá aprovechar numerosas capacidades de infraestructura y tolerancia a errores que con otros recursos tendría que diseñar, implementar y administrar. La plataforma Azure mitiga una gran cantidad de posibles errores a un costo reducido.
@@ -116,7 +116,7 @@ Antes de llamar a las operaciones de copia de seguridad y restauración descrita
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 
-## <a name="step1"> </a>Crear una copia de seguridad del servicio API Management
+## <a name="step1"></a>Crear una copia de seguridad del servicio API Management
 Para crear una copia de seguridad del servicio API Management, emita esta solicitud HTTP:
 
 `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
@@ -152,7 +152,7 @@ Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia 
 * La frecuencia con la que se crean las copias de seguridad afecta al objetivo de punto de recuperación. Para minimizarlo, se recomienda crear las copias de seguridad de forma periódica y también a petición tras realizar cambios importantes en el servicio Administración de API.
 * Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, en la API, las directivas o la apariencia del portal para desarrolladores) mientras se está realizando la copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
 
-## <a name="step2"> </a>Restaurar el servicio Administración de API
+## <a name="step2"></a>Restaurar el servicio Administración de API
 Para restaurar el servicio Administración de API de una copia de seguridad anterior, realice esta solicitud HTTP:
 
 `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}`

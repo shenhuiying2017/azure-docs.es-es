@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrado de tráfico de red con la red de Azure y grupos de seguridad de aplicaciones (versión preliminar)
 
@@ -225,7 +224,7 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
 ## <a name="powershell"></a>PowerShell
 
 1. Instale y configure [PowerShell](/powershell/azure/install-azurerm-ps).
-2. Asegúrese de que tiene instalada la versión 4.4.0 o posterior del módulo AzureRM. Puede comprobar qué versión tiene instalada actualmente mediante el comando `Get-Module -ListAvailable AzureRM`. Si necesita instalar o actualizar una versión, instale la versión más reciente del módulo AzureRM desde la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM).
+2. Asegúrese de que tiene instalada la versión 4.4.0 o posterior del módulo AzureRM. Puede comprobar qué versión tiene instalada actualmente mediante el comando `Get-Module -ListAvailable AzureRM`. Si necesita instalar o actualizar una versión, instale la más reciente del módulo AzureRM desde la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 3. En una sesión de PowerShell, inicie sesión en Azure con la [cuenta de Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) mediante el comando `login-azurermaccount`.
 4. Regístrese para obtener la versión preliminar mediante estos comandos:
     
@@ -457,5 +456,4 @@ En una sesión de PowerShell, escriba el comando siguiente:
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
-
 

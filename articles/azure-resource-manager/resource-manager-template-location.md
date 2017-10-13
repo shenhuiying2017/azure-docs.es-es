@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: tomfitz
 ms.openlocfilehash: 73e50a593c41e841dcaf184abb895406ff5001e9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-resource-location-in-azure-resource-manager-templates"></a>Establecimiento de la ubicación para recursos en plantillas de Azure Resource Manager
 Al implementar una plantilla, debe proporcionar una ubicación para cada recurso. Este tema muestra cómo determinar las ubicaciones que están disponibles con su suscripción para cada tipo de recurso.

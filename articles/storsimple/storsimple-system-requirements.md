@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
 ms.openlocfilehash: 55e1cd90df0e4413ce027361c636257d823a50d6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-software-high-availability-and-networking-requirements"></a>Software de StorSimple, alta disponibilidad y requisitos de red
 ## <a name="overview"></a>Información general
@@ -122,13 +121,13 @@ Los algoritmos de la métrica de enrutamiento difieren en función de la versió
 
 Esto incluye las versiones de software anteriores a Update 1, como GA, 0.1, 0.2 o 0.3. El orden basado en la métrica de enrutamiento es el siguiente:
 
-   *Última interfaz de red de 10 GbE configurada > Otra interfaz de red de 10 GbE > Última interfaz de red de 1 GbE configurada > Otra interfaz de red de 1 GbE*
+   *Última interfaz de red de 10 GbE configurada &gt; Otra interfaz de red de 10 GbE &gt; Última interfaz de red de 1 GbE configurada &gt; Otra interfaz de red de 1 GbE*
 
 **Versiones a partir de Update 1 y anteriores a Update 2**
 
 Esto incluye las versiones de software, como 1, 1.1 o 1.2. El orden basado en la métrica de enrutamiento se decide en función de lo siguiente:
 
-   *DATA 0 > Última interfaz de red de 10 GbE configurada > Otra interfaz de red de 10 GbE > Última interfaz de red de 1 GbE configurada > Otra interfaz de red de 1 GbE*
+   *DATA 0 &gt; Última interfaz de red de 10 GbE configurada &gt; Otra interfaz de red de 10 GbE &gt; Última interfaz de red de 1 GbE configurada &gt; Otra interfaz de red de 1 GbE*
 
    En Update 1, se establece la métrica de enrutamiento de DATA 0 más baja; por lo tanto, todo el tráfico en la nube se enruta a través de DATA 0. Tome nota de esto si hay más de una interfaz de red habilitada para la nube en el dispositivo de StorSimple.
 
@@ -151,13 +150,13 @@ Update 2 tiene varias mejoras relacionadas con las redes y las métricas de enru
 
 * El orden en que el tráfico de nube se enrutará a través de las interfaces de red es:
   
-    *Data 0 > Data 1 > Date 2 > Data 3 > Data 4 > Data 5*
+    *Data 0 &gt; Data 1 &gt; Date 2 &gt; Data 3 &gt; Data 4 &gt; Data 5*
   
     Esto también puede explicarse mediante el ejemplo siguiente.
   
     Consideremos un dispositivo de StorSimple con dos interfaces de red habilitadas para la nube, Data 0 y Data 5. De Data 1 a Data 4 la interfaz estará deshabilitada para la nube pero con una puerta de enlace configurada. El orden en que el tráfico se enrutará para este dispositivo será:
   
-    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+    *Data 0 (1) &gt; Data 5 (6) &gt; Data 1 (20) &gt; Data 2 (30) &gt; Data 3 (40) &gt; Data 4 (50)*
   
     *donde los números entre paréntesis indican las métricas de enrutamientos respectivas.*
   
@@ -251,4 +250,3 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
-

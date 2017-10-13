@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 7c1f235343074ec11c635097f2b094a10f3fe781
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="policies-in-azure-api-management"></a>Directivas de Administración de API de Azure
 En Administración de API de Azure, las directivas constituyen una eficaz funcionalidad del sistema que permite al editor cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Entre las declaraciones más usadas se encuentran la conversión de formato de XML a JSON y la limitación de tasa de llamadas para restringir la cantidad de llamadas entrantes de un desarrollador. Hay muchas más directivas disponibles y listas para usar.
@@ -29,7 +29,7 @@ Las directivas se aplican en la puerta de enlace que se encuentra entre el consu
 
 Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][Control flow] y [Establecer variable][Set variable] se basan en expresiones de directiva. Para obtener más información, consulte [Directivas avanzadas][Advanced policies] y [Expresiones de directiva][Policy expressions].
 
-## <a name="scopes"> </a>Configuración de directivas
+## <a name="scopes"></a>Configuración de directivas
 Las directivas se pueden configurar globalmente o en el ámbito de un [producto][Product], una [API][API] o una [operación][Operation]. Para configurar una directiva, vaya al editor de directivas del portal de publicadores.
 
 ![Policies menu][policies-menu]
@@ -86,7 +86,7 @@ Para limitar las solicitudes de entrada y aceptar solo las procedentes de una di
 
 Cuando complete la configuración de las instrucciones de la directiva, haga clic en **Guardar** ; los cambios se propagarán inmediatamente a la puerta de enlace de Administración de API.
 
-## <a name="sections"> </a>Descripción de la configuración de directivas
+## <a name="sections"></a>Descripción de la configuración de directivas
 Una directiva es una serie de declaraciones que se ejecutan en orden para una solicitud y una respuesta. La configuración se divide adecuadamente en las secciones `inbound`, `backend`, `outbound` y `on-error`, como se muestra en la siguiente configuración.
 
 ```xml

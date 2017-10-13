@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 5a39d4ec9bbf1c7672267c7e89c957ebc49f1f3a
-ms.contentlocale: es-es
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: 4ea917b068e0242bfb88d7357eca032607a43a3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de rendimiento de Linux en Application Insights
 
@@ -143,6 +142,5 @@ Solución alternativa: excluir los datos recopilados por los complementos de esc
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-
 
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Implementar y administrar un dispositivo virtual StorSimple en Azure
 ## <a name="overview"></a>Información general
@@ -37,9 +36,9 @@ El dispositivo virtual StorSimple está disponible en dos modelos: estándar 801
 | **Tipo de almacenamiento** |Usa el almacenamiento estándar de Azure para discos locales <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar](../storage/common/storage-create-storage-account.md) |Usa el almacenamiento premium de Azure para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../storage/common/storage-premium-storage.md) |
 | **Guía de la carga de trabajo** |Recuperación a nivel de elemento de archivos de copias de seguridad |Escenarios de desarrollo y pruebas en la nube, baja latencia, mayores cargas de trabajo de rendimiento  <br></br>Dispositivo secundario para recuperación ante desastres |
 
-<sup>1</sup> *Anteriormente conocido como 1100*.
+<sup>1</sup>*Anteriormente conocido como 1100*.
 
-<sup>2</sup> *8010 y 8020 usan el almacenamiento estándar de Azure para el nivel de nube. La diferencia solo existe en el nivel local del dispositivo*.
+<sup>2</sup>*8010 y 8020 usan el almacenamiento estándar de Azure para el nivel de nube. La diferencia solo existe en el nivel local del dispositivo*.
 
 Este artículo describe paso a paso el proceso de implementación de un dispositivo virtual de StorSimple en Azure. Después de leer este artículo, habrá aprendido lo siguiente:
 
@@ -236,4 +235,3 @@ Si no hay ninguna conexión a Internet, se producirá un error durante la creaci
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a [usar el servicio StorSimple Manager para administrar un dispositivo virtual](storsimple-manager-service-administration.md).
 * Sepa cómo [restaurar un volumen de StorSimple de un conjunto de copias de seguridad](storsimple-restore-from-backup-set.md).
-

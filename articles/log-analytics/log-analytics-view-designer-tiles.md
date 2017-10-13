@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Referencia de los iconos del Diseñador de vistas de Log Analytics
 El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo se proporciona una referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas.
@@ -54,7 +54,7 @@ El icono **Número** muestra un solo número que muestra la cantidad de registro
 | **Icono** | |
 | Leyenda |Texto que se muestra bajo el valor. |
 | Consultar |La consulta que se ejecutará.  Se mostrará la cantidad de registros que devuelva la consulta. |
-| **Avanzado** |**> Comprobación del flujo de datos** |
+| **Avanzado** |**&gt; Comprobación del flujo de datos** |
 | Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
@@ -75,7 +75,7 @@ El icono de **Dos números** muestra dos números que revelan la cantidad de reg
 | **Segundo icono** | |
 | Leyenda |Texto que se muestra bajo el valor. |
 | Consultar |La consulta que se ejecutará.  Se mostrará la cantidad de registros que devuelva la consulta. |
-| **Avanzado** |**> Comprobación del flujo de datos** |
+| **Avanzado** |**&gt; Comprobación del flujo de datos** |
 | Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
@@ -92,14 +92,14 @@ El icono **Anillo** muestra un solo número resumido obtenido a partir de una co
 | Descripción |Texto que se muestra bajo el nombre del icono. |
 | **Anillo** | |
 | Consultar |Consulta que se ejecutará en el anillo.  La primera propiedad debe ser un valor de texto, y la segunda, un valor numérico.  Normalmente, se trata de una consulta que usa la palabra clave **measure** para resumir los resultados. |
-| **Anillo** |**> Centro** |
+| **Anillo** |**&gt; Centro** |
 | Texto |Texto que se muestra bajo el valor dentro del anillo. |
 | Operación |Operación que se va a realizar en la propiedad value para resumir los resultados en un solo valor.<br><br>- Sum: suma los valores de todos los registros con el valor de propiedad.<br>- Percentage: porcentaje de los valores sumados de los registros con el valor de propiedad en comparación con los valores de suma de todos los registros. |
 | Valores de resultado usados en la operación central |También puede hacer clic en el signo más para agregar uno o varios valores.  Los resultados de la consulta se reducirán a los registros con los valores de propiedad especificados.  Si no se agrega ninguno, se incluirán todos los registros en la consulta. |
-| **Anillo** |**> Opciones adicionales** |
+| **Anillo** |**&gt; Opciones adicionales** |
 | Colores |Color que muestra en cada una de las tres propiedades principales.  Si quiere especificar colores alternativos para valores de propiedad concretos, utilice la característica Asignación de color avanzada. |
 | Asignación de color avanzada |Muestra un color para valores de propiedad concretos.  Si el valor especificado se encuentra en las tres principales, se muestra el color alternativo en lugar del estándar.  Si la propiedad no está en las tres principales, no se muestra el color. |
-| **Avanzado** |**> Comprobación del flujo de datos** |
+| **Avanzado** |**&gt; Comprobación del flujo de datos** |
 | Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
@@ -116,11 +116,11 @@ El icono de **Gráfico de línea**s muestra un gráfico de líneas con varias se
 | Descripción |Texto que se muestra bajo el nombre del icono. |
 | **Gráfico de líneas** | |
 | Consultar |Consulta que se ejecutará en el gráfico de líneas.  La primera propiedad debe ser un valor de texto, y la segunda, un valor numérico.  Normalmente, se trata de una consulta que usa la palabra clave **measure** para resumir los resultados.  Si la consulta utiliza la palabra clave **interval**, el eje X del gráfico empleará este intervalo de tiempo.  Si la consulta no incluye la palabra clave **interva**, se usarán intervalos horarios en el eje X. |
-| **Gráfico de líneas** |**> Eje Y** |
+| **Gráfico de líneas** |**&gt; Eje Y** |
 | Usar escala logarítmica |Seleccione esta opción para usar una escala logarítmica en el eje Y. |
 | Unidades |Especifica las unidades de los valores que devuelve la consulta.  Esta información se utiliza para mostrar etiquetas en el gráfico que indican los tipos de valores y, de manera opcional, para convertirlos.  **Tipo de unidad** especifica la categoría de la unidad y define los valores disponibles del **tipo de unidad actual**.  Si selecciona un valor en **Convertir en**, los valores numéricos se convertirán del tipo **Unidad actual** a **Convertir en**. |
 | Etiqueta personalizada |Texto que se muestra en el eje Y junto a la etiqueta del tipo de unidad.  Si no se especifica ninguna etiqueta, solo se mostrará el tipo de unidad. |
-| **Avanzado** |**> Comprobación del flujo de datos** |
+| **Avanzado** |**&gt; Comprobación del flujo de datos** |
 | Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
@@ -137,15 +137,15 @@ El icono de **Llamada de gráfico de líneas** muestra un gráfico de líneas co
 | Descripción |Texto que se muestra bajo el nombre del icono. |
 | **Gráfico de líneas** | |
 | Consultar |Consulta que se ejecutará en el gráfico de líneas.  La primera propiedad debe ser un valor de texto, y la segunda, un valor numérico.  Normalmente, se trata de una consulta que usa la palabra clave **measure** para resumir los resultados.  Si la consulta utiliza la palabra clave **interval**, el eje X del gráfico empleará este intervalo de tiempo.  Si la consulta no incluye la palabra clave **interva**, se usarán intervalos horarios en el eje X. |
-| **Gráfico de líneas** |**> Llamada** |
+| **Gráfico de líneas** |**&gt; Llamada** |
 | Llamada |Título: texto que se muestra encima del valor de la llamada. |
 | Nombre de la serie |Valor de propiedad de la serie que se va a utilizar para el valor de la llamada.  Si no se proporciona ninguna serie, se utilizarán todos los registros de la consulta. |
 | Operación |Operación que se va a realizar en la propiedad value para resumir los resultados de la llamada en un solo valor.<br>- Average: promedio del valor de todos los registros.<br><br>- Count: cantidad total de los registros que devuelve la consulta.<br>- Last Sample: valor del último intervalo incluido en el gráfico.<br>- Max: valor máximo de los intervalos incluidos en el gráfico.<br>- Min: valor mínimo de los intervalos incluidos en el gráfico.<br>- Sum: suma del valor de todos los registros. |
-| **Gráfico de líneas** |**> Eje Y** |
+| **Gráfico de líneas** |**&gt; Eje Y** |
 | Usar escala logarítmica |Seleccione esta opción para usar una escala logarítmica en el eje Y. |
 | Unidades |Especifica las unidades de los valores que devuelve la consulta.  Esta información se utiliza para mostrar etiquetas en el gráfico que indican los tipos de valores y, de manera opcional, para convertirlos.  **Tipo de unidad** especifica la categoría de la unidad y define los valores disponibles del **tipo de unidad actual**.  Si selecciona un valor en **Convertir en**, los valores numéricos se convertirán del tipo **Unidad actual** a **Convertir en**. |
 | Etiqueta personalizada |Texto que se muestra en el eje Y junto a la etiqueta del tipo de unidad.  Si no se especifica ninguna etiqueta, solo se mostrará el tipo de unidad. |
-| **Avanzado** |**> Comprobación del flujo de datos** |
+| **Avanzado** |**&gt; Comprobación del flujo de datos** |
 | Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
@@ -170,7 +170,7 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 | Color |Color que se utiliza para las columnas de la segunda serie. |
 | Consulta de gráfico |Consulta que se ejecutará en la segunda serie.  La cantidad de registros en cada intervalo de tiempo se representa mediante las columnas de gráfico. |
 | Operación |Operación que se va a realizar en la propiedad value para resumir los resultados de la llamada en un solo valor.<br><br>- Average: promedio del valor de todos los registros.<br>- Count: cantidad total de los registros que devuelve la consulta.<br>- Last Sample: valor del último intervalo incluido en el gráfico.<br>- Max: valor máximo de los intervalos incluidos en el gráfico. |
-| **Avanzado** |**> Comprobación del flujo de datos** |
+| **Avanzado** |**&gt; Comprobación del flujo de datos** |
 | Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |

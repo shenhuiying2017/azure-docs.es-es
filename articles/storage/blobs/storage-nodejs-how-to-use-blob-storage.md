@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
+ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 2858d916e935de618e1b0d5078218aa725275aeb
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Uso de almacenamiento de blobs en Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -426,5 +425,4 @@ Para obtener más información, consulte los siguientes recursos:
 [Azure portal]: https://portal.azure.com  
 [Compilación e implementación de una aplicación Node.js en una instancia de Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Blog del equipo de Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/  
-[Referencia de la API del SDK de Azure Storage para Node]: http://dl.windowsazure.com/nodestoragedocs/index.html  
-
+[SDK de Azure Storage para la referencia de la API de Node]: http://dl.windowsazure.com/nodestoragedocs/index.html  

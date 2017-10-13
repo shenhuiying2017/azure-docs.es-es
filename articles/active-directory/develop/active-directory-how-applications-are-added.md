@@ -16,10 +16,10 @@ ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Cómo y por qué se agregan aplicaciones a Azure AD
 Una de las cosas desconcierta inicialmente al ver una lista de aplicaciones en la instancia de Azure Active Directory es comprender la procedencia de las aplicaciones y por qué existen.  Este artículo ofrecerá una introducción de alto nivel de cómo se representan las aplicaciones en el directorio y le proporcionan un contexto que le ayudará a comprender cómo una aplicación llega a estar en el directorio.
@@ -121,7 +121,7 @@ Esto puede parecer al principio complicado, pero tenga en cuenta lo siguiente:
 * Las aplicaciones que usan Azure AD para oAuth deciden exactamente qué permisos que pueden conceder los usuarios a las aplicaciones y qué permisos requieren la aceptación de un administrador.  Cabe destacar que solo los administradores pueden dar su consentimiento a ámbitos más amplios y permisos más significativos.
 * Los usuarios que agregan aplicaciones y permiten el acceso a sus datos son eventos auditados, por lo que puede ver los informes de auditoría en el Portal de administración de Azure para determinar cómo se agregó una aplicación al directorio.
 
-**Nota:** *Microsoft ha estado funcionando con la configuración predeterminada durante muchos meses.*
+**Nota:***Microsoft ha estado funcionando con la configuración predeterminada durante muchos meses.*
 
 Dicho esto, es posible evitar que los usuarios del directorio agreguen aplicaciones y puedan optar por qué información compartir con las aplicaciones modificando la configuración de Directory en el Portal de administración de Azure.  Es posible obtener acceso a la siguiente configuración en el Portal de administración de Azure en la pestaña "Configurar" de Directory.
 

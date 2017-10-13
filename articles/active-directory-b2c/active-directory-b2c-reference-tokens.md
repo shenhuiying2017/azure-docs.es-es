@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: parakhj
+ms.openlocfilehash: 92087e4553580a5fe14e647d014e493bc7e47b67
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 7f98637264d1acb209d0379e4800e542fc91955b
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: referencia de tokens
 
@@ -155,5 +154,4 @@ Las siguientes vigencias de los tokens se proporcionan para ampliar sus conocimi
 | Tokens de identificador |Una hora |Los tokens de identificador normalmente son válidos durante una hora. La aplicación web puede usar esta vigencia para mantener sus propias sesiones con los usuarios (recomendado). También puede elegir una vigencia de sesión diferente. Si la aplicación necesita obtener un nuevo token de identificador, solo tiene que realizar una nueva solicitud de inicio de sesión a Azure AD. Si el usuario tiene una sesión de explorador válida con Azure AD, es posible que el usuario no tenga que volver a escribir sus credenciales. |
 | Tokens de actualización |Hasta 14 días |Un token de actualización solo es válido durante un máximo de 14 días. Pero un token de actualización puede dejar de ser válido en cualquier momento por una serie de motivos. La aplicación debe continuar intentando usar un token de actualización hasta que se produce un error en la solicitud o hasta que la aplicación reemplaza el token de actualización por uno nuevo. Un token de actualización también puede dejar de ser válido si transcurren 90 días desde que el usuario especificó sus credenciales por última vez. |
 | Códigos de autorización |Cinco minutos |Los códigos de autorización son de corta duración intencionadamente. Deben canjearse inmediatamente por tokens de acceso, tokens de identificador o tokens de actualización cuando se reciben. |
-
 

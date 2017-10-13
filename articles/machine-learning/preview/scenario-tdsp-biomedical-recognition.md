@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a13bbd5d32eaab96dfb97e60652dbe9bcbdfb1b1
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconocimiento de entidades biomédicas mediante la plantilla del proceso de ciencia de los datos en equipos (TDSP)
 
 El objetivo de este escenario real es explicar cómo se usa Azure Machine Learning Workbench para resolver una tarea complicada de procesamiento de lenguaje natural (NLP), como la extracción de entidades contenidas en texto no estructurado:
@@ -117,7 +115,7 @@ Todas las dependencias necesarias están definidas en el archivo aml_config/cond
 ### <a name="basic-instructions-for-azure-machine-learning-aml-workbench"></a>Instrucciones básicas para Azure Machine Learning (AML) Workbench
 * [Información general](overview-what-is-azure-ml.md)
 * [Instalación](quickstart-installation.md)
-* [Usar TDSP](how-to-use-tdsp-in-azure-ml.md)
+* [Uso de TDSP](how-to-use-tdsp-in-azure-ml.md)
 * [Cómo leer y escribir archivos](how-to-read-write-files.md)
 * [Cómo usar Jupyter Notebook](how-to-use-jupyter-notebooks.md)
 * [Cómo usar GPU](how-to-use-gpu.md)
@@ -269,5 +267,4 @@ Hemos explicado los detalles del proceso que se lleva a cabo para entrenar un mo
 * [Redes neuronales recurrentes](https://www.tensorflow.org/tutorials/recurrent)
 * [Problemas habituales en Word2Vec del aprendizaje automático de Spark](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)
 * [Word2Vec de Spark: lecciones aprendidas](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/spark-word2vec-lessons-learned/)
-
 

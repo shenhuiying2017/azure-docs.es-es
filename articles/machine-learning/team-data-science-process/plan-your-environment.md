@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
+ms.openlocfilehash: 42d1de8a27f8979db5662094e8bd74a6f5ccac55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: de46e5a6833809f8413d6a2de62a8cb9fe178130
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Identificación de escenarios y planeamiento del procesamiento analítico avanzado de datos
 ¿Qué recursos debe incluir al configurar un entorno para realizar un procesamiento de análisis avanzado en un conjunto de datos? Este artículo sugiere una serie de preguntas que le ayudarán a identificar las tareas y los recursos pertinentes para su escenario. El orden de los pasos generales para el análisis predictivo se describe en [¿Qué es el proceso de ciencia de datos en equipos (TDSP)?](overview.md). Cada uno de estos pasos requiere recursos específicos para las tareas pertinentes para su escenario concreto. La clave para identificar su escenario la encontrará en las cuestiones relacionadas con logística de datos, las características, la calidad de los conjuntos de datos y las herramientas y lenguajes que prefiera usar para el análisis.
@@ -105,5 +104,4 @@ Hay muchas opciones dependiendo de qué lenguajes y entornos de desarrollo o her
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>Identificación del escenario de análisis avanzado
 Cuando haya respondido a las preguntas de la sección anterior, estará listo para determinar qué escenario se adapta mejor a su caso. Los escenarios de ejemplo que se describen en [Escenarios para análisis avanzado en Aprendizaje automático de Azure](plan-sample-scenarios.md).
-
 

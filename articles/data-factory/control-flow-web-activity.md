@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: dec7a446251545461f32cddea4d8c3e433dc21e2
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Actividad web en Azure Data Factory
 La actividad web se puede usar para llamar a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso. 
@@ -221,10 +220,9 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea otras actividades de flujo de control compatibles con Data Factory: 
+Consulte otras actividades de flujo de control compatibles con Data Factory: 
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Para cada actividad](control-flow-for-each-activity.md)
 - [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
-

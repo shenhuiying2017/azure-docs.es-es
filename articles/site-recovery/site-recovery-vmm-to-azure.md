@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replicación de máquinas virtuales de Hyper-V que están en nubes VMM en Azure mediante Site Recovery en Azure Portal
 > [!div class="op_single_selector"]
@@ -67,7 +67,7 @@ Siga el artículo para completar estos pasos de implementación:
 Para preparar la implementación debe:
 
 1. [Configurar una red de Azure](#set-up-an-azure-network) en la que se coloquen las máquinas virtuales de Azure después de la conmutación por error.
-2. [Configurar una cuenta de Azure Storage](#set-up-an-azure-storage-account) para datos replicados.
+2. [Configurar una cuenta de almacenamiento de Azure](#set-up-an-azure-storage-account) para datos replicados.
 3. [Preparar el servidor VMM](#prepare-the-vmm-server) para la implementación de Site Recovery.
 4. Preparar la asignación de red. Configurar redes para que pueda configurar la asignación de red durante la implementación de Site Recovery.
 

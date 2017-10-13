@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
-ms.contentlocale: es-es
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: 75dd9107dca215a0b31db3d44bada69210fe9ac6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Cifrado dinámico: configuración de la directiva de autorización de claves de contenido
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -150,7 +149,7 @@ Para configurar la opción de restricción de token, debe usar un archivo XML pa
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Al configurar la directiva de restricción de **token**, debe especificar los parámetros de clave de **verificación principal** (PrimaryVerificationKey), **emisor** (Issuer) y **público** (Audience). La **clave de verificación principal **contiene la clave con la que se firmó el token y el **emisor** es el servicio de token seguro que emite el token. El **público** (a veces denominado **ámbito**) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Servicios multimedia valida que estos valores del token coincidan con los valores de la plantilla. 
+Al configurar la directiva restringida por **token**, debe especificar los parámetros de **clave de comprobación principal**, **emisor** y **público**. La **clave de comprobación principal** contiene la clave con la que se ha firmado el token y el **emisor** es el servicio de token seguro que emite el token. El **público** (a veces denominado **ámbito**) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Servicios multimedia valida que estos valores del token coincidan con los valores de la plantilla. 
 
 Al utilizar el **SDK de Media Services para .NET**, puede usar la clase **TokenRestrictionTemplate** para generar el token de restricción.
 En el ejemplo siguiente se crea una directiva de autorización con una restricción de token. En este ejemplo, el cliente tendría que presentar un token que contenga: una clave de firma (VerificationKey), un emisor de tokens y las notificaciones necesarias.
@@ -426,5 +425,4 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
 
 ## <a name="next-step"></a>Paso siguiente
 Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el tema [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md) .
-
 

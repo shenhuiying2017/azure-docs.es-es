@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2017
 ms.author: bwren
 ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-sources-in-log-analytics"></a>Orígenes de datos en Log Analytics
 Log Analytics recopila datos desde los orígenes conectados en el área de trabajo de OMS y los almacena en el repositorio de OMS.  Los orígenes de datos que configura definen los datos que se recopilan de cada uno de ellos.  Los datos del repositorio de OMS se almacenan como un conjunto de registros.  Cada origen de datos crea registros de un tipo determinado, donde cada tipo tiene su propio conjunto de propiedades.

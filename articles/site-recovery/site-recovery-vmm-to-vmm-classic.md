@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 768c2598beccba885dd5e43a59ec4684818ccca3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site"></a>Replicación de máquinas virtuales de Hyper-V (en nubes VMM) en un sitio de VMM secundario
 > [!div class="op_single_selector"]
@@ -333,4 +332,3 @@ El proveedor en el servidor VMM recibe notificación del evento desde el Servici
 
 ## <a name="next-steps"></a>Pasos siguientes
 Cuando haya ejecutado una conmutación por error de prueba para comprobar que su entorno funciona según lo esperado, [conozca](site-recovery-failover.md) cuáles son los diferentes tipos de conmutaciones por error.
-

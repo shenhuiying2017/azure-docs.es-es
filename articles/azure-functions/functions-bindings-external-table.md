@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
-ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Enlaces de tablas externas de Azure Functions (versión preliminar)
 Este artículo muestra cómo manipular los datos tabulares de proveedores de SaaS (por ejemplo, Sharepoint y Dynamics) dentro de la función con enlaces integrados. Azure Functions admite enlaces de entrada y salida para tablas externas.
@@ -200,4 +199,3 @@ dataSetName es el "valor predeterminado".
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-

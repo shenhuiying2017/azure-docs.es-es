@@ -16,17 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
+ms.openlocfilehash: 44546b423cd7f3a49d3699aa39f2437a42de86a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d136b71c9587d4035009a2ef2296fd93f9e984fe
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)
 Azure proporciona dos opciones para el hospedaje de las cargas de trabajo de SQL Server en Microsoft Azure:
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): una base de datos de SQL nativa en la nube, conocida también como base de datos de plataforma como servicio (PaaS) o base de datos como servicio (DBaaS), que está optimizada para el desarrollo de aplicaciones de software como servicio (SaaS). Ofrece compatibilidad con la mayoría de las características de SQL Server. Para más información acerca de PaaS, consulte [¿Qué es PaaS?](https://azure.microsoft.com/overview/what-is-paas/).
+* [Base de datos SQL de Azure](https://azure.microsoft.com/services/sql-database/): una base de datos de SQL nativa en la nube, conocida también como base de datos de plataforma como servicio (PaaS) o base de datos como servicio (DBaaS), que está optimizada para el desarrollo de aplicaciones de software como servicio (SaaS). Ofrece compatibilidad con la mayoría de las características de SQL Server. Para más información acerca de PaaS, consulte [¿Qué es PaaS?](https://azure.microsoft.com/overview/what-is-paas/).
 * [SQL Server en Máquinas virtuales de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server instalado y hospedado en la nube en Máquinas virtuales de Windows Server que se ejecutan en Azure, conocido también como infraestructura como servicio (IaaS).
   SQL Server en máquinas virtuales de Azure está optimizado para migrar aplicaciones existentes de SQL Server. Todas las versiones y ediciones de SQL Server están disponibles. Ofrece un 100% de compatibilidad con SQL Server, lo que le permite hospedar tantas bases de datos como necesite y ejecutar transacciones entre bases de datos. Ofrece un control total sobre SQL Server y Windows.
 
@@ -66,7 +65,6 @@ En la siguiente tabla se resumen las principales características de Base de dat
 |  | Equipos que requieren mecanismos integrados de alta disponibilidad, recuperación ante desastres y actualización. |Equipos que puedan configurar y administrar alta disponibilidad, recuperación ante desastres y aplicación de revisiones para SQL Server. Algunas funciones automatizadas ya incorporadas simplifican considerablemente estos aspectos. | |
 |  | Equipos que no desean administrar el sistema operativo subyacente ni los valores de configuración. |Necesita un entorno personalizado con derechos administrativos completos. | |
 |  | Bases de datos de hasta 4 TB o mayores que pueden [particionarse de manera horizontal o vertical](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) con un patrón de escalado horizontal. |Instancias de SQL Server con hasta 64 TB de almacenamiento. La instancia puede admitir tantas bases de datos como sea necesario. | |
-|  | [Compilación de aplicaciones de software como servicio (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migración y creación de aplicaciones empresariales e híbridas. | |
 |  | | |
 | **Recursos:** |No desea emplear recursos de TI para la configuración y administración de la infraestructura subyacente, sino centrarse en la capa de aplicación. |Tiene algunos recursos de TI para la configuración y administración. Algunas funciones automatizadas ya incorporadas simplifican considerablemente estos aspectos. |
 | **Costo total de propiedad:** |Elimina los costos de hardware y reduce los costos administrativos. |Elimina costes de hardware. |
@@ -146,5 +144,4 @@ Elija **SQL Server en Máquinas virtuales de Azure** si:
 * Consulte [cómo comenzar por primera vez con Azure SQL Database](sql-database-get-started-portal.md).
 * Consulte [Precio de Base de datos SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 * Consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) para una introducción a SQL Server en máquinas virtuales de Azure.
-
 

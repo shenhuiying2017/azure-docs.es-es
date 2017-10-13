@@ -1,6 +1,6 @@
 ---
 title: "Creación y uso compartido de paneles en Azure Portal | Microsoft Docs"
-description: "En este artículo se explica cómo crear y editar paneles en Azure Portal."
+description: "En este artículo se explica cómo crear y editar paneles en el Portal de Azure."
 services: azure-portal
 documentationcenter: 
 author: sewatson
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creación y uso compartido de paneles en Azure Portal
 Puede crear varios paneles y compartirlos con otras personas que tengan acceso a sus suscripciones de Azure.  En este artículo se explican los aspectos básicos de la administración del acceso a los paneles, así como de su creación, edición y publicación.
@@ -94,6 +93,5 @@ Cuando se publique el panel, **Uso compartido y control de acceso** se actualice
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para administrar los recursos, consulte [Administración de los recursos de Azure a través del Portal](../azure-resource-manager/resource-group-portal.md).
-* Para implementar recursos, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
-
+* Para implementar recursos, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 

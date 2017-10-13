@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 411d6103852cbf534d3c420d5ea7b2146df5164e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Administración centralizada de los elementos de trabajo ITSM con IT Service Management Connector (versión preliminar)
 
@@ -83,7 +82,7 @@ Los incidentes y las solicitudes de cambio se sincronizan desde el producto ITSM
 > [!NOTE]
 > En función del tipo de elemento de trabajo que se importa a Log Analytics, **ServiceDesk_CL** contiene los campos siguientes:
 
-**Elemento de trabajo:** **incidentes**  
+**Elemento de trabajo:****incidentes**  
 ServiceDeskWorkItemType_s="Incidente"
 
 **Fields**
@@ -110,7 +109,7 @@ ServiceDeskWorkItemType_s="Incidente"
 - Equipo
 
 
-**Elemento de trabajo:** **solicitudes de cambio**
+**Elemento de trabajo:****solicitudes de cambio**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
@@ -307,4 +306,3 @@ Si tiene consultas o comentarios sobre IT Service Management, póngase en contac
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Incorporación de productos o servicios de ITSM a IT Service Management Connector](log-analytics-itsmc-connections.md).
-

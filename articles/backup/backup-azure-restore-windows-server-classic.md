@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: saurse;trinadhk;markgal;
 ms.openlocfilehash: 300b2b17b44e21ed446fd63d572a2461e2fc1343
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>Restauración de archivos en un equipo de Windows Server o cliente de Windows mediante el modelo de implementación de clásica
 > [!div class="op_single_selector"]
@@ -233,10 +233,10 @@ La terminología usada en estos pasos incluye:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.md)
+* [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 * Visite el [Foro de Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
 ## <a name="learn-more"></a>Más información
-* [Información general de Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=222425)
+* [Información general de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=222425)
 * [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md)
 * [Copia de seguridad de las cargas de trabajo de Microsoft](backup-azure-dpm-introduction.md)

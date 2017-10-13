@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 4b88b5015fcf44e8979b8b1a3aa1eb26f0fbb704
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Preguntas frecuentes sobre la migración de la plataforma de Security Center
 A principios de junio de 2017, Azure Security Center comenzó a usar Microsoft Monitoring Agent para recopilar y almacenar datos. Para obtener más información, consulte [Migración de la plataforma de Azure Security Center](security-center-platform-migration.md). Estas preguntas frecuentes responden a interrogantes sobre la migración de la plataforma.
@@ -74,10 +73,10 @@ Para realizar la recuperación, quite Microsoft Monitoring Agent de las VM conec
 
 Puede seleccionar un área de trabajo de Log Analytics existente para almacenar los datos recopilados por Security Center. Para usar el área de trabajo de Log Analytics existente:
 
-- El área de trabajo debe estar asociada con la suscripción a Azure seleccionada.
-- Como mínimo, el usuario debe poseer permisos de lectura para tener acceso el área de trabajo.
+- El área de trabajo debe estar asociada con la suscripción de Azure seleccionada.
+- Como mínimo, el usuario debe tener permisos de lectura para obtener acceso al área de trabajo.
 
-Para seleccionar un área de trabajo de Log Analytics existente:
+Para seleccionar un área de trabajo existente de Log Analytics:
 
 1. En **Security policy – Data Collection** (Directiva de seguridad: recopilación de datos), seleccione **Use another workspace** (Usar otro área de trabajo).
 
@@ -97,7 +96,7 @@ Para seleccionar un área de trabajo de Log Analytics existente:
    - Haga clic en **Sí** si quiere que la nueva configuración del área de trabajo **se aplique a todas las máquinas virtuales**. Además, cada máquina virtual conectada a un área de trabajo creada por Security Center se reconecta a la nueva área de trabajo de destino.
 
    > [!NOTE]
-   > Si hace clic en Sí, no debe eliminar las áreas de trabajo creadas por Security Center hasta que todas las máquinas virtuales se hayan reconectado al nuevo área de trabajo de destino. Esta operación no se lleva a cabo si un área de trabajo se elimina demasiado pronto.
+   > Si hace clic en Sí, no debe eliminar las áreas de trabajo creadas por Security Center hasta que todas las máquinas virtuales se hayan reconectado al nuevo área de trabajo de destino. Esta operación no se lleva a cabo si se elimina un área de trabajo demasiado pronto.
    >
    >
 
@@ -195,4 +194,3 @@ Para más información sobre la migración de la plataforma de Security Center, 
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
 [6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png
-

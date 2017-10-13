@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/24/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: bb55a7a4bff0fd4319de6f6ce958686ad8a4142b
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-storsimple-volume-containers"></a>Usar el servicio de Administrador de StorSimple para administrar contenedores de volúmenes de StorSimple
 ## <a name="overview"></a>Información general
@@ -60,5 +59,4 @@ Los contenedores de volúmenes contienen volúmenes. Solo se puede eliminar si p
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre la [administración de volúmenes de StorSimple](storsimple-manage-volumes.md). 
 * Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

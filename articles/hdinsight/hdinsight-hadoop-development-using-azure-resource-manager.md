@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 3606df64b619b62f8b9e5aec2abc4efc994c37e3
-ms.contentlocale: es-es
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: 9fec253fbf9136cf86a84a6c7b407ea522996226
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migración a las herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight
 
@@ -363,5 +362,4 @@ A continuación se muestran algunos ejemplos de cómo se realiza una operación 
 * Nuevo comando (ARM)
   
         client.Clusters.Delete(resourceGroup, dnsname);
-
 

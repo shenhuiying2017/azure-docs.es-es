@@ -14,15 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
+ms.custom: devcenter
+ms.openlocfilehash: 22b56e9569ac1fd2afe2c91013fa5605f9f3ef99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0d69207c0b8bcbba6dee42a1dc856e9085629734
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Administración de Azure Data Lake Analytics con Python
 
 ## <a name="python-versions"></a>Versiones de Python
@@ -231,11 +229,11 @@ for r in recurrences:
 
 ## <a name="manage-compute-policies"></a>Administrar directivas de cálculo
 
-El objeto de DataLakeAnalyticsAccountManagementClient proporciona métodos para administrar las directivas de cálculo de una cuenta de Data Lake Analytics.
+El objeto de DataLakeAnalyticsAccountManagementClient proporciona métodos para administrar las directivas de proceso de una cuenta de Data Lake Analytics.
 
-### <a name="list-compute-policies"></a>Enumerar directivas de cálculo
+### <a name="list-compute-policies"></a>Enumeración de directivas de proceso
 
-El código siguiente recupera una lista de directivas de cálculo de una cuenta de Data Lake Analytics.
+El código siguiente recupera una lista de directivas de proceso de una cuenta de Data Lake Analytics.
 
 ```python
 policies = adlaAccountClient.computePolicies.listByAccount(rg, adla)
@@ -243,9 +241,9 @@ for p in policies:
     print('Name: ' + p.name + 'Type: ' + p.objectType + 'Max AUs / job: ' + p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
 ```
 
-### <a name="create-a-new-compute-policy"></a>Crear una nueva directiva de cálculo
+### <a name="create-a-new-compute-policy"></a>Creación de una nueva directiva de proceso
 
-El siguiente código crea una nueva directiva de cálculo para una cuenta de Data Lake Analytics y establece el número máximo de AU disponibles para el usuario especificado en 50 y la prioridad del trabajo mínimo en 250.
+El siguiente código crea una nueva directiva de cálculo para una cuenta de análisis de Data Lake y establece que el número máximo de AU disponibles para el usuario especificado en 50 y la prioridad del trabajo mínimo en 250.
 
 ```python
 userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde"
@@ -258,5 +256,4 @@ adlaAccountClient.computePolicies.createOrUpdate(rg, adla, "GaryMcDaniel", newPo
 - Para ver el mismo tutorial con otras herramientas, haga clic en los selectores de pestañas en la parte superior de la página.
 - Para obtener más información sobre U-SQL, consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 - Para conocer las tareas de administración, consulte [Administración de Azure Data Lake Analytics mediante el Azure Portal](data-lake-analytics-manage-use-portal.md).
-
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0544cb9aaf9ec03c16cc07f2974b6b8d90b3c61d
-
-
+ms.openlocfilehash: 93df79c9d349c294b692148a19c9d881c4de4f7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>Usar el servicio de Administrador de StorSimple para supervisar componentes y estados de hardware
 ## <a name="overview"></a>Información general
@@ -87,7 +87,7 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 | Grupo de almacenamiento de la unidad de estado sólido |N/D |Lógicos |Compartido |N/D |Muestra el estado del grupo de almacenamiento lógico que se crea desde las unidades de estado sólido del dispositivo. |
 | Controller [0-1] [estado] |E/S |Física |Controller |Sí |Muestra el estado del controlador y si está en modo activo o en espera dentro del chasis. |
 | Sensores de temperatura en el controlador |E/S |Física |Controller |No |En numerosos sensores de temperatura como los sensores del módulo de E/S, de temperatura de la CPU, de DIMM y de PCI se muestra el estado, que indica si la temperatura se encuentra dentro de la tolerancia. |
-| ﻿Ampliador SAS |E/S |Física |Controller |No |Indica el estado del ampliador del SCSI acoplado en serie (SAS), que se usa para conectar el almacenamiento integrado al controlador. |
+| Ampliador SAS |E/S |Física |Controller |No |Indica el estado del ampliador del SCSI acoplado en serie (SAS), que se usa para conectar el almacenamiento integrado al controlador. |
 | Conector SAS [0-1] |E/S |Física |Controller |No |Indica el estado de cada conector SAS, que se usa para conectar el almacenamiento integrado al ampliador SAS. |
 | Interconexión de plano medio de SBB |E/S |Física |Controller |No |Indica el estado del conector de plano medio, que se usa para conectar cada controlador al plano medio. |
 | Núcleo del procesador |E/S |Física |Controller |No |Indica el estado de los núcleos del procesador en cada controlador. |
@@ -116,7 +116,7 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 | Almacenamiento local [HDD] |N/D |Lógicos |Compartido |N/D |Muestra el estado del grupo de almacenamiento lógico que se crea desde las unidades de disco duro del dispositivo. |
 | Controller [0-1] [estado] |E/S |Física |Controller |Sí |Muestra el estado de los controladores en el módulo EBOD. |
 | Sensores de temperatura en el EBOD |E/S |Física |Controller |No |En numerosos sensores de temperatura de cada controlador se muestra el estado, que indica si la temperatura está dentro de la tolerancia. |
-| ﻿Ampliador SAS |E/S |Física |Controller |No |Indica el estado del ampliador SAS, que se usa para conectar el almacenamiento integrado al controlador. |
+| Ampliador SAS |E/S |Física |Controller |No |Indica el estado del ampliador SAS, que se usa para conectar el almacenamiento integrado al controlador. |
 | Conector SAS [0-2] |E/S |Física |Controller |No |Indica el estado de cada conector SAS, que se usa para conectar el almacenamiento integrado al ampliador SAS. |
 | Interconexión de plano medio de SBB |E/S |Física |Controller |No |Indica el estado del conector de plano medio, que se usa para conectar cada controlador al plano medio. |
 | Potencia de la electrónica del revestimiento |E/S |Física |Controller |No |Indica el estado del sistema de alimentación que usa el revestimiento. |
@@ -128,10 +128,4 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 * Si necesita solucionar problemas de un componente del dispositivo que tiene un estado degradado o con error, vea [Indicadores de supervisión de StorSimple](storsimple-monitoring-indicators.md). 
 * Para reemplazar un componente de hardware con errores, vea [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 * Si sigue teniendo problemas con el dispositivo, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

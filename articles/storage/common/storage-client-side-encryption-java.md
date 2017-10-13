@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -252,6 +251,6 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 * Descargue el [paquete Maven de la Biblioteca de cliente de Almacenamiento de Azure para Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Descargue el [Código fuente de la Biblioteca de cliente de Almacenamiento de Azure para Java desde GitHub](https://github.com/Azure/azure-storage-java)   
 * Descargue la biblioteca Maven del Almacén de claves de Azure para los paquetes Maven de Java:
-  * [principal](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 
-  * [cliente](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 
+  * [principal](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
+  * [cliente](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 * Consulte la [documentación del Almacén de claves de Azure](../../key-vault/key-vault-whatis.md)

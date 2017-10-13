@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 27843b116d949899e4eae65f342324f77ebca70b
-ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 20b98b14fbe3b2cec32452cffd57cecc4375b07a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento de la interfaz de usuario Microsoft.Storage.MultiStorageAccountCombo
 Un grupo de controles para crear varias cuentas de almacenamiento con nombres que comienzan con un prefijo común. Use este elemento al [crear una aplicación administrada de Azure](managed-application-publishing.md).
@@ -74,4 +73,3 @@ Tanto `constraints.allowedTypes` como `constraints.excludedTypes` son opcionales
 * Para una introducción a las aplicaciones administradas, consulte la [introducción a las aplicaciones administradas de Azure](managed-application-overview.md).
 * Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Para ver una descripción de las propiedades comunes de los elementos de interfaz de usuario, consulte [Elementos CreateUiDefinition](managed-application-createuidefinition-elements.md).
-

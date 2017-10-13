@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 0a09b35e98dc0b2f5283c2a707a3a2b8ac9a39f2
-ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-physical-servers-to-azure-with-site-recovery"></a>Replicar servidores físicos en Azure con Site Recovery
 
@@ -33,7 +32,7 @@ Antes de empezar la implementación, revise la arquitectura del escenario y aseg
 Vaya a [Paso 1: Revisar la arquitectura](physical-walkthrough-architecture.md)
 
 
-## <a name="step-2-review-prerequisites"></a>Paso 2: Revisar los requisitos previos
+## <a name="step-2-review-prerequisites"></a>Paso 2: revisión de los requisitos previos
 
 Asegúrese de satisfacer los requisitos previos de cada componente de la implementación:
 
@@ -43,19 +42,19 @@ Asegúrese de satisfacer los requisitos previos de cada componente de la impleme
 
 Vaya a [Paso 2: Revisar los requisitos previos y las limitaciones](physical-walkthrough-prerequisites.md)
 
-## <a name="step-3-plan-capacity"></a>Paso 3: Planear la capacidad
+## <a name="step-3-plan-capacity"></a>Paso 3: Planeamiento de la capacidad
 
 Si está realizando una implementación completa, debe averiguar qué recursos de replicación necesita. Si está realizando una configuración rápida para probar el entorno, puede omitir este paso.
 
 Vaya a [Paso 3: Planear la capacidad](physical-walkthrough-capacity.md)
 
-## <a name="step-4-plan-networking"></a>Paso 4: Planear las redes
+## <a name="step-4-plan-networking"></a>Paso 4: planeamiento de las redes
 
 Debe planear las redes para asegurarse de que las máquinas virtuales de Azure estén conectadas a redes después de que se produzca la conmutación por error y de que tengan la dirección IP correcta.
 
-Vaya a [Paso 4: Planear las redes](physical-walkthrough-network.md)
+Vaya al [paso 4: planeamiento de las redes](physical-walkthrough-network.md)
 
-##  <a name="step-5-prepare-azure-resources"></a>Paso 5: Preparar los recursos de Azure
+##  <a name="step-5-prepare-azure-resources"></a>Paso 5: preparación de los recursos de Azure
 
 Antes de empezar hay que configurar las redes y el almacenamiento de Azure. 
 
@@ -97,5 +96,4 @@ Vaya a [Paso 10: Habilitar la replicación](physical-walkthrough-enable-replicat
 Una vez que termina la replicación inicial y que se está ejecutando la replicación diferencial, puede ejecutar una conmutación por error de prueba para asegurarse de que todo funciona según lo previsto.
 
 Vaya a [Paso 11: Ejecutar una conmutación por error de prueba](physical-walkthrough-test-failover.md)
-
 

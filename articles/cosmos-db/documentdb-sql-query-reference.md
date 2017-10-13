@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/13/2017
 ms.author: mimig
+ms.openlocfilehash: 0a05f4ee86d2dcca40dc0b5ec2c503ba0b8bfe8c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 63b2d20c74df4fd6173994ee1a727594ba8afba3
-ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>API de DocumentDB de Azure Cosmos DB: referencia de sintaxis SQL
 
 La API de DocumentDB de Azure Cosmos DB admite consultar documentos mediante una instancia de SQL (lenguaje de consulta estructurado) familiar, como gramática, en documentos JSON jerárquicos sin necesidad de esquemas explícitos ni de índices secundarios. En este tema se ofrece documentación de referencia para el lenguaje de consulta SQL de la API de DocumentDB.
@@ -505,8 +503,8 @@ ORDER BY <sort_specification>
 |**aritméticos**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Suma.<br /><br /> Resta.<br /><br /> Multiplicación.<br /><br /> División.<br /><br /> Modulación.|  
 |**bit a bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit a bit.<br /><br /> AND bit a bit.<br /><br /> XOR bit a bit.<br /><br /> Desplazamiento a la izquierda.<br /><br /> Desplazamiento a la derecha.<br /><br /> Desplazamiento a la derecha con relleno de ceros.|  
 |**lógicos**|**AND**<br /><br /> **O bien**|Conjunción lógica. Devuelve **true** si ambos argumentos son **true**, devuelve **false** en caso contrario.<br /><br /> Conjunción lógica. Devuelve **true** si ambos argumentos son **true**, devuelve **false** en caso contrario.|  
-|**de comparación**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Igual a. Devuelve **true** si ambos argumentos son iguales, en caso contrario, devuelve **false**.<br /><br /> Diferente de. Devuelve **true** si ambos argumentos no son iguales, en caso contrario, devuelve **false**.<br /><br /> Mayor que. Devuelve **true** si el primer argumento es mayor que el segundo, en caso contrario, devuelve **false**.<br /><br /> Mayor o igual que. Devuelve **true** si el primer argumento es mayor o igual que el segundo, en caso contrario, devuelve **false**.<br /><br /> Menor que. Devuelve **true** si el primer argumento es menor que el segundo, en caso contrario, devuelve **false**.<br /><br /> Menor o igual que. Devuelve **true** si el primer argumento es menor o igual que el segundo, en caso contrario, devuelve **false**.<br /><br /> Fusionar. Devuelve el segundo argumento si el primero es un valor **undefined**.|  
-|**String**|**&#124;&#124;**|Concatenación. Devuelve una concatenación de ambos argumentos.|  
+|**de comparación**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Igual a. Devuelve **true** si ambos argumentos son iguales, en caso contrario, devuelve **false**.<br /><br /> Diferente de. Devuelve **true** si ambos argumentos no son iguales, en caso contrario, devuelve **false**.<br /><br /> Mayor que. Devuelve **true** si el primer argumento es mayor que el segundo, en caso contrario, devuelve **false**.<br /><br /> Mayor o igual que. Devuelve **true** si el primer argumento es mayor o igual que el segundo, en caso contrario, devuelve **false**.<br /><br /> Menor que. Devuelve **true** si el primer argumento es menor que el segundo, en caso contrario, devuelve **false**.<br /><br /> Menor o igual que. Devuelve **true** si el primer argumento es menor o igual que el segundo, en caso contrario, devuelve **false**.<br /><br /> Fusionar. Devuelve el segundo argumento si el primero es un valor **undefined**.|  
+|**String**|**&amp;#124;&amp;#124;**|Concatenación. Devuelve una concatenación de ambos argumentos.|  
   
  **Operadores ternarios:**  
   
@@ -671,8 +669,8 @@ ORDER BY <sort_specification>
     |-|-|    
     |MAYÚSCULAS|Palabras clave sin distinción entre mayúsculas y minúsculas.|  
     |minúsculas|Palabras clave con distinción entre mayúsculas y minúsculas.|  
-    |\<noterminal>|Elemento no terminal, se define por separado.|  
-    |\<noterminal> ::=|Definición de la sintaxis del elemento no terminal.|  
+    |\<noterminal&gt;|Elemento no terminal, se define por separado.|  
+    |\<noterminal&gt; ::=|Definición de la sintaxis del elemento no terminal.|  
     |otro_terminal|Terminal (token), se describe detalladamente en palabras.|  
     |identificador|Identificador. Solo admite los caracteres siguientes:, a-z, A-Z, 0-9 _El primer carácter no puede ser un dígito.|  
     |"cadena"|Cadena entrecomillada. Permite cualquier cadena válida. Vea la descripción de string_literal.|  
@@ -2773,4 +2771,3 @@ SELECT ST_ISVALIDDETAILED({
  [Documentación sobre Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
   
   
-

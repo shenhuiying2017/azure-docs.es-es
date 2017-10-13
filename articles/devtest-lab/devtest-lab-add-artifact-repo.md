@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: e0fb8b3c991d3f95acef77b37929fb5f6dc06242
-ms.contentlocale: es-es
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adición de un repositorio de Git para almacenar artefactos personalizados y plantillas de Resource Manager
 
@@ -99,4 +98,3 @@ Después de haber creado el repositorio Git privado, puede hacer una o ambas de 
 * [Creación de entornos con varias máquinas virtuales y recursos de PaaS mediante plantillas de Resource Manager](devtest-lab-create-environment-from-arm.md). A continuación, puede almacenar las plantillas en el repositorio privado.
 
 Cuando se crea una máquina virtual, podrá comprobar que las plantillas o los artefactos se han agregado al repositorio de Git. Están inmediatamente disponibles en la lista de artefactos o plantillas. El nombre del repositorio privado se muestra en la columna que especifica el origen. 
-

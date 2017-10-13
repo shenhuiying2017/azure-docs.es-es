@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Creación de una configuración de escalado automático de recursos de Azure basado en los datos de rendimiento o una programación
 
 La configuración de escalado automático le permite agregar o quitar instancias de servicio según condiciones predefinidas. Esta configuración puede crearse a través del portal. Este método proporciona una interfaz de usuario basada en explorador para crear y establecer una configuración de escalado automático. Este tutorial lo guía por lo siguiente:
@@ -174,4 +172,3 @@ En este tutorial, ha creado una aplicación web y un plan de App Service sencill
 
 > [!div class="nextstepaction"]
 > [Archivado de los datos de supervisión](./monitor-tutorial-archive-monitoring-data.md)
-

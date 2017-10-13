@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: f57c915dd566e9da9b751bb776a1170842d87297
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Recopilación y agregación de eventos con EventFlow
 
 [Microsoft Diagnostics EventFlow](https://github.com/Azure/diagnostics-eventflow) puede enrutar los eventos de un nodo a uno o varios destinos de supervisión. Dado que se incluye como un paquete de NuGet en el proyecto de servicio, el código y la configuración de EventFlow van con el servicio, por lo que se elimina el problema de la configuración por nodo que se mencionó antes sobre Diagnósticos de Azure. EventFlow se ejecuta dentro del proceso de servicio y se conecta directamente con las salidas configuradas. Gracias a esta conexión directa, EventFlow funciona en implementaciones de servicios de Azure, de contenedor o locales. Tenga cuidado si ejecuta EventFlow en escenarios de alta densidad, como un contenedor, ya que cada canalización EventFlow genera una conexión externa. Por tanto, si hospeda varios procesos, obtendrá varias conexiones salientes. Esto no supone un problema para las aplicaciones de Service Fabric, ya que todas las réplicas de `ServiceType` se ejecutan en el mismo proceso, lo que limita el número de conexiones salientes. EventFlow también proporciona filtrado de eventos, de manera que solo se envían los eventos que coinciden con el filtro especificado.
@@ -157,4 +155,3 @@ Inicie el servicio y observe la ventana de resultados de depuración de Visual S
 * [Análisis y visualización de eventos con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Análisis y visualización de eventos con OMS](service-fabric-diagnostics-event-analysis-oms.md)
 * [Documentación de EventFlow](https://github.com/Azure/diagnostics-eventflow)
-

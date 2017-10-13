@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: yuemlu
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b432426cb5cc5401fa2e8f7aaa6bc0955aff0931
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Almacenamiento Estándar rentable y discos de máquina virtual de Azure administrados y no administrados
 
@@ -154,4 +153,3 @@ El servicio Azure Backup también se puede usar con Managed Disks para crear un 
 * [Creación de una máquina virtual con Resource Manager y PowerShell](/azure/virtual-machines/windows/quick-create-powershell.md)
 
 * [Creación de una máquina virtual Linux desde cero con la CLI de Azure 2.0](../../virtual-machines/windows/quick-create-cli.md)
-

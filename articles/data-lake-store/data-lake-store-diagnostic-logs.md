@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 73d0dabe5b8b179cbc0847c2819947febd6ef4d8
-ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Acceso a los registros de diagnóstico de Azure Data Lake Store
 Sepa cómo habilitar el registro de diagnósticos en su cuenta de Data Lake Store y cómo ver los registros recopilados relativos a su cuenta.
@@ -183,5 +182,4 @@ Azure Data Lake Store proporciona un ejemplo de cómo procesar y analizar los da
 ## <a name="see-also"></a>Otras referencias
 * [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
 * [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
-
 

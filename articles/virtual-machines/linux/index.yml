@@ -66,7 +66,7 @@ sections:
           - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Creación de una infraestructura de integración y entrega continuas con Jenkins, Docker y GitHub</a>'
           - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD con Team Services</a>
           - html: 'Creación de una pila de servidor web con <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> o <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>'
-          - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Protección de un servidor web con SSL</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Protección de servidor web con SSL</a>
   - title: Vídeo gratuito de aprendizaje de PluralSight
     items:
       - type: list

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 40641910f904aa0c0516f96d84d0ebbbbe8e5501
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Servicio de Azure Batch para trabajos de Machine Learning
 
@@ -112,4 +111,3 @@ Se recomienda sondear el estado del trabajo para determinar cuándo se completan
 | **Use procesamiento de grupo de lote cuando**    | **Use procesamiento por lotes clásico cuando**  |
 |---|---|
 |Tiene que ejecutar un gran número de trabajos<br>O<br/>Tiene que asegurarse de que los trabajos se ejecutarán inmediatamente<br/>O<br/>Necesita rendimiento garantizado. Por ejemplo, tiene que ejecutar una serie de trabajos en un determinado período de tiempo y desea escalar horizontalmente los recursos de proceso para satisfacer sus necesidades.    | Tiene unos pocos trabajos para ejecutar<br/>y<br/> No necesita que los trabajos se ejecuten inmediatamente |
-

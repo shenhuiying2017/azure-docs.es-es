@@ -16,10 +16,10 @@ ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
 ms.openlocfilehash: 5a3445aee7722579405b67830ca49ef8c0b29d0e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introducción al Catálogo de datos de Azure
 El Catálogo de datos de Azure es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección para recursos de datos empresariales. Si desea información detallada, consulte [¿Qué es el Catálogo de datos de Azure](data-catalog-what-is-data-catalog.md).
@@ -75,7 +75,7 @@ Solo se puede aprovisionar un catálogo de datos por organización (dominio de A
 5. Expanda **Usuarios de catálogo** y haga clic en **Agregar** para agregar usuarios al catálogo de datos. Se le agregará automáticamente a este grupo.
     ![Azure Data Catalog: usuarios](media/data-catalog-get-started/data-catalog-add-catalog-user.png)
 6. Expanda **Administradores de catálogo** y haga clic en **Agregar** para agregar más administradores al catálogo de datos. Se le agregará automáticamente a este grupo.
-    ![Azure Data Catalog: administradores](media/data-catalog-get-started/data-catalog-add-catalog-admins.png)
+    ![Catálogo de datos de Azure: administradores](media/data-catalog-get-started/data-catalog-add-catalog-admins.png)
 7. Haga clic en **Crear catálogo** para crear el catálogo de datos de la organización. Una vez que el catálogo de datos se haya creado verá su página principal.
     ![Azure Data Catalog: creado](media/data-catalog-get-started/data-catalog-created.png)    
 

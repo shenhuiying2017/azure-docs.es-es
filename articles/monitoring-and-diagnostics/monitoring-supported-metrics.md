@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 05830547a5b8a24a59571edf6dd44d101b660189
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. A continuación se muestra una lista completa de todas las métricas disponibles actualmente en la canalización de métricas de Azure Monitor.
@@ -333,8 +332,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Bytes de escritura de disco|Bytes de escritura de disco|Bytes|Total|Número total de bytes que se escriben en el disco durante el período de supervisión|Sin dimensiones|
 |Operaciones de lectura de disco por segundo|Operaciones de lectura de disco por segundo|CountPerSecond|Media|E/S por segundo de lectura de disco|Sin dimensiones|
 |Operaciones de escritura por segundo en disco|Operaciones de escritura por segundo en disco|CountPerSecond|Media|E/S por segundo de escritura en disco|Sin dimensiones|
-|CPU Credits Remaining|Créditos de CPU restantes|Recuento|Media|Número total de créditos disponibles para irrumpir|Sin dimensiones|
-|CPU Credits Consumed|Créditos de CPU consumidos|Recuento|Media|Número total de créditos consumidos por la máquina virtual|Sin dimensiones|
+|Créditos de CPU restantes|Créditos de CPU restantes|Recuento|Media|Número total de créditos disponibles para irrumpir|Sin dimensiones|
+|Créditos de CPU consumidos|Créditos de CPU consumidos|Recuento|Media|Número total de créditos consumidos por la máquina virtual|Sin dimensiones|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -814,8 +813,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |UsedCapacity|Capacidad usada|Bytes|Media|Capacidad usada de la cuenta|Sin dimensiones|
 |Transacciones|Transacciones|Recuento|Total|El número de solicitudes realizadas a un servicio de almacenamiento o la operación de API especificada. Este número incluye solicitudes correctas y con errores, así como las solicitudes que generaron errores. Use la dimensión ResponseType para el número de diferentes tipos de respuesta.|ResponseType, GeoType, ApiName|
-|Ingress|Entrada|Bytes|Total|La cantidad de datos de entrada, en bytes. Este número incluye la entradas desde un cliente externo en Azure Storage, así como la entrada dentro de Azure.|GeoType, ApiName|
-|Egress|Salida|Bytes|Total|La cantidad de datos de salida, en bytes. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables.|GeoType, ApiName|
+|Entrada|Entrada|Bytes|Total|La cantidad de datos de entrada, en bytes. Este número incluye la entradas desde un cliente externo en Azure Storage, así como la entrada dentro de Azure.|GeoType, ApiName|
+|Salida|Salida|Bytes|Total|La cantidad de datos de salida, en bytes. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables.|GeoType, ApiName|
 |SuccessServerLatency|Latencia del servidor correcta|Milisegundos|Media|La latencia media utilizada por Azure Storage para procesar una solicitud correcta, en milisegundos. Este valor no incluye la latencia de red especificada en AverageE2ELatency.|GeoType, ApiName|
 |SuccessE2ELatency|Latencia de E2E correcta|Milisegundos|Media|La latencia media de un extremo a otro de las solicitudes correctas realizadas a un servicio de almacenamiento o a la operación de API especificada, en milisegundos. Este valor incluye el tiempo de procesamiento requerido dentro de Azure Storage para leer la solicitud, enviar la respuesta y recibir la confirmación de la respuesta.|GeoType, ApiName|
 |Disponibilidad|Disponibilidad|Percent|Media|El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el valor deTotalBillableRequests y dividirlo por el número de solicitudes aplicables, incluidas aquellas que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada.|GeoType, ApiName|
@@ -1000,4 +999,3 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 * [Lea información sobre las métricas en Azure Monitor](monitoring-overview-metrics.md)
 * [Creación de alertas basadas en métricas](insights-receive-alert-notifications.md)
 * [Exportación de métricas a cuentas de almacenamiento, Event Hubs o Log Analytics](monitoring-overview-of-diagnostic-logs.md)
-

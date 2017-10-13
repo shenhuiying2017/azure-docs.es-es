@@ -15,14 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: e368ae8b249fe3c33371794160440e472b0f35e3
-ms.contentlocale: es-es
-ms.lasthandoff: 01/30/2017
-
-
-
+ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-with-bcp"></a>Carga de datos con BCP
 > [!div class="op_single_selector"]
@@ -188,7 +185,7 @@ Puede comprobar que los datos se exportaron correctamente abriendo el nuevo arch
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener información general sobre la carga, consulte [Carga de datos en SQL Data Warehouse][Load data into SQL Data Warehouse].
+Para obtener información general sobre la carga, vea [Carga de datos en SQL Data Warehouse][Load data into SQL Data Warehouse].
 Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][SQL Data Warehouse development overview].
 
 <!--Image references-->
@@ -206,4 +203,3 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-

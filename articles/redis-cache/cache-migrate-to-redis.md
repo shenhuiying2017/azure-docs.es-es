@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: sdanie
 ms.openlocfilehash: 0fbfb945c66926794721f2ce8cc183dac51ecb27
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Migración desde el Servicio de caché administrado a Caché en Redis de Azure
 La migración de aplicaciones que usan el Servicio de caché administrado de Azure a Caché en Redis de Azure se puede realizar con unos cambios mínimos en la aplicación, según las características del Servicio de caché administrado usadas por la aplicación de almacenamiento en caché. Si bien las API no son exactamente iguales, son parecidas, y gran parte del código existente que usa el Servicio de caché administrado para tener acceso a una caché se puede reutilizar con cambios mínimos. En este tema se muestra cómo realizar los cambios de aplicación y configuración necesarios para migrar las aplicaciones de Managed Cache Service y que utilicen Azure Redis Cache, y se indica cómo se pueden usar algunas de las características de Azure Redis Cache para implementar la funcionalidad de una caché de una memoria caché de Managed Cache Service.

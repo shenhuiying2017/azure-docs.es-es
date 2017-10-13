@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
+ms.openlocfilehash: 0c5d00b6cb9f68a1a0e474f81c969eb1b5654c67
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: cbfdc3c4b6a6d0f3174c9d7512c3aadd926a56df
-ms.contentlocale: es-es
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)
 
@@ -155,7 +154,7 @@ Al aplicar un script a un clúster, el estado de este cambia de **En ejecución*
 
 Los scripts de acciones de script se pueden usar con las utilidades siguientes:
 
-* Azure Portal
+* Portal de Azure
 * Azure PowerShell
 * Azure CLI
 * SDK .NET de HDInsight
@@ -452,7 +451,7 @@ En esta sección, aprenda cómo aplicar acciones de script a un clúster en ejec
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal"></a>Aplicación de una acción de script a un clúster en ejecución desde Azure Portal
 
-1. En [Azure Portal](https://portal.azure.com), seleccione el clúster de HDInsight.
+1. En el [Portal de Azure](https://portal.azure.com), seleccione el clúster de HDInsight.
 
 2. En la introducción al clúster de HDInsight, seleccione el icono **Acciones de script**.
 
@@ -544,9 +543,9 @@ Si desea ver un ejemplo de uso del SDK de .NET para aplicar scripts a un clúste
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>Visualización del historial, promover y disminuir de nivel acciones de script
 
-### <a name="using-the-azure-portal"></a>Uso de Azure Portal
+### <a name="using-the-azure-portal"></a>Uso del portal de Azure
 
-1. En [Azure Portal](https://portal.azure.com), seleccione el clúster de HDInsight.
+1. En el [Portal de Azure](https://portal.azure.com), seleccione el clúster de HDInsight.
 
 2. En la introducción al clúster de HDInsight, seleccione el icono **Acciones de script**.
 
@@ -668,7 +667,7 @@ Si se produce un error al crear el clúster debido a un error de acción de scri
 
 * Es posible crear repetidamente un clúster de la acción de script con el mismo nombre. En tal caso, puede distinguir los registros relevantes según el nombre de la carpeta de fecha. Por ejemplo, la estructura de carpetas de un clúster (mycluster) creado en diferentes fechas es similar a las siguientes entradas de registro:
 
-    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
+    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04``\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
 * Si crea un clúster de acción de script con el mismo nombre en el mismo día, puede usar el prefijo único para identificar los archivos de registro correspondientes.
 
@@ -722,4 +721,3 @@ Hay dos excepciones:
 * [Adición de almacenamiento adicional a un clúster HDInsight](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes X12 para la integración empresarial con aplicaciones lógicas
 
@@ -305,5 +304,4 @@ Vea los [detalles de Swagger](/connectors/x12/).
 
 ## <a name="learn-more"></a>Más información
 * [Más información sobre Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")  
-
 

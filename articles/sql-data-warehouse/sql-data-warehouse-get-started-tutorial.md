@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
+ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 95e14824ba3b705bb909ec983652dd3305b98805
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Introducción a SQL Data Warehouse
 
@@ -49,20 +48,20 @@ Si está ejecutando un sistema operativo Windows, se recomienda usar [Visual Stu
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## <a name="create-a-sql-data-warehouse"></a>Creación de una instancia de SQL Data Warehouse
+## <a name="create-a-sql-data-warehouse"></a>Creación de Almacenamiento de datos SQL
 
 SQL Data Warehouse es un tipo especial de base de datos diseñado para el procesamiento paralelo masivo. La base de datos se distribuye en varios nodos y procesa las consultas en paralelo. SQL Data Warehouse tiene un nodo de control que orquesta las actividades de todos los nodos. Los propios nodos usan SQL Database para administrar los datos.  
 
 > [!NOTE]
-> La creación de una instancia de SQL Data Warehouse puede dar lugar a un nuevo servicio facturable.  Para más información, consulte [Precios de Azure SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La creación de una instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable.  Para más información, consulte [Precios de Azure SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 
 ### <a name="create-a-data-warehouse"></a>Creación del almacenamiento de datos
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Haga clic en **Nuevo** > **Bases de datos** > **SQL Data Warehouse**.
 
-    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Rellene los detalles de la implementación
 
@@ -86,14 +85,14 @@ SQL Data Warehouse es un tipo especial de base de datos diseñado para el proces
 
 5. Póngase cómodo y espere a que el almacenamiento de datos se implemente. Lo normal es que este proceso tarde varios minutos. El portal le avisa cuando está el almacenamiento de datos está listo para usarse. 
 
-## <a name="connect-to-sql-data-warehouse"></a>Conexión a SQL Data Warehouse
+## <a name="connect-to-sql-data-warehouse"></a>Conexión a Almacenamiento de datos SQL
 
-Este tutorial usa SQL Server Management Studio (SSMS) para conectarse a la instancia de SQL Data Warehouse. Puede conectarse a SQL Data Warehouse a través de los siguientes conectores compatibles: ADO.NET, JDBC, ODBC y PHP. Recuerde que la funcionalidad podría ser limitada para herramientas no compatibles con Microsoft.
+Este tutorial usa SQL Server Management Studio (SSMS) para conectarse al almacenamiento de datos. Puede conectarse a SQL Data Warehouse a través de los siguientes conectores compatibles: ADO.NET, JDBC, ODBC y PHP. Recuerde que la funcionalidad podría ser limitada para herramientas no compatibles con Microsoft.
 
 
 ### <a name="get-connection-information"></a>Obtención de información sobre la conexión
 
-Para conectarse a su instancia de SQL Data Warehouse, debe conectarse mediante el servidor lógico de SQL Server que creó en los [requisitos previos].
+Para conectarse a su almacenamiento de datos, debe conectarse mediante el servidor lógico de SQL Server que creó en los [requisitos previos].
 
 1. Seleccione su almacenamiento de datos en el panel o búsquelo en los recursos.
 
@@ -175,11 +174,11 @@ Puesto que ha iniciado sesión como administrador del servidor, tiene permisos p
     ![Inicie sesión con el nuevo inicio de sesión](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
-## <a name="load-data-from-azure-blob-storage"></a>Carga de datos de Azure Blob Storage
+## <a name="load-data-from-azure-blob-storage"></a>Carga de datos del almacenamiento de blobs de Azure
 
 Ahora está listo para cargar datos en el almacenamiento de datos. Este paso muestra cómo cargar datos de los taxis de Nueva York procedentes de una instancia de Azure Storage Blob público. 
 
-- Una forma habitual de cargar datos en SQL Data Warehouse es mover los datos a Azure Blob Storage y, después, cargarlos en su instancia de SQL Data Warehouse. Para que sea más fácil entender cómo se realiza la carga, tenemos datos de los taxis de Nueva York ya hospedados en una instancia de Azure Storage Blob público. 
+- Una forma habitual de cargar datos en SQL Data Warehouse es mover los datos a Azure Blob Storage y, después, cargarlos en su almacenamiento de datos. Para que sea más fácil entender cómo se realiza la carga, tenemos datos de los taxis de Nueva York ya hospedados en una instancia de Azure Storage Blob público. 
 
 - Para consultas futuras y aprender cómo obtener los datos en Azure Blob Storage o cómo cargarlos directamente desde el origen en SQL Data Warehouse, consulte la [introducción a la carga](sql-data-warehouse-overview-load.md).
 
@@ -645,7 +644,7 @@ Si ha terminado de explorar por hoy, asegúrese de pausar la instancia. En un en
 
 [Simultaneidad y administración de cargas de trabajo][]
 
-[Procedimientos recomendados para Azure SQL Data Warehouse][]
+[Procedimientos recomendados para Almacenamiento de datos SQL de Azure][]
 
 [Supervisión de consultas][]
 
@@ -654,7 +653,7 @@ Si ha terminado de explorar por hoy, asegúrese de pausar la instancia. En un en
 [Migración de datos a Azure SQL Data Warehouse][]
 
 [Simultaneidad y administración de cargas de trabajo]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
-[Procedimientos recomendados para Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
+[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Supervisión de consultas]: sql-data-warehouse-manage-monitor.md
 [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/ (Los 10 mejores procedimientos para compilar un almacén de datos relacionales a gran escala)
 [Migración de datos a Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
@@ -669,4 +668,3 @@ Si ha terminado de explorar por hoy, asegúrese de pausar la instancia. En un en
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/
 [SQL Server Management Studio]: https://msdn.microsoft.com/en-us/library/mt238290.aspx
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Diseño de patrones para plantillas de Azure Resource Manager cuando implementa soluciones complejas
 Con un enfoque flexible basado en plantillas de Azure Resource Manager, puede implementar topologías complejas de forma rápida y coherente. Puede adaptar estas implementaciones fácilmente a medida que evolucionan las ofertas centrales o para dar cabida a variantes para escenarios o clientes atípicos.

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: dbc5f89001dcb6cd1ab061cb0a9632e4e5d2c1c7
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivo de registros de diagnóstico de Azure
 En este artículo, le mostraremos cómo puede usar Azure Portal, los cmdlets de PowerShell, la CLI o la API de REST para archivar los [registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md) en una cuenta de almacenamiento. Esta opción es útil si desea conservar los registros de diagnóstico con una directiva de retención opcional para auditorías, análisis estáticos o copias de seguridad. La cuenta de almacenamiento no tiene que estar en la misma suscripción que la del recurso que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
@@ -145,4 +144,3 @@ En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con
 * [Descargar blobs para el análisis](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Streaming de registros de diagnóstico a un espacio de nombres de Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Información general sobre los registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)
-

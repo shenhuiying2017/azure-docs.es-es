@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 7ac85bffb9593923808c77f2240e6f0e841e74cd
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-and-use-azure-container-registry"></a>Implementación y uso de Azure Container Registry
 
 Esta es la segunda parte de un tutorial de tres partes. En el [paso anterior](./container-instances-tutorial-prepare-app.md), se creó una imagen de contenedor para una aplicación web simple escrita en [Node.js](http://nodejs.org). En este tutorial, esta imagen se insertó en una instancia de Azure Container Registry. Si no ha creado la imagen de contenedor, vuelva a [Tutorial 1: Creación de una imagen de contenedor](./container-instances-tutorial-prepare-app.md). 
@@ -166,4 +164,3 @@ Vaya al tutorial siguiente para obtener información sobre cómo implementar el 
 
 > [!div class="nextstepaction"]
 > [Implementación de contenedores en Azure Container Instances](./container-instances-tutorial-deploy-app.md)
-

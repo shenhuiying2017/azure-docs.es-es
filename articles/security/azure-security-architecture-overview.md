@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
 ms.openlocfilehash: efb0cfa4b7950a2d9418282965a23498a67cbffc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-architecture-overview"></a>Información general sobre la arquitectura de seguridad
 Tener una sólida base arquitectónica es una de las claves para el éxito cuando se trata de proteger las implementaciones de soluciones en Azure. Gracias a estos conocimientos podemos entender mejor sus requisitos, al saber qué preguntas hacer y estar mucho más preparados para encontrar las respuestas adecuadas a sus preguntas. Obtener respuestas a las preguntas correctas avanza mucho en la optimización de la seguridad de las implementaciones.

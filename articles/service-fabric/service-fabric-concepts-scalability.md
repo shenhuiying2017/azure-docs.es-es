@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 680b996e370f66a5e22644ae1d1bf41d314bb4de
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scaling-in-service-fabric"></a>Reducción horizontalmente de Service Fabric
 Azure Service Fabric facilita la creación de aplicaciones escalables, al administrar los servicios, particiones y réplicas en los nodos de un clúster. La ejecución de muchas cargas de trabajo en el mismo hardware permite el uso máximo de recursos, pero también proporciona flexibilidad en cuanto a cómo elegir escalar las cargas de trabajo. 
@@ -97,7 +96,7 @@ La creación y eliminación de todas las instancias de aplicaciones es similar a
 ## <a name="scaling-at-the-partition-level"></a>Ajuste de escala en el nivel de partición
 Service Fabric es compatible con la creación de particiones. La partición divide un servicio en varias secciones lógicas y físicas, cada una de las cuales actúa independientemente. Esto resulta útil con los servicios con estado, ya que ningún otro conjunto de réplicas tiene que administrar todas las llamadas y manipular todo el estado al mismo tiempo. En la [Información general de la creación de particiones](service-fabric-concepts-partitioning.md) se ofrece información sobre los tipos de esquemas de particiones que se admiten. Las réplicas de cada partición se reparten entre los nodos en un clúster, distribuyendo la carga de dicho servicio y garantizando que ni el servicio como un todo o cualquier partición tiene un único punto de error. 
 
-Considere la posibilidad de que un servicio que usa un esquema de particiones de intervalo con una clave baja de 0, una clave alta de 99 y un recuento de 4 particiones. En un clúster de 3 nodos, el servicio podría estar dispuesto con cuatro réplicas que comparten los recursos en cada nodo, como se muestra aquí:
+Considere la posibilidad de que un servicio que usa un esquema de particiones de intervalo con una clave baja de 0, una clave alta de 99 y un recuento de 4 particiones. En un clúster de 3 nodos, el servicio podría estar dispuesto con cuatro réplicas que comparten los recursos en cada nodo, como se muestra aquí.
 
 <center>
 ![Diseño de partición con tres nodos](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
@@ -151,4 +150,3 @@ Para más información sobre los conceptos de Service Fabric, consulte los sigui
 
 * [Disponibilidad de los servicios de Service Fabric](service-fabric-availability-services.md)
 * [Creación de particiones de los servicios de Service Fabric](service-fabric-concepts-partitioning.md)
-

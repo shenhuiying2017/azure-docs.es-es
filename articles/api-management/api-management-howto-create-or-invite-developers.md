@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: d3a50f6d22cbf1797f580078bc0d2cc9cefe5064
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Administración de cuentas de usuario en Administración de API de Azure
 En Administración de API, los desarrolladores son los usuarios de las API que se exponen mediante Administración de API. En esta guía se muestra cómo crear desarrolladores e invitarlos a usar las API y los productos que usted pone a su disposición con la instancia de Administración de API. Para obtener información acerca de cómo administrar cuentas de usuario mediante programación, consulte la documentación de [Entidad de usuario](https://msdn.microsoft.com/library/azure/dn776330.aspx) en la referencia sobre [REST de API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 
-## <a name="create-developer"> </a>Creación de un desarrollador
+## <a name="create-developer"></a>Creación de un desarrollador
 Para crear un nuevo desarrollador, haga clic en **Publisher portal** (Portal del publicador) en Azure Portal para su servicio de API Management. De este modo, se abre el portal del publicador de Administración de API. Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Create an API Management service instance] en el tutorial [Introducción a Azure API Management][Get started with Azure API Management].
 
 ![Portal del publicador][api-management-management-console]
@@ -42,7 +42,7 @@ De forma predeterminada, las cuentas de desarrollador recién creadas se encuent
 
 Las cuentas de desarrollador que se encuentran en estado **activo** se pueden usar para obtener acceso a todas las API para las que tienen suscripciones. Para asociar el desarrollador recién creado a otros grupos, consulte [Asociación de grupos a desarrolladores][How to associate groups with developers].
 
-## <a name="invite-developer"> </a>Invitación a un desarrollador
+## <a name="invite-developer"></a>Invitación a un desarrollador
 Para invitar a un desarrollador, haga clic en **Usuarios** en el menú **API Management** de la izquierda y haga clic en **Invitar a usuario**.
 
 ![Invite developer][api-management-invite-developer]
@@ -59,7 +59,7 @@ Cuando se invita a un desarrollador, se le envía un correo electrónico. Este c
 
 Una vez aceptada la invitación, la cuenta se activa.
 
-## <a name="block-developer"> </a> Desactivación o reactivación de una cuenta de desarrollador
+## <a name="block-developer"></a> Desactivación o reactivación de una cuenta de desarrollador
 De forma predeterminada, las cuentas de desarrollador recién creadas o a las que se ha invitado se encuentran en estado **Activo**. Para desactivar una cuenta de desarrollador, haga clic en **Bloquear**. Para reactivar una cuenta de desarrollador bloqueada, haga clic en **Activar**. Una cuenta de desarrollador bloqueada no puede obtener acceso al portal para desarrolladores ni llamar a ninguna API. Para eliminar una cuenta de usuario, haga clic en **Eliminar**.
 
 ![Block developer][api-management-new-developer]
@@ -78,7 +78,7 @@ Para trabajar con cuentas de usuario mediante programación, consulte la documen
 ## <a name="pending-verification"></a>Pendiente de comprobación
 ![Pendiente de comprobación][api-management-pending-verification]
 
-## <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Una vez creada una cuenta de desarrollador, se puede asociar a roles y suscribirse a productos y API. Para obtener más información, consulte [Creación y uso de grupos][How to create and use groups].
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png

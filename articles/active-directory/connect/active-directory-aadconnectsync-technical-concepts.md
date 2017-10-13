@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi;andkjell
 ms.openlocfilehash: 6cf8debc6443bb60fc5f601ea4aa392eb2f13a8f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync: conceptos técnicos
 Este artículo es un resumen del tema [Descripción de la arquitectura](active-directory-aadconnectsync-technical-concepts.md).
@@ -40,8 +40,7 @@ Las secciones siguientes proporcionan más detalles sobre los siguientes aspecto
 ## <a name="connector"></a>Conector
 Los módulos de código que se usan para comunicarse con un directorio conectado se denominan conectores (conocidos anteriormente como agentes de administración o MA).
 
-Se instalan en el equipo donde se ejecuta la sincronización de Azure AD Connect.
-Los conectores proporcionan la capacidad sin agente de inversión mediante protocolos de sistema remoto en lugar de depender de la implementación de agentes especializados. Esto significa menor riesgo y el tiempo de implementación, especialmente al tratar con sistemas y aplicaciones críticas.
+Se instalan en el equipo donde se ejecuta la sincronización de Azure AD Connect. Los conectores proporcionan la capacidad sin agente de inversión mediante protocolos de sistema remoto en lugar de depender de la implementación de agentes especializados. Esto significa menor riesgo y el tiempo de implementación, especialmente al tratar con sistemas y aplicaciones críticas.
 
 En la figura anterior, el conector es sinónimo del espacio del conector, pero abarca toda la comunicación con el sistema externo.
 

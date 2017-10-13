@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: a60c47814da2660f17456f5e662f420adbb9158e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-import-data-into-azure-cosmos-db-with-the-documentdb-api"></a>Importación de datos en Azure Cosmos DB con la API de DocumentDB
 
@@ -557,4 +556,3 @@ Ahora puede pasar al siguiente tutorial y obtener más información sobre cómo 
 
 > [!div class="nextstepaction"]
 >[Consulta de datos](../cosmos-db/tutorial-query-documentdb.md)
-

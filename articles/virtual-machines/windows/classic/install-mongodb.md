@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: 6b5af18d02fd508a21cdc21b38b1c16e79f07ecb
-ms.contentlocale: es-es
-ms.lasthandoff: 06/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-mongodb-on-a-windows-vm-in-azure"></a>Instalación de MongoDB en una máquina virtual de Windows en Azure
 > [!IMPORTANT]
@@ -54,5 +53,4 @@ En este tutorial se ha descrito cómo crear una máquina virtual con Windows Ser
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
 [AzurePortal]: https://portal.azure.com/
-
 

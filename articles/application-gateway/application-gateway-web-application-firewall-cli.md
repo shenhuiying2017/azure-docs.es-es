@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: davidmu
+ms.openlocfilehash: c9c740a3a1a28a1a9a4f2abf579fe2adb54e4f47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 999d1ad3ee54d84e155254655dbb7a39ac60572c
-ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Configuración del firewall de aplicaciones web en una puerta de enlace de aplicaciones nueva o existente con la CLI de Azure
 
@@ -28,9 +27,9 @@ ms.lasthandoff: 08/29/2017
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [CLI de Azure](application-gateway-web-application-firewall-cli.md)
 
-Aprenda a crear una puerta de enlace de aplicaciones web habilitada para un firewall de aplicaciones web (WAF). Descubra también cómo puede agregar un WAF a una puerta de enlace de aplicaciones existente.
+Aprenda a crear una puerta de enlace de aplicaciones web habilitada para un firewall de aplicaciones web (WAF). Descubra también cómo puede agregar un firewall de aplicaciones web a una puerta de enlace de aplicaciones existente.
 
-El WAF de Azure Application Gateway protege las aplicaciones web de ataques web comunes, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones.
+El firewall de aplicaciones web de Azure Application Gateway protege las aplicaciones web de ataques web comunes, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones.
 
  Application Gateway es un equilibrador de carga de nivel 7. Proporciona solicitudes HTTP de enrutamiento de rendimiento y conmutación por error entre distintos servidores, tanto en la nube como en entornos locales. Application Gateway cuenta con numerosas características de controlador de entrega de aplicaciones (ADC):
 
@@ -44,7 +43,7 @@ El WAF de Azure Application Gateway protege las aplicaciones web de ataques web 
 
 En este artículo se explica el proceso de [incorporación de un firewall de aplicaciones web en una puerta de enlace de aplicaciones existente](#add-web-application-firewall-to-an-existing-application-gateway). También se explica el proceso de [creación de una puerta de enlace de aplicaciones que utiliza un firewall de aplicaciones web](#create-an-application-gateway-with-web-application-firewall).
 
-![Imagen del escenario][scenario]
+![Imagen de escenario][scenario]
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>Requisito previo: instalar la CLI de Azure 2.0
 
@@ -56,8 +55,8 @@ Si ha leído este artículo sobre la [creación de una puerta de enlace de aplic
 
 | **Configuración** | **Detalles**
 |---|---|
-|**SKU** |Una puerta de enlace de aplicaciones normal sin un WAF admite los tamaños **Standard\_Small**, **Standard\_Medium** y **Standard\_Large**. Con la introducción de WAF, hay dos SKU adicionales: **WAF\_Medium** y **WAF\_Large**. WAF no se admite en puertas de enlace de aplicaciones de pequeño tamaño.|
-|**Modo** | Esta opción determina el modo del WAF. Los valores permitidos son **Detección** y **Prevención**. Cuando el WAF está configurado en modo **Detección**, todas las amenazas se guardan en un archivo de registro. En el modo **Prevención**, los eventos también se registran, pero el atacante recibe una respuesta de tipo "403-No autorizado" de la puerta de enlace de aplicaciones.|
+|**SKU** |Una puerta de enlace de aplicaciones normal sin un firewall de aplicaciones web admite los tamaños **Standard\_Small**, **Standard\_Medium** y **Standard\_Large**. Con la introducción de un firewall de aplicaciones web, hay dos SKU adicionales: **WAF\_Medium** y **WAF\_Large**. WAF no se admite en puertas de enlace de aplicaciones de pequeño tamaño.|
+|**Modo** | Esta opción determina el modo del firewall de aplicaciones web. Los valores permitidos son **Detección** y **Prevención**. Cuando el WAF está configurado en modo **Detección**, todas las amenazas se guardan en un archivo de registro. En el modo **Prevención**, los eventos también se registran, pero el atacante recibe una respuesta de tipo "403-No autorizado" de la puerta de enlace de aplicaciones.|
 
 ## <a name="add-a-web-application-firewall-to-an-existing-application-gateway"></a>Incorporación de un firewall de aplicaciones web a una puerta de enlace de aplicaciones existente
 
@@ -73,7 +72,7 @@ az network application-gateway waf-config set \
   --resource-group "AdatumAppGatewayRG"
 ```
 
-Este comando actualiza la puerta de enlace de aplicaciones con un WAF. Para aprender a consultar los registros de la puerta de enlace de aplicaciones, consulte este artículo sobre los [diagnósticos de Application Gateway](application-gateway-diagnostics.md). Debido a la naturaleza de la seguridad de WAF, los registros deben revisarse periódicamente para entender la posición de seguridad de las aplicaciones web.
+Este comando actualiza la puerta de enlace de aplicaciones con un WAF. Para aprender a consultar los registros de la puerta de enlace de aplicaciones, consulte [Diagnósticos de Application Gateway](application-gateway-diagnostics.md). Debido a la naturaleza de la seguridad de WAF, los registros deben revisarse periódicamente para entender la posición de seguridad de las aplicaciones web.
 
 ## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web
 
@@ -161,4 +160,3 @@ az network public-ip show \
 Para aprender a personalizar las reglas del WAF, consulte [Personalización de reglas de firewall de aplicaciones web mediante la CLI de Azure 2.0](application-gateway-customize-waf-rules-cli.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png
-

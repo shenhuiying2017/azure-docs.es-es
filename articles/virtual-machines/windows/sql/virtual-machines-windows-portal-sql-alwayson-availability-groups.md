@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.lasthandoff: 04/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configuración automática de grupos de disponibilidad AlwaysOn en Azure Virtual Machines: Resource Manager
 
@@ -212,4 +211,3 @@ Para RDP a servidor SQL Server, siga estos pasos:
 7. **Escritorio remoto** puede advertirle de que el equipo remoto no se pudo autenticar debido a problemas con su certificado de seguridad. Le muestra el nombre del certificado de seguridad. Si siguió el tutorial, el nombre será **sqlserver-0.contoso.com**. Haga clic en **Sí**.
 
 Ahora está conectado con RDP a la máquina virtual de SQL Server. Puede abrir SQL Server Management Studio, conectarse a la instancia predeterminada de SQL Server y comprobar que el grupo de disponibilidad está configurado.
-

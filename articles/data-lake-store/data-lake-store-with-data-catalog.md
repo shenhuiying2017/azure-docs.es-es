@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 90e29a9ab522031db8feb934a218d4b671561417
-ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registro de datos del Almacén de Data Lake en el Catálogo de datos de Azure
 En este artículo aprenderá a integrar el Almacén de Azure Data Lake con el Catálogo de datos de Azure para hacer que los datos sean reconocibles dentro de una organización mediante la integración con el Catálogo de datos. Para más información sobre la catalogación de datos, consulte [¿Qué es el Catálogo de datos de Azure?](../data-catalog/data-catalog-what-is-data-catalog.md). Para saber en qué escenarios se puede utilizar el Catálogo de datos, consulte [Escenarios comunes del Catálogo de datos de Azure](../data-catalog/data-catalog-common-scenarios.md).
@@ -83,4 +82,3 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 * [Anotación de orígenes de datos](../data-catalog/data-catalog-how-to-annotate.md)
 * [Orígenes de datos de documentos](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integración del Almacén de Data Lake con otros servicios de Azure](data-lake-store-integrate-with-other-services.md)
-

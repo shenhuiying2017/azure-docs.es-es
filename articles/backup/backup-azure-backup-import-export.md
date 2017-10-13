@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 4/20/2017
 ms.author: saurse;nkolli;trinadhk
 ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. Azure Backup permite comprimir las copias de seguridad iniciales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos comprimidos iniciales de copia de seguridad sin conexión en Azure.  
@@ -50,7 +50,7 @@ Cuando finaliza la carga de los datos de copia de seguridad en Azure, el servici
 * Prepare una ubicación de ensayo que podría ser un recurso compartido de red o una unidad de disco adicional del equipo. La ubicación de ensayo es un almacenamiento transitorio y se utiliza temporalmente durante este flujo de trabajo. Asegúrese de que la ubicación de ensayo tiene suficiente espacio en disco para almacenar la copia inicial. Por ejemplo, si intenta realizar una copia de seguridad en un servidor de archivos de 500 GB, asegúrese de que el área de ensayo es de al menos 500 GB. (Se utilizará una cantidad menor gracias a la compresión).
 * Asegúrese de que está usando una unidad compatible. El servicio Import/Export solo admite unidades de disco duro internas SSD de 2,5 pulgadas o SATA II o III de 2,5 o 3,5 pulgadas. Puede utilizar unidades de disco duro de hasta 10 TB. Vea la [documentación del servicio Azure Import/Export](../storage/common/storage-import-export-service.md#hard-disk-drives) para conocer el conjunto más reciente de unidades de disco que admite el servicio.
 * Habilite BitLocker en el equipo al que está conectado el sistema de escritura de la unidad SATA.
-* [Descargue la herramienta Import/Export](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) en el equipo al que está conectado el sistema de escritura de la unidad SATA. Este paso no es necesario si ha descargado e instalado la actualización de Azure Backup de agosto de 2016 (o posterior).
+* [Descargue la herramienta de Importación/Exportación](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) en el equipo al que está conectado el sistema de escritura de la unidad SATA. Este paso no es necesario si ha descargado e instalado la actualización de Azure Backup de agosto de 2016 (o posterior).
 
 ## <a name="workflow"></a>Flujo de trabajo
 La información de esta sección le ayuda a completar el flujo de trabajo de copia de seguridad sin conexión, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en Azure Storage. Si tiene alguna pregunta sobre el servicio de importación o cualquier aspecto del proceso, consulte la documentación sobre la [Información general del servicio de importación](../storage/common/storage-import-export-service.md) a la que se ha hecho referencia anteriormente.
@@ -70,7 +70,7 @@ La información de esta sección le ayuda a completar el flujo de trabajo de cop
     * **Configuración de publicación de Azure**: es un archivo XML que contiene información sobre el perfil de suscripción. También contiene credenciales seguras asociadas a su suscripción. Puede [descargar el archivo](https://manage.windowsazure.com/publishsettings). Proporcione la ruta de acceso local al archivo de configuración de publicación.
     * **Identificador de suscripción de Azure**: el identificador de la suscripción de Azure en la que planea iniciar el trabajo de importación de Azure. Si tiene varias suscripciones de Azure, use el identificador de la suscripción a la que quiere asociar el trabajo de importación.
     * **Cuenta de Azure Storage**: la cuenta de almacenamiento de tipo clásico de la suscripción proporcionada, que se asociará al trabajo de importación de Azure.
-    * **Contenedor de Azure Storage**: el nombre del blob de almacenamiento de destino de la cuenta de Azure Storage donde se importan los datos de este trabajo.
+    * **Contenedor de Almacenamiento de Azure**: el nombre del blob de almacenamiento de destino de la cuenta de Almacenamiento de Azure donde se importan los datos de este trabajo.
 
     > [!NOTE]
     > Aunque haya registrado el servidor en un almacén de Azure Recovery Services de [Azure Portal](https://portal.azure.com) para sus copias de seguridad y no utilice una suscripción del proveedor de soluciones en la nube (CSP), puede crear una cuenta de almacenamiento de tipo clásico desde Azure Portal y usarla en el flujo de trabajo de copia de seguridad sin conexión.
@@ -93,7 +93,7 @@ La información de esta sección le ayuda a completar el flujo de trabajo de cop
 ### <a name="prepare-a-sata-drive-and-create-an-azure-import-job-by-using-the-azure-disk-preparation-tool"></a>Preparación de la unidad SATA y creación de un trabajo de importación de Azure mediante la herramienta de preparación de discos de Azure
 La herramienta de preparación de discos de Azure está disponible en el directorio de instalación del agente de Recovery Services (actualización de agosto de 2016 y posteriores) en la siguiente ruta de acceso.
 
-   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
+   *\Microsoft**Azure**Recovery**Services* *Agent\Utils\*
 
 1. Vaya al directorio y copie el directorio **AzureOfflineBackupDiskPrep** en un equipo de copia en el que se montarán las unidades de disco que se van a preparar. Compruebe que se cumplen los siguientes requisitos en el equipo de copia:
 

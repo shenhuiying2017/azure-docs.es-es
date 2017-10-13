@@ -16,10 +16,10 @@ ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: 29228676373aee8dbc7b1b2a7d92ffc978333804
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL dinámico en Almacenamiento de datos SQL
 Al desarrollar código de aplicación para Almacenamiento de datos SQL, puede que necesite usar SQL dinámico con el fin de proporcionar soluciones flexibles, genéricas y modulares. Almacenamiento de datos SQL no admite por el momento tipos de datos blob. Esto puede limitar el tamaño de las cadenas ya que los tipos de blob incluyen tipos varchar (max) y nvarchar (max). Si ha utilizado estos tipos en el código de aplicación al crear cadenas muy grandes, será necesario que divida el código en fragmentos y utilice en su lugar la instrucción EXEC.

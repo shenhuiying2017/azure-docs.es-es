@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedimientos recomendados de la matriz virtual de StorSimple
 ## <a name="overview"></a>Información general
@@ -285,5 +284,4 @@ Es posible que haya que implementar varias matrices virtuales en una cuenta para
 
 ## <a name="see-also"></a>Otras referencias
 Aprenda a [administrar una matriz virtual de StorSimple](storsimple-virtual-array-manager-service-administration.md) mediante el servicio StorSimple Manager.
-
 

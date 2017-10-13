@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
-ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Cifrado de una máquina virtual de Azure
 Azure Security Center le avisará si tiene máquinas virtuales que no estén cifradas. Estas alertas se mostrarán con gravedad alta y se recomienda cifrar estas máquinas virtuales.
@@ -116,7 +115,7 @@ La salida del script debe ser similar a la pantalla siguiente:
 ## <a name="encrypt-the-azure-virtual-machine"></a>Cifrado de la máquina virtual de Azure
 Ahora está listo para cifrar la máquina virtual. Si la máquina virtual se encuentra en el mismo grupo de recursos que el Almacén de claves, puede ir a la sección de pasos de cifrado. Sin embargo, si la máquina virtual no está en el mismo grupo de recursos que el Almacén de claves, debe escribir lo siguiente en la consola de PowerShell ISE:
 
-**$resourceGroupName = <’Virtual_Machine_RG’>**
+**$resourceGroupName = &lt;’Virtual_Machine_RG’&gt;**
 
 Reemplace **< Virtual_Machine_RG >** por el nombre del grupo de recursos en el que se encuentran las máquinas virtuales, entre comillas simples. A continuación, presione **ENTRAR**.
 Para confirmar que ha escrito el nombre del grupo de recursos correcto, escriba lo siguiente en la consola de PowerShell ISE:
@@ -130,7 +129,7 @@ Presione **ENTRAR**. Debería ver el nombre del grupo de recursos en el que se e
 ### <a name="encryption-steps"></a>Pasos de cifrado
 En primer lugar, debe indicar a PowerShell el nombre de la máquina virtual que desea cifrar. En la consola, escriba:
 
-**$vmName = <’your_vm_name’>**
+**$vmName = &lt;’your_vm_name’&gt;**
 
 Reemplace **<'su_nombre_mv' >** por el nombre de la máquina virtual (asegúrese de que el nombre está rodeado por comillas simples) y presione **ENTRAR**.
 
@@ -179,4 +178,3 @@ En este documento, ha aprendido cómo cifrar una máquina virtual de Azure. Para
 * [Administración de alertas de seguridad y respuesta a estas en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md) : Obtenga información sobre cómo administrar alertas de seguridad y responder a estas.
 * [Preguntas más frecuentes sobre el Centro de seguridad de Azure](security-center-faq.md) : Encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : Encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
-

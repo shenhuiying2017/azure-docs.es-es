@@ -10,14 +10,12 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 636dc0fcae1bc2647cd59add5957884971015ce2
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Auditoría y recepción de notificaciones sobre las acciones importantes en su suscripción de Azure
 
 El **Registro de actividad de Azure** proporciona un historial de eventos de nivel de suscripción en Azure. Ofrece información acerca de *quién* creó, actualizó o eliminó *qué* recursos y *cuándo* lo hicieron. Puede crear una **alerta de Registro de actividad** para recibir notificaciones de correo electrónico, SMS o webhook cuando se produce una actividad que coincide con las condiciones de alerta. Estos pasos de inicio rápido mediante la creación de un grupo simple de seguridad de red, búsqueda del Registro de activad para comprender el evento que se ha producido y, después, la creación de una alerta de Registro de actividad para recibir una notificación cuando se crea un grupo de seguridad de red en adelante.
@@ -101,4 +99,3 @@ En este inicio rápido, ha realizado una operación para generar un evento del R
 
 > [!div class="nextstepaction"]
 > [Archivado de los datos de supervisión](./monitor-tutorial-archive-monitoring-data.md)
-

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/26/2017
 ms.author: alkohli
 ms.openlocfilehash: 2b627250df62bbe3299869ef3812947afbb8f29f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-clone-a-volume-update-2"></a>Usar el servicio StorSimple Manager para clonar un volumen (Update 2)
 [!INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
@@ -101,7 +101,7 @@ Las secciones siguientes describen situaciones de ejemplo en las que pueden usar
 ### <a name="item-level-recovery-with-a-transient-clone"></a>Recuperación de nivel de elemento con un clon transitorio
 Necesita recuperar un archivo de presentación de Microsoft PowerPoint de un año de antigüedad. El administrador de TI identifica la copia de seguridad específica de ese período de tiempo y, a continuación, filtra el volumen. El administrador clona el volumen, busca el archivo que necesita y se lo proporciona. En este escenario, se usa un clon transitorio. 
 
-![Vídeo disponible](./media/storsimple-clone-volume-u2/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-clone-volume-u2/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo en el que se muestra cómo puede usar el clon y restaurar las características de StorSimple para recuperar archivos eliminados, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 

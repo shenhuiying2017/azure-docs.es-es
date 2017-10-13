@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 
@@ -122,10 +122,10 @@ En el nivel de la API de REST de DNS de Azure, los valores de Etag se especifica
 
 | Encabezado | Comportamiento |
 | --- | --- |
-| None |PUT always succeeds (no Etag checks) |
-| If-match <etag> |PUT only succeeds if resource exists and Etag matches |
-| If-match * |PUT only succeeds if resource exists |
-| If-none-match * |PUT only succeeds if resource does not exist |
+| Ninguna |PUT siempre se realiza correctamente (sin comprobaciones de ETag) |
+| If-match <etag> |PUT solo se realiza correctamente si el recurso existe y ETag coincide |
+| If-match * |PUT solo se realiza correctamente si el recurso existe |
+| If-none-match * |PUT solo se realiza correctamente si el recurso no existe |
 
 
 ## <a name="limits"></a>límites

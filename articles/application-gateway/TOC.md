@@ -75,7 +75,7 @@
 ## [VPN Gateway](/azure/vpn-gateway/)
 ## [Máquinas virtuales](/azure/virtual-machines/)
 ## [Equilibrador de carga](/azure/load-balancer/)
-## [Traffic Manager](/azure/traffic-manager/)
+## [Administrador de tráfico](/azure/traffic-manager/)
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)

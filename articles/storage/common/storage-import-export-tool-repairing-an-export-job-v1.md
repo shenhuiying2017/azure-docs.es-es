@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 57ab58fa1fd8371d0b6f019f94bb162bcc1e0e43
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="repairing-an-export-job"></a>Reparación de un trabajo de exportación
 Cuando haya finalizado un trabajo de exportación, puede ejecutar la herramienta Microsoft Azure Import/Export de manera local para:  
@@ -37,15 +37,15 @@ Se pueden modificar los parámetros siguientes con **RepairExport**:
   
 |Parámetro|Descripción|  
 |---------------|-----------------|  
-|**/r:<ArchivoReparación\>**|Obligatorio. Ruta de acceso al archivo de reparación, que realiza un seguimiento del progreso de la reparación y le permite reanudar una reparación interrumpida. Cada unidad debe tener un solo archivo de reparación. Cuando inicie una reparación para una unidad determinada, pasará la ruta de acceso a un archivo de reparación que aún no existe. Para reanudar una reparación interrumpida, debe pasar el nombre de un archivo de reparación existente. Siempre se debe especificar el archivo de reparación correspondiente a la unidad de destino.|  
-|**/logdir:<DirectorioRegistro\>**|Opcional. El directorio de registro. Los archivos de registro detallados se escribirán en este directorio. Si no se especifica un directorio de registro, se usará el directorio actual como directorio de registro.|  
-|**/d:<DirectorioDestino\>**|Obligatorio. El directorio para validar y reparar. Suele ser el directorio raíz de la unidad de exportación, pero podría también ser un recurso compartido de archivos de red que contiene una copia de los archivos exportados.|  
-|**/bk:<ClaveBitLocker\>**|Opcional. Debe especificar la clave de BitLocker si desea que la herramienta desbloquee una unidad de cifrado donde se almacenan los archivos exportados.|  
-|**/sn:<NombreCuentaAlmacenamiento\>**|Obligatorio. El nombre de la cuenta de almacenamiento para el trabajo de exportación.|  
-|**/sk:<ClaveCuentaAlmacenamiento\>**|**Necesario** únicamente si no se especifica un SAS del contenedor. La clave de cuenta para la cuenta de almacenamiento correspondiente al trabajo de exportación.|  
-|**/csas:<SasContenedor\>**|**Requerido** únicamente si no se especifica la clave de cuenta de almacenamiento. El SAS del contenedor para acceder a los blobs asociados al trabajo de exportación.|  
-|**/CopyLogFile:<ArchivoRegistroCopiaUnidad\>**|Obligatorio. La ruta de acceso al archivo de registro de copia de la unidad. El archivo lo genera el servicio Microsoft Windows Import/Export y se puede descargar desde el almacenamiento de blobs asociado al trabajo. El archivo de registro de copia contiene información sobre blobs con errores o archivos que deben repararse.|  
-|**/ManifestFile:<ArchivoManifiestoUnidad\>**|Opcional. La ruta de acceso al archivo de manifiesto de la unidad de exportación. Este archivo lo genera el servicio Microsoft Azure Import/Export y lo almacena en la unidad de exportación y, opcionalmente, en un blob de la cuenta de almacenamiento asociada al trabajo.<br /><br /> El contenido de los archivos de la unidad de exportación se comprobará con los hash MD5 contenidos en este archivo. Todos los archivos que se determine que están dañados se descargarán y reescribirán en los directorios de destino.|  
+|**/r:&lt;ArchivoReparación\>**|Obligatorio. Ruta de acceso al archivo de reparación, que realiza un seguimiento del progreso de la reparación y le permite reanudar una reparación interrumpida. Cada unidad debe tener un solo archivo de reparación. Cuando inicie una reparación para una unidad determinada, pasará la ruta de acceso a un archivo de reparación que aún no existe. Para reanudar una reparación interrumpida, debe pasar el nombre de un archivo de reparación existente. Siempre se debe especificar el archivo de reparación correspondiente a la unidad de destino.|  
+|**/logdir:&lt;DirectorioRegistro\>**|Opcional. El directorio de registro. Los archivos de registro detallados se escribirán en este directorio. Si no se especifica un directorio de registro, se usará el directorio actual como directorio de registro.|  
+|**/d:&lt;DirectorioDestino\>**|Obligatorio. El directorio para validar y reparar. Suele ser el directorio raíz de la unidad de exportación, pero podría también ser un recurso compartido de archivos de red que contiene una copia de los archivos exportados.|  
+|**/bk:&lt;ClaveBitLocker\>**|Opcional. Debe especificar la clave de BitLocker si desea que la herramienta desbloquee una unidad de cifrado donde se almacenan los archivos exportados.|  
+|**/sn:&lt;NombreCuentaAlmacenamiento\>**|Obligatorio. El nombre de la cuenta de almacenamiento para el trabajo de exportación.|  
+|**/sk:&lt;ClaveCuentaAlmacenamiento\>**|**Necesario** únicamente si no se especifica un SAS del contenedor. La clave de cuenta para la cuenta de almacenamiento correspondiente al trabajo de exportación.|  
+|**/csas:&lt;SasContenedor\>**|**Requerido** únicamente si no se especifica la clave de cuenta de almacenamiento. El SAS del contenedor para acceder a los blobs asociados al trabajo de exportación.|  
+|**/CopyLogFile:&lt;ArchivoRegistroCopiaUnidad\>**|Obligatorio. La ruta de acceso al archivo de registro de copia de la unidad. El archivo lo genera el servicio Microsoft Windows Import/Export y se puede descargar desde el almacenamiento de blobs asociado al trabajo. El archivo de registro de copia contiene información sobre blobs con errores o archivos que deben repararse.|  
+|**/ManifestFile:&lt;ArchivoManifiestoUnidad\>**|Opcional. La ruta de acceso al archivo de manifiesto de la unidad de exportación. Este archivo lo genera el servicio Microsoft Azure Import/Export y lo almacena en la unidad de exportación y, opcionalmente, en un blob de la cuenta de almacenamiento asociada al trabajo.<br /><br /> El contenido de los archivos de la unidad de exportación se comprobará con los hash MD5 contenidos en este archivo. Todos los archivos que se determine que están dañados se descargarán y reescribirán en los directorios de destino.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Uso del modo RepairExport para corregir las exportaciones con error  
 Puede utilizar la herramienta Azure Import/Export para descargar los archivos que no se pudieron exportar. El archivo de registro de copia contendrá una lista de archivos que no se pudieron exportar.  

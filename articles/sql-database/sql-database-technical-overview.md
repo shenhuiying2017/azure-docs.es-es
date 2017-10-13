@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 07c4b4cb920dca7d95caa2fc5f98b0d33ea51dff
-ms.contentlocale: es-es
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>¿Qué es el servicio Azure SQL Database? 
 
@@ -172,4 +171,3 @@ SQL Database admite la compilación de aplicaciones con Python, Java, Node.js, P
 - Para obtener ejemplos de la CLI de Azure y de PowerShell, consulte:
   - [Ejemplos de la CLI de Azure para SQL Database](sql-database-cli-samples.md)
   - [Ejemplos de Azure PowerShell para SQL Database](sql-database-powershell-samples.md)
-

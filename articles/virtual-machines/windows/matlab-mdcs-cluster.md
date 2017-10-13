@@ -14,12 +14,11 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b86f13f49c6390a90609bba9141564d2ac69246d
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: b302c6b3c6acbb8552796e7fb1bfd153d23dceb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Creación de clústeres de MATLAB Distributed Computing Server en Máquinas virtuales de Azure
 Utilice Máquinas virtuales de Microsoft Azure para crear uno o más clústeres de MATLAB Distributed Computing Server con el fin de ejecutar sus cargas de trabajo MATLAB paralelas de proceso intensivo. Instale el software MATLAB Distributed Computing Server en una máquina virtual para usarlo como una imagen base y usar una plantilla de inicio rápido de Azure o un script de Azure PowerShell (disponible en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) para implementar y administrar el clúster. Después de la implementación, conéctese al clúster para ejecutar sus cargas de trabajo.
@@ -73,4 +72,3 @@ Como con otros tipos de clústeres de MATLAB Distributed Computing Server, debe 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para instrucciones detalladas para implementar y administrar clústeres de MATLAB Distributed Computing Server en Azure, consulte el repositorio [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster) , que contiene las plantillas y los scripts.
 * Vaya al [sitio de MathWorks](http://www.mathworks.com/) para ver documentación detallada de MATLAB y MATLAB Distributed Computing Server.
-

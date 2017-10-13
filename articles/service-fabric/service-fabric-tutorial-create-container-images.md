@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
+ms.openlocfilehash: 08b3cc4a52c09ee03818b563794ef9b009d12ef4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e84a0a05cbe1952d8325a9aed1c1df411bfcb877
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-container-images-for-service-fabric"></a>Crear imágenes de contenedor para Service Fabric
 
 Este tutorial es la primera parte de una serie de tutoriales en los que se muestra cómo usar los contenedores en un clúster de Service Fabric en Linux. En este tutorial, se prepara una aplicación con varios contenedores para usarla con Service Fabric. En los tutoriales posteriores, estas imágenes se usan como parte de una aplicación de Service Fabric. En este tutorial, aprenderá a: 
@@ -57,12 +55,7 @@ Use git para descargar una copia de la aplicación en su entorno de desarrollo.
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
 
-```
-
-Desde el directorio clonado, use el siguiente comando para especificar el directorio de trabajo. 
-
-```bash 
-cd Linux/container-tutorial/
+cd service-fabric-dotnet-containers/Linux/container-tutorial/
 ```
 
 El directorio "container-tutorial" contiene una carpeta denominada "azure-vote". La carpeta "azure-vote" contiene el código fuente de front-end y un archivo Dockerfile para compilar el front-end. El directorio "container-tutorial" también contiene el directorio "redis", que tiene el archivo Dockerfile para generar la imagen de Redis. Estos directorios contienen los recursos necesarios para este conjunto de tutorial. 
@@ -126,7 +119,7 @@ En el resto de este tutorial, usamos "acrname" como un marcador de posición par
 
 ## <a name="log-in-to-your-container-registry"></a>Iniciar sesión en el registro de contenedor
 
-Inicie sesión en la instancia de ACR antes de insertar imágenes en ella. Use el comando [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) para completar la operación. Debe proporcionar el nombre único que se especificó para el registro de contenedor cuando se creó.
+Inicie sesión en la instancia de ACR antes de insertar imágenes en ella. Use el comando [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) para completar la operación. Proporcione el nombre único que se especificó para el registro de contenedor cuando se creó.
 
 ```bash
 az acr login --name <acrName>
@@ -242,4 +235,3 @@ Avance hasta el siguiente tutorial para obtener información acerca del empaquet
 
 > [!div class="nextstepaction"]
 > [Empaquetar e implementar contenedores como aplicación de Service Fabric](service-fabric-tutorial-package-containers.md)
-

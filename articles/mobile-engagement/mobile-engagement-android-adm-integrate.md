@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>Integración de ADM con Engagement
 > [!IMPORTANT]
@@ -104,7 +104,7 @@ Asegúrese de tener los permisos siguientes en el `AndroidManifest.xml` (antes d
 ## <a name="grant-engagement-oauth-credentials"></a>Conceder credenciales de OAuth de Engagement
 Envíe sus credenciales de OAuth (Id. de cliente y secreto de cliente) en el Portal de interacción. 
 
-[<https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
+[&lt;https://developer.amazon.com/sdk/adm/credentials.html&gt;]:https://developer.amazon.com/sdk/adm/credentials.html
 [biblioteca de cliente ADM]:https://developer.amazon.com/sdk/adm/setup.html
 [integrado ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [este procedimiento]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset

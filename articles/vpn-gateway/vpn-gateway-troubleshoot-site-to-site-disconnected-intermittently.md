@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/21/2017
 ms.author: genli
+ms.openlocfilehash: 58e7acc91fc048c8204608aa857134323abdab14
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 99a790617baa65116bfba976cd9279627e8775f3
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Solución de problemas: la VPN de sitio a sitio de Azure se desconecta intermitentemente
 
 Puede experimentar un problema en el que una conexión VPN de punto a sitio de Microsoft Azure no sea estable y se desconecte regularmente. Este artículo proporciona pasos de solución de problemas para ayudarlo a identificar y resolver la causa del problema. 
@@ -75,5 +73,4 @@ La característica **Confidencialidad directa perfecta** puede provocar problema
 
 - [Configuración de una conexión de sitio a sitio en una red virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Configuración de la directiva IPsec/IKE para conexiones VPN de sitio a sitio](vpn-gateway-ipsecikepolicy-rm-powershell.md)
-
 

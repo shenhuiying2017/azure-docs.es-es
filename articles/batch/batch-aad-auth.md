@@ -3,7 +3,7 @@ title: Uso de Azure Active Directory para autenticar soluciones de servicio de A
 description: "Batch admite Azure AD para la autenticación desde el servicio de Batch."
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 tags: 
@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: 9c03bde919c46cd301229255c0b12ee69dda6f78
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: a5dd04e992bd181e512d176fd913a7395fd6b702
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticación de soluciones de servicio de Batch con Active Directory
 
@@ -31,13 +31,6 @@ Al utilizar la autenticación de Azure AD con Azure Batch, puede autenticar de u
 - Uso de una **entidad de servicio** para autenticar una aplicación desatendida. Una entidad de servicio define la directiva y los permisos de una aplicación para representar la aplicación cuando se accede a los recursos en tiempo de ejecución.
 
 Para más información acerca de Azure AD, consulte la [Documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
-
-## <a name="authentication-and-pool-allocation-mode"></a>Modo de autenticación y de asignación de grupo
-
-Al crear una cuenta de Batch, puede especificar dónde se deben asignar los grupos creados para esa cuenta. Puede asignar grupos en la suscripción al servicio de Batch predeterminada o en una suscripción de usuario. Su elección afecta a cómo se autentica el acceso a los recursos de esa cuenta.
-
-- **Suscripción al servicio de Batch**. De forma predeterminada, los grupos de Batch se asignan en una suscripción del servicio Batch. Si elige esta opción, puede autenticar el acceso a los recursos de esa cuenta con [clave compartida](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) o con Azure AD.
-- **Suscripción de usuario**. Puede asignar grupos de Batch en una suscripción de usuario que especifique. Si elige esta opción, debe autenticarse con Azure AD.
 
 ## <a name="endpoints-for-authentication"></a>Puntos de conexión para autenticación
 

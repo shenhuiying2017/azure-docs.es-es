@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 94aa3bfc700cad3de9fc5516c0c9a4d86ade3fed
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-11-run-a-test-failover-of-physical-servers-to-azure"></a>Paso 11: Ejecutar una conmutación por error de prueba de servidores físicos en Azure
 
@@ -120,4 +119,3 @@ Recuerde que actualmente no se puede conmutar por recuperación desde Azure a un
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Ejecute conmutaciones por error](site-recovery-failover.md) según necesidad.
-

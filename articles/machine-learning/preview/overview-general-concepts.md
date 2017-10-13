@@ -9,14 +9,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3d4ba2ca6f7adc8b51030c02d9e9eeb2b9995bb4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-machine-learning---concepts"></a>Azure Machine Learning: Conceptos
 
 En este artículo se definen y describen los conceptos que necesita saber para usar Azure Machine Learning. 
@@ -58,4 +56,3 @@ En este artículo se definen y describen los conceptos que necesita saber para u
 - **Imágenes:** puede usar manifiestos para generar (y volver a generar) imágenes de Docker. Las imágenes de Docker en contenedores crean flexibilidad para ejecutarlos en la nube, en máquinas locales o en dispositivos de IoT. Las imágenes son autónomas e incluyen todas las dependencias necesarias para puntuar nuevos datos con modelos. 
 
 - **Servicios:** Administración de modelos le permite implementar modelos como servicios web. La lógica de servicio web y las dependencias se encapsulan en una imagen. Cada servicio web es un conjunto de contenedores basados en la imagen, preparado para atender las solicitudes a una dirección URL determinada. Un servicio web se cuenta como una única implementación.
-

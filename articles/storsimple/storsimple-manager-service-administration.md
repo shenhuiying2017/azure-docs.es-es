@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 22924da07434a06f4c822d97a2afd02ea982e0e0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-administer-your-storsimple-device"></a>Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple
 ## <a name="overview"></a>Información general
@@ -55,7 +55,7 @@ En la tabla siguiente se muestra la jerarquía de navegación de la IU del servi
 | Trabajos |Configurar (dispositivo) | | |
 | Alertas |Mantenimiento | | |
 
-![Vídeo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-manager-service-administration/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo que le guiará a través de la interfaz de usuario del servicio StorSimple Manager, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 

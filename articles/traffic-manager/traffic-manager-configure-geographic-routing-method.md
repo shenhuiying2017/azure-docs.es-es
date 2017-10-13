@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
+ms.openlocfilehash: 13190189074b24b2d28cd3ce46cf8571f3e1e1d1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 770b1b8418baba78371dda43eb255dde8a1d13e8
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configuración del método de enrutamiento de tráfico geográfico con Traffic Manager
 
 El método de enrutamiento de tráfico geográfico le permite dirigir el tráfico a puntos de conexión específicos según la ubicación geográfica en que se originan las solicitudes. En este tutorial se muestra cómo crear un perfil de Traffic Manager con este método de enrutamiento y configurar los puntos de conexión para recibir el tráfico proveniente de geografías específicas.
@@ -65,4 +63,3 @@ El método de enrutamiento de tráfico geográfico le permite dirigir el tráfic
 
 - Obtenga más información sobre el [método de enrutamiento del tráfico geográfico](traffic-manager-routing-methods.md#geographic).
 - Información sobre cómo [probar la configuración de Traffic Manager](traffic-manager-testing-settings.md).
-

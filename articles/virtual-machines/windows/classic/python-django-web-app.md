@@ -15,12 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: huvalo
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 283a296fb39863c2801be1093cc4f56904786abd
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Aplicación web Django Hola mundo en una máquina virtual de Windows Server
 
@@ -63,7 +62,7 @@ La siguiente captura de pantalla muestra la aplicación completada:
 > [!IMPORTANT] 
 > En las siguientes instrucciones se presupone que ha iniciado sesión en la máquina virtual correctamente. También se presupone que se realiza los comandos en la máquina virtual y no en la máquina local.
 
-## <a id="setup"> </a>Instalación de Python, Django y WFastCGI
+## <a id="setup"></a>Instalación de Python, Django y WFastCGI
 > [!NOTE]
 > Para realizar la descarga mediante Internet Explorer, es posible que deba definir su **Configuración de seguridad mejorada**. Para ello, haga clic en **Inicio** > **Herramientas administrativas** > **Administrador del servidor** > **Servidor local**. Haga clic en **Configuración de seguridad mejorada de IE** y seleccione **Desactivar**.
 
@@ -176,4 +175,3 @@ Cuando haya terminado este tutorial, es recomendable apagar o quitar la máquina
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;deguhath
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8f1d9ab5186684c4aac806ace4ebfd38ca1fb306
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciencia de datos mediante Scala y Spark en Azure
 Este artículo muestra cómo utilizar Scala para tareas de aprendizaje automático supervisado con los paquetes MLlib escalable y ML de Spark en un clúster de Spark en HDInsight de Azure. Además, se explican cuáles son las tareas que constituyen el [proceso de ciencia de datos](http://aka.ms/datascienceprocess): exploración e ingesta de datos, visualización, ingeniería de características, modelado y consumo de modelos. Los modelos en el artículo incluyen regresión logística y lineal, bosques aleatorios y árboles incrementados de degradado (GBTs), además de dos tareas habituales de aprendizaje automático supervisado:
@@ -263,7 +262,7 @@ Una vez incorporados los datos en Spark, el siguiente paso del proceso de la cie
 De forma predeterminada, el resultado de cualquier fragmento de código que se ejecuta desde un cuaderno de Jupyter Notebook está disponible en el contexto de la sesión que se conserva en los nodos de trabajo. Si quiere guardar una carrera en los nodos de trabajo de cada cálculo y todos los datos que necesita para dichos cálculos están disponibles de forma local en el nodo del servidor de Jupyter (el nodo principal), puede utilizar la instrucción mágica `%%local` para ejecutar el fragmento de código en el servidor de Jupyter.
 
 * **Instrucciones mágicas SQL** (`%%sql`). El kernel de Spark en HDInsight admite consultas sencillas de HiveQL en línea en SQLContext. El argumento (`-o VARIABLE_NAME`) conserva la salida de la consulta SQL como una trama de datos de Pandas en el servidor de Jupyter. Esto significa que estará disponible en el modo local.
-* **Instrucciones mágicas** `%%local` Las instrucciones mágicas `%%local` se utilizan para ejecutar código de forma local en el servidor de Jupyter, que es el nodo principal del clúster de HDInsight. Normalmente, se utilizan juntas las instrucciones mágicas `%%local` y `%%sql` con el parámetro `-o`. El parámetro `-o` conservaría la salida de la consulta SQL localmente y luego la instrucción mágica `%%local` desencadenaría el siguiente conjunto de fragmento de código para ejecutarse localmente en la salida de las consultas SQL que se conserva localmente.
+* **Instrucciones mágicas**`%%local` Las instrucciones mágicas `%%local` se utilizan para ejecutar código de forma local en el servidor de Jupyter, que es el nodo principal del clúster de HDInsight. Normalmente, se utilizan juntas las instrucciones mágicas `%%local` y `%%sql` con el parámetro `-o`. El parámetro `-o` conservaría la salida de la consulta SQL localmente y luego la instrucción mágica `%%local` desencadenaría el siguiente conjunto de fragmento de código para ejecutarse localmente en la salida de las consultas SQL que se conserva localmente.
 
 ### <a name="query-the-data-by-using-sql"></a>Consulta de datos mediante SQL
 Esta consulta recupera carreras de taxi por importe de la tarifa, número de pasajeros y propina.
@@ -1108,5 +1107,4 @@ Para ver una introducción de los temas que lo guiarán por las tareas que compo
 [Tutoriales del proceso de ciencia de datos en equipos](walkthroughs.md) describe otros tutoriales de extremo a extremo que muestran los pasos en el proceso de ciencia de datos de equipo en escenarios específicos. En los tutoriales también se muestra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente.
 
 [Puntuación de modelos de aprendizaje automático creados con Spark](spark-model-consumption.md) muestra cómo utilizar código de Scala para cargar y puntuar automáticamente nuevos conjuntos de datos con modelos de aprendizaje automático creados en Spark y guardarlos en Almacenamiento de blobs de Azure. Se pueden seguir las instrucciones de ese artículo y, simplemente, reemplazar el código de Python por el de Scala que se indica aquí para permitir el uso automatizado.
-
 

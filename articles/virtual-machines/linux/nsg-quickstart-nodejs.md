@@ -13,14 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 847bc76c37ed929851712ba1c12463a01032e267
-ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-using-the-azure-cli-10"></a>Apertura de puertos y puntos de conexión para una máquina virtual Linux en Azure con la CLI de Azure 1.0
 En Azure, se abre un puerto o se crea un punto de conexión a una máquina virtual creando un filtro de red en una subred o una interfaz de red de máquina virtual. Estos filtros, que controlan el tráfico entrante y saliente, se colocan en un grupo de seguridad de red y se asocian al recurso que va a recibir dicho tráfico. Vamos a usar un ejemplo común de tráfico web en el puerto 80. Este artículo muestra cómo abrir un puerto a una máquina virtual mediante la CLI de Azure 1.0.
 
@@ -95,5 +93,4 @@ En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Pu
 * [Información general sobre Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 * [¿Qué es un grupo de seguridad de red?](../../virtual-network/virtual-networks-nsg.md)
 * [Información general de Azure Resource Manager para equilibradores de carga](../../load-balancer/load-balancer-arm.md)
-
 

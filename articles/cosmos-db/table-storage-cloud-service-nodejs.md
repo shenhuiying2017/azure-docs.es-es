@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="nodejs-web-application-using-storage"></a>Aplicación web Node.js con almacenamiento
 ## <a name="overview"></a>Información general
@@ -106,7 +105,7 @@ Siga estos pasos para recuperar las credenciales de la cuenta de almacenamiento 
   └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
   ```
 
-## <a name="using-the-table-service-in-a-node-application"></a>Uso de Table Service en una aplicación Node
+## <a name="using-the-table-service-in-a-node-application"></a>Uso del servicio Tabla en una aplicación Node
 En esta sección, la aplicación básica creada por el comando **express** se amplía agregando un archivo **task.js** que contiene el modelo para sus tareas. Modifique el archivo **app.js** existente y cree un archivo **tasklist.js** nuevo que utilice el modelo.
 
 ### <a name="create-the-model"></a>Crear el modelo
@@ -415,6 +414,5 @@ Los siguientes pasos muestran cómo detener y eliminar su aplicación.
 [Aplicación web Node.js con Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
 [Almacenamiento de Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Aplicación web Node.js]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
-
 
 

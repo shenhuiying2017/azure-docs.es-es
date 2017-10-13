@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 6adf4e43aa80c28c6f5f8d8a071966323ba85723
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Personalización de una máquina virtual Linux en el primer arranque
 En un tutorial anterior, ha aprendido cómo acceder mediante SSH a una máquina virtual y a instalar NGINX de forma manual. Para crear máquinas virtuales de manera rápida y coherente, alguna forma de automatización suele ser deseable. Un enfoque común para personalizar una máquina virtual en el primer arranque es usar el comando [cloud-init](https://cloudinit.readthedocs.io). En este tutorial, aprenderá a:
 
@@ -286,4 +284,3 @@ Avanzar al siguiente tutorial para aprender a crear imágenes de máquina virtua
 
 > [!div class="nextstepaction"]
 > [Creación de imágenes personalizadas de máquinas virtuales](./tutorial-custom-images.md)
-

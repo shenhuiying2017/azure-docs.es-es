@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/01/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aa0193e741b1a84c03230b2458eec96b5504f031
 ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-ms.contentlocale: es-es
-ms.lasthandoff: 12/06/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuración de MPIO en un host de StorSimple que ejecuta CentOS
 Este artículo explica los pasos necesarios para configurar E/S de múltiples rutas (MPIO) en el servidor host de Centos 6.6. El servidor host está conectado al dispositivo de Microsoft Azure StorSimple para una alta disponibilidad a través de los iniciadores iSCSI. Describe detalladamente la detección automática de dispositivos de múltiples rutas de acceso y el programa de instalación específico solo para los volúmenes de StorSimple.
@@ -57,11 +56,11 @@ El archivo de configuración `/etc/multipath.conf` permite que muchas de las car
 
 El archivo multipath.conf tiene cinco secciones:
 
-- **Valores predeterminados de nivel de sistema** *(defaults)*: puede invalidar los valores predeterminados de nivel de sistema.
-- **Dispositivos en lista negra** *(blacklist)*: puede especificar la lista de dispositivos que no deben controlarse mediante el asignador de dispositivos.
-- **Excepciones de la lista negra** *(blacklist_exceptions)*: puede identificar dispositivos específicos para que se traten como dispositivos de múltiples rutas, aunque aparezcan en la lista negra.
-- **Configuración específica del controlador de almacenamiento** *(devices)*: puede especificar valores de configuración que se aplicarán a los dispositivos con información de proveedor y producto.
-- **Configuración específica de dispositivo** *(multipaths)*: puede usar esta sección para ajustar la configuración de cada LUN.
+- **Valores predeterminados de nivel de sistema***(defaults)*: puede invalidar los valores predeterminados de nivel de sistema.
+- **Dispositivos en lista negra***(blacklist)*: puede especificar la lista de dispositivos que no deben controlarse mediante el asignador de dispositivos.
+- **Excepciones de la lista negra***(blacklist_exceptions)*: puede identificar dispositivos específicos para que se traten como dispositivos de múltiples rutas, aunque aparezcan en la lista negra.
+- **Configuración específica del controlador de almacenamiento***(devices)*: puede especificar valores de configuración que se aplicarán a los dispositivos con información de proveedor y producto.
+- **Configuración específica de dispositivo***(multipaths)*: puede usar esta sección para ajustar la configuración de cada LUN.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configuración de múltiples rutas en StorSimple conectado al host Linux
 Un dispositivo de StorSimple conectado a un host Linux puede configurarse para alta disponibilidad y equilibrio de carga. Por ejemplo, si el host Linux tiene dos interfaces conectadas a la SAN y el dispositivo tiene dos interfaces conectadas a la SAN de tal forma que estas interfaces estén en la misma subred, habrá 4 rutas de acceso disponibles. Sin embargo, si cada interfaz DATA en la interfaz del dispositivo y de host están en una subred IP diferente (y no enrutable), solo estarán disponibles dos rutas de acceso. Puede configurar múltiples rutas para que detecten automáticamente todas las rutas de acceso disponibles, elegir un algoritmo de equilibrio de carga para esas rutas de acceso, aplicar la configuración específica para los volúmenes únicamente de StorSimple y, después, habilitar y comprobar la característica de múltiples rutas.
@@ -447,5 +446,4 @@ Cuando está configurando MPIO en el host Linux, es posible que tenga que hacer 
 
 * [Configuración de MPIO en CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 * [Guía de aprendizaje de Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
-
 

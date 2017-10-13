@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="threat-modeling-tool-feature-overview"></a>Información general de las características de Threat Modeling Tool
 
 Threat Modeling Tool puede ayudarle con sus necesidades de modelado de amenazas. Para una introducción básica a la herramienta, consulte [Introducción a Threat Modeling Tool](./azure-security-threat-modeling-tool-getting-started.md).
@@ -210,4 +208,3 @@ Una vez que haya terminado de cambiar las prioridades y de actualizar el estado 
 
 * Para contribuir con una plantilla para la comunidad, vaya a nuestra página de [GitHub](https://github.com/Microsoft/threat-modeling-templates). 
 * Para empezar a usar la herramienta, vaya a la página de [Descarga](https://aka.ms/tmtpreview).
-

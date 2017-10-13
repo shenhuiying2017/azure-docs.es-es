@@ -16,10 +16,10 @@ ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios
 
@@ -108,7 +108,7 @@ La siguiente tabla muestra los métodos de recopilación de datos y otros detall
 
 En la tabla siguiente se muestra la frecuencia de recopilación de datos para los tipos de cambios.
 
-| **Tipo de cambio** | **frequency** | **¿Envía el** **agente** **las diferencias cuando las encuentra?** |
+| **Tipo de cambio** | **frequency** | **¿Envía el****agente****las diferencias cuando las encuentra?** |
 | --- | --- | --- |
 | Registro de Windows | 50 minutos | No |
 | Archivo de Windows | 30 minutos | Sí. Si no hay ningún cambio en 24 horas, se envía una instantánea. |

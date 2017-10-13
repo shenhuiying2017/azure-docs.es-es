@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b067278389a364514067bcef7045542486e113c9
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 5edaf7197576ac1c0bd1fc6bed21fd65ed135106
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Solución de problemas de los grupos de seguridad de red utilizando Azure PowerShell
 > [!div class="op_single_selector"]
@@ -198,5 +197,4 @@ Tenga en cuenta los puntos siguientes cuando tenga que solucionar problemas de c
 * Si ha emparejado redes virtuales, de forma predeterminada, la etiqueta VIRTUAL_NETWORK se expandirá automáticamente para incluir prefijos para redes virtuales emparejadas. Puede ver estos prefijos en la lista **ExpandedAddressPrefix** para solucionar los problemas relacionados con la conectividad de emparejamiento de rede virtuales. 
 * Las reglas de seguridad vigentes solo se muestran si hay un NSG asociado con la NIC o subred de máquina virtual. 
 * Si no hay ningún NSG asociado a la NIC o subred y tiene una dirección IP pública asignada a la máquina virtual, todos los puertos estarán abiertos para el acceso entrante y saliente. Si la máquina virtual tiene una dirección IP pública, es muy recomendable aplicar los NSG a la subred o NIC.  
-
 

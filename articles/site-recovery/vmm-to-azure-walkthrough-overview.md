@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: af68d21184c137b2b0f1bb4c1afb9bf507e8332d
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replicación de máquinas virtuales de Hyper-V que están en nubes VMM en Azure mediante Site Recovery en Azure Portal
 > [!div class="op_single_selector"]
@@ -113,6 +112,5 @@ Ir a [Paso 11: Habilitación de la replicación](vmm-to-azure-walkthrough-enable
 Ejecute una conmutación por error de prueba para asegurarse de que todo funcione de la forma esperada.
 
 Ir a [Paso 12: Ejecución de una conmutación por error de prueba](vmm-to-azure-walkthrough-test-failover.md)
-
 
 

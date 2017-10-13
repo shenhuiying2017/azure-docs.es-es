@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0c930c7413b24a811707c3a1ff3d7d70585bc528
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure
 En este artículo se proporcionan sugerencias de recursos y rendimiento para ayudarle a planear la infraestructura de copia de seguridad de máquina virtual. También se definen los aspectos clave del servicio Backup; estos aspectos pueden ser críticos a la hora de determinar la arquitectura, el planeamiento de la capacidad y la programación. Si ha [preparado el entorno](backup-azure-vms-prepare.md), este es el paso siguiente antes de comenzar a realizar la [copia de seguridad de las máquinas virtuales](backup-azure-vms.md). Si necesita más información sobre máquinas virtuales de Azure, vea la [Documentación sobre máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -153,4 +152,3 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 * [Administrar copia de seguridad de máquina virtual](backup-azure-manage-vms.md)
 * [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 * [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)
-

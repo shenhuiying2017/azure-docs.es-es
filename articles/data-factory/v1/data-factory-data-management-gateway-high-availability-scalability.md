@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1aac856d154724e3dcd282e2d34c27571cd1cb02
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
 Este artículo le ayuda a configurar una solución de alta disponibilidad y escalabilidad con Data Management Gateway.    
@@ -250,4 +249,3 @@ Después de eliminarlo, haga clic en **Característica de versión preliminar** 
 Consulte los artículos siguientes:
 - [Data Management Gateway](data-factory-data-management-gateway.md): ofrece una información general detallada de la puerta de enlace.
 - [Movimiento de datos entre equipos locales y almacenes de datos en la nube](data-factory-move-data-between-onprem-and-cloud.md): contiene un tutorial con instrucciones paso a paso para usar una puerta de enlace con un único nodo. 
-

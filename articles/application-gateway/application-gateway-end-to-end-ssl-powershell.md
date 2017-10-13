@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
+ms.openlocfilehash: df14d5c4572a250f9f8951ee3b86e87e6f652782
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: dbc012526b062f21e675576c8269f0076f43cbc6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configuración de SSL de un extremo a otro con Application Gateway mediante PowerShell
 
@@ -198,7 +197,7 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
    $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-   10. Configure el tamaño de la instancia de la puerta de enlace de aplicaciones. Los tamaños disponibles son **Standard\_Small**, **Standard\_Medium** y **Standard\_Large**.  Para la capacidad, los valores disponibles son de **1** a** 10**.
+   10. Configure el tamaño de la instancia de la puerta de enlace de aplicaciones. Los tamaños disponibles son **Standard\_Small**, **Standard\_Medium** y **Standard\_Large**.  Para la capacidad, los valores disponibles son de **1** a **10**.
 
    ```powershell
    $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -289,4 +288,3 @@ DnsSettings              : {
 Para más información sobre la protección de la seguridad de las aplicaciones web con el firewall de aplicaciones web mediante Application Gateway, consulte [Información general sobre el firewall de aplicaciones web](application-gateway-webapplicationfirewall-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
-

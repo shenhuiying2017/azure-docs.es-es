@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
 ms.openlocfilehash: db23eba9ff8debd5268cd02bc4f37c4e6501bfac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 Aunque Azure Resource Manager ofrece muchas características increíbles, es fundamental planear la trayectoria de migración para asegurarse de que el proceso se desarrolla con facilidad. Dedicar tiempo a la planificación garantizará que no se planteen problemas al ejecutar las actividades de migración.
@@ -131,19 +131,19 @@ A continuación se indican problemas detectados en muchas de las migraciones má
 
     Puede comprobar las cuotas actuales de Azure Resource Manager mediante los comandos siguientes con la última versión de Azure PowerShell.
 
-    **Compute** *(núcleos y conjuntos de disponibilidad)*
+    **Compute***(núcleos y conjuntos de disponibilidad)*
 
     ```powershell
     Get-AzureRmVMUsage -Location <azure-region>
     ```
 
-    **Red** *(redes virtuales, direcciones IP públicas estáticas, direcciones IP públicas, grupos de seguridad de red, interfaces, equilibradores de carga y tablas de rutas)*
+    **Red***(redes virtuales, direcciones IP públicas estáticas, direcciones IP públicas, grupos de seguridad de red, interfaces, equilibradores de carga y tablas de rutas)*
 
     ```powershell
     Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
-    **Almacenamiento** *(cuenta de almacenamiento)*
+    **Almacenamiento***(cuenta de almacenamiento)*
 
     ```powershell
     Get-AzureRmStorageUsage

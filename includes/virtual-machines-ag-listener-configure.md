@@ -37,8 +37,8 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
-    <!---no se ve esta opción en server 2016
-    1. Deshabilite NetBIOS para esta dirección y haga clic en **Aceptar**. Repite este paso en cada recurso de IP si tu solución abarca varias redes virtuales de Azure. 
+    <!-----------------------I don't see this option on server 2016
+    1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
 4. <a name = "dependencyGroup"></a>Haga que el recurso del grupo de disponibilidad de SQL Server dependa del punto de acceso cliente.

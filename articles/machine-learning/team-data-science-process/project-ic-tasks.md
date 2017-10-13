@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbe691174409202a8fd9602a69e764f0a8e2816b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="individual-contributor-tasks"></a>Tareas de colaborador individual
 
 En este tema se describen las tareas que debe realizar un colaborador individual en su equipo de ciencia de datos. El objetivo es establecer el entorno de colaboración de equipo que se estandariza en el [proceso de ciencia de datos en equipo](overview.md) (TDSP). Para un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso, consulte [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md).
@@ -60,8 +57,8 @@ Para cumplir los requisitos previos, es necesario realizar las tareas asignadas 
 
 En el segundo repositorio **TeamUtilities** los requisitos previos son opcionales, dependiendo de si su equipo tiene un repositorio de utilidades específico para el equipo. Si no se ha completado cualquiera de los otros tres requisitos previos, póngase en contacto con el responsable de equipo, el responsable de proyecto o sus delegados para realizar la configuración siguiendo las instrucciones en los artículos sobre las [tareas del responsable de equipo para un equipo de ciencia de datos](team-lead-tasks.md) o sobre las [tareas del responsable de proyecto para un equipo de ciencia de datos](project-lead-tasks.md).
 
-- Git debe estar instalado en la máquina. Si usa una instancia de Data Science Virtual Machine (DSVM), significa que Git ya se ha instalado y está listo para continuar. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).  
-- Si usa una **DSVM de Windows**, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en su equipo. En el archivo README.md, desplácese a la sección **Descargar e instalar** y haga clic en el *instalador más reciente*. Este paso le lleva a la página más reciente del instalador. Descargue al instalador .exe desde aquí y ejecútelo. 
+- Git debe estar instalado en la máquina. Si usa una instancia de Data Science Virtual Machine (DSVM), Git se ha instalado previamente y está listo para continuar. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).  
+- Si usa una **DSVM de Windows**, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en su máquina. En el archivo README.md, desplácese a la sección **Descargar e instalar** y haga clic en el *instalador más reciente*. Este paso le lleva a la página más reciente del instalador. Descargue al instalador .exe desde aquí y ejecútelo. 
 - Si usa una instancia de **DSVM de Linux**, cree una clave pública SSH en su DSVM y agréguela al servidor de VSTS del grupo. Para más información acerca de SSH, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
 - Si el responsable de equipo o de proyecto han creado algún almacenamiento de archivos de Azure que se necesite para montar la DSVM, debe obtener la información de almacenamiento de archivos de Azure de ellos. 
 
@@ -113,5 +110,4 @@ Estos son vínculos a descripciones más detalladas de los roles y tareas defini
 - [Tareas del responsable de equipo en un equipo de ciencia de datos](team-lead-tasks.md)
 - [Tareas del responsable de proyecto en un equipo de ciencia de datos](project-lead-tasks.md)
 - [Colaboradores individuales del proyecto en un equipo de ciencia de datos](project-ic-tasks.md)
-
 

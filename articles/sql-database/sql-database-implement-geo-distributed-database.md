@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 9f53f318e20dac9248906bdbe898ba4dacb286ac
-ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 6fdbf12830a402eeb004587202eee604037430c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="implement-a-geo-distributed-database"></a>Implementar una base de datos distribuida geográficamente
 
 En este tutorial, configurará una instancia de Azure SQL Database y una aplicación para realizar conmutación por error a una región remota y, luego, probar el plan de conmutación por error. Aprenderá a: 
@@ -390,4 +388,3 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, vea [Grupos de conmutación por error y replicación geográfica activa](sql-database-geo-replication-overview.md).
-

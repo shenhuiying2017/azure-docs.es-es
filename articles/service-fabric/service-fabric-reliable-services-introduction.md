@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: masnider;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 6b1627ee9c55ecb58bdb1263eb49458caab99322
-ms.contentlocale: es-es
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 601b1c7713c9785d949c1c72000ec7f3f63dd682
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reliable-services-overview"></a>Información general sobre Reliable Services
 Azure Service Fabric simplifica la escritura y administración de los servicios de Reliable Services con y sin estado. En este tema se explica:
@@ -118,4 +117,3 @@ Considere el uso de API de Reliable Services si sus necesidades de servicios de 
 * [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
 * [Uso avanzado de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
 * [El modelo de programación de Reliable Actors](service-fabric-reliable-actors-introduction.md)
-

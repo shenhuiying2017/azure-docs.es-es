@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f13f8aa0ca8686c0582bed77d047c9e6b39f7aa2
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de procedimiento almacenado de SQL Server en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-stored-proc-activity.md)
@@ -33,7 +30,7 @@ Las actividades de transformación en una [canalización](concepts-pipelines-act
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Actividad de procedimiento almacenado en V1](v1/data-factory-stored-proc-activity.md).
 > 
-> Si no está familiarizado con Azure Data Factory, consulte la [Introducción a Azure Data Factory](introduction.md) y el [Tutorial: transformación de datos](tutorial-transform-data-spark-powershell.md) antes de leer este artículo. 
+> Si no está familiarizado con Azure Data Factory, vea [Introduction to Azure Data Factory](introduction.md) (Introducción a Azure Data Factory) y siga el [tutorial de transformación de datos](tutorial-transform-data-spark-powershell.md) antes de leer este artículo. 
 
 Puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos de la empresa o en una máquina virtual (VM) de Azure: 
 
@@ -78,12 +75,12 @@ En la tabla siguiente se describen estas propiedades JSON:
 | name                      | Nombre de la actividad                     | Sí      |
 | Descripción               | Texto que describe para qué se usa la actividad. | No       |
 | type                      | Para la actividad de procedimiento almacenado, el tipo de actividad es SqlServerStoredProcedure | Sí      |
-| linkedServiceName         | Referencia a Azure SQL Database, Azure SQL Data Warehouse o SQL Server registrado como un servicio vinculado en Data Factory. Para más información sobre el servicio vinculado, consulte el artículo [Servicios vinculados de Compute](compute-linked-services.md). | Sí      |
+| linkedServiceName         | Referencia a Azure SQL Database, Azure SQL Data Warehouse o SQL Server registrado como un servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
 | storedProcedureName       | Especifique el nombre del procedimiento almacenado de Azure SQL Database, Azure SQL Data Warehouse o la base de datos de SQL Server que se representa mediante el servicio vinculado que usa la tabla de salida. | Sí      |
 | storedProcedureParameters | Especifique valores para los parámetros del procedimiento almacenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para pasar valores de parámetros y su tipo nativo compatible con el origen de datos. Si necesita pasar NULL para un parámetro, use *"param1": {"value": null}* (todo en minúsculas). | No       |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
+Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
 * [Actividad U-SQL](transform-data-using-data-lake-analytics.md)
 * [Actividad de Hive](transform-data-using-hadoop-hive.md)
@@ -94,4 +91,3 @@ Consulte los siguientes artículos, en los que se explica cómo transformar dato
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
 * [Actividad de ejecución de Batch de Machine Learning](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)
-

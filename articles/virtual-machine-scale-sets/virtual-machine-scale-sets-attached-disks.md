@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Conjuntos de escalado de máquinas virtuales de Azure y discos de datos conectados
 Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure ahora son compatibles con máquinas virtuales con discos de datos conectados. Los discos de datos se pueden definir en el perfil de almacenamiento para los conjuntos de escalado creados con Azure Managed Disks. Anteriormente, las únicas opciones de almacenamiento disponibles directamente conectadas a las máquinas virtuales en los conjuntos de escalado eran la unidad de sistema operativo y unidades de disco temporales.
@@ -128,6 +127,5 @@ Hay compatibilidad disponible con Azure Managed Disks y con discos de datos asoc
 En la implementación inicial de la compatibilidad con los discos conectados para los conjuntos de escalado, no se puede conectar ni desconectar discos de datos de máquinas virtuales individuales, o hacia ellas, en un conjunto de escalado.
 
 La compatibilidad con Azure Portal para discos de datos conectados en los conjuntos de escalado está limitada inicialmente. Dependiendo de los requisitos, puede usar plantillas de Azure, CLI, PowerShell, SDK y API de REST para administrar los discos conectados.
-
 
 

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 5bd6fe0dd369b3bbc7ca0d697c964badda557cb8
-ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-security-best-practices"></a>Procedimientos recomendados para la seguridad de las bases de datos de Azure
 
 La seguridad es un aspecto importante a la hora de administrar las bases de datos y siempre ha sido una prioridad para Azure SQL Database. Las bases de datos pueden protegerse de forma estricta para ayudar a satisfacer la mayoría de los requisitos de seguridad o legales, como HIPAA, ISO 27001/27002 y PCI DSS nivel 1, entre otros. En el [sitio del Centro de confianza de Microsoft](http://azure.microsoft.com/support/trust-center/services/) hay disponible una lista actualizada de certificaciones de cumplimiento de seguridad. También puede colocar las bases de datos en centros de datos de Azure específicos en función de los requisitos normativos.
@@ -172,4 +170,3 @@ Azure Database es una sólida plataforma de base de datos, con una amplia gama d
 - Para más información acerca de las reglas de firewall, consulte [Reglas de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 - Para obtener información acerca de los usuarios e inicios de sesión, consulte [Administración de inicios de sesión](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 - Para ver un tutorial, consulte [Protección de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial).
-

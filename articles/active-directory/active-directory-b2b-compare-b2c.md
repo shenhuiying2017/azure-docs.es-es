@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
-ms.contentlocale: es-es
-ms.lasthandoff: 03/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparación de la colaboración B2B y B2C de Azure Active Directory
 
 La colaboración B2B de Azure Active Directory (Azure AD) y Azure AD B2C permiten trabajar con usuarios externos en Azure AD. Pero, ¿cómo se comparan?
@@ -55,4 +53,3 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Uso compartido externo de Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitaciones actuales de la colaboración B2B](active-directory-b2b-current-limitations.md)
 * [Obtención de soporte técnico para colaboración B2B](active-directory-b2b-support.md)
-

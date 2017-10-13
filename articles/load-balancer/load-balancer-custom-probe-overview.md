@@ -3,7 +3,7 @@ title: "Sondeos personalizados del Equilibrador de carga y supervisión de estad
 description: "Aprenda a usar sondeos personalizados para el Equilibrador de carga de Azure para supervisar las instancias detrás de dicho Equilibrador."
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: ce2550ca8301fd12d61cca143b2851b84f1a0f50
-ms.openlocfilehash: 01afa3a08bbb56d4c6b8b18c5eb07f49706c6482
-
+ms.openlocfilehash: 102c07ff0994b3b411f2a13d7a43c5398d5dfd42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-load-balancer-probes"></a>Descripción de los sondeos del equilibrador de carga
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 El Equilibrador de carga de Azure ofrece la capacidad de supervisar el estado de las instancias del servidor mediante sondeos. Cuando un sondeo no responde, el Equilibrador de carga deja de enviar nuevas conexiones a la instancia incorrecta. Las conexiones existentes no resultan afectadas y las nuevas conexiones se envían a instancias en buen estado.
 
@@ -94,9 +96,3 @@ Los sondeos TCP y HTTP se consideran en buen estado y marcan la instancia de rol
 ## <a name="use-log-analytics-for-load-balancer"></a>Uso del análisis de registros para el Equilibrador de carga
 
 Puede usar el [análisis de registros para el Equilibrador de carga](load-balancer-monitor-log.md) para comprobar el estado de mantenimiento de un sondeo y el número de sondeos. El registro se puede utilizar con Power BI o con Visión operativa de Azure para proporcionar estadísticas del estado de mantenimiento del Equilibrador de carga.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

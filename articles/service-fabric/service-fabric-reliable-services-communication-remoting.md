@@ -1,4 +1,3 @@
-
 ---
 title: "Comunicación remota de servicio en Service Fabric | Microsoft Docs"
 description: "La comunicación remota de Service Fabric permite a los clientes y servicios comunicarse con los servicios mediante la llamada a procedimiento remoto."
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 655bc3dd3735a35fbe7437e8dda92b2adf15f7bf
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicación remota de servicio con Reliable Services
 Para los servicios que no están vinculados a una pila o un protocolo de comunicación concretos, como WebAPI, Windows Communication Foundation (WCF) u otros, el marco de trabajo de Reliable Services ofrece un mecanismo de comunicación remota para configurar de manera rápida y sencilla una llamada a procedimiento remoto para servicios.
@@ -392,4 +390,3 @@ En el ejemplo siguiente se utiliza la serialización JSON con la comunicación r
 * [Web API con OWIN en Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Comunicación WCF con Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 * [Protección de la comunicación para Reliable Services](service-fabric-reliable-services-secure-communication.md)
-

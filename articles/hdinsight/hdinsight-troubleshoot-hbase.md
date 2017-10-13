@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 15412c3853a2b8436c5e96034c9a92a2a1094662
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Solución de problemas de HBase mediante Azure HDInsight
 
 Obtenga información sobre los principales problemas y sus soluciones al trabajar con cargas útiles de HBase en Apache Ambari.
@@ -422,5 +420,4 @@ Debido al abrupto apagado, puede que el puerto asociado con el proceso no se lib
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
-
 

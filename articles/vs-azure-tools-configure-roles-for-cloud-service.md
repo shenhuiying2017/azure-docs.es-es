@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9e79f275b8de045892517ec33581b72195a81f32
-ms.contentlocale: es-es
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 17da71ac0c5ab9330b9244c0354e4d161d98229e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>Configuración de los roles para un servicio de Azure con Visual Studio
 Un servicio en la nube de Azure puede tener uno o más roles web o de trabajo. Para cada rol, debe definir cómo se configura ese rol y cómo se ejecuta. Para obtener más información sobre los roles en servicios en la nube, vea el vídeo [Introducción a los servicios en la nube de Azure](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). 
@@ -278,5 +277,4 @@ Para ver el archivo creado por el código de la sección anterior, siga estos pa
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre los proyectos de Azure en Visual Studio, consulte [Configurar un proyecto de Azure](vs-azure-tools-configuring-an-azure-project.md). Para obtener más información sobre el esquema del servicio en la nube, consulte [Referencia de esquema](https://msdn.microsoft.com/library/azure/dd179398).
-
 

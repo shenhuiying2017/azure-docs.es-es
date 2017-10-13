@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 12caf933b04258065039a51f45d531a30865f8d4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Mover datos hacia y desde Azure Blob Storage con el Explorador de Azure Storage
 El Explorador de Azure Storage es una herramienta gratuita de Microsoft que permite trabajar con los datos de Azure Storage en Windows, macOS y Linux. En este tema se describe cómo usarlo para cargar y descargar datos del Almacenamiento de blobs de Azure. La herramienta se puede descargar desde el [Explorador de almacenamiento de Microsoft Azure](http://storageexplorer.com/).
@@ -55,5 +54,4 @@ En los pasos siguientes se describe cómo cargar y descargar datos mediante el E
 7. Para cargar datos en un contenedor, seleccione el contenedor de destino y haga clic en el botón **Cargar**.![Cuentas de almacenamiento](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
 8. Haga clic en **...** a la derecha del cuadro **Archivos**, seleccione uno o varios archivos para cargarlos desde el sistema de archivos y haga clic en **Cargar** para empezar a cargarlos.![Cargar archivos](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
 9. Para descargar datos, seleccione el blob en el contenedor correspondiente para descarga y haga clic en **Descargar**. ![Descargar archivos](./media/move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
-
 

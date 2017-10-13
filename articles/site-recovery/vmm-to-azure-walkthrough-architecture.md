@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="step-1-review-the-architecture"></a>Paso 1: Revisión de la arquitectura
 
 
@@ -63,8 +60,7 @@ Aprenda sobre los requisitos previos de implementación y los requisitos de cada
 1. Después de habilitar la protección de una máquina virtual de Hyper-V, en el Azure Portal o de forma local, la opción **Habilitar la protección** se inicia.
 2. El trabajo comprueba que la máquina cumpla los requisitos previos e invoca [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) para que configure la replicación con su configuración.
 3. El trabajo comienza la replicación inicial con la invocación del método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) para inicializar una replicación completa de la máquina virtual y enviar los discos virtuales de la máquina virtual a Azure.
-4. Puede supervisar el trabajo en la pestaña **Trabajos**.
-        ![Lista Trabajos](media/vmm-to-azure-walkthrough-architecture/image1.png)![Detalles de Habilitar protección](media/vmm-to-azure-walkthrough-architecture/image2.png)
+4. Puede supervisar el trabajo en la pestaña **Trabajos**.      ![Lista Trabajos](media/vmm-to-azure-walkthrough-architecture/image1.png)![Detalles de Habilitar protección](media/vmm-to-azure-walkthrough-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Replicación de los datos iniciales
 
@@ -121,4 +117,3 @@ Si se produce un error de replicación, se realiza un reintento de forma predefi
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya al [paso 2 sobre la revisión de los requisitos previos de implementación](vmm-to-azure-walkthrough-prerequisites.md).
-

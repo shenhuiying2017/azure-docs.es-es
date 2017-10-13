@@ -15,21 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: 7698e03c0dc8d1c6d1e926f45e903a909bfd0c93
-ms.contentlocale: es-es
-ms.lasthandoff: 06/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Ejemplos de Azure PowerShell para Azure Cosmos DB
 
 En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell de ejemplo para Azure Cosmos DB.
 
 | |  |
 |---|---|
-|**Creación de una cuenta de Azure Cosmos DB** ||
+|**Creación de una cuenta de Azure Cosmos DB**||
 |[Create a DocumentDB API account](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) (Creación de una cuenta de API de DocumentDB)| Crea una sola cuenta de Azure Cosmos DB para usarla con la API de DocumentDB. |
 |**Escalado de Azure Cosmos DB**||
 |[Replicación de la cuenta de Azure Cosmos DB en varias regiones y configuración de prioridades de conmutación por error](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Replicación global de datos de la cuenta en varias regiones con una prioridad específica de conmutación por error.|

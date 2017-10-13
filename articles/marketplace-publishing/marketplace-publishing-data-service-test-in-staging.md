@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: daf2017bfbab4250e3f1481f592e0e858c77f121
-
-
+ms.openlocfilehash: 56a8aad7484fed18b74200ffa7acf22363625a15
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="testing-your-data-service-offer-in-staging"></a>Probar su oferta de Servicio de datos en Ensayo
 > [!IMPORTANT]
@@ -63,7 +63,7 @@ En la siguiente pantalla que aparece se muestra que se está efectuando la publi
 Cuando finalice la inserción en el almacenamiento provisional, el icono "En curso" dejará de moverse y el estado se actualizará a "Almacenado provisionalmente".  Ahora ya estará preparado para probar su oferta.  
 
 ## <a name="step-2-test-your-staged-offer-in-datamarket"></a>Paso 2: Probar su oferta almacenada provisionalmente en DataMarket
-Haga clic en el vínculo que aparece detrás del texto **"Ver su oferta de servicio en..."**  para mostrar la pantalla que verá el suscriptor cuando la oferta pase a producción y aparecerá en DataMarket.
+Haga clic en el vínculo que aparece detrás del texto **"Ver su oferta de servicio en..."** para mostrar la pantalla que verá el suscriptor cuando la oferta pase a producción y aparecerá en DataMarket.
 
   ![dibujo](media/marketplace-publishing-data-service-test-in-staging/step-2.2.png)
 
@@ -96,10 +96,4 @@ Si está satisfecho y listo para publicar su oferta, lea la documentación [Soli
 
 ## <a name="see-also"></a>Otras referencias
 * [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

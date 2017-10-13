@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/10/2016
 ms.author: v-sharos
 ms.openlocfilehash: c1e9d5d0450bab5d371aafb40fd7c5920d39dfdb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-backup-policies"></a>Usar el servicio de Administrador de StorSimple para administrar directivas de copia de seguridad
 [!INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
@@ -53,7 +53,7 @@ Agregue una directiva de copia de seguridad para programar automáticamente sus 
 
 [!INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
-![Vídeo disponible](./media/storsimple-manage-backup-policies/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-manage-backup-policies/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo en el que se muestra cómo crear una directiva de copia de seguridad local o en la nube, haga clic [aquí](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 

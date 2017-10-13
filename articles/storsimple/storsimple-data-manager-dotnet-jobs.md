@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
-ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-the-net-sdk-to-initiate-data-transformation-private-preview"></a>Uso del SDK de .NET para iniciar la transformación de datos (versión preliminar privada)
 
 ## <a name="overview"></a>Información general
@@ -183,4 +181,3 @@ Realice los pasos siguientes si desea usar .NET para iniciar un trabajo de trans
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Manage using the StorSimple Data Manager service UI](storsimple-data-manager-ui.md) (Administración del uso de la interfaz de usuario del servicio StorSimple Data Manager).
-

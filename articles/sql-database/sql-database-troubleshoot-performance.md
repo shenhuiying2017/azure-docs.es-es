@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: v-shysun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 7a2f1199a56e0bd32eafef9f420879c756673e7f
-ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
-
+ms.openlocfilehash: 39d85e7c1c45dd1bb28705ae06c4b5364b8baf37
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-and-performance-tuning"></a>Optimización de la supervisión y el rendimiento
 
@@ -66,6 +65,6 @@ Puede cambiar el código de la aplicación para usar la base de datos, cambiar �
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para habilitar la optimización automática en Azure SQL Database y permitir que la característica de optimización automática administre completamente la carga de trabajo, consulte [Enable automatic tuning](sql-database-automatic-tuning-enable.md) (Habilitar la optimización automática).
+- Para habilitar la característica de ajuste automático en Azure SQL Database y permitir que administre totalmente la carga de trabajo, consulte [Habilitación del ajuste automático](sql-database-automatic-tuning-enable.md).
 - Para utilizar la optimización manual, puede revisar [SQL Database Advisor mediante Azure Portal](sql-database-advisor-portal.md) y aplicar manualmente las recomendaciones que mejoran el rendimiento de las consultas.
 - Cambiar los recursos que están disponibles en la base de datos cambiando los [niveles de servicio de Azure SQL Database](sql-database-performance-guidance.md).

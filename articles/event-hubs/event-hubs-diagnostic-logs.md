@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/27/2017
-ms.author: sethm;babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: bcc8427d57a001f73d321fbf35c5226a047b68d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Registros de diagnósticos de Event Hubs
 
@@ -29,6 +28,7 @@ Puede ver dos tipos de registros para Event Hubs de Azure:
 * **[Registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Puede configurar registros de diagnóstico para obtener una vista más completa de todo lo que ocurre con un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
 
 ## <a name="turn-on-diagnostic-logs"></a>Activación de los registros de diagnóstico
+
 Los registros de diagnóstico están inhabilitados de forma predeterminada. Para habilitar registros de diagnóstico:
 
 1.  En [Azure Portal](https://portal.azure.com), en **Supervisión y administración**, haga clic en **Registros de diagnóstico**.
@@ -136,5 +136,4 @@ Example:
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Introducción a la API de centros de eventos](event-hubs-api-overview.md)
-* [Introducción a Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
-
+* [Introducción a Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)

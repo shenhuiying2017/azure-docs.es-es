@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3b20583d04a820d925260b4da574a4cb304efbe2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bbad2e501acf024fb5b7f5c62ebe5fa81e19cce7
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>¿Qué desea saber sobre Service Fabric?
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Sin embargo, Service Fabric tiene un área expuesta de gran tamaño, y hay mucho por aprender.  En este artículo se proporciona una sinopsis de Service Fabric y se describen los conceptos principales, los modelos de programación, el ciclo de vida de la aplicación, las pruebas, los clústeres y la supervisión del estado. Lea [Información general](service-fabric-overview.md) y [¿Qué son los microservicios?](service-fabric-overview-microservices.md) para obtener una introducción y conocer cómo se puede utilizar Service Fabric para crear microservicios. Este artículo no contiene una lista completa de contenido, pero incluye vínculos a información general y artículos de introducción de cada área de Service Fabric. 
@@ -185,7 +184,7 @@ Desde el principio, los componentes de Service Fabric informan del estado de tod
 
 Service Fabric permite [ver los informes de estado](service-fabric-view-entities-aggregated-health.md) agregados al almacén de estado de varias formas:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) y otras herramientas de visualización.
-* Consultas de estado (a través de [PowerShell](/powershell/module/ServiceFabric/), [API FabricClient de C#](/api/system.fabric.fabricclient.healthclient), [API FabricClient de Java](/java/api/system.fabric._health_client) o [API de REST](/rest/api/servicefabric)).
+* Consultas de estado (a través de [PowerShell](/powershell/module/ServiceFabric/), [API FabricClient de C#](/dotnet/api/system.fabric.fabricclient.healthclient), [API FabricClient de Java](/java/api/system.fabric._health_client) o [API de REST](/rest/api/servicefabric)).
 * Consultas generales que devuelven una lista de entidades con el estado como una de las propiedades (a través de PowerShell, la API o REST).
 
 En el siguiente vídeo de Microsoft Virtual Academy se describe el modelo de estado de Service Fabric y cómo se utiliza: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
@@ -206,4 +205,3 @@ En el siguiente vídeo de Microsoft Virtual Academy se describe el modelo de est
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
-

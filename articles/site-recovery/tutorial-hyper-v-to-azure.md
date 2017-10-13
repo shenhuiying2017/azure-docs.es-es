@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 96e5027adfb443aba18895213e8d83894e3f060a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure
 
@@ -33,14 +32,14 @@ En este tutorial se muestra cómo configurar la recuperación ante desastres de 
 > * Configurar los entornos de replicación de origen y destino 
 > * Configurar la asignación de red (si Hyper-V se administra mediante System Center VMM)
 > * Creación de una directiva de replicación
-> * Habilitar la replicación para una máquina virtual
+> * Habilitación de la replicación para una máquina virtual
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
-- Asegúrese de entender la [arquitectura del escenario y los componentes](concepts-hyper-v-to-azure-architecture.md).
+- Asegúrese de entender la [arquitectura y los componentes del escenario](concepts-hyper-v-to-azure-architecture.md).
 - Revise los [requisitos de compatibilidad](site-recovery-support-matrix-to-azure.md) de todos los componentes.
 - Asegúrese de que las máquinas virtuales que quiere replicar cumplen los [requisitos de máquina virtual de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 - Para determinar la planificación de capacidad:
@@ -279,4 +278,3 @@ Cuando se crea una directiva, se asocia automáticamente con la nube de VMM o el
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Obtención de detalles de recuperación ante desastres](tutorial-dr-drill-azure.md)
-

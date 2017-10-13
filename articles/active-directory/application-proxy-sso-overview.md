@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 1deb3d91049d45fe26791783e13bd23e0a7d9f95
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>¿Cómo permite el proxy de aplicación de Azure AD el inicio de sesión único?
 
 El inicio de sesión único es un elemento clave del proxy de aplicación de Azure AD.  Proporciona la mejor experiencia de usuario porque los usuarios solo deben iniciar sesión en Azure Active Directory en la nube. Una vez que se autentican en Azure Active Directory, el conector del proxy de aplicación controla la autenticación en la aplicación local. La aplicación de back-end no puede apreciar la diferencia entre un usuario remoto que inicia sesión a través del proxy de aplicación y un uso normal en un dispositivo unido al dominio. 
@@ -81,4 +79,3 @@ Para más información acerca de cómo configurar la autenticación basada en el
 - [Almacén de contraseñas para el inicio de sesión único con el proxy de aplicación](application-proxy-sso-azure-portal.md)
 - [Delegación limitada de Kerberos para el inicio de sesión único con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
 - [Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación](application-proxy-ping-access.md) 
-

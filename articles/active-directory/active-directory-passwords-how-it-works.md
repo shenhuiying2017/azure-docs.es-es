@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: cbb33988f5db47e35db406c037caa9133616d191
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 0fa05ee6a2df13845024e770a82f50ab7f75bafd
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -215,8 +214,7 @@ En el caso de Azure AD Connect, versiones 1.1.443.0 y posteriores, se necesita a
 * passwordreset.microsoftonline.com
 * servicebus.windows.net
 
-Para obtener un acceso más detallado, [aquí](https://www.microsoft.com/download/details.aspx?id=41653) puede encontrar la lista actualizada de 
-intervalos IP de centro de datos de Microsoft Azure Datacenter que se actualiza todos los miércoles y que entra en vigor el lunes siguiente.
+Para obtener un acceso más detallado, [aquí](https://www.microsoft.com/download/details.aspx?id=41653) puede encontrar la lista actualizada de intervalos IP de centro de datos de Microsoft Azure Datacenter que se actualiza todos los miércoles y que entra en vigor el lunes siguiente.
 
 ### <a name="idle-connection-timeouts"></a>Tiempos de espera de conexiones inactivas
 
@@ -275,5 +273,4 @@ Los vínculos siguientes proporcionan información adicional sobre el restableci
 * [**Informes**](active-directory-passwords-reporting.md): informes para detectar si los usuarios acceden a la funcionalidad de SSPR que especifican el momento y el lugar del acceso
 * [**Preguntas más frecuentes**](active-directory-passwords-faq.md): ¿Cómo? ¿Por qué? ¿Qué? ¿Dónde? ¿Quién? ¿Cuándo? : respuestas a las preguntas que siempre se ha hecho.
 * [**Solución de problemas**](active-directory-passwords-troubleshoot.md): información para resolver problemas habituales de SSPR
-
 

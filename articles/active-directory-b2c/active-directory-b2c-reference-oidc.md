@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b0c33a47dd0cae79eab32ac578448fae8bf59be5
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: inicio de sesión web con OpenID Connect
 OpenID Connect es un protocolo de autenticación basado en OAuth 2.0 que se puede usar para que los usuarios inicien sesión de forma segura en las aplicaciones web. Con la implementación de OpenID Connect de Azure Active Directory B2C (Azure AD B2C) puede externalizar el registro, el inicio de sesión y otras experiencias de administración de identidades en sus aplicaciones web a Azure Active Directory (Azure AD). Esta guía le enseñará cómo hacerlo de manera independiente del lenguaje. En ella se describe cómo enviar y recibir mensajes HTTP sin utilizar ninguna de nuestras bibliotecas de código abierto.
@@ -79,7 +78,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parámetro | ¿Necesario? | Description |
 | --- | --- | --- |
-| client_id |Obligatorio |El identificador de aplicación que [Azure Portal](https://portal.azure.com/) asignó a la aplicación. |
+| client_id |Obligatorio |El identificador de aplicación que el [Portal de Azure](https://portal.azure.com/) asignó a la aplicación. |
 | response_type |Obligatorio |El tipo de respuesta, que debe incluir un token de identificador para OpenID Connect. Si su aplicación web también necesita tokens para llamar a una API web, puede usar `code+id_token`, como hemos hecho aquí. |
 | redirect_uri |Recomendado |El parámetro `redirect_uri` de su aplicación, donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los parámetros `redirect_uri` que registró en el portal, con la excepción de que debe estar codificado como URL. |
 | ámbito |Obligatorio |Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El ámbito `openid` indica un permiso para iniciar sesión el usuario y obtener los datos del usuario en forma de tokens de identificador (más adelante encontrará más información al respecto). El ámbito `offline_access` es opcional para las aplicaciones web. Indica que la aplicación necesitará un *token de actualización* para tener un acceso de larga duración a los recursos. |
@@ -174,12 +173,12 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | Parámetro | ¿Necesario? | Description |
 | --- | --- | --- |
 | p |Obligatorio |La directiva usada para adquirir el código de autorización. No puede usar una directiva diferente en esta solicitud. Tenga en cuenta que este parámetro se agrega a la cadena de consulta, no al cuerpo de `POST`. |
-| client_id |Obligatorio |El identificador de aplicación que [Azure Portal](https://portal.azure.com/) asignó a la aplicación. |
+| client_id |Obligatorio |El identificador de aplicación que el [Portal de Azure](https://portal.azure.com/) asignó a la aplicación. |
 | grant_type |Obligatorio |El tipo de concesión, que debe ser `authorization_code` para el flujo de código de autorización. |
 | ámbito |Recomendado |Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener datos de este en forma de parámetros id_token. Se puede usar para obtener tokens para la propia API web de back-end de la aplicación, representada por el mismo id. de aplicación que el cliente. El ámbito `offline_access` indica que la aplicación necesitará un token de actualización para un acceso de larga duración a los recursos. |
 | código |Obligatorio |El código de autorización que adquirió en el primer segmento del flujo. |
 | redirect_uri |Obligatorio |El parámetro `redirect_uri` de la aplicación en la que recibió el código de autorización. |
-| client_secret |Obligatorio |El secreto de la aplicación que generó en [Azure Portal](https://portal.azure.com/). El secreto de aplicación es un artefacto de seguridad importante. Debe almacenarlo de forma segura en el servidor. También debe rotar este secreto del cliente de forma periódica. |
+| client_secret |Obligatorio |El secreto de la aplicación que generó en el [Portal de Azure](https://portal.azure.com/). El secreto de aplicación es un artefacto de seguridad importante. Debe almacenarlo de forma segura en el servidor. También debe rotar este secreto del cliente de forma periódica. |
 
 Una respuesta correcta del token tiene el siguiente aspecto:
 
@@ -239,12 +238,12 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | Parámetro | Obligatorio | Description |
 | --- | --- | --- |
 | p |Obligatorio |La directiva usada para adquirir el token de actualización original. No puede usar una directiva diferente en esta solicitud. Tenga en cuenta que este parámetro se agrega a la cadena de consulta, no al cuerpo de POST. |
-| client_id |Obligatorio |El identificador de aplicación que [Azure Portal](https://portal.azure.com/) asignó a la aplicación. |
+| client_id |Obligatorio |El identificador de aplicación que el [Portal de Azure](https://portal.azure.com/) asignó a la aplicación. |
 | grant_type |Obligatorio |El tipo de concesión, que debe ser un token de actualización para esta sección del flujo de código de autorización. |
 | ámbito |Recomendado |Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener datos de este en forma de tokens de identificador. Se puede usar para obtener tokens para la propia API web de back-end de la aplicación, representada por el mismo id. de aplicación que el cliente. El ámbito `offline_access` indica que la aplicación necesitará un token de actualización para un acceso de larga duración a los recursos. |
 | redirect_uri |Recomendado |El parámetro `redirect_uri` de la aplicación en la que recibió el código de autorización. |
 | refresh_token |Obligatorio |El token de actualización original que adquirió en el segundo segmento del flujo. Tenga en cuenta que debe haber usado el ámbito `offline_access` en las solicitudes de token y de autorización para recibir un token de actualización. |
-| client_secret |Obligatorio |El secreto de la aplicación que generó en [Azure Portal](https://portal.azure.com/). El secreto de aplicación es un artefacto de seguridad importante. Debe almacenarlo de forma segura en el servidor. También debe rotar este secreto del cliente de forma periódica. |
+| client_secret |Obligatorio |El secreto de la aplicación que generó en el [Portal de Azure](https://portal.azure.com/). El secreto de aplicación es un artefacto de seguridad importante. Debe almacenarlo de forma segura en el servidor. También debe rotar este secreto del cliente de forma periódica. |
 
 Una respuesta correcta del token tiene el siguiente aspecto:
 
@@ -308,5 +307,4 @@ Si quiere probar estas solicitudes por sí mismo, primero debe llevar a cabo est
 1. [Crear un inquilino de B2C](active-directory-b2c-get-started.md)y utilizar el nombre del inquilino en las solicitudes.
 2. [Cree una aplicación](active-directory-b2c-app-registration.md) para obtener un identificador de aplicación. Incluya una aplicación web o una API web en la aplicación. Opcionalmente puede crear un secreto de aplicación.
 3. [Crear directivas](active-directory-b2c-reference-policies.md) para obtener los nombres de las directivas.
-
 

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 65ba755f35df7bd09dd652ac6fccf96a878c6ca9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="enable-application-insights-profiler-on-an-azure-cloud-services-resource"></a>Habilitación de Application Insights Profiler para un recurso de Azure Cloud Services
 
 En este tutorial se muestra cómo habilitar Azure Application Insights Profiler en una aplicación de ASP.NET hospedada por un recurso de Azure Cloud Services. Los ejemplos incluyen compatibilidad con Azure Virtual Machines, conjuntos de escalado de máquinas virtuales y Azure Service Fabric. Todos los ejemplos se basan en plantillas que admiten el modelo de implementación de Azure Resource Manager. Para más información sobre el modelo de implementación, consulte [La implementación de Azure Resource Manager frente a la implementación clásica: los modelos de implementación y el estado de los recursos](/azure-resource-manager/resource-manager-deployment-model).
@@ -289,4 +287,3 @@ Commenting out these sections for now
 - Encuentre ayuda con los problemas de Profiler en la sección de [solución de problemas](app-insights-profiler.md#troubleshooting).
 
 - Lea más sobre Profiler en [Application Insights Profiler](app-insights-profiler.md).
-

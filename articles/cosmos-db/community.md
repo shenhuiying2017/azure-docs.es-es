@@ -15,10 +15,10 @@ ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
 ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="community-portal"></a>Portal de la Comunidad
 ## <a name="community-spotlight"></a>Noticias destacadas de la Comunidad
@@ -171,7 +171,7 @@ Para mantenerse al día respecto a las novedades y características más recient
 | Channel 9: Microsoft + Open Source (Microsoft + código abierto) |José Miguel Parrella |14 de abril de 2016 |[From MEAN to DEAN in Azure with Bitnami, VM Scale Sets and DocumentDB (De MEAN a DEAN en Azure con Bitname, conjuntos de escalado de VM y DocumentDB)](https://channel9.msdn.com/Blogs/Open/From-MEAN-to-DEAN-in-Azure-with-Bitnami-VM-Scale-Sets-and-DocumentDB) |
 | Wired2WinWebinar |SAI Sankar Kunnathukuzhiyil |9 de marzo de 2016 |[Developing Solutions with Azure DocumentDB (Desarrollo de soluciones con Azure DocumentDB)](https://www.youtube.com/watch?v=xKttEwXv_bs) |
 | Integration User Group |Han Wong |17 de febrero de 2016 |[Analyze and visualize non-relational data with DocumentDB + Power BI (Análisis y visualización de datos no relacionales mediante DocumentDB + Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
-| The Azure Podcast |Cale Teeter |14 de enero de 2016 |[Episode 110: Using DocumentDB & Search](http://azpodcast.azurewebsites.net/post/Episode-110-Using-DocumentDB-Search) (Episodio 110: uso de DocumentDB y características de búsqueda) |
+| The Azure Podcast |Cale Teeter |14 de enero de 2016 |[Episode 110: Using DocumentDB &amp; Search](http://azpodcast.azurewebsites.net/post/Episode-110-Using-DocumentDB-Search) (Episodio 110: uso de DocumentDB y características de búsqueda) |
 | Channel 9: Modern Applications |Tara Shankar Jana |13 de diciembre de 2016 |[Take a modern approach to data in your apps (Adopción de un enfoque moderno para los datos de las aplicaciones)](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips |Miguel Quintero |10 de diciembre de 2015 |[DocumentDB - Un vistazo general](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Integration User Group |Howard Edidin |5 de octubre de 2015 |[Azure DocumentDB for Healthcare Integration (Azure DocumentDB para la integración sanitaria)](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |

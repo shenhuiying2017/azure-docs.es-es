@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: bwren
+ms.openlocfilehash: a13500284caab79bbe221060ccf3d925ffb1fab5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 749ae20a8f9f7247268bd27714b03f7c0dd5b735
-ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Exploración de métricas en Application Insights
 Las métricas de [Application Insights][start] son valores medidos y recuentos de eventos que se envían en telemetría desde la aplicación. Ayudar a detectar problemas de rendimiento y a observar las tendencias sobre cómo se utiliza la aplicación. Hay una amplia gama de métricas estándar y también se pueden crear los propios eventos y métricas personalizados.
@@ -209,4 +208,3 @@ En el gráfico de una métrica, puede hacer clic en el icono Análisis para ir d
 [alerts]: app-insights-alerts.md
 [start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d8f0616f17dbaa02082492cc1c68f1d989ea5aae
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Herramientas de visualización y exploración de datos en Data Science Virtual Machine
 
 Un paso clave en la ciencia de datos pasa por comprender los datos. Las herramientas de visualización y de exploración de datos permiten acelerar la comprensión de los datos. A continuación se muestran algunas herramientas proporcionadas en DSVM que facilitan este paso clave. 
@@ -31,7 +29,7 @@ Un paso clave en la ciencia de datos pasa por comprender los datos. Las herramie
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | Motor de consultas SQL de código abierto en Big Data    |
-| Versiones compatibles de DSVM      | Windows, Linux  |
+| Versiones de DSVM compatibles      | Windows, Linux  |
 | ¿Cómo se configura/instala en DSVM?      |  Solo se instala en `/dsvm/tools/drill*` en modo incrustado   |
 | Usos típicos      |  Exploración de datos in situ sin necesidad de ETL. Consulta de distintos orígenes y formatos de datos, como CSV, JSON, tablas relacionales o Hadoop     |
 | ¿Cómo se usa/ejecuta?      | Acceso directo de escritorio  <br/> [Comience a usar Drill en 10 minutos](https://drill.apache.org/docs/drill-in-10-minutes/)  |
@@ -61,9 +59,8 @@ Un paso clave en la ciencia de datos pasa por comprender los datos. Las herramie
 |    |           |
 | ------------- | ------------- |
 | ¿Qué es?   | Visualización de datos interactivos y herramienta de BI    |
-| Versiones compatibles de DSVM      | Windows  |
+| Versiones de DSVM compatibles      | Windows  |
 | Usos típicos      |  Visualización de datos y creación de paneles   |
 | ¿Cómo se usa/ejecuta?      | Acceso directo de escritorio (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Herramientas relacionadas en DSVM      |   Visual Studio 2017, Visual Studio Code y Juno      |
-
 

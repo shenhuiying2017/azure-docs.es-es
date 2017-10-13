@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
+ms.openlocfilehash: 55cfba5e9730b123bba20dfdc5d10c1157352a35
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 2411b2ccd30f2155164d65272f999fdd1f6ba760
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solución de problemas: la conexión VPN de sitio a sitio de Azure no puede conectarse y deja de funcionar
 
 Después de configurar una conexión VPN de sitio a sitio entre una red local y una red virtual de Azure, la conexión VPN de repente deja de funcionar y no se puede volver a conectar. Este artículo proporciona pasos de solución de problemas para ayudarle a resolver este problema. 
@@ -99,7 +97,7 @@ Busque y quite Enrutamiento definido por el usuario (UDR) o Grupos de seguridad 
 2. Haga clic en la advertencia de certificado.
 3. Si recibe una respuesta, se considera que la puerta de enlace de la VPN es correcta. Si no recibe una respuesta, puede que la puerta de enlace no sea correcta o que haya un NSG en la subred de puerta de enlace que provoque el problema. El siguiente texto es una respuesta de ejemplo:
 
-    &lt;?xml version="1.0"?> <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
+    &lt;?xml version="1.0"?&gt; <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6&lt;/string&gt;
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Paso 8. Compruebe si el dispositivo VPN local cuenta con la característica confidencialidad directa perfecta habilitada
 
@@ -109,4 +107,3 @@ La característica confidencialidad directa perfecta puede provocar problemas de
 
 -   [Configuración de una conexión de sitio a sitio en una red virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Configuración de una directiva IPsec/IKE para conexiones VPN de sitio a sitio](vpn-gateway-ipsecikepolicy-rm-powershell.md)
-

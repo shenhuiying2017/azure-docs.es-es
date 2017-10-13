@@ -14,12 +14,11 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 2ea119b56f467f57b5929dec05bfd645028578ef
-ms.contentlocale: es-es
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Guía de inicio rápido: Incorporación de un nombre de dominio personalizado a Azure Active Directory
 
@@ -62,7 +61,7 @@ Una vez agregada la entrada DNS, ya puede comprobar el nombre de dominio con Azu
 Ya puede [asignar nombres de usuario que incluyan su nombre de dominio personalizado](active-directory-users-create-azure-portal.md). Con el nombre de dominio personalizado puede crear cuentas de usuario basadas en la nube o actualizar información de cuentas de usuario locales sincronizadas previamente. También puede cambiar información de sufijo de dominio de cuentas de usuario sincronizadas con [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) o la [API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
 
 > [!TIP]
-> Puede agregar un máximo de 900 nombres de dominio administrados. Si desea configurar todos los dominios de la federación local con Active Directory, puede agregar un máximo de 450 nombres de dominio en cada directorio. Para obtener más información, consulte [Nombres de dominio federados y administrados](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
+> Puede agregar un máximo de 900 nombres de dominio administrados. Si desea configurar todos los dominios de la federación local con Active Directory, puede agregar un máximo de 450 nombres de dominio en cada directorio. Para más información, consulte [Nombres de dominio federados y administrados](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 Si no puede comprobar un nombre de dominio personalizado, pruebe los siguientes pasos de solución de problemas:

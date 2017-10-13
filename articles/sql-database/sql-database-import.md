@@ -15,12 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.openlocfilehash: 5ff4184a6147c367c64b5c90c090e1abe59edb90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 79f7ccabb3900acfba7216823cecc7fc7bddd4b3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importación de un archivo BACPAC en una base de datos de Azure SQL Database
 
@@ -47,7 +46,7 @@ Para supervisar el progreso de la operación de importación, abra la página de
 
 Para supervisar el progreso de la operación de importación, abra la página del servidor lógico a la que se va a la importar base de datos. Desplácese hacia abajo hasta **Operaciones** y, después, haga clic en el historial de **importación y exportación**.
    
-   ![importar](./media/sql-database-import/import-history.png) ![estado de la importación](./media/sql-database-import/import-status.png)
+   ![importar](./media/sql-database-import/import-history.png)![estado de la importación](./media/sql-database-import/import-status.png)
 
 Para comprobar que la base de datos está activa en el servidor, haga clic en **Bases de datos SQL** y compruebe que la nueva base de datos esté **En línea**.
 
@@ -114,7 +113,6 @@ Para ver otro ejemplo de script, consulte [Importación de una base de datos des
 * Para aprender a conectarse a una base de datos de SQL Database importada y realizar consultas en ella, consulte [Conexión a SQL Database con SQL Server Management Studio y ejecución de una consulta T-SQL de ejemplo](sql-database-connect-query-ssms.md).
 * Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) en el blog de Customer Advisory Team de SQL Server.
 * Para obtener información sobre el proceso de migración de bases de datos de SQL Server completo, incluidas las recomendaciones de rendimiento, consulte [Migración de una base de datos de SQL Server a Azure SQL Database](sql-database-cloud-migrate.md).
-
 
 
 

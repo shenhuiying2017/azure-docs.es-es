@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: bb3e283e8a9327a9c66c8d8ded037cee5195ffc6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute
 ## <a name="overview"></a>Información general
@@ -136,4 +135,3 @@ Para empezar a trabajar con los entornos de App Service, consulte [Introducción
 
 
 <!-- IMAGES -->
-

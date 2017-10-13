@@ -1,29 +1,27 @@
 ---
 title: "Restauración de archivos en una máquina virtual con Azure Backup | Microsoft Docs"
 description: "Obtenga información acerca de cómo realizar la restauración en el nivel de archivo en una máquina virtual de Azure con Backup and Recovery Services."
-services: virtual-machines, azure-backup
+services: backup, virtual-machines
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: virtual-machines, azure-backup
+ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: abad99f862e3831e70254e76e768e4eb7b2a5053
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6a009ef06e4e92d234b1954fbb282ff50fc4cae8
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restauración de archivos en una máquina virtual de Azure
 Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda una máquina virtual o archivos individuales. En este artículo se detalla cómo restaurar archivos individuales. En este tutorial, aprenderá a:
 
@@ -88,7 +86,7 @@ Si elimina un archivo o realiza cambios en un archivo accidentalmente, puede res
 ## <a name="generate-file-recovery-script"></a>Generar un script de recuperación de archivos
 Para restaurar sus archivos, Azure Backup proporciona un script que se ejecuta en la máquina virtual y que conecta el punto de recuperación como una unidad local. Puede examinar esta unidad local, restaurar archivos en la propia máquina virtual y, a continuación, desconectar el punto de recuperación. Azure Backup continúa realizando la copia seguridad de los datos de acuerdo con la directiva de retención y programación asignada.
 
-1. Para enumerar los puntos de recuperación de la máquina virtual, use **az backup recoverypoint list**. En este ejemplo, se selecciona el punto de recuperación más reciente de la máquina virtual denominada *myVM* que está protegida en *myRecoveryServicesVault*:
+1. Para enumerar los puntos de recuperación de la máquina virtual, use [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). En este ejemplo, se selecciona el punto de recuperación más reciente de la máquina virtual denominada *myVM* que está protegida en *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -100,7 +98,7 @@ Para restaurar sus archivos, Azure Backup proporciona un script que se ejecuta e
         --output tsv
     ```
 
-2. Para obtener el script que conecta el punto de recuperación a la máquina virtual o lo monta en esta, use **az backup restore files mount-rp**. En el ejemplo siguiente se obtiene el script de la máquina virtual denominada *myVM* que está protegida en *myRecoveryServicesVault*.
+2. Para obtener el script que conecta el punto de recuperación a la máquina virtual o lo monta en esta, use [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp). En el ejemplo siguiente se obtiene el script de la máquina virtual denominada *myVM* que está protegida en *myRecoveryServicesVault*.
 
     Reemplace *myRecoveryPointName* por el nombre del punto de recuperación que obtuvo en el comando anterior:
 
@@ -147,7 +145,7 @@ Con el script de recuperación copiado en la máquina virtual, ahora puede conec
     ./myVM_we_1571974050985163527.sh
     ```
 
-    Cuando se ejecute el script, se le pedirá que escriba una contraseña para acceder al punto de recuperación. Escriba la contraseña que se muestra en la salida del comando **az backup restore files mount-rp** anterior que generó el script de recuperación.
+    Cuando se ejecute el script, se le pedirá que escriba una contraseña para acceder al punto de recuperación. Escriba la contraseña que se muestra en la salida del comando [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) anterior que generó el script de recuperación.
 
     La salida del script proporciona la ruta de acceso del punto de recuperación. La siguiente salida de ejemplo muestra que el punto de recuperación está montado en */home/azureuser/myVM-20170919213536/Volume1*:
 
@@ -187,7 +185,7 @@ Con el script de recuperación copiado en la máquina virtual, ahora puede conec
     exit
     ```
 
-8. Desmonte el punto de recuperación de su máquina virtual con **az backup restore files unmount-rp**. En el ejemplo siguiente se desmonta el punto de recuperación de la máquina virtual denominada *myVM* en *myRecoveryServicesVault*.
+8. Desmonte el punto de recuperación de su máquina virtual con [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_unmount_rp). En el ejemplo siguiente se desmonta el punto de recuperación de la máquina virtual denominada *myVM* en *myRecoveryServicesVault*.
 
     Reemplace *myRecoveryPointName* por el nombre del punto de recuperación que obtuvo en los comandos anteriores:
     
@@ -212,5 +210,4 @@ Avance al siguiente tutorial para obtener información acerca de cómo realizar 
 
 > [!div class="nextstepaction"]
 > [Hacer copias de seguridad de Windows Server en Azure](tutorial-backup-windows-server-to-azure.md)
-
 

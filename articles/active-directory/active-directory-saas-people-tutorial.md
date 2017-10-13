@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: caa287a2ed8774965ef722685e4e950336e5e0ea
-ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Tutorial: Integración de Azure Active Directory con People
 
@@ -235,5 +234,4 @@ Al hacer clic en el icono de People en el Panel de acceso, debería iniciar sesi
 [201]: ./media/active-directory-saas-people-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-people-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-people-tutorial/tutorial_general_203.png
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ums.workload: na
 ms.date: 08/18/2017
 ms.author: barclayn
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 752568747ab96bc0a9c7fc5f24ff28c3bce4e09f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-encryption-overview"></a>Información general del cifrado de Azure
 
@@ -37,7 +36,7 @@ Para más información detallada sobre cómo se cifran los datos en reposo en Az
 
 Azure admite distintos modelos de cifrado, incluido el cifrado de servidor con claves administradas por el servicio, mediante claves administradas por el cliente en Azure Key Vault o mediante las claves administradas por el cliente en el hardware controlado por el cliente. El cifrado de cliente permite administrar y almacenar claves de forma local o en otra ubicación segura.
 
-### <a name="client-side-encryption"></a>Cifrado de cliente
+### <a name="client-side-encryption"></a>cifrado de cliente
 
 El cifrado de cliente se realiza fuera de Azure. El cifrado de cliente incluye:
 
@@ -206,4 +205,3 @@ Azure Key Vault libera a las empresas de la necesidad de configurar, aplicar rev
 - [Información general de seguridad de Azure Virtual Machines](security-virtual-machines-overview.md)
 - [Cifrado de datos en reposo](azure-security-encryption-atrest.md)
 - [Procedimientos recomendados de seguridad de datos y cifrado](azure-security-data-encryption-best-practices.md)
-

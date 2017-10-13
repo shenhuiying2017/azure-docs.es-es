@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 792476849e796695dde3f2ec80b56431a17e8fc0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Restauración de una base de datos SQL de Azure de un solo inquilino en una aplicación SaaS multiinquilino
 
@@ -117,7 +116,7 @@ Tenga en cuenta que exponer al inquilino restaurado como un inquilino adicional,
 En realidad, es probable que solo debería retener esta base de datos restaurada durante un período definido. Puede eliminar la entrada del inquilino restaurado una vez que finalice; para ello, debe llamar al script *Remove-RestoredTenant.ps1*.
 
 1. Establezca **$DemoScenario** en **4** para seleccionar el escenario en que se *quita el inquilino restaurado*.
-1. **Ejecute** **con** **F5**
+1. **Ejecute****con****F5**
 1. La entrada *ContosoConcertHall\_old* se eliminó del catálogo. Continúe y cierre la página de eventos de este inquilino en el explorador.
 
 
@@ -150,4 +149,3 @@ En este tutorial aprendió lo siguiente:
 * Otros [tutoriales basados en la aplicación SaaS de Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Introducción a la continuidad empresarial con Base de datos SQL de Azure](sql-database-business-continuity.md)
 * [Más información sobre las copias de seguridad de SQL Database](sql-database-automated-backups.md)
-

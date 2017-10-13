@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9c0a113e50fdb78307b8030f9b0d95b696f3f234
 ms.openlocfilehash: 8490110942741b049b6d44ac93697303cef40e8a
-ms.contentlocale: es-es
-ms.lasthandoff: 01/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Actualización del dispositivo de la serie StorSimple 8000
 ## <a name="overview"></a>Información general
@@ -119,5 +118,4 @@ Si se restablece la configuración de fábrica de un dispositivo, se pierden tod
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el [uso de Windows PowerShell para StorSimple para administrar el dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 * Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Introducción a la creación de soluciones con la biblioteca de cliente de Batch para .NET
 
@@ -50,7 +50,7 @@ En este artículo se asume que tiene conocimientos prácticos de C# y Visual Stu
 ### <a name="visual-studio"></a>Visual Studio
 Debe tener **Visual Studio 2015 o superior** para compilar el proyecto de ejemplo. Puede encontrar versiones de prueba y de evaluación gratuita de Visual Studio en la [información general de los productos de Visual Studio][visual_studio].
 
-### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial* 
+### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial*
 El ejemplo [DotNetTutorial][github_dotnettutorial] es uno de los muchos ejemplos de código de Batch que se encuentran en el repositorio [azure-batch-samples][github_samples] de GitHub. Para descargar todos los ejemplos, haga clic en **Clone or download > Download ZIP** (Clonar o descargar > Descargar ZIP) en la página principal del repositorio o haga clic en el vínculo de descarga directa [azure-batch-samples-master.zip][github_samples_zip]. Una vez extraído el contenido del archivo ZIP, puede encontrar la solución en la carpeta siguiente:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
@@ -281,7 +281,7 @@ La aplicación de ejemplo DotNetTutorial no usa los tipos de tarea JobPreparatio
 ### <a name="shared-access-signature-sas"></a>Firma de acceso compartido (SAS)
 Las firmas de acceso compartido son cadenas que, cuando se incluyen como parte de una dirección URL, proporcionan acceso seguro a los contenedores y blobs de Azure Storage. La aplicación DotNetTutorial utiliza direcciones URL de firma de acceso compartido de blobs y contenedores, y muestra cómo obtener estas cadenas de firma de acceso compartido en el servicio Storage.
 
-* **Firmas de acceso compartido de blobs**: la clase StartTask del grupo en DotNetTutorial usa firmas de acceso compartido de blobs al descargar los archivos binarios de la aplicación y los archivos de datos de entrada de Storage (consulte el paso 3). El método `UploadFileToContainerAsync` del archivo `Program.cs` de DotNetTutorial contiene el código que obtiene la firma de acceso compartido de cada blob. Para ello, llama a [CloudBlob.GetSharedAccessSignature][net_sas_blob].
+* **Firmas de acceso compartido de blobs**: la clase StartTask del grupo en DotNetTutorial usa firmas de acceso compartido de blobs al descargar los archivos binarios de la aplicación y los archivos de datos de entrada de Almacenamiento (consulte el paso 3). El método `UploadFileToContainerAsync` del archivo `Program.cs` de DotNetTutorial contiene el código que obtiene la firma de acceso compartido de cada blob. Para ello, llama a [CloudBlob.GetSharedAccessSignature][net_sas_blob].
 * **Firmas de acceso compartido de contenedores**: cuando cada tarea finaliza su trabajo en el nodo de proceso, carga su archivo de salida en el contenedor *output* de Azure Storage. Para ello, TaskApplication usa una firma de acceso compartido de contenedor que proporciona acceso de escritura al contenedor como parte de la ruta de acceso al cargar el archivo. La obtención de la firma de acceso compartido del contenedor se realiza de manera similar que cuando se obtiene la firma de acceso compartido de un blob. En DotNetTutorial, observará que el método auxiliar `GetContainerSasUrl` llama a [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] para hacerlo. En "Paso 6: Supervisar tareas", obtendrá más información acerca de la forma en que TaskApplication usa la firma de acceso compartido de un contenedor.
 
 > [!TIP]
@@ -470,7 +470,7 @@ En el bucle `foreach` del fragmento de código anterior, puede ver que la línea
 
 1. El **primer argumento** es la ruta de acceso del archivo que se va a procesar. Se trata de la ruta de acceso local al archivo, tal como existe en el nodo. Cuando se creó el objeto ResourceFile de `UploadFileToContainerAsync` , se usó el nombre de archivo para esta propiedad (como un parámetro del constructor ResourceFile). Esto indica que el archivo puede encontrarse en el mismo directorio que *TaskApplication.exe*.
 2. El **segundo argumento** especifica que las *N* palabras más usadas deben escribirse en el archivo de salida. En el ejemplo, esto se codifica de forma rígida, con el fin de que las tres palabras más usadas se escriban en el archivo de salida.
-3. El **tercer argumento** es la firma de acceso compartido (SAS) que proporciona acceso de escritura al contenedor **output** de Azure Storage. *TaskApplication.exe* utiliza la dirección URL de esta firma de acceso compartido al cargar el archivo de salida en Azure Storage. El código de este proceso se puede encontrar en el método `UploadFileToContainer` del archivo `Program.cs` del proyecto TaskApplication:
+3. El **tercer argumento** es la firma de acceso compartido (SAS) que proporciona acceso de escritura al contenedor **output** de Azure Storage. *TaskApplication.exe* utiliza la dirección URL de esta firma de acceso compartido al cargar el archivo de salida en Almacenamiento de Azure. El código de este proceso se puede encontrar en el método `UploadFileToContainer` del archivo `Program.cs` del proyecto TaskApplication:
 
 ```csharp
 // NOTE: From project TaskApplication Program.cs

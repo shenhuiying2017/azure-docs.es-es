@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: e5c01de19917235c34c035415df86291b9152bf0
-ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-scale-out-process-server"></a>Administración de un servidor de procesos de escalado horizontal
 
 El servidor de procesos de escalado horizontal actúa como coordinador de la transferencia de datos entre los servicios de Site Recovery y la infraestructura local. En este artículo se describe cómo instalar, configurar y administrar un servidor de procesos de escalado horizontal.
@@ -148,4 +146,3 @@ Es posible que la eliminación del servidor de procesos no se refleje en Azure P
 |4 vCPU (2 sockets * 2 núcleos @ 2,5 GHz), 8 GB de memoria |< 300 GB |250 GB o menos |Replicar 85 máquinas o menos. |
 |8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 12 GB de memoria |600 GB |250 GB a 1 TB |Replicar entre 85 y 150 máquinas. |
 |12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz) 24 GB de memoria |1 TB |1 TB a 2 TB |Replicar entre 150 y 225 máquinas. |
-

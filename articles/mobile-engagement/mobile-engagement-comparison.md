@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="comparing-azure-mobile-engagement-with-other-similar-azure-services"></a>Comparación de Azure Mobile Engagement con otros servicios similares de Azure
 La lista de servicios ofrecidos por Microsoft Azure no deja de crecer y, en ocasiones, es posible que se pregunte en qué se diferencia Azure Mobile Engagement de este otro servicio sobre el que acaba de leer u oír. En este artículo se intentan aclarar algunas ideas y se le indica que elija Azure Mobile Engagement cuando su uso le resulte más adecuado. 

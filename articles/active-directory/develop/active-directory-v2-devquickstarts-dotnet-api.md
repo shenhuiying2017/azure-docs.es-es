@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: d063ea881c82b158a196cb5f63e7514777732846
-ms.contentlocale: es-es
-ms.lasthandoff: 04/10/2017
-
-
+ms.openlocfilehash: bb332196aef59a497a1f80b67ab5c1eeef3dee0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-an-mvc-web-api"></a>Protección de una API web MVC
 Con el punto de conexión v2.0 de Azure Active Directory, puede proteger una API web mediante tokens de acceso [OAuth 2.0](active-directory-v2-protocols.md) , lo que permite a los usuarios que tengan una cuenta Microsoft personal y cuentas profesionales o educativas el acceso seguro a su API web.
@@ -126,7 +124,7 @@ public class TodoListController : ApiController
 {
 ```
 
-* Cuando un autor de llamada autorizado invoca correctamente una de las API `TodoListController` , es posible que la acción deba tener acceso a información sobre este.  OWIN proporciona acceso a las notificaciones dentro del token portador a través del objeto `ClaimsPrincpal` .  
+* Cuando un autor de llamada autorizado invoca correctamente una de las API `TodoListController` , es posible que la acción deba tener acceso a información sobre este.  OWIN proporciona acceso a las notificaciones dentro del token portador a través del objeto `ClaimsPrincipal` .  
 
 ```C#
 public IEnumerable<TodoItem> Get()
@@ -161,13 +159,12 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora puede pasar a otros temas adicionales.  También puede probar lo siguiente:
 
-[Llamada a una API web desde una aplicación web >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
+[Llamada a una API web desde una aplicación web &gt;&gt;](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
 Para obtener recursos adicionales, consulte:
 
-* [La guía del desarrollador de v2.0 >>](active-directory-appmodel-v2-overview.md)
-* [Etiqueta "azure-active-directory" de StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [La guía del desarrollador de v2.0 &gt;&gt;](active-directory-appmodel-v2-overview.md)
+* [Etiqueta "azure-active-directory" de StackOverflow &gt;&gt;](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obtención de actualizaciones de seguridad para nuestros productos
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
-

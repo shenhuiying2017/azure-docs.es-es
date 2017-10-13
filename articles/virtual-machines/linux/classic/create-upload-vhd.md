@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 23c30c954875598ce3e01db137b0ef8cda9779f4
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Creación y carga de un disco duro virtual que contiene el sistema operativo Linux
 > [!IMPORTANT] 
@@ -41,7 +40,7 @@ En este artículo se supone que tiene los siguientes elementos:
 
 * **Interfaz de la línea de comandos de Azure** : instale la [interfaz de la línea de comandos de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) más reciente para cargar el archivo VHD.
 
-<a id="prepimage"> </a>
+<a id="prepimage"></a>
 
 ## <a name="step-1-prepare-the-image-to-be-uploaded"></a>Paso 1: Preparación de la imagen que se va a cargar
 Azure admite varias distribuciones Linux (consulte [Distribuciones aprobadas](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Los artículos siguientes le guiarán en el proceso de preparación de las distintas distribuciones de Linux admitidas en Azure. Tras completar los pasos en las siguientes guías, vuelva aquí en cuanto tenga un archivo VHD listo para cargarse en Azure:
@@ -61,7 +60,7 @@ Azure admite varias distribuciones Linux (consulte [Distribuciones aprobadas](..
 
 Consulte también las **[notas de instalación de Linux](../create-upload-generic.md#general-linux-installation-notes)** para más sugerencias generales sobre la preparación de imágenes de Linux para Azure.
 
-<a id="connect"> </a>
+<a id="connect"></a>
 
 ## <a name="step-2-prepare-the-connection-to-azure"></a>Paso 2: preparación de la conexión a Azure
 Asegúrese de estar utilizando la CLI de Azure en el modelo de implementación clásica (`azure config mode asm`) y luego inicie sesión en su cuenta:
@@ -71,7 +70,7 @@ azure login
 ```
 
 
-<a id="upload"> </a>
+<a id="upload"></a>
 
 ## <a name="step-3-upload-the-image-to-azure"></a>Paso 3: cargar la imagen en Azure
 Tiene que cargar el archivo VHD a una cuenta de almacenamiento. Puede seleccionar una cuenta de almacenamiento existente o [crear una nueva](../../../storage/common/storage-create-storage-account.md).
@@ -115,4 +114,3 @@ Para obtener más información, consulte [Referencia de la CLI de Azure para el 
 [Step 1: Prepare the image to be uploaded]:#prepimage
 [Step 2: Prepare the connection to Azure]:#connect
 [Step 3: Upload the image to Azure]:#upload
-

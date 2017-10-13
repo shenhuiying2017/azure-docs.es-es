@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: bc7e9a53f71eff828eaf8c45c104c5dc73018824
-ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: 17f6918371678ac849198bff4e3b3eea8678c660
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Conexión de los roles de Servicios en la nube de Azure a un controlador de dominio de AD personalizado que se hospeda en Azure
 En primer lugar, vamos a configurar una red virtual en Azure. A continuación, agregaremos un controlador de dominio de Active Directory (hospedado en una máquina virtual de Azure) a la red virtual. Después, agregaremos los roles de servicios en la nube existentes a la red virtual creada previamente y los conectaremos al controlador de dominio.
@@ -156,4 +155,3 @@ Los servicios en la nube deberían combinarse con el controlador de dominio pers
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
-

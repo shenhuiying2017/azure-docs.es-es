@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: bwren
+ms.openlocfilehash: c1b0614bc9ab0e816e7d28da6a6497dfa8004976
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: e26186f7dfc81563d72478bf3cf1d306f0203fa5
-ms.contentlocale: es-es
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depure sus aplicaciones con Azure Application Insights en Visual Studio
 En Visual Studio (2015 y versiones posteriores), se pueden diagnosticar y analizar los problemas de rendimiento de las aplicaciones web, tanto en tiempo de depuración como en producción, mediante los datos de telemetría de [Azure Application Insights](app-insights-overview.md).
@@ -104,5 +103,4 @@ También es útil si tiene [datos de telemetría personalizados](app-insights-ap
 | --- | --- |
 | **[Incorporación de datos adicionales](app-insights-asp-net-more.md)**<br/>Supervise el uso, la disponibilidad, las dependencias y las excepciones. Integrar seguimientos de marcos de registro. Escribir telemetría personalizada. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
 | **[Trabajo con el portal de Application Insights](app-insights-dashboards.md)**<br/>Consulte paneles, eficaces herramientas de diagnóstico y análisis, alertas, un mapa activo de dependencias de la aplicación y datos de telemetría exportados. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
-
 

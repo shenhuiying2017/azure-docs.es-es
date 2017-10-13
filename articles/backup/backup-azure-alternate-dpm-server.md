@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: adigan;giridham;trinadhk;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 688d155b68bc2d76d53f78d251bc2f659582845f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperación de datos de Azure Backup Server
 Puede usar Azure Backup Server para recuperar los datos de los que creó una copia de seguridad en un almacén de Recovery Services. El proceso para hacerlo está integrado en la consola de administración de Azure Backup Server y es similar al flujo de trabajo de recuperación de otros componentes de Azure Backup.
@@ -38,7 +37,7 @@ Para recuperar datos de una instancia de Azure Backup Server:
     ![Credenciales externas de DPM](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
    > [!NOTE]
-   > Solo los servidores de Azure Backup Server asociados al mismo almacén de registro pueden recuperar datos unos de otros.
+   > Solo los servidores de copia de seguridad de Azure asociados al mismo almacén de registro pueden recuperar datos unos de otros.
    >
    >
 
@@ -107,4 +106,3 @@ La versión mínima del agente de Microsoft Azure Recovery Services, o agente de
 
 ## <a name="next-steps"></a>Pasos siguientes:
 •   [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.md)
-

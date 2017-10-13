@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/20/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: eb67f33eb29bdfdbc5589561be481460510b07ee
-ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Usar el cliente de Beeline con Apache Hive
 
@@ -230,7 +229,7 @@ Si tiene Beeline instalado localmente y se conecta a través de la red pública 
 
 * __Nombre de inicio de sesión del clúster__: `-n admin`
 
-* __Contraseña de inicio de sesión del clúster__ `-p 'password'`
+* __Contraseña de inicio de sesión del clúster__`-p 'password'`
 
 Reemplace el `clustername` en la cadena de conexión por el nombre del clúster de HDInsight.
 
@@ -292,4 +291,3 @@ Si usa Tez con Hive, consulte los siguientes documentos:
 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-

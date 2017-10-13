@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
+ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0d5091b682d1b25c47b224394bcc2c46366eeb2a
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introducción a la solución de problemas de recursos en Azure Network Watcher
 
 Las puertas de enlace de red virtual proporcionan conectividad entre recursos locales y otras redes virtuales dentro de Azure. La supervisión de estas puertas de enlace y sus conexiones es esencial para garantizar la continuidad de la comunicación. Network Watcher proporciona la funcionalidad para solucionar problemas con las puertas de enlace de red virtual y las conexiones. Se puede llamar mediante el portal, PowerShell, la CLI o la API de REST. Cuando se llama, Network Watcher diagnostica el estado de la puerta de enlace de red virtual o la conexión y devuelve los resultados pertinentes. Esta solicitud es una transacción de larga duración; los resultados se devuelven cuando se completa el diagnóstico.
@@ -219,4 +217,3 @@ Visite [Gateway troubleshooting - Azure portal](network-watcher-troubleshoot-man
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
 [2]: ./media/network-watcher-troubleshoot-overview/portal.png
-

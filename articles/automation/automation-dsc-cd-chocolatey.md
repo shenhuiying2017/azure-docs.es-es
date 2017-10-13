@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/29/2016
 ms.author: golive
 ms.openlocfilehash: f23d7374a8954a0a95853fa9e00b54a8d9c468c4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Ejemplo de uso: implementación continua en máquinas virtuales DSC de Automatización y Chocolatey
 En el mundo del desarrollo de software con DevOps, existen muchas herramientas que ayudan en diversos puntos de la canalización de integración continua.  Configuración de estado deseado (DSC) de Automatización de Azure es una opción nueva, y bienvenida, que puede ser de utilidad para los equipos de DevOps.  En este artículo, se muestra cómo configurar la implementación continua (CD) para un equipo de Windows.  Puede ampliar fácilmente la técnica para incluir tantos equipos de Windows como sean necesarios en el rol (por ejemplo, un sitio web) y, a partir de ahí, también a los roles adicionales.
@@ -77,7 +77,7 @@ También podemos aplicar el enfoque manual.  La estructura de carpetas de un mó
 
 * Instale el módulo que necesita en su estación de trabajo, como sigue:
   * Instale [Windows Management Framework, v5](http://aka.ms/wmf5latest) (no es necesario para Windows 10).
-  * `Install-Module –Name MODULE-NAME` <—toma el módulo de la Galería de PowerShell. 
+  * `Install-Module –Name MODULE-NAME` &lt;—toma el módulo de la Galería de PowerShell. 
 * Copie la carpeta del módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` a una carpeta temporal. 
 * Elimine los ejemplos y la documentación de la carpeta principal. 
 * Comprima la carpeta principal y asigne al archivo comprimido el mismo nombre que la carpeta. 

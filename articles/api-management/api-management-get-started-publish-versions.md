@@ -11,14 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
 ms.openlocfilehash: 7c355e2feb5ebe5971d8391b326422a1abec1497
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="publish-multiple-versions-of-your-api-in-a-predictable-way"></a>Publicar varias versiones de la API de manera predecible
 En este tutorial se explica cómo configurar distintas versiones de la API y cómo elegir el modo en que van a llamarlas los desarrolladores de API.
 
@@ -75,4 +73,3 @@ Para que quienes llamen a la API vean la nueva versión, esta debe agregarse a u
 3. Seleccione **v1**.
 4. Fíjese en la **Dirección URL de la solicitud** de la primera operación de la lista. Refleja que la ruta de acceso de la dirección URL de la API incluye **v1**.
 ![Versión que se muestra en el portal para desarrolladores](media/api-management-getstarted-publish-versions/VersionDevPortal.PNG)
-

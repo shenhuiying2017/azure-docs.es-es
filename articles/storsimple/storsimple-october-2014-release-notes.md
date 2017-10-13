@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 4dfd3973593a94adfc15a6e15d69c697e13998af
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-update-01-release-notes--october-2014"></a>Notas de la versión 0.1 de la actualización de la serie StorSimple 8000: octubre de 2014
 ## <a name="overview"></a>Información general
@@ -95,5 +94,4 @@ Esta versión también aplica una actualización de firmware acumulativa que sol
 
 ## <a name="virtual-device-updates-in-the-october-release"></a>Actualizaciones del dispositivo virtual en la versión de octubre
 Esta versión no contiene actualizaciones para el dispositivo virtual. La aplicación de esta actualización no cambiará la versión de software de un dispositivo virtual.
-
 

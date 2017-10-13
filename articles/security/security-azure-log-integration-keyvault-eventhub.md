@@ -11,14 +11,12 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
+ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 02dde6366a8897a060df451c7f514f79e6733681
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integración de registros de Azure: Procesamiento de eventos de Azure Key Vault mediante Event Hubs
 
 Puede usar Azure Log Integration para recuperar los eventos registrados y hacer que estén disponibles en su sistema de información de seguridad y administración de eventos (SIEM). En este tutorial se muestra un ejemplo de cómo se puede usar Azure Log Integration para procesar registros adquiridos a través de Azure Event Hubs.
@@ -34,7 +32,7 @@ Este tutorial le guiará por el proceso de registrar la actividad de Azure Key V
 >[!NOTE]
 >La mayoría de los pasos de este tutorial conllevan la configuración de almacenes de claves, cuentas de almacenamiento y centros de eventos. Los pasos específicos de la integración de registros de Azure están al final de este tutorial. No realice estos pasos en un entorno de producción, ya que se han diseñado exclusivamente para un entorno de laboratorio. Los pasos deben personalizarse antes de usarlos en un entorno de producción.
 
-La información proporcionada en el proceso lo ayudará a comprender los motivos detrás de cada paso. Los vínculos a otros artículos proporcionan más detalles sobre determinados temas.
+La información proporcionada en el proceso le ayudará a comprender los motivos detrás de cada paso. Los vínculos a otros artículos proporcionan más detalles sobre determinados temas.
 
 Para más información sobre los servicios que se mencionan en este tutorial, vea: 
 
@@ -75,7 +73,7 @@ Necesita lo siguiente para completar los pasos de este artículo:
 ## <a name="create-supporting-infrastructure-elements"></a>Crear los elementos de la infraestructura de soporte
 
 1. Abra una ventana de PowerShell con privilegios elevados y vaya a **C:\Archivos de programa\Microsoft Azure Log Integration**.
-2. Importe los cmdlets de AzLog mediante la ejecución del script LoadAzLogModule.ps1. Escriba el comando `.\LoadAzLogModule.ps1`. Observe la parte ".\" en el comando. Debería ver algo así:</br>
+2. Importe los cmdlets de AzLog mediante la ejecución del script LoadAzLogModule.ps1. Escriba el comando `.\LoadAzLogModule.ps1`. Observe la parte ".\" en el comando. Puede ver algo así:</br>
 
    ![Lista de módulos cargados](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
@@ -131,7 +129,7 @@ Necesita lo siguiente para completar los pasos de este artículo:
 >
 >![Error de perfil de Resource Manager](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
-## <a name="create-a-key-vault"></a>Creación de un almacén de claves
+## <a name="create-a-key-vault"></a>Creación de un Almacén de claves
 
 1. Cree el almacén de claves:
 
@@ -182,4 +180,3 @@ Aproximadamente un minuto después de la ejecución de los dos últimos comandos
 - [Preguntas más frecuentes sobre la integración de registro de Azure](security-azure-log-integration-faq.md)
 - [Introducción a la integración de registros de Azure](security-azure-log-integration-get-started.md)
 - [Integrar registros de recursos de Azure en sistemas SIEM](security-azure-log-integration-overview.md)
-

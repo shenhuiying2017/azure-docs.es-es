@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
 ms.openlocfilehash: 869e5284c71904fcc817ceee0f39d94fab1bc6f3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integración de Azure Active Directory con T&E Express
 
@@ -55,7 +55,7 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 ## <a name="adding-te-express-from-the-gallery"></a>Agregar T & E Express desde la galería
 Para configurar la integración de T&E Express en Azure AD, será preciso que agregue T&E Express desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar T&E Express desde la galería, siga estos pasos:**
+**Para agregar T&amp;E Express desde la galería, siga estos pasos:**
 
 1. En el panel de navegación izquierdo del **[Portal de administración de Azure](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
@@ -88,7 +88,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con T&E Express
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de T&E Express](#creating-a-te-express-test-user)**: para tener un homólogo de Britta Simon en T&E Express que esté vinculado a la representación de ella en Azure AD.
+3. **[Creación de un usuario de prueba de T&amp;E Express](#creating-a-te-express-test-user)**: para tener un homólogo de Britta Simon en T&amp;E Express que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
@@ -96,7 +96,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con T&E Express
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en el Portal de administración de Azure y configurará el inicio de sesión único en la aplicación T&E Express.
 
-**Para configurar el inicio de sesión único de Azure AD con T&E Express, realice los pasos siguientes:**
+**Para configurar el inicio de sesión único de Azure AD con T&amp;E Express, realice los pasos siguientes:**
 
 1. En el Portal de administración de Azure, en la página de integración de la aplicación **T&E Express**, haga clic en **Inicio de sesión único**.
 
@@ -199,7 +199,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ![Asignar usuario][200] 
 
-**Para asignar Britta Simon a T&E Express, siga estos pasos:**
+**Para asignar Britta Simon a T&amp;E Express, siga estos pasos:**
 
 1. En el Portal de administración de Azure, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. A continuación, haga clic en **All applications** (Todas las aplicaciones).
 

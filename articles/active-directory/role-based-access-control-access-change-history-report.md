@@ -15,12 +15,11 @@ ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 4e8028ab43ed02ef0c0a1374326b07f72f97d9d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 43ddeebfea4c914b8377d3363ba3d0c12db0adca
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Creación de un informe de acceso para el control de acceso basado en roles
 Cada vez que alguien concede o revoca el acceso dentro de sus suscripciones, los cambios se registran en los eventos de Azure. Puede crear informes de historial de cambios de acceso para ver todos los cambios de los últimos 90 días.
@@ -63,5 +62,4 @@ Para guardar el informe o manipular los datos, exporte los cambios de acceso a u
 ## <a name="next-steps"></a>Pasos siguientes
 * Uso de [roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md)
 * Información sobre cómo administrar [RBAC de Azure con PowerShell](role-based-access-control-manage-access-powershell.md)
-
 

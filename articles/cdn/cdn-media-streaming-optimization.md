@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Optimización del streaming multimedia mediante Azure Content Delivery Network 
  
@@ -98,5 +97,4 @@ El uso compartido de caché parcial permite que la red CDN entregue contenido pa
 ### <a name="cache-fill-wait-time"></a>Tiempo de espera de relleno de caché
 
  La característica del tiempo de espera de relleno de caché exige al servidor perimetral mantener todas las solicitudes posteriores para el mismo recurso hasta que los encabezados de respuesta HTTP lleguen desde el servidor de origen. Si los encabezados de respuesta HTTP del servidor de origen llegan antes de que el temporizador expire, todas las solicitudes colocadas en espera se sirven desde la memoria caché creciente. Al mismo tiempo, la memoria caché se rellena con datos del origen. De forma predeterminada, el tiempo de espera de relleno de caché se establece en 3.000 milisegundos. 
-
 

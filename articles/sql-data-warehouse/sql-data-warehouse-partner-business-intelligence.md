@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: partners
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 91b3f016497b268d9f7e9d305ec4f69f0a1cd856
-ms.contentlocale: es-es
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 7c88e55b420d45f6d0cd4486377e3f2b1347bd9b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partners de inteligencia empresarial de Almacenamiento de datos SQL
 Para crear la solución de almacenamiento de datos de un extremo a otro, elija entre una amplia variedad de herramientas líderes del sector.  En este artículo se destacan las empresas asociadas de Microsoft con soluciones de inteligencia empresarial compatibles con Almacenamiento de datos SQL de Azure.
@@ -153,4 +151,3 @@ Para obtener más información sobre algunos de nuestros otros asociados, consul
 [tableau_twitter]:https://twitter.com/tableau
 [targit_twitter]:https://twitter.com/TARGIT
 [yellowfin_twitter]:https://twitter.com/YellowfinBI
-

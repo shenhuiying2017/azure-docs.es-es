@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
-ms.contentlocale: es-es
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configuración de Cloud App Discovery en Azure Active Directory
 
 Las nuevas mejoras de Cloud App Discovery en Azure AD ya están disponibles con una licencia P1 de Azure Active Directory Premium. Estas mejoras se basan en la integración con Microsoft Cloud App Security. Cloud App Discovery compara los registros de tráfico con el catálogo de Cloud App Security de más de 15 000 aplicaciones de nube para proporcionar información continua sobre el uso de la nube y shadow IT. 
@@ -80,7 +78,7 @@ Para generar correctamente un informe de Cloud App Discovery, los registros de t
 
 * Barracuda - Firewall de aplicación web (W3C)
 * Blue Coat Proxy SG - Registros de acceso (W3C)
-* Check Point
+* Punto de comprobación
 * Firewall Cisco ASA (para los firewalls de Cisco ASA, establezca el nivel de información en 6)
 * Cisco IronPort WSA
 * ScanSafe de Cisco

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 5f02b6be1fde4026057000bed4e8014cb56ccf9a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Service Fabric
 La implementación de una aplicación en Azure es un proceso rápido, sencillo y rentable. Antes de implementar la aplicación en la nube en producción, revise la lista de procedimientos recomendados y fundamentales para implementar clústeres seguros en la aplicación.
@@ -186,4 +185,3 @@ Azure Service Fabric admite dos tipos de control de acceso para los clientes que
 ## <a name="next-steps"></a>Pasos siguientes
 - Configurar el [entorno de desarrollo](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) de Service Fabric.
 - Más información sobre las [opciones de soporte técnico de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
-

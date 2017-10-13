@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d5110a33e13802fd6e5e0f075c7d3ddd521a1ef9
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>Cómo crear y administrar campañas de notificaciones de inserción
 Puede utilizar la sección de cobertura de la interfaz de usuario para crear una nueva campaña de inserción con una fórmula compleja proporcionando toda la información que necesita para enviar una notificación de inserción. Las opciones de una campaña de inserción varían ligeramente en función de los cuatro tipos de campaña: anuncios, sondeos, inserciones de datos y mosaicos (solo en Windows Phone).
@@ -267,5 +266,4 @@ Puede utilizar la sección de prueba para enviar esta inserción a su propio dis
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

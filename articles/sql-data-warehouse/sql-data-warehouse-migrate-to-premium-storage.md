@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migración del almacenamiento de datos a Premium Storage
 Azure SQL Data Warehouse ha introducido recientemente [Premium Storage para poder predecir el rendimiento de manera más eficaz][premium storage for greater performance predictability]. El almacenamiento de datos existente en el almacenamiento estándar se puede migrar a Premium Storage. Puede aprovechar las ventajas de la migración automática, o si desea controlar cuándo realizar la migración (que implica cierto tiempo de inactividad), puede realizar la migración manualmente.

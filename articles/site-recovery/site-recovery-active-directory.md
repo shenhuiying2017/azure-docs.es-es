@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 7/20/2017
 ms.author: pratshar
 ms.openlocfilehash: 197441fc24c178695d4eada6db59f503b21672ad
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Protección de Active Directory y DNS con Azure Site Recovery
 Las aplicaciones empresariales, como SharePoint, Dynamics AX y SAP, dependen de la infraestructura de DNS y AD para funcionar correctamente. Cuando se crea una solución de recuperación ante desastres para aplicaciones, es importante recordar que tiene que proteger y recuperar Active Directory y DNS antes que los demás componentes de aplicación, para garantizar el correcto funcionamiento de todo cuando se produce un desastre.
@@ -81,7 +81,7 @@ La mayoría de las aplicaciones también requieren la presencia de un controlado
 1. Cree una red aislada. Cualquier red virtual que se cree en Azure de forma predeterminada está aislada de otras redes. Se recomienda que el intervalo de dirección IP para esta red sea el mismo que el de la red de producción. No habilite la conectividad de sitio a sitio en esta red.
 1. Proporcione una dirección IP de DNS en la red que se ha creado, como la dirección IP que se espera que la máquina virtual DNS obtenga. Si realiza la replicación en Azure, indique la dirección IP de la máquina virtual que se usa en la conmutación por error en la opción **IP de destino**, en **Proceso y red**. 
 
-    ![IP de destino](./media/site-recovery-active-directory/DNS-Target-IP.png) **IP de destino**
+    ![IP de destino](./media/site-recovery-active-directory/DNS-Target-IP.png)**IP de destino**
 
     ![Red de prueba de Azure](./media/site-recovery-active-directory/azure-test-network.png)
 

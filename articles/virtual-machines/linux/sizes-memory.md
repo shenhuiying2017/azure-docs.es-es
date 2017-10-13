@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/30/2017
 ms.author: jonbeck
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7db935bb8e40c3ddd446a9a529f3886c5a221435
-ms.contentlocale: es-es
-ms.lasthandoff: 04/03/2017
-
+ms.openlocfilehash: 592f4b8b415f73afb9ffbfbf6f994d0212e7bbb1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="memory-optimized-linux-vm-sizes"></a>Tamaños de máquinas virtuales de Linux optimizados para memoria
 
 
@@ -39,4 +37,3 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre cómo las [unidades de proceso de Azure (ACU)](../windows/acu.md) pueden ayudarlo a comparar el rendimiento en los distintos SKU de Azure.
-

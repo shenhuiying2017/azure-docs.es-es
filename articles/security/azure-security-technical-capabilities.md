@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a32693a274c2615a515838306d72dbe64a5d1763
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 
@@ -530,4 +529,3 @@ Obtener más información acerca de la seguridad con la lectura de algunos de nu
 - [Seguridad de las redes](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
 
 - [Administración de amenazas](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)
-

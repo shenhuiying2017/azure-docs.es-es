@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 7/3/2017
 ms.author: delhan
+ms.openlocfilehash: d24d1f194b74b9da6a463d3efd741b402102fde3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: bd48128a078821b7a4baa02d5d7ceecc6de99608
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Restablecimiento de las contraseñas locales de Linux en máquinas virtuales de Azure
 
 En este artículo se presentan varios métodos para restablecer las contraseñas locales de Linux en una máquina virtual. Si la cuenta de usuario ha expirado o simplemente desea crear una cuenta, puede usar los métodos siguientes para crear una cuenta de administrador local y recuperar el acceso a la máquina virtual.

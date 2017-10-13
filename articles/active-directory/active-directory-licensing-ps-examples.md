@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a322365b2764dc13b5079f2c4c0634c9c950d92
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 6ee08bb48b8612b16a4609570c12363664788f63
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Ejemplos de PowerShell para licencias basadas en grupos de Azure AD
 
 Toda la funcionalidad para licencias basadas en grupos está disponible en [Azure Portal](https://portal.azure.com) y, actualmente, la compatibilidad con PowerShell es limitada. Sin embargo, hay algunas tareas útiles que se pueden realizar con los [cmdlets existentes de MSOnline PowerShell](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory). Este documento proporciona ejemplos de lo que es posible.
@@ -485,4 +483,3 @@ Para más información sobre el conjunto de características de administración 
 * [Identificación y resolución de problemas de licencias de un grupo en Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Migración de usuarios individuales con licencia a licencias basadas en grupos en Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
 * [Escenarios adicionales de licencias basadas en grupos de Azure Active Directory](active-directory-licensing-group-advanced.md)
-

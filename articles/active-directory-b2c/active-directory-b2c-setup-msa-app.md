@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 59879dc0b3fc1d7af3e2a1f67f1701f451de9126
-ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C: provisión de registro e inicio de sesión para los consumidores con cuentas Microsoft
 ## <a name="create-a-microsoft-account-application"></a>Creación de una aplicación de cuenta Microsoft
@@ -60,5 +59,4 @@ Para usar una cuenta Microsoft como proveedor de identidades en Azure Active Dir
 5. Haga clic en **Identity provider type** (Tipo de proveedor de identidades), seleccione **Microsoft account** (Cuenta Microsoft) y haga clic en **OK** (Aceptar).
 6. Haga clic en **Configurar este proveedor de identidades** (Set up this identity provider) y proporcione los valores de identificador de aplicación y contraseña de la aplicación de la cuenta Microsoft que creó anteriormente.
 7. Haga clic en **OK** (Aceptar) y en **Create** (Crear) para guardar la configuración de la cuenta Microsoft.
-
 

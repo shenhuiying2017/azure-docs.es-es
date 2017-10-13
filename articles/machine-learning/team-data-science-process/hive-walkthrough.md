@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de Azure HDInsight
 En este tutorial se describe cómo utilizar el [proceso de ciencia de datos en equipos (TDSP)](overview.md) en un escenario completo con un clúster de [Hadoop de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el tamaño de los datos. Los modelos de datos se generan mediante Aprendizaje automático de Azure para controlar las tareas predictivas de clasificación binaria y de clases múltiples, y de regresión.
@@ -110,10 +109,10 @@ Aquí se describe cómo utilizar AzCopy para transferir los archivos que contien
 
 En los siguientes comandos de AzCopy, reemplace los siguientes parámetros con los valores reales que se especificó al crear el clúster de Hadoop y descomprimir los archivos de datos.
 
-* ***&#60;path_to_data_folder>***: el directorio (junto con la ruta de acceso) del equipo que contiene los archivos de datos sin comprimir.  
-* ***&#60;storage account name of Hadoop cluster>***: la cuenta de almacenamiento asociada con el clúster de HDInsight.
-* ***&#60;default container of Hadoop cluster>***: el contenedor predeterminado que usa el clúster. Tenga en cuenta que el nombre del contenedor predeterminado suele ser el mismo que el del propio clúster. Por ejemplo, si el clúster se llama "abc123.azurehdinsight.net", el contenedor predeterminado es abc123.
-* ***&#60;storage account key>***: clave para la cuenta de almacenamiento usada por el clúster.
+* ***&amp;#60;path_to_data_folder&gt;***: el directorio (junto con la ruta de acceso) del equipo que contiene los archivos de datos sin comprimir.  
+* ***&amp;#60;storage account name of Hadoop cluster&gt;***: la cuenta de almacenamiento asociada con el clúster de HDInsight.
+* ***&amp;#60;default container of Hadoop cluster&gt;***: el contenedor predeterminado que usa el clúster. Tenga en cuenta que el nombre del contenedor predeterminado suele ser el mismo que el del propio clúster. Por ejemplo, si el clúster se llama "abc123.azurehdinsight.net", el contenedor predeterminado es abc123.
+* ***&amp;#60;storage account key&gt;***: clave para la cuenta de almacenamiento usada por el clúster.
 
 Desde un símbolo del sistema o una ventana de Windows PowerShell en el equipo, ejecute los dos comandos siguientes de AzCopy.
 
@@ -837,4 +836,3 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.contentlocale: es-es
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
 
@@ -199,4 +198,3 @@ Solo se puede eliminar una red virtual si no tiene recursos conectados. Si hay r
 - Para filtrar el tráfico de red entre subredes dentro de una red virtual, vea [Creación de grupos de seguridad de red con Azure Portal](virtual-networks-create-nsg-arm-pportal.md).
 - Para emparejar una red virtual con otra, vea [Crear un emparejamiento de red virtual](virtual-network-create-peering.md#portal).
 - Para obtener información sobre las opciones para conectar una red virtual a una red local, vea [Acerca de VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
-

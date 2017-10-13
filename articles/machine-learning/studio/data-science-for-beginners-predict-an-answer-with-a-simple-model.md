@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 10a9608bc35d44a800acda9406390c3944a86c2c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Predicción de respuestas con un modelo sencillo
 ## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: serie Ciencia de datos para principiantes
@@ -134,4 +133,3 @@ Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiant
 ## <a name="next-steps"></a>Pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio](create-experiment.md)
 * [Introducción a Aprendizaje automático en Microsoft Azure](what-is-machine-learning.md)
-

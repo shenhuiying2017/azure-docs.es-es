@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/25/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 822bed8ffc43459dd053fda5b68f62f839b7d94b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Cómo elegir algoritmos para Aprendizaje automático de Microsoft Azure
 La respuesta a la pregunta "¿qué algoritmo de aprendizaje automático debería usar?" siempre es "Depende". Depende del tamaño, la calidad y la naturaleza de los datos. Depende de qué desea hacer con la respuesta. Depende de cómo se hayan traducido los cálculos del algoritmo en instrucciones para el equipo que está usando. Y también depende del tiempo de que disponga. Ni siquiera los científicos con más experiencia en datos pueden determinar qué algoritmo funcionará mejor antes de probarlos.
@@ -82,11 +81,11 @@ Los algoritmos de regresión lineal suponen que las tendencias de datos siguen u
 
 ![Límite de clase no lineal][1]
 
-***Límite de clase no lineal*** *: la dependencia de un algoritmo de clasificación lineal se traduciría en baja precisión*.
+***Límite de clase no lineal****: la dependencia de un algoritmo de clasificación lineal se traduciría en baja precisión*.
 
 ![Datos con tendencia no lineal][2]
 
-***Datos con tendencia no lineal*** *: el uso de un método de regresión lineal generaría errores mucho mayores que los necesarios*
+***Datos con tendencia no lineal****: el uso de un método de regresión lineal generaría errores mucho mayores que los necesarios*
 
 A pesar de los riesgos, los algoritmos lineales son muy populares como primera línea de ataque. Tienden a ser algorítmicamente sencillos y rápidos para entrenar.
 
@@ -155,7 +154,7 @@ Aunque la inclusión de la palabra “regresión” en el nombre se preste a con
 
 ![Regresión logística a datos de dos clases con una sola característica][4]
 
-***Regresión logística a datos de dos clases con una sola característica*** *: el límite de clase es el punto en el que la curva logística tiene la misma distancia hacia ambas clases*
+***Regresión logística a datos de dos clases con una sola característica****: el límite de clase es el punto en el que la curva logística tiene la misma distancia hacia ambas clases*
 
 ### <a name="trees-forests-and-jungles"></a>Árboles, bosques y selvas
 Los bosques de decisión ([regresión](https://msdn.microsoft.com/library/azure/dn905862.aspx), [dos clases](https://msdn.microsoft.com/library/azure/dn906008.aspx) y [multiclase](https://msdn.microsoft.com/library/azure/dn906015.aspx)), las selvas de decisión ([dos clases](https://msdn.microsoft.com/library/azure/dn905976.aspx) y [multiclase](https://msdn.microsoft.com/library/azure/dn905963.aspx)) y los árboles de decisión impulsados ([regresión](https://msdn.microsoft.com/library/azure/dn905801.aspx) y [dos clases](https://msdn.microsoft.com/library/azure/dn906025.aspx)) se basan en árboles de decisión, un concepto fundamental del aprendizaje automático. Hay muchas variantes de árboles de decisión, pero todas ellas hacen lo mismo: subdividir el espacio de características en regiones con casi siempre la misma etiqueta. Estas pueden ser regiones de la misma categoría o de un valor constante, según si se está realizando una clasificación o una regresión.
@@ -208,7 +207,7 @@ Si tiene un objetivo muy específico, puede que sea su día de suerte. Dentro de
 
 ![Detección de anomalías basada en PCA][8]
 
-***Detección de anomalías basada en PCA*** *: la inmensa mayoría de los datos entra en una distribución típica; los puntos que se desvían mucho de esa distribución son sospechosos*
+***Detección de anomalías basada en PCA****: la inmensa mayoría de los datos entra en una distribución típica; los puntos que se desvían mucho de esa distribución son sospechosos*
 
 ![Conjunto de datos agrupados mediante K-Means][9]
 
@@ -247,4 +246,3 @@ VW, iniciado y liderado por el propio John Langford de Microsoft Research, es un
 [8]: ./media/algorithm-choice/image8.png
 [9]: ./media/algorithm-choice/image9.png
 [10]: ./media/algorithm-choice/image10.png
-

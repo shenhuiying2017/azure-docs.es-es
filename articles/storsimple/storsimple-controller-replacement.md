@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
 ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
-ms.contentlocale: es-es
-ms.lasthandoff: 03/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Reemplazar un módulos de controladores en el dispositivo StorSimple
 ## <a name="overview"></a>Información general
@@ -248,5 +247,4 @@ Si este LED parpadea, el controlador está activo y el otro controlador está en
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: e547469dc61eddd1d772571ab0919532ac91f128
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-authentication--mitigations"></a>Marco de seguridad: autenticación | Mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
@@ -31,7 +29,7 @@ ms.lasthandoff: 08/23/2017
 | **Límites de confianza de Azure** | <ul><li>[Habilitación de Azure Multi-Factor Authentication para administradores de Azure](#multi-factor-azure-admin)</li></ul> |
 | **Límites de confianza de Service Fabric** | <ul><li>[Restricción del acceso anónimo al clúster de Service Fabric](#anon-access-cluster)</li><li>[Asegurarse de que el certificado de cliente a nodo de Service Fabric sea diferente del certificado de nodo a nodo](#fabric-cn-nn)</li><li>[Uso de AAD para autenticar a los clientes en los clústeres de Service Fabric](#aad-client-fabric)</li><li>[Asegurarse de que los certificados de Service Fabric se obtienen de una entidad de certificación (CA) aprobada](#fabric-cert-ca)</li></ul> |
 | **Identity Server** | <ul><li>[Uso de escenarios de autenticación estándar admitidos por Identity Server](#standard-authn-id)</li><li>[Reemplazo de la caché de tokens predeterminada de Identity Server por una alternativa escalable](#override-token)</li></ul> |
-| **Límites de confianza de la máquina** | <ul><li>[Asegurarse de que los archivos binarios de la aplicación implementada están firmados digitalmente](#binaries-signed)</li></ul> |
+| **Límite de confianza de la máquina** | <ul><li>[Asegurarse de que los archivos binarios de la aplicación implementada están firmados digitalmente](#binaries-signed)</li></ul> |
 | **WCF** | <ul><li>[Habilitación de la autenticación al conectarse a las colas de MSMQ en WCF](#msmq-queues)</li><li>[No establecer clientCredentialType de WCF en Ninguno](#message-none)</li><li>[No establecer clientCredentialType de WCF en Ninguno](#transport-none)</li></ul> |
 | **API web** | <ul><li>[Asegurarse de que se usan técnicas de autenticación estándar para proteger las API web](#authn-secure-api)</li></ul> |
 | **Azure AD** | <ul><li>[Uso de escenarios de autenticación estándar compatibles con Azure Active Directory](#authn-aad)</li><li>[Reemplazo de la caché de tokens predeterminada de ADAL por una alternativa escalable](#adal-scalable)</li><li>[Asegurarse de que TokenReplayCache se usa para impedir la reproducción de tokens de autenticación de ADAL](#tokenreplaycache-adal)</li><li>[Uso de bibliotecas de ADAL para administrar las solicitudes de token de clientes de OAuth2 a AAD (o AD local)](#adal-oauth2)</li></ul> |

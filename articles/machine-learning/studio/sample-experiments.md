@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Copia de experimentos de ejemplo para crear nuevos experimentos de aprendizaje automático
 Aprenda cómo comenzar con experimentos de ejemplo desde la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/) en lugar de crear experimentos de aprendizaje automático desde cero. Puede usar los ejemplos para crear su propia solución de aprendizaje automático.
@@ -69,4 +68,3 @@ Se crea un nuevo experimento en su área de trabajo de Machine Learning Studio t
 * [Importación de datos desde varios orígenes](import-data.md)
 * [Tutorial rápido para el lenguaje R en Machine Learning](r-quickstart.md)
 * [Implementación de un servicio web Machine Learning](publish-a-machine-learning-web-service.md)
-

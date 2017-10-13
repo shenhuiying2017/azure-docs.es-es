@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deep-learning-and-ai-frameworks"></a>Marcos de aprendizaje profundo y de AI
 [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) y [Deep Learning VM](http://aka.ms/dsvm/deeplearning) admiten varios marcos de aprendizaje profundo para compilar aplicaciones de inteligencia artificial (AI) con capacidades de análisis predictivo y capacidades cognitivas, como la comprensión de imágenes y de lenguajes. 
 
@@ -37,7 +35,7 @@ A continuación se muestra la información de todos los marcos de aprendizaje pr
 | ¿Cómo se configura/instala en DSVM?  | Microsoft Cognitive Toolkit (CNTK) se instala en Python 2.7, en el entorno _root_, así como en Python 3.5, en el entorno _py35_.   |
 | Vínculos a ejemplos      | Se incluyen blocs de notas de Jupyter de ejemplo.     |
 | Herramientas relacionadas en DSVM      | Keras      |
-| ¿Cómo se usa/ejecuta?    | Abra Jupyter y busque la carpeta CNTK  |
+| ¿Cómo se usa o ejecuta?    | Abra Jupyter y busque la carpeta CNTK  |
 
 ## <a name="tensorflow"></a>TensorFlow
 
@@ -48,7 +46,7 @@ A continuación se muestra la información de todos los marcos de aprendizaje pr
 | ¿Cómo se configura/instala en DSVM?  | En Linux, TensorFlow se instala en el entorno Python 2.7 (_root_), así como en el entorno Python 3.5 (_py35_). En Windows, TensorFlow se instala en el entorno Python 3.5 (_py35_).  |
 | Vínculos a ejemplos      | Se incluyen blocs de notas de Jupyter de ejemplo.     |
 | Herramientas relacionadas en DSVM      | Keras      |
-| ¿Cómo se usa/ejecuta?    | Abra Jupyter y busque la carpeta TensorFlow.  |
+| ¿Cómo se usa o ejecuta?    | Abra Jupyter y busque la carpeta TensorFlow.  |
 
 ## <a name="keras"></a>Keras
 
@@ -73,7 +71,7 @@ A continuación se muestra la información de todos los marcos de aprendizaje pr
 | ¿Cómo se configura/instala en DSVM?  | Caffe se instala en `/opt/caffe`.    |
 | Vínculos a ejemplos      | En `/opt/caffe/examples` se incluyen ejemplos.      |
 | Herramientas relacionadas en DSVM      | Caffe2      |
-### <a name="how-to-use--run-it"></a>¿Cómo se usa/ejecuta?  
+### <a name="how-to-use--run-it"></a>¿Cómo se usa o ejecuta?  
 
 Use X2Go para iniciar sesión en la máquina virtual, inicie un terminal nuevo y escriba:
 
@@ -93,7 +91,7 @@ Se abre una nueva ventana del explorador con blocs de notas de ejemplo.
 | ¿Cómo se configura/instala en DSVM?  | Caffe2 se instala en `/opt/caffe2`. También está disponible para el entorno conda de Python 2.7 (_root_).     |
 | Vínculos a ejemplos      | Se incluyen blocs de notas de Jupyter de ejemplo     |
 | Herramientas relacionadas en DSVM      | Caffe      |
-| ¿Cómo se usa/ejecuta?    | Abra Jupyter y desplácese al directorio Caffe2 para buscar blocs de notas de ejemplo. Algunos blocs de notas requieren que se establezca la raíz de Caffe2 en el código de Python. Escriba /opt/caffe2.   |
+| ¿Cómo se usa o ejecuta?    | Abra Jupyter y desplácese al directorio Caffe2 para buscar blocs de notas de ejemplo. Algunos blocs de notas requieren que se establezca la raíz de Caffe2 en el código de Python. Escriba /opt/caffe2.   |
 
 
 ## <a name="chainer"></a>Chainer
@@ -106,7 +104,7 @@ Se abre una nueva ventana del explorador con blocs de notas de ejemplo.
 | Vínculos a ejemplos      | Se incluyen blocs de notas de Jupyter de ejemplo.      |
 | Herramientas relacionadas en DSVM      | Caffe      |
 
-### <a name="how-to-use--run-it"></a>¿Cómo se usa/ejecuta?  
+### <a name="how-to-use--run-it"></a>¿Cómo se usa o ejecuta?  
 
 En un terminal, active la versión de Python que quiera (_root_ o _py35_), ejecute _python_ e importe Chainer. En Jupyter, seleccione el kernel de Python 2.7 o 3.5 e importe Chainer.
 
@@ -140,7 +138,7 @@ Luego, abra un explorador y conéctese a `http://localhost:54321`.
 | ¿Cómo se configura/instala en DSVM?  | MXNet se instala en `C:\dsvm\tools\mxnet` en Windows y en `/dsvm/tools/mxnet` en Linux. Los enlaces de Python se instalan en el entorno de Python 2.7 (_root_), así como en el entorno de Python 3.5 (_py35_). También se instalan los enlaces de R.   |
 | Vínculos a ejemplos      | Se incluyen blocs de notas de Jupyter de ejemplo.    |
 | Herramientas relacionadas en DSVM      | Keras      |
-| ¿Cómo se usa/ejecuta?    | Abra Jupyter y busque la carpeta mxnet  |
+| ¿Cómo se usa o ejecuta?    | Abra Jupyter y busque la carpeta mxnet  |
 
 ## <a name="nvidia-digits"></a>NVIDIA DIGITS
 
@@ -178,7 +176,7 @@ El servicio tarda cerca de un minuto en iniciarse. Abra un explorador web y vaya
 | Ediciones compatibles de DSVM      | Linux     |
 | ¿Cómo se configura/instala en DSVM?  | Theano se instala en el entorno de Python 2.7 (_root_), así como en el entorno de Python 3.5 (_py35_).   |
 | Herramientas relacionadas en DSVM      | Keras      |
-| ¿Cómo se usa/ejecuta?    | En un terminal, active la versión de Python que quiera (root o py35), ejecute Python e importe Theano. En Jupyter, seleccione el kernel de Python 2.7 o 3.5 e importe Theano.  |
+| ¿Cómo se usa o ejecuta?    | En un terminal, active la versión de Python que quiera (root o py35), ejecute Python e importe Theano. En Jupyter, seleccione el kernel de Python 2.7 o 3.5 e importe Theano.  |
 
 
 
@@ -190,5 +188,4 @@ El servicio tarda cerca de un minuto en iniciarse. Abra un explorador web y vaya
 | Ediciones compatibles de DSVM      | Linux     |
 | ¿Cómo se configura/instala en DSVM?  | Torch se instala en `/dsvm/tools/torch`. PyTorch se instala en el entorno de Python 2.7 (_root_), así como en el entorno de Python 3.5 (_py35_).   |
 | Vínculos a ejemplos      | Los ejemplos de Torch están en `/dsvm/samples/torch`. Los ejemplos de PyTorch están en `/dsvm/samples/pytorch`.      |
-
 

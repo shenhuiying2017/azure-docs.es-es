@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
 ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Funcionamiento de la replicación de Hyper-V en Azure en Site Recovery
 
@@ -64,8 +64,7 @@ Aprenda sobre los requisitos previos de implementación y los requisitos de cada
 1. Después de habilitar la protección de una máquina virtual de Hyper-V, en el Azure Portal o de forma local, la opción **Habilitar la protección** se inicia.
 2. El trabajo comprueba que la máquina cumpla los requisitos previos e invoca [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) para que configure la replicación con su configuración.
 3. El trabajo comienza la replicación inicial con la invocación del método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) para inicializar una replicación completa de la máquina virtual y enviar los discos virtuales de la máquina virtual a Azure.
-4. Puede supervisar el trabajo en la pestaña **Trabajos**.
-        ![Lista Trabajos](media/site-recovery-hyper-v-azure-architecture/image1.png)![Detalles de Habilitar protección](media/site-recovery-hyper-v-azure-architecture/image2.png)
+4. Puede supervisar el trabajo en la pestaña **Trabajos**.      ![Lista Trabajos](media/site-recovery-hyper-v-azure-architecture/image1.png)![Detalles de Habilitar protección](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Replicación de los datos iniciales
 

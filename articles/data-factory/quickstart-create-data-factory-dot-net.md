@@ -13,28 +13,26 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: jingwang
+ms.openlocfilehash: d78176eca6bdbf32d6b4400ad2812dea98703d67
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ebd2520813cd27280171c0e05637eb5a8bd58a29
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Creación de una factoría de datos y una canalización con SDK de .NET
-Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse, para que los consuman las aplicaciones de inteligencia empresarial (BI). 
+Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI). 
 
 En esta guía de inicio rápido se describe cómo usar SDK de .NET para crear una instancia de Azure Data Factory. La canalización de esta factoría de datos copia datos de una carpeta a otra en Azure Blob Storage.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Cuenta de Almacenamiento de Azure**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no dispone de una cuenta de Azure Storage, vea el artículo Creación de una cuenta de almacenamiento para aprender a crearla. Artículo (../storage/common/storage-create-storage-account.md#create-a-storage-account) con pasos para crear una cuenta. 
-* Cree un **contenedor de blobs** en Blob Storage, cree una **carpeta** de entrada en el contenedor y cargue algunos archivos en la carpeta. 
+* **Cuenta de Almacenamiento de Azure**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no dispone de una cuenta de Azure Storage, consulte el artículo [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para aprender a crearla. 
+* Cree un **contenedor de blobs** en Blob Storage, cree una **carpeta** de entrada en el contenedor y cargue algunos archivos en la carpeta. Puede usar herramientas como [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para conectarse a Azure Blob Storage, crear un contenedor de blobs, cargar el archivo de entrada y comprobar el archivo de salida.
 * **Visual Studio** 2013, 2015 o 2017. En el tutorial de este artículo se usa Visual Studio 2017.
 * **Descargue e instale [SDK de .NET de Azure](http://azure.microsoft.com/downloads/)**.
 * **Cree una aplicación en Azure Active Directory**. Para hacerlo, siga [estas instrucciones](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota de los valores siguientes; los usará más adelante: **id. de aplicación**, **clave de autenticación** e **id. de inquilino**. Siga las instrucciones del mismo artículo para asignar la aplicación al rol "**Colaborador**". 
-* [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/). Puede usar esta herramienta para conectarse a Azure Blob Storage, crear un contenedor de blobs, cargar el archivo de entrada y comprobar el archivo de salida. 
+*  
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
 
@@ -55,6 +53,7 @@ Con Visual Studio 2013, 2015 o 2017, cree una aplicación de consola .NET de C#.
     Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
     Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+
     ```
 
 ## <a name="create-a-data-factory-client"></a>Creación de un cliente de factoría de datos
@@ -83,7 +82,7 @@ Con Visual Studio 2013, 2015 o 2017, cree una aplicación de consola .NET de C#.
     string resourceGroup = "<your resource group where the data factory resides>";
     // Currently, Data Factory V2 allows you to create data factories only in the East US and East US2 regions. 
     // Note that the data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions
-    string region = "East US";
+    string region = "East US 2";
     string dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
     string storageAccount = "<your storage account name to copy data>";
     string storageKey = "<your storage account key>";
@@ -110,7 +109,7 @@ Con Visual Studio 2013, 2015 o 2017, cree una aplicación de consola .NET de C#.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-Agregue el código siguiente al método **Main** que crea una **factoría de datos**. 
+Agregue el código siguiente al método **main** que crea una **factoría de datos**. 
 
 ```csharp
 // Create a data factory
@@ -249,7 +248,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="monitor-a-pipeline-run"></a>Supervisión de una ejecución de canalización
 
-1. Agregue el código siguiente al método **main** para comprobar continuamente el estado de la ejecución de canalización hasta que termine de copiar los datos.
+1. Agregue el código siguiente al método **Main** para comprobar continuamente el estado de la ejecución de canalización hasta que termine de copiar los datos.
 
     ```csharp
     // Monitor the pipeline run
@@ -266,7 +265,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     }
     ```
 
-2. Agregue el código siguiente al método **main** que recupera detalles de la ejecución de la actividad, como el tamaño de los datos leídos o escritos.
+2. Agregue el código siguiente al método **Main** que recupera detalles de la ejecución de actividad de copia, como el tamaño de los datos leídos o escritos.
 
     ```csharp
     // Check the copy activity run details
@@ -274,13 +273,10 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
    
     List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
     resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
- 
-
     if (pipelineRun.Status == "Succeeded")
         Console.WriteLine(activityRuns.First().Output);
     else
         Console.WriteLine(activityRuns.First().Error);
-
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```
@@ -409,4 +405,3 @@ Para eliminar la factoría de datos mediante programación, agregue las líneas 
 
 ## <a name="next-steps"></a>Pasos siguientes
 La canalización de este ejemplo copia los datos de una ubicación a otra en una instancia de Azure Blob Storage. Consulte los [tutoriales](tutorial-copy-data-dot-net.md) para obtener información acerca del uso de Data Factory en otros escenarios. 
-

@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
-ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="controlling-and-granting-database-access"></a>Control y concesión de acceso a bases de datos
 
@@ -193,4 +192,3 @@ Al administrar los inicios de sesión y los usuarios en SQL Database, tenga en c
 - Para ver un tutorial, consulte [Protección de Azure SQL Database](sql-database-security-tutorial.md).
 - Para obtener información acerca de las vistas y los procedimientos almacenados, consulte [Creación de vistas y procedimientos almacenados](https://msdn.microsoft.com/library/ms365311.aspx)
 - Para obtener información acerca de cómo otorgar acceso a un objeto de base de datos, consulte [Conceder acceso a un objeto de base de datos](https://msdn.microsoft.com/library/ms365327.aspx)
-

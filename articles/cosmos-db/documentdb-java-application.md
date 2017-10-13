@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 7b1053a7ec879294cb2240c9d6b4cd32f923ef9c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Compilación de una aplicación web de Java mediante Azure Cosmos DB y la API de DocumentDB API
 > [!div class="op_single_selector"]
@@ -52,8 +51,7 @@ Antes de comenzar este tutorial de desarrollo de aplicaciones, debe disponer de 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* <seg>
-  [Kit de desarrollo de Java (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).</seg>
+* [Kit de desarrollo de Java (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [IDE de Eclipse para desarrolladores de Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Un sitio web de Azure con un entorno de tiempo de ejecución Java (por ejemplo, Tomcat o Jetty) habilitado.](../app-service/app-service-web-get-started-java.md)
 
@@ -107,7 +105,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
      
    * O bien, agregue el XML de dependencia para identificador de grupo y un identificador de artefacto directamente al archivo pom.xml mediante un editor de texto:
      
-        <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
+        <dependency><groupId>com.microsoft.azure</groupId><artifactId>azure-documentdb</artifactId><version>1.9.1</version></dependency>
 6. Haga clic en **Aceptar** y Maven instalará el SDK de Java de DocumentDB.
 7. Guarde el archivo pom.xml.
 
@@ -758,4 +756,3 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 22. Para implementar el proyecto en un sitio web de Azure, consulte el [paso 6. Implementación de la aplicación para Azure WebSites](#Deploy).
 
 [1]: media/documentdb-java-application/keys.png
-

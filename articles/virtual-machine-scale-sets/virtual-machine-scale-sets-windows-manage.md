@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 88541f6054df1476866d68fdc1c9690a73ada83c
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: d09a020b903e5f43afe03b86c675bcc1eb536cbc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-virtual-machines-in-a-virtual-machine-scale-set"></a>Administración de máquinas virtuales en un conjunto de escalado de máquinas virtuales
 Use las tareas de este artículo para administrar máquinas virtuales en su conjunto de escalado de máquinas virtuales.
@@ -213,5 +212,4 @@ Puede agregar o quitar máquinas virtuales cambiando la capacidad del conjunto. 
     Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 Si va a quitar máquinas virtuales del conjunto de escalado, se quitan primero las máquinas virtuales con los identificadores más altos.
-
 

@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: b701879464205860edd1c097651b532f87bae388
-ms.contentlocale: es-es
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 40706ca30795d72120ff3edd728087d025a8b6c3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Empleo de un espacio aislado de Hadoop, un emulador en una máquina virtual
 
@@ -87,5 +86,4 @@ Para descargar un espacio aislado de una versión más antigua de HDP, expanda e
 * [Aprenda a usar Visual Studio con Sandbox de Hortonworks](hdinsight-hadoop-emulator-visual-studio.md)
 * [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
-
 

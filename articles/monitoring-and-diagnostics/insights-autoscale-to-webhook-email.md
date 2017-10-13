@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
-ms.contentlocale: es-es
-ms.lasthandoff: 04/03/2017
-
+ms.openlocfilehash: 16caf14028494800e9259f0296c292b606d0210a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor
 En este artículo se muestra cómo configurar desencadenadores para que pueda llamar a direcciones URL web específicas o enviar mensajes de correo electrónico en función de las acciones de escalado automático en Azure.  
@@ -126,4 +125,3 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | oldCapacity |yes |Recuento de instancias (antiguo) actual cuando el escalado automático ha realizado una acción de escalado. |
 | newCapacity |yes |Nuevo recuento de instancias al que el escalado automático escaló el recurso. |
 | propiedades |No |Opcional. Conjunto de pares <Clave, Valor> (por ejemplo, Diccionario <Cadena, Cadena>). El campo de propiedades es opcional. En una interfaz de usuario personalizada o un flujo de trabajo basado en una aplicación lógica, puede escribir las claves y los valores que se pueden transmitir utilizando la carga. La forma alternativa para transmitir propiedades personalizadas a la llamada de Webhook de salida es mediante el propio URI de Webhook (como parámetros de consulta). |
-

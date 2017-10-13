@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
 ms.openlocfilehash: 8dea36f92b034f8c6cdb6875634848d37f4c6606
-ms.contentlocale: es-es
-ms.lasthandoff: 11/28/2016
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Desactivación y eliminación de una matriz virtual de StorSimple
 
@@ -91,5 +90,4 @@ Para eliminar el dispositivo, realice los siguientes pasos.
 * Para obtener información acerca de cómo realizar la conmutación por error, vaya a [Disaster recovery and device failover for your StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md) (Recuperación ante desastres y conmutación por error de dispositivos en StorSimple Virtual Array).
 
 * Para obtener información acerca de cómo usar el servicio StorSimple Device Manager, vaya a [Use the StorSimple Device Manager service to administer your StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) (Uso del servicio StorSimple Device Manager para administrar StorSimple Virtual Array). 
-
 

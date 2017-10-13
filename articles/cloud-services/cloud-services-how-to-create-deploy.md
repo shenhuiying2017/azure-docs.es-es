@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 2a2172a78bfd3ac923edbc9de366b035629dd27b
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Creación e implementación de un servicio en la nube
 > [!div class="op_single_selector"]
@@ -127,5 +126,4 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
 * [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
-
 

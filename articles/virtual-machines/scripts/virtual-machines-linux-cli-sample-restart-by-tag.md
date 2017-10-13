@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: ea114f484c774573b7d219cff9102a7308af356e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="restart-vms"></a>Reinicio de máquinas virtuales
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -60,19 +58,19 @@ El tercero reinicia todas las máquinas virtuales que se aprovisionaron y, luego
 Este script crea un grupo de recursos y, luego, genera tres máquinas virtuales para realizar la operación de reinicio.
 Dos de ellos tienen etiqueta.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Aprovisionamiento de máquinas virtuales")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
 
 ### <a name="wait"></a>Esperar
 
 Este script comprueba el estado de aprovisionamiento cada 20 segundos hasta que todas las tres máquinas virtuales se aprovisionan, o bien hasta que en una de ellas se produce un error de aprovisionamiento.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Espera hasta que las máquinas virtuales se aprovisionan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Wait for the VMs to be provisioned")]
 
 ### <a name="restart-the-vms"></a>Reinicio de máquinas virtuales
 
 Este script reinicia todas las máquinas virtuales del grupo de recursos y, luego, reinicia las que tienen etiqueta.
 
-[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Reinicio de máquinas virtuales por etiqueta")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Restart VMs by tag")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 
@@ -100,4 +98,3 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una má
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Encontrará más ejemplos de scripts de la CLI de máquina virtual en la [documentación sobre máquinas virtuales Linux de Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

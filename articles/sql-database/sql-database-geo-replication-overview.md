@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 10/11/2017
 ms.author: sashan
+ms.openlocfilehash: 0725d5747ab343dcf99ad8f2dc0e47d7304c9f1e
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 290d672146765b9273697ba35e99231a5b854679
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Introducción: grupos de conmutación por error y replicación geográfica activa
 La replicación geográfica activa le permite configurar hasta cuatro bases de datos secundarias legibles en las mismas ubicaciones de centros de datos (regiones) o en otras. Las bases de datos secundarias están disponibles para la consulta y para la conmutación por error si hay una interrupción del centro de datos o de imposibilidad para conectarse a la base de datos principal. La aplicación del usuario debe iniciar manualmente la conmutación por error. Después de la conmutación por error, el nuevo elemento principal tiene un punto de conexión diferente. 
@@ -176,7 +175,7 @@ Como se dijo antes, los grupos de conmutación por error automática (en versió
 | [Crear o actualizar base de datos (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Crea, actualiza o restaura una base de datos principal o secundaria. |
 | [Obtener el estado de creación o actualización de la base de datos](/rest/api/sql/Databases/CreateOrUpdate) |Devuelve el estado durante una operación de creación. |
 | [Establecer la base de datos secundaria como principal (conmutación por error planeada)](/rest/api/sql/replicationlinks/failover) |Define qué base de datos de réplica es la principal mediante la conmutación por error desde la base de datos de réplica principal actual. |
-| [Establecer la base de datos secundaria como principal (conmutación por error no planeada)](https://docs.microsoft.com/rest/api/sql/replicationlinks#failoverallowdataloss) |Define qué base de datos de réplica es la principal mediante la conmutación por error desde la base de datos de réplica principal actual. Esta operación puede ocasionar pérdida de datos. |
+| [Establecer la base de datos secundaria como principal (conmutación por error no planeada)](/rest/api/sql/replicationlinks/failoverallowdataloss) |Define qué base de datos de réplica es la principal mediante la conmutación por error desde la base de datos de réplica principal actual. Esta operación puede ocasionar pérdida de datos. |
 | [Obtener vínculo de replicación](/rest/api/sql/replicationlinks/get) |Obtiene un vínculo de replicación específico para una Base de datos SQL determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |
 | [Vínculos de replicación: lista por base de datos](/rest/api/sql/replicationlinks/listbydatabase) | Obtiene todos los vínculos de replicación para una Base de datos SQL determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |
 | [Eliminar vínculo de replicación](/rest/api/sql/databases/delete) | Elimina un vínculo de replicación de base de datos. No se puede realizar durante la conmutación por error. |
@@ -198,5 +197,4 @@ Como se dijo antes, los grupos de conmutación por error automática (en versió
 * Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
 * Si quiere saber cómo usar las copias de seguridad automatizadas para procesos de recuperación, consulte [Recuperación de una base de datos a partir de copias de seguridad iniciadas por un servicio](sql-database-recovery-using-backups.md).
 * Para obtener información acerca de los requisitos de autenticación para un nuevo servidor principal y la base de datos, consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
-
 

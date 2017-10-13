@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 537dd6d64fe49093dd73d8040cde5a9153a7bd5c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Azure Monitor
 
 Este procedimiento describe la experiencia de nueva generación de gráficos de métricas de Azure Monitor que se encuentra actualmente en versión preliminar pública. La nueva experiencia admite la representación de gráficos tanto para métricas multidimensionales como métricas básicas sin ninguna dimensión. Se pueden trazar gráficos que se superpongan a las métricas de diferentes tipos de recursos, varios grupos de recursos y suscripciones. Los gráficos de métricas multidimensionales se pueden personalizar al aplicar los filtros de dimensión y mediante agrupaciones. Los gráficos, incluidos los gráficos personalizados, pueden anclarse a los paneles.

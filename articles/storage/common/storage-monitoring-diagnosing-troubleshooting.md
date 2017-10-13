@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1a9c9354b665294778886441cc6d7f02adb1163f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -250,7 +249,7 @@ La biblioteca de cliente de Storage genera automáticamente un identificador de 
 > 
 > 
 
-### <a name="server-request-id"></a>Id. de solicitud de servidor
+### <a name="server-request-id"></a>Identificador de solicitud de servidor
 El servicio de almacenamiento genera automáticamente identificadores de solicitud de servidor.
 
 * En el registro del registro de Storage del lado servidor, el identificador de solicitud de servidor aparece en la columna **Encabezado de id. de solicitud** .
@@ -889,4 +888,3 @@ Puede encontrar más información en [¿Qué es Application Insights?](../../app
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
-

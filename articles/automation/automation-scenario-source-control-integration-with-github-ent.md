@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: magoedte
+ms.openlocfilehash: 2b3ca90382a1c4fb6446799ad539ab8ee603aefc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 62793dcdbbf4c83161e95d1c165d5c231245f7c6
-ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Escenario de Azure Automation: integración del control del código fuente de Automation con GitHub Enterprise
 
 Automation admite actualmente la integración del control del código fuente, que permite asociar Runbooks de su cuenta de Automation a un repositorio de control del código fuente de GitHub.  Sin embargo, los clientes que han implementado [GitHub Enterprise](https://enterprise.github.com/home) para permitir la compatibilidad con sus prácticas de DevOps, también lo quieren usar para administrar el ciclo de vida de los Runbooks desarrollados para automatizar los procesos de negocio y las operaciones de administración de servicios.  
@@ -92,4 +90,3 @@ Si no tiene ya implementada una solución Hybrid Runbook Worker en su centro de 
 
 -  Para obtener más información sobre los tipos de Runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
 -  Para obtener más información sobre la característica de compatibilidad con scripts de PowerShell, consulte [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-

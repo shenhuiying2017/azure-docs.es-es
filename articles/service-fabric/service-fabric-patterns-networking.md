@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
-ms.contentlocale: es-es
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-networking-patterns"></a>Patrones de redes de Service Fabric
 Puede integrar el clúster de Azure Service Fabric con otras características de red de Azure. En este artículo se muestra cómo crear clústeres que usan las siguientes características:
@@ -599,4 +598,3 @@ Después de la implementación, puede ver dos de equilibradores de carga en el g
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de un clúster](service-fabric-cluster-creation-via-arm.md)
-

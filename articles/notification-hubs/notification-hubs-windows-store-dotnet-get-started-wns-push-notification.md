@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: e18a810bcdbd97c79418f53c647df8723ecb6076
-ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Introducción a Notification Hubs para aplicaciones de la plataforma universal de Windows
 
@@ -129,7 +128,7 @@ El centro de notificaciones ya está configurado para funcionar con WNS. Tiene l
     Este código recupera el URI del canal de la aplicación desde WNS y, luego, lo registra en el Centro de notificaciones.
    
     >[!NOTE]
-    >* Reemplace el marcador de posición con el **nombre del centro** por el nombre del centro de notificaciones tal como aparece en Azure Portal. 
+    >* Reemplace el marcador de posición del **nombre del centro** por el nombre del centro de notificaciones tal y como aparece en Azure Portal. 
     >* Reemplace también el marcador de posición de la cadena de conexión por la cadena de conexión **DefaultListenSharedAccessSignature** que obtuvo en la página **Directivas de acceso** del centro de notificaciones en una sección anterior.
    > 
    > 
@@ -235,4 +234,3 @@ Para más información general sobre Notification Hubs, consulte la [guía de No
 [catálogo de iconos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [información general de distintivos]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
  
-

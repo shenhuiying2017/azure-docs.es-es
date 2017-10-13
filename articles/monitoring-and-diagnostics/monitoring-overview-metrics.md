@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
+ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fbfb3d026540b45a28751d6c3ab0f8dce444e0cd
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Información general sobre las métricas en Microsoft Azure
 En este artículo se explica qué son las métricas en Microsoft Azure, sus beneficios y cómo comenzar a utilizarlas.  
 
@@ -127,23 +125,6 @@ Algunos recursos de Azure pueden escalar o reducir horizontalmente varias instan
  ![Métricas y escalado automático en Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## <a name="learn-about-supported-services-and-metrics"></a>Más información sobre los servicios y las métricas compatibles
-Azure Monitor es una nueva infraestructura de métricas. Proporciona compatibilidad para los siguientes servicios de Azure en Azure Portal y la nueva versión de la API de Azure Monitor:
-
-* Máquinas virtuales (basadas en Azure Resource Manager)
-* Conjuntos de escalado de máquinas virtuales
-* Batch
-* Espacio de nombres de Event Hubs
-* Espacio de nombres de Service Bus (solo SKU premium)
-* SQL Database (versión 12)
-* Elastic SQL Pool
-* Sitios web
-* Granjas de servidores web
-* Aplicaciones lógicas
-* IoT Hub
-* Redis Cache
-* Redes: puertas de enlace de aplicaciones
-* Search
-
 Puede ver una lista detallada de todos los servicios admitidos y sus métricas en [Métricas de Azure Monitor: métricas admitidas por tipo de recurso](monitoring-supported-metrics.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -152,4 +133,3 @@ Consulte los vínculos de este artículo. Además, puede obtener información so
 * [Métricas comunes de escalado automático](insights-autoscale-common-metrics.md)
 * [Cómo crear reglas de alertas](insights-alerts-portal.md)
 * [Análisis de registros desde Azure Storage con Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-

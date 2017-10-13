@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: f8a20b45b50f71631122e574b634818c1912f12e
-ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-4-plan-networking-for-physical-server-replication-to-azure"></a>Paso 4: Planeación de red para la replicación de servidor físico en Azure
 
 En este artículo se resumen las consideraciones de planeamiento de red al replicar servidores físicos locales en Azure con el servicio [Azure Site Recovery](site-recovery-overview.md).
@@ -85,4 +83,3 @@ En esta [entrada de blog](http://azure.microsoft.com/blog/2014/09/04/networking-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya al [Paso 5: Preparación de Azure](physical-walkthrough-prepare-azure.md).
-

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/17/2017
 ms.author: clemensv;sethm
 ms.openlocfilehash: a88f2d81ab43e38c9363a67aaefc178b47bfb259
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Información general sobre el procesamiento de transacciones del Bus de servicio
 En este artículo se describe las funcionalidades de transacciones del Bus de servicio de Azure. Gran parte de la discusión se ilustra mediante el [ejemplo de transacciones atómicas con Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). Este artículo se limita a proporcionar información general sobre el procesamiento de transacciones y la característica *Enviar por* de Service Bus, mientras que el ejemplo de transacciones atómicas es más amplio y con un ámbito más complejo.

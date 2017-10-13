@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 42135f0a0101ba82bca0d662ae4b970f799f70d3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script de PowerShell: transformación de datos en la nube con Azure Data Factory
 
 Este script de PowerShell de ejemplo crea una canalización que transforma los datos en la nube mediante la ejecución del programa de Spark en un clúster de Spark de Azure HDInsight. 
@@ -28,13 +26,13 @@ Este script de PowerShell de ejemplo crea una canalización que transforma los d
 
 ## <a name="sample-script"></a>Script de ejemplo
 > [!IMPORTANT]
-> Este script crea archivos JSON que definen entidades de Data Factory (servicio vinculado, conjunto de datos y canalización) en el disco duro en la carpeta c:\.
+> Este script crea archivos JSON que definen entidades de Data Factory (servicio vinculado, conjunto de datos y canalización) en la carpeta c:\ del disco duro.
 
 [!code-powershell[main](../../../powershell_scripts/data-factory/transform-data-using-spark/transform-data-using-spark.ps1?highlight=9,12-15,18,21-23,26-29,32-37 "Transform data using Spark")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
-Después de ejecutar el script de ejemplo, puede usar el comando siguiente para eliminar el grupo de recursos y todos los recursos asociados a él:
+Después de ejecutar el script de ejemplo, puede usar el comando siguiente para quitar el grupo de recursos y todos los recursos asociados a él:
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"

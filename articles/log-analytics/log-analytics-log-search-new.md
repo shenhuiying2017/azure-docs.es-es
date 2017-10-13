@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: db271f5157fee29a5cc0c4534768bdb3c769ba74
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Descripción de las búsquedas de registros en Log Analytics
 
@@ -91,4 +90,3 @@ Para obtener documentación completa sobre el lenguaje de consultas de Azure Log
 
 - Obtenga información acerca de los [portales que puede utilizar para crear y editar búsquedas de registros](log-analytics-log-search-portals.md).
 - Consulte un [tutorial sobre cómo escribir consultas](log-analytics-tutorial-viewdata.md) mediante el nuevo lenguaje de consulta.
-

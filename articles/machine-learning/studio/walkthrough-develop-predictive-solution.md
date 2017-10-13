@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fe504d826b6c40099f1f8706ef7e8780eed5cf9a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Tutorial: Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure
 
@@ -59,4 +58,3 @@ Para crear esta solución de evaluación de riesgos de crédito, seguiremos esto
 > Puede encontrar una copia de trabajo del experimento que desarrollamos en este tutorial en la [galería de Cortana Intelligence](https://gallery.cortanaintelligence.com). Vaya a **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Tutorial: predicción de riesgos de crédito) y haga clic en **Abrir en Studio** para descargar una copia del experimento al área de trabajo de Machine Learning Studio.
 > 
 > Este tutorial se basa en una versión simplificada del experimento de ejemplo, [Clasificación binaria: predicción de riesgos de crédito](http://go.microsoft.com/fwlink/?LinkID=525270), también disponible en la [galería](http://gallery.cortanaintelligence.com/).
-

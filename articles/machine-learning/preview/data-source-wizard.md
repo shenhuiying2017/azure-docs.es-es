@@ -7,14 +7,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-source-wizard"></a>Asistente para origen de datos #
 
 El Asistente para origen de datos es una manera rápida y sencilla para poner un conjunto de datos en el área de trabajo de Azure Machine Learning sin necesidad de código. Es también el lugar donde puede seleccionar un ejemplo de estrategia para el conjunto de datos. 
@@ -74,4 +72,3 @@ Si la ruta de acceso de archivo incluye datos importantes, puede elegir incluirl
 ![paso 7](media/data-source-wizard/step6.png)
 
 Después de hacer clic en Finalizar, se agregará un nuevo origen de datos al proyecto. Puede encontrarlo en el grupo de orígenes de datos en la vista de datos, o como un archivo .dsource en la **Vista de archivos**.
-

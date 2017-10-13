@@ -17,12 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 1046d32a0b4b6ede027ef1931314a188c64c94bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 4af0621c4ba0f0c283a6292824cc1ff819c1d232
-ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -359,7 +358,7 @@ Las siguientes notas de SAP están relacionadas con el tema de SAP en Azure:
 | [2243692] |Linux on Microsoft Azure (IaaS) VM: SAP license issues (Linux y máquinas virtuales de Microsoft Azure (IaaS): problemas de licencia de SAP) |
 | [1984787] |SUSE LINUX Enterprise Server 12: Installation notes (SUSE Linux Enterprise Server 12: notas de instalación) |
 | [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade (Red Hat Enterprise Linux 7.x: instalación y actualización) |
-| [2069760] |Instalación y actualización de SAP en Oracle y Linux 7.x |
+| [2069760] |Instalación y actualización de SAP en Oracle Linux 7.x |
 | [1597355] |Recomendación de espacio de intercambio para Linux |
 | [2171857] |Oracle Database 12c - compatibilidad con sistema de archivos en Linux |
 | [1114181] |Oracle Database 11g - compatibilidad con sistema de archivos en Linux |
@@ -761,7 +760,7 @@ Puesto que las imágenes de SQL Server en Azure Marketplace no están configurad
 * Abra una ventana de comandos de Windows como administrador.
 * Cambie el directorio a C:\Archivos de programa\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012.
 * Ejecute el comando: Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2.   
-  * `<local_admin_account_name`> es la cuenta que se definió como cuenta de administrador al implementar la máquina virtual por primera vez por medio de la galería.
+  * `<local_admin_account_name`&gt; es la cuenta que se definió como cuenta de administrador al implementar la máquina virtual por primera vez por medio de la galería.
 
 Este proceso solo debe llevar unos minutos. Para asegurarse de que obtiene el resultado correcto, realice los pasos siguientes:
 
@@ -804,25 +803,25 @@ Estas son algunas de las consideraciones que hay que tener en cuenta al usar un 
 * Cuando se utiliza un agente de escucha de grupo de disponibilidad, las máquinas virtuales de la base de datos tienen que estar conectadas a un equilibrador de carga específico. La funcionalidad de resolución de nombres de las implementaciones exclusivas en la nube precisaría que todas las máquinas virtuales de un sistema SAP (servidores de aplicaciones, el servidor de DBMS y el servidor (A)SCS) se encuentren en la misma red virtual, o bien que se realizara un mantenimiento del archivo etc\host en una capa de aplicación de SAP para obtener resueltos los nombres de las máquinas virtuales de SQL Server. Para evitar que Azure asigne nuevas direcciones IP en casos donde ambas máquinas virtuales se apaguen accidentalmente, se deben asignar direcciones IP estáticas a las interfaces de red de esas máquinas virtuales en la configuración de AlwaysOn (la definición de una dirección IP estática se describe en [este][virtual-networks-reserved-private-ip] artículo)
 
 [comment]: <> (Blogs anteriores)
-[comment]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>) 
+[comment]: <> (&lt;https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx&gt;, &lt;https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx&gt;) 
 * Hay que realizar algunos pasos especiales al crear la configuración del clúster WSFC: el clúster necesita una dirección IP especial, ya la funcionalidad actual de Azure asignaría el nombre del clúster a la misma dirección IP que el nodo donde se ha creado dicho clúster. Es decir, se debe realizar un paso manual para asignar una dirección IP diferente a la del clúster.
 * El agente de escucha de grupo de disponibilidad se va a crear en Azure con puntos de conexión TCP/IP asignados a las máquinas virtuales que ejecutan las réplicas principal y secundarias del grupo de disponibilidad.
 * Puede que haya que proteger estos puntos de conexión con ACL.
 
 [comment]: <> (Blog antiguo PENDIENTE)
 [comment]: <> (Los pasos detallados y las necesidades de instalar una configuración AlwaysOn en Azure se realizan de mejor manera cuando se sigue el tutorial disponible [aquí][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups])
-[comment]: <> (La configuración AlwaysOn preconfigurada a través de la galería de Azure <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
+[comment]: <> (La configuración AlwaysOn preconfigurada a través de la galería de Azure &lt;https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx&gt;)
 [comment]: <> (La creación de un agente de escucha del grupo de disponibilidad se describe mejor en [este][virtual-machines-windows-classic-ps-sql-int-listener] tutorial)
 [comment]: <> (Los puntos de conexión de red de protección con ACL se explican mejor aquí:)
-[comment]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
-[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
-[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
-[comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
+[comment]: <> (*    &lt;https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/&gt;)
+[comment]: <> (*    &lt;https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx&gt; )
+[comment]: <> (*    &lt;https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx&gt;)  
+[comment]: <> (*    &lt;https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx&gt;) 
 
 Es posible implementar un grupo de disponibilidad AlwaysOn de SQL Server en distintas regiones de Azure también. Esta funcionalidad aprovecha la conectividad de red virtual a red virtual de Azure ([más información][virtual-networks-configure-vnet-to-vnet-connection]).
 
 [comment]: <> (Blog antiguo PENDIENTE)
-[comment]: <> (La configuración de los grupos de disponibilidad AlwaysOn de SQL Server en tal escenario se describe aquí: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
+[comment]: <> (La configuración de los grupos de disponibilidad AlwaysOn de SQL Server en tal escenario se describe aquí: &lt;https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx&gt;.) 
 
 #### <a name="summary-on-sql-server-high-availability-in-azure"></a>Resumen de alta disponibilidad de SQL Server en Azure
 Como el Azure Storage está protegiendo el contenido, hay una razón menos para insistir en el uso de una imagen de espera activa. Es decir, el escenario de alta disponibilidad solo tiene que protegerse contra los siguientes casos:
@@ -934,7 +933,7 @@ Dependiendo de si la máquina virtual de Azure que hospeda el sistema SAP se con
 
 Si implementó la máquina virtual en un escenario solo de nube sin conectividad en varios entornos entre locales y Azure, debe definir una dirección IP pública y un valor de domainlabel. El formato del nombre DNS público de la máquina virtual tendrá un aspecto similar al siguiente:
 
-> `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
+> `<custom domainlabel`&gt;.`<azure region`&gt;.cloudapp.azure.com
 > 
 > 
 
@@ -1087,7 +1086,7 @@ Dependiendo de si la máquina virtual de Azure que hospeda el sistema SAP se con
 
 Si implementó la máquina virtual en un escenario solo de nube sin conectividad en varios entornos entre locales y Azure, debe definir una dirección IP pública y un valor de domainlabel. El formato del nombre DNS público de la máquina virtual tendrá un aspecto similar al siguiente:
 
-> `<custom domainlabel`>.`<azure region`>.cloudapp.azure.com
+> `<custom domainlabel`&gt;.`<azure region`&gt;.cloudapp.azure.com
 > 
 > 
 
@@ -1505,5 +1504,4 @@ No utilice la replicación geográfica para las cuentas de almacenamiento donde 
 Todos los demás temas generales, como los conjuntos de disponibilidad de Azure o la supervisión de SAP, se aplican como se describen en los tres primeros capítulos de este documento para implementaciones de máquinas virtuales también con IBM DB2 para LUW.
 
 Consulte también el capítulo [Resumen general de SQL Server para SAP en Azure][dbms-guide-5.8].
-
 

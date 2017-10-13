@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 98c78d84f3a615fae7d6785994f0db20f7a53254
-ms.openlocfilehash: 013e3d29694a8daf1481e513c9c4dfc6b5da3384
-ms.contentlocale: es-es
-ms.lasthandoff: 02/10/2017
-
-
+ms.openlocfilehash: 088f10bc32dd492f82f0a10a7e5829e76f588758
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>Escenario: Desencadenado de aplicaciones lógicas con Azure Functions y Service Bus
 
@@ -70,4 +68,3 @@ Para probar, agregue un mensaje en cola a través de una herramienta como el [Ex
 <!-- Image References -->
 [1]: ./media/logic-apps-scenario-function-sb-trigger/manualtrigger.png
 [2]: ./media/logic-apps-scenario-function-sb-trigger/newqueuetriggerfunction.png
-

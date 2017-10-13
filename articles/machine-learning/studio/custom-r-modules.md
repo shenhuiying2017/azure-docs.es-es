@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 03/24/2017
 ms.author: bradsev;ankarlof
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cf3f0e79a9f873a57ef6b7f5233d324faee3e017
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Creación de módulos R personalizados en Aprendizaje automático de Azure
 En este tema se describe cómo crear e implementar un módulo R personalizado en Aprendizaje automático de Azure. Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos. Muestra cómo construir estos archivos y cómo registrar el módulo para implementarlo en un área de trabajo de Aprendizaje automático. Los elementos y atributos que se utilizan en la definición del módulo personalizado se describen a continuación con más detalle. También se describe cómo utilizar la funcionalidad y los archivos auxiliares, y varias salidas. 
@@ -371,5 +370,4 @@ El entorno de ejecución del script de R usa la misma versión de R que el módu
 
 * Sistema de archivos no persistentes: los archivos escritos cuando se ejecuta el módulo personalizado no persistirán en varias ejecuciones del mismo módulo.
 * Sin acceso de red
-
 

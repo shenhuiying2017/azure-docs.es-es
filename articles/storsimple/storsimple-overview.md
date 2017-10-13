@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 86b8300553caa0741e8aca3c0e7621ec80cc5b21
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida
 ## <a name="overview"></a>Información general
@@ -217,7 +216,7 @@ A continuación, presentamos un resumen de las cargas de trabajo de StorSimple.
 | Copia de seguridad |Copia de seguridad de destino principal |Sí* |Compatible cuando el dispositivo StorSimple se emplea en exclusiva para esta carga de trabajo |Actualización 3 y posteriores |
 | Copia de seguridad |Copia de seguridad de destino secundario |Sí* |Compatible cuando el dispositivo StorSimple se emplea en exclusiva para esta carga de trabajo |Actualización 3 y posteriores |
 
-*Sí&#42;. Se deben aplicar las restricciones y directrices de la solución.*
+*Sí&amp;#42;. Se deben aplicar las restricciones y directrices de la solución.*
 
 Las cargas de trabajo siguientes no son compatibles con dispositivos de la serie 8000 de StorSimple. Si se implementa en StorSimple, estas cargas de trabajo generarán una configuración no admitida.
 
@@ -240,7 +239,7 @@ A continuación, se muestra una lista de los componentes de infraestructura comp
 | General |Indización |Sí* |Para volúmenes en capas, solo se admite la indización de metadatos (sin datos).<br>Para volúmenes anclados localmente, se admite la indización completa. |Todas las versiones |
 | General |Antivirus |Sí* |Para volúmenes en capas, se admite solo el examen al abrir y cerrar.<br> Para volúmenes anclados localmente, se admite el examen completo. |Todas las versiones |
 
-*Sí&#42;. Se deben aplicar las restricciones y directrices de la solución.*
+*Sí&amp;#42;. Se deben aplicar las restricciones y directrices de la solución.*
 
 A continuación se muestra una lista de otro software que se usa con StorSimple para crear soluciones.
 
@@ -312,5 +311,4 @@ Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-8000-security.md).
-
 

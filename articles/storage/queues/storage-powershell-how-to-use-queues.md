@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 357d8db329a6a3c782753804d681029fdb07b5f7
-ms.contentlocale: es-es
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Operaciones en Azure Queue Storage con Azure PowerShell
 
 Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes accesibles desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Para más información, consulte [Introducción a las colas de Azure](storage-queues-introduction.md). En este tutorial se describen operaciones de Queue Storage habituales. Aprenderá a:

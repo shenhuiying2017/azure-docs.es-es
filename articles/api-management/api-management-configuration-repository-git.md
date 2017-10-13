@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: f5d6bb7ccbf15424e9940ccda2fac668a2af5a57
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 > 
@@ -218,10 +218,10 @@ Los primeros cuatro valores (`RegistrationEnabled`, `UserRegistrationTerms`, `Us
 
 | Configuración de identidad | Se asigna a |
 | --- | --- |
-| RegistrationEnabled |**Redirigir a los usuarios anónimos a la página de inicio de sesión**  |
-| UserRegistrationTerms |**Condiciones de uso del registro de usuario**  |
-| UserRegistrationTermsEnabled |**Mostrar condiciones de uso en la página de registro**  |
-| UserRegistrationTermsConsentRequired |**Requerir consentimiento**  |
+| RegistrationEnabled |**Redirigir a los usuarios anónimos a la página de inicio de sesión** |
+| UserRegistrationTerms |**Condiciones de uso del registro de usuario** |
+| UserRegistrationTermsEnabled |**Mostrar condiciones de uso en la página de registro** |
+| UserRegistrationTermsConsentRequired |**Requerir consentimiento** |
 
 ![Configuración de identidad][api-management-identity-settings]
 
@@ -230,9 +230,9 @@ La cuatro valores siguientes (`DelegationEnabled`, `DelegationUrl`, `DelegatedSu
 | Configuración de delegación | Se asigna a |
 | --- | --- |
 | DelegationEnabled |Casilla **Delegar inicio de sesión y registro** |
-| DelegationUrl |**Dirección URL del punto de conexión de delegación**  |
-| DelegatedSubscriptionEnabled |**Delegar suscripción de producto**  |
-| DelegationValidationKey |**Delegar clave de validación**  |
+| DelegationUrl |**Dirección URL del punto de conexión de delegación** |
+| DelegatedSubscriptionEnabled |**Delegar suscripción de producto** |
+| DelegationValidationKey |**Delegar clave de validación** |
 
 ![Configuración de delegación][api-management-delegation-settings]
 

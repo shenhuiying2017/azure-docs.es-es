@@ -42,8 +42,8 @@
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
 # Temas relacionados
-## [Application Gateway](/azure/application-gateway/)
-## [Load Balancer](/azure/load-balancer/)
+## [Puerta de enlace de aplicaciones](/azure/application-gateway/)
+## [Equilibrador de carga](/azure/load-balancer/)
 ## [DNS de Azure](/azure/dns/)
 
 # Recursos

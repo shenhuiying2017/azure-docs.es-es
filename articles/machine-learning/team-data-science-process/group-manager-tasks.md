@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cd73aed14f672351b72e09d682909a47c63b9026
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="group-manager-tasks"></a>Tareas del administrador de grupo
 
 En este tema se describen las tareas que se espera que un administrador de grupo realice para la organización de ciencia de datos. El objetivo es establecer un entorno de colaboración en grupo que normalice el [proceso de ciencia de datos en equipos](overview.md) (TDSP). Para obtener un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso, consulte [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md).
@@ -55,9 +52,9 @@ En este tutorial se usan abreviaturas de los nombres de repositorios y directori
 
 ### <a name="pre-requisites-for-cloning-repositories-and-checking-code-in-and-out"></a>Requisitos previos para la clonación de repositorios y la inserción y eliminación de código
  
-- Git debe estar instalado en la máquina. Si usa una máquina virtual de ciencia de datos (DSVM), Git se ha instalado previamente y está listo para continuar. En caso contrario, consulte el [anexo de plataformas y herramientas](platforms-and-tools.md#appendix).  
-- Si usa una **DSVM de Windows**, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en su equipo. En el archivo README.md, desplácese a la sección **Descargar e instalar** y haga clic en el *instalador más reciente*. Este paso le lleva a la página más reciente del instalador. Descargue el instalador .exe desde aquí y ejecútelo. 
-- Si usa una **DSVM de Linux**, cree una clave pública SSH en su DSVM y agréguela al servidor de VSTS del grupo. Para obtener más información acerca de SSH, consulte la sección acerca de cómo **crear una clave pública SSH** en el [anexo de plataformas y herramientas](platforms-and-tools.md#appendix). 
+- Git debe estar instalado en la máquina. Si usa una instancia de Data Science Virtual Machine (DSVM), Git se ha instalado previamente y está listo para continuar. En caso contrario, consulte el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix).  
+- Si usa una **DSVM de Windows**, debe tener [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado en su máquina. En el archivo README.md, desplácese a la sección **Descargar e instalar** y haga clic en el *instalador más reciente*. Este paso le lleva a la página más reciente del instalador. Descargue el instalador .exe desde aquí y ejecútelo. 
+- Si usa una instancia de **DSVM de Linux**, cree una clave pública SSH en su DSVM y agréguela al servidor de VSTS del grupo. Para más información acerca de SSH, consulte la sección acerca de cómo **crear una clave pública SSH** en el [apéndice de plataformas y herramientas](platforms-and-tools.md#appendix). 
 
 
 ## <a name="1-create-account-on-vsts-server"></a>1. Crear una cuenta en el servidor de VSTS
@@ -316,7 +313,7 @@ En la página principal del servidor de VSTS de su grupo, haga clic en el **icon
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Estos son vínculos a descripciones más detalladas de los roles y tareas definidas por el Proceso de ciencia de datos en equipo:
+Estos son vínculos a descripciones más detalladas de los roles y tareas definidas por el proceso de ciencia de datos en equipo:
 
 - [Tareas del administrador de grupo en un equipo de ciencia de datos](group-manager-tasks.md)
 - [Tareas del responsable de equipo en un equipo de ciencia de datos](team-lead-tasks.md)

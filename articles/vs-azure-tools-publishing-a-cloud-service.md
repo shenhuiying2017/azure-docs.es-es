@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 8/14/2017
 ms.author: kraigb
 ms.openlocfilehash: e617d600dbc8287eea737fc4969833e873365288
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publishing-a-cloud-service-using-the-azure-tools"></a>Publicar un servicio en la nube mediante Azure Tools
 Con Azure Tools para Microsoft Visual Studio, puede publicar su aplicación de Azure directamente desde Visual Studio. Visual Studio admite la publicación integrada en los entornos de ensayo o de producción de un servicio en la nube.

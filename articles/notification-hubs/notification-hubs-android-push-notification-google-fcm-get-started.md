@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/14/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Envío de notificaciones push a Android con los Centros de notificaciones de Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -70,7 +70,7 @@ El código completo de este tutorial se puede descargar de GitHub [aquí](https:
 
 El Centro de notificaciones está configurado para funcionar con Firebase Cloud Messagin y el usuario dispone de las cadenas de conexión necesarias para registrar su aplicación para que reciba y envíe notificaciones push.
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones
+## <a id="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones
 ### <a name="add-google-play-services-to-the-project"></a>Incorporación de los servicios de Google Play al proyecto
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
@@ -669,17 +669,11 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 
 
 <!-- URLs. -->
-[Introducción a las notificaciones push en Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
-[SDK de Android para Servicios móviles]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Referencias a un proyecto de biblioteca]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Portal de Azure clásico]: https://manage.windowsazure.com/
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Introducción a los centros de notificaciones]: notification-hubs-push-notification-overview.md
 [Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Uso de Notification Hubs para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

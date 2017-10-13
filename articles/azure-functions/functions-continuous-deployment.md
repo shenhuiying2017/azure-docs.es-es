@@ -15,12 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.contentlocale: es-es
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementación continua para Azure Functions
 Azure Functions facilita la implementación de Function App mediante la integración continua de App Service. Functions se integra con BitBucket, Dropbox, GitHub y Visual Studio Team Services (VSTS). Esto permite un flujo de trabajo en el que las actualizaciones del código de la función realizadas mediante uno de estos servicios integrados desencadenan la implementación en Azure. Si no está familiarizado con Azure Functions, consulte primero [Información general sobre Azure Functions](functions-overview.md).
@@ -153,4 +152,3 @@ Para poder descargar archivos desde la Function App con FTP o el repositorio loc
 
 > [!div class="nextstepaction"]
 > [Procedimientos recomendados de Azure Functions](functions-best-practices.md)
-

@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b320581011c27a2efc49fa784f184a37bdb7f6fe
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Uso de Draft con Azure Container Service y Azure Container Registry para crear e implementar una aplicación en Kubernetes
 
 [Draft](https://aka.ms/draft) es una nueva herramienta de código abierto que facilita el desarrollo de aplicaciones basadas en contenedores y su implementación en clústeres de Kubernetes sin necesidad de tener un gran conocimiento sobre Docker y Kubernetes, o incluso su instalación. Con herramientas como Draft, usted y su equipo pueden centrarse en la creación de la aplicación con Kubernetes, sin tener que prestar mucha atención a la infraestructura.
@@ -290,7 +288,6 @@ Hello World, I'm Java!
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que tiene un clúster de ACS Kubernetes, puede investigar mediante [Azure Container Registry](../../container-registry/container-registry-intro.md) para crear más implementaciones de este escenario y también otras distintas. Por ejemplo, puede crear un conjunto de registros DNS de dominios draft._basedomain.toplevel_ que controle aspectos de un subdominio más profundo para implementaciones de ACS específicas.
-
 
 
 

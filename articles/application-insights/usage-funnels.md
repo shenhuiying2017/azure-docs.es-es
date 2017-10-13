@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
+ms.openlocfilehash: 59c4dfafc102b26e3b9873f433065715f4aec9ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2b25ffd844507074a8467b1135b1331feb9d3ed7
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Descubra cómo los clientes usan la aplicación con los embudos de Application Insights.
 
 Conocer la experiencia de los clientes es de suma importancia para su negocio. Si la aplicación implica varias fases, debe saber si la mayoría de los clientes avanzan a través de todo el proceso, o si finalizan el proceso en algún momento. La progresión a través de una serie de pasos en una aplicación web se conoce como "embudo". Puede usar los embudos de Application Insights para obtener información sobre los usuarios y supervisar las tasas de conversión paso a paso. 
@@ -50,4 +48,3 @@ En la siguiente ilustración se muestran los datos que la hoja Embudos genera. D
   * [Retención](app-insights-usage-retention.md)
   * [Libros](app-insights-usage-workbooks.md)
   * [Adición de contexto de usuario](app-insights-usage-send-user-context.md)
-

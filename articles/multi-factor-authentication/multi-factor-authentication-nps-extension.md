@@ -15,12 +15,11 @@ ms.date: 08/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 42b0bda033b1721ba5c0f575ea2ce6b0933f0f45
-ms.contentlocale: es-es
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -251,4 +250,3 @@ Compruebe que https://adnotifications.windowsazure.com sea accesible desde el se
 - Obtenga información sobre cómo integrar [Puerta de enlace de Escritorio remoto](nps-extension-remote-desktop-gateway.md) y los [servidores VPN](nps-extension-vpn.md) con la extensión NPS
 
 - [Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md)
-

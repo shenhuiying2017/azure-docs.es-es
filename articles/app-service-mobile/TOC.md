@@ -1,5 +1,5 @@
 # Información general
-## [¿Qué es Mobile Apps?](app-service-mobile-value-prop.md)
+## [¿Qué es Aplicaciones móviles?](app-service-mobile-value-prop.md)
 ## [Planes de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Introducción
@@ -16,7 +16,7 @@
 
 ## Planeamiento y diseño
 ### [Autenticación y autorización en Azure Mobile Apps](app-service-mobile-auth.md)
-### [Sincronización de datos sin conexión en Azure Mobile Apps](app-service-mobile-offline-data-sync.md)
+### [Sincronización de datos sin conexión en Aplicaciones móviles de Azure](app-service-mobile-offline-data-sync.md)
 ### [Procedimientos recomendados para Azure App Service](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Información detallada de los planes de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Hospedaje de alta densidad](../app-service/environment/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

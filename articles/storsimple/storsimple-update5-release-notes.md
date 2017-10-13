@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/28/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Notas de la versión de la serie StorSimple 8000 Update 5
 
@@ -73,5 +72,4 @@ Esta actualización no se puede aplicar a StorSimple Cloud Appliance (también c
 ## <a name="next-step"></a>Paso siguiente
 
 Obtenga información sobre cómo [instalar Update 5](storsimple-8000-install-update-5.md) en el dispositivo StorSimple.
-
 

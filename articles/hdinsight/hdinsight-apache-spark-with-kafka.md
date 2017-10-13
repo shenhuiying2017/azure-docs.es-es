@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 788ba828d1380b17913cabf18827c1abcc83c725
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>Ejemplo de streaming de Apache Spark (DStream) con Kafka (versión preliminar) en HDInsight
 
@@ -101,5 +100,4 @@ En este ejemplo ha aprendido a usar Spark para leer y escribir en Kafka. Utilice
 * [Introducción a Apache Kafka en HDInsight](hdinsight-apache-kafka-get-started.md)
 * [Uso de MirrorMaker para crear una réplica de Kafka en HDInsight](hdinsight-apache-kafka-mirroring.md)
 * [Uso de Apache Kafka con Storm en HDInsight](hdinsight-apache-storm-with-kafka.md)
-
 

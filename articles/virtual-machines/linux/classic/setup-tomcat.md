@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: fa30c78a5a5d458ba8845c3c10b87538427786c9
-ms.contentlocale: es-es
-ms.lasthandoff: 03/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configuración de Tomcat7 en una máquina virtual con Linux con Azure
 Apache Tomcat (o simplemente Tomcat, anteriormente denominado Jakarta Tomcat) es un servidor web y contenedor de servlet de código abierto desarrollado por Apache Software Foundation (ASF). Tomcat implementa el servlet de Java y las especificaciones de JavaServer Pages (JSP) de Sun Microsystems. Además, proporciona un entorno de servidor web HTTP Java puro en el que se va a ejecutar el código de Java. En la configuración más sencilla, Tomcat se ejecuta en un proceso de sistema operativo único. Este proceso ejecuta una máquina virtual de Java (JVM). Todas las solicitudes HTTP desde un explorador para Tomcat se procesan como un subproceso independiente en el proceso de Tomcat.  
@@ -331,4 +330,3 @@ Esto se ha probado en CentOS 6.3.
 [16]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
-

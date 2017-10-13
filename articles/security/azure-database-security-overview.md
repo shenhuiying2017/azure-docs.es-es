@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
 ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-security-overview"></a>Introducción a la seguridad de base de datos de Azure
 
@@ -120,7 +120,7 @@ El servicio [Azure SQL Database](https://azure.microsoft.com/services/sql-databa
 La autenticación de SQL Database indica cómo probar su identidad al conectarse a la base de datos. SQL Database admite dos tipos de autenticación:
 
 -   **Autenticación SQL:** cuando se crea una instancia lógica de SQL, se crea también una cuenta de inicio de sesión único, que se denomina Cuenta de suscriptor de SQL Database. Esta cuenta se conecta mediante la [autenticación de SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nombre de usuario y contraseña). Esta cuenta es un administrador en la instancia del servidor lógico y en todas las bases de datos de usuario asociadas a dicha instancia. Los permisos de la cuenta del suscriptor no se pueden restringir. Solo puede existir una de estas cuentas.
--   **Autenticación de Azure Active Directory:** [La autenticación de Azure Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) es un mecanismo de conexión a Microsoft Azure SQL Database y a SQL Data Warehouse mediante identidades en Azure Active Directory (Azure AD). Esto le permite administrar de forma centralizada las identidades de los usuarios de base de datos.
+-   **Autenticación de Azure Active Directory:**[La autenticación de Azure Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) es un mecanismo de conexión a Microsoft Azure SQL Database y a SQL Data Warehouse mediante identidades en Azure Active Directory (Azure AD). Esto le permite administrar de forma centralizada las identidades de los usuarios de base de datos.
 
 ![Autenticación](./media/azure-databse-security-overview/azure-database-fig2.png)
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-limits-and-defaults"></a>Límites del programador y valores predeterminados
 ## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Aceleradores, valores predeterminados, límites y cuotas de Programador
@@ -45,10 +45,4 @@ Si una solicitud genera error sistemáticamente y se ha comprobado que la solici
  [Alta disponibilidad y confiabilidad de Programador de Azure](scheduler-high-availability-reliability.md)
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
 ms.openlocfilehash: bd45a0fb99a77851aa7b91d23bd4b830b6f5cc7b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales
 **Problema**: ha creado una infraestructura de escalado automático en Azure Resource Manager mediante conjuntos de escalado de máquinas virtuales; por ejemplo, al implementar una plantilla como esta: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, tiene sus reglas de escalado definidas y funcionan bien, excepto que sin importar cuánta carga se coloque en las máquinas virtuales, no se escalará automáticamente.

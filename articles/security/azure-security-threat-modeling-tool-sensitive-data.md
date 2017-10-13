@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Marco de seguridad: Información confidencial | Mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
-| **Límites de confianza de la máquina** | <ul><li>[Asegúrese de que los archivos binarios estén ofuscados si contienen información confidencial](#binaries-info)</li><li>[Considere la posibilidad de usar el sistema de cifrado de archivos (EFS) para proteger información confidencial específica del usuario](#efs-user)</li><li>[Asegúrese de que se cifre la información confidencial almacenada por la aplicación en el sistema de archivos](#filesystem)</li></ul> | 
+| **Límite de confianza de la máquina** | <ul><li>[Asegúrese de que los archivos binarios estén ofuscados si contienen información confidencial](#binaries-info)</li><li>[Considere la posibilidad de usar el sistema de cifrado de archivos (EFS) para proteger información confidencial específica del usuario](#efs-user)</li><li>[Asegúrese de que se cifre la información confidencial almacenada por la aplicación en el sistema de archivos](#filesystem)</li></ul> | 
 | **Aplicación web** | <ul><li>[Asegúrese de que no se almacene contenido confidencial en la memoria caché del explorador](#cache-browser)</li><li>[Cifre las secciones de los archivos de configuración de la aplicación web que contengan información confidencial](#encrypt-data)</li><li>[Deshabilite explícitamente el atributo HTML autocomplete en formularios y entradas confidenciales](#autocomplete-input)</li><li>[Asegúrese de que la información confidencial que se muestra en la pantalla del usuario esté enmascarada](#data-mask)</li></ul> | 
 | **Base de datos** | <ul><li>[Implemente el enmascaramiento dinámico de datos para limitar la exposición de información confidencial a usuarios sin privilegios](#dynamic-users)</li><li>[Asegúrese de que las contraseñas se almacenen en formato de hash con sal](#salted-hash)</li><li>[Asegúrese de que la información confidencial en las columnas de la base de datos esté cifrada](#db-encrypted)</li><li>[Asegúrese de que el cifrado de base de datos (TDE) esté habilitado](#tde-enabled)</li><li>[Asegúrese de que las copias de seguridad de la base de datos estén cifradas](#backup)</li></ul> | 
 | **API web** | <ul><li>[Asegúrese de que la información confidencial relevante para la API web no se guarde en el almacenamiento del explorador](#api-browser)</li></ul> | 

@@ -14,14 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
+ms.openlocfilehash: feaced0d0784b5724fb1e30be5e66cb7c808d77f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: a40e26a8681df31fad664e4d1df4c1513311900d
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-your-app-to-linux-vms-using-jenkins-and-team-services"></a>Implementación de la aplicación en máquinas virtuales Linux con Jenkins y Team Services
 
 La integración continua (CI) y la implementación continua (CD) constituyen una canalización mediante la que se puede compilar, publicar e implementar el código. Team Services proporciona un completo conjunto rico en contenido de herramientas de automatización de CI/CD para la implementación en Azure. Jenkins es una popular herramienta basada en servidor de CI/CD de terceros que además proporciona automatización de CI/CD. Puede usar ambos conjuntamente para personalizar la forma de entrega de la aplicación o el servicio en la nube.

@@ -15,16 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/21/2017
 ms.author: delhan
+ms.openlocfilehash: 79e412bd7523a55fc7d081121af9434520868880
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 70254d39b5c6326166f7e29fdfc99533835502f9
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Instrucciones de uso de diagnósticos de arranque para solucionar problemas de máquinas virtuales Linux en Azure
 
-Ahora se ofrece en Azure compatibilidad con dos características de depuración, Salida de la consola y Captura de pantalla, para el modelo de implementación de Resource Manager de Azure Virtual Machines. 
+Ahora se ofrece en Azure compatibilidad con dos características de depuración, Salida de la consola y Captura de pantalla, para el modelo de implementación de Resource Manager en máquinas virtuales de Azure. 
 
 Cuando lleva su propia imagen a Azure o incluso cuando arranca una de las imágenes de la plataforma, hay muchas razones por las que una máquina virtual puede entrar en un estado que no permita el arranque. Estas características le permiten diagnosticar y recuperar fácilmente las máquinas virtuales de los errores de arranque.
 
@@ -36,7 +35,7 @@ Sin embargo, para las máquinas virtuales Windows y Linux, Azure también le per
 
 ![Error](./media/boot-diagnostics/screenshot2.png)
 
-Ambas características son compatibles para Azure Virtual Machines en todas las regiones. Tenga en cuenta que las capturas de pantalla y la salida pueden tardar hasta 10 minutos en aparecer en la cuenta de almacenamiento.
+Ambas características son compatibles para las máquinas virtuales de Azure en todas las regiones. Tenga en cuenta que las capturas de pantalla y la salida pueden tardar hasta 10 minutos en aparecer en la cuenta de almacenamiento.
 
 ## <a name="common-boot-errors"></a>Errores comunes de arranque
 

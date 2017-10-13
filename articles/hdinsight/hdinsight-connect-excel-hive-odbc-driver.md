@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/22/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 65a93003eb829a2eaf4684d2a6ecacf74b0adc75
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conexión de Excel a Hadoop en Azure HDInsight con el controlador ODBC de Microsoft Hive
 
@@ -119,6 +118,5 @@ En este artículo se proporciona información sobre cómo usar el controlador OD
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 
 [hive-odbc-driver-download]: http://go.microsoft.com/fwlink/?LinkID=286698
-
 
 

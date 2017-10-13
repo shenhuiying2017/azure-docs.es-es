@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/04/2017
 ms.author: terrylan
 ms.openlocfilehash: f1fb7f876c7dc010c03f01a4f6698ddc18da1100
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
 Azure Virtual Machines permite implementar una amplia gama de soluciones informáticas con agilidad. Gracias a la compatibilidad con Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP y Azure BizTalk Services, puede implementar cualquier carga de trabajo y cualquier idioma en casi cualquier sistema operativo.
@@ -79,9 +79,9 @@ Las protecciones del cifrado y la autenticación se pueden mejorar si se mejora 
 
 Más información:
 
-* [¿Qué es Azure Key Vault?](../key-vault/key-vault-whatis.md)
+* [¿Qué es el Almacén de claves de Azure?](../key-vault/key-vault-whatis.md)
 * [Introducción a Azure Key Vault](../key-vault/key-vault-get-started.md)
-* [Blog de Azure Key Vault](https://blogs.technet.microsoft.com/kv/)
+* [Blog del Almacén de claves de Azure](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Cifrado de discos de máquinas virtuales
 Azure Disk Encryption es una nueva funcionalidad que permite cifrar los discos de máquinas virtuales de Azure de Windows y Linux. Azure Disk Encryption usa la característica [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) estándar del sector de Windows y la característica [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para ofrecer cifrado de volumen para el sistema operativo y los discos de datos.

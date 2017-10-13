@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/16/2016
 ms.author: alkohli
 ms.openlocfilehash: bf92ffdb16b86c4033cc96ae2abb060d90f9505e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
 ## <a name="overview"></a>Información general
@@ -141,7 +141,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
    
     b. Vaya a la página **Contenedores de volúmenes** . Deberían aparecer todos los contenedores de volúmenes, junto con los volúmenes del dispositivo antiguo.
 
-![Vídeo disponible](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-device-failover-disaster-recovery/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo que muestra cómo se puede restaurar un dispositivo físico con conmutación por error en un dispositivo virtual en la nube, haga clic [aquí](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 

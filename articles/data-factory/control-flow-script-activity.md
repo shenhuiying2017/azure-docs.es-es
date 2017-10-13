@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 143e2a29be18771c6d4f7ce5d1711fa8c9b52e07
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="script-activity-in-azure-data-factory"></a>Actividad de script en Azure Data Factory
 
@@ -26,7 +25,7 @@ ms.lasthandoff: 09/25/2017
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory V1](v1/data-factory-introduction.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea otras actividades de flujo de control compatibles con Data Factory: 
+Consulte otras actividades de flujo de control compatibles con Data Factory: 
 
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Para cada actividad](control-flow-for-each-activity.md)

@@ -16,10 +16,10 @@ ms.date: 08/25/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2cb263103da05b10c24aab71d81c43eb25987565
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-your-iot-hub-solution"></a>Escalado de la solución de IoT Hub
 El Centro de IoT de Azure puede admitir hasta un millón de dispositivos conectados simultáneamente. Para obtener más información, vea [Precios de IoT Hub][lnk-pricing]. Cada unidad de IoT Hub permite un número determinado de mensajes diarios.

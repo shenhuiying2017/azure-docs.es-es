@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
 ms.openlocfilehash: 538a6ab60168735c2626a93cdeedd8d4999a6efc
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Información general y comparación de codificadores multimedia a petición de Azure
 ## <a name="encoding-overview"></a>Información general sobre la codificación

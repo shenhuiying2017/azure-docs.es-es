@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fb67c70d1e85307c38a185e2b47729880880d55b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +52,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure SQ
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **AzureSqlDW** | Sí |
 | connectionString |Especifique la información necesaria para conectarse a la instancia de Almacenamiento de datos SQL de Azure para la propiedad connectionString. Solo se admite la autenticación básica. Marque este campo como SecureString. |Sí |
-| connectVia | El tipo de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Azure Integration Runtime o Integration Runtime autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, se usará el entorno Azure Integration Runtime predeterminado. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
 
 
 > [!IMPORTANT]
@@ -82,7 +81,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure SQ
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Para ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. Esta sección proporciona una lista de las propiedades que el conjunto de datos de Azure SQL Data Warehouse admite.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. Esta sección proporciona una lista de las propiedades que el conjunto de datos de Azure SQL Data Warehouse admite.
 
 Para copiar datos con Azure SQL Data Warehouse como origen o destino, establezca la propiedad type del conjunto de datos en **AzureSqlDWTable**. Se admiten las siguientes propiedades:
 
@@ -112,7 +111,7 @@ Para copiar datos con Azure SQL Data Warehouse como origen o destino, establezca
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
-Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). Esta sección proporciona una lista de las propiedades que el origen y el receptor de Azure SQL Data Warehouse admiten.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). Esta sección proporciona una lista de las propiedades que el origen y el receptor de Azure SQL Data Warehouse admiten.
 
 ### <a name="azure-sql-data-warehouse-as-source"></a>Azure SQL Data Warehouse como origen
 
@@ -123,7 +122,7 @@ Para copiar datos desde Azure SQL Data Warehouse, establezca el tipo de origen d
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **SqlDWSource**. | Sí |
 | SqlReaderQuery |Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |Nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |No |
-| storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son: pares nombre/valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
+| storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son: pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
 
 **Puntos a tener en cuenta:**
 

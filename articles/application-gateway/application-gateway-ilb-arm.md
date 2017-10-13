@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
+ms.openlocfilehash: 8d96af009055a5c0349f0ac17054bebee4e54d36
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: d218eab7e9f124e4825a8a781b4eeb0dcca58b4a
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB) mediante el Administrador de recursos de Azure
 
@@ -57,9 +56,9 @@ Estos son los pasos necesarios para crear una puerta de enlace de aplicaciones:
 3. Creación de un objeto de configuración de la Puerta de enlace de aplicaciones
 4. Crear un recurso de la puerta de enlace de aplicaciones
 
-## <a name="create-a-resource-group-for-resource-manager"></a>Creación de un grupo de recursos para el Administrador de recursos
+## <a name="create-a-resource-group-for-resource-manager"></a>Creación de un grupo de recursos para Resource Manager
 
-Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Administrador de recursos de Azure. Hay más información disponible en [Uso de Windows PowerShell con Resource Manager](../powershell-azure-resource-manager.md).
+Asegúrese de cambiar el modo de PowerShell para que use los cmdlets de Azure Resource Manager. Hay más información disponible en [Uso de Windows PowerShell con Resource Manager](../powershell-azure-resource-manager.md).
 
 ### <a name="step-1"></a>Paso 1
 
@@ -99,7 +98,7 @@ En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-rg" y la 
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Creación de una red virtual y una subred para la puerta de enlace de aplicaciones
 
-En el ejemplo siguiente se muestra cómo crear una red virtual con el Administrador de recursos:
+En el ejemplo siguiente se muestra cómo crear una red virtual con Resource Manager:
 
 ### <a name="step-1"></a>Paso 1
 
@@ -275,5 +274,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 
 * [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
 

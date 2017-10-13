@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: fea70b389b1f1d6af963e3f14fdc48e8d857dd53
-ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configuración de un agente de escucha ILB para grupos de disponibilidad AlwaysOn en Azure
 > [!div class="op_single_selector"]
@@ -167,4 +166,3 @@ Cree el agente de escucha de grupo de disponibilidad en dos pasos. En primer lug
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-

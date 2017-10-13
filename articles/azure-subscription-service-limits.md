@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
+ms.openlocfilehash: e2c67bed2162773156ebf1f0f99593aeb2adf019
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: f9f7449fbfc6a1f2fe96e19dd2b13845e602946d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 Este documento enumeran algunos de los límites más comunes de Microsoft Azure, que a veces se denominan cuotas. Actualmente, este documento no cubre todos los servicios de Azure. Con el tiempo, esta lista se expandirá y actualizará para abarcar más de la plataforma.
@@ -49,15 +48,15 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [Active Directory](#active-directory-limits)
 * [API Management](#api-management-limits)
 * [App Service](#app-service-limits)
-* [Application Gateway](#application-gateway-limits)
+* [Puerta de enlace de aplicaciones](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
-* [Automation](#automation-limits)
+* [Automatización](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
-* [Backup](#backup-limits)
-* [Batch](#batch-limits)
-* [BizTalk Services](#biztalk-services-limits)
+* [Copia de seguridad](#backup-limits)
+* [Lote](#batch-limits)
+* [Servicios de BizTalk](#biztalk-services-limits)
 * [SERVICIO CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
 * [Azure Container Instances](#container-instances-limits)
@@ -65,10 +64,10 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [Análisis de Data Lake](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
-* [Centros de eventos](#event-hubs-limits)
-* [IoT Hub](#iot-hub-limits)
+* [Event Hubs](#event-hubs-limits)
+* [Centro de IoT](#iot-hub-limits)
 * [Servicio IoT Hub Device Provisioning](#iot-hub-device-provisioning-service-limits)
-* [Key Vault](#key-vault-limits)
+* [Almacén de claves](#key-vault-limits)
 * [Log Analytics/Operational Insights](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
@@ -86,9 +85,9 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [SQL Database](#sql-database-limits)
 * [Storage](#storage-limits)
 * [Sistema de StorSimple](#storsimple-system-limits)
-* [Stream Analytics](#stream-analytics-limits)
+* [Análisis de transmisiones](#stream-analytics-limits)
 * [Suscripción](#subscription-limits)
-* [Traffic Manager](#traffic-manager-limits)
+* [Administrador de tráfico](#traffic-manager-limits)
 * [Virtual Machines](#virtual-machines-limits)
 * [Conjuntos de escalado de máquina virtual](#virtual-machine-scale-sets-limits)
 

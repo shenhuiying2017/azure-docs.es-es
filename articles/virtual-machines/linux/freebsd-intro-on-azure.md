@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
+ms.openlocfilehash: 2369bc893d28cf6f6174376eb961049b651c66a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 79724bced613619406b693b4b352037e2c5ec9f3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introducción a FreeBSD en Azure
 Este tema proporciona una visión general de la ejecución de una máquina virtual de FreeBSD en Azure.
@@ -136,4 +135,3 @@ La versión 2.2.2 de [Agente invitado de máquina virtual de Azure](https://gith
 ## <a name="next-steps"></a>Pasos siguientes
 * Acuda a [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) para crear una máquina virtual de FreeBSD.
 * Si desea incorporar su propio FreeBSD a Azure, consulte [Creación y carga de un VHD de FreeBSD en Azure](classic/freebsd-create-upload-vhd.md).
-

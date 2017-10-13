@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 6fcdcc96c7762e2362aebf909ef25f4a5ab62f99
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure
 Con un par de claves de shell seguro (SSH), puede crear máquinas virtuales en Azure que usen claves SSH para autenticación, lo que elimina la necesidad de usar contraseñas para iniciar sesión. En este artículo se muestra cómo generar y usar rápidamente un par de archivos de clave pública y privada en formato RSA versión 2 del protocolo SSH para máquinas virtuales Linux. Para pasos más detallados y ejemplos adicionales, consulte los [pasos detallados para crear pares de claves SSH y certificados](create-ssh-keys-detailed.md).
 
@@ -56,7 +54,6 @@ Las máquinas virtuales creadas con claves SSH están configuradas de forma pred
 
 También puede crear máquinas virtuales que usen el par de claves SSH mediante Azure Portal, la CLI y las plantillas:
 
-* [Creación de una máquina virtual Linux protegida mediante Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Creación de una máquina virtual Linux protegida mediante el Portal de Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creación de una máquina virtual Linux segura mediante la CLI de Azure 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Creación de una máquina virtual Linux protegida mediante una plantilla de Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

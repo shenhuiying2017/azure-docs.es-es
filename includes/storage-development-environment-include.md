@@ -41,8 +41,7 @@ Tiene dos opciones de entorno para ejecutar los ejemplos de esta guía:
 * Puede ejecutar el código en una cuenta de Almacenamiento de Azure en la nube. 
 * Puede ejecutar el código en el emulador de almacenamiento de Azure. El emulador de almacenamiento es un entorno local que emula una cuenta de Almacenamiento de Azure en la nube. El emulador es una opción gratis para probar y depurar el código mientras la aplicación está en desarrollo. El emulador usa una cuenta y una clave conocidas. Para más información, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](../articles/storage/common/storage-use-emulator.md)
 
-Si el destino es una cuenta de 
-Storage en la nube, copie la clave de acceso principal de su cuenta de Storage de Azure Portal. Para obtener más información, consulte [Visualización y copia de las claves de acceso de almacenamiento](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Si el destino es una cuenta de Storage en la nube, copie la clave de acceso principal de su cuenta de Storage de Azure Portal. Para obtener más información, consulte [Visualización y copia de las claves de acceso de almacenamiento](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 > [!NOTE]
 > Puede dirigirse al emulador de almacenamiento para evitar incurrir en cualquier coste asociado con Almacenamiento de Azure. Sin embargo, si selecciona dirigirse a una cuenta de almacenamiento de Azure en la nube, los costes derivados de la realización de este tutorial serán insignificantes.

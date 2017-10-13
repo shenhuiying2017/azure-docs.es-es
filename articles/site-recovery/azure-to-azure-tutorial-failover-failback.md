@@ -12,12 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6a66528bfeb7249add9f589830293760c238e7db
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Conmutación por error y conmutación por recuperación de las máquinas virtuales de Azure entre regiones de Azure (versión preliminar)
 
@@ -73,4 +72,3 @@ Después de la conmutación por error de la máquina virtual, debe volver a prot
 ## <a name="fail-back-to-the-primary-region"></a>Conmutación por recuperación a la región principal
 
 Tras volver a proteger las máquinas virtuales, puede conmutar por recuperación a la región principal, si es preciso. Para ello, siga las instrucciones de la [conmutación por error](#run-a-failover).
-

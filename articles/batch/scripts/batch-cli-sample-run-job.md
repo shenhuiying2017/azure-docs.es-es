@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 73d93622d418359be421e043d0af4e4befc6f4b4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="running-jobs-on-azure-batch-with-azure-cli"></a>Ejecución de trabajos en Azure Batch con la CLI de Azure
 
 Este script crea un trabajo de Batch y agrega una serie de tareas a dicho trabajo. También muestra cómo supervisar un trabajo y sus tareas. Finalmente, muestra cómo consultar el servicio Batch de forma eficaz para obtener información sobre las tareas del trabajo.
@@ -35,7 +33,7 @@ Este script crea un trabajo de Batch y agrega una serie de tareas a dicho trabaj
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-azurecli[main](../../../cli_scripts/batch/run-job/run-job.sh "Ejecutar trabajo")]
+[!code-azurecli[main](../../../cli_scripts/batch/run-job/run-job.sh "Run Job")]
 
 ## <a name="clean-up-job"></a>Limpieza de un trabajo
 
@@ -64,4 +62,3 @@ Este script usa los siguientes comandos para crear un trabajo de Batch y las tar
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Puede encontrar ejemplos de script adicionales de la CLI de Batch en la [documentación de la CLI de Azure Batch](../batch-cli-samples.md).
-

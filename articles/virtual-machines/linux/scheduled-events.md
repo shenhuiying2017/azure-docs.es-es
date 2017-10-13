@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 75e509a7e39f5b268ce550d0c4dea2261d4fe56f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Servicio Azure Metadata: eventos programados (versión preliminar) para VM Linux
 
 > [!NOTE] 
@@ -190,4 +188,3 @@ if __name__ == '__main__':
 
 - En [Instance Metadata Service](instance-metadata-service.md) (Servicio Instance Metadata), puede obtener más información sobre las API disponibles.
 - Obtenga información sobre cómo realizar [el mantenimiento planeado para máquinas virtuales Linux en Azure](planned-maintenance.md).
-

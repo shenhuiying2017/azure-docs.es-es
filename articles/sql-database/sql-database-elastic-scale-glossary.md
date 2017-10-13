@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ebd5224caa41efe61bdea14b4570005880f4411c
-ms.contentlocale: es-es
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 0fda4bb948bbed1c14d468519ba67cce9bc4e6c3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elastic-database-tools-glossary"></a>Glosario de las herramientas de bases de datos elásticas
 Los siguientes términos se definen para las [herramientas de Base de datos elástica](sql-database-elastic-scale-introduction.md), una característica de Base de datos SQL de Azure. Las herramientas se usan para administrar [mapas de particiones](sql-database-elastic-scale-shard-map-management.md) e incluyen la [biblioteca de cliente](sql-database-elastic-database-client-library.md), la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md), los [grupos elásticos](sql-database-elastic-pool.md) y las [consultas](sql-database-elastic-query-overview.md). 
@@ -93,5 +91,4 @@ Aquí se muestra una representación de bases de datos de inquilino único y mul
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
-
 

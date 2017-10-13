@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fc1152f1431474b6625f389a1290a121e86fbdac
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Cómo consumir un servicio web Azure Machine Learning
 
@@ -125,5 +124,4 @@ Para conectarse a un servicio web Machine Learning, use la biblioteca **urllib2*
 1. Publique el experimento "Ejemplo 1: descargar el conjunto de datos de UCI: conjunto de datos de clase de contenido para adultos 2", que forma parte de la colección de ejemplos de Aprendizaje automático.
 2. Asigne una clave de API con la clave de un servicio web. Vea la sección **Obtener una clave de autorización de Azure Machine Learning** casi al principio de este artículo.
 3. Asigne la URI de servicio a la URI de solicitud.
-
 

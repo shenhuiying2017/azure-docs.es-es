@@ -14,10 +14,10 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
 ms.openlocfilehash: d07a0c81f89100c378456bbea8dca1c009cc8d77
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicaciones web en tiempo de ejecución con Application Insights
 
@@ -28,7 +28,7 @@ Puede instrumentar una aplicación web activa con Azure Application Insights sin
 
 Puede optar entre tres vías de aplicar Application Insights a sus aplicaciones web .NET:
 
-* **Tiempo de compilación:** [agregue el SDK de Application Insights][greenbrown] al código de la aplicación web.
+* **Tiempo de compilación:**[agregue el SDK de Application Insights][greenbrown] al código de la aplicación web.
 * **Tiempo de ejecución:** instrumenta la aplicación web en el servidor, como se describe a continuación, sin volver a generar e implementar el código.
 * **Ambos:** compila el SDK en el código de aplicación web y aplica las extensiones del sistema en tiempo de ejecución. Obtenga lo mejor de ambas opciones.
 

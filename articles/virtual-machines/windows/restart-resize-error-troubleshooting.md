@@ -9,20 +9,18 @@ editor:
 tags: top-support-issue
 ms.assetid: 0756b52d-4f5a-4503-ae45-c00a6a2edcdf
 ms.service: virtual-machines-windows
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
 ms.date: 06/13/2017
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: a99af3b7087d5d7af2687a080deb05ed566fdb63
-ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 5fe9cc11a9046b537a4a10f34e77bacb69232743
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Solución de problemas de implementación con el reinicio o el cambio de tamaño de una máquina virtual Windows existente en Azure
 Al intentar iniciar una máquina virtual de Azure detenida o cambiar el tamaño de una máquina virtual de Azure existente, es común encontrarse un error de asignación. Dicho error se produce cuando el clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado.
@@ -67,5 +65,4 @@ La solicitud de cambiar el tamaño de la máquina virtual se debe realizar en el
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si surgen problemas al crear una nueva máquina virtual Windows en Azure, consulte [Solución de problemas de implementación de Resource Manager con la creación de una máquina virtual de Windows en Azure](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 

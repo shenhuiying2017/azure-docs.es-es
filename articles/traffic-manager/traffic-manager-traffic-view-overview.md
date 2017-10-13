@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f1ab98ab173edc794bfabdf55d950ac689a37c0a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
 
 >[!NOTE]
@@ -51,5 +49,4 @@ Cuando use Traffic View, se le facturará en función del número de puntos de d
 - Aprenda [cómo funciona el Administrador de tráfico](traffic-manager-overview.md)
 - Aprenda más sobre los [métodos de enrutamiento de tráfico](traffic-manager-routing-methods.md) que admite el Administrador de tráfico.
 - Aprenda a [crear un perfil de Administrador de tráfico](traffic-manager-create-profile.md)
-
 
