@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
 ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Introducción a las plantillas privadas del Portal de Azure
 Las plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) son plantillas declarativas que se utilizan para definir la implementación. Puede definir los recursos que se van a implementar en una solución y especificar parámetros y variables que le permitan especificar valores de entrada para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.

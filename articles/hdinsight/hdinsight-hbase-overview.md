@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
+ms.openlocfilehash: 62b2700c368c4b0c66df140e8961408840beb626
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c8857076faa37f5b0d7c70f40b494465b3b99af2
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>Qué es HBase en HDInsight: una base de datos NoSQL que proporciona funciones de tipo BigTable para Hadoop
 Apache HBase es una base de datos NoSQL de código abierto que se compila en Hadoop y se modela después de Google BigTable. HBase proporciona acceso aleatorio y enorme coherencia para grandes cantidades de datos no estructurados y semiestructurados en una base de datos sin esquemas organizada por familias de columnas.
@@ -61,7 +60,6 @@ El caso de uso canónico para el que se creó BigTable y, por extensión, HBase,
 * [Introducción al uso de HBase con Hadoop en HDInsight][hbase-get-started]
 * [Creación de clústeres de HBase en Azure Virtual Network][hbase-provision-vnet]
 * [Configuración de la replicación geográfica de HBase en HDInsight](hdinsight-hbase-replication.md)
-* [Análisis de opiniones de Twitter con HBase en HDInsight][hbase-twitter-sentiment]
 * [Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)][hbase-build-java-maven]
 
 ## <a name="see-also"></a>Otras referencias
@@ -69,8 +67,6 @@ El caso de uso canónico para el que se creó BigTable y, por extensión, HBase,
 * [Bigtable: un sistema de almacenamiento distribuido para datos estructurados](http://research.google.com/archive/bigtable.html)
 
 [hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
 [hbase-build-java-maven]: hdinsight-hbase-build-java-maven.md
 
@@ -87,4 +83,3 @@ El caso de uso canónico para el que se creó BigTable y, por extensión, HBase,
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
-

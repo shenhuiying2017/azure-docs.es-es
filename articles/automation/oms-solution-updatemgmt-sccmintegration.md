@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integrar System Center Configuration Manager con Update Management de OMS [versión preliminar]
 
 Los clientes que han invertido en System Center Configuration Manager para administrar equipos, servidores y dispositivos móviles también dependen de su solidez y nivel de madurez para administrar actualizaciones de software como parte de su ciclo de Administración de actualizaciones de software (SUM).  
@@ -56,5 +54,4 @@ Después de completar la implementación de actualizaciones con la solución OMS
 Para administrar actualizaciones para VM Windows Server que son clientes de Configuration Manager, debe configurar la directiva de cliente para deshabilitar la característica Administración de actualizaciones de software para todos los clientes que administra esta solución.  De forma predeterminada, la configuración de cliente está dirigida a todos los dispositivos de la jerarquía.  Para obtener más información sobre esta configuración de directiva y cómo configurarla, revise [Cómo configurar el cliente en System Center Configuration Manager](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).  
 
 Después de aplicar este cambio de configuración, cree una nueva implementación según los pasos descritos en [Creación de una implementación de actualizaciones](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) y seleccione la colección adecuada de Configuration Manager representada como grupo de equipos de OMS en la lista desplegable. 
-
 

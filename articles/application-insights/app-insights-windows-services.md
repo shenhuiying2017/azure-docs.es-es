@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
 ms.author: bwren
+ms.openlocfilehash: 4b9f8c618a69c4c157dafeb7f726aae24efad428
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: e7b78907fafcee99c807bfe8f7b311986ba7ffcc
-ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configuración manual de Application Insights para aplicaciones .NET
 
@@ -90,14 +89,14 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
 * Establezca la clave de instrumentación en el código, por ejemplo en `main()`: 
   
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *su clave* `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*su clave*`";` 
 * [Escriba su propia telemetría mediante la API](app-insights-api-custom-events-metrics.md#ikey).
 
 **Si ha instalado otros paquetes de Application Insights,** puede, si lo prefiere, usar el archivo .config para establecer la clave de instrumentación:
 
 * Edite ApplicationInsights.config (que la instalación de NuGet agregó). Inserte esto justo antes de la etiqueta de cierre:
   
-    `<InstrumentationKey>` *la clave de instrumentación que copió* `</InstrumentationKey>`
+    `<InstrumentationKey>`*la clave de instrumentación que copió*`</InstrumentationKey>`
 * Asegúrese de que las propiedades de ApplicationInsights.config en el Explorador de soluciones se establecen en **Build Action = Content, Copy to Output Directory = Copy**.
 
 Es útil establecer la clave de instrumentación en el código si desea [cambiar la clave para diferentes configuraciones de compilación](app-insights-separate-resources.md). Si establece la clave en el código, no tiene que establecerla en el archivo `.config`.
@@ -149,5 +148,4 @@ Consulte [este apartado de la solución de problemas](app-insights-asp-net-troub
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Agregue más telemetría](app-insights-asp-net-more.md) para obtener la visión completa de 360 grados de la aplicación.
-
 

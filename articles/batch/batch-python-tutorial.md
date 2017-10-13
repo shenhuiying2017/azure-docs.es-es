@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Introducción al SDK de Batch para Python
 
@@ -372,7 +371,7 @@ Cuando se crea un grupo, se define una instancia de [PoolAddParameter][py_poolad
 
 * **Id**. del grupo (*id*: necesario)<p/>Lo mismo que sucede con la mayoría de las entidades en Lote, el nuevo grupo debe tener un identificador único dentro de la cuenta de Lote. El código hace referencia a este grupo mediante su identificador y es la forma en que el grupo se identifica en Azure [Portal][azure_portal].
 * **Número de nodos de proceso** (*target_dedicated*: necesario)<p/>Esta propiedad especifica el número de máquinas virtuales que deben implementarse en el grupo. Es importante tener en cuenta que todas las cuentas de Batch tienen una **cuota** predeterminada que limita el número de **núcleos** (y, por tanto, los nodos de proceso) en una cuenta de Batch. Tanto las cuotas predeterminadas como las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) (por ejemplo, el número máximo de núcleos de su cuenta de Batch) se pueden encontrar en [Cuotas y límites del servicio Batch de Azure](batch-quota-limit.md). Si se pregunta "¿Por qué mi grupo no llega a más de X nodos?", esta cuota de núcleos puede ser la causa.
-* **Sistema operativo** para los nodos (*virtual_machine_configuration* **o** *cloud_service_configuration*: necesario)<p/>En *python_tutorial_client.py*, se crea un grupo de nodos de Linux con [VirtualMachineConfiguration][py_vm_config]. La función `select_latest_verified_vm_image_with_node_agent_sku` de `common.helpers` simplifica el trabajo con imágenes del [Catálogo de máquinas virtuales de Azure][vm_marketplace]. Para más información acerca del uso de imágenes de Marketplace, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Azure Batch](batch-linux-nodes.md) .
+* **Sistema operativo** para los nodos (*virtual_machine_configuration***o***cloud_service_configuration*: necesario)<p/>En *python_tutorial_client.py*, se crea un grupo de nodos de Linux con [VirtualMachineConfiguration][py_vm_config]. La función `select_latest_verified_vm_image_with_node_agent_sku` de `common.helpers` simplifica el trabajo con imágenes del [Catálogo de máquinas virtuales de Azure][vm_marketplace]. Para más información acerca del uso de imágenes de Marketplace, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Azure Batch](batch-linux-nodes.md) .
 * **Tamaño de los nodos de proceso** (*vm_size*: necesario)<p/>Dado que especificamos nodos de Linux para nuestra instancia de [VirtualMachineConfiguration][py_vm_config], especificamos también un tamaño de máquina virtual (`STANDARD_A1` en este ejemplo) de los que aparecen en [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para más información, vuelva a consultar [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Lote de Azure](batch-linux-nodes.md) .
 * **Tarea de inicio** (*start_task*: no necesario)<p/>Junto con las anteriores propiedades de nodo físico, también puede especificar una tarea [StartTask][py_starttask] para el grupo (no es necesario). StartTask se ejecutará en cada nodo cuando este se una al grupo, así como cada vez que se reinicie. StartTask es especialmente útil para preparar los nodos de proceso para la ejecución de tareas, como la instalación de las aplicaciones que las tareas ejecutan.<p/>En esta aplicación de ejemplo, la clase StartTask copia los archivos que descarga de Storage (que se especifican mediante la propiedad **resource_files** de StartTask) del *directorio de trabajo* de StartTask al directorio *compartido* al que pueden acceder todas las tareas que se ejecutan en el nodo. Básicamente, copia `python_tutorial_task.py` en el directorio compartido de cada nodo cuando el nodo se une al grupo, con el fin de que las tareas que se ejecutan en el nodo puedan acceder a él.
 
@@ -716,4 +715,3 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Credenciales de Batch en el portal"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Credenciales de Storage en el portal"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Flujo de trabajo de soluciones de Batch (diagrama mínimo)"
-

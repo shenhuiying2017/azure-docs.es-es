@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
+ms.openlocfilehash: edf15e72c822ea5e045895c6f03477c613c0a6c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 12876bff2de5738068f033ecc4ef14b81a68f0f6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="usage-analysis-for-web-applications-with-application-insights"></a>Análisis de uso de aplicaciones web con Application Insights
 
 ¿Qué características de su aplicación web son más populares? ¿Los usuarios logran sus objetivos con la aplicación? ¿Salen de ella en momentos concretos y vuelven más tarde?  [Azure Application Insights](app-insights-overview.md) lo ayudará a obtener información eficaz sobre cómo los usuarios usan su aplicación web. Cada vez que actualice la aplicación, puede evaluar también si funciona bien para los usuarios. Con este conocimiento, puede tomar decisiones basadas en datos sobre los ciclos de desarrollo siguientes.
@@ -32,7 +30,7 @@ La mejor experiencia se obtiene mediante la instalación de Application Insights
 
     * *¿No desea instalar código del servidor? Simplemente [cree un recurso de Azure Application Insights](app-insights-create-new-resource.md).*
 
-2. **Código de página web:** abra el [Azure Portal](https://portal.azure.com), abra el recurso de Application Insights para su aplicación y luego abra **Introducción > Supervisar y diagnosticar la aplicación del lado cliente**. 
+2. **Código de página web:** abra el [Azure Portal](https://portal.azure.com), abra el recurso de Application Insights para su aplicación y luego abra **Introducción &gt; Supervisar y diagnosticar la aplicación del lado cliente**. 
 
     ![Copie el script en el encabezado de la página web maestra.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
@@ -176,4 +174,3 @@ Todos los nuevos clientes de telemetría agregan automáticamente el valor de pr
    - [Flujos de usuario](app-insights-usage-flows.md)
    - [Libros](app-insights-usage-workbooks.md)
    - [Adición de contexto de usuario](app-insights-usage-send-user-context.md)
-

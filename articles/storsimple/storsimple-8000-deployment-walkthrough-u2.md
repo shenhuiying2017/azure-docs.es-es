@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: bcf42ebb081517d247690ee57c2be274784ef29d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3d2023c3e129cfdea27f343a41b3cc373c0c3b8f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implementación del dispositivo StorSimple local (Update 3 u otra posterior)
 
@@ -198,5 +197,4 @@ Siga estos pasos en Azure Portal para crear una copia de seguridad manual a peti
 ## <a name="next-steps"></a>Pasos siguientes
 * [Configuración de una instancia de StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).
 * Use el [servicio de Administrador de dispositivos de StorSimple](storsimple-8000-manager-service-administration.md) para administrar el dispositivo StorSimple.
-
 

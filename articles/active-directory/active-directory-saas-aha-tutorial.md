@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
 ms.openlocfilehash: 7723864b2e1ab2d5b69d86f0fa18416b9d3f9aa3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>Tutorial: Integración de Azure Active Directory con Aha!
 
@@ -88,7 +88,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Aha!, es pr
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Aha!](#creating-an-aha-test-user)** : para tener un equivalente de Britta Simon en Aha! que esté vinculado a la representación de Azure AD del usuario.
+3. **[Creación de un usuario de prueba de Aha!](#creating-an-aha-test-user)**: para tener un equivalente de Britta Simon en Aha! que esté vinculado a la representación de Azure AD del usuario.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 

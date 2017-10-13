@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
 ms.openlocfilehash: 36504a281756b980e3348e7f892ba08821873b52
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: Integración de Azure Active Directory con Keeper Password Manager & Digital Vault
 
@@ -55,7 +55,7 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 ## <a name="adding-keeper-password-manager--digital-vault-from-the-gallery"></a>Incorporación de Keeper Password Manager & Digital Vault desde la galería
 Para configurar la integración de Keeper Password Manager & Digital Vault en Azure AD, es preciso agregar esta aplicación desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Keeper Password Manager & Digital Vault desde la galería, realice los pasos siguientes:**
+**Para agregar Keeper Password Manager &amp; Digital Vault desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
@@ -88,7 +88,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Keeper Pass
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Keeper Password Manager & Digital Vault](#creating-a-keeperpasswordmanager-test-user)**: para tener un homólogo de Britta Simon en esta aplicación que esté vinculado a la representación de ella en Azure AD.
+3. **[Creación de un usuario de prueba de Keeper Password Manager &amp; Digital Vault](#creating-a-keeperpasswordmanager-test-user)**: para tener un homólogo de Britta Simon en esta aplicación que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
@@ -96,7 +96,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Keeper Pass
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Keeper Password Manager & Digital Vault.
 
-**Para configurar el inicio de sesión único de Azure AD con Keeper Password Manager & Digital Vault, siga estos pasos:**
+**Para configurar el inicio de sesión único de Azure AD con Keeper Password Manager &amp; Digital Vault, siga estos pasos:**
 
 1. En Azure Portal, en la página de integración de aplicaciones de **Keeper Password Manager & Digital Vault**, haga clic en **Inicio de sesión único**.
 
@@ -178,7 +178,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ![Asignar usuario][200] 
 
-**Para asignar a Britta Simon a Keeper Password Manager & Digital Vault, realice los pasos siguientes:**
+**Para asignar a Britta Simon a Keeper Password Manager &amp; Digital Vault, realice los pasos siguientes:**
 
 1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 

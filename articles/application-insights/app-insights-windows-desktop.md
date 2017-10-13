@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 9d7e2a390adf10cbf5d88dd0084ce09136987309
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Supervisión del uso y el rendimiento en las aplicaciones de escritorio de Windows
 
@@ -38,7 +37,7 @@ ms.lasthandoff: 11/17/2016
 3. En Visual Studio, edite los paquetes NuGet de su proyecto de aplicación y agregue Microsoft.ApplicationInsights.WindowsServer. (O elija Microsoft.ApplicationInsights si únicamente le interesa la API sola, sin los módulos de recopilación de telemetría estándar).
 4. Establezca la clave de instrumentación en el código:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *su clave* `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*su clave*`";` 
    
     o en ApplicationInsights.config (si tiene instalado uno de los paquetes de telemetría estándar):
    
@@ -90,5 +89,4 @@ ms.lasthandoff: 11/17/2016
 * [Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
 * [Exploración de métricas](app-insights-metrics-explorer.md)
 * [Escribir consultas de Analytics](app-insights-analytics.md)
-
 

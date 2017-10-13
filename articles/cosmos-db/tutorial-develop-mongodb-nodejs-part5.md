@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: e752e18f6d579633c0cf553224ae7617b774ad0f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Creación de una aplicación de MongoDB con Angular y Azure Cosmos DB (parte 5): uso de Mongoose para conectarse a Azure Cosmos DB
 
@@ -241,4 +240,3 @@ Puede continuar con la siguiente parte del tutorial para agregar las funciones P
 
 > [!div class="nextstepaction"]
 > [Incorporación de las funciones Post, Put y Delete a la aplicación](tutorial-develop-mongodb-nodejs-part6.md)
-
