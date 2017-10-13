@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 ms.openlocfilehash: 9a9f4341aaca5bb6049c6d85993c92ea6dd1c8dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-mvp-program"></a>Programa MVP de seguridad de Azure
 Los profesionales más valiosos (MVP) de Microsoft son líderes de la comunidad que han demostrado un compromiso ejemplar para ayudar a que otros usuarios saquen el máximo partido de su experiencia con las tecnologías de Microsoft. Comparten su experiencia técnica, sus conocimientos prácticos y su pasión excepcionales con la comunidad y con Microsoft.

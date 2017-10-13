@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
-ms.lasthandoff: 05/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar un servidor de archivos mediante Azure Portal
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -86,7 +86,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
    
    En la página **Proxy web** :
    
-   1. Proporcione la **URL de proxy web** en este formato:  *http://&lt;dirección o nombre de dominio completo&gt;:Número de puerto*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
+   1. Proporcione la **URL de proxy web** en este formato: *http://&lt;dirección o nombre de dominio completo&gt;:Número de puerto*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
    2. Especifique **Autenticación** como **Básica** o **Ninguna**.
    3. Si utiliza autenticación, también debe proporcionar un **Nombre de usuario** y una **Contraseña**.
    4. Haga clic en **Apply**. Esto validará y aplicará los parámetros de proxy web configurados.
@@ -209,5 +209,4 @@ Ahora, necesitará conectarse a uno o varios recursos compartidos que creó en e
 
 ## <a name="next-steps"></a>Pasos siguientes
 Aprenda a usar la interfaz de usuario web local para [administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
-
 

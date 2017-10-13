@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/24/2017
 ms.author: asgang
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: c235102a60b6d11c8b77203121352bd1400f4325
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicación de una implementación de Dynamics AX en varios niveles múltiples mediante Azure Site Recovery
 
@@ -113,7 +112,7 @@ En Site Recovery se puede crear un plan de recuperación para automatizar el pro
 
 3. Seleccione los valores apropiados en **Origen** y **Destino**. El destino puede ser Azure o un sitio secundario. Si elige Azure, debe especificar el modelo de implementación.
 
-    ![Crear plan de recuperación](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
+    ![Creación de un plan de recuperación](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
 4. Seleccione las máquinas virtuales cliente y de Application Object Server para el plan de recuperación y seleccione el ✓.
 
@@ -193,4 +192,3 @@ Con Azure Site Recovery puede crear un plan completo de recuperación ante desas
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de cómo proteger las cargas de trabajo empresariales con Azure Site Recovery, consulte [¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?](site-recovery-workload.md) .
-

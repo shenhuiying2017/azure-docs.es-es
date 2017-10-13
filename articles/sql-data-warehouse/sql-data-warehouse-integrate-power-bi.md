@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 201efc5225d6c12028b48ccaf6764c60b44dce58
-ms.contentlocale: es-es
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Uso de Power BI con Almacenamiento de datos SQL
 De manera similar a lo que sucede con Base de datos SQL de Azure, Conexión directa de Almacenamiento de datos SQL permite que el usuario aproveche la aplicación lógica y eficaz junto con las funcionalidades analíticas de Power BI.  Con Conexión directa, las consultas se envían de vuelta a la instancia de Almacenamiento de datos SQL de Azure en tiempo real mientras explora los datos.  Esto, en combinación con la escala de Almacenamiento de datos SQL, permite que los usuarios creen, en minutos, informes dinámicos sobre terabytes de datos.  Además, la introducción del botón Abrir en Power BI permite que los usuarios conecten directamente Power BI a su instancia de Almacenamiento de datos SQL sin recopilar información de otras partes de Azure.
@@ -66,4 +64,3 @@ Además de utilizar el botón Abrir en Power BI, los usuarios también pueden co
 <!--MSDN references-->
 
 <!--Other Web references-->
-

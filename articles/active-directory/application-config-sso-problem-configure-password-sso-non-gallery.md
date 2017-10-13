@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 9c76b6f3495e2dd759a156fcef97b57aece8d632
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema en la configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 
@@ -70,7 +70,6 @@ Para configurar **Inicio de sesión único basado en contraseña** para una apli
 ## <a name="how-to-manually-capture-sign-in-fields-for-an-application"></a>Captura manual de campos de inicio de sesión para una aplicación
 
 Para capturar manualmente los campos de inicio de sesión, primero debe tener instalada la extensión del explorador del panel de acceso y **no utilizar el modo InPrivate, incógnito o privado.** Para instalar la extensión del explorador, siga los pasos descritos en la sección [Cómo instalar la extensión de explorador del Panel de acceso](#i-cannot-manually-detect-sign-in-fields-for-my-application).
-.
 
 Para configurar **Inicio de sesión único basado en contraseña** para una aplicación con la **captura manual de campos de inicio de sesión**, siga estos pasos:
 

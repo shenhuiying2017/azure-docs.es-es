@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Azure Service Health proporciona información oportuna y personalizada cuando los problemas en los servicios de Azure afectan a los servicios.  También le ayuda a prepararse para el próximo mantenimiento planeado.
@@ -59,4 +58,4 @@ Filtre Service Health para mostrar las suscripciones, regiones y tipos de recurs
 Azure Service Health se integra con Azure Monitor para enviarle alertas al usuario por correo electrónico, mensajes de texto y notificaciones webhook cuando se vean afectados recursos críticos. Configure una alerta de registro de actividad para el evento de Service Health adecuado. Enrute esa alerta a las personas adecuadas de la organización mediante grupos de acciones. Para más información, consulte [Creación de alertas de registro de actividad en notificaciones del servicio](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 
 # <a name="next-steps"></a>Pasos siguientes
-Configure alertas de forma que se le notifiquen los problemas de mantenimiento. Para más información, consulte [Creación de alertas de registro de actividad en notificaciones del servicio](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+Configure alertas de forma que se le notifiquen los problemas de mantenimiento. Para más información, consulte el artículo de [configuración de alertas para Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 

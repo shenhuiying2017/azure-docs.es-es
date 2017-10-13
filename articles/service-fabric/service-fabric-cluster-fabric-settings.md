@@ -1,4 +1,3 @@
-
 ---
 title: "Cambio de la configuración de un clúster de Azure Service Fabric | Microsoft Docs"
 description: "En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar."
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: cedfba78d8d1186618cf4f61154c5d88a00eb12b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración de Fabric y la directiva de actualización de Fabric para el clúster de Service Fabric. Puede personalizarlos en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager.
@@ -615,5 +613,4 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 Lea estos artículos para más información sobre la administración de clúster:
 
 [Agregar o quitar certificados del clúster de Azure ](service-fabric-cluster-security-update-certs-azure.md) 
-
 

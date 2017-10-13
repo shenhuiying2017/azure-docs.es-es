@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Referencia sobre la API de recopilación de datos de modelos de Azure Machine Learning
 
@@ -26,7 +25,7 @@ En esta guía de referencia de la API, se usa un enfoque paso a paso sobre cómo
 
 ## <a name="enable-model-data-collection-in-azure-ml-workbench-environment"></a>Habilitamiento de la recopilación de datos de modelos en el entorno de Azure Machine Learning Workbench
 
- Busque el archivo conda\_dependencies.yml en el proyecto en la carpeta aml_config y haga que incluya el módulo azureml.datacollector en la sección pip tal y como se muestra a continuación. Tenga en cuenta que esto es solo una subsección de un archivo conda\_dependencies.yml completo:
+ Busque el archivo conda\_dependencies.yml en el proyecto en la carpeta aml_config y haga que incluya el módulo azureml.datacollector en la sección pip tal y como se muestra a continuación.\_ Tenga en cuenta que esto es solo una subsección de un archivo conda\_dependencies.yml completo:
 
     dependencies:
       - python=3.5.2
@@ -95,5 +94,4 @@ Vea los detalles sobre el método y los parámetros:
 |-------------|------------|-------------------------|
 | input_data | varios tipos | los datos que se van a recopilar (actualmente acepta la lista de tipos, numpy.array, pandas.DataFrame, pyspark.sql.DataFrame). Para los tipos dataframe, si existe un encabezado con nombres de características, esta información se incluirá en el destino de los datos (sin necesidad de pasar los nombres de las características de manera explícita en el constructor de ModelDataCollector) |
 | user_correlation_id | cadena | un identificador de correlación opcional, que puede proporcionar el usuario para poner en correlación esta predicción |
-
 

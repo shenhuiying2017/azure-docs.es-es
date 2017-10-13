@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 55cec0c711836360c173a67d575f042d0fe86bef
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Uso de conjuntos de datos de ejemplo en Estudio de aprendizaje automático de Azure
 [top]: #machine-learning-sample-datasets
@@ -92,7 +91,7 @@ Comentarios de libros de Amazon, extraídos del sitio web amazon.com por investi
 <tr>
   <td valign=top>Datos sobre cáncer de mama</td>
   <td valign=top>
-Uno de los tres conjuntos de datos relacionados con el cáncer facilitados por el Instituto de oncología que aparece frecuentemente en la literatura sobre aprendizaje automático. Combina información de diagnóstico con características de análisis de laboratorio de unas 300 muestras de tejido.<p> </p><b>Uso:</b> clasificar el tipo de cáncer basándose en nueve atributos, algunos de los cuales son lineales y otros categóricos. <p> </p><b>Investigación relacionada:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información  </td>
+Uno de los tres conjuntos de datos relacionados con el cáncer facilitados por el Instituto de oncología que aparece frecuentemente en la literatura sobre aprendizaje automático. Combina información de diagnóstico con características de análisis de laboratorio de unas 300 muestras de tejido.<p> </p><b>Uso:</b> clasificar el tipo de cáncer basándose en nueve atributos, algunos de los cuales son lineales y otros categóricos. <p> </p><b>Investigación relacionada:</b> Wohlberg, W.H., Street, W.N., &amp; Mangasarian, O.L. (1995). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información  </td>
 </tr>
 
 <tr ID=breast-cancer-features>
@@ -139,7 +138,7 @@ Etiquetas del concurso sobre la previsión de relaciones con los clientes de KDD
 <tr>
   <td valign=top>Datos de regresión de eficiencia energética</td>
   <td valign=top>
-Colección de perfiles energéticos simulados, con base en 12 formas de edificios diferentes. Los edificios se diferencian tomando como base 8 características, como la zona acristalada, la distribución de la zona acristalada y la orientación.<p> </p><b>Uso:</b> usar la regresión o la clasificación para predecir la clasificación de eficiencia energética en función de una de las dos respuestas con valores reales. En el caso de una clasificación de varias clases, la variable de respuesta se redondea al entero más cercano. <p> </p><b>Investigación relacionada:</b> Xifara, A. & Tsanas, A. (2012). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información  </td>
+Colección de perfiles energéticos simulados, con base en 12 formas de edificios diferentes. Los edificios se diferencian tomando como base 8 características, como la zona acristalada, la distribución de la zona acristalada y la orientación.<p> </p><b>Uso:</b> usar la regresión o la clasificación para predecir la clasificación de eficiencia energética en función de una de las dos respuestas con valores reales. En el caso de una clasificación de varias clases, la variable de respuesta se redondea al entero más cercano. <p> </p><b>Investigación relacionada:</b> Xifara, A. &amp; Tsanas, A. (2012). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información  </td>
 </tr>
 
 <tr ID=flight-delays-data>
@@ -152,14 +151,14 @@ Datos de rendimiento sobre puntualidad en vuelos de pasajeros recopilados en Tra
 <tr>
   <td valign=top>Información sobre puntualidad de vuelos (datos sin procesar)</td>
   <td valign=top>
-Registros de llegadas y salidas de aviones dentro de Estados Unidos desde octubre de 2011.<p> </p><b>Uso:</b> predecir retrasos en los vuelos. <p> </p><b>Investigación relacionada:</b> datos tomados del Departamento de Transporte de EE. UU. <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+Registros de llegadas y salidas de aviones dentro de Estados Unidos desde octubre de 2011.<p> </p><b>Uso:</b> predecir retrasos en los vuelos. <p> </p><b>Investigación relacionada:</b> datos tomados del Departamento de Transporte de EE. UU. <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Datos de incendios forestales</td>
   <td valign=top>
-Contiene información meteorológica (como índices de temperatura y humedad y velocidad del viento) de una zona del noreste de Portugal combinada con registros de incendios forestales.<p> </p><b>Uso:</b> se trata de una tarea de regresión difícil, cuyo objetivo es predecir el área quemada por incendios forestales. <p> </p><b>Investigación relacionada:</b> Cortez, P., & Morais, A. (2008). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información  <p> </p>[Cortez y Morais, 2007] P. Cortez y A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. En J. Neves, M. F. Santos and J. Machado Eds., Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponible en: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+Contiene información meteorológica (como índices de temperatura y humedad y velocidad del viento) de una zona del noreste de Portugal combinada con registros de incendios forestales.<p> </p><b>Uso:</b> se trata de una tarea de regresión difícil, cuyo objetivo es predecir el área quemada por incendios forestales. <p> </p><b>Investigación relacionada:</b> Cortez, P., &amp; Morais, A. (2008). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información  <p> </p>[Cortez y Morais, 2007] P. Cortez y A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. En J. Neves, M. F. Santos and J. Machado Eds., Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponible en: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -226,7 +225,7 @@ Contiene valoraciones que los usuarios realizan sobre restaurantes en una escala
 <tr>
   <td valign=top>Conjunto de datos de varias clases de recocido de acero</td>
   <td valign=top>
-Este conjunto de datos contiene una serie de registros de pruebas de recocido de acerco con los atributos físicos , como grosor o tipo (rollo, lámina, etc.) de los tipos de acero resultantes.<p> </p><b>Uso:</b> predecir cualquiera de los dos atributos de clase numéricos: rigidez o solidez. También puede analizar las correlaciones entre atributos.<p> </p>Los grados del acero siguen una norma establecida, definida por la SAE y otras organizaciones. Está buscando un "grado" determinado (la variable de clase) y desea conocer los valores requeridos. <p> </p><b>Investigación relacionada:</b> Sterling, D. & Buntine, W., (NA). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información  <p> </p>Aquí se puede encontrar una guía útil para los grados del acero: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+Este conjunto de datos contiene una serie de registros de pruebas de recocido de acerco con los atributos físicos , como grosor o tipo (rollo, lámina, etc.) de los tipos de acero resultantes.<p> </p><b>Uso:</b> predecir cualquiera de los dos atributos de clase numéricos: rigidez o solidez. También puede analizar las correlaciones entre atributos.<p> </p>Los grados del acero siguen una norma establecida, definida por la SAE y otras organizaciones. Está buscando un "grado" determinado (la variable de clase) y desea conocer los valores requeridos. <p> </p><b>Investigación relacionada:</b> Sterling, D. &amp; Buntine, W., (NA). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información  <p> </p>Aquí se puede encontrar una guía útil para los grados del acero: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -306,4 +305,3 @@ Estos datos se han extraído del concurso de evaluación del rendimiento de los 
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
