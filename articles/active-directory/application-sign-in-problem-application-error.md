@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c04cfea4c6c0a8211db2579eccc0c05a93cc0a35
-ms.contentlocale: es-es
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: a8cd93256f79ece268ec3411dfbdf590f4b24447
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="error-on-an-applications-page-after-signing-in"></a>Error en la página de aplicación después de iniciar sesión
 
 En este escenario, Azure AD ha iniciado la sesión del usuario, pero la aplicación muestra un error que no le permite finalizar correctamente el flujo de inicio de sesión. En este escenario, la aplicación no acepta el problema de respuesta de Azure AD.
@@ -159,4 +157,3 @@ La próxima vez que el usuario inicie sesión en la aplicación, Azure AD firmar
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
-

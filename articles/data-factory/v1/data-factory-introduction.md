@@ -15,17 +15,16 @@ ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8d4d574dee4b993d8a464482b244e1f63ade8a57
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a la Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](data-factory-introduction.md)
-> * [Versión 2: versión preliminar](../introduction.md)
+> * [Versión 1: Disponibilidad general](data-factory-introduction.md)
+> * [Versión 2: Versión preliminar](../introduction.md)
 
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si utiliza la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte [Introducción a Data Factory V2](../introduction.md).
@@ -130,4 +129,3 @@ Para aprender a compilar factorías de datos con canalizaciones de datos, siga l
 | [Movimiento de datos entre dos almacenes de datos en la nube](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |En este tutorial, va a crear una factoría de datos con una canalización que **mueve datos** de Blob Storage a SQL Database. |
 | [Transformar datos usando el clúster de Hadoop](data-factory-build-your-first-pipeline.md) |En este tutorial, va a crear su primera instancia de Azure Data Factory con una canalización de datos que **procesa los datos** ejecutando el script de Hive en un clúster de Azure HDInsight (Hadoop). |
 | [Movimiento de datos entre un almacén de datos local y un almacén de datos en la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |En este tutorial, va a compilar una factoría de datos con una canalización que **mueve los datos** de una base de datos de SQL Server **local** a un blob de Azure. Como parte del tutorial, instalará y configurará la puerta de enlace de administración de datos en su máquina. |
-

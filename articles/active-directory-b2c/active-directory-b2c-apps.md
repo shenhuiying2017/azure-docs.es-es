@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 51001feb17ae99d3bd391a9f980d514e07f97099
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: Tipos de aplicaciones
 Azure Active Directory (Azure AD) B2C admite la autenticación para una diversas arquitecturas de aplicaciones modernas. Todas ellas se basan en los protocolos estándar del sector [OAuth 2.0](active-directory-b2c-reference-protocols.md) u [OpenID Connect](active-directory-b2c-reference-protocols.md). Este documento describe brevemente los tipos de aplicaciones que puede crear, independientemente del lenguaje o la plataforma que prefiera. También ayuda a entender los escenarios de alto nivel antes de [empezar a crear aplicaciones](active-directory-b2c-overview.md#get-started).
@@ -132,4 +131,3 @@ Actualmente, este flujo no es compatible con Azure AD B2C. Estas aplicaciones pu
 Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante Azure AD B2C. Este escenario es habitual en los clientes nativos que tienen una API web back-end. Esto llama a un servicio en línea de Microsoft, como la API Azure AD Graph.
 
 Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador JWT de OAuth 2.0, también conocido como flujo "en nombre de".  Sin embargo, el flujo "en nombre de" no está implementado actualmente en Azure AD B2C.
-

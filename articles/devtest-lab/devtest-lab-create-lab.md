@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 9657a4681f6bd9cc126de50883ce7a66357156e0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Creación de un laboratorio con Laboratorios de desarrollo y pruebas de Azure
 En Azure DevTest Labs, un laboratorio es la infraestructura que abarca un grupo de recursos, como máquinas virtuales (VM), que permite una mejor administración de dichos recursos mediante la especificación de límites y cuotas. Este artículo le guiará a través del proceso de creación de un laboratorio mediante Azure Portal.
@@ -65,5 +64,4 @@ Una vez creado el laboratorio, le presentamos algunos pasos que se deben tener e
 * [Creación de una plantilla de laboratorio](devtest-lab-create-template.md)
 * [Creación de artefactos personalizados para máquinas virtuales](devtest-lab-artifact-author.md)
 * [Incorporación de una máquina virtual con artefactos a un laboratorio](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/)
-
 

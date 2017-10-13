@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Carga de datos en Búsqueda de Azure mediante el SDK para .NET
 > [!div class="op_single_selector"]
@@ -238,5 +237,4 @@ Por este motivo, recomendamos utilizar tipos que aceptan valores NULL en las cla
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de rellenar el índice de Búsqueda de Azure, estará listo para iniciar la emisión de consultas para buscar documentos. Para más información, vea [Consultas en Búsqueda de Azure](search-query-overview.md) .
-
 

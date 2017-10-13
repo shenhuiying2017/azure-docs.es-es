@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: omravi
+ms.openlocfilehash: 1814459e47280af62450a4093140ab6ab9b765fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: abd66208ab7ac30831f3f1eddb2891ed7bcd3995
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-time-series-insights"></a>¿Qué es Azure Time Series Insights?
 
 Azure Time Series Insights es un servicio en la nube administrado con componentes de almacenamiento, análisis y visualización que hacen más fácil ingerir, almacenar, explorar y analizar miles de millones de eventos al mismo tiempo. Time Series Insights proporciona una vista global de los datos, lo que le permite validar las soluciones de IoT de forma rápida y evitar costosos tiempos de inactividad en dispositivos, además de ayudarle a detectar tendencias ocultas y anomalías, y realizar análisis de causas principales casi en tiempo real. Time Series Insights ingiere datos de series temporales de agentes de eventos (por ejemplo, IoT Hubs o Event Hubs), indexa los datos y los retira en función de una directiva de retención configurable. Los usuarios consumen los datos a través de una experiencia del usuario intuitiva o a través de API de consulta de REST.
@@ -51,4 +49,3 @@ Azure Time Series Insights es un servicio en la nube administrado con componente
 * **Entorno**: un entorno es un recurso de Azure con funcionalidades de incorporación y almacenamiento.  Los clientes aprovisionan los entornos mediante Azure Portal con la capacidad necesaria.
 * **Origen de eventos**: un origen de eventos se deriva de un agente de eventos, como Azure Event Hubs.  Time Series Insights se conecta directamente a orígenes de eventos e ingiere el flujo de datos sin necesidad de escribir código. Actualmente, Time Series Insights es compatible tanto con Azure Event Hubs como con Azure IoT Hubs.
 * **Datos de referencia**: Time Series Insights proporciona a los usuarios la posibilidad de combinar datos de series temporales con datos de referencia.  Los datos de referencia pueden incluir metadatos relacionados con dispositivos u otros datos estáticos que varíen con poca frecuencia. Time Series Insights combina datos de referencia con flujos de datos, lo que permite a los usuarios visualizar y analizar los datos casi en tiempo real.
-

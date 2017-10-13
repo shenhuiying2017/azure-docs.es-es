@@ -15,14 +15,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Carga de datos en Búsqueda de Azure con la API de REST
 > [!div class="op_single_selector"]
 >
@@ -181,4 +179,3 @@ Para más información sobre las acciones de documentos y las respuestas de éxi
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de rellenar el índice de Búsqueda de Azure, estará listo para iniciar la emisión de consultas para buscar documentos. Para más información, vea [Consultas en Búsqueda de Azure](search-query-overview.md) .
-

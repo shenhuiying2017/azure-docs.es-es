@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
+ms.openlocfilehash: f017b8ca42ff3560e17d8aac303a4f834d298540
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 25d9d914ab27edb548cf6e6139d0d0395208ed24
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introducción a Application Insights en un proyecto web de Java
 
@@ -37,7 +36,7 @@ Necesita:
 *Si tiene una aplicación web que ya está en funcionamiento, puede seguir el procedimiento alternativo para [agregar el SDK en tiempo de ejecución en el servidor web](app-insights-java-live.md). Esa alternativa evita volver a generar el código, pero no incluye la opción de escribir código para realizar un seguimiento de la actividad del usuario.*
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Obtención de una clave de instrumentación de Application Insights
-1. Inicie sesión en [Microsoft Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com).
 2. Cree un recurso en Application Insights. Establezca el tipo de aplicación a una aplicación web de Java.
 
     ![Rellene un nombre, elija la aplicación web de Java y haga clic en Crear.](./media/app-insights-java-get-started/02-create.png)
@@ -119,7 +118,7 @@ Agregue manualmente el SDK:
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Adición de un archivo .xml de Application Insights
 Agregue ApplicationInsights.xml a la carpeta de recursos del proyecto o asegúrese de que se agrega a la ruta de acceso de la clase de implementación del proyecto. Copie en ella el siguiente XML.
 
-Sustituya la clave de instrumentación que obtuvo en Azure Portal.
+Sustituya la clave de instrumentación que obtuvo en el portal de Azure.
 
 ```XML
 
@@ -158,7 +157,7 @@ Sustituya la clave de instrumentación que obtuvo en Azure Portal.
 * La clave de instrumentación se envía junto con todos los elementos de telemetría e indica a Application Insights que se muestre en el recurso.
 * El componente de la solicitud HTTP es opcional. Envía automáticamente telemetría sobre las solicitudes y tiempos de respuesta en el portal.
 * La correlación de eventos es un complemento del componente de la solicitud HTTP. Asigna un identificador a cada solicitud recibida por el servidor y agrega este identificador como propiedad a todos los elementos de telemetría como la propiedad 'Operation.Id'. Le permite correlacionar la telemetría asociada a cada solicitud estableciendo un filtro en la [búsqueda de diagnóstico][diagnostic].
-* La clave de Application Insights se puede pasar dinámicamente desde Azure Portal como una propiedad del sistema (-DAPPLICATION_INSIGHTS_IKEY = your_ikey). Si no hay ninguna propiedad definida, busca la variable de entorno (APPLICATION_INSIGHTS_IKEY) en la configuración de las aplicaciones de Azure. Si las propiedades no están definidas, se usa el valor predeterminado de InstrumentationKey de ApplicationInsights.xml. Esta secuencia le ayuda a administrar dinámicamente distintas instancias InstrumentationKeys para entornos diferentes.
+* La clave de Application Insights se puede pasar dinámicamente desde el Portal de Azure como una propiedad del sistema (-DAPPLICATION_INSIGHTS_IKEY = your_ikey). Si no hay ninguna propiedad definida, busca la variable de entorno (APPLICATION_INSIGHTS_IKEY) en la configuración de las aplicaciones de Azure. Si las propiedades no están definidas, se usa el valor predeterminado de InstrumentationKey de ApplicationInsights.xml. Esta secuencia le ayuda a administrar dinámicamente distintas instancias InstrumentationKeys para entornos diferentes.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Alternativas para establecer la clave de instrumentación
 SDK de Application Insights busca la clave en este orden:
@@ -227,7 +226,7 @@ Agregue este elemento al archivo de configuración Struts (denominado normalment
 Ejecútela en modo de depuración en el equipo de desarrollo o bien publíquela en el servidor.
 
 ## <a name="6-view-your-telemetry-in-application-insights"></a>6. Visualización de la telemetría en Application Insights
-Vuelva al recurso de Application Insights en [Microsoft Azure Portal](https://portal.azure.com).
+Vuelva al recurso de Application Insights en el [Portal de Microsoft Azure](https://portal.azure.com).
 
 Los datos de las solicitudes HTTP aparecen en la hoja de información general. (Si todavía no está ahí, espere unos segundos y, a continuación, haga clic en Actualizar).
 
@@ -399,4 +398,3 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-javascript.md
-

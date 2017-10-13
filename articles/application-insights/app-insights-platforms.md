@@ -13,23 +13,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 7f9b886259c065627055f62a3636ab65434ca57b
-ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
-
+ms.openlocfilehash: d49ad2ff584f42c0e4732a5cff60d23cdf631512
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Análisis del desarrollador: lenguajes y plataformas e integraciones
 Estos elementos son implementaciones de [Application Insights](app-insights-overview.md) sobre las que tenemos noticias, que incluyen también algunas de terceros.
 
-## <a name="languages---officially-supported-by-application-insights-team"></a>Idiomas: oficialmente admitidos por el equipo de Application Insights
+## <a name="languages---officially-supported-by-application-insights-team"></a>Lenguajes: oficialmente admitidos por el equipo de Application Insights
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [Páginas web de JavaScript](app-insights-javascript.md)
+* [Node.JS](app-insights-nodejs.md)
 
 ## <a name="languages---community-supported"></a>Lenguajes: admitidos por la comunidad
-* [Node.JS](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -84,4 +83,3 @@ Estos elementos son implementaciones de [Application Insights](app-insights-over
 
 ## <a name="projects"></a> Creación de su propio SDK
 Si no hay todavía un SDK para el lenguaje o plataforma, quizás desee crear uno. Examine el código de los SDK existentes que aparecen en el [proyecto de SDK de Application Insights en GitHub](https://github.com/Microsoft/AppInsights-Home).
-

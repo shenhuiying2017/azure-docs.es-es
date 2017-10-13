@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4720d168f5ecd3a5e39cdcad812efb52755fb59a
-ms.contentlocale: es-es
-ms.lasthandoff: 12/28/2016
-
+ms.openlocfilehash: 1dd3088137b5bd4ff3407c5e5735d93de373ecd5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-active-directory-conditional-access"></a>Introducción al acceso condicional de Azure Active Directory
 El acceso condicional de Azure Active Directory a las aplicaciones [SaaS](https://azure.microsoft.com/overview/what-is-saas/) y a las aplicaciones conectadas a Azure AD le permite configurar el acceso condicional en función del grupo, la ubicación y la confidencialidad de la aplicación. 
@@ -87,5 +86,4 @@ Además de establecer esta marca, la instancia de AD FS de inquilinos federados 
 ## <a name="related-articles"></a>Artículos relacionados
 * [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-
 

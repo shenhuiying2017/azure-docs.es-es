@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: fb981f3240799c924464c828b2c835ac5d9879ed
-ms.contentlocale: es-es
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introducción a la entrega de contenido a petición mediante Azure Portal
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -84,9 +83,9 @@ Para codificar el contenido mediante Media Encoder Standard en Azure Portal, sig
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Azure Media Services.
 2. Seleccione **Configuración** > **Activos**. Seleccione el recurso que desea codificar.
 3. Seleccione el botón **Codificar**.
-4. En el panel **Codificar un recurso**, seleccione el procesador **Media Encoder Standard** y un valor predeterminado. Para más información sobre los valores predeterminados, consulte los artículos sobre la [generación automática de una escalera de velocidad de bits](media-services-autogen-bitrate-ladder-with-mes.md) y [Valores preestablecidos de las tareas de MES (Media Encoder Standard)](media-services-mes-presets-overview.md). Es importante elegir el valor predeterminado que funcionará mejor con el vídeo de entrada. Por ejemplo, si sabe que el vídeo de entrada tiene una resolución de 1920 &#215; 1080 píxeles, se podría usar el valor predeterminado **H264 Multiple Bitrate 1080p**. Si tiene un vídeo de baja resolución (640 &#215; 360), no debería usar el valor predeterminado **H264 Multiple Bitrate 1080p**.
+4. En el panel **Codificar un recurso**, seleccione el procesador **Media Encoder Standard** y un valor predeterminado. Para más información sobre los valores predeterminados, consulte los artículos sobre la [generación automática de una escalera de velocidad de bits](media-services-autogen-bitrate-ladder-with-mes.md) y [Valores preestablecidos de las tareas de MES (Media Encoder Standard)](media-services-mes-presets-overview.md). Es importante elegir el valor predeterminado que funcionará mejor con la entrada de vídeo. Por ejemplo, si sabe que la entrada de vídeo tiene una resolución de 1920x1080 píxeles, se podría usar el valor predeterminado **H264 Multiple Bitrate 1080p**. Si tiene un vídeo de baja resolución (640x360), no debería usar el valor predeterminado **H264 Multiple Bitrate 1080p**.
    
-   Para ayudarle a administrar los recursos, puede editar el nombre del recurso de salida y el nombre del trabajo.
+   Para ayudarlo a administrar los recursos, puede editar el nombre del recurso de salida y el nombre del trabajo.
    
    ![Codificación de recursos](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. Seleccione **Crear**.
@@ -97,7 +96,7 @@ Para supervisar el progreso del trabajo de codificación, haga clic en **Configu
 ![Trabajos](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 ## <a name="publish-content"></a>Publicación de contenido
-Para proporcionar al usuario una dirección URL que pueda utilizarse para transmitir o descargar su contenido, primero debe publicar su recurso mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Azure Media Services admite dos tipos de localizadores: 
+Para proporcionar al usuario una dirección URL que pueda utilizarse para transmitir o descargar el contenido, primero debe publicar el recurso mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Azure Media Services admite dos tipos de localizadores: 
 
 * **Localizadores de streaming (OnDemandOrigin)**. Los localizadores de streaming se usan para el streaming adaptable. Ejemplos de streaming adaptable son HLS, Smooth Streaming y MPEG-DASH. Para crear un localizador de streaming, el recurso debe incluir un archivo .ism. 
 * **Localizadores progresivos (firma de acceso compartido)**. Los localizadores progresivos se usan para proporcionar vídeo mediante descarga progresiva.
@@ -144,17 +143,16 @@ Puede probar el vídeo en un reproductor de contenido en Azure Portal.
 
 Seleccione el vídeo y, a continuación, haga clic en el botón **Reproducir**.
 
-![Reproducción del vídeo en Azure Portal](./media/media-services-portal-vod-get-started/media-services-play.png)
+![Reproducción de vídeo en Azure Portal](./media/media-services-portal-vod-get-started/media-services-play.png)
 
 Se aplican algunas consideraciones:
 
 * Para iniciar el streaming, comience a ejecutar el punto de conexión de streaming predeterminado.
 * Asegúrese de que el vídeo se ha publicado.
-* El reproductor multimedia de Azure Portal media reproduce desde el punto de conexión de streaming predeterminado. Si quiere reproducir desde un punto de conexión de streaming no predeterminado, seleccione y copie la dirección URL y luego péguela en otro reproductor. Por ejemplo, puede probar el vídeo en [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* El reproductor multimedia de Azure Portal reproduce desde el punto de conexión de streaming predeterminado. Si quiere reproducir desde un punto de conexión de streaming no predeterminado, seleccione y copie la dirección URL y luego péguela en otro reproductor. Por ejemplo, puede probar el vídeo en [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-

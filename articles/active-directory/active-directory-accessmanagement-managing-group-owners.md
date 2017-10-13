@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/12/2017
 ms.author: curtand
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e1b88f7d43ba29589e5f1f4a8036c716ae984ae4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-owners-for-a-group"></a>Administración de propietarios de un grupo
 Una vez que un propietario de recursos haya asignado acceso a un recurso a un grupo de Azure AD, el propietario del grupo será quien administre los miembros del grupo. El propietario del recursos delega de manera eficaz el permiso para asignar usuarios al recurso al propietario del grupo.
@@ -47,4 +46,3 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 * [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-

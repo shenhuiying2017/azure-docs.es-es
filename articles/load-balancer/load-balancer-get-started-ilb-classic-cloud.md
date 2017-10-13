@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8dbc951416d577fa7f534c2eab1605c6bee61fce
-ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 6616c26ede13919b94a098dc38bdd6e2f0fc0b5b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Introducción a la creación de un equilibrador de carga interno (clásico) para servicios en la nube
 
 > [!div class="op_single_selector"]
@@ -98,5 +96,4 @@ La carga del tráfico de red se equilibrará mediante el equilibrador de carga t
 [Configurar un modo de distribución del equilibrador de carga mediante la afinidad IP de origen](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
-
 

@@ -15,14 +15,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 1ea9dfcaec188bac2e92909f4811568b589357d4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="indexers-in-azure-search"></a>Indexadores de Búsqueda de Azure
 > [!div class="op_single_selector"]
 >
@@ -44,7 +42,7 @@ Puede ejecutar los indexadores a petición o con una programación de actualizac
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Enfoques para crear y administrar indexadores
 Los indexadores disponibles con carácter general, como Azure SQL o Azure Cosmos DB, pueden crearse y administrarse mediante estos métodos:
 
-* [Portal > Asistente para la importación de datos ](search-get-started-portal.md)
+* [Portal &gt; Asistente para la importación de datos ](search-get-started-portal.md)
 * [API de REST de servicio](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 * [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
 
@@ -60,7 +58,7 @@ Un indexador extrae datos de un **origen de datos** que contiene información, p
 * [Base de datos SQL de Azure o SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) para tipos de contenido seleccionados
-* [Almacenamiento de tablas de Azure](search-howto-indexing-azure-tables.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
 Los orígenes de datos se configuran y administran independientemente de los indexadores que los usan, lo que significa que varios indexadores pueden usar un origen de datos para cargar más de un índice a la vez.
 
@@ -73,7 +71,6 @@ Ahora que tiene el concepto básico, el paso siguiente consiste en revisar los r
 * [Base de datos SQL de Azure o SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Almacenamiento de tablas de Azure](search-howto-indexing-azure-tables.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexación de blobs CSV con el indexador de blobs de Azure Search](search-howto-index-csv-blobs.md)
 * [Indexación de blobs JSON con el indexador de blobs de Azure Search](search-howto-index-json-blobs.md)
-

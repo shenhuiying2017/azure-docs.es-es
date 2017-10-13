@@ -13,23 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6dcc5c55fae5e2494526c492a1453747b4d6e179
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: disponibilidad general](v1/data-factory-create-pipelines.md)
-> * [Versión 2: versión preliminar](concepts-pipelines-activities.md)
+> * [Versión 2: Versión preliminar](concepts-pipelines-activities.md)
 
 Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y a usarlas para construir flujos de trabajo controlados por datos de un extremo para los escenarios de procesamiento de datos y movimiento de datos.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Canalizaciones en Data Factory versión 1](v1/data-factory-create-pipelines.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Canalizaciones en Data Factory versión 1](v1/data-factory-create-pipelines.md).
 > 
 > En este artículo se considera que ha repasado antes los artículos [Introducción a Azure Data Factory](introduction.md) y el [tutorial de inicio rápido](quickstart-create-data-factory-powershell.md).
 
@@ -72,7 +70,7 @@ Se admiten las siguientes actividades de flujo de control:
 
 Actividad de control | Descripción
 ---------------- | -----------
-[Actividad ExecutePipeline](control-flow-execute-pipeline-activity.md) | La actividad de ejecución de canalización permite que una canalización de Data Factory invoque otra canalización.
+[Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md) | La actividad de ejecución de canalización permite que una canalización de Data Factory invoque otra canalización.
 [Actividad ForEach](control-flow-for-each-activity.md) | La actividad ForEach define un flujo de control repetido en la canalización. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura de bucle Foreach de los lenguajes de programación.
 [Actividad Web](control-flow-web-activity.md) | La actividad Web puede usarse para llamar a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso. 
 [Actividad Lookup](control-flow-lookup-activity.md) | La actividad Lookup puede usarse para leer o buscar un registro, un nombre de tabla o un valor de cualquier origen externo. Además, las actividades posteriores pueden hacer referencia a esta salida. 
@@ -395,4 +393,3 @@ Consulte los siguientes tutoriales para obtener instrucciones paso a paso sobre 
 
 - [Creación de una canalización con una actividad de copia](quickstart-create-data-factory-powershell.md)
 - [Creación de una canalización con una actividad de transformación de datos](tutorial-transform-data-spark-powershell.md)
-

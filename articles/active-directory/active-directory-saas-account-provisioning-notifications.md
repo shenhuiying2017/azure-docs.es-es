@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: e15f3740fbf7cd97002b0b7efda34e968db4fe3c
-ms.contentlocale: es-es
-ms.lasthandoff: 12/28/2016
-
-
+ms.openlocfilehash: b99037fc28eca1a3ebffefb9e99991e74f52c9a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="account-provisioning-notifications"></a>Notificaciones de aprovisionamiento de cuentas
 Gracias al aprovisionamiento de usuarios, puede automatizar el proceso de administración de usuarios en aplicaciones SaaS de terceros. <br>
- Aunque este proceso es automático, necesitará interactuar con él de forma esporádica. <br>
- Por ejemplo, deberá utilizarlo si resulta que la contraseña de la cuenta que ha configurado para intercambiar datos con una aplicación SaaS de terceros ha expirado. 
+Aunque este proceso es automático, necesitará interactuar con él de forma esporádica. <br>
+Por ejemplo, deberá utilizarlo si resulta que la contraseña de la cuenta que ha configurado para intercambiar datos con una aplicación SaaS de terceros ha expirado. 
 
 Al habilitar las notificaciones de aprovisionamiento de cuentas, podrá asegurarse de que se le notifica si surge cualquier problema relacionado con el aprovisionamiento de usuarios que requiere su atención.
 
@@ -52,4 +50,3 @@ Si tiene las notificaciones de aprovisionamiento de cuentas habilitadas, recibir
 <!--Image references-->
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
-

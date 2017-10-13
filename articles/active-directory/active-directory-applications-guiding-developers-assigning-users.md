@@ -16,10 +16,10 @@ ms.date: 05/12/2017
 ms.author: kgremban
 robots: noindex
 ms.openlocfilehash: 29d63bd5781dc7ef9e84840dd4b1b70222cf6892
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Azure AD y aplicaciones: asignación de usuarios a una aplicación
 Para poder asignar usuarios y grupos a una aplicación, debe requerir la asignación de usuarios.  Para obtener información sobre cómo requerir asignación de usuarios, consulte el artículo [Necesidad de asignación de usuario](active-directory-applications-guiding-developers-requiring-user-assignment.md) .

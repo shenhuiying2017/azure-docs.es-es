@@ -16,10 +16,10 @@ ms.workload: data-catalog
 ms.date: 06/15/2017
 ms.author: maroche
 ms.openlocfilehash: 5fc5c74c7671f64bd1312ad6939e629c0277110c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Método y proceso de adopción de Azure Data Catalog
 Este artículo le ayudará a empezar a adoptar **Azure Data Catalog** en su organización. Para adoptar correctamente **Azure Data Catalog**, es aconsejable que se centre en tres elementos clave: definir la visión, identificar los principales casos de uso empresariales de la organización y elegir un proyecto piloto.
@@ -29,7 +29,7 @@ En el mundo del trabajo, han cambiado las expectativas que se tiene de cómo se 
 
 Este artículo presenta un método para empezar a usar **Azure Data Catalog**. El artículo describe un plan típico de adopción de Data Catalog por parte de una empresa ficticia llamada Adventure Works.
 
-**¿Qué es Azure Data Catalog?**
+**¿Qué es el Catálogo de datos de Azure?**
 
 **Azure Data Catalog** es un servicio de Azure totalmente administrado y un catálogo de información (metadatos) de toda la empresa que permite la detección automática de orígenes de datos. Con Data Catalog, es posible registrar, detectar, anotar y conectarse a recursos de datos. Data Catalog se ha diseñado para administrar recursos de información dispares y facilitar la búsqueda de recursos de datos, su comprensión y la conexión a ellos. Reduce el tiempo necesario para obtener información a partir de datos disponibles y aumenta el valor para las organizaciones. Para más información, consulte [Microsoft Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/).
 

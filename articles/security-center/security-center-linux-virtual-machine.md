@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
 ms.openlocfilehash: 0df4fca59575bd8e18e91fea2066a9e694ed320d
-ms.contentlocale: es-es
-ms.lasthandoff: 01/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Azure Security Center y Azure Virtual Machines con Linux
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) ayuda a evitar y a detectar las amenazas, además de a responder a ellas. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
@@ -107,5 +106,4 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 * [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
-
 

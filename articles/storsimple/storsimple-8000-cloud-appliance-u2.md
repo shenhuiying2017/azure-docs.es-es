@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
 ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementación y administración de una instancia de StorSimple Cloud Appliance en Azure (Update 3 y versiones posteriores)
 
@@ -47,9 +47,9 @@ StorSimple Cloud Appliance está disponible en dos modelos, el 8010 estándar (a
 | **Tipo de almacenamiento** |Usa el almacenamiento estándar de Azure para discos locales <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar](../storage/common/storage-create-storage-account.md) |Usa el almacenamiento premium de Azure para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../storage/common/storage-premium-storage.md) |
 | **Guía de la carga de trabajo** |Recuperación a nivel de elemento de archivos de copias de seguridad |Escenarios de desarrollo y pruebas de la nube <br></br>Baja latencia y cargas de trabajo de rendimiento más elevado<br></br>Dispositivo secundario para recuperación ante desastres |
 
-<sup>1</sup> *Anteriormente conocido como 1100*.
+<sup>1</sup>*Anteriormente conocido como 1100*.
 
-<sup>2</sup> *8010 y 8020 usan el almacenamiento estándar de Azure para el nivel de nube. La diferencia solo existe en el nivel local del dispositivo*.
+<sup>2</sup>*8010 y 8020 usan el almacenamiento estándar de Azure para el nivel de nube. La diferencia solo existe en el nivel local del dispositivo*.
 
 ## <a name="how-the-cloud-appliance-differs-from-the-physical-device"></a>Diferencias entre el dispositivo de nube y el dispositivo físico
 

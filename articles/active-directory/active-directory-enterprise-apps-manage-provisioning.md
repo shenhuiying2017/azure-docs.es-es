@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 44476bbf0e878e347d176077e08706d1afd44479
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
 En este artículo se describe cómo utilizar [Azure Portal](https://portal.azure.com) para administrar el aprovisionamiento automático de cuentas de usuario y el desaprovisionamiento para las aplicaciones que lo admiten, especialmente aquellas que se han agregado en la categoría "destacada" de la Galería de aplicaciones de [Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Para más información sobre el aprovisionamiento automático de cuentas de usuario, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -85,4 +84,3 @@ Esperamos que le guste su experiencia de Azure AD. Envíenos sus comentarios. Pu
 [0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG
-

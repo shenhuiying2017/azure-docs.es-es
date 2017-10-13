@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: cabailey
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 924fce8245a88fd7c12636182336e503237fe4dc
-ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: e9a4f16f048833dab49f7db79892fe47a5aeff37
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-logging"></a>Registro del Almacén de claves de Azure
 Almacén de claves de Azure está disponible en la mayoría de las regiones. Para obtener más información, consulte la [página de precios del Almacén de claves](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -275,4 +274,3 @@ Para conocer las referencias de programación, consulte la [Guía del desarrolla
 Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para Azure Key Vault, consulte [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault)(Cmdlets de Azure Key Vault).
 
 Para ver un tutorial sobre la rotación de claves y la auditoría de registros con Azure Key Vault, consulte [Configuración de Key Vault con rotación de claves y auditoría integrales](key-vault-key-rotation-log-monitoring.md).
-

@@ -15,12 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
+ms.openlocfilehash: c469dfaccf515bcd1ced43279decfefe6be8375b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 5250c0cbc71450eb66f79226a1ecb062a9335ee3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integración de directorios entre Servidor Azure MFA y Active Directory
 Utilice la sección Integración de directorios del Servidor Azure MFA para integrarlo con Active Directory u otro directorio LDAP. Puede configurar los atributos para que coincidan con el esquema de directorios, así como la sincronización automática de los usuarios.
@@ -139,4 +138,3 @@ Los botones Subir y Bajar permiten al administrador cambiar el orden de los elem
 Se pueden configurar Servidores Multi-Factor Authentication adicionales para que actúen como proxy RADIUS de copia de seguridad, proxy LDAP o para autenticación de IIS. La configuración de la sincronización se compartirá entre todos los agentes. Sin embargo, solo uno de estos agentes puede tener Servidor Multi-Factor Authentication en ejecución. Esta pestaña permite seleccionar Servidor Multi-Factor Authentication que debe habilitarse para la sincronización.
 
 ![Servidores Multi-Factor Authentication](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-

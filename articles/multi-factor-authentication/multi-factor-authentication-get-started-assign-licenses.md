@@ -16,12 +16,11 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
-ms.openlocfilehash: 536968a803e14019c42e7beed4c948ab760cf020
-ms.contentlocale: es-es
-ms.lasthandoff: 02/15/2017
-
+ms.openlocfilehash: 45522bf526c4aeab1d6ccc8891a55a0436ff9320
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>Asignación de una licencia de Azure MFA, Azure AD Premium o Enterprise Mobility a usuarios
 Si ha adquirido Azure MFA, Azure AD Premium o Enterprise Mobility Suite, no necesita crear un Proveedor de Multi-Factor Authentication. Una vez que asigne las licencias a los usuarios, puede empezar a habilitarlos para MFA.
@@ -44,4 +43,3 @@ Si ha adquirido Azure MFA, Azure AD Premium o Enterprise Mobility Suite, no nece
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información, consulte [¿Qué es la licencia de Microsoft Azure Active Directory?](../active-directory/active-directory-licensing-what-is.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 60f1ec092635910ae8c98cc0197fdfbf358f01be
-ms.contentlocale: es-es
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 6503034b3f5a17a2a42338c73329eef0b01f2f27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de identidad para la solución de identidad híbrida
 El primer paso para diseñar una solución de identidad híbrida es determinar los requisitos de la organización que aprovechará esta solución.  Un identidad híbrida se inicia como un rol de soporte (admite todas las demás soluciones de nube mediante la autenticación) y avanza proporcionando capacidades nuevas e interesantes que desbloquean nuevas cargas de trabajo para los usuarios.  Estas cargas de trabajo o servicios que se quieran adoptar para los usuarios, determinan los requisitos para el diseño de la identidad híbrida.  Estos servicios y cargas de trabajo tienen que aprovechar la identidad híbrida tanto a nivel local como en la nube.  
@@ -109,5 +108,4 @@ También es necesario evaluar los requisitos del usuario. Esta evaluación es im
 
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

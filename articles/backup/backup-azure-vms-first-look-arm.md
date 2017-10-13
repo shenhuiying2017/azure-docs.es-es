@@ -16,12 +16,11 @@ ms.topic: hero-article
 ms.date: 09/04/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 639f008eea61b973b9d32dc734d42d5c4e93e924
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
 > [!div class="op_single_selector"]
@@ -345,4 +344,3 @@ El costo de la copia de seguridad de máquinas virtuales de Azure se basa en el 
 
 ## <a name="questions"></a>¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
-

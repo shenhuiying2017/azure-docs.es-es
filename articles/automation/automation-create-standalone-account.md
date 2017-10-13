@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
+ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 85ae54f76fff47b16d7a365ccee87866d0424f82
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
 En este tema se muestra cómo crear una cuenta de Automation desde Azure Portal si desea evaluar y obtener información sobre Azure Automation, sin incluir las soluciones de administración adicionales ni la integración con Log Analytics de OMS para proporcionar supervisión avanzada de los trabajos de runbook.  Puede agregar estas soluciones de administración o realizar la integración con Log Analytics en cualquier momento en el futuro.  Con la cuenta de Automation podrá autenticar runbooks que administran recursos en Azure Resource Manager o en la implementación clásica de Azure.
 
@@ -46,7 +44,7 @@ En esta sección, realizará los pasos que se describen a continuación para cre
 1. Inicie sesión en Azure Portal con una cuenta que sea miembro del rol Administradores de suscripciones y coadministrador de la suscripción.
 2. Haga clic en **Nuevo**.<br><br> ![Seleccione la opción Nuevo en Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Busque **Automation** y, a continuación, en los resultados de la búsqueda seleccione **Automation and Control***.<br><br> ![Busque y seleccione Automation en Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
-3. En la hoja Cuentas de Automatización, haga clic en **Agregar**.<br><br>![Agregar cuenta de Automation](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+3. En la hoja Cuentas de Automatización, haga clic en **Agregar**.<br><br>![Agregar cuenta de Automatización](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
 
    > [!NOTE]
@@ -92,4 +90,3 @@ La siguiente tabla resume los recursos de la cuenta de ejecución de Azure clás
 * Para empezar a trabajar con runbooks de PowerShell, consulte [Mi primer runbook de PowerShell](automation-first-runbook-textual-powershell.md).
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
 * Para empezar a trabajar con runbooks Python2, consulte [Mi primer runbook Python2](automation-first-runbook-textual-python2.md).
-

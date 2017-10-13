@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/06/2017
 ms.author: charwen
 ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-expressroute-routing"></a>Optimización de enrutamiento de ExpressRoute
 Cuando hay varios circuitos ExpressRoute, tiene más de una ruta de acceso para conectarse a Microsoft. Como resultado, se puede producir un enrutamiento no óptimo: es decir, el tráfico puede utilizar una ruta más larga para conectarse con Microsoft y este a su vez, con su red. Cuanto más larga sea la ruta de acceso a la red, mayor será la latencia. La latencia tiene un efecto directo en la experiencia del usuario y en el rendimiento de las aplicaciones. En este artículo se describe este problema y se explica cómo optimizar el enrutamiento mediante las tecnologías de enrutamiento estándar.
