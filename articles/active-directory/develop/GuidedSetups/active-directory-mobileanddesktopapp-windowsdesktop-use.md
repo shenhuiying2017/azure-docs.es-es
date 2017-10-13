@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 826ba0a00b26993d4f37f0a8ce587d7bb77e7eb4
-ms.contentlocale: es-es
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utilice la biblioteca de autenticación de Microsoft (MSAL) para obtener un token para la API Graph de Microsoft.
 
 En esta sección se muestra cómo usar MSAL para obtener un token de API Graph de Microsoft.
@@ -202,5 +201,4 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 Los tokens adquiridos a través de *OpenID Connect* también contienen un pequeño subconjunto de información relativa al usuario. `DisplayBasicTokenInfo` muestra información básica contenida en el token: por ejemplo, el nombre para mostrar del usuario y su identificador, así como la fecha de expiración del token y la cadena que representa al propio token de acceso. Esta información se muestra para que la pueda ver. Puede presionar varias veces el botón *Call Microsoft Graph API* (Llamar a la API Graph de Microsoft) y ver que el mismo token se reutilizó para solicitudes posteriores. También puede ver que la fecha de expiración se amplía si MSAL decide que es el momento de renovar el token.
 <!--end-collapse-->
-
 

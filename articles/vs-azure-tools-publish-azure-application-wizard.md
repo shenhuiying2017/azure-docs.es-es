@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/21/2017
 ms.author: kraigb
 ms.openlocfilehash: 25b3ca9af2639860d9cfcb1492aef745fb47beb9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>Uso del Asistente Publicar aplicación de Azure de Visual Studio
 Después de desarrollar una aplicación web en Visual Studio, puede publicarla en un servicio en la nube de Azure mediante el asistente **Publicar aplicación de Azure** . 
@@ -58,7 +58,7 @@ Puede tener acceso al Asistente Publicar aplicación de Azure de dos formas seg�
 
 ![Configuración común](./media/vs-azure-tools-publish-azure-application-wizard/settings-common-settings.png)
 
-**Servicio en la nube**: en la lista desplegable, seleccione un servicio en la nube existente o seleccione **&lt;Crear nuevo>** y cree un servicio en la nube. El centro de datos aparece entre paréntesis para cada servicio en la nube. Se recomienda que la ubicación del centro de datos del servicio en la nube sea la misma ubicación del centro de datos de la cuenta de almacenamiento (Configuración avanzada).  
+**Servicio en la nube**: en la lista desplegable, seleccione un servicio en la nube existente o seleccione **&lt;Crear nuevo&gt;** y cree un servicio en la nube. El centro de datos aparece entre paréntesis para cada servicio en la nube. Se recomienda que la ubicación del centro de datos del servicio en la nube sea la misma ubicación del centro de datos de la cuenta de almacenamiento (Configuración avanzada).  
 
 **Entorno**: seleccione **Producción** o **Ensayo**. Elija el entorno de ensayo si desea implementar la aplicación en un entorno de prueba. 
 
@@ -76,7 +76,7 @@ Puede tener acceso al Asistente Publicar aplicación de Azure de dos formas seg�
 
 **Etiqueta de implementación**: acepte el nombre predeterminado o escriba un nombre de su elección. Para anexar la fecha a la etiqueta de implementación, deje activada la casilla. 
    
-**Cuenta de almacenamiento**: seleccione la cuenta de almacenamiento que desea usar para esta implementación, **&lt;Crear nuevo> para crear una cuenta de almacenamiento. El centro de datos aparece entre paréntesis para cada cuenta de almacenamiento. Se recomienda que la ubicación del centro de datos de la cuenta de almacenamiento sea la misma ubicación del centro de datos del servicio en la nube (Configuración común).  
+**Cuenta de almacenamiento**: seleccione la cuenta de almacenamiento que desea usar para esta implementación, **&lt;Crear nuevo&gt; para crear una cuenta de almacenamiento. El centro de datos aparece entre paréntesis para cada cuenta de almacenamiento. Se recomienda que la ubicación del centro de datos de la cuenta de almacenamiento sea la misma ubicación del centro de datos del servicio en la nube (Configuración común).  
    
 La cuenta de almacenamiento de Azure almacena el paquete para la implementación de la aplicación. Una vez implementada la aplicación, el paquete se quita de la cuenta de almacenamiento.
 

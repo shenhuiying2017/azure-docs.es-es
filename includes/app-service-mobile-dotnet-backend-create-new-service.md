@@ -2,13 +2,13 @@
 
 2. Haga clic en **Nuevo**.
 
-3. En el cuadro de búsqueda, escriba **aplicaciones móviles**.
+3. En el cuadro de búsqueda, escriba **Mobile Apps**.
 
-    ![Portal de Azure con inicio rápido de aplicaciones móviles resaltado][quickstart]
+    ![Azure Portal con inicio rápido de Mobile Apps resaltado][quickstart]
 
-4. En la lista de resultados, seleccione **inicio rápido de aplicaciones móviles**y, a continuación, seleccione **crear**.
+4. En la lista de resultados, seleccione **Inicio rápido de Mobile Apps** y, después, seleccione **Crear**.
  
-5. En **grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo (con el mismo nombre que la aplicación).
+5. En **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo (con el mismo nombre que su aplicación).
 
 6. Haga clic en **Crear**. Espere unos minutos para que se implemente el servicio correctamente antes de continuar.
 

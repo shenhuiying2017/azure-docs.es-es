@@ -70,7 +70,7 @@
 
 Después de que el dispositivo se haya registrado correctamente y no esté en línea, puede ejecutar el `Test-HcsmConnection -Verbose` para asegurarse de que la conectividad de red es correcta. Para conocer el uso detallado de este cmdlet, vaya a [Referencia del cmdlet para Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx).
 
-![Vídeo disponible](./media/storsimple-configure-and-register-device/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-configure-and-register-device/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo que muestra cómo configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple, haga clic [aquí](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 

@@ -10,17 +10,16 @@ ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 06/15/2017
+ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.openlocfilehash: 4427b74f205dcd2eabf825bbfc345279dc303f96
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 668e7d18951412e9649e2f5273a4ef1116ee8117
-ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportación de una base de datos de Azure SQL Database a un archivo BACPAC
 
@@ -28,7 +27,7 @@ Cuando necesite exportar una base de datos para archivar o migrar a otra platafo
 
 > [!IMPORTANT] 
 > La exportación automática de Azure SQL Database se retiró el 1 de marzo de 2017. Puede usar la [retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md
-) o [Azure Automation](https://github.com/Microsoft/azure-docs-pr/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) para archivar las bases de datos SQL periódicamente mediante PowerShell de acuerdo con la programación que elija. Para obtener un ejemplo, descargue el [script de PowerShell de ejemplo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) en GitHub.
+) o [Azure Automation](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) para archivar las bases de datos SQL periódicamente mediante PowerShell de acuerdo con la programación que elija. Para obtener un ejemplo, descargue el [script de PowerShell de ejemplo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) en GitHub.
 >
 
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>Consideraciones al exportar una base de datos Azure SQL Database
@@ -104,4 +103,3 @@ $exportStatus
 * Para aprender a importar un BACPAC a una base de datos de SQL Server, consulte [Importación de un BACPCAC en una base de datos de SQL Server](https://msdn.microsoft.com/library/hh710052.aspx).
 * Para aprender a exportar un BACPAC de una base de datos de SQL Server, consulte [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) (Exportación de una aplicación de la capa de datos) y [Migración de la primera base de datos](sql-database-migrate-your-sql-server-database.md).
 * Si va a exportar desde SQL Server como paso previo a la migración a Azure SQL Database, consulte [Migración de una base de datos SQL Server a Azure SQL Database](sql-database-cloud-migrate.md).
-

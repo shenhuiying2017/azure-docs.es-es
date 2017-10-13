@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 456daea494ed1daed9bd809b68ae12fceb800299
-ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Exploración y administración de recursos de almacenamiento mediante el Explorador de servidores
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -151,7 +150,7 @@ Cuando se desarrolla un servicio en la nube que use colas, es recomendable usar 
 En el Explorador de servidores, puede ver las colas de una cuenta de almacenamiento, crear y eliminar colas, abrir una cola para ver sus mensajes y agregar mensajes a una cola. Cuando se abre una cola para verla, puede ver los mensajes individuales y puede realizar las siguientes acciones en la cola mediante los botones de la esquina superior izquierda:
 
 * Actualizar la vista de la cola.
-* Agregar un mensaje a la cola.
+* Agregue un mensaje a la cola.
 * Quitar el primer mensaje de la cola
 * Borrar la cola completa.
 
@@ -287,5 +286,4 @@ Si elimina una cuenta de almacenamiento, también se quita cualquier informació
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo usar los servicios de almacenamiento de Azure, consulte [Acceso a los servicios de Azure Storage](https://msdn.microsoft.com/library/azure/ee405490.aspx).
-
 

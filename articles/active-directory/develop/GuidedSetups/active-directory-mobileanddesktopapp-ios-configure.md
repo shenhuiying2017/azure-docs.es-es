@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.openlocfilehash: 0ebca65585fc87bd4a85ba092cd423fce9540f58
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 8a4f412102c0e75654030f5d4f8aab575fdcebba
-ms.contentlocale: es-es
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="create-an-application-express"></a>Creación de una aplicación (proceso rápido)
 Ahora tiene que registrar la aplicación en el *Portal de registro de aplicaciones de Microsoft*:
@@ -32,7 +32,7 @@ Ahora tiene que registrar la aplicación en el *Portal de registro de aplicacion
 2.  Escriba el nombre de la aplicación y su correo electrónico.
 3.  Asegúrese de que está desactivada la opción de configuración paso a paso.
 4.  Haga clic en `Add Platform`, seleccione `Native Application` y haga clic en `Save`.
-5.  Vuelva a Xcode. En `ViewController.swift`, reemplace la línea que empieza por “`let kClientID`” por el identificador de aplicación que acaba de registrar:
+5.  Vuelva a Xcode. En `ViewController.swift`, reemplace la línea que empieza por '`let kClientID`' por el identificador de aplicación que acaba de registrar:
 
 ```swift
 let kClientID = "Your_Application_Id_Here"
@@ -69,4 +69,3 @@ Agregue lo siguiente bajo el nodo raíz <code>dict</code>:
 Reemplace <i><code>[Your_Application_Id_Here]</code></i> por el identificador de aplicación que acaba de registrar.
 </li>
 </ol>
-

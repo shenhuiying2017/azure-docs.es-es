@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: f82a95ec9543b2d53ef28bf7f15315e23cf4893a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets"></a>Creación de una red virtual con varias subredes
 
@@ -238,4 +237,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 - Cree una máquina virtual [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en una red virtual existente.
 - Conecte dos redes virtuales. Para ello, cree un [emparejamiento de red virtual](virtual-network-peering-overview.md) entre ambas.
 - Conecte la red virtual a una red local mediante un circuito de [VPN Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-

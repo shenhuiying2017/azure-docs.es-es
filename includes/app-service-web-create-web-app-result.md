@@ -16,7 +16,7 @@ Local git is configured with url of 'https://<username>@<app name>.scm.azurewebs
 }
 ```
 
-Vaya al sitio para ver la aplicación web recién creada. Reemplace  _&lt;nombre de aplicación>_ con un nombre de aplicación único.
+Vaya al sitio para ver la aplicación web recién creada. Reemplace  _&lt;nombre de aplicación>_ por un nombre de aplicación único.
 
 ```bash
 http://<app name>.azurewebsites.net

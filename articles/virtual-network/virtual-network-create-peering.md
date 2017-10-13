@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: anavin;jdial
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ebe418f03c2edf176790f654f3f9f4d7eec09165
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-same-subscription"></a>Creación de un emparejamiento de redes virtuales: Resource Manager, misma suscripción
 
@@ -39,7 +38,7 @@ Un emparejamiento de redes virtuales solo se puede crear entre dos redes virtual
   > [!WARNING]
   > La creación de un emparejamiento de redes virtuales entre redes virtuales de distintas regiones se encuentra actualmente en la versión preliminar. Abajo puede registrar la suscripción para la versión preliminar. Los emparejamientos de redes virtuales que se crean en este escenario no pueden tener el mismo nivel de disponibilidad y confiabilidad que la creación de un emparejamiento de redes virtuales en escenarios de la versión de disponibilidad general. Los emparejamientos de redes virtuales que se crean en este escenario no se admiten, pueden tener capacidades limitadas y pueden no estar disponibles en todas las regiones de Azure. Para las notificaciones más al día sobre disponibilidad y estado de esta característica, consulte la página de [actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) .
 
-No se puede crear un emparejamiento de redes virtuales entre dos redes virtuales implementadas mediante el modelo de implementación clásica. Si necesita conectar redes virtuales que se han creado mediante el modelo de implementación clásico, que se encuentran en regiones de Azure diferentes o que se encuentran en suscripciones asociadas a inquilinos diferentes de Azure Active Directory, puede usar [Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para conectar las redes virtuales. 
+No se puede crear un emparejamiento de redes virtuales entre dos redes virtuales implementadas mediante el modelo de implementación clásica. Si necesita conectar redes virtuales que se crearon mediante el modelo de implementación clásica, o que se encuentran en regiones de Azure diferentes, puede usar [Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para conectar las redes virtuales. 
 
 Puede usar [Azure Portal](#portal), Azure [PowerShell](#cli), la [interfaz de la línea de comandos](#powershell) (CLI) de Azure o la [plantilla de Azure Resource Manager](#template) para crear un emparejamiento de redes virtuales. Haga clic en cualquiera de los vínculos anteriores de herramientas para ir directamente a los pasos para crear un emparejamiento de redes virtuales con la herramienta de su preferencia.
 
@@ -305,4 +304,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 - Conozca en profundidad las [restricciones y comportamientos importantes del emparejamiento de redes virtuales](virtual-network-manage-peering.md#requirements-and-constraints) antes de crear un emparejamiento de redes virtuales para su uso en el entorno de producción.
 - Conozca toda la [configuración de emparejamiento de redes virtuales](virtual-network-manage-peering.md#create-a-peering).
 - Obtenga información sobre cómo [crear una topología de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) con emparejamiento de redes virtuales.
-

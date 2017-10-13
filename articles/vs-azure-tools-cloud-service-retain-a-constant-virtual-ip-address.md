@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: c54c4c044bb4a6afd880fe101d7bb0cffdacb579
-ms.contentlocale: es-es
-ms.lasthandoff: 04/04/2017
-
+ms.openlocfilehash: a76bcba5ab4ca8e1a4899e4aa28f734c09af2aa9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Conservación de una dirección IP virtual constante para un servicio en la nube de Azure
 Al actualizar un servicio en la nube que se hospeda en Azure, es posible que deba asegurarse de que no cambia la dirección IP virtual (VIP) del servicio. Muchos de los servicios de administración de dominio usan el Sistema de nombres de dominio (DNS) para registrar nombres de dominio. DNS solo funciona si la dirección VIP sigue siendo la misma. Puede usar el **Asistente para publicación** en Azure Tools para asegurarse de que la dirección VIP del servicio en la nube no cambia cuando la actualiza. Para más información sobre cómo usar la administración de dominios DNS para servicios en la nube, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](cloud-services/cloud-services-custom-domain-name.md).
@@ -58,5 +57,4 @@ Puede especificar la configuración de implementación en el **Asistente para pu
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Uso del Asistente Publicar aplicaciones de Azure de Visual Studio](vs-azure-tools-publish-azure-application-wizard.md)
-
 

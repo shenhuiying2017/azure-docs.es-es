@@ -15,8 +15,7 @@ En primer lugar, tiene que tener un [directorio de Azure Active Directory](https
 
 A continuación, registre una aplicación con AAD. Esto le dará una cuenta de entidad de servicio que tenga acceso a su Almacén de claves, algo que la máquina virtual va a necesitar. En el artículo sobre Azure Key Vault, puede encontrar estos pasos en la sección [Registro de una aplicación con Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register), o bien puede ver los pasos con capturas de pantalla en la **sección en la que se indica cómo obtener una identidad para la aplicación** de [esta entrada de blog](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Antes de completar estos pasos, tenga en cuenta que durante este registro tiene que recopilar la siguiente información que necesitará más adelante cuando habilite la integración de Azure Key Vault en la máquina virtual de SQL.
 
-* Después de agregar la aplicación, busque el **IDENTIFICADOR DE CLIENTE** en la pestaña de **CONFIGURACIÓN**. 
-    ![Identificador de cliente de Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+* Después de agregar la aplicación, busque el **IDENTIFICADOR DE CLIENTE** en la pestaña de **CONFIGURACIÓN**.   ![Identificador de cliente de Azure Active Directory](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
   
     El identificador de cliente se asigna posteriormente al parámetro **$spName** (nombre de entidad de seguridad de servicio) en el script de PowerShell para habilitar la integración de Azure Key Vault. 
 * Además, durante estos pasos al crear la clave, copie el secreto de la clave tal como se muestra en la captura de pantalla siguiente. Este secreto de clave se asigna posteriormente al parámetro **$spSecret** (secreto de entidad de servicio) en el script de PowerShell.  

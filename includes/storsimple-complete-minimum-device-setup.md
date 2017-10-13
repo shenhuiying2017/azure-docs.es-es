@@ -33,7 +33,7 @@
    > 
    > 
 
-![Vídeo disponible](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Vídeo disponible**
+![Vídeo disponible](./media/storsimple-complete-minimum-device-setup/Video_icon.png)**Vídeo disponible**
 
 Para ver un vídeo que muestra cómo completar la configuración mínima del dispositivo, haga clic [aquí](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 

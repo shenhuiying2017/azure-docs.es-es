@@ -2,7 +2,7 @@
 Este tutorial requiere lo siguiente:
 
 * Visual Studio 2015 o 2017
-* [MicrosoftAzure.MobileEngagement](http://go.microsoft.com/?linkid=9864592) 
+* [MicrosoftAzure.MobileEngagement](http://go.microsoft.com/?linkid=9864592)
 
 
 > [!NOTE]

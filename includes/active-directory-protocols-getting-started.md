@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
-ms.translationtype: HT
-ms.sourcegitcommit: 8bdd78473b506fd3946ab12839ccbc20ca697f38
 ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
-ms.contentlocale: es-es
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 ## Registro de la aplicación con el inquilino de AD
 En primer lugar, tendrá que registrar la aplicación con el inquilino de Azure Active Directory (Azure AD). De este modo, se generará un id. de aplicación para la aplicación y también se habilitará esta para que reciba tokens.
@@ -31,4 +31,3 @@ En primer lugar, tendrá que registrar la aplicación con el inquilino de Azure 
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Para las aplicaciones nativas, proporcione un **URI de redirección**, que utilizará Azure AD para devolver las respuestas de token. Escriba un valor específico para la aplicación, por ejemplo, `http://MyFirstAADApp`
 * Una vez que haya completado el registro, Azure AD asignará a su aplicación un identificador de cliente único, el id. de aplicación. Necesitará este valor en las secciones siguientes, así que cópielo de la página de la aplicación.
-

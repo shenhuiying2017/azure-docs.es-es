@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/25/2017
+ms.date: 10/11/2017
 ms.author: carlrab
+ms.openlocfilehash: 70f512ef5742346df742e0718e2ccffd076a979e
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 3af597d7af13daaf80cd750b230675c8475033e1
-ms.contentlocale: es-es
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Administración de recursos para una sola base de datos en Azure SQL Database
 
@@ -37,7 +36,7 @@ Para establecer o cambiar el nivel de servicio, el nivel de rendimiento o la can
 ![Configuración del nivel de servicio y rendimiento](./media/sql-database-single-database-resources/change-service-tier.png)
 
 > [!IMPORTANT]
-> Revise las [limitaciones actuales de las bases de datos P11 y P15 con un tamaño máximo de 4 TB](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) al seleccionar un nivel de servicio P11 o P15.
+> Revise las [limitaciones actuales de las bases de datos P11 y P15 con un tamaño máximo de 4 TB](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) al seleccionar un nivel de servicio P11 o P15.
 >
 
 ## <a name="manage-single-database-resources-using-powershell"></a>Administración de los recursos de una sola base de datos mediante PowerShell
@@ -60,12 +59,12 @@ Para establecer o cambiar los niveles de servicio, los niveles de rendimiento y 
 
 | Cmdlet | Descripción |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |Crea una base de datos.|
-|[az sql db list](/cli/azure/sql/db#list)|Enumera todas las bases de datos y almacenes de datos de un servidor, o todas las bases de datos de un grupo elástico.|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|Enumera los objetivos de servicio y los límites de almacenamiento disponibles.|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|Devuelve los usos de la base de datos.|
-|[az sql db show](/cli/azure/sql/db#show)|Obtiene una base de datos o un almacenamiento de datos.|
-|[az sql db update](/cli/azure/sql/db#update)|Actualiza una base de datos.|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Crea una regla de firewall del servidor.|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Enumera las reglas de firewall en un servidor.|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Muestra los detalles de una regla de firewall.|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Actualiza una regla de firewall.|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina una regla de firewall.|
+
 
 > [!TIP]
 > Para ver un script de ejemplo de la CLI de Azure que escala una única base de datos SQL de Azure a otro nivel de rendimiento después de consultar la información del tamaño de la base de datos, consulte [Uso de la CLI para supervisar y escalar una instancia de SQL Database](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -111,4 +110,3 @@ Para establecer o cambiar los niveles de servicio, los niveles de rendimiento y 
 - Más información acerca de los niveles de servicio, los niveles de rendimiento y la cantidad de almacenamiento, en [Niveles de servicio](sql-database-service-tiers.md).
 - Más información sobre grupos elásticos en [este artículo](sql-database-elastic-pool.md).
 - Información sobre [límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-subscription-service-limits.md).
-

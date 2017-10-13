@@ -48,10 +48,6 @@ Es difícil de mantener el rendimiento exacto de los túneles VPN. IPsec y SSTP 
 
 No. Solo puede usar el cliente VPN nativo en Windows para SSTP y el cliente VPN nativo en Mac para IKEv2. Consulte la lista de sistemas operativos cliente compatibles.
 
-### <a name="can-i-access-the-internet-when-i-am-connected-over-p2s-vpn"></a>¿Puedo tener acceso a Internet si estoy conectado a través de una VPN de P2S?
-
-Sí, puede acceder a Internet mientras está en una VPN de P2S.
-
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>¿Azure admite VPN IKEv2 con Windows?
 
 Los usuarios se pueden conectar a Azure con el cliente integrado de VPN de Windows, que admite IKEv2. Pero las conexiones de IKEv2 desde un dispositivo Windows no funcionarán en el escenario siguiente:

@@ -10,7 +10,7 @@ El plano de datos es el mismo entre el modelo de implementación clásica y las 
 
 
 > [!NOTE]
-> En algunos escenarios de migración, la plataforma Azure detiene, desasigna y reinicia las máquinas virtuales. Esto provoca que un breve período de inactividad en el plano de datos.
+> En algunos escenarios de migración, la plataforma Azure se detiene, desasigna y reinicia las máquinas virtuales. Esto provoca que un breve período de inactividad en el plano de datos.
 >
 
 ## <a name="the-migration-experience"></a>Experiencia de migración

@@ -6,7 +6,7 @@ Inicie sesión en la suscripción de Azure con el comando `Login-AzureRmAccount`
 Login-AzureRmAccount
 ```
 
-Si no sabe qué ubicación desea usar, puede enumerar las ubicaciones disponibles. Cuando se muestre la lista, busque la que desee usar. Este ejemplo se utilizará **eastus**. Almacénelo en una variable y úsela para que pueda cambiar este valor en un solo lugar.
+Si no sabe qué ubicación desea usar, puede enumerar las ubicaciones disponibles. Cuando se muestre la lista, busque la que desee usar. Este ejemplo se usará **eastus**. Almacénelo en una variable y úsela para que pueda cambiar este valor en un solo lugar.
 
 ```powershell
 Get-AzureRmLocation | select Location 

@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: a43d7e30a6f4176afba27f0de2c2c116df741080
-ms.contentlocale: es-es
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="set-up-your-project"></a>Configurar su proyecto
 
 > ¿Prefiere descargar este proyecto de Android Studio de ejemplo en su lugar? [Descargue un proyecto](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) y vaya al [paso de configuración](#create-an-application-express) para configurar el código de ejemplo antes de ejecutarlo.
@@ -108,5 +107,4 @@ El paquete anterior instala la biblioteca de autenticación de Microsoft (MSAL).
         android:visibility="invisible" />
 </LinearLayout>
 ```
-
 

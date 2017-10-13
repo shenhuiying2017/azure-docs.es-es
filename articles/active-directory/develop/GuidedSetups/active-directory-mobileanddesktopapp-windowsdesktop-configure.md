@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 1dfaa7ade664e43dcb9aa788b0197ca17e6ec4cc
-ms.contentlocale: es-es
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="create-an-application-express"></a>Creación de una aplicación (proceso rápido)
 Ahora tiene que registrar la aplicación en el *Portal de registro de aplicaciones de Microsoft*:
 1. Registre la aplicación en el [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure).
@@ -40,4 +39,3 @@ Ahora tiene que registrar la aplicación en el *Portal de registro de aplicacion
 ```csharp
 private static string ClientId = "your_application_id_here";
 ```
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
+ms.openlocfilehash: 3a1a6e2acd2ff40c2b35a6099f8a9fc7eb104bbc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 5f1ce4c76aadc5fdfe53b15f0d82da5ce6b43346
-ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Validación del rendimiento de la VPN en una red virtual
 
@@ -140,4 +139,3 @@ Para obtener más información, consulte los siguientes artículos:
 
 - [Optimización del rendimiento de red en las máquinas virtuales de Azure](../virtual-network/virtual-network-optimize-network-bandwidth.md)
 - [Ayuda y soporte técnico de Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
-

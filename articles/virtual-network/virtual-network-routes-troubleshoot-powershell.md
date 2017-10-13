@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6efe6de6cc6d6d4c9788549048c5b50b03b3de42
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 141e3c571d744470fd07e99538b6e38d4144e8d7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Solución de problemas de rutas mediante Azure PowerShell
 > [!div class="op_single_selector"]
@@ -136,5 +135,4 @@ Algunos aspectos que tener en cuenta al revisar la lista de rutas devuelven:
 * Para que el tráfico de emparejamiento de red virtual funcione correctamente, es necesario que exista una ruta de sistema con **nextHopType** *VNetPeering* para el intervalo de prefijos de red virtual. Si dicha una ruta no existe y el vínculo de emparejamiento de red virtual parece correcto:
   * Espere unos segundos y vuelva a intentar si es un vínculo de emparejamiento recién establecido. En ocasiones la propagación de las rutas a todas las interfaces de red en una subred lleva algo más de tiempo.
   * Las reglas del grupo de seguridad de red (NSG) pueden estar afectando a los flujos de tráfico. Para más información, consulte el artículo sobre [Solución de problemas de los grupos de seguridad de red](virtual-network-nsg-troubleshoot-powershell.md) .
-
 

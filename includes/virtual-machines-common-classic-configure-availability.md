@@ -15,7 +15,7 @@ Puede agregar máquinas virtuales clásicas en un conjunto de disponibilidad med
 > 
 > 
 
-## <a id="createset"> </a>Opción 1: Creación de una máquina virtual y de un conjunto de disponibilidad simultáneamente.
+## <a id="createset"></a>Opción 1: Creación de una máquina virtual y de un conjunto de disponibilidad simultáneamente.
 Puede usar el Portal de Azure o los comandos de Azure PowerShell para ello.
 
 Para utilizar el Portal de Azure:
@@ -38,7 +38,7 @@ Para utilizar el Portal de Azure:
 
 Para usar los comandos de Azure PowerShell para crear una máquina virtual de Azure y agregarla a un conjunto de disponibilidad nuevo o existente, consulte [Creación de una máquina virtual de Windows con PowerShell y el modelo de implementación clásica](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"> </a>Opción 2: Incorporación de una máquina virtual existente a un conjunto de disponibilidad.
+## <a id="addmachine"></a>Opción 2: Incorporación de una máquina virtual existente a un conjunto de disponibilidad.
 En el Portal de Azure, puede agregar máquinas virtuales clásicas existentes a un conjunto de disponibilidad existente o crear uno nuevo para ellas. (Recuerde que las máquinas virtuales del mismo conjunto de disponibilidad deben pertenecer al mismo servicio en la nube.) Estos pasos son prácticamente los mismos. Con Azure PowerShell, puede agregar la máquina virtual a un conjunto de disponibilidad existente.
 
 1. Si aún no lo ha hecho, inicie sesión en el [Azure Portal](https://portal.azure.com).

@@ -142,7 +142,7 @@ Las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtual
 * [Factoría de datos](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
-* [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
+* [Base de datos SQL](../articles/sql-database/sql-database-technical-overview.md)
 
 ### <a name="networking"></a>Redes
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
@@ -159,7 +159,7 @@ Las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtual
 Estos son ejemplos de clientes que han resuelto problemas empresariales con las soluciones de HPC de Azure:
 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
-* [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
+* [AXA Global P&amp;C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
 * [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
