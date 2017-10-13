@@ -9,19 +9,21 @@ editor:
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: mvc,load & move data
+ms.custom: mvc,migrate
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 09/01/2017
 ms.author: carlrab
-ms.openlocfilehash: 8206cba416df4d43594678428632ff161a9564d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 8206cba416df4d43594678428632ff161a9564d6
+ms.contentlocale: es-es
+ms.lasthandoff: 09/07/2017
+
 ---
+
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migración de su base de datos SQL Server a Azure SQL Database
 
 Mover la base de datos de SQL Server a Azure SQL Database es tan sencillo como crear una base de datos SQL vacía en Azure y, después, usar [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) para importar la base de datos en Azure. En este tutorial, aprenderá a:
@@ -278,5 +280,6 @@ En el siguiente tutorial aprenderá a proteger una base de datos.
 
 > [!div class="nextstepaction"]
 > [Protección de Azure SQL Database](sql-database-security-tutorial.md).
+
 
 

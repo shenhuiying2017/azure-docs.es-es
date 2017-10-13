@@ -247,6 +247,7 @@
             - name: Instalación de controladores NVIDIA GPU
               href: n-series-driver-setup.md
     - name: Administración del almacenamiento
+      href: about-disks-and-vhds.md
       items:
         - name: Más información sobre Managed Disks
           href: managed-disks-overview.md
