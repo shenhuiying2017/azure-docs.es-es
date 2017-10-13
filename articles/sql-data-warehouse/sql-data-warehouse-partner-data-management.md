@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: partners
 ms.date: 12/27/2016
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 70bc2363172199455785e90753560cc2281432b1
-ms.openlocfilehash: eeb858514af80d1e6074b7c86ead5955f0d22ad2
-ms.contentlocale: es-es
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: 2fc8d1876e8a26252e83928857f5e7e9bf6ad47f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Partners de administración de datos de Almacenamiento de datos SQL
 Para crear la solución de almacenamiento de datos de un extremo a otro, elija entre una amplia variedad de herramientas líderes del sector. En este artículo se destacan las empresas asociadas de Microsoft con soluciones y herramientas de administración de datos compatibles con Almacenamiento de datos SQL de Azure.
@@ -100,4 +98,3 @@ Para obtener más información sobre algunos de nuestros otros asociados, consul
 [sql_sentry_twitter]:https://twitter.com/SQLSentry
 
 <!--Video links-->
-

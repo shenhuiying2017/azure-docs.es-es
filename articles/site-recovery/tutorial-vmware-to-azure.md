@@ -11,12 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ee445c8af2fc6620385d9c462d4c6551da3d7367
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure
 
@@ -26,7 +25,7 @@ Este tutorial muestra cómo configurar la recuperación ante desastres para máq
 > * Crear un almacén de Recovery Services para Site Recovery
 > * Configurar los entornos de replicación de origen y destino
 > * Creación de una directiva de replicación
-> * Habilitar la replicación para una máquina virtual
+> * Habilitación de la replicación para una máquina virtual
 
 Este es el tercer tutorial de una serie. En este tutorial se da por hecho que ya ha realizado las tareas de los tutoriales anteriores:
 
@@ -51,7 +50,7 @@ Antes de empezar, es útil [revisar la arquitectura](concepts-vmware-to-azure-ar
 
 Mobility Service debe instalarse en cada máquina que quiera replicar. Site Recovery instala este servicio automáticamente cuando se habilita la replicación para la máquina virtual. Para la instalación automática, debe preparar una cuenta que Site Recovery vaya a usar para acceder a la máquina virtual.
 
-Puede usar una cuenta local o de dominio. En el caso de las máquinas virtuales de Linux, la cuenta debe ser raíz en el servidor de origen Linux. En el caso de las máquinas virtuales de Windows, si no usa una cuenta de dominio, deshabilite el control de acceso de usuarios remotos en el equipo local:
+Puede usar una cuenta local o de dominio. En el caso de las máquinas virtuales Linux, debe ser la cuenta raíz en el servidor Linux de origen. En el caso de las máquinas virtuales de Windows, si no usa una cuenta de dominio, deshabilite el control de acceso de usuarios remotos en el equipo local:
 
   - En el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** y establezca el valor en 1.
 
@@ -232,4 +231,3 @@ Para supervisar las máquinas virtuales que agregue, puede comprobar la última 
 
 > [!div class="nextstepaction"]
 > [Obtención de detalles de recuperación ante desastres](site-recovery-test-failover-to-azure.md)
-

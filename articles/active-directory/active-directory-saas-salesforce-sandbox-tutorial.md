@@ -15,10 +15,10 @@ ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
 ms.openlocfilehash: 32835e79188806bb2ff319eea23b1b52ab585ab1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integración de Azure Active Directory con Salesforce Sandbox
 
@@ -63,7 +63,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
    ![Aplicaciones](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700994.png "Aplicaciones")
 4. Para abrir la **Galería de aplicaciones**, haga clic en **Agregar una aplicación** y en **Agregar una aplicación que mi organización use**.
    
-   ![¿Qué quiere hacer? ] (./media/active-directory-saas-salesforce-sandbox-tutorial/IC700995.png "¿Qué quiere hacer?")
+   ![¿Qué quiere hacer? ](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700995.png "¿Qué quiere hacer?")
 5. En el **cuadro de búsqueda**, escriba **Salesforce Sandbox**.
    
    ![Galería de aplicaciones](./media/active-directory-saas-salesforce-sandbox-tutorial/IC710978.png "Galería de aplicaciones")

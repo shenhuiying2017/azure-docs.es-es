@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 7/15/2017
 ms.author: delhan
+ms.openlocfilehash: eb1a6f93670317203c4de53b7b1307a2034c26ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 786c5fa4a72abac4dfcbce2c0b987ff622e96ed3
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Compatibilidad a la hora de agregar máquinas virtuales de Azure a un conjunto de disponibilidad existente
 
@@ -39,4 +38,3 @@ Serie y conjunto de disponibilidad|Segunda máquina virtual|Una |Av2|D|Dv2|Dv3|
 Todas las otras series no pueden estar en el mismo conjunto de disponibilidad porque requieren un hardware específico.
 
 El tamaño de una máquina virtual A8/A9 no se puede combinar debido al requisito en la red de backend de RDMA dedicada.
-

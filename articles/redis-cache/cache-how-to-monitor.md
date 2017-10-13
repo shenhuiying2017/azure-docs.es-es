@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: a1c7afab747b917ae979a41e63739a4f726265fc
-ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 8996f5ce03e39557d9cc9c3de1ec214f5cd664b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Supervisión de Caché en Redis de Azure
 Azure Redis Cache usa [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para proporcionar varias opciones para la supervisión de instancias de caché. Puede ver las métricas, anclar los gráficos de métricas al panel de inicio, personalizar el intervalo de fecha y hora de los gráficos de supervisión, agregar y quitar métricas de los gráficos y establecer alertas cuando se cumplen determinadas condiciones. Estas herramientas permiten supervisar el estado de las instancias de Azure Redis Cache y ayudarle a administrar sus aplicaciones de almacenamiento en caché.
@@ -139,7 +138,6 @@ Los registros de actividad proporcionan información sobre las operaciones lleva
 Para ver los registros de actividad de la memoria caché, haga clic en **Registros de actividad** en el **menú Recursos**.
 
 Para más información acerca de los registros de actividad, consulte [Información general sobre el registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
-
 
 
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 42f35c53eec06a346281fd90c97aecfd2269307d
-ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-10-enable-replication-for-physical-servers-to-azure"></a>Paso 10: Habilitación de la replicación de servidores físicos en Azure
 
@@ -68,4 +67,3 @@ De manera predeterminada, se replican todos los discos de una máquina. Puede ex
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vaya a [Paso 11: Ejecución de una conmutación por error de prueba](physical-walkthrough-test-failover.md)
-

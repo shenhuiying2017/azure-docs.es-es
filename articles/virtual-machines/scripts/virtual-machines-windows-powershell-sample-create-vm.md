@@ -17,10 +17,10 @@ ms.date: 03/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: a9e46aded0cf3792558a7fba6f00e5662166cc0a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Creación una máquina virtual completamente configurada con PowerShell
 
@@ -32,7 +32,7 @@ Este script crea una máquina virtual de Azure donde se ejecuta Windows Server 2
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.ps1 "Creación detallada de una máquina virtual")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.ps1 "Create VM detailed")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación 
 

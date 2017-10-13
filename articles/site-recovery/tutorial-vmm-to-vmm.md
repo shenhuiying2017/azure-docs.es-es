@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9764e48e04eb0c83afea09934ce64d2485ab15d5
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Hyper-V en el sitio local secundario
 
@@ -33,7 +32,7 @@ En este tutorial se muestra cómo configurar la recuperación ante desastres en 
 > * Configurar los entornos de replicación de origen y destino 
 > * Configurar la asignación de red (si Hyper-V se administra mediante System Center VMM)
 > * Creación de una directiva de replicación
-> * Habilitar la replicación para una máquina virtual
+> * Habilitación de la replicación para una máquina virtual
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -163,4 +162,3 @@ Puede hacer un seguimiento del progreso de la acción **Habilitar protección** 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Obtención de detalles de recuperación ante desastres](tutorial-dr-drill-secondary.md)
-

@@ -15,18 +15,17 @@ ms.workload: storage-backup-recovery
 ms.date: 07/20/2017
 ms.author: pratshar
 ms.openlocfilehash: 90ffd3dd1cf5068359afa1b60892cdee43ec0658
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>Diseñe su red para la recuperación ante desastres.
 
 Este artículo va dirigido a los profesionales de TI responsables de la elaboración, implementación y soporte técnico de la infraestructura de continuidad empresarial y recuperación ante desastres (BCDR), y que desean sacar provecho de Microsoft Azure Site Recovery (ASR) para dar soporte técnico a sus servicios de BCDR y mejorarlos. En este artículo se tratan consideraciones prácticas para estructurar la red del sitio de recuperación ante desastres, ya sea en Azure o en otro sitio local. 
 
 ## <a name="overview"></a>Información general
-<seg>
-  [Azure Site Recovery (ASR)](https://azure.microsoft.com/services/site-recovery/) es un servicio de Microsoft Azure que organiza la protección y recuperación de las aplicaciones virtualizadas con fines de continuidad empresarial y recuperación ante desastres (BCDR)..</seg> El fin de este documento es guiar al lector a través del proceso de diseño de las redes, y se centra en la elaboración de intervalos IP y subredes en el sitio de recuperación ante desastres, al replicar máquinas virtuales (VM) mediante Site Recovery.
+[Azure Site Recovery (ASR)](https://azure.microsoft.com/services/site-recovery/) es un servicio de Microsoft Azure que organiza la protección y recuperación de las aplicaciones virtualizadas con fines de continuidad empresarial y recuperación ante desastres (BCDR). El fin de este documento es guiar al lector a través del proceso de diseño de las redes, y se centra en la elaboración de intervalos IP y subredes en el sitio de recuperación ante desastres, al replicar máquinas virtuales (VM) mediante Site Recovery.
 
 Además, este artículo muestra la forma en que Site Recovery permite elaborar e implementar un centro de datos virtual multisitio para admitir los servicios BCDR en pruebas o ante un desastre.
 
