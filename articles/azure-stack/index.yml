@@ -4,7 +4,7 @@ title: Documentación del operador de Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: 'Documentación del operador de Azure Stack: tutoriales y referencia de API'
-  description: Aprenda a usar la versión preliminar de Azure Stack para prestar servicios de Azure desde el centro de datos. Aprenda y demuestre características desde un entorno de prueba de concepto.
+  description: Aprenda a usar Azure Stack para prestar servicios de Azure desde el centro de datos. Conozca las características de un entorno de Development Kit o de sistemas integrados.
   services: azure-stack
   author: czeumault
   manager: carolz
@@ -12,32 +12,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: Microsoft Azure Stack es una nueva plataforma en la nube híbrida que le permite proporcionar servicios de Azure desde el centro su datos. Aprenda a implementar Azure Stack y a ofrecer servicios con nuestros inicios rápidos y tutoriales.
+  description: 'Microsoft Azure Stack es una nueva plataforma en la nube híbrida que le permite proporcionar servicios de Azure desde el centro su datos. Aprenda a implementar Azure Stack Development Kit, a administrar la infraestructura de los sistemas integrados y de Development Kit y a ofrecer servicios con nuestros inicios rápidos y tutoriales.<br/><br/>Si es un usuario de Azure Stack que usa los servicios o compila aplicaciones para Azure Stack, consulte la <a href="/azure/azure-stack/user">documentación de usuario</a>.'
 sections:
-  - title: Inicios rápidos en 5 minutos
+  - title: Guía de inicio rápido
     items:
       - type: paragraph
-        text: 'Configuración del hardware e implementación de Azure Stack:'
+        text: Configuración del hardware e implementación de Azure Stack Development Kit.
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            text: Implementación de Azure Stack
+            text: Implementación de Azure Stack Development Kit
             href: azure-stack-deploy-overview.md
   - title: Tutoriales detallados
     items:
       - type: paragraph
-        text: 'Aprenda a agregar servicios a la implementación de Azure Stack:'
+        text: Aprenda a agregar servicios a la implementación de Azure Stack.
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Habilitar Virtual Machines en Azure Stack</a>
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Habilitar bases de datos SQL en Azure Stack</a>
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Habilitar Web Apps en Azure Stack</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Ofrecer Virtual Machines en Azure Stack</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Ofrecer instancias de SQL Database en Azure Stack</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Ofrecer Web Apps en Azure Stack</a>
   - title: Vídeo gratuito de aprendizaje de PluralSight
     items:
       - type: list
@@ -56,4 +56,4 @@ sections:
         className: cardsD
         items:
           - title: Línea de comandos
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p>

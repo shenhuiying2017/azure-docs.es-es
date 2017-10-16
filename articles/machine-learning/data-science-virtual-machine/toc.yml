@@ -1,6 +1,7 @@
 - name: Documentación de la máquina virtual de ciencia de datos
   items: null
 - name: Información general
+  expanded: true
   items:
     - name: ¿Qué es la máquina virtual de ciencia de datos?
       href: overview.md
@@ -25,8 +26,11 @@
     - name: Uso de una máquina virtual de aprendizaje profundo
       href: use-deep-learning-dsvm.md
 - name: Referencia
+  expanded: true
   items:
-    - name: Marcos de trabajo de aprendizaje profundo y AI
+    - name: Detección de DSVM
+      href: dsvm-tools-overview.md
+    - name: Marcos de aprendizaje profundo y de AI
       href: dsvm-deep-learning-ai-frameworks.md
     - name: Herramientas de ciencia de datos y ML
       href: dsvm-ml-data-science-tools.md

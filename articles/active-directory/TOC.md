@@ -6,7 +6,8 @@
 ## [Asociación de suscripciones de Azure](active-directory-how-subscriptions-associated-directory.md)
 ## [Preguntas más frecuentes](active-directory-faq.md)
 
-# Introducción
+# Primeros pasos
+## [Introducción a Azure AD](get-started-azure-ad.md)
 ## [Suscripción a Azure AD Premium](active-directory-get-started-premium.md)
 ## [Adición de un dominio personalizado](add-custom-domain.md)
 ## [Configuración de la personalización de marca de la compañía](customize-branding.md)
@@ -295,7 +296,7 @@
 ### [Acceso condicional](active-directory-conditional-access-azure-portal.md)
 #### [Controles](active-directory-conditional-access-controls.md)
 #### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
-#### [Procedimientos recomendados](active-directory-conditional-access-best-practices.md)
+#### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
 #### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
 #### Tareas
 ##### [Configuración del acceso condicional basado en dispositivos](active-directory-conditional-access-policy-connected-applications.md)
@@ -356,7 +357,7 @@
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
-## [Cmdlets de Azure PowerShell](/powershell/azure/overview)
+## [cmdlets de Azure PowerShell](/powershell/azure/overview)
 ## [Referencia de la API de Java](/java/api)
 ## [API de .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Restricciones y límites del servicio](active-directory-service-limits-restrictions.md)

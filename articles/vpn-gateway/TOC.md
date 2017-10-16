@@ -18,7 +18,6 @@
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [CLI de Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Portal de Azure clásico](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [Portal clásico (clásico)](vpn-gateway-site-to-site-create.md)
 
 ## Configuración de conexiones de punto a sitio: autenticación nativa de certificados de Azure
 ### Configuración de una VPN de punto a sitio
@@ -57,6 +56,7 @@
 ### [Azure PowerShell](vpn-gateway-activeactive-rm-powershell.md)
 ## Configuración de BGP para una instancia de VPN Gateway
 ### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+### [CLI de Azure](bgp-how-to-cli.md)
 ## Configuración de la tunelización forzada
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (modelo clásico)](vpn-gateway-about-forced-tunneling.md)
@@ -81,6 +81,8 @@
 ### [Problema de conexión de punto a sitio](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [La conexión de sitio a sitio se desconecta de forma intermitente](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [La conexión de sitio a sitio no puede conectarse](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Problemas de afinidad de sesión de Application Gateway](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
+### [Configuración y validación de las conexiones de red virtual o VPN](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Referencia
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

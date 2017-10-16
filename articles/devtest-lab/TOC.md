@@ -28,6 +28,7 @@
 ### [Configuración de directivas y programaciones](devtest-lab-set-lab-policy.md)
 ### [Configuración de la administración de costos](devtest-lab-configure-cost-management.md)
 ### [Configuración de imágenes de Marketplace](devtest-lab-configure-marketplace-images.md)
+### [Habilitar una imagen con licencia](devtest-lab-enable-licensed-images.md)
 ### [Incorporación de etiquetas a un laboratorio](devtest-lab-add-tag.md)
 
 ## [Selección de imágenes o fórmulas personalizadas](devtest-lab-comparing-vm-base-image-types.md)

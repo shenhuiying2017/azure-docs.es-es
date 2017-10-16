@@ -4,7 +4,7 @@ title: Documentación de usuario de Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: 'Documentación sobre Azure Stack: tutoriales y referencia de API'
-  description: Aprenda a usar la versión preliminar de Azure Stack para prestar servicios de Azure desde el centro de datos. Aprenda y demuestre características desde un entorno de prueba de concepto.
+  description: Aprenda a usar los servicios y a compilar aplicaciones de Azure Stack.
   services: azure-stack
   author: carolz
   manager: carolz
@@ -12,12 +12,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: 'Azure Stack es una plataforma en la nube híbrida que le permite usar servicios de Azure desde el centro de datos del proveedor de servicios o de su empresa. Como desarrollador, puede compilar aplicaciones en Azure Stack. Luego, puede implementarlas en Azure Stack o en Azure, o bien puede compilar aplicaciones realmente híbridas que aprovechen la conectividad entre una nube de Azure Stack y Azure.  Aprenda a crear recursos e implementar aplicaciones con nuestros inicios rápidos y tutoriales.'
+  description: 'Azure Stack es una plataforma en la nube híbrida que le permite usar servicios de Azure desde el centro de datos del proveedor de servicios o de su empresa. Como desarrollador, puede compilar aplicaciones en Azure Stack. Luego, puede implementarlas en Azure Stack o en Azure, o bien puede compilar aplicaciones realmente híbridas que aprovechen la conectividad entre una nube de Azure Stack y Azure. Aprenda a crear recursos e implementar aplicaciones con nuestros inicios rápidos y tutoriales.<br/><br/>Si es un operador de Azure Stack que administra la infraestructura y ofrece servicios, consulte la <a href="/azure/azure-stack/">documentación del operador</a>.'
 sections:
-  - title: Guía de inicio rápido
+  - title: Inicios rápidos en 5 minutos
     items:
       - type: paragraph
         text: 'Aprenda a implementar una máquina virtual Windows en Azure Stack:'
@@ -56,7 +56,7 @@ sections:
   - title: Tutoriales detallados
     items:
       - type: paragraph
-        text: 'Implementación de aplicaciones en Azure y Azure Stack:'
+        text: Implementación de aplicaciones en Azure y Azure Stack.
       - type: list
         style: ordered
         items:
@@ -68,4 +68,4 @@ sections:
         className: cardsD
         items:
           - title: Línea de comandos
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p>

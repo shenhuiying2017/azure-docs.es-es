@@ -59,17 +59,20 @@
 # Procedimientos
 ## [Supervisión de VPN Gateway con Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnóstico de la conectividad local a través de VPN Gateway](network-watcher-diagnose-on-premises-connectivity.md)
-## [Análisis de las capturas de paquetes para detectar anomalías](network-watcher-deep-packet-inspection.md)
-## [Uso de la captura de paquetes para realizar la supervisión proactiva de redes con Azure Functions](network-watcher-alert-triggered-packet-capture.md)
-## [Visualización de registros de flujo con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-## [Visualización de registros de flujo con herramientas de código abierto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-## [Visualización de registros de flujo en Azure con Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
-## [Visualización de patrones de tráfico de red mediante herramientas de código abierto](network-watcher-using-open-source-tools.md)
 ## [Realización de auditoría y comprobación del cumplimiento en la red con PowerShell](network-watcher-nsg-auditing-powershell.md)
-## [Lectura de registros de flujo de NSG](network-watcher-read-nsg-flow-logs.md)
-## [Realización de la detección de intrusiones mediante herramientas de código abierto](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Análisis de los registros de Application Gateway en Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
-## [Análisis de registros de flujo con Network Watcher y Grafana](network-watcher-nsg-grafana.md)
+## Captura de paquetes
+### [Búsqueda de anomalías](network-watcher-deep-packet-inspection.md)
+### [Supervisión proactiva de redes con Azure Functions](network-watcher-alert-triggered-packet-capture.md)
+### [Realización de la detección de intrusiones mediante herramientas de código abierto](network-watcher-intrusion-detection-open-source-tools.md)
+### [Visualización de patrones de tráfico de red mediante herramientas de código abierto](network-watcher-using-open-source-tools.md)
+## Análisis de registros de flujo de grupo de seguridad de red
+### [Lectura de registros de flujo de NSG](network-watcher-read-nsg-flow-logs.md)
+### [Uso de Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+### [Uso de Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+### [Uso de Grafana](network-watcher-nsg-grafana.md)
+### [Uso de Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+
 # Referencia
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)

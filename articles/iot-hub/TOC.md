@@ -114,9 +114,10 @@
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Administrar
 ### Crear un centro de IoT 
-#### [Uso de Azure Portal](iot-hub-create-through-portal.md)
+#### [Uso de Azure portal](iot-hub-create-through-portal.md)
 #### [Uso de Azure PowerShell](iot-hub-create-using-powershell.md)
 #### [Uso de CLI de Azure](iot-hub-create-using-cli.md)
 #### [Uso de la CLI](iot-hub-create-using-cli-nodejs.md)
@@ -124,18 +125,27 @@
 #### [Uso de una plantilla de Azure PowerShell](iot-hub-rm-template-powershell.md)
 #### [Uso de una plantilla de .NET](iot-hub-rm-template.md)
 ### Configuración de la carga de archivos
-#### [Uso de Azure Portal](iot-hub-configure-file-upload.md)
+#### [Uso de Azure portal](iot-hub-configure-file-upload.md)
 #### [Uso de Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
 #### [Uso de CLI de Azure](iot-hub-configure-file-upload-cli.md)
-### [Administración de identidades de dispositivos de Centro de IoT de forma masiva](iot-hub-bulk-identity-mgmt.md)
+### [Supervisión con Diagnostics](iot-hub-monitor-resource-health.md)
+#### [Migración a la configuración de Diagnostics](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Supervisión de operaciones](iot-hub-operations-monitoring.md)
 ### [Métricas de uso](iot-hub-metrics.md)
-### [Supervisión de operaciones](iot-hub-operations-monitoring.md)
+### [Administración de identidades de dispositivos de Centro de IoT de forma masiva](iot-hub-bulk-identity-mgmt.md)
 ### [Configuración de filtrado de IP](iot-hub-ip-filtering.md)
+
 ## Protección
 ### [Seguridad total](iot-hub-security-ground-up.md)
 ### [Procedimientos de seguridad recomendados](iot-hub-security-best-practices.md)
 ### [Arquitectura de seguridad](iot-hub-security-architecture.md)
 ### [Protección de su implementación de IoT](iot-hub-security-deployment.md)
+### Protección mediante certificados de entidad de certificación X.509
+#### [Introducción a la seguridad mediante certificados de entidad de certificación X.509](iot-hub-x509ca-overview.md)
+##### [Conceptos sobre seguridad mediante certificados de entidad de certificación X.509](iot-hub-x509ca-concept.md)
+#### [Introducción a la seguridad mediante certificados de entidad de certificación X.509](iot-hub-security-x509-get-started.md)
+##### [Creación de certificados: PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [Información general](iot-hub-iot-edge-overview.md)
 ### Introducción

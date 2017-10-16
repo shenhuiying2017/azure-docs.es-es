@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/14/2017
 ms.author: carolz
+ms.openlocfilehash: 733d2fd848e100525cb7f50f9831f52d5d473863
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 559bbabe07ae50b2cc83fad5e867c23c9272d6ab
-ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-messaging-documentation"></a>Documentación sobre la mensajería de Service Bus
 El servicio de mensajería proporciona una entrega de información confiable como un mecanismo de comunicación de terceros o asincrónico.
@@ -89,7 +88,7 @@ El servicio de mensajería proporciona una entrega de información confiable com
                 <div class="card">
                     <div class="cardText">
                         <h3>Línea de comandos</h3>
-                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.servicebus">Azure PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -121,5 +120,19 @@ El servicio de mensajería proporciona una entrega de información confiable com
             </div>
         </div>
     </li>
+     <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>OTROS</h3>
+                        <p><a href="service-bus-messaging-exceptions.md">Excepciones</a></p>
+                        <p><a href="service-bus-quotas.md">Cuotas</a></p>
+                        <p><a href="service-bus-messaging-sql-filter.md">Sintaxis de SQLFilter</a></p>
+                        <p><a href="service-bus-messaging-sql-rule-action.md">Sintaxis de SQLRuleAction</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
-

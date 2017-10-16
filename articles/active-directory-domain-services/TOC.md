@@ -15,9 +15,9 @@
 
 # Procedimientos
 ## Unirse a un dominio administrado
-### [Unirse a una máquina virtual de Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Unirse a una máquina virtual de Windows Server con PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Máquina virtual Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+### [Máquina virtual Windows Server con PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrar un dominio administrado
 ### [Administrar un dominio administrado](active-directory-ds-admin-guide-administer-domain.md)
