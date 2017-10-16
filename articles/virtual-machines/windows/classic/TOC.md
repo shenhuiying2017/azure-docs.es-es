@@ -91,9 +91,9 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Creación de plantillas de Resource Manager](../../../resource-group-authoring-templates.md)
 ## [Plantillas de la comunidad](https://azure.microsoft.com/documentation/templates)
-## [REST de Compute](/rest/api/compute)
-## [REST de Network](/rest/api)
-## [REST de Storage](/rest/api/storageservices)
+## [REST de Compute](https://msdn.microsoft.com/library/jj157206.aspx)
+## [REST de Network](https://msdn.microsoft.com/library/jj157182.aspx)
+## [REST de Storage](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)

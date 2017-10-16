@@ -72,9 +72,9 @@
 ## [Java](/java/api)
 ## [Creación de plantillas de Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Plantillas de la comunidad](https://azure.microsoft.com/documentation/templates)
-## [REST de Compute](/rest/api/compute)
-## [REST de Network](/rest/api)
-## [REST de Storage](/rest/api/storageservices)
+## [REST de Compute](https://msdn.microsoft.com/library/jj157206.aspx)
+## [REST de Network](https://msdn.microsoft.com/library/jj157182.aspx)
+## [REST de Storage](https://msdn.microsoft.com/library/ee460790.aspx)
 
 
 # Recursos
