@@ -3,7 +3,7 @@ title: "Autorización de las cuentas de desarrollador mediante OAuth 2.0 en Azur
 description: "Obtenga información acerca de cómo autorizar a los usuarios para que utilicen OAuth 2.0 en Administración de API."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 78c48247-64f0-4708-b2d0-98b61a821283
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: a19c453bb3271374b587f3d0b35adad55863b490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a19c453bb3271374b587f3d0b35adad55863b490
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
+
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Administración de API de Azure
 Muchas API admiten [OAuth 2.0](http://oauth.net/2/) para proteger la API y garantizar que solo usuarios válidos obtengan acceso y que, además, solo puedan tener acceso a los recursos para los que estén autorizados. Para usar la consola interactiva para desarrolladores de la Administración de API de Azure, el servicio permite configurar la instancia del servicio para que funcione con la API habilitada para OAuth 2.0.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"> </a>Requisitos previos
 En esta guía se explica cómo configurar la instancia del servicio Administración de API para que use la autorización OAuth 2.0 con las cuentas de desarrollador, pero no se explica cómo configurar un proveedor de OAuth 2.0. Aunque los proveedores de OAuth 2.0 tienen configuraciones diferentes, los pasos son similares y se precisa la misma información para configurar OAuth 2.0 en la instancia del servicio Administración de API. Este tema muestra ejemplos donde Azure Active Directory actúa como proveedor de OAuth 2.0.
 
 > [!NOTE]
@@ -31,7 +32,7 @@ En esta guía se explica cómo configurar la instancia del servicio Administraci
 > 
 > 
 
-## <a name="step1"></a>Configurar un servidor de autorización OAuth 2.0 en Administración de API
+## <a name="step1"> </a>Configurar un servidor de autorización OAuth 2.0 en Administración de API
 Para comenzar, haga clic en **Portal para editores** en Azure Portal para el servicio API Management.
 
 ![Portal del publicador][api-management-management-console]
@@ -90,7 +91,7 @@ Si **Tipos de concesión de código de autorización** se establece en **Contras
 
 Cuando complete el formulario, haga clic en **Guardar** para guardar la configuración del servidor de autorización OAuth 2.0 de Administración de API. Cuando se guarda la configuración del servidor, pueden configurarse las API para que usen estos valores, conforme a la sección siguiente.
 
-## <a name="step2"></a>Configurar una API para que use la autorización de usuario OAuth 2.0
+## <a name="step2"> </a>Configurar una API para que use la autorización de usuario OAuth 2.0
 Haga clic en **API** en el menú **API Management** de la izquierda, en el nombre de la API en cuestión, en **Seguridad** y, después, active la casilla **OAuth 2.0**.
 
 ![Autorización de usuario][api-management-user-authorization]
@@ -99,7 +100,7 @@ Seleccione el **Servidor de autorización** que quiera en la lista desplegable y
 
 ![Autorización de usuario][api-management-user-authorization-save]
 
-## <a name="step3"></a>Probar la autorización de usuario OAuth 2.0 en el portal para desarrolladores
+## <a name="step3"> </a>Probar la autorización de usuario OAuth 2.0 en el portal para desarrolladores
 Tras configurar el servidor de autorización OAuth 2.0 y las API para que usen dicho servidor, puede probarlo. Para ello, vaya al portal para desarrolladores y llame a una API.  Haga clic en **Portal para desarrolladores** en el menú superior derecho.
 
 ![portal para desarrolladores][api-management-developer-portal-menu]
@@ -173,4 +174,5 @@ Para obtener más información acerca del uso de OAuth 2.0 y Administración de 
 [Configure an API to use OAuth 2.0 user authorization]: #step2
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
+
 

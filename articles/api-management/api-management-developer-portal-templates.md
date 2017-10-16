@@ -3,7 +3,7 @@ title: "Personalización del portal para desarrolladores para API Management med
 description: "Obtenga información sobre cómo personalizar el portal para desarrolladores para Administración de API de Azure mediante plantillas"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2434762c2a1174a40d9c6daad6c317bc3ca8f374
 ms.openlocfilehash: 40d25726d31d2018785b77d169a8811c565316bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.contentlocale: es-es
+ms.lasthandoff: 02/23/2017
+
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Cómo personalizar el portal para desarrolladores de Administración de API de Azure mediante plantillas
 
@@ -211,6 +212,7 @@ Para obtener información de referencia sobre plantillas del portal para desarro
 [api-management-reset-template]: ./media/api-management-developer-portal-templates/api-management-reset-template.png
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
+
 
 
 

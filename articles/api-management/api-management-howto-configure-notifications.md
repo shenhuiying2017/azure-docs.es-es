@@ -3,7 +3,7 @@ title: "Configuración de notificaciones y plantillas de correo electrónico en 
 description: "Obtenga información acerca de cómo configurar notificaciones y plantillas de correo electrónico en Administración de API de Azure."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: 3d8b74e32059cfc1a4c3a8fc7d3bd04676ee80c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.contentlocale: es-es
+ms.lasthandoff: 01/31/2017
+
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure
 Administración de API ofrece la posibilidad de configurar notificaciones de eventos específicos, así como plantillas de correo electrónico que se usan para comunicarse con los administradores y desarrolladores de una instancia de Administración de API. Este tema muestra cómo configurar notificaciones de los eventos disponibles y ofrece información general sobre la configuración de plantillas de correo electrónico que se usan para estos eventos.
 
-## <a name="publisher-notifications"></a>Configuración de notificaciones del publicador
+## <a name="publisher-notifications"> </a>Configuración de notificaciones del publicador
 Para configurar las notificaciones, haga clic en **Portal para editores** en Azure Portal en su servicio API Management. De este modo, se abre el portal del publicador de Administración de API.
 
 ![Portal del publicador][api-management-management-console]
@@ -63,7 +64,7 @@ Después de configurar los destinatarios de las notificaciones, haga clic en **G
 > Si hay cambios sin guardar y sale de la pestaña **Notificaciones del publicador** , el portal del publicador le avisará.
 
 
-## <a name="email-templates"></a>Configuración de plantillas de correo electrónico
+## <a name="email-templates"> </a>Configuración de plantillas de correo electrónico
 Administración de API proporciona plantillas de correo electrónico para los mensajes de correo electrónico que se envían durante la administración y el uso del servicio. Se incluyen las siguientes plantillas de correo electrónico.
 
 * Envío de la galería de aplicaciones aprobado
@@ -119,3 +120,4 @@ Para guardar los cambios efectuados en la plantilla de correo electrónico, haga
 
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
+
