@@ -58,13 +58,13 @@
 ### [API DE REST](resource-manager-rest-api.md)
 ### [Uso de etiquetas para organizar los recursos](resource-group-using-tags.md)
 ### [Traslado de recursos a una suscripción o grupo nuevo](resource-group-move-resources.md)
+### [Organización de suscripciones con grupos de administración](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Ejemplos de gobierno](resource-manager-subscription-examples.md)
 
 ## Control de acceso
 ### Creación de una entidad de servicio
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [CLI de Azure 1.0](resource-group-authenticate-service-principal-cli.md)
 #### [Portal de Azure](resource-group-create-service-principal-portal.md)
 ### [API de autenticación para acceder a las suscripciones](resource-manager-api-authentication.md)
 ### [Bloqueo de recursos](resource-group-lock-resources.md)
