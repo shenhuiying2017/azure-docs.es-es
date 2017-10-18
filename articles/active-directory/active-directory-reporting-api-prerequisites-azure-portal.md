@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5fafd83c337e3c73260d89cdad7409a01ce5855b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 5fafd83c337e3c73260d89cdad7409a01ce5855b
+ms.contentlocale: es-es
+ms.lasthandoff: 08/07/2017
+
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Requisitos previos para acceder a la API de generación de informes de Azure AD
 
@@ -188,4 +189,5 @@ Para obtener el secreto de cliente de la aplicación, debe crear una nueva clave
 ## <a name="next-steps"></a>Pasos siguientes
 * ¿Quiere obtener acceso mediante programación a los datos de la API de generación de informes de Azure AD? Consulte [Introducción a la API de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Si quiere obtener más información sobre informes de Azure Active Directory, consulte la [guía de generación de informes de Azure Active Directory](active-directory-reporting-guide.md).  
+
 

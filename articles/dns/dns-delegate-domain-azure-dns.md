@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
+
 ---
+
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegación de un dominio en DNS de Azure
 
 DNS de Azure le permite hospedar una zona DNS y administrar los registros DNS de un dominio en Azure. Para que las consultas DNS de un dominio lleguen a DNS de Azure, es necesario haber delegado dicho dominio en DNS de Azure desde el dominio primario. Tenga en cuenta que DNS de Azure no es el registrador de dominios. En este artículo se explica cómo delegar el dominio a Azure DNS.
@@ -85,7 +87,7 @@ Metadata          :
 ### <a name="azure-cli"></a>CLI de Azure
 
 ```azurecli
-az network dns record-set show --resource-group contosoRG --zone-name contoso.net --type NS --name @
+az network dns record-set list --resource-group contosoRG --zone-name contoso.net --type NS --name @
 ```
 
 El ejemplo siguiente es la respuesta.
@@ -306,3 +308,4 @@ Para eliminar todos los recursos creados en este artículo, complete los pasos s
 [Administración de zonas DNS](dns-operations-dnszones.md)
 
 [Administración de registros DNS](dns-operations-recordsets.md)
+

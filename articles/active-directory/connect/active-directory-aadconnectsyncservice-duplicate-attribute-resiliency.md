@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/17/2017
 ms.author: markvi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: 7a8700e70f64851a0c5e5e8c6b31ec7a6884a96c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
-ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
+
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronización de identidades y resistencia de atributos duplicados
 La resistencia de atributos duplicados es una característica de Azure Active Directory que eliminará la fricción causada por los conflictos entre **UserPrincipalName** y **ProxyAddress** al ejecutar una de las herramientas de sincronización de Microsoft.
@@ -88,7 +89,7 @@ Una vez conectado, para ver una lista general de errores de aprovisionamiento de
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
 Esto genera un resultado similar al siguiente:   
- ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "MsolDirSyncProvisioningError Get")  
+ ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")  
 
 #### <a name="by-property-type"></a>Por tipo de propiedad
 Para ver los errores ordenados por tipo de propiedad, agregue la marca **-PropertyName** con el argumento **UserPrincipalName** o **ProxyAddresses**:
@@ -126,7 +127,7 @@ Para obtener instrucciones acerca de cómo ver los errores de sincronización de
 Cuando se administra un objeto con un conflicto de atributo duplicado con este nuevo comportamiento se incluye una notificación en el correo electrónico estándar de informe de errores de sincronización de identidades que se envía al contacto de notificaciones técnicas del inquilino. Sin embargo, hay un cambio importante en este comportamiento. En el pasado, se incluía información sobre un conflicto de atributo duplicado en cada informe de errores posterior hasta que se resolvía el conflicto. Con este nuevo comportamiento, la notificación de error de un conflicto determinado solo aparece una vez en el momento en que se pone en cuarentena el atributo en conflicto.
 
 Este es un ejemplo del aspecto de la notificación de correo electrónico si hay un conflicto de ProxyAddress:   
-    ![Usuarios activos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Usuarios activos")  
+    ![Usuarios activos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Active Users")  
 
 ## <a name="resolving-conflicts"></a>Resolución de conflictos
 La estrategia de solución de problemas y las tácticas de resolución no son diferentes de la forma en que se controlaban los errores de atributo duplicado en el pasado. La única diferencia es que la tarea de temporizador limpiará el inquilino en el servicio para agregar automáticamente el atributo en cuestión al objeto adecuado una vez que se resuelva el conflicto.
@@ -164,7 +165,7 @@ Ninguno de estos problemas conocidos provoca la degradación del servicio o la p
 **Informe de errores de sincronización de identidades**:
 
 El vínculo de los *pasos necesarios para resolver este problema* no es correcto:  
-    ![Usuarios activos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Usuarios activos")  
+    ![Usuarios activos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Active Users")  
 
 Debe apuntar a [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
 
@@ -172,4 +173,5 @@ Debe apuntar a [https://aka.ms/duplicateattributeresiliency](https://aka.ms/dupl
 * [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 * [Identificar problemas de sincronización de directorios en Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+
 
