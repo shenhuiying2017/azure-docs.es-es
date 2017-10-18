@@ -3,7 +3,7 @@ title: "Introducción a Azure Batch para desarrolladores | Microsoft Docs"
 description: "Conozca las características del servicio Batch y sus API desde el punto de vista del desarrollo."
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 06/28/2017
-ms.author: tamram
+ms.date: 010/04/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: f182dff164b8baa7e2144231667adbd12fcc717d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -45,7 +45,7 @@ El siguiente flujo de trabajo general es típico de casi todas las aplicaciones 
 Las secciones siguientes tratan estos, y otros, recursos de Batch que permitirán que haya un escenario de cálculo distribuido.
 
 > [!NOTE]
-> Necesitará una [cuenta de Batch](#account) para utilizar este servicio. Casi todas las soluciones de Batch usan una cuenta de [Azure Storage][azure_storage] para el almacenamiento y la recuperación de archivos. Actualmente, Batch solo admite el tipo de cuenta de almacenamiento **de uso general**, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
+> Necesitará una [cuenta de Batch](#account) para utilizar este servicio. Casi todas las soluciones de Batch usan una cuenta de [Azure Storage][azure_storage] asociada para el almacenamiento y la recuperación de archivos. 
 >
 >
 
@@ -53,7 +53,7 @@ Las secciones siguientes tratan estos, y otros, recursos de Batch que permitirá
 Algunos de los siguientes recursos son necesarios para todas las soluciones que usan el servicio Batch: cuentas, nodos de proceso, grupos, trabajos, tareas. Otros, como las programaciones de los trabajos y los paquetes de aplicación, son características útiles, pero opcionales.
 
 * [Cuenta](#account)
-* [Nodo de proceso](#compute-node)
+* [Nodo de ejecución](#compute-node)
 * [Grupo](#pool)
 * [Trabajo](#job)
 
@@ -70,44 +70,14 @@ Algunos de los siguientes recursos son necesarios para todas las soluciones que 
 ## <a name="account"></a>Cuenta
 Una cuenta de Batch es una entidad identificada de forma exclusiva en el servicio Batch. Todo el procesamiento se asocia con una cuenta de Batch.
 
-Puede crear una cuenta de Azure Batch mediante [Azure Portal](batch-account-create-portal.md) o mediante programación, como con la [biblioteca .NET de administración de lotes](batch-management-dotnet.md). Al crear la cuenta, puede asociar una cuenta de almacenamiento de Azure.
+Puede crear una cuenta de Azure Batch mediante [Azure Portal](batch-account-create-portal.md) o mediante programación, como con la [biblioteca .NET de administración de lotes](batch-management-dotnet.md). Al crear la cuenta, puede asociar una cuenta de Azure Storage para almacenar los datos o aplicaciones de entrada y salida relacionados con los trabajos.
 
-### <a name="pool-allocation-mode"></a>Modo de asignación de grupos
+Se pueden ejecutar varias cargas de trabajo de Batch en una sola cuenta de Batch, o bien distribuir las cargas de trabajo entre cuentas de Batch que se encuentren en la misma suscripción, pero en diferentes regiones de Azure.
 
-Cuando se crea una cuenta de Batch, puede especificar cómo se asignan los [grupos](#pool) de nodos de proceso. Puede asignar los grupos de nodos de proceso en una suscripción administrada por Azure Batch, o bien puede asignarlos en su propia suscripción. La propiedad *pool allocation mode* de la cuenta determina qué grupos se asignan. 
+> [!NOTE]
+> Cuando se crea una cuenta de Batch, por lo general debería elegir el modo de **servicio Batch** predeterminado, en el que los grupos se asignan en segundo plano en suscripciones administradas por Azure. En el modo de **Suscripción de usuario** alternativo, que no se recomienda, tanto las máquinas virtuales de Batch como otros recursos se crean directamente en su suscripción cuando se crea un grupo.
+>
 
-Para decidir qué modo de asignación de grupos va a utilizar, piense cuál se adapta mejor a su escenario:
-
-* **Servicio Batch**: Servicio Batch es el modo de asignación de grupos predeterminado, que asigna los grupos en segundo plano en suscripciones administradas por Azure. Tenga en cuenta estos puntos clave acerca del modo de asignación de grupos Servicio Batch:
-
-    - El modo de asignación de grupos Servicio Batch admite grupos de Cloud Services y de máquinas virtuales.
-    - El modo de asignación de grupos Servicio Batch admite la autenticación de clave compartida o la [autenticación de Azure Active Directory](batch-aad-auth.md) (Azure AD). 
-    - Puede usar nodos de proceso dedicados o de baja prioridad en grupos asignados con el modo de asignación de grupos Servicio Batch.
-    - No use el modo de asignación de grupos Servicio Batch si tiene previsto crear grupos de máquinas virtuales de Azure a partir de imágenes de máquinas virtuales personalizadas o si prevé utilizar una red virtual. En su lugar, cree la cuenta con el modo de asignación de grupos Suscripción de usuario.
-    - Los grupos de máquinas virtuales aprovisionados en una cuenta creada con el modo de asignación de grupos Servicio Batch se deben crear a partir de imágenes de [Azure Virtual Machines Marketplace][ vm_marketplace].
-
-* **Suscripción de usuario**: con el modo de asignación de grupos Suscripción de usuario, los grupos de Batch se asignan en la suscripción de Azure donde se crea la cuenta. Tenga en cuenta estos puntos clave acerca del modo de asignación de grupos Suscripción de usuario:
-     
-    - El modo de asignación de grupos Suscripción de usuario solo admite grupos de máquinas virtuales. No admite grupos de Cloud Services.
-    - Para crear grupos de máquinas virtuales a partir de imágenes de máquinas virtuales personalizadas o para usar una red virtual con grupos de máquinas virtuales, debe usar el modo de asignación de grupos Suscripción de usuario.  
-    - Debe usar la [autenticación de Azure Active Directory](batch-aad-auth.md) con los grupos que se asignan en la suscripción del usuario. 
-    - Debe configurar un almacén de claves de Azure para su cuenta de Batch si el modo de asignación de grupos se establece en Suscripción de usuario. 
-    - Solo puede usar nodos de proceso dedicados en grupos en una cuenta creada con el modo de asignación de grupos Suscripción de usuario. No se admiten nodos de prioridad baja.
-    - Los grupos de máquinas virtuales aprovisionados en una cuenta con el modo de asignación de grupos Suscripción de usuario se deben crear a partir de imágenes de [Azure Virtual Machines Marketplace][ vm_marketplace] o a partir de las imágenes personalizadas que proporcione.
-
-En la tabla siguiente se comparan los modos de asignación de grupos Servicio Batch y Suscripción de usuario.
-
-| **Modo de asignación de grupos**                 | **Servicio Batch**                                                                                       | **Suscripción de usuario**                                                              |
-|-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Los grupos se asignan en**               | Una suscripción administrada por Azure                                                                           | La suscripción del usuario donde se crea la cuenta de Batch                        |
-| **Configuraciones admitidas**             | <ul><li>Configuración de servicio en la nube</li><li>Configuración de máquina virtual (Linux y Windows)</li></ul> | <ul><li>Configuración de máquina virtual (Linux y Windows)</li></ul>                |
-| **Imágenes de máquina virtual admitidas**                  | <ul><li>Imágenes de Azure Marketplace</li></ul>                                                              | <ul><li>Imágenes de Azure Marketplace</li><li>Imágenes personalizadas</li></ul>                   |
-| **Tipos de nodo de proceso admitidos**         | <ul><li>Nodos dedicados</li><li>Nodos de prioridad baja</li></ul>                                            | <ul><li>Nodos dedicados</li></ul>                                                  |
-| **Autenticación admitida**             | <ul><li>Clave compartida</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Azure Key Vault requerido**             | No                                                                                                      | Sí                                                                                |
-| **Cuota de núcleos**                           | Determinado por la cuota de núcleos de Batch                                                                          | Determinado por la cuota de núcleos de la suscripción                                              |
-| **Compatibilidad con redes virtuales de Azure** | Grupos creados con la configuración del servicio en la nube                                                      | Para los grupos creados con la configuración de máquina virtual                               |
-| **Modelo de implementación de red virtual admitido**      | Redes virtuales creadas con el modelo de implementación clásico                                                             | Redes virtuales creadas con el modelo de implementación clásico o de Azure Resource Manager |
 
 ## <a name="azure-storage-account"></a>Cuenta de almacenamiento de Azure
 
@@ -134,7 +104,7 @@ Los grupos de Azure Batch se basan en la plataforma de proceso principal de Azur
 
 A cada nodo que se agrega a un grupo se le asigna un nombre y una dirección IP únicos. Cuando se quita un nodo de un grupo, los cambios realizados en el sistema operativo o los archivos se pierden, y su nombre y dirección IP se liberan para usarlos en un futuro. Cuando un nodo abandona un grupo, su vigencia finaliza.
 
-Cuando se crea un grupo, puede especificar los siguientes atributos: Algunas opciones de configuración difieren, según el modo de asignación de grupo de la [cuenta](#account) de Batch:
+Cuando se crea un grupo, puede especificar los siguientes atributos:
 
 - Sistema operativo y versión de nodo de proceso
 - Tipo de nodo de proceso y número de nodos de destino
@@ -149,11 +119,9 @@ Cuando se crea un grupo, puede especificar los siguientes atributos: Algunas opc
 Cada uno de estos valores se describe con más detalle en las secciones siguientes.
 
 > [!IMPORTANT]
-> Las cuentas de Batch creadas con el modo de asignación de grupos Servicio Batch tienen una cuota predeterminada que limita el número de núcleos en una cuenta de Batch. El número de núcleos corresponde al número de nodos de proceso. Tanto las cuotas predeterminadas como las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) se pueden encontrar en [Límites y cuotas del servicio de Batch de Azure](batch-quota-limit.md). Si el grupo no está consiguiendo su número de nodos de destino, la causa podría ser la cuota básica.
+> Las cuentas de Batch tienen una cuota predeterminada que limita el número de núcleos en una cuenta de Batch. El número de núcleos corresponde al número de nodos de proceso. Tanto las cuotas predeterminadas como las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) se pueden encontrar en [Límites y cuotas del servicio de Batch de Azure](batch-quota-limit.md). Si el grupo no está consiguiendo su número de nodos de destino, la causa podría ser la cuota básica.
 >
->Las cuentas de Batch que se crean con el modo de asignación de grupos Suscripción de usuario no tienen en cuenta las cuotas del servicio Batch. En su lugar, comparten la cuota básica de la suscripción especificada. Para más información, consulte [Límites de Virtual Machines](../azure-subscription-service-limits.md#virtual-machines-limits) en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
->
->
+
 
 ### <a name="compute-node-operating-system-and-version"></a>Sistema operativo y versión de nodo de proceso
 
@@ -173,41 +141,14 @@ Al crear un grupo de Batch, puede especificar la configuración de máquina virt
 
 Cuando crea un grupo, debe seleccionar la opción **nodeAgentSkuId** apropiada, en función del sistema operativo de la imagen base de su VHD. Puede obtener una asignación de identificadores de SKU de agentes de nodos disponibles a sus referencias de imágenes del sistema operativo mediante una llamada a la operación [List supported node agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) (Lista de SKU admitidas de agentes de nodos).
 
-Consulte la sección [Cuenta](#account) para obtener información acerca de cómo establecer el modo de asignación del grupo al crear una cuenta de Batch.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Imágenes personalizadas de grupos de máquinas virtuales
 
-Para utilizar imágenes personalizadas para aprovisionar los grupos de máquinas virtuales, cree la cuenta de Batch con el modo de asignación de grupos Suscripción de usuario. Con este modo, los grupos de Batch se asignan en la suscripción en la que reside la cuenta. Consulte la sección [Cuenta](#account) para obtener información acerca de cómo establecer el modo de asignación del grupo al crear una cuenta de Batch.
+Para utilizar una imagen personalizada, debe generalizarla para prepararla. Para obtener información acerca de cómo preparar imágenes personalizadas de Linux desde máquinas virtuales de Azure, consulte [Creación de una imagen de una máquina virtual o un disco duro virtual](../virtual-machines/linux/capture-image.md). Para obtener información acerca de cómo preparar imágenes de Windows personalizadas a partir de máquinas virtuales de Azure, consulte [Captura de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md). 
 
-Para utilizar una imagen personalizada, debe generalizarla para prepararla. Para más información acerca de cómo preparar imágenes personalizadas de Linux desde máquinas virtuales de Azure, consulte [Captura de una máquina virtual Linux para usarla como una plantilla](../virtual-machines/linux/capture-image-nodejs.md). Para más información acerca de cómo preparar imágenes de Windows personalizadas a partir de máquinas virtuales de Azure, consulte [Crear imágenes de máquina virtual personalizadas con Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md). 
+Para conocer los requisitos y pasos de manera detallada, consulte [Uso de una imagen personalizada para crear un grupo de máquinas virtuales](batch-custom-images.md).
 
-> [!IMPORTANT]
-> Al preparar la imagen personalizada, tenga en cuenta lo siguiente:
-> - Asegúrese de que la imagen del sistema operativo base que se use para aprovisionar los grupos de Batch no tenga extensiones de Azure preinstaladas, como la extensión de script personalizado. Si la imagen contiene una extensión preinstalada, Azure podría experimentar problemas al implementar la máquina virtual.
-> - Asegúrese de que la imagen del sistema operativo base proporcionada usa la unidad temporal predeterminada, porque el agente de nodo de Batch espera la unidad temporal predeterminada.
->
->
 
-Para crear un grupo de configuración de máquinas virtuales con una imagen personalizada, necesitará una o varias cuentas de Azure Storage estándares para almacenar imágenes VHD personalizadas. Las imágenes personalizadas se almacenan como blobs. Para hacer referencia a sus imágenes personalizadas al crear un grupo, especifique los URI de los blobs VHD de imágenes personalizadas para la propiedad [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) de la propiedad [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf).
-
-Asegúrese de que las cuentas de almacenamiento cumplen los criterios siguientes:   
-
-- Las cuentas de almacenamiento que contienen los blobs VHD de imágenes personalizadas deben estar en la misma suscripción que la cuenta de Batch (la suscripción de usuario).
-- Las cuentas de almacenamiento especificadas deben estar en la misma región que la cuenta de Batch.
-- Actualmente, solo se admiten las cuentas de almacenamiento estándar de uso general. En un futuro, se admitirá Azure Premium Storage.
-- Puede especificar una cuenta de almacenamiento con varios blobs VHD personalizados o varias cuentas de almacenamiento, que tenga cada una un único blob. Se recomienda usar varias cuentas de almacenamiento para obtener un mejor rendimiento.
-- Un único blob VHD de imágenes personalizadas puede admitir hasta 40 instancias de máquinas virtuales Linux o 20 instancias de máquinas virtuales Windows. Deberá crear copias del blob VHD para crear grupos con más máquinas virtuales. Por ejemplo, un grupo con 200 máquinas virtuales Windows necesita 10 blobs VHD únicos especificados para la propiedad **osDisk**.
-
-Para crear un grupo a partir de una imagen personalizada mediante Azure Portal:
-
-1. Vaya a la cuenta de Batch en Azure Portal.
-2. En la hoja **Configuración**, seleccione el elemento de menú **Grupos**.
-3. En la hoja **Grupos**, seleccione el comando **Agregar**, tras lo que aparecerá la hoja **Agregar grupo**.
-4. Seleccione **Imagen personalizada (Linux/Windows)** en la lista desplegable **Tipo de imagen**. El portal muestra el selector **Imagen personalizada**. Elija uno o más VHD en el mismo contenedor y haga clic en el botón **Seleccionar**. 
-    En el futuro, se agregará compatibilidad con varios VHD de diferentes cuentas de almacenamiento y contenedores.
-5. Seleccione el valor correcto de **Publicador/Oferta/SKU** para los VHD personalizados, elija el modo de **Almacenamiento en caché** que desee y rellene el resto de los parámetros para el grupo.
-6. Para comprobar si un grupo se basa en una imagen personalizada, vea la propiedad **Operating System** en la sección del resumen de recursos de la hoja **Grupo**. El valor de esta propiedad debe ser **Custom VM image**.
-7. Todos los VHD personalizados asociados a un grupo se muestran en la hoja **Propiedades** del grupo.
 
 ### <a name="compute-node-type-and-target-number-of-nodes"></a>Tipo de nodo de proceso y número de nodos de destino
 
@@ -219,8 +160,7 @@ Al crear un grupo, puede especificar los tipos de nodos de proceso que le intere
 
     Los nodos de proceso de prioridad baja pueden verse reemplazados cuando Azure no tiene una capacidad sobrante suficiente. Si se reemplaza un nodo mientras ejecuta tareas, las tareas se vuelven a poner en cola y se ejecutan de nuevo en cuanto está disponible un nodo de proceso. Los nodos de prioridad baja son una buena opción para las cargas de trabajo en las que el tiempo de finalización del trabajo es flexible y el trabajo se distribuye entre muchos nodos. Antes de decidirse a usar nodos de prioridad baja para un escenario, asegúrese de que los trabajos perdidos debido a la preferencia sean mínimos y fáciles de volver a crear.
 
-    Los nodos de proceso de prioridad baja solo están disponibles para las cuentas de Batch creadas con el modo de asignación de grupo establecido en **Servicio Batch**.
-
+    
 Puede tener nodos de proceso de prioridad baja y dedicados en el mismo grupo. Cada tipo de nodo (prioridad baja y dedicado) tiene su propia configuración de destino, para la que puede especificar el número deseado de nodos. 
     
 El número de nodos de proceso se conoce como *destino* porque, en algunas situaciones, es posible que el grupo no alcance el número deseado de nodos. Por ejemplo, un grupo podría no alcanzar el destino si alcanza primero la [cuota de núcleos](batch-quota-limit.md) de la cuenta de Batch. O bien, el grupo podría no alcanzar el destino si ha aplicado una fórmula de escalado automático al grupo que limita el número máximo de nodos.
@@ -315,9 +255,9 @@ Cuando crea una tarea, puede especificar:
 
     Si las tareas deben ejecutar una aplicación o un script que no se encuentra en `PATH` en el nodo o en las variables de entorno de referencia, invoque el shell explícitamente en la línea de comandos de la tarea.
 * **archivos de recursos** que contienen los datos que se procesan. Estos archivos se copian automáticamente en el nodo desde Blob Storage en una cuenta de Azure Storage de uso general antes de que se ejecute la línea de comandos de la tarea. Para más información, consulte las secciones [Tarea de inicio](#start-task) y [Archivos y directorios](#files-and-directories).
-* Las **variables de entorno** que requiere la aplicación. Para más información, consulte la sección [Configuración del entorno para las tareas](#environment-settings-for-tasks) .
+* Las **variables de entorno** que requiere la aplicación. Para más información, consulte la sección [Configuración del entorno para las tareas](#environment-settings-for-tasks).
 * Las **restricciones** con que se debe ejecutar la tarea. Por ejemplo, las restricciones incluyen el tiempo máximo que se permite que la tarea se ejecute, el número máximo de veces que se debe volver a intentar una tarea si se produce un error y el tiempo máximo que se conservan los archivos en el directorio de trabajo de la tarea.
-* **Paquetes de aplicación** que se implementan en el nodo de proceso en el que está programado que se ejecute la tarea. Los [paquetes de aplicación](#application-packages) proporcionan una implementación simplificada y el control de las versiones de las aplicaciones que ejecutan las tareas. Los paquetes de aplicaciones de nivel de tarea son especialmente útiles en entornos de grupo compartido, donde los distintos trabajos se ejecutan en un grupo que no se elimina cuando se completa un trabajo. Si el trabajo tiene menos tareas que nodos en el grupo, los paquetes de aplicación de las tareas pueden minimizar la transferencia de datos, ya que la aplicación se implementa solo en los nodos que ejecutan tareas.
+* **Paquetes de aplicación** que se implementan en el nodo de proceso en el que está programado que se ejecute la tarea. [Application packages](#application-packages) proporcionan una implementación simplificada y el control de las versiones de las aplicaciones que ejecutan las tareas. Los paquetes de aplicaciones de nivel de tarea son especialmente útiles en entornos de grupo compartido, donde los distintos trabajos se ejecutan en un grupo que no se elimina cuando se completa un trabajo. Si el trabajo tiene menos tareas que nodos en el grupo, los paquetes de aplicación de las tareas pueden minimizar la transferencia de datos, ya que la aplicación se implementa solo en los nodos que ejecutan tareas.
 
 Además de las tareas que se definen para realizar cálculos en un nodo, el servicio Batch también proporciona las siguientes tareas especiales:
 
@@ -402,7 +342,7 @@ Puede encontrar una lista completa de las variables de entorno definidas por el 
 ## <a name="files-and-directories"></a>Archivos y directorios
 Cada tarea tiene un *directorio de trabajo* en el que se crean ninguno o más archivos y directorios. Este directorio de trabajo se puede usar para almacenar el programa que va a ejecuta la tarea, los datos que procesa y el resultado del procesamiento que realiza. Todos los archivos y directorios de una tarea son propiedad del usuario de la tarea.
 
-El servicio Batch expone parte del sistema de archivos en un nodo como *directorio raíz*. Las tareas pueden acceder al directorio raíz haciendo referencia a la variable de entorno `AZ_BATCH_NODE_ROOT_DIR` . Para obtener más información sobre el uso de variables de entorno, consulte [Configuración del entorno para las tareas](#environment-settings-for-tasks).
+El servicio Batch expone parte del sistema de archivos en un nodo como *directorio raíz*. Las tareas pueden acceder al directorio raíz haciendo referencia a la variable de entorno `AZ_BATCH_NODE_ROOT_DIR`. Para obtener más información sobre el uso de variables de entorno, consulte [Configuración del entorno para las tareas](#environment-settings-for-tasks).
 
 El directorio raíz contiene la siguiente estructura de directorio:
 
@@ -431,7 +371,7 @@ Batch controla los detalles del trabajo con Azure Storage para almacenar los paq
 Para más información sobre la característica de paquete de aplicación, consulte [Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch](batch-application-packages.md).
 
 > [!NOTE]
-> Si se agregan paquetes de aplicación de grupo a un grupo *existente* , es preciso reiniciar los nodos de proceso de los paquetes de aplicación que se van a implementar en los nodos.
+> Si se agregan paquetes de aplicación de grupo a un grupo *existente*, es preciso reiniciar los nodos de proceso de los paquetes de aplicación que se van a implementar en los nodos.
 >
 >
 
@@ -446,34 +386,15 @@ Normalmente, se utiliza un enfoque combinado para controlar una carga variable, 
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Configuración de red virtual y de firewall 
 
-Cuando se aprovisiona un grupo de nodos de proceso en Azure Batch, puede asociar el grupo a una subred de una [red virtual](../virtual-network/virtual-networks-overview.md) de Azure. Para más información acerca de cómo crear una red virtual con subredes, consulte [Creación de una red virtual con varias subredes](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+Al aprovisionar un grupo de nodos de proceso en Batch, dicho grupo se puede asociar a una subred de una [red virtual](../virtual-network/virtual-networks-overview.md) de Azure. Para más información acerca de cómo crear una red virtual con subredes, consulte [Creación de una red virtual con varias subredes](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
 
- * La red virtual asociada a un grupo debe ser:
+Requisitos de la red virtual:
 
-   * Estar en la misma **región** de Azure que la cuenta de Azure Batch.
-   * Estar en la misma **suscripción** que la cuenta de Azure Batch.
+* La red virtual debe estar en la misma **región** y **suscripción** de Azure que la cuenta de Azure Batch.
 
-* El tipo de red virtual que se admite depende de la forma en que se asignan los grupos en la cuenta de Batch:
+* En los grupos creados con una configuración de máquina virtual, solo se admiten las redes virtuales creadas con Azure Resource Manager (ARM). En los grupos creados con una configuración de servicios en la nube, se admiten tanto ARM como redes virtuales clásicas. 
 
-    - Si el modo de asignación de grupos de su cuenta de Batch está establecido en Servicio Batch, puede asignar una red virtual solo a los grupos creados con la **configuración de Cloud Services**. Además, la red virtual especificada debe crearse con el modelo de implementación clásico. No se admiten redes virtuales creadas con el modelo de implementación de Azure Resource Manager.
- 
-    - Si el modo de asignación de grupos de su cuenta de Batch está establecido en Suscripción de usuario, puede asignar una red virtual solo a los grupos creados con la **configuración de máquina virtual**. No se admiten los grupos creados con la **configuración de servicio en la nube**. La red virtual asociada puede crearse con el modelo de implementación de Azure Resource Manager o el modelo de implementación clásico.
-
-    Para ver una tabla que resume la compatibilidad con las redes virtuales según el modo de asignación de grupos, consulte la sección [Modo de asignación de grupos](#pool-allocation-mode).
-
-* Si el modo de asignación de grupos de la cuenta de Batch está establecida en Batch Service, debe proporcionar permisos para que la entidad de servicio de Batch tenga acceso a la red virtual. La red virtual debe asignar el rol [Colaborador de la máquina virtual clásica de Control de acceso basado en roles (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) a la entidad de servicio de Batch. Si no se proporciona el rol de RBAC especificado, el servicio Batch devuelve 400 (Solicitud incorrecta). Para agregar el rol en Azure Portal:
-
-    1. Seleccione la **red virtual** y, a continuación, **Control de acceso (IAM)** > **Roles** > **Colaborador de la máquina virtual** > **Agregar**.
-    2. En la hoja **Agregar permisos**, seleccione el rol **Colaborador de la máquina virtual**.
-    3. En la hoja **Agregar permisos**, busque Batch API. Busque cada una de estas cadenas en orden hasta que encuentre la API:
-        1. **MicrosoftAzureBatch**.
-        2. **Microsoft Azure Batch**. Los inquilinos más recientes de Azure AD pueden utilizar este nombre.
-        3. **ddbf3205-c6bd-46ae-8127-60eb93363864** es el identificador de Batch API. 
-    3. Seleccione la entidad de servicio de Batch API. 
-    4. Haga clic en **Guardar**.
-
-        ![Asignación del rol Colaborador de la máquina virtual a la entidad de servicio de Batch](./media/batch-api-basics/iam-add-role.png)
-
+* Para usar una red basada en ARM, la API de cliente de Batch debe usar la [autenticación de Azure Active Directory](batch-aad-auth.md). Para usar una red virtual clásica, la entidad de servicio 'MicrosoftAzureBatch' debe tener al rol de control de acceso basado en rol (RBAC) 'Colaborador de la máquina virtual clásica' para la red virtual especificada. 
 
 * La subred especificada debe disponer de suficientes **direcciones IP** libres para alojar el número total de nodos de destino; es decir, la suma de las propiedades `targetDedicatedNodes` y `targetLowPriorityNodes` del grupo. Si la subred no tiene suficientes direcciones IP libres, el servicio Batch asigna parcialmente los nodos de proceso en el grupo y devuelve un error de cambio de tamaño.
 
@@ -526,7 +447,7 @@ Normalmente necesitará usar certificados al cifrar o descifrar información con
 
 Use la operación [Agregar certificado][rest_add_cert] (REST de Batch) o el método [CertificateOperations.CreateCertificate][net_create_cert] (.NET de Batch) para agregar un certificado a una cuenta de Batch. Se puede asociar el certificado a un grupo nuevo o existente. Cuando se asocia un certificado a un grupo, el servicio Batch instala el certificado en cada nodo del grupo. El servicio Batch instala los certificados adecuados cuando se inicia el nodo, antes de iniciar ninguna tarea (incluidas la de inicio y la del administrador de trabajos).
 
-Si se agregan certificados a un grupo *existente* , es preciso reiniciar los nodos de proceso de los certificados que se van a aplicar a los nodos.
+Si se agregan certificados a un grupo *existente*, es preciso reiniciar los nodos de proceso de los certificados que se van a aplicar a los nodos.
 
 ## <a name="error-handling"></a>Control de errores
 Esta operación puede ser necesaria para controlar los errores de las tareas y las aplicaciones en la solución de Batch.

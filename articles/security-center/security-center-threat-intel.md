@@ -1,6 +1,6 @@
 ---
-title: "Información sobre amenazas de Azure Security Center | Microsoft Docs"
-description: "Este documento le ayuda a utilizar la funcionalidad de información sobre amenazas de Azure Security Center para identificar posibles amenazas en las máquinas virtuales y los equipos."
+title: Inteligencia sobre amenazas de Azure Security Center | Microsoft Docs
+description: "Aprenda a usar la funcionalidad de inteligencia sobre amenazas de Azure Security Center para identificar posibles amenazas en las máquinas virtuales y los equipos."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -12,70 +12,76 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
+ms.openlocfilehash: b5bdeb1c70893c2477413df02c7b1a4a07999e93
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: c492662aa3ee444347c55d9771790573ad969150
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="threat-intelligence-in-azure-security-center"></a>Información sobre amenazas de Azure Security Center
-Este documento le ayuda a utilizar Información sobre amenazas de Azure Security Center para tratar problemas relacionados con la seguridad.
+# <a name="threat-intelligence-in-azure-security-center"></a>Inteligencia sobre amenazas de Azure Security Center
+Este artículo le ayuda a utilizar la inteligencia sobre amenazas de Azure Security Center para tratar problemas relacionados con la seguridad.
 
 ## <a name="what-is-threat-intelligence"></a>¿Qué es la información sobre amenazas?
-Con la opción Información sobre amenazas, disponible en Security Center, los administradores de TI pueden identificar las amenazas de seguridad en el entorno, por ejemplo, identificar si un determinado equipo forma parte de una botnet. Los equipos pueden ser nodos en un botnet cuando los atacantes instalan de forma ilegal malware que se conecta en secreto al equipo para hacerse con el control. También puede identificar posibles amenazas procedentes de canales de comunicación de tipo underground, como darknet.
+Mediante la opción de inteligencia sobre amenazas disponible en Security Center, los administradores de TI pueden identificar las amenazas de seguridad en el entorno. Por ejemplo, pueden identificar si un determinado equipo forma parte de una red de robots (botnet). Los equipos pueden convertirse en nodos en una de estas redes cuando los atacantes instalan de forma ilegal malware que se conecta en secreto al equipo para hacerse con el control. La inteligencia sobre amenazas también puede identificar posibles amenazas procedentes de canales de comunicación clandestinos, como la Internet oscura (dark web).
 
-Para generar esta información sobre amenazas, Security Center utiliza datos procedentes de varios orígenes en Microsoft. Security Center aprovecha estos datos para identificar posibles amenazas en su entorno. El panel de Información sobre amenazas está compuesto por tres opciones principales:
+Para crear esta inteligencia sobre amenazas, Security Center utiliza datos procedentes de varios orígenes dentro de Microsoft y aprovecha estos datos para identificar posibles amenazas en su entorno. El panel **Información sobre amenazas** está compuesto por tres opciones principales:
 
 - Tipos de amenazas detectadas
 - Origen de la amenaza
 - Mapa de información sobre amenazas
 
 
-## <a name="when-should-i-use-threat-intelligence"></a>¿Cuándo debo utilizar información sobre amenazas?
-Uno de los pasos de un [proceso de respuesta a incidentes seguridad](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) consiste en identificar la gravedad de los sistemas en peligro. En esta fase debe realizar las siguientes tareas:
+## <a name="when-should-you-use-threat-intelligence"></a>¿Cuándo debo utilizar información de amenazas?
+Uno de los pasos de un [proceso de respuesta a incidentes de seguridad](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) consiste en identificar la gravedad de los sistemas en peligro. En esta fase debe realizar las siguientes tareas:
 
 - Determinar la naturaleza del ataque
 - Determinar el punto de ataque de origen
-- Determinar la intención del ataque ¿Estaba el ataque dirigido específicamente a su organización para conseguir información concreta o fue aleatorio?
-- Identificar los sistemas que se han visto comprometidos
-- Identificar los archivos a los que se ha tenido acceso y determinar la confidencialidad de dichos archivos. Puede aprovechar la información sobre amenazas de Security Center para ayudarle con estas tareas. 
+- Determinar la intención del ataque ¿Estaba el ataque dirigido a su organización para conseguir información concreta o fue aleatorio?
+- Identificar los sistemas que se pusieron en peligro
+- Identificar los archivos a los que se ha obtenido acceso y determinar la confidencialidad de esos archivos
 
-## <a name="how-to-access-the-threat-intelligence"></a>¿Cómo se tiene acceso a la información sobre amenazas?
-Para visualizar la información sobre amenazas actual para su entorno, primero debe seleccionar el área de trabajo en el que se encuentra la información. Si no dispone de varias áreas de trabajo no se verá el selector de área de trabajo y pasará directamente al panel **Información sobre amenazas**. Siga los pasos siguientes para tener acceso al panel Información sobre amenazas:
+Puede usar la información de inteligencia sobre amenazas de Security Center para ayudarle con estas tareas. 
 
-1.  Abra el panel **Security Center**.
-2.  En el panel izquierdo, bajo **Detección** haga clic en **Información sobre amenazas**. Aparecerá el panel **Información sobre amenazas**.
+## <a name="access-the-threat-intelligence"></a>Acceso a la información sobre amenazas
+Para visualizar la información sobre amenazas actual en su entorno, primero debe seleccionar el área de trabajo en el que se encuentra la información. Si no dispone de varias áreas de trabajo no se verá el selector de áreas de trabajo y pasará directamente al panel **Inteligencia sobre amenazas**. Para acceder al panel:
 
-    ![Información sobre amenazas](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
+1. Abra el panel **Security Center**.
+
+2. En el panel izquierdo, en **Detección**, haga clic en **Información sobre amenazas**. Aparecerá el panel **Información sobre amenazas**.
+
+    ![Panel Inteligencia sobre amenazas](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
-    > Si la última columna muestra **ACTUALIZAR PLAN** se debe a que este área de trabajo está usando la suscripción gratuita y debe actualizar a la estándar para utilizar esta característica. Si se muestra REQUIERE ACTUALIZACIÓN, debe actualizar [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esta característica. Para más información sobre el plan de precios, consulte Precios de Azure Security Center. 
+    > Si en la columna de la derecha se muestra **UPGRADE PLAN** (ACTUALIZAR PLAN), esta área de trabajo está usando la suscripción gratuita. Para usar esta característica, actualice a la versión Estándar. Si en columna de la derecha se muestra **REQUIRES UPDATE** (REQUIERE ACTUALIZACIÓN), actualice [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esta característica. Para más información sobre el plan de precios, consulte Precios de Azure Security Center. 
     > 
-3. Si tiene más de un área de trabajo para investigar, puede dar prioridad a la investigación de acuerdo con la columna **DIRECCIONES IP MALINTENCIONADAS**, que muestra el número actual de direcciones IP malintencionadas en este área de trabajo. Seleccione el área de trabajo que desea usar y, a continuación, se muestra el panel **Información sobre amenazas**.
+3. Si tiene más de un área de trabajo para investigar, priorice la investigación de acuerdo con la columna **Direcciones IP malintencionadas**. Muestra el número actual de direcciones IP malintencionadas en esta área de trabajo. Seleccione el área de trabajo que desea usar, y aparecerá el panel **Información sobre amenazas**.
 
-    ![Información sobre amenazas](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
+    ![Información de inteligencia sobre amenazas](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
 4. Este panel se divide en cuatro iconos:
-    * **Tipos de amenaza**: resume el tipo de amenazas detectadas en el área de trabajo seleccionada.
-    * **País de origen**: agrega la cantidad de tráfico en función de su ubicación de origen.
-    * **Ubicación de amenazas**: le ayuda a identificar las ubicaciones actuales de todo el mundo que se comunican con su entorno. Existen flechas naranjas (entrante) y rojas (saliente) en este mapa que identifican la dirección del tráfico. Si hace clic en una de estas flechas, mostrará el tipo de amenaza y la dirección del tráfico.
-    * **Detalles de la amenaza**: muestra más detalles sobre la amenaza que seleccionó en el mapa.
 
-Independientemente de qué icono se seleccione, el panel que aparece se basa en la [consulta de búsqueda de registros](https://docs.microsoft.com/azure/security-center/security-center-search) y la única diferencia es el tipo de consulta y el resultado.
+    a.  **Tipos de amenaza**. Resume el tipo de amenaza detectada en el área de trabajo seleccionada.
+
+    b.  **País de origen**. Agrega la cantidad de tráfico en función de su ubicación de origen.
+
+    c.  **Ubicación de la amenaza**. Le ayuda a identificar las ubicaciones actuales de todo el mundo que se comunican con su entorno. En el mapa que se muestra, las flechas naranja (entrante) y roja (saliente) identifican las direcciones del tráfico. Al seleccionar una de estas flechas, aparece el tipo de amenaza y la dirección del tráfico.
+
+    d.  **Detalles de la amenaza**. Muestra más detalles sobre la amenaza que seleccionó en el mapa.
+
+Con independencia del icono de opción que seleccione, el panel que aparece se basa en la consulta de búsqueda de registros. La única diferencia es el tipo de consulta y el resultado.
 
 ### <a name="threat-types"></a>Tipos de amenaza
-Tras hacer clic en el icono **Tipos de amenaza**, aparecerá el panel **Búsqueda de registros**, que tiene las opciones de filtro a la izquierda y los resultados de la consulta a la derecha.
+Seleccione el icono **Tipos de amenazas** para abrir el panel **Búsqueda de registros**. A la izquierda aparecen las opciones de filtro y a la derecha los resultados de consulta.
 
-![Búsqueda de información sobre amenazas](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
+![Búsqueda de registros](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
 
-El resultado de la consulta muestra las amenazas agregadas por nombre. Puede usar el panel izquierdo para seleccionar el atributo que desea filtrar. Por ejemplo, si desea ver solo las amenazas actuales conectadas a las máquinas, seleccione **Conectado** en **SESSIONSTATE** y haga clic en el botón **Aplicar**.
+El resultado de la consulta muestra las amenazas por nombre. Puede usar el panel izquierdo para seleccionar el atributo por el que quiere filtrar. Por ejemplo, para ver solo las amenazas que están conectadas actualmente a las máquinas en **SESSIONSTATE**, seleccione **Conectada** > **Aplicar**.
 
-![estado de la sesión](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
+![Estado de sesión](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
 
-Para las máquinas virtuales de Azure, solo aparecerán en el panel de información sobre amenazas los datos de red que se transmiten a través del agente. Información sobre amenazas también utiliza los siguientes tipos de datos:
+En las máquinas virtuales de Azure, solo aparecen en el panel **Inteligencia sobre amenazas** los datos de red que pasan por el agente. Los siguientes tipos de datos también se usan en la inteligencia sobre amenazas:
 
 - Datos CEF (Tipo = CommonSecurityLog)
 - WireData (Tipo = WireData)
@@ -85,13 +91,12 @@ Para las máquinas virtuales de Azure, solo aparecerán en el panel de informaci
 
 
 ## <a name="see-also"></a>Otras referencias
-En este documento ha aprendido a utilizar Información sobre amenazas de Security Center para ayudarle a identificar cualquier actividad sospechosa. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
+En este artículo, ha aprendido a utilizar la inteligencia sobre amenazas de Security Center para ayudarle a identificar cualquier actividad sospechosa. Para más información sobre Security Center, consulte los siguientes artículos:
 
-* [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Aprenda a administrar las alertas y responder a incidentes de seguridad en Security Center.
+* [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Aprenda a administrar las alertas y a responder a incidentes de seguridad en Security Center.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md). Aprenda a supervisar el estado de los recursos de Azure.
 * [Comprensión de las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Obtenga información acerca de los distintos tipos de alertas de seguridad.
 * [Guía de solución de problemas de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Obtenga información acerca de cómo solucionar problemas comunes en Security Center. 
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Preguntas más frecuentes acerca del uso del servicio.
+* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Obtenga respuestas a preguntas frecuentes acerca del uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/). Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.
-
 

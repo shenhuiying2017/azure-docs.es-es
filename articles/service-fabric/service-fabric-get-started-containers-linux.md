@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3c5a6ec70e1041d43b549c8e5a5416a9a65728bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Cree la primera aplicación contenedora de Service Fabric en Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
@@ -164,11 +162,11 @@ El SDK de Service Fabric para Linux incluye un generador [Yeoman](http://yeoman.
 
 Para crear una aplicación contenedora de Service Fabric, abra una ventana de terminal y ejecute `yo azuresfcontainer`.  
 
-Dé nombre a la aplicación (por ejemplo, "mycontainer"). 
+Asigne un nombre a la aplicación (por ejemplo, "mycontainer") y otro nombre al servicio de aplicación (por ejemplo, "myservice").
 
-Proporcione la dirección URL de la imagen de contenedor de un registro de contenedor (por ejemplo, "myregistry.azurecr.io/samples/helloworldapp"). 
+Para el nombre de la imagen, especifique la dirección URL de la imagen de contenedor en un registro de contenedor (por ejemplo, "myregistry.azurecr.io/samples/helloworldapp"). 
 
-Esta imagen tiene un punto de entrada de carga de trabajo definido, por lo que deberá especificar explícitamente comandos de entrada (que se ejecutarán dentro del contenedor, lo que mantendrá el contenedor en ejecución después del inicio). 
+Como dicha imagen tiene un punto de entrada de la carga de trabajo definido, no es preciso especificar explícitamente comandos de entrada (los comandos se ejecutarán dentro del contenedor, por lo que este seguirá en ejecución después del inicio). 
 
 Especifique un número de instancias de "1".
 
@@ -391,4 +389,3 @@ Puede especificar las imágenes que no se deben eliminar en el parámetro `Conta
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
-

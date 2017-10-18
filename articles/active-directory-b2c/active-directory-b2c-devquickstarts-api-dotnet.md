@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
-ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 78a165d831796bb6bb23e51f415383eb925115ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: Creación de una API web de .NET
 
@@ -40,7 +39,7 @@ Después, debe crear una aplicación de API web en su directorio B2C. Esto propo
 * Incluir una **aplicación web** o una **API web** en la aplicación.
 * Use el **URI de redirección** `https://localhost:44332/` para la aplicación web. Se trata de la ubicación predeterminada del cliente de aplicación web de este ejemplo de código.
 * Copiar el **identificador de aplicación** asignado a la aplicación. Lo necesitará más adelante.
-* Escriba un identificador de la aplicación en **URI de id. de aplicación**.
+* Escriba un identificador de la aplicación en **URI de id. de aplicación**. Copie el **URI de id. de aplicación** completo. Lo necesitará más adelante.
 * Agregue los permisos mediante el menú **Ámbitos publicados**.
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -83,6 +82,7 @@ Nuestro ejemplo está configurado para usar las directivas y el identificador de
     * `ida:SignUpSignInPolicyId` por el nombre de directiva "Inicio de sesión o registro"
     * `ida:EditProfilePolicyId` por el nombre de la directiva "Editar perfil"
     * `ida:ResetPasswordPolicyId` por el nombre de la directiva "Restablecer contraseña"
+    * `api:ApiIdentifier` con su "URI de id. de aplicación"
 
 
 ## <a name="secure-the-api"></a>Proteger la API
@@ -212,4 +212,3 @@ Por último, compile y ejecute `TaskWebApp` y `TaskService`. Cree algunas tareas
 ## <a name="edit-your-policies"></a>Editar sus directivas
 
 Una vez que haya protegido una API mediante el uso de Azure AD B2C, puede experimentar con la directiva de inicio de sesión y registro, y ver los efectos (o la ausencia de estos) en la API. Puede manipular las notificaciones de aplicación en las directivas y modificar la información de usuario que está disponible en la API web. Las notificaciones que agregue estarán disponibles para la API web de MVC de .NET en el objeto `ClaimsPrincipal` , como se describió antes en este artículo.
-

@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: c7aca7b67f4773cf7d19f84253487ed060e0db73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 97f89cd6cf37d92ac50f149336e1d1143de991ec
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integración de los directorios locales con Azure Active Directory
 Azure AD Connect integrará sus directorios locales con Azure Active Directory. Esto le permite proporcionar una identidad común para los usuarios de aplicaciones de Office 365, Azure y SaaS integradas con Azure AD. Este tema le guiará a través del planeamiento, implementación y pasos de la operación. Se ofrece una colección de vínculos a temas relacionados con esta área.
@@ -127,6 +126,15 @@ El modelo de configuración sincronizado se denomina [aprovisionamiento declarat
 |Cambio de la configuración predeterminada | [Prácticas recomendadas de cambio de la configuración predeterminada](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Configuración de características de federación
+
+Azure AD Connect proporciona varias características que simplifican la federación con Azure AD mediante AD FS y la administración de la confianza de federación. Azure AD Connect es compatible con AD FS en Windows Server 2012R2 o posterior.
+
+[Actualice el certificado SSL de la granja de AD FS](active-directory-aadconnectfed-ssl-update.md) incluso si no usa Azure AD Connect para administrar la confianza de federación.
+
+[Agregue un servidor de AD FS](active-directory-aadconnect-federation-management.md#addadfsserver) a la granja para expandirla según sea necesario.
+
+[Repare la confianza](active-directory-aadconnect-federation-management.md#repairthetrust) con Azure AD en unos pocos pasos sencillos.
+
 Se puede configurar AD FS para que admita [varios dominios](active-directory-aadconnect-multiple-domains.md). Por ejemplo, puede tener varios dominios principales que necesita utilizar para la federación.
 
 Si no se configuró el servidor de AD FS para actualizar automáticamente los certificados de Azure AD o si utiliza una solución que no es AD FS, se le notificará cuando tenga que [actualizar los certificados](active-directory-aadconnect-o365-certs.md).
@@ -157,5 +165,4 @@ Presentación de Ignite 2015 sobre cómo extender los directorios locales a la n
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
 > 
-
 

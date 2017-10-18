@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 98e5964f4a2dffd728dae1c452facfa6ea488167
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-net"></a>Desarrollo para Azure Files con .NET 
 > [!NOTE]
 > Este artículo muestra cómo administrar Azure Files con código. NET. Para más información sobre Azure Files, consulte la [Introducción a Azure Files](storage-files-introduction.md).
@@ -32,7 +30,7 @@ ms.lasthandoff: 09/25/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>Acerca de este tutorial
-En este tutorial se muestran los aspectos básicos del uso de .NET para desarrollar aplicaciones o servicios que usen Azure Files para almacenar datos de archivos. En este tutorial, se creará una aplicación de consola simple y se mostrará cómo realizar las acciones básicas con .NET y Azure Files:
+En este tutorial se muestran los aspectos básicos del uso de .NET para desarrollar aplicaciones o servicios que usen Azure Files para almacenar datos de archivos. En este tutorial, se crea una aplicación de consola simple y se muestra cómo realizar acciones básicas con .NET y Azure Files:
 
 * Obtener el contenido de un archivo
 * Establezca la cuota (tamaño máximo) para el recurso compartido de archivos.
@@ -138,7 +136,7 @@ if (share.Exists())
 Ejecute la aplicación de consola para ver la salida.
 
 ## <a name="set-the-maximum-size-for-a-file-share"></a>Establecer el tamaño máximo para un recurso compartido de archivos
-A partir de la versión 5.x de la biblioteca de cliente de almacenamiento de Azure, puede establecer la cuota (o el tamaño máximo) para un recurso compartido de archivos, en gigabytes. También puede comprobar cuántos datos se almacenan actualmente en el recurso compartido.
+A partir de la versión 5.x de la Biblioteca de cliente de Azure Storage se puede establecer la cuota (o el tamaño máximo) de un recurso compartido de archivos, en gigabytes. También puede comprobar cuántos datos se almacenan actualmente en el recurso compartido.
 
 Al establecer la cuota para un recurso compartido, puede limitar el tamaño total de los archivos almacenados en el recurso compartido. Si el tamaño total de archivos del recurso compartido supera la cuota establecida en el recurso compartido, los clientes no podrán aumentar el tamaño de los archivos existentes ni crear nuevos archivos, a menos que estén vacíos.
 
@@ -327,10 +325,84 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Puede copiar un blob en un archivo de la misma manera. Si el objeto de origen es un blob, cree una SAS para autenticar el acceso a dicho blob durante la operación de copia.
 
+## <a name="share-snapshots-preview"></a>Instantáneas de recursos compartidos (versión preliminar)
+A partir de la versión 8.5 de la Biblioteca de cliente de Azure Storage, se puede crear una instantánea de recurso compartido (versión preliminar). Las instantáneas de recursos compartidos también se pueden enumerar, explorar y eliminar. Las instantáneas de recurso compartido son de solo lectura, por lo que en ellas no se permiten operaciones de escritura.
+
+**Creación de instantáneas de recursos compartidos**
+
+En el siguiente ejemplo se crea una instantánea de recurso compartido.
+
+```csharp
+storageAccount = CloudStorageAccount.Parse(ConnectionString); 
+fClient = storageAccount.CreateCloudFileClient(); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+var snapshotShare = myShare.Snapshot();
+
+```
+**Enumeración de instantáneas de recursos compartidos**
+
+En el ejemplo siguiente se enumeran las instantáneas de un recurso compartido.
+
+```csharp
+var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
+```
+
+**Examen de archivos y directorios en instantáneas de recursos compartidos**
+
+En el ejemplo siguiente se examinan los archivos y el directorio de instantáneas de recursos compartidos.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
+var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
+var items = rootDirectory.ListFilesAndDirectories();
+```
+
+**Enumeración de recursos compartidos e instantáneas de recursos compartidos, y restauración de archivos o recursos compartidos de archivos a partir de instantáneas de recursos compartidos** 
+
+La toma de una instantánea de un recurso compartido de archivos permite recuperar archivos individuales o todo el recurso compartido de archivos en el futuro. 
+
+Para restaurar un archivo de una instantánea del recurso compartido de archivos, consulte las instantáneas de recursos compartidos de un recurso compartido de archivos. A partir de ahí puede recuperar un archivo que pertenezca a una instantánea de recurso compartido concreta y usar dicha versión para realizar directamente las operaciones de lectura y comparación, o bien para restaurarlo.
+
+```csharp
+CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
+var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
+
+       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var fileInliveShare = dirInliveShare.GetFileReference(fileName);
+
+           
+CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
+var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
+
+       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var fileInSnapshot = dir1InSnapshot.GetFileReference(fileName);
+
+string sasContainerToken = string.Empty;
+       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
+
+string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
+fileInliveShare.StartCopyAsync(new Uri(sourceUri));
+
+```
+
+
+**Eliminación de instantáneas de recursos compartidos**
+
+En el siguiente ejemplo se elimina una instantánea de recurso compartido.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
+```
+
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Solución de problemas de Azure Files mediante métricas
 Azure Storage Analytics ahora admite métricas para Azure Files. Con los datos de las métricas, es posible seguir paso a paso las solicitudes y diagnosticar problemas.
 
-Puede habilitar las métricas para Azure Files mediante [Azure Portal](https://portal.azure.com). También se puede habilitar mediante programación, para lo que hay que llamar a la operación establecer propiedades del servicio de archivos a través de la API de REST o una de sus análogas de la Biblioteca del cliente de almacenamiento.
+Puede habilitar las métricas para Azure Files mediante [Azure Portal](https://portal.azure.com). La métrica también se puede habilitar mediante programación. Para ello, hay que llamar a la operación Set File Service Properties a través de la API de REST, o de una de sus análogas de la Biblioteca del cliente de Storage.
 
 En el siguiente ejemplo de código se muestra cómo usar la Biblioteca del cliente de almacenamiento para .NET a fin de habilitar las métricas para Azure Files.
 

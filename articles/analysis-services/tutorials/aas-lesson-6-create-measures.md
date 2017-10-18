@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 90833fa9744eac298b0da82cd3d12f27cc237510
-ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: ba0030ca25adf13a3a831facec2ded9cff0bd882
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-6-create-measures"></a>Lección 6: Creación de medidas
 
@@ -53,7 +52,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
     DaysCurrentQuarterToDate:=COUNTROWS( DATESQTD( 'DimDate'[Date])) 
     ```
   
-    Observe que la celda superior izquierda ahora contiene un nombre de medida, **DaysCurrentQuarterToDate**, seguido del resultado, **92**.
+    Observe que la celda superior izquierda ahora contiene un nombre de medida, **DaysCurrentQuarterToDate**, seguido del resultado, **92**. El resultado no es pertinente en este momento porque no se ha aplicado ningún filtro de usuario.
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
@@ -102,7 +101,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
     |TaxAmt|InternetTotalTaxAmt|Suma|=SUM([TaxAmt])|  
     |Freight|InternetTotalFreight|Suma|=SUM([Freight])|  
   
-2.  Haga clic en una celda vacía de la cuadrícula de medidas y use la barra de fórmulas para crear las siguientes medidas en orden y asignarles un nombre:  
+2.  Haga clic en una celda vacía de la cuadrícula de medidas y use la barra de fórmulas para crear las siguientes medidas personalizadas en orden:  
   
       ```
       InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
@@ -134,4 +133,3 @@ Las medidas creadas para la tabla FactInternetSales se pueden usar para analizar
 [Lección 7: Creación de indicadores clave de rendimiento](../tutorials/aas-lesson-7-create-key-performance-indicators.md)  
 
   
-

@@ -13,15 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: 56905a457f972d1820e56dca00c42686bcad5453
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 83fc6db1ddb43eb87e7c58684505d7196c1e53d0
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introducción a Apache Storm en HDInsight con los ejemplos de Storm-Starter
 
@@ -44,7 +43,7 @@ Apache Storm es un sistema de cálculo distribuido, escalable, con tolerancia a 
 
 Siga estos pasos para crear un clúster de Storm en HDInsight:
 
-1. En [Azure Portal](https://portal.azure.com), seleccione **+ NUEVOE**, **Inteligencia y análisis** y luego seleccione **HDInsight**.
+1. En [Azure Portal](https://portal.azure.com), seleccione **+ NUEVO**, **Datos y análisis**, y seleccione **HDInsight**.
 
     ![Creación de un clúster de HDInsight](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -57,7 +56,7 @@ Siga estos pasos para crear un clúster de Storm en HDInsight:
     * **Grupo de recursos**: en el que se va a crear el clúster.
     * **Ubicación**: región de Azure donde se va crear el clúster.
 
-    ![Seleccione la suscripción.](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
+   ![Seleccione la suscripción.](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
 3. Seleccione **Tipo de clúster** y establezca los siguientes valores en la hoja **Configuración de clúster**:
 
@@ -69,7 +68,7 @@ Siga estos pasos para crear un clúster de Storm en HDInsight:
 
     * **Nivel de clúster**: estándar
 
-    Por último, use el botón **Seleccionar** para guardar la configuración.
+   Por último, use el botón **Seleccionar** para guardar la configuración.
 
     ![Seleccionar el tipo de clúster](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
@@ -92,7 +91,11 @@ Siga estos pasos para crear un clúster de Storm en HDInsight:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    Si usó una contraseña para proteger la cuenta de usuario SSH, se le pedirá que la escriba. Si usó una clave pública, tal vez tenga que usar el parámetro `-i` para especificar la clave privada coincidente. Por ejemplo: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    > [!TIP]
+    > El cliente SSH puede indicar que no se puede establecer la autenticidad del host. En este caso, escriba `yes` para continuar.
+
+    > [!NOTE]
+    > Si usó una contraseña para proteger la cuenta de usuario SSH, se le pedirá que la escriba. Si usó una clave pública, tal vez tenga que usar el parámetro `-i` para especificar la clave privada coincidente. Por ejemplo: `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     Para más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -118,7 +121,7 @@ La interfaz de usuario de Storm ofrece una interfaz web para trabajar con topolo
 
 Siga estos pasos para supervisar la topología mediante la interfaz de usuario de Storm:
 
-1. Para mostrar la interfaz de usuario de Storm, abra un explorador web con https://CLUSTERNAME.azurehdinsight.net/stormui. Reemplace **CLUSTERNAME** por el nombre del clúster.
+1. Para mostrar la interfaz de usuario de Storm, abra `https://CLUSTERNAME.azurehdinsight.net/stormui` en el explorador web. Reemplace **CLUSTERNAME** por el nombre del clúster.
 
     > [!NOTE]
     > Si se le pide que ofrezca un nombre de usuario y una contraseña, escriba el administrador de clústeres (admin) y la contraseña que usó al crear el clúster.
@@ -210,4 +213,3 @@ Por ejemplo, consulte los siguientes ejemplos de las topologías que pueden util
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [preview-portal]: https://portal.azure.com/
-

@@ -11,18 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: shlo
+ms.openlocfilehash: ef7055342a04057acfba9dad350f654aa4de6096
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 09e514aee503b7cb045c81d8ddcb855ced9b072b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a la Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-introduction.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-introduction.md)
 > * [Versión 2: versión preliminar](introduction.md)
 
 En el mundo de los macrodatos, los datos sin procesar y desorganizados suelen almacenarse en sistemas de almacenamiento relacionales, no relacionales y de otros tipos. Sin embargo, en sí mismos, los datos sin procesar no tienen el contexto o el significado adecuados para proporcionar información significativa a los analistas, científicos de datos y responsables de decisiones empresariales. Lo que se necesita es un servicio que pueda habilitar la organización y la puesta en marcha de procesos para convertir estos enormes almacenes de datos sin procesar en información empresarial accionable. Azure Data Factory es un servicio en la nube administrado creado para estos complejos proyectos híbridos de extracción, carga y transformación (ETL), de extracción, carga y transformación (ELT) y de integración de datos.
@@ -58,10 +57,10 @@ Una vez que los datos están presentes en un almacén de datos centralizado en l
 Ahora que se han perfeccionado los datos sin procesar en un formato compatible listo para los negocios, cargue los datos en Almacenamiento de datos de Azure, Azure SQL DB, Azure CosmosDB o los análisis del motor a los que los usuarios de su empresa pueden apuntar a partir de sus herramientas de inteligencia empresarial.
 
 ### <a name="monitor"></a>Supervisión
-Una vez creada e implementada correctamente la canalización de integración de datos, que proporciona un valor empresarial desde datos refinados, desea supervisar las actividades programadas y las canalizaciones para ver las tasas de éxito y de error. Azure Data Factory tiene compatibilidad integrada para la supervisión de la canalización mediante Azure Monitor, API, PowerShell, OMS y paneles de mantenimiento en Azure Portal.
+Una vez creada e implementada correctamente la canalización de integración de datos, que proporciona un valor empresarial desde datos refinados, desea supervisar las actividades programadas y las canalizaciones para ver las tasas de éxito y de error. Azure Data Factory tiene compatibilidad integrada para la supervisión de la canalización mediante Azure Monitor, API, PowerShell, Microsoft Operations Management Suite (OMS) y paneles de mantenimiento en Azure Portal.
 
 ## <a name="whats-different-in-version-2"></a>Diferencias en la versión 2
-La versión 2 de Azure Data Factory se basa en el servicio de transformación y movimiento de datos original de Azure Data Factory, que se extiende a un conjunto más amplio de escenarios de integración de datos en la nube en primer lugar. Azure Data Factory V2 ofrece las siguientes funcionalidades:
+La versión 2 de Azure Data Factory se basa en el servicio de transformación y movimiento de datos original de Azure Data Factory, que se extiende a un conjunto más amplio de escenarios de integración de datos en la nube en primer lugar. La versión 2 de Azure Data Factory ofrece las siguientes capacidades:
 
 - Escala y flujo de control
 - Implementación y ejecución de paquetes SSIS en Azure
@@ -85,7 +84,7 @@ Ahora tiene la libertad de modelar cualquier estilo de flujo necesario para la i
         - Las actividades pueden consumir los argumentos pasados a la canalización
     - Paso a estado personalizado
         - Los resultados de la actividad, incluido el estado, los puede usar una actividad siguiente de la canalización
-    - Contenedores de bucle
+    - Containers de bucle
         - Para cada 
 - Flujos basados en el desencadenador
     - Las canalizaciones se pueden activar a petición o por tiempo de reloj
@@ -98,17 +97,21 @@ Para obtener más información, consulte el siguiente [tutorial: flujo de contro
 Si desea mover las cargas de trabajo SSIS, puede crear una versión 2 de Data Factory y aprovisionar una instancia de SSIS Integration Runtime (IR) de Azure. SSIS IR de Azure es un clúster totalmente administrado de máquinas virtuales de Azure (nodos) que se dedica a ejecutar los paquetes SSIS en la nube. Para obtener instrucciones detalladas, vea el tutorial: [implementación de paquetes SSIS en Azure](tutorial-deploy-ssis-packages-azure.md). 
  
 
-## <a name="rich-cross-platform-sdks"></a>SDK de compatibilidad multiplataforma enriquecidos
+### <a name="sdks"></a>SDK
 Si es un usuario avanzado y busca una interfaz programática, la versión 2 le proporciona un amplio conjunto de SDK que se pueden usar para crear, administrar y supervisar canalizaciones mediante su IDE favorito.
 
-- .NET SDK
-- PowerShell
-- SDK de Python
+- SDK de .NET: el SDK de .NET se actualiza para la versión 2. 
+- PowerShell: los cmdlets de PowerShell se actualizan para la versión 2. La versión 2 de los cmdlets tienen **DataFactoryV2** en el nombre. Por ejemplo: Get-AzureRmDataFactoryV2. 
+- SDK de Python: este SDK es una novedad de la versión 2.
+- API de REST: la API de REST se actualiza para la versión 2.  
 
-También puede utilizar las API de REST para crear factorías de datos. 
+Los SDK que se actualizan para la versión 2 no son compatibles con los clientes de la versión 1. 
+
+### <a name="monitoring"></a>Supervisión
+Actualmente, la versión 2 admite la supervisión de factorías de datos usando solo SDK. El portal aún no es compatible con la supervisión de las factorías de datos de la versión 2. 
 
 ## <a name="load-the-data-into-a-lake"></a>Carga de los datos en un lago
-Data Factory sigue teniendo más de 30 conectores para que pueda cargar datos desde entornos heterogéneos e híbridos a Azure.  Consulte [Guía de rendimiento y ajuste](copy-activity-performance.md) para ver los últimos resultados de rendimiento de las pruebas internas y las sugerencias de ajuste. Además, recientemente hemos habilitado la alta disponibilidad y escalabilidad para una instancia de Integration Runtime autohospedada que se instala en un entorno de red privado a fin de resolver los requisitos de cliente de grandes empresas de nivel 1 para una mejor disponibilidad y escalabilidad.
+Data Factory tiene más de 30 conectores para que pueda cargar datos de entornos heterogéneos e híbridos en Azure.  Consulte [Guía de rendimiento y ajuste](copy-activity-performance.md) para ver los últimos resultados de rendimiento de las pruebas internas y las sugerencias de ajuste. Además, recientemente hemos habilitado la alta disponibilidad y escalabilidad para una instancia de Integration Runtime autohospedada que se instala en un entorno de red privado a fin de resolver los requisitos de cliente de grandes empresas de nivel 1 para una mejor disponibilidad y escalabilidad.
 
 ## <a name="top-level-concepts-in-version-2"></a>Conceptos de nivel superior en la versión 2
 Una suscripción de Azure puede tener una o varias instancias de Azure Data Factory (o factorías de datos). Azure Data Factory está compuesto por cuatro componentes principales que trabajan juntos para proporcionar una plataforma en la que pueda crear flujos de trabajo orientados a datos con pasos para moverlos y transformarlos.
@@ -117,7 +120,7 @@ Una suscripción de Azure puede tener una o varias instancias de Azure Data Fact
 Una factoría de datos puede tener una o más canalizaciones. La canalización es una agrupación lógica de actividades para realizar una unidad de trabajo. Juntas, las actividades de una canalización realizan una tarea. Por ejemplo, una canalización podría contener un grupo de actividades que ingiere datos de un blob de Azure y luego ejecutar una consulta de Hive en un clúster de HDInsight para particionar los datos. La ventaja de esto es que la canalización le permite administrar las actividades como un conjunto en lugar de tener que administrar cada una de ellas individualmente. Las actividades de una canalización se pueden encadenar juntas para operar de forma secuencial o pueden funcionar de forma independiente en paralelo.
 
 ### <a name="activity"></a>Actividad
-Las actividades representan un paso del procesamiento en una canalización. Por ejemplo, puede utilizar una actividad de copia para copiar datos de un almacén de datos a otro. De igual forma, puede usar una actividad de Hive, que ejecuta una consulta de Hive en un clúster de Azure HDInsight para transformar o analizar los datos. Data Factory admite tres tipos de actividades: actividades de movimiento de datos, actividades de transformación de datos y actividades de control.
+Las actividades representan un paso del procesamiento en una canalización. Por ejemplo, puede utilizar una actividad de copia para copiar datos de un almacén de datos a otro. De igual forma, puede usar una actividad de Hive, que ejecuta una consulta de Hive en un clúster de Azure HDInsight para transformar o analizar los datos. Data Factory admite tres tipos de actividades: actividades de movimiento de datos, actividades de transformación de datos y actividades de control
 
 ### <a name="datasets"></a>CONJUNTOS DE DATOS
 Los conjuntos de datos representan las estructuras de datos de los almacenes de datos que simplemente apuntan o hacen referencia a los datos que desea utilizar en sus actividades como entradas o salidas. 
@@ -165,4 +168,3 @@ Por ejemplo, supongamos que sus entornos de proceso, tales como clúster de Azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para saber cómo crear una factoría de datos, siga las instrucciones paso a paso en los inicios rápidos siguientes: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API de REST](quickstart-create-data-factory-rest-api.md) y Azure Portal. 
-

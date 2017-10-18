@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
+ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 60641ddfef7846f0e8b5d850e716b2652bf62367
-ms.contentlocale: es-es
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="copy-data-between-on-premises-and-cloud"></a>Copia de datos entre el entorno local y la nube
 Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI). 
 
@@ -218,12 +216,12 @@ En esta sección, puede crear una instancia de Integration Runtime autohospedada
         "name": "SqlServerLinkedService"
     }
    ```
-2. Para cifrar los datos confidenciales de la carga de JSON en la instancia de Integration Runtime autohospedada local, podemos ejecutar **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** y pase dicha carga. Este cifrado garantiza que las credenciales se cifren mediante la interfaz de programación de aplicaciones (API) de protección de datos y se almacenen en el nodo de Integration Runtime autohospedado localmente. La carga de salida se puede redirigir a otro archivo JSON (en este caso, "encryptedLinkedService.json"), que contiene las credenciales cifradas. 
+2. Para cifrar los datos confidenciales de la carga de JSON en la instancia de Integration Runtime autohospedada local, podemos ejecutar **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** y pasar la carga. Este cifrado garantiza que las credenciales se cifren mediante la interfaz de programación de aplicaciones (API) de protección de datos y se almacenen en el nodo de Integration Runtime autohospedado localmente. La carga de salida se puede redirigir a otro archivo JSON (en este caso, "encryptedLinkedService.json"), que contiene las credenciales cifradas. 
 
     Reemplace **&lt;integration runtime name&gt;** por el nombre de su instancia de Integration Runtime antes de ejecutar el comando.
 
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 3. Ejecute el siguiente comando con JSON en el paso anterior para crear **SqlServerLinkedService**:

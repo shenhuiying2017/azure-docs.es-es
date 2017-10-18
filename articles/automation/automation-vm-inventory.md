@@ -8,59 +8,62 @@ ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: hero-article
 manager: carmonm
+ms.openlocfilehash: bfdd67ac1018f242e415da1a66d93f22bea8d054
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5291d112c2cdf157543fe301d5a5c80f3fe561ae
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Administración de una máquina virtual de Azure con la recopilación de inventario
 
-El seguimiento del inventario puede habilitarse para una máquina virtual de Azure desde la página de recursos de esta. Este método proporciona una interfaz de usuario basada en explorador para instalar y configurar la recopilación de inventario.
+Puede habilitar el seguimiento del inventario para una máquina virtual de Azure desde la página de recursos de esta. Este método proporciona una interfaz de usuario basada en explorador para instalar y configurar la recopilación de inventario.
 
-Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
-Si no la tiene, cree una [máquina virtual](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) de Azure antes de empezar.
+## <a name="before-you-begin"></a>Antes de empezar
+Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
+Si no tiene una máquina virtual de Azure, cree una [máquina virtual](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal).
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
-
-Inicie sesión en [Azure Portal](https://portal.azure.com/).
+## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
+Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Habilitación de la recopilación de inventario desde la página de recursos de la máquina virtual
 
-1. En la pantalla de la izquierda, haga clic en **Máquinas virtuales**.
-1. Seleccione una máquina virtual de la lista.
-1. Seleccione **Inventario (versión preliminar)** del menú de recursos de **Operaciones**.
-1. Aparecerá un banner en la parte superior de la página que le notificará que la solución no está habilitada. Haga clic en el banner para habilitar la solución.
-1. Seleccione un área de trabajo de Log Analytics para almacenar los registros de datos. Si no hay áreas de trabajo disponibles para esa región, deberá crear una predeterminada y la cuenta de Automation. Haga clic en **Habilitar** para iniciar la incorporación al equipo.
+1. En el panel izquierdo de Azure Portal, seleccione **Máquinas virtuales**.
+2. En la lista de máquinas virtuales, seleccione una máquina virtual.
+3. En el menú **Recurso**, en **Operaciones**, seleccione **Inventario (versión preliminar)**.  
+    Aparecerá un banner en la parte superior de la ventana que le notificará que la solución no está habilitada. 
+4. Seleccione el banner para habilitar la solución.
+5. Seleccione un área de trabajo de Log Analytics para almacenar los registros de datos.  
+    Si no hay áreas de trabajo disponibles para esa región, deberá crear una predeterminada y una cuenta de Automation. 
+6. Seleccione **Habilitar** para iniciar la incorporación al equipo.
 
    ![Vista de las opciones de incorporación](./media/automation-vm-inventory/inventory-onboarding-options.png)  
-
-1. Una barra de estado le notifica que la solución se está habilitando. Este proceso puede tardar hasta 15 minutos. Durante este tiempo, puede cerrar la hoja o mantenerla abierta, se le notificará se haya habilitado la solución. Puede supervisar el estado de la implementación desde el panel de notificaciones.
+    Una barra de estado le notifica que la solución se está habilitando. Este proceso puede tardar hasta 15 minutos. Durante este tiempo, puede cerrar la ventana o, para que le notifique cuando se haya habilitado la solución, puede mantenerla abierta. Puede supervisar el estado de la implementación desde el panel de notificaciones.
 
    ![Vista de la solución de inventario inmediatamente después de la incorporación](./media/automation-vm-inventory/inventory-onboarded.png)
 
-1. Una vez completada la implementación, la barra de estado desaparece. En este momento, el sistema sigue recopilando datos de inventario y puede que estos aún no se vean. La recopilación de datos puede tardar 24 horas.
+Una vez completada la implementación, la barra de estado desaparece. El sistema sigue recopilando datos de inventario y puede que estos aún no se vean. La recopilación de datos puede tardar 24 horas.
 
 ## <a name="configure-your-inventory-settings"></a>Configuración del inventario
 
 De forma predeterminada, el software, los servicios de Windows y los demonios de Linux están configurados para la recopilación. Para recopilar el registro de Windows y el inventario de archivos, configure las opciones de recopilación de inventario.
 
-1. Desde la vista **Inventario (versión preliminar)**, seleccione el botón **Editar configuración** de la parte superior de la página.
-2. Para agregar una nueva configuración de recopilación, vaya a la categoría de configuración que desee agregar mediante las pestañas denominadas **Registro de Windows**, **Archivos de Windows**, y **Archivos de Linux**. Haga clic en **Agregar** en la parte superior de la página.
-3. Para ver los detalles y las descripciones de cada propiedad de configuración, visite la [página de documentación del inventario](https://aka.ms/configinventorydocs).
+1. En la vista **Inventario (versión preliminar)**, seleccione el botón **Editar configuración** de la parte superior de la ventana.
+2. Para agregar una nueva configuración de recopilación, vaya a la categoría de configuración que desee agregar seleccionando las pestañas **Registro de Windows**, **Archivos de Windows** y **Archivos de Linux**. 
+3. Seleccione **Agregar** en la parte superior de la ventana.
+4. Para ver los detalles y las descripciones de cada propiedad de configuración, visite la [página de documentación del inventario](https://aka.ms/configinventorydocs).
 
-## <a name="disconnecting-your-virtual-machine-from-management"></a>Interrupción de la administración de la máquina virtual
+## <a name="disconnect-your-virtual-machine-from-management"></a>Interrupción de la administración de la máquina virtual
 
-Para dejar de administrar el inventario de la máquina:
+Para dejar de administrar el inventario de la máquina virtual:
 
-1. En el menú izquierdo de Azure Portal, haga clic en **Log Analytics** y seleccione el área de trabajo que usó durante la incorporación a la máquina virtual.
-1. En la página de Log Analytics, seleccione **Máquinas virtuales** en la categoría **Orígenes de datos del área de trabajo** del menú de recursos. 
-1. Seleccione la máquina virtual que quiera desconectar de la lista. Tendrá una marca de verificación verde junto al texto que dice "Esta área de trabajo" en la columna **Conexión a OMS**. Haga clic en **Desconectar** en la parte superior de la página siguiente y en **Sí** en el cuadro de diálogo de confirmación para dejar de administrar la máquina.
+1. En el panel izquierdo de Azure Portal, seleccione **Log Analytics** y, a continuación, el área de trabajo que usó durante la incorporación a la máquina virtual.
+2. En la ventana **Log Analytics**, en la categoría **Orígenes de datos del área de trabajo** del menú **Recurso**, seleccione **Máquinas virtuales**. 
+3. En la lista, seleccione la máquina virtual que desee desconectar. La máquina virtual tiene una marca de verificación verde junto a **Esta área de trabajo** en la columna **Conexión a OMS**. 
+4. En la parte superior de la página siguiente, seleccione **Desconectar**.
+5. En la ventana de confirmación, seleccione **Sí**.  
+    Esta acción interrumpe la administración de la máquina.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información acerca de cómo administrar los cambios de configuración en los archivos y el registro de las máquinas virtuales, consulte el artículo de [seguimiento de los cambios](../log-analytics/log-analytics-change-tracking.md).
-* Para más información sobre cómo administrar Windows y las actualizaciones de los paquetes en las máquinas virtuales, consulte el artículo de [administración de las actualizaciones](../operations-management-suite/oms-solution-update-management.md).
-
+* Para más información acerca de cómo administrar los cambios de configuración en los archivos y el registro de las máquinas virtuales, consulte [Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios](../log-analytics/log-analytics-change-tracking.md).
+* Para más información sobre cómo administrar Windows y las actualizaciones de los paquetes en las máquinas virtuales, consulte [Solución Administración de actualizaciones de OMS](../operations-management-suite/oms-solution-update-management.md).

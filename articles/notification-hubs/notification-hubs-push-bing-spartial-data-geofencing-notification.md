@@ -13,14 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/13/2017
+ms.date: 09/15/2017
 ms.author: dendeli
+ms.openlocfilehash: a416edaded8aa04c3229a5788d648de0a6afe2b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Notificaciones push geovalladas con los Centros de notificaciones de Azure y datos espaciales de Bing
 > [!NOTE]
@@ -179,7 +178,7 @@ La implementación del controlador de eventos es como sigue:
         }
     }
 
-Observe que se ha declarado el controlador como async porque `GetCurrentLocation` admite await y, por tanto, es necesario para ejecutarse en un contexto asincrónico. Además, dado que en determinadas circunstancias se podría lograr con una ubicación null (por ejemplo, la ubicación de los servicios están deshabilitados o a la aplicación se le han denegado permisos para acceder a la ubicación), hay que asegurarse de que se trata correctamente con una comprobación de null.
+Observe que se ha declarado el controlador como async porque `GetCurrentLocation` admite await y, por tanto, es necesario para ejecutarse en un contexto asincrónico. Además, dado que en determinadas circunstancias se podría acabar con una ubicación nula (por ejemplo, los servicios de ubicación están deshabilitados o la aplicación no tiene permisos para acceder a la ubicación), es necesario asegurarse de que se controla adecuadamente con una comprobación de valores null.
 
 Ejecute la aplicación. Asegúrese de que se permite el acceso de ubicación:
 
@@ -381,7 +380,7 @@ Como no se están superando las coordenadas reales (que pueden no estar dentro d
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## <a name="whats-next"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Hay un par de pasos que debe seguir, además de lo anterior, para asegurarse de que la solución está lista para producción.
 
 Ante todo, debe asegurarse de que las geovallas sean dinámicas. Esto requerirá un trabajo adicional con la API de Bing para poder cargar los nuevos límites dentro del origen de datos existente. Consulte la [documentación de la API de Servicios de datos espaciales de Bing](https://msdn.microsoft.com/library/ff701734.aspx) para obtener más detalles sobre el tema.
@@ -391,5 +390,4 @@ En segundo lugar, cuando se trabaja para garantizar que se realiza la entrega a 
 La solución anterior describe un escenario en el que se puede tener una amplia variedad de plataformas de destino, por lo que no hemos limitado el geovallado a funcionalidades específicas del sistema. Dicho esto, Plataforma universal de Windows ofrece funcionalidades para [detectar geovallas directamente de fábrica](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 Para más información acerca de las funcionalidades de Centros de notificaciones, consulte nuestro [portal de documentación](https://azure.microsoft.com/documentation/services/notification-hubs/).
-
 

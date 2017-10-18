@@ -12,24 +12,24 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
-ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Comprensión de las alertas de seguridad en Azure Security Center
 Este artículo ayuda a comprender los distintos tipos de alertas de seguridad y aspectos relacionados disponibles en Azure Security Center. Para más información sobre cómo administrar las alertas y los incidentes, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
 
+Para configurar las detecciones avanzadas, actualice a la versión estándar de Azure Security Center. Hay disponible una versión de evaluación gratuita de 60 días. Para actualizar a este nivel, seleccione el **plan de tarifa** en la [directiva de seguridad](security-center-policies.md). Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
+
 > [!NOTE]
-> Para configurar las detecciones avanzadas, actualice a la versión estándar de Azure Security Center. Hay disponible una versión de evaluación gratuita de 60 días. Para actualizar a este nivel, seleccione el **plan de tarifa** en la [directiva de seguridad](security-center-policies.md). Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
->
+> Security Center ha lanzado un nuevo conjunto de detecciones en versión preliminar limitada que aprovecha los registros de auditoría, un marco de auditoría común, para detectar comportamientos malintencionados en máquinas Linux. Envíe un correo electrónico con los identificadores de suscripción a [nuestro equipo](mailto:ASC_linuxdetections@microsoft.com) para unirse a la versión preliminar.
 
 ## <a name="what-type-of-alerts-are-available"></a>¿Qué tipo de alertas está disponible?
-Azure Security Center usa una variedad de [funcionalidades de detección](security-center-detection-capabilities.md) para alertar a los clientes de posibles ataques contra sus entornos. Estas alertas contienen información valiosa sobre lo que desencadenó la alerta, los recursos objetivo y el origen del ataque. La información incluida en las alertas varía según el tipo de análisis utilizado para detectar la amenaza. Los incidentes también pueden contener información contextual adicional que puede resultar útil para la investigación de la amenaza.  En este artículo se proporciona información acerca de los siguientes tipos de alertas:
+Azure Security Center usa una variedad de [funcionalidades de detección](security-center-detection-capabilities.md) para alertar a los clientes de posibles ataques contra sus entornos. Estas alertas contienen información útil acerca de lo que desencadenó la alerta, los recursos objetivo y el origen del ataque. La información incluida en las alertas varía según el tipo de análisis utilizado para detectar la amenaza. Los incidentes también pueden contener información contextual adicional que puede resultar útil para la investigación de la amenaza.  En este artículo se proporciona información acerca de los siguientes tipos de alertas:
 
 * Análisis del comportamiento de la máquina virtual (VMBA)
 * Análisis de red
@@ -44,9 +44,9 @@ Azure Security Center puede utilizar el análisis de comportamiento para identif
 >
 
 ### <a name="crash-analysis"></a>Análisis de bloqueos
-El análisis de la memoria de volcado de bloqueos es un método utilizado para detectar malware sofisticado que puede eludir las soluciones de seguridad tradicionales. Diversos tipos de malware intentan reducir la posibilidad de ser detectados por productos antivirus no escribiendo nunca en el disco o mediante el cifrado de los componentes de software escritos en el disco. Esto hace que el malware sea difícil de detectar mediante los enfoques tradicionales de antimalware. Sin embargo, este tipo de malware se puede detectar mediante un análisis de memoria, ya que, para poder funcionar, tiene que dejar rastros en la memoria.
+El análisis de la memoria de volcado de bloqueos es un método utilizado para detectar malware sofisticado que puede eludir las soluciones de seguridad tradicionales. Diversos tipos de malware intentan reducir la posibilidad de ser detectados por productos antivirus no escribiendo nunca en el disco o mediante el cifrado de los componentes de software escritos en el disco. Esta técnica hace que el malware sea difícil de detectar mediante los enfoques tradicionales de antimalware. Sin embargo, este tipo de malware se puede detectar mediante un análisis de memoria, ya que, para poder funcionar, tiene que dejar rastros en la memoria.
 
-En el momento en que el software se bloquea, un volcado de memoria captura una porción de la memoria. El bloqueo puede deberse a malware o problemas de aplicaciones generales o del sistema. Mediante el análisis de la memoria durante el volcado, Security Center puede detectar las técnicas utilizadas para aprovechar las vulnerabilidades del software, acceder a información confidencial y permanecer subrepticiamente en una máquina en peligro. Esto se consigue con un impacto mínimo en el rendimiento de los hosts, ya que el análisis se realiza en el back-end de Security Center.
+En el momento en que el software se bloquea, un volcado de memoria captura una porción de la memoria. El bloqueo puede deberse a malware o a problemas de aplicaciones generales o del sistema. Mediante el análisis de la memoria durante el volcado, Security Center puede detectar las técnicas utilizadas para aprovechar las vulnerabilidades del software, acceder a información confidencial y permanecer subrepticiamente en una máquina en peligro. Esto se consigue con un impacto mínimo en el rendimiento de los hosts, ya que el análisis se realiza en el back-end de Security Center.
 
 Los siguientes campos son comunes a los ejemplos de alerta de volcado de memoria que aparecen más adelante en este artículo:
 
@@ -61,7 +61,7 @@ Este ejemplo de alerta de shellcode proporciona el siguiente campo adicional:
 
 * ADDRESS: ubicación de la memoria del shellcode.
 
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![Alerta de shellcode](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
@@ -77,7 +77,7 @@ Además de los campos comunes que se describen en la anterior sección, "Shellco
 * HIJACKEDMODULEPATH (RUTA DEL MÓDULO SECUESTRADO): ruta de acceso del módulo del sistema Windows secuestrado.
 * HIJACKINGMODULEPATH (RUTA DEL MÓDULO SECUESTRADOR): ruta de acceso del módulo secuestrador.
 
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![Alerta de secuestro de módulos](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
@@ -96,7 +96,7 @@ Además de los campos comunes que se describen en la anterior sección, "Shellco
 
 Esta alerta también extrae y muestra determinados campos del encabezado PE del módulo, como "CHECKSUM" (SUMA DE COMPROBACIÓN) y "TIMESTAMP" (MARCA DE TIEMPO). Estos campos solo se muestran si los campos están presentes en el módulo. Consulte la [especificación de Microsoft PE y COFF](https://msdn.microsoft.com/windows/hardware/gg463119.aspx) para más información sobre estos campos.
 
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![Alerta de Windows enmascarado](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
@@ -110,21 +110,21 @@ Además de los campos comunes que se describen en la anterior sección, "Shellco
 * MODULENAME (NOMBRE DEL MÓDULO): nombre del archivo binario del sistema modificado.
 * MODULEVERSION (VERSIÓN DEL MÓDULO): versión del archivo binario del sistema modificado.
 
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![Alerta binaria del sistema](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Proceso sospechoso ejecutado
 Security Center identifica un proceso sospechoso que se ejecuta en la máquina virtual de destino y desencadena una alerta. La detección no busca el nombre específico, sino el parámetro del archivo ejecutable. Por lo tanto, incluso si el atacante cambia el nombre del archivo ejecutable, Security Center todavía puede detectar el proceso sospechoso.
 
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![Alerta de proceso sospechoso](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### <a name="multiple-domain-accounts-queried"></a>Múltiples cuentas de dominio consultadas
-Security Center puede detectar múltiples intentos de consultar cuentas de dominio de Active Directory, que es algo que suelen hacer los atacantes durante el reconocimiento de la red. Los atacantes pueden aprovechar esta técnica para consultar el dominio con el fin de identificar los usuarios, las cuentas de los administradores de dominio, los equipos que son controladores de dominio y, también, una posible relación de confianza de dominio con otros dominios.
+### <a name="multiple-domains-accounts-queried"></a>Varias cuentas de dominio consultadas
+Security Center puede detectar la realización de varios intentos de consultar cuentas de dominio de Active Directory, que es algo que suelen hacer los atacantes durante el reconocimiento de la red. Los atacantes pueden aprovechar esta técnica para consultar el dominio con el fin de identificar los usuarios, las cuentas de los administradores de dominio, los equipos que son controladores de dominio y, también, una posible relación de confianza de dominio con otros dominios.
 
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![Alerta de cuenta con múltiples dominios](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
 
@@ -132,7 +132,7 @@ A continuación se muestra un ejemplo de este tipo de alerta:
 
 Security Center va a desencadenar una alerta cuando se active el evento de seguridad 4798, en Windows Server 2016 y Windows 10. Esto sucede cuando se enumeran los grupos de administradores locales, que es algo que los atacantes suelen hacer durante el reconocimiento de la red. Los atacantes pueden aprovechar esta técnica para consultar la identidad de los usuarios con privilegios administrativos.
 
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![Administrador local](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
 
@@ -140,7 +140,7 @@ A continuación se muestra un ejemplo de este tipo de alerta:
 
 Security Center desencadenará una alerta cuando detecte el uso de una mezcla de mayúsculas y minúsculas en la línea de comandos. Algunos atacantes pueden utilizar esta técnica para eludir una regla de la máquina basada en hash o que distinga mayúsculas de minúsculas.
 
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![Mezcla anómala](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
 
@@ -151,7 +151,7 @@ Un atacante puede usar una clave [krbtgt](https://technet.microsoft.com/library/
 > [!NOTE] 
 > Para más información sobre el golden ticket de Kerberos, consulte [Windows 10 credential theft mitigation guide](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx) (Guía de mitigación del robo de credenciales de Windows 10).
 
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![Golden ticket](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
 
@@ -159,7 +159,7 @@ A continuación se muestra un ejemplo de este tipo de alerta:
 
 Security Center desencadenará una alerta cuando se cree una cuenta que se parezca mucho a una cuenta integrada existente con privilegios administrativos. Los atacantes pueden usar esta técnica para crear una cuenta no autorizada para evitar que se les detecte con una comprobación realizada por un usuario.
  
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![Cuenta sospechosa](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
 
@@ -167,7 +167,7 @@ A continuación se muestra un ejemplo de este tipo de alerta:
 
 Los atacantes podrían intentar eludir la seguridad del host mediante la creación de reglas de firewall personalizadas que permitan que aplicaciones malintencionadas se comuniquen con el comando y control o lancen ataques a la red a través del host en peligro. Security Center desencadenará una alerta cuando detecte que se ha creado una regla de firewall a partir de un archivo ejecutable en una ubicación sospechosa.
  
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![Regla de firewall](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
 
@@ -175,7 +175,7 @@ A continuación se muestra un ejemplo de este tipo de alerta:
 
 Security Center desencadenará una alerta cuando detecte que un host de aplicación HTML (HTA) de Microsoft esté iniciando comandos de PowerShell. Se trata de una técnica utilizada por los atacantes para iniciar scripts malintencionados de PowerShell.
  
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![HTA y PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
 
@@ -188,7 +188,7 @@ Se pueden detectar dispositivos de red y perfiles de la misma manera que otros t
 
 ![Alerta de tráfico saliente sospechoso](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
-Esta alerta proporciona información que puede usar para identificar el recurso que se usó para iniciar este ataque. Esta alerta también proporciona información para identificar el equipo en peligro, la hora de detección, además del protocolo y puerto que se utilizó. Esta hoja también proporciona una lista de pasos de corrección que pueden utilizarse para mitigar este problema.
+Esta alerta proporciona información que puede usar para identificar el recurso que se usó para iniciar este ataque. Esta alerta también proporciona información para identificar el equipo en peligro, la hora de detección, además del protocolo y puerto que se utilizó. Esta página también proporciona una lista de pasos de corrección que pueden utilizarse para mitigar este problema.
 
 ### <a name="network-communication-with-a-malicious-machine"></a>Network communication with a malicious machine (Comunicación de red con una máquina malintencionada)
 Mediante el aprovechamiento de las fuentes de inteligencia de amenazas de Microsoft, Azure Security Center puede detectar equipos en peligro que se comunican con direcciones IP malintencionadas. En muchos casos, la dirección malintencionada es un centro de comando y control. En este caso, Security Center ha detectado que la comunicación se realizó mediante el malware Pony Loader (también conocido como [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
@@ -205,7 +205,7 @@ Esta alerta proporciona información que le permite identificar el recurso que s
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Posible ataque de denegación de servicio de salida detectado
 El tráfico de red anómalo originado en una máquina virtual puede hacer que Security Center desencadene un tipo de ataque por potencial denegación de servicio.
 
-A continuación se muestra un ejemplo de este tipo de alerta:
+Este es un ejemplo de este tipo de alerta:
 
 ![Denegación de servicio saliente](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
@@ -253,4 +253,3 @@ En este artículo, ha aprendido acerca de los distintos tipos de alertas de segu
 * [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre publicaciones de blog sobre el cumplimiento y la seguridad de Azure.
-

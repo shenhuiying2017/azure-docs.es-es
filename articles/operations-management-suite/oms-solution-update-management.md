@@ -3,7 +3,7 @@ title: "Solución Administración de actualizaciones de OMS | Microsoft Docs"
 description: "Este artículo está pensado para ayudarle a entender cómo utilizar esta solución para administrar las actualizaciones de los equipos Windows y Linux."
 services: operations-management-suite
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
-ms.author: magoedte
+ms.author: eslesar
+ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
-ms.contentlocale: es-es
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Solución Administración de actualizaciones de OMS
 
 ![Símbolo de Administración de actualizaciones](./media/oms-solution-update-management/update-management-symbol.png)
 
 La solución Update Management de OMS permite administrar las actualizaciones de seguridad del sistema operativo de los equipos de Windows y Linux implementados en Azure, en entornos locales o en otros proveedores en la nube.  Puede evaluar rápidamente el estado de las actualizaciones disponibles en todos los equipos agente y administrar el proceso de instalación de las actualizaciones necesarias para los servidores.
+
+## <a name="update-management-in-azure-automation"></a>Administración de actualizaciones en Azure Automation
+
+La administración de actualizaciones se puede habilitar en las máquinas virtuales directamente desde una cuenta de [Azure Automation](../automation/automation-offering-get-started.md).
+Para aprender a habilitar la administración de actualizaciones en máquinas virtuales desde una cuenta de Automation, consulte [Administración de actualizaciones para varias máquinas virtuales de Azure](../automation/manage-update-multi.md).
 
 
 ## <a name="solution-overview"></a>Información general de la solución
@@ -307,11 +311,17 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 | Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |Lista de todos los paquetes que tienen una actualización disponible que soluciona una vulnerabilidad de seguridad o crítica | 
 | Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |Lista de las implementaciones de actualizaciones que han modificado equipos | 
 | Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Equipos que se actualizaron en esta ejecución de la actualización (reemplace el valor por el nombre de la implementación de actualizaciones) | 
-| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Lista de todas las máquinas "Ubuntu" con cualquier actualización disponible | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Lista de todas las máquinas "Ubuntu" con cualquier actualización disponible |
+
+## <a name="integrate-with-system-center-configuration-manager"></a>Integración con System Center Configuration Manager
+
+Los clientes que han invertido en System Center Configuration Manager para administrar equipos, servidores y dispositivos móviles también confían en su solidez y nivel de madurez para administrar actualizaciones de software como parte de su ciclo de administración de actualizaciones de software (SUM).
+
+Para aprender a integrar la solución OMS Update Management con System Center Configuration Manager, consulte [Integrar System Center Configuration Manager con Update Management de OMS [versión preliminar]](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-En esta sección se proporciona información para resolver problemas con la solución de administración de actualizaciones.  
+En esta sección se proporciona información para resolver problemas con la solución de administración de actualizaciones.
 
 ### <a name="how-do-i-troubleshoot-onboarding-issues"></a>¿Cómo se pueden solucionar los problemas de incorporación?
 Si se producen problemas al intentar incorporar la solución o una máquina virtual, compruebe en los registros de eventos **Registros de aplicaciones y servicios y Operations Manager** los eventos con el identificador 4502 y el mensaje de evento que contenga **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  La tabla siguiente destaca los mensajes de error específicos y una posible solución para cada uno.  
@@ -333,4 +343,3 @@ Para más información, consulte [Mensajes y salidas del runbook de Automation](
 * Usar Búsquedas de registros en [Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre la actualización.
 * [Crear sus propios paneles](../log-analytics/log-analytics-dashboards.md) que muestren el cumplimiento de las actualizaciones de los equipos administrados.
 * [Crear alertas](../log-analytics/log-analytics-alerts.md) cuando se detectan actualizaciones críticas pendientes en equipos, o bien cuando un equipo tiene las actualizaciones automáticas deshabilitadas.  
-

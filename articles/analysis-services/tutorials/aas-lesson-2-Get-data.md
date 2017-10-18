@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/19/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
-ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 07151fdf79d3b06f3144fbebff9015645b1ed000
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="lesson-2-get-data"></a>Lección 2: Obtención de datos
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
@@ -30,6 +28,9 @@ ms.lasthandoff: 06/03/2017
 En esta lección, usará Obtención de datos en SSDT para conectarse a la base de datos de ejemplo AdventureWorksDW2014, seleccionar datos, obtener una vista previa, filtrar e importar en el área de trabajo del modelo.  
   
 Al usar Obtención de datos, puede importar datos de diversos de orígenes: Azure SQL Database, Oracle, Sybase, fuente OData, Teradata, archivos y mucho más. También puede consultar datos mediante una expresión de fórmula de Power Query M.
+
+> [!NOTE]
+> Las tareas y las imágenes en este tutorial muestran cómo establecer una conexión a una base de datos de AdventureWorksDW2014 en un servidor local. En algunos casos, una base de datos de AdventureWorksDW2014 en Azure puede ser diferente.
   
 Tiempo estimado para completar esta lección: **10 minutos**  
   
@@ -71,13 +72,19 @@ Las tablas de la base de datos de ejemplo AdventureWorksDW2014 contienen datos q
   
 #### <a name="to-filter-the-table-data-before-importing"></a>Para filtrar los datos de la tabla antes de importar  
   
-1.  En el Editor de consultas, seleccione la tabla **DimCustomer**. Aparece una vista de la tabla DimCustomer en el origen de datos (la base de datos de ejemplo AdventureWorksDWQ2014). 
+1.  En el Editor de consultas, seleccione la tabla **DimCustomer**. Aparece una vista de la tabla DimCustomer en el origen de datos (la base de datos de ejemplo AdventureWorksDW2014). 
   
 2.  Seleccione al mismo tiempo (Ctrl+clic) **SpanishEducation**, **FrenchEducation**, **SpanishOccupation**, **FrenchOccupation**, haga clic con el botón derecho y, después, haga clic en **Quitar columnas**. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
     Dado que los valores de estas columnas no son pertinentes para el análisis de ventas por Internet, no es necesario importar estas columnas. Si elimina las columnas innecesarias, el modelo será más pequeño y eficaz.  
+
+    > [!TIP]
+    > Si comete un error, puede hacer una copia de seguridad eliminando un paso en **PASOS APLICADOS**.   
+    
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
   
 4.  Elimine las siguientes columnas de cada tabla para filtrar las tablas restantes:  
     
@@ -85,7 +92,7 @@ Las tablas de la base de datos de ejemplo AdventureWorksDW2014 contienen datos q
     
       |Columna|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -130,11 +137,7 @@ Las tablas de la base de datos de ejemplo AdventureWorksDW2014 contienen datos q
   
     **FactInternetSales**
   
-      |Columna|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      No se quitan columnas.
   
 ## <a name="Import"></a>Importar las tablas y los datos de columna seleccionados  
 Ahora que ha obtenido una vista previa y ha filtrado los datos innecesarios, puede importar los datos que quiera. El asistente importa los datos de las tablas junto con las relaciones entre las tablas. Se crean nuevas tablas y columnas en el modelo y no se importan los datos filtrados.  
@@ -160,4 +163,3 @@ Es importante que guarde con frecuencia el proyecto de modelo.
 
   
   
-

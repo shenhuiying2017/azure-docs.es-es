@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/17/2017
 ms.author: erikje
+ms.openlocfilehash: c3ffc819fcc442f87fb4985ecb08be8ec02ba957
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 530a9558df2323e1aa49d9f4b974c142ee5ecf37
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Implementación de Azure Stack Development Kit
 
@@ -75,7 +74,7 @@ Para implementar [Azure Stack Development Kit](azure-stack-poc.md), debe complet
     # Download file
     Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
     ```
-6. Abra una consola de PowerShell con privilegios elevados > ejecute el script C:\AzureStack_Installer\asdk-installer.ps1 > haga clic en **Preparar vhdx**.
+6. Abra una consola de PowerShell con privilegios elevados > ejecute el script C:\AzureStack_Installer\asdk-installer.ps1 > haga clic en **Preparar entorno**.
 7. En la página **Select Cloudbuilder vhdx** (Seleccionar vhdx de Cloudbuilder) del instalador, busque y seleccione el archivo cloudbuilder.vhdx que ha descargado en los pasos anteriores.
 8. Opcional: active la casilla **Agregar controladores** para especificar una carpeta que contenga los controladores adicionales que desea en el host.
 9. En la página **Configuración opcional**, proporcione la cuenta de administrador local para el host del kit de desarrollo. Si no proporciona estas credenciales, necesitará acceso KVM al host durante el proceso de instalación que aparece a continuación.
@@ -142,15 +141,17 @@ O bien, puede [volver a implementar](azure-stack-redeploy.md) desde el principio
 Para asegurarse de que la contraseña del host del kit de desarrollo no expire demasiado pronto, siga estos pasos después de realizar la implementación:
 
 1. En el host del kit de desarrollo, abra **Administración de directivas de grupo** y vaya a **Administración de directivas de grupo** – **Bosque: azurestack.local** – **Dominios**: **azurestack.local**.
-2. Haga clic con el botón derecho en **MemberServer** y haga clic en **Editar**.
+2. Haga clic con el botón derecho en **Directiva predeterminada de dominio**  y, a continuación, haga clic en **Editar**.
 3. En el Editor de administración de directivas de grupo, vaya a **Configuración del equipo** – **Directivas** – **Configuración de Windows** – **Configuración de seguridad** – **Directivas de cuenta** – **Directiva de contraseñas**.
 4. En el panel derecho, haga doble clic en **Vigencia máxima de la contraseña**.
-5. En el cuadro de diálogo de **propiedades de Vigencia máxima de la contraseña**, cambie el valor **La contraseña expirará en** a 180 y, a continuación, haga clic en **Aceptar**.
+5. En el cuadro de diálogo **Maximum password age Properties** (Propiedades de Vigencia máxima de la contraseña), cambie el valor **Password will expire in** (La contraseña expirará en) a 180 y, después, haga clic en **Aceptar**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+[Instalación de PowerShell](azure-stack-powershell-configure-quickstart.md)
+
 [Registro de Azure Stack con una suscripción de Azure](azure-stack-register.md)
 
 [Conexión a Azure Stack](azure-stack-connect-azure-stack.md)
-
 

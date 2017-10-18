@@ -12,23 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: renash
+ms.openlocfilehash: 81de67334f66a61582bb2c5d5a2303cf3a1a086c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5a4a26957c115277e7558c210560777af63d2d0f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-files"></a>Introducción a Azure Files
 Azure Files ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo SMB (Bloque de mensajes del servidor) estándar](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (también conocido como Sistema de archivos de Internet común o CIFS). Los recursos compartidos de Azure Files se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. Además, los recursos compartidos de Azure Files se pueden almacenar en caché en servidores de Windows Server con Azure Files Sync (versión preliminar), que permite un acceso rápido allí donde se utilizan los datos.
 
 ## <a name="videos"></a>Vídeos
-| Introducción a Azure Files (27 m) | Tutorial de Azure Files (5 m)  |
+| Introducing Azure File Sync (Introducción a Azure File Sync) (2 m) | Azure Files with Sync (Ignite 2017) (85 m)  |
 |-|-|
-| [![Presentación en pantalla del vídeo de introducción a Azure Files: haga clic para la reproducción.](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Presentación en pantalla del tutorial de Azure Files: haga clic para reproducir.](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
+| [![Presentación en pantalla del vídeo Introducing Azure File Sync, haga clic para reproducirlo.](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Presentación en pantalla de Azure Files with Sync, haga clic para reproducirlo.](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
 
 ## <a name="why-azure-files-is-useful"></a>¿Por qué es útil Azure Files?
 Los recursos compartidos de archivos de Azure se pueden usar para:

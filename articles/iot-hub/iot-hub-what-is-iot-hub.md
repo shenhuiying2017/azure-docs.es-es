@@ -12,22 +12,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/14/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d290ee8a3cee1242f14726b5cf7ca531a3f5830a
-ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: b5f44d2ae42ffc6f75887a64c9ef988fe6d8fd69
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-the-azure-iot-hub-service"></a>Introducción al servicio Azure IoT Hub
 
 Bienvenido al Centro de IoT de Azure. En este artículo se ofrece información general sobre Azure IoT Hub y se describe por qué debería usar este servicio para implementar una solución de Internet de las cosas (IoT). El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y un back-end de soluciones. Centro de IoT de Azure:
 
-* Proporciona varias opciones de comunicación de dispositivo a la nube y de la nube al dispositivo, como métodos de solicitud y respuesta, mensajería unidireccional y transferencia de archivos.
+* Proporciona varias opciones de comunicación de dispositivo a nube y de nube a dispositivo. Dichas opciones incluyen la mensajería unidireccional, la transferencia de archivos y los métodos de solicitud y respuesta.
 * Proporciona enrutamiento de mensajes declarativos integrado a otros servicios de Azure.
 * Proporciona almacenamiento consultable para metadatos del dispositivo e información de estado sincronizada.
 * Habilita las comunicaciones seguras y el control de acceso con claves de seguridad por dispositivo o certificados X.509.
@@ -59,19 +57,19 @@ Además de los requisitos anteriores, toda solución de IoT debe ser capaz de of
 
 ## <a name="why-use-azure-iot-hub"></a>¿Por qué usar Azure IoT Hub?
 
-Además de un amplio conjunto de opciones de comunicación [del dispositivo a la nube][lnk-d2c-guidance] y [de la nube al dispositivo][lnk-c2d-guidance], como mensajería, transferencias de archivos y métodos de solicitud y respuesta, las direcciones de Azure IoT Hub supera los problemas de conectividad de los dispositivos de las maneras siguientes:
+Azure IoT Hub ofrece un gran conjunto de opciones de comunicación de [dispositivo a nube][lnk-d2c-guidance] y de [nube a dispositivo][lnk-c2d-guidance]. Además, Azure IoT Hub afronta los problemas que pueden aparecer al conectar de forma confiable y segura a los dispositivos de las siguientes formas:
 
-* **Dispositivos gemelos**. Con los [dispositivos gemelos][lnk-twins] puede almacenar, sincronizar y consultar metadatos e información de estado de los dispositivos. Los dispositivos gemelos son documentos JSON que almacenan información sobre el estado de los dispositivos (metadatos, configuraciones y condiciones). IoT Hub conserva un dispositivo gemelo por cada dispositivo que se conecta a IoT Hub.
+* **Dispositivos gemelos**. Con los [dispositivos gemelos][lnk-twins] puede almacenar, sincronizar y consultar metadatos e información de estado de los dispositivos. Los dispositivos gemelos son documentos JSON que almacenan información acerca del estado del dispositivo como metadatos, configuraciones y condiciones. IoT Hub mantiene un dispositivo gemelo por cada dispositivo que se conecta a IoT Hub.
 
 * **Autenticación por dispositivo y conectividad segura**. Puede aprovisionar cada dispositivo con su propia [clave de seguridad][lnk-devguide-security] para permitirle conectarse a IoT Hub. El [registro de identidades de IoT Hub][lnk-devguide-identityregistry] almacena identidades y claves en una solución. Un back-end de soluciones puede agregar dispositivos individuales para permitir o denegar listas que permitan controlar por completo el acceso a los dispositivos.
 
 * **Enrutamiento de mensajes de dispositivo a nube a servicios de Azure según reglas declarativas**. IoT Hub permite definir rutas de mensajes basadas en reglas de enrutamiento para controlar dónde el centro envía mensajes de dispositivo a nube. Las reglas de enrutamiento no requieren que se escriba ningún código y pueden sustituir a los distribuidores de mensajes personalizados posteriores a la ingesta.
 
-* **Supervisión de operaciones de conectividad del dispositivo**. Puede recibir registros de operación detallados sobre operaciones de administración de identidad de dispositivos y eventos de conectividad de dispositivos. Esta funcionalidad de supervisión permite que la solución de IoT identifique los problemas de conectividad, como los dispositivos que intentan conectarse con credenciales incorrectas, envían mensajes con demasiada frecuencia o rechazan todos los mensajes de la nube al dispositivo.
+* **Supervisión de operaciones de conectividad del dispositivo**. Puede recibir registros de operación detallados sobre operaciones de administración de identidad de dispositivos y eventos de conectividad de dispositivos. Esta funcionalidad de supervisión permite a una solución de IoT identificar problemas de conectividad. Estos registros se usan para identificar los dispositivos que proporcionan credenciales incorrectas, envían mensajes con demasiada frecuencia o rechazan todos los mensajes de la nube al dispositivo.
 
 * **Amplio conjunto de bibliotecas de dispositivos**. Los [SDK de dispositivo IoT de Azure][lnk-device-sdks] están disponibles y son compatibles con varios lenguajes y plataformas: C para muchas distribuciones de Linux, Windows y sistemas operativos en tiempo real. Los SDK de dispositivos IoT de Azure admiten lenguajes administrados como C#, Java y JavaScript.
 
-* **Extensibilidad y protocolos de IoT**. Si la solución no puede usar las bibliotecas de dispositivos, el Centro de IoT expone un protocolo público que permite a los dispositivos usar los protocolos MQTT v3.1.1, HTTP 1.1 o AMQP 1.0 de forma nativa. También puede ampliar IoT Hub para ofrecer soporte para protocolos personalizados mediante:
+* **Extensibilidad y protocolos de IoT**. Si la solución no puede usar las bibliotecas de dispositivos, IoT Hub expone un protocolo público que permite a los dispositivos usar los protocolos MQTT v3.1.1, HTTPS 1.1 o AMQP 1.0 de forma nativa. IoT Hub también se puede ampliar para que admita protocolos personalizados mediante la:
 
   * Creación de una puerta de enlace de campo con [Azure IoT Edge][lnk-iot-edge] que convierte su protocolo personalizado en uno de los tres protocolos compatibles con IoT Hub.
   * Personalización de la [puerta de enlace de protocolo de IoT de Azure][protocol-gateway], un componente de código abierto que se ejecuta en la nube.
@@ -80,7 +78,7 @@ Además de un amplio conjunto de opciones de comunicación [del dispositivo a la
 
 ## <a name="gateways"></a>Puertas de enlace
 
-Una puerta de enlace en una solución IoT es normalmente una [puerta de enlace de protocolo][lnk-iotedge] implementada en la nube o una [puerta de enlace de campo][lnk-field-gateway] implementada localmente con sus dispositivos. Una puerta de enlace de protocolo realiza la traducción de protocolos, por ejemplo, de MQTT a AMQP. Una puerta de enlace de campo puede ejecutar análisis en el perímetro, tomar decisiones sujetas a limitaciones temporales para reducir la latencia, proporcionar servicios de administración del dispositivo, aplicar restricciones de privacidad y seguridad y realizar la traducción de protocolos. Ambos tipos de puerta de enlace actúan como intermediarios entre los dispositivos y el Centro de IoT.
+En una solución de IoT, una puerta de enlace es normalmente una [puerta de enlace de protocolo][lnk-iotedge] implementada en la nube o una [puerta de enlace de campo][lnk-field-gateway] implementada localmente con los dispositivos. Una puerta de enlace de protocolo realiza la traducción de protocolos, por ejemplo, de MQTT a AMQP. Una puerta de enlace de campo puede ejecutar análisis en el perímetro, tomar decisiones sujetas a limitaciones temporales para reducir la latencia, proporcionar servicios de administración del dispositivo, aplicar restricciones de privacidad y seguridad y realizar la traducción de protocolos. Ambos tipos de puerta de enlace actúan como intermediarios entre los dispositivos e IoT Hub.
 
 Una puerta de enlace de campo es diferente de un dispositivo de enrutamiento de tráfico simple (como un firewall o un dispositivo de traducción de direcciones de red) porque normalmente desempeña un rol activo en la administración del acceso y del flujo de la información en su solución.
 
@@ -88,7 +86,7 @@ Una solución puede incluir tanto puertas de enlace de protocolo como de campo.
 
 ## <a name="how-does-iot-hub-work"></a>¿Cómo funciona el Centro de IoT?
 
-Azure IoT Hub implementa el modelo de [comunicación asistida por servicio][lnk-service-assisted-pattern] para mediar en las interacciones entre los dispositivos y su back-end de soluciones. El objetivo de la comunicación asistida por servicio es establecer rutas de acceso de comunicación bidireccional de confianza entre un sistema de control (como el Centro de IoT) y los dispositivos con una finalidad específica implementados en espacios físicos que no son de confianza. El patrón establece los principios siguientes:
+Azure IoT Hub implementa el modelo de [comunicación asistida por servicio][lnk-service-assisted-pattern] para mediar en las interacciones entre los dispositivos y su back-end de soluciones. El objetivo de la comunicación asistida por servicio es establecer rutas de acceso de comunicación bidireccional de confianza entre un sistema de control, como IoT Hub, y los dispositivos de uso especial en un espacio físico que no es de confianza. El patrón establece los principios siguientes:
 
 * La seguridad tiene prioridad sobre el resto de las funciones.
 
@@ -100,11 +98,11 @@ Azure IoT Hub implementa el modelo de [comunicación asistida por servicio][lnk-
 
 * La autenticación y la autorización de nivel de sistema se basan en las identidades de cada dispositivo. Hacen los permisos y las credenciales de acceso revocables casi al instante.
 
-* La comunicación bidireccional de dispositivos con conexión esporádica debido a problemas de alimentación o de conectividad puede realizarse mediante el mantenimiento de comandos y notificaciones en los dispositivos hasta que uno de ellos se conecte para recibirlos. El Centro de IoT mantiene colas específicas de dispositivos para los comandos que envía.
+* En el caso de los dispositivos que se conectan esporádicamente debido a problemas de alimentación o de conectividad, la comunicación bidireccional funciona manteniendo los comandos y las notificaciones hasta que un dispositivo se conecta para recibirlos. El Centro de IoT mantiene colas específicas de dispositivos para los comandos que envía.
 
 * Los datos de carga de aplicaciones se protegen por separado para proteger el tránsito a través de las puertas de enlace a un servicio determinado.
 
-El sector de la telefonía móvil ha usado el patrón de comunicación asistida por servicio a una escala enorme para implementar servicios de notificación push como, por ejemplo, [Windows Push Notification Services][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] y [Apple Push Notification Service][lnk-apple-push].
+El sector de la telefonía móvil ha usado el patrón de comunicación asistida por servicio para implementar servicios de notificación push como, por ejemplo, [Windows Push Notification Services][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] y [Apple Push Notification Service][lnk-apple-push].
 
 IoT Hub es compatible con la ruta de acceso de emparejamiento público de ExpressRoute.
 
@@ -142,4 +140,3 @@ Para comenzar a escribir código y ejecutar algunos ejemplos, consulte el tutori
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [lnk-security-ground-up]: iot-hub-security-ground-up.md
-

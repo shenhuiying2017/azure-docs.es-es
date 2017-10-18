@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 6f4cfda6f367cb8a68d038fa0a3390442be034c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Evaluación de línea base en la solución Seguridad y auditoría de Operations Management Suite
 Este documento le ayuda a usar las funcionalidades de evaluación de línea base de la [solución Seguridad y auditoría de Operations Management Suite](operations-management-suite-overview.md) para acceder al estado de seguridad de los recursos supervisados.
@@ -40,7 +39,7 @@ Existen tres tipos de reglas:
 > 
 
 ## <a name="security-baseline-assessment"></a>Evaluación de línea base de seguridad
-Puede revisar la evaluación de línea base de seguridad actual de todos los equipos supervisados por Seguridad y auditoría de OMS mediante el panel.  Ejecute los siguientes pasos para acceder al panel de evaluación de línea base de seguridad:
+Puede revisar la evaluación de línea base de seguridad actual de todos los equipos supervisados por Seguridad y auditoría de OMS mediante el panel. Ejecute los siguientes pasos para acceder al panel de evaluación de línea base de seguridad:
 
 1. En el panel principal de **Microsoft Operations Management Suite**, haga clic en el icono **Seguridad y auditoría**.
 2. En el panel **Seguridad y auditoría**, haga clic en **Evaluación de línea base de seguridad** en **Dominios de seguridad**. Aparece el panel **Evaluación de línea base de seguridad**, como se muestra en la siguiente imagen:
@@ -83,7 +82,6 @@ OMS admite el perfil de línea base de miembros de dominio y de controladores de
 En este documento, ha aprendido acerca de la evaluación de línea base de Seguridad y auditoría de OMS. Para obtener más información sobre Seguridad de OMS, consulte los siguientes artículos:
 
 * [Información general de Operations Management Suite (OMS)](operations-management-suite-overview.md)
-* [Supervisión de las alertas de seguridad y su respuesta en la solución Seguridad y auditoría de Operations Management Suite](oms-security-responding-alerts.md)
+* [Supervisión de las alertas de seguridad y su respuesta en la solución Security and Audit de Operations Management Suite](oms-security-responding-alerts.md)
 * [Supervisión de los recursos en la solución Seguridad y auditoría de Operations Management Suite](oms-security-monitoring-resources.md)
-
 

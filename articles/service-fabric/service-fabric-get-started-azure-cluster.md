@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
+ms.openlocfilehash: de7fa7e6445e6eaf08bdcc8ae812611f20a98c34
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Creación del primer clúster de Service Fabric en Azure
 Un [clúster de Service Fabric](service-fabric-deploy-anywhere.md) es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. En esta guía de inicio rápido le ayuda a crear un clúster de cinco nodos, que se ejecute en Windows o Linux, a través de [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) o [Azure Portal](http://portal.azure.com) en unos minutos.  
 
@@ -251,6 +249,17 @@ Ejecute el siguiente comando para comprobar que está conectado y que el clúste
 az sf cluster health
 ```
 
+### <a name="connect-to-the-nodes-directly"></a>Conexión directa a los nodos 
+
+Para conectarse a los nodos de un clúster de Linux se puede utilizar SSH para conectarse a los nodos mediante la especificación de un número de puerto posterior al 3389. Por ejemplo, en el caso del clúster de cinco nodos que se ha creado anteriormente, los comandos serían como sigue:
+```bash
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3389
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3390
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3391
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3392
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3393
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez configurado un clúster de desarrollo, pruebe lo siguiente:
 * [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
@@ -266,4 +275,3 @@ Una vez configurado un clúster de desarrollo, pruebe lo siguiente:
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
 [ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
 [ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG
-

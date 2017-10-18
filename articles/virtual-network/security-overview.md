@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
+ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-security"></a>Seguridad de las redes
 
@@ -59,8 +58,8 @@ Un grupo de seguridad de red puede contener cero reglas, o tantas reglas como de
 
 **Consideraciones**
 
-- **IP virtual del nodo de host:** los servicios de infraestructura básica, como DHCP, DNS y supervisión del estado se proporcionan a través de las direcciones IP de host virtualizadas 168.63.129.16 y 169.254.169.254. Estas direcciones IP públicas pertenecen a Microsoft y son la únicas direcciones IP virtualizadas que se usarán en todas las regiones con este fin. Estas direcciones IP se asignan a la dirección IP física de la máquina del servidor (nodo de host) que hospeda la máquina virtual. El nodo de host actúa como la retransmisión DHCP, la resolución recursiva de DNS y el origen de sonda del sondeo de mantenimiento del equilibrador de carga y el sondeo de mantenimiento del equipo. La comunicación con estas direcciones IP no constituye un ataque. Si bloquea el tráfico hacia estas direcciones IP o el procedente de ellas, puede que una máquina virtual no funcione correctamente.
-- **Licencias (Servicio de administración de claves):** las imágenes de Windows que se ejecutan en máquinas virtuales deben contar con licencia. Para garantizar que se usen licencias, se envía una solicitud a los servidores host del Servicio de administración de claves que administran dichas consultas. La solicitud de salida se realiza a través del puerto 1688.
+- **IP virtual del nodo de host:** los servicios de infraestructura básica, como DHCP, DNS y supervisión del estado se proporcionan a través de las direcciones IP de host virtualizadas 168.63.129.16 y 169.254.169.254. Estas direcciones IP públicas pertenecen a Microsoft y son la únicas direcciones IP virtualizadas que se usarán en todas las regiones con este fin. Las direcciones se asignan a la dirección IP física del equipo del servidor (nodo de host) que hospeda la máquina virtual. El nodo de host actúa como la retransmisión DHCP, la resolución recursiva de DNS y el origen de sonda del sondeo de mantenimiento del equilibrador de carga y el sondeo de mantenimiento del equipo. La comunicación con estas direcciones IP no constituye un ataque. Si bloquea el tráfico hacia estas direcciones IP o el procedente de ellas, puede que una máquina virtual no funcione correctamente.
+- **Licencias (Servicio de administración de claves):** las imágenes de Windows que se ejecutan en máquinas virtuales deben tener licencia. Para garantizar que se usen licencias, se envía una solicitud a los servidores host del Servicio de administración de claves que administran dichas consultas. La solicitud de salida se realiza a través del puerto 1688.
 - **Máquinas virtuales en grupos de carga equilibrada**: el puerto y el intervalo de direcciones de origen aplicados proceden del equipo de origen no del equilibrador de carga. El puerto y el intervalo de direcciones de destino son los del equipo de destino, no los del equilibrador de carga.
 - **Instancias de servicio de Azure**: instancias de varios servicios de Azure como HDInsight, conjuntos de escalado de máquinas virtuales y entornos del servicio de aplicaciones implementados en subredes de la red virtual. Asegúrese de que conoce los requisitos de puertos de cada servicio antes de aplicar un grupo de seguridad de red a la subred en la que se implementa el recurso. Si deniega los puertos que el servicio requiere, este no funcionará correctamente. 
 
@@ -126,7 +125,7 @@ Las reglas predeterminadas no se pueden quitar, pero puede reemplazarlas con reg
 
 * **VirtualNetwork** (*Resource Manager) (**VIRTUAL_NETWORK** para el modelo clásico): esta etiqueta incluye el espacio de direcciones de red virtual (todos los intervalos CIDR definidos para la red virtual), todos los espacios de direcciones locales conectados y las [](virtual-network-peering-overview.md)redes virtuales o redes virtuales conectadas a una [puerta de enlace de red virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) del mismo nivel.
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para el modelo clásico): esta etiqueta denota el equilibrador de carga de la infraestructura de Azure. La etiqueta se traducirá en una [dirección IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) donde se originan los sondeos de mantenimiento de Azure. Si no usa el equilibrador de carga de Azure, puede reemplazar esta regla.
-* **Internet** (Resource Manager) (**INTERNET** para el modelo clásico): esta etiqueta denota el espacio de direcciones IP públicas de Azure. Las direcciones que abarca esta etiqueta se enumeran en el documento sobre el [espacio de direcciones IP públicas propiedad de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualiza periódicamente.
+* **Internet** (Resource Manager) (**INTERNET** para el modelo clásico): esta etiqueta denota el espacio de direcciones IP que se encuentra fuera de la red virtual y es accesible mediante la red pública de Internet. El intervalo de direcciones incluye el [espacio de direcciones IP públicas propiedad de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (solo para Resource Manager): esta etiqueta denota el espacio de direcciones IP del servicio Azure Traffic Manager.
 * **Storage** (solo para Resource Manager): esta etiqueta denota el espacio de direcciones IP del servicio Azure Storage. Si especifica *Storage* como valor, el tráfico al almacenamiento se permite o se deniega. Si solo desea permitir el acceso al almacenamiento de una determinada [región](https://azure.microsoft.com/regions), puede especificarla. Por ejemplo, si desea permitir el acceso a Azure Storage solo en la región este de EE. UU., puede especificar *Storage.EastUS* como etiqueta de servicio. Etiquetas de servicio regionales adicionales disponibles: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS y Storage.WestUS2. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure Storage, pero no una cuenta de específica de este.
 * **Sql** (solo para Resource Manager): esta etiqueta denota los prefijos de direcciones de los servicios Azure SQL Database y Azure SQL Data Warehouse. Solo se pueden especificar regiones específicas para esta etiqueta de servicio. Por ejemplo, si desea permitir el acceso a Azure SQL Database solo en la región este de EE. UU., puede especificar *Sql.EastUS* como etiqueta de servicio. No se puede especificar Sql solo para todas las regiones de Azure, debe especificar las regiones individualmente. Otras etiquetas de servicios regionales disponibles: Sql.AustraliaEast, Sql.AustraliaSoutheast, Sql.EastUS, Sql.UKSouth, Sql.WestCentralUS, Sql.WestUS y Sql.WestUS2. La etiqueta representa el servicio, no instancias específicas del mismo. Por ejemplo, la etiqueta representa el servicio Azure SQL Database, pero no una cuenta de específica de este.
@@ -152,7 +151,7 @@ Si crea otras reglas, especificando otros grupos de seguridad de aplicaciones co
  
 Para obtener información acerca de los límites a la hora de crear grupos de seguridad de aplicaciones y especificarlos en las reglas de seguridad, consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Los grupos de seguridad de aplicaciones están disponibles en la versión preliminar. Antes de usar los grupos de seguridad de red, debe registrarse para poder utilizarlos siguiendo los pasos 1 a 5 que se describen en [Creación de un grupo de seguridad de red con grupos de seguridad de aplicaciones](create-network-security-group-preview.md#powershell) y lea la sección [Características en la versión preliminar](#preview-features) para conocer más información importante. Durante la versión preliminar, los grupos de seguridad de aplicaciones se limitan al ámbito de la red virtual. No se aplican las redes virtuales emparejadas con referencias cruzadas a los grupos de seguridad de aplicaciones de un grupo de seguridad de red. 
+Los grupos de seguridad de aplicaciones están disponibles en la versión preliminar. Para poder usar los grupos de seguridad de aplicaciones, antes es preciso registrarse, para lo que hay que seguir los pasos 1 a 5 de [Creación de un grupo de seguridad de red con grupos de seguridad de aplicaciones](create-network-security-group-preview.md#powershell) y leer la sección [Características en la versión preliminar](#preview-features), donde encontrará información importante. Durante la versión preliminar, los grupos de seguridad de aplicaciones se limitan al ámbito de la red virtual. No se aplican las redes virtuales emparejadas con referencias cruzadas a los grupos de seguridad de aplicaciones de un grupo de seguridad de red. 
 
 Las características de la versión preliminar no tienen el mismo nivel de disponibilidad y confiabilidad que las características de la versión general. Antes de usar grupos de seguridad de aplicaciones, primero debe registrarse. Las características están disponibles solamente en esta región: Oeste del centro de EE. UU.
 
@@ -160,4 +159,3 @@ Las características de la versión preliminar no tienen el mismo nivel de dispo
 
 * Completar el tutorial [Crear un grupo de seguridad de red](virtual-networks-create-nsg-arm-pportal.md)
 * Completar el tutorial [Creación de un grupo de seguridad de red con grupos de seguridad de aplicaciones](create-network-security-group-preview.md)
-

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
 ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Uso de Azure Security Center para dar respuesta a incidentes
 Muchas organizaciones aprenden a responder a incidentes de seguridad solo después de sufrir un ataque. Para reducir los costos y los daños, es importante tener un plan de respuesta a incidentes implantado antes de que se produzca un ataque. Azure Security Center puede usarse en distintas fases de una respuesta a incidentes.
@@ -83,7 +83,7 @@ Judy ha iniciado sesión en Azure Portal y está trabajando en la consola de Sec
    > En este escenario, Judy va a realizar una evaluación de la alerta de actividad SQL malintencionada, como se muestra en la ilustración anterior.
    >
    >
-2. Haga clic en el **actividad SQL malintencionado** de alerta y revise los recursos atacados en el **actividad SQL malintencionado** hoja: ![detalles de incidentes](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. Hace clic en la alerta **Actividad SQL malintencionada** y revisa los recursos atacados en la hoja **Actividad SQL malintencionada**: ![Detalles del incidente](./media/security-center-incident-response/security-center-incident-response-fig5.png).
 
     En esta hoja, Judy puede tomar notas relativas a los recursos atacados, cuántas veces ocurrió este ataque y cuándo se detectó.
 3. Hace clic en el **recurso atacado** para más información acerca de este ataque.

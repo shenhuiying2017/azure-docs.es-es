@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acceso a Azure Key Vault desde detrás de un firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>P: mi aplicación cliente de Key Vault debe estar detrás de un firewall. ¿Qué puertos, hosts o direcciones IP debo abrir para habilitar el acceso a un almacén de claves?
@@ -39,8 +39,8 @@ Será preciso que las aplicaciones cliente de Key Vault accedan a los puntos de 
 | Tipo de entidad de seguridad | Punto de conexión:puerto |
 | --- | --- |
 | Usuario que utiliza cuenta Microsoft<br> (por ejemplo, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure Gobierno de EE. UU.:**<br> login-us.microsoftonline.com:443<br><br>**Azure Alemania:**<br> login.microsoftonline.de:443<br><br> y <br>login.live.com:443 |
-| Usuario o entidad de servicio con una cuenta profesional o educativa con Azure AD (por ejemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure Gobierno de EE. UU.:**<br> login-us.microsoftonline.com:443<br><br>**Azure Alemania:**<br> login.microsoftonline.de:443 |
-| Usuario o entidad de servicio con un trabajo o cuenta del centro educativo, además de los servicios de federación de Active Directory (AD FS) u otro punto de conexión federado (por ejemplo, user@contoso.com) |Todos los puntos de conexión de una cuenta profesional o educativa, más AD FS u otros puntos de conexión federados |
+| Entidad de seguridad de usuario o de servicio con una cuenta profesional o educativa con Azure AD (por ejemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure Gobierno de EE. UU.:**<br> login-us.microsoftonline.com:443<br><br>**Azure Alemania:**<br> login.microsoftonline.de:443 |
+| Entidad de seguridad de usuario o de servicio con una cuenta profesional o educativa, más Servicios de federación de Active Directory (AD FS) u otro punto de conexión federado (por ejemplo, user@contoso.com) |Todos los puntos de conexión de una cuenta profesional o educativa, más AD FS u otros puntos de conexión federados |
 
 Hay otros escenarios complejos posibles. Para más información, consulte [Escenarios de autenticación para Azure AD](/documentation/articles/active-directory-authentication-scenarios/), [Integración de aplicaciones con Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) y [Guía del desarrollador de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
 ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Conexión de productos de seguridad a la solución Seguridad y auditoría de Operations Management Suite (OMS) 
 Este documento le ayuda a conectar sus productos de seguridad en la solución Seguridad y auditoría de OMS. Se admiten los siguientes orígenes:
@@ -63,7 +63,7 @@ En el equipo del agente, los eventos tienen que enviarse desde el demonio syslog
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. Descargue el archivo *security_events.conf* y colóquelo en */etc/opt/microsoft/omsagent/conf/omsagent.d/* en el equipo del agente OMS.
-4. Escriba el siguiente comando para reiniciar el demonio syslog: *para syslog-ng ejecutar:*
+4. Escriba el siguiente comando para reiniciar el demonio syslog: *Para la ejecución de syslog-ng:*
     
     ```
     sudo service rsyslog restart
@@ -111,5 +111,5 @@ En este documento, ha aprendido a conectar su solución CEF a OMS. Para obtener 
 
 * [Información general de Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Supervisión de las alertas de seguridad y su respuesta en la solución Security and Audit de Operations Management Suite](oms-security-responding-alerts.md)
-* [Supervisión de los recursos en la solución Security and Audit de Operations Management Suite](oms-security-monitoring-resources.md)
+* [Supervisión de los recursos en la solución Seguridad y auditoría de Operations Management Suite](oms-security-monitoring-resources.md)
 

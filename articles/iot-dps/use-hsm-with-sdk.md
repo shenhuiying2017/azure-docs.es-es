@@ -1,6 +1,6 @@
 ---
-title: 'Azure: Uso de HSM diferentes con el SDK de cliente del servicio de aprovisionamiento de dispositivos | Microsoft Docs'
-description: "Azure: Uso de HSM diferentes con dispositivos físicos y simuladores con el SDK de cliente del servicio de aprovisionamiento de dispositivos"
+title: "Guía de Azure: uso de distintos modelos de seguridad de hardware con el SDK de cliente del servicio Device Provisioning en Azure | Microsoft Docs"
+description: "Guía de Azure: uso de distintos modelos de seguridad de hardware con el SDK de cliente del servicio Device Provisioning en Azure"
 services: iot-dps
 keywords: 
 author: yzhong94
@@ -12,14 +12,12 @@ documentationcenter:
 manager: 
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: 620d86b62cf43c3e1a5f7f5c724fcf00174f30e8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: a5649ab873993d20803cb01a4b0ecc278c3ce16c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Cómo usar diferentes módulos de seguridad de hardware con el SDK de cliente del servicio de aprovisionamiento de dispositivos
 Estos pasos muestran cómo usar diferentes [Módulos de seguridad de hardware (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) con el SDK de cliente del servicio de aprovisionamiento de dispositivos en C con dispositivo físico y simulador.  El servicio de aprovisionamiento admite dos modos de autenticación: X**.**509 y Módulo de plataforma segura (TPM).
 
@@ -150,4 +148,3 @@ Una vez que el dispositivo se haya aprovisionado con el servicio de aprovisionam
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

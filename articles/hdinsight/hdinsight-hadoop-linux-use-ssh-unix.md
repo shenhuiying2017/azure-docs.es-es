@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/03/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: fd95d055bedbec89027e1a75bcd4c9addab18ed3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
-ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Conexión a través de SSH con HDInsight (Hadoop)
 
@@ -45,6 +44,11 @@ HDInsight puede usar Linux (Ubuntu) como sistema operativo para los nodos dentro
 > Si el clúster contiene un nodo perimetral, se recomienda que __siempre se conecte al nodo perimetral__ mediante SSH. Los nodos principales hospedan servicios que son críticos para el estado de Hadoop. El nodo perimetral ejecuta solo lo que incluya en él.
 >
 > Para más información, consulte [Uso de nodos perimetrales en HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
+
+> [!TIP]
+> Cuando se conecte por primera vez a HDInsight, el cliente SSH puede mostrar una advertencia de que no se puede establecer la autenticidad del host. Cuando se le pida, seleccione "sí" para agregar el host a la lista de servidores de confianza de su cliente SSH.
+>
+> Si se ha conectado anteriormente a un servidor con el mismo nombre, puede recibir una advertencia de que la clave del host almacenada no coincide con la del servidor. Si esto ocurre, el cliente SSH puede rechazar la conexión al clúster. Consulte la documentación del cliente SSH sobre cómo el nombre del servidor existente.
 
 ## <a name="ssh-clients"></a>Clientes SSH
 

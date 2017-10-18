@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 10/05/2017
 ms.author: sethm; babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 1a6bf0a0352e6d9e3a22586ac825558d12e1307a
-ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-event-hubs"></a>¿Qué es Event Hubs?
 
-Azure Event Hubs es una plataforma de streaming de datos y servicio de ingesta de eventos de gran escalabilidad que es capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Con la capacidad para ofrecer [funcionalidades de publicación y suscripción](https://msdn.microsoft.com/library/aa560414.aspx), con una latencia baja y a gran escala, Event Hubs sirve como "vía de entrada" para los macrodatos.
+Azure Event Hubs es una plataforma de streaming de datos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Con la capacidad para ofrecer [funcionalidades de publicación y suscripción](/biztalk/core/publish-and-subscribe-architecture), con una latencia baja y a gran escala, Event Hubs sirve como "vía de entrada" para los macrodatos.
 
 ## <a name="why-use-event-hubs"></a>¿Por qué usar Event Hubs?
 
@@ -59,14 +58,13 @@ Para detalles técnicos sobre estas y otras características de Event Hubs, cons
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para información detallada sobre los precios de Event Hubs, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+Para obtener información detallada sobre los precios de Event Hubs, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-Para más información acerca de Event Hubs, visite los vínculos siguientes:
+Para obtener más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * Empiece por un [tutorial de Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
 * [Aplicaciones de ejemplo que usan Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
  
  
-
 

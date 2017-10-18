@@ -10,17 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/03/2017
+ms.date: 10/02/2017
 ms.topic: get-started-article
 ms.author: tomfitz
+ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
-ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Creación e implementación de la primera plantilla de Azure Resource Manager
 Este tema lo guiará por los pasos para crear la primera plantilla de Azure Resource Manager. Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](resource-group-overview.md). Si tiene recursos existentes y desea obtener una plantilla para ellos, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).
 
@@ -97,58 +95,21 @@ Está listo para implementar esta plantilla. Use PowerShell o la CLI de Azure pa
 
 Cuando finaliza la implementación, la cuenta de almacenamiento existe en el grupo de recursos.
 
-## <a name="deploy-template-from-cloud-shell"></a>Implementación de una plantilla desde Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Puede usar [Cloud Shell](../cloud-shell/overview.md) para ejecutar los comandos de la CLI de Azure para implementar la plantilla. Pero primero debe cargar la plantilla en el recurso compartido de archivos de Cloud Shell. Si no ha usado Cloud Shell, vea [Introducción a Azure Cloud Shell](../cloud-shell/overview.md) para más información sobre su configuración.
+Para la CLI de Azure, use los siguientes comandos:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).   
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+```
 
-2. Seleccione el grupo de recursos de Cloud Shell. El patrón de nombre es `cloud-shell-storage-<region>`.
+Actualmente, PowerShell está disponible en Cloud Shell como versión preliminar. Para PowerShell, use los siguientes comandos:
 
-   ![Selección de un grupo de recursos](./media/resource-manager-create-first-template/select-cs-resource-group.png)
-
-3. Seleccione la cuenta de almacenamiento de Cloud Shell.
-
-   ![Selección de la cuenta de almacenamiento](./media/resource-manager-create-first-template/select-storage.png)
-
-4. Seleccione **Archivos**.
-
-   ![Seleccionar archivos](./media/resource-manager-create-first-template/select-files.png)
-
-5. Seleccione el recurso compartido de archivos de Cloud Shell. El patrón de nombre es `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Selección de recurso compartido de archivos](./media/resource-manager-create-first-template/select-file-share.png)
-
-6. Seleccione **Agregar directorio**.
-
-   ![Agregar directorio](./media/resource-manager-create-first-template/select-add-directory.png)
-
-7. Asígnele el nombre **plantillas** y seleccione **Correcto**.
-
-   ![Nombre de directorio](./media/resource-manager-create-first-template/name-templates.png)
-
-8. Seleccione el nuevo directorio.
-
-   ![Selección de directorio](./media/resource-manager-create-first-template/select-templates.png)
-
-9. Seleccione **Cargar**.
-
-   ![Selección de carga](./media/resource-manager-create-first-template/select-upload.png)
-
-10. Busque y cargue la plantilla.
-
-   ![Carga de archivo](./media/resource-manager-create-first-template/upload-files.png)
-
-11. Abra el símbolo del sistema.
-
-   ![Apertura de Cloud Shell](./media/resource-manager-create-first-template/start-cloud-shell.png)
-
-12. En Cloud Shell, escriba los comandos siguientes:
-
-   ```azurecli
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-   ```
+```powershell
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
+```
 
 Cuando finaliza la implementación, la cuenta de almacenamiento existe en el grupo de recursos.
 
@@ -445,4 +406,3 @@ az group delete --name examplegroup
 * Para aprender más sobre la estructura de una plantilla, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para obtener información acerca de las propiedades de una cuenta de almacenamiento, consulte la [referencia de plantillas de cuentas de almacenamiento](/azure/templates/microsoft.storage/storageaccounts).
 * Para ver plantillas completas de muchos tipos diferentes de soluciones, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
-

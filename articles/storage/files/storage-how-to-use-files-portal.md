@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: e56f8bf1057a8bc2cfcde841f69022104bafff27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fc521fa40428caacebb072cb1aacdebf0ce977ac
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-files-from-the-azure-portal"></a>Uso de Azure Files desde Azure Portal
 [Azure Portal](https://portal.azure.com) ofrece una interfaz de usuario para la administración de Azure Files. Puede realizar las siguientes acciones desde el explorador web:
 
@@ -66,7 +64,7 @@ ms.lasthandoff: 09/25/2017
 -  Haga clic en **Conectar** para obtener la línea de comandos necesaria para montar el recurso compartido de archivos desde Windows y Linux. Los usuarios de Linux también pueden hacer referencia a [Uso de Azure Files con Linux](../storage-how-to-use-files-linux.md) para obtener instrucciones adicionales de montaje para otras distribuciones de Linux.
 
     ![Captura de pantalla que muestra cómo montar el recurso compartido de archivos](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
--  Puede copiar los comandos para el montaje del recurso compartido de archivos en Windows o Linux y ejecutarlos desde la máquina virtual de Azure o el equipo local.
+-  Puede copiar los comandos para montar el recurso compartido de archivos en Windows o Linux, y ejecutarlo desde una máquina virtual de Azure o un equipo local.
 
     ![Captura de pantalla que muestra los comandos de montaje para Windows y Linux](./media/storage-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
 
@@ -76,6 +74,6 @@ Para obtener la clave de acceso de la cuenta de almacenamiento necesaria para el
 ## <a name="see-also"></a>Otras referencias
 Consulte los vínculos siguientes para más información acerca Azure Files.
 
-* [P+F](../storage-files-faq.md)
+* [Preguntas más frecuentes](../storage-files-faq.md)
 * [Solución de problemas en Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Solución de problemas en Linux](storage-troubleshoot-linux-file-connection-problems.md)    

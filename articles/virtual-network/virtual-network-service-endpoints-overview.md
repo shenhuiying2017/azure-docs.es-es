@@ -15,17 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
+ms.openlocfilehash: 0a0fe6f0e353e33cec80a9e06a61e772931cdea6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: e2359bc6002bd5c823467a33a4660ebccd116374
-ms.contentlocale: es-es
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-network-service-endpoints-preview"></a>Puntos de conexión del servicio Virtual Network (versión preliminar)
 
-Los puntos de conexión de servicio de redes virtuales extienden el espacio de direcciones privadas de la red virtual y la identidad de la red virtual a los servicios de Azure, a través de una conexión directa. Los puntos de conexión permiten proteger los recursos de servicio de Azure críticos únicamente para las redes virtuales. El tráfico desde la red virtual al servicio de Azure siempre permanece en la red troncal de Microsoft Azure.
+Los puntos de conexión del servicio Virtual Network (red virtual) extienden el espacio de direcciones privadas de la red virtual y la identidad de la red virtual a los servicios de Azure a través de una conexión directa. Los puntos de conexión permiten proteger los recursos de servicio de Azure críticos únicamente para las redes virtuales. El tráfico desde la red virtual al servicio de Azure siempre permanece en la red troncal de Microsoft Azure.
 
 Esta característica está disponible en versión preliminar para los servicios y regiones de Azure siguientes:
 
@@ -57,8 +55,11 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 - Un punto de conexión de servicio de la red virtual proporciona la identidad de la red virtual al servicio de Azure. Una vez que los puntos de conexión de servicio se habilitan en la red virtual, puede proteger los recursos de servicio de Azure en la red virtual mediante la incorporación de una regla de red virtual a los recursos.
 - Actualmente, el tráfico del servicio de Azure desde una red virtual usa direcciones IP públicas como direcciones IP de origen. Con los puntos de conexión de servicio, el tráfico del servicio cambia para usar direcciones privadas de red virtual como la direcciones IP de origen al acceder al servicio de Azure desde una red virtual. Este modificador permite acceder a los servicios sin necesidad de direcciones IP públicas y reservadas utilizadas en los firewalls IP.
-- Protección del acceso de servicio de Azure desde el entorno local: de forma predeterminada, los recursos de servicio de Azure protegidos para las redes virtuales no son accesibles desde redes locales. Si desea permitir el tráfico desde el entorno local, también debe permitir las direcciones IP de NAT desde los circuitos locales o de ExpressRoute. Las direcciones IP de NAT pueden agregarse a través de la configuración de firewall IP para los recursos de servicio de Azure.
-- ExpressRoute: si se usa [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) desde las instalaciones, cada circuito ExpressRoute usa dos direcciones IP de NAT que se aplican al tráfico del servicio de Azure cuando el tráfico entra en la red troncal de Microsoft Azure. Para permitir el acceso a los recursos de servicio, debe permitir las dos direcciones IP en la configuración del firewall IP de recursos. Para encontrar las direcciones de IP de circuito de ExpressRoute, [abra un vale de soporte con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) a través de Azure Portal.
+- __Protección del acceso de servicio de Azure desde el entorno local__:
+
+  De forma predeterminada, los recursos de servicio de Azure protegidos para las redes virtuales no son accesibles desde redes locales. Si desea permitir el tráfico desde el entorno local, también debe permitir las direcciones IP públicas (normalmente NAT) desde el entorno local o ExpressRoute. Estas direcciones IP se pueden agregar a través de la configuración del firewall de IP para los recursos de los servicios de Azure.
+
+  ExpressRoute: si se usa [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) desde un entorno local, para pares públicos, cada circuito ExpressRoute usa dos direcciones IP de NAT que se aplican al tráfico del servicio de Azure cuando el tráfico entra en la red troncal de Microsoft Azure. Para permitir el acceso a los recursos de servicio, debe permitir las dos direcciones IP públicas en la configuración del firewall de IP de recursos. Para encontrar las direcciones IP del circuito de ExpressRoute, [abra una incidencia de soporte técnico con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) a través de Azure Portal. Más información acerca de [Requisitos de NAT para el emparejamiento público de Azure](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering).
 
 ![Protección de servicios de Azure para las redes virtuales](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -76,9 +77,9 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
   El cambio de dirección IP solo afecta el tráfico del servicio desde la red virtual. No afecta a ningún otro tráfico dirigido a direcciones IPv4 públicas, o desde ellas, asignadas a las máquinas virtuales. Para los servicios de Azure, si tiene reglas de firewall existentes que usan direcciones IP públicas de Azure, estas reglas dejan de funcionar con el cambio a las direcciones privadas de red virtual.
 - Con los puntos de conexión de servicio, las entradas DNS para los servicios de Azure permanecen tal y como están ahora y seguirán resolviendo las direcciones IP públicas asignadas al servicio de Azure.
-- Los grupos de seguridad de red con puntos de conexión de servicio:
-  - Siguen permitiendo el tráfico de Internet de salida a Internet y, por tanto, también permiten el tráfico desde una red virtual a las direcciones IP públicas de los servicios de Azure.
-  - Permiten denegar el tráfico a las direcciones IP públicas excepto para las direcciones de los servicios de Azure con [etiquetas de servicio](security-overview.md#service-tags) en los grupos de seguridad de red. Puede especificar los servicios compatibles de Azure como el destino en las reglas del grupo de seguridad de red. Azure brinda el mantenimiento de las direcciones IP subyacentes a cada etiqueta.
+- Grupos de seguridad de red (NSG) con puntos de conexión de servicio:
+  - De forma predeterminada, los grupos de seguridad de red permiten el tráfico saliente de Internet y, por lo tanto, también permiten el tráfico desde la red virtual a los servicios de Azure. Esto continúa funcionando tal cual, con puntos de conexión de servicio. 
+  - Si desea denegar todo el tráfico de Internet saliente y permitir únicamente el tráfico a servicios de Azure específicos, puede hacerlo mediante las __"etiquetas de servicio de Azure"__ de sus grupos de seguridad de red. Puede especificar los servicios de Azure compatibles como destino en las reglas de grupos de seguridad de red y Azure proporciona el mantenimiento de las direcciones IP subyacentes en cada etiqueta. Para más información, consulte las [etiquetas de servicio de Azure para grupos de seguridad de red](https://aka.ms/servicetags). 
 
 ### <a name="scenarios"></a>Escenarios
 
@@ -89,8 +90,8 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 ### <a name="logging-and-troubleshooting"></a>Registro y solución de problemas
 
 Después de configurar los puntos de conexión de servicio para un servicio específico, valide que la ruta del punto de conexión de servicio está en vigor de la forma siguiente: 
-
-- Valide la dirección IP de origen de cualquier solicitud de servicio en los diagnósticos de servicio. Todas las nuevas solicitudes con puntos de conexión de servicio muestran la dirección IP de origen de la solicitud como la dirección de red virtual privada, asignada al cliente que realiza la solicitud desde la red virtual. Sin el punto de conexión, la dirección es una dirección IP pública de Azure.
+ 
+- Valide la dirección IP de origen de todas las solicitudes de servicio en los diagnósticos del servicio. Todas las nuevas solicitudes con puntos de conexión de servicio muestran la dirección IP de origen de la solicitud como la dirección de red virtual privada, asignada al cliente que realiza la solicitud desde la red virtual. Sin el punto de conexión, la dirección es una dirección IP pública de Azure.
 - Visualice las rutas eficaces en cualquier interfaz de red de una subred. La ruta al servicio:
   - Muestra una ruta predeterminada más específica a los intervalos de prefijos de la dirección de cada servicio
   - Tiene una clase nextHopType de *VirtualNetworkServiceEndpoint*
@@ -121,5 +122,4 @@ Para un recurso de servicio de Azure (por ejemplo, una cuenta de Azure Storage),
 - Obtenga información sobre cómo [proteger una cuenta de Azure Storage para una red virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre cómo [proteger una instancia de Azure SQL Database para una red virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre la [integración del servicio de Azure en redes virtuales](virtual-network-for-azure-services.md)
-
 

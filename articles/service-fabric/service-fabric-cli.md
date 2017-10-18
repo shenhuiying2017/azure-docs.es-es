@@ -8,26 +8,44 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: a938e300b1510a4f5f4eac3bd3d9a8bb728241ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-cli"></a>CLI de Azure Service Fabric
 
 La interfaz de línea de comandos (CLI) de Azure Service Fabric es una utilidad de línea de comandos para interactuar y administrar entidades de Service Fabric. La CLI de Service Fabric puede utilizarse con clústeres Windows o Linux. La CLI de Service Fabric se ejecuta en cualquier plataforma que sea compatible con Python.
 
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de la instalación, asegúrese de que el entorno tiene Python y pip instalados. Para más información, consulte la [documentación de inicio rápido de pip](https://pip.pypa.io/en/latest/quickstart/) y la [documentación oficial de instalación de Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-Aunque se admiten Python 2.7 y 3.6, se recomienda utilizar Python 3.6. En la siguiente sección se indica cómo instalar todos los requisitos previos y la CLI.
+La CLI admite las versiones 2.7, 3.5 y 3.6 de Python. Se recomienda usar Python 3.6, ya que el soporte técnico de Python 2.7 finalizará pronto.
+
+### <a name="service-fabric-target-runtime"></a>Runtime de destino de Service Fabric
+
+La CLI de Service Fabric debería ser compatible con la versión más reciente del runtime del SDK de Service Fabric. Use la siguiente tabla para determinar qué versión de la CLI debe instalar:
+
+| Versión de la CLI   | versión compatible del runtime |
+|---------------|---------------------------|
+| Más reciente (~=2)  | Más reciente (~=6.0)            |
+| 1.1.0         | 5.6, 5.7                  |
+
+También puede especificar la versión de destino de la CLI que se va a instalar. Para ello debe usar `==<version>` delante del comando `pip install`. Por ejemplo, en el caso de la versión 1.1.0 la sintaxis sería:
+
+```
+pip install -I sfctl==1.1.0
+```
+
+Reemplace el siguiente comando `pip install` por el comando mencionado anteriormente cuando sea necesario.
 
 ## <a name="install-pip-python-and-the-service-fabric-cli"></a>Instalación de pip, Python y la CLI de Service Fabric
 
- Hay muchas maneras de instalar pip y Python en la plataforma. Estos son algunos pasos para configurar rápidamente los principales sistemas operativos con Python 3.6 y pip.
+Hay muchas maneras de instalar pip y Python en la plataforma. Estos son algunos pasos para configurar rápidamente los principales sistemas operativos con Python 3 y pip.
 
 ### <a name="windows"></a>Windows
 
@@ -50,33 +68,45 @@ pip --version
 
 A continuación, ejecute el siguiente comando para instalar la CLI de Service Fabric:
 
-```
+```bat
 pip install sfctl
 sfctl -h
 ```
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-and-windows-subsystem-for-linux"></a>Ubuntu y subsistema de Windows para Linux
 
-Para Ubuntu 16.04 Desktop, puede instalar Python 3.6 mediante un archivo de paquete personal (PPA) de terceros.
-
-En el terminal, ejecute los siguientes comandos:
+Para ejecutar la CLI de Service Fabric, ejecute los siguientes comandos:
 
 ```bash
-sudo add-apt-repository ppa:jonathonf/python-3.6
-sudo apt-get update
-sudo apt-get install python3.6
+sudo apt-get install python3
 sudo apt-get install python3-pip
+pip3 install sfctl
 ```
 
-A continuación, para instalar la CLI de Service Fabric solo para la instalación de Python 3.6, ejecute el siguiente comando:
+A continuación, puede probar la instalación con:
 
 ```bash
-python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-Estos pasos no afectan a las versiones de Python 3.5 y 2.7 instaladas en el sistema. No intente modificar estas instalaciones, a menos que esté familiarizado con Ubuntu.
+Si recibe un error del tipo command not found, como:
 
+`sfctl: command not found`
+
+Asegúrese de que se puede acceder a `~/.local/bin` desde `$PATH`:
+
+```bash
+export PATH=$PATH:~/.local/bin
+echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+```
+
+Si se produce un error en la instalación en el subsistema de Windows para Linux debido a que los permisos de carpeta no son correctos, es posible que sea necesario volver a intentarlo con permisos superiores:
+
+```bash
+sudo pip3 install sfctl
+```
+
+<a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
 
 Para MacOS, se recomienda utilizar el [administrador de paquetes de HomeBrew](https://brew.sh). Si HomeBrew si no está ya instalado, puede hacerlo ejecutando el comando siguiente:
@@ -92,8 +122,6 @@ brew install python3
 pip3 install sfctl
 sfctl -h
 ```
-
-Estos pasos no modifican la versión de Python 2.7 instalada en el sistema.
 
 ## <a name="cli-syntax"></a>Sintaxis de la CLI
 
@@ -120,10 +148,10 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 El punto de conexión del clúster debe ir precedido por el prefijo `http` o `https`. Debe incluir el puerto para la puerta de enlace HTTP. El puerto y la dirección coinciden con la dirección URL de Service Fabric Explorer.
 
-Para clústeres que están protegidos con un certificado, puede especificar un certificado PEM codificado. El certificado se puede especificar como un único archivo o como un par de certificado y clave.
+Para clústeres que están protegidos con un certificado, puede especificar un certificado PEM codificado. El certificado se puede especificar como un único archivo o como un par de certificado y clave. Si es un certificado autofirmado sin firma de una entidad de certificación, puede pasar la opción `--no-verify` para omitir la comprobación de la entidad de certificación.
 
 ```azurecli
-sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 Para más información, consulte [Conexión a un clúster seguro de Azure Service Fabric](service-fabric-connect-to-secure-cluster.md).
@@ -175,6 +203,12 @@ La CLI de Service Fabric admite certificados de cliente como archivos PEM (exten
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
+Análogamente, para convertir un archivo PEM en uno PFX, puede usar el siguiente comando (la contraseña no se proporciona aquí):
+
+```bash
+openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
+```
+
 Para más información, consulte la documentación de [OpenSSL](https://www.openssl.org/docs/).
 
 ### <a name="connection-problems"></a>Problemas de conexión
@@ -203,8 +237,16 @@ Este es otro ejemplo:
 sfctl application create -h
 ```
 
+## <a name="updating-the-service-fabric-cli"></a>Actualización de la CLI de Service Fabric 
+
+Para actualizar la CLI de Service Fabric, ejecute los siguientes comandos (reemplace `pip` con `pip3`, según lo que especificara durante la instalación original):
+
+```bash
+pip uninstall sfctl
+pip install sfctl
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Implementación de una aplicación con la CLI de Azure Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 * [Introducción a Service Fabric con Linux](service-fabric-get-started-linux.md)
-

@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 115aa01ee6e3bd539086d80df1dcd94b3b7e2723
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
 
@@ -48,7 +47,7 @@ Para completar este tutorial, asegúrese de cumplir los siguientes requisitos pr
 
 La administración del rendimiento de la base de datos consiste en compilar y analizar los datos de rendimiento y, a continuación, reaccionar a estos datos mediante el ajuste de parámetros para mantener un tiempo de respuesta aceptable de la aplicación. Cuando se hospedan a varios inquilinos, los grupos de bases de datos elásticas son una manera rentable de proporcionar y administrar los recursos para un grupo de bases de datos con cargas de trabajo impredecibles. Con ciertos patrones de carga de trabajo, se pueden beneficiar de la administración en grupo un mínimo de dos bases de datos S3.
 
-![medios](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
+![diagrama de aplicaciones](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
 
 Se deben supervisar los grupos y las bases de datos de estos para garantizar que permanecen dentro de intervalos de rendimiento aceptables. Ajuste la configuración del grupo para satisfacer las necesidades de la carga de trabajo agregada de todas las bases de datos, garantizando que las eDTU del grupo son adecuadas para la carga de trabajo global. Ajuste los valores mínimo y máximo de unidades de transacción de bases de datos elásticas por base de datos adecuados para los requisitos de su aplicación.
 
@@ -115,11 +114,11 @@ Observe los gráficos **Supervisión de grupo elástico** y **Supervisión de ba
 
 El uso de los recursos del grupo es la suma del uso de todas las bases de datos del grupo. El gráfico de base de datos muestra las cinco bases de datos más recientes:
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
+![gráfico de base de datos](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
 Como hay otras bases de datos en el grupo aparte de las cinco principales, el uso del grupo muestra la actividad que no se refleja en el gráfico de las cinco bases de datos principales. Para ver detalles adicionales, haga clic en **Uso de recursos de base de datos**:
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
+![utilización de recursos de base de datos](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 
 
 ## <a name="set-performance-alerts-on-the-pool"></a>Establecimiento de alertas de rendimiento en el grupo
@@ -208,7 +207,7 @@ En este ejercicio se simula el efecto de una carga elevada en Contoso Concert Ha
 1. En [Azure Portal](https://portal.azure.com) abra **Pool1**.
 1. Inspeccione el gráfico **Supervisión de grupo elástico** y busque el aumento de uso de eDTU en el grupo. Pasado un minuto o dos, la carga mayor entrará en vigor rápidamente y verá que el grupo alcanza el 100 % de uso.
 1. Observe la pantalla **Supervisión de bases de datos elásticas** que muestra las bases de datos principales de la última hora. La base de datos *contosoconcerthall* pronto debería aparecer como una de las cinco bases de datos principales.
-1. **Haga clic en el gráfico Supervisión de bases de datos elásticas** y se abre la **página** **Uso de recursos de base de datos** donde puede supervisar cualquier base de datos. Esto le permite aislar la presentación de la base de datos *contosoconcerthall*.
+1. **Haga clic en el gráfico Supervisión de bases de datos elásticas** y se abre la **página****Uso de recursos de base de datos** donde puede supervisar cualquier base de datos. Esto le permite aislar la presentación de la base de datos *contosoconcerthall*.
 1. En la lista de bases de datos, haga clic en **contosoconcerthall**.
 1. Haga clic en **Plan de tarifa (escalar DTU)** para abrir la página **Configurar rendimiento** donde puede establecer un nivel de rendimiento independiente para la base de datos.
 1. Haga clic en la pestaña **Estándar** para abrir las opciones de escalado del nivel Estándar.
@@ -249,4 +248,3 @@ En este tutorial, aprenderá a:
 * [Grupos elásticos de SQL](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md): tutorial de configuración y uso de Log Analytics
-

@@ -3,7 +3,7 @@ title: "Administración de una cuenta de Azure Automation | Microsoft Docs"
 description: "En este artículo se describe cómo administrar la configuración de la cuenta de Automation: renovación, eliminación o configuración incorrecta de certificados."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,33 +14,32 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 41efdbcacede74bac038342688362ff480cadc7e
-ms.contentlocale: es-es
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: fa3109f15cf14a95af35e814fb61a505d3130462
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-automation-account"></a>Administración de la cuenta de Azure Automation
-En algún momento antes de que expire su cuenta de Automation, deberá renovar el certificado. Si cree que se ha puesto en peligro la cuenta de ejecución, puede eliminarla y volver a crearla. En esta sección se describe cómo realizar estas operaciones.
+En algún momento antes de que expire su cuenta de Automation, debe renovar el certificado. Si cree que se ha puesto en peligro la cuenta de ejecución, puede eliminarla y volver a crearla. En esta sección se describe cómo realizar estas operaciones.
 
 ## <a name="self-signed-certificate-renewal"></a>Renovación de certificado autofirmado
 El certificado autofirmado que creó para la cuenta de ejecución expira un año a partir de la fecha de creación. Se puede renovar en cualquier momento antes de que expire. Cuando se renueva, el certificado válido actual se conserva para tener la seguridad de que los runbooks que están en cola o que se están ejecutando activamente y que se autentican con la cuenta de ejecución, no resultan afectados negativamente. El certificado es válido hasta la fecha de expiración.
 
 > [!NOTE]
-> Si ha configurado la cuenta de ejecución de Automation para que use un certificado emitido por una entidad de certificación de empresa y usa esta opción, ese certificado se reemplazará por un certificado autofirmado.
+> Si ha configurado la cuenta de ejecución de Automation para usar un certificado emitido por una entidad de certificación de empresa y usa esta opción, ese certificado se reemplaza por otro autofirmado.
 
 Para renovar el certificado, realice estos pasos:
 
 1. Abra la cuenta de Automation en Azure Portal.
 
-2. En la hoja **Cuenta de Automation**, en el panel **Account properties** (Propiedades de la cuenta), en **Account Settings** (Configuración de la cuenta), seleccione **Run As Accounts** (Cuentas de ejecución).
+2. En la **Cuenta de Automation**, 
+3. en el panel **Propiedades de la cuenta**, en **Configuración de la cuenta**, seleccione **Cuentas de ejecución**.
 
     ![Panel de propiedades de la cuenta de Automation](media/automation-manage-account/automation-account-properties-pane.png)
-3. En la hoja de propiedades **Run As Accounts** (Cuentas de ejecución), seleccione la cuenta de ejecución o la cuenta de ejecución clásica para la que quiere renovar el certificado.
+3. En la página de propiedades **Cuentas de ejecución**, seleccione la cuenta de ejecución o la cuenta de ejecución clásica para la que quiere renovar el certificado.
 
-4. En la hoja **Propiedades** de la cuenta seleccionada, haga clic en **Renovar certificado**.
+4. En el panel **Propiedades** de la cuenta seleccionada, haga clic en **Renovar certificado**.
 
     ![Renovación del certificado para una cuenta de ejecución](media/automation-manage-account/automation-account-renew-runas-certificate.png)
 
@@ -51,15 +50,15 @@ En esta sección se describe cómo eliminar y volver a crear una cuenta de ejecu
 
 1. Abra la cuenta de Automation en Azure Portal.
 
-2. En la hoja **Cuenta de Automation**, en el panel de propiedades de la cuenta, seleccione **Run As Accounts** (Cuentas de ejecución).
+2. En la página **Cuenta de Automation**, seleccione **Cuentas de ejecución**.
 
-3. En la hoja de propiedades **Run As Accounts** (Cuentas de ejecución), seleccione la cuenta de ejecución o la cuenta de ejecución clásica que quiere eliminar. A continuación, en la hoja **Propiedades** de la cuenta seleccionada, haga clic en **Eliminar**.
+3. En la página de propiedades **Cuentas de ejecución**, seleccione la cuenta de ejecución o la cuenta de ejecución clásica que quiere eliminar. A continuación, en el panel **Propiedades** de la cuenta seleccionada, haga clic en **Eliminar**.
 
  ![Eliminación de una cuenta de ejecución](media/automation-manage-account/automation-account-delete-runas.png)
 
 4. Mientras se está eliminando la cuenta, puede seguir el progreso desde el menú, en **Notificaciones**.
 
-5. Después de eliminar la cuenta, puede volver a crearla en la hoja de propiedades **Run As Accounts** (Cuentas de ejecución) mediante la selección de la opción de creación **Cuenta de ejecución de Azure**.
+5. Después de eliminar la cuenta, puede volver a crearla en la página de propiedades **Cuentas de ejecución** seleccionando la opción de creación **Cuenta de ejecución de Azure**.
 
  ![Nueva creación de la cuenta de ejecución de Automation](media/automation-manage-account/automation-account-create-runas.png)
 
@@ -71,7 +70,7 @@ Puede que alguno de los elementos de configuración necesarios para que la cuent
 * La cuenta de ejecución se ha quitado del rol de colaborador
 * Entidad de servicio o aplicación en Azure AD
 
-En los casos anteriores y otros casos de errores de configuración, la cuenta de Automation detecta los cambios y muestra el estado *Incomplete* (Incompleto) en la hoja de propiedades **Run As Accounts** (Cuentas de ejecución) de la cuenta.
+En los casos anteriores y en otros casos de errores de configuración, la cuenta de Automation detecta los cambios y muestra el estado *Incompleto* en el panel de propiedades **Cuentas de ejecución** de la cuenta.
 
 ![Estado de configuración incompleta de la cuenta de ejecución](media/automation-manage-account/automation-account-runas-incomplete-config.png)
 

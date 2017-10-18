@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
+ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: e6e2009717430a692528cd3ec3a2c6e46a12fe03
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -73,10 +72,18 @@ Puede usar direcciones IPv4 públicas o privadas para el emparejamiento privado.
 ### <a name="public-peering"></a>Emparejamiento público
 La ruta de acceso de emparejamiento público de Azure le permite conectarse a todos los servicios hospedados en Azure a través de sus direcciones IP públicas. Puede tratarse tanto de los servicios que se enumeran en [P+F de ExpressRoute](expressroute-faqs.md) como de los que hospedan los ISV en Microsoft Azure. La conectividad con servicios de Microsoft Azure en el emparejamiento público siempre se inicia desde la red a la red de Microsoft. Debe usar direcciones IP públicas para el tráfico destinado a la red de Microsoft.
 
+> [!IMPORTANT]
+> Todos los servicios de PaaS de Azure también son accesibles a través del emparejamiento de Microsoft. Se recomienda crear el emparejamiento de Microsoft y conectarse a los servicios de PaaS de Azure a través de este.  
+>   
+
+
+Con el emparejamiento público se permite un número de sistema autónomo privado.
+
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
-El emparejamiento de Microsoft le permite conectarse a los servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y Dynamics 365. Microsoft admite la conectividad bidireccional en el emparejamiento de Microsoft. El tráfico destinado a los servicios en la nube de Microsoft debe usar direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft.
+La ruta de acceso de emparejamiento de Microsoft le permite conectarse a todos los servicios en la nube de Microsoft hospedados en direcciones IP públicas. La lista de servicios incluye Office 365, Dynamics 365 y los servicios de PaaS de Microsoft Azure. Microsoft admite la conectividad bidireccional en el emparejamiento de Microsoft. El tráfico destinado a los servicios en la nube de Microsoft debe usar direcciones IPv4/IPv6 públicas válidas para entrar en la red de Microsoft.
 
 Asegúrese de que la dirección IP y el número AS se registran en uno de los registros que se muestran a continuación.
+
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -85,6 +92,10 @@ Asegúrese de que la dirección IP y el número AS se registran en uno de los re
 * [RIPENCC](https://www.ripe.net/)
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
+
+Si no se le asignaron los prefijos y el número de sistema autónomo en los registros anteriores, deberá abrir un caso de soporte técnico para su validación manual. El equipo de soporte técnico necesitará documentación como una carta de autorización que certifique que puede utilizar los recursos.
+
+Con el emparejamiento de Microsoft se permite un número de sistema autónomo, pero debe validarse manualmente.
 
 > [!IMPORTANT]
 > Las direcciones IP públicas anunciadas a Microsoft a través de ExpressRoute no deben ser anunciadas en Internet. Esto puede interrumpir la conectividad con otros servicios de Microsoft. Sin embargo, las direcciones IP públicas utilizadas por los servidores de la red que se comunican con los puntos de conexión de Office 365 dentro de Microsoft pueden anunciarse en ExpressRoute. 
@@ -134,39 +145,40 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 | **Región de Microsoft Azure** | **Valor de comunidad de BGP** |
 | --- | --- |
 | **Norteamérica** | |
-| Este de EE. UU. |12076:51004 |
-| Este de EE. UU. 2 |12076:51005 |
-| Oeste de EE. UU. |12076:51006 |
-| Oeste de EE. UU. 2 |12076:51026 |
-| Centro occidental de EE.UU. |12076:51027 |
-| Centro-Norte de EE. UU |12076:51007 |
-| Centro-Sur de EE. UU |12076:51008 |
-| Central EE. UU.: |12076:51009 |
-| Centro de Canadá |12076:51020 |
-| Este de Canadá |12076:51021 |
+| Este de EE. UU. | 12076:51004 |
+| Este de EE. UU. 2 | 12076:51005 |
+| Oeste de EE. UU. | 12076:51006 |
+| Oeste de EE. UU. 2 | 12076:51026 |
+| Centro occidental de EE.UU. | 12076:51027 |
+| Centro-Norte de EE. UU | 12076:51007 |
+| Centro-Sur de EE. UU | 12076:51008 |
+| Central EE. UU.: | 12076:51009 |
+| Centro de Canadá | 12076:51020 |
+| Este de Canadá | 12076:51021 |
 | **Sudamérica** | |
-| Sur de Brasil |12076:51014 |
+| Sur de Brasil | 12076:51014 |
 | **Europa** | |
-| Europa del Norte |12076:51003 |
-| Europa occidental |12076:51002 |
+| Europa del Norte | 12076:51003 |
+| Europa occidental | 12076:51002 |
 | Sur del Reino Unido 2 | 12076:51024 |
 | Oeste de Reino Unido | 12076:51025 |
 | **Asia Pacífico** | |
-| Asia oriental |12076:51010 |
-| Sudeste asiático |12076:51011 |
+| Asia oriental | 12076:51010 |
+| Sudeste asiático | 12076:51011 |
 | **Japón** | |
-| Este de Japón |12076:51012 |
-| Oeste de Japón |12076:51013 |
+| Este de Japón | 12076:51012 |
+| Oeste de Japón | 12076:51013 |
 | **Australia** | |
-| Australia Oriental |12076:51015 |
-| Sudeste de Australia |12076:51016 |
+| Australia Oriental | 12076:51015 |
+| Sudeste de Australia | 12076:51016 |
 | **India** | |
-| Sur de India |12076:51019 |
-| India occidental |12076:51018 |
-| India central |12076:51017 |
+| Sur de India | 12076:51019 |
+| India occidental | 12076:51018 |
+| India central | 12076:51017 |
 | **Corea** | |
-| Corea del Sur |12076:51028 |
-| Corea Central |12076:51029 |
+| Corea del Sur | 12076:51028 |
+| Corea Central | 12076:51029 |
+
 
 Todas las rutas anunciadas de Microsoft se etiquetarán con el valor de la comunidad adecuado. 
 
@@ -179,11 +191,11 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 
 | **Servicio** | **Valor de comunidad de BGP** |
 | --- | --- |
-| Exchange Online |12076:5010 |
-| SharePoint Online |12076:5020 |
-| Skype Empresarial Online |12076:5030 |
-| Dynamics 365 |12076:5040 |
-| Otros servicios en línea de Office 365 |12076:5100 |
+| Exchange Online | 12076:5010 |
+| SharePoint Online | 12076:5020 |
+| Skype Empresarial Online | 12076:5030 |
+| Dynamics 365 | 12076:5040 |
+| Otros servicios en línea de Office 365 | 12076:5100 |
 
 > [!NOTE]
 > Microsoft no admite los valores de las comunidades de BGP que defina en las rutas anunciadas a Microsoft.
@@ -218,5 +230,4 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
   * [Cree un circuito ExpressRoute según el modelo clásico de implementación](expressroute-howto-circuit-classic.md) o [Cree y modifique un circuito ExpressRoute mediante Azure Resource Manager](expressroute-howto-circuit-arm.md).
   * [Configure el enrutamiento según el modelo clásico de implementación](expressroute-howto-routing-classic.md) o [Configure el enrutamiento según el modelo de implementación de Resource Manager](expressroute-howto-routing-arm.md).
   * [Vincule una red virtual clásica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vincule una red virtual de Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
-
 

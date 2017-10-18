@@ -12,20 +12,17 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
-ms.contentlocale: es-es
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 3646d14be662af0fdf80790cb53ddc581b33a146
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introducción a las colas de Service Bus
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-## <a name="what-will-be-accomplished"></a>Lo que se logrará
 
 En este tutorial se describen los pasos siguientes:
 
@@ -66,7 +63,7 @@ Si ya ha creado un espacio de nombres de mensajería de Service Bus, vaya a la s
 ## <a name="3-create-a-subscription-to-the-topic"></a>3. Creación de una suscripción al tema
 
 1. En el panel recursos del portal, haga clic en el espacio de nombres que creó en el paso 1 y, después, en el nombre del tema que creó en el paso 2.
-2. A la parte superior del panel de información general, haga clic en el signo más junto a **Suscripción** para agregar una suscripción a este tema.
+2. En la parte superior del panel de información general, haga clic en el signo más junto a **Suscripción** para agregar una suscripción a este tema.
 
     ![Creación de una suscripción][createtopic4]
 
@@ -83,7 +80,7 @@ Inicie Visual Studio y cree un nuevo proyecto **Console app (.NET Framework)**.
 ### <a name="add-the-service-bus-nuget-package"></a>Agregar el paquete NuGet de Service Bus
 
 1. Haga clic con el botón derecho en el proyecto recién creado y seleccione **Administrar paquetes NuGet**.
-2. Haga clic en la pestaña **Examinar**, busque **Microsoft Azure Service Bus** y seleccione el elemento **WindowsAzure.ServiceBus**. Haga clic en **Instalar** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
+2. Haga clic en la pestaña **Examinar**, busque **WindowsAzure.ServiceBus** y seleccione el elemento **WindowsAzure.ServiceBus**. Haga clic en **Instalar** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
    
     ![Seleccionar un paquete NuGet][nuget-pkg]
 
@@ -157,7 +154,7 @@ Inicie Visual Studio y cree un nuevo proyecto **Console app (.NET Framework)**.
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Agregue el siguiente código al método `Main`. Establezca la variable `connectionString` en la cadena de conexión que obtuvo al crear el espacio de nombres y establezca `topicName` en el nombre que usó cuando creó el tema.
+3. Agregue el siguiente código al método `Main`. Establezca la variable `connectionString` en la cadena de conexión que obtuvo al crear el espacio de nombres y establezca `topicName` en el nombre que usó cuando creó el tema. Asegúrese también de reemplazar `<your subscription name>` por el nombre de la suscripción que creó en el paso 3. 
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -225,4 +222,3 @@ Consulte nuestro [repositorio de GitHub con ejemplos](https://github.com/Azure/a
 [createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 [azure-portal]: https://portal.azure.com
-
