@@ -32,7 +32,7 @@ Estos son los pasos que se realizan en esta guía de inicio rápido:
 1. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
    
    ![New->DataFactory](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
-2. En la hoja **Nueva factoría de datos**, escriba el nombre **ADFTutorialDataFactory******. 
+2. En la hoja **Nueva factoría de datos**, escriba el **nombre** **ADFTutorialDataFactory**. 
       
      ![Hoja Nueva Factoría de datos](./media/quickstart-create-data-factory-portal/new-azure-data-factory.png)
  
