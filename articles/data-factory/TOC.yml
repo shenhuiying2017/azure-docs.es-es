@@ -186,6 +186,8 @@
           href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
         - name: Uso de Azure Monitor
           href: monitor-using-azure-monitor.md
+        - name: Supervisión visual
+          href: monitor-visually.md
         - name: Administración de Integration Runtime de SSIS de Azure
           href: manage-azure-ssis-integration-runtime.md
         - name: Supervisión de Integration Runtime

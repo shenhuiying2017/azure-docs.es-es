@@ -135,12 +135,16 @@
           href: sql-database-disaster-recovery.md
         - name: Obtención de detalles de recuperación
           href: sql-database-disaster-recovery-drills.md
-    - name: Carga y movimiento de datos
+    - name: Migración a SQL Database
       items:
         - name: Migración de bases de datos de SQL Server
           href: sql-database-cloud-migrate.md
         - name: Cambios de T-SQL
           href: sql-database-transact-sql-information.md
+        - name: Administración de bases de datos después de la migración
+          href: sql-database-manage-after-migration.md
+    - name: Carga y movimiento de datos
+      items:
         - name: Copia de una base de datos
           href: sql-database-copy.md
         - name: Importación de una base de datos

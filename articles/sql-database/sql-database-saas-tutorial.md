@@ -1,5 +1,5 @@
 ---
-title: "Implementación y exploración de una aplicación SaaS multiinquilino que usa Azure SQL Database | Microsoft Docs"
+title: "Tutorial de la aplicación SaaS multiinquilino con Azure SQL Database | Microsoft Docs"
 description: "Implemente y explore la aplicación SaaS de Wingtip multiinquilino, en la que se muestran los modelos de SaaS con Azure SQL Database."
 keywords: tutorial de base de datos sql
 services: sql-database
@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: 2e6816ce2740b0325c6f59338f0365c6b40539f3
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 14d2fd007e88c9cb20cf2b4a24262e2bebc42d63
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa Azure SQL Database
 
@@ -203,4 +202,3 @@ Ahora pruebe el [tutorial de aprovisionamiento del catálogo](sql-database-saas-
 * Para obtener información acerca de los grupos elásticos, consulte [*¿Qué son los grupos elásticos de Azure SQL?*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
 * Para obtener información acerca de los trabajos elásticos, consulte [*Administración de bases de datos escaladas horizontalmente en la nube*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
 * Para obtener información acerca de aplicaciones SaaS multiempresa, consulte [*Modelos de diseño para las aplicaciones SaaS multiempresa y Azure SQL Database*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)
-

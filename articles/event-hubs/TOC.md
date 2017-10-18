@@ -22,6 +22,7 @@
 
 # Procedimientos
 ## Planeamiento y diseño
+### [Recuperación ante desastres con localización geográfica y replicación geográfica](event-hubs-geo-dr.md)
 ### [Event Hubs dedicado](event-hubs-dedicated-overview.md)
 ### [Introducción al modelo de autenticación y seguridad](event-hubs-authentication-and-security-model-overview.md)
 ### [Disponibilidad y coherencia](event-hubs-availability-and-consistency.md)

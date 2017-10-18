@@ -45,8 +45,8 @@ sections:
         style: ordered
         items:
           - html: <a href="service-fabric-tutorial-create-dotnet-app">Implementación de una aplicación .NET</a>
-          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Migración mediante lift-and-shift de una aplicación existente de .NET</a>
-          - html: <a href="service-fabric-tutorial-create-container-images">Creación de una aplicación contenedor de Linux</a>
+          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Inclusión de una aplicación .NET existente en un contenedor</a>
+          - html: <a href="service-fabric-tutorial-create-container-images">Creación de una aplicación contenedora de Linux</a>
           - html: Creación y administración de un clúster de <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> o <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>
   - title: Vídeo gratuito de aprendizaje de PluralSight
     items:

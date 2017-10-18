@@ -44,41 +44,49 @@
       href: msi-how-to-get-access-token-using-msi.md
     - name: Configuración de MSI para una máquina virtual de Azure
       items:
-        - name: Con Azure Portal
+        - name: Uso del Portal de Azure
           href: msi-qs-configure-portal-windows-vm.md
         - name: Con PowerShell
           href: msi-qs-configure-powershell-windows-vm.md
-        - name: Con la CLI de Azure
+        - name: Uso de la CLI de Azure
           href: msi-qs-configure-cli-windows-vm.md
-        - name: Con plantillas de Azure Resource Manager
+        - name: Uso de la plantilla de Azure Resource Manager
           href: msi-qs-configure-template-windows-vm.md
-        - name: Con un SDK de Azure
+        - name: Uso del SDK de Azure
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Asignación de un acceso de MSI a un recurso de Azure
+    - name: Concesión de acceso MSI de máquina virtual a Resource Manager
       items:
-        - name: Con Azure Portal
+        - name: Uso de Azure Portal
           href: msi-howto-assign-access-portal.md
         - name: Con PowerShell
           href: msi-howto-assign-access-powershell.md
-        - name: Con la CLI de Azure
+        - name: Uso de la CLI de Azure
           href: msi-howto-assign-access-cli.md
-    - name: Uso de MSI para acceder a Azure Resource Manager
+    - name: Uso de una identidad MSI de máquina virtual para acceder a Azure Resource Manager
       items:
-        - name: Con una máquina virtual Windows
+        - name: Desde una máquina virtual Windows
           href: msi-tutorial-windows-vm-access-arm.md
-        - name: Con una máquina virtual Linux
+        - name: Desde una máquina virtual Linux
           href: msi-tutorial-linux-vm-access-arm.md
-    - name: Uso de MSI para acceder a Azure Storage
+    - name: Uso de una identidad MSI de máquina virtual para acceder a Azure SQL
       items:
-        - name: Con una máquina virtual Windows
+        - name: Desde una máquina virtual Windows
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: Uso de una identidad MSI de máquina virtual para acceder a Azure Storage
+      items:
+        - name: Desde una máquina virtual Windows mediante clave de acceso
           href: msi-tutorial-windows-vm-access-storage.md
-        - name: Con una máquina virtual Linux
+        - name: Desde una máquina virtual Windows mediante SAS
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: Desde una máquina virtual Linux mediante clave de acceso
           href: msi-tutorial-linux-vm-access-storage.md
-    - name: Uso de MSI para acceder a recursos que no son de Azure
+        - name: Desde una máquina virtual Linux mediante SAS
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: Uso de una identidad MSI de máquina virtual para acceder a Azure Key Vault
       items:
-        - name: Con una máquina virtual Windows
+        - name: Desde una máquina virtual Windows
           href: msi-tutorial-windows-vm-access-nonaad.md
-        - name: Con una máquina virtual Linux
+        - name: Desde una máquina virtual Linux
           href: msi-tutorial-linux-vm-access-nonaad.md
     - name: Preguntas frecuentes y problemas conocidos
       href: msi-known-issues.md

@@ -13,15 +13,13 @@
 ## [Planeamiento y operaciones](security-center-planning-and-operations-guide.md)
 ## [Permisos](security-center-permissions.md)
 ## [Plataformas compatibles](security-center-os-coverage.md)
-## [Integración de asociados](security-center-partner-integration.md)
 ## [Preguntas más frecuentes](security-center-faq.md)
 
 # Cómo
-
-## Directiva de seguridad
-### [Información general](security-center-policies-overview.md)
+## [Directiva de seguridad](security-center-policies-overview.md)
 ### [Recopilación de datos](security-center-enable-data-collection.md)
 ### [Directiva de seguridad](security-center-policies.md)
+### [Directiva de seguridad mediante la directiva de Azure](security-center-azure-policy.md)
 ### [Notificaciones por correo electrónico](security-center-provide-security-contact-details.md)
 ### [Plan de tarifa](security-center-pricing.md)
 
@@ -30,6 +28,10 @@
 ## [Search](security-center-search.md)
 
 ## Prevención
+### [Soluciones de seguridad](security-center-partner-integration.md)
+#### [Supervisión de soluciones conectadas](security-center-partner-solutions.md)
+#### [Conexión de Microsoft ATA](security-center-ata-integration.md)
+#### [Conexión de Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [Implementación de recomendaciones de seguridad](security-center-recommendations.md)
 ### [Recomendaciones sobre aplicaciones](security-center-application-recommendations.md)
 #### [Agregar un firewall de aplicaciones web](security-center-add-web-application-firewall.md)
@@ -57,7 +59,6 @@
 #### [Actualizar versión del sistema operativo](security-center-update-os-version.md)
 #### [Evaluación de vulnerabilidades no instalada](security-center-vulnerability-assessment-recommendations.md)
 ### [Supervisión del estado de la seguridad](security-center-monitoring.md)
-### [Supervisión de soluciones de partners](security-center-partner-solutions.md)
 ### [Identidad y acceso](security-center-identity-access.md)
 
 ## Detección y respuesta

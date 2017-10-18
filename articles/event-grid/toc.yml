@@ -6,8 +6,12 @@
       href: overview.md
 - name: Inicios rápidos
   items:
-    - name: Creación y distribución de eventos personalizados
+    - name: 'Creación de eventos personalizados: CLI de Azure'
       href: custom-event-quickstart.md
+    - name: 'Creación de eventos personalizados: Azure PowerShell'
+      href: custom-event-quickstart-powershell.md
+    - name: 'Creación de eventos personalizados: Azure Portal'
+      href: custom-event-quickstart-portal.md
 - name: Tutoriales
   items:
     - name: Supervisión de cambios en las máquinas virtuales con aplicaciones lógicas
