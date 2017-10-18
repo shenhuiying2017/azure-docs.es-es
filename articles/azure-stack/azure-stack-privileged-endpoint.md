@@ -77,7 +77,7 @@ Es recomendable que se conecte al punto de conexión con privilegios solo desde 
       - **Nombre de usuario**: especifique la cuenta CloudAdmin con el formato **&lt;*dominio de Azure Stack*&gt;\cloudadmin**. (Para ASDK, el nombre de usuario es **azurestack\cloudadmin**).
       - **Contraseña**: escriba la misma contraseña que proporcionó durante la instalación de la cuenta del administrador de dominio de AzureStackAdmin.
     
-3.  Después de conectarse, el símbolo del sistema cambia a  **[*dirección IP o nombre de máquina virtual de ERCS*]: PS > ** o a **[azs ercs01]: PS >**, según el entorno. Desde aquí, ejecute `Get-Command` para ver la lista de los cmdlets disponibles.
+3.  Después de conectarse, el símbolo del sistema cambia a **[*dirección IP o nombre de máquina virtual de ERCS*]: PS>** o a **[azs ercs01]: PS>**, según el entorno. Desde aquí, ejecute `Get-Command` para ver la lista de los cmdlets disponibles.
 
     ![Salida del cmdlet Get-Command que muestra la lista de comandos disponibles](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
