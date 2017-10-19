@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
+ms.contentlocale: es-es
+ms.lasthandoff: 09/25/2017
+
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Creación y configuración de una instancia de Integration Runtime autohospedado
-Integration Runtime es la infraestructura de proceso que usa Azure Data Factory para proporcionar capacidades de integración de datos en distintos entornos de red. Para obtener más información acerca del tiempo de ejecución de integración, consulte [Integration Runtime Overview](concepts-integration-runtime.md) (Información general de Integration Runtime). 
+Integration Runtime es la infraestructura de proceso que usa Azure Data Factory para proporcionar capacidades de integración de datos en distintos entornos de red. Para obtener más información acerca del tiempo de ejecución de integración, consulte [Integration Runtime Overview](concepts-integration-runtime.md) (Información general de Integration Runtime).
 
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory versión 1](v1/data-factory-introduction.md).
@@ -30,20 +31,20 @@ Una instancia de Integration Runtime autohospedado puede ejecutar las actividade
 En este documento se muestra cómo crear y configurar una instancia de Integration Runtime autohospedado.
 
 ## <a name="high-level-steps-to-install-self-hosted-ir"></a>Pasos detallados para instalar Integration Runtime autohospedado
-1.  Cree un entorno Integration Runtime autohospedado. Este es un ejemplo con PowerShell: 
+1.  Cree un entorno Integration Runtime autohospedado. Este es un ejemplo con PowerShell:
 
     ```powershell
-    New-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
 2.  Descargue e instale una instancia de Integration Runtime autohospedado (en el equipo local).
-3.  Recupere la clave de autenticación y registre Integration Runtime autohospedado con la clave. Este es un ejemplo con PowerShell: 
+3.  Recupere la clave de autenticación y registre Integration Runtime autohospedado con la clave. Este es un ejemplo con PowerShell:
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
-    
+
 ## <a name="command-flow-and-data-flow"></a>Flujo de comandos y flujo de datos
-Cuando mueve los datos entre un entorno local y la nube, la actividad utiliza un entorno Integration Runtime autohospedado para transferir los datos desde el origen de datos local a la nube, y viceversa. 
+Cuando mueve los datos entre un entorno local y la nube, la actividad utiliza un entorno Integration Runtime autohospedado para transferir los datos desde el origen de datos local a la nube, y viceversa.
 
 A continuación se muestra el flujo de datos de alto nivel y el resumen de los pasos para copiar con Integration Runtime autohospedado:
 
@@ -66,7 +67,7 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 - Considere el origen de datos como uno de tipo local (que está detrás de un firewall), aunque utilice **ExpressRoute**. Use el entorno Integration Runtime autohospedado para establecer la conectividad entre el servicio y el origen de datos.
 - Debe utilizar el entorno Integration Runtime autohospedado incluso si el almacén de datos está en la nube en una **máquina virtual IaaS de Azure**.
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos
 
 - Las versiones de **sistema operativo** compatibles son Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. No se admite la instalación del entorno Integration Runtime autohospedado en un **controlador de dominio**.
 - Es necesario **.NET Framework 4.6.1 o posterior**. Si está instalando el entorno Integration Runtime autohospedado en una máquina con Windows 7, instale .NET Framework 4.6.1 o posterior. Consulte [Requisitos de sistema de .NET Framework](/dotnet/framework/get-started/system-requirements) para más información.
@@ -77,7 +78,7 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 
 ## <a name="installation-best-practices"></a>Procedimientos recomendados de instalación
 El entorno Integration Runtime autohospedado puede instalarse mediante la descarga de un paquete de instalación MSI desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](tutorial-hybrid-copy-powershell.md) para obtener instrucciones detalladas.
-  
+
 - Configure el plan de energía en el equipo host para el entorno Integration Runtime autohospedado, de forma que el equipo no hiberne. Si la máquina host está en hibernación, el entorno Integration Runtime autohospedado se pone en modo sin conexión.
 - Realice regularmente una copia de las credenciales asociadas con el entorno Integration Runtime autohospedado.
 
@@ -103,14 +104,14 @@ El entorno Integration Runtime autohospedado puede instalarse mediante la descar
 
 
 ## <a name="high-availability-and-scalability"></a>Alta disponibilidad y escalabilidad
-Un entorno Integration Runtime autohospedado puede asociarse a varias máquinas locales. Estas máquinas se llaman nodos. Puede tener hasta cuatro nodos asociados con un entorno Integration Runtime autohospedado. Las ventajas de tener varios nodos (máquinas locales con la puerta de enlace instalada) para una puerta de enlace lógica son: 
+Un entorno Integration Runtime autohospedado puede asociarse a varias máquinas locales. Estas máquinas se llaman nodos. Puede tener hasta cuatro nodos asociados con un entorno Integration Runtime autohospedado. Las ventajas de tener varios nodos (máquinas locales con la puerta de enlace instalada) para una puerta de enlace lógica son:
 1. Mayor disponibilidad del entorno Integration Runtime autohospedado para que ya no sea el único punto de error de la solución de Big Data o la integración de datos en la nube con Azure Data Factory, garantizando la continuidad con un máximo de 4 nodos.
 2. Rendimiento mejorado durante el movimiento de datos entre almacenes de datos locales y en la nube. Obtenga más información sobre las [comparaciones de rendimiento](copy-activity-performance.md).
 
-Puede asociar varios nodos con simplemente instalar el software Integration Runtime autohospedado desde el [Centro de descarga de](https://www.microsoft.com/download/details.aspx?id=39717) y registrarlo con las Claves de autenticación obtenidas con el cmdlet New-AzureRmDataFactoryV2IntegrationRuntimeKey, como se describe en el [Tutorial](tutorial-hybrid-copy-powershell.md). 
+Puede asociar varios nodos con simplemente instalar el software Integration Runtime autohospedado desde el [Centro de descarga de](https://www.microsoft.com/download/details.aspx?id=39717) y registrarlo con las Claves de autenticación obtenidas con el cmdlet New-AzureRmDataFactoryV2IntegrationRuntimeKey, como se describe en el [Tutorial](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
-> No es necesario crear un nuevo entorno Integration Runtime autohospedado para asociar cada nodo. 
+> No es necesario crear un nuevo entorno Integration Runtime autohospedado para asociar cada nodo.
 
 ## <a name="system-tray-icons-notifications"></a>Notificaciones/iconos de la bandeja del sistema
 Si mueve el cursor sobre el mensaje de notificación o el icono en la bandeja del sistema, verá detalles sobre el estado del entorno Integration Runtime autohospedado.
@@ -137,7 +138,7 @@ En el nivel de **Firewall de Windows** (nivel de máquina), normalmente se habil
 >
 > Para algunas bases de datos en la nube (por ejemplo: Azure SQL Database, Azure Data Lake, etc.), puede que necesite agregar a la lista de permitidos de la configuración del firewall la dirección IP de la máquina del entorno Integration Runtime autohospedado.
 
-### <a name="copy-data-from-a-source-to-a-sink"></a>Copia de datos desde un origen a un receptor 
+### <a name="copy-data-from-a-source-to-a-sink"></a>Copia de datos desde un origen a un receptor
 Asegúrese de que las reglas del firewall estén habilitadas correctamente en el firewall corporativo, en el Firewall de Windows de la máquina del entorno Integration Runtime autohospedado y en el propio almacén de datos. De este modo,el entorno Integration Runtime autohospedado podrá conectarse al origen y al receptor correctamente. Habilite las reglas de cada almacén de datos que participe en la operación de copia.
 
 Por ejemplo, para copiar información desde **un almacén de datos local a un receptor de Azure SQL Database o uno de Azure SQL Data Warehouse**, debe realizar los siguientes pasos:
@@ -200,8 +201,8 @@ Si selecciona la opción **Usar proxy del sistema** para el proxy HTTP, el entor
               <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
         </defaultProxy>
     </system.net>
-    ``` 
-    
+    ```
+
     Se permiten propiedades adicionales dentro de la etiqueta proxy para especificar la configuración requerida, como scriptLocation. Consulte [proxy (Elemento, Configuración de red)](https://msdn.microsoft.com/library/sa91de1e.aspx) para ver la sintaxis.
 
     ```xml
@@ -221,7 +222,7 @@ Si se producen errores como los siguientes, es probable que se deban a una confi
 2.  Al abrir el Administrador de configuración de Integration Runtime, ve el estado "**Desconectado**" o "**Conectando**". Cuando se consultan los registros de eventos de Windows, en “Visor de eventos” > “Registros de aplicaciones y servicios” > “Microsoft Integration Runtime” aparecen mensajes de error como el siguiente:
 
     ```
-    Unable to connect to the remote server 
+    Unable to connect to the remote server
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
