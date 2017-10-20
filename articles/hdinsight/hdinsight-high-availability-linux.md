@@ -15,13 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 10/19/2017
 ms.author: larryfr
-ms.openlocfilehash: e66ba67a36fc48d1762ba302d708e060489fdc71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 56dd07de81e322aa66587ee160beb734811285dc
+ms.contentlocale: es-es
+ms.lasthandoff: 07/27/2017
+
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
 
@@ -237,3 +238,4 @@ Use los siguientes vínculos para obtener más información sobre los aspectos q
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-cli]: ../cli-install-nodejs.md
+
