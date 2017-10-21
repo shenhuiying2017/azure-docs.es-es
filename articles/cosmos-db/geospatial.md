@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: d5785c81fb597e7d30eb7d3a880e7194d8358ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
+
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Trabajo con datos geoespaciales de ubicación y de GeoJSON en Azure Cosmos DB
 Este artículo es una introducción a la funcionalidad geoespacial en [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Después de leer este artículo, podrá responder a las preguntas siguientes:
@@ -79,13 +80,13 @@ Además de los puntos, GeoJSON también admite LineStrings y polígonos. **LineS
 ```json
 {
     "type":"Polygon",
-    "coordinates":[
+    "coordinates":[ [
         [ 31.8, -5 ],
         [ 31.8, -4.7 ],
         [ 32, -4.7 ],
         [ 32, -5 ],
         [ 31.8, -5 ]
-    ]
+    ] ]
 }
 ```
 
@@ -398,4 +399,5 @@ Ahora que ya sabe cómo empezar a trabajar con la compatibilidad geoespacial en 
 * Empezar a realizar consultas geoespaciales en el [Área de consultas de Azure Cosmos DB](http://www.documentdb.com/sql/demo#geospatial)
 * Obtener más información sobre [Consultar Azure Cosmos DB](documentdb-sql-query.md)
 * Obtener más información sobre [Directivas de indexación de Azure Cosmos DB](indexing-policies.md)
+
 
