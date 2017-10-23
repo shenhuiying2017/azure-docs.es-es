@@ -3,7 +3,7 @@ title: Importar una API en Azure API Management | Microsoft Docs
 description: "Obtenga información sobre cómo importar una API y sus operaciones en Azure API Management."
 services: api-management
 documentationcenter: 
-author: vladvino
+author: juliako
 manager: erikre
 editor: 
 ms.assetid: 40398b0a-ac2c-43f0-89e1-07e4abbf502f
