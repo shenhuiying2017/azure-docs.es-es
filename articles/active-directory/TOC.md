@@ -6,7 +6,7 @@
 ## [Asociación de suscripciones de Azure](active-directory-how-subscriptions-associated-directory.md)
 ## [Preguntas más frecuentes](active-directory-faq.md)
 
-# Primeros pasos
+# Introducción
 ## [Introducción a Azure AD](get-started-azure-ad.md)
 ## [Suscripción a Azure AD Premium](active-directory-get-started-premium.md)
 ## [Adición de un dominio personalizado](add-custom-domain.md)
@@ -97,6 +97,7 @@
 #### [Latencias](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [Códigos de error de la actividad de inicio de sesión](active-directory-reporting-activity-sign-ins-errors.md)
+#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Solución de problemas
 #### [Datos de auditoría que faltan](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Datos que faltan en las descargas](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -150,8 +151,7 @@
 ### [Información general](active-directory-enable-sso-scenario.md)
 ### [Introducción](active-directory-integrating-applications-getting-started.md)
 ### [Tutoriales de integración de aplicaciones SaaS](active-directory-saas-tutorial-list.md)
-### [Detección de aplicaciones de nube](cloudappdiscovery-overview.md)
-#### [Configuración de la detección sin agente](cloudappdiscovery-get-started.md)
+### [Detección de aplicaciones de nube](cloudappdiscovery-get-started.md)
 #### [Creación de informes de instantánea](cloudappdiscovery-set-up-snapshots.md)
 #### [Configuración de informes continuos](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Uso de un analizador de registros personalizado](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
