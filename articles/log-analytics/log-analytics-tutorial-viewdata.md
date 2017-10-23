@@ -2,7 +2,7 @@
 title: "Visualización o análisis de los datos recopilados de Azure Log Analytics | Microsoft Docs"
 description: "Este artículo incluye un tutorial que describe cómo crear búsquedas de registros y analizar los datos almacenados en el recurso de Log Analytics mediante el portal de búsqueda de registros.  El tutorial incluye la ejecución de algunas consultas sencillas que devuelven distintos tipos de datos y el análisis de los resultados."
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
 editor: 
@@ -10,15 +10,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 09/26/2017
 ms.author: magoedte
-ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
 ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
+ms.contentlocale: es-es
+ms.lasthandoff: 09/27/2017
+
 ---
+
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics
 
 En Log Analytics, puede aprovechar las búsquedas de registros mediante la creación de consultas para analizar los datos recopilados y usar los paneles preexistentes que puede personalizar mediante vistas gráficas de las búsquedas más valiosas.  Ahora que ha definido la recopilación de datos operativos de los registros de actividad y máquinas virtuales de Azure, en este tutorial aprenderá a cómo realizar las siguientes tareas:

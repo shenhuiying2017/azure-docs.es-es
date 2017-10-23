@@ -2,7 +2,7 @@
 title: "Creación y uso compartido de paneles de datos de Azure Log Analytics | Microsoft Docs"
 description: "Con este tutorial le resultará más fácil comprender cómo los paneles de Log Analytics pueden mostrar todas las búsquedas de registros guardadas, lo que le permite ver su entorno en una sola vista."
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
 editor: 
@@ -14,12 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: magoedte
-ms.openlocfilehash: b065269a27ad3764399802b4a2bc3076b7349623
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
 ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b065269a27ad3764399802b4a2bc3076b7349623
+ms.contentlocale: es-es
+ms.lasthandoff: 09/25/2017
+
 ---
+
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creación y uso compartido de paneles de datos de Log Analytics
 
 Los paneles de Log Analytics todas permiten visualizar todas las búsquedas de registro guardadas, lo que le proporciona la posibilidad de buscar, correlacionar y compartir datos operativos de TI en la organización.  Este tutorial trata la creación de una búsqueda de registros que se usará para admitir un panel compartido al que accederá su equipo de soporte técnico de operaciones de TI.  Aprenderá a:
