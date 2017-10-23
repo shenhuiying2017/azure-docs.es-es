@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/17/2017
 ms.author: erikje
-ms.openlocfilehash: c3ffc819fcc442f87fb4985ecb08be8ec02ba957
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8497f0331e9b7d19eed2e1c254849a1619f496a
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Implementación de Azure Stack Development Kit
 
@@ -108,7 +108,7 @@ Para implementar [Azure Stack Development Kit](azure-stack-poc.md), debe complet
 7. Opcionalmente, establezca los valores siguientes:
     - **Id. de VLAN**: permite establecer el identificador de VLAN. Solo puede utilizar esta opción si el host y AzS-BGPNAT01 deben configurar el identificador de VLAN para tener acceso a la red física (e Internet). 
     - **Reenviador DNS**: se crea un servidor DNS como parte de la implementación de Azure Stack. Para permitir que los equipos dentro de la solución resuelvan nombres fuera de la marca, proporcione el servidor DNS de infraestructura existente. El servidor DNS en la marca reenvía solicitudes de resolución de nombres desconocidos a este servidor.
-    - **Servidor horario**: permite establecer un servidor horario específico. 
+    - **Servidor horario**: este campo obligatorio establece el servidor horario y debe ser una dirección IP. Para buscar una dirección IP de servidor horario, visite [pool.ntp.org](http:\\pool.ntp.org) o haga ping a time.windows.com. 
 8. Haga clic en **Siguiente**. 
 9. En la página **Verifying network interface card properties** (Comprobación de las propiedades de la tarjeta de interfaz de red), verá una barra de progreso. 
     - Si dice **An update cannot be downloaded** (No se puede descargar una actualización), siga las instrucciones que aparecen en la página.
