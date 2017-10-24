@@ -12,28 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: bfadf133154488f9827cfbeaa98ddb0eb84b52f6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 7574fdf8787e799e4d73fe32df9c1ad5be93abf1
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Asignación de un usuario a roles de administrador en Azure Active Directory
 En este artículo se explica cómo asignar un rol administrativo a un usuario en Azure Active Directory (Azure AD). Para obtener más información sobre cómo agregar nuevos usuarios en su organización, consulte [Incorporación de nuevos usuarios a Azure Active Directory](active-directory-users-create-azure-portal.md). De forma predeterminada, los usuarios agregados no tienen permisos de administrador, pero puede asignárselos en cualquier momento.
 
 ## <a name="assign-a-role-to-a-user"></a>Asignar de un rol a un usuario
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
+2. Seleccione **Usuarios y grupos**.
 
    ![Apertura de Administración de usuarios](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
-3. En la hoja **Usuarios y grupos**, seleccione **Todos los usuarios**.
+3. Seleccione **Todos los usuarios**.
 
-   ![Apertura de la hoja Todos los usuarios](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
-4. En la hoja **Usuarios y grupos - Todos los usuarios** , seleccione un usuario de la lista.
-5. En la hoja del usuario seleccionado, seleccione**Rol del directorio**, y, luego, asigne al usuario un rol de la lista **Rol del directorio**. Para obtener más información acerca de los roles del usuario y el administrador, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md).
+   ![Apertura de todos los grupos de usuarios](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
+1. Seleccione un usuario en la lista.
+2. En el usuario seleccionado, seleccione **Rol de directorio**, y, luego, asigne al usuario un rol de la lista **Rol de directorio**. Para obtener más información acerca de los roles del usuario y el administrador, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md).
 
       ![Asignación de un rol a un usuario](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. Seleccione **Guardar**.

@@ -4,7 +4,7 @@ description: "Procedimiento para usar cloud-init con el fin de personalizar una 
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
@@ -13,215 +13,171 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 10/03/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: a7a6daad34525683579e25b9591ed28f2bf29c04
-ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
-
+ms.openlocfilehash: 5559f258f5c29b07edb5e61be4755d67173019e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-cloud-init-to-customize-a-linux-vm-during-creation"></a>Uso de cloud-init para personalizar una máquina virtual Linux durante la creación
-En este artículo se muestra cómo crear un script de cloud-init para establecer el nombre de host, actualizar los paquetes instalados y administrar cuentas de usuario con la CLI de Azure 2.0. Los scripts de cloud-init se llaman durante la creación de una máquina virtual desde la CLI de Azure. Para obtener información más detallada acerca de la instalación de aplicaciones, la escritura de archivos de configuración y la inserción de claves desde Key Vault, consulte [este tutorial](tutorial-automate-vm-deployment.md). También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](using-cloud-init-nodejs.md).
+# <a name="use-cloud-init-to-customize-a-linux-vm-in-azure"></a>Uso de cloud-init para personalizar una máquina virtual Linux en Azure
+En este artículo se muesta cómo usar [cloud-init](https://cloudinit.readthedocs.io) para establecer el nombre de host, actualizar los paquetes y administrar las cuentas de usuario en una máquina virtual en Azure. Estos scripts cloud-init se ejecutan en el inicio cuando crea una máquina virtual con al CLI de Azure 2.0. Para información más detallada sobre cómo instalar aplicaciones, escribir archivos de configuración e insertar claves desde Key Vault, consulte [este tutorial](tutorial-automate-vm-deployment.md). También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](using-cloud-init-nodejs.md).
 
-## <a name="quick-commands"></a>Comandos rápidos
-Cree un script cloud-init.txt que establezca el nombre de host, actualice todos los paquetes y agregue un usuario de sudo a Linux.
 
-```yaml
-#cloud-config
-hostname: myVMhostname
-apt_upgrade: true
-users:
-  - name: myNewAdminUser
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>==myAdminUser@myVM
-```
+## <a name="cloud-init-overview"></a>Introducción a cloud-init
+[cloud-init](https://cloudinit.readthedocs.io) es un enfoque ampliamente usado para personalizar una máquina virtual Linux la primera vez que se arranca. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar los usuarios y la seguridad. Como cloud-init se ejecuta durante el proceso de arranque inicial, no hay pasos adicionales o agentes requeridos que aplicar a la configuración.
 
-Cree un grupo de recursos para iniciar máquinas virtuales con [az group create](/cli/azure/group#create). En el ejemplo siguiente se crea el grupo de recursos denominado *myResourceGroup*:
+cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get install** o **yum install** para instalar un paquete. En su lugar, puede definir una lista de paquetes que se van a instalar. Cloud-init usará automáticamente la herramienta de administración de paquetes nativos para la distribución de Linux (distro) que seleccione.
 
-```azurecli
-az group create --name myResourceGroup --location eastus
-```
+Trabajamos con nuestros asociados para que cloud-init se incluya y funcione en las imágenes que estos proporcionan a Azure. En la tabla siguiente se describe la disponibilidad actual de cloud-init en imágenes de la plataforma de Azure:
 
-Cree una máquina virtual Linux con [az vm create](/cli/azure/vm#create) mediante cloud-init para configurarla durante el inicio con el parámetro `--custom-data`.
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud-init.txt
-```
-
-## <a name="detailed-walkthrough"></a>Tutorial detallado
-Cuando inicia una nueva VM de Linux, obtiene una VM Linux estándar con nada personalizado o preparada para sus necesidades. [Cloud-init](https://cloudinit.readthedocs.org) es una forma estándar de insertar un script u opciones de configuración en esa VM Linux cuando arranca por primera vez.
-
-En Azure hay algunas formas distintas de realizar cambios en una máquina virtual Linux cuando se está implementando o arrancando.
-
-* Inserte scripts con cloud-init.
-* Inserte scripts con la [extensión VMAccess](using-vmaccess-extension.md)de Azure.
-* Una plantilla de Azure con cloud-init.
-* Una plantilla de Azure con [CustomScriptExtention](extensions-customscript.md).
-
-Para insertar scripts en cualquier momento después del arranque:
-
-* SSH para ejecutar directamente los comandos.
-* Inserte scripts con la [extensión VMAccess](using-vmaccess-extension.md)de Azure, ya sea de manera imperativa como en una plantilla de Azure.
-* Herramientas de administración de la configuración, como Ansible, Salt, Chef y Puppet.
-
-> [!NOTE]
-> La extensión VMAccess ejecuta un script como raíz del mismo modo que podría hacerlo con SSH. Sin embargo, con la extensión de VM se habilitan varias características que Azure ofrece y que pueden ser útiles según el escenario.
-
-## <a name="cloud-init-availability-on-azure-vm-quick-create-image-aliases"></a>Disponibilidad de cloud-init en los alias de imagen de creación rápida de VM de Azure:
-| Alias | Publicador | Oferta | SKU | Versión | Cloud-init |
+| Alias | Publicador | Oferta | SKU | Versión |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| CentOS |OpenLogic |CentOS |7,2 |más reciente |no |
-| CoreOS |CoreOS |CoreOS |Stable |más reciente |yes |
-| Debian |credativ |Debian |8 |más reciente |no |
-| openSUSE |SUSE |openSUSE |13.2 |más reciente |no |
-| RHEL |Redhat |RHEL |7,2 |más reciente |no |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |más reciente |yes |
+| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |más reciente |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |más reciente |
+| CoreOS |CoreOS |CoreOS |Stable |más reciente |
 
-Trabajamos con nuestros asociados para que cloud-init se incluya y funcione en las imágenes que estos proporcionan a Azure.
 
-## <a name="add-a-cloud-init-script-to-the-vm-creation-with-the-azure-cli"></a>Incorporación de un script de cloud-init al proceso de creación de máquinas virtuales con la CLI de Azure
-Para iniciar un script de cloud-init al crear una VM en Azure, especifique el archivo de cloud-init mediante el modificador `--custom-data` de la CLI de Azure.
+## <a name="set-the-hostname-with-cloud-init"></a>Establecimiento del nombre de host con cloud-init
+Los archivos cloud-init están escritos en [YAML](http://www.yaml.org). Para ejecutar un script cloud-init cuando crea una máquina virtual en Azure con [az vm create](/cli/azure/vm#create), especifique el archivo cloud-init con el modificador `--custom-data`. Veamos algunos ejemplos de lo que puede configurar con un archivo cloud-init. Un escenario común es establecer el nombre de host de una máquina virtual. De manera predeterminada, el nombre de host es el mismo que el de la máquina virtual. 
 
-Cree un grupo de recursos para iniciar máquinas virtuales con [az group create](/cli/azure/group#create). En el ejemplo siguiente se crea el grupo de recursos denominado *myResourceGroup*:
+En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente se crea el grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Cree una máquina virtual Linux con [az vm create](/cli/azure/vm#create) mediante cloud-init para configurarla durante el inicio.
+En el shell actual, cree un archivo denominado *cloud_init_hostname.txt* y pegue la configuración siguiente. Por ejemplo, cree el archivo en Cloud Shell, no en la máquina local. Puede utilizar el editor que prefiera. En Cloud Shell, escriba `sensible-editor cloud_init_hostname.txt` para crear el archivo y ver una lista de los editores disponibles. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
 
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud-init.txt
-```
-
-## <a name="create-a-cloud-init-script-to-set-the-hostname-of-a-linux-vm"></a>Creación de un script de cloud-init para establecer el nombre de host de una máquina virtual Linux
-Una de las configuraciones más sencillas y más importantes para cualquier VM de Linux sería el nombre de host. Podemos establecer esto fácilmente mediante cloud-init con este script.  
-
-### <a name="example-cloud-init-script-named-cloudconfighostnametxt"></a>Script de cloud-init de ejemplo denominado `cloud_config_hostname.txt`.
 ```yaml
 #cloud-config
-hostname: myservername
+hostname: myhostname
 ```
 
-Durante el primer inicio de la máquina virtual, este script de cloud-init establece el nombre de host en *myservername*. Cree una máquina virtual Linux con [az vm create](/cli/azure/vm#create) mediante cloud-init para configurarla durante el inicio.
+Ahora, cree una máquina virtual con [az vm create](/cli/azure/vm#create) y especifique el archivo cloud-init con `--custom-data cloud_init_hostname.txt` como se indica a continuación:
 
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
-    --name myVM \
+    --name myVMHostname \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt
+    --custom-data cloud_init_hostname.txt
 ```
 
-Inicie sesión y compruebe el nombre de host de la nueva VM.
+Una vez que la crea, la CLI de Azure muestra información sobre la máquina virtual. Use `publicIpAddress` para usar un cliente SSH a la máquina virtual. Escriba su propia dirección, como se indica a continuación:
 
 ```bash
-ssh myVM
+ssh azureuser@publicIpAddress
+```
+
+Para ver el nombre de la máquina virtual, use el comando `hostname` de la siguiente manera:
+
+```bash
 hostname
-myservername
 ```
 
-## <a name="create-a-cloud-init-script"></a>Creación de un script de cloud-init
-Por seguridad, desea que la VM de Ubuntu se actualice en el primer arranque. Mediante cloud-init podemos hacerlo con el siguiente script, dependiendo de la distribución de Linux que se use.
+La máquina virtual debe informar el nombre de host como el valor establecido en el archivo cloud-init, como se muestra en la salida de ejemplo siguiente:
 
-### <a name="example-cloud-init-script-cloudconfigaptupgradetxt-for-the-debian-family"></a>Script de cloud-init de ejemplo `cloud_config_apt_upgrade.txt` para la familia Debian
+```bash
+myhostname
+```
+
+## <a name="update-a-vm-with-cloud-init"></a>Actualización de una máquina virtual con cloud-init
+Por motivos de seguridad, es posible que desee configurar una máquina virtual para aplicar las actualizaciones más recientes en el primer arranque. Como cloud-init funciona en distintas distribuciones de Linux, no es necesario especificar `apt` ni `yum` para el administrador de paquetes. En lugar de eso, se define `package_upgrade` para permitir que el proceso cloud-init determine el mecanismo adecuado para la distribución en uso. Este flujo de trabajo permite usar los mismos scripts de cloud-init en distintas distribuciones.
+
+Para ver en acción el proceso de actualización, cree un archivo cloud-init denominado *cloud_init_upgrade.txt* y pegue la configuración siguiente:
+
 ```yaml
 #cloud-config
-apt_upgrade: true
+package_upgrade: true
 ```
 
-Después de iniciarse Linux, se actualizan todos los paquetes instalados a través de **apt-get**. Cree una máquina virtual Linux con [az vm create](/cli/azure/vm#create) mediante cloud-init para configurarla durante el inicio.
+Ahora, cree una máquina virtual con [az vm create](/cli/azure/vm#create) y especifique el archivo cloud-init con `--custom-data cloud_init_upgrade.txt` como se indica a continuación:
 
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
-    --name myVM \
+    --name myVMUpgrade \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud_config_apt_upgrade.txt
+    --custom-data cloud_init_upgrade.txt
 ```
 
-Inicie sesión y compruebe que todos los paquetes se han actualizado.
+SSH a la dirección IP pública de la máquina virtual que se muestra en la salida del comando anterior. Escriba su propia dirección IP pública, como se indica a continuación:
 
 ```bash
-ssh myUbuntuVM
+ssh azureuser@publicIpAddress
+```
+
+Ejecute la herramienta de administración de paquetes y compruebe si hay actualizaciones. En el ejemplo siguiente se usa `apt-get` en una máquina virtual Ubuntu:
+
+```bash
 sudo apt-get upgrade
+```
+
+Como cloud-init comprobó e instaló las actualizaciones en el arranque, no hay ninguna actualización que aplicar, tal como se muestra en la salida de ejemplo siguiente:
+
+```bash
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
 Calculating upgrade... Done
-The following packages have been kept back:
-  linux-generic linux-headers-generic linux-image-generic
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 ```
 
-## <a name="create-a-cloud-init-script-to-add-a-user-to-linux"></a>Creación de un script de cloud-init para agregar un usuario a Linux
-Una de las primeras tareas en cualquier máquina virtual Linux nueva consiste en agregar un usuario para usted mismo o para evitar el uso de *root*. Las claves SSH son el procedimiento recomendado para la seguridad y la facilidad de uso; además, se agregan al archivo *~/.ssh/authorized_keys* con este script de cloud-init.
+## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Incorporación de un usuario a una máquina virtual con cloud-init
+Una de las primeras tareas en cualquier máquina virtual Linux nueva es agregar un usuario para usted mismo a fin de evitar el uso de *root*. Las claves SSH son un procedimiento recomendado de seguridad y facilidad de uso. Las claves se agregan al archivo *~/.ssh/authorized_keys* con este script cloud-init.
 
-### <a name="example-cloud-init-script-cloudconfigadduserstxt-for-debian-family"></a>Script de cloud-init de ejemplo `cloud_config_add_users.txt` para la familia Debian
+Para agregar un usuario a una máquina virtual Linux, cree un archivo cloud-init denominado *cloud_init_add_user.txt* y pegue la configuración siguiente. Proporcione su clave pública propia (como el contenido de *~/.ssh/id_rsa.pub*) para *ssh-authorized-keys*:
+
 ```yaml
 #cloud-config
 users:
-  - name: myCloudInitAddedAdminUser
+  - name: myadminuser
     groups: sudo
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>==myAdminUser@myUbuntuVM
+      - ssh-rsa AAAAB3<snip>
 ```
 
-Una vez que se inicia Linux, todos los usuarios de la lista se crean y se agregan al grupo de sudo. Cree una máquina virtual Linux con [az vm create](/cli/azure/vm#create) mediante cloud-init para configurarla durante el inicio.
+Ahora, cree una máquina virtual con [az vm create](/cli/azure/vm#create) y especifique el archivo cloud-init con `--custom-data cloud_init_add_user.txt` como se indica a continuación:
 
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
-    --name myVM \
+    --name myVMUser \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --custom-data cloud_config_add_users.txt
+    --custom-data cloud_init_add_user.txt
 ```
 
-Inicie sesión y compruebe el usuario recién creado.
+SSH a la dirección IP pública de la máquina virtual que se muestra en la salida del comando anterior. Escriba su propia dirección IP pública, como se indica a continuación:
 
 ```bash
-ssh myVM
+ssh myadminuser@publicIpAddress
+```
+
+Para confirmar que se agregó el usuario a la máquina virtual y los grupos especificados, consulte el contenido del archivo */etc/group* como se indica a continuación:
+
+```bash
 cat /etc/group
 ```
 
-Salida
+En la salida de ejemplo siguiente se muestra que el usuario del archivo *cloud_init_add_user.txt* se agregó a la máquina virtual y al grupo adecuado:
 
 ```bash
 root:x:0:
 <snip />
-sudo:x:27:myCloudInitAddedAdminUser
+sudo:x:27:myadminuser
 <snip />
-myCloudInitAddedAdminUser:x:1000:
+myadminuser:x:1000:
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Cloud-init se convierte en la manera estándar de modificar la VM Linux en el arranque. Azure también tiene extensiones de VM, que le permiten modificar su VM Linux en el arranque o mientras está en ejecución. Por ejemplo, puede usar la extensión VMAccessExtension de Azure para restablecer SSH o la información del usuario mientras la VM está en ejecución. Con cloud-init, necesitaría reiniciar para restablecer la contraseña.
-
-[Acerca de las características y extensiones de las máquinas virtuales](extensions-features.md)
-
-[Administración de usuarios, SSH y comprobar o reparar discos en máquinas virtuales de Linux de Azure con la extensión VMAccess](using-vmaccess-extension.md)
+Cloud-init es una de las maneras estándar de modificar las máquinas virtuales Linux en el arranque. En Azure, también puede usar extensiones de máquina virtual para modificar la máquina virtual Linux en el arranque o una vez que está en ejecución. Por ejemplo, puede usar la extensión de máquina virtual de Azure para ejecutar un script en una máquina virtual en ejecución y no solo en el primer arranque. Para más información sobre las extensiones de máquina virtual, consulte [Características y extensiones de máquina virtual](extensions-features.md), o bien, si desea ejemplos de cómo usar la extensión, consulte [Administración de usuarios, SSH y comprobar o reparar discos en máquinas virtuales Linux de Azure con la extensión VMAccess](using-vmaccess-extension.md).

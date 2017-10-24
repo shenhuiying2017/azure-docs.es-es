@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
-ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: df82afab2c38431e134146143524edc080ee38f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Supervisión de las alertas de seguridad y su respuesta en la solución Seguridad y auditoría de Operations Management Suite
 Este documento le ayuda a utilizar la opción de información sobre amenazas disponible en Seguridad y auditoría de OMS para supervisar las alertas de seguridad y dar una respuesta a ellas.
@@ -33,7 +32,7 @@ En un entorno empresarial en el que los usuarios tienen un amplio acceso a la re
 
 Mediante el uso de la opción **Información sobre amenazas** disponible en Seguridad y auditoría de OMS, los administradores de TI pueden identificar las amenazas de seguridad en el entorno, por ejemplo, identificar si un determinado equipo forma parte de un [botnet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection). Los equipos pueden ser nodos en un botnet cuando los atacantes instalan de forma ilegal malware que se conecta en secreto al equipo para hacerse con el control. También puede identificar posibles amenazas procedentes de canales de comunicación de tipo underground, como [darknet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection_honeypots_darkents). 
 
-Para generar esta información sobre amenazas, Seguridad y auditoría de OMS utiliza datos procedentes de varios orígenes en Microsoft. Seguridad y auditoría de OMS aprovechará estos datos para identificar posibles amenazas en su entorno.
+Para crear esta información sobre amenazas, la solución Security and Audit de OMS utiliza datos procedentes de varios orígenes en Microsoft. Seguridad y auditoría de OMS aprovechará estos datos para identificar posibles amenazas en su entorno.
 
 El panel de Información sobre amenazas está compuesto por tres opciones principales:
 
@@ -42,7 +41,7 @@ El panel de Información sobre amenazas está compuesto por tres opciones princi
 * Mapa de información sobre amenazas
 
 > [!NOTE]
-> Para obtener una descripción general de todas estas opciones, lea [Introducción a la solución Seguridad y auditoría de Operations Management Suite](oms-security-getting-started.md).
+> Para obtener una descripción general de todas estas opciones, lea [Introducción a la solución Security and Audit de Operations Management Suite](oms-security-getting-started.md).
 > 
 > 
 
@@ -55,7 +54,7 @@ Uno de los pasos de un proceso de [respuesta a incidentes seguridad](https://tec
 * Identificar los sistemas que se han visto comprometidos
 * Identificar los archivos a los que se ha obtenido acceso y determinar la confidencialidad de los archivos
 
-Puede aprovechar **Información sobre amenazas** de la solución Seguridad y autoría de OMS para que le ayude con estas tareas. Siga los pasos siguientes para obtener acceso a estas opciones de **Información sobre amenazas** :
+Puede aprovechar **Información sobre amenazas** de la solución Security and Audit de OMS para que le ayude con estas tareas. Siga los pasos siguientes para acceder a estas opciones de **Información sobre amenazas**:
 
 1. En el panel principal de **Microsoft Operations Management Suite**, haga clic en el icono **Seguridad y auditoría**.
    
@@ -87,7 +86,7 @@ El **mapa de información sobre amenazas** le ayudará a identificar las ubicaci
 ### <a name="responding-to-distinct-malicious-ip-accessed"></a>Respuesta a diversos accesos a direcciones IP malintencionadas
 En algunos escenarios, puede que observe una posible dirección IP malintencionada a la que se accedió desde un equipo supervisado:
 
-![mapa de información sobre amenazas](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+![mapa de información sobre amenazas](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.PNG)
 
 Esta alerta y otras de la misma categoría, se generan a través de la seguridad de OMS mediante el uso de [Inteligencia de amenazas de Microsoft](https://youtu.be/O4WtxgUrDc8). Microsoft recopila los datos de inteligencia de amenazas, así como también los adquiere a través de los principales proveedores. Estos datos se actualizan con frecuencia y se adaptan a amenazas que cambian rápidamente. Debido a su naturaleza, debe combinarse con otras fuentes de información de seguridad mientras se [investiga](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) una alerta de seguridad. 
 
@@ -103,5 +102,4 @@ En este documento ha aprendido a usar la opción **Información sobre amenazas**
 * [Información general de Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Introducción a la solución Seguridad y auditoría de Operations Management Suite](oms-security-getting-started.md)
 * [Supervisión de los recursos en la solución Seguridad y auditoría de Operations Management Suite](oms-security-monitoring-resources.md)
-
 

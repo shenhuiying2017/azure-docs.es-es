@@ -13,14 +13,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 07/13/2017
-ms.author: LADocs; dimazaid; estfan
+ms.date: 09/14/2017
+ms.author: LADocs; millopis; estfan
+ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 34e68ae7d35019848b35c785a2715ec458dc6e73
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de la puerta de enlace de datos local para Azure Logic Apps
 
@@ -52,6 +51,7 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
 *   [Administración de una puerta de enlace de datos local en Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 <a name="requirements"></a>
+
 ## <a name="requirements"></a>Requisitos
 
 **Mínimos**:
@@ -75,9 +75,12 @@ No puede instalarla en un controlador de dominio.
 
 * No instale la puerta de enlace en un equipo que se apague, que entre en suspensión o que no se conecte a Internet, ya que no se puede ejecutar la puerta de enlace en esas circunstancias. Además, el rendimiento de la puerta de enlace podría verse afectado en una red inalámbrica.
 
-* Durante la instalación, debe iniciar sesión con una [cuenta profesional o educativa](https://docs.microsoft.com/azure/active-directory/sign-up-organization) que está administrada por Azure Active Directory (Azure AD), no una cuenta de Microsoft. 
+* Durante la instalación, debe iniciar sesión con una [cuenta profesional o educativa](https://docs.microsoft.com/azure/active-directory/sign-up-organization) que está administrada por Azure Active Directory (Azure AD), no una cuenta de Microsoft.
 
-  Tiene que usar la misma cuenta profesional o educativa más adelante en Azure Portal al crear un recurso de puerta de enlace y asociarlo a la instalación de puerta de enlace. Este recurso de puerta de enlace se selecciona después al crear la conexión entre la aplicación lógica y el origen de datos local. [¿Por qué debo usar una cuenta profesional o educativa de Azure AD?](#why-azure-work-school-account)
+  > [!TIP]
+  > Si desea usar una cuenta Microsoft que tenga una suscripción de Visual Studio con MSDN, primero [cree un directorio (inquilino) en Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) con su cuenta Microsoft, o utilice el directorio predeterminado. Agregue un usuario con una contraseña al directorio y, a continuación, conceda acceso a la suscripción a ese usuario. A continuación, puede iniciar sesión durante la instalación de la puerta de enlace con este nombre de usuario y contraseña.
+
+  Debe usar la misma cuenta profesional o educativa más adelante en Azure Portal al crear un recurso de puerta de enlace y asociarlo a la instalación de la puerta de enlace. Este recurso de puerta de enlace se selecciona después al crear la conexión entre la aplicación lógica y el origen de datos local. [¿Por qué debo usar una cuenta profesional o educativa de Azure AD?](#why-azure-work-school-account)
 
   > [!TIP]
   > Si se suscribió a una oferta de Office 365 y no proporcionó su correo electrónico profesional real, la dirección de inicio de sesión podría tener un aspecto similar al siguiente: jeff@contoso.onmicrosoft.com. 
@@ -145,10 +148,20 @@ Para llevar a cabo estas tareas, debe tener la clave de recuperación que se esp
 
 4. Especifique la clave de recuperación para la puerta de enlace que quiere migrar, restaurar o controlar.
 
+<a name="windows-service-account"></a>
+
+## <a name="windows-service-account"></a>Cuenta de servicio de Windows
+
+La puerta de enlace de datos local se ejecuta como un servicio de Windows y está configurada para usar `NT SERVICE\PBIEgwService` para las credenciales de inicio de sesión del servicio de Windows. De forma predeterminada, la puerta de enlace tiene el derecho "Iniciar sesión como servicio" en la máquina donde se instala la puerta de enlace. Para crear y mantener la puerta de enlace en Azure Portal, la cuenta de servicio de Windows debe tener al menos permisos de **Colaborador**. 
+
+> [!NOTE]
+> Esta cuenta de servicio de Windows no es la misma que se usa para conectarse a orígenes de datos locales, ni la cuenta profesional o educativa de Azure que se usa para iniciar sesión en servicios en la nube.
+
 <a name="restart-gateway"></a>
+
 ## <a name="restart-the-gateway"></a>Reinicio de la puerta de enlace
 
-La puerta de enlace se ejecuta como un servicio de Windows. Al igual que con cualquier otro servicio de Windows, puede iniciar y detener el servicio de varias maneras. Por ejemplo, puede abrir un símbolo del sistema con permisos elevados en el equipo en el que se ejecuta la puerta de enlace y ejecutar cualquiera de estos comandos:
+Al igual que con cualquier otro servicio de Windows, puede iniciar y detener el servicio de varias maneras. Por ejemplo, puede abrir un símbolo del sistema con permisos elevados en el equipo en el que se ejecuta la puerta de enlace y ejecutar cualquiera de estos comandos:
 
 * Para detener el servicio, ejecute este comando:
   
@@ -157,13 +170,6 @@ La puerta de enlace se ejecuta como un servicio de Windows. Al igual que con cua
 * Para iniciar el servicio, ejecute este comando:
   
     `net start PBIEgwService`
-
-### <a name="windows-service-account"></a>Cuenta de servicio de Windows
-
-La puerta de enlace de datos local está configurada para usar `NT SERVICE\PBIEgwService` para las credenciales de inicio de sesión del servicio de Windows. De forma predeterminada, la puerta de enlace tiene el derecho "Iniciar sesión como servicio" en la máquina donde se instala la puerta de enlace.
-
-> [!NOTE]
-> Esta cuenta de servicio de Windows no es la misma que se usa para conectarse a orígenes de datos locales, ni la cuenta profesional o educativa de Azure que se usa para iniciar sesión en servicios en la nube.
 
 ## <a name="configure-a-firewall-or-proxy"></a>Configuración de un firewall o proxy
 
@@ -204,7 +210,7 @@ La puerta de enlace crea una conexión de salida a [Azure Service Bus](https://a
 | *. analysis.windows.net | 443 | HTTPS | 
 | *.login.windows.net | 443 | HTTPS | 
 | *.servicebus.windows.net | 5671-5672 | Advanced Message Queuing Protocol (AMQP) | 
-| *.servicebus.windows.net | 443, 9350-9354 | Agentes de escucha de retransmisión de Bus de servicio sobre TCP (requiere 443 para la adquisición del token de Control de acceso) | 
+| *.servicebus.windows.net | 443, 9350-9354 | Agentes de escucha en Service Bus Relay sobre TCP (requiere 443 para la adquisición del token de Access Control) | 
 | *.frontend.clouddatahub.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
 | login.microsoftonline.com | 443 | HTTPS | 
@@ -336,4 +342,3 @@ Puede encontrar los registros de Data Management Gateway y PowerBIGateway en **R
 * [Conexión a datos locales desde aplicaciones lógicas](../logic-apps/logic-apps-gateway-connection.md)
 * [Características de Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Conectores para Azure Logic Apps](../connectors/apis-list.md)
-

@@ -1,6 +1,6 @@
 ---
 title: "Incorporación de un certificado al almacén de certificados CA de Java | Microsoft Docs"
-description: "Obtenga información acerca de cómo agregar un certificado de entidad de certificación (CA) al almacén de certificados CA de Java (cacerts) para el servicio Twilio o Azure Service Bus."
+description: "Obtenga información acerca de cómo agregar un certificado de entidad de certificación (CA) al almacén de certificados CA de Java (cacerts) para el servicio de Twilio o el Bus de servicio de Azure."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,20 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
+ms.openlocfilehash: b6e1a305e19415ab1c4b4c208dac98ad1e2689c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4f3ec837588c6e959e82108ca25ab4289e40d3f5
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-a-certificate-to-the-java-ca-certificates-store"></a>Incorporación de un certificado al almacén de certificados CA de Java
-Los siguientes pasos le muestran la manera de agregar un certificado de una entidad de certificación (CA) al almacén de certificados CA (cacert) de Java. El ejemplo hace referencia al certificado CA que es necesario utilizar con el servicio Twilio. La información que se proporciona en este tema describe la forma de instalar el certificado de entidad de certificación para Azure Service Bus. 
+Los siguientes pasos le muestran la manera de agregar un certificado de una entidad de certificación (CA) al almacén de certificados CA (cacert) de Java. El ejemplo hace referencia al certificado CA que es necesario utilizar con el servicio Twilio. La información que se proporciona en este tema describe la forma de instalar el certificado de entidad de certificación para el Bus de servicio de Azure. 
 
 Puede usar keytool para agregar el certificado de entidad de certificación antes de comprimir su JDK y agregarlo a la carpeta **approot** de su proyecto de Azure, o puede ejecutar una tarea de inicio de Azure que use keytool para agregar el certificado. En este ejemplo se asume que agregará un certificado CA antes de comprimir el JDK. Además, en este ejemplo se utiliza un certificado CA específico, pero los pasos necesarios para obtener un certificado CA diferente e importarlo al almacén de certificados CA serán similares.
 
 ## <a name="to-add-a-certificate-to-the-cacerts-store"></a>Para agregar un certificado a un almacén de certificados CA
-1. En un símbolo del sistema establecido en la carpeta **jdk\jre\lib\security** del JDK, ejecute el siguiente comando para ver qué certificados están instalados:
+1. En un símbolo del sistema de administrador establecido en la carpeta **jdk\jre\lib\security** de su JDK, ejecute el siguiente comando para ver qué certificados están instalados:
    
     `keytool -list -keystore cacerts`
    
@@ -46,7 +45,7 @@ Puede usar keytool para agregar el certificado de entidad de certificación ante
 Para más información acerca de keytool, consulte <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.
 
 ## <a name="azure-root-certificates"></a>Certificados raíz de Azure
-Las aplicaciones que utilizan servicios de Azure (como Azure Service Bus), deben confiar en el certificado raíz Baltimore CyberTrust Root. (A partir del 15 de abril de 2013, Azure empezó la migración de GTE CyberTrust Global Root a Baltimore CyberTrust Root. Esta migración tardó varios meses en completarse).
+Las aplicaciones que utilizan servicios de Azure (como Bus de servicio de Azure), deben confiar en el certificado raíz Baltimore CyberTrust Root. (A partir del 15 de abril de 2013, Azure empezó la migración de GTE CyberTrust Global Root a Baltimore CyberTrust Root. Esta migración tardó varios meses en completarse).
 
 El certificado Baltimore podría estar ya instalado en su almacén de certificados de entidad de certificación, por lo que es importante que recuerde ejecutar el comando **keytool -list** en primer lugar para comprobar si ya está disponible.
 
@@ -56,5 +55,4 @@ Si necesita agregar Baltimore CyberTrust Root, tiene el número de serie 02:00:0
 Para obtener más información sobre los certificados raíz que usa Azure, consulte [Azure Root Certificate Migration (Migración de certificados raíz de Azure)](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
 Para más información sobre Java, consulte [Azure para desarrolladores de Java](/java/azure).
-
 

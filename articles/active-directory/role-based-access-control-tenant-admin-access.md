@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andredm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 0fa44799a0bd49d3d96a1916f32e6452405abce8
-ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 22b62be1773c5042ecf6ee078e68a4ffdf791d53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Elevación del acceso como administrador de inquilinos con Control de acceso basado en rol
 
@@ -27,7 +26,18 @@ El control de acceso basado en rol ayuda a los administradores de inquilinos a o
 
 Esta característica es importante porque permite al administrador de inquilinos ver todas las suscripciones que existen en una organización. También permite a las aplicaciones de automatización (por ejemplo, facturación y auditoría) tener acceso a todas las suscripciones y proporcionar una vista precisa del estado de la organización en la administración de recursos o de facturación.  
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>Uso de elevateAccess para ofrecer acceso de inquilino
+## <a name="how-to-use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Uso de elevateAccess para conceder acceso al inquilino con el Centro de administración de Azure AD
+
+En el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com), puede invocar esta característica desde **Properties**.
+Esta característica se llama **El administrador global puede administrar las suscripciones a Azure** . Puede dar la impresión de que se trata de una propiedad global de Azure Active Directory; sin embargo, su funcionamiento varía con arreglo al usuario que esté conectado actualmente. Si tiene derechos de administrador global en Azure Active Directory, puede invocar la característica elevateAccess para el usuario que está conectado actualmente en el Centro de administración de Azure Active Directory.
+
+Si selecciona **Sí** y después **Guardar**, **asignará** el rol **Administrador de acceso de usuario** a la raíz "/" (ámbito raíz) del usuario con que esté conectado actualmente en el portal.
+
+Si selecciona **No** y después **Guardar**, **quitará** el rol **Administrador de acceso de usuario** de la raíz "/" (ámbito raíz) del usuario con que esté conectado actualmente en el portal.
+
+![Captura de pantalla de Centro de administración de Azure AD - Propiedades - Globaladmin puede administrar la suscripción de Azure](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## <a name="how-to-use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Uso de elevateAccess para conceder acceso al inquilino con la API de REST
 
 El proceso básico funciona con los siguientes pasos:
 
@@ -56,7 +66,7 @@ El proceso básico funciona con los siguientes pasos:
 4. Revoque sus privilegios de administrador de accesos de usuario hasta que se vuelva a necesitar.
 
 
-## <a name="how-to-undo-the-elevateaccess-action"></a>Deshacer la acción elevateAccess
+## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>Deshacer la acción elevateAccess con la API de REST
 
 Cuando se llama a *elevateAccess*, se crea una asignación de roles para usted mismo, por lo que para revocar esos privilegios debe eliminar la asignación.
 
@@ -107,4 +117,3 @@ Cuando se llama a *elevateAccess*, se crea una asignación de roles para usted m
 - Obtener más información sobre la [administración del control de acceso basado en rol con REST](role-based-access-control-manage-access-rest.md)
 
 - [Administrar asignaciones de acceso](role-based-access-control-manage-assignments.md) en Azure Portal
-

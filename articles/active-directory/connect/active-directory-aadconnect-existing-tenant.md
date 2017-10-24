@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f59028a2f909914222236f3b3575afd0949b4277
-ms.openlocfilehash: c89e206462856d25a81729e7028065ac1cd13ef3
-ms.contentlocale: es-es
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: a62a3954d10e718f5d180ddb725c6a9c7cda56c2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: cuando ya hay un inquilino
 En la mayoría de los temas sobre cómo usar Azure AD Connect se da por supuesto que empieza con un nuevo inquilino de Azure AD sin objetos ni usuarios. Sin embargo, si ha empezado con un inquilino de Azure AD, rellenado con usuarios y otros objetos, y ahora desea utilizar Connect, eche un vistazo a este tema.
 
@@ -53,7 +51,7 @@ Si hay una coincidencia parcial de objetos, el atributo **sourceAnchor** se agre
 En una instalación nueva de Connect, apenas las hay. La diferencia reside en los escenarios de recuperación ante desastres. Si su servidor ha perdido la conexión con Azure AD Connect, puede volver a instalar una nueva instancia sin perder datos. Un objeto con un atributo sourceAnchor se envía a Connect durante la instalación inicial. Después, el cliente (Azure AD Connect) puede evaluar la coincidencia, con lo que el proceso es más mucho rápido que se si hace en Azure AD. Las coincidencias exactas las evalúan Connect y Azure AD, y las parciales, Azure AD.
 
 ### <a name="other-objects-than-users"></a>Otros objetos distintos a los usuarios
-Los usuarios suelen tener los atributos userPrincipalName y proxyAddresses, lo que facilita el proceso de coincidencia. Sin embargo, otros objetos, como los grupos de seguridad, no los tienen. En este caso, solo se pueden realizar coincidencias exactas con el atributo sourceAnchor. Este atributo siempre es el valor **objectGUID** local convertido a Base64, por lo que debe actualizarlo en Azure AD cuando necesite que dos objetos coincidan. sourceAnchor e immutableID solo pueden actualizarse con PowerShell y no a través de los portales.
+Para grupos y contactos habilitados para correo electrónico, puede hacer una coincidencia parcial en función de las direcciones de proxy. La coincidencia exacta no es aplicable porque solo puede actualizar el sourceAnchor o inmutableID (mediante PowerShell) en los usuarios. Para grupos que no están habilitados para correo, no se admiten actualmente la coincidencia parcial ni la coincidencia exacta.
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Creación de una instancia de Active Directory local a partir de los datos de Azure AD
 Algunos clientes comienzan con una solución solo en la nube con Azure AD y no tienen una implementación de AD local. Más adelante, desean consumir recursos locales y crear una implementación de AD local basada en los datos de Azure AD. Azure AD Connect no puede ayudarlo en este escenario, ya que no crea los usuarios locales y no tiene ninguna funcionalidad para hacer que la contraseña local sea la misma que la de Azure AD.
@@ -62,4 +60,3 @@ Si la única razón por la que piensa agregar AD local es admitir LOB (aplicacio
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-

@@ -9,14 +9,12 @@ ms.topic: azure-stack
 ms.date: 09/15/2017
 ms.author: erikje
 ms.custom: mvc
+ms.openlocfilehash: abca538f28bbc0a8f3f00311ca1a69d196f10272
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 2c9aba69d8f1999f7086bd2bcd44d1c1472abec7
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>Creación de una máquina virtual Windows con el portal de Azure Stack
 
 Puede crear una máquina virtual Windows mediante el portal de Azure Stack. El portal es una interfaz de usuario basada en explorador donde puede crear, configurar y administrar los recursos.
@@ -35,7 +33,7 @@ Inicie sesión en el portal de Azure Stack. La dirección del portal de Azure St
 2. En **Aspectos básicos**, escriba un **nombre**, un **nombre de usuario** y una **contraseña**. Elija una **suscripción**. Cree un **grupo de recursos**, o seleccione uno ya existente, seleccione una **ubicación** y luego haga clic en **Aceptar**.
 
     ![](media/azure-stack-quick-windows-portal/image02.png)
-3. En **Elegir un tamaño**, haga clic en **A1 Standard** > **Seleccionar**.
+3. En **Elegir un tamaño**, haga clic en **D1 Standard** > **Seleccionar**.
     ![](media/azure-stack-quick-windows-portal/image03.png)
 4. En **Configuración**, aceote los valores predeterminados y haga clic en **Aceptar**.
     ![](media/azure-stack-quick-windows-portal/image04.png)
@@ -50,4 +48,3 @@ Cuando ya no necesite la máquina virtual, elimine el grupo de recursos, la máq
 
 ## <a name="next-steps"></a>Pasos siguientes
 En esta guía rápida, ha implementado una máquina virtual Windows sencilla. Para aprender más sobre las máquina virtuales de Azure Stack, continúe con el artículo [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md) (Consideraciones sobre Virtual Machines en Azure Stack).
-

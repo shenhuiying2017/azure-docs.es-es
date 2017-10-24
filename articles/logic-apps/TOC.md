@@ -5,8 +5,8 @@
 
 # Primeros pasos
 ## [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](logic-apps-create-a-logic-app.md)
-## [Plantillas de aplicaciones lógicas](logic-apps-use-logic-app-templates.md)
-## [Creación de aplicaciones lógicas a partir de plantillas](logic-apps-arm-provision.md)
+## [Creación de aplicaciones lógicas a partir de plantillas](logic-apps-create-logic-apps-from-templates.md)
+## [Creación de aplicaciones lógicas a partir de plantillas de Resource Manager](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Traslado de aplicaciones MABS a las aplicaciones lógicas](logic-apps-move-from-mabs.md)
 
 # Procedimientos

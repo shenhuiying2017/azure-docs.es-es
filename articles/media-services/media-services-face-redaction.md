@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 09/27/2017
 ms.author: juliako;
+ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 0d071129944fb9298e8f0a7b8f3bb1dd2fcc4bd4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Censura de rostros con Azure Media Analytics
 ## <a name="overview"></a>Información general
@@ -134,7 +133,7 @@ foo_IDList.txt de ejemplo
 
 ## <a name="blur-types"></a>Tipos de desenfoque
 
-En el modo **Combined** (Combinado) o **Redact** (Censurar), hay cinco modos de desenfoque diferentes entre los que puede elegir en la configuración de la entrada JSON: **Bajo**, **Medio**, **Alto**, **Depurar** y **Negro**. Se usa **Medio** de forma predeterminada.
+En el modo **Combined** (Combinado) o **Redact** (Censurar), hay cinco modos de desenfoque diferentes entre los que puede elegir en la configuración de la entrada JSON: **Bajo**, **Medio**, **Alto**, **Box** y **Negro**. Se usa **Medio** de forma predeterminada.
 
 Puede encontrar ejemplos de los tipos de desenfoque a continuación.
 
@@ -154,9 +153,9 @@ Puede encontrar ejemplos de los tipos de desenfoque a continuación.
 
 ![Alto](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="debug"></a>Depurar
+#### <a name="box"></a>Box
 
-![Depurar](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>Negro
 
@@ -350,8 +349,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Vínculos relacionados
-[Azure Media Services Analytics Overview (Información general sobre Azure Media Services Analytics)](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
 
 [Demostraciones de Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

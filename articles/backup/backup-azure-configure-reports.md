@@ -15,12 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 09/13/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 597c3eb49bc3d4f9b2311f232e4280027636266c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 En este artículo se habla sobre los pasos para configurar informes de Azure Backup con el almacén de Recovery Services y para acceder a estos informes mediante Power BI. Después de realizar estos pasos, puede ir directamente a Power BI para ver todos los informes, personalizarlos y crearlos. 
@@ -66,7 +65,7 @@ Use los pasos siguientes para configurar la cuenta de Storage para el almacén d
 7. Revise todos los cambios y haga clic en el botón **Guardar** situado en la parte superior, como se muestra en la ilustración anterior. Esta acción garantiza que todos los cambios se guardan, y la cuenta de Storage está ahora configurada para almacenar datos de informes.
 
 > [!NOTE]
-> Cuando haya configurado los informes al guardar la cuenta de almacenamiento, debe **esperar 24 horas** para que finalice la inserción de datos iniciales. Debe importar el paquete de contenido de Azure Backup en Power BI solo después de ese tiempo. Consulte la [sección de preguntas frecuentes](#frequently-asked-questions) para obtener más detalles. 
+> Cuando haya configurado los informes al guardar la cuenta de almacenamiento, debe **esperar 24 horas** para que finalice la inserción de datos iniciales. Debe importar el paquete de contenido de Azure Backup en Power BI solo después de ese tiempo. Consulte la [sección de preguntas frecuentes](#frequently-asked-questions) para más información. 
 >
 >
 
@@ -152,5 +151,4 @@ Ahora que ha configurado la cuenta de Storage y ha importado el paquete de conte
 * [Uso del modelo de datos de informes de Azure Backup](backup-azure-reports-data-model.md)
 * [Filtrado de informes en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Creación de informes en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-
 

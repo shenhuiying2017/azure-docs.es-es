@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services: introducción | Microsoft Docs"
-description: "Habilitación de Azure Active Directory Domain Services mediante Azure Portal (versión preliminar)"
+description: "Habilitación de Azure Active Directory Domain Services mediante Azure Portal"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: 32d51f883ad92b5be6b1f455dfb1a865748f3102
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f87bcf33d3b1eb21c7d84814e4c4086f664e293d
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal (versión preliminar)
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 
 
 ## <a name="task-3-configure-administrative-group"></a>Tarea 3: Configuración de un grupo administrativo
@@ -57,11 +56,11 @@ El proceso de aprovisionamiento del dominio administrado puede tardar hasta una 
 
     ![Búsqueda del dominio administrado que se va aprovisionar](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
-2. Haga clic en el nombre del dominio administrado (por ejemplo, "contoso100.com") para ver más detalles sobre el dominio.
+2. Haga clic en el nombre del dominio administrado (por ejemplo, "contoso100.com") para ver más detalles sobre el dominio administrado.
 
     ![Domain Services: estado de aprovisionamiento](./media/getting-started/domain-services-provisioning-state.png)
 
-3. La pestaña **Información general** muestra que el dominio se está aprovisionando. No se puede configurar el dominio administrado hasta que está aprovisionado por completo. El dominio administrado puede tardar una hora en aprovisionarse por completo.
+3. La pestaña **Información** muestra que el dominio administrado se está aprovisionando. No se puede configurar el dominio administrado hasta que está aprovisionado por completo. El dominio administrado puede tardar una hora en aprovisionarse por completo.
 
     ![Domain Services: pestaña Información general durante el estado de aprovisionamiento ](./media/getting-started/domain-services-provisioning-state-details.png)
 
@@ -74,6 +73,9 @@ El proceso de aprovisionamiento del dominio administrado puede tardar hasta una 
     ![Domain Services: pestaña Propiedades después del aprovisionamiento completo](./media/getting-started/domain-services-provisioned-properties.png)
 
 
+## <a name="need-help"></a>¿Necesita ayuda?
+Puede tardar una hora o dos para ambos controladores de dominio para aprovisionar el dominio administrado. Si se produjo un error en la implementación o se detuvo en el estado "Pendiente" durante más de dos horas, [póngase en contacto con el equipo del producto para obtener ayuda](active-directory-ds-contact-us.md).
+
+
 ## <a name="next-step"></a>Paso siguiente
 [Tarea 4: Actualización de la configuración DNS en Azure Virtual Network](active-directory-ds-getting-started-dns.md)
-

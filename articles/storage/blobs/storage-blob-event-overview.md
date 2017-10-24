@@ -8,14 +8,12 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
+ms.openlocfilehash: c760cf5a9bdd4b64a60470fa48cb9b57ec4ab5fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b9b117bdeb62f5ebb2e4e3fbfe71572068927082
-ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="reacting-to-blob-storage-events-preview"></a>Reacción ante eventos de Blob Storage (versión preliminar)
 
 Los eventos de Azure Blob Storage permiten a las aplicaciones reaccionar ante la creación y eliminación de blobs mediante modernas arquitecturas sin servidor y sin la necesidad de usar código complejo o servicios de sondeo costosos e ineficaces.  En su lugar, se insertan eventos a través de [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) a los suscriptores como [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), o incluso su propio agente de escucha http personalizado y solo paga por lo que utiliza.
@@ -36,7 +34,7 @@ Las suscripciones se agregan al Programa de vista previa a medida que hay capaci
 ```azurecli-interactive
 az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
-Cuando el estado de registro cambia a "Registrado", significa que ha sido admitido al programa de vista previa y puede suscribirse a los eventos de Blob Storage de las cuentas que se encuentren en la ubicación *Centro occidental de EE.UU*.  En [Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado (versión preliminar)](storage-blob-event-quickstart.md), puede encontrar un ejemplo.
+Cuando el estado de registro cambia a "Registrado", significa que ha sido admitido al programa de versión preliminar y puede suscribirse a los eventos de Blob Storage de las cuentas que se encuentren en la ubicación ***Centro occidental de EE.UU.*** o ***Oeste de EE.UU. 2***.  En [Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado (versión preliminar)](storage-blob-event-quickstart.md), puede encontrar un ejemplo.
 
 ## <a name="blob-storage-accounts"></a>Cuentas de Blob Storage
 Los eventos de Blob Storage están disponibles en las [cuentas de Blob Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) (no en las cuentas de almacenamiento de uso general).  Una cuenta de Almacenamiento de blobs es una cuenta de almacenamiento especializado para almacenar los datos no estructurados como blobs (objetos) en Almacenamiento de Azure. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs.

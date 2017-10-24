@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 9b788b1d95c821a4bb76cd4dea1d689d36e2f92b
-ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementación con Azure Cloud Services: preguntas más frecuentes (P+F)
 
@@ -64,5 +63,15 @@ No se puede cambiar el tamaño de una máquina virtual de servicio en la nube im
 
 Para más información, consulte [Actualización de un servicio en la nube](cloud-services-update-azure-service.md).
 
- 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>¿Por qué no puedo implementar Cloud Services mediante las API de Service Management o PowerShell cuando se usa la cuenta de Storage de Azure Resource Manager? 
 
+Dado que el servicio en la nube es un recurso clásico que no es directamente compatible con el modelo de Azure Resource Manager, no es posible asociarlo con las cuentas de Storage de Azure Resource Manager. Estas son algunas opciones: 
+ 
+- Implementación a través de la API de REST.
+
+    Al realizar la implementación a través de la API de REST de Service Management, podría sortear la limitación mediante la especificación de una dirección URL de SAS a Blob Storage, que funcionará con la cuenta de Storage del modelo clásico y de Azure Resource Manager. Lea más acerca de la propiedad "PackageUrl" [aquí](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+  
+- Implementación a través de [Azure Portal](https://portal.azure.com).
+
+    Funcionará desde [Azure Portal](https://portal.azure.com) dado que la llamada pasa por un servidor proxy o shim que permite la comunicación entre recursos del modelo clásico y de Azure Resource Manager. 
+ 

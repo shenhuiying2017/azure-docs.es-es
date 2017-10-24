@@ -13,15 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: e4e298475d7be7d51c8bd55be498371ed6ce77a9
-ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
-
+ms.openlocfilehash: db49780e359258898a62f3b95e87f54b78055c86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="u-sql-programmability-guide"></a>Guía de programación de U-SQL
 
 U-SQL es un lenguaje de consulta diseñado para tipo de macrodatos de cargas de trabajo. Una de las características exclusivas de U-SQL es la combinación del lenguaje declarativo similar a SQL con la extensibilidad y capacidad de programación que proporciona C#. En esta guía, nos centramos en la extensibilidad y capacidad de programación del lenguaje U-SQL que proporciona C#.
@@ -539,7 +536,7 @@ public class MyTypeFormatter : IFormatter<MyType>
 
 La interfaz `IFormatter` serializa y deserializa un gráfico de objetos con el tipo de raíz de \<typeparamref name="T">.
 
-\<typeparam name="T">El tipo de raíz para el gráfico de objetos para serializar y deserializar.
+\<typeparam name="T"&gt;El tipo de raíz para el gráfico de objetos para serializar y deserializar.
 
 * **Deserializar**: deserializa los datos en el flujo proporcionado y reconstituye el gráfico de objetos.
 
@@ -2123,7 +2120,7 @@ El atributo **SqlUserDefinedReducer** indica que el tipo se debe registrar como 
 **SqlUserDefinedReducer** es un atributo opcional para la definición del reductor definido por el usuario. Se utiliza para definir la propiedad IsRecursive.
 
 * bool     IsRecursive    
-* **true**  = Indica si el reductor es idempotente
+* **true** = indica si esta reductor es asociativo y conmutativo
 
 Los objetos de programación principales son **input** y **output**. El objeto input se utiliza para enumerar las filas de entrada. Output se usa para establecer filas de salida como resultado de la actividad de reducción.
 
@@ -2220,4 +2217,3 @@ OUTPUT @rs2
     TO @output_file 
     USING Outputters.Text();
 ```
-

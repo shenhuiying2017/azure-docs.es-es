@@ -15,16 +15,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 29e7eebda5177d6e852ef04ad82d9d38a8d30ed8
-ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.openlocfilehash: 9d347f37ed6e0ddcde9d2f9a7a8d1d8ff65ab4f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: Compilación de una aplicación de .NET mediante Table API
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escalado horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escalado horizontal en Azure Cosmos DB. 
 
 En esta guía de inicio rápido se muestra cómo crear una cuenta de Azure Cosmos DB y una tabla dentro de esa cuenta mediante Azure Portal. A continuación, podrá escribir código para insertar, actualizar y eliminar entidades, y ejecutar algunas consultas mediante el nuevo paquete [Premium Table de Windows Azure Storage](https://aka.ms/premiumtablenuget) de NuGet (versión preliminar). Esta biblioteca tiene las mismas firmas de método y clases que el [SDK de Windows Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage) público, pero también se puede conectar a cuentas de Azure Cosmos DB mediante [Table API](table-introduction.md) (versión preliminar). 
 
@@ -87,20 +86,26 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo Pr
     table.CreateIfNotExists();
     ```
 
-* Se crea un nuevo contenedor de tabla. Observará que este código es muy similar al habitual en el SDK de Azure Table Storage. 
+* Una serie de pasos se ejecutan en la tabla mediante la clase `TableOperation`.
 
-    ```csharp
-    CustomerEntity item = new CustomerEntity()
-                {
-                    PartitionKey = Guid.NewGuid().ToString(),
-                    RowKey = Guid.NewGuid().ToString(),
-                    Email = $"{GetRandomString(6)}@contoso.com",
-                    PhoneNumber = "425-555-0102",
-                    Bio = GetRandomString(1000)
-                };
-    ```
+   ```csharp
+   TableOperation insertOperation = TableOperation.Insert(item);
+   table.Execute(insertOperation);
+   ```
+   
+   ```csharp
+   TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
+   table.Execute(retrieveOperation);
+   ```
+   
+   
+   ```csharp
+   TableOperation deleteOperation = TableOperation.Delete(items[i]);
+   table.Execute(deleteOperation);
+   ```
 
-## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
+
+## <a name="update-your-connection-string"></a>Actualizar la cadena de conexión
 
 Ahora se actualizará la información de la cadena de conexión para que la aplicación pueda comunicarse con Azure Cosmos DB. 
 
@@ -119,7 +124,7 @@ Ahora se actualizará la información de la cadena de conexión para que la apli
 
 Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
 
-## <a name="run-the-web-app"></a>Ejecución de la aplicación web
+## <a name="run-the-console-app"></a>Ejecutar la aplicación de consola
 
 1. En Visual Studio, haga clic con el botón derecho en el proyecto **PremiumTableGetStarted** en el **Explorador de soluciones** y haga clic en **Administrar paquetes NuGet**. 
 
@@ -158,5 +163,4 @@ En esta guía de inicio rápido, ha obtenido información sobre cómo crear una 
 
 > [!div class="nextstepaction"]
 > [Consultar mediante Table API](tutorial-query-table.md)
-
 

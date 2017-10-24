@@ -13,22 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 10/04/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: 910077645b521d4cd303d39f543cf155161a31c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 4a5dc668e21c5328b308c8f5852aaa922232374d
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creación de una función que se integre con Azure Logic Apps
 
 Azure Functions se integra con Azure Logic Apps en el diseñador de Logic Apps. Esta integración permite usar la capacidad de proceso de Azure Functions en las orquestaciones con otros servicios de Azure y de terceros. 
 
-Este tutorial muestra cómo utilizar Functions con Logic Apps y Azure Cognitive Services para analizar opiniones de entradas de Twitter. Una función desencadenada por HTTP clasifica los tweets en verde, amarillo o rojo en función de la puntuación de la opinión. Se envía un correo electrónico cuando se detecta una opinión deficiente. 
+Este tutorial muestra cómo utilizar Functions con Logic Apps y Microsoft Cognitive Services en Azure para analizar opiniones de entradas de Twitter. Una función desencadenada por HTTP clasifica los tweets en verde, amarillo o rojo en función de la puntuación de la opinión. Se envía un correo electrónico cuando se detecta una opinión deficiente. 
 
 ![imagen de los dos primeros pasos de una aplicación en el diseñador de Logic Apps](media/functions-twitter-email/designer1.png)
 
@@ -59,7 +57,7 @@ Se requiere una cuenta de Cognitive Services para detectar el sentimiento de los
 
 3. Haga clic en **Datos y análisis** > **Cognitive Services**. A continuación, utilice la configuración de acuerdo con lo especificado en la tabla, acepte los términos y active **Anclar al panel**.
 
-    ![Hoja para crear cuenta de Cognitive Services](media/functions-twitter-email/cog_svcs_account.png)
+    ![Hoja para crear página de Cognitive Services](media/functions-twitter-email/cog_svcs_account.png)
 
     | Configuración      |  Valor sugerido   | Descripción                                        |
     | --- | --- | --- |
@@ -131,11 +129,12 @@ Ahora, tiene una función que clasifica las puntuaciones de opinión. A continua
     | Configuración      |  Valor sugerido   | Descripción                                        |
     | ----------------- | ------------ | ------------- |
     | **Name** | TweetSentiment | Elija un nombre adecuado para la aplicación. |
-    | **Grupos de recursos** | myResourceGroup | API que se utiliza para analizar el texto.  |
-    | **Ubicación** | Este de EE. UU. | Elija una ubicación cercana a usted. |
-    | **Grupos de recursos** | myResourceGroup | Elija el mismo grupo de recursos existente que antes.|
+    | **Grupos de recursos** | myResourceGroup | Elija el mismo grupo de recursos existente que antes. |
+    | **Ubicación** | Este de EE. UU. | Elija una ubicación cercana a usted. |    
 
-4. Haga clic en **Crear** para crear la aplicación lógica. Una vez creada la aplicación, haga clic en la nueva aplicación lógica anclada al panel. A continuación, en el diseñador de Logic Apps, desplácese hacia abajo y haga clic en la plantilla **Aplicación lógica en blanco**. 
+4. Seleccione **Anclar al panel** y haga clic en **Crear** para crear la aplicación lógica. 
+
+5. Una vez creada la aplicación, haga clic en la nueva aplicación lógica anclada al panel. A continuación, en el diseñador de Logic Apps, desplácese hacia abajo y haga clic en la plantilla **Aplicación lógica en blanco**. 
 
     ![Plantilla Aplicación lógica en blanco](media/functions-twitter-email/blank.png)
 
@@ -212,7 +211,7 @@ La última parte del flujo de trabajo consiste en desencadenar el envío de un c
 
 4. En la acción **Enviar un correo electrónico**, use la configuración de correo electrónico que se especifica en la tabla. 
 
-    ![Configure el correo electrónico para la acción de envío de correo electrónico.](media/functions-twitter-email/sendemail.png)
+    ![Configure el correo electrónico para la acción de envío de correo electrónico.](media/functions-twitter-email/sendEmail.png)
 
     | Configuración      |  Valor sugerido   | Descripción  |
     | ----------------- | ------------ | ------------- |
@@ -275,5 +274,4 @@ Continúe con el siguiente tutorial para aprender a crear una API sin servidor p
 > [Creación de una API sin servidor mediante Azure Functions](functions-create-serverless-api.md)
 
 Para más información acerca de Logic Apps, consulte [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md).
-
 

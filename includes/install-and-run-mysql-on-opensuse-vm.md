@@ -57,7 +57,7 @@
         quit
 
 ## <a name="add-an-endpoint"></a>Agregación de un extremo
-1. Cuando MySQL esté instalado, deberá configurar un extremo para que pueda acceder a MySQL de manera remota. Inicie sesión en el [Portal de Azure clásico][AzurePortal]. Haga clic en **Virtual Machines**, en el nombre de la nueva máquina virtual y, luego, en **Puntos de conexión**.
+1. Cuando MySQL esté instalado, deberá configurar un extremo para que pueda acceder a MySQL de manera remota. Inicie sesión en el [Portal clásico de Azure][AzurePortal]. Haga clic en **Virtual Machines**, en el nombre de la nueva máquina virtual y, luego, en **Puntos de conexión**.
 2. Haga clic en **Agregar** en la parte inferior de la página.
 3. Agregue el punto de conexión "MySQL", con el protocolo **TCP** y los puertos **Público** y **Privado** establecidos en "3306".
 4. Para conectarse de forma remota a la máquina virtual desde su equipo, escriba:
@@ -71,4 +71,4 @@
 [MySQLDocs]: http://dev.mysql.com/doc/
 [AzurePortal]: http://manage.windowsazure.com
 
-[Imagen 9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
+[Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png

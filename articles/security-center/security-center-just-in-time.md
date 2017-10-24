@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/04/2017
 ms.author: terrylan
+ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3bc1023d084205171b6b405932cf80f3da59fe8b
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time"></a>Administrar el acceso a máquina virtual mediante Just-In-Time
+# <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Administración del acceso a máquina virtual mediante Just-In-Time (versión preliminar)
 
 El acceso a máquina virtual Just-In-Time se puede usar para bloquear el tráfico entrante a las máquinas virtuales de Azure. Para ello, se reduce la exposición a ataques al mismo tiempo que se proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario.
 
@@ -42,7 +41,7 @@ Una manera de reducir el riesgo de sufrir un ataque por fuerza bruta consiste en
 
 Cuando se habilita Just-In-Time, Security Center bloquea el tráfico entrante a las máquinas virtuales de Azure mediante la creación de una regla de NSG. Se deben seleccionar los puertos de la máquina virtual para la que se bloqueará el tráfico entrante. Estos puertos están controlados mediante la solución Just-In-Time.
 
-Cuando un usuario solicita acceso a una máquina virtual, Security Center comprueba que el usuario tiene permisos de [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md) que conceden acceso de escritura para el recurso de Azure. Si tiene permisos de escritura, se aprueba la solicitud y Security Center configura automáticamente los grupos de seguridad de red (NSG) para permitir el tráfico entrante a los puertos de administración durante el tiempo especificado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior.
+Cuando un usuario solicita acceso a una máquina virtual, Security Center comprueba que el usuario tenga permisos de [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md) que conceden acceso de escritura para la máquina virtual. Si tiene permisos de escritura, se aprueba la solicitud y Security Center configura automáticamente los grupos de seguridad de red (NSG) para permitir el tráfico entrante a los puertos de administración durante el tiempo especificado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior.
 
 > [!NOTE]
 > En la actualidad, el acceso a máquina virtual Just-In-Time de Security Center solo admite las máquinas virtuales que se han implementado mediante Azure Resource Manager. Para obtener más información sobre los modelos de implementación clásico y de Resource Manager, vea [La implementación de Azure Resource Manager frente a la implementación clásica](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -51,16 +50,18 @@ Cuando un usuario solicita acceso a una máquina virtual, Security Center compru
 
 ## <a name="using-just-in-time-access"></a>Uso del acceso Just-In-Time
 
-En el icono **Acceso a VM Just-In-Time** de la hoja **Security Center** se muestra el número de máquinas virtuales configuradas para el acceso Just-In-Time y el número de solicitudes de acceso aprobadas en la última semana.
+En el icono **Acceso a VM Just-In-Time** en **Security Center** se muestra el número de máquinas virtuales configuradas para el acceso Just-In-Time y el número de solicitudes de acceso aprobadas en la última semana.
+
+![Icono Acceso a VM Just-In-Time][2]
 
 Seleccione el icono **Acceso a VM Just-In-Time**. Se abrirá la hoja **Acceso a VM Just-In-Time**.
 
-![Icono Acceso a VM Just-In-Time][2]
+![Icono Acceso a VM Just-In-Time][10]
 
 La hoja **Acceso a VM Just-In-Time** proporciona información sobre el estado de las máquinas virtuales:
 
 - **Configurado**: máquinas virtuales que se han configurado para admitir el acceso a máquina virtual Just-In-Time. Los datos que se muestran son de la última semana e incluyen, para cada máquina virtual, el número de solicitudes aprobadas, la fecha y hora del último acceso y el último usuario.
-- **Recomendado**: máquinas virtuales que pueden admitir el acceso a máquina virtual Just-In-Time pero que no se han configurado para ello. Se recomienda habilitar el control de acceso a máquina virtual Just-In-Time para estas máquinas virtuales. Vea cómo [habilitar el acceso a máquina virtual Just-In-Time](#enable-just-in-time-vm-access).
+- **Recomendado**: máquinas virtuales que pueden admitir el acceso a máquina virtual Just-In-Time pero que no se han configurado para ello. Se recomienda habilitar el control de acceso a máquina virtual Just-In-Time para estas máquinas virtuales. Consulte [Configurar una directiva de acceso Just-In-Time](#configuring-a-just-in-time-access-policy).
 - **Ninguna recomendación**: una máquina virtual podría no recomendarse por diversas razones:
   - Falta el NSG: la solución Just-In-Time requiere que exista un NSG.
   - Máquina virtual clásica: en la actualidad, el acceso a máquina virtual Just-In-Time de Security Center solo admite las máquinas virtuales que se han implementado mediante Azure Resource Manager. La solución Just-In-Time no admite las implementaciones clásicas.
@@ -70,11 +71,11 @@ La hoja **Acceso a VM Just-In-Time** proporciona información sobre el estado de
 
 Para seleccionar las máquinas virtuales que quiere habilitar:
 
-1. En la hoja **Acceso a VM Just-In-Time**, seleccione la pestaña **Recomendado**.
+1. En **Acceso a VM Just-In-Time**, seleccione la pestaña **Recomendado**.
 
   ![Habilitar el acceso Just-In-Time][3]
 
-2. En **Máquinas virtuales**, seleccione las máquinas virtuales que quiere habilitar. De este modo, se coloca una marca de verificación junto a una máquina virtual.
+2. En **MÁQUINA VIRTUAL**, seleccione las máquinas virtuales que quiere habilitar. De este modo, se coloca una marca de verificación junto a una máquina virtual.
 3. Seleccione **Habilitar JIT en VM**.
 4. Seleccione **Guardar**.
 
@@ -82,7 +83,7 @@ Para seleccionar las máquinas virtuales que quiere habilitar:
 
 Puede ver los puertos predeterminados que Security Center recomienda al habilitar Just-In-Time.
 
-1. En la hoja **Acceso a VM Just-In-Time**, seleccione la pestaña **Recomendado**.
+1. En **Acceso a VM Just-In-Time**, seleccione la pestaña **Recomendado**.
 
   ![Mostrar los puertos predeterminados][6]
 
@@ -90,13 +91,13 @@ Puede ver los puertos predeterminados que Security Center recomienda al habilita
 
 ### <a name="add-ports"></a>Agregar puertos
 
-Desde la hoja **JIT VM access configuration** (Configuración de acceso a máquina virtual Just-In-Time), también puede agregar y configurar un puerto nuevo en el que habilitar la solución Just-In-Time.
+En **JIT VM access configuration** (Configuración de acceso a máquina virtual Just-In-Time), también puede agregar y configurar un puerto nuevo en el que habilitar la solución Just-In-Time.
 
-1. En la hoja **JIT VM access configuration** (Configuración de acceso a máquina virtual Just-In-Time), seleccione **Agregar**. Se abrirá la hoja **Add port configuration** (Agregar configuración de puerto).
+1. En **JIT VM access configuration** (Configuración de acceso a máquina virtual Just-In-Time), seleccione **Agregar**. Se abre la hoja **Add port configuration** (Agregar configuración de puerto).
 
   ![Configuración de puerto][7]
 
-2. En la hoja **Add port configuration** (Agregar configuración de puerto), debe identificar el puerto, el tipo de protocolo, las direcciones IP de origen permitidas y el tiempo de solicitud máximo.
+2. En **Add port configuration** (Agregar configuración de puerto), debe identificar el puerto, el tipo de protocolo, las direcciones IP de origen permitidas y el tiempo de solicitud máximo.
 
   Las direcciones IP de origen permitidas son los intervalos IP que pueden obtener acceso una vez que se ha aprobado una solicitud.
 
@@ -108,13 +109,13 @@ Desde la hoja **JIT VM access configuration** (Configuración de acceso a máqui
 
 Para solicitar acceso a una máquina virtual:
 
-1. En la hoja **Acceso a VM Just-In-Time**, seleccione la pestaña **Configurado**.
+1. En **Acceso a VM Just-In-Time**, seleccione la pestaña **Configurado**.
 2. En **Máquinas virtuales**, seleccione las máquinas virtuales para las que quiere habilitar el acceso. De este modo, se coloca una marca de verificación junto a una máquina virtual.
-3. Seleccione **Solicitar acceso**. Se abrirá la hoja **Solicitar acceso**.
+3. Seleccione **Solicitar acceso**. Se abre la hoja **Solicitar acceso**.
 
   ![Solicitar acceso a una máquina virtual][4]
 
-4. En la hoja **Solicitar acceso**, configure para cada máquina virtual los puertos que deben abrirse, junto con la dirección IP de origen a la que se abre el puerto y el tiempo durante el que permanece abierto. Solo puede solicitar acceso a los puertos que están configurados en la directiva Just-In-Time. Cada puerto tiene un tiempo máximo permitido que se basa en la directiva Just-In-Time.
+4. En la hoja **Solicitar acceso**, configure para cada máquina virtual los puertos que deben abrirse, junto con la dirección IP de origen en la que se abre el puerto y el tiempo durante el que permanece abierto. Solo puede solicitar acceso a los puertos que están configurados en la directiva Just-In-Time. Cada puerto tiene un tiempo máximo permitido que se basa en la directiva Just-In-Time.
 5. Seleccione **Open ports** (Abrir puertos).
 
 ## <a name="editing-a-just-in-time-access-policy"></a>Editar una directiva de acceso Just-In-Time
@@ -124,15 +125,15 @@ Puede cambiar la directiva Just-In-Time de una máquina virtual. Para ello, agre
 Para editar una directiva Just-In-Time de una máquina virtual, use la pestaña **Configurado**:
 
 1. En **Máquinas virtuales**, seleccione una máquina virtual para agregarle un puerto. Para ello, haga clic en los tres puntos situados en la fila de esa máquina virtual. Se abrirá un menú.
-2. Seleccione **Editar** en el menú. Se abrirá la hoja **JIT VM access configuration** (Configuración de acceso a máquina virtual Just-In-Time).
+2. Seleccione **Editar** en el menú. Se abre la hoja **JIT VM access configuration** (Configuración de acceso a máquina virtual Just-In-Time).
 
   ![Editar directiva][8]
 
-3. En la hoja **JIT VM access configuration** (Configuración de acceso a máquina virtual Just-In-Time), puede hacer clic en un puerto ya protegido para modificar la configuración existente, o bien puede seleccionar **Agregar**. Se abrirá la hoja **Add port configuration** (Agregar configuración de puerto).
+3. En **JIT VM access configuration** (Configuración de acceso a máquina virtual Just-In-Time), puede hacer clic en un puerto ya protegido para modificar la configuración existente, o bien puede seleccionar **Agregar**. Se abre la hoja **Add port configuration** (Agregar configuración de puerto).
 
   ![Agregar un puerto][7]
 
-4. En la hoja **Add port configuration** (Agregar configuración de puerto), identifique el puerto, el tipo de protocolo, las direcciones IP de origen permitidas y el tiempo de solicitud máximo.
+4. En **Add port configuration** (Agregar configuración de puerto), identifique el puerto, el tipo de protocolo, las direcciones IP de origen permitidas y el tiempo de solicitud máximo.
 5. Seleccione **Aceptar**.
 6. Seleccione **Guardar**.
 
@@ -140,15 +141,15 @@ Para editar una directiva Just-In-Time de una máquina virtual, use la pestaña 
 
 Puede usar la búsqueda de registros para obtener información sobre las actividades de las máquinas virtuales. Para ver los registros:
 
-1. En la hoja **Acceso a VM Just-In-Time**, seleccione la pestaña **Configurado**.
+1. En **Acceso a VM Just-In-Time**, seleccione la pestaña **Configurado**.
 2. En **Máquinas virtuales**, seleccione una máquina virtual cuya información quiera ver. Para ello, haga clic en los tres puntos situados en la fila de esa máquina virtual. Se abrirá un menú.
-3. Seleccione **Registro de actividades** en el menú. Se abrirá la hoja **Registro de actividades**.
+3. Seleccione **Registro de actividades** en el menú. Se abre la hoja **Registro de actividad**.
 
-![Seleccionar el registro de actividades][9]
+  ![Seleccionar el registro de actividades][9]
 
-La hoja **Registro de actividades** proporciona una vista filtrada de las operaciones anteriores para esa máquina virtual, junto con el tiempo, la fecha y la suscripción.
+  En **Registro de actividades** se proporciona una vista filtrada de las operaciones anteriores para esa máquina virtual, junto con el tiempo, la fecha y la suscripción.
 
-![Ver el registro de actividades][5]
+  ![Ver el registro de actividades][5]
 
 Para descargar la información del registro, seleccione **Haga clic aquí para descargar todos los elementos como archivo .csv**.
 
@@ -157,7 +158,7 @@ Modifique los filtros y seleccione **Aplicar** para crear una búsqueda y un reg
 ## <a name="using-just-in-time-vm-access-via-powershell"></a>Usar el acceso a máquina virtual Just-In-Time mediante PowerShell
 
 Para usar la solución Just-In-Time a través de PowerShell, asegúrese de que tiene la versión [más reciente](/powershell/azure/install-azurerm-ps) de Azure PowerShell.
-Una vez que lo haya hecho, debe instalar la versión [más reciente](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.12) de Azure Security Center desde la galería de PowerShell.
+Una vez que lo haya hecho, debe instalar la versión [más reciente](https://aka.ms/asc-psgallery) de Azure Security Center desde la galería de PowerShell.
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configurar una directiva Just-In-Time para una máquina virtual
 
@@ -186,6 +187,7 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 <!--Image references-->
 [1]: ./media/security-center-just-in-time/just-in-time-scenario.png
 [2]: ./media/security-center-just-in-time/just-in-time.png
+[10]: ./media/security-center-just-in-time/just-in-time-access.png
 [3]: ./media/security-center-just-in-time/enable-just-in-time-access.png
 [4]: ./media/security-center-just-in-time/request-access-to-a-vm.png
 [5]: ./media/security-center-just-in-time/activity-log.png
@@ -193,4 +195,3 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 [7]: ./media/security-center-just-in-time/add-a-port.png
 [8]: ./media/security-center-just-in-time/edit-policy.png
 [9]: ./media/security-center-just-in-time/select-activity-log.png
-

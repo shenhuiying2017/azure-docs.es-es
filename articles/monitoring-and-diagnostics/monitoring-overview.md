@@ -1,6 +1,6 @@
 ---
 title: "Supervisión en Microsoft Azure | Microsoft Docs"
-description: Opciones disponibles si desea supervisar algo en Microsoft Azure. Azure Monitor y Log Analytics de Application Insights
+description: Opciones disponibles si desea supervisar algo en Microsoft Azure. Azure Monitor, Application Insights y Log Analytics
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,41 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 10/04/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: d4a94a92585420cf92018084437422fd0c66fa2d
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: e164cbd910ccc38610c7aef37d25ff1b4413038d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-monitoring-in-microsoft-azure"></a>Información general sobre la supervisión en Microsoft Azure
-En este artículo se proporciona información general sobre las herramientas de supervisión disponibles en Microsoft Azure. Se aplica a: 
-- supervisión de aplicaciones que se ejecutan en Microsoft Azure 
-- herramientas y servicios que se ejecutan fuera de Azure que pueden supervisar objetos en Azure. 
+En este artículo se proporciona información general de las herramientas y los servicios implicados en la supervisión holísticamente de Microsoft Azure. Se aplica a:
+- Uso de servicios de Azure para supervisar las aplicaciones y la infraestructura de Azure
+- Uso de servicios de Azure para supervisar las aplicaciones y la infraestructura que no son de Azure e híbridas
+- Uso de servicios de Azure para supervisar las aplicaciones y la infraestructura de Azure
 
 Se tratan de los distintos productos y servicios disponibles y cómo funcionan conjuntamente. Puede ayudar a determinar cuáles son las herramientas más adecuadas para el usuario y en qué casos.  
 
-## <a name="why-use-monitoring-and-diagnostics"></a>¿Por qué usar supervisión y diagnóstico?
+## <a name="why-use-azures-monitoring-services"></a>¿Por qué usar los servicios de supervisión de Azure?
 
-Los problemas de rendimiento de la aplicación en la nube pueden afectar a su negocio. Con varios componentes interconectados y versiones frecuentes, las degradaciones pueden ocurrir en cualquier momento. Y, si va a desarrollar una aplicación, los usuarios normalmente encuentran problemas que no se han detectado durante las pruebas. Debe tener conocimiento de estos problemas de inmediato y disponer de las herramientas de diagnóstico y solución de problemas. Microsoft Azure tiene una gama de herramientas para identificar estos problemas.
+Los problemas de rendimiento de la aplicación en la nube pueden afectar a su negocio. Con varios componentes interconectados y versiones frecuentes, las degradaciones pueden ocurrir en cualquier momento. Y, si va a desarrollar una aplicación, los usuarios normalmente encuentran problemas que no se han detectado durante las pruebas. Debe tener conocimiento de estos problemas de inmediato y disponer de las herramientas de diagnóstico y solución de problemas. Además, los problemas en la aplicación a menudo son el resultado de la infraestructura subyacente en la que se ejecutan esas aplicaciones, por lo que tener una vista holística de la aplicación e infraestructura es clave para supervisar el entorno de Azure. Microsoft Azure tiene una gama de herramientas para identificar y resolver tales problemas.
 
-## <a name="how-do-i-monitor-my-azure-cloud-apps"></a>¿Cómo puedo supervisar las aplicaciones de nube de Azure?
+## <a name="how-do-i-monitor-my-azure-environment"></a>¿Cómo puedo supervisar mi entorno de Azure?
 
-Hay una gama de herramientas para la supervisión de servicios y aplicaciones de Azure. Algunas de sus características se superponen. Se debe en parte a motivos históricos y en parte al desenfoque entre el desarrollo y el funcionamiento de una aplicación. 
+Hay una variedad de herramientas para supervisar el entorno de Azure, desde el código de aplicación que se ejecuta en Azure a los servicios y la infraestructura que ejecutan ese código. Estas herramientas funcionan conjuntamente para ofrecer la supervisión en la nube integral e incluyen:
 
-Estas son las herramientas principales:
+-   **Azure Monitor**: servicio de Azure que funciona como una canalización consolidada para todos los datos de supervisión de servicios de Azure. Le permite acceder a las métricas de rendimiento y a los eventos que describen el funcionamiento de la infraestructura de Azure y todos los servicios de Azure que está utilizando. Azure Monitor es una canalización de datos de supervisión para el entorno de Azure que ofrece datos directamente en Log Analytics, así como herramientas de terceros donde puede obtener información detallada sobre esos datos y combinarlos con datos locales u otros recursos en la nube.
 
--   **Azure Monitor** es una herramienta básica para la supervisión de servicios que se ejecutan en Azure. Proporciona datos a nivel de infraestructura sobre el rendimiento de un servicio y el entorno circundante. Si va a administrar todas las aplicaciones en Azure, decida si desea escalar o reducir verticalmente los recursos y luego Azure Monitor proporciona lo que debe usar para empezar.
+-   **Application Insights**: servicio de Azure que ofrece análisis de usuario y supervisión de rendimiento de aplicaciones. Supervisa el código que ha escrito y las aplicaciones que implementó en Azure, en local o en otras nubes. Mediante la instrumentación de la aplicación con el SDK de Application Insights puede obtener acceso a una variedad de datos, incluidos los tiempos de respuesta de las dependencias, seguimientos de excepciones, instantáneas de depuración y perfiles de ejecución. Proporciona herramientas eficaces para analizar esta telemetría de aplicación mientras desarrolla y utiliza la aplicación. Se integra profundamente con Visual Studio para que pueda ir directamente a las líneas de código problemáticas para que pueda corregirlas y también ofrece análisis de uso para analizar el uso que el cliente hace de las aplicaciones para los directores de producto.
 
--   **Application Insights** puede utilizarse para el desarrollo y como una solución de supervisión de producción. Funciona mediante la instalación de un paquete en la aplicación y, por tanto, ofrece una vista más interna de lo que está sucediendo. Los datos incluyen tiempos de respuesta de dependencias, seguimientos de excepciones, instantáneas de depuración y perfiles de ejecución. Proporciona herramientas inteligentes y sólidas para analizar toda esta telemetría, a fin de ayudar a depurar una aplicación y a saber qué hacen los usuarios con ella. Puede indicar si un pico en los tiempos de respuesta se debe a algo de una aplicación o a algún problema de recursos externo. Si utiliza Visual Studio y la aplicación presenta errores, puede recurrir directamente a las líneas de código del problema para poder corregirlo.  
-
--   **Log Analytics** está destinado a quienes necesitan ajustar el rendimiento y planificar el mantenimiento de aplicaciones que se ejecutan en producción. Se basa en Azure. Recopila y agrega los datos de muchos orígenes, aunque con un retraso de 10 a 15 minutos. Proporciona una solución integral de administración de TI para Azure, entornos locales e infraestructuras de terceros basadas en la nube (por ejemplo, Amazon Web Services). Proporciona herramientas más enriquecidas para analizar datos en más orígenes, permite realizar consultas complejas en todos los registros y puede alertar de forma proactiva sobre condiciones específicas.  Incluso puede recopilar datos personalizados en su repositorio central para que pueda consultarlos y visualizarlos. 
-
--   **System Center Operations Manager (SCOM)** está diseñado para administrar y supervisar grandes instalaciones de la nube. Es posible que ya esté familiarizado con esta solución como una herramienta de administración para nubes locales basadas en Windows Sever e Hyper-V, pero también se puede integrar con aplicaciones de Azure y administrarlas. Entre otras cosas, puede instalar Application Insights en las aplicaciones dinámicas existentes.  Si una aplicación deja de funcionar, se lo notifica en cuestión de segundos. Tenga en cuenta que Log Analytics no sustituye a SCOM. Funcionan bien de forma conjunta.  
-
+-   **Log Analytics**: conocido anteriormente como Log Analytics de OMS, es un servicio de Azure que ingiere datos de registro y de métrica de servicios de Azure (mediante Azure Monitor), VM de Azure y en infraestructura local o en otra infraestructura en la nube, y ofrece búsqueda de registros flexible y análisis listo para usar en estos datos. Proporciona herramientas enriquecidas para analizar datos en orígenes, permite realizar consultas complejas en todos los registros y puede alertar de forma proactiva sobre condiciones específicas.  Incluso puede recopilar datos personalizados en su repositorio central para que pueda consultarlos y visualizarlos. También puede aprovechar las soluciones integradas de Log Analytics para obtener información detallada inmediatamente sobre la seguridad y funcionalidad de la infraestructura.
 
 ## <a name="accessing-monitoring-in-the-azure-portal"></a>Acceso a la supervisión en Azure Portal
 Todos los servicios de supervisión de Azure ahora están disponibles en un único panel de interfaz de usuario. Para obtener información sobre cómo acceder a este espacio, vea [Introducción a Azure Monitor](monitoring-get-started.md). 
@@ -88,7 +82,7 @@ Para más información, vea [Depuración de instantáneas](../application-insigh
 > [!NOTE]
 > La capacidad de generar perfiles de Virtual Machines, Conjuntos de escalado de máquinas virtuales (VMSS), Cloud Services y Service Fabric se encuentra en versión preliminar.   
 
-Además, se le informa de forma proactiva por correo electrónico sobre determinados tipos de errores, como tiempos de carga de páginas muy lentos, mediante la herramienta de detección inteligente.  No es necesario realizar ninguna configuración en esta herramienta. Para más información, vea [Detección inteligente: anomalías de rendimiento](../application-insights/app-insights-proactive-performance-diagnostics.md) y [Detección inteligente: anomalías de rendimiento](https://azure.microsoft.com/blog/Enhancments-ApplicationInsights-SmartDetection/preview).
+Además, se le informa de forma proactiva por correo electrónico sobre determinados tipos de errores, como tiempos de carga de páginas muy lentos, mediante la herramienta de detección inteligente.  No es necesario realizar ninguna configuración en esta herramienta. Para más información, consulte [Detección inteligente: anomalías de rendimiento](../application-insights/app-insights-proactive-performance-diagnostics.md).
 
 
 

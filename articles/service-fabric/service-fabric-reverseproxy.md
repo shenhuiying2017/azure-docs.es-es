@@ -14,30 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: bharatn
+ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 7897458e9e4a0bbe185bd3f7b4c133c1b26769f9
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso en Azure Service Fabric
-El proxy inverso que está integrado en Azure Service Fabric dirige los microservicios del clúster de Service Fabric que expone los puntos de conexión HTTP.
+El servidor proxy inverso creado en Azure Service Fabric ayuda a que los microservicios que se ejecutan en un clúster de Service Fabric detecten otros servicios que tienen puntos de conexión HTTP y se comuniquen con estos servicios.
 
 ## <a name="microservices-communication-model"></a>Modelo de comunicación de microservicios
-Normalmente, los microservicios de Service Fabric se ejecutan en un subconjunto de máquinas virtuales del clúster y pueden transferirse de una máquina virtual a otra por diversos motivos. Por tanto, los puntos de conexión de los microservicios pueden cambiar dinámicamente. El patrón típico para comunicarse con los microservicios es el bucle de resolución siguiente:
+Los microservicios de Service Fabric se ejecutan en un subconjunto de nodos del clúster y se pueden migrar entre los nodos por varias razones. Como resultado, los puntos de conexión de los microservicios pueden cambiar dinámicamente. Para detectar otros servicios y comunicarse con ellos en el clúster, el microservicio debe pasar por los siguientes pasos:
 
-1. En primer lugar, resuelva la ubicación del servicio mediante el servicio de nombres.
+1. Resuelva la ubicación del servicio mediante el servicio de nombres.
 2. Conéctese al servicio.
-3. Determine la causa de los errores de conexión y vuelva a resolver la ubicación del servicio cuando proceda.
+3. Ajuste los pasos anteriores en un bucle que implemente la solución de servicio y vuelva a intentar que se apliquen directivas con los errores de conexión.
 
-Para ello, normalmente hay que ajustar las bibliotecas de comunicación de cliente en un bucle de reintento que implemente la resolución del servicio y las directivas de reintento.
 Para más información, consulte [Conexión y comunicación con los servicios](service-fabric-connect-and-communicate-with-services.md).
 
 ### <a name="communicating-by-using-the-reverse-proxy"></a>Comunicación mediante el proxy inverso
-El proxy inverso de Service Fabric se ejecuta en todos los nodos del clúster. Este realiza todo el proceso de resolución del servicio en nombre de un cliente y, después, reenvía la solicitud de cliente. Por tanto, los clientes que se ejecutan en el clúster pueden usar todas las bibliotecas de comunicación HTTP de cliente para comunicarse con el servicio de destino a través del proxy inverso que se ejecuta en el mismo nodo de manera local.
+El servidor proxy inverso es un servicio que se ejecuta en cada nodo y gestiona la resolución de puntos de conexión, el reintento automático y otros errores de conexión en nombre de los servicios para clientes. Se puede configurar para la aplicación de varias directivas cuando gestiona las solicitudes desde los servicios para clientes. El uso de un servidor proxy inverso permite que el servicio para clientes use las bibliotecas de comunicación HTTP del lado cliente, sin necesidad de resolución especial ni lógica de reintento en el servicio. 
+
+El servidor proxy inverso expone uno o varios puntos de conexión en el nodo local de los servicios para clientes para su uso en el envío de solicitudes a otros servicios.
 
 ![Comunicación interna][1]
+
+> **Plataformas compatibles**
+>
+> El servidor proxy inverso de Service Fabric admite actualmente las siguientes plataformas:
+> * *Clúster Windows*: Windows 8 y posterior o Windows Server 2012 y posterior.
+> * *Clúster Linux*: el servidor proxy inverso no está disponible actualmente para clústeres de Linux.
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Comunicación externa con los microservicios a través del clúster
 La comunicación externa predeterminada de los microservicios se basa en un modelo manual; es decir, no se puede acceder directamente a los servicios desde los clientes externos. [Azure Load Balancer](../load-balancer/load-balancer-overview.md) actúa como límite de red entre los microservicios y los clientes externos. Además, realiza la traducción de direcciones de red y reenvía las solicitudes externas a los puntos de conexión IP:port internos. Para hacer que los clientes externos puedan acceder directamente al punto de conexión de un microservicio, primero debe configurar Load Balancer para que reenvíe el tráfico a cada puerto que utilice el servicio del clúster. Además, la mayoría de los microservicios, especialmente los microservicios con estado, no se encuentran en todos los nodos del clúster. Los microservicios se pueden mover entre nodos durante la conmutación por error. En tales casos, el equilibrador de carga no puede determinar eficazmente la ubicación del nodo de destino de las réplicas al que debe reenviar el tráfico.
@@ -315,4 +321,3 @@ En primer lugar, se obtiene la plantilla del clúster que desea implementar. Pue
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
-

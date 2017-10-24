@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: a992fa17a07d6167297c4cf5fe9fb3b58181d7df
-ms.contentlocale: es-es
-ms.lasthandoff: 01/20/2017
-
+ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-query-action"></a>Introducción a la acción de consulta
 Mediante la acción de consulta puede utilizar lotes y matrices para realizar flujos de trabajo como los siguientes:
@@ -49,6 +48,8 @@ Este es el procedimiento para agregarlo en una aplicación lógica:
    
     La acción generará una nueva matriz que contiene solo los resultados que cumplen los requisitos de filtro.
 6. Haga clic en la esquina superior izquierda de la barra de herramientas para guardarla; la aplicación lógica se guardará y se publicará (activará).
+
+\* Si llama a un punto de conexión HTTP y recibe una respuesta JSON, use la acción _Análisis del archivo JSON_ para analizar la respuesta JSON. Sin realizar este paso, _Filtrar matriz_ solo verá Cuerpo y no comprenderá la estructura de la carga JSON.
 
 ## <a name="query-action"></a>Acción de consulta
 Aquí se muestran los detalles de la acción que admite este conector. El conector tiene una acción posible.
@@ -80,5 +81,4 @@ Los detalles de la salida de la respuesta HTTP son los siguientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
-
 

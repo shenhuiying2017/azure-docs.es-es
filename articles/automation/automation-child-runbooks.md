@@ -3,7 +3,7 @@ title: Runbooks secundarios en Azure Automation | Microsoft Docs
 description: "Describe los diferentes métodos para iniciar un runbook en la Automatización de Azure desde otro runbook y compartir información entre ellos."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cf3d1ae66483fed4aa9cd31f674729e4b875653c
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 617e18f5435c7eacb7751ccca6ac2f3814745f04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks secundarios en la Automatización de Azure
 Un procedimiento recomendado en la Automatización de Azure es escribir runbooks que sean reutilizables y modulares con una función independiente que puedan usar otros runbooks. Con frecuencia, un runbook primario llamará a uno o varios runbooks secundarios para realizar la funcionalidad necesaria. Existen dos maneras de llamar a un runbook secundario y cada una tiene varias diferencias que debería conocer para poder determinar cuál de ellas es mejor para los diferentes escenarios.
@@ -44,7 +43,7 @@ Cuándo es importante el orden de publicación:
 
 * El orden de publicación de runbooks solo es importante para los runbooks de flujo de trabajo de PowerShell y los runbooks gráficos de flujo de trabajo de PowerShell.
 
-Cuando se llama a un runbook secundario gráfico o de flujo de trabajo de PowerShell con la ejecución insertada, solo tiene que usar el nombre del runbook.  Cuando se llama a un runbook secundario de PowerShell, el nombre debe precederse de *.\\*  para especificar que el script se encuentra en el directorio local. 
+Cuando se llama a un runbook secundario gráfico o de flujo de trabajo de PowerShell con la ejecución insertada, solo tiene que usar el nombre del runbook.  Cuando se llama a un runbook secundario de PowerShell, se debe anteponer *.\\* a su nombre para especificar que el script se encuentra en el directorio local. 
 
 ### <a name="example"></a>Ejemplo
 En el ejemplo siguiente se invoca un runbook secundario de prueba que acepta tres parámetros: un objeto complejo, un entero y un valor booleano. Los resultados del runbook secundario se asignan a una variable.  En este caso, el runbook secundario es un runbook de flujo de trabajo de PowerShell.
@@ -87,5 +86,4 @@ En la siguiente tabla se resumen las diferencias entre los dos métodos para lla
 ## <a name="next-steps"></a>Pasos siguientes
 * [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md)
 * [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
-
 

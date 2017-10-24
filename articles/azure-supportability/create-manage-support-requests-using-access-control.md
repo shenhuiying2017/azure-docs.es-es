@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
 ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Control de acceso basado en rol (RBAC) de Azure para controlar los derechos de acceso para crear y administrar solicitudes de soporte técnico
 
@@ -90,7 +90,7 @@ Desea conceder a Joe acceso a la capacidad de crear y administrar las incidencia
 
     ![Nueva solicitud de soporte](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Haga clic en "Todos admiten solicitudes" Juan puede ver la lista de solicitudes de soporte creada para esta suscripción ![caso la vista de detalles](./media/create-manage-support-requests-using-access-control/case-details-view.png)
+8. Al hacer clic en "Todas las solicitudes de soporte técnico", Joe puede ver la lista de solicitudes de soporte técnico creada para esta suscripción. ![Vista de detalles del caso](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Eliminación del acceso a solicitud de soporte técnico en el Azure Portal
 

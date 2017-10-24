@@ -17,10 +17,10 @@ ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 079d16bbf75cd2b3b94269d684e1ae1a0e6aa967
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificaciones de Azure Active Directory Identity Protection
 Azure AD Identity Protection envía dos tipos de correos electrónicos de notificación automatizados para ayudar a administrar el riesgo del usuario y los eventos de riesgo:
@@ -41,7 +41,7 @@ Incluye:
 * Vínculos a los informes relacionados en Identity Protection
 
 <br>
-![Corrección](./media/active-directory-identityprotection-notifications/400.png "corrección")
+![Corrección](./media/active-directory-identityprotection-notifications/400.png "Corrección")
 <br>
 
 Puede desactivar la opción de envío de un correo electrónico de resumen semanal.
@@ -49,15 +49,15 @@ Puede desactivar la opción de envío de un correo electrónico de resumen seman
 ![Riesgos de usuario](./media/active-directory-identityprotection-notifications/62.png "riesgos de usuario")
 <br>
 
-**Para abrir el cuadro de diálogo de configuración relacionado**:
+**Para abrir el cuadro de diálogo de configuración relacionado, siga estos pasos**:
 
 1. En la hoja **Azure AD Identity Protection**, haga clic en **Configuración**.
    <br><br>
-   ![Directiva de usuario de riesgo](./media/active-directory-identityprotection-notifications/401.png "directiva de usuario de riesgo")
+   ![Directiva de riesgo de usuario](./media/active-directory-identityprotection-notifications/401.png "Directiva de riesgo de usuario")
    <br>
 2. En la sección **General**, haga clic en **Notificaciones**.
    <br><br>
-   ![Directiva de usuario de riesgo](./media/active-directory-identityprotection-notifications/405.png "directiva de usuario de riesgo")
+   ![Directiva de riesgo de usuario](./media/active-directory-identityprotection-notifications/405.png "Directiva de riesgo de usuario")
    <br>
 
 ## <a name="see-also"></a>Otras referencias

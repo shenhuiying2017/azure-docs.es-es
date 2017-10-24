@@ -1,5 +1,5 @@
 ---
-title: "Quién está utilizando búsqueda de Azure: historias de clientes y estudios | Documentos de Microsoft"
+title: "Quién usa Azure Search: casos prácticos y testimonios de clientes | Microsoft Docs"
 description: "Casos prácticos e historias de clientes acerca de Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure."
 services: search
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Quién usa la Búsqueda de Azure: casos prácticos y testimonios de clientes
 Obtenga información sobre cómo las siguientes organizaciones desarrollaron sus negocios mediante la integración de la experiencia enriquecida de Búsqueda de Azure en sus aplicaciones en línea.

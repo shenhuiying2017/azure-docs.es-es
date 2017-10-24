@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: obloch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 2f1689a2f59b779c83b6be746edda915fd67a3db
-ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 6e015d391067271cf71eb865af1b469135c8fcaa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>SDK de dispositivo IoT de Microsoft Azure para C: más información sobre IoTHubClient
 En el [primer el artículo](iot-hub-device-sdk-c-intro.md) de esta serie se presentaba el **SDK de dispositivo IoT de Azure**. En este artículo se explicaba que hay dos capas de arquitectura en el SDK. En la base está la biblioteca de **IoTHubClient** que administra directamente la comunicación con Centro de IoT. Y está también la biblioteca del **serializador** , que se basa en él para proporcionar servicios de serialización. En este artículo le proporcionamos detalles adicionales sobre la biblioteca **IoTHubClient** .
@@ -260,10 +259,10 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Hay un par de opciones que se usan con frecuencia:
 
-* **SetBatching** (bool): si es **true**, los datos enviados al IoT Hub se envían en lotes. Si es **false**, los mensajes se envían individualmente. El valor predeterminado es **false**. Tenga en cuenta que la opción **SetBatching** solo se aplica al protocolo HTTP y no a los protocolos MQTT o AMQP.
-* **Tiempo de espera** (entero sin sino): este valor se representa en milisegundos. Si el envío de una solicitud HTTP o la recepción de una respuesta supera este tiempo, la conexión agota el tiempo.
+* **SetBatching** (bool): si es **true**, los datos enviados al IoT Hub se envían en lotes. Si es **false**, los mensajes se envían individualmente. El valor predeterminado es **false**. Tenga en cuenta que la opción **SetBatching** solo se aplica al protocolo HTTPS y no a los protocolos MQTT o AMQP.
+* **Tiempo de espera** (entero sin sino): este valor se representa en milisegundos. Si el envío de una solicitud HTTPS o la recepción de una respuesta supera este tiempo, la conexión agota el tiempo.
 
-La opción de procesamiento por lotes es importante. De forma predeterminada, la biblioteca incorpora los eventos individualmente (un evento único es lo que se pasa a **IoTHubClient\_LL\_SendEventAsync**). Si la opción de procesamiento por lotes es **true**, la biblioteca recopilará tantos eventos como sea posible del búfer (hasta el tamaño máximo de mensaje que aceptará ese Centro de IoT).  El lote de eventos se envía a Centro de IoT en una sola llamada HTTP (los eventos individuales están agrupados en una matriz JSON). Habilitar el procesamiento por lotes normalmente da como resultado un gran aumento del rendimiento ya que se reducen los recorridos de ida y vuelta de red. Además, reduce considerablemente el ancho de banda porque se envía un conjunto de encabezados HTTP con un lote de eventos en lugar de un conjunto de encabezados para cada evento individual. A menos que tenga una razón concreta para no hacerlo, normalmente es mejor habilitar el procesamiento por lotes.
+La opción de procesamiento por lotes es importante. De forma predeterminada, la biblioteca incorpora los eventos individualmente (un evento único es lo que se pasa a **IoTHubClient\_LL\_SendEventAsync**). Si la opción de procesamiento por lotes es **true**, la biblioteca recopilará tantos eventos como sea posible del búfer (hasta el tamaño máximo de mensaje que aceptará ese Centro de IoT).  El lote de eventos se envía a IoT Hub en una sola llamada HTTPS (los eventos individuales están agrupados en una matriz JSON). Habilitar el procesamiento por lotes normalmente da como resultado un gran aumento del rendimiento ya que se reducen los recorridos de ida y vuelta de red. Además, reduce considerablemente el ancho de banda porque se envía un conjunto de encabezados HTTPS con un lote de eventos en lugar de un conjunto de encabezados para cada evento individual. A menos que tenga una razón concreta para no hacerlo, normalmente es mejor habilitar el procesamiento por lotes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se describe con detalle el comportamiento de la biblioteca **IoTHubClient** que se encuentra en el **SDK de dispositivo IoT de Azure para C**. Con esta información conocerá bien las capacidades de la biblioteca **IoTHubClient**. En el [siguiente artículo](iot-hub-device-sdk-c-serializer.md) se proporcionan detalles similares sobre la biblioteca del **serializador** .
@@ -277,4 +276,3 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-

@@ -11,11 +11,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: junyi
-ms.openlocfilehash: 0c430272225d79737baec2be15ed7c93991cdeac
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: eddeb5cc13aac7ab33305adcd266465a5b143462
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-java"></a>Creación de un módulo de Azure IoT Edge con Java
 
@@ -127,7 +127,7 @@ La entrada pueden ser datos del hardware (como un detector de movimiento), un me
 
 La salida es similar a la entrada, podría desencadenar un comportamiento de hardware (como un LED parpadeante), un mensaje a otros módulos o cualquier otro elemento (como imprimir en la consola).
 
-Los módulos se comunican entre sí mediante la clase `com.microsoft.azure.gateway.messaging.Message`. El **contenido** de un objeto `Message` es una matriz de bytes capaz de representar cualquier tipo de datos que desee. Las **propiedades** también están disponibles en el objeto `Message` y son simplemente una asignación de cadena a cadena. Puede considerar las **propiedades** como los encabezados de una solicitud HTTP o los metadatos de un archivo.
+Los módulos se comunican entre sí mediante la clase `com.microsoft.azure.gateway.messaging.Message`. El **contenido** de un objeto `Message` es una matriz de bytes capaz de representar cualquier tipo de datos que desee. Las **propiedades** también están disponibles en el objeto `Message` y son simplemente una asignación de cadena a cadena. Puede considerar las **propiedades** como los encabezados de una solicitud HTTPS o los metadatos de un archivo.
 
 Para desarrollar un módulo de Azure IoT Edge en Java, debe crear una nueva clase de módulo que se hereda de `com.microsoft.azure.gateway.core.GatewayModule` e implementar los métodos abstractos `receive()` y `destroy()` requeridos. En este momento, también puede elegir implementar los métodos `start()` o `create()` opcionales. El fragmento de código siguiente muestra cómo comenzar a crear un módulo de Azure IoT Edge.
 

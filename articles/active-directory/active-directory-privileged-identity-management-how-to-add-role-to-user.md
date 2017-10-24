@@ -16,10 +16,10 @@ ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim;oldportal;it-pro;
 ms.openlocfilehash: 3ac07bb7b070f44595c099a454b3d0dbc66126c9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Privileged Identity Management de Azure AD: Incorporación o eliminación de un rol de usuario
 Con Azure Active Directory (AD), un administrador global (o un administrador de empresa) puede actualizar a los usuarios que están asignados **permanentemente** a roles en Azure AD. Para ello, se usan cmdlets de PowerShell, como `Add-MsolRoleMember` y `Remove-MsolRoleMember`. O bien, se puede utilizar el Portal de Azure clásico, como se describe en [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md).
@@ -47,7 +47,7 @@ Si desea dar a otro usuario acceso a PIM, los roles que debe tener el usuario pa
 
 > [!NOTE]
 > Los nuevos usuarios de un rol solo son aptos para el rol de forma predeterminada. Si quiere que el rol sea permanente, haga clic en el usuario en la lista. La información del usuario aparecerá en una nueva hoja. Seleccione **Establecer como permanente** en el menú de información de usuario.  
-> Si un usuario no se puede registrar para Azure Multi-factor Authentication (MFA), o está usando una cuenta de Microsoft (normalmente @outlook.com), necesario para que sean permanentes en todas sus funciones. Los administradores aptos deben registrarse en MFA durante la activación.
+> Si un usuario no puede registrarse en Azure Multi-Factor Authentication (MFA) o usa una cuenta de Microsoft (normalmente @outlook.com), deberá establecerlo como permanente en todos sus roles. Los administradores aptos deben registrarse en MFA durante la activación.
 
 Ahora que el usuario es apto para un rol, hágale saber que puede activarlo de acuerdo con las instrucciones que se describen en [Activación y desactivación de un rol](active-directory-privileged-identity-management-how-to-activate-role.md).
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: e9cb2f03600d49123693fcc88742d6fc75d9de16
-ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: b4f8855fe6480bc58acfbbb53819f6eabe362bdb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Generación de una aplicación de la Tienda Windows de Smooth Streaming
 
@@ -33,8 +32,11 @@ Este tutorial contiene cuatro lecciones:
 4. Selección de pistas de Smooth Streaming
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Windows 8 de 32 o 64 bits. Puede conseguir la [Evaluación de Windows 8 Enterprise](http://msdn.microsoft.com/evalcenter/jj554510.aspx) en MSDN.
-* Visual Studio 2012 o Visual Studio Express 2012 (o una versión posterior). Puede obtener la versión de prueba [aquí](http://www.microsoft.com/visualstudio/11/downloads).
+> [!NOTE]
+> Los proyectos de la Tienda Windows versión 8.1 y versiones anteriores no se admiten en Visual Studio 2017.  Para más información, consulte [Compatibilidad y destinatarios de la plataforma de Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+
+* Windows 8 de 32 o 64 bits.
+* Versiones de 2012 a 2015 de Visual Studio.
 * [SDK de cliente Smooth Streaming de Microsoft para Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 La solución completa de cada lección se puede descargar en las muestras de código de desarrollador de MSDN (Galería de código) (información en inglés): 
@@ -59,7 +61,7 @@ Para obtener más información acerca del desarrollo de la aplicación de la Tie
 
 **Para crear un proyecto de Tienda Windows**
 
-1. Ejecute Visual Studio 2012 o posterior.
+1. Ejecute Visual Studio; se admiten las versiones 2012 a 2015.
 2. En el menú **ARCHIVO**, haga clic en **Nuevo** y en **Proyecto**.
 3. En el diálogo Nuevo proyecto, escriba o seleccione los valores siguientes:
 
@@ -975,5 +977,4 @@ Ha completado la lección 4.  En esta lección ha agregado la funcionalidad para
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-
 

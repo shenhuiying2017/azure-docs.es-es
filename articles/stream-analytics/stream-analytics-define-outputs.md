@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
+ms.openlocfilehash: 33d0b9aa37cc92dda27f1cf21f1d393b42b8c09b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 52d131384c61b57d31873530304c644d6e9c11f1
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Salidas de Stream Analytics: opciones para almacenamiento y análisis
 Al crear un trabajo de Stream Analytics, tenga en cuenta cómo se consumirán los datos resultantes. ¿Cómo se van a ver los resultados del trabajo de Stream Analytics y dónde se almacenarán?
@@ -57,7 +56,7 @@ En la siguiente tabla podrá encontrar una lista de los nombres de propiedades y
 </tr>
 <tr>
 <td>Patrón del prefijo de la ruta de acceso</td>
-<td>La ruta de acceso utilizada para escribir sus archivos en la cuenta del Almacén de Data Lake especificada. <BR>{date}, {time}<BR>Ejemplo 1: carpeta1/registros/{date}/{time}<BR>Ejemplo 2: carpeta1/registros/{date}</td>
+<td>La nomenclatura de los archivos seguirá la convención siguiente: <BR>{Patrón del prefijo de la ruta de acceso}/schemaHashcode_Guid_Number.extension <BR> <BR>Archivos de salida de ejemplo:<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>Además, estas son las situaciones en las que se crea un archivo nuevo:<BR>1. Cambio en el esquema de salida <BR>2. Reinicio externo o interno de un trabajo<BR><BR>Además, si el patrón de la ruta de acceso al archivo no contiene un carácter "/" final, el patrón final de la ruta de acceso al archivo se considerará como un prefijo del nombre de archivo.<BR><BR>Ejemplo:<BR>Para el patrón de la ruta de acceso: folder1/logs/HH, el archivo generado puede verse así: folder1/logs/02_134343_gguid_1.csv</td>
 </tr>
 <tr>
 <td>Formato de fecha [<I>opcional</I>]</td>
@@ -81,7 +80,7 @@ En la siguiente tabla podrá encontrar una lista de los nombres de propiedades y
 </tr>
 <tr>
 <td>Formato</td>
-<td>Solo se aplica para la serialización de JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON.</td>
+<td>Solo se aplica para la serialización de JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON. Esta matriz se cerrará cuando el trabajo se detenga o Stream Analytics haya pasado a la siguiente ventana de tiempo. En general, es preferible utilizar JSON separado con líneas, ya que no requiere ningún control especial mientras todavía se esté escribiendo en el archivo de salida.</td>
 </tr>
 </tbody>
 </table>
@@ -137,7 +136,7 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 </tr>
 <tr>
 <td>Patrón del prefijo de la ruta de acceso [opcional]</td>
-<td>La ruta de acceso de archivo para escribir los blobs dentro del contenedor especificado.<BR>Dentro de la ruta de acceso, puede elegir usar una o más instancias de las dos variables siguientes para especificar la frecuencia con la que se escriben los blobs:<BR>{date}, {time}<BR>Ejemplo 1: cluster1/logs/{date}/{time}<BR>Ejemplo 2: cluster1/logs/{date}</td>
+<td>El patrón de la ruta de acceso al archivo para escribir los blobs dentro del contenedor especificado. <BR> En el patrón de la ruta de acceso, puede elegir usar una o más instancias de las dos variables siguientes para especificar la frecuencia con la que se escriben los blobs: <BR> {date}, {time} <BR> Ejemplo 1: cluster1/logs/{date}/{time} <BR> Ejemplo 2: cluster1/logs/{date} <BR> <BR> La nomenclatura de los archivos seguirá la convención siguiente: <BR> {Patrón del prefijo de la ruta de acceso}/schemaHashcode_Guid_Number.extension <BR> <BR> Archivos de salida de ejemplo: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Además, estas son las situaciones en las que se crea un archivo nuevo: <BR> 1. El archivo actual excede el número de bloques máximo permitido (actualmente, 50 000) <BR> 2. Cambio en el esquema de salida <BR> 3. Reinicio externo o interno de un trabajo  </td>
 </tr>
 <tr>
 <td>Formato de fecha [opcional]</td>
@@ -182,7 +181,7 @@ Hay unos cuantos parámetros que son necesarios para configurar los flujos de da
 | Formato de serialización de eventos |Formato de serialización para los datos de salida.  Se admiten JSON, CSV y Avro. |
 | Codificación |Por el momento, UTF-8 es el único formato de codificación compatible para CSV y JSON. |
 | Delimitador |Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
-| Formato |Solo se aplica para el tipo JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON. |
+| Formato |Solo se aplica para la serialización de JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON. Esta matriz se cerrará cuando el trabajo se detenga o Stream Analytics haya pasado a la siguiente ventana de tiempo. En general, es preferible utilizar JSON separado con líneas, ya que no requiere ningún control especial mientras todavía se esté escribiendo en el archivo de salida. |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) como salida para un trabajo de Análisis de transmisiones a fin de ofrecer una amplia experiencia de visualización de los resultados del análisis. Esta capacidad puede usarse con paneles operativos, generación de informes e informes basados en métricas.
@@ -267,7 +266,7 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 | Partition Key |El nombre de la columna de salida que contiene la clave de partición. La clave de partición es un identificador único de la partición dentro de una tabla determinada que constituye la primera parte de la clave principal de la entidad. Es un valor de cadena que puede tener un tamaño de hasta 1 KB. |
 | Row Key |El nombre de la columna de salida que contiene la clave de la fila. La clave de fila es un identificador único de una identidad dentro de una partición determinada. Forma la segunda parte de la clave principal de la entidad. La clave de fila es un valor de cadena que puede tener un tamaño de hasta 1 KB. |
 | Tamaño de lote |El número de registros para una operación por lotes. Normalmente, el valor predeterminado es suficiente para la mayoría de los trabajos. Consulte [Especificaciones de la operación por lotes de tablas](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para más información sobre la modificación de esta configuración. |
-
+ 
 ## <a name="service-bus-queues"></a>Colas del Bus de servicio
 [Colas del Bus de servicio](https://msdn.microsoft.com/library/azure/hh367516.aspx) ofrecen una entrega de mensajes según el modelo El primero en entrar es el primero en salir (FIFO) a uno o más consumidores de la competencia. Normalmente, se espera que los receptores reciban y procesen los mensajes en el orden temporal en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes.
 
@@ -298,7 +297,7 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 | Nombre de la directiva de temas |Al crear un tema, también puede crear directivas de acceso compartido en la pestaña Configurar tema. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
 | Clave de la directiva de temas |La clave de acceso compartido usada para autenticar el acceso al espacio de nombres del Bus de servicio. |
 | Formato de serialización de eventos |Formato de serialización para los datos de salida.  Se admiten JSON, CSV y Avro. |
-| Codificación |Si el formato CSV o JSON, debe especificarse una codificación. Por el momento, UTF-8 es el único formato de codificación compatible. |
+ | Codificación |Si el formato CSV o JSON, debe especificarse una codificación. Por el momento, UTF-8 es el único formato de codificación compatible. |
 | Delimitador |Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
@@ -316,6 +315,23 @@ En la lista siguiente se enumeran los nombres de propiedad y su descripción par
 * **Clave de partición**: opcional. Solo es necesario si usa un token {partition} en el patrón de nombre de la colección. Nombre del campo en los eventos de salida que se utiliza para especificar la clave de partición de salida entre colecciones. Para una salida de colección sencilla, se puede utilizar cualquier columna de salida arbitraria (por ejemplo, PartitionId).  
 * **Identificador de documento** : opcional. Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.  
 
+## <a name="azure-functions-in-preview"></a>Azure Functions (en versión preliminar)
+Azure Functions es un servicio de proceso sin servidor que le permite ejecutar código a petición sin necesidad de aprovisionar ni administrar explícitamente la infraestructura. Permite implementar el código desencadenado por los eventos que se producen en servicios de Azure o en servicios de terceros.  Esta capacidad que tiene Azure Functions para responder a los desencadenadores hace que sea una salida natural para una instancia de Azure Stream Analytics. Este adaptador de salida permite que los usuarios conecten Stream Analytics con Azure Functions y ejecuten un script o una parte de un código como respuesta a una variedad de eventos.
+
+Azure Stream Analytics invoca a Azure Functions a través de desencadenadores HTTP. El nuevo adaptador de salida de Azure Functions está disponible con las propiedades configurables siguientes:
+
+| Nombre de propiedad | Descripción |
+| --- | --- |
+| Function App |Nombre de la instancia de Azure Functions App |
+| Función |Nombre de la función en la instancia de Azure Functions App |
+| Tamaño máximo de lote |Esta propiedad se puede usar para establecer el tamaño máximo de cada lote de salida que se enviará a la instancia de Azure Functions. De manera predeterminada, este valor es 256 KB |
+| Número máximo de lotes  |Tal como el nombre lo indica, esta propiedad permite especificar el número máximo de eventos en cada lote que se envía a Azure Functions. El valor predeterminado del número máximo de lotes es 100 |
+| Clave |Si desea usar una instancia de Azure Functions desde otra suscripción, puede proporcionar la clave para acceder a la función |
+
+Tenga en cuenta que cuando Azure Stream Analytics recibe una excepción 413 (La entidad de solicitud http es demasiado grande) de una función de Azure, disminuye el tamaño de los lotes que envía a Azure Functions. En el código de función de Azure, use esta excepción para asegurarse de que Azure Stream Analytics no envíe lotes demasiado grandes. Además, asegúrese de que los valores de tamaño y número máximo de lotes que se usan en la función sean coherentes con los valores que se ingresan en el portal de Stream Analytics. 
+
+También tenga en cuenta que no se genera ninguna salida en una situación en la que no hay ningún aterrizaje de evento en una ventana de tiempo. Como resultado, no se llamará a la función computeResult. Este comportamiento es coherente con las funciones integradas de agregado en ventanas.
+
 
 ## <a name="get-help"></a>Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
@@ -324,8 +340,8 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 Ya conoce Análisis de transmisiones, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:
 
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
@@ -335,4 +351,3 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

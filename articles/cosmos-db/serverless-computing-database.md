@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mimig
+ms.openlocfilehash: 192bdde86e12472a6fd87ba50fd597ea8b01247d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 084dacc6a07b64500652481fbcabf1b0fc44306c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions
 
 La informática sin servidor se trata de la capacidad de centrarse en partes de lógica individuales repetibles y sin estado. Estas partes no requieren administración de la infraestructura y solo usan recursos durante los segundos o milisegundos durante los cuales se ejecutan. La base del movimiento de la informática sin servidor son las funciones, las que están disponibles en el ecosistema de Azure mediante [Azure Functions](https://azure.microsoft.com/services/functions).
@@ -136,7 +134,7 @@ Azure Cosmos DB es la base de datos recomendada para la arquitectura de informá
 
 * **Replicación global**. Puede replicar los datos de Azure Cosmos DB [en todo el mundo](distribute-data-globally.md) para reducir la latencia y localizar geográficamente los datos más cercanos al lugar en que se encuentran los usuarios. Del mismo modo que ocurre con todas las consultas de Azure Cosmos DB, los datos de los desencadenadores basados en eventos son datos de lectura de la instancia de Azure Cosmos DB más cercana al usuario.
 
-Si busca la integración con Azure Functions para almacenar datos y no necesita una indexación profunda o si necesita almacenar los archivos adjuntos y los archivos multimedia, una mejor opción podría ser el [desencadenador de Azure Blog Storage](../azure-functions/functions-bindings-storage-blob.md).
+Si busca la integración con Azure Functions para almacenar datos y no necesita una indexación profunda o si necesita almacenar los archivos adjuntos y los archivos multimedia, una mejor opción podría ser el [desencadenador de Azure Blob Storage](../azure-functions/functions-bindings-storage-blob.md).
 
 Ventajas de Azure Functions: 
 
@@ -159,7 +157,6 @@ Ahora conectaremos realmente Azure Cosmos DB y Azure Functions:
 
 
  
-
 
 
 

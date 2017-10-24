@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 43ba592b6294a9a75a20dacd81953a77c241b89f
-ms.contentlocale: es-es
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 3c1e558c9d41e385f80939203a3457b74e30973b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>Inicio y cierre de sesión de la aplicación web de ASP.NET con Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +109,7 @@ En este paso, configuraremos el middleware OWIN para usar el protocolo de autent
 ## <a name="step-3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Paso 3: Uso de OWIN para emitir solicitudes de inicio y cierre de sesión a Azure AD
 Ahora la aplicación está correctamente configurada para comunicarse con Azure AD mediante el protocolo de autenticación OpenID Connect. OWIN se ha ocupado de todos los detalles de la creación de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de sesiones de usuario. Lo único que queda consiste en ofrecer a sus usuarios una forma de iniciar y cerrar sesión.
 
-1. Puede usar etiquetas de autorización en los controladores para exigir que los usuarios inicien sesión para poder acceder a determinadas páginas. Para ello, abra Controllers\HomeController.cs y luego agregue la etiqueta `[Authorize]` al controlador About.
+1. Puede usar etiquetas de autorización en los controladores para exigir que los usuarios inicien sesión para poder acceder a determinadas páginas. Para ello, abra Controllers\HomeController.cs y luego agregue la etiqueta `[Authorize]` a la acción About.
 
      ```C#
      [Authorize]
@@ -195,4 +193,3 @@ Como referencia, consulte el [ejemplo completado](https://github.com/AzureADQuic
 Ahora puede pasar a temas más avanzados. Por ejemplo, intente [proteger una API web con Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

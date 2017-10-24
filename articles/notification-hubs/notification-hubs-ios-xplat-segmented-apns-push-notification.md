@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Uso de los Centros de notificaciones para enviar noticias de última hora
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -149,16 +149,16 @@ El primer paso es agregar los elementos de la interfaz de usuario al guión grá
 
     Tenga en cuenta que, en este punto, no debe haber otro código en el método **didRegisterForRemoteNotificationsWithDeviceToken** .
 
-1. Los métodos siguientes deben estar ya presentes en AppDelegate.m complete la [empezar a trabajar con los centros de notificaciones] [ get-started] tutorial.  De lo contrario, agréguelos.
+1. Los métodos siguientes ya deben estar presentes en AppDelegate.m después de completar el tutorial [Introducción a Notification Hubs][get-started].  De lo contrario, agréguelos.
    
-    -(void) MessageBox:(NSString *) título mensaje:(NSString *) messageText {}
+    -(void)MessageBox:(NSString *)title message:(NSString *)messageText  {
    
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
             cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
    
-   * aplicación (void):(UIApplication *) aplicación didReceiveRemoteNotification: (NSDictionary *) información de usuario {NSLog (@"% @", información de usuario);   [mensaje self MessageBox:@"Notification": [valueForKey:@"alert [información de usuario objectForKey:@"aps"]"]]; }
+   * (void)application:(UIApplication *)application didReceiveRemoteNotification:   (NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]]; }
    
    Este método controla las notificaciones recibidas cuando la aplicación está en ejecución mostrando un **UIAlert**sencillo.
 2. En ViewController.m, agregue una instrucción de importación para AppDelegate.h y copie el código siguiente en método **subscribe** generado por XCode. Este código actualizará el registro de notificación para usar las nuevas etiquetas de categoría que el usuario ha elegido en la interfaz de usuario.
@@ -212,7 +212,7 @@ Si no tiene acceso a Visual Studio, puede pasar a la siguiente sección y enviar
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="optional-send-notifications-from-the-device"></a>(Opcional) Enviar notificaciones desde el dispositivo
-Normalmente se pueden enviar notificaciones por un servicio de back-end pero puede enviar notificaciones de última hora directamente desde la aplicación. Para ello se actualizará el `SendNotificationRESTAPI` método que hemos definido en el [empezar a trabajar con los centros de notificaciones] [ get-started] tutorial.
+Normalmente se pueden enviar notificaciones por un servicio de back-end pero puede enviar notificaciones de última hora directamente desde la aplicación. Para ello, se actualizará el método `SendNotificationRESTAPI` que se define en el tutorial [Introducción a Notification Hubs][get-started].
 
 1. En ViewController.m actualice el método `SendNotificationRESTAPI` como sigue para que tome un parámetro para la etiqueta de categoría y que envíe una notificación de [plantilla](notification-hubs-templates-cross-platform-push-messages.md) adecuada.
    

@@ -16,10 +16,10 @@ ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator para Android
 Es posible que el administrador de TI le haya recomendado utilizar Microsoft Azure Authenticator para iniciar sesión y tener acceso a los recursos de trabajo. Esta aplicación proporciona dos opciones de inicio de sesión:
@@ -37,7 +37,7 @@ Las instrucciones siguientes son aplicables a teléfonos Samsung GS3 y versiones
 
 1. En la pantalla principal de la aplicación, acepte el contrato de licencia de usuario final (CLUF).
 2. En la pantalla Activar cuenta, haga clic en el menú contextual de la derecha y seleccione **Cuenta profesional**.
-3. En la pantalla Agregar cuenta, seleccione ** trabajo cuenta **.
+3. En la pantalla Agregar cuenta, seleccione **Cuenta profesional**.
 4. En la pantalla Activar administrador del dispositivo, haga clic en **Activar**.
 5. En la pantalla de la directiva de privacidad, marque la casilla y haga clic en **Confirmar**.
 6. En la pantalla Unión al área de trabajo, escriba el identificador de usuario proporcionado por su organización y haga clic en **Unir**.

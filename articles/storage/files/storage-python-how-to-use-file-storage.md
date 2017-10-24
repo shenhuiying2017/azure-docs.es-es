@@ -3,7 +3,7 @@ title: Desarrollo para Azure Files con Python | Microsoft Docs
 description: Aprenda a desarrollar aplicaciones y servicios de Python que utilizan Azure Files para almacenar datos de archivos.
 services: storage
 documentationcenter: python
-author: tamram
+author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
@@ -13,15 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: tamram
+ms.author: robinsh
+ms.openlocfilehash: 48bfe97c42cad237ad7b395eeeac4e993201848a
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c9c7ee20e511d7aa6261119e7307e2b96682a6bb
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-python"></a>Desarrollo para Azure Files con Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
@@ -38,35 +36,55 @@ Este tutorial mostrará los aspectos básicos del uso de Python para desarrollar
 > [!Note]  
 > Dado que se puede acceder a Azure Files a través de SMB, es posible escribir aplicaciones simples que accedan al recurso compartido de archivos de Azure mediante las clases y funciones estándar de E/S de Python. En este artículo se describe cómo escribir aplicaciones que usen el SDK de Python de Azure Storage, que emplea la [API de REST de Azure Files](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) para comunicarse con Azure Files.
 
-### <a name="set-up-your-application-to-use-azure-files"></a>Configuración de la aplicación para usar Azure Files
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>Descarga e instalación del SDK de Azure Storage para Python
+
+El SDK de Azure Storage para Python requiere Python 2.7, 3.3, 3.4, 3.5 o 3.6, y viene en cuatro paquetes diferentes: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` y `azure-storage-queue`. En este tutorial se usará el paquete `azure-storage-file`.
+ 
+## <a name="install-via-pypi"></a>Instalación mediante PyPi
+
+Para realizar la instalación mediante el índice de paquetes de Python (PyPI), escriba:
+
+```bash
+pip install azure-storage-file
+```
+
+
+> [!NOTE]
+> Si va a actualizar desde el SDK de Azure Storage para la versión de Python 0.36 o anterior, primero deberá desinstalarlo mediante `pip uninstall azure-storage` dado que ya no se publica el SDL de Storage para Python en un único paquete.
+> 
+> 
+
+Si quiere conocer métodos de instalación alternativos, consulte el [SDK de Azure Storage para Python en Github](https://github.com/Azure/azure-storage-python/).
+
+## <a name="set-up-your-application-to-use-azure-files"></a>Configuración de la aplicación para usar Azure Files
 Agregue lo siguiente cerca de la parte superior de todo archivo de origen de Python en el que desee acceder a Azure Storage mediante programación.
 
 ```python
 from azure.storage.file import FileService
 ```
 
-### <a name="set-up-a-connection-to-azure-files"></a>Configuración de una conexión a Azure Files 
+## <a name="set-up-a-connection-to-azure-files"></a>Configuración de una conexión a Azure Files 
 El objeto `FileService` le permite trabajar con recursos compartidos, directorios y archivos. El código siguiente crea un objeto `FileService` mediante el nombre de la cuenta de almacenamiento y la clave de la cuenta. Reemplace `<myaccount>` y `<mykey>` por el nombre y la clave de la de cuenta.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
-### <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de Azure File
+## <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de Azure File
 En el siguiente código de ejemplo, puede usar un objeto `FileService` para crear el recurso compartido, en caso de que no exista.
 
 ```python
 file_service.create_share('myshare')
 ```
 
-### <a name="create-a-directory"></a>Creación de directorios
+## <a name="create-a-directory"></a>Creación de directorios
 También puede organizar el almacenamiento colocando archivos dentro de los subdirectorios en lugar de mantenerlos a todos en el directorio raíz. Azure Files permite crear tantos directorios como permita su cuenta. El código siguiente creará un subdirectorio denominado **sampledir** bajo el directorio raíz.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
 ```
 
-### <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar los archivos y directorios de un recurso compartido de Azure File
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar los archivos y directorios de un recurso compartido de Azure File
 Para mostrar los archivos y los directorios de un recurso compartido, use el método **list\_directories\_and\_files**. Este método devuelve un generador. El código siguiente ofrece el **nombre** de todos los archivos y el directorio de un recurso compartido de la consola.
 
 ```python
@@ -75,7 +93,7 @@ for file_or_dir in generator:
     print(file_or_dir.name)
 ```
 
-### <a name="upload-a-file"></a>Cargar un archivo 
+## <a name="upload-a-file"></a>Cargar un archivo 
 Un recurso compartido de Azure File contiene como mínimo un directorio raíz donde pueden residir los archivos. En esta sección, aprenderá cómo cargar un archivo del almacenamiento local en el directorio raíz de un recurso compartido.
 
 Para crear un archivo y actualizar los datos, use los métodos `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` o `create_file_from_text`. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
@@ -94,7 +112,7 @@ file_service.create_file_from_path(
     content_settings=ContentSettings(content_type='image/png'))
 ```
 
-### <a name="download-a-file"></a>Descarga de un archivo
+## <a name="download-a-file"></a>Descarga de un archivo
 Para descargar los datos de un archivo, use `get_file_to_path`, `get_file_to_stream`, `get_file_to_bytes` o `get_file_to_text`. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
 En el ejemplo siguiente se muestra cómo usar `get_file_to_path` para descargar el contenido en el archivo **myfile** y almacenarlo en el archivo **out-sunset.png**.
@@ -103,11 +121,62 @@ En el ejemplo siguiente se muestra cómo usar `get_file_to_path` para descargar 
 file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 ```
 
-### <a name="delete-a-file"></a>Eliminación de un archivo
+## <a name="delete-a-file"></a>Eliminación de un archivo
 Finalmente, para eliminar un archivo, llame a `delete_file`.
 
 ```python
 file_service.delete_file('myshare', None, 'myfile')
+```
+
+## <a name="create-share-snapshot-preview"></a>Creación de una instantánea de recurso compartido (versión preliminar)
+Puede crear una copia a un punto dado de todo el recurso compartido de archivos.
+
+```python
+snapshot = file_service.snapshot_share(share_name)
+snapshot_id = snapshot.snapshot
+```
+
+**Creación de una instantánea de recurso compartido con metadatos**
+
+```python
+metadata = {"foo": "bar"}
+snapshot = file_service.snapshot_share(share_name, metadata=metadata)
+```
+
+## <a name="list-shares-and-snapshots"></a>Enumeración de recursos compartidos e instantáneas 
+Puede enumerar todas las instantáneas para un recurso compartido determinado.
+
+```python
+shares = list(file_service.list_shares(include_snapshots=True))
+```
+
+## <a name="browse-share-snapshot"></a>Examinación de instantáneas de recurso compartido
+Puede examinar el contenido de cada instantánea de recurso compartido para recuperar archivos y directorios desde ese punto dado.
+
+```python
+directories_and_files = list(file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
+```
+
+## <a name="get-file-from-share-snapshot"></a>Obtención del archivo desde una instantánea de recurso compartido
+Puede descargar un archivo desde una instantánea de recurso compartido para el escenario de restauración.
+
+```python
+with open(FILE_PATH, 'wb') as stream:
+    file = file_service.get_file_to_stream(share_name, directory_name, file_name, stream, snapshot=snapshot_id)
+```
+
+## <a name="delete-a-single-share-snapshot"></a>Eliminación de una instantánea de recurso compartido única  
+Puede eliminar una instantánea de recurso compartido única.
+
+```python
+file_service.delete_share(share_name, snapshot=snapshot_id)
+```
+
+## <a name="delete-share-when-share-snapshots-exist"></a>Eliminación de un recurso compartido cuando existen instantáneas de recurso compartido
+No se puede eliminar un recurso compartido que contenga instantáneas a no ser que todas las instantáneas se eliminen primero.
+
+```python
+file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

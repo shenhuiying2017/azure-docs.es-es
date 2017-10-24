@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: integración de Azure Active Directory con @Task| Microsoft Docs"
+title: "Tutorial: Integración de Azure Active Directory con @Task | Microsoft Docs"
 description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y @Task."
 services: active-directory
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
-ms.openlocfilehash: cba595704af8e48506a25d592770ec273cb9bd30
-
-
+ms.openlocfilehash: ebb19ca6cbaf04106fbce937d95651e709854cfd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-task"></a>Tutorial: integración de Azure Active Directory con @Task
 El objetivo de este tutorial es mostrar cómo integrar @Task con Azure Active Directory (Azure AD).  
@@ -31,7 +31,7 @@ La integración de @Task con Azure AD le proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para configurar la integración de Azure AD con @Task,, se necesitan los siguientes elementos:
+Para configurar la integración de Azure AD con @Task, se necesitan los siguientes elementos:
 
 * Una suscripción de Azure AD
 * Una suscripción habilitada para inicio de sesión único en @Task
@@ -84,9 +84,9 @@ El objetivo de esta sección es mostrar cómo configurar y probar el inicio de s
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de @Task para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de @Task.   
 Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en @Task.
 
-Para configurar y probar el inicio de sesión único de Azure AD con @Task,, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con @Task, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de prueba de @Tasktest](#creating-a-halogen-software-test-user)** : para tener un homólogo de Britta Simon en @Taskthat que esté vinculado a la representación de esta en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
@@ -95,7 +95,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con @Task,, es 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación @Task.
 
-**Para configurar el inicio de sesión único de Azure AD con @Task,, realice los pasos siguientes:**
+**Para configurar el inicio de sesión único de Azure AD con @Task, realice los pasos siguientes:**
 
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **@Task**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
@@ -191,7 +191,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 ### <a name="creating-an-task-test-user"></a>Creación de un usuario de prueba de @Task
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en @Task.
 
-**Para crear un usuario llamado Britta Simon en @Task,, realice los pasos siguientes:**
+**Para crear un usuario llamado Britta Simon en @Task, realice los pasos siguientes:**
 
 1. Inicie sesión en su sitio de la compañía de @Task como administrador.
 2. En el menú de la parte superior, haga clic en **People**(Personas).
@@ -213,7 +213,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 ![Asignar usuario][200] 
 
-**Para asignar a Britta Simon a @Task,, realice los pasos siguientes:**
+**Para asignar a Britta Simon a @Task, realice los pasos siguientes:**
 
 1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
    
@@ -269,11 +269,5 @@ Al hacer clic en el icono de @Task en el Panel de acceso, debería iniciar sesi�
 
 
 
-
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

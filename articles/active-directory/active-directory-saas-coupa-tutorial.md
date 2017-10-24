@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integración de Azure Active Directory con Coupa
 El objetivo de este tutorial es mostrar la integración de Azure y Coupa.  
@@ -142,7 +142,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 **Para asignar usuarios a Coupa, lleve a cabo los siguientes pasos:**
 
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
-2. En el ** Coupa ** página de integración de aplicaciones, haga clic en **asignar usuarios**.
+2. En la página de integración de aplicaciones de **Coupa **, haga clic en **Asignar usuarios**.
    
    ![Asignar usuarios](./media/active-directory-saas-coupa-tutorial/IC791911.png "Asignar usuarios")
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.

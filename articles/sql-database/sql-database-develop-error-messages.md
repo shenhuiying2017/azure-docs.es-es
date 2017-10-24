@@ -14,14 +14,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/28/2017
 ms.author: sstein
+ms.openlocfilehash: 9f9dfd039b76e4bedfb7f59d042123fa54d6b615
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: bcf5f4027764b6be3880d597cdf85e83eb967169
-ms.contentlocale: es-es
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de error para las aplicaciones cliente de SQL Database: errores de conexión de bases de datos y otros problemas
 
@@ -180,7 +179,7 @@ Los siguientes errores no se incluyen en ninguna categoría anterior.
 | 40607 |16 |Los inicios de sesión de Windows no se admiten en esta versión de SQL Server. |
 | 40611 |16 |Los servidores pueden tener como máximo 128 reglas de firewall definidas. |
 | 40614 |16 |La dirección IP de inicio de la regla de firewall no puede superar la dirección IP final. |
-| 40615 |16 |No se puede abrir el servidor '{0}' solicitado por el inicio de sesión. No está permitido que el cliente con la dirección IP '{1}' acceda al servidor.  Para habilitar el acceso, use el Portal de bases de datos SQL o ejecute sp_set_firewall_rule en la base de datos maestra para crear una regla de firewall para esta dirección IP o intervalo de direcciones.  Puede tardar hasta cinco minutos que este cambio surta efecto. |
+| 40615 |16 |No se puede abrir el servidor '{0}' solicitado por el inicio de sesión. No está permitido que el cliente con la dirección IP '{1}' acceda al servidor.<br /><br />Para habilitar el acceso, use el Portal de SQL Database o ejecute sp\_set\_firewall\_rule en la base de datos maestra para crear una regla de firewall para esta dirección IP o intervalo de direcciones. Puede tardar hasta cinco minutos que este cambio surta efecto. |
 | 40617 |16 |El nombre de la regla de firewall que comienza por (nombre de la regla) es demasiado largo. La longitud máxima es 128. |
 | 40618 |16 |El nombre de la regla de firewall no puede estar vacío. |
 | 40620 |16 |Error de inicio de sesión del usuario "%.&#x2a;ls". Error de cambio de contraseña. El cambio de contraseña durante el inicio de sesión no se admite en esta versión de SQL Server. |
@@ -205,12 +204,12 @@ Los siguientes errores no se incluyen en ninguna categoría anterior.
 | 40651 |16 |No se pudo crear el servidor porque la suscripción (identificador_de_suscripción) está deshabilitada. |
 | 40652 |16 |No se puede mover ni crear un servidor. La suscripción (identificador_de_suscripción) superará la cuota de servidor. |
 | 40671 |17 |Error de comunicación entre la puerta de enlace y el servicio de administración. Inténtelo de nuevo más tarde. |
-| 40852 |16 |No se puede abrir la base de datos '%.*ls' del servidor '%.*ls' solicitada por el inicio de sesión. Solo se permite el acceso a la base de datos mediante una cadena de conexión habilitada para seguridad. Para obtener acceso a esta base de datos, modifique las cadenas de conexión que contienen 'secure' en el FQDN de servidor - 'nombre de servidor'.database.windows.net debe cambiarse a 'nombre de servidor'.database.`secure`.windows.net. |
+| 40852 |16 |No se puede abrir la base de datos '%.\*ls' del servidor '%.\*ls' solicitada por el inicio de sesión. Solo se permite el acceso a la base de datos mediante una cadena de conexión habilitada para seguridad. Para obtener acceso a esta base de datos, modifique las cadenas de conexión que contienen 'secure' en el FQDN de servidor - 'nombre de servidor'.database.windows.net debe cambiarse a 'nombre de servidor'.database.`secure`.windows.net. |
+| 40914 | 16 | No se puede abrir el servidor "*[nombre-servidor]*" solicitado por el inicio de sesión. No está permitido que el cliente acceda al servidor.<br /><br />Para solucionar el problema, considere la posibilidad de agregar una [regla de red virtual](sql-database-vnet-service-endpoint-rule-overview.md). |
 | 45168 |16 |El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones DB CRUD simultáneas para un único servidor (por ejemplo, crear base de datos). El servidor especificado en el mensaje de error ha superado el número máximo de conexiones simultáneas. Inténtelo de nuevo más tarde. |
 | 45169 |16 |El sistema de SQL Azure está bajo carga y está colocando un límite superior en operaciones CRUD de servidor simultáneas para una única suscripción (por ejemplo, crear servidor). La suscripción especificada en el mensaje de error ha superado el número máximo de conexiones simultáneas y se denegó la solicitud. Inténtelo de nuevo más tarde. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Conozca más detalles sobre las [características de Azure SQL Database](sql-database-features.md).
 * Conozca más detalles sobre los [niveles de servicio](sql-database-service-tiers.md).
-
 

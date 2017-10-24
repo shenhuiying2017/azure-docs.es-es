@@ -1,9 +1,9 @@
 ---
-title: "Servicio de metadatos de instancia de Azure para máquinas virtuales Linux | Microsoft Docs"
+title: Servicio de metadatos de instancia de Azure | Microsoft Docs
 description: "Interfaz RESTful para obtener información sobre proceso, red y próximos eventos de mantenimiento de la máquina virtual Linux."
 services: virtual-machines-linux
 documentationcenter: 
-author: harijay
+author: harijayms
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -12,17 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/11/2017
-ms.author: harijay
+ms.date: 10/10/2017
+ms.author: harijayms
+ms.openlocfilehash: 1ed64ece4d05dea93fd15e24aaf9921d8614277e
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: a61acbe0532ece3a6a26ceb366c12c69db4c304c
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/12/2017
 ---
-
-# <a name="azure-instance-metadata-service-for-linux-vms"></a>Servicio de metadatos de instancia de Azure para máquinas virtuales Linux
+# <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
 
 El servicio de metadatos de instancia de Azure proporciona información sobre instancias de máquina virtual en ejecución que pueden usarse para administrar y configurar las máquinas virtuales.
@@ -31,31 +29,31 @@ Esto incluye información como SKU, configuración de red y eventos de mantenimi
 El servicio de metadatos de instancia de Azure es un punto de conexión REST al que pueden tener acceso todas las máquinas virtuales IaaS creadas a través de [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). El punto de conexión está disponible en una dirección IP no enrutable conocida (`169.254.169.254`) a la que solo se puede tener acceso desde dentro de la máquina virtual.
 
 > [!IMPORTANT]
-> Este servicio está **disponible con carácter general** en regiones de Azure globales. Azure Cloud se encuentra en versión preliminar pública para Azure Government, Azure en China y Azure Alemania. Recibe actualizaciones periódicas para exponer información nueva sobre instancias de máquina virtual. En esta página se reflejan las [categorías de datos](#instance-metadata-data-categories) actualizadas disponibles.
+> Este servicio está **disponible con carácter general** en todas las regiones de Azure.  Recibe actualizaciones periódicas para exponer información nueva sobre instancias de máquina virtual. En esta página se reflejan las [categorías de datos](#instance-metadata-data-categories) actualizadas disponibles.
 
 ## <a name="service-availability"></a>Disponibilidad del servicio
-El servicio está disponible con carácter general en regiones de Azure globales. El servicio se encuentra en versión preliminar pública en las regiones Government, China y Alemania.
+El servicio está disponible con carácter general en todas las regiones de Azure. Puede que no todas las versiones de API estén disponibles en todas las regiones de Azure.
 
-Regiones                                        | ¿Disponibilidad?
------------------------------------------------|-----------------------------------------------
-[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general 
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | En versión preliminar 
-[Azure en China](https://www.azure.cn/)                                                           | En versión preliminar
-[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | En versión preliminar
+Regiones                                        | ¿Disponibilidad?                                 | Versiones compatibles
+-----------------------------------------------|-----------------------------------------------|-----------------
+[Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general   | 2017-04-02, 2017-08-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02
+[Azure en China](https://www.azure.cn/)                                                           | Disponibilidad general | 2017-04-02
+[Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibilidad general | 2017-04-02
 
-Esta tabla se actualiza cuando el servicio está disponible en otras nubes de Azure.
+Esta tabla se actualiza cuando hay actualizaciones del servicio o hay nuevas versiones compatibles disponibles
 
 Para probar el servicio de metadatos de instancia, cree una máquina virtual desde [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) o [Azure Portal](http://portal.azure.com) en las regiones anteriores, y siga los ejemplos siguientes.
 
 ## <a name="usage"></a>Uso
 
 ### <a name="versioning"></a>Control de versiones
-El servicio de metadatos de instancia tiene versiones. Las versiones son obligatorias y la versión actual es la `2017-04-02`.
+El servicio de metadatos de instancia tiene versiones. Las versiones son obligatorias y la versión actual de Global Azure es la `2017-08-01`. Las versiones compatibles actuales son (2017-04-02, 2017-08-01)
 
 > [!NOTE] 
 > Las versiones preliminares de eventos programados compatibles {más reciente} como la versión de api. Este formato ya no es compatible y dejará de utilizarse en el futuro.
 
-A medida que agreguemos versiones más recientes, todavía se podrá acceder a las versiones anteriores por motivos de compatibilidad si los scripts tienen dependencias en formatos de datos específicos. Pero tenga en cuenta que es posible que la versión preliminar actual (2017-03-01) no esté disponible una vez que el servicio esté disponible con carácter general.
+A medida que agreguemos versiones más recientes, todavía se podrá acceder a las versiones anteriores por motivos de compatibilidad si los scripts tienen dependencias en formatos de datos específicos. Pero tenga en cuenta que es posible que la versión preliminar anterior (2017-03-01) no esté disponible una vez que el servicio esté disponible con carácter general.
 
 ### <a name="using-headers"></a>Uso de encabezados
 Al consultar el servicio de metadatos de instancia, debe proporcionar el encabezado `Metadata: true` para asegurarse de que la solicitud no se ha redirigido de manera involuntaria.
@@ -72,7 +70,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Todas las consultas de metadatos de instancia distinguen mayúsculas de minúsculas.
 
 ### <a name="data-output"></a>Salida de datos
-De forma predeterminada, el servicio de metadatos de instancia devuelve datos en formato JSON (`Content-Type: application/json`). Pero las distintas API pueden devolver los datos en formatos diferentes si se solicita.
+De forma predeterminada, el servicio de metadatos de instancia devuelve datos en formato JSON (`Content-Type: application/json`). Pero las distintas API devuelven los datos en formatos diferentes si se solicita.
 En la tabla siguiente se muestra una referencia de otros formatos de datos que las API pueden admitir.
 
 API | Formato predeterminado de datos | Otros formatos
@@ -112,7 +110,7 @@ Código de estado HTTP | Motivo
 **Solicitud**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
 **Respuesta**
@@ -159,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Solicitud**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 **Respuesta**
@@ -170,17 +168,21 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```
 {
   "compute": {
-    "location": "westcentralus",
-    "name": "IMDSSample",
+    "location": "westus",
+    "name": "avset2",
     "offer": "UbuntuServer",
     "osType": "Linux",
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
+    "placementGroupId": "",
+    "platformFaultDomain": "1",
+    "platformUpdateDomain": "1",
     "publisher": "Canonical",
-    "sku": "16.04.0-LTS",
-    "version": "16.04.201610200",
-    "vmId": "5d33a910-a7a0-4443-9f01-6a807801b29b",
-    "vmSize": "Standard_A1"
+    "resourceGroupName": "myrg",
+    "sku": "16.04-LTS",
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "",
+    "version": "16.04.201708030",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
+    "vmSize": "Standard_D1"
   },
   "network": {
     "interface": [
@@ -188,13 +190,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
         "ipv4": {
           "ipAddress": [
             {
-              "privateIpAddress": "10.1.0.4",
+              "privateIpAddress": "10.1.2.5",
               "publicIpAddress": "X.X.X.X"
             }
           ],
           "subnet": [
             {
-              "address": "10.1.0.0",
+              "address": "10.1.2.0",
               "prefix": "24"
             }
           ]
@@ -202,7 +204,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
         "ipv6": {
           "ipAddress": []
         },
-        "macAddress": "000D3AF806EC"
+        "macAddress": "000D3A36DDED"
       }
     ]
   }
@@ -277,26 +279,30 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>Categorías de datos de metadatos de instancia
 Las categorías de datos siguientes están disponibles a través del servicio de metadatos de instancia:
 
-Datos | Descripción
------|------------
-location | La región de Azure donde se ejecuta la máquina virtual
-name | Nombre de la máquina virtual 
-offer | Ofrece información para la imagen de máquina virtual. Este valor solo está presente para las imágenes que se implementan desde la galería de imágenes de Azure.
-publisher | Publicador de la imagen de VM
-sku | SKU específica de la imagen de VM  
-versión | Versión de la imagen de máquina virtual 
-osType | Linux o Windows 
-platformUpdateDomain |  El [dominio de actualización](manage-availability.md) en que se ejecuta la máquina virtual.
-platformFaultDomain | El [dominio de error](manage-availability.md) en que se ejecuta la máquina virtual.
-vmId | [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para la máquina virtual.
-vmSize | [Tamaño de VM](sizes.md)
-ipv4/privateIpAddress | Dirección IPv4 local de la máquina virtual 
-ipv4/publicIpAddress | Dirección IPv4 pública de la máquina virtual
-subnet/address | Dirección de subred de la máquina virtual
-subnet/prefix | Prefijo de la subred, ejemplo, 24
-ipv6/ipAddress | Dirección IPv6 local de la máquina virtual
-macAddress | Dirección de MAC de la VM 
-scheduledevents | Actualmente en Versión preliminar pública Vea [scheduledevents](scheduled-events.md)
+Datos | Descripción | Versión de introducción 
+-----|-------------|-----------------------
+location | La región de Azure donde se ejecuta la máquina virtual | 2017-04-02 
+name | Nombre de la máquina virtual | 2017-04-02
+offer | Ofrece información para la imagen de máquina virtual. Este valor solo está presente para las imágenes que se implementan desde la galería de imágenes de Azure. | 2017-04-02
+publisher | Publicador de la imagen de VM | 2017-04-02
+sku | SKU específica de la imagen de VM | 2017-04-02
+versión | Versión de la imagen de máquina virtual | 2017-04-02
+osType | Linux o Windows | 2017-04-02
+platformUpdateDomain |  El [dominio de actualización](manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
+platformFaultDomain | El [dominio de error](manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
+vmId | [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para la máquina virtual. | 2017-04-02
+vmSize | [Tamaño de VM](sizes.md) | 2017-04-02
+subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
+etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para su máquina virtual  | 2017-08-01
+resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para su máquina virtual | 2017-08-01
+placementGroupId | [Grupo de selección de ubicación](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de su conjunto de escalado de máquina virtual | 2017-08-01
+ipv4/privateIpAddress | Dirección IPv4 local de la máquina virtual | 2017-04-02
+ipv4/publicIpAddress | Dirección IPv4 pública de la máquina virtual | 2017-04-02
+subnet/address | Dirección de subred de la máquina virtual | 2017-04-02 
+subnet/prefix | Prefijo de la subred, ejemplo, 24 | 2017-04-02 
+ipv6/ipAddress | Dirección IPv6 local de la máquina virtual | 2017-04-02 
+macAddress | Dirección de MAC de la VM | 2017-04-02 
+scheduledevents | Actualmente en Versión preliminar pública Vea [scheduledevents](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Escenarios de ejemplo de uso  
 
@@ -371,11 +377,11 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Idioma | Ejemplo 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lan   | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
     
@@ -387,13 +393,15 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
    * Actualmente el servicio de metadatos de instancia solo admite instancias creadas con Azure Resource Manager. En el futuro, es posible que se agregue compatibilidad para máquinas virtuales de servicio en la nube.
 3. Creé mi máquina virtual mediante Azure Resource Manager hace un tiempo. ¿Por qué no veo la información de metadatos de proceso?
    * En el caso de las máquinas virtuales que se crearon después de septiembre de 2016, agregue una [etiqueta](../../azure-resource-manager/resource-group-using-tags.md) para empezar a ver los metadatos de proceso. En el caso de máquinas virtuales anteriores (creadas antes de septiembre de 2016), agregue o quite extensiones o discos de datos a la máquina virtual para actualizar los metadatos.
-4. ¿Por qué recibo el error `500 Internal Server Error`?
+4. No veo todos los datos rellenados para la nueva versión de 2017-08-01
+   * En el caso de las máquinas virtuales que se crearon después de septiembre de 2016, agregue una [etiqueta](../../azure-resource-manager/resource-group-using-tags.md) para empezar a ver los metadatos de proceso. En el caso de máquinas virtuales anteriores (creadas antes de septiembre de 2016), agregue o quite extensiones o discos de datos a la máquina virtual para actualizar los metadatos.
+5. ¿Por qué recibo el error `500 Internal Server Error`?
    * Vuelva a intentar la solicitud en función del sistema de interrupción exponencial. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Azure.
-5. ¿Dónde puedo compartir preguntas o comentarios adicionales?
+6. ¿Dónde puedo compartir preguntas o comentarios adicionales?
    * Envíe los comentarios en http://feedback.azure.com.
 7. ¿Esto funciona para la instancia del conjunto de escala de máquinas virtuales?
    * Sí, el servicio de metadatos está disponible para las instancias del conjunto de escala. 
-6. ¿Cómo puedo obtener soporte técnico para el servicio?
+8. ¿Cómo puedo obtener soporte técnico para el servicio?
    * Para obtener soporte técnico para el servicio, cree un problema de compatibilidad en Azure Portal para la máquina virtual en la que no es posible obtener respuesta de metadatos después de reintentos prolongados 
 
    ![Soporte técnico de metadatos de instancia](./media/instance-metadata-service/InstanceMetadata-support.png)
@@ -401,4 +409,3 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre la API [Scheduled Events](scheduled-events.md) **en versión preliminar pública** proporcionada por el servicio de metadatos de instancia.
-

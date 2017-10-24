@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
+ms.openlocfilehash: a56d48eaf335d9e78eeba99162cea7c61d96b7cb
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ef73f9036a91d5bac50597d1d96fe134225eef51
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database 
 Azure SQL Database puede emitir métricas y registros de diagnóstico para facilitar la supervisión. Azure SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y las sesiones y la conectividad en uno de estos recursos de Azure:
@@ -49,7 +48,7 @@ Puede aprovisionar un nuevo recurso de Azure o seleccionar uno existente. Despu�
 - **[Métricas de 1 minuto](sql-database-metrics-diag-logging.md#1-minute-metrics)**: contiene porcentaje de DTU; límite de DTU; porcentaje de CPU; porcentaje de lectura de datos físicos; porcentaje de escritura en registro; conexiones correctas, erróneas o bloqueadas por el firewall; porcentaje de sesiones; porcentaje de trabajadores; almacenamiento; porcentaje de almacenamiento y porcentaje de almacenamiento de XTP.
 - **[QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics)**: contiene la información sobre las estadísticas de tiempo de ejecución de consulta, como el uso de CPU, la duración de la consulta, etc.
 - **[QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics)**: contiene la información sobre las estadísticas de espera de las consultas que le indica el motivo de la espera de sus consultas, como la CPU, el registro, el bloqueo, etc.
-- **[Errores](sql-database-metrics-diag-logging.md#errors-dataset)** : contiene la información sobre los errores de SQL producidos en esta base de datos.
+- **[Errores](sql-database-metrics-diag-logging.md#errors-dataset)**: contiene la información sobre los errores de SQL producidos en esta base de datos.
 - **[DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset)**: contiene la información sobre cuánto tiempo ha dedicado una base de datos en esperar distintos tipos de espera.
 - **[Tiempos de expiración](sql-database-metrics-diag-logging.md#timeouts-dataset)**: contiene la información sobre cuánto tiempo ha dedicado una base de datos en esperar distintos tipos de espera.
 - **[Bloqueos](sql-database-metrics-diag-logging.md#blockings-dataset)**: contiene la información acerca de los eventos de bloqueo que se produjeron en una base de datos.
@@ -106,6 +105,17 @@ Para habilitar las métricas y los registros de diagnóstico con PowerShell, use
    ```
 
 Puede combinar estos parámetros para habilitar varias opciones de salida.
+
+### <a name="to-configure-multiple-azure-subscriptions"></a>Configuración de varias suscripciones de Azure
+
+Para admitir varias suscripciones, use el script de PowerShell de [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/) (Habilitar registro de métricas de recursos de Azure mediante PowerShell). Proporcione el identificador de recurso del área de trabajo como un parámetro al ejecutar el script para enviar los datos de diagnóstico de los recursos de una suscripción de Azure a un área de trabajo de otra suscripción de Azure.
+
+- Para configurar varias suscripciones de Azure, use los siguientes comandos:
+
+    ```powershell
+    PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
+    PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
+    ```
 
 ### <a name="azure-cli"></a>CLI de Azure
 
@@ -261,7 +271,7 @@ Vea [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/s
 |ResourceGroup|Nombre del grupo de recursos al que pertenece la base de datos|
 |LogicalServerName_s|Nombre del servidor al que pertenece la base de datos|
 |ElasticPoolName_s|Nombre del grupo elástico al que pertenece la base de datos, si pertenece a alguno|
-|DatabaseName_s|Nombre de la base de datos.|
+|DatabaseName_s|Nombre de la base de datos|
 |ResourceId|URI de recurso|
 |query_hash_s|Hash de consulta|
 |query_plan_hash_s|Hash del plan de consulta|
@@ -448,4 +458,3 @@ Vea [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/s
    - [¿Qué es Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Introducción a Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Vea [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs) (Descargar métricas y registros de diagnóstico de Azure Storage).
-

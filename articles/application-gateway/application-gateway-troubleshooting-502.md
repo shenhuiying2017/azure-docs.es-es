@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
-ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solución de errores de puerta de enlace incorrecta en el servicio Puerta de enlace de aplicaciones
 
 Aprenda a solucionar problemas de errores de puerta de enlace incorrecta (502) recibidos al usar Application Gateway.
@@ -31,63 +29,48 @@ Aprenda a solucionar problemas de errores de puerta de enlace incorrecta (502) r
 
 Después de configurar una instancia de Azure Application Gateway, uno de los errores que se pueden encontrar los usuarios es "Error de servidor 502: el servidor web recibió una respuesta no válida mientras actuaba como puerta de enlace o servidor proxy". Este error puede ocurrir debido a los siguientes motivos principales:
 
-* [El grupo back-end de la instancia de Azure Application Gateway no está configurado o está vacío](#empty-backendaddresspool).
-* Ninguna de las máquinas virtuales o instancias del [conjunto de escalado de máquina virtual está en buen estado](#unhealthy-instances-in-backendaddresspool).
+* Un grupo de seguridad de red, una ruta definida por el usuario o un DNS personalizado están bloqueando el acceso a los miembros del grupo de back-end.
 * Las máquinas virtuales de back-end o instancias del conjunto de escalado de máquina virtual [no responden a la sonda de estado predeterminada](#problems-with-default-health-probe.md).
 * [La configuración de las sondas de estado personalizadas](#problems-with-custom-health-probe.md) no es válida o adecuada.
+* [El grupo back-end de la instancia de Azure Application Gateway no está configurado o está vacío](#empty-backendaddresspool).
+* Ninguna de las máquinas virtuales o instancias del [conjunto de escalado de máquina virtual está en buen estado](#unhealthy-instances-in-backendaddresspool).
 * [El tiempo de espera de solicitud se superó o hay problemas de conectividad](#request-time-out) con las solicitudes de usuario.
 
-## <a name="empty-backendaddresspool"></a>Valor de BackendAddressPool vacío
+## <a name="network-security-group-user-defined-route-or-custom-dns-issue"></a>Problema con grupo de seguridad de red, ruta definida por el usuario o DNS personalizado
 
 ### <a name="cause"></a>Causa
 
-Si la instancia de Application Gateway no tiene máquinas virtuales ni un conjunto de escalas de máquina virtual configurado en el grupo de direcciones back-end, no se pueden enrutar solicitudes de clientes y se genera un error de puerta de enlace incorrecta.
+Si el acceso al back-end se bloquea debido a la presencia de un grupo de seguridad de red, una ruta definida por el usuario o un DNS personalizado, las instancias de Application Gateway no podrán ponerse en contacto con el grupo de back-end y darán como resultado errores de sondeo que provocarán errores 502. Tenga en cuenta que el grupo de seguridad de red y la ruta definida por el usuario pueden estar presentes en la subred de Application Gateway o en la subred donde están implementadas las máquinas virtuales de la aplicación. De igual forma, la presencia de un DNS personalizado en la red virtual también podría provocar problemas si se utiliza un FQDN para los miembros del grupo de back-end y el servidor DNS configurado por el usuario para la red virtual no lo resuelve correctamente.
 
 ### <a name="solution"></a>Solución
 
-Asegúrese de que el grupo de direcciones back-end no está vacío. Puede hacerlo mediante PowerShell, la CLI o el Portal.
+Valide la configuración de NSG, UDR y DNS mediante los pasos siguientes:
+* Compruebe los grupos de seguridad de red asociados a la subred de Application Gateway. Asegúrese de que la comunicación con el back-end no se bloquea.
+* Compruebe la ruta definida por el usuario asociada a la subred de Application Gateway. Asegúrese de que la ruta definida por el usuario no aleja el tráfico de la subred de back-end. Por ejemplo, compruebe el enrutamiento a aplicaciones virtuales de red o las rutas predeterminadas anunciadas en la subred de Application Gateway mediante ExpressRoute/VPN.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
-El resultado del cmdlet anterior debe contener un grupo de direcciones back-end que no esté vacío. A continuación, se muestra un ejemplo en el que se devuelven dos grupos que están configurados con direcciones IP o FQDN de máquinas virtuales de back-end. El estado de aprovisionamiento de BackendAddressPool debe ser "Correcto".
+* Compruebe el grupo de seguridad de red y la ruta efectivos con la máquina virtual de back-end.
 
-BackendAddressPoolsText:
+```powershell
+Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+```
+
+* Compruebe la presencia de DNS personalizado en la red virtual. El DNS se puede comprobar examinando los detalles de las propiedades de red virtual en la salida.
 
 ```json
-[{
-    "BackendAddresses": [{
-        "ipAddress": "10.0.0.10",
-        "ipAddress": "10.0.0.11"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool01",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
-}, {
-    "BackendAddresses": [{
-        "Fqdn": "xyx.cloudapp.net",
-        "Fqdn": "abc.cloudapp.net"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool02",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
-}]
+Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+DhcpOptions            : {
+                           "DnsServers": [
+                             "x.x.x.x"
+                           ]
+                         }
 ```
-
-## <a name="unhealthy-instances-in-backendaddresspool"></a>Instancias incorrectas en BackendAddressPool
-
-### <a name="cause"></a>Causa
-
-Si todas las instancias de BackendAddressPool son incorrectas, el servicio Application Gateway no tendría ningún back-end al que enrutar la solicitud de usuario. También podría pasar cuando las instancias back-end con correctas, pero no tienen implementada la aplicación necesaria.
-
-### <a name="solution"></a>Solución
-
-Asegúrese de que las instancias son correctas y de que la aplicación está configurada de la forma adecuada. Compruebe si las instancias back-end pueden responder a un ping de otra máquina virtual de la misma red virtual. Si se configura con un punto de conexión público, asegúrese de que se pueda utilizar una solicitud de explorador a la aplicación web.
+Si está presente, asegúrese de que el servidor DNS pueda resolver correctamente el FQDN de los miembros del grupo de back-end.
 
 ## <a name="problems-with-default-health-probe"></a>Problemas con la sonda de estado predeterminada
 
@@ -138,7 +121,7 @@ Valide que el sondeo de mantenimiento personalizado esté configurado correctame
 * Si utiliza un sondeo HTTPS, asegúrese de que el servidor de back-end no requiera SNI; para ello, configure un certificado de reserva en dicho servidor. 
 * Compruebe que los valores del intervalo, el tiempo de espera y UnhealtyThreshold estén dentro de rangos aceptables.
 
-## <a name="request-time-out"></a>Tiempo de solicitud superado
+## <a name="request-time-out"></a>Tiempo de espera de solicitud superado
 
 ### <a name="cause"></a>Causa
 
@@ -146,14 +129,65 @@ Cuando se recibe una solicitud de usuario, la instancia de Application Gateway a
 
 ### <a name="solution"></a>Solución
 
-El servicio Application Gateway permite a los usuarios configurar esta opción mediante BackendHttpSetting que, posteriormente, puede aplicarse a diferentes grupos. Estos grupos back-end pueden tener distintos elementos BackendHttpSetting y, por tanto, diferentes valores configurados para el tiempo de solicitud superado.
+El servicio Application Gateway permite a los usuarios configurar esta opción mediante BackendHttpSetting que, posteriormente, puede aplicarse a diferentes grupos. Estos grupos de back-end pueden tener distintos elementos BackendHttpSetting y, por tanto, diferentes valores configurados para el tiempo de solicitud superado.
 
 ```powershell
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
+## <a name="empty-backendaddresspool"></a>Valor de BackendAddressPool vacío
+
+### <a name="cause"></a>Causa
+
+Si la instancia de Application Gateway no tiene máquinas virtuales ni un conjunto de escalas de máquina virtual configurado en el grupo de direcciones de back-end, no se pueden enrutar solicitudes de clientes y se genera un error de puerta de enlace incorrecta.
+
+### <a name="solution"></a>Solución
+
+Asegúrese de que el grupo de direcciones back-end no está vacío. Puede hacerlo mediante PowerShell, la CLI o el Portal.
+
+```powershell
+Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+```
+
+El resultado del cmdlet anterior debe contener un grupo de direcciones back-end que no esté vacío. A continuación, se muestra un ejemplo en el que se devuelven dos grupos que están configurados con direcciones IP o FQDN de máquinas virtuales de back-end. El estado de aprovisionamiento de BackendAddressPool debe ser "Correcto".
+
+BackendAddressPoolsText:
+
+```json
+[{
+    "BackendAddresses": [{
+        "ipAddress": "10.0.0.10",
+        "ipAddress": "10.0.0.11"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool01",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
+}, {
+    "BackendAddresses": [{
+        "Fqdn": "xyx.cloudapp.net",
+        "Fqdn": "abc.cloudapp.net"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool02",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
+}]
+```
+
+## <a name="unhealthy-instances-in-backendaddresspool"></a>Instancias incorrectas en BackendAddressPool
+
+### <a name="cause"></a>Causa
+
+Si todas las instancias de BackendAddressPool son incorrectas, el servicio Application Gateway no tendría ningún back-end al que enrutar la solicitud de usuario. También podría pasar cuando las instancias back-end con correctas, pero no tienen implementada la aplicación necesaria.
+
+### <a name="solution"></a>Solución
+
+Asegúrese de que las instancias son correctas y de que la aplicación está configurada de la forma adecuada. Compruebe si las instancias back-end pueden responder a un ping de otra máquina virtual de la misma red virtual. Si se configura con un punto de conexión público, asegúrese de que se pueda utilizar una solicitud de explorador a la aplicación web.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si los pasos anteriores no resuelven el problema, abra una [incidencia de soporte técnico](https://azure.microsoft.com/support/options/).
-
 

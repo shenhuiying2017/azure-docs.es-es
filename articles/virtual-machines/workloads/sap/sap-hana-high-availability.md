@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
 ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Alta disponibilidad de SAP HANA en las máquinas virtuales (VM) de Azure
 
@@ -369,7 +369,7 @@ Siga el capítulo 4 de la [Guía del escenario de rendimiento optimizado para la
     * Escriba la ubicación de los volúmenes de datos [/hana/data/HDB]: -> ENTRAR
     * Escriba la ubicación de los volúmenes de registros [/hana/log/HDB]: -> ENTRAR
     * ¿Restringir la asignación de memoria máxima? [n]: -> ENTRAR
-    * Escriba el nombre del host del certificado para el host "..." [...]: -> ENTRAR
+    * Escriba el nombre del host del certificado para el host "..." -> ENTRAR
     * Escriba la contraseña del usuario del agente de host de SAP (sapadm):
     * Confirme la contraseña del usuario del agente de host de SAP (sapadm):
     * Escriba la contraseña del administrador del sistema (hdbadm):

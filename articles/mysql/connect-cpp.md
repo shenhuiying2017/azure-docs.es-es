@@ -10,20 +10,18 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: C++
 ms.topic: quickstart
-ms.date: 08/03/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 92620c8081b1f0f5c96cc3ae09465b3526e74042
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 63388b83b913d95136140fa4c56af0dbebbdad81
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL: uso de Connector/C++ para conectarse y consultar datos
-En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de C++. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante C++ y que nunca ha utilizado Azure Database for MySQL.
+En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de C++. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este tema se da por hecho que está familiarizado con el desarrollo mediante C++ y que nunca ha usado Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Requisitos previos
-En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
+En este tutorial rápido se usan como punto de partida los recursos creados en una de las guías siguientes:
 - [Create an Azure Database for MySQL server using Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creación de un servidor de Azure Database for MySQL mediante Azure Portal)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure)
 
@@ -37,25 +35,25 @@ Además, deberá:
 En los pasos de esta sección se supone que está familiarizado con el desarrollo mediante .NET.
 
 ### <a name="windows"></a>**Windows**
-1. Instale Visual Studio 2017 Community, que es un IDE gratuito, ampliable, rico en contenido y visualmente atractivo para la creación de aplicaciones modernas para Android, iOS, Windows, así como aplicaciones web y de base de datos, y servicios en la nube. Puede instalar el paquete completo de .NET Framework o solo .NET Core. Los fragmentos de código del Tutorial de inicio rápido funcionan con cualquiera de las dos opciones. Si Visual Studio ya está instalado en el equipo, omita los dos pasos siguientes.
-   - Descargue el [instalador de Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
-   - Ejecute el instalador y siga las indicaciones para completar la instalación.
+- Instale Visual Studio 2017 Community, que es un IDE gratuito, ampliable, rico en contenido y visualmente atractivo para la creación de aplicaciones modernas para Android, iOS, Windows, así como aplicaciones web y de base de datos, y servicios en la nube. Puede instalar .NET Framework completo o solo .NET Core: los fragmentos de código de la guía de inicio rápido funcionan con cualquiera de las dos opciones. Si Visual Studio ya está instalado en el equipo, omita los dos pasos siguientes.
+   1. Descargue el [instalador de Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
+   2. Ejecute el instalador y siga las indicaciones para completar la instalación.
 
 ### <a name="configure-visual-studio"></a>**Configuración de Visual Studio**
 1. Desde Visual Studio, propiedad del proyecto > propiedades de configuración > C/C++ > vinculador > general > directorios de bibliotecas adicionales, agregue el directorio lib\opt (es decir, C:\Archivos de programa (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) del conector c++.
-2. Desde Visual Studio, propiedad de proyecto > propiedades de configuración > C/C++ > general > directorios de inclusión adicionales
-   - Agregue el directorio include/ del conector de c ++ (es decir, C:\Archivos de programa (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)
-   - Agregue el directorio raíz de la biblioteca Boost (es decir, C:\boost_1_64_0\)
-3. Desde Visual Studio, propiedad de proyecto > propiedades de configuración > C/C++ > vinculador > Entrada > Dependencias adicionales, agregue mysqlcppconn.lib en el campo de texto
-4. Copie el archivo mysqlcppconn.dll desde la carpeta de biblioteca c++ connector en el paso 3 al mismo directorio que la aplicación ejecutable o agréguelo a la variable de entorno para que la aplicación pueda encontrarlo.
+2. Desde Visual Studio, Propiedad de proyecto > Propiedades de configuración > C/C++ > General > Directorios de inclusión adicionales:
+   - Agregue el directorio include/ del conector de C++ (es decir, C:\Archivos de programa (x86)\MySQL\MySQL Connector C++ 1.1.9\include\).
+   - Agregue el directorio raíz de la biblioteca Boost (es decir, C:\boost_1_64_0\).
+3. Desde Visual Studio, propiedad de proyecto > propiedades de configuración > C/C++ > Enlazador > Entrada > Dependencias adicionales, agregue mysqlcppconn.lib en el campo de texto.
+4. Copie el archivo mysqlcppconn.dll desde la carpeta de biblioteca del conector de C++ en el paso 3 al mismo directorio que la aplicación ejecutable o agréguelo a la variable de entorno para que la aplicación pueda encontrarlo.
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 Obtenga la información de conexión necesaria para conectarse a Azure Database for MySQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque el servidor que ha creado, por ejemplo, **myserver4demo**.
+2. En el menú de la izquierda de Azure Portal, haga clic en **Todos los recursos** y busque el servidor que ha creado, por ejemplo, **myserver4demo**.
 3. Haga clic en el nombre del servidor.
-4. Seleccione la página **Propiedades** del servidor. Tome nota del **Nombre del servidor** y del **Server admin login name** (Nombre de inicio de sesión del administrador del servidor).
+4. Seleccione la página **Propiedades** del servidor y anote la información que figura en **Nombre del servidor** y en **Nombre de inicio de sesión del administrador del servidor**.
  ![Nombre del servidor de Azure Database for MySQL](./media/connect-cpp/1_server-properties-name-login.png)
 5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** para ver el nombre de inicio de sesión del administrador del servidor y, si es necesario, restablecer la contraseña.
 
@@ -127,7 +125,7 @@ int main()
 
 ## <a name="read-data"></a>Lectura de datos
 
-Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL **SELECT**. El código usa la clase sql::Driver con el método connect() para establecer una conexión con MySQL. A continuación, el código usa los métodos prepareStatement() y executeQuery() para ejecutar los comandos de selección. Finalmente, el código usa next() para avanzar a los registros de los resultados. A continuación, el código usa getInt() and getString() para analizar los valores del registro.
+Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL **SELECT**. El código usa la clase sql::Driver con el método connect() para establecer una conexión con MySQL. A continuación, el código usa los métodos prepareStatement() y executeQuery() para ejecutar los comandos de selección. Después, el código usa next() para avanzar a los registros de los resultados. Finalmente, el código usa getInt() and getString() para analizar los valores del registro.
 
 Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos. 
 
@@ -282,4 +280,3 @@ int main()
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Migre su Base de datos MySQL a Azure Database for MySQL mediante el volcado y la restauración](concepts-migrate-dump-restore.md)
-

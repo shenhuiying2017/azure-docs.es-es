@@ -6,7 +6,7 @@
 ## [Funcionamiento de la sincronización](active-directory-ds-synchronization.md)
 ## [Software de terceros compatible](active-directory-ds-compatible-software.md)
 
-# Primeros pasos
+# Introducción
 ## [Tarea 1: Configuración básica](active-directory-ds-getting-started.md)
 ## [Tarea 2: Configuración de red](active-directory-ds-getting-started-network.md)
 ## [Tarea 3: Configuración del grupo de administradores y habilitación de Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
@@ -16,7 +16,9 @@
 # Procedimientos
 ## Unirse a un dominio administrado
 ### [Máquina virtual Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Máquina virtual Windows Server con PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Máquina virtual Windows Server a partir de plantilla](active-directory-ds-join-windows-vm-template.md)
+### [CentOS](active-directory-ds-join-centos-linux-vm.md)
+### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
 ### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrar un dominio administrado

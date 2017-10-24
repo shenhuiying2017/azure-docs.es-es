@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
+ms.openlocfilehash: c58cf6485a8a7248e5b8ffce0d279485a80f36ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 480ffce5dbe7c25181bb0ba5639de884e98ff4e6
-ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Envío, recepción y procesamiento por lotes de mensajes en Logic Apps
 
 Para procesar los mensajes juntos en grupos, puede enviar elementos de datos, o mensajes, a un *lote*y, a continuación, procesar esos elementos como lote. Este enfoque es útil cuando desea asegurarse de que los elementos de datos se agrupan y se procesan de una forma específica. 
@@ -62,15 +60,24 @@ La aplicación lógica remitente necesita saber dónde enviar los elementos, mie
 3. Proporcione un nombre para el lote y especifique los criterios para liberar el lote, por ejemplo:
 
    * **Nombre de lote**: el nombre usado para identificar el lote. En este ejemplo es "TestBatch".
+   * **Criterios de liberación**: los criterios de liberación de lotes, que pueden basarse en el número de mensajes, la programación o ambos.
+   
+     ![Proporcionar detalles del desencadenador de lotes](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
+
    * **Número de mensajes**: el número de mensajes que se van a almacenar como lote antes de liberarlo para su procesamiento. En este ejemplo es "5".
 
-   ![Proporcionar detalles del desencadenador de lotes](./media/logic-apps-batch-process-send-receive-messages/receive-batch-trigger-details.png)
+     ![Proporcionar detalles del desencadenador de lotes](./media/logic-apps-batch-process-send-receive-messages/receive-batch-count-based.png)
 
-4. Agregue otra acción que envíe un correo electrónico cuando se active el desencadenador de lotes. Cada vez que el lote tiene cinco elementos, la aplicación lógica envía un correo electrónico.
+   * **Programación**: la programación de la liberación de lotes para su procesamiento, que es "cada 5 minutos" en este ejemplo.
+
+     ![Proporcionar detalles del desencadenador de lotes](./media/logic-apps-batch-process-send-receive-messages/receive-batch-schedule-based.png)
+
+
+4. Agregue otra acción que envíe un correo electrónico cuando se active el desencadenador de lotes. Cada vez que el lote tiene cinco elementos o han pasado 5 minutos, la aplicación lógica envía un correo electrónico.
 
    1. En el desencadenador de lotes, elija **+ Nuevo paso** > **Agregar una acción**.
 
-   2. En el cuadro de búsqueda, escriba "email" para el filtro.
+   2. En el cuadro de búsqueda, escriba "email" como filtro.
    En función de su proveedor de correo electrónico, seleccione un conector de correo electrónico.
    
       Por ejemplo, si tiene una cuenta profesional o educativa, seleccione el conector de Office 365 Outlook. 
@@ -194,4 +201,3 @@ La aplicación lógica BatchSender se ejecuta cada minuto, genera un número ale
 * [Generar definiciones de aplicación lógica mediante el uso de JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Cree una aplicación sin servidor en Visual Studio con Azure Logic Apps y Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Control de excepciones y registro de errores para aplicaciones lógicas](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-

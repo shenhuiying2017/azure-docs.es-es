@@ -47,10 +47,10 @@ sections:
         className: cardsM
         columns: 2
         items:
-          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
-            title: Creación de una aplicación en contenedores con Azure Container Instances
+          - href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers'
+            title: Implementación de una aplicación contenedora Windows con Service Fabric
             image:
-              src: /azure/media/index/ContainerService.svg
+              src: /azure/media/index/Fabric.svg
           - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
             title: Creación de un clúster de Kubernetes para contenedores de Linux
             image:
@@ -59,12 +59,16 @@ sections:
             title: Implementación de un clúster de Docker Swarm
             image:
               src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
-          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
-            title: Implementación de un clúster de DC/OS
+          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
+            title: Creación de un registro de Docker privado en Azure Container Registry
             image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+              src: /azure/media/index/container-registry.svg
           - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
             title: Creación de una aplicación en contenedores con Azure Web App for Containers
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
+            title: Implementación de un clúster de DC/OS
             image:
               src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
   - title: Vídeo gratuito de aprendizaje de PluralSight para Azure y contenedores

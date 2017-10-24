@@ -12,25 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: ae5ccb83a0088cb7c9668f18620b74f9f3f1e9b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c201ac12d06ffc8097615517ae09422b037eba6b
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-resources-with-azure-powershell-and-resource-manager"></a>Administración de recursos con Azure PowerShell y Resource Manager
-> [!div class="op_single_selector"]
-> * [Portal](resource-group-portal.md)
-> * [CLI de Azure](xplat-cli-azure-resource-manager.md)
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [API DE REST](resource-manager-rest-api.md)
->
->
 
-En este artículo aprenderá a administrar las soluciones con Azure PowerShell y Azure Resource Manager. Si no está familiarizado con Resource Manager, consulte [Información general de Resource Manager](resource-group-overview.md). Este tema se centra en las tareas de administración. Podrá:
+En este artículo aprenderá a administrar las soluciones con Azure PowerShell y Azure Resource Manager. Si no está familiarizado con Resource Manager, consulte [Información general de Resource Manager](resource-group-overview.md). Este artículo se centra en las tareas de administración. Podrá:
 
 1. Crear un grupo de recursos
 2. Adición de un recurso al grupo de recursos
@@ -53,7 +45,7 @@ Para comprobar la versión del módulo de recursos de Azure, use el siguiente cm
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-Este tema se ha actualizado a la versión 3.3.0. Si tiene una versión anterior, puede que su experiencia no coincida con los pasos mostrados en este tema. Para ver documentación sobre los cmdlets de esta versión, consulte el [módulo AzureRM.Resources](/powershell/module/azurerm.resources).
+Este artículo se ha actualizado para la versión 3.3.0. Si tiene una versión anterior, puede que su experiencia no coincida con los pasos mostrados en este artículo. Para ver documentación sobre los cmdlets de esta versión, consulte el [módulo AzureRM.Resources](/powershell/module/azurerm.resources).
 
 ## <a name="log-in-to-your-azure-account"></a>Inicie sesión en la cuenta de Azure.
 Antes de trabajar en la solución, debe iniciar sesión en su cuenta.
@@ -110,6 +102,7 @@ Set-AzureRmContext -SubscriptionName "Example Subscription Two"
 ```
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
+
 Antes de implementar los recursos en la suscripción, debe crear un grupo de recursos que contendrá los recursos.
 
 Para crear un grupo de recursos, use el cmdlet **New-AzureRmResourceGroup** . El comando usa el parámetro **Name** para especificar un nombre para el grupo de recursos y el parámetro **Location** para definir su ubicación.
@@ -141,9 +134,10 @@ Get-AzureRmResourceGroup
 ```
 
 ## <a name="add-resources-to-a-resource-group"></a>Adición de recursos a un grupo de recursos
+
 Para agregar un recurso al grupo de recursos, puede usar el cmdlet **New-AzureRmResource** o un cmdlet específico del tipo de recurso que está creando (como **AzureRmStorageAccount New**). Quizás le resulte más fácil usar un cmdlet que sea específico de un tipo de recurso ya que incluye parámetros de las propiedades que son necesarias para el nuevo recurso. Para usar **New-AzureRmResource**, debe conocer todas las propiedades que se deben establecer sin que se soliciten.
 
-Sin embargo, el hecho de agregar un recurso mediante cmdlets puede provocar confusión en el futuro porque el nuevo recurso no existe en una plantilla de Resource Manager. Microsoft recomienda definir la infraestructura de la solución de Azure en una plantilla de Resource Manager. Las plantillas le permiten implementar la solución de forma confiable y repetida. En este tema, creará una cuenta de almacenamiento con un cmdlet de PowerShell, pero más tarde generará una plantilla a partir de su grupo de recursos.
+Sin embargo, el hecho de agregar un recurso mediante cmdlets puede provocar confusión en el futuro porque el nuevo recurso no existe en una plantilla de Resource Manager. Microsoft recomienda definir la infraestructura de la solución de Azure en una plantilla de Resource Manager. Las plantillas le permiten implementar la solución de forma confiable y repetida. En este artículo, creará una cuenta de almacenamiento con un cmdlet de PowerShell, pero más tarde generará una plantilla a partir de su grupo de recursos.
 
 El siguiente cmdlet crea una cuenta de almacenamiento. En lugar de usar el nombre que aparece en el ejemplo, proporcione un nombre único para la cuenta de almacenamiento. El nombre debe tener entre 3 y 24 caracteres y usar solo números y letras minúsculas. Si usa el nombre que aparece en el ejemplo, recibirá un error porque ese nombre ya está en uso.
 
@@ -159,7 +153,7 @@ Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1
 
 ## <a name="add-a-tag"></a>Agregar una etiqueta
 
-Las etiquetas permiten organizar los recursos de acuerdo con diferentes propiedades. Por ejemplo, puede tener varios recursos en distintos grupos de recursos que pertenecen al mismo departamento. Puede aplicar una etiqueta de departamento y un valor a esos recursos para marcarlos como pertenecientes a la misma categoría. O bien, puede marcar si un recurso se usa en un entorno de producción o de prueba. En este tema, aplicará etiquetas a un solo recurso; sin embargo, es probable que en su entorno tenga más sentido aplicar etiquetas a todos los recursos.
+Las etiquetas permiten organizar los recursos de acuerdo con diferentes propiedades. Por ejemplo, puede tener varios recursos en distintos grupos de recursos que pertenecen al mismo departamento. Puede aplicar una etiqueta de departamento y un valor a esos recursos para marcarlos como pertenecientes a la misma categoría. O bien, puede marcar si un recurso se usa en un entorno de producción o de prueba. En este artículo, aplicará etiquetas a un solo recurso; sin embargo, es probable que en su entorno tenga más sentido aplicar etiquetas a todos los recursos.
 
 El siguiente cmdlet aplica dos etiquetas a la cuenta de almacenamiento:
 
@@ -203,6 +197,14 @@ Use el cmdlet **Find-AzureRmResource** para recuperar recursos de diferentes con
   Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
   ```
 
+## <a name="get-resource-id"></a>Obtener el identificador de recurso
+
+Muchos comandos toman un identificador de recurso como un parámetro. Para obtener el identificador para un recurso y almacenarlo en una variable, use:
+
+```powershell
+$webappID = (Get-AzureRmResource -ResourceGroupName exampleGroup -ResourceName exampleSite).ResourceId
+```
+
 ## <a name="lock-a-resource"></a>Bloqueo de un recurso
 
 Cuando deba asegurarse de que un recurso crítico no se elimine o modifique por accidente, aplique un bloqueo al recurso. Puede especificar **CanNotDelete** o **ReadOnly**.
@@ -242,7 +244,7 @@ En ambos cmdlets, se le pide que confirme que quiere quitar el recurso o el grup
 
 ## <a name="run-resource-manager-scripts-with-azure-automation"></a>Ejecución de scripts de Resource Manager con Azure Automation
 
-En este tema se muestra cómo realizar operaciones básicas en los recursos con Azure PowerShell. En escenarios de administración más avanzados, lo habitual es que quiera crear un script y volver a usar ese script según sea necesario o según una programación. [Azure Automation](../automation/automation-intro.md) ofrece una forma de automatizar los scripts usados con mayor frecuencia que administran sus soluciones de Azure.
+En este artículo se muestra cómo realizar operaciones básicas en los recursos con Azure PowerShell. En escenarios de administración más avanzados, lo habitual es que quiera crear un script y volver a usar ese script según sea necesario o según una programación. [Azure Automation](../automation/automation-intro.md) ofrece una forma de automatizar los scripts usados con mayor frecuencia que administran sus soluciones de Azure.
 
 En los temas siguientes se muestra cómo usar Azure Automation, Resource Manager y PowerShell para realizar tareas de administración de manera efectiva:
 
@@ -256,5 +258,4 @@ En los temas siguientes se muestra cómo usar Azure Automation, Resource Manager
 * Para obtener información sobre cómo implementar plantillas, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
 * Puede mover recursos existentes a un nuevo grupo de recursos. Para consultar ejemplos, vea [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-
 

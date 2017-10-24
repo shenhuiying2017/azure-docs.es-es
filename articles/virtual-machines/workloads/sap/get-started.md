@@ -14,17 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/27/2017
+ms.date: 10/10/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 895e29d6b83d07cafaa2dbbc7a13218460e03815
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 7af2657b01b954c3f43a687dedebad7e4a814e6a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -313,7 +311,7 @@ Título: Introducción y arquitectura de SAP HANA en Azure (Instancias grandes)
 
 Resumen: En esta guía de implementación técnica y arquitectura se proporciona información que lo ayudará a implementar SAP en la nueva oferta SAP HANA en Azure (Instancias grandes) en Azure. No es una guía completa creada para tratar la configuración específica de soluciones SAP, sino información útil en las operaciones continuas y de implementación iniciales. No debe usarse en lugar de la documentación de SAP sobre la instalación de SAP HANA (ni las muchas notas de soporte técnico de SAP que tratan sobre el tema). Le proporciona una descripción general y proporciona detalles adicionales de la instalación SAP HANA en Azure (instancias grandes).
 
-Actualización: julio de 2017
+Actualización: octubre de 2017
 
 [Esta guía se puede encontrar aquí](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -340,7 +338,7 @@ Título: Alta disponibilidad y recuperación ante desastres de SAP HANA en Azure
 
 Resumen: Alta disponibilidad (HA) y recuperación ante desastres (DR) son aspectos muy importantes de la ejecución de su SAP HANA crítico en servidores de Azure (instancias grandes). Es importante trabajar con SAP, el integrador del sistema, o Microsoft para diseñar e implementar correctamente la estrategia correcta de HA/DR. Es preciso tener en cuenta consideraciones importantes, como el objetivo de punto de recuperación (RPO) y el objetivo de tiempo de recuperación (RTO), específicas del entorno.  Este documento explica las opciones para habilitar el nivel preferido de HA y DR.
 
-Actualizado: septiembre de 2017
+Actualización: octubre de 2017
 
 [Este documento puede encontrarse aquí](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -485,5 +483,4 @@ Resumen: En este documento se describe la manera en que los servicios de Azure S
 Actualizado: agosto de 2017
 
 [Esta guía se puede encontrar aquí](http://aka.ms/asr-sap)
-
 

@@ -1,98 +1,110 @@
 ---
-title: Repositorios de Azure Container Registry | Microsoft Docs
-description: "Uso de los repositorios de Azure Container Registry para imágenes de Docker"
+title: "Guía de inicio rápido: Creación de un registro privado de Docker en Azure con PowerShell"
+description: "Aprenda rápidamente a crear un registro de contenedor privado de Docker con PowerShell."
 services: container-registry
 documentationcenter: 
-author: cristy
-manager: balans
-editor: dlepow
+author: neilpeterson
+manager: timlt
+editor: tysonn
 ms.service: container-registry
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2017
-ms.author: cristyg
+ms.date: 09/07/2017
+ms.author: nepeters
+ms.openlocfilehash: 15046d1d2aabafd72df590233f416dd266c661de
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1e5d5ea5b1ec121fe008abc48178b1d58f540ce1
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-an-azure-container-registry-using-powershell"></a>Creación de una instancia de Azure Container Registry mediante PowerShell
 
-# <a name="create-a-private-docker-container-registry-using-the-azure-powershell"></a>Creación de un registro de contenedor privado de Docker con Azure PowerShell
-Use los comandos de la [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview) para crear un registro de contenedor y administrar su configuración desde un equipo Windows. También puede crear y administrar registros de contenedor mediante [Azure Portal](container-registry-get-started-portal.md), la [CLI de Azure](container-registry-get-started-azure-cli.md) o mediante programación con la [API de REST](https://go.microsoft.com/fwlink/p/?linkid=834376) de Container Registry.
+Azure Container Registry es un servicio de registro de contenedores de Docker administrado usado para almacenar imágenes de contenedor de Docker privadas. En esta guía se detalla la creación de una instancia de Azure Container Registry mediante PowerShell.
 
+Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
 
-* Para más información sobre el entorno y los conceptos, consulte [la información general](container-registry-intro.md)
-* Para una lista de los cmdlets compatibles, consulte el artículo sobre los [Cmdlets de administración de Azure Container Registry](https://docs.microsoft.com/en-us/powershell/module/azurerm.containerregistry/).
+También debe tener instalado Docker localmente. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) o [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
+## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
-* **Azure PowerShell**: para instalar y empezar a trabajar con PowerShell, consulte las [instrucciones de instalación](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps). Inicie sesión en la suscripción de Azure mediante la ejecución de `Login-AzureRMAccount`. Para más información, consulte el artículo de [introducción a Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azurep).
-* **Grupo de recursos**: cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups) antes de crear un registro de contenedor o utilice un grupo de recursos ya existente. Asegúrese de que el grupo de recursos está en una ubicación donde el servicio Container Registry está [disponible](https://azure.microsoft.com/regions/services/). Para crear un grupo de recursos mediante Azure PowerShell, consulte la [referencia de PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps#create-a-resource-group).
-* **Cuenta de almacenamiento** (opcional): cree una [cuenta de almacenamiento](../storage/common/storage-introduction.md) estándar de Azure para realizar copias del registro de contenedor en la misma ubicación. Si no especifica una cuenta de almacenamiento al crear un registro con `New-AzureRMContainerRegistry`, el comando creará una automáticamente. Para crear una cuenta de almacenamiento mediante PowerShell, consulte la [referencia de PowerShell](https://docs.microsoft.com/en-us/powershell/module/azure/new-azurestorageaccount). Premium Storage no se admite actualmente.
-* **Entidad de servicio** (opcional): cuando crea un registro con PowerShell, el acceso a este no está configurado de forma predeterminada. Según sus necesidades, puede asignar una entidad de servicio de Azure Active Directory existente a un registro o crear y asignar una nueva. Como alternativa, puede habilitar la cuenta de usuario de administrador del registro. Consulte las secciones más adelante en este artículo. Para más información acerca del acceso al registro, consulte [Authenticate with the container registry](container-registry-authentication.md) (Autenticación con el registro de contenedor).
+Inicie sesión en la suscripción de Azure con el comando `Login-AzureRmAccount` y siga las instrucciones de la pantalla.
+
+```powershell
+Login-AzureRmAccount
+```
+
+## <a name="create-resource-group"></a>Creación de un grupo de recursos
+
+Cree un grupo de recursos de Azure con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+
+```powershell
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+```
 
 ## <a name="create-a-container-registry"></a>Creación de un registro de contenedor
-Ejecute el comando `New-AzureRMContainerRegistry` para crear un registro de contenedor.
 
-> [!TIP]
-> Cuando cree un registro, especifique un nombre de dominio de nivel superior único global que contenga solo letras y números. El nombre del registro en los ejemplos es `MyRegistry`, pero puede sustituirlo por un nombre único de su elección.
->
->
+Cree una instancia de ACR mediante el comando [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry).
 
-El siguiente comando utiliza los parámetros mínimos necesarios para crear el registro de contenedor `MyRegistry` en el grupo de recursos `MyResourceGroup` en la ubicación centro-sur de EE. UU.:
+El nombre del registro **debe ser único**. En el ejemplo siguiente, se usa *myContainerRegistry007*. Actualice este valor a uno único.
 
 ```PowerShell
-$Registry = New-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "MyRegistry"
+$Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-* `-StorageAccountName` es opcional. Si no se especifica, se crea una cuenta de almacenamiento con un nombre formado por el nombre del registro y una marca de tiempo del grupo de recursos especificado.
+## <a name="log-in-to-acr"></a>Inicio de sesión en ACR
 
-## <a name="assign-a-service-principal"></a>Asignación de una entidad de servicio
-Use los comandos de PowerShell para asignar una [entidad de servicio](../azure-resource-manager/resource-group-authenticate-service-principal.md) de Azure Active Directory a un registro. A la entidad de servicio en estos ejemplos se le asigna el rol de propietario, pero puede asignar [otros roles](../active-directory/role-based-access-control-configure.md) si lo desea.
+Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en la instancia de ACR. En primer lugar, use el comando [Get AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) para obtener las credenciales de administrador para la instancia ACR.
 
-### <a name="create-a-service-principal"></a>Creación de una entidad de servicio
-En el siguiente comando se crea una nueva entidad de servicio. Especifique una contraseña segura con el parámetro `-Password`.
-
-```PowerShell
-$ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName ApplicationDisplayName -Password "MyPassword"
+```powershell
+$creds = Get-AzureRmContainerRegistryCredential -Registry $Registry
 ```
 
-### <a name="assign-a-new-or-existing-service-principal"></a>Asignación de una entidad de servicio nueva o existente
-A un registro puede asignar una entidad de servicio nueva o existente. Para asignarle acceso de rol de propietario al registro, ejecute un comando similar al del ejemplo siguiente:
+Después, use el comando [docker login](https://docs.docker.com/engine/reference/commandline/login/) para iniciar sesión en la instancia de ACR.
 
-```PowerShell
-New-AzureRMRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Registry.Id
+```bash
+docker login $Registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
-##<a name="sign-in-to-the-registry-with-the-service-principal"></a>Inicie sesión en el registro con la entidad de servicio
-Después de asignar la entidad de servicio al registro, puede iniciar sesión con el comando siguiente:
+Al finalizar, el comando devuelve un mensaje que indica que el inicio de sesión se ha realizado correctamente.
 
-```PowerShell
-docker login -u $ServicePrincipal.ApplicationId -p myPassword
+## <a name="push-image-to-acr"></a>Inserción de una imagen en ACR
+
+Para insertar una imagen en Azure Container Registry, primero debe tener una imagen. Si es necesario, ejecute el siguiente comando para extraer una imagen creada anteriormente de Docker Hub.
+
+```bash
+docker pull microsoft/aci-helloworld
 ```
 
-## <a name="manage-admin-credentials"></a>Administración de las credenciales de administrador
-Se crea automáticamente una cuenta de administrador para cada registro de contenedor, que estará deshabilitada de forma predeterminada. Los ejemplos siguientes muestran los comandos de PowerShell para administrar las credenciales de administrador del registro de contenedor.
+La imagen debe estar etiquetada con el nombre del servidor de inicio de sesión de ACR. Ejecute el comando [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) para devolver el nombre del servidor de inicio de sesión de la instancia de ACR.
 
-### <a name="obtain-admin-user-credentials"></a>Obtención de las credenciales de administrador
-```PowerShell
-Get-AzureRMContainerRegistryCredential -ResourceGroupName "MyResourceGroup" -Name "MyRegistry"
+```powershell` Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-### <a name="enable-admin-user-for-an-existing-registry"></a>Habilitación del usuario de administrador para un registro existente
-```PowerShell
-Update-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "MyRegistry" -EnableAdminUser
+Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name of your ACR instance.
+
+```bash
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-### <a name="disable-admin-user-for-an-existing-registry"></a>Deshabilitación del usuario de administrador para un registro existente
-```PowerShell
-Update-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "MyRegistry" -DisableAdminUser
+Por último, use el comando [docker push](https://docs.docker.com/engine/reference/commandline/push/) para insertar la imagen en la instancia de ACR. Reemplace *acrLoginServer* por el nombre del servidor de inicio de sesión de su instancia de ACR.
+
+```bash
+docker push <acrLoginServer>/aci-helloworld:v1
+```
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no los necesite, puede usar el comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos, la instancia de ACR y todas las imágenes de contenedor.
+
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Insertar la primera imagen mediante la CLI de Docker](container-registry-get-started-docker-cli.md)
 
+En esta guía de inicio rápido, creará una instancia de Azure Container Registry con la CLI de Azure. Si quiere usar Azure Container Registry con Azure Container Instances, continúe con el tutorial de Azure Container Instances.
+
+> [!div class="nextstepaction"]
+> [Tutorial de Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)

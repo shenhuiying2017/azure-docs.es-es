@@ -1,26 +1,23 @@
---- 
+---
 title: Escenario real de mantenimiento predictivo | Microsoft Docs
 description: Escenario real de mantenimiento predictivo con PySpark
 services: machine-learning
-author: jaymathe
-ms.author: jaymathe
+author: ehrlinger
+ms.author: jehrling
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
-ms.date: 09/25/2017
+ms.date: 10/05/2017
+ms.openlocfilehash: dc73c052ad9e0fe12af5042289f304a0e48ae413
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 7bb5672a2b9de0a62af8b6155bfdead6a0105eb5
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
---- 
-
-# <a name="predictive-maintenance-real-world-scenario"></a>Escenario real de mantenimiento predictivo
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
+---
+# <a name="predictive-maintenance-real-world-scenario"></a>Escenario real de mantenimiento predictivo.
 
 El impacto del tiempo de inactividad no programado de los equipos puede ser perjudicial para las empresas. Es fundamental, por tanto, mantener el equipamiento de campo en funcionamiento para maximizar la utilización y el rendimiento y minimizar el costoso tiempo de inactividad no programado. La identificación temprana de los problemas le ayuda a asignar recursos de mantenimiento limitado de una forma más rentable y a mejorar la calidad y los procesos de la cadena de suministro. 
 
@@ -33,7 +30,7 @@ A continuación se muestra el vínculo en el repositorio público de GitHub: [ht
 
 ## <a name="use-case-overview"></a>Información general del caso de uso
 
-Un problema importante al que se enfrentan las empresas en sectores de uso intensivo de activos son los considerables costos asociados a retrasos por problemas mecánicos. La mayoría de las empresas están interesadas en la predicción de cuándo se producen estos problemas con el fin de evitarlos proactivamente antes de que ocurran. Esto reduce los costos al reducir el tiempo de inactividad y, en algunos casos, aumenta la seguridad. Consulte la [Guía para mantenimiento predictivo](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) para obtener una explicación detallada de casos de uso comunes y del enfoque de modelado para mantenimiento predictivo.
+Un problema importante al que se enfrentan las empresas en sectores de uso intensivo de activos son los considerables costos asociados a retrasos por problemas mecánicos. La mayoría de las empresas están interesadas en la predicción de cuándo se producen estos problemas con el fin de evitarlos proactivamente antes de que ocurran. El objetivo es reducir los costos mediante la reducción del tiempo de inactividad y, posiblemente, aumentar la seguridad. Consulte la [Guía para mantenimiento predictivo](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) para obtener una explicación detallada de casos de uso comunes y del enfoque de modelado para mantenimiento predictivo.
 
 Este escenario aprovecha las ideas de la guía con el fin de proporcionar los pasos para implementar un modelo de predicción para un escenario, que se basa en una síntesis de varios problemas empresariales reales. Este ejemplo combina los elementos de datos comunes observados entre muchos casos de uso de mantenimiento predictivo.
 
@@ -43,11 +40,11 @@ El problema empresarial para estos datos simulados es predecir problemas causado
 
 * Una [cuenta de Azure](https://azure.microsoft.com/en-us/free/) (hay disponibles versiones gratuitas de prueba).
 * Una copia instalada de [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](./quickstart-installation.md) para instalar el programa y crear un área de trabajo.
-* Los resultados intermedios utilizados por los Jupyter Notebooks en este escenario se almacenan en un contenedor de Azure Blob Storage. Las instrucciones para configurar una cuenta de Azure Storage están disponibles en este [vínculo](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-python-how-to-use-blob-storage). 
-* Para la [operacionalización](https://github.com/Azure/Machine-Learning-Operationalization) del modelo, es mejor si el usuario dispone de un [motor de Docker](https://www.docker.com/) instalado y en ejecución de modo local. De lo contrario, puede utilizar la opción de un clúster, pero tenga en cuenta que la ejecución en [Azure Container Service (ACS)](https://azure.microsoft.com/en-us/services/container-service/) puede resultar costosa.
-* En este escenario se da por supuesto que el usuario está ejecutando Azure ML Workbench en un equipo Windows 10 con el motor de Docker instalado localmente. 
-* El escenario se ha creado y probado en un equipo Windows 10 con las siguientes especificaciones: CPU de Intel Core i7 4600U @ 2.10 GHz, 8 GB de RAM, sistema operativo de 64 bits, procesador x64 con Docker versión 17.06.0-ce-win19 (12801). 
-* La operacionalización del modelo se realizó con esta versión de la CLI de Azure ML: azure-cli-ml==0.1.0a22
+* La operacionalización de Azure Machine Learning requiere un entorno de implementación local y una [cuenta de administración de modelos](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
+
+Este ejemplo se puede ejecutar en cualquier contexto de proceso de Azure Machine Learning Workbench. Sin embargo, se recomienda ejecutarlo con al menos de 16 GB de memoria. Este escenario se compiló y probó en una máquina con Windows 10 que se ejecutaba en una [Máquina virtual remota de ciencia de datos para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) DS4_V2 estándar.
+
+La operacionalización del modelo se realizó con la versión 0.1.0a22 de la CLI de Azure Machine Learning.
 
 ## <a name="create-a-new-workbench-project"></a>Creación de un nuevo proyecto de Workbench
 
@@ -58,9 +55,25 @@ Cree un nuevo proyecto usando este ejemplo como plantilla:
 4.  En el cuadro de búsqueda **Buscar plantillas de proyecto**, escriba "Predictive Maintenance" (Mantenimiento predictivo) y seleccione la plantilla
 5.  Haga clic en **Crear**
 
+## <a name="prepare-the-notebook-server-computation-target"></a>Preparación del destino de cálculo del servidor de Notebook
+
+Para ejecutar en la máquina local, en el menú `File` de Azure Machine Learning, seleccione `Open Command Prompt` o `Open PowerShell CLI`. En las ventanas de la CLI, ejecute los comandos siguientes:
+
+`az ml experiment prepare --target docker --run-configuration docker`
+
+Es recomendable la ejecución en una Máquina virtual de ciencia de datos para Linux (Ubuntu). Una vez configurada esta máquina, ejecute los dos comandos siguientes:
+
+`az ml computetarget attach --name [Desired_Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword] --type remotedocker`
+
+`az ml experiment prepare --target [Desired_Connection_Name] --run-configuration [Desired_Connection_Name]`
+
+Con las imágenes de Docker preparadas, abra el servidor de Jupyter Notebook dentro de la pestaña de Notebook de Azure Machine Learning Workbench o, si desea iniciar un servidor basado en un explorador, ejecute: `az ml notebook start`.
+
+Los Notebooks se almacenan en el directorio `Code` del entorno de Jupyter. Los Notebooks se ejecutan secuencialmente, empezando por el primer (`Code\1_data_ingestion.ipynb`) Notebook. Cuando abra cada cuaderno, se le solicitará que seleccione el kernel de proceso. Elija [Nombre_Proyecto]_Plantilla [Nombre_Conexión_Deseado] y haga clic en Set Kernel (Establecer kernel).
+
 ## <a name="data-description"></a>Descripción de los datos
 
-Los [datos simulados](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) se componen de cinco archivos de valores separados por comas (.csv). 
+Los [datos simulados](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) se componen de cinco archivos de valores separados por comas (.csv). Siga los vínculos para obtener una descripción más detallada de los conjuntos de datos.
 
 * [Máquinas](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): características diferenciales de cada máquina. Por ejemplo, la edad y el modelo.
 * [Error](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): el registro de errores contiene errores que no causan interrupción producidos mientras el equipo todavía está operativo. Estos errores no se consideran como tal, aunque pueden ser predicción de un evento de error en el futuro. La fecha y hora del error se redondean a la hora más cercana, ya que los datos de telemetría se recopilan cada hora.
@@ -75,15 +88,21 @@ El contenido del escenario está disponible en el [repositorio de GitHub](https:
 
 En el repositorio, hay un archivo [Léame](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/README.md) que describe los procesos desde la preparación de los datos hasta la creación de algunos modelos y, finalmente, la operacionalización de uno de los mejores modelos. Los cuatro Jupyter Notebooks están disponibles en la carpeta [Code](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/tree/master/Code) en el repositorio.   
 
-A continuación se describe el flujo de trabajo del escenario paso a paso. El escenario de extremo a extremo está escrito en PySpark y se divide en cuatro Notebooks, tal como se describe a continuación:
+A continuación se describe el flujo de trabajo del escenario paso a paso. El escenario de extremo a extremo está escrito en PySpark y se divide en cuatro Notebooks:
 
-* [Ingesta de datos](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): este Notebook controla la ingesta de datos de los cinco archivos .csv de entrada, realiza una limpieza preliminar, crea algunos gráficos de resumen para comprobar la descarga de los datos y, finalmente, almacena los conjuntos de datos resultantes en un contenedor de blobs de Azure para su uso por el Notebook siguiente.
+[`Code\1_data_ingestion.ipynb`](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): Este Notebook descarga los cinco archivos .csv de entrada y realiza una limpieza, y una visualización, preliminar de los datos. El Notebook convierte los datos al formato de PySpark y almacena los resultados en un contenedor de blobs de Azure para su uso en la tarea de ingeniería ofrecida.
 
-* [Ingeniería de características](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): utilizando el conjunto de datos limpios del paso anterior, se crean las características de desfase para los sensores de telemetría, junto con otra ingeniería de características para crear variables como los días desde el último reemplazo. Por último, los errores se etiquetan en los registros pertinentes para crear un conjunto de datos final, que se guarda en un blob de Azure para el paso siguiente. 
+[`Code\2_feature_engineering.ipynb`](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): mediante el conjunto de datos limpio del paso anterior, se crean características de retraso y agregadas para los sensores de telemetría, y los datos sobre recuentos de errores, sustitución de componentes y de las máquinas se unen a los datos de telemetría. La sustitución de componentes relacionada con errores se usa para construir las etiquetas con la descripción sobre qué componente generó el error. Los datos de la característica etiquetada se guardan en un blob de Azure para la tarea de compilación de modelos.
 
-* [Creación del modelo](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/3_model_building.ipynb): el conjunto de datos final con ingeniería de características, a continuación, se divide en dos conjuntos de datos, de entrenamiento y de prueba, en función de una marca de fecha y hora. A continuación se crean dos modelos, el clasificador de bosque aleatorio y el clasificador de árbol de decisión, sobre del conjunto de datos de entrenamiento y se puntúan sobre el conjunto de datos de prueba. 
+[`Code\3_model_building.ipynb`](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/3_model_building.ipynb): mediante el conjunto de datos de la característica etiquetada, el Notebook de modelado divide los datos en conjuntos de datos de entrenamiento y de desarrollo junto con una marca de fecha y hora. El Notebook configura los experimentos con modelos `pyspark.ml.classification`. Los datos de entrenamiento se vectorizan y el usuario puede experimentar con un `DecisionTreeClassifier` o un `RandomForestClassifier`, y manipular hiperparámetros para encontrar el modelo con el mejor rendimiento. El rendimiento se determina mediante la evaluación de las estadísticas de medida del conjunto de datos de desarrollo. Estas estadísticas se registran en la pantalla del entorno en tiempo de ejecución de Azure Machine Learning Workbench para realizar un seguimiento. En cada ejecución, el Notebook guarda el modelo resultante en el disco local que ejecuta el kernel de Jupyter Notebook. 
 
-* [Operacionalización e implementación del modelo](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): el mejor modelo creado en el paso anterior, a continuación, se guarda como un archivo .model junto con el archivo de esquema .json relevante para la implementación. En primer lugar, las funciones init() y run() se prueban localmente antes de la operacionalización del modelo, utilizando el entorno de Administración de modelos de Azure Machine Learning para su uso en un entorno de producción para realizar predicciones de error de en tiempo real.  
+[`Code\4_operationalization.ipynb`](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): mediante la utilización del último modelo guardado en el disco local (kernel de Jupyter Notebook), este Notebook compila los componentes para operacionalizar el modelo como un servicio web de Azure. Todos los recursos operacionales se compactan en el archivo `o16n.zip` almacenado en otro contenedor de blobs de Azure. El archivo comprimido contiene:
+
+* `service_schema.json` El archivo de definición de esquema para la implementación. 
+* `pdmscore.py` Las funciones init() y run() que requiere el servicio web de Azure
+* `pdmrfull.model` El directorio de definición del modelo.
+    
+ El Notebook comprueba las funciones con la definición del modelo antes de empaquetar los recursos de operacionalización para la implementación. Al final del Notebook se incluyen las instrucciones para la implementación.
 
 ## <a name="conclusion"></a>Conclusión
 
@@ -91,7 +110,7 @@ Este escenario proporciona al lector una visión general de cómo crear una solu
 
 ## <a name="references"></a>Referencias
 
-Este caso de uso se ha desarrollado previamente en varias plataformas como se muestra a continuación:
+Este caso de uso se ha desarrollado previamente en varias plataformas:
 
 * [Plantilla de solución de mantenimiento predictivo](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Guía de modelado de mantenimiento predictivo](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
@@ -99,5 +118,6 @@ Este caso de uso se ha desarrollado previamente en varias plataformas como se mu
 * [Guía de modelado de mantenimiento predictivo con Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Mantenimiento predictivo con PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 
+# <a name="next-steps"></a>Pasos siguientes
 
-
+Hay muchos otros escenarios de ejemplo disponibles en Azure Machine Learning Workbench que muestran características adicionales del producto. 

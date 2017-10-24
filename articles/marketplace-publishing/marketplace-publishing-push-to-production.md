@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
 ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Implementación de su oferta en Azure Marketplace
 Cuando quede satisfecho con su oferta (es decir, haya probado escenarios de clientes, contenido de marketing, etc.) y esté listo para el lanzamiento, solicite **Enviar a producción** en la pestaña **Publicar**.  
@@ -69,7 +69,7 @@ Cuando quede satisfecho con su oferta (es decir, haya probado escenarios de clie
 
 * El logotipo de imagen prominente es opcional. El publicador puede decidir no cargar un logotipo de imagen prominente. **Sin embargo, una vez que cargue la imagen prominente, no podrá eliminarla del Portal de publicación. A partir de ese momento, el asociado debe seguir las instrucciones de Azure Marketplace para imágenes prominentes; en caso contrario, la oferta no contará con la aprobación para pasar a producción.**
 * El nombre para mostrar del publicador, el título de la SKU y el resumen largo de la oferta se muestran en color blanco. Por lo tanto, debe evitar usar colores claros en el fondo de la imagen prominente. Los fondos transparentes y de color negro y blanco no pueden utilizarse en las imágenes prominentes.
-* El nombre para mostrar del publicador, el título de la SKU, el resumen largo de la oferta y el botón Crear se incrustan mediante programación dentro del logotipo de imagen prominente cuando se publica la oferta. Por lo tanto, no hace falta especificarlos cuando diseñe el logotipo de imagen prominente. Deje un espacio vacío a la derecha, ya que será ahí donde el texto (es decir, el nombre para mostrar del publicador, el título de la SKU y el resumen largo de la oferta) se incluirá automáticamente mediante programación. El espacio vacío para el texto debe tener un tamaño de 415 x 100 a la derecha (con un desplazamiento de 370 píxeles a la izquierda).
+* El nombre para mostrar del publicador, el título de la SKU, el resumen largo de la oferta y el botón Crear se incrustan mediante programación dentro del logotipo de imagen prominente cuando se publica la oferta. Por lo tanto, no hace falta especificarlos cuando diseñe el logotipo de imagen prominente. Deje espacio vacío a la derecha, ya que es ahí donde incluiremos, mediante programación, el texto (es decir, el nombre para mostrar del publicador, el título del SKU y el resumen largo de la oferta). El espacio vacío para el texto debe tener un tamaño de 415 x 100 a la derecha (con un desplazamiento de 370 píxeles a la izquierda).
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Lista de comprobación de producción adicional para ofertas de máquinas virtuales ya activas
 * Compruebe si ya hay una oferta con el mismo nombre de la oferta de su compañía. En caso afirmativo, debe agregar una nueva versión de la SKU en la oferta existente en lugar de crear una nueva oferta duplicada.

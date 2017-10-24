@@ -12,14 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 10/09/2017
 ms.author: twooley
+ms.openlocfilehash: 790b65720a8457b780dc727b0f67fcd12aed31bc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 54d9ba1ac1e46843740b7dcec2c9bef80b2325b4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Consideraciones de planeamiento para sistemas integrados de Azure Stack
 
@@ -110,7 +109,10 @@ En la tabla siguiente se resumen estas decisiones de nomenclatura de dominio.
 
 ## <a name="certificate-requirements"></a>Requisitos de certificados
 
-Para la implementación, debe proporcionar los certificados de Capa de sockets seguros (SSL) para puntos de conexión de acceso público. Los certificados tienen los siguientes requisitos:
+Para la implementación, debe proporcionar los certificados de Capa de sockets seguros (SSL) para puntos de conexión de acceso público. En un nivel más alto, los certificados tienen los siguientes requisitos:
+
+> [!IMPORTANT]
+> La información del certificado en este artículo se proporciona únicamente como guía general. Antes de adquirir los certificados para Azure Stack, trabaje con los asociados de hardware OEM. Le proporcionarán una orientación más detallada de los certificados y los requisitos.
 
 - Puede usar un único certificado de carácter comodín o bien un conjunto de certificados dedicados y utilizar caracteres comodín solo para los puntos de conexión, como el almacenamiento y Key Vault.
 - Los certificados los debe emitir una entidad de certificación de confianza pública (CA) o una CA empresarial.
@@ -126,7 +128,7 @@ La siguiente tabla muestra los servicios y el número de puntos de conexión de 
 | Portal (usuario) | portal. [region].[external_domain] |
 | Key Vault (usuario) | &#42;.vault.[region].[external_domain] |
 | Key Vault (administrador) | &#42;.adminvault.[region].[external_domain] |
-| Storage | &#42;blob.[region].[external_domain]<br>&#42;table.[region].[external_domain]<br>&#42;queue.[region].[external_domain]  |
+| Storage | &#42;.blob.[region].[external_domain]<br>&#42;.table.[region].[external_domain]<br>&#42;.queue.[region].[external_domain]  |
 | Graph** | graph.[region].[external_domain] |
 | AD FS** | adfs.[region].[external_domain] |
 | | |
@@ -285,4 +287,3 @@ Para replicar datos en una ubicación secundaria y orquestar la conmutación por
 
 - Para obtener información acerca de los casos de uso, las compras, los asociados y los distribuidores de hardware de OEM, consulte la página del producto de [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
 - Para obtener información acerca del mapa de ruta y la disponibilidad geográfica para los sistemas integrados de Azure Stack, consulte las notas del producto: [Azure Stack: una extensión de Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
-

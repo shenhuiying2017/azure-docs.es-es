@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/18/2017
 ms.author: maheshu
+ms.openlocfilehash: e274e0806e99cce484f6ff03803c03bf0034dcd6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 08ea5f557498f64825da8fe03d146cace0c53526
-ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Consideraciones de red de Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Selección de una instancia de Azure Virtual Network
 Las siguientes directrices le ayudan a seleccionar una red virtual para usarla con Azure AD Domain Services.
 
 ### <a name="type-of-azure-virtual-network"></a>Tipo Azure Virtual Network
-* Azure AD Domain Services se puede habilitar en una instancia clásica de Azure Virtual Network. De todas formas, la compatibilidad con las redes virtuales clásicas dejará de utilizarse pronto. Se recomienda usar redes virtuales del administrador de recursos para los dominios administrados recién creados.
-* Azure AD Domain Services se puede habilitar en las redes virtuales creadas mediante Azure Resource Manager.
+* **Redes virtuales de Resource Manager**: Azure AD Domain Services se puede habilitar en las redes virtuales creadas mediante Azure Resource Manager.
+* Azure AD Domain Services se puede habilitar en una instancia clásica de Azure Virtual Network. De todas formas, la compatibilidad con las redes virtuales clásicas dejará de utilizarse pronto. Se recomienda usar redes virtuales de Resource Manager para los dominios administrados recién creados.
 * Se pueden conectar otras redes virtuales a la red virtual en la que Azure AD Domain Services está habilitado. Para más información, consulte la sección [Conectividad de red](active-directory-ds-networking.md#network-connectivity).
 * **Redes virtuales regionales**: si planea usar una red virtual existente, asegúrese de que sea una red virtual regional.
 
@@ -75,8 +74,13 @@ Los siguientes puertos son necesarios para que Azure AD Domain Services mantenga
 | 5986 |Administración del dominio |
 | 636 |Acceso LDAP seguro (LDAPS) a su dominio administrado |
 
+El puerto 5986 se usa para realizar tareas de administración usando la comunicación remota de PowerShell en el dominio administrado. Los controladores de dominio para el dominio administrado no suelen escuchar en este puerto. El servicio abre este puerto en los controladores de dominio administrados solo cuando debe llevarse a cabo una operación de administración o mantenimiento para el dominio administrado. Tan pronto como finaliza la operación, el servicio cierra este puerto en los controladores de dominio administrados.
+
+Se utiliza el puerto 3389 para las conexiones de escritorio remoto a su dominio administrado. Este puerto también permanece desactivado en gran medida en el dominio administrado. El servicio habilita este puerto solo si es necesario conectarse al dominio administrado para solucionar problemas, algo que normalmente se inicia en respuesta a una solicitud de servicio iniciada por el cliente. Este mecanismo no se utiliza de forma continuada, puesto que las tareas de administración y supervisión se realizan usando la comunicación remota de PowerShell. Este puerto se usa únicamente en el caso excepcional de que necesitemos conectarnos de forma remota a su dominio administrado para solución de problemas avanzada. El puerto se cierra en cuanto se completa la operación de solución de problemas.
+
+
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Grupo de seguridad de red (NSG) de ejemplo para redes virtuales con Azure AD Domain Services
-En la tabla siguiente se muestra un NSG de ejemplo que se puede configurar para una red virtual con un dominio administrado de Azure AD Domain Services. Esta regla permite el tráfico de entrada procedente de los puertos anteriormente especificados para garantizar que el dominio administrado se mantiene revisado, actualizado y puede ser supervisado por Microsoft. La regla predeterminada 'DenyAll' se aplica a todo el tráfico de entrada de Internet.
+En la tabla siguiente se muestra un NSG de ejemplo que se puede configurar para una red virtual con un dominio administrado de Azure AD Domain Services. Esta regla permite el tráfico de entrada en los puertos necesarios para garantizar que el dominio administrado se mantiene revisado, actualizado y puede ser supervisado por Microsoft. La regla predeterminada 'DenyAll' se aplica a todo el tráfico de entrada de Internet.
 
 Además, el NSG muestra también cómo bloquear el acceso LDAP seguro a través de Internet. Omita esta regla si no ha habilitado el acceso de LDAP seguro al dominio administrado a través de Internet. NSG contiene un conjunto de reglas que permiten el acceso LDAPS de entrada a través del puerto TCP 636 solo desde un conjunto especificado de direcciones IP. La regla NSG para permitir el acceso LDAPS a través de Internet desde direcciones IP especificadas tiene una prioridad mayor que la regla NSG DenyAll.
 
@@ -102,11 +106,11 @@ Una red virtual basada en Resource Manager se puede conectar a una instancia cl�
 ![Conectividad de Resource Manager a una instancia clásica de Virtual Network](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
 
 ### <a name="network-connection-options"></a>Opciones de conexión de red
-* **Conexiones de red virtual a red virtual mediante el emparejamiento de red virtual**: el emparejamiento de Virtual Network es un mecanismo que conecta dos redes virtuales de la misma región mediante la red troncal de Azure. Una vez emparejadas, las dos redes virtuales aparecen como una sola a efectos de conectividad. No obstante, se administran como recursos independientes, pero las máquinas virtuales de estas redes virtuales pueden comunicarse entre sí directamente mediante sus direcciones IP privadas.
+* **Conexiones de red virtual a red virtual mediante el emparejamiento de red virtual**: el emparejamiento de red virtual es un mecanismo que conecta dos redes virtuales de la misma región mediante la red troncal de Azure. Una vez emparejadas, las dos redes virtuales aparecen como una sola a efectos de conectividad. No obstante, se administran como recursos independientes, pero las máquinas virtuales de estas redes virtuales pueden comunicarse entre sí directamente mediante sus direcciones IP privadas.
 
     ![Conectividad de Virtual Network mediante emparejamiento](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
-    [Más información: emparejamiento de Virtual Network](../virtual-network/virtual-network-peering-overview.md)
+    [Más información: emparejamiento de red virtual](../virtual-network/virtual-network-peering-overview.md)
     
 * **Conexiones de red virtual a red virtual mediante conexiones VPN de sitio a sitio**: la conexión de una red virtual a otra (de red virtual a red virtual) es parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una instancia de VPN Gateway para proporcionar un túnel seguro con IPsec/IKE.
 
@@ -121,4 +125,3 @@ Una red virtual basada en Resource Manager se puede conectar a una instancia cl�
 * [Configuración de una conexión de red virtual a red virtual para el modelo de implementación clásico](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Grupos de seguridad de la red de Azure](../virtual-network/virtual-networks-nsg.md)
 * [Creación de un grupo de seguridad de red](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-

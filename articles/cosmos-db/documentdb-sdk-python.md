@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 09/27/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 43f957d8549adb8bbc94111ee9f9eb216f5d8210
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 70d2550f713ff0e9daed235eb8053589b8682633
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>SDK de Python para Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -52,6 +51,11 @@ ms.lasthandoff: 08/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Corrección de errores para el diccionario de agregados.
+* Corrección de errores para recortar las barras diagonales en el vínculo de recursos.
+* Se han agregado pruebas para la codificación Unicode.
+
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * Se agregó compatibilidad con un nuevo nivel de coherencia denominado ConsistentPrefix.
 
@@ -127,6 +131,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |29 de septiembre de 2017 |--- |
 | [2.2.0](#2.2.0) |10 de mayo de 2017 |--- |
 | [2.1.0](#2.1.0) |1 de mayo de 2017 |--- |
 | [2.0.1](#2.0.1) |30 de octubre de 2016 |--- |
@@ -154,5 +159,4 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 ## <a name="see-also"></a>Consulte también
 Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

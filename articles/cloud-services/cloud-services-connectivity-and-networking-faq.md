@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 09/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 3fc0d34fdb617ebb1af9c9f33e018d5fe6ec9a7d
-ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividad y redes en Azure Cloud Services: preguntas más frecuentes (P+F)
 
@@ -60,3 +59,50 @@ Para información acerca de cómo funciona de equilibrador de carga interno, con
 
 El algoritmo de distribución usado para asignar el tráfico a los servidores disponibles es una tupla de 5 componentes (IP de origen, puerto de origen, IP de destino, puerto de destino, tipo de protocolo). Dicho algoritmo solo proporciona adherencia dentro de una sesión de transporte. Los paquetes de la misma sesión TCP o UDP se dirigirán a la misma instancia de IP del centro de datos (DIP) tras el extremo con equilibrio de carga. Cuando el cliente se cierra y vuelve a abrir la conexión o inicia una nueva sesión desde la misma IP de origen, el puerto de origen cambia y provoca que el tráfico vaya hacia otro extremo DIP.
 
+## <a name="how-can-i-redirect-the-incoming-traffic-to-my-default-url-of-cloud-service-to-a-custom-url"></a>¿Cómo puedo redirigir el tráfico que entra en mi dirección URL predeterminada de un servicio en la nube a una dirección URL personalizada predeterminada? 
+
+El módulo URL Rewrite de IIS podría usarse para redirigir el tráfico que entra en la dirección URL predeterminada del servicio en la nube (por ejemplo, \*.cloudapp.net) a alguna dirección URL o nombre DNS personalizados. Dado que el módulo URL Rewrite está habilitado de forma predeterminada en los roles web y sus reglas se configuran en el archivo web.config de la aplicación, siempre estará disponible en la máquina virtual con independencia de los reinicios o los restablecimientos de la imagen inicial. Para más información, consulte:
+
+- [Creating Rewrite Rules for the URL Rewrite Module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module) (Creación de reglas de reescritura para el módulo URL Rewrite)
+- [How to remove default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top) (Eliminación de un vínculo predeterminado)
+
+## <a name="how-can-i-blockdisable-the-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>¿Cómo puedo bloquear o deshabilitar el tráfico entrante a la dirección URL predeterminada de mi servicio en la nube? 
+
+Puede impedir la entrada de tráfico en la dirección URL o nombre predeterminados de su servicio en la nube (por ejemplo, \*.cloudapp.net) si establece el encabezado host en un nombre DNS personalizado (por ejemplo, www.MyCloudService.com) en la configuración de enlace de sitio en el archivo de definición de servicio en la nube (*.csdef), como se indica a continuación: 
+ 
+
+    <?xml version="1.0" encoding="utf-8"?> 
+    <ServiceDefinition name="AzureCloudServicesDemo" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6"> 
+      <WebRole name="MyWebRole" vmsize="Small"> 
+        <Sites> 
+          <Site name="Web"> 
+            <Bindings> 
+              <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.MyCloudService.com" /> 
+            </Bindings> 
+          </Site> 
+        </Sites> 
+        <Endpoints> 
+          <InputEndpoint name="Endpoint1" protocol="http" port="80" /> 
+        </Endpoints> 
+        <ConfigurationSettings> 
+          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" /> 
+        </ConfigurationSettings> 
+      </WebRole> 
+    </ServiceDefinition> 
+ 
+Dado que este enlace de encabezado host se aplica mediante un archivo csdef, el servicio solo será accesible mediante el nombre personalizado "www.MyCloudService.com", siempre y cuando todas las solicitudes entrantes al dominio "*.cloudapp.net" produzcan error en todo momento. Dicho esto, si usa un sondeo de SLB personalizado o un equilibrador de carga interno en el servicio, el bloqueo de la dirección URL o el nombre predeterminados del servicio puede interferir con el comportamiento de sondeo. 
+
+## <a name="how-to-make-sure-the-public-facing-ip-address-of-a-cloud-service-aka-vip-never-changes-so-that-it-could-be-customarily-whitelisted-by-few-specific-clients"></a>¿Cómo se puede tener la seguridad de que la dirección IP de acceso público de un servicio en la nube (también conocida como VIP) no cambie nunca para que algunos clientes concretos puedan incluirla habitualmente en la lista de permitidos?
+
+Para incluir la dirección IP de sus servicios en la nube en la lista de permitidos, se recomienda tener una IP reservada asociada a ella, si no, la IP virtual que proporciona Azure se desasignará de su suscripción si elimina la implementación. Tenga en cuenta que para que la operación de intercambio de direcciones IP virtuales se realice con éxito, necesitará direcciones IP reservadas para los espacios de producción y ensayo, o dicha operación dará error. Siga estos artículos para reservar una dirección IP y asociarla a su instancia de Cloud Services:  
+ 
+- [Reserva de la dirección IP de un servicio en la nube existente](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
+- [Asociación de una dirección IP reservada a un servicio en la nube mediante un archivo de configuración de servicio](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
+
+Siempre que tenga más de una instancia de los roles, la asociación de RIP a su servicio en la nube no debería producir tiempo de inactividad. Como alternativa, puede incluir en la lista de permitidos el intervalo IP de su centro de datos de Azure. Puede encontrar todos los intervalos IP de Azure [aquí](https://www.microsoft.com/en-us/download/details.aspx?id=41653). 
+
+Este archivo contiene los intervalos de direcciones IP (incluidos los intervalos de Compute, SQL y Storage) utilizados en los centros de datos de Microsoft Azure. Semanalmente, se publica un archivo actualizado que refleja los intervalos implementados actualmente y los próximos cambios en los intervalos de direcciones IP. Los nuevos intervalos que aparecen en el archivo no se utilizarán en los centros de datos durante al menos una semana. Descargue el nuevo archivo XML cada semana y realizar los cambios necesarios en su sitio para identificar correctamente los servicios que se ejecutan en Azure. Los usuarios de Express Route observarán que este archivo se usa para actualizar la publicidad de BGP del espacio de Azure en la primera semana de cada mes. 
+
+## <a name="how-can-i-use-azure-resource-manager-vnets-with-cloud-services"></a>¿Cómo puedo usar redes virtuales de Azure Resource Manager con Cloud Services? 
+
+Los servicios en la nube no se pueden colocar en redes virtuales de Azure Resource Manager, pero es posible conectar una red virtual de Azure Resource Manager y una red virtual clásica mediante emparejamiento. Para más información, consulte [Emparejamiento de redes virtuales](../virtual-network/virtual-network-peering-overview.md).

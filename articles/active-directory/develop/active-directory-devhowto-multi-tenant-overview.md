@@ -15,19 +15,18 @@ ms.workload: identity
 ms.date: 09/26/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: b409aa762b60c6bed0ee26f4b9fa7c347d9eb997
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>Inicio de sesión de cualquier usuario de Azure Active Directory (AD) mediante el patrón de aplicación multiempresa
 Si ofrece una aplicación de software como servicio a muchas organizaciones, puede configurar la aplicación para que acepte inicios de sesión de cualquier inquilino de Azure AD.  En Azure AD, esta configuración se conoce como convertir su aplicación en una aplicación multiinquilino.  Los usuarios de cualquier inquilino de Azure AD podrán iniciar sesión en su aplicación después de dar su consentimiento al uso de su cuenta con ella.  
 
 Si tiene una aplicación existente que tiene su propio sistema de cuenta o es compatible con otros tipos de inicio de sesión de otros proveedores de nube, es sencillo agregar el inicio de sesión de Azure AD desde cualquier inquilino. Solo tiene que registrar la aplicación, agregar el código de inicio de sesión a través de OAuth2, OpenID Connect o SAML e incluir el botón "Iniciar sesión con Microsoft" en la aplicación. Haga clic en el botón siguiente para más información sobre la personalización de marca de la aplicación.
 
-[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+[![Botón de inicio de sesión][AAD-Sign-In]][AAD-App-Branding]
 
 En este artículo se da por supuesto que ya está familiarizado con la creación de una aplicación de un solo inquilino para Azure AD.  Si no lo está, vuelva a la [página principal de la guía del desarrollador][AAD-Dev-Guide] y pruebe una de nuestras guías de inicio rápido.
 
@@ -43,8 +42,7 @@ Vamos a examinar cada paso con detalle. También puede ir directamente a [esta l
 ## <a name="update-registration-to-be-multi-tenant"></a>Actualización del registro para que sea multiempresa
 De forma predeterminada, los registros de API y de aplicación web en Azure son de un solo inquilino.  Para convertir su registro en multiinquilino, busque el conmutador “Multiinquilino” en la página de propiedades del registro de la aplicación en [Azure Portal][AZURE-portal] y establézcalo en “Sí”.
 
-Tenga en cuenta que, para que la aplicación pueda convertirse en multiempresa, Azure AD requiere que el URI de id. de aplicación sea único a nivel global. El URI de id. de aplicación es una de las maneras en que una aplicación se identifica en los mensajes de protocolo.  Cuando la aplicación es de un solo inquilino, es suficiente con que el URI de id. de aplicación sea único en dicho inquilino.  En el caso de una aplicación multiempresa, debe ser único a nivel global de forma que Azure AD pueda encontrar la aplicación entre todos los inquilinos.  El carácter globalmente único viene impuesto por la necesidad de que el URI de id. de aplicación tenga un nombre de host que coincida con un dominio comprobado del inquilino de Azure AD.  Por ejemplo, si el nombre del inquilino era contoso.onmicrosoft.com, un identificador 
-URI de id. de aplicación válido sería `https://contoso.onmicrosoft.com/myapp`.  Si el inquilino tenía el dominio comprobado `contoso.com`, también sería un URI de id. de aplicación válido `https://contoso.com/myapp`.  Si el URI de id. de aplicación no sigue este patrón, la configuración de una aplicación como multiinquilino dará error.
+Tenga en cuenta que, para que la aplicación pueda convertirse en multiempresa, Azure AD requiere que el URI de id. de aplicación sea único a nivel global. El URI de id. de aplicación es una de las maneras en que una aplicación se identifica en los mensajes de protocolo.  Cuando la aplicación es de un solo inquilino, es suficiente con que el URI de id. de aplicación sea único en dicho inquilino.  En el caso de una aplicación multiempresa, debe ser único a nivel global de forma que Azure AD pueda encontrar la aplicación entre todos los inquilinos.  El carácter globalmente único viene impuesto por la necesidad de que el URI de id. de aplicación tenga un nombre de host que coincida con un dominio comprobado del inquilino de Azure AD.  Por ejemplo, si el nombre del inquilino era contoso.onmicrosoft.com, un identificador URI de id. de aplicación válido sería `https://contoso.onmicrosoft.com/myapp`.  Si el inquilino tenía el dominio comprobado `contoso.com`, también sería un URI de id. de aplicación válido `https://contoso.com/myapp`.  Si el URI de id. de aplicación no sigue este patrón, la configuración de una aplicación como multiinquilino dará error.
 
 Los registros de cliente nativo son multiempresa de forma predeterminada.  No es necesario realizar ninguna acción para convertir un registro de aplicación cliente nativa en multiempresa.
 
@@ -63,7 +61,7 @@ La respuesta de inicio de sesión a la aplicación contiene un token que represe
 
 Como se mencionó anteriormente, las aplicaciones multiinquilino también deben proporcionar una experiencia coherente de inicio de sesión para los usuarios, que se ajuste a las directrices de personalización de marca de la aplicación de Azure AD. Haga clic en el botón siguiente para más información sobre la personalización de marca de la aplicación.
 
-[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+[![Botón de inicio de sesión][AAD-Sign-In]][AAD-App-Branding]
 
 Echemos un vistazo detenidamente a la utilización del punto de conexión más común y a la implementación de código.
 
@@ -241,7 +239,6 @@ Use la siguiente sección de comentarios para proporcionar sus opiniones y ayuda
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-
 
 
 

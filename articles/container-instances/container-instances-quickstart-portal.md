@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/25/2017
 ms.author: marsma
 ms.custom: mvc
+ms.openlocfilehash: 0179107ece1e150246ab40836783d810425be3ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 16ae3d77c084651416cbc3bb1c5d28fee5e9124b
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-container-in-azure-container-instances"></a>Creación del primer contenedor en Azure Container Instances
 
 Azure Container Instances facilita la creación y administración de contenedores en Azure. En esta guía de inicio rápido, crearemos un contenedor en Azure y lo expondremos en Internet con una dirección IP pública. Esta operación se completa con Azure Portal. Con solo unos clics, podrá ver esto en el explorador:
@@ -83,7 +81,7 @@ Una vez que el contenedor pasa al estado **En ejecución**, vaya a la dirección
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, creó una instancia de Azure Container Instances a partir de una imagen en un repositorio público de Docker Hub. Si quiere intentar compilar un contenedor usted mismo e implementarlo en Azure Container Instances mediante Azure Container Registry, vaya al tutorial de Azure Container Instances.
+En esta guía de inicio rápido, ha creado una instancia de Azure Container Instances a partir de una imagen en un repositorio público de Docker Hub. Si quiere intentar compilar un contenedor usted mismo e implementarlo en Azure Container Instances mediante Azure Container Registry, vaya al tutorial de Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de Azure Container Instances](./container-instances-tutorial-prepare-app.md)

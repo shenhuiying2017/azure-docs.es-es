@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
+ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d95f8d32d9aeca5202623909fcf78014fa2e4458
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Implementación de un modelo de Machine Learning como un servicio web
 
@@ -132,7 +131,7 @@ El comando siguiente se usa para registrar un modelo creado en el paso 1 anterio
 az ml model register --model [path to model file] --name [model name]
 ```
 
-### <a name="5-create-manifest"></a>5. Crear manifiesto
+### <a name="5-create-manifest"></a>5. Cree el manifiesto.
 El comando siguiente le permiten crear un manifiesto para el modelo,
 
 ```
@@ -165,7 +164,7 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->También puede utilizar un único comando para realizar ambas acciones. Use -h con el comando service create para obtener más detalles.
+>También puede utilizar un único comando para realizar los cuatro pasos anteriores. Use -h con el comando service create para obtener más detalles.
 
 ### <a name="8-test-the-service"></a>8. Probar el servicio
 Utilice el comando siguiente para obtener información sobre cómo llamar al servicio:
@@ -188,4 +187,3 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha probado el servicio web para que se ejecute localmente, se puede implementar en un clúster para su uso a gran escala. Para más información sobre cómo configurar un clúster para la implementación del servicio web, consulte [Model Management configuration](model-management-configuration.md) (Configuración de Administración de modelos). 
-

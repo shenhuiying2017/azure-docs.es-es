@@ -14,18 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/05/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar E/S de múltiples rutas para el dispositivo StorSimple
 
-En este tutorial se describen los pasos que hay que seguir para instalar y usar la característica 
-E/S de múltiples rutas (MPIO) en un host que ejecuta Windows Server 2012 R2 y que está conectado a un dispositivo físico StorSimple. Las instrucciones de este artículo se aplican solo a los dispositivos físicos de la serie StorSimple 8000. Actualmente, MPIO no se admite en StorSimple Cloud Appliance.
+En este tutorial se describen los pasos que hay que seguir para instalar y usar la característica E/S de múltiples rutas (MPIO) en un host que ejecuta Windows Server 2012 R2 y que está conectado a un dispositivo físico StorSimple. Las instrucciones de este artículo se aplican solo a los dispositivos físicos de la serie StorSimple 8000. Actualmente, MPIO no se admite en StorSimple Cloud Appliance.
 
 Microsoft incorporó a Windows Server la compatibilidad con la característica de E/S de múltiples rutas (MPIO) para que sea más fácil crear configuraciones de SAN de alta disponibilidad y tolerancia a errores. MPIO usa componentes de ruta de acceso físicas redundantes (es decir, adaptadores, cables y conmutadores) para crear rutas de acceso lógicas entre el servidor y el dispositivo de almacenamiento. Si se produce un error de componente, lo que haría que la ruta de acceso lógica no funcionara, la lógica de múltiples rutas usa una ruta alternativa para E/S a fin de que las aplicaciones puedan seguir teniendo acceso a los datos. Además, en función de la configuración, MPIO puede mejorar el rendimiento al volver a equilibrar la carga entre estas rutas de acceso. Para más información, consulte [Introducción a E/S de múltiples rutas](https://technet.microsoft.com/library/cc725907.aspx "Introducción a E/S de múltiples rutas and features").
 
@@ -84,10 +81,10 @@ MPIO se debe configurar para identificar los volúmenes de StorSimple. Haga lo s
 1. Abra la **configuración de MPIO**. Haga clic en **Administrador del servidor > Panel > Herramientas > MPIO**.
 2. En el cuadro de diálogo **MPIO Properties** (Propiedades de MPIO), seleccione la pestaña **Detectar múltiples rutas**.
 3. Seleccione **Agregar compatibilidad con dispositivos iSCSI** y, luego, haga clic en **Agregar**.  
-   ![Propiedades de MPIO &gt; Detectar múltiples rutas](./media/storsimple-configure-mpio-windows-server/IC741003.png)
+   ![Propiedades de MPIO &amp;gt; Detectar múltiples rutas](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. Reinicie el servidor cuando se le pida.
 5. En el cuadro de diálogo **Propiedades de MPIO**, haga clic en la pestaña **Dispositivos con MPIO**. Haga clic en **Agregar**.
-    </br>![Propiedades de MPIO &gt; Dispositivo con MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
+    </br>![Propiedades de MPIO &amp;gt; Dispositivo con MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. En el cuadro de diálogo **Agregar compatibilidad con MPIO**, en **Identificador de hardware de dispositivo**, escriba el número de serie del dispositivo. Para obtener el número de serie del dispositivo, acceda al servicio StorSimple Device Manager. Navegue a **Dispositivos > Panel**. El número de serie del dispositivo se muestra en el panel de **Vista rápida** derecho del panel del dispositivo.
     </br>
     ![Agregar compatibilidad con MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
@@ -193,5 +190,4 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre el [uso del servicio StorSimple Device Manager para modificar la configuración del dispositivo StorSimple](storsimple-8000-modify-device-config.md).
-
 

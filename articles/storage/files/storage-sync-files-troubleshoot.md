@@ -12,18 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: 1ea7956e92dbc85f62383e4b041c4c830599f765
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: cf3f3cf63cafc3b883d26144a53066ee421eb2a6
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-file-sync-preview"></a>Solución de problemas de Azure File Sync (versión preliminar)
-Con Azure File Sync (versión preliminar), se pueden replicar los recursos compartidos de archivos a servidores de Windows Servers de forma local o en Azure. Usted y sus usuarios podrán acceder al recurso compartido de archivos mediante el servidor de Windows, por ejemplo, mediante un recurso compartido de SMB o NFS. Esta posibilidad resulta especialmente útil en escenarios en los que es necesario acceder a los datos y modificarlos lejos de un centro de datos de Azure, como puede ser en una sucursal. Lo datos pueden replicarse entre varios puntos de conexión de Windows Server, por ejemplo, entre varias sucursales.
+Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello la transformación de los servidores Windows Server en una caché rápida de los recursos compartidos de Azure Files. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
 
 Este artículo está diseñado para ayudarle a solucionar problemas que pueden producirse con la implementación de Azure File Sync. En su defecto, esta guía muestra cómo recopilar registros importantes del sistema para ayudar a una investigación más profunda de los problemas. Las siguientes opciones están disponibles para obtener soporte técnico para Azure File Sync:
 
@@ -37,7 +35,22 @@ Si la instalación del agente de Azure File Sync no se produce correctamente, ej
 StorageSyncAgent.msi /l*v Installer.log
 ```
 
-Si la instalación produce error, revise el archivo installer.log para determinar la causa.
+Si la instalación produce error, revise el archivo installer.log para determinar la causa. 
+
+> [!Note]  
+> Se producirá un error en la instalación del agente si utiliza Microsoft Update y no se está ejecutando el servicio Windows Update.
+
+## <a name="cloud-endpoint-creation-fails-with-the-following-error-the-specified-azure-fileshare-is-already-in-use-by-a-different-cloudendpoint"></a>Se produce un error al crear el punto de conexión de nube con el siguiente error: "The specified Azure FileShare is already in use by a different CloudEndpoint" (El recurso compartido de Azure Files especificado ya está en uso por un punto de conexión de nube diferente).
+Este error se produce si el recurso compartido de Azure Files ya está en uso por otro punto de conexión de nube. 
+
+Si recibe este error y el recurso compartido de Azure Files no está actualmente en uso por un punto de conexión de nube, realice los siguientes pasos para borrar los metadatos de Azure File Sync en el recurso compartido de Azure Files:
+
+> [!Warning]  
+> Si se eliminan los metadatos en un recurso compartido de Azure Files que está actualmente en uso por un punto de conexión de nube, las operaciones de Azure File Sync producirán un error. 
+
+1. Navegue al recurso compartido de Azure Files en Azure Portal.  
+2. Haga clic con el botón derecho en el recurso compartido de Azure File y seleccione **Editar metadatos**
+3. Haga clic con el botón derecho en SyncService y seleccione **Eliminar**.
 
 ## <a name="server-is-not-listed-under-registered-servers-in-the-azure-portal"></a>El servidor no aparece en los servidores registrados de Azure Portal
 Si un servidor no aparece en los servidores registrados de un servicio de sincronización de almacenamiento, siga los pasos siguientes:
@@ -49,6 +62,16 @@ Si un servidor no aparece en los servidores registrados de un servicio de sincro
 ![Captura de pantalla del cuadro de diálogo Registro de servidor con el mensaje que indica que el servidor ya está registrado](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
 Este mensaje aparece si el servidor se registró anteriormente en un servicio de sincronización de almacenamiento. Para anular el registro del servidor del servicio de sincronización de almacenamiento actual y registrarlo en un servicio de sincronización de almacenamiento nuevo, siga los pasos para [anular el registro de un servidor de Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+Si el servidor no aparece en la lista de servidores registrados en el servicio de sincronización de Storage, ejecute los siguientes comandos de PowerShell en el servidor cuyo registro desea eliminar:
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Reset-StorageSyncServer
+```
+
+> [!Note]  
+> Si el servidor forma parte de un clúster, hay un parámetro opcional `Reset-StorageSyncServer -CleanClusterRegistration` que también quitará el registro de clúster. Este modificador debe utilizarse cuando el último nodo del clúster no esté registrado.
 
 ## <a name="how-to-troubleshoot-sync-not-working-on-a-server"></a>Solución de problemas cuando la sincronización no funciona en un servidor
 Si la sincronización no funciona en un servidor, realice estos pasos:

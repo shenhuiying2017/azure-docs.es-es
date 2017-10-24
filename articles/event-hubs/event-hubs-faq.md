@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
-ms.author: sethm;shvija
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: c4faa071c4f2401fe3e852e787e3b7d4da0c7d44
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: e208e970de58505553802a4ed27d7f9da4070866
-ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
 ## <a name="general"></a>General
@@ -44,7 +42,7 @@ Las unidades de procesamiento de Event Hubs se seleccionan explícitamente media
 * Hasta 2 MB por segundo de eventos de salida (eventos consumidos en un centro de eventos).
 * Hasta 84 GB de almacenamiento de eventos (suficiente para el período de retención predeterminado de 24 horas).
 
-Las unidades de procesamiento de los Centros de eventos se facturan por horas, según el número máximo de unidades seleccionadas durante la hora en cuestión.
+Las unidades de procesamiento de los Centros de eventos se facturan por horas, según el número máximo de unidades seleccionadas durante la hora en cuestión. También puede [aumentar el número de unidades de rendimiento](event-hubs-auto-inflate.md) de forma automática a medida que el uso sea más frecuente.
 
 ### <a name="how-are-event-hubs-throughput-unit-limits-enforced"></a>¿Cómo se aplican los límites de unidades de rendimiento de los Centros de eventos?
 Si el procesamiento total de entrada o la tasa total de eventos de entrada en todos los centros de eventos de un espacio de nombres superan el número total de unidades de procesamiento permitidas, los remitentes quedan sujetos a limitaciones y reciben errores que indican que se superó la cuota de entrada.
@@ -53,6 +51,8 @@ Si el procesamiento total de salida o la tasa total de eventos de salida en todo
 
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-selected"></a>¿Hay un límite en el número de unidades de procesamiento que se pueden seleccionar?
 Hay una cuota predeterminada de 20 unidades de procesamiento por espacio de nombres. Puede solicitar una cuota de unidades de procesamiento mayor, si rellena una incidencia de soporte técnico. Más allá del límite de 20 unidades de procesamiento, hay disponibles paquetes de 20 y 100 unidades de procesamiento. Tenga en cuenta que al usar más de 20 unidades de procesamiento, se quita la capacidad de cambiar el número de unidades de procesamiento sin rellenar una incidencia de soporte técnico.
+
+Mediante la característica de [inflado automático](event-hubs-auto-inflate.md) se puede aumentar el número de unidades de rendimiento de forma automática a medida que el uso sea más frecuente.
 
 ### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>¿Se puede usar una sola conexión AMQP para enviar y recibir en varios centros de eventos?
 Sí, siempre y cuando todos los centros de eventos se encuentren en el mismo espacio de nombres.
@@ -92,7 +92,7 @@ Los eventos consumidos en un centro de eventos, así como las operaciones de adm
 Los cargos de conexión se aplican solo cuando se usa el protocolo AMQP. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, independientemente del número de sistemas o dispositivos emisores. Si tiene previsto usar AMQP (por ejemplo, para conseguir un flujo de eventos más eficiente o para habilitar la comunicación bidireccional en escenarios de comando y control de IoT), vea la página de [información de precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) para obtener información sobre el número de conexiones incluidas en cada nivel de servicio.
 
 ### <a name="how-is-event-hubs-capture-billed"></a>¿Cómo se factura Event Hubs Capture?
-Capture se habilita cuando algún centro de eventos del espacio de nombres tiene la opción Capture habilitada. Event Hubs Capture se factura por horas y por unidad de procesamiento comprada. A medida que el número de unidades de procesamiento aumenta o disminuye, la facturación de Event Hubs Capture refleja estos cambios en incrementos de horas completas. Para más información sobre Event Hubs Capture, vea los [detalles de los precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+Capture se habilita cuando algún centro de eventos del espacio de nombres tiene la opción Capture habilitada. Event Hubs Capture se factura por horas y por unidad de rendimiento comprada. A medida que el número de unidades de rendimiento aumenta o disminuye, la facturación de Event Hubs Capture refleja estos cambios en incrementos de horas completas. Para más información sobre Event Hubs Capture, vea los [detalles de los precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="will-i-be-billed-for-the-storage-account-i-select-for-event-hubs-capture"></a>¿Se me cobrará la cuenta de almacenamiento que seleccione para Event Hubs Capture?
 Capture usa la cuenta de almacenamiento que se especifique al habilitarlo en un servicio centro de eventos. Dado que esta es su cuenta de almacenamiento, los cambios efectuados en esta configuración se facturan en su suscripción de Azure.
@@ -119,5 +119,5 @@ Para más información sobre nuestro SLA, consulte la página [Acuerdos de nivel
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Creación de un centro de eventos](event-hubs-create.md)
-
+* [Creación de un Centro de eventos](event-hubs-create.md)
+* [Inflado automático de Event Hubs](event-hubs-auto-inflate.md)

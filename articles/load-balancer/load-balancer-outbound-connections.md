@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
+ms.openlocfilehash: d3c8c79170e2f369a89c4ab0588e057d0228b573
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 03cb14b5710b6dd17599a3c4eab21380c76c2b40
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understanding-outbound-connections-in-azure"></a>Comprender las conexiones salientes en Azure
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
@@ -42,7 +40,7 @@ Si no desea que una máquina virtual se comunique con puntos de conexión fuera 
 
 En este escenario, la máquina virtual no forma parte de un grupo de Azure Load Balancer y no tiene una dirección IP pública a nivel de instancia (ILPIP) asignada a ella. Cuando la máquina virtual crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP de origen público. La dirección IP pública usada para este flujo de salida no es configurable y no cuenta para el límite de recursos de IP pública de la suscripción. Azure usa la traducción de direcciones de red de origen (SNAT) para realizar esta función. Se utilizan puertos efímeros de la dirección IP pública para distinguir flujos individuales que la máquina virtual originó. SNAT asigna dinámicamente puertos efímeros cuando se crean flujos. En este contexto, los puertos efímeros utilizados para SNAT se conocen como puertos SNAT.
 
-Los puertos SNAT son un recurso finito que puede agotarse. Es importante entender cómo se consumen. Se consume un puerto SNAT por cada flujo a una sola dirección IP de destino. En el caso de varios flujos a la misma dirección IP de destino, cada flujo consume un solo puerto SNAT. Esto garantiza que los flujos son únicos si se han originado desde la misma dirección IP pública y se dirigen a la misma dirección IP de destino. En el caso de varios flujos, cada uno de ellos dirigido a una dirección IP de destino diferente, se consume un solo puerto SNAT por cada destino. La dirección IP de destino hace que los flujos sean únicos.
+Los puertos SNAT son un recurso finito que puede agotarse. Es importante entender cómo se consumen. Se consume un puerto SNAT por cada flujo a una sola dirección IP de destino. En el caso de varios flujos a la misma dirección IP de destino, cada flujo consume un solo puerto SNAT. Esto garantiza que los flujos son únicos si se han originado desde la misma dirección IP pública y se dirigen a la misma dirección IP de destino. Si hay varios flujos, cada uno de ellos dirigido a una dirección IP de destino diferente, se comparte un solo puerto SNAT. La dirección IP de destino hace que los flujos sean únicos.
 
 Puede usar [Log Analytics para Load Balancer](load-balancer-monitor-log.md) y [Registros de eventos de alerta para supervisar los mensajes de agotamiento de los puertos SNAT](load-balancer-monitor-log.md#alert-event-log). Cuando se agotan los recursos de los puertos SNAT, los flujos de salida generan errores hasta que los flujos ya existentes liberan otros puertos SNAT. Load Balancer utiliza un tiempo de espera de inactividad de 4 minutos para reclamar puertos SNAT.
 
@@ -52,7 +50,7 @@ En este escenario, la máquina virtual forma parte de un grupo de Azure Load Bal
 
 Cuando la máquina virtual de carga equilibrada crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP pública del front-end público de Load Balancer. Azure usa la traducción de direcciones de red de origen (SNAT) para realizar esta función. Se utilizan puertos efímeros de la dirección IP pública de Load Balancer para distinguir flujos individuales que la máquina virtual originó. SNAT asigna dinámicamente puertos efímeros cuando se crean flujos de salida. En este contexto, los puertos efímeros utilizados para SNAT se conocen como puertos SNAT.
 
-Los puertos SNAT son un recurso finito que puede agotarse. Es importante entender cómo se consumen. Se consume un puerto SNAT por cada flujo a una sola dirección IP de destino. En el caso de varios flujos a la misma dirección IP de destino, cada flujo consume un solo puerto SNAT. Esto garantiza que los flujos son únicos si se han originado desde la misma dirección IP pública y se dirigen a la misma dirección IP de destino. En el caso de varios flujos, cada uno de ellos dirigido a una dirección IP de destino diferente, se consume un solo puerto SNAT por cada destino. La dirección IP de destino hace que los flujos sean únicos.
+Los puertos SNAT son un recurso finito que puede agotarse. Es importante entender cómo se consumen. Se consume un puerto SNAT por cada flujo a una sola dirección IP de destino. En el caso de varios flujos a la misma dirección IP de destino, cada flujo consume un solo puerto SNAT. Esto garantiza que los flujos son únicos si se han originado desde la misma dirección IP pública y se dirigen a la misma dirección IP de destino. Si hay varios flujos, cada uno de ellos dirigido a una dirección IP de destino diferente, se comparte un solo puerto SNAT. La dirección IP de destino hace que los flujos sean únicos.
 
 Puede usar [Log Analytics para Load Balancer](load-balancer-monitor-log.md) y [Registros de eventos de alerta para supervisar los mensajes de agotamiento de los puertos SNAT](load-balancer-monitor-log.md#alert-event-log). Cuando se agotan los recursos de los puertos SNAT, los flujos de salida generan errores hasta que los flujos ya existentes liberan otros puertos SNAT. Load Balancer utiliza un tiempo de espera de inactividad de 4 minutos para reclamar puertos SNAT.
 
@@ -79,4 +77,3 @@ Si hay [varias direcciones IP (públicas) asociadas a un equilibrador de carga](
 Azure utiliza un algoritmo para determinar el número de puertos SNAT disponibles en función del tamaño del grupo.  Esto no es configurable en este momento.
 
 Es importante recordar que el número de puertos SNAT disponibles no equivale directamente al número de conexiones. Consulte la información anterior para conocer cuándo y cómo se asignan los puertos SNAT y el modo de administrar este recurso limitado.
-

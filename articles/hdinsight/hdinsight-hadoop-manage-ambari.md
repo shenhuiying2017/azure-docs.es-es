@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 10/11/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 0bcf8f0d1c5fc44a31de9be9adbdad3893ff111f
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 470ec09d444f93abcd8f0f58fc197474bbb1376e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari
 
@@ -52,6 +51,9 @@ La interfaz de usuario web de Ambari está disponible en el clúster de HDInsigh
 A pesar de que es posible tener acceso directamente a través de Internet a Ambari en su clúster, algunos vínculos de la interfaz de usuario web de Ambari (como JobTracker) no estarán expuestos en Internet. Para acceder a estos servicios, debe crear un túnel SSH. Para más información, consulte el documento [Uso de un túnel SSH con HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## <a name="ambari-web-ui"></a>Interfaz de usuario web de Ambari
+
+> [!WARNING]
+> No todas las características de la interfaz de usuario web de Ambari son compatibles con HDInsight. Para más información, consulte la sección sobre las [operaciones no admitidas](#unsupported-operations) de este documento.
 
 Cuando se conecte a la interfaz de usuario web de Ambari, se le pedirá que se autentique en la página. Use el nombre de usuario y la contraseña de administrador del clúster (valor predeterminado, Admin) que utilizó durante la creación del clúster.
 
@@ -238,3 +240,12 @@ Las vistas de Ambari permiten a los desarrolladores conectar elementos de interf
 
 * Vista Tez: la vista de Tez permite comprender mejor y optimizar los trabajos. Puede ver información sobre cómo se ejecutan los trabajos de Tez y qué recursos se usan.
 
+## <a name="unsupported-operations"></a>Operaciones no admitidas
+
+Las operaciones de Ambari siguientes no son compatibles con HDInsight:
+
+* __Migración del servicio Recopilador de métricas__. Cuando se ve información en el servicio Recopilador de métricas, una de las acciones disponibles en el menú Acciones del servicio es la __migración del recopilador de métricas__. Esto no es compatible con HDInsight.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Obtenga información sobre cómo usar la [API de REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) con HDInsight.
