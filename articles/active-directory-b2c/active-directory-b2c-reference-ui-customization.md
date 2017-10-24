@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 122fa997ea11b369aae3c59edf0043ab19d21aea
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: personalización de la interfaz de usuario de Azure AD B2C
 
@@ -27,6 +27,7 @@ La experiencia del usuario es primordial en una aplicación de cliente.  Aumenta
 > [!NOTE]
 > La característica de personalización de la interfaz de usuario de la página que se describe en este artículo no se aplica a la directiva de inicio de sesión único, a la página de restablecimiento de contraseña adjunta y a los correos electrónicos de verificación.  Estas características utilizan en su lugar la [característica de personalización de marca de empresa](../active-directory/active-directory-add-company-branding.md).
 >
+> De manera similar, si un usuario inicia una directiva de edición de perfil *antes* de iniciar sesión, se redirigirá al usuario a una página que se puede personalizar con la [característica de personalización de marca de la empresa](../active-directory/active-directory-add-company-branding.md).
 
 En este artículo se tratan los temas siguientes:
 

@@ -12,151 +12,65 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/26/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 8951167213da6ab5341c1ca420353ec625ef5424
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.openlocfilehash: 21415af0d449d639d000e07afdb4de3680a64774
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-security-center"></a>Introducción al Centro de seguridad de Azure
 Obtenga información sobre el Centro de seguridad de Azure, sus capacidades clave y cómo funciona.
 
-> [!NOTE]
-> Desde primeros de junio de 2017, Security Center usará Microsoft Monitoring Agent para recopilar y almacenar datos. Consulte [Migración de la plataforma de Azure Security Center](security-center-platform-migration.md) para más información. La información de este artículo representa la funcionalidad de Security Center después de la transición a Microsoft Monitoring Agent.
->
->
-
 ## <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
- El Centro de seguridad ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en los recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
+Azure Security Center ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes.  Ofrece visibilidad y control sobre las cargas de trabajo de nube híbrida, defensas activas que reducen la exposición a las amenazas y una detección inteligente, lo que le permitirá mantenerse al día de los ciberataques, que se expanden rápidamente.
 
-## <a name="key-capabilities"></a>Principales capacidades
- El Centro de seguridad ofrece las funcionalidades sencillas y eficaces de prevención, detección y respuesta ante amenazas integradas en Azure. Principales capacidades:
+El panel Introducción de Security Center proporciona una vista rápida de la situación de seguridad de las cargas de trabajo de Azure y que no son de Azure, lo que le permite detectar y evaluar la seguridad de las cargas de trabajo e identificar y mitigar riesgos.
 
-| Fase | Capacidad |
-| --- | --- |
-| Prevención |Supervisa el estado de seguridad de los recursos de Azure |
-| Prevención | Define las directivas de las suscripciones de Azure en función de los requisitos de seguridad de la compañía, los tipos de aplicaciones utilizados y la confidencialidad de los datos. |
-| Prevención | Usa recomendaciones de seguridad controladas por directivas para guiar a los propietarios de los servicios a través del proceso de implementación de los controles necesarios |
-| Prevención | Implementa rápidamente servicios y dispositivos de seguridad de Microsoft y asociados |
-| Detección |Recopila y analiza automáticamente los datos de seguridad de los recursos de Azure, la red y las soluciones de asociados como firewalls y programas antimalware |
-| Detección | Utiliza la inteligencia de amenazas globales de los productos y servicios de Microsoft, Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) y fuentes externas. |
-| Detección | Aplica análisis avanzados, incluido el aprendizaje automático y el análisis de comportamientos |
-| Respuesta |Proporciona seguridad prioritaria ante incidentes y alertas |
-| Respuesta | Proporciona información sobre el origen del ataque y los recursos afectados |
-| Respuesta | Sugiere formas de detener el ataque actual y de ayudar a impedir ataques futuros |
+![Información general](./media/security-center-intro/security-center-intro-fig1.png)
 
-## <a name="introductory-walkthrough"></a>Tutorial de introducción
+## <a name="why-use-security-center"></a>Razones para usar Security Center
 
-> [!NOTE]
-> En este documento se presenta el servicio mediante una implementación de ejemplo. Este documento no es una guía paso a paso.
->
->
+**Control y visibilidad unificados**
 
- Se accede al Centro de seguridad desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). [Inicie sesión en el portal](https://portal.azure.com). En el menú principal del portal, desplácese hasta la opción **Security Center** o seleccione el icono **Security Center** que ancló anteriormente al panel del portal.
+- **Comprensión del estado de seguridad a través de las cargas de trabajo híbridas**. Use una única consola para administrar la seguridad de todas las cargas de trabajo en la nube híbridas (locales, de Azure y de otras plataformas en la nube). Los paneles integrados proporcionan información al instante sobre los problemas de seguridad que requieren atención.
+- **Visibilidad en las cargas de trabajo en la nube**. Mantenga el ritmo con las cargas de trabajo en la nube que cambian con rapidez. Detecte automáticamente e incorpore los nuevos recursos que se crean en las suscripciones de Azure.
+- **Administración de directivas centralizada**. Garantice el cumplimiento de los requisitos de seguridad normativos o de la empresa administrando las directivas de seguridad de forma centralizada de las cargas de trabajo en la nube híbridas.
+- **Datos de seguridad procedentes de muchos orígenes**. Recopile, busque y analice los datos de seguridad procedentes de una gran variedad de orígenes, incluidas las soluciones de asociados conectados como los firewalls de red y otros servicios de Microsoft. 
+- **Integración con los flujos de trabajo de seguridad existentes**. Obtenga acceso, integre y analice la información de seguridad usando las API de REST para conectar los procesos y las herramientas existentes.
+- **Informes de cumplimiento**. Use la información y datos de seguridad para demostrar el cumplimiento y generar fácilmente pruebas para los auditores.
 
-![Icono Seguridad en el Portal de Azure][1]
+**Prevención de amenazas adaptable**
 
-En el Centro de seguridad, puede establecer directivas de seguridad, supervisar configuraciones de seguridad y ver alertas de seguridad.
+- **Evaluación de la seguridad continua**. Supervise la seguridad de los equipos, redes y servicios de Azure con cientos de evaluaciones de seguridad integradas, o bien cree las suyas propias. Identifique el software y las configuraciones que son vulnerables a ataques.
+- **Recomendaciones prácticas**. Use recomendaciones de seguridad prácticas y prioritarias, y guías de automatización integradas para corregir las vulnerabilidades de seguridad antes de que puedan ser usadas por los atacantes.
+- **Controles de aplicación adaptables**. Bloquee el malware y otras aplicaciones no deseadas aplicando recomendaciones de inclusión en lista blanca adaptadas a sus cargas de trabajo de Azure específicas y basadas en el aprendizaje automático. 
+- **Seguridad de acceso a la red**. Reduzca la superficie expuesta a ataques de red con el acceso controlado Just-In-Time a los puertos de administración de las máquinas virtuales de Azure, lo que reducirá drásticamente la exposición a ataques por fuerza bruta y otros tipos de ataques de red.
 
-### <a name="security-policies"></a>Directivas de seguridad
-Puede definir directivas para las suscripciones de Azure según los requisitos de seguridad de la compañía. También puede personalizarlas según los tipos de aplicaciones que use o la confidencialidad de los datos en cada suscripción. Por ejemplo, es posible que los recursos usados para el desarrollo o las pruebas tengan requisitos de seguridad distintos a los empleados para las aplicaciones de producción. Del mismo modo, es posible que las aplicaciones con datos regulados como PII requieran un mayor nivel de seguridad.
+**Detección y respuesta inteligentes a amenazas**
 
-> [!NOTE]
-> Para modificar una directiva de seguridad, debe ser administrador de seguridad o el propietario/colaborador de la suscripción. Consulte [Permisos en Azure Security Center](security-center-permissions.md) para obtener más información sobre los roles y las acciones permitidas en Security Center.
->
->
+- **La inteligencia sobre amenazas más exhaustiva del sector**. Benefíciese del gráfico de seguridad inteligente de Microsoft, que emplea trillones de señales de sistemas y servicios de Microsoft de todo el mundo para identificar las amenazas nuevas y en constante evolución.
+- **Detección de amenazas avanzada**. Use la funcionalidad integrada de análisis del comportamiento y aprendizaje automático para identificar ataques y vulnerabilidades de seguridad de día cero. Supervise las redes, las máquinas y los servicios en la nube para detectar ataques entrantes y actividad posterior a una infracción de seguridad.
+- **Alertas e incidentes clasificados por orden de prioridad**. Céntrese primero en las amenazas más graves gracias a alertas de seguridad prioritarias e incidentes que asignan alertas de diferentes tipos a una única campaña de ataque. También puede crear sus propias alertas de seguridad personalizadas.
+- **Investigación optimizada**. Evalúe rápidamente el ámbito y el impacto de un ataque con una experiencia visual e interactiva. Use consultas predefinidas o ad hoc para explorar los datos de seguridad en mayor profundidad. 
+- **Inteligencia contextual sobre amenazas**. Visualice el origen de los ataques en un mapa del mundo interactivo. Use informes de inteligencia sobre amenazas integrados para obtener información valiosa sobre las técnicas y objetivos de actores malintencionados conocidos.
 
-En la hoja **Security Center**, seleccione el icono **Directiva** para obtener una lista de las suscripciones y los grupos de recursos.   
+## <a name="get-started"></a>Introducción
+Para empezar a trabajar con el Centro de seguridad, necesita una suscripción a Microsoft Azure. El Centro de seguridad se habilita con su suscripción de Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/). 
 
-![Hoja de centro de seguridad][2]
+[Introducción a Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started) le guía rápidamente por los componentes de administración de directivas y supervisión de seguridad de Azure Security Center. 
 
-En la hoja **Directiva de seguridad**, seleccione una suscripción para ver los detalles de la directiva.
-
-**Recopilación de datos** habilita la recopilación de datos en una directiva de seguridad. Con la habilitación se consigue lo siguiente:
-
-* Examen diario de todas las máquinas virtuales (VM) admitidas para las recomendaciones y la supervisión de seguridad.
-* Colección de eventos de seguridad para el análisis y la detección de amenazas.
-
-> [!NOTE]
-> Recopilación de datos se configura en el nivel de suscripción.
->
->
-
-Seleccione **Directiva de prevención** para abrir la hoja **Directiva de prevención**. **Mostrar recomendaciones para** permite elegir los controles de seguridad que desea supervisar y las recomendaciones que desea ver según las necesidades de seguridad de los recursos de la suscripción.
-
-### <a name="security-recommendations"></a>Recomendaciones de seguridad
- El Centro de seguridad analiza el estado de seguridad de los recursos de Azure para identificar posibles vulnerabilidades de seguridad. Una lista de recomendaciones le guiará por el proceso de configuración de los controles necesarios. Algunos ejemplos son:
-
-* Aprovisionamiento de antimalware para ayudar a identificar y eliminar el software malintencionado.
-* Configuración de reglas y grupos de seguridad de red para controlar el tráfico a las VM
-* Aprovisionamiento de firewalls de aplicaciones web para ayudar a defenderse contra ataques dirigidos a las aplicaciones web.
-* Implementación de actualizaciones del sistema que faltan.
-* Resolución de las configuraciones de sistema operativo que no coinciden con las líneas base recomendadas.
-
-Haga clic en el icono **Recomendaciones** para obtener una lista de recomendaciones. Haga clic en cada recomendación para ver más información o para tomar medidas para solucionar el problema.
-
-![Recomendaciones de seguridad en el Centro de seguridad de Azure][5]
-
-### <a name="security-state-of-azure-resources"></a>Estado de seguridad de recursos de Azure
-En la sección **Prevención** del panel se muestra la posición de seguridad general del entorno por tipo de recurso, lo que incluye máquinas virtuales, aplicaciones web y otros recursos.   
-
-Seleccione un tipo de recurso en **Prevención** para ver más información, incluida una lista de las posibles vulnerabilidades de seguridad que se hayan identificado. (En el siguiente ejemplo, se selecciona la opción **Compute**).
-
-![Icono Estado de los recursos][6]
-
-### <a name="security-alerts"></a>Alertas de seguridad
- El Centro de seguridad recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y soluciones de asociados como firewalls y programas antimalware. Cuando se detecten amenazas, se creará una alerta de seguridad. Como ejemplos se incluye la detección de:
-
-* VM en peligro que se comunican con direcciones IP malintencionadas conocidas
-* Malware avanzado detectado mediante la generación de informes de errores de Windows.
-* Ataques de fuerza bruta contra VM
-* Alertas de seguridad de programas antimalware y firewalls integrados
-
-Al hacer clic en el icono **Alertas de seguridad** se muestra una lista de alertas por prioridad.
-
-![Alertas de seguridad][7]
-
-Al seleccionar una alerta, se muestra más información sobre el ataque y sugerencias para resolverlo.
-
-![Detalles de alertas de seguridad][8]
-
-### <a name="partner-solutions"></a>Soluciones de socios
-El icono de **Soluciones de asociados** permite supervisar de un solo vistazo el estado de seguridad de las soluciones de asociados integradas en la suscripción de Azure. Security Center muestra las alertas procedentes de las soluciones.
-
-Seleccione el icono **Soluciones de asociados** . Se muestra una hoja con una lista de todas las soluciones de asociados conectadas.
-
-![Soluciones de socios][9]
-
-## <a name="get-started"></a>Primeros pasos
-Para empezar a trabajar con el Centro de seguridad, necesita una suscripción a Microsoft Azure. El Centro de seguridad se habilita con su suscripción de Azure. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-
- Se accede al Centro de seguridad desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). Para obtener más información, consulte la [documentación del portal](https://azure.microsoft.com/documentation/services/azure-portal/) .
-
-[Introducción a Azure Security Center](security-center-get-started.md) le guía rápidamente por los componentes de administración de directivas y supervisión de seguridad de Azure Security Center.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, se ha presentado el Centro de seguridad, sus funcionalidades clave y cómo empezar a usarlo. Para obtener más información, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-* [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md) : recomendaciones que lo ayudan a proteger los recursos de Azure.
-* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md) : obtenga información sobre cómo supervisar el estado de los recursos de Azure.
-* [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
-* [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md) : aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-- [Seguridad de datos de Azure Security Center](security-center-data-security.md): aprenda cómo se administran y protegen los datos en Security Center.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : obtenga las últimas noticias e información sobre la seguridad en Azure.
+* [Guía de operaciones y planeación de Azure Security Center:](security-center-planning-and-operations-guide.md) aprenda a optimizar el uso de Security Center en función de los requisitos de seguridad y el modelo de administración en la nube de su organización.
+* [Establecimiento de directivas de seguridad](https://docs.microsoft.com/azure/security-center/security-center-policies): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Administración de recomendaciones de seguridad](https://docs.microsoft.com/azure/security-center/security-center-recommendations): conozca una serie de recomendaciones que le ayudarán a proteger los recursos de Azure y los que no son de Azure.
+* [Supervisión del estado de seguridad](https://docs.microsoft.com/azure/security-center/security-center-monitoring): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure y los que no son de Azure.
+* [Administración y respuesta a las alertas de seguridad](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts): obtenga información sobre cómo administrar y responder a alertas de seguridad.
+* [Supervisión de las soluciones de asociados](https://docs.microsoft.com/azure/security-center/security-center-partner-solutions): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+* [Preguntas más frecuentes sobre Security Center](https://docs.microsoft.com/azure/security-center/security-center-faq): encuentre las preguntas más frecuentes sobre Security Center.
 
-<!--Image references-->
-[1]: ./media/security-center-intro/security-tile.png
-[2]: ./media/security-center-intro/security-center.png
-[3]: ./media/security-center-intro/security-policy.png
-[4]: ./media/security-center-intro/security-policy-blade.png
-[5]: ./media/security-center-intro/recommendations.png
-[6]: ./media/security-center-intro/resources-health.png
-[7]: ./media/security-center-intro/security-alert.png
-[8]: ./media/security-center-intro/security-alert-detail.png
-[9]: ./media/security-center-intro/partner-solutions.png
 

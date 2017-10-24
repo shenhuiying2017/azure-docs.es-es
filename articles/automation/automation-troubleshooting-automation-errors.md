@@ -3,7 +3,7 @@ title: "Solución de problemas comunes de Azure Automation| Microsoft Docs"
 description: "En este artículo se proporciona información para solucionar los errores comunes de Azure Automation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/26/2017
+ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
-ms.contentlocale: es-es
-ms.lasthandoff: 06/26/2017
-
+ms.openlocfilehash: 19b1d772236c14c8403d1056e5c9dcda7b741501
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Solución de problemas comunes en Azure Automation 
 Este artículo proporciona ayuda para solucionar los errores comunes que puede experimentar en Azure Automation y sugiere posibles soluciones para resolverlos.
@@ -103,7 +102,7 @@ Cualquiera de las siguientes tres alternativas solucionará este problema:
 1. Inicie sesión en la suscripción de Azure  
 2. Seleccione la cuenta de Automatización que desee actualizar  
 3. Haga clic en **Configuración** > **Plan de tarifa y uso** > **Plan de tarifa**.  
-4. En la hoja **Elegir el plan de tarifa**, seleccione **Básico**.    
+4. En la página **Elegir el plan de tarifa**, seleccione **Básico**    
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>Escenario: No se reconoce el Cmdlet cuando se ejecuta un runbook
 **Error**: se produce un error en su trabajo de runbook con el mensaje "``<cmdlet name>``: El término ``<cmdlet name>`` no se reconoce como nombre de un cmdlet, una función, un archivo de script o un programa ejecutable".
@@ -118,9 +117,9 @@ Cualquiera de las siguientes tres alternativas solucionará este problema:
 * Si está ejecutando el runbook local en un grupo de trabajo híbrido, asegúrese de que el cmdlet o módulo está instalado en el equipo que hospeda el trabajo híbrido.
 
 ### <a name="scenario-a-long-running-runbook-consistently-fails-with-the-exception-the-job-cannot-continue-running-because-it-was-repeatedly-evicted-from-the-same-checkpoint"></a>Escenario: un runbook de larga duración presenta errores constantemente con la excepción: "El trabajo no se puede seguir ejecutando porque se expulsó repetidamente desde el mismo punto de control".
-**Motivo del error:** esto es así por diseño debido a la supervisión de "reparto justo" de los procesos de Automatización de Azure, que suspende automáticamente un Runbook si se ejecuta más de tres horas. Sin embargo, el mensaje de error devuelto no proporciona opciones para qué hacer a continuación. Un runbook se puede suspender por varios motivos. Las suspensiones se producen principalmente debido a errores. Por ejemplo, una excepción no detectada en un runbook, un error de red o un bloqueo en el servicio Runbook Worker que ejecuta el runbook, harán que el runbook se suspenda y se inicie desde su último punto de control cuando se reanude.
+**Motivo del error:** el diseño de este comportamiento se debe a la supervisión de "reparto justo" de los procesos de Azure Automation, que suspende automáticamente un runbook si se ejecuta durante más de tres horas. Sin embargo, el mensaje de error devuelto no proporciona opciones para qué hacer a continuación. Un runbook se puede suspender por varios motivos. Las suspensiones se producen principalmente debido a errores. Por ejemplo, una excepción no detectada en un runbook, un error de red o un bloqueo en el servicio Runbook Worker que ejecuta el runbook, harán que el runbook se suspenda y se inicie desde su último punto de control cuando se reanude.
 
-**Sugerencias para solucionar el problema:** la solución documentada para evitar este problema consiste en usar puntos de control en un flujo de trabajo.  Para aprender más, consulte [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md#checkpoints).  Encontrará una explicación más completa del "reparto equitativo" y los puntos de control en este artículo de blog [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/)(Uso de puntos de control en los runbooks).
+**Sugerencias para solucionar el problema:** la solución documentada para evitar este problema consiste en usar puntos de control en un flujo de trabajo.  Para más información, consulte el artículo con [información sobre los flujos de trabajo de PowerShell](automation-powershell-workflow.md#checkpoints).  Encontrará una explicación más completa del "reparto equitativo" y los puntos de control en este artículo de blog [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/)(Uso de puntos de control en los runbooks).
 
 ## <a name="common-errors-when-importing-modules"></a>Errores comunes al importar módulos
 ### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a>Escenario: No se puede importar el módulo o no se puede ejecutar cmdlets después de la importación
@@ -134,7 +133,7 @@ Cualquiera de las siguientes tres alternativas solucionará este problema:
 * El cmdlet **New-AzureRmAutomationModule** se está usando para cargar el módulo y no se ha proporcionado la ruta de acceso de almacenamiento completa o no se ha cargado el módulo usando una URL de acceso público.  
 
 **Sugerencias de solución de problemas:**  
-cualquiera de las siguientes alternativas solucionará este problema:  
+Cualquiera de las siguientes soluciones resolverá el problema:  
 
 * Asegúrese de que el módulo sigue el formato siguiente:  
   nombreDeMódulo.Zip **->** nombreDeMódulo o un número de versión **->** (nombreDeMódulo.psm1, nombreDeMódulo.psd1)
@@ -152,7 +151,7 @@ cualquiera de las siguientes alternativas solucionará este problema:
 * Asegúrese de estar asignando al nodo un "nombre de configuración de nodo" y no el "nombre de configuración".  
 * Puede asignar una configuración de nodo a un nodo mediante el Portal de Azure o con un cmdlet de PowerShell.
 
-  * Para asignar una configuración de nodo a un nodo mediante Azure Portal, abra la hoja **Nodos de DSC**, seleccione un nodo y haga clic en el botón **Asignar configuración de nodo**.  
+  * Para asignar una configuración de nodo a un nodo mediante Azure Portal, abra la página **Nodos DSC**, seleccione un nodo y haga clic en el botón **Asignar configuración de nodo**.  
   * Para asignar una configuración de nodo a un nodo mediante un cmdlet de PowerShell, use el cmdlet **AzureRmAutomationDscNode Set** .
 
 ### <a name="scenario--no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Escenario: no se produjeron configuraciones de nodo (archivos MOF) al compilarse una configuración
@@ -161,7 +160,7 @@ cualquiera de las siguientes alternativas solucionará este problema:
 **Motivo del error**: cuando la expresión que aparece junto a la palabra clave **Node** en la configuración de DSC se evalúa como $null, no se produce ninguna configuración de nodo.    
 
 **Sugerencias de solución de problemas:**  
-cualquiera de las siguientes alternativas solucionará este problema:  
+Cualquiera de las siguientes soluciones resolverá el problema:  
 
 * Asegúrese de que la expresión junto a la palabra clave **Node** en la definición de configuración no se está evaluando como $null.  
 * Si se pasan datos de configuración al compilar la configuración, asegúrese de que se pasan los valores esperados que la configuración necesita de [ConfigurationData](automation-dsc-compile.md#configurationdata).
@@ -189,4 +188,3 @@ Si ha seguido los pasos de solución de problemas anteriores y no puede encontra
 * Registrar un incidente de soporte técnico de Azure. Vaya al [Sitio del soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico** en **Soporte técnico y facturación**.
 * Si está buscando una solución de Runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/) .
 * Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
-

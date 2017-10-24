@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
+ms.openlocfilehash: c7eb4514dca806d6e6470091423785b30a7d4bcb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 28e8b0be0b69f279685109d611fbfb369b96101a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Actualización de un almacén de Backup a un almacén de Recovery Services
 
@@ -70,6 +69,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 > Los nombres de grupos de recursos tienen restricciones. Asegúrese de seguir las instrucciones; si no lo hace, la actualización podría generar un error.
 >
 >Los clientes de **Azure Gobierno de EE. UU.** deben establecer el entorno en "AzureUSGovernment" para la ejecución del script.
+>Los clientes de **Azure China** deben establecer este entorno en "AzureChinaCloud" mientras se ejecuta el script.
 
 El siguiente fragmento de código es un ejemplo de cómo debería ser el comando de PowerShell:
 
@@ -159,4 +159,3 @@ Utilice el siguiente artículo para:</br>
 [Copia de seguridad de una máquina virtual de IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Copia de seguridad de Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
 [Hacer una copia de seguridad de Windows Server](backup-configure-vault.md)
-

@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 10/06/2017
 ms.author: sethm
+ms.openlocfilehash: 4763b172375668213372e6f4f8fc87431c430e53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: afa9efcb6335786198021ec81dd087287c39bda9
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Uso de temas y suscripciones de Service Bus con PHP
 
@@ -30,7 +29,7 @@ En este artículo se muestra cómo usar los temas y las suscripciones de Service
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## <a name="create-a-php-application"></a>Creación de una aplicación PHP
-El único requisito a la hora de crear una aplicación PHP para acceder a Azure Blob service es que se haga referencia a clases de [Azure SDK para PHP](../php-download-sdk.md) dentro del código. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, o bien el Bloc de notas.
+El único requisito a la hora de crear una aplicación PHP para obtener acceso al servicio BLOB de Azure es que se haga referencia a clases de [Azure SDK para PHP](../php-download-sdk.md) dentro del código. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, o bien el Bloc de notas.
 
 > [!NOTE]
 > La instalación de PHP debe tener también la [extensión OpenSSL](http://php.net/openssl) instalada y habilitada.
@@ -42,8 +41,8 @@ En este artículo se describe cómo se usan las características de servicio a l
 ## <a name="get-the-azure-client-libraries"></a>Obtención de las bibliotecas de clientes de Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar Service Bus
-Para usar las API de Service Bus:
+## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar el Bus de servicio
+Para usar las API del Bus de servicio:
 
 1. Haga referencia al archivo autocargador mediante la instrucción [require_once][require-once].
 2. Hacer referencia a todas las clases que utilice.
@@ -60,9 +59,9 @@ require_once 'vendor\autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
-En los ejemplos siguientes, la instrucción `require_once` aparecerá siempre, pero solo se hará referencia a las clases necesarias para la ejecución del ejemplo.
+En los ejemplos siguientes, la instrucción `require_once` aparece siempre, pero solo se hará referencia a las clases necesarias para la ejecución del ejemplo.
 
-## <a name="set-up-a-service-bus-connection"></a>Configuración de una conexión de Service Bus
+## <a name="set-up-a-service-bus-connection"></a>Configuración de una conexión del Bus de servicio
 Para crear una instancia de un cliente de Service Bus, primero debe disponer de una cadena de conexión válida con el siguiente formato:
 
 ```
@@ -164,7 +163,7 @@ También puede configurar filtros que le permitan especificar qué mensajes envi
 > 
 > 
 
-En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con un objeto **SqlFilter** que solo selecciona los mensajes con una propiedad `MessageNumber` personalizada cuyo valor es mayor que 3. Consulte [Envío de mensajes a un tema](#send-messages-to-a-topic) para más información sobre cómo agregar propiedades personalizadas a los mensajes.
+En el ejemplo siguiente, se crea una suscripción denominada `HighMessages` con un objeto **SqlFilter** que solo selecciona los mensajes con una propiedad `MessageNumber` personalizada cuyo valor es mayor que 3: Consulte [Envío de mensajes a un tema](#send-messages-to-a-topic) para más información sobre cómo agregar propiedades personalizadas a los mensajes.
 
 ```php
 $subscriptionInfo = new SubscriptionInfo("HighMessages");
@@ -225,7 +224,7 @@ catch(ServiceException $e){
 }
 ```
 
-Los mensajes enviados a los temas de Service Bus son instancias de la clase [BrokeredMessage][BrokeredMessage]. Los objetos [BrokeredMessage][BrokeredMessage] tienen un conjunto de propiedades y métodos estándar, así como propiedades que se pueden usar para contener propiedades personalizadas específicas de la aplicación. En el ejemplo siguiente se muestra cómo enviar cinco mensajes de prueba al tema `mytopic` creado anteriormente. El método `setProperty` se usa para agregar una propiedad personalizada (`MessageNumber`) a cada mensaje. Tenga en cuenta que el valor de la propiedad `MessageNumber` varía en cada mensaje (este valor se puede usar para determinar qué suscripciones lo reciben, como se muestra en la sección [Creación de una suscripción](#create-a-subscription)):
+Los mensajes enviados a temas de Service Bus son instancias de la clase [BrokeredMessage][BrokeredMessage]. Los objetos [BrokeredMessage][BrokeredMessage] tienen un conjunto de propiedades y métodos estándar, así como propiedades que se pueden usar para contener propiedades personalizadas específicas de la aplicación. En el ejemplo siguiente se muestra cómo enviar cinco mensajes de prueba al tema `mytopic` creado anteriormente. El método `setProperty` se usa para agregar una propiedad personalizada (`MessageNumber`) a cada mensaje. Tenga en cuenta que el valor de la propiedad `MessageNumber` varía en cada mensaje (este valor se puede usar para determinar qué suscripciones lo reciben, como se muestra en la sección [Creación de una suscripción](#create-a-subscription)):
 
 ```php
 for($i = 0; $i < 5; $i++){
@@ -246,9 +245,9 @@ El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB 
 ## <a name="receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
 La mejor manera de recibir mensajes de una suscripción es usar un método `ServiceBusRestProxy->receiveSubscriptionMessage`. Los mensajes se pueden recibir de dos modos diferentes: [*ReceiveAndDelete* y *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** es el valor predeterminado.
 
-Al usar el modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), la operación de recepción consta de una sola fase; es decir, cuando Service Bus recibe una solicitud de lectura de un mensaje de una suscripción, marca el mensaje como consumido y lo devuelve a la aplicación. El modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)* es el modelo más sencillo y funciona mejor en escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como Service Bus habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
+Al usar el modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), la operación de recepción consta de una sola fase; es decir, cuando Service Bus recibe una solicitud de lectura de un mensaje de una suscripción, marca el mensaje como consumido y lo devuelve a la aplicación. El modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)* es el modelo más sencillo y funciona mejor en escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
-En el modo [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), la recepción de un mensaje se convierte en una operación de dos etapas, lo que hace posible admitir aplicaciones que no pueden tolerar la pérdida de mensajes. Cuando Service Bus recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción mediante la realización de una llamada a `ServiceBusRestProxy->deleteMessage` en el mensaje recibido. Cuando Service Bus ve la llamada `deleteMessage`, marca el mensaje como consumido y lo elimina de la cola.
+En el modo [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), la recepción de un mensaje se convierte en una operación de dos etapas, lo que hace posible admitir aplicaciones que no pueden tolerar la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción mediante la realización de una llamada a `ServiceBusRestProxy->deleteMessage` en el mensaje recibido. Cuando Service Bus ve la llamada `deleteMessage`, marca el mensaje como consumido y lo elimina de la cola.
 
 En el ejemplo que aparece a continuación, se indica cómo se puede recibir y procesar un mensaje usando el modo [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) (el modo predeterminado). 
 
@@ -292,11 +291,11 @@ catch(ServiceException $e){
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Actuación ante errores de la aplicación y mensajes que no se pueden leer
-Service Bus proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción no puede procesar el mensaje, puede llamar al método `unlockMessage` en el mensaje recibido (en lugar de al método `deleteMessage`). Esto hará que Service Bus desbloquee el mensaje de la cola y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
+El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción no puede procesar el mensaje, puede llamar al método `unlockMessage` en el mensaje recibido (en lugar de al método `deleteMessage`). Esto hará que el Bus de servicio desbloquee el mensaje de la cola y esté disponible para volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
 
-También hay un tiempo de espera asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación sufre un error), entonces Service Bus desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
+También hay otro tiempo de expiración asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de expiración del bloqueo (por ejemplo, si la aplicación se bloquea), entonces Service Bus desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
-En caso de que la aplicación se bloquee después de procesar el mensaje, pero antes de realizar la solicitud `deleteMessage`, el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina *Al menos un procesamiento*, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a las aplicaciones para solucionar la entrega de mensajes duplicados. Esto suele conseguirse usando el método `getMessageId` del mensaje, que permanece constante en todos los intentos de entrega.
+En caso de que la aplicación se bloquee después de procesar el mensaje, pero antes de realizar la solicitud `deleteMessage`, el mensaje se vuelve a entregar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina *Al menos un procesamiento*, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a las aplicaciones para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue con la propiedad `getMessageId` del mensaje, que permanece constante en todos los intentos de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminación de temas y suscripciones
 Para eliminar un tema o una suscripción, use los métodos `ServiceBusRestProxy->deleteTopic` o `ServiceBusRestProxy->deleteSubscripton`, respectivamente. Tenga en cuenta que al eliminar un tema también se eliminan todas las suscripciones registradas en él.
@@ -336,9 +335,8 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya conoce los aspectos básicos de las colas de Service Bus, consulte [Colas, temas y suscripciones][Queues, topics, and subscriptions], donde encontrará más información.
 
-[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter
 [require-once]: http://php.net/require_once
 [Service Bus quotas]: service-bus-quotas.md
-

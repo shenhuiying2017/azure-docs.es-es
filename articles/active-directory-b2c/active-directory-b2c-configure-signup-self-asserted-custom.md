@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 8731ff3a42e12d145bc259597812aded8333a095
-ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
-
+ms.openlocfilehash: 2e4dbd13107a7a48eda179aeffdf6670a1c1cb22
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: modificación del registro para agregar nuevas notificaciones y configuración de la entrada del usuario.
 
@@ -36,7 +35,7 @@ La recopilación de los datos iniciales de los usuarios se logra a través de la
 
 
 ## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>Definición de la notificación, su nombre para mostrar y el tipo de entrada del usuario
-Vamos a pedir al usuario que indique su ciudad.  Agregue el siguiente elemento al elemento `<ClaimsSchema>` del archivo de directiva TrustFrameWorkExtensions:
+Vamos a pedir al usuario que indique su ciudad.  Agregue el siguiente elemento al elemento `<ClaimsSchema>` del archivo de directiva TrustFrameworkBase:
 
 ```xml
 <ClaimType Id="city">
@@ -286,4 +285,3 @@ Agregue la nueva notificación a los flujos de inicios de sesión de cuentas soc
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
 ```
-

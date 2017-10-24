@@ -1,4 +1,4 @@
 |  |
 |--|
-|Managed Service Identity (MSI) es actualmente una característica de la versión preliminar de Azure Active Directory que solo se usa con fines de evaluación. MSI se está implementando en todas las regiones de forma global y puede tardar en aparecer en la suya. Asegúrese de revisar los [problemas conocidos](/azure/active-directory/msi-known-issues) antes de empezar. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|Managed Service Identity (MSI) es la versión preliminar de una característica de Azure Active Directory.  Asegúrese de revisar los [problemas conocidos](/azure/active-directory/msi-known-issues) antes de empezar. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |  |

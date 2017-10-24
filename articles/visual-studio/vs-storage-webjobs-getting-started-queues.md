@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
+ms.openlocfilehash: efd2f1e471f67396d35f11f2eb1044a8afa469af
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ad43b5bb4f6f51f25acb9b2160661addab481762
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -243,7 +242,8 @@ En el siguiente ejemplo se toma un mensaje de la cola de entrada y se crea un me
 La interfaz **IBinder** también puede usarse con los atributos **Table** y **Blob**.
 
 ## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>Lectura y escritura de blobs y tablas al procesar un mensaje de cola
-Los atributos **Blob** y **Table** permiten leer y escribir los blobs y tablas. Los ejemplos en esta sección se aplican a los blobs. Para ejemplos de código que muestran cómo desencadenar procesos cuando se crean o actualizan los blobs, consulte [Uso de Azure Blob Storage con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), y para obtener ejemplos de código que leen y escriben tablas, consulte [Cómo usar Azure Table Storage con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+Los atributos **Blob** y **Table** permiten leer y escribir los blobs y tablas. Los ejemplos en esta sección se aplican a los blobs. Para obtener ejemplos de código que muestren cómo desencadenar procesos cuando se creen o actualicen blobs, vea [How to use Azure blob storage with the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) (Uso de Azure Blob Storage con el SDK de WebJobs).
+<!-- , and for code samples that read and write tables, see [How to use Azure table storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md). -->
 
 ### <a name="string-queue-messages-triggering-blob-operations"></a>Mensajes en cola de cadena que desencadenan operaciones de blob
 Para un mensaje de cola que contiene una cadena, **queueTrigger** es un marcador de posición que se puede usar en el parámetro **blobPath** del atributo **Blob** que tiene el contenido del mensaje.
@@ -258,7 +258,7 @@ El ejemplo siguiente usa objetos **Stream** para leer y escribir blobs. El mensa
             blobInput.CopyTo(blobOutput, 4096);
         }
 
-El constructor de atributo **Blob** toma un parámetro **blobPath** que especifica el nombre del contenedor y el nombre del blob. Para más información acerca de este marcador de posición, consulte [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md).
+El constructor de atributo **Blob** toma un parámetro **blobPath** que especifica el nombre del contenedor y el nombre del blob. Para más información acerca de este marcador de posición, consulte [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Cuando el atributo representa a un objeto **Stream**, otro parámetro de constructor especifica el modo **FileAccess** como lectura, escritura o lectura/escritura.
 
@@ -469,7 +469,7 @@ El resultado de los métodos de consola que llama en una función o en el métod
 
 El resultado de la consola no se puede vincular a una invocación de método en especial, porque la consola tiene un solo subproceso, mientras que muchas funciones de trabajo se pueden ejecutar al mismo tiempo. Esta es la razón por la que el SDK proporciona a cada invocación de función su objeto escritor de registros único.
 
-Para escribir [registros de seguimiento de aplicación](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), use **Console.Out** (crea registros marcados como INFO) y **Console.Error** (crea registros marcados como ERROR). Una alternativa es usar [Trace o TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), que proporciona niveles de Modo detallado, Advertencia y Críticos, además de Info y Error. Los registros de seguimiento de aplicaciones aparecen en los archivos de registro de la aplicación web, tablas de Azure o blobs de Azure, dependiendo de cómo se configuró la aplicación web de Azure. Como ocurre en todos los resultados de la consola, los 100 registros de aplicación más recientes también aparecen en la página Panel para el trabajo web, no en la página para una innovación de función.
+Para escribir [registros de seguimiento de aplicación](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), use **Console.Out** (crea registros marcados como INFO) y **Console.Error** (crea registros marcados como ERROR). Una alternativa es usar [Trace o TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), que proporciona niveles de Modo detallado, Advertencia y Críticos, además de Info y Error. Los registros de seguimiento de aplicaciones aparecen en los archivos de registro de la aplicación web, tablas de Azure o blobs de Azure, dependiendo de cómo se configuró la aplicación web de Azure. Como ocurre en todos los resultados de la consola, los 100 registros de aplicación más recientes también aparecen en la página Panel para el trabajo web, no en la página para una innovación de función.
 
 El resultado de la consola aparece en el Panel solo si el programa se ejecuta en un Azure WebJob, no si el programa se ejecuta localmente o en algún otro entorno.
 
@@ -513,5 +513,4 @@ Y en una tabla de Azure, los registros **Console.Out** y **Console.Error** tiene
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con colas de Azure. Para más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
-
 

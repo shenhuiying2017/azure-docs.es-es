@@ -37,7 +37,7 @@
 ## [Información de dispositivos en la solución de supervisión remota](iot-suite-remote-monitoring-device-info.md)
 ## [Implementación de una puerta de enlace para una solución de fábrica conectada](iot-suite-connected-factory-gateway-deployment.md)
 ## [Personalización de fábrica conectada](iot-suite-connected-factory-customize.md)
-
+## [Uso del publicador de OPC para la fábrica conectada](iot-suite-connected-factory-publisher.md)
 # Referencia
 ## [Arquitectura de seguridad](iot-security-architecture.md)
 ## [Procedimientos de seguridad recomendados](iot-security-best-practices.md)

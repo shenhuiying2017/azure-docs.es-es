@@ -59,6 +59,8 @@
           href: concepts-supported-versions.md
         - name: Registros del servidor
           href: concepts-server-logs.md
+        - name: Alta disponibilidad
+          href: concepts-high-availability.md
     - name: Recursos
       items:
         - name: Planes de tarifa
@@ -73,6 +75,8 @@
           href: concepts-firewall-rules.md
         - name: Configuración de SSL
           href: concepts-ssl-connection-security.md
+    - name: Supervisión
+      href: concepts-monitoring.md
     - name: Desarrollo
       items:
         - name: Bibliotecas de conexiones
@@ -117,8 +121,14 @@
           href: howto-configure-server-parameters-using-cli.md
     - name: Acceso a registros de servidor
       items:
+        - name: Azure Portal
+          href: howto-configure-server-logs-in-portal.md
         - name: CLI de Azure
           href: howto-configure-server-logs-in-cli.md
+    - name: Supervisión
+      items:
+        - name: Creación de alertas basadas en métricas
+          href: howto-alert-on-metric.md
 - name: Referencia
   items:
     - name: CLI de Azure

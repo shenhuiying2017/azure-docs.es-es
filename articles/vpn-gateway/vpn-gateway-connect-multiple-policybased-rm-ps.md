@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/27/2017
 ms.author: yushwang
+ms.openlocfilehash: db4d8837fb5c5d15364422e957e4914966215674
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 17211379ec61891982a02efca6730ca0da87c1ef
-ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conexión de puertas de enlace Azure VPN Gateway a varios dispositivos VPN locales basados en directivas con PowerShell
 
@@ -46,7 +45,7 @@ Actualmente, Azure admite los dos modos de puertas de enlace de VPN: puertas de 
 
 |                          | **Puerta de enlace de VPN PolicyBased** | **Puerta de enlace de VPN RouteBased**               |
 | ---                      | ---                         | ---                                      |
-| **SKU de puerta de enlace de Azure**    | Básica                       | Básica, Estándar, HighPerformance         |
+| **SKU de puerta de enlace de Azure**    | Básica                       | Básica, Estándar, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
 | **Versión de IKE**          | IKEv1                       | IKEv2                                    |
 | **Máx. de conexiones de sitio a sitio** | **1**                       | Básica o Estándar: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
@@ -216,4 +215,3 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ver los pasos.
 
 Consulte también [Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Configuración de la directiva IPsec/IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual) para obtener más información sobre las directivas IPsec/IKE personalizadas.
-

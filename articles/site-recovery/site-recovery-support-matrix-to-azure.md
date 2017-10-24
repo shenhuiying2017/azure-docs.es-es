@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: rajanaki
+ms.openlocfilehash: b4bb049577feb416f498a428bae80ecea418180e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 103643ace17961cd4e2e37313f75c775e3dcd8cd
-ms.contentlocale: es-es
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de compatibilidad de Azure Site Recovery para la replicación desde local a Azure
 
 
 En este artículo se resumen los componentes y las configuraciones compatibles con Azure Site Recovery cuando se replica y recupera en Azure. Para más información sobre los requisitos de Azure Site Recovery, vea los [requisitos previos](site-recovery-prereq.md).
+
+> [!NOTE]
+> Asegúrese de actualizar a la versión más reciente del proveedor y el agente de Site Recovery para conseguir compatibilidad con las actualizaciones de la matriz de compatibilidad.
 
 
 ## <a name="support-for-deployment-options"></a>Compatibilidad con opciones de implementación
@@ -237,4 +239,3 @@ Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Comprobación de los requisitos previos](site-recovery-prereq.md)
-

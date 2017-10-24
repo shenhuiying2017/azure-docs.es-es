@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/19/2017
 ms.author: tomfitz
+ms.openlocfilehash: 64bdd6ed41e98079c8d4112e895aaeddcd629282
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f461efbc2a23f85e8b6d3fdec156a0df1636708a
-ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-and-manage-resource-policies"></a>Asignación y administración de directivas de recursos
 
@@ -31,6 +30,23 @@ Para implementar una directiva, debe realizar estos pasos:
 4. En cada caso, asigne la directiva a un ámbito (por ejemplo, una suscripción o un grupo de recursos). Ahora se exige el cumplimiento de las reglas de la directiva.
 
 Este artículo se centra en los pasos necesarios para crear una definición de directiva y asignarla a un ámbito mediante la API de REST, PowerShell o la CLI de Azure. Si prefiere usar el portal para asignar directivas, consulte [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Uso de Azure Portal para asignar y administrar directivas de recursos). El artículo no se centra en la sintaxis para crear la definición de la directiva. Para información sobre la sintaxis de directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
+
+## <a name="exclusion-scopes"></a>Ámbitos de exclusión
+
+Puede excluir un ámbito al asignar una directiva. Esta capacidad simplifica las asignaciones de directiva porque puede asignar una directiva en el nivel de suscripción, pero debe especificar dónde no se aplica la directiva. Por ejemplo, en su suscripción, tiene un grupo de recursos que está destinado a la infraestructura de red. Los equipos de la aplicación implementan sus recursos en otros grupos de recursos. No desea que esos equipos creen recursos de red que puedan ocasionar problemas de seguridad. Sin embargo, en el grupo de recursos de red, desea permitir los recursos de red. Asigne la directiva en el nivel de suscripción, pero excluya el grupo de recursos de red. Puede especificar varios subámbitos.
+
+```json
+{
+    "properties":{
+        "policyDefinitionId":"<ID for policy definition>",
+        "notScopes":[
+            "/subscriptions/<subid>/resourceGroups/networkresourceGroup1"
+        ]
+    }
+}
+```
+
+Si se especifica un ámbito de exclusión en la asignación, use la versión de API **2017-06-01-preview**.
 
 ## <a name="rest-api"></a>API de REST
 
@@ -168,8 +184,28 @@ Antes de continuar con la creación de la definición de la directiva, observe l
 ### <a name="create-policy-definition"></a>Creación de definición de directiva
 Puede crear una definición de directiva con el cmdlet `New-AzureRmPolicyDefinition`.
 
+Para crear una definición de directiva desde un archivo, pase la ruta de acceso al archivo. Para un archivo externo, use:
+
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+Para un archivo local, use:
+
+```powershell
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+Para crear una definición de directiva con una regla insertada, use:
+
+```powershell
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
   "if": {
     "allOf": [
       {
@@ -195,12 +231,6 @@ $definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Pol
 ```            
 
 La salida se almacena en un objeto `$definition`, que se usa durante la asignación de directivas. 
-
-En vez de especificar JSON como un parámetro, puede proporcionar la ruta de acceso a un archivo .json que contiene la regla de directiva.
-
-```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
-```
 
 En el ejemplo siguiente se crea una definición de directiva que incluye parámetros:
 
@@ -319,8 +349,10 @@ Antes de continuar con la creación de la definición de la directiva, observe l
 
 Puede crear una definición de directiva mediante la CLI de Azure con el comando de definición de directiva.
 
+Para crear una definición de directiva con una regla insertada, use:
+
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
   "if": {
     "allOf": [
       {
@@ -371,5 +403,4 @@ az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscr
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
+ms.openlocfilehash: 9e8808a50e86e40af4991a6054a55ef57f744aae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 192680cc3faee86c0a45bc9abe4b6579ec56f324
-ms.contentlocale: es-es
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
 
 Microsoft Azure proporciona varias características en Azure Storage para almacenar los datos en la nube y tener acceso a ellos. En este artículo se describen Azure Files, Azure Blobs y Azure Disks, y está diseñado para ayudarle a elegir entre estas características.
@@ -70,7 +68,7 @@ En la tabla siguiente se compara Azure Files con Azure Disks.
 |Autenticación|Característica integrada|Configurar con el uso de la red|  
 |Limpieza|Automático|Manual|  
 |Acceso con REST|No se puede acceder a archivos dentro del VHD|Se puede acceder a archivos almacenados en un recurso compartido|  
-|Tamaño máximo|Disco de 1 TB|Recurso compartido de archivos de 5 TB y archivo de 1 TB dentro del recurso compartido|  
+|Tamaño máximo|Disco de 4 TB|Recurso compartido de archivos de 5 TB y archivo de 1 TB dentro del recurso compartido|  
 |IOPS de 8 KB como máximo|500 IOPS|1000 IOPS|  
 |Rendimiento|Hasta 60 MB/s por disco|Hasta 60 MB/s por recurso compartido de archivos|  
 
@@ -81,4 +79,3 @@ Al tomar decisiones sobre cómo se almacenan los datos y cómo se accede a ellos
 Algunas características SMB no son aplicables a la nube. Para más información, consulte [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) (Características que no admite el servicio Azure File).
   
 Para más información acerca de los discos, vea [Acerca de los discos y los discos duros virtuales para máquinas virtuales de Linux en Azure](../../virtual-machines/windows/about-disks-and-vhds.md) y [Conecte un disco de datos a una máquina virtual de Windows creada con el modelo de implementación clásica](../../virtual-machines/windows/classic/attach-disk.md).
-

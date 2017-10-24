@@ -16,10 +16,10 @@ ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>Transacciones en el Almacenamiento de datos SQL
 Como cabría esperar, el Almacenamiento de datos SQL admite transacciones como parte de la carga de trabajo de dicho servicio. Sin embargo, para garantizar que se mantiene a escala el rendimiento del Almacenamiento de datos SQL, algunas características están limitadas en comparación con SQL Server. En este artículo se destacan las diferencias entre las características y se enumeran las demás. 
@@ -35,7 +35,7 @@ En la tabla siguiente se han considerado estas hipótesis:
 * Se ha producido una distribución uniforme de los datos 
 * La longitud media de la fila es de 250 bytes
 
-| [DWU][DWU] | Extremo por distribución (GiB) | Número de distribuciones | Tamaño máximo de la transacción (GiB) | # Filas por distribución | Máximo de filas por transacción |
+| [DWU][DWU] | Extremo por distribución (GiB) | Número de distribuciones | Tamaño máximo de la transacción (GiB) | N-º de filas por distribución | Máximo de filas por transacción |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4 000 000 |240 000 000 |
 | DW200 |1.5 |60 |90 |6.000.000 |360 000 000 |

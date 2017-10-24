@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
+ms.openlocfilehash: 793a2cdd55c4e9213e5097f4e318c0790960a64d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: e6eafb1a0030b022da2b5d0b787e092f3067c99f
-ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creación y lectura de mensajes de IoT Hub
 
@@ -31,7 +30,7 @@ Para admitir la interoperabilidad sin problemas entre protocolos, IoT Hub define
 
 Los nombres de propiedad solo pueden contener caracteres alfanuméricos ASCII y ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` cuando realiza las siguientes acciones:
 
-* Envío de mensajes de dispositivo a nube mediante el protocolo HTTP.
+* Envío de mensajes de dispositivo a nube mediante el protocolo HTTPS.
 * Envío de mensajes de nube a dispositivo.
 
 Para obtener más información sobre cómo codificar y descodificar el mensaje usando distintos protocolos, consulte [SDK de Azure IoT][lnk-sdks].
@@ -77,4 +76,3 @@ Para obtener información sobre cómo crear y leer mensajes de IoT Hub en varios
 [lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-properties
-

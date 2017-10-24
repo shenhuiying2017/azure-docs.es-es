@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Envío de correo electrónico con SendGrid desde Java
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en Java. Entre los escenarios descritos se incluyen **creación de correo electrónico**, **envío de correo electrónico**, **incorporación de archivos adjuntos**, **uso de filtros** y **actualización de propiedades**. Para obtener más información sobre SendGrid y el envío de correo electrónico, consulte la sección [Pasos siguientes](#next-steps) .
@@ -158,7 +158,7 @@ SendGrid proporciona funcionalidad de correo electrónico adicional mediante el 
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>Actualización de las propiedades del correo electrónico
-Algunas propiedades de correo electrónico se pueden sobrescribir con  **establecer*propiedad*** o estar anexados mediante  **agregar*propiedad***.
+Es posible sobrescribir algunas propiedades de correo electrónico con **set*Property*** o anexarlas con **add*Property***.
 
 Por ejemplo, para especificar direcciones de respuesta en **ReplyTo** , use el siguiente código:
 

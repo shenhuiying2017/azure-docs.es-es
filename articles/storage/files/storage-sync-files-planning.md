@@ -12,18 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: d8ac076334a7ed9476b4830596d6ea54c29c0e3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3c003d498600a2cfd12ef2adfb7c16f9dfaddb37
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planeamiento de una implementación de Azure File Sync (versión preliminar)
-Con Azure Files Sync (versión preliminar), se pueden replicar los recursos compartidos de archivos a servidores de Windows Servers de forma local o en Azure. Usted y sus usuarios podrán acceder al recurso compartido de archivos mediante el servidor de Windows, por ejemplo, mediante un recurso compartido de SMB o NFS. Esta posibilidad resulta especialmente útil en escenarios en los que es necesario acceder a los datos y modificarlos lejos de un centro de datos de Azure, como puede ser en una sucursal. Lo datos pueden replicarse entre varios puntos de conexión de Windows Server, por ejemplo, entre varias sucursales. 
+Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello la transformación de los servidores Windows Server en una caché rápida de los recursos compartidos de Azure Files. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
 
 En esta guía se describe lo que debe tener en cuenta al implementar Azure File Sync. Se recomienda que lea la guía [Planeamiento de una implementación de Azure Files](storage-files-planning.md). 
 
@@ -139,14 +137,9 @@ Azure File Sync solo está disponible en las siguientes regiones en versión pre
 En la versión preliminar, solo se admite la sincronización con recursos compartidos de Azure File de la misma región que el servicio de sincronización de almacenamiento.
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
-Periódicamente se publicarán actualizaciones del agente de Azure File Sync con el fin de agregar nueva funcionalidad y solucionar los problemas encontrados. Se recomienda habilitar Microsoft Update para obtener todas las actualizaciones del agente de Azure File Sync que se publican. Es decir, se entiende que algunas organizaciones les guste tener un control estricto de las actualizaciones. En el caso de implementaciones en las que se usen versiones anteriores del agente de Azure File Sync:
-
-- El servicio de sincronización de almacenamiento respetará la versión principal anterior tres meses después de la publicación inicial de una nueva versión principal. Por ejemplo, el servicio de sincronización de almacenamiento admitiría la versión 1.\* hasta tres meses después de publicarse la versión 2.\*
-- Transcurridos los tres meses, el servicio de sincronización de almacenamiento comenzará a bloquear los servidores registrados mediante la versión expirada de la sincronización con sus grupos de sincronización.
-- Antes de los tres meses de una versión principal anterior, todas las correcciones de errores solo irán a la versión principal actual.
+[!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
 * [Implementación de Azure Files](storage-files-deployment-guide.md)
 * [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)
-

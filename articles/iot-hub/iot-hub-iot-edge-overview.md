@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: ecdd56c91a8fc2011b3d7abe93b9d27c1e1e0bef
-ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
-
+ms.openlocfilehash: 11f6375c319c8945b0278003ee08215715f7ac42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-edge-architectural-concepts"></a>Conceptos de arquitectura de Azure IoT Edge
 
@@ -52,7 +51,7 @@ Un módulo usa la función **Broker_Publish** para publicar un mensaje en el age
 
 Hay dos maneras de dirigir los mensajes a los módulos de IoT Edge correctos:
 
-* Se puede pasar un conjunto de vínculos al agente para que este conozca tanto el origen como el receptor de cada módulo.
+* Puede pasar un conjunto de vínculos al agente para que este conozca tanto el origen como el receptor de cada módulo.
 * Un módulo puede filtrar por las propiedades del mensaje.
 
 Un módulo solo debe actuar en los mensajes destinados a ello. Los vínculos y el filtrado de mensajes crean de manera eficaz una canalización de mensajes.

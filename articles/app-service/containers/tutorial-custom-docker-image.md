@@ -16,12 +16,11 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 10795d59b019d7c683abfeea611d5909b88891ec
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Uso de una imagen personalizada de Docker para Azure Web App for Containers
 
@@ -529,16 +528,16 @@ El comando revela dos contraseñas que se pueden usar con el nombre de usuario.
 }
 ```
 
-Ahora que tiene las credenciales necesarias, inicie sesión en Azure Container Registry con el comando `docker login`. Se necesita la dirección URL del registro para iniciar sesión. Use el formato `http://{azure-container-registry-name>.azurecr.io`.
+Ahora que tiene las credenciales necesarias, inicie sesión en Azure Container Registry con el comando `docker login`. El nombre de servidor es obligatorio para iniciar sesión. Use el formato `{azure-container-registry-name>.azurecr.io`.
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
 ```
 
-Confirme que el inicio de sesión se realizó correctamente. Inserte la imagen con el comando `docker push` y etiquete la imagen con la dirección URL completa del registro seguida del nombre y la etiqueta de la imagen.
+Confirme que el inicio de sesión se realizó correctamente. Inserte la imagen con el comando `docker push` y etiquete la imagen con el nombre del registro seguido del nombre y la etiqueta de la imagen.
 
 ```bash
-docker push http://<azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
+docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
 Enumere los repositorios ACR para comprobar que la inserción agregó correctamente un contenedor al registro. 
@@ -623,4 +622,3 @@ El comando revela una salida similar a la cadena JSON siguiente, lo que muestra 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Preguntas más frecuentes sobre Web App for Containers de Azure App Service ](app-service-linux-faq.md)
-

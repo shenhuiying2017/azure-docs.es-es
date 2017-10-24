@@ -65,12 +65,12 @@ El módulo de identificación MAC &lt;-&gt; IoT Hub es **identitymap.c** en el c
 
 ### <a name="iot-hub-communication-module"></a>Módulo de comunicación del Centro de IoT
 
-El módulo de comunicación de IoT Hub abre una única conexión HTTP desde la puerta de enlace a IoT Hub. HTTP es uno de los tres protocolos que IoT Hub comprende. Gracias a este módulo no tiene que abrir una conexión para cada dispositivo al multiplexar conexiones desde todos los dispositivos a través de una conexión. Este enfoque permite conectar muchos dispositivos a una única puerta de enlace. 
+El módulo de comunicación de IoT Hub abre una única conexión HTTPS desde la puerta de enlace a IoT Hub. HTTPS es uno de los tres protocolos que comprende el Centro de IoT. Gracias a este módulo no tiene que abrir una conexión para cada dispositivo al multiplexar conexiones desde todos los dispositivos a través de una conexión. Este enfoque permite conectar muchos dispositivos a una única puerta de enlace. 
 
 En el ejemplo, este módulo:
 
 1. Toma los mensajes con una propiedad de clave de dispositivo de IoT Hub que le asignó el módulo anterior. 
-1. Envía el contenido del mensaje a IoT Hub mediante el protocolo HTTP. 
+1. Envía el contenido del mensaje a IoT Hub mediante el protocolo HTTPS. 
 
 El módulo de comunicación de IoT Hub es **iothub.c** en el código fuente.
 

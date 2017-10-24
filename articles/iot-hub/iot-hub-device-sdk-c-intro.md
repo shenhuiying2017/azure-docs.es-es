@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 459b630f28fe48064f4ba280974f3fdbdb82f0a6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 9f0ea741355c6403cde6f02d8263dd8bff7e553b
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK de dispositivo IoT de Azure para C
 
@@ -124,7 +124,7 @@ Esta solución contiene un proyecto. En esta solución hay cuatro paquetes de Nu
 * Microsoft.Azure.IoTHub.IoTHubClient
 * Microsoft.Azure.umqtt
 
-El paquete **Microsoft.Azure.C.SharedUtility** siempre es necesario al trabajar con el SDK. Este ejemplo usa el protocolo MQTT, por lo que es necesario incluir los paquetes **Microsoft.Azure.umqtt** y **Microsoft.Azure.IoTHub.MqttTransport** (hay paquetes equivalentes para MQTT y HTTP). Como en el ejemplo se usa la biblioteca **IoTHubClient**, se debe incluir también el paquete **Microsoft.Azure.IoTHub.IoTHubClient** en la solución.
+El paquete **Microsoft.Azure.C.SharedUtility** siempre es necesario al trabajar con el SDK. Este ejemplo usa el protocolo MQTT, por lo que es necesario incluir los paquetes **Microsoft.Azure.umqtt** y **Microsoft.Azure.IoTHub.MqttTransport** (hay paquetes equivalentes para AMQP y HTTPS). Como en el ejemplo se usa la biblioteca **IoTHubClient**, se debe incluir también el paquete **Microsoft.Azure.IoTHub.IoTHubClient** en la solución.
 
 La implementación de la aplicación de ejemplo en se encuentra en el archivo de código fuente **iothub\_client\_sample\_mqtt.c**.
 
@@ -147,7 +147,7 @@ else
     ...
 ```
 
-Pase a esta función una copia de la cadena de conexión del dispositivo que obtuvo de la herramienta device explorer. Designe también el protocolo de comunicaciones que va a usar. En este ejemplo se utiliza MQTT, pero también se pueden usar AMQP y HTTP.
+Pase a esta función una copia de la cadena de conexión del dispositivo que obtuvo de la herramienta device explorer. Designe también el protocolo de comunicaciones que va a usar. En este ejemplo se usa MQTT, pero también se pueden usar AMQP y HTTPS.
 
 Cuando tenga un valor **IOTHUB\_CLIENT\_HANDLE** válido, puede empezar a llamar a las API para enviar mensajes a IoT Hub y recibirlos de este.
 
@@ -374,7 +374,7 @@ else
 ...
 ```
 
-La llamada a la función **serializer\_init** es de las que se realiza una sola vez e inicializa la biblioteca subyacente. Después, se llama a la función **IoTHubClient\_LL\_CreateFromConnectionString**, que es la misma API del ejemplo **IoTHubClient**. Esta llamada establece la cadena de conexión del dispositivo (también es donde se elige el protocolo que se desea usar). En este ejemplo se utiliza MQTT como transporte, pero se podrían utilizar AMQP o HTTP.
+La llamada a la función **serializer\_init** es de las que se realiza una sola vez e inicializa la biblioteca subyacente. Después, se llama a la función **IoTHubClient\_LL\_CreateFromConnectionString**, que es la misma API del ejemplo **IoTHubClient**. Esta llamada establece la cadena de conexión del dispositivo (también es donde se elige el protocolo que se desea usar). En este ejemplo se usa MQTT como transporte, pero se podrían usar AMQP o HTTPS.
 
 Por último, llame a la función **CREATE\_MODEL\_INSTANCE**. **WeatherStation** es el espacio de nombres del modelo y **ContosoAnemometer** es el nombre del modelo. Una vez que se crea la instancia del modelo, se puede usar para empezar a enviar y recibir mensajes. Sin embargo, es importante entender qué es un modelo.
 

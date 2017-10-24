@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/18/2017
 ms.author: dobett
+ms.openlocfilehash: 8ffe25f1950f8535983c2c344b5c4331b7157869
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 3f4f19eba5ed1a7b3176be4d3505998f97667200
-ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -41,7 +40,7 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 | Conexiones de dispositivos | Mayor de 100/s o 12/s/unidad <br/> Por ejemplo, dos unidades S1 equivalen a 2\*12 = 24/s, pero tendrá al menos 100/s en todas las unidades. Con nueve unidades S1 tiene 108/s (9\*12) en las unidades. | 120/s/unidad | 6000/s/unidad |
 | Envíos de dispositivo a nube | Mayor de 100/s o 12/s/unidad <br/> Por ejemplo, dos unidades S1 equivalen a 2\*12 = 24/s, pero tendrá al menos 100/s en todas las unidades. Con nueve unidades S1 tiene 108/s (9\*12) en las unidades. | 120/s/unidad | 6000/s/unidad |
 | Envíos de nube a dispositivo | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/min/unidad) |
-| Recepciones de nube a dispositivo <br/> (solo cuando el dispositivo usa HTTP)| 16,67/s/unidad (1000/min/unidad) | 16,67/s/unidad (1000/min/unidad) | 833,33/s/unidad (50000/min/unidad) |
+| Recepciones de nube a dispositivo <br/> (solo cuando el dispositivo usa HTTPS)| 16,67/s/unidad (1000/min/unidad) | 16,67/s/unidad (1000/min/unidad) | 833,33/s/unidad (50000/min/unidad) |
 | Carga de archivos | 1,67 notificaciones de cargas de archivos/s/unidad (100/min/unidad) | 1,67 notificaciones de cargas de archivos/s/unidad (100/min/unidad) | 83,33 notificaciones de cargas de archivos/s/unidad (5000/min/unidad) |
 | Métodos directos | 20/s/unidad | 60/s/unidad | 3000/s/unidad | 
 | Lecturas de dispositivos gemelos | 10/s | Mayor de 10/s o 1/s/unidad | 50/s/unidad |
@@ -104,4 +103,3 @@ Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-

@@ -15,14 +15,12 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: 031632aa9e01c66e836d607d588ededb7140589f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 4eef4f00bb407f97a68d09a39f3e99d1bc325d0e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD
 
 En este artículo se explican los componentes que funcionan para mantener a los usuarios y las aplicaciones seguros cuando se usa el Proxy de aplicación de Azure Active Directory.
@@ -87,7 +85,7 @@ Las aplicaciones publicadas a través de Proxy de aplicación están protegidas 
 
 El servicio de Proxy de aplicación supervisa la cantidad de tráfico que intenta obtener acceso a las aplicaciones y la red. Si el número de dispositivos que solicitan acceso remoto a las aplicaciones sube hasta un pico, Microsoft limita el acceso a la red. 
 
-Microsoft supervisa los patrones de tráfico para las aplicaciones individuales y para la suscripción íntegra. Si una aplicación recibe una cantidad de solicitudes superior a la normal, las solicitudes para tener acceso a esa aplicación se deniegan durante un breve período de tiempo. Si recibe una cantidad de solicitudes superior a la normal en toda la suscripción completa, se deniegan las solicitudes para acceder a cualquiera de las aplicaciones. Esta medida preventiva impide que los servidores de aplicaciones se sobrecarguen con solicitudes de acceso remoto, de esta forma los usuarios locales pueden mantener el acceso a sus aplicaciones. 
+Microsoft supervisa los patrones de tráfico para las aplicaciones individuales y para la suscripción íntegra. Si una aplicación recibe una cantidad de solicitudes superior a la normal, las solicitudes para tener acceso a esa aplicación se deniegan durante un breve período de tiempo. Si recibe una cantidad de solicitudes superior a la normal en toda la suscripción, se deniegan las solicitudes para acceder a cualquiera de las aplicaciones. Esta medida preventiva impide que los servidores de aplicaciones se sobrecarguen con solicitudes de acceso remoto, de esta forma los usuarios locales pueden mantener el acceso a sus aplicaciones. 
 
 ## <a name="under-the-hood"></a>En segundo plano
 
@@ -187,4 +185,3 @@ Aquí puede tener lugar cierto procesamiento de la aplicación. Si configura el 
 [Consideraciones sobre la topología de red al usar el Proxy de aplicación de Azure Active Directory](application-proxy-network-topology-considerations.md)
 
 [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md)
-

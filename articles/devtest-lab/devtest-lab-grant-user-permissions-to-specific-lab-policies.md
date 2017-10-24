@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f1524fa83de6ce53f853ed6859de15076e20ea3b
-ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: fa7c1e4435106d0fc25cb7f77f195eb48705772d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Concesión de permisos de usuario a directivas específicas de laboratorio
 ## <a name="overview"></a>Información general
@@ -30,7 +29,7 @@ Tal y como se describe en el artículo [Control de acceso basado en roles de Azu
 
 En DevTest Labs, una directiva es un tipo de recurso que permite la acción de RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Cada directiva de laboratorio es un recurso en el tipo de recurso Directiva, y se puede asignar como ámbito a un rol RBAC.
 
-Por ejemplo, para conceder permisos de lectura y escritura a los usuarios para la directiva **Tamaños permitidos de máquina virtual**, debe crear un rol personalizado que funcione con la acción **Microsoft.DevTestLab/labs/policySets/policies/*** y, a continuación, asignar los usuarios adecuados a este rol personalizado en el ámbito de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Por ejemplo, para conceder permisos de lectura y escritura a los usuarios para la directiva **Tamaños permitidos de máquina virtual**, debe crear un rol personalizado que funcione con la acción **Microsoft.DevTestLab/labs/policySets/policies/*** y, después, asignar los usuarios adecuados a este rol personalizado en el ámbito de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
 Para obtener más información sobre los roles personalizados de RBAC, consulte [Control de acceso de los roles personalizados](../active-directory/role-based-access-control-custom-roles.md).
 
@@ -93,5 +92,4 @@ Una vez que haya concedido permisos de usuario a las directivas específicas del
 * [Creación de una plantilla de laboratorio](devtest-lab-create-template.md)
 * [Creación de artefactos personalizados para máquinas virtuales](devtest-lab-artifact-author.md)
 * [Incorporación de una máquina virtual con artefactos a un laboratorio](devtest-lab-add-vm-with-artifacts.md)
-
 

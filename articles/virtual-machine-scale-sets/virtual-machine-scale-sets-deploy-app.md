@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
+ms.openlocfilehash: 371295efea1eab66361b9aba21a55bbd2826c69b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: fa7d9d3bef4cb326844ede76171e8c566e87116b
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementación de la aplicación en conjuntos de escalado de máquinas virtuales
 
 En este artículo se describen diferentes formas de instalar software en el momento de aprovisionar el conjunto de escalado.
@@ -49,7 +47,7 @@ Siga estos pasos:
 
 Para obtener más información sobre los discos, consulte [Información general de Managed Disks](../virtual-machines/windows/managed-disks-overview.md) y [Uso de datos de discos conectados](virtual-machine-scale-sets-attached-disks.md).
 
-## <a name="install-when-the-scale-set-is-provisioned"></a>Instalación cuando el conjunto de escalado está aprovisionado
+## <a name="already-provisioned"></a>Instalación cuando se aprovisiona el conjunto de escalado
 
 Es posible aplicar extensiones de máquina virtual al conjunto de escalado de máquinas virtuales. Con una extensión de máquina virtual, puede personalizar las máquinas virtuales de un conjunto de escalado como grupo completo. Para obtener más información sobre extensiones, consulte [Extensiones de máquinas virtuales](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -228,5 +226,4 @@ Suponga que quiere actualizar la imagen de sistema operativo al tiempo que manti
 [linux-vm-capture]: ../virtual-machines/linux/capture-image.md
 [windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
 [vmss-create]: virtual-machine-scale-sets-create.md
-
 

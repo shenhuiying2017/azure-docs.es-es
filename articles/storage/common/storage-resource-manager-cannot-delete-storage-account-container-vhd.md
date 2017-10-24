@@ -3,7 +3,7 @@ title: "Solución de los errores que aparecen al eliminar cuentas de almacenamie
 description: "Solución de los errores que aparecen al eliminar cuentas de almacenamiento, contenedores o VHD de Azure"
 services: storage
 documentationcenter: 
-author: genlin
+author: passaree
 manager: cshepard
 editor: na
 tags: storage
@@ -15,140 +15,94 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: genli
+ms.openlocfilehash: 174ab97ac14f4c05690306691df5ee4b6d33dd93
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 11944dd38b1cc30106c0b76a108480c018ca39d4
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="troubleshoot-errors-when-you-delete-azure-storage-accounts-containers-or-vhds"></a>Solución de los errores que aparecen al eliminar cuentas de almacenamiento, contenedores o VHD de Azure
+# <a name="troubleshoot-storage-delete-errors-in-resource-manager-deployment"></a>Solución de problemas de errores de eliminación de almacenamiento en la implementación de Resource Manager
+En este artículo se proporcionan instrucciones de solución de problemas cuando se produce uno de los siguientes errores al intentar eliminar una cuenta de almacenamiento, un contenedor o un blob de Azure en la implementación de Azure Resource Manager.
 
-Podrían surgirle errores cuando trate de eliminar una cuenta de almacenamiento, un contenedor o un disco duro virtual (VHD) de Azure en [Azure Portal](https://portal.azure.com). En este artículo se proporciona orientación para ayudarle a resolver problemas en una implementación de Azure Resource Manager.
+>**No se pudo eliminar la cuenta de almacenamiento 'nombreCuentaDeAlmacenamiento'. Error: La cuenta de almacenamiento no se puede eliminar porque sus artefactos están en uso.**
 
-Si este artículo no resuelve su problema con Azure, visite los foros de Azure en [MSDN y Stack Overflow](https://azure.microsoft.com/support/forums/). Puede publicar su problema en ellos o @AzureSupport en Twitter. También puede presentar una solicitud de soporte técnico de Azure; para ello seleccione **Obtener soporte técnico** en el sitio de [soporte técnico de Azure](https://azure.microsoft.com/support/options/) .
+>**No se pudo eliminar # de # contenedores:<br>vhds: Actualmente hay una concesión en el contenedor y no se especificó ningún identificador de concesión en la solicitud.**
 
-## <a name="symptoms"></a>Síntomas
-### <a name="scenario-1"></a>Escenario 1.
-Cuando trate de eliminar un VHD en una cuenta de almacenamiento en una implementación de Resource Manager, recibirá el siguiente mensaje de error:
+>**No se pudo eliminar # de # blobs:<br>BlobName.vhd: Actualmente hay una concesión en el blob y no se especificó ningún identificador de concesión en la solicitud.**
 
-**Error al eliminar el blob 'vhds/BlobName.vhd'. Error: Actualmente hay una concesión en el blob y no se especificó ningún identificador de concesión en la solicitud.**
+Los discos duros virtuales usados en máquinas virtuales de Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure.  Se puede encontrar más información sobre los discos de Azure [aquí](../../virtual-machines/windows/about-disks-and-vhds.md). Azure impide la eliminación de un disco que esté asociado a una máquina virtual para evitar daños. También impide la eliminación de contenedores y cuentas de almacenamiento que tengan un blob en páginas que esté asociado a una máquina virtual. 
 
-Este problema puede producirse debido a que una máquina virtual (VM) tenga una concesión para el VHD que trata de eliminar.
+## <a name="solution"></a>Solución
+El proceso para eliminar una cuenta de almacenamiento, un contenedor o un blob cuando se recibe uno de los errores anteriores es el siguiente: 
+1. [Identificar los blobs asociados a una máquina virtual](#step-1-identify-blobs-attached-to-a-vm)
+2. [Eliminar las máquinas virtuales con el **disco del sistema operativo**](#step-2-delete-vm-to-detach-os-disk) asociado
+3. [Desasociar todos los **discos de datos** del resto de máquinas virtuales](#step-3-detach-data-disk-from-the-vm)
 
-### <a name="scenario-2"></a>Escenario 2.
-Cuando trate de eliminar un contenedor en una cuenta de almacenamiento en una implementación de Resource Manager, recibirá el siguiente mensaje de error:
+Intente eliminar de nuevo la cuenta de almacenamiento, el contenedor o el blob una vez completados los pasos anteriores.
 
-**No se pudo eliminar el contenedor de almacenamiento 'vhds'. Error: Actualmente hay una concesión en el contenedor y no se especificó ningún identificador de concesión en la solicitud.**
+### <a name="step-1-identify-blob-attached-to-a-vm"></a>Paso 1: Identificación del blob asociado a una máquina virtual
 
-Este problema puede producirse porque el contenedor tiene un VHD que está bloqueado en el estado de la concesión.
+#### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>Escenario 1: Eliminación de un blob: identificación de la máquina virtual asociada
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. En el menú Concentrador, seleccione **Todos los recursos**. Vaya a la cuenta de almacenamiento, en **Blob service** seleccione **Contenedores** y navegue hasta el blob que se va a eliminar.
+3. Si el **estado de concesión** del blob es **Concedido**, haga clic con el botón derecho y seleccione **Editar metadatos** para abrir el panel de metadatos del blob. 
 
-### <a name="scenario-3"></a>Escenario 3.
-Cuando trate de eliminar una cuenta de almacenamiento en una implementación de Resource Manager, recibirá el siguiente mensaje de error:
+    ![Captura de pantalla del portal, con los blobs de la cuenta de almacenamiento y clic con el botón derecho en > "Editar metadatos" resaltado](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd-edit-metadata-sm.png)
 
-**No se pudo eliminar la cuenta de almacenamiento 'nombreCuentaDeAlmacenamiento'. Error: La cuenta de almacenamiento no se puede eliminar porque sus artefactos están en uso.**
+4. En el panel de metadatos de blob, compruebe y registre el valor de **MicrosoftAzureCompute_VMName**. Este valor es el nombre de la máquina virtual a la que está asociada. (Consulte **Importante** si este campo no existe).
+5. En el panel de metadatos de blob, compruebe y registre el valor de **MicrosoftAzureCompute_DiskType**. Este valor identifica si el disco asociado es un disco de datos o del sistema operativo (consulte **Importante** si este campo no existe). 
 
-Este problema puede producirse porque la cuenta de almacenamiento contiene un VHD que se encuentra en el estado de concesión.
+     ![Captura de pantalla del portal, con el panel "Metadatos de blob" de almacenamiento abierto](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd-blob-metadata-sm.png)
 
-## <a name="solution"></a>Solución 
-Para resolver estos problemas, debe identificar el VHD que está ocasionando el error y la VM asociada. Después, desconecte el VHD de la máquina virtual (para los discos de datos) o elimine la VM que utilice el VHD (para discos de sistema operativo). De este modo, se retirará la concesión del VHD y se podrá eliminar. 
+6. Si el tipo de disco de blob es **OSDisk**, siga el [Paso 2: Eliminación de una máquina virtual para desasociar el disco del sistema operativo](#step-2-delete-vm-to-detach-os-disk). En caso contrario, si el tipo de disco de blob es **DataDisk**, siga los pasos del [Paso 3: Desasociación del disco de datos de la máquina virtual](#step-3-detach-data-disk-from-the-vm). 
 
-Para ello, use uno de los siguientes métodos:
+> [!IMPORTANT]
+> Si **MicrosoftAzureCompute_VMName** y **MicrosoftAzureCompute_DiskType** no aparecen en los metadatos de blob, indica que el blob se ha concedido explícitamente y no está asociado a una máquina virtual. Los blobs concedidos no se pueden eliminar sin romper primero la concesión. Para interrumpir la concesión, haga clic con el botón derecho en el blob y seleccione **Interrumpir concesión**. Los blobs concedidos que no están asociados a una máquina virtual impiden la eliminación del blob pero no impiden la eliminación del contenedor o de la cuenta de almacenamiento.
 
-### <a name="method-1---use-azure-storage-explorer"></a>Método 1: Usar el Explorador Azure Storage
+#### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>Escenario 2: Eliminación de un contenedor: identificación de todos los blobs de un contenedor que están asociados a máquinas virtuales
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. En el menú Concentrador, seleccione **Todos los recursos**. Vaya a la cuenta de almacenamiento, en **Blob service** seleccione **Contenedores** y busque el contenedor que se va a eliminar.
+3. Haga clic para abrir el contenedor y se mostrará la lista de blobs que contiene. Identifique todos los blobs con Tipo de blob = **Blob en páginas** y Estado de concesión = **Concedido** de esta lista. Siga el [Escenario 1](#step-1-identify-blobs-attached-to-a-vm) para identificar la máquina virtual asociada a cada uno de estos blobs.
 
-### <a name="step-1-identify-the-vhd-that-prevent-deletion-of-the-storage-account"></a>Paso 1: Identificar el disco duro virtual que impide la eliminación de la cuenta de almacenamiento
+    ![Captura de pantalla del portal, con los blobs de la cuenta de almacenamiento y "Estado de concesión" con "Concedido" resaltado](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd-disks-sm.png)
 
-1. Cuando elimine la cuenta de almacenamiento, verá un cuadro de diálogo como el siguiente: 
+4. Siga el [paso 2](#step-2-delete-vm-to-detach-os-disk) y el [paso 3](#step-3-detach-data-disk-from-the-vm) para eliminar máquinas virtuales con **OSDisk** y desasociar **DataDisk**. 
 
-    ![mensaje al eliminar la cuenta de almacenamiento](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
+#### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Escenario 3: Eliminación de la cuenta de almacenamiento: identificación de todos los blobs de una cuenta de almacenamiento que están asociados a máquinas virtuales
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. En el menú Concentrador, seleccione **Todos los recursos**. Vaya a la cuenta de almacenamiento y, en **Blob service** seleccione **Contenedores**.
 
-2. Active **Dirección URL del disco** para identificar la cuenta de almacenamiento y el disco duro virtual que impide que se elimine la cuenta de almacenamiento. En el ejemplo siguiente, la cadena que está delante de ".blob.core.windows.net" es el nombre de la cuenta de almacenamiento y "SCCM2012-2015-08-28.vhd" es el nombre del VHD.  
+    ![Captura de pantalla del portal, con los contenedores de la cuenta de almacenamiento y "Estado de concesión" con "Concedido" resaltado](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd-containers-sm.png)
 
-        https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
+3. En la hoja **Contenedores**, identifique todos los contenedores donde **Estado de concesión** sea **Concedido** y siga el [escenario 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) con cada contenedor **Concedido**.
+4. Siga el [paso 2](#step-2-delete-vm-to-detach-os-disk) y el [paso 3](#step-3-detach-data-disk-from-the-vm) para eliminar máquinas virtuales con **OSDisk** y desasociar **DataDisk**. 
 
-### <a name="step-2-delete-the-vhd-by-using-azure-storage-explorer"></a>Paso 2 Eliminar el disco duro virtual mediante el Explorador de Azure Storage
-
-1. Descargue e instale la versión más reciente del [Explorador de Azure Storage](http://storageexplorer.com/). Esta herramienta es una aplicación independiente de Microsoft que permite trabajar fácilmente con los datos de Azure Storage en Windows, Mac OS y Linux.
-2. Abra el Explorador de Azure Storage, seleccione ![icono de cuenta](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/account.png) en la barra de la izquierda, seleccione el entorno de Azure y, después, inicie sesión.
-
-3. Seleccione todas las suscripciones o la suscripción que contiene la cuenta de almacenamiento que desea eliminar.
-
-    ![agregar suscripción](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/addsub.png)
-
-4. Vaya a la cuenta de almacenamiento que se ha obtenido en la dirección URL del disco, seleccione **Contenedores de blob** > **discos duros virtuales** y busque el disco duro virtual que impide que elimine la cuenta de almacenamiento.
-5. Si se encuentra el VHD, seleccione la columna **VM Name** para buscar la máquina virtual que usa este disco duro virtual.
-
-    ![Seleccionar máquina virtual](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/check-vm.png)
-
-6. Quite la concesión del disco duro virtual mediante Azure Portal. Para más información, consulte [Eliminación de la concesión del VHD](#remove-the-lease-from-the-vhd). 
-
-7. Vaya al Explorador de Azure Storage, haga clic con el botón derecho en el VHD y seleccione Eliminar.
-
-8. Elimina la cuenta de almacenamiento.
-
-### <a name="method-2---use-azure-portal"></a>Método 2: Usar Azure Portal 
-
-#### <a name="step-1-identify-the-vhd-that-prevent-deletion-of-the-storage-account"></a>Paso 1: Identificar el disco duro virtual que impide la eliminación de la cuenta de almacenamiento
-
-1. Cuando elimine la cuenta de almacenamiento, verá un cuadro de diálogo como el siguiente: 
-
-    ![mensaje al eliminar la cuenta de almacenamiento](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
-
-2. Active **Dirección URL del disco** para identificar la cuenta de almacenamiento y el disco duro virtual que impide que se elimine la cuenta de almacenamiento. En el ejemplo siguiente, la cadena que está delante de ".blob.core.windows.net" es el nombre de la cuenta de almacenamiento y "SCCM2012-2015-08-28.vhd" es el nombre del VHD.  
-
-        https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
-
-2. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-3. En el menú Concentrador, seleccione **Todos los recursos**. Vaya a la cuenta de almacenamiento y seleccione **Blobs** > **vhds**.
-
-    ![Captura de pantalla del portal en la que se han resaltado la cuenta de almacenamiento y el contenedor "vhds".](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
-
-4. Busque el disco duro virtual que se ha obtenido de la dirección URL del disco. Después, determine la VM que esté usando el VHD. Normalmente, para determinar la VM que contiene el VHD, basta con consultar el nombre de este último:
-
-Máquina virtual en el modelo de desarrollo mediante Resource Manager
-
-   * Los discos de sistema operativo suelen seguir esta convención de nomenclatura: NombreVM-AAAA-MM-DD-HHMMSS.vhd
-   * Los discos de sistema operativo suelen seguir esta convención de nomenclatura: NombreVM-AAAA-MM-DD-HHMMSS.vhd
-
-Máquina virtual en modelo de desarrollo clásico
-
-   * Los discos de sistema operativo suelen seguir esta convención de nomenclatura: NombreServicioEnLaNube-NombreVM-AAAA-MM-DD-HHMMSS.vhd
-   * Los discos de datos suelen seguir esta convención de nomenclatura: NombreServicioEnLaNube-NombreVM-AAAA-MM-DD-HHMMSS.vhd
-
-#### <a name="step-2-remove-the-lease-from-the-vhd"></a>Paso 2: Eliminación de la concesión del VHD
-
-[Quite la concesión del disco duro virtual](#remove-the-lease-from-the-vhd)y, después, elimine la cuenta de almacenamiento.
-
-## <a name="what-is-a-lease"></a>¿Qué es una concesión?
-Una concesión es un bloqueo que puede utilizarse para controlar el acceso a un blob (por ejemplo, un VHD). Cuando un blob está concedido, solo los propietarios de la concesión pueden acceder a él. Una concesión es importante por los motivos siguientes:
-
-* Se evitan daños en los datos si varios propietarios tratan de escribir en la misma parte del blob a la vez.
-* Impide que el blob se elimine si hay algo que lo esté usando activamente (por ejemplo, una VM).
-* Impide que la cuenta de almacenamiento se elimine si hay algo que la esté usando activamente (por ejemplo, una VM).
-
-### <a name="remove-the-lease-from-the-vhd"></a>Eliminación de la concesión del VHD
-Si el disco duro virtual es un disco de sistema operativo, debe eliminar la máquina virtual para quitar la concesión:
+### <a name="step-2-delete-vm-to-detach-os-disk"></a>Paso 2: Eliminación de la máquina virtual para desasociar el disco del sistema operativo
+Si el disco duro virtual es un disco del sistema operativo, debe eliminar la máquina virtual antes de eliminar el disco duro virtual asociado. No será necesaria ninguna acción adicional en los discos asociados a la misma máquina virtual una vez finalizados estos pasos:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. En el menú **Concentrador**, haga clic en **Máquinas virtuales**.
-3. Seleccione la VM que tenga una concesión para el VHD.
+2. En el menú del concentrador, haga clic en **Máquinas virtuales**.
+3. Seleccione la máquina virtual a la que está conectado el disco duro virtual.
 4. Asegúrese de que no haya nada usando activamente la máquina virtual y de que ya no la necesite.
-5. En la parte superior de la hoja **VM details** (Detalles de la VM), seleccione **Eliminar** y, después, haga clic en **Sí** para confirmar.
-6. La máquina virtual se debe eliminar, pero el disco duro virtual se puede conservar. No obstante, el VHD ya no debería tener ninguna concesión. Es posible que la concesión tarde unos minutos en liberarse. Para comprobar que se haya retirado la concesión, vaya a **Todos los recursos** > **Nombre de cuenta de almacenamiento** > **Blobs** > **vhds**. En el panel **Propiedades del blob**, el valor de **Estado de concesión** debe ser **Desbloqueado**.
+5. En la parte superior de la hoja **Detalles de máquina virtual**), seleccione **Eliminar** y, después, haga clic en **Sí** para confirmar.
+6. La máquina virtual se debe eliminar, pero el disco duro virtual se puede conservar. Sin embargo, el disco duro virtual ya no debe asociarse a una máquina virtual o tener una concesión en ella. Es posible que la concesión tarde unos minutos en liberarse. Para comprobar que la concesión se libera, vaya a la ubicación del blob y, en el panel **Propiedades de blob**, la opción **Estado de concesión** debe ser **Disponible**.
 
+### <a name="step-3-detach-data-disk-from-the-vm"></a>Paso 3: Desasociación del disco de datos de la máquina virtual
 Si el disco duro virtual es un disco de datos, desasócielo de la máquina virtual para quitar la concesión:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. En el menú **Concentrador**, haga clic en **Máquinas virtuales**.
-3. Seleccione la VM que tenga una concesión para el VHD.
-4. Seleccione **Discos** en la hoja **VM details** (Detalles de la VM).
-5. Seleccione el disco de datos que tenga una concesión para el VHD. Puede determinar que VHD está conectado al disco consultando la URL del primero.
-6. Asegúrese de que no haya nada utilizando el disco de datos de forma activa.
-7. Haga clic en **Desconectar** en la hoja **Detalles del disco**.
-8. Ahora el disco debe estar desconectado de la VM y el VHD no debe tener ninguna concesión. Es posible que la concesión tarde unos minutos en liberarse. Para comprobar que se haya retirado la concesión, vaya a **Todos los recursos** > **Nombre de cuenta de almacenamiento** > **Blobs** > **vhds**. En el panel **Propiedades del blob**, el valor de **Estado de concesión** debe ser **Desbloqueado**.
+2. En el menú del concentrador, haga clic en **Máquinas virtuales**.
+3. Seleccione la máquina virtual a la que está conectado el disco duro virtual.
+4. Seleccione **Discos** en la hoja **Detalles de máquina virtual**.
+5. Seleccione el disco de datos del que se va a eliminar el disco duro virtual que tiene asociado. Para determinar qué blob está asociado al disco, compruebe la dirección URL del disco duro virtual.
+6. Para comprobar la ubicación del blob, haga clic en el disco para comprobar la ruta de acceso que se muestra en el campo **URI de VHD**.
+7. Seleccione **Editar** en la parte superior de la hoja **Discos**.
+8. Haga clic en el **icono de desasociación** del disco de datos que se va a eliminar.
+
+     ![Captura de pantalla del portal, con el panel "Metadatos de blob" de almacenamiento abierto](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/utd-vm-disks-edit.png)
+
+9. Seleccione **Guardar**. Ahora el disco debe estar desconectado de la VM y el VHD no debe tener ninguna concesión. Es posible que la concesión tarde unos minutos en liberarse. Para comprobar que la concesión se ha liberado, vaya a la ubicación del blob y, en el panel **Propiedades de blob**, el valor de **Estado de concesión** debe ser **Desbloqueado** o **Disponible**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Eliminar una cuenta de almacenamiento](storage-create-storage-account.md#delete-a-storage-account)
-* [How to break the locked lease of blob storage in Microsoft Azure (PowerShell) (Cómo interrumpir la concesión bloqueada de Almacenamiento de blobs en Microsoft Azure (PowerShell))](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
+Vuelva a intentar la eliminación del objeto de almacenamiento que anteriormente produjo error.
 

@@ -12,15 +12,14 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
+ms.date: 09/29/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 5db39bab8e31a8e7026b34e72b4614b0f6f57772
-ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 262963250921ceb6f1a2fed0f68c36a9f052b47b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explore-azure-iot-edge-architecture-on-windows"></a>Explorar la arquitectura de Azure IoT Edge en Windows
 
@@ -28,57 +27,36 @@ ms.lasthandoff: 06/09/2017
 
 [!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
-## <a name="how-to-run-the-sample"></a>Ejecución del ejemplo
+## <a name="run-the-sample"></a>Ejecución del ejemplo
 
-El script **build.cmd** genera su salida en la carpeta **build** de la copia local del repositorio **iot-edge**. Esta salida incluye los dos módulos de IoT Edge utilizados en este ejemplo.
+El script **build.cmd** genera su salida en la carpeta **build** de la copia local del repositorio **iot-edge**. Este resultado incluye muchos archivos, pero este ejemplo se centra en tres:
+- Dos módulos de IoT Edge: **build\\modules\\logger\\Debug\\logger.dll** y **build\\modules\\hello_world\\Debug\\hello\_world.dll**. 
+- Un archivo ejecutable: **build\\samples\\hello\_world\\Debug\\hello\_world\_sample.exe**. Este proceso toma un archivo de configuración JSON como argumento de línea de comandos.
 
-El script de compilación coloca **logger.dll** en la carpeta **build\\modules\\logger\\Debug** y **hello\_world.dll** en la carpeta **build\\modules\\hello_world\\Debug**. Utilice estas rutas de acceso para los valores de **ruta de acceso del módulo**, tal y como se muestra en el archivo de configuración JSON siguiente.
+El cuarto archivo que se utiliza en este ejemplo no se encuentra en la carpeta de compilación, pero se incluyó cuando se clonó el repositorio iot-edge:
+- Un archivo de configuración de JSON: **samples\\hello\_world\\src\\hello\_world\_win.json**. Este archivo contiene las rutas de acceso a los dos módulos. También declara en qué logger.dll escribe su resultado. El valor predeterminado es **log.txt** en el directorio de trabajo actual. 
 
-El proceso de hello\_world\_sample toma la ruta de acceso a un archivo de configuración JSON como argumento de línea de comandos. El siguiente archivo JSON de ejemplo se encuentra en el repositorio de SDK, en **samples\\hello\_world\\src\\hello\_world\_win.json**. Este archivo de configuración funcionará tal y como está, a menos que se modifique el script de compilación para colocar los módulos de IoT Edge o los ejecutables de ejemplo en ubicaciones que no sean las predeterminadas.
+   >[!NOTE]
+   >Si mueve los módulos de ejemplo o agregar los suyos propios para pruebas, actualice los valores de **module.path** en el archivo de configuración para que coincidan. Las rutas de acceso del módulo son relativas al directorio en el que se encuentra **hello\_world\_sample.exe**. 
 
-> [!NOTE]
-> Las rutas de acceso del módulo son relativas al directorio en el que se encuentra hello\_world\_sample.exe. De manera predeterminada, el archivo de configuración JSON de ejemplo escribe "log.txt" en el directorio de trabajo actual.
-
-```json
-{
-  "modules": [
-    {
-      "name": "logger",
-      "loader": {
-        "name": "native",
-        "entrypoint": {
-          "module.path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
-        }
-      },
-      "args": { "filename": "log.txt" }
-    },
-    {
-      "name": "hello_world",
-      "loader": {
-        "name": "native",
-        "entrypoint": {
-          "module.path": "..\\..\\..\\modules\\hello_world\\Debug\\hello_world.dll"
-        }
-      },
-      "args": null
-      }
-  ],
-  "links": [
-    {
-      "source": "hello_world",
-      "sink": "logger"
-    }
-  ]
-}
-```
+Para ejecutar el ejemplo, siga estos pasos:
 
 1. Vaya a la carpeta **build** en la raíz de la copia local del repositorio **iot-edge**.
 
 1. Ejecute el siguiente comando:
 
-    ```cmd
-    samples\hello_world\Debug\hello_world_sample.exe ..\samples\hello_world\src\hello_world_win.json
-    ```
+   ```cmd
+   samples\hello_world\Debug\hello_world_sample.exe ..\samples\hello_world\src\hello_world_win.json
+   ```
+
+1. El siguiente resultado indica que el ejemplo se ha ejecutado correctamente:
+
+   ```cmd
+   gateway successfully created from JSON
+   gateway shall run until ENTER is pressed
+   ```
+  
+1. Presione la tecla **ENTRAR** para detener el proceso.
+
 
 [!INCLUDE [iot-hub-iot-edge-getstarted-code](../../includes/iot-hub-iot-edge-getstarted-code.md)]
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
+ms.openlocfilehash: 13154e41ebd4867de9af74340a69446400814f5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4f1d5f4cc48470f8906edb28628006dd1996bd3a
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementación de recursos con plantillas de Resource Manager y la CLI de Azure
 
@@ -79,55 +78,11 @@ az group deployment create \
 
 En el ejemplo anterior, se requiere un identificador URI accesible públicamente para la plantilla, que funciona con la mayoría de los escenarios porque la plantilla no debe incluir datos confidenciales. Si tiene que especificar datos confidenciales (por ejemplo, una contraseña de administrador), pase ese valor como un parámetro seguro. Sin embargo, si no desea que la plantilla sea accesible públicamente, puede protegerla mediante el almacenamiento en un contenedor de almacenamiento privado. Para más información sobre la implementación de una plantilla que requiere un token de Firma de acceso compartido (SAS), consulte [Implementación de una plantilla privada con el token de SAS](resource-manager-cli-sas-token.md).
 
-## <a name="deploy-template-from-cloud-shell"></a>Implementación de plantilla desde Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Puede usar [Cloud Shell](../cloud-shell/overview.md) para ejecutar los comandos de la CLI de Azure para la implementación de la plantilla. Pero primero debe cargar la plantilla en el recurso compartido de archivos de Cloud Shell. Si no ha usado Cloud Shell, vea [Introducción a Azure Cloud Shell (versión preliminar)](../cloud-shell/overview.md) para más información sobre su configuración.
+En Cloud Shell, use los comandos siguientes:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).   
-
-2. Seleccione el grupo de recursos de Cloud Shell. El patrón de nombre es `cloud-shell-storage-<region>`.
-
-   ![Selección de un grupo de recursos](./media/resource-group-template-deploy-cli/select-cs-resource-group.png)
-
-3. Seleccione la cuenta de almacenamiento de Cloud Shell.
-
-   ![Selección de la cuenta de almacenamiento](./media/resource-group-template-deploy-cli/select-storage.png)
-
-4. Seleccione **Archivos**.
-
-   ![Seleccionar archivos](./media/resource-group-template-deploy-cli/select-files.png)
-
-5. Seleccione el recurso compartido de archivos de Cloud Shell. El patrón de nombre es `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Selección de recurso compartido de archivos](./media/resource-group-template-deploy-cli/select-file-share.png)
-
-6. Seleccione **Agregar directorio**.
-
-   ![Agregar directorio](./media/resource-group-template-deploy-cli/select-add-directory.png)
-
-7. Asígnele el nombre **plantillas** y seleccione **Correcto**.
-
-   ![Nombre de directorio](./media/resource-group-template-deploy-cli/name-templates.png)
-
-8. Seleccione el nuevo directorio.
-
-   ![Selección de directorio](./media/resource-group-template-deploy-cli/select-templates.png)
-
-9. Seleccione **Cargar**.
-
-   ![Selección de Cargar](./media/resource-group-template-deploy-cli/select-upload.png)
-
-10. Busque y cargue la plantilla.
-
-   ![Carga de archivo](./media/resource-group-template-deploy-cli/upload-files.png)
-
-11. Abra el símbolo del sistema.
-
-   ![Apertura de Cloud Shell](./media/resource-group-template-deploy-cli/start-cloud-shell.png)
-
-12. En Cloud Shell, escriba los comandos siguientes:
-
-   ```azurecli
+   ```azurecli-interactive
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
    ```
@@ -282,4 +237,3 @@ La plantilla siguiente se usa para los ejemplos de este tema. Cópiela y guárde
 * Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para más información sobre la implementación de una plantilla que requiere un token de SAS, vea [Implementación de una plantilla privada con el token de SAS](resource-manager-cli-sas-token.md).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
-

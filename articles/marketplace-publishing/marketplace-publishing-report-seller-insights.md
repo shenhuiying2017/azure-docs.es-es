@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
 ms.openlocfilehash: e098e27e32f7b7ae2009580a430f262aa7225206
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-seller-insights-report"></a>Descripción del informe de perspectivas de vendedor
 **¿Qué son las perspectivas de vendedor?**
@@ -84,8 +84,7 @@ Lea atentamente las renuncias de responsabilidades legales. Si tiene preguntas o
 Vaya a https://publish.windowsazure.com/ e inicie sesión con sus credenciales de cuenta de Microsoft.
 ![passwordreminder][7]
 
-Seleccione la pestaña **Publicadores** .
-![selectpublisherstab][8]
+Seleccione la pestaña **Publicadores**. ![selectpublisherstab][8]
 
 Busque el identificador del publicador en la dirección URL:
 

@@ -14,14 +14,12 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
+ms.openlocfilehash: a204498016ff837c5247009eaaffbd4f79285d0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 2d2e49f92fdc64f3ebb2326d08f7d4304d8ffa43
-ms.contentlocale: es-es
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Carga de datos de imagen en la nube con Azure Storage
 
 Este tutorial es la primera parte de una serie. En este tutorial se muestra cómo implementar una aplicación web que usa la biblioteca de cliente de Azure Storage para cargar imágenes en una cuenta de almacenamiento. Cuando haya terminado, tendrá una aplicación web que almacena y muestra imágenes desde Azure Storage.
@@ -57,7 +55,7 @@ az group create --name myResourceGroup --location westcentralus
 En el ejemplo se cargan imágenes en un contenedor de blobs en una cuenta de Azure Storage. Una cuenta de almacenamiento proporciona un espacio de nombres único para almacenar y tener acceso a los objetos de datos de almacenamiento de Azure. Cree una cuenta de almacenamiento en el grupo de recursos que ha creado con el comando [az storage account create](/cli/azure/storage/account#create). 
 
 > [!IMPORTANT] 
-> En la parte 2 del tutorial, usará suscripciones de eventos en Blob Storage. Las suscripciones de eventos solo se admiten actualmente para cuentas de Blob Storage de Centro de EE. UU. y Oeste de EE. UU. Debido a esta restricción, debe crear una cuenta de Blob Storage que la aplicación de ejemplo use para almacenar imágenes y miniaturas.   
+> En la parte 2 del tutorial, usará suscripciones de eventos en Blob Storage. Las suscripciones de eventos solo se admiten actualmente para cuentas de Blob Storage de Centro de EE. UU. y Oeste de EE. UU 2. Debido a esta restricción, debe crear una cuenta de Blob Storage que la aplicación de ejemplo use para almacenar imágenes y miniaturas.   
 
 En el siguiente comando, sustituya su propio nombre único de manera global por la cuenta de Blob Storage donde vea el marcador de posición `<blob_storage_account>`.  
 
@@ -226,4 +224,3 @@ Siga con la parte dos de la serie para aprender a usar Event Grid para desencade
 
 > [!div class="nextstepaction"]
 > [Uso de Event Grid para desencadenar una función de Azure Function que cambie de tamaño una imagen cargada](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-

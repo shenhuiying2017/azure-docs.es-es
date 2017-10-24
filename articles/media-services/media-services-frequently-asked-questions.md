@@ -12,20 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/29/2017
 ms.author: juliako
+ms.openlocfilehash: e2a580b835496c677f048599ae83287dbb61621d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 1f0c5cf93b44433aab2163548de916626a7fa480
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 En este artículo tratan las preguntas más frecuentes planteadas por la comunidad de usuarios de Azure Media Services (AMS).
 
 ## <a name="general-ams-faqs"></a>Preguntas más frecuentes generales sobre AMS
+
+P: ¿Cómo se hace streaming a dispositivos de Apple iOS?
+
+R: Agregue la ruta de acceso "(format=m3u8-aapl)" a la parte "/Manifest" de la dirección URL para indicar al servidor de origen de streaming que devuelva el contenido HLS para su consumo en dispositivos Apple iOS nativos (para más información, vea [entrega de contenido][media-services-deliver-content-overview.md]).
+
 P: ¿Cómo se escala la indización?
 
 R: las unidades reservadas son las mismas para las tareas de codificación y de indización. Siga las instrucciones de [Escalado de unidades reservadas de codificación](media-services-scale-media-processing-overview.md). **Tenga en cuenta** que el rendimiento del indexador no se ve afectado por el tipo de unidad reservada.
@@ -81,4 +85,3 @@ R: [Media Encoder Estándar](media-services-dotnet-encode-with-media-encoder-sta
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

@@ -12,28 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 10/10/2017
 ms.author: curtand;jeffsta
 ms.reviewer: jeffsta
-ms.openlocfilehash: 9f4031da7c6dfbd329d14c52f3a569084edacf20
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: 4d6cd568127504e0a01611ee85594da8cff4e7c3
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-or-change-work-information-for-a-user-in-azure-active-directory"></a>Adición o modificación de la información de trabajo de un usuario en Azure Active Directory
 En este artículo se explica cómo agregar o cambiar información del trabajo, como números de teléfono o nombres de departamento de un usuario, en Azure Active Directory (Azure AD). Para obtener más información sobre cómo agregar nuevos usuarios en su organización, consulte [Incorporación de nuevos usuarios a Azure Active Directory](active-directory-users-create-external-azure-portal.md).
 
 ## <a name="to-change-work-information"></a>Para cambiar la información del trabajo
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
+2. Seleccione **Usuarios y grupos**.
 
    ![Apertura de Administración de usuarios](./media/active-directory-users-work-info-azure-portal/create-users-user-management.png)
-3. En la hoja **Usuarios y grupos**, seleccione **Usuarios**.
+3. Seleccione **Todos los usuarios**.
 
-   ![Apertura de la hoja Usuarios](./media/active-directory-users-work-info-azure-portal/create-users-open-users-blade.png)
-4. En la hoja **Usuarios y grupos - Usuarios** , seleccione un usuario de la lista.
-5. En la hoja del usuario seleccionado, seleccione **Información del trabajo**.
+   ![Apertura del grupo Todos los usuarios](./media/active-directory-users-work-info-azure-portal/create-users-open-users-blade.png)
+4. Seleccione un usuario en la lista.
+5. Para el usuario seleccionado, seleccione **Información del trabajo**.
 
     ![Apertura de Información del trabajo](./media/active-directory-users-work-info-azure-portal/active-directory-create-users-work-info.png)
 6. Agregue o cambie la información del trabajo. Después, en la barra de comandos, seleccione **Guardar**.

@@ -1,10 +1,10 @@
 ---
 title: "Instalación de Update 5 en un dispositivo de la serie StorSimple 8000 | Microsoft Docs"
-description: "Explica cómo instalar Update 4 de la serie StorSimple 8000 en un dispositivo de la serie StorSimple 8000."
+description: "Explica cómo instalar Update 5 de la serie StorSimple 8000 en un dispositivo de la serie StorSimple 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/22/2017
+ms.date: 10/06/2017
 ms.author: alkohli
+ms.openlocfilehash: e9b2f8b225c6b9ed0f0622e6a51a48cdfada28bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 84056daaada94875af3d969847ead41c003a1606
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalación de Update 5 en el dispositivo StorSimple
 
 ## <a name="overview"></a>Información general
 
-En este tutorial se explica cómo instalar Update 5 en un dispositivo StorSimple que ejecute una versión anterior del software a través de Azure Portal y mediante el método de revisión. El método de revisión se utiliza cuando se configura una puerta de enlace en una interfaz de red que no sea DATA 0 del dispositivo StorSimple y está intentando actualizar desde una versión del software anterior a Update 1.
+En este tutorial se explica cómo instalar Update 5 en un dispositivo StorSimple que ejecute una versión anterior del software a través de Azure Portal y mediante el método de revisión. El método de revisión se usa cuando se intenta instalar Update 5 en un dispositivo que ejecuta versiones anteriores a Update 3. El método de revisión también se usa cuando se configura una puerta de enlace en una interfaz de red que no sea DATA 0 del dispositivo StorSimple y está intentando actualizar desde una versión del software anterior a Update 1.
 
 Update 5 incluye actualizaciones de software de dispositivo, firmware de USM, firmware y controlador LSI, Storport y Spaceport, seguridad del sistema operativo y varias otras actualizaciones de SO.  Las actualizaciones de software de dispositivo, Spaceport, Storport, seguridad y otras actualizaciones del sistema operativo no provocan interrupciones. Las actualizaciones normales o que no provocan interrupciones se pueden aplicar a través de Azure Portal o mediante el método de revisión. Las actualizaciones del firmware del disco son actualizaciones que provocan interrupciones y pueden aplicarse cuando el dispositivo está en modo de mantenimiento a través del método de revisión con la interfaz de Windows PowerShell del dispositivo.
 
 > [!IMPORTANT]
 > * En esta actualización se incluye un conjunto de comprobaciones previas que se hace antes de la instalación para determinar el estado del dispositivo en cuanto a la conectividad de red y el estado del hardware. Estas comprobaciones previas solo se realizan si aplica las actualizaciones desde Azure Portal.
+> * Se recomienda encarecidamente que cuando se actualice un dispositivo que ejecuta versiones anteriores a Update 3, instale las actualizaciones con el método de revisión. Para que Soporte técnico lo guíe por los pasos de la actualización, [ingrese una incidencia de soporte técnico](storsimple-8000-contact-microsoft-support.md).
 > * Se recomienda instalar las actualizaciones de software y otras actualizaciones normales a través de Azure portal. Solo debe ir a la interfaz de Windows PowerShell del dispositivo (para instalar actualizaciones) si, en el Portal, se produce un error en las comprobaciones de la puerta de enlace anteriores a la actualización. En función de la versión de origen, las actualizaciones pueden demorar 4 horas (o más) en instalarse. Las actualizaciones en modo de mantenimiento deben instalarse mediante la interfaz de Windows PowerShell del dispositivo. Como las actualizaciones en modo de mantenimiento generan interrupciones, provocan un tiempo de inactividad en el dispositivo.
 > * Si ejecuta la opción de StorSimple Snapshot Manager, antes de actualizar el dispositivo, asegúrese de haber actualizado la versión de Snapshot Manager a Update 5.
 
@@ -47,12 +47,11 @@ Realice los pasos siguientes para actualizar el dispositivo a [Update 5](storsim
 
 Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 5 (6.3.9600.17845)**. También se debe modificar la **fecha de última actualización**.
 
-* Ahora también verá que hay disponibles actualizaciones en modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones). Las actualizaciones del modo de mantenimiento provocan interrupciones con tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo.
+Ahora también verá que hay disponibles actualizaciones en modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones). Los pasos para instalar actualizaciones en modo de mantenimiento se detallan en la sección siguiente.
 
-* Descargue las actualizaciones en modo de mantenimiento mediante los pasos enumerados en [Descargar revisiones](#to-download-hotfixes) para buscar y descargar KB4011837, que instala las actualizaciones de firmware del disco (el resto de actualizaciones ya deben estar instaladas). Siga los pasos enumerados en [Instalar y comprobar las revisiones del modo de mantenimiento](#to-install-and-verify-maintenance-mode-hotfixes) para instalar las actualizaciones del modo de mantenimiento.
+[!INCLUDE [storsimple-8000-install-maintenance-mode-updates](../../includes/storsimple-8000-install-maintenance-mode-updates.md)]
 
 ## <a name="install-update-5-as-a-hotfix"></a>Instalación de Update 5 como una revisión
-
 
 Las versiones de software que se pueden actualizar mediante el método de revisión son las siguientes:
 
@@ -63,7 +62,7 @@ Las versiones de software que se pueden actualizar mediante el método de revisi
 * Update 4
 
 > [!NOTE] 
-> El método recomendado para instalar Update 5 es a través de Azure Portal. Use este procedimiento si la comprobación de la puerta de enlace produce un error al intentar instalar las actualizaciones a través de Azure Portal. Se produce un error en la comprobación porque tiene una puerta de enlace asignada a una interfaz de red que no es DATA 0 y el dispositivo está ejecutando una versión de software anterior a Update 1.
+> El método que se recomienda para instalar Update 5 es a través de Azure Portal cuando intente actualizar de Update 3 y alguna versión posterior. Cuando actualice un dispositivo que ejecute alguna versión anterior a Update 3, use este procedimiento. También puede usar este procedimiento si la comprobación de la puerta de enlace produce un error al intentar instalar las actualizaciones a través de Azure Portal. Se produce un error en la comprobación porque tiene una puerta de enlace asignada a una interfaz de red que no es DATA 0 y el dispositivo está ejecutando una versión de software anterior a Update 1.
 
 El método de revisión implica los tres pasos siguientes:
 
@@ -114,5 +113,4 @@ Realice los siguientes pasos para descargar e instalar las revisiones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información sobre el [lanzamiento de Update 5](storsimple-update5-release-notes.md).
-
 

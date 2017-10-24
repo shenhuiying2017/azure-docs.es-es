@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 757429aa187e6536489b6636a0a11d122c7f9378
-ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 19948f1e2e77c78b7ce8aed66a7bdb74ba8640dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Tutorial: integración de Azure Active Directory con Trakstar
 
@@ -38,6 +37,7 @@ Para configurar la integración de Azure AD con Trakstar, necesita los siguiente
 
 - Una suscripción de Azure AD
 - Una suscripción habilitada para el inicio de sesión único en Trakstar
+    - SSO es una característica de pago de Trakstar. Para habilitarlo para su organización, póngase en contacto con el [equipo de soporte técnico de Trakstar](mailto:support@trakstar.com).
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -111,12 +111,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.trakstar.com/auth/saml/callback?namespace=<NAMESPACE>`.
+    a. En el cuadro de texto **Dirección URL de inicio de sesión**, copie el valor de **ACS (Consumer) URL** (Dirección URL de ACS [Consumidor]) en Trakstar (Settings > Authentication & SSO [Configuración > Autenticación y SSO]) con el formato:`https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.trakstar.com`
+    b. En el cuadro de texto **Identificador**, deje el valor predeterminado: `https://app.trakstar.com`
 
     > [!NOTE] 
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Trakstar](mailto:integrations@trakstar.com) para obtener estos valores. 
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Inicie sesión en Trakstar como administrador para obtener estos valores.
+    > Si no ve la pestaña "Autenticación y SSO" en la configuración, puede que no tenga la característica
  
 4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
@@ -130,10 +131,10 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_configure.png) 
 
-7. Para configurar el inicio de sesión único en **Trakstar**, es preciso enviar el **Certificado (Base64)** descargado, la **dirección URL de cierre de sesión, el identificador de identidad de SAML y la dirección URL del servicio de inicio de sesión único de SAML** al [equipo de soporte técnico de Trakstar](mailto:integrations@trakstar.com). 
+7. Para configurar el inicio de sesión único en **Trakstar**, debe iniciar sesión como administrador y escribir los valores de **Certificado (Base64)**, **Dirección URL de cierre de sesión, Identificador de entidad de SAML y Dirección URL del servicio de inicio de sesión único de SAML**. 
 
 > [!TIP]
-> Ahora puede leer una versión concisa de estas instrucciones en [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -169,7 +170,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="creating-a-trakstar-test-user"></a>Crear un usuario de prueba de Trakstar
 
-El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Trakstar. Trabaje con el [equipo de soporte técnico de Trakstar](mailto:integrations@trakstar.com) para agregar los usuarios en la cuenta de Trakstar. 
+El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Trakstar.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
@@ -227,5 +228,4 @@ Al hacer clic en el icono de Trakstar en el panel de acceso, debería iniciar se
 [201]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_203.png
-
 

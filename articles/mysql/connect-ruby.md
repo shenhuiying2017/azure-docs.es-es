@@ -10,15 +10,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 07/13/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 10f774262015cb19e158a687138b4618ce50063b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e54f1dccbae060c52f48bfeb277c045b99a91715
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Azure Database for MySQL: uso de Ruby para conectarse y consultar datos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de [Ruby](https://www.ruby-lang.org) y la gema [mysql2](https://rubygems.org/gems/mysql2) desde las plataformas Windows, Ubuntu Linux y Mac. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este artículo se da por hecho que está familiarizado con el desarrollo mediante Ruby, pero que nunca ha usado Azure Database for MySQL.
 
@@ -28,7 +26,7 @@ En este tutorial rápido se usan como punto de partida los recursos creados en u
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure)
 
 ## <a name="install-ruby"></a>Instalación de Ruby
-Instale Ruby, Gem y la biblioteca MySQL2 en su propia máquina. 
+Instale Ruby, Gem y la biblioteca MySQL2 en su propio equipo. 
 
 ### <a name="windows"></a>Windows
 1. Descargue e instale la versión 2.3 de [Ruby](http://rubyinstaller.org/downloads/).
@@ -57,16 +55,16 @@ Instale Ruby, Gem y la biblioteca MySQL2 en su propia máquina.
 Obtenga la información de conexión necesaria para conectarse a Azure Database for MySQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque el servidor que ha creado, por ejemplo, **myserver4demo**.
+2. En el menú de la izquierda de Azure Portal, haga clic en **Todos los recursos** y, después, busque el servidor que ha creado (por ejemplo, **myserver4demo**).
 3. Haga clic en el nombre del servidor **myserver4demo**.
-4. Seleccione la página **Propiedades** del servidor. Tome nota del **Nombre del servidor** y del **Server admin login name** (Nombre de inicio de sesión del administrador del servidor).
+4. Seleccione la página **Propiedades** del servidor y anote la información que figura en **Nombre del servidor** y en **Nombre de inicio de sesión del administrador del servidor**.
  ![Azure Database for MySQL: inicio de sesión del Administrador del servidor](./media/connect-ruby/1_server-properties-name-login.png)
 5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** para ver el nombre de inicio de sesión del administrador del servidor y, si es necesario, restablecer la contraseña.
 
 ## <a name="run-ruby-code"></a>Ejecución del código Ruby 
-1. Pegue el código de Ruby de las secciones siguientes en archivos de texto y guarde los archivos en una carpeta de proyecto con la extensión .rb, por ejemplo, `C:\rubymysql\createtable.rb` o `/home/username/rubymysql/createtable.rb`.
+1. Pegue el código de Ruby de las secciones siguientes en archivos de texto y, después, guarde los archivos en una carpeta de proyecto con la extensión .rb (como `C:\rubymysql\createtable.rb` o `/home/username/rubymysql/createtable.rb`).
 2. Para ejecutar el código, inicie el símbolo del sistema o el shell de Bash. Cambie el directorio a la carpeta de proyecto `cd rubymysql`.
-3. A continuación, escriba el comando ruby seguido del nombre de archivo, por ejemplo, `ruby createtable.rb` para ejecutar la aplicación.
+3. A continuación, escriba el comando Ruby seguido del nombre de archivo, por ejemplo, `ruby createtable.rb` para ejecutar la aplicación.
 4. En el sistema operativo Windows, si la aplicación Ruby no está en la variable de entorno path, puede que deba usar la ruta de acceso completa para iniciar la aplicación de Node, por ejemplo, `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
 ## <a name="connect-and-create-a-table"></a>Conexión y creación de una tabla
@@ -229,4 +227,3 @@ end
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Migración de una base de datos mediante exportación e importación](./concepts-migrate-import-export.md)
-

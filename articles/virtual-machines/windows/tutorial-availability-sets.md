@@ -13,20 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 022396a8bf0478414be179b9f7341a459ed2bc60
-ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: 3657f222e1f52d341cd05532e29ed4924b308e6f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-availability-sets"></a>Cómo usar conjuntos de disponibilidad
 
-En este tutorial, obtendrá información sobre cómo aumentar la disponibilidad y confiabilidad de las soluciones de máquina virtual en Azure mediante una funcionalidad denominada "conjuntos de disponibilidad". Los conjuntos de disponibilidad garantizan que las máquinas virtuales implementadas en Azure se distribuyan entre varios clústeres de hardware aislados. De este modo, se asegura de que, si se produce un error de hardware o software en Azure, solo un subconjunto de las máquinas virtuales se verá afectado, y que la solución estará disponible y en funcionamiento para los clientes. 
+En este tutorial, obtendrá información sobre cómo aumentar la disponibilidad y confiabilidad de las soluciones de máquina virtual en Azure mediante una funcionalidad denominada "conjuntos de disponibilidad". Los conjuntos de disponibilidad garantizan que las máquinas virtuales implementadas en Azure se distribuyan entre varios clústeres de hardware aislados. De este modo, se asegura de que, si se produce un error de hardware o software en Azure, solo un subconjunto de las máquinas virtuales se verá afectado y que la solución seguirá disponible y en funcionamiento. 
 
 En este tutorial, aprenderá a:
 
@@ -39,11 +37,11 @@ Para realizar este tutorial es necesaria la versión 3.6 del módulo de Azure Po
 
 ## <a name="availability-set-overview"></a>Información general sobre conjuntos de disponibilidad
 
-Un conjunto de disponibilidad es una funcionalidad de agrupación lógica que puede usar en Azure para asegurarse de que los recursos de máquina virtual que coloque en dicho conjunto de disponibilidad estén aislados entre sí cuando se implementen en un centro de datos de Azure. Azure garantiza que las máquinas virtuales colocados en un conjunto de disponibilidad se ejecuten en varios servidores físicos, grupos de proceso, unidades de almacenamiento y conmutadores de red. De este modo, se garantiza que si se produce un error de hardware o software de Azure, solo un subconjunto de las máquinas virtuales se verá afectado, y que la aplicación se mantendrá actualizada y seguirá estando disponible para los clientes. Usar conjuntos de disponibilidad es una funcionalidad fundamental que debe tener en cuenta para crear soluciones en la nube confiables.
+Un conjunto de disponibilidad es una funcionalidad de agrupación lógica que puede usar en Azure para asegurarse de que los recursos de máquina virtual que coloque en dicho conjunto de disponibilidad estén aislados entre sí cuando se implementen en un centro de datos de Azure. Azure garantiza que las máquinas virtuales colocados en un conjunto de disponibilidad se ejecuten en varios servidores físicos, grupos de proceso, unidades de almacenamiento y conmutadores de red. Si se produce un error de hardware o software de Azure, solo un subconjunto de las máquinas virtuales se ve afectado y la aplicación se mantiene actualizada y sigue estando disponible para los clientes. Los conjuntos de disponibilidad son una funcionalidad fundamental para compilar soluciones en la nube confiables.
 
-Veamos una solución basada en máquina virtual típica en la podría haber 4 servidores web front-end y usar 2 máquinas virtuales de back-end que hospedan una base de datos. Con Azure, desea definir 2 conjuntos de disponibilidad antes de implementar las máquinas virtuales: un conjunto de disponibilidad para el nivel de "web" y otro para el nivel de "base de datos". Al crear una máquina virtual, podrá especificar el conjunto de disponibilidad como un parámetro en el comando az vm create, y Azure garantizará automáticamente que las máquinas virtuales que cree en el conjunto de disponibilidad estén aisladas en varios recursos de hardware físico. Esto significa que si el hardware físico que está ejecutando una de sus máquinas virtuales del servidor web o del servidor de base de datos tiene un problema, sabrá que las demás instancias de las máquinas virtuales del servidor de base de datos y del servidor web seguirán ejecutándose correctamente porque están en un hardware diferente.
+Veamos una solución basada en máquina virtual típica en la podría haber 4 servidores web front-end y usar 2 máquinas virtuales de back-end que hospedan una base de datos. Con Azure, desea definir 2 conjuntos de disponibilidad antes de implementar las máquinas virtuales: un conjunto de disponibilidad para el nivel de web y otro para el nivel de base de datos. Al crear una máquina virtual, podrá especificar el conjunto de disponibilidad como un parámetro en el comando az vm create, y Azure garantiza automáticamente que las máquinas virtuales que cree en el conjunto de disponibilidad estén aisladas en varios recursos de hardware físico. Si el hardware físico que está ejecutando una de sus máquinas virtuales del servidor web o del servidor de base de datos tiene un problema, sabe que las demás instancias de las máquinas virtuales del servidor de base de datos y del servidor web siguen ejecutándose correctamente porque están en un hardware diferente.
 
-Siempre debe utilizar los conjuntos de disponibilidad cuando quiera implementar soluciones basadas en máquinas virtuales confiables en Azure.
+Use los conjuntos de disponibilidad cuando quiera implementar soluciones basadas en máquinas virtuales confiables en Azure.
 
 ## <a name="create-an-availability-set"></a>Crear un conjunto de disponibilidad
 
@@ -51,17 +49,18 @@ Puede crear un conjunto de disponibilidad con [New-AzureRmAvailabilitySet](/powe
 
 Cree un grupo de recursos.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
 ```
 
+Cree un conjunto de disponibilidad administrada con [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset) con el parámetro **-sku aligned**.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmAvailabilitySet `
    -Location EastUS `
    -Name myAvailabilitySet `
    -ResourceGroupName myResourceGroupAvailability `
-   -Managed `
+   -sku aligned `
    -PlatformFaultDomainCount 2 `
    -PlatformUpdateDomainCount 2
 ```
@@ -72,11 +71,11 @@ Las máquinas virtuales deben crearse en el conjunto de disponibilidad para aseg
 
 El hardware de una ubicación está dividido en varios dominios de actualización y de error. Un **dominio de actualización** es un grupo de máquinas virtuales y hardware físico subyacente que se pueden reiniciar al mismo tiempo. Las máquinas virtuales en el mismo **dominio de error** comparten un almacenamiento común, así como una fuente de alimentación y un conmutador de red comunes. 
 
-Cuando se crea una VM mediante [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), se especifica el conjunto de disponibilidad mediante el parámetro `-AvailabilitySetId` para especificar el identificador del conjunto de disponibilidad.
+Cuando se crea una VM mediante [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), use el parámetro `-AvailabilitySetId` para especificar el identificador del conjunto de disponibilidad.
 
-Cree 2 VM con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) en el conjunto de disponibilidad.
+Cree dos VM con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) en el conjunto de disponibilidad.
 
-```powershell
+```azurepowershell-interactive
 $availabilitySet = Get-AzureRmAvailabilitySet `
     -ResourceGroupName myResourceGroupAvailability `
     -Name myAvailabilitySet
@@ -134,11 +133,12 @@ for ($i=1; $i -le 2; $i++)
         -AvailabilitySetId $availabilitySet.Id
 
    $vm = Set-AzureRmVMOperatingSystem `
-        -VM $vm `
-        -Windows -ComputerName myVM$i `   
+        -ComputerName myVM$i `
         -Credential $cred `
-        -ProvisionVMAgent `
-        -EnableAutoUpdate
+        -VM $vm `
+        -Windows `
+        -EnableAutoUpdate `
+        -ProvisionVMAgent
    $vm = Set-AzureRmVMSourceImage `
         -VM $vm `
         -PublisherName MicrosoftWindowsServer `
@@ -160,13 +160,17 @@ for ($i=1; $i -le 2; $i++)
 
 ```
 
-Se tarda unos minutos en crear y configurar ambas VM. Cuando se acabe, tendrá 2 máquinas virtuales distribuidas en el hardware subyacente. 
+Se tarda unos minutos en crear y configurar ambas VM. Cuando se acabe, tendrá dos máquinas virtuales distribuidas en el hardware subyacente. 
+
+Si observa el conjunto de disponibilidad en el portal en Grupos de recursos > disponibilidadDeMiGrupoDeRecursos > miConjuntoDeDisponibilidad, debería ver cómo se distribuyen las máquinas virtuales en ambos dominios, el de error y el de actualización.
+
+![Conjunto de disponibilidad en el portal](./media/tutorial-availability-sets/fd-ud.png)
 
 ## <a name="check-for-available-vm-sizes"></a>Comprobación de los tamaños de VM disponibles 
 
 Se pueden agregar más máquinas virtuales al conjunto de disponibilidad posteriormente, pero debe saber qué tamaños de máquina virtual están disponibles en el hardware. Use [Get-AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) para enumerar todos los tamaños disponibles en el clúster de hardware para el conjunto de disponibilidad.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVMSize `
    -AvailabilitySetName myAvailabilitySet `
    -ResourceGroupName myResourceGroupAvailability  
@@ -185,6 +189,5 @@ Avance al siguiente tutorial para informarse sobre los conjuntos de escalado de 
 
 > [!div class="nextstepaction"]
 > [Creación de un conjunto de escalado de máquinas virtuales](tutorial-create-vmss.md)
-
 
 

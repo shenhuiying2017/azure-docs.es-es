@@ -8,16 +8,14 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/09/2017
-ms.author: gauravbh; tomfitz
+ms.date: 09/19/2017
+ms.author: gauravbh
+ms.openlocfilehash: 96b07bb3b923a5120e3d43c3fa60b3b1308010b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7ace8e1ea8038e0748bfed00c0cc0a4fa340588b
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
 Los proveedores que usan Azure pueden ofrecer soluciones a clientes de todo el mundo. Azure Marketplace es una galería que consta de cientos de plantillas complejas de múltiples recursos de proveedores propios y de terceros. En minutos, los clientes pueden implementar y empezar a usar aplicaciones de plataforma como servicio (PaaS) y de software como servicio (SaaS). 
@@ -56,16 +54,14 @@ Para información sobre cómo usar una aplicación administrada de Marketplace, 
 ## <a name="key-concepts"></a>Conceptos clave
 
 ### <a name="managed-resource-group"></a>Grupo de recursos administrado
-El grupo de recursos administrado es donde se crean todos los recursos de Azure que se aprovisionan en la plantilla. Por ejemplo, si el dispositivo se usa para crear una cuenta de almacenamiento, este grupo de recursos contiene el recurso de la misma. No contiene el recurso del dispositivo.
+El grupo de recursos administrado es donde se crean todos los recursos de Azure que se aprovisionan en la plantilla. Por ejemplo, si la aplicación se usa para crear una cuenta de almacenamiento, este grupo de recursos contiene el recurso de la misma. No contiene el recurso de ka aokucacuón.
 
-### <a name="appliance-package"></a>Paquete de aplicación
-El publicador crea un paquete que contiene los archivos de plantilla y el archivo createUIDefinition. En concreto, contiene los siguientes archivos:
+### <a name="application-package"></a>Paquete de aplicación
+El editor crea un paquete que contiene el archivo de plantilla y el archivo createUIDefinition. En concreto, contiene los siguientes archivos:
 
-- **applianceMainTemplate.json**: archivo de plantilla que define todos los recursos que aprovisiona el dispositivo. Este archivo es un archivo de plantilla normal que se usa para crear recursos.
+- **mainTemplate.json**: archivo de plantilla que define todos los recursos que aprovisiona la aplicación. Este archivo es un archivo de plantilla normal que se usa para crear recursos.
 
-- **MainTemplate.json**: este archivo de plantilla define el recurso del dispositivo (Microsoft.Solutions/appliances). Una propiedad clave definida en este recurso es ManagedResourceGroupId. Esta propiedad indica qué grupo de recursos se usa para hospedar los recursos reales definidos en applianceMainTemplate.json.
-
-- **applianceCreateUIDefinition.json**: este archivo describe cómo se representa la interfaz de usuario necesaria para los parámetros definidos en la plantilla.
+- **createUIDefinition.json**: este archivo describe cómo se representa la interfaz de usuario necesaria para los parámetros definidos en la plantilla.
 
 ### <a name="authorization"></a>Autorización
 El publicador debe especificar los permisos que requiere el proveedor para administrar los recursos en nombre del cliente. Este permiso se aplica al grupo de recursos administrado. Establezca los valores siguientes:
@@ -81,4 +77,3 @@ El publicador debe especificar los permisos que requiere el proveedor para admin
 * Para información sobre cómo publicar una aplicación administrada del catálogo de servicios, consulte [Creación y publicación de una aplicación administrada del catálogo de servicios](managed-application-publishing.md).
 * Para información sobre cómo usar una aplicación administrada del catálogo de servicios, consulte [Uso de una aplicación administrada del catálogo de servicios](managed-application-consumption.md).
 * Para crear un archivo de definición de la interfaz de usuario, consulte [Introducción a CreateUiDefinition](managed-application-createuidefinition-overview.md).
-

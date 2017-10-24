@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 62e8cecf3177d08f2614bd76956b45da75af0947
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 5bc6f90100e5c09eac2b6e5d0e114d4445daa7c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Preguntas más frecuentes sobre el acceso condicional de Azure Active Directory
 
@@ -55,10 +54,10 @@ Actualmente no.
 Actualmente, las directivas de acceso condicional se aplican de forma selectiva a los usuarios de dispositivos iOS y Android. De forma predeterminada, las aplicaciones de otras plataformas de dispositivos no se ven afectadas por la directiva de acceso condicional para dispositivos iOS y Android. Un administrador de inquilinos puede optar por invalidar la directiva global para impedir el acceso a los usuarios en las plataformas no compatibles.
 
 
-## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>¿Cómo funcionan las directivas de acceso condicional para Microsoft Teams?  
+## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>¿Cómo funcionan las directivas de acceso condicional para Microsoft Teams?
 
 Microsoft Teams se basa principalmente en Exchange Online y SharePoint Online para los principales escenarios de productividad, como las reuniones, los calendarios y el uso compartido de archivos. Las directivas de acceso condicional que se establecen para estas aplicaciones de nube se aplican a Microsoft Teams cuando un usuario inicia sesión.
 
-Microsoft Teams también se admite por separado como aplicación de nube en las directivas de acceso condicional de Azure Active Directory. Las directivas de entidad de certificación que se establecen para una aplicación de nube se aplican a Microsoft Teams cuando un usuario inicia sesión.
+Microsoft Teams también se admite por separado como aplicación de nube en las directivas de acceso condicional de Azure Active Directory. Las directivas de acceso condicional que se establecen para una aplicación en la nube se aplican a Microsoft Teams cuando un usuario inicia sesión.
 
 Los clientes de escritorio de Microsoft Teams para Windows y Mac admiten la autenticación moderna. La autenticación moderna proporciona un inicio de sesión basado en la biblioteca de autenticación de Azure Active Directory (ADAL) para las aplicaciones cliente de Microsoft Office en distintas plataformas. 

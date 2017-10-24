@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 32d39e2c19348bc4a1ba218cfc411a70f9f212e3
-ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 8ba108ed107e2e023867bcc3b3b1b8cc159377ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Uso de Jenkins para compilar e implementar una aplicación de Java para Linux
 Jenkins es una herramienta popular para la integración e implementación continuas de aplicaciones. Así es como se compila e implementa una aplicación de Azure Service Fabric mediante Jenkins.
@@ -51,6 +50,10 @@ cd service-fabric-java-getting-started/Services/JenkinsDocker/
 sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
+> [!NOTE]
+> Para montar recursos compartidos cifs, debe tener instalado el paquete cifs-utils en los nodos del clúster. 
+>
+
 4. Actualice los valores de marcador de posición en el script ```setupentrypoint.sh``` con los detalles de almacenamiento de Azure correspondientes.
 ```sh
 vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
@@ -69,7 +72,7 @@ Así se instala un contenedor de Jenkins en el clúster y se puede supervisar me
 1. En el explorador, vaya a ``http://PublicIPorFQDN:8081``. Se proporciona la ruta de acceso de la contraseña de administrador inicial necesaria para iniciar sesión. Puede seguir usando Jenkins como usuario administrador. O bien puede crear y cambiar el usuario una vez que inicie sesión con la cuenta de administrador inicial.
 
    > [!NOTE]
-   > Asegúrese de que el puerto 8081 se especifica como puerto de punto de conexión de la aplicación al crear el clúster.
+   > Asegúrese de que el puerto 8081 se especifica como puerto de punto de conexión de la aplicación al crear esta (y que el puerto esté abierto en el clúster).
    >
 
 2. Obtenga el identificador de la instancia del contenedor mediante ``docker ps -a``.
@@ -171,4 +174,3 @@ GitHub y Jenkins ya están configurados. Considere la posibilidad de realizar al
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png
   [post-build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/post-build-step.png
-

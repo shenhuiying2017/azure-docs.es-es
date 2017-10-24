@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
+ms.openlocfilehash: 79cb886a076a08c9817efda40e9750c69ad00187
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 430063bbc9fab8195e12cd1d3e3966a29bafd404
-ms.contentlocale: es-es
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: uso de la API Graph
 Los inquilinos de Azure Active Directory (Azure AD) B2C tienden a ser muy grandes. Esto supone que muchas tareas comunes de administración de inquilinos necesitan realizarse mediante programación. Un ejemplo importante es la administración de usuarios. Quizá necesite migrar un almacén de usuario existente a un inquilino de B2C. Puede que desee hospedar un registro de usuarios en su propia página y crear cuentas de usuario en su directorio de Azure AD B2C en segundo plano. Estos tipos de tareas requieren la capacidad de crear, leer, actualizar y eliminar cuentas de usuario. Puede realizar estas tareas mediante la API de Azure AD Graph.
@@ -68,9 +67,13 @@ Ahora tiene una aplicación con permiso para crear, leer y actualizar usuarios e
 ## <a name="configure-delete-permissions-for-your-application"></a>Configuración de permisos de eliminación para la aplicación
 Actualmente, el permiso *Leer y escribir en datos de directorio* **NO** incluye la capacidad de llevar a cabo cualquier eliminación, como la de usuarios. Si desea dotar a la aplicación de la capacidad de eliminar usuarios, deberá seguir estos pasos adicionales que hacen partícipe a PowerShell. De lo contrario, puede ir a la sección siguiente.
 
-En primer lugar, descargue e instale el [Ayudante para el inicio de sesión de Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). A continuación, descargue e instale el [módulo de Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+En primer lugar, si no se ha instalado previamente, instale el [módulo de PowerShell v1 de Azure AD (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
-Una vez instalado el módulo de PowerShell, abra PowerShell y conéctese al inquilino de B2C. Después de ejecutar `Get-Credential`, se le pedirá un nombre de usuario y una contraseña. Escriba el nombre de usuario y la contraseña de la cuenta del administrador de inquilinos de B2C.
+```powershell
+Install-Module MSOnline
+```
+
+Una vez instalado el módulo de PowerShell, conéctese al inquilino de Azure AD B2C.
 
 > [!IMPORTANT]
 > Debe usar una cuenta de administrador de inquilinos B2C que sea **local** para el inquilino B2C. Estas cuentas tienen este aspecto: myusername@myb2ctenant.onmicrosoft.com.
@@ -358,5 +361,4 @@ Con `B2CGraphClient`, tiene una aplicación de servicio que puede administrar su
 * Al crear y actualizar los usuarios consumidores, hay algunas propiedades obligatorias, tal como se describió anteriormente.
 
 Si tiene alguna pregunta o desea presentar una solicitud para acciones que le gustaría realizar con la API Graph en su inquilino B2C, deje un comentario en este artículo o registre un problema en el repositorio de ejemplos de código de GitHub.
-
 

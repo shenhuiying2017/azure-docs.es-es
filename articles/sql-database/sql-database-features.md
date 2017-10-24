@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/22/2017
 ms.author: carlrab
+ms.openlocfilehash: 5824347cbfd80ce2d21e256f4ce6e6fe2201792f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 59bb9778c89142212708b660fb200de3f0f1f9d4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-sql-database-features"></a>Características de Azure SQL Database
 
 Azure SQL Database comparte un código base común con SQL Server y, en el nivel de base de datos, admite la mayoría de las mismas características. Las principales diferencias de características entre Azure SQL Database y SQL Server se encuentran en el nivel de instancia. 
@@ -105,7 +103,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Valores de configuración del servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | No |
 | [Instrucciones SET](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | La mayoría; consulte el artículo sobre instrucciones. 
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Sí |
-| [Agente SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No; consulte el artículo sobre [trabajos elásticos](sql-database-elastic-jobs-getting-started.md). |
+| [Agente SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No - Consulte [Trabajos elásticos](sql-database-elastic-jobs-getting-started.md). |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No; consulte [Administración de Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/). |
 | [Auditoría de SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No; consulte el artículo sobre [auditoría de SQL Database](sql-database-auditing.md). |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | No; consulte el artículo sobre [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). |
@@ -130,4 +128,3 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 
 - Para obtener más información sobre el servicio Azure SQL Database, consulte el artículo que explica [en qué consiste SQL Database](sql-database-technical-overview.md).
 - Para conocer detalles de la compatibilidad y las diferencias de Transact-SQL, consulte [Resolución de diferencias de Transact-SQL durante la migración a SQL Database](sql-database-transact-sql-information.md).
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
+ms.openlocfilehash: f5a605e0b0809c27feedc98390175fd383a371eb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 8ea05e1c3419f3e9c6b5806c1a2d4035239809d8
-ms.contentlocale: es-es
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexión de datos: obtenga información sobre las entradas de transmisiones de datos desde eventos para el Análisis de transmisiones
 La conexión de datos a un trabajo de Stream Analytics es un flujo de eventos procedente de un origen de datos, que se denomina *entrada* del trabajo. Stream Analytics cuenta con integración de primera clase con orígenes de flujo de datos de Azure, como, por ejemplo, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) y [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Estos orígenes de entrada pueden proceder de la misma suscripción de Azure que el trabajo de análisis o de otra suscripción.
@@ -35,6 +34,12 @@ Un flujo de datos es una secuencia ilimitada de eventos a lo largo del tiempo. L
 Stream Analytics también admite la entrada de *datos de referencia*. Se trata de datos auxiliares que son estáticos o cambian lentamente. Suelen usarse para realizar correlaciones y búsquedas. Por ejemplo, es posible combinar datos de la entrada de flujo de datos con datos de los datos de referencia, de la misma forma que ejecutaría una instrucción SQL JOIN para buscar valores estáticos. Almacenamiento de blobs de Azure es el único origen de entrada admitido actualmente para los datos de referencia. El tamaño de los blobs de origen de datos de referencia se limita a 100 MB.
 
 Para aprender a crear entradas de datos de referencia, vea [Uso de datos de referencia](stream-analytics-use-reference-data.md).  
+
+## <a name="compression"></a>Compresión
+
+Azure Stream Analytics pronto implementará una característica de compresión en todos los orígenes de entrada del flujo de datos (Event Hubs, IoT Hub y Blob Storage). Esta característica agrega una opción desplegable nueva en la hoja **Nueva entrada** en Azure Portal, lo que le permite elegir, de manera opcional, si comprimir o no el flujo de datos. Los tipos compatibles actualmente son None, GZip y compresión Deflate. 
+
+La compresión no es compatible en conjunto con la serialización de Avro y no se aplica a los datos de referencia. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Creación de una entrada de flujo de datos desde Event Hubs
 
@@ -57,6 +62,7 @@ En la siguiente tabla se explica cada propiedad de la hoja **Nueva entrada** de 
 | **Grupo de consumidores del centro de eventos** (opcional) |Grupo de consumidores que se usa para la ingesta de datos desde el centro de eventos. Si no se especifica ningún grupo de consumidores, el trabajo de Stream Analytics usa el grupo de consumidores predeterminado. Se recomienda usar un grupo de consumidores distinto para cada trabajo de Stream Analytics. |
 | **Formato de serialización de eventos** |Formato de serialización (JSON, CSV o Avro) del flujo de datos entrantes. |
 | **Encoding** | Por el momento, UTF-8 es el único formato de codificación compatible. |
+| **Compresión** (opcional) | El tipo de compresión (None, GZip o Deflate) del flujo de datos entrante. |
 
 Cuando los datos proceden de un centro de eventos, puede acceder a los siguientes campos de metadatos en la consulta de Stream Analytics:
 
@@ -102,6 +108,7 @@ En la siguiente tabla se explica cada propiedad de la hoja **Nueva entrada** de 
 | **Grupo de consumidores** (opcional) |Grupo de consumidores que se usa para la ingesta de datos desde IoT Hub. Si no se especifica ningún grupo de consumidores, el trabajo de Stream Analytics usa el grupo de consumidores predeterminado. Se recomienda usar un grupo de consumidores distinto para cada trabajo de Stream Analytics. |
 | **Formato de serialización de eventos** |Formato de serialización (JSON, CSV o Avro) del flujo de datos entrantes. |
 | **Encoding** |Por el momento, UTF-8 es el único formato de codificación compatible. |
+| **Compresión** (opcional) | El tipo de compresión (None, GZip o Deflate) del flujo de datos entrante. |
 
 Cuando los datos proceden de IoT Hub, puede acceder a los siguientes campos de metadatos en la consulta de Stream Analytics:
 
@@ -144,6 +151,7 @@ En la siguiente tabla se explica cada propiedad de la hoja **Nueva entrada** de 
 | **Formato de hora** (opcional) |  Si usa la variable de hora en la ruta, formato de hora por el que se organizan los archivos. Actualmente, el único valor admitido es `HH`. |
 | **Formato de serialización de eventos** | Formato de serialización (JSON, CSV o Avro) del flujo de datos entrantes. |
 | **Encoding** | Por el momento, UTF-8 es el único formato de codificación compatible para CSV y JSON. |
+| **Compresión** (opcional) | El tipo de compresión (None, GZip o Deflate) del flujo de datos entrante. |
 
 Cuando los datos proceden de un origen de Blob Storage, puede acceder a los siguientes campos de metadatos en la consulta de Stream Analytics:
 
@@ -171,8 +179,8 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](ht
 Ha obtenido información sobre las opciones de conexión de datos de Azure para sus trabajos de Análisis de transmisiones. Para obtener más información sobre Análisis de transmisiones, vea:
 
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
@@ -182,4 +190,3 @@ Ha obtenido información sobre las opciones de conexión de datos de Azure para 
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

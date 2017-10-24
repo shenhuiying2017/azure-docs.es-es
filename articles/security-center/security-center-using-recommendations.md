@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 09/18/2017
 ms.author: terrylan
+ms.openlocfilehash: 0616f5e501324bfd821c1455ce234602f1fcf1bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: cb4a7db5666242576bf83abbf10682cc6f53ba69
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso de las recomendaciones de Azure Security Center para mejorar la seguridad
 Puede reducir las posibilidades de que se produzca un incidente de seguridad importante configurando una directiva de seguridad y, luego, implementando las recomendaciones de Azure Security Center. En este artículo se muestra cómo usar las recomendaciones y directivas de seguridad de Security Center para ayudar a mitigar un ataque de seguridad.
@@ -74,12 +73,12 @@ Sigamos los pasos de Juan para ver cómo utiliza las recomendaciones de Security
 ## <a name="how-to-implement-this-solution"></a>Implemento de esta solución
 Juan inicia sesión en [Azure Portal](https://azure.microsoft.com/features/azure-portal/) y abre en la consola de Security Center. Como parte de sus actividades de supervisión diarias, comprueba si hay recomendaciones de seguridad mediante los pasos siguientes:
 
-1. Juan selecciona el icono de **Recomendaciones** para abrir la hoja **Recomendaciones**.
+1. Juan selecciona el icono d**Recomendaciones** para abrir la hoja **Recomendaciones**.
    ![Selección del icono de Recomendaciones][3]
 2. Juan revisa la lista de recomendaciones. Ve que Security Center ha proporcionado la lista de recomendaciones en orden de prioridad, de la prioridad más alta a la más baja. Decide abordar una recomendación de alta prioridad de la lista. En la hoja **Recomendaciones**, selecciona **Instalar Endpoint Protection**.
-3. Se abre la hoja **Instalar Endpoint Protection** con una lista de máquinas virtuales sin antimalware habilitado. Juan revisa la lista de máquinas virtuales, las selecciona todas y, luego, hace clic en **Instalar en 3 máquinas virtuales**.
+3. Se abre **Instalar Endpoint Protection** con una lista de máquinas virtuales sin antimalware habilitado. Juan revisa la lista de máquinas virtuales, las selecciona todas y, luego, hace clic en **Instalar en 3 máquinas virtuales**.
    ![Instalar Endpoint Protection][4]
-4. La hoja **Select Endpoint Protection** (Selección de Select Endpoint Protection) se abre y proporciona a Juan dos soluciones antimalware. Juan selecciona la solución **Microsoft Antimalware**.
+4. Se abre **Seleccionar Endpoint Protection**, que proporciona a Juan dos soluciones antimalware. Juan selecciona la solución **Microsoft Antimalware**.
 5. Aparece información adicional sobre la solución antimalware. Juan selecciona **Crear**.
    ![Microsoft Antimalware][5]
 6. Juan escribe las opciones de configuración requeridas en la hoja **Instalar** y selecciona **Aceptar**.
@@ -90,10 +89,10 @@ Juan continúa explorando las recomendaciones de prioridad alta y media, con lo 
 
 Juan aprende que el [Centro de respuestas de seguridad de Microsoft (MSRC)](../security/azure-security-response-center.md) lleva a cabo una selecta supervisión de seguridad de la red e infraestructura de Azure y recibe información sobre amenazas y quejas sobre abusos de terceros. Si Juan proporciona los datos de contacto de seguridad de la suscripción de Azure de Contoso, Microsoft se pondrá en contacto con Contoso en caso de que el MSRC descubra que una entidad ilegal o no autorizada ha accedido a los datos de clientes de Contoso. Después, vemos que Juan aplica la recomendación **Proporcionar datos de los contactos de seguridad** (una recomendación con una gravedad Media en la lista de recomendaciones anteriores).
 
-1. Juan selecciona **Proporcionar datos de los contactos de seguridad** en la hoja **Recomendaciones**, que abre la hoja **Proporcionar datos de los contactos de seguridad**.
+1. Juan selecciona **Proporcionar detalles de contacto de seguridad** en la hoja **Recomendaciones**, que abre la hoja **Proporcionar detalles de contacto de seguridad**.
 2. Juan selecciona la suscripción de Azure sobre la que desea proporcionar información de contacto. Se abre una segunda hoja **Proporcionar datos de los contactos de seguridad** .
    ![Datos de los contactos de seguridad][6]
-3. Se abre una segunda hoja **Proporcionar datos de los contactos de seguridad** y Juan escribe lo siguiente:
+3. En **Proporcionar detalles de contacto de seguridad**, Juan escribe estos datos:
 
   - Las direcciones de correo electrónico de contacto de seguridad separadas por comas (no hay un límite en el número de direcciones que se pueden escribir)
   - Un número de teléfono de contacto de seguridad
@@ -107,6 +106,18 @@ Por último, Juan revisa la recomendación de baja prioridad **Corrección de vu
 ## <a name="conclusion"></a>Conclusión
 Supervisar las recomendaciones de Security Center puede ayudarlo a eliminar vulnerabilidades de seguridad antes de que se produzca un ataque. Puede evitar que ocurra un incidente de seguridad implementando y manteniendo protecciones con las directivas de seguridad de Security Center.
 
+## <a name="next-steps"></a>Pasos siguientes
+En este escenario se muestra cómo usar las recomendaciones y directivas de seguridad de Security Center para ayudar a mitigar un ataque de seguridad. Consulte el [escenario de respuesta a incidentes](security-center-incident-response.md) para saber cómo tener implantado un plan de respuesta a incidentes antes de que tenga lugar un ataque.
+
+Para más información sobre Security Center, consulte:
+
+* [Supervisión del estado de seguridad](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
+* [Administración y respuesta a las alertas de seguridad](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
+* [Supervisión y procesamiento de eventos de seguridad:](security-center-events-dashboard.md) obtenga información sobre cómo supervisar y procesar los eventos de seguridad recopilados con el tiempo.
+* [Supervisión de las soluciones de asociados](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
+* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : obtenga las últimas noticias e información sobre la seguridad en Azure.
+
 <!--Image references-->
 [1]: ./media/security-center-using-recommendations/security-center-policy-inheritance.png
 [2]: ./media/security-center-using-recommendations/scenario-roles.png
@@ -115,4 +126,3 @@ Supervisar las recomendaciones de Security Center puede ayudarlo a eliminar vuln
 [5]:./media/security-center-using-recommendations/microsoft-antimalware.png
 [6]: ./media/security-center-using-recommendations/provide-security-contact-details.png
 [7]: ./media/security-center-using-recommendations/dismiss-recommendation.png
-

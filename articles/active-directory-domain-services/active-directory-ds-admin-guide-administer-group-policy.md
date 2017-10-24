@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 09/26/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
-ms.openlocfilehash: 9245eb870f592ee0a1f1d6956ce3d573f4902485
-ms.lasthandoff: 01/28/2017
-
-
+ms.openlocfilehash: aad9e07e040bebe9572af1dd4a2f74b8b384f651
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administración de directiva de grupo en un dominio administrado de Azure AD Domain Services
 Azure Active Directory Domain Services incluye objetos de directiva de grupo (GPO) integrados para los contenedores "Usuarios del controlador de dominio de AAD" Y "Equipos del controlador de dominio de AAD". Puede personalizar estos GPO integrados para configurar la directiva de grupo en el dominio administrado. Además, los miembros del grupo "Administradores de DC de AAD" pueden crear sus propias unidades organizativas personalizadas en el dominio administrado. También pueden crear GPO personalizados y vincularlos a estas unidades organizativas personalizadas. A los usuarios que pertenecen al grupo "Administradores del controlador de dominio de AAD" se les conceden privilegios de administración de directiva de grupo en el dominio administrado.
@@ -45,11 +44,11 @@ El primer paso consiste en configurar una máquina virtual Windows Server que es
 ## <a name="task-2---install-group-policy-tools-on-the-virtual-machine"></a>Tarea 2: Instalar herramientas de directiva de grupo en la máquina virtual
 Realice los pasos siguientes para instalar las herramientas de Administración de directivas de grupo en la máquina virtual unida al dominio.
 
-1. Vaya al nodo **Máquinas virtuales** del Portal de Azure clásico. Seleccione la máquina virtual que acaba de crear en la tarea 1 y haga clic en la opción **Conectar** de la barra de comandos situada en la parte inferior de la ventana.
+1. Acceda a Azure Portal. Haga clic en **Todos los recursos** en el panel izquierdo. Busque y haga clic en la máquina virtual que creó en la tarea 1.
+2. Haga clic en el botón **Conectar** en la pestaña Información general. Se crea y se descarga un archivo de Protocolo de Escritorio remoto (.rdp).
 
     ![Conexión a máquina virtual de Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-2. El portal clásico le solicitará que abra o guarde un archivo con extensión .rdp, que se utiliza para conectarse a la máquina virtual. Haga clic en el archivo cuando haya terminado de descargarse.
-3. En el aviso de inicio de sesión, utilice las credenciales de un usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD". Por ejemplo, usamos 'bob@domainservicespreview.onmicrosoft.com' en nuestro caso.
+3. Para conectarse a la máquina virtual, abra el archivo RDP descargado. Cuando se le solicite, haga clic en **Conectar**. En el aviso de inicio de sesión, utilice las credenciales de un usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD". Por ejemplo, en nuestro caso usamos "bob@domainservicespreview.onmicrosoft.com". Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Haga clic en Sí o en Continuar para continuar con la conexión.
 4. En la pantalla Inicio, abra **Administrador del servidor**. Haga clic en **Agregar roles y características** en el panel central de la ventana Administrador del servidor.
 
     ![Inicio del Administrador del servidor en la máquina virtual](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -91,7 +90,7 @@ Hay dos objetos de directiva de grupo (GPO) integrados: uno para el contenedor "
 1. En la consola **Administración de directivas de grupo**, haga clic para expandir los nodos **Forest: contoso100.com** y **Domains** para ver las directivas de grupo para el dominio administrado.
 
     ![GPO integrados](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-2. Puede personalizar estos GPO integrados para configurar las directivas de grupo en el dominio administrado. Haga clic en el GPO y haga clic en **Editar...** para personalizar el GPO integrado. La herramienta Editor de administración de directivas de grupo le permite personalizar el GPO.
+2. Puede personalizar estos GPO integrados para configurar las directivas de grupo en el dominio administrado. Haga clic en el GPO y haga clic en **Editar...**  para personalizar el GPO integrado. La herramienta Editor de administración de directivas de grupo le permite personalizar el GPO.
 
     ![Editar GPO integrado](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 3. Ahora puede usar la consola del **Editor de administración de directivas de grupo** para editar el GPO integrado. Por ejemplo, la captura de pantalla siguiente muestra cómo personalizar el GPO "Equipos del controlador de dominio de AAD" integrado.
@@ -127,4 +126,3 @@ Hay más información sobre el uso de la [Consola de administración de directiv
 * [Unión de una máquina virtual de Windows Server a un dominio administrado](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Administer an Azure AD Domain Services managed domain (Administración de un dominio administrado con Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 * [Consola de administración de directivas de grupo](https://technet.microsoft.com/library/cc753298.aspx)
-

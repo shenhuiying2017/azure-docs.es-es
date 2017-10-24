@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
+ms.openlocfilehash: 98635ea6695fdb1e55456b5b6a293a3b4ad9d839
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ac0bbb4dbfccca3f3fc31526aeff11afe55d44be
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Escalado automático con métricas de invitado en una plantilla de conjunto de escalado de Linux
 
-Hay dos tipos de métricas en Azure que se obtienen de las máquinas virtuales y los conjuntos de escalado: algunos proceden de la máquina virtual host y otros proceden de la máquina virtual invitada. Las métricas de host no requieren configuración adicional porque las recopila la máquina virtual host, mientras que las métricas de invitado requieren la instalación de la [extensión Azure Diagnostics para Windows](../virtual-machines/windows/extensions-diagnostics-template.md) o [Azure Diagnostics para Linux](../virtual-machines/linux/diagnostic-extension.md) en la máquina virtual invitada. Un motivo habitual para usar las métricas de invitado en lugar de las métricas de host es que las métricas de invitado proporcionan una mayor variedad de métricas que las de host. Un ejemplo es las métricas de consumo de memoria, que solo están disponibles mediante las métricas de invitado. La lista de las métricas de host admitidas se encuentran [aquí](../monitoring-and-diagnostics/monitoring-supported-metrics.md), y las métricas de invitado de uso frecuente se encuentran [aquí](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). En este artículo se muestra cómo modificar la [plantilla de conjunto de escalado viable mínimo](./virtual-machine-scale-sets-mvss-start.md) para usar reglas de escalado automático en función de las métricas de invitado para conjuntos de escalado de Linux.
+Hay dos tipos de métricas en Azure que se obtienen de las máquinas virtuales y los conjuntos de escalado: algunos proceden de la máquina virtual host y otros proceden de la máquina virtual invitada. A nivel general, si usa métricas de CPU, disco y red estándar, las métricas de host probablemente sean adecuadas. Sin embargo, si necesita una selección de métricas más grande, probablemente sea más adecuado contar con métricas de invitado. Analicemos las diferencias entre ambos tipos de métricas:
+
+Las métricas de host son más sencillas y más confiables. No requieren configuración adicional porque las recopila la máquina virtual host, mientras que las métricas de invitado requieren la instalación de la [extensión Azure Diagnostics para Windows](../virtual-machines/windows/extensions-diagnostics-template.md) o [Azure Diagnostics para Linux](../virtual-machines/linux/diagnostic-extension.md) en la máquina virtual invitada. Un motivo habitual para usar las métricas de invitado en lugar de las métricas de host es que las métricas de invitado proporcionan una mayor variedad de métricas que las de host. Un ejemplo es las métricas de consumo de memoria, que solo están disponibles mediante las métricas de invitado. La lista de las métricas de host admitidas se encuentran [aquí](../monitoring-and-diagnostics/monitoring-supported-metrics.md), y las métricas de invitado de uso frecuente se encuentran [aquí](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). En este artículo se muestra cómo modificar la [plantilla de conjunto de escalado viable mínimo](./virtual-machine-scale-sets-mvss-start.md) para usar reglas de escalado automático en función de las métricas de invitado para conjuntos de escalado de Linux.
 
 ## <a name="change-the-template-definition"></a>Cambio de la definición de la plantilla
 
@@ -189,4 +189,3 @@ Por último, se agrega un recurso `autoscaleSettings` para configurar el escalad
 ## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 10/02/2017
 ms.author: glenga
 ms.custom: 
+ms.openlocfilehash: 1ff4c2e024faba777fc479b3cd5864e097bbfce1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 04da2dda961eb2c6bc53f0aed1c0cd12372a2332
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creación de una función desencadenada por Azure Cosmos DB
 
@@ -66,11 +65,11 @@ Después, cree una función en la nueva Function App.
     | **Nombre de colección** | Elementos | Nombre de la colección que se va a supervisar. |
     | **Create lease collection if it doesn't exist** (Crear colección de concesiones si no existe) | Activado | La colección no existe, por lo que se crea. |
 
-4. Seleccione **Nuevo** junto a la etiqueta **Azure Cosmos DB account connection** (Conexión a la cuenta de Azure Cosmos DB) y elija **+ Crear nuevo**. 
+4. Seleccione **Nuevo** junto a la etiqueta de conexión **Cuenta de Azure Cosmos DB** y elija una cuenta de Cosmos DB existente o **+ Crear nuevo**. 
  
     ![Configuración de la conexión de Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
-6. Use la configuración de **Nueva cuenta** tal y como se especifica en la tabla:
+6. Al crear una nueva cuenta de Cosmos DB, use la configuración **Nueva cuenta** tal como se especifica en la tabla.
 
     | Configuración      | Valor sugerido  | Descripción                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -151,4 +150,3 @@ Ha creado una función que se ejecuta cuando se agrega o modifica un documento e
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Para obtener más información sobre los desencadenadores de Queue Storage, vea [Enlaces de colas de Storage en Azure Functions](functions-bindings-storage-queue.md).
-

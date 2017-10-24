@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Acoplamiento de un disco de datos a una máquina virtual Linux
 > [!IMPORTANT] 
@@ -53,7 +53,7 @@ Puede acoplar tanto discos vacíos como discos que contengan datos a las máquin
    
     OR
    
-    b) Use el comando `lsscsi` para conocer el identificador de dispositivo. `lsscsi` puede instalarse mediante `yum install lsscsi` (en distribuciones basadas en Red Hat) o mediante `apt-get install lsscsi` (en distribuciones basadas en Debian). Puede encontrar el disco que busca por su *lun* o **número de unidad lógica**. Por ejemplo, el *lun* de los discos que conectó puede verse fácilmente en `azure vm disk list <virtual-machine>`, de la manera siguiente:
+    b) Use el comando `lsscsi` para conocer el identificador del dispositivo. `lsscsi` se puede instalar mediante `yum install lsscsi` (en distribuciones basadas en Red Hat) o `apt-get install lsscsi` (en distribuciones basadas en Debian). Puede encontrar el disco que busca por su *lun* o **número de unidad lógica**. Por ejemplo, el *lun* de los discos que conectó puede verse fácilmente en `azure vm disk list <virtual-machine>`, de la manera siguiente:
 
     ```azurecli
     azure vm disk list myVM
@@ -89,7 +89,7 @@ Puede acoplar tanto discos vacíos como discos que contengan datos a las máquin
     sudo fdisk /dev/sdc
     ```
 
-4. Cuando se le solicite, escriba  **n**  para crear una partición.
+4. Cuando se le pida, escriba **n** para crear una partición.
 
     ![Crear dispositivo](./media/attach-disk/fdisknewpartition.png)
 
@@ -174,7 +174,7 @@ Puede acoplar tanto discos vacíos como discos que contengan datos a las máquin
     > [!NOTE]
     > La opción `nofail` garantiza que la máquina virtual se inicia incluso si el sistema de archivos está dañado o el disco no existe al arrancar. Sin esta opción, puede encontrarse con el comportamiento que se describe en [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) (No se puede conectar mediante SSH a una máquina virtual Linux debido a errores de FSTAB).
 
-    Ahora puede probar que el sistema de archivos está correctamente montado desmontando y volviendo a montar el sistema de archivos; es decir, usando el punto de montaje `/datadrive` creado en los pasos anteriores:
+    Ahora puede probar que el sistema de archivos está correctamente montado desmontando y volviendo a montar el sistema de archivos; es decir, usando el punto de montaje de ejemplo `/datadrive` creado en los pasos anteriores:
 
     ```bash
     sudo umount /datadrive

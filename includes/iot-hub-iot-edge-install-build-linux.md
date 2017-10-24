@@ -2,11 +2,11 @@
 
 En los pasos de este tutorial se supone que está ejecutando Ubuntu Linux.
 
-Abra un shell y ejecute los comandos siguientes para instalar los paquetes de requisitos previos:
+Para instalar los paquetes de requisitos previos, abra un shell y ejecute los comandos siguientes:
 
 ```bash
 sudo apt-get update
-sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
+sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake pkg-config libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
 ```
 
 En el shell, ejecute el siguiente comando para clonar el repositorio de GitHub de Azure IoT Edge en la máquina local:

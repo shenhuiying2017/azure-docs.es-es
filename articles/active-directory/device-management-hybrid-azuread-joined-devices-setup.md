@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: 3325aa48db36426a8cf1c9859390c357267ee5fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 4580075df9fce74664b22aa24065ba1885692384
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Configuración de dispositivos híbridos unidos a Azure Active Directory
 
@@ -133,8 +132,9 @@ El siguiente script muestra un ejemplo de uso del cmdlet. En este script, `$aadA
 
 El cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
-- Usa el módulo de PowerShell de Active Directory, que usa Active Directory Web Services que se ejecuta en un controlador de dominio. Active Directory Web Services es compatible con los controladores de dominio en los que se ejecuta Windows Server 2008 R2, y las versiones posteriores.
+- Usa el módulo de PowerShell de Active Directory y las herramientas de AD DS, que usan Active Directory Web Services que se ejecuta en un controlador de dominio. Active Directory Web Services es compatible con los controladores de dominio en los que se ejecuta Windows Server 2008 R2, y las versiones posteriores.
 - Solo es compatible con la **versión 1.1.166.0 del módulo de MSOnline PowerShell**. Para descargar este módulo, use este [vínculo](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Si no se instalan las herramientas de AD DS, `Initialize-ADSyncDomainJoinedComputerSync` producirá un error.  Las herramientas de AD DS se pueden instalar mediante el Administrador del servidor en Características - Herramientas de administración de servidor remoto - Herramientas de administración de roles.
 
 En los casos de los controladores de dominio en los que se ejecuta Windows Server 2008 R2, o alguna versión anterior, use el siguiente script para crear el punto de conexión de servicio.
 
@@ -583,4 +583,3 @@ La salida de este cmdlet muestra los dispositivos que se han registrado y unido 
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png
-

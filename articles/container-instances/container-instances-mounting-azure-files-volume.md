@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: 523b3608c242a8041a2ea2806543e882de0e492e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: c68f0239bcb95aa5e9d8194f7b358f30588ea600
-ms.contentlocale: es-es
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Montaje de un recurso compartido de archivos de Azure en Azure Container Instances
 
 De forma predeterminada, Azure Container Instances no tiene estado. Si el contenedor se bloquea o se detiene, se pierde todo su estado. Para conservar el estado más allá de la duración del contenedor, debe montar un volumen desde un almacén externo. Este artículo muestra cómo montar un recurso compartido de archivos de Azure para su uso con Azure Container Instances.
@@ -203,6 +201,5 @@ Puede usar una herramienta como el [Explorador de Microsoft Azure Storage](http:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Implementación para el primer contenedor utilizando el [inicio rápido](container-instances-quickstart.md) de Azure Container Instances
+- Implementar el primer contenedor mediante la [guía de inicio rápido](container-instances-quickstart.md) de Azure Container Instances
 - Obtener información sobre la [relación entre Azure Container Instances y orquestadores de contenedor](container-instances-orchestrator-relationship.md)
-

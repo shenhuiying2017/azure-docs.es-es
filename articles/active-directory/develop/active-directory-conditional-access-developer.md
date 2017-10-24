@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.openlocfilehash: ed42af90a9c467042ff2537a38646f59147fb5ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ea4421f7b22cf60b2c3e42b59057162ad56f412e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para Acceso condicional de Azure Active Directory
 
 Azure Active Directory (AD) ofrece varias de maneras para proteger la aplicación y los servicios.  Una de estas características únicas es el acceso condicional.  El acceso condicional permite que los desarrolladores y clientes empresariales protejan los servicios de diversas formas, entre las que se incluyen las siguientes:
@@ -38,7 +36,7 @@ Analizaremos en profundidad el impacto de acceder a recursos sobre los cuales no
 
 ## <a name="how-does-conditional-access-impact-an-app"></a>¿Cómo el acceso condicional impacta a una aplicación?
 
-### <a name="app-topologies-impacted"></a>Topologías de aplicaciones afectadas
+### <a name="app-types-impacted"></a>Tipos de aplicación afectados
 
 En los casos más comunes, el acceso condicional no cambia el comportamiento de una aplicación ni requiere ningún cambio por parte del desarrollador.  Solo en ciertos casos en los que una aplicación, de manera indirecta o silenciosa, solicita un token para un servicio, una aplicación requiere cambios en el código para controlar los "desafíos" del acceso condicional.  Puede ser tan sencillo como realizar una solicitud de inicio de sesión interactiva. 
 
@@ -48,6 +46,7 @@ En concreto, los escenarios siguientes requieren código para controlar los "des
 * Aplicaciones que realizan el flujo "en nombre de"
 * Aplicaciones que acceden a varios servicios o recursos
 * Aplicaciones de una sola página que usan ADAL.js
+* Aplicaciones web que llaman a un recurso
 
 Las directivas de acceso condicional se pueden aplicar a la aplicación, pero también se pueden aplicar a una API web a la que accede la aplicación. Para más información sobre cómo configurar una directiva de acceso condicional, consulte [Introducción al acceso condicional de Azure Active Directory](../active-directory-conditional-access-azuread-connected-apps.md#configure-per-application-access-rules).
 
@@ -58,8 +57,8 @@ Según el escenario, un cliente empresarial puede aplicar y quitar directivas de
 En algunos escenarios se requieren cambios en el código para controlar el acceso condicional, mientras que en otros se trabaja tal cual.  Estos son algunos escenarios que usan el acceso condicional para realizar la autenticación multifactor que proporciona información sobre la diferencia.
 
 * Se genera una aplicación iOS de inquilino único y se aplica una directiva de acceso condicional.  La aplicación inicia la sesión de un usuario y no solicita acceso a una API.  Cuando el usuario inicia sesión, la directiva se invoca automáticamente y el usuario debe realizar la autenticación multifactor (MFA). 
-* Crea una aplicación web multiinquilino que usa Microsoft Graph para acceder a Exchange, entre otros servicios.  Un cliente empresarial que adopta esta aplicación establece una directiva en SharePoint Online.  Cuando la aplicación web solicita un token para MS Graph, se aplica una directiva sobre cualquier servicio de Microsoft (específicamente los servicios a los que se puede acceder a través de Graph).  A este usuario final se le solicita que realice MFA. En el caso en cuestión, el usuario final inicia sesión con tokens válidos, se devuelve un "desafío" de notificaciones a la aplicación web.  
-* Compila una aplicación nativa que usa un servicio de nivel intermedio para acceder a Microsoft Graph.  Un cliente empresarial de la empresa usa esta aplicación y aplica una directiva a Exchange Online.  Cuando un usuario final inicia sesión, la aplicación nativa solicita acceso al nivel intermedio y envía el token.  El nivel intermedio realiza el flujo "en nombre de" para solicitar acceso a MS Graph.  En este punto, se presenta un "desafío" de notificaciones al nivel intermedio. El nivel intermedio envía el desafío de vuelta a la aplicación nativa, la que necesita cumplir con la directiva de acceso condicional.
+* Crea una aplicación web multiinquilino que usa Microsoft Graph para acceder a Exchange, entre otros servicios.  Un cliente empresarial que adopta esta aplicación establece una directiva en Exchange.  Cuando la aplicación web solicita un token para MS Graph, la aplicación no será requerida a cumplir con la directiva.  El usuario final ha iniciado sesión con tokens válidos. Cuando la aplicación intenta utilizar este token en Microsoft Graph para tener acceso a datos de Exchange, se devuelve una notificación "challenge" a la aplicación web a través del encabezado ```WWW-Authenticate```.  La aplicación puede utilizar ```claims``` en una nueva solicitud y se pedirá al usuario final que cumpla con las condiciones. 
+* Está creando una aplicación nativa que utiliza un servicio de nivel intermedio para tener acceso a una API de nivel inferior.  Un cliente empresarial de la empresa que usa esta aplicación aplica una directiva a la API de nivel inferior.  Cuando un usuario final inicia sesión, la aplicación nativa solicita acceso al nivel intermedio y envía el token.  El nivel intermedio realiza el flujo "en nombre de" para solicitar acceso a la API de nivel inferior.  En este punto, se presenta un "desafío" de notificaciones al nivel intermedio. El nivel intermedio envía el desafío de vuelta a la aplicación nativa, la que necesita cumplir con la directiva de acceso condicional.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Cumplimiento con una directiva de acceso condicional
 
@@ -90,7 +89,7 @@ La información siguiente solo se aplica en estos escenarios de acceso condicion
 
 En las secciones siguientes, describiremos escenarios comunes mucho más complejos.  El principio operativo central es que las directivas de acceso condicional se evalúan en el momento en que se solicita el token para el servicio que tiene aplicada una directiva de acceso condicional, a menos que se acceda a través de Microsoft Graph.
 
-### <a name="scenario-app-accessing-microsoft-graph"></a>Escenario: Aplicación que accede a Microsoft Graph
+## <a name="scenario-app-accessing-microsoft-graph"></a>Escenario: Aplicación que accede a Microsoft Graph
 
 En este escenario, analizaremos un caso en el que una aplicación web solicita acceso a Microsoft Graph. En este caso, la directiva de acceso condicional se podría asignar a SharePoint, Exchange o algún otro servicio al que se accede como carga de trabajo mediante Microsoft Graph.  En este ejemplo, vamos a suponer que hay una directiva de acceso condicional en SharePoint Online.
 
@@ -109,9 +108,41 @@ www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/
 
 El desafío de notificaciones está dentro del encabezado ```WWW-Authenticate```, que se puede analizar para extraer el parámetro de notificaciones correspondiente a la solicitud siguiente.  Una vez que se anexa a la solicitud nueva, Azure AD sabe evaluar la directiva de acceso condicional cuando el usuario inicia sesión y ahora la aplicación cumple con la directiva de acceso condicional.  La repetición de la solicitud al punto de conexión de SharePoint Online se realiza correctamente.
 
-Para códigos de ejemplo que demuestran cómo controlar el desafío de notificaciones, consulte el [código de ejemplo de escritorio de .NET](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) para ADAL .NET o el [ejemplo de código "en nombre de"](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) para ADAL .NET.
+El encabezado ```WWW-Authenticate``` tiene una estructura única y no es sencillo de analizar para extraer valores.  Este es un método corto para ayudar.
 
-### <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Escenario: Aplicación que realiza el flujo "en nombre de"
+    ```C#
+        /// <summary>
+        /// This method extracts the claims value from the 403 error response from MS Graph. 
+        /// </summary>
+        /// <param name="wwwAuthHeader"></param>
+        /// <returns>Value of the claims entry. This should be considered an opaque string. 
+        /// Returns null if the wwwAuthheader does not contain the claims value. </returns>
+        private String extractClaims(String wwwAuthHeader)
+        {
+            String ClaimsKey = "claims=";
+            String ClaimsSubstring = "";
+            if (wwwAuthHeader.Contains(ClaimsKey))
+            {
+                int Index = wwwAuthHeader.IndexOf(ClaimsKey);
+                ClaimsSubstring = wwwAuthHeader.Substring(Index, wwwAuthHeader.Length - Index);
+                string ClaimsChallenge;
+                if (Regex.Match(ClaimsSubstring, @"}$").Success)
+                {
+                    ClaimsChallenge = ClaimsSubstring.Split('=')[1];
+                }
+                else
+                {
+                    ClaimsChallenge = ClaimsSubstring.Substring(0, ClaimsSubstring.IndexOf("},") + 1);
+                }
+                return ClaimsChallenge;
+            }
+            return null; 
+        }
+    ```
+
+Para ejemplos de código que demuestran cómo controlar el desafío de notificaciones, consulte el [código de ejemplo "en nombre de"](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) para ADAL .NET.
+
+## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Escenario: Aplicación que realiza el flujo "en nombre de"
 
 En este escenario, analizaremos un caso en el que una aplicación nativa llama a una API o servicio web.  A su vez, este servicio realiza [el flujo "en nombre de"](active-directory-authentication-scenarios.md#application-types-and-scenarios) para llamar a un servicio de bajada.  En este caso, se aplica la directiva de acceso condicional al servicio de bajada (API web 2) y se usa una aplicación nativa en lugar de una aplicación demonio/servidor. 
 
@@ -135,7 +166,7 @@ En la API web 1, se captura el error `error=interaction_required` y el desafío 
 
 Para probar el escenario, consulte el [ejemplo de código .NET](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca).  Muestra cómo pasar el desafío de notificaciones de vuelta desde API web 1 a la aplicación nativa y construye una solicitud nueva dentro de la aplicación cliente. 
 
-### <a name="scenario-app-accessing-multiple-services"></a>Escenario: Aplicación que accede a varios servicios
+## <a name="scenario-app-accessing-multiple-services"></a>Escenario: Aplicación que accede a varios servicios
 
 En este escenario se describe un caso en el que una aplicación web accede a dos servicios, uno de los cuales tiene asignada una directiva de acceso condicional.  En función de la lógica de la aplicación, es posible que exista una ruta de acceso en la que la aplicación no requiera acceso a ambos servicios web.  En este escenario, el orden en que se solicita un token representa un papel importante en la experiencia del usuario final.
 
@@ -156,7 +187,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 Si la aplicación usa la biblioteca ADAL, la adquisición de un token siempre se reintenta de forma interactiva si se genera un error.  Cuando se produce esta solicitud interactiva, el usuario final tiene la oportunidad de cumplir con el acceso condicional.  Esto se aplica a menos que la solicitud sea `AcquireTokenSilentAsync` o `PromptBehavior.Never`, en cuyo caso la aplicación debe realizar una solicitud ```AcquireToken``` interactiva para dar al usuario final la oportunidad de cumplir con la directiva. 
 
-### <a name="scenario-single-page-app-spa-using-adaljs"></a>Escenario: Aplicación de una sola página (SPA) que usa ADAL.js
+## <a name="scenario-single-page-app-spa-using-adaljs"></a>Escenario: Aplicación de una sola página (SPA) que usa ADAL.js
 
 En este escenario, se describe un caso en el que se tiene una aplicación de una sola página (SPA) que usa ADAL.js para llamar a una API web protegida por acceso condicional.  Se trata de una arquitectura simple, pero tiene algunos matices que se deben considerar cuando se desarrollen aplicaciones alrededor del acceso condicional.
 
@@ -191,4 +222,3 @@ Para probar el escenario, consulte el [ejemplo de código "en nombre de" de SPA 
 * Para más información sobre los ejemplos de código de Azure AD, consulte [repositorio de GitHub de ejemplos de código](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Para más información sobre el SDK de ADAL y acceso a la documentación de referencia, consulte la [guía de la biblioteca](active-directory-authentication-libraries.md).
 * Para más información sobre los escenarios multiinquilino, consulte el artículo sobre el [inicio de sesión de usuarios con el patrón multiinquilino](active-directory-devhowto-multi-tenant-overview.md).
-

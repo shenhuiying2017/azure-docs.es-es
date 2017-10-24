@@ -16,20 +16,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
+ms.openlocfilehash: 1aaeeed2740179555c024792562a950f4fd6b29d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: a20f6db8bbbc9b7936cf102e8cd2ff1b2a995fb2
-ms.contentlocale: es-es
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
-> [!div class="op_single_selector"]
-> * [Script de C#](functions-reference-csharp.md)
-> * [Script de F#](functions-reference-fsharp.md)
-> * [JavaScript](functions-reference-node.md)
-> 
-> 
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 La experiencia de JavaScript para Azure Functions facilita la exportación de una función en que se transmite como un objeto `context` para comunicarse con el sistema en tiempo de ejecución, y recibir y enviar datos por medio de enlaces.
 
@@ -54,14 +48,14 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 
 Los enlaces de `direction === "in"` se transmiten como argumentos de la función, lo que significa que se pueden usar [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) para controlar de forma dinámica las entradas nuevas (por ejemplo, con el uso de `arguments.length` para iterar en todas las entradas). Esta funcionalidad resulta conveniente si solo dispone de un desencadenador sin entradas adicionales, ya que puede acceder de manera predecible a los datos del desencadenador sin hacer referencia al objeto `context`.
 
-Los argumentos siempre se transmiten a la función en el orden en el que figuran en *function.json*, aunque no los especifique en la instrucción de exportaciones. Por ejemplo, si tiene la función `function(context, a, b)` y la cambia a `function(context, a)`, podrá seguir obteniendo el valor `b` en el código de función si hace referencia a `arguments[3]`.
+Los argumentos siempre se transmiten a la función en el orden en el que figuran en *function.json*, aunque no los especifique en la instrucción de exportaciones. Por ejemplo, si tiene la función `function(context, a, b)` y la cambia a `function(context, a)`, podrá seguir obteniendo el valor `b` en el código de función si hace referencia a `arguments[2]`.
 
 Todos los enlaces, al margen de la dirección, también se transmiten junto con el objeto `context` (consulte el script siguiente). 
 
 ## <a name="context-object"></a>objeto de contexto
 El sistema en tiempo de ejecución usa un objeto `context` para transmitir datos desde la función y hacia esta, así como para posibilitar la comunicación con dicho sistema en tiempo de ejecución.
 
-El objeto de contexto siempre es el primer parámetro de una función y se debe incluir, porque incorpora métodos como `context.done` y `context.log`, que se precisan para usar correctamente el sistema en tiempo de ejecución. Puede asignar el nombre que desee al objeto (por ejemplo, `ctx` o `c`).
+El objeto `context.log` siempre es el primer parámetro de una función y se tiene que incluir, porque incorpora métodos como `context` y `context.done`, que se precisan para usar correctamente el sistema en tiempo de ejecución. Puede asignar el nombre que desee al objeto (por ejemplo, `ctx` o `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -335,8 +329,5 @@ Para obtener más información, consulte los siguientes recursos:
 
 * [Procedimientos recomendados para Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
-* [Referencia para desarrolladores de C# de Funciones de Azure](functions-reference-csharp.md)
-* [Referencia para desarrolladores de F# de Azure Functions](functions-reference-fsharp.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
-
 

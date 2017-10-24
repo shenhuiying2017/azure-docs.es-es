@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
+ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 23ee3572752030332c5bfdd84edc97df5fb8e58f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Actualización de la aplicación de Service Fabric
 Una aplicación de Azure Service Fabric es una colección de servicios. Durante una actualización, Service Fabric compara el nuevo [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application) con la versión anterior y determina qué servicios de la aplicación requieren actualizaciones. Service Fabric compara los números de versión en los manifiestos de servicio con los números de versión en la versión anterior. Si un servicio no ha cambiado, no se actualiza.
@@ -32,6 +31,8 @@ Por esa razón, las dos versiones deben ser compatibles con las versiones anteri
 Los dominios de actualización se especifican en el manifiesto de clúster al configurar el clúster. Los dominios de actualización no reciben actualizaciones en un orden concreto. Un dominio de actualización es una unidad lógica de implementación para una aplicación. Los dominios de actualización permiten que la disponibilidad de los servicios se mantenga alta durante una actualización.
 
 Las actualizaciones no graduales son posibles si la actualización se aplica a todos los nodos del clúster, que es el caso cuando la aplicación tiene un solo dominio de actualización. No se recomienda este enfoque, ya que el servicio deja de funcionar y no está disponible en el momento de la actualización. Además, Azure no ofrece ninguna garantía cuando se configura un clúster con un solo dominio de actualización.
+
+Una vez completada la actualización, se mantendría la versión de todos los servicios y réplicas (instancias), es decir, si la actualización se realiza correctamente, se actualizarán a la nueva versión; si no se realiza correctamente y se revierte, se revertirían a la versión anterior.
 
 ## <a name="health-checks-during-upgrades"></a>Comprobaciones de estado durante las actualizaciones
 Para realizar una actualización, las directivas de mantenimiento deben establecerse (o se pueden usar valores predeterminados). Una actualización se califica como correcta cuando se actualizan todos los dominios de actualización dentro de los tiempos de espera especificados, y dichos dominios se consideran correctos.  Un dominio de actualización correcto significa que el dominio de actualización pasa todas las comprobaciones de estado especificadas en la directiva de mantenimiento. Por ejemplo, una directiva de mantenimiento puede exigir que todos los servicios dentro de una instancia de la aplicación tienen que ser *correctos*, tal como Service Fabric define el estado correcto.
@@ -76,4 +77,3 @@ Aprenda a usar funcionalidades avanzadas para actualizar una aplicación. Para e
 Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
-

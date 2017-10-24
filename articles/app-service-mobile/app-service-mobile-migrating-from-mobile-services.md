@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
+ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="article-top"></a>Migración del servicio móvil de Azure existente al Servicio de aplicaciones de Azure
 Con la [disponibilidad general del Servicio de aplicaciones de Azure], los sitios de Servicios móviles de Azure se pueden migrar fácilmente in situ para aprovechar todas las características del Servicio de aplicaciones de Azure.  En este documento se explica lo que puede esperar al migrar su sitio de Servicios móviles de Azure al Servicio de aplicaciones de Azure.
@@ -32,7 +31,7 @@ La migración de su servicio móvil de Azure convierte dicho servicio en [Azure 
 ## <a name="why-migrate"></a>Por qué debe migrar el sitio
 Microsoft recomienda migrar el servicio móvil de Azure para aprovechar las características del Servicio de aplicaciones de Azure, como por ejemplo:
 
-* Nuevas características de host, como [WebJobs] y [nombres de dominio personalizados].
+* las nuevas características de host, como [WebJobs] y [nombres de dominio personalizados].
 * Supervisión y solución de problemas con New Relic o [Application Insights].
 * Herramientas integradas de DevOps, entre las que se incluyen [ranuras de ensayo], reversión y pruebas en producción.
 * [Escalado automático], equilibrio de carga y [supervisión del rendimiento].
@@ -145,7 +144,7 @@ El sitio está disponible a través de git o ftp, y se puede volver a publicar c
 4. Haga clic en **Credenciales de implementación** en el menú PUBLICACIÓN.
 5. Escriba las nuevas credenciales de implementación en los cuadros correspondientes y haga clic en el botón Guardar.
 
-Dichas credenciales se pueden usar para clonar el sitio con git o configurar implementaciones automatizadas desde GitHub, TFS o Mercurial.  Para más información, consulte la [documentación de implementación del Servicio de aplicaciones de Azure].
+Dichas credenciales se pueden usar para clonar el sitio con git o configurar implementaciones automatizadas desde GitHub, TFS o Mercurial.  Para más información, consulte la [documentación de implementación de Azure App Service].
 
 ### <a name="appsettings"></a>Configuración de aplicación
 La mayoría de las configuraciones de un servicio móvil migrado están disponible a través de Configuración de aplicación.  En [Azure Portal] puede obtener una lista de las opciones de la aplicación.
@@ -229,7 +228,7 @@ Los trabajos programados se enumeran con la frecuencia que especificó antes de 
 3. Haga clic en **Configuración** y después en **Programar**.
 4. Seleccione **Una vez** como periodicidad y haga clic en **Guardar**
 
-Los trabajos a petición se encuentran en `App_Data/config/scripts/scheduler post-migration`.  Se recomienda convertir todos los trabajos a petición a [WebJobs] o [Funciones].  Escriba los nuevos trabajos del programador como [WebJobs] o [Funciones].
+Los trabajos a petición se encuentran en `App_Data/config/scripts/scheduler post-migration`.  Es recomendable convertir todos los trabajos a petición a [WebJobs] o [Functions].  Escriba los nuevos trabajos del programador como [WebJobs] o [Functions].
 
 ### <a name="notification-hubs"></a>Centros de notificaciones
 Los Servicios móviles usan Centros de notificaciones para las notificaciones push.  Las siguientes configuraciones de aplicación se usan para vincular el centro de notificaciones al servicio móvil tras la migración:
@@ -358,7 +357,7 @@ Cuando se crea un perfil de Traffic Manager, no se puede elegir directamente un 
 Ahora que la aplicación se ha migrado a App Service, hay aún más características que puede utilizar:
 
 * Las [ranuras de ensayo] de implementación le permiten ensayar cambios en el sitio y ejecutar pruebas A/B.
-* [WebJobs] ofrece una sustitución para trabajos programados a petición.
+* [WebJobs] cuenta con un sustituto para los trabajos programados a petición.
 * Para [implementar de forma continuada] el sitio, vincúlelo a GitHub, TFS o Mercurial.
 * Puede usar [Application Insights] para supervisar el sitio.
 * Proporcionar servicio a un sitio web y a una API móvil con el mismo código.
@@ -375,29 +374,26 @@ Ahora que la aplicación se ha migrado a App Service, hay aún más característ
 <!-- Links -->
 [Precios de Servicio de aplicaciones]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
-[Escalado automático]: ../app-service-web/web-sites-scale.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[documentación de implementación del Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-deploy.md
+[Escalado automático]: ../app-service/web-sites-scale.md
+[Azure App Service]: ../app-service/app-service-web-overview.md
 [Portal de Azure clásico]: https://manage.windowsazure.com
 [Azure Portal]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [planes de Azure Scheduler]: ../scheduler/scheduler-plans-billing.md
-[implementar de forma continuada]: ../app-service-web/app-service-continuous-deployment.md
+[implementar de forma continuada]: ../app-service/app-service-continuous-deployment.md
 [Convierta los espacios de nombres mixtos]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
-[nombres de dominio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
+[nombres de dominio personalizados]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler
 [disponibilidad general del Servicio de aplicaciones de Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
+[Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure]: ../app-service/web-sites-enable-diagnostic-log.md
 [SDK de Node.js de Mobile Apps]: https://github.com/azure/azure-mobile-apps-node
 [Servicios móviles frente al Servicio de aplicaciones]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Centros de notificaciones]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[supervisión del rendimiento]: ../app-service-web/web-sites-monitor.md
+[supervisión del rendimiento]: ../app-service/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[ranuras de ensayo]: ../app-service-web/web-sites-staged-publishing.md
-[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
-[WebJobs]: ../app-service-web/websites-webjobs-resources.md
+[ranuras de ensayo]: ../app-service/web-sites-staged-publishing.md
+[VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
-[Funciones]: ../azure-functions/functions-overview.md
-
+[Functions]: ../azure-functions/functions-overview.md

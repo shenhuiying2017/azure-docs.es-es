@@ -3,7 +3,7 @@ title: " Corrección de alertas de VM de Azure con runbooks de Automation | Micr
 description: "En este artículo se muestra cómo integrar las alertas de la máquina virtual de Azure con runbooks de Automatización de Azure y problemas de corrección automática"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 1f7baa7f-7283-4a4f-9385-3f5cd1062c7f
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/14/2016
+ms.date: 09/29/2017
 ms.author: csand;magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9abb6ee8eed01ef84ee10fc2c70ea23bf482dd1c
-
-
+ms.openlocfilehash: 18cccc88ab74235722e2f4886671fc483ab67da8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-scenario---remediate-azure-vm-alerts"></a>Escenario de Automatización de Azure: corrección de las alertas de la máquina virtual de Azure
 Automatización de Azure y Máquinas virtuales de Azure han publicado una nueva característica que permite configurar las alertas de la máquina virtual (VM) para ejecutar runbooks de automatización. Esta nueva funcionalidad le permite realizar automáticamente la corrección estándar de alertas de la máquina virtual, como reiniciar o detener la máquina virtual.
 
-Anteriormente, durante la creación de la regla de alertas de la máquina virtual podía [especificar un Webhook de automatización](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/) en un runbook para ejecutar el runbook cada vez que se desencadene la alerta. Sin embargo, para esto es necesario que realice el trabajo de creación del runbook, la creación del Webhook para el runbook y, después, la copia y pegado del Webhook durante la creación de la regla de alertas. Con esta nueva versión, el proceso es mucho más fácil porque puede elegir directamente un runbook de una lista durante la creación de la regla de alertas, y puede elegir una cuenta de automatización que ejecute el runbook o crear fácilmente una cuenta.
+Anteriormente, durante la creación de la regla de alertas de la máquina virtual podía [especificar un Webhook de automatización](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/) en un runbook para ejecutar el runbook cada vez que se desencadene la alerta. Sin embargo, para esto es necesario que realice el trabajo de creación del runbook, la creación del Webhook para el runbook y, después, la copia y pegado del Webhook durante la creación de la regla de alertas. Con esta nueva versión, el proceso es mucho más fácil porque puede elegir directamente un runbook de una lista durante la creación de la regla de alertas, y puede elegir una cuenta de Automation que ejecute el runbook o crear fácilmente una cuenta.
 
-En este artículo, le mostraremos lo fácil que es establecer una alerta de máquina virtual de Azure y configurar un runbook de automatización para ejecutar cada vez que se desencadena la alerta. Entre los escenarios de ejemplo se incluyen el tener que reiniciar una máquina virtual cuando el uso de memoria supera cierto límite debido a que una aplicación de la misma tiene una fuga de memoria, o el detener la máquina virtual si el tiempo de usuario de CPU ha sido inferior al 1% durante la última hora y no está en uso. También explicaremos cómo la creación automatizada de una entidad de servicio en la cuenta de automatización simplifica el uso de runbooks en la corrección de alertas de Azure.
+En este artículo, le mostraremos lo fácil que es establecer una alerta de máquina virtual de Azure y configurar un runbook de Automation para que se ejecute cada vez que se desencadena la alerta. Entre los escenarios de ejemplo se incluyen el tener que reiniciar una máquina virtual cuando el uso de memoria supera cierto límite debido a que una aplicación de la misma tiene una fuga de memoria, o el detener la máquina virtual si el tiempo de usuario de CPU ha sido inferior al 1% durante la última hora y no está en uso. También explicaremos cómo la creación automatizada de una entidad de servicio en la cuenta de automatización simplifica el uso de runbooks en la corrección de alertas de Azure.
 
 ## <a name="create-an-alert-on-a-vm"></a>Creación de una alerta para una máquina virtual
 Realice los pasos siguientes para configurar una alerta para iniciar un runbook cuando se haya alcanzado el umbral.
@@ -36,14 +36,14 @@ Realice los pasos siguientes para configurar una alerta para iniciar un runbook 
 > 
 
 1. Inicie sesión en el Portal de Azure y haga clic en **Máquinas virtuales**.  
-2. Seleccione una de las máquinas virtuales.  Aparecerá la hoja de panel de la máquina virtual y la hoja **Configuración** a la derecha.  
-3. En la hoja **Configuración**, en la sección de supervisión, seleccione **Reglas de alerta**.
-4. En la hoja **Reglas de alerta**, haga clic en **Agregar alerta**.
+2. Seleccione una de las máquinas virtuales.  
+3. En la pantalla de la máquina virtual, en la sección **Supervisión**, haga clic en **Reglas de alerta**.
+4. En el panel **Reglas de alerta**, haga clic en **Agregar alerta**.
 
-Esto abre la hoja **Agregar una regla de alerta** , donde puede configurar las condiciones de la alerta y elegir entre una o todas estas opciones: enviar un correo electrónico a alguien, utilizar un Webhook para reenviar la alerta a otro sistema o ejecutar un runbook de automatización para intentar corregir el problema.
+Esto abre la página **Agregar una regla de alerta**, donde puede configurar las condiciones de la alerta y elegir alguna de estas opciones o todas ellas: enviar un correo electrónico a alguien, utilizar un webhook para reenviar la alerta a otro sistema o ejecutar un runbook de Automation para intentar corregir el problema.
 
 ## <a name="configure-a-runbook"></a>Configuración de un runbook
-Para configurar un runbook parar que se ejecute cuando se cumpla el umbral de alerta de la máquina virtual, seleccione **Runbook de automatización**. En la hoja **Configurar runbook** , puede seleccionar el runbook que desea ejecutar y la cuenta de automatización en la que quiere ejecutarlo.
+Para configurar un runbook parar que se ejecute cuando se cumpla el umbral de alerta de la máquina virtual, seleccione **Runbook de automatización**. En el panel **Configurar Runbook**, puede seleccionar el runbook que desea ejecutar y la cuenta de Automation en la que quiere ejecutarlo.
 
 ![Configuración de un runbook de automatización y creación de una nueva cuenta de automatización](media/automation-azure-vm-alert-integration/ConfigureRunbookNewAccount.png)
 
@@ -56,7 +56,7 @@ Para configurar un runbook parar que se ejecute cuando se cumpla el umbral de al
 
 Después de seleccionar uno de los tres runbooks disponibles, aparecerá la lista desplegable **Cuenta de automatización** y podrá seleccionar la cuenta de automatización en la que se ejecutará el runbook. Los runbooks se deben ejecutar en el contexto de una [cuenta de automatización](automation-security-overview.md) que se incluye en su suscripción de Azure. Puede seleccionar una cuenta de automatización que ya haya creado o puede crear una nueva.
 
-Los runbooks proporcionados se autentican en Azure mediante una entidad de servicio. Si elige ejecutar el runbook en una de sus cuentas de automatización existentes, la entidad de servicio se creará automáticamente. Si decide crear una nueva cuenta de automatización, se creará automáticamente la cuenta y la entidad de servicio. En ambos casos, también se crearán dos recursos en la cuenta de Automation: un recurso de certificado denominado **AzureRunAsCertificate** y un recurso de conexión denominado **AzureRunAsConnection**. Los runbooks utilizarán **AzureRunAsConnection** para autenticarse con Azure para realizar la acción de administración en la máquina virtual.
+Los runbooks proporcionados se autentican en Azure mediante una entidad de servicio. Si elige ejecutar el runbook en una de sus cuentas de Automation existentes, la entidad de servicio se creará automáticamente. Si decide crear una nueva cuenta de Automation, se creará automáticamente la cuenta y la entidad de servicio. En ambos casos, también se crearán dos recursos en la cuenta de Automation: un recurso de certificado denominado **AzureRunAsCertificate** y un recurso de conexión denominado **AzureRunAsConnection**. Los runbooks utilizarán **AzureRunAsConnection** para autenticarse con Azure para realizar la acción de administración en la máquina virtual.
 
 > [!NOTE]
 > La entidad de servicio se crea en el ámbito de la suscripción y se le asigna el rol Colaborador. Este rol es necesario para otorgar permiso a la cuenta para ejecutar runbooks de automatización para administrar máquinas virtuales de Azure.  La creación de una cuenta de automatización o una entidad de servicio es un evento único. Una vez creados, puede utilizar esa cuenta para ejecutar runbooks para otras alertas de la máquina virtual de Azure.
@@ -67,11 +67,11 @@ Al hacer clic en **Aceptar** se configurará la alerta y si ha seleccionado la o
 
 ![Runbook que se está configurando](media/automation-azure-vm-alert-integration/RunbookBeingConfigured.png)
 
-Una vez completada la configuración aparecerá el nombre del runbook en la hoja **Agregar una regla de alerta** .
+Una vez completada la configuración aparecerá el nombre del runbook en la página **Agregar una regla de alerta**.
 
 ![Runbook configurado](media/automation-azure-vm-alert-integration/RunbookConfigured.png)
 
-Haga clic en **Aceptar** in the **Agregar una regla de alerta** y se creará la regla de alerta y se activará si la máquina virtual está en estado de ejecución.
+Haga clic en **Aceptar** en la página **Agregar una regla de alerta**.  La regla de alerta se creará y activará si la máquina virtual está en estado de ejecución.
 
 ### <a name="enable-or-disable-a-runbook"></a>Habilitamiento o deshabilitamiento de un runbook
 Si tiene un runbook configurado para una alerta, puede deshabilitarlo sin quitar la configuración del mismo. Esto le permitirá mantener la alerta en ejecución y quizás probar algunas de las reglas de alerta y, a continuación, volver a habilitar el runbook.
@@ -119,7 +119,7 @@ Cuando el servicio de webhook de automatización recibe HTTP POST, extrae los da
 
 ### <a name="example-runbook"></a>Runbook de ejemplo
 ```
-#  This runbook will restart an ARM (V2) VM in response to an Azure VM alert.
+#  This runbook restarts an ARM (V2) VM in response to an Azure VM alert.
 
 [OutputType("PSAzureOperationResponse")]
 
@@ -177,10 +177,4 @@ Cuando configura una alerta en una máquina virtual de Azure, tiene la capacidad
 * Para empezar a trabajar con Runbooks gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md)
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
 * Para más información sobre los tipos de Runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

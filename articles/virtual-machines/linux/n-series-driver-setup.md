@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bdeb4d5ca1d9ff4d7dfd0961690412dd7530572a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 3f8cd4fc37caca7fa6094a4780078d9ed882ba3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux
 
@@ -95,6 +95,9 @@ Para instalar los controladores de NVIDIA GRID en máquinas virtuales NV, realic
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Con base en CentOS 7.3 o Red Hat Enterprise Linux 7.3
 
+> [!IMPORTANT]
+> No ejecute `sudo yum update` para actualizar la versión de kernel en CentOS 7.3 o Red Hat Enterprise Linux 7.3. Actualmente, las actualizaciones y la instalación de controladores no funcionan si se actualiza el kernel.
+>
 
 1. Actualice el kernel y DKMS.
  
@@ -119,15 +122,16 @@ Para instalar los controladores de NVIDIA GRID en máquinas virtuales NV, realic
 3. Reinicie la máquina virtual, vuelva a conectarse e instale la versión más reciente de Linux Integration Services para Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
- 
-  tar xvzf lis-rpms-4.2.2-2.tar.gz
- 
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+
+  tar xvzf lis-rpms-4.2.3.tar.gz
+
   cd LISISO
- 
+
   sudo ./install.sh
- 
+
   sudo reboot
+
   ```
  
 4. Vuelva a conectarse a la máquina virtual y ejecute el comando `lspci`. Compruebe que la tarjeta o tarjetas NVIDIA M60 son visibles como dispositivos PCI.
@@ -225,11 +229,13 @@ Luego, ejecute los comandos de instalación específicos de su distribución.
 
 1. Descargue e instale los controladores de CUDA.
   ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+  CUDA_REPO_PKG=cuda-9-0_9.0.176-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
   sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
 
   rm -f /tmp/${CUDA_REPO_PKG}
 
@@ -249,25 +255,38 @@ Luego, ejecute los comandos de instalación específicos de su distribución.
 
 3. Reinicie la máquina virtual y continúe para comprobar la instalación.
 
+#### <a name="cuda-driver-updates"></a>Actualizaciones de controladores CUDA
+
+Se recomienda actualizar periódicamente los controladores CUDA después de la implementación.
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+
+sudo reboot
+```
+
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Con base en CentOS 7.3 o Red Hat Enterprise Linux 7.3
 
-1. Obtenga las actualizaciones. 
+> [!IMPORTANT]
+> No ejecute `sudo yum update` para actualizar la versión de kernel en CentOS 7.3 o Red Hat Enterprise Linux 7.3. Actualmente, las actualizaciones y la instalación de controladores no funcionan si se actualiza el kernel.
+>
 
-  ```bash
-  sudo yum update
-
-  sudo reboot
-  ```
-2. Vuelva a conectarse a la máquina virtual e instale la versión más reciente de Linux Integration Services para Hyper-V.
+1. Instale la versión más reciente de Linux Integration Services para Hyper-V.
 
   > [!IMPORTANT]
   > Si instaló una imagen HPC basada en CentOS en una máquina virtual NC24r, vaya al paso 3. Dado que los controladores RDMA de Azure y Linux Integration Services ya están instalados en la imagen, LIS no debe actualizarse y la actualizaciones del kernel están deshabilitadas de forma predeterminada.
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
  
-  tar xvzf lis-rpms-4.2.1.tar.gz
+  tar xvzf lis-rpms-4.2.3.tar.gz
  
   cd LISISO
  
@@ -285,7 +304,7 @@ Luego, ejecute los comandos de instalación específicos de su distribución.
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-8.0.61-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-9-0-local-9.0.176-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
@@ -317,33 +336,20 @@ Verá un resultado similar al siguiente:
 ![Estado del dispositivo de NVIDIA](./media/n-series-driver-setup/smi.png)
 
 
-### <a name="cuda-driver-updates"></a>Actualizaciones de controladores CUDA
 
-Se recomienda actualizar periódicamente los controladores CUDA después de la implementación.
+## <a name="rdma-network-for-nc24r-vms"></a>Red RDMA para máquinas virtuales NC24r
 
-#### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+La conectividad de red RDMA puede habilitarse en máquinas virtuales NC24r implementadas en el mismo conjunto de disponibilidad. Ahora, la red RDMA admite el tráfico de interfaz de paso de mensajes (MPI) para aplicaciones que se ejecutan con Intel MPI 5.x o una versión posterior. Requisitos adicionales siguientes:
 
-```bash
-sudo apt-get update
+### <a name="distributions"></a>Distribuciones
 
-sudo apt-get upgrade -y
+Implemente máquinas virtuales NC24r desde una de las imágenes siguientes en Azure Marketplace que sean compatibles con la conectividad RDMA:
+  
+* **Ubuntu**: Ubuntu Server 16.04 LTS. Configure controladores RDMA en la máquina virtual y regístrese en Intel para descargar Intel MPI:
 
-sudo apt-get dist-upgrade -y
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-sudo apt-get install cuda-drivers
-
-sudo reboot
-```
-
-
-#### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Con base en CentOS 7.3 o Red Hat Enterprise Linux 7.3
-
-```bash
-sudo yum update
-
-sudo reboot
-```
-
+* **HPC basada en CentOS**: HPC 7.3 basada en CentOS. Los controladores RDMA e Intel MPI 5.1 están instalados en la máquina virtual. 
 
 
 ## <a name="troubleshooting"></a>Solución de problemas

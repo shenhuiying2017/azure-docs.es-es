@@ -3,21 +3,19 @@ title: "Diagnóstico de problemas en tiempo de ejecución mediante Azure Applica
 description: "Tutorial para buscar y diagnosticar excepciones en tiempo de ejecución en un aplicación mediante Azure Application Insights."
 services: application-insights
 keywords: 
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/19/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 11e0f2f19acc843f1c558b5d0cfe84291035a6a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 58c69e9c75f3a97c04b2c5b2e3b9acfc7065c658
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Búsqueda y diagnóstico de excepciones en tiempo de ejecución con Azure Application Insights
 
 Azure Application Insights recopila datos de telemetría de cualquier aplicación para ayudarle a identificar y diagnosticar excepciones en tiempo de ejecución.  Este tutorial le guiará por este proceso en la aplicación.  Aprenderá a:
@@ -39,10 +37,11 @@ Para completar este tutorial:
     - ASP.NET y desarrollo web
     - Desarrollo de Azure
 - Descargue e instale [Visual Studio Snapshot Debugger](http://aka.ms/snapshotdebugger).
+- Habilite [Visual Studio Snapshot Debugger](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger).
 - Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](app-insights-asp-net.md). 
 - El tutorial realiza un seguimiento de la identificación de una excepción en la aplicación, así que modifique el código en los entornos de desarrollo o prueba para generar una excepción. 
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com).
 
 

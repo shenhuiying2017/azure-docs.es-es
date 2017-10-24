@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 336e74d8f69cb04e6bd0e85fc68ba38b218fabae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 7118ec3f5aeae40fa7ecc592309a28b585c651a1
-ms.contentlocale: es-es
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Inicie, detenga e informe sobre el servicio de prueba de Chaos.
@@ -43,11 +42,9 @@ Se puede especificar ContinuationToken para obtener el siguiente segmento del in
 |Argumento|Descripción|
 | --- | --- |
 | --continuation-token| El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un continuation token con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay ningún resultado más, el continuation token no contiene un valor. El valor de este parámetro no debe ser la dirección URL codificada.|
-| --end-time-utc   | El recuento de tics que representa la hora de finalización del intervalo de tiempo para el que un
-                          Chaos report is to be generated. Please consult [DateTime.Ticks
-                          Property](https://msdn.microsoft.com/en-
-                          us/library/system.datetime.ticks%28v=vs.110%29) for details about tick.|
-| --start-time-utc | El recuento de tics que representa la hora de inicio del intervalo de tiempo para el que se genera un informe de Chaos. Consulte [DateTime.Ticks Property](https://msdn.microsoft.com/en- us/library/system.datetime.ticks%28v=vs.110%29) para obtener información sobre los tics.| | --timeout -t     | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
+| --end-time-utc   | El recuento de tics que representa la hora de finalización del intervalo de tiempo para el que se genera un informe de Chaos. Consulte la [propiedad DateTime.Ticks](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29) para más detalles sobre los tics.|
+| --start-time-utc | El recuento de tics que representa la hora de inicio del intervalo de tiempo para el que se genera un informe de Chaos. Consulte la [propiedad DateTime.Ticks](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29) para más detalles sobre los tics.|
+| --timeout -t     | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -55,7 +52,7 @@ Se puede especificar ContinuationToken para obtener el siguiente segmento del in
 | --- | --- |
 | --debug          | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h        | Muestra este mensaje de ayuda y sale.|
-| --output -o      | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o      | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query          | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
 | --verbose        | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -84,7 +81,7 @@ Si Chaos no está aún en ejecución en el clúster, comienza a ejecutar Chaos c
 | --- | --- |
 | --debug                    | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                  | Muestra este mensaje de ayuda y sale.|
-| --output -o                | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.           Valor predeterminado: json.|
+| --output -o                | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.           Valor predeterminado: json.|
 | --query                    | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
 | --verbose                  | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -105,10 +102,10 @@ Detiene Chaos de programar más errores; sin embargo, los errores en proceso no 
 | --- | --- |
 | --debug  | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h| Muestra este mensaje de ayuda y sale.|
-| --output -o | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query  | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
 | --verbose| Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
-- Obtenga información sobre cómo utilizar la CLI de Service Fabric utilizando los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

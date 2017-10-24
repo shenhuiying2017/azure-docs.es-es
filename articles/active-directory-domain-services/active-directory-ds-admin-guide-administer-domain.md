@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 09/23/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d215fd31ca4652437783ad630aee532a17cda611
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 8edf01d994e54a8f1af98861cb445a5909b6a1df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Administración de un dominio administrado con Servicios de dominio de Azure Active Directory
 Este artículo muestra cómo administrar un dominio administrado con Servicios de dominio de Azure Active Directory (AD).
@@ -65,11 +64,11 @@ Puede [instalar Herramientas de administración remota del servidor (RSAT)](http
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>Tarea 2: Instalación de herramientas de administración de Active Directory en la máquina virtual
 Realice los pasos siguientes para instalar las herramientas de administración de Active Directory en la máquina virtual unida al dominio. Para más [información sobre la instalación y el uso de Herramientas de administración remota del servidor](https://technet.microsoft.com/library/hh831501.aspx).
 
-1. Vaya al nodo **Máquinas virtuales** del Portal de Azure clásico. Seleccione la máquina virtual que acaba de crear en la tarea 1 y haga clic en la opción **Conectar** de la barra de comandos situada en la parte inferior de la ventana.
+1. Acceda a Azure Portal. Haga clic en **Todos los recursos** en el panel izquierdo. Busque y haga clic en la máquina virtual que creó en la tarea 1.
+2. Haga clic en el botón **Conectar** en la pestaña Información general. Se crea y se descarga un archivo de Protocolo de Escritorio remoto (.rdp).
 
     ![Conexión a máquina virtual de Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-2. El portal clásico le solicitará que abra o guarde un archivo con extensión .rdp, que se utiliza para conectarse a la máquina virtual. Haga clic en el archivo para abrirlo cuando haya terminado de descargarse.
-3. En el aviso de inicio de sesión, utilice las credenciales de un usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD". Por ejemplo, usamos 'bob@domainservicespreview.onmicrosoft.com' en nuestro caso.
+3. Para conectarse a la máquina virtual, abra el archivo RDP descargado. Cuando se le solicite, haga clic en **Conectar**. En el aviso de inicio de sesión, utilice las credenciales de un usuario que pertenezca al grupo "Administradores del controlador de dominio de AAD". Por ejemplo, en nuestro caso usamos "bob@domainservicespreview.onmicrosoft.com". Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Haga clic en Sí o en Continuar para continuar con la conexión.
 4. En la pantalla Inicio, abra **Administrador del servidor**. Haga clic en **Agregar roles y características** en el panel central de la ventana Administrador del servidor.
 
     ![Inicio del Administrador del servidor en la máquina virtual](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -120,4 +119,3 @@ Ahora que las herramientas administrativas de AD están instaladas en la máquin
 * [Introducción a Azure AD Domain Services](active-directory-ds-getting-started.md)
 * [Unión de una máquina virtual de Windows Server a un dominio administrado](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Implementar herramientas de administración remota del servidor](https://technet.microsoft.com/library/hh831501.aspx)
-

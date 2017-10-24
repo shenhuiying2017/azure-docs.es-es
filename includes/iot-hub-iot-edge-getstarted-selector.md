@@ -31,7 +31,7 @@ El módulo logger solo consume mensajes del agente, nunca publica mensajes nuevo
 
 ![Cómo transmite el agente los mensajes entre los módulos en Azure IoT Edge][5]
 
-La ilustración anterior muestra la arquitectura del ejemplo Hello World y las rutas de acceso relativas a los archivos de origen que implementan diferentes partes del ejemplo en el [repositorio][lnk-iot-edge]. Explore el código por su cuenta, o use los siguientes fragmentos de código como guía.
+La ilustración anterior muestra la arquitectura del ejemplo Hello World y las rutas de acceso relativas a los archivos de origen que implementan diferentes partes del ejemplo en el [repositorio][lnk-iot-edge]. Explore el código por su cuenta o use los siguientes fragmentos de código de este artículo como guía.
 
 <!-- Images -->
 [4]: media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png

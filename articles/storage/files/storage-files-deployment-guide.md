@@ -12,16 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 499d10943f606a67ca04bfdf5f7cad44f9e20d07
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-deploy-azure-files"></a>Implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el protocolo SMB estándar. Este artículo le mostrará cómo implementar de forma práctica Azure Files dentro de su organización.
 
@@ -37,7 +35,9 @@ En este artículo se supone que ya ha completado los siguientes pasos:
 Puede que desee migrar recursos compartidos de archivos existentes, como los almacenados localmente, al nuevo recurso compartido de Azure Files. Esta sección le mostrará cómo mover datos a un recurso compartido de Azure Files a través de varios métodos populares detallados de la [guía de planeamiento](storage-files-planning.md#data-transfer-method).
 
 ### <a name="azure-file-sync-preview"></a>Azure File Sync (versión preliminar)
-Azure File Sync (versión preliminar) se puede usar para migrar datos a un recurso compartido de Azure Files, incluso si el mecanismo de sincronización no se desea para usarse a largo plazo. Puede encontrar más información sobre cómo usar Azure File Sync para ingresar datos en el recurso compartido de Azure Files en [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) (Planeamiento de una implementación de Azure File Sync) y [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure File Sync).
+Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello la transformación de los servidores Windows Server en una caché rápida de los recursos compartidos de Azure Files. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
+
+Azure File Sync se puede usar para migrar datos a un recurso compartido de Azure Files, incluso si el mecanismo de sincronización no se desea para usarse a largo plazo. Puede encontrar más información sobre cómo usar Azure File Sync para transferir datos en el recurso compartido de archivos de Azure en [Planeamiento de una implementación de Azure File Sync (versión preliminar)](storage-sync-files-planning.md) y [Cómo implementar Azure File Sync (versión preliminar)](storage-sync-files-deployment-guide.md).
 
 ### <a name="azure-importexport"></a>Azure Import/Export
 El servicio Azure Import/Export le permite transferir de forma segura grandes cantidades de datos a un recurso compartido de Azure Files mediante el envío de unidades de disco duro a un centro de datos de Azure. Consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blob Storage](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener una descripción más detallada del servicio.

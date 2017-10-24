@@ -1,4 +1,3 @@
-
 ---
 title: "Creación de un clúster de Service Fabric en Azure Portal | Microsoft Azure"
 description: "En este artículo se describe cómo configurar un clúster de Service Fabric seguro en Azure mediante el Portal de Azure y el Almacén de claves de Azure."
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
+ms.openlocfilehash: 3dd4f3494bb9ed70549f41e22c58666cada8da07
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3b471fb21cf046417c094552c23c548c9da14fe8
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
@@ -274,7 +272,6 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 * Marque el cuadro **Configurar opciones avanzadas** para insertar certificados de cliente para el **cliente de administración** y el **cliente de solo lectura**. En estos campos, inserte la huella digital del certificado de cliente de administración y la huella digital del certificado de cliente de solo lectura, si procede. Cuando los administradores intenten conectarse al clúster, se les concederá acceso únicamente si tienen un certificado con una huella digital que coincida con los valores de huella digital especificados aquí.  
 
 #### <a name="4-summary"></a>4. Resumen
-![Captura de pantalla de panel de inicio, donde se muestra "Implementando el clúster de Service Fabric". ][Notifications]
 
 Para finalizar la creación del clúster, haga clic en **Resumen** para ver las configuraciones que ha proporcionado, o descargue la plantilla de Azure Resource Manager que se usará para implementar el clúster. Cuando haya proporcionado los valores de configuración obligatorios, se habilitará el botón **Aceptar** y podrá iniciar el proceso de creación del clúster al hacer clic en él.
 
@@ -326,4 +323,3 @@ En este punto, tiene un clúster seguro mediante certificados para la autenticac
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-

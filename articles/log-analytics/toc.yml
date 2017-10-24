@@ -11,6 +11,8 @@
       href: log-analytics-quick-collect-azurevm.md
     - name: 'Recopilación: equipo con Linux'
       href: log-analytics-quick-collect-linux-computer.md
+    - name: 'Recopilación: equipo con Windows'
+      href: log-analytics-quick-collect-windows-computer.md
 - name: Tutoriales
   items:
     - name: 1 - Análisis de datos
@@ -25,6 +27,8 @@
       href: powershell-samples.md
 - name: Conceptos
   items:
+    - name: Actualización del área de trabajo
+      href: log-analytics-log-search-upgrade.md
     - name: Preguntas frecuentes sobre Log Analytics
       href: log-analytics-faq.md
     - name: Consumo de datos
@@ -35,10 +39,10 @@
       href: log-analytics-service-providers.md
     - name: Búsqueda de registros
       items:
-        - name: Preguntas más frecuentes sobre la búsqueda de registros
-          href: log-analytics-log-search-faq.md
         - name: Introducción a búsquedas de registros
           href: log-analytics-log-search-new.md
+        - name: Preguntas más frecuentes sobre la búsqueda de registros
+          href: log-analytics-log-search-faq.md
         - name: Portales de búsqueda de registros
           href: log-analytics-log-search-portals.md
 - name: Procedimientos
@@ -89,6 +93,20 @@
               href: log-analytics-custom-fields.md
     - name: Datos de consulta
       items:
+        - name: Documentación de lenguaje
+          href: 'https://docs.loganalytics.io'
+        - name: Transición desde el lenguaje heredado
+          href: log-analytics-log-search-transition.md
+        - name: Búsquedas entre áreas de trabajo
+          href: log-analytics-cross-workspace-search.md
+        - name: Actuación a partir de resultados de búsqueda
+          href: log-analytics-log-search-takeaction.md
+        - name: Uso de grupos de equipos
+          href: log-analytics-computer-groups.md
+        - name: Conector de Flow
+          href: log-analytics-flow-tutorial.md
+    - name: Búsqueda de registros heredados
+      items:
         - name: Introducción a búsquedas de registros
           href: log-analytics-log-searches.md
         - name: Referencia de búsqueda
@@ -96,26 +114,18 @@
           items:
             - name: Expresiones regulares
               href: log-analytics-log-searches-regex.md
-            - name: Búsquedas entre áreas de trabajo
-              href: log-analytics-cross-workspace-search.md
-        - name: Actuación a partir de resultados de búsqueda
-          href: log-analytics-log-search-takeaction.md
-        - name: Grupos de equipos
-          href: log-analytics-computer-groups.md
-    - name: Nueva búsqueda de registros
-      items:
-        - name: Actualización del área de trabajo
-          href: log-analytics-log-search-upgrade.md
-        - name: Transición desde el lenguaje heredado
-          href: log-analytics-log-search-transition.md
-        - name: Conector de Flow
-          href: log-analytics-flow-tutorial.md
     - name: Análisis de datos
       items:
         - name: Paneles
           href: log-analytics-dashboards.md
         - name: Ver diseñador
-          href: log-analytics-view-designer.md
+          items:
+            - name: Información general
+              href: log-analytics-view-designer.md
+            - name: Referencia de iconos
+              href: log-analytics-view-designer-tiles.md
+            - name: Referencia de los elementos de visualización
+              href: log-analytics-view-designer-parts.md
         - name: Power BI
           href: log-analytics-powerbi.md
     - name: Creación de alertas
@@ -231,14 +241,12 @@
           href: log-analytics-api-alerts.md
 - name: Referencia
   items:
+    - name: Referencia de lenguaje
+      href: 'https://docs.loganalytics.io/docs/Language-Reference'
     - name: Azure PowerShell
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
-    - name: Referencia de los iconos del Diseñador de vistas
-      href: log-analytics-view-designer-tiles.md
-    - name: Referencia de los elementos de visualización del Diseñador de vistas
-      href: log-analytics-view-designer-parts.md
 - name: Recursos
   items:
     - name: Azure Roadmap

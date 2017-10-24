@@ -15,29 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/10/2017
 ms.author: denlee
+ms.openlocfilehash: 9d83e392774b60b795b7027188ef22d0a8e1b71d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3f2d2af1d6be41d98f9780b4cf9ca4cd79de0fd7
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="azure-cosmos-db-gremlin-graph-support"></a>Compatibilidad de Azure Cosmos DB con grafos Gremlin
+Azure Cosmos DB admite el lenguaje de recorrido de grafos de [Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que es una API Graph para crear entidades de grafo y realizar operaciones de consulta de grafos. Puede usar el lenguaje Gremlin para crear entidades de grafo (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 
 
-# <a name="azure-cosmos-db-gremlin-graph-support"></a>Compatibilidad de Azure Cosmos DB con gráficos Gremlin
-Azure Cosmos DB admite el lenguaje de recorrido de grafos de [Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que es una API Graph para crear entidades de grafo y realizar operaciones de consulta de grafos. Puede usar el lenguaje Gremlin para crear entidades de gráfico (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 
-
-Azure Cosmos DB aporta características empresariales a las bases de datos de gráficos, entre ellas, distribución global, escalado independiente del almacenamiento y la capacidad de proceso, latencias predecibles inferiores a 10 milisegundos, indexación automática y SLA del 99,99 %. Dado que Azure Cosmos DB admite TinkerPop/Gremlin, puede migrar fácilmente aplicaciones escritas con otra base de datos de gráficos sin tener que hacer cambios en el código. Además, gracias a la compatibilidad con Gremlin, Azure Cosmos DB se integra perfectamente entornos de análisis habilitados para TinkerPop, tales como [Apache Spark GraphX](http://spark.apache.org/graphx/). 
+Azure Cosmos DB aporta características empresariales a las bases de datos de grafos, entre ellas, distribución global, escalado independiente del almacenamiento y la capacidad de proceso, latencias predecibles inferiores a 10 milisegundos, indexación automática y SLA del 99,99 %. Dado que Azure Cosmos DB admite TinkerPop/Gremlin, puede migrar fácilmente aplicaciones escritas con otra base de datos de grafos sin tener que hacer cambios en el código. Además, gracias a la compatibilidad con Gremlin, Azure Cosmos DB se integra perfectamente entornos de análisis habilitados para TinkerPop, tales como [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
 En este artículo, se proporciona un tutorial rápido de Gremlin y se enumeran las características y los pasos de Gremlin que se admiten en la versión preliminar de la API Graph.
 
 ## <a name="gremlin-by-example"></a>Gremlin con ejemplos
-Vamos a usar un gráfico de ejemplo para entender cómo se expresan las consultas en Gremlin. La siguiente ilustración muestra una aplicación empresarial que administra datos de usuarios, intereses y dispositivos en forma de gráfico.  
+Vamos a usar un grafo de ejemplo para entender cómo se expresan las consultas en Gremlin. La siguiente ilustración muestra una aplicación empresarial que administra datos de usuarios, intereses y dispositivos en forma de grafo.  
 
 ![Base de datos de ejemplo que muestra personas, dispositivos e intereses](./media/gremlin-support/sample-graph.png) 
 
-Este gráfico tiene los siguientes tipos de vértices (llamados "etiquetas" en Gremlin):
+Este grafo tiene los siguientes tipos de vértices (llamados "etiquetas" en Gremlin):
 
-- Personas: el gráfico tiene tres personas, Robin, Thomas y Ben
+- Personas: el grafo tiene tres personas, Robin, Thomas y Ben
 - Intereses: sus intereses; en este ejemplo, el fútbol
 - Dispositivos: los dispositivos que las personas usan
 - Sistemas operativos: los sistemas operativos que se ejecutan en los dispositivos
@@ -45,13 +43,13 @@ Este gráfico tiene los siguientes tipos de vértices (llamados "etiquetas" en G
 Las relaciones entre estas entidades se representan con las siguientes etiquetas o tipos de arista:
 
 - Conoce a: por ejemplo, "Thomas conoce a Robin"
-- Tiene interés en: representa los intereses de las personas de nuestro gráfico; por ejemplo, "Ben tiene interés en Fútbol"
+- Tiene interés en: representa los intereses de las personas de nuestro grafo; por ejemplo, "Ben tiene interés en Fútbol"
 - EjecutaSO: Portátil ejecuta el sistema operativo Windows
 - Usa: representa el dispositivo que una persona usa. Por ejemplo, Robin usa un teléfono Motorola con número de serie 77.
 
-Vamos a ejecutar algunas operaciones en este gráfico mediante la [consola de Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console). También puede realizar estas operaciones mediante controladores de Gremlin en la plataforma que elija (Java, Node.js, Python o .NET).  Antes de adentrarnos en lo que se admite en Azure Cosmos DB, veamos algunos ejemplos para familiarizarnos con la sintaxis.
+Vamos a ejecutar algunas operaciones en este grafo mediante la [consola de Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console). También puede realizar estas operaciones mediante controladores de Gremlin en la plataforma que elija (Java, Node.js, Python o .NET).  Antes de adentrarnos en lo que se admite en Azure Cosmos DB, veamos algunos ejemplos para familiarizarnos con la sintaxis.
 
-Primero, echemos un vistazo a CRUD. La siguiente instrucción de Gremlin inserta el vértice "Thomas" en el gráfico:
+Primero, echemos un vistazo a CRUD. La siguiente instrucción de Gremlin inserta el vértice "Thomas" en el grafo:
 
 ```
 :> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
@@ -68,7 +66,7 @@ La consulta siguiente devuelve los vértices "persona" en orden descendente de s
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
 
-En el lugar donde brillan los gráficos es donde se necesita responder preguntas como "¿Qué sistemas operativos usan los amigos de Thomas?". Puede ejecutar este recorrido de Gremlin simple para obtener esa información en el gráfico:
+En el lugar donde brillan los grafos es donde se necesita responder preguntas como "¿Qué sistemas operativos usan los amigos de Thomas?". Puede ejecutar este recorrido de Gremlin simple para obtener esa información en el grafo:
 
 ```
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
@@ -76,13 +74,13 @@ En el lugar donde brillan los gráficos es donde se necesita responder preguntas
 Ahora, veamos qué proporciona Azure Cosmos DB a los desarrolladores de Gremlin.
 
 ## <a name="gremlin-features"></a>Características de Gremlin
-TinkerPop es una norma que abarca una amplia gama de tecnologías de gráficos. Por lo tanto, usa una terminología estándar para describir qué características proporciona un proveedor de gráficos. Azure Cosmos DB proporciona una base de datos de gráficos de escritura, persistente y de alta simultaneidad que se puede dividir entre varios servidores o clústeres. 
+TinkerPop es una norma que abarca una amplia gama de tecnologías de grafos. Por lo tanto, usa una terminología estándar para describir qué características proporciona un proveedor de grafos. Azure Cosmos DB proporciona una base de datos de grafos de escritura, persistente y de alta simultaneidad que se puede dividir entre varios servidores o clústeres. 
 
 En la tabla siguiente se enumeran las características de TinkerPop implementadas por Azure Cosmos DB: 
 
 | Categoría | Implementación de Azure Cosmos DB |  Notas | 
 | --- | --- | --- |
-| Características de gráficos | La versión preliminar proporciona persistencia y acceso simultáneo. Diseñado para admitir transacciones | Los métodos de proceso se pueden implementar mediante el conector de Spark. |
+| Características de grafos | La versión preliminar proporciona persistencia y acceso simultáneo. Diseñado para admitir transacciones | Los métodos de proceso se pueden implementar mediante el conector de Spark. |
 | Características de variables | Admite valores Boolean, Integer, Byte, Double, Float, Integer, Long, String. | Admite tipos primitivos; es compatible con tipos complejos mediante el modelo de datos. |
 | Características de vértices | Admite RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty.  | Permite crear, modificar y eliminar vértices. |
 | Características de propiedades de vértices | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Permite crear, modificar y eliminar propiedades de vértices. |
@@ -138,12 +136,12 @@ Las propiedades utilizadas por GraphSON para los vértices son las siguientes:
 | --- | --- |
 | id | Identificador del vértice. Debe ser único (en combinación con el valor de _partition, si corresponde). |
 | label | Etiqueta del vértice. Es opcional y se utiliza para describir el tipo de entidad. |
-| type | Se usa para distinguir los vértices de los documentos que no son gráficos. |
+| type | Se usa para distinguir los vértices de los documentos que no son grafos. |
 | propiedades | Contenedor de propiedades definidas por el usuario asociadas con el vértice. Cada propiedad puede tener varios valores. |
-| _partition (configurable) | Clave de partición del vértice. Se puede usar para escalar horizontalmente gráficos en varios servidores. |
+| _partition (configurable) | Clave de partición del vértice. Se puede usar para escalar horizontalmente grafos en varios servidores. |
 | outE | Contiene una lista de las aristas de un vértice. Almacenar la información de proximidad con los vértices permite ejecutar recorridos rápidamente. Las aristas se agrupan en función de sus etiquetas. |
 
-La arista contiene la siguiente información para ayudar a la navegación a otras partes del gráfico.
+La arista contiene la siguiente información para ayudar a la navegación a otras partes del grafo.
 
 | Propiedad | Descripción |
 | --- | --- |
@@ -160,9 +158,9 @@ Cada propiedad puede almacenar varios valores dentro de una matriz.
 
 ## <a name="gremlin-partitioning"></a>Particiones de Gremlin
 
-En Azure Cosmos DB, los gráficos se almacenan en contenedores que se pueden escalar independientemente en cuanto a almacenamiento y capacidad de proceso (expresada en solicitudes normalizadas por segundo). Cada contenedor debe definir una propiedad de clave de partición opcional, aunque recomendada, que determina el límite de una partición lógica para los datos relacionados. Cada vértice o arista debe tener una propiedad `id` que es única para las entidades dentro de ese valor de clave de partición. Los detalles se tratan en [Particiones en Azure Cosmos DB](partition-data.md).
+En Azure Cosmos DB, los grafos se almacenan en contenedores que se pueden escalar independientemente en cuanto a almacenamiento y capacidad de proceso (expresada en solicitudes normalizadas por segundo). Cada contenedor debe definir una propiedad de clave de partición opcional, aunque recomendada, que determina el límite de una partición lógica para los datos relacionados. Cada vértice o arista debe tener una propiedad `id` que es única para las entidades dentro de ese valor de clave de partición. Los detalles se tratan en [Particiones en Azure Cosmos DB](partition-data.md).
 
-Las operaciones de Gremlin funcionan perfectamente en los datos de gráficos repartidos en varias particiones en Azure Cosmos DB. Sin embargo, para los gráficos, se recomienda elegir una clave de partición que se use normalmente como filtro en las consultas, que tenga muchos valores distintos y una frecuencia similar acceso a estos valores. 
+Las operaciones de Gremlin funcionan perfectamente en los datos de grafos repartidos en varias particiones en Azure Cosmos DB. Sin embargo, para los grafos, se recomienda elegir una clave de partición que se use normalmente como filtro en las consultas, que tenga muchos valores distintos y una frecuencia similar acceso a estos valores. 
 
 ## <a name="gremlin-steps"></a>Pasos de Gremlin
 Ahora, echemos un vistazo a los pasos de Gremlin que Azure Cosmos DB admite. Para una referencia completa de Gremlin, consulte la [referencia de TinkerPop](http://tinkerpop.apache.org/docs/current/reference).
@@ -170,8 +168,8 @@ Ahora, echemos un vistazo a los pasos de Gremlin que Azure Cosmos DB admite. Par
 | paso | Descripción | Documentación de TinkerPop 3.2. | Notas |
 | --- | --- | --- | --- |
 | `addE` | Agrega una arista entre dos vértices. | [Paso addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
-| `addV` | Agrega un vértice al gráfico. | [Paso addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
-| `and` | Garantiza que todos los recorridos devuelven un valor | [y un paso](http://tinkerpop.apache.org/docs/current/reference/#and-step). | |
+| `addV` | Agrega un vértice al grafo. | [Paso addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
+| `and` | Garantiza que todos los recorridos devuelven un valor. | [y un paso](http://tinkerpop.apache.org/docs/current/reference/#and-step). | |
 | `as` | Modulador de pasos para asignar una variable a la salida de un paso. | [paso as](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
 | `by` | Modulador de pasos que se usa con `group` y `order`. | [paso by](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Devuelve el primer recorrido que devuelve un resultado. | [paso coalesce](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
@@ -207,6 +205,5 @@ Ahora, echemos un vistazo a los pasos de Gremlin que Azure Cosmos DB admite. Par
 De forma predeterminada, el motor optimizado para escritura de Azure Cosmos DB admite la indexación automática de todas las propiedades dentro de vértices y aristas. Por lo tanto, las consultas con filtros, las consultas de intervalo, la ordenación o los agregados de cualquier propiedad se procesan a partir del índice y se sirven de forma eficiente. Para más información sobre cómo funciona la indexación en Azure Cosmos DB, consulte nuestro artículo sobre la [indexación independiente del esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Empezar a compilar una aplicación de gráficos [con nuestros SDK](create-graph-dotnet.md) 
-* Más información sobre la [compatibilidad de Azure Cosmos DB con gráficos](graph-introduction.md)
-
+* Empezar a compilar una aplicación de grafos [con nuestros SDK](create-graph-dotnet.md) 
+* Más información sobre la [compatibilidad de Azure Cosmos DB con grafos](graph-introduction.md)

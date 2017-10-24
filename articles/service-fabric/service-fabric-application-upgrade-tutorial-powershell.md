@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c685deaa008cfdba5971cef4cfc7dfa41b1df64d
-ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 9dfeff7aea50db2cbaacacdbac724d6f9dfd7019
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Actualización de aplicaciones de Service Fabric con PowerShell
 > [!div class="op_single_selector"]
@@ -74,7 +73,6 @@ Ahora el archivo *ApplicationManifest.xml* (que se encuentra en el proyecto **Vi
  <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
 
-
 Ahora, compile el proyecto; para ello, seleccione solamente el proyecto **ActorService** y luego haga clic con el botón derecho y seleccione la opción **Compilar** en Visual Studio. Si selecciona **Volver a generar todo**, debe actualizar las versiones de todos los proyectos, ya que el código habrá cambiado. A continuación, vamos a empaquetar la aplicación actualizada; para ello, haga clic con el botón derecho en ***VisualObjectsApplication***, seleccione el menú de Service Fabric y elija **Paquete**. Esta acción crea un paquete de aplicación que se puede implementar.  La aplicación actualizada está lista para implementarse.
 
 ## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Paso 3: Decidir sobre las directivas de mantenimiento y los parámetros de actualización
@@ -112,6 +110,12 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 
 Si el comando anterior no es correcto, es probable que necesite una recompilación de todos los servicios. Como se mencionó en el Paso 2, puede que tenga que actualizar además la versión de WebService.
 
+Se recomienda que quite el paquete de aplicación después de que la aplicación se haya registrado correctamente.  Al eliminar los paquetes de aplicación del almacén de imágenes se liberan recursos del sistema.  Mantener los paquetes de aplicación sin usar consume almacenamiento en disco y conduce a problemas de rendimiento de la aplicación.
+
+```powershell
+Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore
+```
+
 ## <a name="step-5-start-the-application-upgrade"></a>Paso 5: Iniciar la actualización de la aplicación
 Ahora ya se puede iniciar la actualización de la aplicación con el comando [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps):
 
@@ -142,5 +146,4 @@ Consiga que sus actualizaciones de aplicaciones sean compatibles aprendiendo a u
 Aprenda a usar funcionalidades avanzadas para actualizar una aplicación. Para ello, consulte los [temas avanzados](service-fabric-application-upgrade-advanced.md).
 
 Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
-
 

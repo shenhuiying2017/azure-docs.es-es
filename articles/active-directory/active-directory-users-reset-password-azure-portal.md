@@ -12,36 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e7c38c7f0d40a310dd0b6bd0e866d2d55115550
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.custom: H1Hack27Feb2017;it-pro
+ms.openlocfilehash: b59f74546e219d45814a1a2e05e59beb0b080f21
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Restablecimiento de la contraseña de un usuario en Azure Active Directory
-> [!div class="op_single_selector"]
-> * [Portal de Azure](active-directory-users-reset-password-azure-portal.md)
-> * [Portal de Azure clásico](active-directory-create-users-reset-password.md)
->
->
 
 ## <a name="how-to-reset-the-password-for-a-user"></a>Restablecimiento de la contraseña de un usuario
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
+2. Seleccione **Usuarios y grupos**.
 
    ![Apertura de Administración de usuarios](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
-3. En la hoja **Usuarios y grupos**, seleccione **Usuarios**.
+3. Seleccione **Todos los usuarios**.
 
-   ![Apertura de la hoja Usuarios](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
-4. En la hoja **Usuarios y grupos - Usuarios** , seleccione un usuario de la lista.
-5. En la hoja del usuario seleccionado, seleccione **Introducción** y, después, en la barra de comandos, seleccione **Restablecer contraseña**.
+   ![Apertura del grupo Todos los usuarios](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
+1. Seleccione un usuario en la lista.
+2. Para el usuario seleccionado, seleccione **Introducción** y en la barra de comandos, seleccione **Restablecer contraseña**.
 
     ![Selección del comando Restablecer contraseña](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
-6. En la hoja **Restablecer contraseña**, seleccione **Restablecer contraseña**.
+6. En **Restablecer contraseña**, seleccione **Restablecer contraseña**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Adición de un usuario](active-directory-users-create-azure-portal.md)

@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guía de Azure Active Directory Identity Protection
 Esta guía le ayudará a:
@@ -109,7 +109,7 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 11. Haga clic en **Guardar**.
 12. Ahora puede probar el acceso condicional basado en riesgos mediante un inicio de sesión con un usuario con un nivel de riesgo elevado. Si el riesgo del usuario es Medio, en función de la directiva que establezca, se bloqueará el inicio de sesión o se forzará el cambio de contraseña. 
     <br><br>
-    ![Guía de](./media/active-directory-identityprotection-playbook/201.png "guía")
+    ![Guía](./media/active-directory-identityprotection-playbook/201.png "Guía")
     <br>
 
 ## <a name="sign-in-risk"></a>Riesgo de inicio de sesión
@@ -119,7 +119,7 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 2. Vaya a **Identity Protection**.
 3. En la hoja principal de **Azure AD Identity Protection**, haga clic en **Configuración**. 
 4. En la hoja **Configuración del portal**, en **Reglas de seguridad**, haga clic en **Riesgo de inicio de sesión**.
-5. En el ** iniciar sesión en riesgo ** hoja, seleccione **en** en **Habilitar regla**. 
+5. En la hoja **Riesgo de inicio de sesión**, seleccione **Activado** en **Habilitar regla**. 
 6. Seleccione una de las siguientes opciones:
    
    a. Para bloquearlo, seleccione **Medio** en **Bloquear inicio de sesión**.

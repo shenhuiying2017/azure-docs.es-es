@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/26/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 506c23179d09e2e22065c8ba2bc85a341bb0ea09
-ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 35aa45ce09b756dd7413a1df3d3c7b0c428b7a97
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre el Centro de seguridad de Azure
 Estas preguntas más frecuentes responden a preguntas sobre Azure Security Center, un servicio que le ayuda a evitar y detectar amenazas y a responder a las mismas con mayor visibilidad y control sobre la seguridad de los recursos de Microsoft Azure.
@@ -43,7 +41,7 @@ Security Center se ofrece en dos niveles:
 
 El nivel **Gratis** permite ver el estado de seguridad de los recursos de Azure, la directiva de seguridad básica, las recomendaciones de seguridad, y la integración con los productos y servicios de seguridad de los asociados.
 
-En el **nivel Estándar** se agregan funcionalidades de detección de amenazas avanzada, como inteligencia de amenazas, análisis del comportamiento, detección de anomalías, incidentes de seguridad e informes de atribución de amenazas. El nivel Estándar es gratuito durante los primeros 60 días. Si decide seguir utilizando el servicio después de esos 60 días, automáticamente se empieza a cobrar por el servicio.  Para actualizar a este nivel, seleccione el plan de tarifa en la [directiva de seguridad](security-center-policies.md#set-security-policies). Para más información, consulte [Precios de Azure Security Center](security-center-pricing.md).
+En el **nivel Estándar** se agregan funcionalidades de detección de amenazas avanzada, como inteligencia de amenazas, análisis del comportamiento, detección de anomalías, incidentes de seguridad e informes de atribución de amenazas. El nivel Estándar es gratuito durante los primeros 60 días. Si decide seguir utilizando el servicio después de esos 60 días, automáticamente se empieza a cobrar por el servicio.  Para actualizarlo, seleccione el [plan de tarifa](https://docs.microsoft.com/azure/security-center/security-center-pricing) de la directiva de seguridad.
 
 ## <a name="permissions"></a>Permisos
 Azure Security Center usa el [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md), que proporciona [roles integrados](../active-directory/role-based-access-built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios en Azure.
@@ -115,10 +113,10 @@ Azure Security Center supervisa los siguientes recursos de Azure:
 * Redes virtuales de Azure
 * Servicio de SQL Azure
 * Cuenta de almacenamiento de Azure
-* Azure Web Apps ([en App Service Environment](../app-service/app-service-app-service-environments-readme.md))
-* Soluciones de asociados integradas en su suscripción de Azure, como un firewall de aplicaciones web en las máquinas virtuales y en [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
+* Azure Web Apps ([en App Service Environment](../app-service/environment/intro.md))
+* Soluciones de asociados integradas en su suscripción de Azure, como un firewall de aplicaciones web en las máquinas virtuales y en App Service Environment
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>Máquinas virtuales
 ### <a name="what-types-of-virtual-machines-are-supported"></a>¿Qué tipos de máquinas virtuales se admiten?
 La funcionalidad de supervisión y las recomendaciones están disponibles para las máquinas virtuales creadas con los [modelos de implementación clásica y de Resource Manager](../azure-classic-rm.md).
 
@@ -132,4 +130,3 @@ Este mensaje aparece cuando no hay datos de examen de una máquina virtual. Los 
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>¿Por qué recibo el mensaje Falta el agente de máquina virtual?
 El agente de VM debe instalarse en VM para habilitar la recopilación de datos. De manera predeterminada, el agente de máquina virtual está instalado en las máquinas virtuales que se implementan desde Azure Marketplace. La entrada de blog sobre [las extensiones y el agente de máquina virtual](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)proporciona información sobre cómo instalar el Agente de máquina virtual.
-

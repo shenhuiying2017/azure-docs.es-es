@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 18c5cd8eb4ca211f8ae2b8dd994c0e8c48625a2f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutorial: Integración de Azure Active Directory con Halosys
 
@@ -168,7 +168,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en el portal
 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
 
-5. En el **envíenos comentarios acerca de este usuario** cuadro de diálogo, siga los pasos siguientes: ![crear un usuario de prueba de Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+5. En el cuadro de diálogo **Proporcione información sobre este usuario**, siga estos pasos: ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png). 
 
     a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 

@@ -11,15 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/27/2016
+ms.date: 10/02/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 50917572ef8739ddc674d3592696a1ee4a8edc10
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: c7f3da9a92d5e9c60355c93a7205d16dc9ab8390
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Alta disponibilidad y recuperación ante desastres de SAP HANA para instancias grandes en Azure 
 
@@ -113,7 +112,7 @@ La infraestructura de almacenamiento subyacente de SAP HANA en Azure (instancias
 
 Puede realizar instantáneas de almacenamiento que estén dirigidas a tres clases de volúmenes distintas:
 
-- Una instantánea combinada en /hana/data, /hana/log y /hana/shared (incluye /usr/sap). Esta instantánea requiere la ejecución de una instantánea de SAP HANA.
+- Una instantánea combinada en /hana/data y /hana/shared (incluye /usr/sap). Esta instantánea requiere la creación de una instantánea de SAP HANA como preparación para la instantánea de almacenamiento. La instantánea de SAP HANA se asegurará de que la base de datos esté en un estado coherente desde un punto de vista de almacenamiento.
 - Una instantánea independiente en /hana/logbackups.
 - Una partición del SO (solo para el tipo I de las instancias grandes de HANA).
 
@@ -870,7 +869,6 @@ Latest Snapshot Replicated: snapmirror.c169b434-75c0-11e6-9903-00a098a13ceb_2154
 Size of Latest Snapshot Replicated: 244KB
 Current Lag Time between snapshots: -   ***Less than 90 minutes is acceptable***
 ```
-
 
 
 

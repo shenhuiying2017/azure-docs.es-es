@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
+ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
-ms.contentlocale: es-es
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Preguntas más frecuentes de Azure Disk Encryption
 
@@ -122,6 +121,12 @@ En este artículo se ofrecen respuestas a las preguntas más frecuentes (P+F) so
 
 Si este flujo de trabajo no es posible, el uso del [Cifrado del servicio de almacenamiento](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) en el nivel de la cuenta de almacenamiento de la plataforma puede ser una alternativa al cifrado del disco completo mediante dm-crypt.
 
+**P:**  ¿Qué es el disco "Bek volumen" o "/mnt/azure_bek_disk"?
+
+**R:** "Bek volumen" para Windows o "/mnt/azure_bek_disk" para Linux es un volumen de datos locales que almacena de forma segura las claves de cifrado para máquinas virtuales cifradas de IaaS de Azure.
+> [!NOTE]
+> No elimine ni modifique ningún contenido de este disco. No desmonte el disco ya que la presencia de la clave de cifrado es necesaria para las operaciones de cifrado en la máquina virtual IaaS.
+
 **P:** ¿Dónde puedo formular preguntas o enviar comentarios?
 
 **R:** Puede realizar preguntas o publicar comentarios en el [Foro de Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
@@ -132,4 +137,3 @@ En este documento, aprendió más acerca de las preguntas más frecuentes sobre 
 - [Aplicación de cifrado de discos en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Cifrado de una máquina virtual de Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Cifrado de datos en reposo de Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
-

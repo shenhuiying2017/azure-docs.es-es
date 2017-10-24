@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/05/2017
 ms.author: terrylan
+ms.openlocfilehash: 367067874b167268bd690a9e0b55412e92e08122
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 01ac75244839c0e3c1ac350d4271677feb21a9d7
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Supervisión y procesamiento de eventos de seguridad en Azure Security Center
 El panel Eventos proporciona información general sobre el número de eventos de seguridad recopilados a lo largo del tiempo y una lista de eventos importantes que requieren su atención.  
@@ -48,13 +47,16 @@ En el **panel Eventos** se proporciona información general sobre el número de 
  - En la sección de **eventos importantes** aparecen las consultas de evento que Security Center proporciona y las consultas de evento que el usuario crea y agrega. En este panel también encontrará una vista rápida de cada evento importante.
  - En la sección de **todos los eventos por tipo** se muestran los tipos de evento que se reciben y un recuento de cada tipo. Ejemplos de tipos de evento son SecurityEvent, CommonSecurityLog, WindowsFirewall y W3CIISLog.
 
+> [!NOTE]
+> Los eventos importantes incluyen [valoración de base de referencia web](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). El objetivo de la evaluación de base de referencia web es encontrar configuraciones del servidor web potencialmente vulnerables.
+
 ## <a name="view-processed-event-details"></a>Ver detalles de los eventos procesados
-1. En el menú principal de **Security Center**, seleccione **Eventos procesados**.
-2. Puede que se abra el selector del área de trabajo **Eventos procesados**. Si solo tiene un área de trabajo, este selector de área de trabajo no aparecerá. Si tiene más de un área de trabajo, debe seleccionar una para ver los detalles de eventos procesados correspondientes. Si tiene más de un área de trabajo, seleccione un área de trabajo de la lista.
+1. En el menú principal de **Security Center**, seleccione **Eventos**.
+2. Puede que se abra el selector de áreas de trabajo del panel **Eventos**. Si solo tiene un área de trabajo, este selector de área de trabajo no aparecerá. Si tiene más de un área de trabajo, debe seleccionar una para ver los detalles de eventos procesados correspondientes. Si tiene más de un área de trabajo, seleccione un área de trabajo de la lista.
 
   ![Lista de áreas de trabajo][3]
 
-3. El panel **Eventos procesados** se abre y muestra detalles de los eventos del área de trabajo seleccionada. Puede ver los eventos importantes y todos los eventos por tipo.  En este ejemplo, se seleccionan los **eventos importantes**.
+3. El panel **Eventos** se abre y muestra detalles de los eventos del área de trabajo seleccionada. Puede ver los eventos importantes y todos los eventos por tipo.  En este ejemplo, se seleccionan los **eventos importantes**.
 
   ![Evento importante][4]
 
@@ -67,7 +69,7 @@ En el **panel Eventos** se proporciona información general sobre el número de 
   ![Búsqueda de registros][6]
 
 ## <a name="add-a-notable-event"></a>Agregar un evento importante
-Security Center proporciona eventos importantes listos para usar. Puede agregar eventos importantes basados en su propia consulta con el [lenguaje de consulta de Log Analytics](../log-analytics/log-analytics-search-reference.md). Volvamos al panel **Eventos procesados** para agregar un evento importante.
+Security Center proporciona eventos importantes listos para usar. Puede agregar eventos importantes basados en su propia consulta con el [lenguaje de consulta de Log Analytics](../log-analytics/log-analytics-search-reference.md). Volvamos al panel **Eventos** para agregar un evento importante.
 
 1. Seleccione **Add Notable Event** (Agregar evento importante).
 
@@ -80,7 +82,7 @@ Security Center proporciona eventos importantes listos para usar. Puede agregar 
 4. Seleccione **Aceptar**.
 
 ## <a name="update-your-workspace-for-events-processing"></a>Actualizar el área de trabajo para el procesamiento de eventos
-Para poder usar el procesamiento de eventos en Security Center, el área de trabajo debe ejecutar la versión 2 de Log Analytics y tener el nivel Estándar de Security Center. El selector de área de trabajo **Eventos** identifica las áreas de trabajo que no reúnen estos requisitos.
+Para poder usar el procesamiento de eventos en Security Center, el área de trabajo debe ejecutar la versión 2 de Log Analytics y tener el nivel Estándar de Security Center. El selector de áreas de trabajo del panel **Eventos** identifica las áreas de trabajo que no reúnen estos requisitos.
 
 ![El área de trabajo no cumple los requisitos][9]
 
@@ -91,7 +93,7 @@ Si la fila del área de trabajo:
 - Está en blanco, el área de trabajo reúne los requisitos, de modo que si selecciona un área de trabajo, se le dirigirá al panel.
 
 > [!NOTE]
-> En **Eventos**, la columna **EVENTOS** señala la cantidad de eventos que hay en cada área de trabajo.  Esta columna aparece en blanco en algunas áreas de trabajo porque esas áreas de trabajo tienen aplicado el nivel Gratis de Security Center. En el nivel Gratis, Security Center recopilará eventos, pero estos no se guardarán en Log Analytics ni estarán disponibles en el panel.
+> En el panel **Eventos**, la columna **EVENTOS** señala la cantidad de eventos que hay en cada área de trabajo.  Esta columna aparece en blanco en algunas áreas de trabajo porque esas áreas de trabajo tienen aplicado el nivel Gratis de Security Center. En el nivel Gratis, Security Center recopilará eventos, pero estos no se guardarán en Log Analytics ni estarán disponibles en el panel.
 >
 >
 
@@ -103,7 +105,7 @@ Si la fila del área de trabajo:
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Actualizar al nivel Estándar de Security Center
 1. Seleccione un área de trabajo marcada con **UPGRADE PLAN**.
-2. Se abre el **panel Eventos**. Seleccione **Try the Events dashboard** (Probar el panel Eventos).
+2. Se abre el **panel Eventos**. Seleccione **Probar el panel Eventos**.
 
   ![Probar panel][11]
 
@@ -114,7 +116,7 @@ Si la fila del área de trabajo:
   ![Actualizar al nivel Estándar][12]
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, ha obtenido información sobre cómo usar el panel Eventos de Security Center. Para más información sobre cómo funciona el panel y escribir sus propias consultas de eventos, vea:
+En este artículo, ha aprendido a usar el panel Eventos de Security Center. Para más información sobre cómo funciona el panel y escribir sus propias consultas de eventos, vea:
 
 - [¿Qué es Log Analytics?](../log-analytics/log-analytics-overview.md) - Introducción a Log Analytics
 - [Descripción de las búsquedas de registros en Log Analytics:](../log-analytics/log-analytics-log-search-new.md) en este artículo se describe cómo se usan las búsquedas de registros en Log Analytics y se proporcionan los conceptos que debe comprender antes de crear una.
@@ -122,7 +124,7 @@ En este artículo, ha obtenido información sobre cómo usar el panel Eventos de
 
 Para más información sobre Security Center, vea:
 
-- [Introducción al Centro de seguridad de Azure:](security-center-intro.md) se describen las principales funciones de Security Center.
+- [Introducción a Security Center](security-center-intro.md): aquí se describen las principales funciones de Security Center.
 
 <!--Image references-->
 [1]: ./media/security-center-events-dashboard/events-processed.png
@@ -137,4 +139,3 @@ Para más información sobre Security Center, vea:
 [10]: ./media/security-center-events-dashboard/search-upgrade.png
 [11]: ./media/security-center-events-dashboard/try-dashboard.png
 [12]: ./media/security-center-events-dashboard/onboard-workspace.png
-
