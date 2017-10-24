@@ -8,12 +8,11 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: 6eb58b31f20f239d310415d44f61e7455918dae9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: c3a2eb3e6e54f952ef963bb2a0292d9ad7b53bc5
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Administración de aplicaciones de Azure Service Fabric mediante la CLI de Azure Service Fabric
 
@@ -31,14 +30,14 @@ Para implementar una nueva aplicación, complete estos pasos:
 
 1. Cargue un paquete de aplicación en el almacén de imágenes de Service Fabric.
 2. Aprovisione un tipo de aplicación.
-3. Especifique y cree una aplicación.
-4. Especifique y cree servicios.
+3. Elimine el contenido del almacén de imágenes.
+4. Especifique y cree una aplicación.
+5. Especifique y cree servicios.
 
 Para quitar una aplicación existente, complete estos pasos:
 
 1. Elimine la aplicación.
 2. Anule el aprovisionamiento del tipo de aplicación asociado.
-3. Elimine el contenido del almacén de imágenes.
 
 ## <a name="deploy-a-new-application"></a>Implementación de una nueva aplicación
 
@@ -65,6 +64,18 @@ sfctl application provision --application-type-build-path app_package_dir
 ```
 
 El valor de `application-type-build-path` es el nombre del directorio donde cargó el paquete de aplicación.
+
+### <a name="delete-the-application-package"></a>Eliminación del paquete de aplicación
+
+Se recomienda que quite el paquete de aplicación después de que la aplicación se haya registrado correctamente.  Al eliminar los paquetes de aplicación del almacén de imágenes se liberan recursos del sistema.  Mantener los paquetes de aplicación sin usar consume almacenamiento en disco y conduce a problemas de rendimiento de la aplicación. 
+
+Para eliminar el paquete de aplicación del almacén de imágenes, use el comando siguiente:
+
+```azurecli
+sfctl store delete --content-path app_package_dir
+```
+
+`content-path` debe ser el nombre del directorio que cargó cuando creó la aplicación.
 
 ### <a name="create-an-application-from-an-application-type"></a>Creación de una aplicación desde un tipo de aplicación
 
@@ -127,18 +138,6 @@ sfctl application unprovision --application-type-name TestAppTye --application-t
 
 El nombre de tipo y la versión de tipo deben coincidir con el nombre y la versión del manifiesto de aplicación aprovisionado anteriormente.
 
-### <a name="delete-the-application-package"></a>Eliminación del paquete de aplicación
-
-Después de que se haya anulado el aprovisionamiento del tipo de aplicación, puede eliminar el paquete de aplicación del almacén de imágenes si ya no lo necesita. La eliminación de paquetes de aplicación le ayuda a recuperar espacio en disco. 
-
-Para eliminar el paquete de aplicación del almacén de imágenes, use el comando siguiente:
-
-```azurecli
-sfctl store delete --content-path app_package_dir
-```
-
-`content-path` debe ser el nombre del directorio que cargó cuando creó la aplicación.
-
 ## <a name="upgrade-application"></a>Actualización de una aplicación
 
 Después de crear la aplicación, puede repetir el mismo conjunto de pasos para aprovisionar una segunda versión de la aplicación. Luego, con una actualización de la aplicación de Service Fabric puede pasar a la ejecución de la segunda versión de la aplicación. Para más información, consulte la documentación de [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md).
@@ -148,6 +147,7 @@ Para llevar a cabo una actualización, primero aprovisione la siguiente versión
 ```azurecli
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
+sfctl store delete --content-path app_package_dir_2
 ```
 
 Se recomienda luego realizar una actualización automática supervisada e iniciar la actualización ejecutando el comando siguiente:
@@ -169,4 +169,3 @@ Finalmente, si una actualización está en curso y es necesario cancelarla, pued
 * [Conceptos básicos de la CLI de Service Fabric](service-fabric-cli.md)
 * [Introducción a Service Fabric con Linux](service-fabric-get-started-linux.md)
 * [Inicio de una la actualización de una aplicación de Service Fabric](service-fabric-application-upgrade.md)
-

@@ -12,26 +12,24 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 08/23/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
 ms.custom: mvc
+ms.openlocfilehash: 8f6ab60861c422d083686a6ad5fb880c3e236f59
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 43c1c0d38d12a36c39a3962a3399d9c05937e8b1
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upgrade-a-service-fabric-application"></a>Actualización de una aplicación de Service Fabric
 
-Este script de ejemplo actualiza una instancia de la aplicación de Service Fabric en ejecución a la versión 1.3.0. El script copia el nuevo paquete de aplicación en el almacén de imágenes del clúster, registra el tipo de aplicación, inicia una actualización supervisada y comprueba continuamente el estado de actualización hasta que esta finalice o se revierta. Personalice los parámetros según sea necesario. 
+Este script de ejemplo actualiza una instancia de la aplicación de Service Fabric en ejecución a la versión 1.3.0. El script copia el nuevo paquete de aplicación en el almacén de imágenes de clúster, registra el tipo de aplicación y quita el paquete de aplicación innecesario.  El script inicia una actualización supervisada y comprueba continuamente el estado de actualización hasta que esta se complete o se revierta. Personalice los parámetros según sea necesario. 
 
 Si es necesario, instale el módulo Service Fabric PowerShell con el [SDK de Service Fabric](../service-fabric-get-started.md). 
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-powershell[main](../../../powershell_scripts/service-fabric/upgrade-application/upgrade-application.ps1 "Actualizar una aplicación")]
+[!code-powershell[main](../../../powershell_scripts/service-fabric/upgrade-application/upgrade-application.ps1 "Upgrade an application")]
 
 ## <a name="script-explanation"></a>Explicación del script
 
@@ -46,6 +44,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Copia un paquete de aplicación de Service Fabric en el almacén de imágenes.  |
 | [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) | Registra un tipo de aplicación de Service Fabric. |
 | [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) | Actualiza una aplicación de Service Fabric a la versión especificada de ese tipo de aplicación. |
+| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Quita un paquete de aplicación de Service Fabric del almacén de imágenes.|
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -53,4 +52,3 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 Para más información sobre el módulo Service Fabric PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
 
 Puede encontrar ejemplos de PowerShell para Azure Service Fabric en los [ejemplos de Azure PowerShell](../service-fabric-powershell-samples.md).
-

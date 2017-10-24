@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 09/27/2017
+ms.date: 10/09/2017
 ms.author: genemi
+ms.openlocfilehash: f62184d97b18d72b91d63db0e449bbab6c20a179
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: e4ee69abe0b3b5d594ee191cc8210d25c325efaa
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Reglas y puntos de conexión del servicio de Virtual Network para Azure SQL Database
 
@@ -109,8 +108,8 @@ Cada regla de red virtual se aplica a su servidor completo de Azure SQL Database
 
 Existe una separación de los roles de seguridad en la administración de puntos de conexión del servicio de Virtual Network. Se requiere una acción de cada uno de los roles siguientes:
 
-- **Administrador de red:** &nbsp; activar el punto de conexión.
-- **Administrador de base de datos:** &nbsp; actualizar la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor SQL Database .
+- **Administrador de red:**&nbsp; activar el punto de conexión.
+- **Administrador de base de datos:**&nbsp; actualizar la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor SQL Database .
 
 *Alternativa de RBAC:* 
 
@@ -118,9 +117,16 @@ Las funciones de administrador de red y de base de datos tienen más capacidades
 
 Si quiere, puede optar por la opción de usar el [control de acceso basado en rol (RBAC)] [ rbac-what-is-813s] en Azure para crear un rol personalizado único que tenga solo el subconjunto necesario de capacidades. Se podría usar el rol personalizado en lugar del administrador de red o el administrador de la base de datos. El área expuesta de la exposición de seguridad es inferior si agrega un usuario a un rol personalizado, en lugar de agregar el usuario a los otros dos roles de administrador principales.
 
-#### <a name="limitations"></a>Limitaciones
+
+
+
+
+
+## <a name="limitations"></a>Limitaciones
 
 Para Azure SQL Database, la característica de las reglas de red virtual tiene las siguientes limitaciones:
+
+- En el firewall de su instancia de SQL Database, cada regla de red virtual hace referencia a una subred. Todas estas subredes a las que se hace referencia deben estar hospedadas en la misma región geográfica que hospeda la base de datos SQL.
 
 - Cada servidor de Azure SQL Database puede tener hasta 128 entradas de ACL para cualquier red virtual proporcionada.
 
@@ -146,9 +152,36 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 
 
+## <a name="errors-40914-and-40615"></a>Errores 40914 y 40615
+
+El error de conexión 40914 se relaciona con *reglas de red virtual*, tal y como se especifica en el panel Firewall de Azure Portal. El error 40615 es similar, excepto que se relaciona con *reglas de direcciones IP* del Firewall.
+
+#### <a name="error-40914"></a>Error 40914
+
+*Texto del mensaje:* No se puede abrir el servidor "*[nombre de servidor]*" solicitado por el inicio de sesión. Un cliente no puede acceder al servidor.
+
+*Descripción del error:* el cliente está en una subred que tiene puntos de conexión de servidor de red virtual. Sin embargo, el servidor de Azure SQL Database no tiene ninguna regla de red virtual que conceda a la subred el derecho para comunicarse con la base de datos SQL.
+
+*resolución de errores:* en el panel Firewall de Azure Portal, use el control de reglas de red virtual para [agregar una regla de red virtual](#anchor-how-to-by-using-firewall-portal-59j) para la subred.
+
+#### <a name="error-40615"></a>Error 40615
+
+*Texto del mensaje:* No se puede abrir el servidor "{0}" solicitado por el inicio de sesión. No está permitido que el cliente con la dirección IP '{1}' acceda al servidor.
+
+*Descripción del error:* el cliente intenta conectarse desde una dirección IP que no tiene autorización para conectarse al servidor de Azure SQL Database. El firewall de servidor no tiene ninguna regla de dirección IP que permita que un cliente se comunique con la dirección IP dada a la instancia de SQL Database.
+
+*Resolución de errores:* escriba la dirección IP del cliente como una regla de IP. Para ello, use el panel Firewall de Azure Portal.
+
+
+Se puede encontrar información de una lista de varios mensajes de error de SQL Database [aquí][sql-database-develop-error-messages-419g].
+
+
+
+
+
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
-## <a name="how-to-create-a-virtual-network-rule-by-using-the-portal"></a>Cómo crear una regla de red virtual con el portal
+## <a name="portal-can-create-a-virtual-network-rule"></a>Se puede crear una regla de red virtual en el portal
 
 En esta sección se muestra cómo puede usar [Azure Portal][http-azure-portal-link-ref-477t] para crear una *regla de red virtual* en su instancia de Azure SQL Database. La regla indica a su instancia de SQL Database que acepte la comunicación procedente de una subred concreta que se ha etiquetado como *punto de conexión del servicio de Virtual Network*.
 
@@ -232,6 +265,8 @@ La característica de puntos de conexión del servicio de Virtual Network de Mic
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 
+[sql-database-develop-error-messages-419g]: sql-database-develop-error-messages.md
+
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]: sql-database-vnet-service-endpoint-rule-powershell.md
 
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
@@ -262,5 +297,4 @@ La característica de puntos de conexión del servicio de Virtual Network de Mic
 
 - ARM templates
 -->
-
 

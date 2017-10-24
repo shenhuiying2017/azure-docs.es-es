@@ -1,5 +1,5 @@
 ---
-title: "Configuración de grupos mediante cmdlets de Azure Active Directory | Microsoft Docs"
+title: "Configuración de grupos mediante PowerShell en Azure Active Directory | Microsoft Docs"
 description: "Administración de la configuración de grupos mediante cmdlets de Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,21 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 10/04/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
+ms.openlocfilehash: 06384d1a1fb7fcc36e9ab97e38c6524a7e260140
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 28054e91e91933b939f4ba700e317d63a614e1d9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
 
 > [!IMPORTANT]
-> Este contenido se aplica únicamente a grupos de Office 365. Para obtener más información sobre cómo permitir a los usuarios crear grupos de seguridad, establezca `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` como se describe en [Set-MSOLCompanySettings](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+> Este contenido se aplica únicamente a grupos de Office 365. Para más información sobre cómo permitir a los usuarios crear grupos de seguridad, establezca `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` como se describe en [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Los grupos de Office 365 se configuran mediante un objeto Settings y un objeto SettingsTemplate. Al principio no ve ningún objeto de configuración en el directorio porque este se ha configurado de forma predeterminada. Para cambiar la configuración predeterminada, debe crear un nuevo objeto Settings utilizando una plantilla SettingsTemplate. Las plantillas de configuración las define Microsoft. Hay varias plantillas de configuración diferentes. Para configurar los valores del grupo de Office 365 para su directorio, utiliza la plantilla denominada "Group.Unified". Para configurar los valores del grupo de Office 365 en un único grupo, utilice la plantilla denominada "Group.Unified.Guest". Esta plantilla se usa para administrar el acceso de invitado a un grupo de Office 365. 
 
@@ -95,7 +94,9 @@ Esta es la configuración definida en el objeto SettingsTemplate Group.Unified.
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: String<li>Valor predeterminado: “” |Un vínculo a las instrucciones de uso de grupos. |
 |  <ul><li>ClassificationDescriptions<li>Tipo: String<li>Valor predeterminado: “” | Una lista delimitada por comas de las descripciones de clasificación. |
 |  <ul><li>DefaultClassification<li>Tipo: String<li>Valor predeterminado: “” | La clasificación que se va a utilizar como la clasificación predeterminada para un grupo si no se ha especificado ninguno.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Valor predeterminado: “” |Todavía no implementado
+|  <ul><li>PrefixSuffixNamingRequirement<li>Tipo: String<li>Valor predeterminado: “” | No usar. No implementado. |
+| <ul><li>CustomBlockedWordsList<li>Tipo: String<li>Valor predeterminado: “” | No usar. No implementado. |
+| <ul><li>EnableMSStandardBlockedWords<li>Tipo: Boolean<li>Valor predeterminado: False | No usar
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: Boolean<li>Valor predeterminado: False. | Valor booleano que indica si un usuario invitado puede ser o no un propietario de grupos. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Tipo: Boolean<li>Valor predeterminado: True. | Valor booleano que indica si un usuario invitado puede tener o no acceso al contenido de grupos unificados. |
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: String<li>Valor predeterminado: “” | La dirección URL de un vínculo a las instrucciones de uso del invitado. |
@@ -217,4 +218,3 @@ Puede encontrar más documentación de Azure Active Directory PowerShell en el a
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-

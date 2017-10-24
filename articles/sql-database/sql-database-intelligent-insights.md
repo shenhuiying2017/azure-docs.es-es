@@ -1,6 +1,6 @@
 ---
-title: "Supervisión de uso de base de datos de Intelligent Insight: Azure SQL Database | Microsoft Docs"
-description: Intelligent Insights le permite saber lo que ocurre con el rendimiento de la base de datos.
+title: "Supervisión de uso de bases de datos de Intelligent Insight: Azure SQL Database | Microsoft Docs"
+description: Azure SQL Database Intelligent Insights usa inteligencia integrada para supervisar continuamente el uso de la base de datos mediante inteligencia artificial y detectar eventos potencialmente perjudiciales que provoquen un rendimiento bajo.
 services: sql-database
 documentationcenter: 
 author: danimir
@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
+ms.openlocfilehash: 8e55fa02d5edda21fbf547397d63f9d1cf987a60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c3b11dd50fa8c94d3bf80e02a8a319030c375133
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
 ***Intelligent Insights le permite saber lo que ocurre con el rendimiento de la base de datos.***
 
-La inteligencia incorporada de Azure SQL Database supervisa continuamente el uso de la base de datos a través de la inteligencia artificial y detecta eventos potencialmente perjudiciales que provocan un rendimiento bajo. Una vez detectados, se realiza un análisis detallado y se genera un registro de diagnóstico con una evaluación inteligente del problema. Esta evaluación está formada por un análisis de la causa raíz del problema de rendimiento de la base de datos, y si es posible, recomendaciones para mejorar el rendimiento. Esto es ***Intelligent Insights.*** 
+Azure SQL Database Intelligent Insights usa inteligencia integrada para supervisar continuamente el uso de la base de datos mediante inteligencia artificial y detectar eventos potencialmente perjudiciales que provoquen un rendimiento bajo. Una vez detectados, se realiza un análisis detallado y se genera un registro de diagnóstico con una evaluación inteligente del problema. Esta evaluación está formada por un análisis de la causa raíz del problema de rendimiento de la base de datos, y si es posible, recomendaciones para mejorar el rendimiento. Esto es ***Intelligent Insights.*** 
 
 ## <a name="what-can-intelligent-insights-do-for-you"></a>¿Qué puede hacer Intelligent Insights por usted?
 
@@ -161,6 +160,5 @@ En caso de que cualquiera de las excepciones críticas supervisadas supere los u
 * Use el [Registro de diagnóstico de rendimiento de Azure SQL Database de Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 * Aprenda a [supervisar Azure SQL Database mediante Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 * Aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
-
 
 

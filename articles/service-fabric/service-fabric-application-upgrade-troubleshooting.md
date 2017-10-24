@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 10/03/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 7fc832ff23f5ad652df3cb9c689180c92952ba8e
-ms.contentlocale: es-es
-ms.lasthandoff: 04/26/2017
-
+ms.openlocfilehash: acfd26674aafab4ed1925d6b33967f917058b1be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-application-upgrades"></a>Solucionar problemas de actualizaciones de aplicaciones
 En este artículo se tratan algunos de los problemas comunes de actualización de una aplicación de Azure Service Fabric y cómo resolverlos.
@@ -86,6 +85,8 @@ El comando **Get-ServiceFabricNode** se puede usar para comprobar que estos dos 
 Una fase *UpgradePhase* de *PreUpgradeSafetyCheck* indica que se produjeron errores al preparar el dominio de actualización antes de realizar la actualización. Los problemas más habituales en este caso son errores de servicio en el cierre o disminución de nivel de las rutas de acceso de código principales.
 
 El objeto **UpgradeState** actual es *RollingBackCompleted*, de modo que la actualización original debe haberse realizado con un objeto **FailureAction** de reversión, que revierte automáticamente la actualización tras el error. Si la actualización original se había realizado con un valor de **FailureAction**manual, la actualización estaría entonces en un estado suspendido para permitir una depuración en directo de la aplicación.
+
+En raras ocasiones, el campo **UpgradeDomainProgressAtFailure** puede estar vacío si se agota el tiempo de expiración de la actualización general cuando el sistema completa todo el trabajo del dominio de actualización actual. Si esto sucede, intente aumentar los valores de los parámetros de actualización **UpgradeTimeout** y **UpgradeDomainTimeout** y vuelva a intentar la actualización.
 
 ### <a name="investigate-health-check-failures"></a>Investigar errores de comprobación de estado
 Los errores de comprobación de estado pueden desencadenarse debido a varios problemas que se pueden producir después de que todos los nodos de un dominio de actualización terminen de actualizarse y pasen todas las comprobaciones de seguridad. La salida que sigue a este párrafo es habitual de un error de actualización debido a errores en las comprobaciones de estado. El campo **UnhealthyEvaluations** captura una instantánea de todas las comprobaciones de estado con error en el momento de la actualización según la [directiva de mantenimiento](service-fabric-health-introduction.md)especificada.
@@ -222,4 +223,3 @@ Puede controlar cómo se actualiza una aplicación usando [parámetros de actual
 Consiga que sus actualizaciones de aplicaciones sean compatibles aprendiendo a usar la [serialización de datos](service-fabric-application-upgrade-data-serialization.md).
 
 Aprenda a usar funcionalidades avanzadas para actualizar una aplicación. Para ello, consulte los [temas avanzados](service-fabric-application-upgrade-advanced.md).
-

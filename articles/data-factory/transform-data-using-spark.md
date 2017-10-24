@@ -11,25 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/29/2017
 ms.author: shengc
+ms.openlocfilehash: f1548c6ad397a7154482fa73e992aef9201c5752
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecef890d26aa097d9a5db63555ae59e16e80c9e1
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Spark en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: disponibilidad general](v1/data-factory-spark.md)
-> * [Versión 2: versión preliminar](transform-data-using-spark.md)
+> * [Versión 2: Versión preliminar](transform-data-using-spark.md)
 
-
-La actividad de Spark es una de las [actividades de transformación de datos](transform-data.md) compatibles con Azure Data Factory. Esta actividad ejecuta el programa Spark especificado en el clúster de Apache Spark en Azure HDInsight.    
+La actividad de Spark en una [canalización](concepts-pipelines-activities.md) de Data Factory ejecuta un programa de Spark en su clúster de HDInsight [propio](compute-linked-services.md#azure-hdinsight-linked-service) o [a petición](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](transform-data.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas. Cuando se usa un servicio vinculado a Spark a petición, Data Factory crea automáticamente un clúster Just-in-Time para procesar los datos y, luego, lo elimina una vez finalizado el procesamiento. 
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea [Actividad de Spark en V1](v1/data-factory-spark.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea [Actividad de Spark en V1](v1/data-factory-spark.md).
 
 > [!IMPORTANT]
 > La actividad de Spark no admite clústeres de HDInsight Spark que usan una instancia de Azure Data Lake Store como almacenamiento principal.
@@ -129,4 +127,3 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad personalizada de .NET](transform-data-using-dotnet-custom-activity.md)
 * [Actividad de ejecución de Batch de Machine Learning](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)
-

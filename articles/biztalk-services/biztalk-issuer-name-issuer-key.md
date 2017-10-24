@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
 ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>Servicios de BizTalk: nombre del emisor y clave del emisor
 
@@ -50,7 +50,7 @@ Para usar ACS para la autenticación y obtener los valores de Nombre de emisor y
 4. Seleccione su suscripción: `select-azuresubscription <name of your subscription>` 
 5. Creación de un espacio de nombres nuevo: `new-azuresbnamespace <name for the service bus> "Location" -CreateACSNamespace $true -NamespaceType Messaging`
 
-    Ejemplo:`new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
+    Ejemplo: `new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
       
 5. Cuando se crea el nuevo espacio de nombres de ACS (que puede tardar varios minutos), los valores de Nombre de emisor y Clave de emisor se enumeran en la cadena de conexión: 
 

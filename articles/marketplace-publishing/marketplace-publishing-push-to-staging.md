@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
 ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Finalización de la creación de ofertas con contenido de marketing
 En este paso del proceso de publicación, deberá proporcionar determinados contenidos de marketing y los detalles acerca de la oferta o SKU en Azure Marketplace. Por ejemplo, proporcionará una descripción de su producto, logotipos de empresa, planes de precios, detalles de los planes y otra información necesaria para insertar su oferta o SKU en el entorno de ensayo. Esta información se usa como contenido de marketing en nuestro Portal de Azure. Comenzará este proceso en el [portal de publicación][link-pubportal].
@@ -78,7 +78,7 @@ Todos los logotipos que se cargan en el Portal de publicación deberían seguir 
 
 * El logotipo de imagen prominente es opcional. El publicador puede decidir no cargar un logotipo de imagen prominente. **Sin embargo, una vez que cargue la imagen prominente, no podrá eliminarla del Portal de publicación. A partir de ese momento, el asociado debe seguir las instrucciones de Azure Marketplace para imágenes prominentes; en caso contrario, la oferta no contará con la aprobación para pasar a producción.**
 * El nombre para mostrar del publicador, el título del plan y el resumen largo de la oferta se muestran en color blanco. Por lo tanto, debe evitar usar colores claros en el fondo de la imagen prominente. Los fondos transparentes y de color negro y blanco no pueden utilizarse en las imágenes prominentes.
-* El nombre para mostrar del publicador, el título del plan, el resumen largo de la oferta y el botón Crear se incrustan mediante programación dentro del logotipo de imagen prominente cuando se publica la oferta. Por lo tanto, no hace falta especificarlos cuando diseñe el logotipo de imagen prominente. Deje un espacio vacío a la derecha, ya que será ahí donde el texto (es decir, el nombre para mostrar del publicador, el título del plan y el resumen largo de la oferta) se incluirá automáticamente mediante programación. El espacio vacío para el texto debe tener un tamaño de 415 x 100 a la derecha (con un desplazamiento de 370 píxeles a la izquierda).
+* El nombre para mostrar del publicador, el título del plan, el resumen largo de la oferta y el botón Crear se incrustan mediante programación dentro del logotipo de imagen prominente cuando se publica la oferta. Por lo tanto, no hace falta especificarlos cuando diseñe el logotipo de imagen prominente. Deje espacio vacío a la derecha, ya que es ahí donde incluiremos, mediante programación, el texto (es decir, el nombre para mostrar del publicador, el título del plan y el resumen largo de la oferta). El espacio vacío para el texto debe tener un tamaño de 415 x 100 a la derecha (con un desplazamiento de 370 píxeles a la izquierda).
   
   ![dibujo](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
@@ -105,16 +105,16 @@ En la pestaña **Legal** , proporcione un vínculo a sus directivas o términos 
 
 **Nota** : Para las ofertas de máquinas virtuales, cuando una oferta o SKU se almacene provisionalmente en el Portal de Azure, no podrá cambiar los campos que se indican a continuación:
 
-* **Offer Identifier** (Identificador de oferta): Portal de publicación -> Máquinas virtuales -> Select your Offer (Seleccionar oferta) -> pestaña Imágenes de VM -> Offer Identifier (Identificador de oferta)
-* **SKU Identifier** (Identificador de SKU): Portal de publicación -> Máquinas virtuales -> Select your Offer (Seleccionar oferta) -> pestaña SKUs (SKU) -> Offer Identifier (Identificador de oferta)
-* **Publisher Namespace** (Espacio de nombres de publicador): Portal de publicación -> Máquinas virtuales -> pestaña Walkthrough (Tutorial) -> Tell Us About Your Company (Indíquenos la información de su empresa) (esta opción se encuentra en el paso 2 sobre registro de la empresa) -> Publisher Namespace (Espacio de nombres de publicador) -> Espacio de nombres
+* **Offer Identifier** (Identificador de oferta): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña Imágenes de VM -&gt; Offer Identifier (Identificador de oferta)
+* **SKU Identifier** (Identificador de SKU): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña SKUs (SKU) -&gt; Offer Identifier (Identificador de oferta)
+* **Publisher Namespace** (Espacio de nombres de publicador): Portal de publicación -&gt; Máquinas virtuales -&gt; pestaña Walkthrough (Tutorial) -&gt; Tell Us About Your Company (Indíquenos la información de su empresa) (esta opción se encuentra en el paso 2 sobre registro de la empresa) -&gt; Publisher Namespace (Espacio de nombres de publicador) -&gt; Espacio de nombres
 
 Para las ofertas de máquinas virtuales, cuando una oferta o SKU se muestre en Azure Marketplace, no podrá cambiar los campos que se indican a continuación:
 
-* **Offer Identifier** (Identificador de oferta): Portal de publicación -> Máquinas virtuales -> Select your Offer (Seleccionar oferta) -> Imágenes de VM -> Offer Identifier (Identificador de oferta)
-* **SKU Identifier** (Identificador de SKU): Portal de publicación -> Máquinas virtuales -> Select your Offer (Seleccionar oferta) -> pestaña SKUs (SKU) -> Offer Identifier (Identificador de oferta)
-* **Publisher Namespace** (Espacio de nombres de publicador): Portal de publicación -> Máquinas virtuales -> pestaña Walkthrough (Tutorial) -> Tell Us About Your Company (Indíquenos la información de su empresa) (esta opción se encuentra en el paso 2 sobre registro) -> Publisher Namespace (Espacio de nombres de publicador) -> Espacio de nombres
-* **Puertos**: Portal de publicación -> Máquinas virtuales -> Select your Offer (Seleccionar oferta) -> pestaña Imágenes de VM -> Open Ports (Abrir puertos)
+* **Offer Identifier** (Identificador de oferta): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; Imágenes de VM -&gt; Offer Identifier (Identificador de oferta)
+* **SKU Identifier** (Identificador de SKU): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña SKUs (SKU) -&gt; Offer Identifier (Identificador de oferta)
+* **Publisher Namespace** (Espacio de nombres de publicador): Portal de publicación -&gt; Máquinas virtuales -&gt; pestaña Walkthrough (Tutorial) -&gt; Tell Us About Your Company (Indíquenos la información de su empresa) (esta opción se encuentra en el paso 2 sobre registro) -&gt; Publisher Namespace (Espacio de nombres de publicador) -&gt; Espacio de nombres
+* **Puertos**: Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña Imágenes de VM -&gt; Open Ports (Abrir puertos)
 * **Pricing Change of listed SKU(s)**
 * **Billing Model Change of listed SKU(s)**
 * **Removal of billing regions of listed SKU(s)**
@@ -157,10 +157,10 @@ En estos momentos, existen los **3 tipos de modelos de facturación**
 * **Billing Model Change of listed SKU(s)**
 * **Removal of billing regions of listed SKU(s)**
 * **Changing the data disk count of listed SKU(s)**
-* **Offer Identifier** (Identificador de oferta): Portal de publicación -> Máquinas virtuales -> Select your Offer (Seleccionar oferta) -> Imágenes de VM -> Offer Identifier (Identificador de oferta)
-* **SKU Identifier** (Identificador de SKU): Portal de publicación -> Máquinas virtuales -> Select your Offer (Seleccionar oferta) -> pestaña SKUs (SKU) -> Offer Identifier (Identificador de oferta)
-* **Publisher Namespace** (Espacio de nombres de publicador): Portal de publicación -> Máquinas virtuales -> pestaña Walkthrough (Tutorial) -> Tell Us About Your Company (Indíquenos la información de su empresa) (esta opción se encuentra en el paso 2 sobre registro) -> Publisher Namespace (Espacio de nombres de publicador) -> Espacio de nombres
-* **Puertos**: Portal de publicación -> Máquinas virtuales -> Select your Offer (Seleccionar oferta) -> pestaña Imágenes de VM -> Open Ports (Abrir puertos)
+* **Offer Identifier** (Identificador de oferta): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; Imágenes de VM -&gt; Offer Identifier (Identificador de oferta)
+* **SKU Identifier** (Identificador de SKU): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña SKUs (SKU) -&gt; Offer Identifier (Identificador de oferta)
+* **Publisher Namespace** (Espacio de nombres de publicador): Portal de publicación -&gt; Máquinas virtuales -&gt; pestaña Walkthrough (Tutorial) -&gt; Tell Us About Your Company (Indíquenos la información de su empresa) (esta opción se encuentra en el paso 2 sobre registro) -&gt; Publisher Namespace (Espacio de nombres de publicador) -&gt; Espacio de nombres
+* **Puertos**: Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña Imágenes de VM -&gt; Open Ports (Abrir puertos)
 
 ### <a name="sell-to-countries-of-the-sku"></a>Países a los que se vende la SKU
 Debe ser cauteloso a la hora de poner a disposición del público sus SKU. Algunos países se clasifican como Microsoft remit (Envío por parte de Microsoft) y otros como ISV remit (Envío por parte del ISV).

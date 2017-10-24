@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 467a08b1ba9f7c0070dfa0cf3df18326cf49ca70
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 6a03f668c6b9e18bf80cb04ea9feddeef4b6bd9e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Implementación de un clúster de Kubernetes para los contenedores de Windows
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Esta guía ofrece información detallada sobre cómo implementar un clúster de [Kubernetes](https://kubernetes.io/docs/home/) en [Azure Container Service](../container-service-intro.md) usando la CLI de Azure. Una vez que se implemente el clúster, se conecta a él con la herramienta de línea de comandos `kubectl` de Kubernetes y se implementa el primer contenedor de Windows.
@@ -168,7 +166,7 @@ Para exponer el pod a todo el mundo con una dirección IP pública, escriba el s
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Con este comando, Kubernetes crea un servicio y una [regla del equilibrador de carga de Azure](container-service-kubernetes-load-balancing.md) con una dirección IP pública para el servicio. 
+Con este comando, Kubernetes crea un servicio y una regla del equilibrador de carga de Azure con una dirección IP pública para el servicio. 
 
 Ejecute el siguiente comando para ver el estado del servicio.
 
@@ -203,4 +201,3 @@ En esta guía de inicio rápido, ha implementado un clúster de Kubernetes, cone
 
 > [!div class="nextstepaction"]
 > [Administración de un clúster de ACS Kubernetes](container-service-tutorial-kubernetes-prepare-app.md)
-

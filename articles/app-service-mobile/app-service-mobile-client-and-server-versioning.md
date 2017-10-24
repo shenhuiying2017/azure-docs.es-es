@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Control de versiones de cliente y servidor en Aplicaciones móviles y Servicios móviles
 La versión más reciente de Servicios móviles de Azure es la característica **Aplicaciones móviles** del Servicio de aplicaciones de Azure.
@@ -52,7 +52,7 @@ Para anular la comprobación de la versión, establezca el valor **true** en la 
 ## <a name="summary-of-compatibility-for-all-versions"></a>Resumen de compatibilidad para todas las versiones
 En la tabla siguiente se muestra la compatibilidad entre todos los tipos de cliente y servidor. Los back-ends se clasifican como Mobile **Services** o Mobile **Apps** en función del SDK de servidor que usan.
 
-|  | **Servicios móviles**  | **Aplicaciones móviles**  |
+|  | **Servicios móviles** | **Aplicaciones móviles** |
 | --- | --- | --- |
 | [Clientes de Servicios móviles] |Aceptar |Error\* |
 | [Clientes de Aplicaciones móviles] |Error\* |Aceptar |
@@ -79,7 +79,7 @@ Nota: los SDK de cliente de Mobile Services *no* envían un valor de encabezado 
 ### <a name="mobile-services-server-sdks"></a>SDK de servidor de *Servicios* móviles
 | Plataforma de servidor | Versión | Encabezado de versión aceptado |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* Versión 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |** Ningún encabezado de versión ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* Versión 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Ningún encabezado de versión** |
 | Node.js |(próximamente) |**Ningún encabezado de versión** |
 
 <!-- TODO: add Node npm version -->

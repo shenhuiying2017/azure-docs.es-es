@@ -5,13 +5,12 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 07/10/2017
+ms.date: 09/25/2017
+ms.openlocfilehash: 384b65bc89401780b174c143d84b3b8f552fba3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c873b153ef9c7d5f55672a5918c9dc4fb7256701
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Información general sobre la eliminación temporal de Azure Key Vault
 
@@ -22,7 +21,9 @@ La característica de eliminación temporal de Key Vault permite recuperar almac
 
 ## <a name="supporting-interfaces"></a>Interfaces admitidas
 
-La característica de eliminación temporal está disponible inicialmente a través de las interfaces de REST, .NET/C# y PowerShell. Para más información al respecto, consulte la [referencia sobre Key Vault](https://docs.microsoft.com/azure/key-vault/).
+La característica de eliminación temporal está disponible inicialmente a través de las interfaces de REST, .NET/C#, PowerShell y la CLI.
+
+Para obtener información general, consulte la [referencia sobre Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
 ## <a name="scenarios"></a>Escenarios
 
@@ -36,7 +37,7 @@ Los almacenes Azure Key Vault son recursos controlados que se administran por me
 
 Con esta característica, la operación DELETE sobre un objeto o instancia de Key Vault es una operación temporal que retiene los recursos durante un período determinado durante el cual parece que el objeto se ha eliminado realmente. El servicio proporciona además un mecanismo para recuperar el objeto eliminado, básicamente deshaciendo la eliminación. 
 
-La eliminación temporal es un comportamiento opcional de Key Vault y no **está habilitado de forma predeterminada** en esta versión. Para obtener más información acerca de cómo habilitar la eliminación de software para su instancia de Key Vault, consulte las instrucciones específicas relativas a la interfaz que esté utilizando en la [referencia de Key Vault](https://docs.microsoft.com/azure/key-vault/).
+La eliminación temporal es un comportamiento opcional de Key Vault y no **está habilitado de forma predeterminada** en esta versión. 
 
 ### <a name="key-vault-recovery"></a>Recuperación de Key Vault
 
@@ -67,6 +68,10 @@ La purga permanente de una instancia de Key Vault es posible a través de una op
 
 Se da una excepción a esta circunstancia cuando la suscripción de Azure se ha marcado como *no eliminable*. En este caso, solo el servicio puede realizar la eliminación real, y lo hace como un proceso programado. 
 
+## <a name="next-steps"></a>Pasos siguientes
 
+Las dos guías siguientes ofrecen los escenarios de uso principal para uso de la eliminación temporal.
 
+- [Uso de la eliminación temporal de Key Vault con PowerShell](key-vault-soft-delete-powershell.md) 
+- [Uso de la eliminación temporal de Key Vault con la CLI](key-vault-soft-delete-cli.md)
 

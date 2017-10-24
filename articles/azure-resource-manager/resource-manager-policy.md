@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2017
+ms.date: 10/09/2017
 ms.author: tomfitz
+ms.openlocfilehash: cfdbf35b76b6a7f3cddb2deb35dfc475e0fc600f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 0ee2624f45a1de0c23cae4538a38ae3e302eedd3
-ms.contentlocale: es-es
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resource-policy-overview"></a>Información general sobre las directivas de recursos
 Las directivas de recursos permiten establecer convenciones para los recursos de una organización. La definición de convenciones permite controlar los costes y administrar los recursos más fácilmente. Por ejemplo, puede especificar que se permitan solo determinados tipos de máquinas virtuales. O puede obligar a que todos los recursos tengan una etiqueta concreta. Todos los recursos secundarios heredan las directivas. De este modo, si una directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
@@ -32,11 +31,6 @@ Hay que comprender dos conceptos acerca de las directivas:
 Este tema se centra en la definición de la directiva. Para obtener información acerca de la asignación de directivas, consulte [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Uso de Azure Portal para asignar y administrar directivas de recursos) o [Assign and manage policies through script](resource-manager-policy-create-assign.md) (Asignación y administración de directivas a través de scripts).
 
 Las directivas se evalúan al crear y actualizar los recursos (operaciones PUT y PATCH).
-
-> [!NOTE]
-> Actualmente, la directiva no evalúa los tipos de recursos que no se admiten etiquetas, variante y ubicación, como el tipo de recurso Microsoft.Resources/deployments. Esta compatibilidad se agregará en el futuro. Para evitar problemas de compatibilidad con versiones anteriores, debe especificar explícitamente el tipo al crear directivas. Por ejemplo, una directiva de etiqueta que no especifique tipos se aplicará a todos los tipos. En ese caso, una implementación de plantilla puede dar error si hay un recurso anidado que no admite etiquetas y el tipo de recurso de implementación se ha agregado a la evaluación de directivas. 
-> 
-> 
 
 ## <a name="how-is-it-different-from-rbac"></a>¿En qué se diferencia de RBAC?
 Hay algunas diferencias importantes entre directiva y control de acceso basado en roles (RBAC). RBAC se centra en las acciones del **usuario** en ámbitos diferentes. Por ejemplo, se agrega un usuario al rol de colaborador para un grupo de recursos en el ámbito deseado, para que pueda realizar cambios en ese grupo de recursos. La directiva se centra en las propiedades de los **recursos** durante la implementación. Por ejemplo, a través de directivas, puede controlar los tipos de recursos que se pueden aprovisionar. O puede restringir las ubicaciones en las que se pueden aprovisionar los recursos. A diferencia de RBAC, la directiva es un sistema que permite de manera predeterminada y niega explícitamente. 
@@ -67,6 +61,7 @@ Puede asignar cualquier de estas directivas a través del [portal](resource-mana
 ## <a name="policy-definition-structure"></a>Estructura de definición de directiva
 Para crear una definición de directiva se utiliza JSON. La definición de directiva contiene elementos para:
 
+* modo
 * parameters
 * nombre para mostrar
 * description
@@ -79,6 +74,7 @@ En el ejemplo siguiente se muestra una directiva que limita las ubicaciones dond
 ```json
 {
   "properties": {
+    "mode": "all",
     "parameters": {
       "allowedLocations": {
         "type": "array",
@@ -106,7 +102,13 @@ En el ejemplo siguiente se muestra una directiva que limita las ubicaciones dond
 }
 ```
 
-## <a name="parameters"></a>Parámetros
+## <a name="mode"></a>Mode
+
+Se recomienda que establezca `mode` en `all`. Cuando se establece en **all**, los grupos de recursos y todos los tipos de recursos se evalúan para la directiva. El portal usa **all** para todas las directivas. Si usa PowerShell o CLI de Azure, tiene que especificar el parámetro `mode`, establézcalo en **all**.
+ 
+Anteriormente, se evalúa la directiva solo en tipos de recursos que admiten etiquetas y ubicación. El modo `indexed` sigue este comportamiento. Si usa el modo **all**, las directivas también se evalúan en los tipos de recursos que no son compatibles con etiquetas y ubicación. [Subred de red virtual](https://github.com/Azure/azure-policy-samples/tree/master/samples/Network/enforce-nsg-on-subnet) es un ejemplo de un tipo recién agregado. Además, los grupos de recursos se evalúan cuando el modo está establecido en **all**. Por ejemplo, puede [aplicar etiquetas en un grupo de recursos](https://github.com/Azure/azure-policy-samples/tree/master/samples/ResourceGroup/enforce-resourceGroup-tags). 
+
+## <a name="parameters"></a>parameters
 Al usar parámetros, podrá simplificar la administración de directivas reduciendo el número de definiciones de directiva. Definimos una directiva para una propiedad de recurso (por ejemplo, para limitar las ubicaciones donde se pueden implementar los recursos) e incluimos parámetros en la definición. A continuación, reutilizamos esa definición de directiva en diferentes escenarios y establecemos valores diferentes (por ejemplo, especificamos un conjunto de ubicaciones para una suscripción) al asignar la directiva.
 
 Declarará parámetros al crear las definiciones de directiva.
@@ -210,11 +212,13 @@ Se admiten los siguientes campos:
 * alias de propiedad: para obtener una lista, vea [Alias](#aliases).
 
 ### <a name="effect"></a>Efecto
-La directiva admite tres tipos de efectos: `deny`, `audit` y `append`. 
+La directiva admite tres tipos de efectos: `deny`, `audit`, `append`, `AuditIfNotExists` y `DeployIfNotExists`. 
 
 * **Deny** genera un evento en el registro de auditoría y se produce un error en la solicitud.
 * **Audit** genera un evento de advertencia en el registro de auditoría pero no producirá un error en la solicitud.
 * **Append** agrega el conjunto de campos definido a la solicitud. 
+* **AuditIfNotExists**:habilitar la auditoría si un recurso no existe
+* **DeployIfNotExists**: implementar un recurso si aún no existe. Actualmente, este efecto solo se admite a través de directivas integradas.
 
 En el caso de **append**, debe proporcionar los detalles tal y como se muestra a continuación:
 
@@ -229,6 +233,10 @@ En el caso de **append**, debe proporcionar los detalles tal y como se muestra a
 ```
 
 El valor puede ser una cadena o un objeto con formato JSON. 
+
+Con **AuditIfNotExists** y **DeployIfNotExists**, puede evaluar la existencia de un recurso secundario y aplicar una regla si no existe ese recurso. Por ejemplo, puede requerir que un monitor de red se implemente para todas las redes virtuales.
+
+Para obtener un ejemplo de auditoría cuando no se implementa una extensión de máquina virtual, consulte [Auditoría de extensiones de máquina virtual](https://github.com/Azure/azure-policy-samples/blob/master/samples/Compute/audit-vm-extension/azurepolicy.json).
 
 ## <a name="aliases"></a>Alias
 
@@ -347,20 +355,96 @@ Los alias de propiedad se usan para tener acceso a propiedades específicas de u
 | Microsoft.Storage/storageAccounts/sku.name | Establezca el nombre de SKU. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Establezca permitir solo el tráfico https en el servicio de almacenamiento. |
 
+## <a name="policy-sets"></a>Conjuntos de directivas
 
-## <a name="policy-examples"></a>Ejemplos de directivas
+Los conjuntos de directivas le permiten agrupar varias definiciones de directiva relacionadas. El conjunto de directivas simplifica la asignación y administración porque se trabaja con el grupo como un solo elemento. Por ejemplo, puede agrupar todas las directivas de etiquetado relacionadas en un conjunto de directiva único. En lugar de asignar individualmente cada directiva, puede aplicar el conjunto de directivas.
+ 
+En el ejemplo siguiente se muestra cómo crear un conjunto de directiva para el tratamiento de dos etiquetas (costCenter y productName). Utiliza dos directivas integradas para aplicar el valor de etiqueta predeterminada y exigir el valor de etiqueta. El conjunto de directivas declara dos parámetros, costCenterValue y productNameValue para ser reutilizados. Hace referencia a las dos definiciones de directiva integrada varias veces con parámetros diferentes. Para cada parámetro, se puede proporcionar un valor fijo, como se muestra para tagName o establecer un parámetro del conjunto de directivas, como se muestra para tagValue.
 
-Los siguientes temas contienen ejemplos de directivas:
+```json
+{
+    "properties": {
+        "displayName": "Billing Tags Policy",
+        "policyType": "Custom",
+        "description": "Specify cost Center tag and product name tag",
+        "parameters": {
+            "costCenterValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for Cost Center tag"
+                }
+            },
+            "productNameValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for product Name tag"
+                }
+            }
+        },
+        "policyDefinitions": [
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            }
+        ]
+    },
+    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
+    "type": "Microsoft.Authorization/policySetDefinitions",
+    "name": "billingTagsPolicy"
+}
+```
 
-* Para ver ejemplos de directivas de etiqueta, consulte [Apply resource policies for tags](resource-manager-policy-tags.md) (Aplicación de directivas de recursos para etiquetas).
-* Para obtener ejemplos de patrones de texto y nomenclatura, vea [Aplicación de directivas de recursos para nombres y texto](resource-manager-policy-naming-convention.md).
-* Para ver ejemplos de directivas de almacenamiento, consulte [Aplicación de directivas de recursos a cuentas de almacenamiento](resource-manager-policy-storage.md).
-* Para ver ejemplos de directivas de máquina virtual, consulte [Aplicación de directivas de recursos a máquinas virtuales Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) y [Aplicación de directivas de recursos a máquinas virtuales Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
+Agregue un conjunto de directivas con el comando de PowerShell **AzureRMPolicySetDefinition New**.
 
+Para operaciones de REST, use la **versión preliminar-2017-06-01** versión de API, como se muestra en el ejemplo siguiente:
+
+```
+PUT /subscriptions/<subId>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicySet?api-version=2017-06-01-preview
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Después de definir una regla de directiva, asígnela a un ámbito. Para asignar directivas a través del portal, consulte [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Uso de Azure Portal para asignar y administrar directivas de recursos). Para asignar directivas a través de la API de REST, PowerShell o la CLI de Azure, consulte [Assign and manage policies through script](resource-manager-policy-create-assign.md) (Asignación y administración de directivas a través de scripts).
+* Para ejemplos de las directivas, consulte el [repositorio de GitHub de directivas de recursos de Azure](https://github.com/Azure/azure-policy-samples).
 * Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
 * El esquema de la directiva está publicado en [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
-
 

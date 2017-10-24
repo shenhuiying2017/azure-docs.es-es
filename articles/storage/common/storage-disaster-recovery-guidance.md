@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
+ms.openlocfilehash: c768bdbb8e1ce2aae3eb5b6db0e48977366c83fb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1d9ccc1c81260379b5e645d338cbf1fa265e18d4
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Qué hacer si se produce una interrupción del servicio de Almacenamiento de Azure
 En Microsoft, hacemos todo lo posible para garantizar que los servicios siempre estén disponibles. A veces, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas en una o varias regiones. Para ayudarlo a gestionar estos raros imprevistos, ofrecemos la siguiente guía general para los servicios de Almacenamiento de Azure.
 
@@ -54,7 +52,7 @@ Cuando se produce un desastre regional que afecta a la región primaria, se trat
 Ahora hablaremos de dos aspectos relativos a la experiencia de conmutación por error geográfica de almacenamiento:
 
 * La conmutación por error geográfica de almacenamiento solo la activa el equipo de almacenamiento de Azure. El cliente no tiene que hacer nada.
-* Los puntos de conexión de los servicios de almacenamiento que disponga para blobs, tablas, colas y archivos seguirán siendo los mismos después de la conmutación por error; la entrada DNS deberá actualizarse para cambiar de la región primaria a la secundaria.
+* Los puntos de conexión del servicio de almacenamiento para blobs, tablas, colas y archivos seguirán siendo los mismos después de la conmutación por error; la entrada DNS suministrada por Microsoft deberá actualizarse para cambiar de la región primaria a la secundaria.  Microsoft realizará esta actualización automáticamente como parte del proceso de conmutación por error geográfica.
 * Antes de la conmutación por error geográfica y durante este proceso, no tendrá acceso de escritura a la cuenta de almacenamiento debido a las repercusiones del desastre. Sin embargo, sí que podrá seguir realizando operaciones de lectura en la base de datos secundaria si la cuenta de almacenamiento se ha configurado como RA-GRS.
 * Cuando se haya completado la conmutación por error geográfica y se propaguen los cambios de DNS, se reanudará el acceso de lectura y escritura de la cuenta de almacenamiento. Esto apunta a lo que solía ser el punto de conexión secundario. 
 * Tenga en cuenta que tendrá acceso de escritura si tiene GRS o RA-GRS configurado para la cuenta de almacenamiento. 
@@ -71,5 +69,4 @@ Para hacer una copia de seguridad de los datos de almacenamiento de forma perió
 * Archivos: use [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) para copiar los archivos en otra cuenta de almacenamiento de otra región.
 
 Para información sobre cómo crear aplicaciones que aprovechan totalmente la característica RA-GRS, consulte [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](../storage-designing-ha-apps-with-ragrs.md).
-
 

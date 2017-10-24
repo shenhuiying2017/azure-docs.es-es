@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
+ms.openlocfilehash: a8bbe6c4f6919f150012163b0c7559d2986e072f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 70cccd5ac7fbea36f02150e3da319a043c22c677
-ms.contentlocale: es-es
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -387,7 +386,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
     <!-- if there are multiple possible issuers, then add additional issuer elements -->  
   </issuers>  
   <required-claims>  
-    <claim name="name of the claim as it appears in the token" match="all|any">  
+    <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
       <value>claim value as it is expected to appear in the token</value>  
       <!-- if there is more than one allowed values, then add additional value elements -->  
     </claim>  
@@ -517,6 +516,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |require-expiration-time|Booleano. Especifica si es necesaria una notificación de expiración en el token.|No|true|
 |require-scheme|El nombre del token de esquema; por ejemplo, "Bearer". Cuando se establece este atributo, la directiva se asegurará de que ese esquema especificado esté presente en el valor del encabezado de la autorización.|No|N/D|
 |require-signed-tokens|Booleano. Especifica si un token debe estar firmado.|No|true|  
+|separator|String. Especifica el separador (por ejemplo: ",") que se va a usar para extraer un conjunto de valores de una notificación con varios valores.|No|N/D| 
 |url|Dirección URL de punto de conexión de configuración de OpenID desde donde se pueden obtener los metadatos de configuración de OpenID. En Azure Active Directory, utilice la dirección URL `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` y sustituya tenant-name por el nombre del inquilino de directorio, por ejemplo, `contoso.onmicrosoft.com`.|Sí|N/D|  
   
 ### <a name="usage"></a>Uso  
@@ -528,4 +528,3 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo trabajar con directivas, consulte a [Directivas de API Management](api-management-howto-policies.md).  
-

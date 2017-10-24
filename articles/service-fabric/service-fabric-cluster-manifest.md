@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: dekapur
+ms.openlocfilehash: 660e7b59ae0e92692121620341562e412a6e8eae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 30fadddabf89d379beffdf214cfe8a8145d7a29b
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Opciones de configuración de clústeres de Windows independientes
 En este artículo se describe cómo configurar un clúster de Service Fabric independiente con el archivo ***ClusterConfig.JSON***. Puede usar este archivo para especificar información tal como los nodos de Service Fabric y sus direcciones IP, los distintos tipos de nodos en el clúster, las configuraciones de seguridad y la topología de red (dominios de error o actualización) para el clúster independiente.
 
-Cuando [descarga el paquete de Service Fabric independiente](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), se descargan unos pocos ejemplos del archivo ClusterConfig.JSON en la máquina de trabajo. Los ejemplos que tengan *DevCluster* en sus nombres, le permitirán crear un clúster con los tres nodos en la misma máquina, como nodos lógicos. Fuera de estos casos, al menos un nodo debe marcarse como un nodo principal. Este clúster es útil para un entorno de desarrollo o pruebas y no se admite como clúster de producción. Los ejemplos que tengan *MultiMachine* en sus nombres, le ayudarán a crear un clúster de calidad de producción, con cada nodo en una máquina independiente.
+Cuando [descarga el paquete de Service Fabric independiente](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), se descargan unos pocos ejemplos del archivo ClusterConfig.JSON en la máquina de trabajo. Los ejemplos que tengan *DevCluster* en sus nombres, le permitirán crear un clúster con los tres nodos en la misma máquina, como nodos lógicos. Fuera de estos casos, al menos un nodo debe marcarse como un nodo principal. Este clúster es útil para un entorno de desarrollo o pruebas y no se admite como clúster de producción. Los ejemplos que tengan *MultiMachine* en sus nombres, le ayudarán a crear un clúster de calidad de producción, con cada nodo en una máquina independiente. El número de nodos principales en estos clústeres se basará en el [nivel de confiabilidad](#reliability). En la API 5.7, versión de mayo de 2017, se eliminó la propiedad de nivel de confiabilidad. En su lugar, el código calcula el nivel de confiabilidad más optimizado para su clúster. No use esta propiedad en la versión de código 5.7 y posteriores.
+
 
 1. *ClusterConfig.Unsecure.DevCluster.JSON* y *ClusterConfig.Unsecure.MultiMachine.JSON* muestran cómo crear un clúster no seguro de prueba o producción no seguro, respectivamente. 
 2. *ClusterConfig.Windows.DevCluster.JSON* y  *ClusterConfig.Windows.MultiMachine.JSON* muestran cómo crear el clúster de prueba o producción, protegido con [seguridad de Windows](service-fabric-windows-cluster-windows-security.md).
@@ -197,5 +197,4 @@ Para habilitar la compatibilidad con un contenedor de Windows Server o Hyper-V p
 
 ## <a name="next-steps"></a>Pasos siguientes
 Cuando ya tenga un archivo ClusterConfig.JSON completo configurado según la configuración del clúster independiente, puede implementar el clúster siguiendo el artículo [Creación de un clúster de Azure Service Fabric independientes](service-fabric-cluster-creation-for-windows-server.md) y luego continúe con [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-
 

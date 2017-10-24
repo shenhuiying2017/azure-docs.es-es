@@ -5,17 +5,15 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 10/10/2017
 ms.author: victorh
 keywords: 
+ms.openlocfilehash: 0a5a783751e4f0fa9f5fb43b22fa221dd9bf3444
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bf41e2458ade0bc770eb0f9cd327f752e08358a9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-stack-datacenter-integration---dns"></a>Integración del centro de datos de Azure Stack: DNS
 
 *Se aplica a: Sistemas integrados de Azure Stack*
@@ -68,9 +66,14 @@ Azure Stack incluye servidores DNS autoritativos y recursivos. Los servidores re
 
 Para resolver nombres DNS para puntos de conexión fuera de Azure Stack (por ejemplo, www.bing.com), deberá proporcionar servidores DNS que Azure Stack pueda usar para reenviar las solicitudes DNS para las que Azure Stack no es autoritativo. Para la implementación, se requieren los servidores DNS a los que Azure Stack reenvía las solicitudes en la hoja de cálculo de implementación (en el campo Reenviador DNS). Proporcione al menos dos servidores en este campo por razones de tolerancia a errores. Sin estos valores, se produce un error de implementación de Azure Stack.
 
-### <a name="adding-dns-forwarding-servers-after-deployment"></a>Agregar servidores de reenvío de DNS después de la implementación
+### <a name="configure-conditional-dns-forwarding"></a>Configure el reenvío condicional de DNS
 
-Si usted o su ISP actualiza su infraestructura de DNS, tal vez le interese registrar servidores DNS adicionales. Para agregar servidores DNS para reenviar solicitudes recursivas, debe usar el punto de conexión con privilegios.
+> [!IMPORTANT]
+> Esto solo se aplica a una implementación de AD FS.
+
+Para habilitar la resolución de nombres con la infraestructura DNS existente, configure el reenvío condicional.
+
+Para agregar un reenviador condicional, debe utilizar el punto de conexión con privilegios.
 
 Para este procedimiento, use un equipo de la red del centro de datos que pueda comunicarse con el punto de conexión con privilegios de Azure Stack.
 
@@ -84,10 +87,8 @@ Para este procedimiento, use un equipo de la red del centro de datos que pueda c
 2. Después de conectarse al punto de conexión con privilegios, ejecute el siguiente comando de PowerShell. Sustituya los valores de ejemplo proporcionados por su nombre de dominio y direcciones IP de los servidores DNS que quiere usar.
 
    ```
-   Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses “192.168.1.1”,”192.168.1.2”
+   Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses "192.168.1.1","192.168.1.2"
    ```
-
-Después de ejecutar este comando, los servicios de Azure Stack y las máquinas virtuales de usuario que usen el DNS de Azure Stack podrán resolver los nombres de los puntos de conexión de Azure Stack, como los puntos de conexión del portal y de la API, así como todas las direcciones IP públicas que tienen una etiqueta de nombre DNS.
 
 ## <a name="resolving-azure-stack-dns-names-from-outside-azure-stack"></a>Resolver nombres DNS de Azure Stack desde fuera de Azure Stack
 Los servidores autoritativos son los que contienen la información de zona DNS externa y las zonas creadas por el usuario. Realice la integración con estos servidores para habilitar la delegación de zona o el reenvío condicional para resolver nombres DNS de Azure Stack desde fuera de Azure Stack.
@@ -140,4 +141,3 @@ La mayoría de los registradores DNS requieren que se proporcione un mínimo de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Integración del centro de datos de Azure Stack: publicar puntos de conexión](azure-stack-integrate-endpoints.md)
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserción de anuncios en el lado cliente
 Este tema contiene información sobre cómo insertar distintos tipos de anuncios en el lado cliente.
@@ -154,7 +154,7 @@ Los anuncios no lineales se especifican también en un elemento <Creative>. El e
     </Creative>
 
 
-El elemento <**NonLinearAds**> puede contener uno o varios elementos <**NonLinear**>, y cada uno de ellos puede describir un anuncio no lineal. El elemento <**NonLinear**> especifica el recurso para el anuncio no lineal. El recurso puede ser <**StaticResouce**>, <**IFrameResource**> o <**HTMLResouce**>. <**StaticResource**> describe un recurso no HTML y define un atributo creativeType que especifica cómo se muestra el recurso:
+El elemento <**NonLinearAds**> puede contener uno o varios elementos <**NonLinear**>, y cada uno de ellos puede describir un anuncio no lineal. El elemento <**NonLinear**> especifica el recurso para el anuncio no lineal. El recurso puede ser <**StaticResouce**>, <**IFrameResource**> o <**HTMLResouce**>. <**StaticResource**&gt; describe un recurso no HTML y define un atributo creativeType que especifica cómo se muestra el recurso:
 
 Image/gif, image/jpeg, image/png: el recurso se muestra en una etiqueta HTML <**img**>.
 

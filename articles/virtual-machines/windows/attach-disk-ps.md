@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
+ms.openlocfilehash: 9ae27e6abc239fe76288e64a996ec39ba7782822
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9d16d16f0e57fab9f1827c37f181e579c627b3d9
-ms.openlocfilehash: e259a9cf42719fb0426dce09b5526fa43585bb26
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Conexión de un disco a una VM con Windows mediante PowerShell
 
 En este artículo se explica cómo conectar discos nuevos y existentes a una máquina virtual con Windows mediante PowerShell. Si la VM utiliza discos administrados, puede conectar discos de datos administrados adicionales. También puede conectar discos de datos no administrados a una VM que usa discos no administrados en una cuenta de almacenamiento.
@@ -31,13 +29,9 @@ Antes de hacerlo, revise estas sugerencias:
 * El tamaño de la máquina virtual controla cuántos discos de datos puede conectar. Para obtener más información, consulte [Tamaños de máquinas virtuales](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Para usar Premium Storage, necesitará una VM con Premium Storage habilitado con un tamaño como el de las VM de las series DS o GS. Puede utilizar discos de cuentas de almacenamiento premium y estándar con estas máquinas virtuales. Almacenamiento premium está disponible en determinadas regiones. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="before-you-begin"></a>Antes de empezar
-Si usa PowerShell, asegúrese de que tiene la versión más reciente del módulo de PowerShell AzureRM.Compute. Ejecute el siguiente comando para instalarla.
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Para más información, consulte [Azure PowerShell Versioning](/powershell/azure/overview) (Control de versiones de Azure PowerShell).
+Si decide instalar y usar PowerShell localmente, para este tutorial se requiere la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Incorporación de un disco de datos vacío a una máquina virtual
@@ -46,7 +40,7 @@ En este ejemplo se muestra cómo agregar un disco de datos vacío a una máquina
 
 ### <a name="using-managed-disks"></a>Uso de discos administrados
 
-```powershell
+```azurepowershell-interactive
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
 $location = 'West Central US' 
@@ -86,7 +80,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="using-unmanaged-disks-in-a-storage-account"></a>Uso de discos no administrados en una cuenta de almacenamiento
 
-```powershell
+```azurepowershell-interactive
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     Add-AzureRmVMDataDisk -VM $vm -Name "disk-name" -VhdUri "https://mystore1.blob.core.windows.net/vhds/datadisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
@@ -97,7 +91,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 Después de agregar un disco vacío, debe inicializarlo. Para hacerlo, puede iniciar sesión en una VM y usar la administración de discos. Si habilitó WinRM y un certificado en la VM cuando la creó, puede usar PowerShell remoto para inicializar el disco. También puede utilizar una extensión de script personalizada: 
 
-```powershell
+```azurepowershell-interactive
     $location = "location-name"
     $scriptName = "script-name"
     $fileName = "script-file-name"
@@ -106,7 +100,7 @@ Después de agregar un disco vacío, debe inicializarlo. Para hacerlo, puede ini
         
 El archivo de script puede tener un contenido parecido a este código para inicializar los discos:
 
-```powershell
+```azurepowershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
 
     $letters = 70..89 | ForEach-Object { [char]$_ }
@@ -130,7 +124,7 @@ También puede conectar un VHD existente como un disco de datos administrado a u
 
 ### <a name="using-managed-disks"></a>Uso de discos administrados
 
-```powershell
+```azurepowershell-interactive
 $rgName = 'myRG'
 $vmName = 'ContosoMdPir3'
 $location = 'West Central US' 
@@ -152,4 +146,3 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ## <a name="next-steps"></a>Pasos siguientes
 
 Crear una [instantánea](snapshot-copy-managed-disk.md).
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
+ms.openlocfilehash: ebf3062ab0600b0ae722c78d07095970001a0a23
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: ab95c39a3b5c4ac2c07bf5de36abbdc22fde7e7d
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows
 Microsoft Azure está muy comprometido a garantizar la privacidad y soberanía de los datos, y permite controlar los datos hospedados en Azure datos mediante varias tecnologías avanzadas que cifran, controlan y administran las claves de cifrado, y controlan y auditan el acceso de los datos. Esto proporciona a los clientes de Azure la flexibilidad necesaria para elegir la solución que mejor cubra sus necesidades empresariales. En este artículo, le presentaremos a una nueva solución de tecnología, "Cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows", que le ayudara a proteger sus datos para que cumplan los compromisos de seguridad y compatibilidad de su organización. Ofrece información detalladas sobre cómo usar las características de cifrado de disco de Azure, incluidos los escenarios admitidos y las experiencias de los usuarios.
@@ -233,6 +232,8 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
 * Los discos de datos montados de forma recursiva no son compatibles con Azure Disk Encryption para Linux. Por ejemplo, si el sistema de destino ha montado un disco en/foo/barra y, a continuación, otro en /foo/barra/baz, el cifrado de /foo/barra/baz se realizará correctamente, pero se producirá un error de cifrado de /foo/barra. 
 
 * Azure Disk Encryption solo se admite en imágenes admitidas de la Galería de Azure que cumplen los requisitos previos mencionados anteriormente. Las imágenes personalizadas de cliente no se admiten debido a los comportamientos de los procesos y los esquemas de las particiones personalizadas que puedan existir en estas imágenes. Además, incluso pueden no ser compatibles las máquinas virtuales basadas en imágenes de la galería que inicialmente cumplieran los requisitos previos, pero fueran modificadas después de su creación.  Por ello, el procedimiento sugerido para cifrar una VM de Linux es partir de una imagen limpia de la galería, cifrar la máquina virtual y, a continuación, agregarle los datos o el software personalizado según sea necesario.  
+
+* Azure Disk Encryption para un volumen de datos local: volumen BEK para Windows y /mnt/azure_bek_disk para máquinas virtuales IaaS de Linux para proteger de forma segura la clave de cifrado. No elimine ni modifique ningún contenido de este disco. No desmonte el disco ya que la presencia de la clave de cifrado es necesaria para las operaciones de cifrado en la máquina virtual IaaS. El archivo LÉAME incluido en el volumen contiene detalles adicionales.
 
 > [!NOTE]
 > La copia de seguridad y restauración de las máquinas virtuales cifradas solo se admite para las máquinas virtuales que se cifran mediante la configuración de KEK. No se admite en máquinas virtuales cifradas sin KEK. KEK es un parámetro opcional que habilita las máquinas virtuales.
@@ -1300,4 +1301,3 @@ Puede descargar esta guía de la [Galería de TechNet](https://gallery.technet.m
 ## <a name="for-more-information"></a>Para obtener más información
 [Explore Azure Disk Encryption with Azure PowerShell - Part 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0) (Exploración de Azure Disk Encryption con Azure PowerShell - Parte 1)  
 [Exploración de Azure Disk Encryption con Azure PowerShell, parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
-

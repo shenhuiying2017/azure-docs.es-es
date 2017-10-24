@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/19/2017
+ms.date: 10/11/2017
 ms.author: larryfr
+ms.openlocfilehash: d1f629ffb4ec3e6473e0a9a87c4e397d63310e9a
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 10dc8789e8f4a2b27fd3a4c6fec2ab28c674170a
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Escritura de datos en HDFS desde Apache Storm en HDInsight
 
@@ -80,8 +79,12 @@ components:
     constructorArgs:
       - 1000
 
+  # Rotate files when they hit 5 MB
   - id: "rotationPolicy"
-    className: "org.apache.storm.hdfs.bolt.rotation.NoRotationPolicy"
+    className: "org.apache.storm.hdfs.bolt.rotation.FileSizeRotationPolicy"
+    constructorArgs:
+      - 5
+      - "MB"
 
   - id: "fileNameFormat"
     className: "org.apache.storm.hdfs.bolt.format.DefaultFileNameFormat"
@@ -137,7 +140,9 @@ Para obtener más información sobre el marco Flux, consulte [https://storm.apac
 
 De manera predeterminada, Storm en HDInsight no incluye los componentes que usa HdfsBolt para la comunicación con Azure Storage o Data Lake Store en el parámetro classpath de Storm. Use la siguiente acción de script para agregar dichos componentes al directorio `extlib` de Storm en su clúster:
 
-| URI de script | Nodos en los que se aplicará| Parámetros | | `https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh` | Nimbus, supervisor | Ninguno |
+* Identificador URI de script: `https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* Nodos a aplicar: Nimbus, Supervisor
+* Parámetros: None
 
 Para obtener más información sobre cómo usar este script con su clúster, consulte el documento [Personalización de clústeres de HDInsight mediante la acción de scripts](./hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -201,13 +206,11 @@ Se muestra una lista de los archivos que ha creado la topología.
 La lista siguiente es un ejemplo de los datos devueltos por los comandos anteriores:
 
     Found 30 items
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-0-1488568403092.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-1-1488568404567.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-10-1488568408678.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-11-1488568411636.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-12-1488568411884.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-13-1488568412603.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-14-1488568415055.txt
+    -rw-r-----+  1 sshuser sshuser       488000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-0-1488568403092.txt
+    -rw-r-----+  1 sshuser sshuser       444000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-1-1488568404567.txt
+    -rw-r-----+  1 sshuser sshuser       502000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-10-1488568408678.txt
+    -rw-r-----+  1 sshuser sshuser       582000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-11-1488568411636.txt
+    -rw-r-----+  1 sshuser sshuser       464000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-12-1488568411884.txt
 
 ## <a name="stop-the-topology"></a>Detención de la topología
 
@@ -222,5 +225,4 @@ Las topologías de Storm se ejecutarán hasta que se detengan o se elimine el cl
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ya sabe usar Storm para escribir datos en Azure Storage y Azure Data Lake Store, descubra otros [ejemplos de Storm para HDInsight](hdinsight-storm-example-topology.md).
-
 

@@ -14,10 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
 ms.openlocfilehash: 21817b09440fc98a54dc45c9129d104b01fa387d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.6
 Este documento contiene las notas de la versión de SDK de Azure para la versión .NET 2.6. 
@@ -34,7 +34,7 @@ Con SDK de Azure 2.6 puede desarrollar aplicaciones de servicio en la nube (PaaS
 ## <a name="hdinsight-tools-for-visual-studio-updates"></a>Actualizaciones de herramientas de HDInsight para Visual Studio
 * **Mejora de IntelliSense**: sugerencia de metadatos remotos
   
-    Las Herramientas de HDInsight para Visual Studio ahora son compatibles con la obtención de metadatos remotos cuando se edita el script de Hive. Por ejemplo, puede escribir **seleccione * FROM** y se mostrarán todos los nombres de tabla. Además, los nombres de las columnas aparecerán después de especificar una tabla.
+    Las Herramientas de HDInsight para Visual Studio ahora son compatibles con la obtención de metadatos remotos cuando se edita el script de Hive. Por ejemplo, puede escribir **SELECT * FROM** y se mostrarán todos los nombres de las tablas. Además, los nombres de las columnas aparecerán después de especificar una tabla.
 * **Compatibilidad con el emulador de HDInsight**
   
     Las Herramientas de HDInsight para Visual Studio ahora admiten conectarse al emulador de HDInsight, de manera que puede desarrollar los scripts de Hive de manera local, sin introducir coste alguno y, a continuación, ejecutar dichos scripts en los clústeres de HDInsight. 

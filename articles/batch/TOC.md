@@ -20,6 +20,7 @@
 ### [Tareas simultáneas en los nodos](batch-parallel-node-tasks.md)
 ### [Recuento de tareas por estado](batch-get-task-counts.md)
 ### [Creación de un grupo con una imagen personalizada](batch-custom-images.md)
+### [Creación de un grupo en una red virtual](batch-virtual-network.md)
 ### [Consultas de listas eficaces](batch-efficient-list-queries.md)
 ### [Tareas de preparación y finalización de trabajos](batch-job-prep-release.md)
 ### [Nodos de proceso Linux](batch-linux-nodes.md)
@@ -62,6 +63,7 @@
 ## [Variables de entorno de nodo de proceso de Azure Batch](batch-compute-node-environment-variables.md)
 
 # Temas relacionados
+## [Inteligencia artificial de Batch](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Procesamiento de datos con Batch y Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Soluciones de Batch y HPC en la nube de Azure](batch-hpc-solutions.md)

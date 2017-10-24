@@ -1,6 +1,6 @@
 ---
-title: "Compilar una aplicación de .NET de Azure Cosmos DB mediante API Graph | Microsoft Docs"
-description: "En este tema se incluye un ejemplo de código .NET que puede usar para conectarse a Azure Cosmos DB y realizar consultas."
+title: "Compilación de una aplicación .NET Framework o Core para Azure Cosmos DB mediante la API Graph | Microsoft Docs"
+description: "En este tema se incluye un ejemplo de código .NET Framework o Core que puede usar para conectarse a Azure Cosmos DB y realizar consultas."
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -13,16 +13,15 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/28/2017
+ms.date: 10/06/2017
 ms.author: denlee
+ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 12c9bf626de8738fac95bd41965b0a2bf8758ed2
-ms.contentlocale: es-es
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Azure Cosmos DB: Compilar una aplicación de .NET mediante API Graph
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: compilación de una aplicación .NET Framework o Core mediante la API Graph
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
@@ -31,6 +30,8 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de d
 ## <a name="prerequisites"></a>Requisitos previos
 
 Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
+
+Si ya tiene instalado Visual Studio 2017, asegúrese de tener aplicado [Visual Studio 2017 Update 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,6 +46,10 @@ Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la vers
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
 Ahora vamos a clonar una aplicación de API Graph desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
+
+Este proyecto de ejemplo usa el formato de proyecto de .NET Core y se ha configurado para usar los siguientes marcos:
+ - netcoreapp2.0
+ - net461
 
 1. Abra una ventana de terminal de Git, como Git Bash, y `cd` en un directorio de trabajo.  
 
@@ -103,35 +108,37 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo Pr
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 
-1. En Visual Studio 2017, abra el archivo App.config. 
+1. En Visual Studio 2017, abra el archivo appsettings.json. 
 
 2. En Azure Portal, en la cuenta de Azure Cosmos DB, haga clic en **Claves** en el panel de navegación izquierdo. 
 
     ![Visualización y copia de una clave principal en Azure Portal, en la página Claves](./media/create-graph-dotnet/keys.png)
 
-3. Copie el valor de **Identificador URI** del portal y conviértalo en el valor de Endpoint key (Clave de punto de conexión) en App.config. Puede usar el botón de copia, tal y como se muestra en la captura de pantalla anterior, para copiar el valor.
+3. Copie el valor de **Identificador URI** del portal y conviértalo en el valor de la clave de punto de conexión en appsettings.json. Puede usar el botón de copia, tal y como se muestra en la captura de pantalla anterior, para copiar el valor.
 
-    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
+    `"endpoint": "https://FILLME.documents.azure.com:443/",`
 
 4. Copie el valor de **CLAVE PRINCIPAL** del portal y conviértalo en el valor de la clave AuthKey en App.config. A continuación, guarde los cambios. 
 
-    `<add key="AuthKey" value="FILLME" />`
+    `"authkey": "FILLME"`
 
 Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
 
 ## <a name="run-the-console-app"></a>Ejecutar la aplicación de consola
 
+Antes de ejecutar la aplicación, se recomienda que actualice el paquete *Microsoft.Azure.Graphs* a la versión más reciente.
+
 1. En Visual Studio, haga clic con el botón derecho en el proyecto **GraphGetStarted** en el **Explorador de soluciones** y, después, haga clic en **Administrar paquetes NuGet**. 
 
-2. En el cuadro **Examinar** de NuGet, escriba *Microsoft.Azure.Graphs* y active la casilla **Includes prerelease** (Incluye versión preliminar). 
+2. En la pestaña **Actualizaciones** del Administrador de paquetes NuGet, escriba *Microsoft.Azure.Graphs* y active la casilla **Includes prerelease** (Incluye versión preliminar). 
 
-3. En los resultados, instale la biblioteca **Microsoft.Azure.Graphs**. De este modo se instala el paquete de la biblioteca de extensión de grafos de Azure Cosmos DB y todas las dependencias.
+3. En los resultados, actualice la biblioteca **Microsoft.Azure.Graphs** a la versión más reciente del paquete. De este modo se instala el paquete de la biblioteca de extensión de grafos de Azure Cosmos DB y todas las dependencias.
 
     Si recibe un mensaje sobre cómo revisar los cambios en la solución, haga clic en **Aceptar**. Si recibe un mensaje acerca de la aceptación de licencia, haga clic en **Acepto**.
 
 4. Presione Ctrl+F5 para ejecutar la aplicación.
 
-   En la ventana de la consola se muestran los vértices y los bordes que se agregan al grafo. Cuando se complete el script, presione ENTRAR dos veces para cerrar la ventana de la consola. 
+   En la ventana de la consola se muestran los vértices y los bordes que se agregan al grafo. Cuando se complete el script, presione ENTRAR dos veces para cerrar la ventana de la consola.
 
 ## <a name="browse-using-the-data-explorer"></a>Examinar mediante el Explorador de datos
 
@@ -162,5 +169,4 @@ En esta guía de inicio rápido, ha obtenido información sobre cómo crear una 
 
 > [!div class="nextstepaction"]
 > [Consulta mediante Gremlin](tutorial-query-graph.md)
-
 

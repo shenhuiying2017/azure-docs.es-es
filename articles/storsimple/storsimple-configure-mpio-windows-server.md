@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.lasthandoff: 04/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar E/S de múltiples rutas para el dispositivo StorSimple
 Microsoft incorporó a Windows Server la compatibilidad con la característica de E/S de múltiples rutas (MPIO) para que sea más fácil crear configuraciones de SAN de alta disponibilidad y tolerancia a errores. MPIO usa componentes de ruta de acceso físicas redundantes (es decir, adaptadores, cables y conmutadores) para crear rutas de acceso lógicas entre el servidor y el dispositivo de almacenamiento. Si se produce un error de componente, lo que haría que la ruta de acceso lógica no funcionara, la lógica de múltiples rutas usa una ruta alternativa para E/S a fin de que las aplicaciones puedan seguir teniendo acceso a los datos. Además, dependiendo de la configuración de MPIO, puede mejorar el rendimiento al volver a equilibrar la carga entre estas rutas de acceso. Para más información, consulte [Introducción a E/S de múltiples rutas](https://technet.microsoft.com/library/cc725907.aspx "Introducción a E/S de múltiples rutas and features").  
@@ -67,10 +66,10 @@ MPIO tiene que configurarse de forma que identifique los volúmenes de StorSimpl
 1. Abra la **configuración de MPIO**. Haga clic en **Administrador del servidor > Panel > Herramientas > MPIO**.
 2. En el cuadro de diálogo **MPIO Properties** (Propiedades de MPIO), seleccione la pestaña **Detectar múltiples rutas**.
 3. Seleccione **Agregar compatibilidad con dispositivos iSCSI** y, luego, haga clic en **Agregar**.  
-   ![Propiedades de MPIO &gt; Detectar múltiples rutas](./media/storsimple-configure-mpio-windows-server/IC741003.png)
+   ![Propiedades de MPIO &amp;gt; Detectar múltiples rutas](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. Reinicie el servidor cuando se le pida.
 5. En el cuadro de diálogo **Propiedades de MPIO**, haga clic en la pestaña **Dispositivos con MPIO**. Haga clic en **Agregar**.
-    </br>![Propiedades de MPIO &gt; Dispositivo con MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
+    </br>![Propiedades de MPIO &amp;gt; Dispositivo con MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. En el cuadro de diálogo **Agregar compatibilidad con MPIO**, en **Identificador de hardware de dispositivo**, escriba el número de serie del dispositivo. Encontrará el número de serie del dispositivo si va al servicio StorSimple Manager y se desplaza a **Dispositivos > Panel**. El número de serie del dispositivo se muestra en el panel de **Vista rápida** derecho del panel del dispositivo.
     </br>![Agregar compatibilidad con MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Reinicie el servidor cuando se le pida.
@@ -115,8 +114,7 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en el disp
 13. Inicialice el disco y cree otro volumen. Durante el proceso de formato, seleccione un tamaño de bloque de 64 KB.
     ![Administración de discos](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. En **Administración de discos**, haga clic con el botón derecho en el **disco** y seleccione **Propiedades**.
-15. En el cuadro de diálogo **Propiedades del dispositivo de disco de múltiples rutas** del número de modelo de StorSimple pertinente, haga clic en la pestaña **MPIO**.
-    ![Propiedades del dispositivo de disco de múltiples rutas StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. En el cuadro de diálogo **Propiedades del dispositivo de disco de múltiples rutas** del número de modelo de StorSimple pertinente, haga clic en la pestaña **MPIO**. ![Propiedades del dispositivo de disco de múltiples rutas StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 16. En la sección **Nombre DSM**, haga clic en **Detalles** y compruebe que los parámetros están establecidos en los valores predeterminados. Los parámetros predeterminados son los siguientes:
     
     * Período de comprob. de ruta = 30
@@ -169,5 +167,4 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple](storsimple-modify-device-config.md).
-
 

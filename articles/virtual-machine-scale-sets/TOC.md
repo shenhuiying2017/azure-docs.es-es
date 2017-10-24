@@ -21,19 +21,20 @@
 ### [Creación con Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Creación con Azure PowerShell o la CLI de Azure](virtual-machine-scale-sets-create.md)
 ### [Conjunto de escalado con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
-### [Conjunto de escalado de Linux con escalado automático](virtual-machine-scale-sets-linux-autoscale.md)
-### [Conjunto de escalado de Windows con escalado automático](virtual-machine-scale-sets-windows-autoscale.md)
+### [Escalado automático de un conjunto de escalado](virtual-machine-scale-sets-autoscale-overview.md)
+#### [Uso de Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+#### [Uso de la CLI de Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+#### [Uso de Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+#### [Escalado automático avanzado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Aplicaciones en conjuntos de escalado](virtual-machine-scale-sets-deploy-app.md)
 ### [Uso de discos de datos con conjuntos de escalado](virtual-machine-scale-sets-attached-disks.md)
 ### [Uso de grandes conjuntos de escalado](virtual-machine-scale-sets-placement-groups.md)
 ### [Conversión de una plantilla de conjunto de escalado para que use un disco administrado](virtual-machine-scale-sets-convert-template-to-md.md)
 
-
-
 ## Administrar
-### [Conjunto de escalado de Windows con Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
-### [Escalado automático y conjuntos de escalado](virtual-machine-scale-sets-autoscale-overview.md)
-### [Escalado automático avanzado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### Tareas comunes de administración
+#### [Uso de la CLI de Azure 2.0](virtual-machine-scale-sets-manage-cli.md)
+#### [Uso de Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Escalado vertical en un conjunto de escalado](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Actualizaciones para conjuntos de escalado](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Uso de DSC y conjuntos de escalado](virtual-machine-scale-sets-dsc.md)

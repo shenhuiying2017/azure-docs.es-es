@@ -8,14 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
+ms.openlocfilehash: 0816c464b6b52747148cc42a55445048901e7595
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3d655766b4f2a5efb0c8c29ffa81a89f84b3e17c
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Uso de una imagen personalizada para crear un grupo de máquinas virtuales
 
 Cuando se crea un grupo de máquinas virtuales en Azure Batch, se especifica una imagen de máquina virtual (VM) que proporciona el sistema operativo para cada nodo de ejecución del grupo. Es posible crear un grupo de máquinas virtuales ya sea con una imagen de Azure Marketplace o si se proporciona una imagen de VHD personalizada que se haya preparado. Al proporcionar una imagen personalizada, controla cómo se configura el sistema operativo en el momento en el que cada nodo de proceso se aprovisiona. La imagen personalizada puede incluir también los datos de referencia y las aplicaciones que están disponibles en el nodo de proceso en cuanto se aprovisiona.
@@ -31,7 +29,7 @@ Algunas de las razones para usar una imagen personalizada que está configurada 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- **Una cuenta de Batch creada con el modo de asignación de grupos Suscripción de usuario.** Para utilizar imágenes personalizadas para aprovisionar los grupos de máquinas virtuales, cree la cuenta de Batch con el [modo de asignación de grupos](batch-api-basics.md#pool-allocation-mode) Suscripción de usuario. Con este modo, los grupos de Batch se asignan en la suscripción en la que reside la cuenta. Consulte la sección [Cuenta](batch-api-basics.md#account) de [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md) para obtener información acerca de cómo establecer el modo de asignación del grupo al crear una cuenta de Batch.
+- **Una cuenta de Batch creada con el modo de asignación de grupos Suscripción de usuario.** Con este modo, los grupos de Batch se asignan en la suscripción en la que reside la cuenta. Consulte la sección [Cuenta](batch-api-basics.md#account) en [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md) para más información.
 
 - **Una cuenta de Azure Storage.** Para crear un grupo de máquinas virtuales con una imagen personalizada, necesita una cuenta de Azure Storage estándar de uso general en la misma suscripción y región. Si crea una imagen personalizada a partir de una máquina virtual de Azure, luego copiará la imagen a la cuenta de almacenamiento donde reside el disco del SO de la máquina virtual y no será necesario crear una cuenta de almacenamiento independiente. 
     

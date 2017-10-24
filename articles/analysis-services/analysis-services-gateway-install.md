@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/09/2017
 ms.author: owend
+ms.openlocfilehash: 71c4c8929a80a46ba2b9ba204f5666d40607f303
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: d614352a62dc7aca012e9b144473604ae9829af9
-ms.contentlocale: es-es
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 Se requiere una puerta de enlace de datos local cuando uno o varios servidores de Azure Analysis Services de la misma región se conectan a orígenes de datos locales. Para más información acerca de la puerta de enlace, consulte [Puerta de enlace de datos local](analysis-services-gateway.md).
@@ -44,6 +43,7 @@ Se requiere una puerta de enlace de datos local cuando uno o varios servidores d
 * Solo se puede instalar una puerta de enlace en un equipo.
 * Instale la puerta de enlace en un equipo que permanezca encendido y no entre en suspensión.
 * No instale la puerta de enlace en un equipo conectado de forma inalámbrica a la red. Puede disminuir el rendimiento.
+* Inicie sesión en Azure con una cuenta de Azure AD que tenga el mismo [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que la suscripción donde va a registrar la puerta de enlace. No se pueden utilizar cuentas B2B (invitadas) de Azure para instalar y registrar una puerta de enlace.
 
 
 ## <a name="download"></a>Descarga
@@ -57,12 +57,12 @@ Se requiere una puerta de enlace de datos local cuando uno o varios servidores d
 
    ![Ubicación de instalación y términos de la licencia](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. Especifique una cuenta para iniciar sesión en Azure. La cuenta debe estar en la instancia de Azure Active Directory de su inquilino. Dicha cuenta se usa para el administrador de la puerta de enlace. 
+3. Inicie sesión en Azure. La cuenta debe estar en la instancia de Azure Active Directory de su inquilino. Dicha cuenta se usa para el administrador de la puerta de enlace. No se pueden utilizar cuentas B2B (invitadas) de Azure para instalar y registrar la puerta de enlace.
 
-   ![Especifique una cuenta para iniciar sesión en Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![Inicio de sesión en Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
-   > Si inicia sesión con una cuenta de dominio, se asignará a su cuenta de organización en Azure AD. Su cuenta de organización se usará como el administrador de puerta de enlace.
+   > Si inicia sesión con una cuenta de dominio, se asignará a la cuenta profesional de Azure AD. La cuenta profesional se usará como administrador de la puerta de enlace.
 
 ## <a name="register"></a>Registro
 Para crear un recurso de puerta de enlace en Azure, debe registrar la instancia local que instaló con el servicio en la nube de la puerta de enlace. 
@@ -88,7 +88,6 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
     * **Nombre**: escriba un nombre para el recurso de puerta de enlace. 
 
     * **Suscripción**: seleccione la suscripción de Azure que se asociará al recurso de puerta de enlace. 
-    Esta suscripción debe estar en la misma suscripción que sus servidores.
    
       La suscripción predeterminada se basa en la cuenta de Azure que usó para iniciar sesión.
 
@@ -118,4 +117,3 @@ Eso es todo. Si necesita abrir puertos o solucionar cualquier problema, asegúre
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administración de Analysis Services](analysis-services-manage.md)   
 * [Obtención de datos de Azure Analysis Services](analysis-services-connect.md)
-

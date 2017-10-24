@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: f98d769542f5a52d659f561e970f0a7e9dce9fd9
-ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
-
+ms.openlocfilehash: 96f0be021a2b362c702f91ec4b532df8a334529f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Uso de C# con el streaming de MapReduce en Hadoop en HDInsight
 
@@ -227,7 +226,7 @@ Sírvase del siguiente script de PowerShell para ejecutar un trabajo de MapReduc
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-Este script le solicitará el nombre de la cuenta de inicio de sesión y la contraseña del clúster, junto con el nombre del clúster de HDInsight. Tras finalizar el trabajo, el resultado se descargará en el archivo `output.txt` del directorio desde el que se ejecute el script. A continuación, se muestra un ejemplo de los datos que contiene el archivo `output.txt`:
+Este script le solicitará el nombre de la cuenta de inicio de sesión y la contraseña del clúster, junto con el nombre del clúster de HDInsight. Una vez que el trabajo se complete, el resultado se descarga en un archivo denominado `output.txt`. A continuación, se muestra un ejemplo de los datos que contiene el archivo `output.txt`:
 
     you     1128
     young   38
@@ -243,6 +242,6 @@ Este script le solicitará el nombre de la cuenta de inicio de sesión y la cont
 
 Para obtener más información sobre el uso de MapReduce con HDInsight, consulte [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md).
 
-Para obtener información sobre la utilización de C# con Hive y Pig, consulte el artículo referente al [uso de una función de C# definida por el usuario con Hive y Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md).
+Para obtener información acerca del uso de C# con Hive y Pig, consulte [Usar funciones definidas por el usuario de C# con el streaming de Hive y Pig en Hadoop de HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md).
 
 Para obtener información sobre cómo emplear C# con Storm en HDInsight, consulte el artículo relativo al [desarrollo de topologías de C# para Storm en HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).

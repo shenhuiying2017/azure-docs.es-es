@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
-ms.openlocfilehash: 6703247aa8b4a6d53ff22ea2d4f22eb4a746e370
-
-
+ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cdn-rules-engine-features"></a>Características del motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las características disponibles para el [motor de reglas](cdn-rules-engine.md)de Azure Content Delivery Network (CDN).
 
@@ -131,8 +130,7 @@ Información importante:
 
 - La opción Value (Valor) define el nombre del parámetro de cadena de consulta a través del cual se puede especificar un token.
 - La opción Value (Valor) no se puede establecer en "ec_token."
-- Asegúrese de que el nombre definido en la opción Value (Valor) solo 
-- contenga caracteres de dirección URL válidos.
+- Asegúrese de que el nombre definido en la opción de valor contenga únicamente caracteres de dirección URL válidos.
 
 Valor|Resultado
 ----|----
@@ -147,7 +145,7 @@ Estas características están diseñadas para personalizar cuándo y cómo se al
 
 Nombre | Propósito
 -----|--------
-Parámetros de ancho de banda | Determina si se activarán los parámetros de limitación de ancho de banda (es decir, ec_rate y ec_prebuf).
+Parámetros de ancho de banda | Determina si los parámetros de limitación de ancho de banda (por ejemplo, ec_rate y ec_prebuf) estarán activos.
 Limitación de ancho de banda | Limita el ancho de banda para la respuesta de nuestros servidores perimetrales.
 Omisión de la memoria caché | Determina si la solicitud puede aprovechar nuestra tecnología de almacenamiento en caché.
 Tratamiento de encabezado Cache-Control | Controla la generación de encabezados Cache-Control mediante el servidor perimetral cuando está activa la característica Max-Age externa.
@@ -173,14 +171,14 @@ Obsoleto durante revalidación | Mejora el rendimiento al permitir que nuestros 
 Comentario | La característica Comentario permite agregar una nota en una regla.
 
 ###<a name="bandwidth-parameters"></a>Parámetros de ancho de banda
-**Propósito**: determina si se activarán los parámetros de limitación de ancho de banda (es decir, ec_rate y ec_prebuf).
+**Objetivo:** determina si los parámetros de limitación de ancho de banda (por ejemplo, ec_rate y ec_prebuf) estarán activos.
 
 Los parámetros de limitación de ancho de banda determinan si la velocidad de transferencia de datos para la solicitud de un cliente se limitará a una velocidad personalizada.
 
 Valor|Resultado
 --|--
 Enabled|Permite que nuestros servidores perimetrales admitan las solicitudes de limitación de ancho de banda.
-Disabled|Hace que nuestros servidores perimetrales omitan los parámetros de limitación de ancho de banda. El contenido solicitado se servirá normalmente (es decir, sin limitación del ancho de banda).
+Disabled|Hace que nuestros servidores perimetrales omitan los parámetros de limitación de ancho de banda. El contenido solicitado se servirá normalmente (es decir, sin limitación de ancho de banda).
 
 **Comportamiento predeterminado**: habilitado.
 
@@ -247,9 +245,9 @@ Si desea replicar el comportamiento de almacenamiento en caché de cadenas de co
 
 #### <a name="sample-scenarios"></a>Escenarios de ejemplo
 
-El siguiente es ejemplo de uso de esta característica. Se proporcionan un ejemplo de solicitud y la clave de caché predeterminada.
+El siguiente ejemplo de uso de esta característica proporciona una solicitud de ejemplo y la clave de caché predeterminada:
 
-- **Solicitud de ejemplo:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **Solicitud de ejemplo:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&amp;language=EN&amp;userid=01
 - **Clave de caché predeterminada:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Include
@@ -314,7 +312,7 @@ Un error de caché parcial describe el estado de la memoria caché para un recur
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 --->
-Un error de caché parcial normalmente se produce después de que un usuario anule una descarga o en el caso de los recursos que se solicitan únicamente con solicitudes de intervalos HTTP. Esta característica resulta especialmente útil para los recursos de gran tamaño que los usuarios no suelen descargar de principio a fin (por ejemplo, vídeos). Por lo tanto, esta característica está habilitada de forma predeterminada en la plataforma HTTP Large. Está deshabilitada en todas las demás plataformas.
+Un error de caché parcial normalmente se produce después de que un usuario anule una descarga o en el caso de los recursos que se solicitan únicamente con solicitudes de intervalos HTTP. Esta característica resulta especialmente útil para recursos de gran tamaño que los usuarios no suelen descargar de principio a fin (por ejemplo, vídeos). Por lo tanto, esta característica está habilitada de forma predeterminada en la plataforma HTTP Large. Está deshabilitada en todas las demás plataformas.
 
 Se recomienda dejar la configuración predeterminada para la plataforma HTTP Large, ya que reduce la carga en el servidor de origen del cliente y aumenta la velocidad con la que los clientes descargan el contenido.
 
@@ -343,9 +341,9 @@ Información importante:
 
 - Especifique varios tipos de medios de Internet delimitando cada uno con un solo espacio. 
 - Esta característica solo comprimirá recursos con un tamaño inferior a 1 MB. Nuestros servidores no comprimirán los recursos de mayor tamaño.
-- Algunos tipos de contenido, como las imágenes, los vídeos y los medios de audio (p. ej., JPG, MP3, MP4, etc.), ya están comprimidos. Una compresión adicional en estos tipos de recursos no reducirá significativamente el tamaño de archivo. Por lo tanto, se recomienda no habilitar la compresión en estos tipos de recursos.
+- Algunos tipos de contenido, como las imágenes, los vídeos y los recursos multimedia de audio (p. ej., JPG, MP3, MP4, etc.), ya están comprimidos. Una compresión adicional en estos tipos de recursos no reducirá significativamente el tamaño de archivo. Por lo tanto, se recomienda no habilitar la compresión en estos tipos de recursos.
 - No se admiten caracteres comodín, como asteriscos.
-- Antes de agregar esta característica a una regla, asegúrese de deshabilitar la opción Compression (Compresión) en la página Compression (Compresión) para la plataforma a la que se aplicará esta regla.
+- Antes de agregar esta característica a una regla, asegúrese de deshabilitar la opción Compression (Compresión) de la página Compression (Compresión) para la plataforma a la que se aplicará esta regla.
 
 ###<a name="default-internal-max-age"></a>Max-Age interna predeterminada
 **Propósito**: determina el intervalo predeterminado de max-age para el servidor perimetral en la revalidación de caché del servidor de origen. En otras palabras, la cantidad de tiempo que transcurrirá antes de que un servidor perimetral compruebe si un recurso almacenado en caché coincide con el recurso que se almacena en el servidor de origen.
@@ -430,7 +428,7 @@ Información importante:
 Información importante:
 
 - Defina un conjunto de extensiones de nombre de archivo H.264 permitidas, delimitadas por espacios, en la opción File Extensions (Extensiones de archivo). La opción File Extensions (Extensiones de archivo) invalidará el comportamiento predeterminado. Para mantener la compatibilidad con MP4 y F4V, incluya esas extensiones de nombre de archivo al establecer esta opción. 
-- Asegúrese de incluir un punto al especificar cada extensión de nombre de archivo (es decir, .mp4, .f4v).
+- Asegúrese de incluir un punto al especificar cada extensión de nombre de archivo (por ejemplo, .mp4, .f4v).
 
 **Comportamiento predeterminado:** la descarga progresiva HTTP es compatible con medios MP4 y F4V de forma predeterminada.
 
@@ -513,7 +511,7 @@ Información importante:
     - Literal de consulta de dirección URL
     - Carácter comodín de consulta de dirección URL
 
-**Comportamiento predeterminado:** 2 minutos
+**Comportamiento predeterminado:** dos minutos
 
 ###<a name="partial-cache-sharing"></a>Uso compartido de caché parcial
 **Propósito**: determina si una solicitud puede generar contenido almacenado parcialmente en caché.
@@ -545,7 +543,7 @@ Los valores válidos son:
 
 Valor|Resultado
 --|--
-Enabled|Hace que el servidor perimetral vuelva a capturar el recurso desde el servidor de origen.
+habilitado|Hace que el servidor perimetral vuelva a capturar el recurso desde el servidor de origen.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es atender los recursos de caché válidos cuando se soliciten.
 Esta característica no es necesaria para la entrega de contenido y un almacenamiento en caché correcto, pero puede resultar útil para solucionar este problema. Por ejemplo, los generadores de contenido dinámicos en los servidores de origen pueden provocar accidentalmente que se envíen respuestas de 0 bytes a los servidores perimetrales. Normalmente, nuestros servidores perimetrales almacenan estos tipos de respuestas en caché. Si sabe que una respuesta de 0 bytes nunca es una respuesta válida 
 
@@ -562,7 +560,7 @@ Defina un conjunto de los códigos de estado deseados, delimitados por espacios.
 
 Información importante:
 
-- Habilite también la característica Ignorar no almacenar en caché de origen. Si esa característica no está habilitada, las respuestas&200; OK podrían no almacenarse en caché.
+- Habilite la característica Ignorar no almacenar en caché de origen. Si esa característica no está habilitada, las respuestas 200 OK podrían no almacenarse en caché.
 - El conjunto de códigos de estados válidos para esta característica son: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 y 505.
 - Esta característica no se puede usar para deshabilitar el almacenamiento en caché de las respuestas que generan un código de estado 200 OK.
 
@@ -599,7 +597,7 @@ Un uso de esta característica es proporcionar información adicional sobre el u
 Información importante:
 
 - Se puede especificar un máximo de 150 caracteres.
-- Asegúrese de usar solo caracteres alfanuméricos.
+- Use únicamente caracteres alfanuméricos.
 - Esta característica no afecta al comportamiento de la regla. Su único objetivo es ofrecer un área donde se puede especificar información para futura referencia o que pueda ayudar a solucionar problemas de la regla.
  
 ## <a name="headers"></a>encabezados
@@ -669,7 +667,7 @@ Información importante:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
-- Asegúrese de usar solo caracteres alfanuméricos, guiones o caracteres de subrayado para especificar un nombre de encabezado.
+- Al especificar un nombre de encabezado, use solamente caracteres alfanuméricos, guiones o caracteres de subrayado.
 - Si elimina un encabezado, impedirá que nuestros servidores perimetrales lo reenvíen a un servidor de origen.
 - Los encabezados siguientes están reservados y esta característica no los puede modificar:
     - forwarded
@@ -697,7 +695,7 @@ Eliminar|Elimina el encabezado de solicitud especificado.|**Valor de encabezado 
 
 Información importante:
 
-- Asegúrese de que el valor especificado en la opción Name (Nombre) coincide exactamente con el encabezado de respuesta deseado. 
+- Asegúrese de que el valor especificado en la opción Nombre coincida exactamente con el encabezado de respuesta deseado. 
 - No se tienen en cuenta las mayúsculas y minúsculas para identificar un encabezado. Por ejemplo, se puede utilizar cualquiera de las siguientes variaciones del nombre de encabezado Cache-Control para identificarlo:
     - cache-control
     - CACHE-CONTROL
@@ -727,7 +725,7 @@ La opción Header name (Nombre de encabezado) define el nombre del encabezado de
 
 Esta característica permite al servidor de origen del cliente averiguar las direcciones IP del cliente mediante un encabezado de solicitud personalizado. Si la solicitud se envió desde la memoria caché, no se informará al servidor de origen sobre la dirección IP del cliente. Por lo tanto, se recomienda usar esta característica con ADN o con recursos que no se almacenarán en caché.
 
-Asegúrese de que el nombre de encabezado especificado no coincida con lo siguiente:
+Asegúrese de que el nombre de encabezado especificado no coincida con ninguno de los nombres siguientes:
 
 - Nombres de encabezado de solicitud estándar. Encontrará una lista de nombres de encabezado estándar en [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Nombres de encabezado reservados:
@@ -765,7 +763,7 @@ Encabezado de respuesta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type
 Información importante:
 
 - Un campo de registro personalizado puede contener cualquier combinación de campos de encabezado y texto sin formato.
-- Los caracteres válidos para este campo son los siguientes: alfanumérico (es decir, 0-9, a-z y A-z), guiones, signo de dos puntos, punto y coma, apóstrofos, comas, puntos, caracteres de subrayado, signos de igual, paréntesis, corchetes y espacios. Solo se permiten los símbolos de porcentaje y las llaves cuando se usa para especificar un campo de encabezado.
+- Los caracteres válidos en este campo son los siguientes: alfanumérico (0-9, a-z y A-z), guiones, signo de dos puntos, punto y coma, apóstrofos, comas, puntos, caracteres de subrayado, signos de igual, paréntesis, corchetes y espacios. Solo se permiten los símbolos de porcentaje y las llaves cuando se usa para especificar un campo de encabezado.
 - La ortografía para cada campo de encabezado especificado debe coincidir con el nombre de encabezado de solicitud o respuesta deseado.
 - Si desea especificar varios encabezados, se recomienda utilizar un separador para indicar cada encabezado. Por ejemplo, podría utilizar una abreviatura para cada encabezado. Esta es una sintaxis de ejemplo.
     - AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
@@ -927,8 +925,8 @@ Para configurar esta característica hay que establecer las siguientes opciones:
 Opción|Descripción
 -|-
 Código|Seleccione el código de respuesta que se devolverá al solicitante.
-Origen y patrón| Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden redirigir. Solo se redirigirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/> <br/> **Origen:** (o punto de acceso al contenido) seleccione una ruta de acceso relativa que identifique un servidor de origen. Se trata de la sección "/XXXX/" y el nombre del punto de conexión. <br/> **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> - Asegúrese de que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. <br/> - Asegúrese de especificar un patrón. Si se usa un valor en blanco como patrón, solo coincidirán las solicitudes a la carpeta raíz del servidor de origen seleccionado (p. ej., http://cdn.mydomain.com/).
-Destino| Defina la dirección URL a la que se redirigirán las solicitudes anteriores. <br/> Construya esta dirección URL dinámicamente mediante: <br/> - Un patrón de expresión regular <br/>- Variables HTTP <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. <br/> 
+Origen y patrón| Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden redirigir. Solo se redirigirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/> <br/> **Origen (o punto de acceso a contenido):** seleccione una ruta de acceso relativa que identifique un servidor de origen. Se trata de la sección "/XXXX/" y el nombre del punto de conexión. <br/> **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> - Asegúrese de que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. <br/> -Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
+Destino| Defina la dirección URL a la que se redirigirán las solicitudes anteriores. <br/> Construya esta dirección URL dinámicamente mediante: <br/> - Un patrón de expresión regular <br/>- Variables HTTP <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino mediante $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. <br/> 
 Es muy recomendable usar una dirección URL absoluta. El uso de direcciones URL relativas podría redirigir direcciones URL de la red CDN a rutas de acceso no válidas.
 
 **Escenario de ejemplo**
@@ -964,8 +962,8 @@ Información importante:
 
 Opción|Descripción
 -|-
- Origen y patrón | Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden reescribir. Solo se reescribirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/>     - **Origen (o punto de acceso al contenido)**: seleccione una ruta de acceso relativa que identifique un servidor de origen. Se trata de la sección "/XXXX/" y el nombre del punto de conexión. <br/> - **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> Asegúrese de que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. Asegúrese de especificar un patrón. Si se usa un valor en blanco como patrón, solo coincidirán las solicitudes a la carpeta raíz del servidor de origen seleccionado (p. ej., http://cdn.mydomain.com/). 
- Destino  |Defina la dirección URL relativa en la que se sobrescribirán las solicitudes anteriores: <br/>    1. Seleccione un punto de acceso al contenido que identifique un servidor de origen. <br/>    2. Defina el uso de una ruta de acceso relativa: <br/>        - Un patrón de expresión regular <br/>        - Variables HTTP <br/> <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. 
+ Origen y patrón | Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden reescribir. Solo se reescribirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/>     - **Origen (o punto de acceso al contenido)**: seleccione una ruta de acceso relativa que identifique un servidor de origen. Se trata de la sección "/XXXX/" y el nombre del punto de conexión. <br/> - **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> Compruebe que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas. 
+ Destino  |Defina la dirección URL relativa en la que se sobrescribirán las solicitudes anteriores: <br/>    1. Seleccione un punto de acceso al contenido que identifique un servidor de origen. <br/>    2. Defina el uso de una ruta de acceso relativa: <br/>        - Un patrón de expresión regular <br/>        - Variables HTTP <br/> <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino mediante $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. 
  Esta característica permite que nuestros servidores perimetrales vuelvan a escribir la dirección URL sin realizar una redirección tradicional. Esto significa que el solicitante recibirá el mismo código de respuesta que si hubiera solicitado la reescritura de la dirección URL.
 
 **Escenario de ejemplo 1**
@@ -1018,9 +1016,3 @@ Esta característica incluye los criterios de coincidencia que deben cumplirse p
 * [Condiciones de coincidencia del motor de reglas](cdn-rules-engine-reference-match-conditions.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
 * [Información general de la red CDN de Azure](cdn-overview.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

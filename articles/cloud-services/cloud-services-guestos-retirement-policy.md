@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/26/2017
+ms.date: 9/20/2017
 ms.author: raiye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 488a6e144b16c57c137e60b918ee68c78db1a54f
-ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: 4bc2d57cf4c7d6e0981aa1a5c7c989860600b897
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Directiva de compatibilidad y retirada del SO invitado de Azure
 La información de esta página se relaciona con el sistema operativo invitado de Azure ([SO invitado](cloud-services-guestos-update-matrix.md)) para los roles web y de trabajo de los servicios en la nube (PaaS). No se aplica a las máquinas virtuales (IaaS).
@@ -63,8 +61,8 @@ Después de que se haya "deshabilitado", la versión del SO invitado "*expira*" 
 Estos períodos se pueden prolongar a discreción de Microsoft para facilitar las transiciones de los clientes. Todos los cambios se comunicarán en la [Matriz de compatibilidad del SDK y las versiones del SO invitado de Azure](cloud-services-guestos-update-matrix.md).
 
 ### <a name="notifications-during-retirement"></a>Notificaciones durante la retirada
-* **Retirada de la familia** <br>Microsoft usará las entradas de los blogs y las notificaciones del portal. A los clientes que sigan utilizando una familia del SO invitado que se haya retirado se les notificará directamente (correo electrónico, mensajes del portal, llamada telefónica) a través de los administradores de servicios asignados. Todos los cambios se publicarán en esta página y en la fuente RSS que aparece al principio de ella.
-* **Retirada de la versión** <br>Tanto los cambios como las fechas en que se producirán publicarán en esta página y en la fuente RSS que aparece al principio de ella, incluidas las fechas de lanzamiento, deshabilitación y expiración. Los administradores de los servicios recibirán correos electrónicos si tienen implementaciones que se ejecutan en una versión o familia del SO invitado que se ha deshabilitado. El momento en que se envían estos correos electrónicos puede variar. Suelen ser al menos un mes antes de la deshabilitación, aunque este tiempo no es un contrato de nivel de servicio oficial.
+* **Retirada de la familia** <br>Microsoft usará las entradas de los blogs y las notificaciones del portal. A los clientes que sigan utilizando una familia del SO invitado que se haya retirado se les notificará directamente (correo electrónico, mensajes del portal, llamada telefónica) a través de los administradores de servicios asignados. Todos los cambios se publicarán en la [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](cloud-services-guestos-update-matrix.md).
+* **Retirada de la versión** <br>Todos los cambios y las fechas en que ocurren se publican en la [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](cloud-services-guestos-update-matrix.md), como lanzamiento, deshabilitación y expiración. Los administradores de los servicios recibirán correos electrónicos si tienen implementaciones que se ejecutan en una versión o familia del SO invitado que se ha deshabilitado. El momento en que se envían estos correos electrónicos puede variar. Suelen ser al menos un mes antes de la deshabilitación, aunque este tiempo no es un contrato de nivel de servicio oficial.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 **¿Cómo puedo mitigar los efectos de la migración?**
@@ -81,4 +79,3 @@ Si la arquitectura de la aplicación web depende de las características subyace
 
 ## <a name="next-steps"></a>Pasos siguientes
 Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md)más recientes.
-

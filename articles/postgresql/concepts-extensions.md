@@ -8,16 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/29/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4f85e27d01341d3d9d61d1984add32e72a53b6ac
-ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.date: 09/26/2017
+ms.openlocfilehash: 3aa9f90d5ca5ccd33273566795da3df2052ff7c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL
-PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones permiten agrupar varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Una vez cargadas en la base de datos, las extensiones pueden funcionar exactamente igual que las características integradas. Para obtener más información acerca de las extensiones de PostgreSQL, consulte la información sobre el [empaquetado de objetos relacionados en una extensión](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
+PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones permiten agrupar varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones pueden funcionar de la misma forma que las características integradas. Para obtener más información acerca de las extensiones de PostgreSQL, consulte la información sobre el [empaquetado de objetos relacionados en una extensión](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## <a name="how-to-use-postgresql-extensions"></a>¿Cómo se utilizan las extensiones de PostgreSQL?
 Es necesario instalar las extensiones de PostgreSQL para su base de datos antes de utilizarlas. Para instalar una extensión determinada, ejecute el comando [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) desde la herramienta psql para cargar los objetos empaquetados en la base de datos.
@@ -25,7 +24,7 @@ Es necesario instalar las extensiones de PostgreSQL para su base de datos antes 
 Azure Database for PostgreSQL admite un subconjunto de extensiones de claves, como se enumeran aquí. Aparte de las que se indican, no se admiten otras extensiones. No puede crear su propia extensión con el servicio Azure Database for PostgreSQL.
 
 ## <a name="extensions-supported-by-azure-database-for-postgresql"></a>Extensiones admitidas por Azure Database for PostgreSQL
-En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que Azure Database for PostgreSQL admite actualmente. También puede obtener esta información emitiendo la consulta pg\_available\_extensions. 
+En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que Azure Database for PostgreSQL admite actualmente. También puede obtener esta información emitiendo la consulta pg\_available\_extensions.
 
 ### <a name="data-types-extensions"></a>Extensiones de tipos de datos
 
@@ -33,7 +32,7 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 | **Extensión** | **Descripción** |
 |---|---|
 | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Proporciona un tipo de cadena de caracteres que no distingue entre mayúsculas y minúsculas. |
-| [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Proporciona el tipo de datos para almacenar conjuntos de pares clave/valor. |
+| [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Proporciona un tipo de datos para almacenar conjuntos de pares clave/valor. |
 
 ### <a name="functions-extensions"></a>Extensiones de funciones
 
@@ -86,8 +85,7 @@ En las tablas siguientes se enumeran las extensiones estándar de PostgreSQL que
 |---|---|
 | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciales y geográficos para PostgreSQL. |
 | address\_standardizer, address\_standardizer\_data\_us | Se utilizan para analizar una dirección en los elementos que la componen. Se utilizan para admitir el paso de normalización de la dirección de geocodificación. |
-| [pgrouting](http://pgrouting.org/) | Extiende la base de datos geoespacial de PostGIS/PostgreSQL para proporcionar la funcionalidad de enrutamiento geoespacial. |
+| [grouting](http://pgrouting.org/) | Extiende la base de datos geoespacial de PostGIS/PostgreSQL para proporcionar la funcionalidad de enrutamiento geoespacial. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-¿No ve una extensión que le gustaría utilizar? Díganoslo. Vote las solicitudes existentes o cree nuevos comentarios y deseos en nuestro [foro de comentarios de clientes](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
-
+Si no ve una extensión que le gustaría utilizar, háganoslo saber. Vote por las solicitudes existentes o cree nuevos comentarios y solicitudes en nuestro [foro de comentarios de clientes](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

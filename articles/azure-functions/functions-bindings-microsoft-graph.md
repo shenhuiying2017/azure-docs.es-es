@@ -11,14 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mahender
+ms.openlocfilehash: 8cf2e4e9e9007549dbdc931b4485c4230c536479
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b0eb0ac63c7dbb9d6cbba093937231e93670529e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-functions-microsoft-graph-bindings"></a>Enlaces de Microsoft Graph en Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
@@ -45,7 +43,11 @@ Los enlaces de Microsoft Graph están disponibles a través de las _extensiones 
 
 ### <a name="enabling-functions-20-preview"></a>Habilitar la versión preliminar de Functions 2.0
 
-Las extensiones de enlace solo están disponibles para la versión preliminar de Azure Functions 2.0. Para habilitar Functions 2.0, establezca la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION` en "beta".  Para obtener información acerca de cómo configurar la aplicación, consulte [Configuración de la aplicación en Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings).
+Las extensiones de enlace solo están disponibles para la versión preliminar de Azure Functions 2.0. 
+
+[!INCLUDE [functions-set-runtime-version](../../includes/functions-set-runtime-version.md)]
+
+Para más información, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](functions-versions.md).
 
 ### <a name="installing-the-extension"></a>Instalación de la extensión
 
@@ -90,7 +92,7 @@ El enlace admite las siguientes propiedades:
 |**name**|(Requerido): nombre de la variable que se usa en el código de función para el token de autenticación. Consulte [Uso de un enlace de entrada del token de autenticación desde el código](#token-input-code).|
 |**type**|Requerida: se debe establecer en `token`.|
 |**dirección**|Requerida: se debe establecer en `in`.|
-|**identity**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Utiliza la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
+|**identity**|(Requerido): identidad que se usará para realizar la acción. Puede ser uno de los siguientes valores:<ul><li><code>userFromRequest</code>: solo es válido con el [desencadenador HTTP]. Usa la identidad del usuario que realiza la llamada.</li><li><code>userFromId</code>: usa la identidad de un usuario que inició sesión previamente con el identificador especificado. Consulte la propiedad <code>userId</code>.</li><li><code>userFromToken</code>: usa la identidad representada por el token especificado. Consulte la propiedad <code>userToken</code>.</li><li><code>clientCredentials</code>: usa la identidad de la aplicación de función.</li></ul>|
 |**userId** |Necesario si y solo si _identity_ está establecido en `userFromId`. Identificador de una entidad de seguridad de usuario asociado a un usuario que inició sesión previamente.|
 |**userToken**|Necesario si y solo si _identity_ está establecido en `userFromToken`. Token válido para la aplicación de función. |
 |**resource**|(Requerido): dirección URL de recursos AAD para el que se solicita el token.|
@@ -1060,4 +1062,3 @@ public class UserSubscription {
 
 [desencadenador HTTP]: functions-bindings-http-webhook.md
 [Trabajar con webhooks en Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
-

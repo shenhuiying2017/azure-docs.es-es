@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 10/09/2017
 ms.author: johnkem
+ms.openlocfilehash: 31c4fc5b606bf96cec8c508f4a0ff7ecbaeae38a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: a28f971ae898ffdd1168550a909f2a48e1b3b652
-ms.contentlocale: es-es
-ms.lasthandoff: 08/07/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
 Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico o ingenieros de operaciones de desarrollo) o si usa un proveedor de servicios administrados, puede concederles acceso solo a datos de supervisión, mientras restringe su capacidad para crear, modificar o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
@@ -73,17 +72,25 @@ Las personas asignadas al rol Colaborador de supervisión pueden ver todos los d
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Roles RBAC personalizados y permisos de supervisión
 Si los roles integrados anteriores no satisfacen las necesidades exactas de su equipo, puede [crear un rol RBAC personalizado](../active-directory/role-based-access-control-custom-roles.md) con permisos más granulares. A continuación se muestran las operaciones comunes de RBAC de Azure Monitor con sus descripciones.
 
-| Operación | Description |
+| Operación | Descripción |
 | --- | --- |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Reglas de alerta de lectura, escritura y eliminación. |
+| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Leer, escribir o eliminar grupos de acción. |
+| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Leer, escribir o eliminar alertas de registro de actividad. |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Leer, escribir o eliminar reglas de alertas (alertas de métricas). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Enumerar los incidentes (historial de la regla de alerta desencadenada) de reglas de alerta. Solo se aplica en el portal. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Configuración de escalado automático de lectura, escritura y eliminación. |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Configuración de diagnóstico de lectura, escritura y eliminación. |
+| Microsoft.Insights/EventCategories/Read |Enumerar todas las categorías posibles en el registro de actividad. Lo utiliza Azure Portal. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Este permiso es necesario para los usuarios que necesitan acceder a registros de actividades a través del portal. |
 | Microsoft.Insights/eventtypes/values/Read |Enumerar eventos del registro de actividades (eventos de administración) de una suscripción. Este permiso es aplicable para el acceso mediante programación y mediante el portal al registro de actividades. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Leer, escribir o eliminar configuración de diagnóstico para registros de flujo de red. |
 | Microsoft.Insights/LogDefinitions/Read |Este permiso es necesario para los usuarios que necesitan acceder a registros de actividades a través del portal. |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Leer, escribir o eliminar perfiles de registro (registro de actividad de streaming para la cuenta de almacenamiento o centro de eventos). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Leer, escribir o eliminar alertas de métricas casi en tiempo real (versión preliminar pública). |
 | Microsoft.Insights/MetricDefinitions/Read |Leer definiciones de métrica (lista de tipos de métricas disponibles para un recurso). |
 | Microsoft.Insights/Metrics/Read |Leer las métricas de un recurso. |
+| Microsoft.Insights/Register/Action |Registrar el proveedor de recursos de Azure Monitor. |
+
 
 > [!NOTE]
 > El acceso a las alertas, la configuración de diagnóstico y las métricas de un recurso requiere que el usuario tenga acceso de lectura al tipo de recurso y el ámbito de ese recurso. La definición (“escritura”) de una configuración de diagnóstico o un perfil de registro que se archiva en una cuenta de almacenamiento o se transmite a centros de eventos requiere que el usuario tenga también el permiso ListKeys en el recurso de destino.
@@ -170,5 +177,4 @@ Se puede seguir un patrón similar con los centros de eventos, pero primero debe
 ## <a name="next-steps"></a>Pasos siguientes
 * [Consulte información sobre RBAC y permisos en Resource Manager](../active-directory/role-based-access-control-what-is.md)
 * [Lea la información general sobre supervisión en Azure](monitoring-overview.md)
-
 

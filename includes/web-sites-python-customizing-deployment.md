@@ -21,10 +21,10 @@ Para obtener más control sobre la implementación, puede invalidar el script de
     \.deployment
     \deploy.cmd
 
-Puede utilizar la [interfaz de la línea de comandos de Azure][interfaz de la línea de comandos de Azure] para crear los archivos.  Use este comando desde la carpeta del proyecto:
+Puede utilizar la [interfaz de la línea de comandos de Azure][Azure command-line interface] para crear los archivos.  Use este comando desde la carpeta del proyecto:
 
     azure site deploymentscript --python
 
 Cuando estos archivos no existen, Azure crea un script de implementación temporal y lo ejecuta.  Es idéntico al que se crea con el comando anterior.
 
-[interfaz de la línea de comandos de Azure]: http://azure.microsoft.com/downloads/
+[Azure command-line interface]: http://azure.microsoft.com/downloads/

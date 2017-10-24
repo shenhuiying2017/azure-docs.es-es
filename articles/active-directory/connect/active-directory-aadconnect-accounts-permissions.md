@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 10/03/2017
 ms.author: billmath
+ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: fdd90721b6823c20c1ff27383769bfff24e80eae
-ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: cuentas y permisos
 El asistente para instalación de Azure AD Connect ofrece dos itinerarios diferentes:
@@ -97,6 +96,10 @@ Los permisos que requiera dependen de las características opcionales que habili
 
 ## <a name="upgrade"></a>Actualizar
 Al actualizar desde una versión de Azure AD Connect a una nueva versión, necesita los siguientes permisos:
+
+>[!IMPORTANT]
+>A partir de la compilación 1.1.484, Azure AD Connect introdujo un error de regresión que requiere permisos de administrador del sistema para actualizar la base de datos SQL.  Este error sigue estando presente en la última compilación 1.1.614.  Si va a actualizar a esta versión, necesitará permisos de administrador del sistema.  Los permisos de dbo no son suficientes.  Si intenta actualizar Azure AD Connect sin tener permisos de administrador del sistema, se producirá un error en la actualización y Azure AD Connect dejará de funcionar correctamente después.  Microsoft conoce este problema y está trabajando para corregir este problema.
+
 
 | Principal | Permisos necesarios | Se usa para |
 | --- | --- | --- |
@@ -194,4 +197,3 @@ Para quitar las cuentas de servicio de Azure AD sin usar, ejecute el siguiente c
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](../active-directory-aadconnect.md).
-

@@ -6,7 +6,7 @@
 
 1. Instale [CMake](https://cmake.org/download/) y asegúrese de que puede ejecutar cmake.exe desde la línea de comandos. Se recomienda usar CMake versión 3.7.2 o posterior. El instalador **.msi** es la opción más sencilla en Windows. Agregue CMake a PATH al menos para el usuario actual cuando el instalador se lo solicite.
 
-1. Instale [Python 2.7](https://www.python.org/downloads/release/python-27). Asegúrese de que agrega Python a su variable de entorno `PATH` en el **Panel de control -> Sistema -> Configuración avanzada del sistema -> Variables de entorno**.
+1. Instale [Python 2.7](https://www.python.org/downloads/release/python-27). Asegúrese de agregar Python a la variable de entorno `PATH`. Vaya a **Panel de control** > **Sistema y seguridad** > **Sistema** > **Configuración avanzada del sistema** > **Variables de entorno**. Agregue `C:\Python27` a la ruta de acceso. 
 
 1. En un símbolo del sistema, ejecute el siguiente comando para clonar el repositorio de GitHub de Azure IoT Edge en la máquina local:
 
@@ -18,7 +18,7 @@
 
 Ya puede compilar el runtime de IoT Edge y los ejemplos en la máquina local:
 
-1. Abra un **símbolo del sistema para desarrolladores de VS2015** o un **símbolo del sistema para desarrolladores de VS2017**.
+1. Abra un **símbolo del sistema para desarrolladores de VS2015** o un **símbolo del sistema para desarrolladores de VS2017**, en función de la versión.
 
 1. Vaya a la carpeta raíz en la copia local del repositorio **iot-edge**.
 

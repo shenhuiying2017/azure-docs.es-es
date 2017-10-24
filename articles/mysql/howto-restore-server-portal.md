@@ -8,19 +8,17 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0603119da20e74b423072ce6afdb8c9f20830383
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: 6c1c0f8a0c0e59661b70b787b551b8cfdb024cda
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante Azure Portal
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante Azure Portal
 
 ## <a name="backup-happens-automatically"></a>Las copias de seguridad se realizan automáticamente
-Cuando se usa Azure Database for MySQL, el servicio de base de datos realiza automáticamente una copia de seguridad del servicio de cada 5 minutos. 
+Cuando se usa Azure Database for MySQL, el servicio de base de datos realiza automáticamente una copia de seguridad del servicio de cada cinco minutos. 
 
 Las copias de seguridad están disponibles durante 7 días en el nivel Básico y 35 días en el nivel Estándar. Para más información, consulte [Niveles de servicio de Azure Database for MySQL](concepts-service-tiers.md)
 
@@ -33,7 +31,7 @@ Por ejemplo, si una tabla se quitó accidentalmente a mediodía de hoy, podría 
 
 Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
 2. Localice su servidor de Azure Database for MySQL. En el panel izquierdo, seleccione **Todos los recursos** y seleccione el servidor en la lista.
 
@@ -48,9 +46,9 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 - **Plan de tarifa**: la opción de plan de tarifa se rellena automáticamente con el mismo plan de tarifa que el servidor de origen, y no se puede cambiar aquí. 
 ![Restauración de PITR](./media/howto-restore-server-portal/pitr-restore.png)
 
-5. Haga clic en **Aceptar** para restaurar el servidor a un momento dado. 
+5. Haga clic en **Aceptar** para restaurar el servidor a un momento dado especificado. 
 
-6. Una vez finalizada la restauración, busque el nuevo servidor que se crea para comprobar que las bases de datos se restauraron del modo esperado.
+6. Una vez finalizada la restauración, busque el nuevo servidor que se crea y, después, compruebe que las bases de datos se restauraron del modo esperado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Bibliotecas de conexiones de Azure Database for MySQL](concepts-connection-libraries.md)

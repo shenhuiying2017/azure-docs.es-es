@@ -24,7 +24,7 @@ El programa C# contiene:
 Este programa C# es lógicamente un archivo .cs. Pero aquí el programa se divide físicamente en varios bloques de código, para que cada bloque resulte más fácil de ver y comprender. Para compilar y ejecutar este programa, haga lo siguiente:
 
 1. Cree un proyecto C# en Visual Studio.
-    - El tipo de proyecto debe ser un *consola* aplicación de algo parecido a la siguiente jerarquía: **plantillas** > **Visual C#** >  **Escritorio clásico de Windows** > **(.NET Framework) de la aplicación de consola**.
+    - El tipo de proyecto debe ser una aplicación de *consola*, de una jerarquía parecida a la siguiente: **Plantillas** > **Visual C#** > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)**.
 3. En el archivo **Program.cs**, borre las primeras líneas cortas de código.
 3. En Program.cs, copie y pegue cada uno de los siguientes bloques, en la misma secuencia en que se muestran aquí.
 4. En Program.cs, edite los valores siguientes en el método **Main**:
@@ -101,7 +101,7 @@ namespace csharp_db_test
 <a name="cs_2_createtables"/>
 ### <a name="c-block-2-t-sql-to-create-tables"></a>Bloque de C# 2: T-SQL para crear tablas
 
-- [Anterior](#cs_1_connect) &nbsp; / &nbsp; [Siguiente](#cs_3_insert)
+- [Anterior](#cs_1_connect)&nbsp; / &nbsp;[Siguiente](#cs_3_insert)
 
 ```csharp
       static string Build_2_Tsql_CreateTables()
@@ -143,7 +143,7 @@ A continuación, se ve un ERD que muestra la relación entre ambas tablas. Los v
 <a name="cs_3_insert"/>
 ### <a name="c-block-3-t-sql-to-insert-data"></a>Bloque de C# 3: T-SQL para insertar datos
 
-- [Anterior](#cs_2_createtables) &nbsp; / &nbsp; [Siguiente](#cs_4_updatejoin)
+- [Anterior](#cs_2_createtables)&nbsp; / &nbsp;[Siguiente](#cs_4_updatejoin)
 
 
 ```csharp
@@ -175,7 +175,7 @@ INSERT INTO tabEmployee
 <a name="cs_4_updatejoin"/>
 ### <a name="c-block-4-t-sql-to-update-join"></a>Bloque de C# 4: T-SQL para la actualización-combinación
 
-- [Anterior](#cs_3_insert) &nbsp; / &nbsp; [Siguiente](#cs_5_deletejoin)
+- [Anterior](#cs_3_insert)&nbsp; / &nbsp;[Siguiente](#cs_5_deletejoin)
 
 
 ```csharp
@@ -203,7 +203,7 @@ UPDATE empl
 <a name="cs_5_deletejoin"/>
 ### <a name="c-block-5-t-sql-to-delete-join"></a>Bloque de C# 5: T-SQL para la eliminación-combinación
 
-- [Anterior](#cs_4_updatejoin) &nbsp; / &nbsp; [Siguiente](#cs_6_selectrows)
+- [Anterior](#cs_4_updatejoin)&nbsp; / &nbsp;[Siguiente](#cs_6_selectrows)
 
 
 ```csharp
@@ -235,7 +235,7 @@ DELETE tabDepartment
 <a name="cs_6_selectrows"/>
 ### <a name="c-block-6-t-sql-to-select-rows"></a>Bloque de C# 6: T-SQL para seleccionar filas
 
-- [Anterior](#cs_5_deletejoin) &nbsp; / &nbsp; [Siguiente](#cs_6b_datareader)
+- [Anterior](#cs_5_deletejoin)&nbsp; / &nbsp;[Siguiente](#cs_6b_datareader)
 
 
 ```csharp
@@ -263,7 +263,7 @@ SELECT
 <a name="cs_6b_datareader"/>
 ### <a name="c-block-6b-executereader"></a>Bloque de C# 6b: ExecuteReader
 
-- [Anterior](#cs_6_selectrows) &nbsp; / &nbsp; [Siguiente](#cs_7_executenonquery)
+- [Anterior](#cs_6_selectrows)&nbsp; / &nbsp;[Siguiente](#cs_7_executenonquery)
 
 Este método se ha diseñado para ejecutar la instrucción T-SQL SELECT que se genera con el método **Build_6_Tsql_SelectEmployees**.
 
@@ -299,7 +299,7 @@ Este método se ha diseñado para ejecutar la instrucción T-SQL SELECT que se g
 <a name="cs_7_executenonquery"/>
 ### <a name="c-block-7-executenonquery"></a>Bloque de C# 7: ExecuteNonQuery
 
-- [Anterior](#cs_6b_datareader) &nbsp; / &nbsp; [Siguiente](#cs_8_output)
+- [Anterior](#cs_6b_datareader)&nbsp; / &nbsp;[Siguiente](#cs_8_output)
 
 Se llama a este método para las operaciones que modifican el contenido de datos de tablas sin devolver ninguna fila de datos.
 

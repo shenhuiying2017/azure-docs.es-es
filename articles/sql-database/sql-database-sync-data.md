@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
+ms.openlocfilehash: ed2266004e60843749233f92c8f4b069e4c17ba5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 926938a8ed20167e1f17a9883007cd993897f14a
-ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
@@ -98,11 +97,13 @@ Como Data Sync se basa en desencadenadores, la coherencia transaccional no está
 
 ### <a name="requirements"></a>Requisitos
 
--   Cada tabla debe tener una clave principal.
+-   Cada tabla debe tener una clave principal. No cambie el valor de la clave principal de ninguna fila. Si tiene que hacerlo, elimine la fila y vuelva a crearla con el nuevo valor de clave principal. 
 
 -   Una tabla no puede tener una columna de identidad que no sea la clave principal.
 
 -   Los nombres de objetos (bases de datos, tablas y columnas) no pueden contener los caracteres imprimibles punto (.), corchete de apertura ([) o corchete de cierre (]).
+
+-   Se debe habilitar el aislamiento de instantánea. Para más información, consulte [Aislamiento de instantáneas en SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="limitations-on-service-and-database-dimensions"></a>Limitaciones de las dimensiones de la base de datos y del servicio
 
@@ -120,8 +121,7 @@ Como Data Sync se basa en desencadenadores, la coherencia transaccional no está
 
 ## <a name="common-questions"></a>Preguntas frecuentes
 
-### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>¿Con qué frecuencia puede sincronizar mis datos 
-Data Sync? 
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>¿Con qué frecuencia puede sincronizar mis datos Data Sync? 
 La frecuencia mínima es cada cinco minutos.
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>¿Puedo usar Data Sync para realizar la sincronización solo bases de datos locales de SQL Server? 
@@ -140,6 +140,11 @@ Este mensaje de error indica que uno de los dos problemas siguientes:
  
 ### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>¿Cómo trata Data Sync las referencias circulares? En otras palabras, ¿cuándo se sincronizan los mismos datos en varios grupos de sincronización y sigue cambiando como resultado?
 Data Sync no controla las referencias circulares, así que asegúrese de no usarlas. 
+
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>¿Cómo se exporta e importa una base de datos con la sincronización de datos?
+Después de exportar una base de datos como un archivo .bacpac e importarla para crear una nueva base de datos, debe realizar los dos siguientes pasos para usar la sincronización de datos en la nueva base de datos:
+1.  Limpie los objetos de sincronización de datos y las tablas auxiliares en la **nueva base de datos** mediante [este script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Este script elimina todos los objetos de sincronización de datos necesarios de la base de datos.
+2.  Vuelva a crear el grupo de sincronización con la nueva base de datos. Si ya no necesita el grupo de sincronización antiguo, elimínelo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -160,4 +165,3 @@ Para más información sobre SQL Database, consulte:
 -   [Información general de SQL Database](sql-database-technical-overview.md)
 
 -   [Administración del ciclo de vida de las aplicaciones](https://msdn.microsoft.com/library/jj907294.aspx)
-

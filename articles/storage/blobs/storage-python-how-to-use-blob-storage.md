@@ -3,7 +3,7 @@ title: Uso de Azure Blob Storage (almacenamiento de objetos) en Python | Microso
 description: Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure.
 services: storage
 documentationcenter: python
-author: tamram
+author: mmacy
 manager: timlt
 editor: tysonn
 ms.assetid: 0348e360-b24d-41fa-bb12-b8f18990d8bc
@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: tamram
+ms.openlocfilehash: ae5ad68929a6779ed4944de82a609321a5c4b5ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1cab8407be6fc8932b68e50d0c301e8ea37ea3ac
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-blob-storage-from-python"></a>Uso del almacenamiento de blobs de Azure desde Python
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -34,6 +33,26 @@ Este artículo le muestra cómo realizar algunas tareas comunes con el almacenam
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
+
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>Descarga e instalación del SDK de Azure Storage para Python
+
+El SDK de Azure Storage para Python requiere Python 2.7, 3.3, 3.4, 3.5 o 3.6, y viene en cuatro paquetes diferentes: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` y `azure-storage-queue`. En este tutorial se usará el paquete `azure-storage-blob`.
+ 
+### <a name="install-via-pypi"></a>Instalación mediante PyPi
+
+Para realizar la instalación mediante el índice de paquetes de Python (PyPI), escriba:
+
+```bash
+pip install azure-storage-blob
+```
+
+
+> [!NOTE]
+> Si va a actualizar desde el SDK de Azure Storage para la versión de Python 0.36 o anterior, primero deberá desinstalarlo mediante `pip uninstall azure-storage` dado que ya no se publica el SDL de Storage para Python en un único paquete.
+> 
+> 
+
+Si quiere conocer métodos de instalación alternativos, consulte el [SDK de Azure Storage para Python en Github](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="create-a-container"></a>Crear un contenedor
 Según el tipo de blob que desee usar, cree un objeto **BlockBlobService**, **AppendBlobService** o **PageBlobService**. El código siguiente usa un objeto **BlockBlobService** . Agregue lo siguiente cerca de la parte superior de todo archivo Python en el que desee obtener acceso al almacenamiento de blobs en bloques de Azure mediante programación.
@@ -76,7 +95,7 @@ Para crear un blob en bloques y cargar datos, use los métodos **create\_blob\_f
 
 **create\_blob\_from\_path** carga el contenido de un archivo de la ruta de acceso especificada, y **create\_blob\_from\_stream** carga el contenido de una transmisión o archivo ya abierto. **create\_blob\_from\_bytes** carga una matriz de bytes, y **create\_blob\_from\_text** carga el valor de texto especificado con la codificación especificada (el valor predeterminado es UTF-8).
 
-En el siguiente ejemplo se carga el contenido del archivo **sunset.png** en el blob **myblob**.
+En el siguiente ejemplo se carga el contenido del archivo **sunset.png** en el blob **myblockblob**.
 
 ```python
 from azure.storage.blob import ContentSettings
@@ -100,7 +119,7 @@ for blob in generator:
 ## <a name="download-blobs"></a>Descargar blobs
 Para descargar datos de un blob, use **get\_blob\_to\_path**, **get\_blob\_to\_stream**, **get\_blob\_to\_bytes**, o **get\_blob\_to\_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
-En el ejemplo siguiente se muestra cómo usar **get\_blob\_to\_path** para descargar el contenido del blob **myblob** blob y almacenarlo en el archivo **out-sunset.png**.
+En el ejemplo siguiente se muestra cómo usar **get\_blob\_to\_path** para descargar el contenido del blob **myblockblob** y almacenarlo en el archivo **out-sunset.png**.
 
 ```python
 block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
@@ -144,4 +163,3 @@ Ahora que está familiarizado con los aspectos básicos del Almacenamiento de bl
 
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
-

@@ -3,7 +3,7 @@ title: Uso de Queue Storage en Python | Microsoft Docs
 description: Aprenda a usar el servicio de colas de Azure de Python para crear y eliminar colas e insertar, obtener y eliminar mensajes.
 services: storage
 documentationcenter: python
-author: tamram
+author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: cc0d2da2-379a-4b58-a234-8852b4e3d99d
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
+ms.author: robinsh
+ms.openlocfilehash: 8311d8e29845f2801c4b33f994512113044fcbf7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 963c11acb7939993568a774cd281145a8059b5a6
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Uso del almacenamiento de colas de Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -32,6 +31,26 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
+
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>Descarga e instalación del SDK de Azure Storage para Python
+
+El SDK de Azure Storage para Python requiere Python 2.7, 3.3, 3.4, 3.5 o 3.6, y viene en cuatro paquetes diferentes: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` y `azure-storage-queue`. En este tutorial se usará el paquete `azure-storage-queue`.
+ 
+### <a name="install-via-pypi"></a>Instalación mediante PyPi
+
+Para realizar la instalación mediante el índice de paquetes de Python (PyPI), escriba:
+
+```bash
+pip install azure-storage-queue
+```
+
+
+> [!NOTE]
+> Si va a actualizar desde el SDK de Azure Storage para la versión de Python 0.36 o anterior, primero deberá desinstalarlo mediante `pip uninstall azure-storage` dado que ya no se publica el SDL de Storage para Python en un único paquete.
+> 
+> 
+
+Si quiere conocer métodos de instalación alternativos, consulte el [SDK de Azure Storage para Python en Github](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="how-to-create-a-queue"></a>Creación de una cola
 El objeto **QueueService** permite trabajar con colas. El siguiente código crea un objeto **QueueService** . Agregue lo siguiente cerca de la parte superior de todo archivo Python en el que desee obtener acceso al almacenamiento de Azure mediante programación:

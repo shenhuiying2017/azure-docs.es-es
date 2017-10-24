@@ -3,7 +3,7 @@ title: "Descripción de los conectores del Proxy de aplicación de Azure AD | Mi
 description: "Se explican los conceptos básicos acerca de los conectores del Proxy de aplicación de Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -11,18 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
-ms.author: kgremban
+ms.date: 10/03/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: fdee5703adc76e750aebd83d4122e7b79244c0e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c18d0a2bff654573e6e28a7cd7fad853b3a11346
-ms.contentlocale: es-es
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
 Los conectores son los que hacen posible el Proxy de aplicación de Azure AD. Son simples, fáciles de implementar y mantener y muy eficaces. En este artículo se habla de qué son los conectores, cómo funcionan, y se ofrecen algunas sugerencias para optimizar la implementación. 
@@ -70,6 +68,21 @@ Los grupos de conectores facilitan la administración de implementaciones a gran
 
 Para más información acerca de los grupos de conectores, consulte [Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores](active-directory-application-proxy-connectors-azure-portal.md).
 
+## <a name="capacity-planning"></a>Planificación de capacidad 
+
+Aunque los conectores equilibrarán la carga automáticamente dentro de un grupo de conectores, también es importante asegurarse de que ha planeado suficiente capacidad entre conectores para controlar el volumen de tráfico esperado. En general, cuantos más usuarios tenga, necesitará una máquina mayor. A continuación se muestra una tabla que proporciona un esquema del volumen que pueden controlar distintas máquinas. Tenga en cuenta que todo se basa en transacciones por segundo (TPS) esperadas en lugar de por usuario, ya que los patrones de uso varían y no se pueden usar para predecir la carga.  Tenga en cuenta también que habrá algunas diferencias en función del tamaño de las respuestas y el tiempo de respuesta de la aplicación de back-end: tamaños más grandes de respuesta y tiempos de respuesta más lentos darán como resultado un menor TPS Máximo.
+
+|Núcleos|RAM|Latencia esperada (MS)-P99|TPS Máximo|
+| ----- | ----- | ----- | ----- |
+|2|8|325|586|
+|4|16|320|1150|
+|8|32|270|1190|
+|16|64|245|1200*|
+\* Esta máquina tiene un límite de 200 conexiones. En todas las demás máquinas, hemos utilizado el límite de 200 conexiones de forma predeterminada.
+ 
+>[!NOTE]
+>El límite de configuración predeterminado es 200 (para 2, 4 y 8 núcleos).  Durante la prueba con 16 núcleos, el límite de conexiones se cambió a 800. No hay mucha diferencia en el TPS máximo entre máquinas de 4, 8 y 16 núcleos. La diferencia principal entre ellas está en la latencia esperada.  
+
 ## <a name="security-and-networking"></a>Seguridad y redes
 
 Los conectores pueden instalarse en cualquier ubicación de la red que les permita enviar solicitudes al servicio Proxy de aplicación. Lo importante es que el equipo que ejecuta el conector también tenga acceso a las aplicaciones. Puede instalar conectores dentro de la red corporativa o en una máquina virtual que se ejecute en la nube. Los conectores se pueden ejecutar en una red perimetral (DMZ), pero no es necesario, ya que todo el tráfico es saliente, así que la red se mantiene protegida.
@@ -89,6 +102,8 @@ Puesto que los conectores no tienen estado, no dependen del número de usuarios 
 El rendimiento del conector viene determinado por las redes y la CPU. El rendimiento de la CPU es necesario para el cifrado y el descifrado SSL, mientras que las redes son importantes para conectar rápidamente con las aplicaciones y el servicio en línea de Azure.
 
 En cambio, la memoria no supone un problema para los conectores. El servicio en línea se encarga de gran parte del procesamiento y de todo el tráfico no autenticado. Todo lo que puede realizarse en la nube se realiza en la nube. 
+
+El equilibrio de carga se produce entre los conectores de un grupo de conectores determinado. Hacemos una variación de round robin para determinar qué conector del grupo sirve una solicitud determinada. Después de elegir un conector, mantenemos una afinidad de la sesión entre ese usuario y la aplicación para toda la duración de la sesión. Si por algún motivo ese conector o máquina no están disponibles, el tráfico comenzará a dirigirse a otro conector del grupo. Esta resistencia también es el motivo por el que se recomienda tener varios conectores.
 
 Otro factor que incide el rendimiento es la calidad de las conexiones entre los conectores; en particular: 
 
@@ -151,5 +166,4 @@ Puede examinar el estado del servicio en la ventana Servicios. El conector const
 * [Trabajo con servidores proxy locales existentes](application-proxy-working-with-proxy-servers.md)
 * [Solución de problemas y mensajes de error de Proxy de aplicación](active-directory-application-proxy-troubleshoot.md)
 * [Cómo instalar de forma silenciosa el conector de Proxy de aplicación de Azure AD](active-directory-application-proxy-silent-installation.md)
-
 

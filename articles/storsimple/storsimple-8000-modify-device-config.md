@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/19/2017
+ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: 13ff24c24a881297775fa5f65821e53ceb83c351
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 01e1e7447d6951d1b2c89f3b0ef726af9c03fd66
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Uso del servicio StorSimple Device Manager para modificar la configuración del dispositivo StorSimple
 
@@ -138,14 +137,14 @@ Para cada interfaz de red, se muestran los parámetros siguientes:
 
 ### <a name="configure-data-0"></a>Configuración de DATA 0
 
-DATA 0 es compatible con la nube de manera predeterminada. Al configurar DATA 0, también se deben configurar dos direcciones IP fijas, una para cada controlador. Estas direcciones IP fijas pueden usarse para tener acceso directamente a los controladores de dispositivos y son útiles cuando se instalan actualizaciones en el dispositivo o al obtener acceso a los controladores con el fin de solucionar problemas.
+DATA 0 es compatible con la nube de manera predeterminada. Al configurar DATA 0, también se deben configurar dos direcciones IP fijas, una para cada controlador. Estas direcciones IP fijas pueden usarse para tener acceso directamente a los controladores de dispositivos y son útiles cuando se instalan actualizaciones en el dispositivo, para que la recolección de elementos no reutilizados funcione correctamente o al obtener acceso a los controladores con el fin de solucionar problemas.
 
 Puede volver a configurar los controladores fijos de IP mediante la hoja de configuración de DATA 0.
 
 ![Configuración de la interfaz de red: DATA 0](./media/storsimple-8000-modify-device-config/modify-network-settings2.png)
 
 > [!NOTE]
-> Las direcciones IP fijas del controlador se usan para el mantenimiento de las actualizaciones del dispositivo. Por lo tanto, las direcciones IP fijas deben ser enrutables y disponer de capacidad de conexión a Internet.
+> Las direcciones IP fijas del controlador se usan para el mantenimiento de las actualizaciones del dispositivo y que los algoritmos de recuperación de espacio (recopilación de elementos no reutilizados) funcione correctamente. Por lo tanto, las direcciones IP fijas deben ser enrutables y disponer de capacidad de conexión a Internet.
 
 ### <a name="configure-data-1---data-5"></a>Configuración de DATA 1 a DATA5
 
@@ -169,5 +168,4 @@ Realice los pasos siguientes para intercambiar o volver a asignar las VIP para c
 
 * Obtenga información sobre cómo [configurar MPIO para el dispositivo StorSimple](storsimple-8000-configure-mpio-windows-server.md).
 * Aprenda a [usar el servicio StorSimple Device Manager para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

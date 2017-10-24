@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: glenga
+ms.openlocfilehash: b6ab081311822abd9c0a24b4cc241291bf56af68
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 38f6f5ebe0c53bc4314fa11f0f8d4f00af6086dd
-ms.contentlocale: es-es
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificación y comprobación de las funciones de Azure Functions en un entorno local
 
@@ -161,6 +160,7 @@ Para establecer un valor para las cadenas de conexión, puede realizar alguna de
     ```
     Ambos comandos requieren que primero inicie sesión en Azure.
 
+<a name="create-func"></a>
 ## <a name="create-a-function"></a>Creación de una función
 
 Para crear una función, ejecute el siguiente comando:
@@ -187,7 +187,7 @@ Para crear una función desencadenada por la cola, ejecute:
 ```
 func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 ```
-
+<a name="start"></a>
 ## <a name="run-functions-locally"></a>Ejecución local de funciones
 
 Para ejecutar un proyecto de Functions, ejecute el host de Functions. El host habilita desencadenadores para todas las funciones del proyecto:
@@ -237,7 +237,60 @@ Luego, en la vista de **depuración** de Visual Studio Code, seleccione **Attach
 
 ### <a name="passing-test-data-to-a-function"></a>Paso de datos de prueba a una función
 
-También puede invocar una función directamente con `func run <FunctionName>` y proporcionar datos de entrada para la función. Este comando es similar a la ejecución de una función con la pestaña **Prueba** de Azure Portal. Este comando inicia el host de Functions completo.
+Para probar sus funciones localmente, [inicie el host de Functions](#start) y llame a puntos de conexión del servidor local mediante solicitudes HTTP. El punto de conexión al que llama depende del tipo de función. 
+
+>[!NOTE]  
+> En los ejemplos de este tema se usa la herramienta cURL para enviar solicitudes HTTP desde el terminal o un símbolo del sistema. Puede usar una herramienta de su elección para enviar solicitudes HTTP al servidor local. La herramienta cURL está disponible de forma predeterminada en los sistemas basados en Linux. En Windows, primero debe descargar e instalar la [herramienta cURL](https://curl.haxx.se/).
+
+Para obtener información más general sobre cómo probar funciones, consulte [Estrategias para probar el código en Azure Functions](functions-test-a-function.md).
+
+#### <a name="http-and-webhook-triggered-functions"></a>Funciones desencadenadas por HTTP y webhook
+
+Llama al siguiente punto de conexión para ejecutar de forma local funciones desencadenadas por HTTP y webhook:
+
+    http://localhost:{port}/api/{function_name}
+
+Asegúrese de usar el mismo nombre del servidor y puerto en el que escucha el host de Functions. Puede ver esto en la salida generada al iniciar el host de Functions. Puede llamar a esta dirección URL mediante cualquier método HTTP admitido por el desencadenador. 
+
+El siguiente comando cURL desencadena la función de inicio rápido `MyHttpTrigger` desde una solicitud GET con el parámetro _name_ transferido en la cadena de consulta. 
+
+```
+curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
+```
+En el siguiente ejemplo está la misma función a la que se llama desde una solicitud POST que transfiere _name_ en el cuerpo de la solicitud:
+
+```
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
+```
+
+Tenga en cuenta que puede realizar solicitudes GET desde un explorador que transfiere datos en la cadena de consulta. Para todos los demás métodos HTTP, debe usar cURL, Fiddler, Postman o una herramienta de pruebas HTTP similar.  
+
+#### <a name="non-http-triggered-functions"></a>Funciones no desencadenadas por HTTP
+En el caso de todos los tipos de funciones distintas de los desencadenadores HTTP y HTTP webhooks, puede probar sus funciones localmente llamando a un punto de conexión de administración. La llamada de este punto de conexión en el servidor local desencadena la función. Opcionalmente, puede transferir datos de prueba a la ejecución. Esta funcionalidad es similar a la pestaña **Prueba** de Azure Portal.  
+
+Llama al siguiente punto de conexión de administrador para desencadenar funciones ajenas a HTTP con una solicitud HTTP POST:
+
+    http://localhost:{port}/admin/functions/{function_name}
+
+Aunque transfiera datos de prueba al punto de conexión de administrador de una función, debe proporcionar los datos en el cuerpo de un mensaje de solicitud POST. Es necesario que el cuerpo del mensaje tenga el siguiente formato JSON:
+
+```JSON
+{
+    "input": "<trigger_input>"
+}
+```` 
+El valor `<trigger_input>` contiene datos en un formato esperado por la función. El siguiente ejemplo de cURL es una solicitud POST dirigida a una función `QueueTriggerJS`. En este caso, la entrada es una cadena que equivale al mensaje que se espera encontrar en la cola.      
+
+```
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+```
+
+#### <a name="using-the-func-run-command-in-version-1x"></a>Uso del comando `func run` en la versión 1.x
+
+>[!IMPORTANT]  
+> El comando `func run` no se admite en la versión 2.x de las herramientas. Para obtener más información, consulte el tema [How to target Azure Functions runtime versions](functions-versions.md) (Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions).
+
+También puede invocar una función directamente con `func run <FunctionName>` y proporcionar datos de entrada para la función. Este comando es similar a la ejecución de una función con la pestaña **Prueba** de Azure Portal. 
 
 `func run` admite las siguientes opciones:
 
@@ -270,7 +323,7 @@ Puede usar las siguientes opciones:
 | **`--publish-local-settings -i`** |  Se publica la configuración de local.settings.json en Azure, se pide que se sobrescriba si la configuración ya existe.|
 | **`--overwrite-settings -y`** | Debe usarse con `-i`. Sobrescribe AppSettings en Azure con el valor local si es distinto. El valor predeterminado es Preguntar.|
 
-Este comando se publica en una aplicación de función existente en Azure. Se produce un error cuando `<FunctionAppName>` no existe en la suscripción. Para obtener información sobre cómo crear una aplicación de función desde el símbolo del sistema o la ventana de Terminal mediante la CLI de Azure, consulte [Creación de una aplicación de función para la ejecución sin servidor](./scripts/functions-cli-create-serverless.md).
+Este comando se publica en una aplicación de función existente en Azure. Se produce un error cuando `<FunctionAppName>` no existe en la suscripción. Para obtener información sobre cómo crear una aplicación de función desde el símbolo del sistema o la ventana de Terminal mediante la CLI de Azure, consulte [Creación de una instancia de Function App para la ejecución sin servidor](./scripts/functions-cli-create-serverless.md).
 
 El comando `publish` carga el contenido del directorio del proyecto de Functions. Si elimina archivos localmente, el comando `publish` no los eliminará de Azure. Puede eliminar archivos de Azure con la [herramienta Kudu](functions-how-to-use-azure-function-app-settings.md#kudu) de [Azure Portal].  
 
@@ -292,4 +345,3 @@ Para notificar un error o realizar una solicitud de característica, [abra un pr
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure Portal]: https://portal.azure.com 
-

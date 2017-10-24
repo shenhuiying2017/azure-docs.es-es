@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2017
+ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: 485320e500d71bd85b69cfcd9628e133ad1c417c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 4c339c531dae5724a174c2b22cb379bdb3214a4f
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de la serie StorSimple 8000, alta disponibilidad y requisitos de red
 
@@ -76,7 +75,7 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 
 <sup>2</sup> Si varios puertos llevan una configuración de puerta de enlace, el orden del tráfico enrutado saliente se determinará según el orden de enrutamiento del puerto que se describe a continuación en [Métrica de enrutamiento](#routing-metric).
 
-<sup>3</sup> Las direcciones IP fijas del controlador del dispositivo de StorSimple deben ser enrutables y deben poder conectarse a Internet directamente o a través de un proxy web configurado. Las direcciones IP fijas se utilizan para el mantenimiento de las actualizaciones del dispositivo. Si los controladores del dispositivo no pueden conectarse a Internet a través de direcciones IP fijas, no podrá actualizar el dispositivo StorSimple.
+<sup>3</sup> Las direcciones IP fijas del controlador del dispositivo de StorSimple deben ser enrutables y deben poder conectarse a Internet directamente o a través de un proxy web configurado. Las direcciones IP fijas se usan para el mantenimiento de las actualizaciones del dispositivo y para la recolección de elementos no utilizados. Si los controladores del dispositivo no pueden conectarse a Internet a través de direcciones IP fijas, no podrá actualizar el dispositivo StorSimple y la recolección de elementos no utilizados no funcionará correctamente.
 
 > [!IMPORTANT]
 > Asegúrese de que el firewall no modifica ni descifra ningún tráfico SSL entre el dispositivo de StorSimple y Azure.
@@ -139,13 +138,13 @@ El algoritmo de métrica de enrutamiento usado en Update 2 y versiones posterior
 
 * El orden en que el tráfico de nube se enrutará a través de las interfaces de red es:
   
-    *Data 0 > Data 1 > Date 2 > Data 3 > Data 4 > Data 5*
+    *Data 0 &gt; Data 1 &gt; Date 2 &gt; Data 3 &gt; Data 4 &gt; Data 5*
   
     Esto también puede explicarse mediante el ejemplo siguiente.
   
     Consideremos un dispositivo de StorSimple con dos interfaces de red habilitadas para la nube, Data 0 y Data 5. De Data 1 a Data 4 la interfaz estará deshabilitada para la nube pero con una puerta de enlace configurada. El orden en que el tráfico se enrutará para este dispositivo será:
   
-    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+    *Data 0 (1) &gt; Data 5 (6) &gt; Data 1 (20) &gt; Data 2 (30) &gt; Data 3 (40) &gt; Data 4 (50)*
   
     *Los números entre paréntesis indican las métricas de enrutamientos respectivas.*
   
@@ -249,4 +248,3 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
-

@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
+ms.openlocfilehash: 76679ea0ff2c1e88d1923488717a245351437165
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 13feb95a24add7823feae9fe0abd89e59934255c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Uso de módulos Node.js con aplicaciones de Azure
 Este documento le proporciona orientación sobre el uso de módulos Node.js con aplicaciones hospedadas en Azure. Mediante este documento podrá asegurarse de que su aplicación usa una versión específica del módulo y de que usa módulos nativos con Azure.
@@ -54,7 +53,8 @@ Azure App Service no es compatible con todos los módulos nativos y podría pres
 * El Servicio de aplicaciones de Azure se puede configurar para ejecutar scripts de bash o shell personalizados durante la implementación, lo que le proporciona la oportunidad de ejecutar comandos personalizados y configurar de manera precisa la manera en que se ejecuta **npm install** . Para ver un vídeo que muestra cómo configurar dicho entorno, consulte [Scripts de implementación de sitios web personalizados con Kudu].
 
 ### <a name="using-a-packagejson-file"></a>Uso de un archivo package.json
-El archivo **package.json** sirve para especificar las dependencias de nivel superior que requiere la aplicación de manera que la plataforma de hospedaje pueda instalar las dependencias evitando la necesidad de incluir la carpeta **node\_packages** como parte de la implementación. Una vez implementada la aplicación, el comando **npm install** se usa para analizar el archivo **package.json** e instalar todas las dependencias enumeradas.
+
+El archivo **package.json** sirve para especificar las dependencias de nivel superior que requiere la aplicación de manera que la plataforma de hospedaje pueda instalar las dependencias evitando la necesidad de incluir la carpeta **node\_modules** como parte de la implementación. Una vez implementada la aplicación, el comando **npm install** se usa para analizar el archivo **package.json** e instalar todas las dependencias enumeradas.
 
 Durante el desarrollo, puede usar los parámetros **--save**, **--save-dev** o **--save-optional** cuando instale los módulos para agregar una entrada para el módulo al archivo **package.json** automáticamente. Para obtener más información, consulte [npm-install](https://docs.npmjs.com/cli/install).
 
@@ -91,4 +91,3 @@ Para más información, vea el [Centro para desarrolladores de Node.js](/nodejs/
 [especificar la versión de Node.js]: nodejs-specify-node-version-azure-apps.md
 [usar la interfaz de la línea de comandos de Azure para Mac y Linux]:cli-install-nodejs.md
 [Scripts de implementación de sitios web personalizados con Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
-

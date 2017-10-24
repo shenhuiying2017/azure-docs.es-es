@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
+ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 706c9650a8deef941f9b39956021456053369e5e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Envío de mensajes de nube a dispositivo desde IoT Hub
 
@@ -43,7 +42,7 @@ Cuando el servicio IoT Hub envía un mensaje a un dispositivo, el servicio estab
 Un dispositivo también puede hacer lo siguiente:
 
 * *Rechazar* el mensaje, lo que hace que el Centro de IoT lo establezca en estado **Deadlettered** (Procesado como devuelto). Los dispositivos que se conectan mediante el protocolo MQTT no pueden rechazar mensajes de nube a dispositivo.
-* *Abandonar* el mensaje, lo que hace que el Centro de IoT vuelva a ponerlo en la cola con el estado **Enqueued**(En cola).
+* *Abandonar* el mensaje, lo que hace que el Centro de IoT vuelva a ponerlo en la cola con el estado **Enqueued**(En cola). Los dispositivos que se conectan mediante el protocolo MQTT no pueden abandonar mensajes de nube a dispositivo.
 
 Podría producirse un error en el subproceso al procesar un mensaje sin notificar a Centro de IoT. En este caso, los mensajes pasan automáticamente del estado **Invisible** al estado **Enqueued** (En cola) después de un *tiempo de espera de visibilidad (o bloqueo)*. El valor predeterminado de este tiempo de espera es un minuto.
 
@@ -151,4 +150,3 @@ Para probar la recepción de mensajes de nube a dispositivo, consulte el tutoria
 [lnk-c2d-configuration]: #cloud-to-device-configuration-options
 [lnk-lifecycle]: #message-lifecycle
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-

@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/21/2017
 ms.author: maheshu
+ms.openlocfilehash: b73bfc7703d79681f0de345f4ec994da540aa2a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 72514dabf3af0b282d1bb49c542c13f7095e03d8
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Escenarios y casos de uso de implementación
 En esta sección, echamos un vistazo a algunos escenarios y casos de uso que se benefician de Azure Active Directory (AD) Domain Services.
@@ -82,3 +81,8 @@ Puede usar Azure AD Domain Services para proporcionar servicios de dominio de AD
 
 Para más información acerca de este escenario de implementación, vea cómo [integrar Azure AD Domain Services con su implementación de RDS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
 
+
+## <a name="domain-joined-hdinsight-clusters-preview"></a>Clústeres de HDInsight unidos a dominio (versión preliminar)
+Puede configurar un clúster de HDInsight de Azure que está unido a un dominio administrado de Azure AD Domain Services con Apache Ranger habilitado. Crear y aplicar directivas de Hive a través de Apache Ranger y permitir a los usuarios (por ejemplo, los científicos de datos) conectarse a Hive con herramientas basadas en ODBC, por ejemplo, Excel, Tableau, etc. Microsoft está trabajando para incluir otras cargas de trabajo, como HBase, Spark y Storm, a HDInsight unido a un dominio en breve.
+
+Para más información acerca de este escenario de implementación, consulte cómo [configurar clústeres de HDInsight unidos a un dominio](../hdinsight/hdinsight-domain-joined-configure.md)

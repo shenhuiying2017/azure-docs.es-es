@@ -12,28 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 81d93563a3cbe47ebe12c7ac5de26c5bbc2bb8ff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: a8f298228f21ac498b69e59d553b5b885d28a95a
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Adición o modificación de la información de perfil de un usuario en Azure Active Directory
 En este artículo explica cómo agregar información de perfil de usuario, como una imagen de perfil o datos de autenticación por correo electrónico o teléfono, en Azure Active Directory (Azure AD). Para obtener más información sobre cómo agregar nuevos usuarios en su organización, consulte [Incorporación de nuevos usuarios a Azure Active Directory](active-directory-users-create-azure-portal.md).
 
 ## <a name="to-change-profile-information"></a>Procedimiento para cambiar la información de perfil
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
+2. Seleccione **Usuarios y grupos**.
 
    ![Apertura de Usuarios y grupos](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
-3. En la hoja **Usuarios y grupos**, seleccione **Usuarios**.
+3. Seleccione **Todos los usuarios**.
 
-   ![Apertura de la hoja Usuarios](./media/active-directory-users-profile-azure-portal/create-users-open-users-blade.png)
-4. En la hoja **Usuarios y grupos - Usuarios** , seleccione un usuario de la lista.
-5. En la hoja del usuario seleccionado, seleccione **Perfil**.
+   ![Apertura de todos los grupos de usuarios](./media/active-directory-users-profile-azure-portal/create-users-open-users-blade.png)
+1. Seleccione un usuario en la lista.
+2. Seleccione **Perfil** para el usuario seleccionado.
 
     ![Apertura de Información del trabajo](./media/active-directory-users-profile-azure-portal/active-directory-create-users-profile.png)
 6. Agregue o cambie la información de perfil. En la barra de comandos, haga clic en **Guardar**.

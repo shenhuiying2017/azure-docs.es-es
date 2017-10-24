@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
+ms.openlocfilehash: 33bd7c727794997cdcf5aa9e9ed4e7534ed07c9f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: d39fc7d75f6709391617e2e7c35d8cc7c7ac66fa
-ms.contentlocale: es-es
-ms.lasthandoff: 09/19/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Uso de acción de script para instalar paquetes externos de Python para cuadernos de Jupyter en clústeres de Apache Spark en HDInsight
 > [!div class="op_single_selector"]
@@ -56,7 +55,7 @@ Debe tener lo siguiente:
 
 1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
-2. En la hoja del clúster de Spark, haga clic en **Acciones de script** en **Uso**. Ejecute la acción personalizada que instala TensorFlow en los nodos principales y los nodos de trabajo. Se puede hacer referencia al script de Bash desde: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh Consulte la documentación sobre [cómo usar acciones de script personalizadas](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+2. En la hoja del clúster de Spark, haga clic en **Acciones de script** en el panel izquierdo. Ejecute la acción personalizada que instala TensorFlow en los nodos principales y los nodos de trabajo. Se puede hacer referencia al script de Bash desde: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh Consulte la documentación sobre [cómo usar acciones de script personalizadas](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]
    > Hay dos instalaciones de Python en el clúster. Spark usará la instalación de Python de Anaconda ubicada en `/usr/bin/anaconda/bin`. Haga referencia a esa instalación en sus acciones personalizadas mediante `/usr/bin/anaconda/bin/pip` y `/usr/bin/anaconda/bin/conda`.
@@ -111,4 +110,3 @@ Debe tener lo siguiente:
 ### <a name="manage-resources"></a>Administración de recursos
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](hdinsight-apache-spark-job-debugging.md)
-

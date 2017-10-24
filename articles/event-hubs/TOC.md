@@ -33,7 +33,8 @@
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Registros de diagnóstico](event-hubs-diagnostic-logs.md)
 ### [Guía del protocolo AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## administración
+## Administrar
+### [Supervisión de Event Hubs con Azure Monitoring](event-hubs-metrics-azure-monitor.md)
 ### [Bibliotecas de administración de Event Hubs](event-hubs-management-libraries.md)
 ### Captura
 #### [Captura de Event Hubs](event-hubs-capture-overview.md)

@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: 29f245fdeaadd6f95755f7fd7564dfa7f6b2981f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 8c6ff4a6b8617cda9b12be060c7c7bed62cb3f44
-ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Información sobre el uso de HDInsight en Linux
 
@@ -50,19 +49,19 @@ El nombre de dominio completo (FQDN) que se usa al conectarse al clúster desde 
 
 De forma interna, cada nodo del clúster tiene un nombre que se asigna durante la configuración del clúster. Para buscar los nombres de clúster, consulte la página **Hosts** en la interfaz de usuario web de Ambari. También puede usar lo siguiente para devolver una lista de hosts desde la API de REST de Ambari:
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-Reemplace **PASSWORD** por la contraseña de la cuenta de administrador y **CLUSTERNAME** por el nombre del clúster. Este comando devuelve un documento JSON que contiene una lista de los hosts del clúster. Jq se usa para extraer el valor del elemento `host_name` de cada host.
+Reemplace **CLUSTERNAME** por el nombre del clúster. Cuando se le solicite, escriba la contraseña de la cuenta de administrador. Este comando devuelve un documento JSON que contiene una lista de los hosts del clúster. Jq se usa para extraer el valor del elemento `host_name` de cada host.
 
 Si necesita encontrar el nombre del nodo de un servicio específico, puede consultar a Ambari por ese componente. Por ejemplo, para encontrar los hosts del nodo de nombres HDFS, use el siguiente comando:
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
 Este comando devuelve un documento JSON que describe el servicio y, luego, jq extrae solo el valor `host_name` para los hosts.
 
 ## <a name="remote-access-to-services"></a>Acceso remoto a los servicios
 
-* **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
+* **Ambari (web)** - https://&lt;clustername&gt;.azurehdinsight.net
 
     Realice la autenticación con el usuario y la contraseña del administrador de clúster y, a continuación, inicie sesión en Ambari.
 
@@ -73,21 +72,21 @@ Este comando devuelve un documento JSON que describe el servicio y, luego, jq ex
     >
     > Para usar la funcionalidad completa de la interfaz de usuario de la web Ambari, usa un túnel SSH para delegar el tráfico web al nodo principal del clúster. Consulte [Uso de la tunelación SSH para tener acceso a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** - https://&lt;nombreDeClúster>.azurehdinsight.net/ambari
+* **Ambari (REST)** - https://&lt;nombreDeClúster&gt;.azurehdinsight.net/ambari
 
     > [!NOTE]
     > Realice la autenticación con el usuario y la contraseña del administrador de clúster.
     >
     > La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
-* **WebHCat (Templeton)** - https://&lt;nombreDeClúster>.azurehdinsight.net/templeton
+* **WebHCat (Templeton)** - https://&lt;nombreDeClúster&gt;.azurehdinsight.net/templeton
 
     > [!NOTE]
     > Realice la autenticación con el usuario y la contraseña del administrador de clúster.
     >
     > La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
-* **SSH** - &lt;nombreDeClúster>-ssh.azurehdinsight.net en los puertos 22 o 23. El puerto 22 se usa para conectarse al nodo principal primario, mientras que el 23 se usa para conectarse al secundario. Para obtener más información sobre los nodos principales, consulte [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;nombreDeClúster&gt;-ssh.azurehdinsight.net en los puertos 22 o 23. El puerto 22 se usa para conectarse al nodo principal primario, mientras que el 23 se usa para conectarse al secundario. Para obtener más información sobre los nodos principales, consulte [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
 
     > [!NOTE]
     > Solo puede tener acceso a los nodos principales del clúster a través de SSH desde un equipo cliente. Una vez conectado, puede acceder a los nodos de trabajo usando SSH desde un nodo principal.
@@ -146,26 +145,26 @@ Cuando use __Data Lake Store__, utilice uno de los siguientes esquemas de URI:
 
 Puede usar Ambari para recuperar la configuración de almacenamiento predeterminada del clúster. Utilice el siguiente comando para recuperar información de configuración de HDFS con curl y filtrarla mediante [jq](https://stedolan.github.io/jq/):
 
-```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
+```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
 > [!NOTE]
-> Esto devuelve la primera configuración aplicada al servidor (`service_config_version=1`), que contiene esta información. Es posible que tenga que enumerar todas las versiones de configuración para encontrar la más reciente.
+> Este comando devuelve la primera configuración aplicada al servidor (`service_config_version=1`), que contiene esta información. Es posible que tenga que enumerar todas las versiones de configuración para encontrar la más reciente.
 
 Este comando devuelve un valor similar a los siguientes URI:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net` si usa una cuenta de Azure Storage.
 
-    El nombre de la cuenta es el nombre de la cuenta de Azure Storage, mientras que el nombre del contenedor es el contenedor de blobs que es la raíz del almacenamiento del clúster.
+    El nombre de cuenta es el nombre de la cuenta de Azure Storage. El nombre del contenedor es el contenedor de blobs que es la raíz de almacenamiento de clúster.
 
 * `adl://home` si usa Azure Data Lake Store. Para obtener el nombre de la instancia de Data Lake Store, use la siguiente llamada REST:
 
-    ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
+    ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
     Este comando devuelve el siguiente nombre de host: `<data-lake-store-account-name>.azuredatalakestore.net`.
 
     Para obtener el directorio del almacén que es la raíz de HDInsight, use la siguiente llamada REST:
 
-    ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
+    ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
 
     Este comando devuelve una ruta de acceso similar a la siguiente: `/clusters/<hdinsight-cluster-name>/`.
 
@@ -211,7 +210,7 @@ La característica de escalado de clúster permite cambiar de forma dinámica la
 Los diferentes tipos de clúster se ven afectados por la escala de esta manera:
 
 * **Hadoop**: al reducir verticalmente el número de nodos en un clúster, se reinician algunos de los servicios del clúster. Las operaciones de escalado pueden provocar errores en los trabajos pendientes o en ejecución al completarse la operación de escalado. Sin embargo, puedes volver a enviar los trabajos una vez finalizada la operación.
-* **HBase**: los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Para equilibrar manualmente servidores regionales, siga estos pasos:
+* **HBase**: los servidores regionales se equilibran automáticamente en unos pocos minutos una vez completada la operación de escalado. Para equilibrar manualmente servidores regionales, siga estos pasos:
 
     1. Conéctate al clúster de HDInsight con SSH: Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -245,12 +244,11 @@ Para obtener información específica sobre cómo ampliar tu clúster de HDInsig
 
 HDInsight es un servicio administrado. Si Azure detecta un problema con el clúster, podría eliminar el nodo que ha dado error y crear un nodo para sustituirlo. Si instala manualmente elementos en el clúster, no se conservan cuando se produce esta operación. En su lugar, use [acciones de script de HDInsight](hdinsight-hadoop-customize-cluster.md). Una acción de script se puede usar para realizar los siguientes cambios:
 
-* Instalar y configurar un servicio o un sitio web, como Spark o Hue.
-* Instalar y configurar un componente que requiera cambios de configuración en varios nodos del clúster. Por ejemplo, una variable de entorno requerida o la creación de un directorio de registro o de un archivo de configuración.
+* Instalar y configurar un servicio o un sitio web.
+* Instalar y configurar un componente que requiera cambios de configuración en varios nodos del clúster.
 
-Las acciones de script son scripts de Bash. Los scripts se ejecutan durante el aprovisionamiento del clúster y se pueden usar para instalar y configurar componentes adicionales en el clúster. Se proporcionan scripts de ejemplo para instalar los componentes siguientes:
+Las acciones de script son scripts de Bash. Los scripts se ejecutan durante la creación del clúster y se pueden usar para instalar y configurar componentes adicionales. Se proporcionan scripts de ejemplo para instalar los componentes siguientes:
 
-* [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph.](hdinsight-hadoop-giraph-install-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
 
@@ -258,7 +256,7 @@ Para obtener información sobre el desarrollo de sus propias acciones de script,
 
 ### <a name="jar-files"></a>Archivos JAR
 
-Algunas tecnologías de Hadoop se proporcionan en archivos jar independientes con funciones que se usan como parte de un trabajo de MapReduce o desde dentro de Pig o Hive. Aunque se pueden instalar mediante acciones de script, a menudo, no requieren ninguna configuración y se pueden cargar en el clúster después de haberlos aprovisionado y usado directamente. Si desea asegurarse de que el componente sobreviva a la creación de una nueva imagen del clúster, puede almacenar el archivo jar en el almacenamiento predeterminado del clúster (WASB o ADL).
+Algunas tecnologías de Hadoop se proporcionan en archivos jar independientes con funciones que se usan como parte de un trabajo de MapReduce o desde dentro de Pig o Hive. No suelen requerir ninguna configuración y, además, se pueden cargar en el clúster después de su creación y usarlas directamente. Si desea asegurarse de que el componente sobreviva a la creación de una nueva imagen del clúster, puede almacenar el archivo jar en el almacenamiento predeterminado del clúster (WASB o ADL).
 
 Por ejemplo, si desea usar la versión más reciente de [DataFu](http://datafu.incubator.apache.org/), puede descargar un archivo jar que contiene el proyecto y cargarlo en el clúster de HDInsight. A continuación, siga las instrucciones que aparecen en la documentación de DataFu sobre el uso con Pig o Hive.
 
@@ -282,4 +280,3 @@ Para usar otra versión de un componente, cargue la versión que necesita y úse
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
-

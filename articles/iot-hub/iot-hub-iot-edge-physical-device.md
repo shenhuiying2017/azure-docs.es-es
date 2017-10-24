@@ -12,16 +12,15 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 09/28/2017
 ms.author: andbuc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 02962a91c739a53dfcf947bcc736e5c293b9384f
-ms.contentlocale: es-es
-ms.lasthandoff: 06/26/2017
-
+ms.openlocfilehash: b24828ee1a09ba8e5f657954e11936f124270173
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-azure-iot-edge-on-a-raspberry-pi-to-forward-device-to-cloud-messages-to-iot-hub"></a>Uso de Azure IoT Edge en un Raspberry Pi para reenviar mensajes del dispositivo a la nube a IoT Hub
+# <a name="forward-device-to-cloud-messages-to-iot-hub-using-azure-iot-edge-on-a-raspberry-pi"></a>Reenvío de mensajes del dispositivo a la nube a IoT Hub con Azure IoT Edge en un Raspberry Pi
 
 En este tutorial de [ejemplo de baja energía de Bluetooth][lnk-ble-samplecode] se explica cómo usar [Azure IoT Edge][lnk-sdk] para:
 
@@ -40,7 +39,7 @@ En el tutorial se muestra cómo compilar y ejecutar una puerta de enlace de IoT 
 Al ejecutar la puerta de enlace de IoT Edge:
 
 * Se conecta a un dispositivo SensorTag mediante el protocolo de baja energía de Bluetooth (BLE).
-* Se conecta a IoT Hub mediante el protocolo HTTP.
+* Se conecta a IoT Hub mediante el protocolo HTTPS.
 * Reenvía los datos de telemetría del dispositivo SensorTag a IoT Hub.
 * Enruta los comandos desde IoT Hub al dispositivo SensorTag.
 
@@ -64,7 +63,11 @@ Etapas de la trayectoria de un elemento de telemetría desde un dispositivo BLE 
 1. El dispositivo BLE genera un ejemplo de temperatura y lo envía a través de Bluetooth al módulo BLE de la puerta de enlace.
 1. El módulo BLE recibe el ejemplo y lo publica en el agente junto con la dirección MAC del dispositivo.
 1. El módulo de asignación de identidad recoge este mensaje y usa una tabla interna para convertir la dirección MAC del dispositivo en una identidad de dispositivo de IoT Hub. Una identidad de dispositivo de IoT Hub consta de un identificador de dispositivo y una clave de dispositivo.
-1. El módulo de asignación de identidad publica un mensaje nuevo que contiene los datos de ejemplo de la temperatura, la dirección MAC del dispositivo, el identificador de dispositivo y la clave del dispositivo.
+1. El módulo de asignación de identidades publica un mensaje nuevo con esta información:
+   - Datos de ejemplo de temperatura
+   - La dirección MAC del dispositivo
+   - El identificador del dispositivo
+   - La clave del dispositivo  
 1. El módulo de IoT Hub recibe este mensaje nuevo (generado por el módulo de asignación de identidad) y lo publica en IoT Hub.
 1. El módulo registrador recoge todos los mensajes del agente en un archivo local.
 
@@ -134,7 +137,7 @@ Los módulos de BLE se comunican con el hardware de Bluetooth a través de la pi
 
     ```sh
     sudo apt-get update
-    sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
+    sudo apt-get install bluetooth bluez-tools build-essential autoconf libtool glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
     ```
 
 1. Descargue el código fuente de BlueZ de bluez.org:
@@ -203,13 +206,13 @@ Antes de ejecutar el ejemplo, debe comprobar que la Raspberry Pi 3 puede conecta
     bluetoothctl
     ```
 
-1. Escriba el comando **power on** para encender el controlador Bluetooth. El comando devuelve una salida similar a la siguiente:
+1. Escriba el comando **power on** para encender el controlador Bluetooth. El comando devuelve una salida similar al ejemplo siguiente:
 
     ```sh
     [NEW] Controller 98:4F:EE:04:1F:DF C3 raspberrypi [default]
     ```
 
-1. En el shell de Bluetooth interactivo, escriba el comando **scan on** para buscar dispositivos Bluetooth. El comando devuelve una salida similar a la siguiente:
+1. En el shell de Bluetooth interactivo, escriba el comando **scan on** para buscar dispositivos Bluetooth. El comando devuelve una salida similar al ejemplo siguiente:
 
     ```sh
     Discovery started
@@ -276,7 +279,7 @@ En el momento de redactar este artículo, IoT Edge solo es compatible con módul
 
 ### <a name="configure-two-sample-devices-in-your-iot-hub"></a>Configuración de dos dispositivos de ejemplo en IoT Hub
 
-* [Cree una instancia de IoT Hub][lnk-create-hub] en su suscripción de Azure. Necesitará el nombre de su instancia para realizar este tutorial. En caso de no tener ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
+* [Cree una instancia de IoT Hub][lnk-create-hub] en su suscripción de Azure. Necesitará el nombre de su instancia para realizar este tutorial. Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
 * Agregue un dispositivo denominado **SensorTag_01** a su centro de IoT y tome nota de la clave y el identificador del dispositivo. Puede usar las herramientas [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para agregar este dispositivo al centro de IoT que creó en el paso anterior y recuperar la clave. Tendrá que asignar este dispositivo al dispositivo SensorTag cuando configure la puerta de enlace.
 
 ### <a name="build-azure-iot-edge-on-your-raspberry-pi-3"></a>Compilar Azure IoT Edge en Raspberry Pi 3
@@ -284,7 +287,7 @@ En el momento de redactar este artículo, IoT Edge solo es compatible con módul
 Instale las dependencias para Azure IoT Edge:
 
 ```sh
-sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev
+sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev libtool
 ```
 
 Use los siguientes comandos para clonar IoT Edge y todos los submódulos en el directorio principal:
@@ -303,9 +306,9 @@ cd ~/iot-edge
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Configuración y ejecución del ejemplo de BLE en el Raspberry Pi 3
 
-Para arrancar y ejecutar el ejemplo, debe configurar todos los módulos de IoT Edge que participan en la puerta de enlace. Esta configuración se proporciona en un archivo JSON y debe configurar los cinco módulos de IoT Edge participantes. Se proporciona un archivo JSON de ejemplo en el repositorio denominado **gateway\_sample.json** como punto de partida para crear su propio archivo de configuración. Este archivo se encuentra en la carpeta **samples/ble_gateway/src** de la copia local del repositorio de IoT Edge.
+Para arrancar y ejecutar el ejemplo, configure todos los módulos de IoT Edge que participan en la puerta de enlace. Esta configuración se proporciona en un archivo JSON y debe configurar los cinco módulos de IoT Edge participantes. Se proporciona un archivo JSON de ejemplo en el repositorio denominado **gateway\_sample.json** como punto de partida para crear su propio archivo de configuración. Este archivo se encuentra en la carpeta **samples/ble_gateway/src** de la copia local del repositorio de IoT Edge.
 
-En las secciones siguientes se describe cómo editar este archivo de configuración para el ejemplo de BLE y se da por hecho que el repositorio de IoT Edge se encuentra en la carpeta **/home/pi/iot-edge/** del Raspberry Pi 3. Si el repositorio se encuentra en otro lugar, ajuste las rutas de acceso según corresponda.
+En las secciones siguientes se describe cómo editar este archivo de configuración para el ejemplo de BLE. Se supone que el repositorio de IoT Edge está en la carpeta **/home/pi/iot-edge/** en el Raspberry Pi 3. Si el repositorio se encuentra en otro lugar, ajuste las rutas de acceso según corresponda.
 
 #### <a name="logger-configuration"></a>Configuración del registrador
 
@@ -581,4 +584,3 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 [lnk-pi-ssh]: https://www.raspberrypi.org/documentation/remote-access/ssh/README.md
 [lnk-ssh-windows]: https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md
 [lnk-ssh-linux]: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
-

@@ -10,6 +10,8 @@
 | Configuración regional del sistema operativo | Español (es-es)|
 | Versión de VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Roles de Windows Server | No habilite los siguientes roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
+| Directivas de grupo| Las siguientes directivas de grupo no deben habilitarse en el servidor: <br> - Impedir el acceso al símbolo del sistema <br> - Impedir el acceso a herramientas de edición del Registro <br> - Confiar en la lógica de datos adjuntos de archivos <br> - Activar la ejecución de scripts <br> **Nota:** Puede encontrar más información sobre estas directivas de grupo [aquí](https://technet.microsoft.com/en-us/library/gg176671(v=ws.10).aspx).|
+| Configuración de Internet Information Service (IIS) | - Ningún sitio web predeterminado debe existir previamente <br> - Habilitar la [Autenticación anónima](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx)  <br> - Ningún sitio web o aplicación que escuche en el puerto 443 deben existir previamente<br>|
 | **Red** | |
 | Tipo de tarjeta de interfaz de red | VMXNET3 |
 | Tipo de dirección IP | Estática |

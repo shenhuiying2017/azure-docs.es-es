@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: miprasad
+ms.openlocfilehash: 39ae2aa7217b45e8fab77f528b27b77a1b1256bf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6ace1ec1130898d5cdc4e5c8b957e13aecc87174
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Análisis de sentimiento mediante aprendizaje profundo con Azure Machine Learning
 
 El análisis de sentimiento es una tarea bien conocida perteneciente al procesamiento de lenguaje natural. Dado un conjunto de textos, el objetivo es determinar el sentimiento que produce ese texto. El objetivo de esta solución es utilizar CNTK como back-end para Keras (una biblioteca de niveles de modelo, que proporciona bloques de creación de alto nivel para desarrollar modelos de aprendizaje profundo) e implementar el análisis de sentimiento en críticas de películas.
@@ -29,6 +27,8 @@ El análisis de sentimiento es una tarea bien conocida perteneciente al procesam
 La solución se encuentra en https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
 ## <a name="link-to-the-gallery-github-repository"></a>Vínculo al repositorio de GitHub de la galería
+
+Siga este vínculo al repositorio de GitHub público:
 
 [https://github.com/Azure/MachineLearningSamples-SentimentAnalysis](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis)
 
@@ -48,18 +48,9 @@ Para obtener valor del análisis de sentimiento, las empresas deben tener la cap
 
 * En esta solución se da por supuesto que está ejecutando Azure Machine Learning Workbench en Windows 10 con el motor de Docker instalado localmente. Si usa macOS, las instrucciones son en gran medida las mismas.
 
-## <a name="create-a-new-workbench-project"></a>Creación de un nuevo proyecto de Workbench
-
-Cree un nuevo proyecto usando este ejemplo como plantilla:
-1.  Abra Azure Machine Learning Workbench
-2.  En la página **Proyectos**, haga clic en el signo **+** y seleccione **Nuevo proyecto**
-3.  En el panel **Crear nuevo proyecto**, rellene la información del proyecto nuevo
-4.  En el cuadro de búsqueda **Buscar plantillas de proyecto**, escriba "Sentiment Analysis with Deep Learning" (Análisis de sentimiento con aprendizaje profundo) y seleccione la plantilla
-5.  Haga clic en **Crear**
-
 ## <a name="data-description"></a>Descripción de los datos
 
-El conjunto de datos que se usa para este ejemplo es un pequeño conjunto de datos de creación manual que se encuentra en la carpeta de datos del [repositorio de Github](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/Data).
+El conjunto de datos que se usa para este ejemplo es un pequeño conjunto de datos de creación manual que se encuentra en la [carpeta de datos](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/tree/master/data).
 
 La primera columna contiene las críticas de películas y la segunda columna contiene los sentimientos (0: negativo, 1: positivo). El conjunto de datos se usa simplemente para fines de demostración pero, normalmente, si desea obtener unas puntuaciones de sentimiento más sólidas, necesitará un conjunto de datos más grande. Por ejemplo, el [problema de clasificación de sentimientos de críticas de películas de IMDB](https://keras.io/datasets/#datasets ) de Keras consta de un conjunto de datos de críticas de 25.000 películas de IMDB, etiquetadas por sentimiento (positivo o negativo). La intención de este laboratorio es mostrar cómo realizar un análisis de sentimiento mediante aprendizaje profundo con Azure Machine Learning Workbench.
 
@@ -67,20 +58,19 @@ La primera columna contiene las críticas de películas y la segunda columna con
 
 La estructura de carpetas se organiza de la siguiente forma:
 
-1. Code (Código): contiene todo el código relacionado con el análisis de sentimiento mediante Azure Machine Learning Workbench  
-2. Data (Datos): contiene el conjunto de datos utilizado en la solución  
-3. Labs (Laboratorios): contiene todos los laboratorios prácticos  
+1. Todo el código relacionado con el análisis de sentimiento mediante Azure Machine Learning Workbench se encuentra en esta carpeta raíz
+2. data: contiene el conjunto de datos utilizado en la solución
+3. docs: contiene todos los laboratorios prácticos
 
 El orden de los laboratorios prácticos para llevar a cabo la solución es el siguiente:
 
 | Orden| Nombre de archivo | Archivos relacionados |
 |--|-----------|------|
-| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisDataPreparation.md) | 'Data/sampleReviews.txt' |
-| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisModelingDocker.md) | 'Code/SentimentExtraction.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisModelingKerasWithCNTKBackend.md) | 'Code/SentimentExtractionDocker.py' |
-| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/Docs/SentimentAnalysisOperationalization.md) | 'Code/Operaionalization' |
+| 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
+| 2 | [`SentimentAnalysisModelingKerasWithCNTKBackend.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKerasWithCNTKBackend.md) | 'SentimentExtraction.py' |
+| 3 | [`SentimentAnalysisModelingDocker.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingDocker.md) | 'SentimentExtractionDocker.py' |
+| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## <a name="conclusion"></a>Conclusión
 
 En conclusión, esta solución le muestra cómo usar el aprendizaje profundo para realizar el análisis de sentimiento con Azure Machine Learning Workbench. La solución que se presenta es flexible para usar CNTK/Tensorflow como back-end con Keras. Además, también se puede operacionalizar mediante modelos de HDF5.
-

@@ -8,13 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 07/06/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a2556206ac53829fcd6ab92ffe292859349790d7
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.date: 10/03/2017
+ms.openlocfilehash: 17f045f516792e50f7349805ec9f7a01e3f9d5b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Conceptos sobre servidores de Azure Database for MySQL
 En este tema se incluyen consideraciones e instrucciones para trabajar con servidores de Azure Database for MySQL.
@@ -34,7 +33,7 @@ Un servidor de Azure Database for MySQL:
 - Proporciona el ámbito de las directivas de administración que se aplican a sus bases de datos: inicio de sesión, firewall, usuarios, roles, configuración, etc.
 - Está disponible en varias versiones. Para más información, vea [Supported Azure Database for MySQL database versions](./concepts-supported-versions.md) (Versiones de base de datos admitidas de Azure Database for MySQL).
 
-En un servidor de Azure Database for MySQL, puede crear una o varias bases de datos. Puede optar por crear una sola base de datos por servidor para que se usen todos los recursos, o bien crear varias bases de datos para compartir los recursos. El precio está estructurado por servidor, se basa en la configuración del plan de tarifa, las unidades de proceso, el almacenamiento (GB). Para más información, consulte [Planes de tarifa](./concepts-service-tiers.md).
+En un servidor de Azure Database for MySQL, puede crear una o varias bases de datos. Puede optar por crear una sola base de datos por servidor para que se usen todos los recursos, o bien crear varias bases de datos para compartir los recursos. El precio está estructurado por servidor, se basa en la configuración del plan de tarifa, las unidades de proceso y el almacenamiento (GB). Para más información, consulte [Planes de tarifa](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>¿Cómo conectarse a un servidor de Azure Database for MySQL y autenticarse en él?
 
@@ -42,7 +41,7 @@ Los elementos siguientes ayudan a garantizar el acceso seguro a la base de datos
 
 |||
 | :-- | :-- |
-| **Autenticación y autorización** | El servidor de Azure Database for MySQL admite la autenticación nativa de MySQL. Puede conectarse al servidor y autenticarse en él con el inicio de sesión de administrador del servidor. |
+| **Autenticación y autorización** | El servidor de Azure Database for MySQL admite la autenticación nativa de MySQL. Puede conectarse a un servidor y autenticarse en él con el inicio de sesión de administrador del servidor. |
 | **Protocolo** | El servicio admite un protocolo basado en mensajes utilizado por MySQL. |
 | **TCP/IP** | Se admite el protocolo a través de TCP/IP y a través de sockets de dominio de Unix. |
 | **Firewall** | Para ayudar a mantener los datos protegidos, una regla de firewall impide todo acceso al servidor de bases de datos, o a estas últimas, hasta que se especifique qué equipos cuentan con permiso. Vea [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md) (Reglas de firewall del servidor de Azure Database for MySQL). |
@@ -56,4 +55,3 @@ Puede administrar servidores de Azure Database for MySQL en Azure Portal o con l
 - Para obtener información general sobre el servicio, vea [Introducción a Azure Database for MySQL](./overview.md).
 - Para obtener información sobre las cuotas y limitaciones aplicables a recursos específicos en función de su **nivel de servicio**, consulte [Niveles de servicio](./concepts-service-tiers.md).
 - Para obtener información sobre cómo conectarse al servicio, vea [Bibliotecas de conexiones de Azure Database for MySQL](./concepts-connection-libraries.md).
-

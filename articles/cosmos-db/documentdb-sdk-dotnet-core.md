@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/2/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 7615074ce3f5098d5155dfc28ada567ea6361878
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a7ce4d771e9c655687f72f4b46c7405cf64aeb74
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>SDK de .NET Core para Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -57,6 +56,10 @@ El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con
 
 > [!NOTE] 
 > El SDK de .NET Core para Azure Cosmos DB aún no es compatible con aplicaciones de la Plataforma universal de Windows (UWP). Si quiere que el SDK de .NET Core que admita aplicaciones de UWP, envíe un correo electrónico a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1 
+
+* Cambios internos relacionados con la compatibilidad con [Microsoft.Azure.Graphs](https://docs.microsoft.com/en-us/azure/cosmos-db/graph-sdk-dotnet)
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
 
@@ -137,6 +140,7 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en los foros de [Stac
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.5.1](#1.5.1) |2 de octubre de 2017 |--- |
 | [1.5.0](#1.5.0) |10 de agosto de 2017 |--- | 
 | [1.4.1](#1.4.1) |7 de agosto de 2017 |--- |
 | [1.4.0](#1.4.0) |2 de agosto de 2017 |--- |
@@ -154,5 +158,4 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en los foros de [Stac
 
 ## <a name="see-also"></a>Otras referencias
 Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

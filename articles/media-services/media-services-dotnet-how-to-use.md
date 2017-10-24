@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: juliako
+ms.openlocfilehash: 024b4cbb13001d67e7c1f0b86a84dfb43478c49d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 15828bc74937a036871b26493498232ec7cf6f06
-ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-services-development-with-net"></a>Desarrollo de Servicios multimedia con .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -46,20 +45,22 @@ También puede obtener los bits más recientes del SDK de Media Services para .N
 3. Use **NuGet** para instalar y agregar **Extensiones del SDK de .NET para Azure Media Services** (**windowsazure.mediaservices.extensions**). Al instalar este paquete, también se instala el **SDK de Servicios multimedia para .NET** y agrega todas las demás dependencias necesarias.
    
     Asegúrese de que tiene instalada la versión más reciente de NuGet. Para más información e instrucciones de instalación, consulte [NuGet](http://nuget.codeplex.com/).
-4. En el Explorador de soluciones, haga clic con el botón derecho en el nombre del proyecto y elija Administrar paquetes NuGet.
+
+    1. En el Explorador de soluciones, haga clic con el botón derecho en el nombre del proyecto y elija **Administrar paquetes NuGet**.
+
+    2. Aparecerá el cuadro de diálogo Administrar paquetes de NuGet.
+
+    3. En la galería en línea, busque Extensiones de Azure Media Services, elija **Extensiones del SDK de .NET de Azure Media Services** (**windowsazure.mediaservices.extensions**) y haga clic en el botón **Instalar**.
    
-    Aparecerá el cuadro de diálogo Administrar paquetes de NuGet.
-5. En la galería en línea, busque Extensiones de Servicios multimedia de Azure, elija Extensiones del SDK de Servicios multimedia de Azure para .NET y luego haga clic en el botón Instalar.
+    4. El proyecto se modifica y se agregan referencias a Extensiones del SDK de Media Services para .NET, al SDK de .NET de Media Services y a otros ensamblados dependientes.
+4. Para promover un entorno de desarrollo más limpio, considere la posibilidad de habilitar la restauración de paquetes de NuGet. Para obtener más información, consulte [Restauración de paquetes de NuGet](http://docs.nuget.org/consume/package-restore).
+5. Agregue una referencia al ensamblado **System.Configuration** . Este ensamblado contiene la clase de Configuración del sistema.**Administrador de configuración** que se usa para tener acceso a los archivos de configuración (por ejemplo, App.config).
    
-    El proyecto se modifica y se agregan referencias a Extensiones del SDK de Media Services para .NET, al SDK de .NET de Media Services y a otros ensamblados dependientes.
-6. Para promover un entorno de desarrollo más limpio, considere la posibilidad de habilitar la restauración de paquetes de NuGet. Para obtener más información, consulte [Restauración de paquetes de NuGet](http://docs.nuget.org/consume/package-restore).
-7. Agregue una referencia al ensamblado **System.Configuration** . Este ensamblado contiene la clase de Configuración del sistema.**Administrador de configuración** que se usa para tener acceso a los archivos de configuración (por ejemplo, App.config).
+    1. Para agregar referencias usando el cuadro de diálogo de administración de referencias, haga clic con el botón derecho en el nombre del proyecto en el Explorador de soluciones. Después haga clic en **Agregar** y en **Referencia**.
    
-    Para agregar referencias usando el cuadro de diálogo de administración de referencias, haga clic con el botón derecho en el nombre del proyecto en el Explorador de soluciones. A continuación, seleccione Agregar y Referencias.
-   
-    Aparecerá el cuadro de diálogo Administrar referencias.
-8. En los ensamblados de .NET Framework, busque, seleccione el ensamblado System.Configuration y haga clic en Aceptar.
-9. Abra el archivo App.config y agregue una sección *appSettings* al archivo.     
+    2. Aparecerá el cuadro de diálogo Administrar referencias.
+    3. En los ensamblados de .NET Framework, busque, seleccione el ensamblado System.Configuration y haga clic en **Aceptar**.
+6. Abra el archivo App.config y agregue una sección **appSettings** al archivo.     
    
     Establezca los valores que se necesitan para conectarse a la API de Media Services. Para más información, consulte [Acceso a Azure Media Services API con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -77,7 +78,7 @@ También puede obtener los bits más recientes del SDK de Media Services para .N
 
         </configuration>
 
-10. Sobrescriba las instrucciones **using** existentes siguiendo las instrucciones al comienzo del archivo Program.cs con el siguiente código.
+7. Sobrescriba las instrucciones **using** existentes siguiendo las instrucciones al comienzo del archivo Program.cs con el siguiente código.
            
         using System;
         using System.Configuration;
@@ -127,5 +128,4 @@ Ahora [puede conectarse a la API de AMS](media-services-use-aad-auth-to-access-a
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

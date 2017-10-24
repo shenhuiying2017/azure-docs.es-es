@@ -1,0 +1,118 @@
+---
+title: "Autenticación entre servicios: SDK de .NET con Data Lake Store mediante Azure Active Directory | Microsoft Docs"
+description: "Aprenda a realizar la autenticación entre servicios con Data Lake Store mediante Azure Active Directory usando SDK de .NET"
+services: data-lake-store
+documentationcenter: 
+author: nitinme
+manager: cgronlun
+editor: cgronlun
+ms.service: data-lake-store
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 10/05/2017
+ms.author: nitinme
+ms.openlocfilehash: 72e9e2e10992d928dcfd85538497ba12c6e1c6f5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
+---
+# <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>Autenticación entre servicios con Data Lake Store mediante SDK de .NET
+> [!div class="op_single_selector"]
+> * [Uso de Java](data-lake-store-service-to-service-authenticate-java.md)
+> * [Uso del SDK de .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [Uso de Python](data-lake-store-service-to-service-authenticate-python.md)
+> * [Uso de la API de REST](data-lake-store-service-to-service-authenticate-rest-api.md)
+> 
+>  
+
+En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticación entre servicios con Azure Data Lake Store. En el caso de la autenticación del usuario final con Data Lake Store mediante SDK de .NET, consulte [Autenticación de usuario final con Data Lake Store mediante el SDK de .NET](data-lake-store-end-user-authenticate-net-sdk.md).
+
+
+## <a name="prerequisites"></a>Requisitos previos
+* **Visual Studio 2013, 2015 o 2017**. En las instrucciones siguientes se usa Visual Studio 2017.
+
+* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+* **Cree una aplicación "web" de Azure Active Directory**. Debe haber completado los pasos descritos en [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md) (Autenticación entre servicios con Data Lake Store mediante Azure Active Directory).
+
+## <a name="create-a-net-application"></a>Creación de una aplicación .NET
+1. Abra Visual Studio y cree una aplicación de consola.
+2. En el menú **Archivo**, haga clic en **Nuevo** y en **Proyecto**.
+3. En **Nuevo proyecto**, escriba o seleccione los siguientes valores:
+
+   | Propiedad | Valor |
+   | --- | --- |
+   | Categoría |Plantillas/Visual C#/Windows |
+   | Plantilla |Aplicación de consola |
+   | Nombre |CreateADLApplication |
+4. Haga clic en **Aceptar** para crear el proyecto.
+
+5. Agregue los paquetes NuGet al proyecto.
+
+   1. Haga clic con el botón derecho en el Explorador de soluciones y haga clic en **Administrar paquetes de NuGet**.
+   2. En la pestaña **Administrador de paquetes NuGet**, asegúrese de que la opción **Origen del paquete** esté establecida en **nuget.org** y que esté activada la casilla **Incluir versión preliminar**.
+   3. Busque e instale los siguientes paquetes NuGet:
+
+      * `Microsoft.Azure.Management.DataLake.Store` - En este tutorial se usa v2.1.3 (versión preliminar).
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - En este tutorial se usa v2.2.12.
+
+        ![Incorporación de un origen de NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Creación de una cuenta de Azure Data Lake")
+   4. Cierre el **Administrador de paquetes NuGet**.
+
+6. Abra **Program.cs**, elimine el código existente e incluya las siguientes instrucciones para agregar referencias a espacios de nombres.
+
+        using System;
+        using System.IO;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Threading;
+        
+        using Microsoft.Azure.Management.DataLake.Store;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using Microsoft.Rest.Azure.Authentication;
+
+## <a name="service-to-service-authentication-with-client-secret"></a>Autenticación entre servicios con el secreto de cliente
+Agregue este fragmento de código a su aplicación cliente .NET. Reemplace los valores de marcador de posición por los valores recuperados de una aplicación web de Azure AD (se enumera como un requisito previo).  Este fragmento de código le permite autenticar la aplicación de **forma no interactiva** con Data Lake Store mediante la clave/secreto de cliente para la aplicación web de Azure AD. 
+
+    private static void Main(string[] args)
+    {    
+        // Service principal / appplication authentication with client secret / key
+        // Use the client ID of an existing AAD "Web App" application.
+        SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+    
+        var domain = "<AAD-directory-domain>";
+        var webApp_clientId = "<AAD-application-clientid>";
+        var clientSecret = "<AAD-application-client-secret>";
+        var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
+        var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
+    }
+
+## <a name="service-to-service-authentication-with-certificate"></a>Autenticación entre servicios con un certificado
+
+Agregue este fragmento de código a su aplicación cliente .NET. Reemplace los valores de marcador de posición por los valores recuperados de una aplicación web de Azure AD (se enumera como un requisito previo). Este fragmento de código le permite autenticar su aplicación **de forma no interactiva** con Data Lake Store usando el certificado para una aplicación web de Azure AD. Para obtener instrucciones acerca de cómo crear una aplicación de Azure AD, consulte [Creación de una entidad de servicio con un certificado autofirmado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+
+    
+    private static void Main(string[] args)
+    {
+        // Service principal / application authentication with certificate
+        // Use the client ID and certificate of an existing AAD "Web App" application.
+        SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
+    
+        var domain = "<AAD-directory-domain>";
+        var webApp_clientId = "<AAD-application-clientid>";
+        var clientCert = <AAD-application-client-certificate>
+        var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
+        var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate).Result;
+    }
+
+
+## <a name="next-steps"></a>Pasos siguientes
+En este artículo, ha aprendido a usar la autenticación entre servicios para autenticarse en Azure Data Lake Store con SDK de .NET. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar el SDK de .NET con Azure Data Lake Store.
+
+* [Operaciones de administración de cuentas en Azure Data Lake Store con el SDK de .NET](data-lake-store-get-started-net-sdk.md)
+* [Operaciones de datos en Azure Data Lake Store con el SDK de .NET](data-lake-store-data-operations-net-sdk.md)
+
+

@@ -14,24 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3010c298cf227c761288365e3663ffe3fb67d863
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 64852471a848cb42fd8a2e67622d309d5e050cfd
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-compose"></a>sfctl compose
-Cree, elimine y administre aplicaciones de Docker Compose.
+Cree, elimine y administre implementaciones de Docker Compose.
 
 ## <a name="commands"></a>Comandos:
 
 |Comando|Descripción|
 | --- | --- |
-|    create| Crea una aplicación de Service Fabric desde un archivo de Compose.|
-|    list  | Obtiene la lista de aplicaciones de Compose creadas en el clúster de Service Fabric.|
-|   remove| Elimina una aplicación existente de Compose de Service Fabric del clúster.|
-|   status| Obtiene información sobre una aplicación de Compose de Service Fabric.|
+|    create| Implemente una aplicación de Service Fabric desde un archivo de Compose.|
+|    list  | Obtiene la lista de implementaciones de Compose creadas en el clúster de Service Fabric.|
+|   remove| Elimina una implementación existente de Compose de Service Fabric del clúster.|
+|   status| Obtiene información sobre una implementación de Compose de Service Fabric.|
 |upgrade       | Inicia la actualización de una implementación de Compose en el clúster de Service Fabric.|
 |    upgrade-status| Obtiene detalles de la actualización más reciente realizada en esta implementación de Compose de Service Fabric.|
 
@@ -44,11 +43,11 @@ Crea una implementación de Compose de Service Fabric.
 |Argumento|Descripción|
 | --- | --- |
 | --file-path [Obligatorio]| Ruta de acceso al archivo de destino de Docker Compose.|
- |   --name      [Obligatorio]| La identidad de la implementación.|
-|    --encrypted-pass      | En lugar de solicitar una contraseña de registro de contenedor, utilice una frase de contraseña ya cifrada.|
-|    --has-pass            | Solicita una contraseña para el registro de contenedor.|
-|    --timeout -t          | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
- |   --user                | Nombre de usuario para conectarse al registro de contenedor.|
+ |   --deployment-name [Obligatorio]| Nombre de la implementación.|
+|    --encrypted-pass             | En lugar de solicitar una contraseña de registro de contenedor, utilice una frase de contraseña ya cifrada.|
+|    --has-pass                   | Solicita una contraseña para el registro de contenedor.|
+|    --timeout -t                 | Tiempo de espera del servidor en segundos.  Valor predeterminado: 60.|
+ |   --user                       | Nombre de usuario para conectarse al registro de contenedor.|
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -56,7 +55,7 @@ Crea una implementación de Compose de Service Fabric.
 | --- | --- |
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
-| --output -o             | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o             | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query                 | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose               | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -79,7 +78,7 @@ Obtiene el estado sobre las implementaciones de Compose que se crearon o están 
 | --- | --- |
 | --debug          | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h        | Muestra este mensaje de ayuda y sale.|
-| --output -o      | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o      | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query          | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose        | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -101,7 +100,7 @@ Elimina una implementación existente de Compose de Service Fabric.
 | --- | --- |
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
-| --output -o             | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o             | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query                 | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose               | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -123,7 +122,7 @@ Devuelve el estado de la implementación de Compose que se creó o está en proc
 | --- | --- |
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
-| --output -o             | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.  Valor predeterminado: json.|
+| --output -o             | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
 | --query                 | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose               | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
@@ -136,7 +135,7 @@ Valida los parámetros de actualización proporcionados e inicia la actualizaci�
 |Argumento|Descripción|
 | --- | --- |
 |    --file-path [Obligatorio]| Ruta de acceso al archivo de destino de Docker Compose.|
-|    --name             [Obligatorio]| La identidad de la implementación.|
+|    --deployment-name [Obligatorio]| Nombre de la implementación.|
 |    --default-svc-type-health-map| Diccionario JSON codificado que describe la directiva de estado que se usa para evaluar el estado de los servicios.|
 |    --encrypted-pass             | En lugar de solicitar una contraseña de registro de contenedor, utilice una frase de contraseña ya cifrada.|
  |   --failure-action             | Los valores posibles son: 'Invalid', 'Rollback', 'Manual'.|
@@ -161,11 +160,11 @@ Valida los parámetros de actualización proporcionados e inicia la actualizaci�
 | --- | --- |
 |   --debug                      | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 |    --help -h                    | Muestra este mensaje de ayuda y sale.|
- |   --output -o                  | Formato de salida.  Valores permitidos: json, jsonc, table, tsv.
+ |   --output -o                  | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.
                                    Valor predeterminado: json.|
  |   --query                      | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
  |   --verbose                    | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
-- Obtenga información sobre cómo utilizar la CLI de Service Fabric utilizando los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

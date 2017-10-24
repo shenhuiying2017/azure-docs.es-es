@@ -11,14 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
+ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 487c2dc22acc5194ef103ebef01c62c887580335
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoft-azure-virtual-data-center"></a>Centro de datos virtual de Microsoft Azure
 **Microsoft Azure**: muévase más rápido, ahorre dinero, integre aplicaciones locales y datos
 
@@ -352,11 +350,11 @@ Las siguientes características se describen en este documento. Haga clic en los
 [3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "Radio a radio"
 [4]: ./media/networking-virtual-datacenter/vdc-block-level-diagram.png "Diagrama de nivel de bloques del centro de datos virtual"
 [5]: ./media/networking-virtual-datacenter/users-groups-subsciptions.png "Usuarios, grupos, suscripciones y proyectos"
-[6]: ./media/networking-virtual-datacenter/infrastructure-high-level.png "Diagrama de infraestructura de alto nivel"
-[7]: ./media/networking-virtual-datacenter/highlevel-perimeter-networks.png "Diagrama de infraestructura de alto nivel"
-[8]: ./media/networking-virtual-datacenter/vnet-peering-perimeter-neworks.png "Emparejamiento de redes virtuales y redes perimetrales"
-[9]: ./media/networking-virtual-datacenter/high-level-diagram-monitoring.png "Diagrama de alto nivel para supervisión"
-[10]: ./media/networking-virtual-datacenter/high-level-workloads.png "Diagrama de alto nivel para cargas de trabajo"
+[6]: ./media/networking-virtual-datacenter/infrastructure-high-level.png "Diagrama genérico de infraestructura"
+[7]: ./media/networking-virtual-datacenter/highlevel-perimeter-networks.png "Diagrama genérico de infraestructura"
+[8]: ./media/networking-virtual-datacenter/vnet-peering-perimeter-neworks.png "Emparejamiento de VNET y redes perimetrales"
+[9]: ./media/networking-virtual-datacenter/high-level-diagram-monitoring.png "Diagrama genérico para supervisión"
+[10]: ./media/networking-virtual-datacenter/high-level-workloads.png "Diagrama genérico para cargas de trabajo"
 
 <!--Link References-->
 [Limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
@@ -387,4 +385,3 @@ Las siguientes características se describen en este documento. Haga clic en los
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 
 [ServiceBus]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview
 [TM]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview
-

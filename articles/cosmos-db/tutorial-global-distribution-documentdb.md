@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f4d8efe9814bd28bb902567a23b541bc9b5414a1
-ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 0ba30ca4687248a27d9fe72acdc65a95114a437f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>Configuración de la distribución global de Azure Cosmos DB con la API de DocumentDB
 
@@ -46,7 +45,7 @@ El SDK enviará automáticamente todas las escrituras a la región de escritura 
 
 Todas las lecturas se enviarán a la primera región disponible en la lista de PreferredLocations. Si se produce un error en la solicitud, el cliente pasará a la siguiente región de la lista y así sucesivamente.
 
-Los SDK solo intentarán leer en las regiones especificadas en PreferredLocations. Así que, por ejemplo, si la cuenta de base de datos está disponible en tres regiones, pero el cliente solo especifica dos de las regiones de no escritura para PreferredLocations, no se atenderá ninguna lectura desde la región de escritura, incluso en caso de conmutación por error.
+Los SDK solo intentarán leer en las regiones especificadas en PreferredLocations. Así que, por ejemplo, si la cuenta de base de datos está disponible en cuatro regiones, pero el cliente solo especifica dos de las regiones de lectura (no escritura) para PreferredLocations, no se atenderá ninguna lectura desde la región de escritura que no se especifique en PreferredLocations. Si las regiones de lectura especificadas en PreferredLocations no están disponibles, las lecturas se atenderán fuera de la región de escritura.
 
 La aplicación puede comprobar los puntos de conexión de escritura y lectura actuales elegidos por el SDK. Para ello, comprueba dos propiedades, WriteEndpoint y ReadEndpoint, disponibles en el SDK 1.8 y versiones posteriores.
 
@@ -177,5 +176,4 @@ Ahora puede continuar en el tutorial siguiente para aprender a desarrollar local
 > [Desarrollo local con el emulador](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
-
 

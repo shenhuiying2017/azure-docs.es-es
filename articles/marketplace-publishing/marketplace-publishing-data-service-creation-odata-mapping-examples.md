@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>Ejemplos de asignación de un servicio web existente a OData a través de CSDL
 > [!IMPORTANT]
@@ -29,7 +27,7 @@ ms.lasthandoff: 07/06/2017
 > 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-post"></a>Ejemplo: FunctionImport para los datos de "Raw" devueltos mediante "POST"
-Use datos POST sin procesar para crear un nuevo subordinado y devolver su URL definida por servidor (ubicación) o actualizar parte del subordinado en la dirección URL definida por el servidor.  Donde el subordinado es una secuencia, por ejemplo, datos no estructurados, como un archivo de texto.  Tenga en cuenta que POST no es idempotentes sin una ubicación.
+Use datos POST sin procesar para crear un nuevo subordinado y devolver su URL definida por servidor (ubicación) o actualizar parte del subordinado en la dirección URL definida por el servidor.  Donde el subordinado es una secuencia es decir, sin estructurar, por ejemplo,  un archivo de texto.  Tenga en cuenta que POST no es idempotentes sin una ubicación.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -108,7 +106,7 @@ Use PUT para crear a un nuevo subordinado o para actualizar al subordinado compl
 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-put"></a>Ejemplo: FunctionImport para los datos de "Raw" devueltos mediante "PUT"
-Use datos sin procesar PUT para crear a un nuevo subordinado o para actualizar al subordinado completo en una dirección URL definida por un servidor.  Donde el subordinado es una secuencia, por ejemplo, datos no estructurados, como un archivo de texto.  PUT es idempotente, así que dará como resultado varias repeticiones en el mismo estado, por ejemplo, x = 5.  Put debe usarse con el contenido completo del recurso especificado.
+Use datos sin procesar PUT para crear a un nuevo subordinado o para actualizar al subordinado completo en una dirección URL definida por un servidor.  Donde el subordinado es una secuencia es decir, sin estructurar, por ejemplo,  un archivo de texto.  PUT es idempotente, así que dará como resultado varias repeticiones en el mismo estado, por ejemplo, x = 5.  Put debe usarse con el contenido completo del recurso especificado.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -164,5 +162,4 @@ Use la paginación RESTful de implementación a través de sus datos con GET.  L
 * Si le interesa entender el proceso de asignación de OData y el propósito general, lea este artículo sobre [Asignación de OData del Servicio de datos](marketplace-publishing-data-service-creation-odata-mapping.md) para revisar las definiciones, las estructuras y las instrucciones.
 * Si está interesado en aprender y comprender los nodos específicos y sus parámetros, lea este artículo sobre [Nodos de asignación de OData de Servicio de datos](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) para ver definiciones y explicaciones, ejemplos y contexto de caso de uso.
 * Para volver a la ruta de acceso recomendada para publicar un servicio de datos en Azure Marketplace, lea el artículo [Guía de publicación de servicios de datos](marketplace-publishing-data-service-creation.md).
-
 

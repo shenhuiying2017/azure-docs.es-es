@@ -13,20 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 086f73fd07e9ef24dd7fe776851e1a9402233f4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 685c35dbd4265ca6852de6db2e5a30fc2a611d7c
-ms.contentlocale: es-es
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migración desde Amazon Web Services (AWS) y otras plataformas a Managed Disks en Azure
 
-Puede cargar archivos de VHD desde AWS o soluciones de virtualización locales en Azure para crear máquinas virtuales que aprovechen las ventajas de Managed Disks. Azure Managed Disks elimina la necesidad de administrar las cuentas de Storage para las VM IaaS de Azure. Solo debe especificar el tipo (Premium o Estándar) y el tamaño del disco que necesita, y Azure creará y administrará el disco automáticamente. 
+Puede cargar archivos de VHD desde AWS o soluciones de virtualización locales en Azure para crear máquinas virtuales que aprovechen las ventajas de Managed Disks. Azure Managed Disks elimina la necesidad de administrar las cuentas de Storage para las VM IaaS de Azure. Solo tiene que especificar el tipo (premium o estándar) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente. 
 
 Puede cargar VHD generalizados o especializados. 
 - **VHD generalizado**: elimina toda la información personal de la cuenta mediante Sysprep. 
@@ -40,8 +38,8 @@ Puede cargar VHD generalizados o especializados.
 
 | Escenario                                                                                                                         | Documentación                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Es posible que tenga instancias EC2 de AWS existentes que quisiera migrar a Azure Managed Disks                                     | [Migración de una máquina virtual de Amazon Web Services (AWS) a Azure](aws-to-azure.md)                           |
-| Tiene una VM de otra plataforma de virtualización que quisiera usar como imagen para crear varias VM de Azure. | [Creación de una máquina virtual nueva a partir de un VHD generalizado cargado en Azure a través de Managed Disks](upload-generalized-managed.md) |
+| Tiene instancias EC2 de AWS existentes que le gustaría migrar a máquinas virtuales de Azure mediante discos administrados.                              | [Migración de una máquina virtual de Amazon Web Services (AWS) a Azure](aws-to-azure.md)                           |
+| Tiene una máquina virtual de otra plataforma de virtualización que le gustaría usar como imagen para crear varias máquinas virtuales de Azure. | [Carga de un VHD generalizado y uso de este para crear una nueva máquina virtual en Azure](upload-generalized-managed.md) |
 | Cuenta con una VM personalizada de forma exclusiva que quisiera recrear en Azure.                                                      | [Carga de un VHD especializado en Azure y creación de una máquina nueva](create-vm-specialized.md)         |
 
 
@@ -49,7 +47,7 @@ Puede cargar VHD generalizados o especializados.
 
 Azure Managed Disks simplifica la administración de VM al eliminar la necesidad de administrar cuentas de almacenamiento. Managed Disks también aprovecha las ventajas de la mejor confiabilidad de las VM en un conjunto de disponibilidad. Esto garantiza que los discos de las distintas VM de un conjunto de disponibilidad estarán lo suficientemente aislados entre sí como para evitar un único punto de error. Coloca automáticamente discos de distintas VM en un conjunto de disponibilidad en unidades de escalado de almacenamiento diferentes (marcas de tiempo), lo que limita el impacto de errores únicos de unidad de escalado de almacenamiento generados debido a errores de hardware y software. En virtud de sus necesidades, puede elegir entre dos tipos de opciones de almacenamiento: 
  
-- [Managed Disks Premium](../../storage/common/storage-premium-storage.md) son medios de almacenamiento basados en unidades de estado sólido (SSD) que ofrecen compatibilidad con discos de alto rendimiento y latencia baja para máquinas virtuales que ejecutan cargas de trabajo intensivas de E/S. Puede aprovechar la velocidad y el rendimiento de estos discos si migra a Managed Disks Premium.  
+- [Managed Disks premium](../../storage/common/storage-premium-storage.md) son medios de almacenamiento basados en unidades de estado sólido (SSD) que ofrecen compatibilidad con discos de alto rendimiento y latencia baja para máquinas virtuales que ejecutan cargas de trabajo intensivas de E/S. Puede aprovechar la velocidad y el rendimiento de estos discos si migra a Managed Disks Premium.  
 
 - [Managed Disks Estándar](../../storage/common/storage-standard-storage.md) usan medios de almacenamiento basados en discos duros (HDD) y son más adecuados para desarrollo y pruebas y otras cargas de trabajo de acceso poco frecuente que no dan tanta importancia a la variabilidad del rendimiento.  
 
@@ -103,4 +101,3 @@ Revise el [precio de Managed Disks](https://azure.microsoft.com/en-us/pricing/de
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Antes de cargar los VHD en Azure, debe consultar [Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

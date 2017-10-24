@@ -12,15 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/07/2017
+ms.date: 10/05/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: ebe8b9f0cace419125bde84a9ff2a912af061156
-ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: 480f574640d4a9ccd4da97a98adc8b284d373855
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Implementación y eliminación de aplicaciones mediante FabricClient
 > [!div class="op_single_selector"]
@@ -36,13 +34,13 @@ Una vez que un [tipo de aplicación se ha empaquetado][10], está listo para la 
 
 1. Carga del paquete de aplicación en el almacén de imágenes
 2. Cargar el tipo de aplicación
-3. Crear la instancia de aplicación
+3. Quitar el paquete de aplicación del almacén de imágenes
+4. Crear la instancia de aplicación
 
 Después de que se ha implementado una aplicación y una instancia está en funcionamiento en el clúster, puede eliminar la instancia de aplicación y su tipo de aplicación. Para quitar completamente una aplicación del clúster, realice los siguientes pasos:
 
 1. Quitar (o eliminar) la instancia de la aplicación en ejecución
 2. Anular el registro del tipo de aplicación si ya no lo necesita
-3. Quitar el paquete de aplicación del almacén de imágenes
 
 Si usa [Visual Studio para implementar y depurar aplicaciones](service-fabric-publish-app-remote-cluster.md) en el clúster de desarrollo local, todos los pasos anteriores se controlan automáticamente mediante un script de PowerShell,  que se encuentra en la carpeta *Scripts* del proyecto de la aplicación. En este artículo se ofrece información sobre lo que hace ese script para que pueda realizar las mismas operaciones fuera de Visual Studio. 
  
@@ -72,6 +70,9 @@ La API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applic
 
 La API [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) proporciona información acerca de todos los tipos de aplicaciones registradas correctamente. Puede usar esta API para determinar cuándo se realiza el registro.
 
+## <a name="remove-an-application-package-from-the-image-store"></a>Eliminación de un paquete de aplicación del almacén de imágenes
+Se recomienda que quite el paquete de aplicación después de que la aplicación se haya registrado correctamente.  Al eliminar los paquetes de aplicación del almacén de imágenes, se liberan recursos del sistema.  Mantener los paquetes de aplicación sin usar consume almacenamiento en disco y conduce a problemas de rendimiento de la aplicación. Elimine el paquete de aplicación del almacén de imágenes mediante la API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
+
 ## <a name="create-an-application-instance"></a>Creación de una instancia de aplicación
 Se pueden crear instancias de una aplicación a partir de cualquier tipo de aplicación que se haya registrado correctamente mediante la API [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync). El nombre de cada aplicación debe empezar con el esquema *"fabric:"* y ser único para cada instancia de la aplicación (dentro de un clúster). También se crean los servicios predeterminados que se hayan definido en el manifiesto de aplicación del tipo de aplicación de destino.
 
@@ -96,9 +97,6 @@ Cuando una instancia de aplicación deja de ser necesaria, puede quitarla de man
 
 ## <a name="unregister-an-application-type"></a>Anulación de un registro del tipo de aplicación
 Cuando ya no se necesita una versión concreta de un tipo de aplicación, debe anularse el registro de esa versión en particular del tipo de aplicación mediante la API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). La anulación del registro de versiones no usadas de tipos de aplicación permite liberar espacio de almacenamiento usado en el almacén de imágenes. Se puede anular el registro de un tipo de aplicación siempre y cuando no se haya creado ninguna instancia de la aplicación con esa versión del tipo de aplicación y ninguna actualización pendiente de la aplicación haga referencia a esa versión del tipo de aplicación.
-
-## <a name="remove-an-application-package-from-the-image-store"></a>Eliminación de un paquete de aplicación del almacén de imágenes
-Cuando un paquete de aplicación deje de necesitarse, puede eliminarlo del almacén de imágenes para liberar recursos del sistema mediante la API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage pide una ImageStoreConnectionString
@@ -139,8 +137,7 @@ Pruebe lo siguiente:
 Si la máquina cliente se encuentra en otra región diferente al clúster, considere el uso de una máquina cliente que se encuentre en una región más cercana o en la misma región que el clúster.
 - Compruebe si está alcanzando la limitación externa. Por ejemplo, cuando el almacén de imágenes está configurado para usar Azure Storage, se puede limitar carga.
 
-Problema: la carga del paquete se completó correctamente, pero la API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) agota el tiempo de espera.
-Pruebe lo siguiente:
+Problema: la carga del paquete se completó correctamente, pero la API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) agota el tiempo de espera. Pruebe lo siguiente:
 - [Comprima el paquete](service-fabric-package-apps.md#compress-a-package) antes de realizar la copia en el almacén de imágenes.
 La compresión reduce el tamaño y el número de archivos lo que, a su vez, reduce la cantidad de tráfico y trabajo que Service Fabric debe realizar. La operación de carga puede ser más lenta (especialmente si incluyen el tiempo de compresión), pero el registro y la anulación del registro del tipo de aplicación son más rápidos.
 - Especifique un tiempo de espera mayor para la API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) con el parámetro `timeout`.
@@ -214,6 +211,21 @@ static void Main(string[] args)
     {
         Console.WriteLine("Provision Application Type failed:");
 
+        foreach (Exception ex in ae.InnerExceptions)
+        {
+            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+        }
+    }
+
+    // Delete the application package from a location in the image store.
+    try
+    {
+        fabricClient.ApplicationManager.RemoveApplicationPackage(imageStoreConnectionString, packagePathInImageStore);
+        Console.WriteLine("Application package removed from {0}", packagePathInImageStore);
+    }
+    catch (AggregateException ae)
+    {
+        Console.WriteLine("Application package removal from Image Store failed: ");
         foreach (Exception ex in ae.InnerExceptions)
         {
             Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
@@ -309,21 +321,6 @@ static void Main(string[] args)
         }
     }
 
-    // Delete the application package from a location in the image store.
-    try
-    {
-        fabricClient.ApplicationManager.RemoveApplicationPackage(imageStoreConnectionString, packagePathInImageStore);
-        Console.WriteLine("Application package removed from {0}", packagePathInImageStore);
-    }
-    catch (AggregateException ae)
-    {
-        Console.WriteLine("Application package removal from Image Store failed: ");
-        foreach (Exception ex in ae.InnerExceptions)
-        {
-            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
-        }
-    }
-
     Console.WriteLine("Hit enter...");
     Console.Read();
 }        
@@ -344,4 +341,3 @@ static void Main(string[] args)
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
-

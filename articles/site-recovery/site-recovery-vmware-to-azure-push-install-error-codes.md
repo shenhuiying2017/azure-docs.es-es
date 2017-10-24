@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/28/2017
 ms.author: asgang
+ms.openlocfilehash: b7b03442ba815c86e5defa1018b66f56c0b379df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 468b99002b867768d1ef03ca3ef67946caa4919d
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solución de problemas de instalación de inserción de Mobility Service
 
@@ -103,4 +102,3 @@ Este error lo puede producir el servicio por distintos motivos. Elija el error d
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Habilitación de la replicación de máquinas virtuales VMware](vmware-walkthrough-enable-replication.md)
-

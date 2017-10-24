@@ -15,20 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
+ms.openlocfilehash: 3e54cb45cf002a183a5b0bd9b3082a235cd825f8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 2219aeb725b207fd92ff3e7603d7ee9c78f2844c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="high-availability-ports-overview-preview"></a>Introducción a los puertos de alta disponibilidad (versión preliminar)
 
 La SKU estándar de Azure Load Balancer introduce los puertos de alta disponibilidad (HA), una funcionalidad para distribuir el tráfico desde todos los puertos y para todos los protocolos admitidos. Durante la configuración de un equilibrador de carga interno, los usuarios pueden configurar una regla de puertos HA que establezca los puertos de front-end y back-end en **0** y el protocolo en **all** y, de esta forma, permitir el flujo de todo el tráfico a través de este equilibrador.
 
 >[!NOTE]
-> La característica Puertos de alta disponibilidad actualmente está en versión preliminar. Durante la versión preliminar, la característica podría no tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La característica de puertos de alta disponibilidad está disponible con Load Balancer estándar y se encuentra actualmente en versión preliminar. Durante la versión preliminar, la característica podría no tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es necesario registrarse en la versión preliminar de Load Balancer estándar para usar los puertos de alta disponibilidad con recursos de Load Balancer estándar. Siga también las instrucciones para el registro adicional en Load Balancer [estándar (versión preliminar)](https://aka.ms/lbpreview#preview-sign-up).
 
 El algoritmo de equilibrio de carga sigue siendo el mismo y el destino se selecciona en función de las cinco tuplas <Dirección IP de origen, Puerto de origen, Dirección IP de destino, Puerto de destino, Protocolo>. Sin embargo, esta configuración permite que una única regla LB procese todo el tráfico disponible y reduce la complejidad de la configuración, además de los límites impuestos por el número máximo de reglas de equilibrio de carga que se pueden agregar.
 
@@ -71,12 +69,17 @@ Para participar en la versión preliminar de la característica de puertos de al
 
     ```cli
     az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
-    ```
-## <a name="caveats"></a>Advertencias
+    ```  
+
+
+>[!NOTE]
+>Para usar esta característica, es necesario registrarse en la versión preliminar de Load Balancer [estándar](https://aka.ms/lbpreview#preview-sign-up) además de para los puertos de alta disponibilidad. El registro de las versiones preliminares de los puertos de alta disponibilidad o Load Balancer estándar puede tardar hasta una hora.
+
+## <a name="limitations"></a>Limitaciones
 
 A continuación se indican las configuraciones o excepciones admitidas en puertos HA:
 
-- Una única configuración IP de front-end puede tener una única regla de equilibrio de carga DSR o no DRS con puertos HA (todos los puertos). No puede tener ambas.
+- Una única configuración IP de front-end puede tener una única regla de Load Balancer DSR o no DRS con puertos HA (todos los puertos). No puede tener ambas.
 - Una única configuración IP de interfaz de red solo puede tener una regla de equilibrio de carga DRS con puertos HA. Ninguna otra regla se puede configurar para esta configuración IP.
 - Una única configuración IP de interfaz de red puede tener una o más reglas de equilibrio de carga DRS con puertos HA, siempre y cuando todas sus configuraciones IP de front-end respectivas sean exclusivas.
 - Es posible la coexistencia de dos o más reglas que apunten al mismo grupo de back-end si todas las reglas de equilibrio de carga son puertos HA (solo DSR) o no HA (DSR y no DSR). Esta coexistencia no es posible si hay una combinación de reglas de puertos HA y no HA.
@@ -86,5 +89,4 @@ A continuación se indican las configuraciones o excepciones admitidas en puerto
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Configuración de puertos de alta disponibilidad para el equilibrador de carga interno](load-balancer-configure-ha-ports.md)
-
 

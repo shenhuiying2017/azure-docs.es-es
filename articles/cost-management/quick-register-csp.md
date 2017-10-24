@@ -5,23 +5,20 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/15/2017
+ms.date: 09/25/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
+ms.openlocfilehash: a7bd4aed7dbcde803c2106b8c053e8a2412eea99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 77de126d3f4f6c01a6ca574b73ee9c73383151dd
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrarse con el programa de asociados de CSP y ver los datos de costo
 
-Como asociado de CSP, puede registrarse en Administración de costos de Azure de Cloudyn. Este registro le proporciona acceso al portal de Cloudyn. En esta guía de inicio rápido se detalla el proceso de registro necesario para crear una suscripción de prueba de Cloudyn e iniciar sesión en el portal de Cloudyn. También se muestra cómo empezar a ver inmediatamente los datos de costo.
+Como asociado de CSP, puede registrarse en Administración de costos de Azure de Cloudyn. Este registro le proporciona acceso al portal de Cloudyn. En esta guía de inicio rápido se detalla el proceso de registro necesario para crear una suscripción de evaluación de Cloudyn e iniciar sesión en el portal de Cloudyn. También se muestra cómo empezar a ver inmediatamente los datos de costo.
 
 Para completar el registro, debe ser administrador del programa de asociados con acceso a Partner Center API. Se requiere la configuración de Partner Center API para la autenticación y el acceso a datos. Para obtener más información, consulte Connect to the Partner Center API (Conexión con Partner Center API).
 
@@ -40,12 +37,13 @@ Para completar el registro, debe ser administrador del programa de asociados con
   1. Vaya a **Panel** > **Configuración de la cuenta** > **Administración de aplicaciones**.
   2. Si previamente creó una aplicación web, omita este paso. En caso contrario, haga clic en **Add new web app** (Agregar una nueva aplicación web) en la sección **Aplicación web**.
   3. Copie el GUID de **Id. de aplicación** de la aplicación web.
-  4. Seleccione una duración de validez de la clave de uno o dos años, según sea necesario. Seleccione **Agregar clave** y, después, copie y guarde el valor de la clave secreta.  
+  4. Copie el GUID de **Id. de comercio** de la aplicación web.
+  5. Seleccione una duración de validez de la clave de uno o dos años, según sea necesario. Seleccione **Agregar clave** y, después, copie y guarde el valor de la clave secreta.  
     ![Centro de partners de CSP](./media/quick-register-csp/csp-partner-center.png)
-  5. Vuelva a la página de registro y pegue la información.  
+  6. Vuelva a la página de registro y pegue la información.  
       ![Credenciales de la cuenta de CSP](./media/quick-register-csp/csp-reg.png)
 6. Acepte los términos de uso y, después, valide la información. Haga clic en **Siguiente** para permitir que Cloudyn recopile datos de recursos de Azure. Los datos recopilados incluyen datos de uso, de rendimiento, de facturación y de etiquetas de las suscripciones.  
-7. En **Invite other stakeholders** (Invitar a otras partes interesadas), puede agregar usuarios escribiendo sus direcciones de correo electrónico. Cuando haya terminado, haga clic en **Guardar**. Los datos de facturación tardarán, aproximadamente, dos horas en agregarse a Cloudyn.
+7. En **Invite other stakeholders** (Invitar a otras partes interesadas), puede agregar usuarios escribiendo sus direcciones de correo electrónico. Cuando haya terminado, haga clic en **Siguiente**. Los datos de facturación tardarán, aproximadamente, dos horas en agregarse a Cloudyn.
 8. Haga clic en **Go to Cloudyn** (Ir a Cloudyn) para abrir el portal de Cloudyn y, después, en la página **Cloud Accounts Management** (Administración de cuentas en la nube), debería ver la información de la cuenta de CSP registrada.
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
@@ -56,4 +54,3 @@ En esta guía de inicio rápido, se usa la información de CSP para registrarse 
 
 > [!div class="nextstepaction"]
 > [Ver datos de costo](./tutorial-review-usage.md)
-

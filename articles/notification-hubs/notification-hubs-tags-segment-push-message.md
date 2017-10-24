@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 18faa88641623e1248d6a33bc2d87099e1c9f624
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="routing-and-tag-expressions"></a>Expresiones de etiqueta y enrutamiento
 ## <a name="overview"></a>Información general
@@ -33,7 +33,7 @@ El back-end de la aplicación puede elegir a qué registros dirigirse con una no
 3. **Expresión de etiqueta**: todos los registros cuyo conjunto de etiquetas coincide con la expresión especificada reciben la notificación.
 
 ## <a name="tags"></a>Etiquetas
-Una etiqueta puede ser cualquier cadena, hasta 120 caracteres, que contiene y los siguientes caracteres no alfanuméricos: '_', ' @', '#', '. ',':', '-'. En el ejemplo siguiente se muestra una aplicación desde la que puede recibir notificaciones del sistema sobre grupos musicales específicos. En este escenario, una manera sencilla de enrutar notificaciones es etiquetar los registros con etiquetas que representan las distintas bandas, como se muestra en la siguiente imagen.
+Una etiqueta puede ser cualquier cadena, de hasta 120 caracteres, que contenga caracteres alfanuméricos y los siguientes caracteres no alfanuméricos: "_", "@", "#", ".", ":", "-". En el ejemplo siguiente se muestra una aplicación desde la que puede recibir notificaciones del sistema sobre grupos musicales específicos. En este escenario, una manera sencilla de enrutar notificaciones es etiquetar los registros con etiquetas que representan las distintas bandas, como se muestra en la siguiente imagen.
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 1/23/2017
 ms.author: trinadhk;markgal;
 ms.openlocfilehash: 284a1b64fbb15d0aa800182c6671d447e191b76a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solución de problemas de copia de seguridad de máquinas virtuales de Azure
 > [!div class="op_single_selector"]
-> * [Almacén de Recovery Services](backup-azure-vms-troubleshoot.md)
-> * [Almacén de Backup](backup-azure-vms-troubleshoot-classic.md)
+> * [Almacén de Servicios de recuperación](backup-azure-vms-troubleshoot.md)
+> * [Almacén de copia de seguridad](backup-azure-vms-troubleshoot-classic.md)
 >
 >
 
@@ -48,7 +48,7 @@ Puede solucionar los errores detectados al usar Copia de seguridad de Azure con 
 ## <a name="backup"></a>Copia de seguridad
 | Operación de copia de seguridad | Detalles del error | Solución alternativa |
 | --- | --- | --- |
-| Copia de seguridad |No se pudo comunicar con el agente de máquina virtual para ver el estado de la instantánea. Tiempo de espera de la subtarea de máquina virtual de instantánea. Consulte la Guía de solución de problemas sobre cómo resolver este problema. |Este error se produce si hay un problema con el agente de la máquina virtual o cuando el acceso de red a la infraestructura de Azure está bloqueado por algún motivo. Aprenda más sobre cómo [depurar los problemas de las instantáneas de la máquina virtual](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Si el agente de la máquina virtual no está causando problemas, reinicie la máquina virtual. A veces, un estado incorrecto de la máquina virtual puede causar problemas, y reiniciar la máquina virtual restablece este "mal estado" |
+| Copia de seguridad |No se pudo comunicar con el agente de máquina virtual para ver el estado de la instantánea. Se agotó el tiempo de espera para la subtarea de creación de una máquina virtual instantáneas. Consulte la guía de solución de problemas sobre cómo resolver este problema. |Este error se produce si hay un problema con el agente de la máquina virtual o cuando el acceso de red a la infraestructura de Azure está bloqueado por algún motivo. Aprenda más sobre cómo [depurar los problemas de las instantáneas de la máquina virtual](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Si el agente de la máquina virtual no está causando problemas, reinicie la máquina virtual. A veces, un estado incorrecto de la máquina virtual puede causar problemas, y reiniciar la máquina virtual restablece este "mal estado" |
 | Copia de seguridad |Error interno en la copia de seguridad. Vuelva a intentar la operación en unos minutos. Si el problema persiste, póngase en contacto con el Servicio técnico de Microsoft. |Compruebe si hay un problema transitorio en el acceso al almacenamiento de máquinas virtuales. Compruebe el [estado de Azure](https://azure.microsoft.com/en-us/status/) para ver si hay algún problema recurrente relacionado con los procesos, el almacenamiento o la red en la región. Vuelva a intentarlo para ver si el problema se ha solucionado. |
 | Copia de seguridad |No se pudo realizar la operación debido a que no existe la máquina virtual. |No se puede realizar la copia de seguridad, ya que se ha eliminado la máquina virtual configurada para dicha copia de seguridad. Detenga las copias de seguridad adicionales; para ello vaya a la vista de elementos protegidos, seleccione el elemento protegido y haga clic en Detener la protección. Puede conservar los datos seleccionando la opción correspondiente. Más adelante, puede reanudar la protección de esta máquina virtual haciendo clic en Configurar la protección en la vista de elementos registrados. |
 | Copia de seguridad |No se pudo instalar la extensión de los Servicios de recuperación de Azure en el elemento seleccionado. El agente de la máquina virtual es un requisito previo para la extensión de los servicios de recuperación de Azure. Instale el agente de la máquina virtual de Azure y reinicie el funcionamiento del registro. |<ol> <li>Compruebe si el agente de la máquina virtual se ha instalado correctamente. <li>Asegúrese de que la marca de configuración de la máquina virtual se haya establecido correctamente.</ol> [Obtenga más información](#validating-vm-agent-installation) acerca del agente de la máquina virtual y sobre cómo validar su instalación. |

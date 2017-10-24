@@ -12,14 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/25/2017
 ms.author: danlep
+ms.openlocfilehash: 8a1097353d24ad4c807803511e93c90394816138
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: c52a054e4fc8f61f871acd9f35b9a3e6247e48ef
-ms.contentlocale: es-es
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch
 
@@ -34,13 +33,9 @@ En este artículo se proporcionan instrucciones y ejemplos para usar algunos de 
 
 ## <a name="subscription-and-account-limits"></a>Límites de la cuenta y la suscripción
 
-* **Cuotas**: Una o varias cuotas de Azure pueden limitar el número o tipo de nodos que se pueden agregar a un grupo de Batch. Es más probable tener un límite al elegir tamaños de VM compatibles con RDMA, basados en GPU u otros tamaños de VM de varios núcleos. Según el tipo de cuenta de Batch que haya creado, se podrían aplicar cuotas a la propia cuenta o la suscripción.
+* **Cuotas**: la [cuota de núcleos dedicada por cuenta de Batch](batch-quota-limit.md#resource-quotas) puede limitar el número o el tipo de nodos que se puede agregar a un grupo de Batch. Es más probable alcanzar una cuota al elegir tamaños de VM compatibles con RDMA, basados en GPU u otros tamaños de VM de varios núcleos. De forma predeterminada, esta cuota es de 20 núcleos. Se aplica una cuota independiente a [VM de baja prioridad](batch-low-pri-vms.md), en caso de que las use. 
 
-    * Si creó su cuenta de Batch en la configuración del **servicio Batch**, estará limitado por la [cuota de núcleos dedicados por cuenta de Batch](batch-quota-limit.md#resource-quotas). De forma predeterminada, esta cuota es de 20 núcleos. Se aplica una cuota independiente a [VM de baja prioridad](batch-low-pri-vms.md), en caso de que las use. 
-
-    * Si creó la cuenta en la configuración de **Suscripción del usuario**, la suscripción limita el número de núcleos de VM por región. Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md). La suscripción también aplica una cuota regional a determinados tamaños de VM, incluidas las instancias de HPC y GPU. En la configuración de suscripción del usuario, no se aplican cuotas adicionales a la cuenta de Batch. 
-
-  Puede que tenga que aumentar una o más cuotas cuando utilice un tamaño de VM especializado en Batch. Para solicitar un aumento de cuota, abra una [solicitud de soporte técnico al cliente en línea](../azure-supportability/how-to-create-azure-support-request.md) sin cargo alguno.
+Si necesita solicitar un aumento de cuota, abra una [solicitud de soporte técnico al cliente en línea](../azure-supportability/how-to-create-azure-support-request.md) sin cargo alguno.
 
 * **Disponibilidad por regiones**: Las VM de procesos intensivos podrían no estar disponibles en las regiones donde crea las cuentas de Batch. Para comprobar que un tamaño está disponible, vea [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
 
@@ -98,13 +93,7 @@ Para configurar un tamaño de VM especializado para el grupo de Batch, las herra
 
 * [Paquete de aplicación](batch-application-packages.md): Agregue un paquete de instalación comprimido a su cuenta de Batch y configure una referencia de paquete en el grupo. Esta configuración carga y descomprime el paquete en todos los nodos del grupo. Si el paquete es un instalador, cree una línea de comandos de la tarea de inicio para instalar de forma silenciosa la aplicación en todos los nodos del grupo. Si lo desea, instale el paquete cuando una tarea esté programada para ejecutarse en un nodo.
 
-* [Imagen del grupo personalizada](batch-api-basics.md#pool): Cree una imagen de VM de Windows o Linux personalizada que contenga controladores, software u otras configuraciones necesarias para el tamaño de VM. Si creó su cuenta de Batch en la configuración de suscripción del usuario, especifique la imagen personalizada para el grupo de Batch. (Las imágenes personalizadas no se admiten en cuentas en la configuración del servicio Batch). Las imágenes personalizadas solo se pueden utilizar con los grupos en la configuración de máquina virtual.
-
-  > [!IMPORTANT]
-  > En grupos de Batch, actualmente no puede usar una imagen personalizada creada con discos de Managed Disks o con Premium Storage.
-  >
-
-
+* [Imagen del grupo personalizada](batch-custom-images.md): Cree una imagen de VM de Windows o Linux personalizada que contenga controladores, software u otras configuraciones necesarias para el tamaño de VM. 
 
 * [Batch Shipyard](https://github.com/Azure/batch-shipyard) configura automáticamente GPU y RDMA para trabajar de forma transparente con cargas de trabajo en contenedores en Azure Batch. Batch Shipyard se controla por completo con archivos de configuración. Hay muchas configuraciones de recetas de ejemplo disponibles que habilitan las cargas de trabajo de GPU y RDMA, como la [receta CNTK GPU](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI), que preconfigura controladores de GPU en VM de la serie N y carga el software Microsoft Cognitive Toolkit como una imagen de Docker.
 
@@ -134,17 +123,14 @@ Para ejecutar aplicaciones CUDA en un grupo de nodos NC de Linux, debe instalar 
 
 1. Implemente una VM NC6 de Azure en la que se ejecute Ubuntu 16.04 LTS. Por ejemplo, puede crear la VM en la región Centro y Sur de EE. UU. Asegúrese de crear la VM con almacenamiento estándar y *sin* discos de Managed Disks.
 2. Siga los pasos para conectarse a la VM e [instale los controladores CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
-3. Desaprovisione el agente de Linux y luego capture la imagen de VM de Linux con los comandos de la CLI de Azure 1.0. Para conocer los pasos, consulte [Captura de una máquina virtual Linux que se ejecuta en Azure](../virtual-machines/linux/capture-image-nodejs.md). Anote el identificador URI de la imagen.
-  > [!IMPORTANT]
-  > No use comandos de la CLI de Azure 2.0 para capturar la imagen para Azure Batch. Actualmente, los comandos de la CLI 2.0 solo capturan VM creadas mediante discos de Managed Disks.
-  >
-4. Cree una cuenta de Batch, con la configuración de suscripción del usuario, en una región que admita VM NC.
-5. Mediante las API de Batch o Azure Portal , cree un grupo mediante la imagen personalizada y con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
+3. Desaprovisione el agente de Linux y luego [capture la imagen de la máquina virtual Linux con los comandos de la CLI de Azure 1.0](../virtual-machines/linux/capture-image.md).
+4. Cree una cuenta de Batch en una región que admite las máquinas virtuales de NC.
+5. Mediante las API de Batch o Azure Portal , cree un grupo [mediante la imagen personalizada](batch-custom-images.md) y con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
 
 | Configuración | Valor |
 | ---- | ---- |
 | **Tipo de imagen** | Imagen personalizada |
-| **Imagen personalizada** | Identificador URI de imagen con el formato`https://yourstorageaccountdisks.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd` |
+| **Imagen personalizada** | Nombre de la imagen |
 | **SKU de agente del nodo** | batch.node.ubuntu 16.04 |
 | **Tamaño del nodo** | Estándar NC6 |
 

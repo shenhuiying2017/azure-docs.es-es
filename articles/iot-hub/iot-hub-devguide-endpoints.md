@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 09/19/2017
 ms.author: dobett
+ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: a5753df2ff6874d9574e268953792cac9765cc54
-ms.contentlocale: es-es
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -38,9 +37,9 @@ Azure IoT Hub es un servicio multiempresa que muestra su funcionalidad a diverso
 En la lista siguiente se describen los puntos de conexión:
 
 * **Proveedor de recursos**. El proveedor de recursos de IoT Hub expone una interfaz de [Azure Resource Manager][lnk-arm]. Esta interfaz permite que los propietarios de suscripciones de Azure creen y eliminen instancias de IoT Hub para actualizar sus propiedades. Las propiedades de IoT Hub controlan las [directivas de seguridad a nivel de centro][lnk-accesscontrol], a diferencia del control de acceso de nivel de dispositivo y las opciones funcionales para la mensajería de nube a dispositivo y de dispositivo a nube. El proveedor de recursos también permite [exportar identidades de dispositivo][lnk-importexport].
-* **Administración de identidades de dispositivo**. Cada centro de IoT muestra un conjunto de puntos de conexión HTTP REST para administrar identidades de dispositivo (crear, recuperar, actualizar y eliminar). Las [identidades del dispositivo][lnk-device-identities] se usan para autenticación de dispositivos y control de acceso.
-* **Administración de dispositivo gemelo**. Cada instancia de IoT Hub muestra un conjunto de punto de conexión de HTTP REST orientado a servicios para consultar y actualizar [dispositivos gemelos][lnk-twins] (actualización de etiquetas y propiedades).
-* **Administración de trabajos**. Cada instancia de IoT Hub muestra un conjunto de punto de conexión de HTTP REST orientado a servicios para consultar y administrar [trabajos][lnk-jobs].
+* **Administración de identidades de dispositivo**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión HTTPS REST para administrar las identidades de dispositivo (crear, recuperar, actualizar y eliminar). Las [identidades del dispositivo][lnk-device-identities] se usan para autenticación de dispositivos y control de acceso.
+* **Administración de dispositivo gemelo**. Cada instancia de IoT Hub muestra un conjunto de punto de conexión de HTTPS REST orientado a servicios para consultar y actualizar [dispositivos gemelos][lnk-twins] (actualización de etiquetas y propiedades).
+* **Administración de trabajos**. Cada instancia de IoT Hub muestra un conjunto de punto de conexión de HTTPS REST orientado a servicios para consultar y administrar [trabajos][lnk-jobs].
 * **Puntos de conexión de dispositivo**. Para cada dispositivo del registro de identidad, IoT Hub muestra un conjunto de puntos de conexión:
 
   * *Envío de mensajes de dispositivo a nube*. Un dispositivo usa este punto de conexión para [enviar mensajes de dispositivo a la nube][lnk-d2c].
@@ -49,9 +48,9 @@ En la lista siguiente se describen los puntos de conexión:
   * *Recuperación y actualización de las propiedades del dispositivo gemelo*. Un dispositivo usa este punto de conexión para tener acceso a las propiedades del [dispositivo gemelo][lnk-twins].
   * *Recepción de solicitudes de métodos directos*. Un dispositivo usa este punto de conexión para escuchar solicitudes de [métodos directos][lnk-methods].
 
-    Estos puntos de conexión se exponen mediante los protocolos[ MQTT v3.1.1][lnk-mqtt], HTTP 1.1 y [AMQP 1.0][lnk-amqp]. AMQP también está disponible sobre [WebSockets][lnk-websockets] en el puerto 443.
+    Estos puntos de conexión se exponen mediante los protocolos[ MQTT v3.1.1][lnk-mqtt], HTTPS 1.1 y [AMQP 1.0][lnk-amqp]. AMQP también está disponible sobre [WebSockets][lnk-websockets] en el puerto 443.
 
-* **Puntos de conexión de servicio**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión que el back-end de solución para comunicarse con los dispositivos. Con una excepción, estos puntos de conexión solo se muestran con el protocolo [AMQP][lnk-amqp]. El punto de conexión de invocación de método se muestra en el protocolo HTTP.
+* **Puntos de conexión de servicio**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión que el back-end de solución para comunicarse con los dispositivos. Con una excepción, estos puntos de conexión solo se muestran con el protocolo [AMQP][lnk-amqp]. El punto de conexión de invocación de método se muestra en el protocolo HTTPS.
   
   * *Recepción de mensajes de dispositivo a nube*. Este punto de conexión es compatible con [Azure Event Hubs][lnk-event-hubs]. Un servicio back-end puede usarse para leer los [mensajes de dispositivo a nube][lnk-d2c] enviados por los dispositivos. Además de este punto de conexión integrado, puede crear puntos de conexión personalizados en el centro de IoT.
   * *Envío de mensajes de nube a dispositivo y recepción de confirmaciones de entrega*. Estos puntos de conexión permiten al back-end de aplicaciones enviar mensajes confiables [de nube a dispositivo][lnk-c2d] y recibir las confirmaciones de entrega o expiración correspondientes.
@@ -69,7 +68,8 @@ Puede vincular los servicios de Azure existentes en su centro de IoT para usarlo
 
 IoT Hub admite actualmente los siguientes servicios de Azure como puntos de conexión adicionales:
 
-* Event Hubs
+* Contenedores de Azure Storage
+* Centros de eventos
 * Colas de Service Bus
 * Temas de Service Bus
 
@@ -77,10 +77,23 @@ IoT Hub necesita acceso de escritura a estos puntos de conexión de servicio par
 
 Si un mensaje coincide con varias rutas que señalan al mismo punto de conexión, IoT Hub entrega el mensaje a ese punto de conexión solo una vez. Por lo tanto, no es necesario configurar la desduplicación en la cola o tema de Service Bus. En las colas con particiones, la afinidad de partición garantiza el orden de los mensajes.
 
-> [!NOTE]
-> Las colas y los temas de Service Bus usados como puntos de conexión de IoT Hub no deben tener habilitadas las opciones **Sesiones** o **Detección de duplicados**. Si cualquiera de estas opciones está habilitada, el punto de conexión aparece como **Inaccesible** en Azure Portal.
-
 Para conocer los límites del número de puntos de conexión que se pueden agregar, consulte [Cuotas y limitación][lnk-devguide-quotas].
+
+### <a name="when-using-azure-storage-containers"></a>Cuándo usar los contenedores de Azure Storage
+
+IoT Hub solo admite la escritura de datos en contenedores de Azure Storage como blobs con el formato [Apache Avro](http://avro.apache.org/). IoT Hub agrupa los mensajes por lotes y escribe los datos en un blob cuando llega a cierto tamaño o después de cierta cantidad de tiempo, lo que ocurra en primer lugar. IoT Hub no escribirá en un blob vacío si no hay datos que escribir.
+
+IoT Hub asume como valor predeterminado la convención de nomenclatura de archivos siguiente:
+
+```
+{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
+```
+
+Puede usar la convención de nomenclatura de archivos de su preferencia, aunque debe usar todos los tokens de la lista.
+
+### <a name="when-using-service-bus-queues-and-topics"></a>Cuándo usar colas y temas de Service Bus
+
+Las colas y los temas de Service Bus usados como puntos de conexión de IoT Hub no deben tener habilitadas las opciones **Sesiones** o **Detección de duplicados**. Si cualquiera de estas opciones está habilitada, el punto de conexión aparece como **Inaccesible** en Azure Portal.
 
 ## <a name="field-gateways"></a>Puertas de enlace de campo
 
@@ -125,4 +138,3 @@ Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [lnk-operations-mon]: iot-hub-operations-monitoring.md
-

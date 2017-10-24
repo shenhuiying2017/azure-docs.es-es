@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/01/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 2160e2e65de5c65df8a13248bad4f626def86e49
-ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 2969834713fc7c2f1a2e281a6c988158d803dc45
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-fabric-with-azure-api-management-quick-start"></a>Inicio rápido de Service Fabric con Azure API Management
 
 Esta guía muestra cómo configurar Azure API Management con Service Fabric y la primera operación de API para enviar tráfico a los servicios de back-end de Service Fabric. Para más información sobre escenarios de Azure API Management con Service Fabric, consulte el artículo de [introducción](service-fabric-api-management-overview.md). 
@@ -55,14 +53,14 @@ En esta guía se usa [Azure PowerShell][azure-powershell]. Al iniciar una nueva 
 Inicio de sesión en la cuenta de Azure
 
 ```powershell
-PS > Login-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 Seleccione su suscripción:
 
 ```powershell
-PS > Get-AzureRmSubscription
-PS > Set-AzureRmContext -SubscriptionId <guid>
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionId <guid>
 ```
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
@@ -70,7 +68,7 @@ PS > Set-AzureRmContext -SubscriptionId <guid>
 Cree un grupo de recursos para la implementación. Asígnele un nombre y una ubicación.
 
 ```powershell
-PS > New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
+New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
 ```
 
 ### <a name="deploy-the-network-topology"></a>Implementación de la topología de red
@@ -87,7 +85,7 @@ El archivo de parámetros [network.parameters.json][network-parameters-arm] cont
  2. Use el siguiente comando de PowerShell para implementar la plantilla de Resource Manager y los archivos de parámetros para la configuración de la red:
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
     ```
 
 ### <a name="deploy-the-service-fabric-cluster"></a>Implementación del clúster de Service Fabric
@@ -111,7 +109,7 @@ Este paso requiere un certificado en Key Vault para la seguridad del clúster. P
  3. Use el siguiente comando de PowerShell para implementar la plantilla de Resource Manager y los archivos de parámetros para crear el clúster de Service Fabric:
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
     ```
 
 ### <a name="deploy-api-management"></a>Implementación de API Management
@@ -130,7 +128,7 @@ Para este tutorial, la plantilla de Resource Manager para API Management está p
  3. Use el siguiente comando de PowerShell para implementar la plantilla de Resource Manager y los archivos de parámetros para API Management:
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
     ```
 
 ## <a name="configure-api-management"></a>Configuración de API Management
@@ -202,7 +200,7 @@ Cuerpo de la solicitud:
 }
 ```
 
-Este parámetro **url** es el nombre de acceso completo del servicio en el clúster al que se enrutan todas las solicitudes de forma predeterminada si no se especifica ningún nombre de servicio en una directiva de back-end. Puede usar un nombre de servicio falso, como "fabric:/fake/service" si no desea un servicio de reserva.
+Este parámetro **url** es el nombre de acceso completo del servicio en el clúster al que se enrutan todas las solicitudes de forma predeterminada si no se especifica ningún nombre de servicio en una directiva de back-end. Puede usar un nombre de servicio falso, como "fabric:/fake/service" si no desea un servicio de reserva. Tenga en cuenta la dirección **URL** debe tener el formato "fabric:/app/service" incluso si es un servicio de reserva falso.
 
 Para más información sobre cada campo, consulte la [documentación de referencia de la API de back-end](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend) de API Management.
 
@@ -369,4 +367,3 @@ A continuación, [cree y configure las opciones de producto avanzadas en Azure A
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-api-management-quickstart/sf-apim-topology-overview.png
-

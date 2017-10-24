@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
+ms.openlocfilehash: 8713fc7dd27023e1244ccb00673dd1652689baf5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 6cd0d19e5fd90cb9fb6d3fc4c17119476d7b4f62
-ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: adición de ADFS como proveedor de identidades de SAML mediante directivas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -155,8 +153,10 @@ Defina la cuenta de ADFS como proveedor de notificaciones; para ello, agregue el
 
 ## <a name="register-the-adfs-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>Registro del proveedor de notificaciones de la cuenta de ADFS para el recorrido del usuario de registro o inicio de sesión
 En este momento, el proveedor de identidades se ha configurado.  Sin embargo, no está disponible en ninguna de las pantallas de registro o inicio de sesión. Ahora tiene que agregar el proveedor de identidades de la cuenta de ADFS al recorrido del usuario `SignUpOrSignIn` de su usuario. Para que esté disponible, se crea un duplicado de un recorrido del usuario de plantilla ya existente.  Luego se modifica, de forma que incluya el proveedor de identidades de ADFS:
-    >[!NOTE]
-    >If you previously copied the `<UserJourneys>` element from base file of your policy to the extension file (TrustFrameworkExtensions.xml) you can skip this section.
+
+>[!NOTE]
+>Si copió anteriormente el elemento `<UserJourneys>` del archivo base de su directiva en el archivo de extensión (TrustFrameworkExtensions.xml), puede omitir esta sección.
+
 1.  Abra el archivo base de la directiva (por ejemplo, TrustFrameworkBase.xml).
 2.  Busque el elemento `<UserJourneys>` y copie el contenido entero del nodo `<UserJourneys>`.
 3.  Abra el archivo de extensión (por ejemplo, TrustFrameworkExtensions.xml) y busque el elemento `<UserJourneys>`. Si el elemento no existe, agréguelo.
@@ -228,4 +228,3 @@ Puede que también desee agregar el proveedor de identidades de la cuenta de ADF
 
 ## <a name="download-the-complete-policy-files"></a>Descarga de los archivos de directiva completos
 Opcional: se recomienda que cree su escenario con sus propios archivos de directiva personalizada tras completar el tutorial de introducción a las directivas personalizadas. [Archivos de directiva de ejemplo solo de referencia](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app)
-

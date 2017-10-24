@@ -12,18 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: 831623b0fa0d8c03713f608116709e6a590d93c6
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 0acf183fbaea99e4316b668a3da28d79b20b7bef
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="registerunregister-a-server-with-azure-file-sync-preview"></a>Registro y cancelación del registro de un servidor con Azure File Sync (versión preliminar)
-Con Azure File Sync (versión preliminar), los recursos compartidos se pueden replicar en el entorno local o en Azure y se puede acceder a ellos mediante os recursos compartidos de SMB o NFS en Windows Server. Azure File Sync resulta de utilidad en escenarios en los que es necesario acceder a los datos y modificarlos lejos de un centro de datos de Azure, como puede ser en una sucursal. Lo datos pueden replicarse entre varios puntos de conexión de Windows Server, por ejemplo, entre varias sucursales.
+Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello la transformación de los servidores Windows Server en una caché rápida de los recursos compartidos de Azure Files. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
 
 En el artículo siguiente se ilustra cómo registrar y anular el registro de un servidor con un servicio de sincronización de almacenamiento. Puede que esto sea necesario si un servidor se da de baja o si se quiere tener un nuevo punto de conexión en un grupo de sincronización. Consulte [How to deploy Azure File Sync (preview)](storage-sync-files-deployment-guide.md) (Implementación de Azure File Sync [versión preliminar]).
 

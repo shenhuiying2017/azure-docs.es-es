@@ -16,14 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: donnam
+ms.openlocfilehash: ab438f804c28d5528901c405311424e0344e00fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 54c75a4c22f094ca50ab2cbf5449c5fa115b32a7
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 Azure Functions le permite escribir código en respuesta a eventos en Azure y otros servicios mediante *desencadenadores* y *enlaces*. En este artículo, se ofrece una introducción conceptual a los desencadenadores y enlaces de todos los lenguajes de programación compatibles. Aquí se describen características comunes de todos los enlaces.
 
@@ -43,21 +41,21 @@ En la siguiente tabla, se muestran los desencadenadores y enlaces compatibles co
 
 ### <a name="example-queue-trigger-and-table-output-binding"></a>Ejemplo: desencadenador de colas y enlace de salida de tablas
 
-Supongamos que quiere escribir una fila nueva en Azure Table Storage cada vez que aparezca un nuevo mensaje en Azure Queue Storage. Este escenario puede implementarse mediante un desencadenador de colas de Azure y un enlace de salida de tablas. 
+Supongamos que quiere escribir una fila nueva en Azure Table Storage cada vez que aparezca un nuevo mensaje en Azure Queue Storage. Este escenario puede implementarse mediante un desencadenador de colas de Azure y un enlace de salida de Azure Table Storage. 
 
-Los desencadenadores de colas precisan de la siguiente información en la pestaña **Integrar**:
+Un desencadenador de Azure Queue Storage precisa de la siguiente información en la pestaña **Integrar**:
 
-* El nombre del valor de configuración de la aplicación que contiene la cadena de conexión de la cuenta de almacenamiento para la cola
+* El nombre del valor de configuración de la aplicación que contiene la cadena de conexión de la cuenta de Azure Storage para Azure Queue Storage
 * El nombre de la cola
 * El identificador del código que leerá el contenido del mensaje de la cola, como, por ejemplo, `order`
 
 Para escribir en Azure Table Storage, utilice un enlace de salida con estos datos:
 
-* El nombre del valor de configuración de la aplicación que contiene la cadena de conexión de la cuenta de almacenamiento para la tabla
+* El nombre del valor de configuración de la aplicación que contiene la cadena de conexión de la cuenta de Azure Storage para Azure Table Storage
 * El nombre de la tabla
 * El identificador del código que creará los elementos de salida o el valor devuelto por la función
 
-Los enlaces se sirven de los valores de configuración de la aplicación para que las cadenas de conexión apliquen el procedimiento recomendado de que *function.json* no contenga secretos de los servicios.
+Los enlaces usan valores de cadenas de conexión almacenados en la configuración de la aplicación para exigir los procedimientos recomendados de que *function.json* no contengan secretos de servicio y en su lugar, simplemente contiene los nombres de la configuración de la aplicación.
 
 A continuación, utilice los identificadores que facilitó para posibilitar la integración con Azure Storage en el código.
 
@@ -168,7 +166,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
     log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    return Task.FromResult(json);
 }
 ```
 
@@ -191,7 +189,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ## <a name="binding-datatype-property"></a>Enlace de la propiedad DataType
 
-En .NET, use los tipos para definir el tipo de datos de los datos de entrada. Por ejemplo, use `string` para enlazar al texto de un desencadenador de cola y una matriz de bytes que se lee como binaria.
+En .NET, use los tipos para definir el tipo de datos de los datos de entrada. Por ejemplo, use `string` para enlazar al texto de un desencadenador de cola, una matriz de bytes que se lee como binaria y un tipo personalizado para deserializar a un objeto POCO.
 
 Para los idiomas que se escriben dinámicamente, como JavaScript, use la propiedad `dataType` en la definición de enlace. Por ejemplo, para leer el contenido de una solicitud HTTP en formato binario, use el tipo `binary`:
 
@@ -213,7 +211,7 @@ Los ajustes de la aplicación también son útiles cuando se desea cambiar la co
 
 Los ajustes de la aplicación se resuelven cuando un valor aparece entre símbolos de porcentaje; por ejemplo `%MyAppSetting%`. Tenga en cuenta que la propiedad `connection` de los desencadenadores y los enlaces es un caso especial y resuelve automáticamente los valores como ajustes de la aplicación. 
 
-En el ejemplo siguiente, aparece un desencadenador de colas que se sirve del valor de configuración de la aplicación `%input-queue-name%` para definir la cola que se desencadenará.
+En el ejemplo siguiente, aparece un desencadenador de Azure Queue Storage que se sirve del valor de configuración de la aplicación `%input-queue-name%` para definir la cola que se desencadenará.
 
 ```json
 {
@@ -233,7 +231,7 @@ En el ejemplo siguiente, aparece un desencadenador de colas que se sirve del val
 
 Además de la carga de datos que proporciona un desencadenador (como el mensaje de la cola que desencadenó una función), muchos desencadenadores facilitan valores de metadatos adicionales. Estos valores pueden usarse como parámetros de entrada en C# y F# o como propiedades en el objeto `context.bindings` de JavaScript. 
 
-Por ejemplo, los desencadenadores de colas admiten las siguientes propiedades:
+Por ejemplo, un desencadenador de Azure Storage Queue admite las siguientes propiedades:
 
 * QueueTrigger (desencadena el contenido del mensaje si hay una cadena válida)
 * DequeueCount
@@ -416,16 +414,15 @@ Para obtener más información sobre un tipo de enlace concreto, consulte estos 
 
 - [HTTP y webhooks](functions-bindings-http-webhook.md)
 - [Temporizador](functions-bindings-timer.md)
-- [Queue storage](functions-bindings-storage-queue.md)
-- [Blob storage](functions-bindings-storage-blob.md)
-- [Almacenamiento de tablas](functions-bindings-storage-table.md)
+- [Queue Storage](functions-bindings-storage-queue.md)
+- [Blob Storage](functions-bindings-storage-blob.md)
+- [Table storage](functions-bindings-storage-table.md)
 - [Event Hubs](functions-bindings-event-hubs.md)
 - [Bus de servicio](functions-bindings-service-bus.md)
 - [Azure Cosmos DB](functions-bindings-documentdb.md)
 - [Microsoft Graph](functions-bindings-microsoft-graph.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)
-- [Centros de notificaciones](functions-bindings-notification-hubs.md)
-- [Aplicaciones móviles](functions-bindings-mobile-apps.md)
+- [Notification Hubs](functions-bindings-notification-hubs.md)
+- [Mobile Apps](functions-bindings-mobile-apps.md)
 - [Archivo externo](functions-bindings-external-file.md)
-

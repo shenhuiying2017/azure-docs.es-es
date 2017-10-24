@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
 ms.openlocfilehash: dcd87ae977d5b4b4a2353e446ab89ac81b239195
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>Solución de problemas comunes de publicador de Azure Marketplace
 En este artículo se explica cómo resolver u obtener soporte técnico para algunos escenarios comunes de Marketplace.
@@ -75,7 +75,7 @@ Si quiere actualizar su perfil de publicador, puede hacerlo a través del Centro
 
 ![inprivate][4]
 
-**2. Inicie sesión con su empresa cuenta profesional o educativa** (es decir, AzureStore@yourcompany.com).
+**2. Inicie sesión con la cuenta profesional o educativa de su compañía** (es decir, AzureStore@yourcompany.com).
 
 ![signin][5]
 

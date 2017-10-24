@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
+ms.openlocfilehash: c37180262981bbbcdecb0504e2717db27568586d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 6385dd99e3f5d96eee2cf50016e4af599d91b011
-ms.contentlocale: es-es
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
 La aplicación de orquestación de revisiones es una aplicación de Azure Service Fabric que automatiza la aplicación de revisiones de sistema operativo en un clúster de Service Fabric sin tiempo de inactividad.
@@ -71,7 +69,7 @@ La aplicación de orquestación de revisiones requiere que el servicio del siste
 Los clústeres de Azure en el nivel de durabilidad Plata tendrán habilitado el administrador de reparaciones de forma predeterminada. Es posible que los clústeres de Azure en el nivel de durabilidad Oro tengan habilitado o no el servicio de administrador de reparaciones, dependiendo de cuándo se crearon esos clústeres. Los clústeres de Azure en el plan de durabilidad Bronce no tienen habilitado el servicio de administrador de reparaciones. Si el servicio ya está habilitado, puede ver que se ejecuta en la sección de servicios del sistema en Service Fabric Explorer.
 
 ##### <a name="azure-portal"></a>Azure Portal
-Puede habilitar el administrador de reparaciones desde Azure Portal en el momento de la configuración del clúster. Seleccione la opción `Include Repair Manager` bajo `Add on features` en el momento de la configuración del clúster.
+Puede habilitar el administrador de reparaciones desde Azure Portal en el momento de la configuración del clúster. Seleccione la opción **Incluir administrador de reparaciones** en **Características del complemento** en el momento de la configuración del clúster.
 ![Imagen de la habilitación del administrador de reparaciones de Azure Portal](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
@@ -427,4 +425,3 @@ Un administrador debe intervenir y determinar por qué la aplicación o el clús
 - Correcciones de errores en el flujo de trabajo de reinicio del sistema.
 - Corrección de errores en la creación de tareas de RM debido a las cuales la comprobación del estado durante la preparación de las tareas de reparación no ocurría según lo previsto.
 - Cambio en el modo de inicio del servicio de Windows POANodeSvc de automático a automático con retraso.
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
-ms.openlocfilehash: 3a3d5c8bf4da9255015fab64f2b59637c4c030ea
-ms.contentlocale: es-es
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referencia de tokens de Azure Active Directory v2.0
 El punto de conexión de Azure Active Directory (Azure AD) v2.0 emite varios tipos de tokens de seguridad en cada [flujo de autenticación](active-directory-v2-flows.md). Esta referencia describe el formato, las características de seguridad y el contenido de cada tipo de token.
@@ -70,7 +68,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | valor de seguridad |`nonce` |`12345` |El valor de seguridad es una estrategia para mitigar los ataques de reproducción de los tokens. La aplicación puede especificar un valor de seguridad en una solicitud de autorización mediante el parámetro de consulta `nonce` . El valor que proporciona en la solicitud se emite en la notificación `nonce` del token de identificador, sin modificaciones. La aplicación puede comprobar el valor con respecto al valor que especifica en la solicitud, que asocia la sesión de la aplicación con un token de identificador específico. La aplicación tiene que realizar esta validación durante el proceso de validación del token de identificador. |
 | name |`name` |`Babe Ruth` |La notificación de nombre proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que el valor sea único, es mutable y está diseñado para usarse solo con fines de visualización. El ámbito `profile` es necesario para recibir esta notificación. |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |La dirección de correo electrónico principal asociada con la cuenta de usuario, si existe. Su valor es mutable y podría cambiar en el tiempo. El ámbito `email` es necesario para recibir esta notificación. |
-| preferred username |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |El nombre de usuario principal que representa al usuario en el punto de conexión de la versión 2.0. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. El ámbito `profile` es necesario para recibir esta notificación. |
+| preferred username |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |El nombre de usuario principal que representa al usuario en el punto de conexión de la versión 2.0. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. Puesto que es mutable, este valor no debe usarse para tomar decisiones de autorización. El ámbito `profile` es necesario para recibir esta notificación. |
 | subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso, y se puede usar como clave en tablas de base de datos. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. El asunto es, sin embargo, un identificador en pares (es único para un id. de aplicación determinado).  Por lo tanto, si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación de asunto.  Esto puede ser o no deseable dependiendo de los requisitos de arquitectura y privacidad. |
 | object ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | El identificador inmutable de un objeto en el sistema de identidades Microsoft, en este caso, una cuenta de usuario.  También se puede usar para realizar comprobaciones de autorización de forma segura y como clave en tablas de base de datos. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`.  Esto significa que puede usarse al realizar consultas en Microsoft Online Services, como Microsoft Graph.  Microsoft Graph devuelve este identificador como la propiedad `id` para una cuenta de usuario determinada.  Dado que la notificación `oid` permite que varias aplicaciones pongan en correlación a los usuarios, se requiere el ámbito `profile` para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
 
@@ -155,4 +153,3 @@ Proporcionamos la siguiente vigencia de los tokens solo como información. La in
 | Tokens de actualización (cuentas personales) |Hasta 1 año |Un token de actualización solo es válido durante un máximo de 1 año. Sin embargo, el token de actualización puede dejar de ser válido en cualquier momento por varias razones, por lo que la aplicación debe continuar probando y usando un token de actualización hasta que se produzca un error. |
 | Códigos de autorización (cuentas profesionales o educativas) |10 minutos |Los códigos de autorización son de corta duración a propósito y se deben canjear inmediatamente por tokens de acceso y tokens de actualización cuando se reciban. |
 | Códigos de autorización (cuentas personales) |5 minutos |Los códigos de autorización son de corta duración a propósito y se deben canjear inmediatamente por tokens de acceso y tokens de actualización cuando se reciban. Los códigos de autorización emitidos en nombre de las cuentas personales son de un solo uso. |
-
