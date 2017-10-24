@@ -12,45 +12,42 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 09/19/2017
 ms.author: andbuc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e7eb2931993daf3f0aecbd4a43d27ebd5adc10b0
-ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 0aa1836ee1445894022b95fefc2338ef53698240
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Uso de Azure IoT Edge para enviar mensajes de dispositivo a nube con un dispositivo simulado (Windows)
 
 [!INCLUDE [iot-hub-iot-edge-simulated-selector](../../includes/iot-hub-iot-edge-simulated-selector.md)]
 
 [!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
-## <a name="how-to-run-the-sample"></a>Ejecución del ejemplo
+## <a name="run-the-sample"></a>Ejecución del ejemplo
 
 El script **build.cmd** genera su salida en la carpeta **build** de la copia local del repositorio **iot-edge**. Esta salida incluye los cuatro módulos de IoT Edge utilizados en este ejemplo.
 
-El script build coloca:
+El script de compilación crea los siguientes archivos:
 
 * **logger.dll** en la carpeta **build\\modules\\logger\\Debug**.
 * **iothub.dll** en la carpeta **build\\modules\\iothub\\Debug**.
 * **identity\_map.dll** en la carpeta **build\\modules\\identitymap\\Debug**.
 * **simulated\_device.dll** en la carpeta **build\\modules\\simulated\_device\\Debug**.
 
-Utilice estas rutas de acceso para los valores de **module.path**, tal y como se muestra en el archivo de configuración JSON siguiente:
+Utilice estas rutas de acceso para los valores de **ruta de acceso del módulo**, tal y como se muestra en el archivo de configuración JSON simulated\_device\_cloud\_upload\_win.
 
-El proceso de simulated\_device\_cloud\_upload\_sample toma la ruta de acceso a un archivo de configuración JSON como argumento de línea de comandos. El siguiente archivo JSON de ejemplo se proporciona en el repositorio de SDK en **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_sample\_win.json**. Este archivo de configuración funciona tal y como está, a menos que se modifique el script de compilación para colocar los módulos de IoT Edge o los ejecutables de ejemplo en ubicaciones diferentes de las predeterminadas.
+El proceso de ejemplo simulated\_device\_cloud\_upload considera la ruta de acceso a un archivo de configuración JSON como argumento de línea de comandos. El siguiente archivo JSON de ejemplo se proporciona en el repositorio de SDK en **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json**. Este archivo de configuración funciona tal y como está, a menos que se modifique el script de compilación para colocar los módulos de IoT Edge o los ejecutables de ejemplo en ubicaciones diferentes de las predeterminadas.
 
 > [!NOTE]
 > Las rutas de acceso del módulo son relativas al directorio donde se encuentra simulated\_device\_cloud\_upload\_sample.exe. De manera predeterminada, el archivo de configuración JSON de ejemplo escribe en "deviceCloudUploadGatewaylog.log" en el directorio de trabajo actual.
 
-En un editor de texto, abra el archivo **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json** en la copia local del repositorio **iot-edge**. Este archivo configura los módulos de IoT Edge en la puerta de enlace de ejemplo:
+En un editor de texto, abra el archivo **samples\\simulated\_device\_cloud\_upload\\src\\simulated\_device\_cloud\_upload\_win.json** en la copia local del repositorio **iot-edge**. Este archivo configura los módulos de IoT Edge en la puerta de enlace de ejemplo:
 
 * El módulo **IoTHub** conecta con el centro de IoT. Debe configurarlo para enviar datos a IoT Hub. En concreto, establezca el valor **IoTHubName** en el nombre de IoT Hub y el valor **IoTHubSuffix** en **azure-devices.net**. Establezca el valor **Transport** en uno de los siguientes: **HTTP**, **AMQP** o **MQTT**. Actualmente, solo **HTTP** comparte una conexión TCP para todos los mensajes de dispositivo. Si establece el valor en **AMQP** o **MQTT**, la puerta de enlace mantendrá una conexión TCP independiente con IoT Hub para cada dispositivo.
-* El módulo **mapping** asigna las direcciones MAC de los dispositivos simulados a los identificadores de dispositivo de su centro de IoT. Asegúrese de que los valores **deviceId** coincidan con los identificadores de los dos dispositivos agregados a su centro de IoT y que los valores **deviceKey** contengan las claves de los dos dispositivos.
+* El módulo **mapping** asigna las direcciones MAC de los dispositivos simulados a los identificadores de dispositivo de IoT Hub. Defina los valores de **deviceId** con los identificadores de los dos dispositivos que ha agregado a IoT Hub. Establezca los valores de **deviceKey** con las claves de los dos dispositivos.
 * Los módulos **BLE1** y **BLE2** son los dispositivos simulados. Observe cómo las direcciones MAC del módulo coinciden con las del módulo de **asignación**.
 * El módulo **Registrador** registra la actividad de puerta de enlace en un archivo.
 * Los valores **module.path** mostrados en el ejemplo siguiente son relativos al directorio donde se encuentra simulated\_device\_cloud\_upload\_sample.exe.
@@ -104,7 +101,8 @@ En un editor de texto, abra el archivo **samples\\simulated\_device\_cloud\_uplo
           }
           },
           "args": {
-            "macAddress": "01:01:01:01:01:01"
+            "macAddress": "01:01:01:01:01:01",
+            "messagePeriod" : 2000
           }
         },
       {
@@ -116,7 +114,8 @@ En un editor de texto, abra el archivo **samples\\simulated\_device\_cloud\_uplo
           }
           },
           "args": {
-            "macAddress": "02:02:02:02:02:02"
+            "macAddress": "02:02:02:02:02:02",
+            "messagePeriod" : 2000
           }
         },
       {

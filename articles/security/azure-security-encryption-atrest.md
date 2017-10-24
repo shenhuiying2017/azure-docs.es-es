@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: yurid
+ms.openlocfilehash: 53b6f03d43b5525e5c5dea42e6a9a36042b65d52
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 6af94c795ec5153013f4a9c5c937beed08f44e7a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 Hay varias herramientas en Microsoft Azure para proteger los datos según las necesidades de seguridad y cumplimiento de su empresa. Este documento se centra en cómo los datos están protegidos en reposo a través de Microsoft Azure, describe distintos componentes que participan en la implementación de protección de datos y revisan las ventajas y desventajas de los métodos de protección de la administración de claves diferente. 
@@ -273,12 +272,11 @@ Se admite el cifrado del lado cliente de los datos de SQL Azure a través de la 
 | Power BI                         |                | Sí                 | -                            | -                            | -      |
 | **Servicios IoT**                     |                |                     |                              |                              |        |
 | IoT Hub                          |                | -                   | -                            | -                            | Sí    |
-| Bus de servicio                      |                | -              | -                            | -                            | Sí    |
-| Event Hubs                       |                | -             | -                            | -                            | -      |
+| Bus de servicio                      |                | Sí (nivel Premium)              | -                            | -                            | Sí    |
+| Centros de eventos                       |                | Sí             | -                            | -                            | -      |
 
 
 ## <a name="conclusion"></a>Conclusión
 
 La protección de datos del cliente almacenados dentro de los servicios de Azure es de gran importancia para Microsoft. Todos los servicios hospedados en Azure se comprometen a proporcionar opciones de cifrado en reposo. Los servicios fundamentales como el almacenamiento Azure Storage, SQL Azure y análisis e inteligencia de las claves proporcionan ya opciones de cifrado en reposo. Algunos de estos servicios admiten claves de cliente controlada y cifrado en el cliente, así como cifrado y claves administradas del servicio. Los servicios de Microsoft Azure están mejorando ampliamente la disponibilidad del cifrado en reposo y se planean nuevas opciones para la versión preliminar y la versión de disponibilidad general en los próximos meses.
-
 

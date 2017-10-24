@@ -12,23 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.openlocfilehash: 90a1ea99cbba82b49a0ff6712bcaaa5dc814810e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 3412864384961e8820d6700c1bf22a4cae64ba4b
-ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Incorporación de bibliotecas personalizadas de Hive al crear el clúster de HDInsight
 
-Este documento contiene información sobre el uso de una acción de script para cargar previamente bibliotecas durante la creación de un clúster, por lo que puede resultarle interesante si dispone de bibliotecas que utiliza con frecuencia con Hive en HDInsight. Las bibliotecas que se agregan mediante los pasos de este documento están disponibles globalmente en Hive: no hace falta usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para cargarlos.
+Obtenga información sobre cómo cargar previamente las bibliotecas de Hive en HDInsight. Este documento contiene información sobre el uso de una acción de script para cargar previamente bibliotecas durante la creación del clúster. Las bibliotecas que se agregan mediante los pasos de este documento están disponibles globalmente en Hive: no hace falta usar [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para cargarlos.
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-Cuando cree un clúster, también tiene la posibilidad de especificar opcionalmente una acción de script que ejecute un script en los nodos del clúster mientras estos se crean. El script de este documento acepta un único parámetro, que es una ubicación de WASB que contiene las bibliotecas (almacenadas como archivos JAR) que se cargarán previamente.
+Al crear un clúster, puede usar una acción de script para modificar los nodos de clúster creados. El script de este documento acepta un único parámetro, que es la ubicación de las bibliotecas. Esta ubicación debe estar en una cuenta de Azure Storage, y las bibliotecas deben almacenarse como archivos jar.
 
 Durante la creación del clúster, el script enumera los archivos, los copia en el directorio `/usr/lib/customhivelibs/` de los nodos principal y de trabajo y luego los agrega a la propiedad `hive.aux.jars.path` en el archivo `core-site.xml`. En los clústeres basados en Linux, también actualiza el archivo `hive-env.sh` con la ubicación de los archivos.
 
@@ -73,7 +72,7 @@ En los **clústeres basados en Windows**: [https://hdiconfigactions.blob.core.wi
 
 1. Inicie el aprovisionamiento de un clúster siguiendo los pasos que se describen en [Aprovisionamiento de clústeres de HDInsight en Linux](hdinsight-hadoop-provision-linux-clusters.md), pero no complete la operación.
 
-2. En la hoja **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
+2. En la sección **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
 
    * **NOMBRE**: escriba un nombre descriptivo para la acción de script.
 
@@ -89,9 +88,9 @@ En los **clústeres basados en Windows**: [https://hdiconfigactions.blob.core.wi
 
 3. En la parte inferior de **Acciones de scripts**, use el botón **Seleccionar** para guardar la configuración.
 
-4. En la hoja **Configuración opcional**, seleccione **Cuentas de almacenamiento vinculadas** y luego el vínculo **Agregar una clave de almacenamiento**. Seleccione la cuenta de almacenamiento que contiene los archivos JAR y, después, use los botones de **selección** para guardar la configuración y volver a la hoja **Configuración opcional**.
+4. En la sección **Configuración opcional**, seleccione **Cuentas de almacenamiento vinculadas** y luego el vínculo **Agregar una clave de almacenamiento**. Seleccione la cuenta de almacenamiento que contenga los archivos jar. Después, use los botones de **selección** para guardar la configuración y volver a **Configuración opcional**.
 
-5. Use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
+5. Para guardar la configuración opcional, use el botón **Seleccionar** situado en la parte inferior de la sección **Configuración opcional**.
 
 6. Continúe aprovisionando el clúster tal como se describe en [Aprovisionamiento de clústeres de HDInsight en Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -100,4 +99,3 @@ Una vez finalizada la creación del clúster, podrá utilizar los archivos JAR a
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información acerca del trabajo con Hive, consulte [Use Hive with HDInsight](hdinsight-use-hive.md)
-

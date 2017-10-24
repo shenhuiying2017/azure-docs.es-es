@@ -3,8 +3,8 @@ title: "Configuración de filtros de ruta para el emparejamiento de Microsoft en
 description: "En este artículo se describe cómo configurar filtros de ruta para el emparejamiento de Microsoft mediante PowerShell"
 documentationcenter: na
 services: expressroute
-author: cherylmc
-manager: timlt
+author: ganesr
+manager: rossort
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2017
-ms.author: ganesr;cherylmc
+ms.date: 09/26/2017
+ms.author: ganesr
+ms.openlocfilehash: 76077be4f443f8e0dd6341d1a87539277f23e1c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: de3550c20439fa809869d98b8a57ea3be9c03e7c
-ms.contentlocale: es-es
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="configure-route-filters-for-microsoft-peering"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft
+# <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft: PowerShell
+> [!div class="op_single_selector"]
+> * [Azure Portal](how-to-routefilter-portal.md)
+> * [Azure PowerShell](how-to-routefilter-powershell.md)
+> * [CLI de Azure](how-to-routefilter-cli.md)
+> 
 
 Los filtros de ruta son una forma de consumir un subconjunto de servicios admitidos mediante el emparejamiento de Microsoft. Los pasos que se describen en este artículo le ayudan a configurar y administrar filtros de ruta para circuitos ExpressRoute.
 
-Los servicios de Dynamics 365 y los servicios de Office 365, como Exchange Online, SharePoint Online y Skype Empresarial, son accesibles mediante el emparejamiento de Microsoft. Cuando se configura el emparejamiento de Microsoft en un circuito ExpressRoute, todos los prefijos relacionados con estos servicios se anuncian mediante las sesiones BGP establecidas. A cada prefijo se asocia un valor de la comunidad de BGP para identificar el servicio que se ofrece mediante el prefijo en cuestión. Para ver una lista de valores de la comunidad de BGP y los servicios a los que se asignan, consulte [Comunidades de BGP](expressroute-routing.md#bgp).
+A través del emparejamiento de Microsoft se puede acceder a los servicios de Dynamics 365, a los servicios de Office 365, como Exchange Online, SharePoint Online y Skype Empresarial, y a los servicios de Azure como Storage y SQL DB. Cuando se configura el emparejamiento de Microsoft en un circuito ExpressRoute, todos los prefijos relacionados con estos servicios se anuncian mediante las sesiones BGP establecidas. A cada prefijo se asocia un valor de la comunidad de BGP para identificar el servicio que se ofrece mediante el prefijo en cuestión. Para ver una lista de valores de la comunidad de BGP y los servicios a los que se asignan, consulte [Comunidades de BGP](expressroute-routing.md#bgp).
 
 Si necesita conectividad con todos los servicios, se anuncia un gran número de prefijos mediante BGP. Como consecuencia, aumenta considerablemente el tamaño de las tablas de rutas que mantienen los enrutadores dentro de la red. Si tiene previsto consumir solo un subconjunto de los servicios ofrecidos mediante el emparejamiento de Microsoft, puede reducir el tamaño de las tablas de rutas de dos maneras. Puede:
 
@@ -100,7 +104,7 @@ Especifique la suscripción que desea usar.
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="prefixes"></a>Paso 1. Obtención de una lista de prefijos y valores de la comunidad de BGP
+## <a name="prefixes"></a>Paso 1: Obtención de una lista de prefijos y valores de la comunidad de BGP
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obtención de una lista de valores de la comunidad de BGP
 
@@ -113,7 +117,7 @@ Get-AzureRmBgpServiceCommunity
 
 Cree una lista de valores de la comunidad de BGP que quiera usar en el filtro de ruta. Por ejemplo, el valor de la comunidad de BGP para servicios de Dynamics 365 es 12076:5040.
 
-## <a name="filter"></a>Paso 2. Creación de un filtro de ruta y una regla de filtro
+## <a name="filter"></a>Paso 2: Creación de un filtro de ruta y una regla de filtro
 
 Un filtro de ruta puede tener una única regla y la regla debe ser de tipo "Permitir". Esta regla puede tener una lista de valores de la comunidad de BGP asociados a ella.
 
@@ -143,7 +147,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>Paso 3. Asociación del filtro de ruta a un circuito ExpressRoute
+## <a name="attach"></a>Paso 3: Asociación del filtro de ruta a un circuito de ExpressRoute
 
 Ejecute el siguiente comando para asociar el filtro de ruta al circuito ExpressRoute (se da por hecho que solo tiene emparejamiento de Microsoft):
 
@@ -152,7 +156,9 @@ $ckt.Peerings[0].RouteFilter = $routefilter
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="getproperties"></a>Obtención de las propiedades de un filtro de ruta
+## <a name="tasks"></a>Tareas comunes
+
+### <a name="getproperties"></a>Obtención de las propiedades de un filtro de ruta
 
 Para obtener las propiedades de un filtro de ruta, siga estos pasos:
 
@@ -168,7 +174,7 @@ Para obtener las propiedades de un filtro de ruta, siga estos pasos:
   $rule = $routefilter.Rules[0]
   ```
 
-## <a name="updateproperties"></a>Actualización de las propiedades de un filtro de ruta
+### <a name="updateproperties"></a>Actualización de las propiedades de un filtro de ruta
 
 Si el filtro de ruta ya está asociado a un circuito, las actualizaciones de la lista de la comunidad de BGP propagan automáticamente los cambios en los anuncios de prefijos adecuados mediante las sesiones BGP establecidas. Puede actualizar la lista de la comunidad de BGP de su filtro de ruta con el comando siguiente:
 
@@ -178,7 +184,7 @@ $routefilter.rules[0].Communities = "12076:5030", "12076:5040"
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="detach"></a>Desasociación de un filtro de ruta de un circuito ExpressRoute
+### <a name="detach"></a>Desasociación de un filtro de ruta de un circuito ExpressRoute
 
 Una vez que un filtro de ruta se desasocia del circuito ExpressRoute, no se anuncia ningún prefijo mediante la sesión BGP. Puede desasociar un filtro de ruta de un circuito ExpressRoute con el comando siguiente:
   
@@ -187,7 +193,7 @@ $ckt.Peerings[0].RouteFilter = $null
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="delete"></a>Eliminación de un filtro de ruta
+### <a name="delete"></a>Eliminación de un filtro de ruta
 
 Solo se puede eliminar un filtro de ruta si no está asociado a ningún circuito. Asegúrese de que el filtro de ruta no esté asociado a ningún circuito antes de intentar eliminarlo. Puede eliminar un filtro de ruta con el comando siguiente:
 

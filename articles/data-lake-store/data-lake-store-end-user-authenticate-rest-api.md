@@ -1,0 +1,94 @@
+---
+title: "Autenticación de usuario final: API de REST con Data Lake Store en Azure Active Directory | Microsoft Docs"
+description: "Obtenga información sobre cómo realizar la autenticación de usuario final con Data Lake Store en Azure Active Directory mediante la API de REST"
+services: data-lake-store
+documentationcenter: 
+author: nitinme
+manager: jhubbard
+editor: cgronlun
+ms.service: data-lake-store
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 09/29/2017
+ms.author: nitinme
+ms.openlocfilehash: bcddb66806cc58b3513c9c157512ac8b96a51ec1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
+---
+# <a name="end-user-authentication-with-data-lake-store-using-rest-api"></a>Autenticación de usuario final con Data Lake Store mediante la API de REST
+> [!div class="op_single_selector"]
+> * [Uso de Java](data-lake-store-end-user-authenticate-java-sdk.md)
+> * [Uso del SDK de .NET](data-lake-store-end-user-authenticate-net-sdk.md)
+> * [Uso de Python](data-lake-store-end-user-authenticate-python.md)
+> * [Uso de la API de REST](data-lake-store-end-user-authenticate-rest-api.md)
+> 
+>  
+
+En este artículo, obtendrá información sobre cómo usar la API de REST para realizar la autenticación de usuario final con Azure Data Lake Store. Para la autenticación entre servicios con Data Lake Store mediante la API de REST, vea [Service-to-service authentication with Data Lake Store using REST API](data-lake-store-service-to-service-authenticate-rest-api.md) (Autenticación entre servicios con Data Lake Store mediante la API de REST).
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+* **Crear una aplicación "nativa" de Azure Active Directory**. Debe completar los pasos descritos en [Autenticación de usuario final con Data Lake Store mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+
+* **[cURL](http://curl.haxx.se/)**. En este artículo se usa cURL para demostrar cómo realizar llamadas de la API de REST en una cuenta de Almacén de Data Lake.
+
+## <a name="end-user-authentication"></a>Autenticación de usuario final
+La autenticación de usuario final es el enfoque recomendado si quiere que un usuario inicie sesión en la aplicación a través de Azure AD. La aplicación puede acceder a los recursos de Azure con el mismo nivel de acceso que el usuario que ha iniciado sesión. El usuario tiene que proporcionar sus credenciales periódicamente para que la aplicación conserve el acceso.
+
+El resultado del inicio de sesión por parte del usuario final es que la aplicación recibe un token de acceso y un token de actualización. El token de acceso se adjunta a cada solicitud hecha a Data Lake Store o Data Lake Analytics y es válido, de manera predeterminada, durante 1 hora. El token de actualización se puede usar para obtener un nuevo token de acceso y es válido, de manera predeterminada, hasta por dos semanas, si se usa de manera habitual. Puede usar dos enfoques distintos para el inicio de sesión del usuario final.
+
+En este escenario, la aplicación pide al usuario que inicie sesión y todas las operaciones se realizan en el contexto del usuario. Lleve a cabo los siguiente pasos:
+
+1. A través de la aplicación, redirija al usuario a la siguiente dirección URL:
+   
+        https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
+   
+   > [!NOTE]
+   > \<REDIRECT-URI&gt; debe codificarse para utilizarse en una dirección URL. Por lo tanto, para https://localhost, use `https%3A%2F%2Flocalhost`).
+   > 
+   > 
+   
+    Para este tutorial, puede sustituir los valores de marcador de posición de la dirección URL anterior y pegarlos en la barra de direcciones del explorador web. Se le redirigirá a una página autenticarse con sus datos de inicio de sesión de Azure. Una vez que haya iniciado sesión correctamente, la respuesta se muestra en la barra de direcciones del explorador. La respuesta estará en el formato siguiente:
+   
+        http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
+
+2. Obtenga el código de autorización de la respuesta. Para este tutorial, puede copiar el código de autorización de la barra de direcciones del explorador web y pasarlo en la solicitud POST al punto de conexión de token, tal y como se muestra en el siguiente fragmento de código:
+   
+        curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
+        -F redirect_uri=<REDIRECT-URI> \
+        -F grant_type=authorization_code \
+        -F resource=https://management.core.windows.net/ \
+        -F client_id=<APPLICATION-ID> \
+        -F code=<AUTHORIZATION-CODE>
+   
+   > [!NOTE]
+   > En este caso, no se necesita codificar \<REDIRECT-URI>.
+   > 
+   > 
+
+3. La respuesta es un objeto JSON que contiene un token de acceso (por ejemplo, `"access_token": "<ACCESS_TOKEN>"`) y uno de actualización (por ejemplo, `"refresh_token": "<REFRESH_TOKEN>"`). La aplicación usa el token de acceso al acceder al Almacén de Azure Data Lake y el token de actualización para obtener otro token de acceso cuando expira un token de acceso.
+   
+        {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
+
+4. Cuando expira el token de acceso, puede solicitar uno nuevo con el token de actualización, tal y como se muestra en el siguiente fragmento de código:
+   
+        curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+             -F grant_type=refresh_token \
+             -F resource=https://management.core.windows.net/ \
+             -F client_id=<APPLICATION-ID> \
+             -F refresh_token=<REFRESH-TOKEN>
+
+Para más información sobre la autenticación interactiva de usuarios, consulte el [flujo de concesión de un código de autorización](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+   
+## <a name="next-steps"></a>Pasos siguientes
+En este artículo, ha aprendido cómo usar la autenticación entre servicios con Azure Data Lake Store mediante la API de REST. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar la API de REST con Azure Data Lake Store.
+
+* [Operaciones de administración de cuentas en Azure Data Lake Store con la API de REST](data-lake-store-get-started-rest-api.md)
+* [Operaciones de datos en Azure Data Lake Store con la API de REST](data-lake-store-data-operations-rest-api.md)
+

@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
+ms.openlocfilehash: e678d5d332b7fbbfeeebbea86efd7931bda15bb1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 711d364c36c3aba699326f4a76d42891ba3219fb
-ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Análisis de datos de Twitter con Hive en HDInsight
 Los sitios web de las redes sociales constituyen una de las principales fuerzas motrices para la adopción de Big Data. Las API públicas proporcionadas por sitios como Twitter constituyen un origen de datos muy útil para analizar y comprender las tendencias populares.
 En este tutorial, obtendrá tweets mediante la API de streaming de Twitter y, a continuación, usará Apache Hive en HDInsight de Azure para obtener una lista de usuarios de Twitter que envían más tweets que contienen una palabra determinada.
@@ -95,7 +93,7 @@ El primer paso es utilizar OAuth para crear una aplicación nueva en el sitio de
 8. Haga clic en **Prueba de OAuth** en la esquina superior derecha de la página.
 9. Rellene los campos **consumer key** (clave del consumidor), **Consumer secret** (Secreto del consumidor), **Access token** (Token de acceso) y **Access token secret** (Secreto del token de acceso). Los necesitará más adelante en el tutorial.
 
-En este tutorial, usará Windows PowerShell para realizar una llamada de servicio web. Para obtener un ejemplo de .NET C#, consulte [Análisis de opinión en Twitter en tiempo real con HBase en HDInsight][hdinsight-hbase-twitter-sentiment]. La otra herramienta popular para realizar llamadas de servicios web es [*Curl*][curl]. Puede descargar Curl [aquí][curl-download].
+En este tutorial, usará Windows PowerShell para realizar una llamada de servicio web. La otra herramienta popular para realizar llamadas de servicios web es [*Curl*][curl]. Puede descargar Curl [aquí][curl-download].
 
 > [!NOTE]
 > Cuando utilice el comando Curl en Windows, use comillas dobles en lugar de comillas simples para los valores de opción.
@@ -545,7 +543,6 @@ Una vez que los resultados del análisis se hayan colocado en el almacenamiento 
 En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estructurado en una tabla de Hive estructurada para consultar, explorar y analizar datos desde Twitter mediante HDInsight en Azure. Para obtener más información, consulte:
 
 * [Introducción a HDInsight][hdinsight-get-started]
-* [Análisis de opinión en Twitter en tiempo real con HBase en HDInsight][hdinsight-hbase-twitter-sentiment]
 * [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-delay-data]
 * [Conexión de Excel a HDInsight con Power Query][hdinsight-power-query]
 * [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver][hdinsight-hive-odbc]
@@ -571,5 +568,3 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-odbc-driver.md
-[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
-

@@ -11,14 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 09/22/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: e2b3efe7f247c4ffee11ab437860ecbc95036cd7
-ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Cómo administrar zonas DNS con PowerShell
 
@@ -50,6 +49,8 @@ En el ejemplo siguiente se muestra cómo crear una zona DNS con dos [etiquetas A
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
+
+Azure DNS ahora también admite las zonas DNS privadas (actualmente disponible como una característica en versión preliminar).  Para obtener un ejemplo de cómo crear una zona DNS privada, vea [Introducción al uso de PowerShell con las zonas privadas de Azure DNS](./private-dns-getstarted-powershell.md).
 
 ## <a name="get-a-dns-zone"></a>Recuperación de una zona DNS
 
@@ -171,5 +172,4 @@ En esta guía se explica cómo [administrar conjuntos de registros y registros](
 Aprenda a cómo [delegar el dominio a Azure DNS](dns-domain-delegation.md).
 <br>
 Revise la [documentación de referencia de PowerShell para Azure DNS](/powershell/module/azurerm.dns).
-
 

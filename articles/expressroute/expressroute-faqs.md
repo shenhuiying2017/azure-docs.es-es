@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
+ms.openlocfilehash: 0456cde7e30e9b25f8baebdcd15e0e029f89d7ff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 39b79dce555ba1b57f48ca2b431c13b1c1e4d90b
-ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -85,6 +84,14 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
   * Dynamics 365 for Project Service
+* Con los [filtros de ruta](#route-filters-for-microsoft-peering), obtiene acceso a los mismos servicios públicos con el emparejamiento de Microsoft:
+  * Power BI
+  * Dynamics 365 for Financials y Operations
+  * La mayoría de los servicios de Azure salvo algunas excepciones siguientes:
+    * CDN
+    * Pruebas de carga de Visual Studio Team Services
+    * Multi-Factor Authentication
+    * Administrador de tráfico
 
 ## <a name="data-and-connections"></a>Datos y conexiones
 
@@ -115,6 +122,10 @@ Sí. Cada circuito ExpressRoute tiene un par redundante de conexiones cruzadas c
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>¿Se pierde conectividad si se produce un error en uno de mis vínculos de ExpressRoute?
 
 No perderá conectividad si se produce un error en una de las conexiones cruzadas. Una conexión redundante está disponible para admitir la carga de la red. Asimismo, puede crear varios circuitos en una ubicación de emparejamiento diferente para lograr resistencia frente a errores.
+
+## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>¿Cómo garantizo la alta disponibilidad en una red virtual conectada a ExpressRoute?
+
+Se puede lograr la alta disponibilidad mediante la conexión a la red virtual de varios circuitos ExpressRoute de diferentes ubicaciones de emparejamiento. Por ejemplo, si un sitio de ExpressRoute se bloquea, la conectividad conmutarán por error a otro sitio de ExpressRoute. De forma predeterminada, el tráfico que sale de la red virtual se enruta en función del enrutamiento multidireccional de igual costo (ECMP). Puede usar el peso de la conexión para decantarse por una conexión u otra. Vea [Optimización de enrutamiento de ExpressRoute](expressroute-optimize-routing.md) para obtener más detalles sobre el peso de la conexión.
 
 ### <a name="onep2plink"></a>Si no estoy en una ubicación compartida en un intercambio en la nube y mi proveedor de servicios ofrece una conexión punto a punto, ¿necesito solicitar dos conexiones físicas entre mi red local y Microsoft?
 
@@ -162,6 +173,12 @@ Sí. Puede autorizar hasta otras 10 suscripciones de Azure para usar un único c
 
 Para obtener más información, vea [Uso compartido de un circuito ExpressRoute a través de varias suscripciones](expressroute-howto-linkvnet-arm.md).
 
+### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>Tengo varias suscripciones de Azure asociadas a diferentes inquilinos de Azure Active Directory o inscripciones al Contrato Enterprise. ¿Puedo conectar redes virtuales que se encuentran en inquilinos e inscripciones independientes a un único circuito ExpressRoute que no está en el mismo inquilino o en la misma inscripción?
+
+Sí. Las autorizaciones de ExpressRoute pueden abarcar los límites de suscripción, inquilino e inscripción sin necesidad de realizar ninguna configuración adicional. 
+
+Para obtener más información, vea [Uso compartido de un circuito ExpressRoute a través de varias suscripciones](expressroute-howto-linkvnet-arm.md).
+
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>¿Las redes virtuales se conectan al mismo circuito aislado entre sí?
 
 No. Todas las redes virtuales vinculadas al mismo circuito ExpressRoute forman parte del mismo dominio de enrutamiento y no están aisladas entre sí desde una perspectiva de enrutamiento. Si necesita aislamiento de rutas, deberá crear un circuito ExpressRoute independiente.
@@ -178,7 +195,7 @@ Sí. Si no ha anunciado rutas predeterminadas (0.0.0.0/0) o prefijos de rutas de
 
 Sí. Puede anunciar rutas predeterminadas (0.0.0.0/0) para bloquear toda la conectividad de Internet a las máquinas virtuales implementadas en una red virtual y enrutar todo el tráfico de salida a través del circuito de ExpressRoute.
 
-Si anuncia rutas predeterminadas, forzaremos el tráfico a los servicios ofrecidos a través del emparejamiento público (por ejemplo, Azure Storage y Base de datos SQL) de nuevo a sus instalaciones. Tendrá que configurar los enrutadores para devolver el tráfico a Azure a través de la ruta de acceso de emparejamiento público o Internet.
+Si anuncia rutas predeterminadas, forzaremos el tráfico a los servicios ofrecidos a través del emparejamiento público (por ejemplo, Azure Storage y Base de datos SQL) de nuevo a sus instalaciones. Tendrá que configurar los enrutadores para devolver el tráfico a Azure a través de la ruta de acceso de emparejamiento público o Internet. Si ha habilitado un punto de conexión de servicio (versión preliminar) para el servicio, el tráfico del servicio no se fuerza a las instalaciones. El tráfico permanece dentro de la red troncal de Azure. Para más información sobre los puntos de conexión de servicio, vea [Puntos de conexión del servicio](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json).
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>¿Las redes virtuales vinculadas al mismo circuito ExpressRoute pueden comunicarse entre sí?
 
@@ -344,13 +361,12 @@ Cuando se usan filtros de ruta, cualquier cliente puede activar el emparejamient
 
 No, no necesita autorización para Dynamics 365. Puede crear una regla y seleccionar la comunidad de Dynamics 365 sin autorización.
 
-### <a name="i-already-have-microsoft-peering-how-can-i-take-advantage-of-route-filters"></a>Ya tengo un emparejamiento de Microsoft, ¿cómo puedo aprovechar los filtros de ruta?
+### <a name="i-enabled-microsoft-peering-prior-to-august-1st-2017-how-can-i-take-advantage-of-route-filters"></a>He habilitado un emparejamiento de Microsoft antes del 1 de agosto de 2017, ¿cómo puedo aprovechar los filtros de ruta?
 
-Puede crear un filtro de ruta, seleccionar los servicios que desee usar y adjuntar el filtro al emparejamiento de Microsoft. Para consultar las instrucciones, vea [Configuración de filtros de ruta para el emparejamiento de Microsoft](how-to-routefilter-powershell.md).
+El circuito existente continuará anunciando los prefijos para Office 365 y Dynamics 365. Si desea agregar los anuncios de prefijos públicos de Azure en el mismo emparejamiento de Microsoft, puede crear un filtro de ruta, seleccionar los servicios que necesita anunciar (incluidos los servicios de Office 365 que necesita y Dynamics 365) y adjuntar el filtro al emparejamiento de Microsoft. Para consultar las instrucciones, vea [Configuración de filtros de ruta para el emparejamiento de Microsoft](how-to-routefilter-powershell.md).
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Tengo un emparejamiento de Microsoft en una ubicación, ahora estoy intentando habilitarlo en otra ubicación y no veo los prefijos.
 
 * Se anunciarán todos los prefijos de servicio para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron antes del 1 de agosto de 2017, incluso si no se definen filtros de ruta.
 
 * No se anunciará ningún prefijo para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron el 1 de agosto de 2017 o con posterioridad, hasta que se asocie un filtro de ruta al circuito. No verá los prefijos de forma predeterminada.
-

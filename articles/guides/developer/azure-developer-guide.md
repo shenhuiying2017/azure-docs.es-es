@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
+ms.openlocfilehash: f80f9f0e6d3fde438d27949a3fea001f37d59ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 2c90272a9d33795dca7839292bba38fa16fec3da
-ms.contentlocale: es-es
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
 ## <a name="what-is-azure"></a>¿Qué es Azure?
@@ -55,15 +53,9 @@ Azure ofrece servicios para sus necesidades de desarrollo y hospedaje de aplicac
 
 Si desea el camino más corto para publicar proyectos web, considere Azure App Service. Con App Service es muy fácil extender las aplicaciones web para admitir a los clientes móviles y publicar sencillas API de REST. Esta plataforma proporciona autenticación mediante el uso de proveedores de redes sociales, autoescala basada en el tráfico, pruebas en producción e implementaciones de contenedor y continuas.
 
-Al crear una aplicación en App Service, seleccione uno de los siguientes tipos:
+Puede crear aplicaciones web, back-ends de aplicaciones móviles y aplicaciones de API.
 
-- [Web Apps](../../app-service-web/app-service-web-overview.md):  permite hospedar sitios web y aplicaciones web escritas en .NET, Java, PHP, Node.js y Python.
-
-- [Mobile Apps](../../app-service-mobile/app-service-mobile-value-prop.md): extiende Web Apps para admitir el acceso desde dispositivos móviles. Habilita la autenticación con proveedores de redes sociales y Azure Active Directory (Azure AD), proporciona almacenamiento back-end y se integra con [Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-overview.md) para las notificaciones push.
-
-- [API Apps](../../app-service-api/app-service-api-apps-why-best-platform.md): permite exponer de forma más segura sus API en la nube con metadatos de Swagger para que los clientes puedan consumirlos fácilmente.
-
-Como los tres tipos de aplicación comparten el entorno de tiempo de ejecución de App Service, puede hospedar un sitio web, admitir clientes móviles y exponer sus API en Azure, todo ello desde el mismo proyecto o solución. Para más información sobre App Service, consulte [Funcionamiento de App Service](../../app-service/app-service-how-works-readme.md).
+Como los tres tipos de aplicación comparten el entorno de tiempo de ejecución de App Service, puede hospedar un sitio web, admitir clientes móviles y exponer sus API en Azure, todo ello desde el mismo proyecto o solución. Para más información sobre App Service, vea [¿Qué es Azure Web Apps?](../../app-service/app-service-web-overview.md)
 
 App Service se ha diseñado teniendo en cuenta DevOps. Admite varias herramientas de publicación e implementaciones de integración continuas, incluidos webhooks de GitHub, Jenkins, Visual Studio Team Services o TeamCity, entre otros.
 
@@ -71,7 +63,7 @@ Puede migrar las aplicaciones existentes a App Service con la [herramienta de mi
 
 >**Cuándo se usa**: use App Service para migrar aplicaciones web existentes a Azure y cuando necesite una plataforma de hospedaje completamente administrada para sus aplicaciones web. También puede utilizar App Service cuando necesite admitir clientes móviles o exponer API de REST con su aplicación.
 
->**Para empezar**: con App Service resulta muy sencillo crear e implementar su primer [aplicación web](../../app-service-web/web-sites-dotnet-get-started.md), [aplicación móvil](../../app-service-mobile/app-service-mobile-ios-get-started.md), o [aplicación de API](../../app-service-api/app-service-api-dotnet-get-started.md).
+>**Para empezar**: con App Service resulta muy sencillo crear e implementar su primer [aplicación web](../../app-service/app-service-web-get-started-dotnet.md), [aplicación móvil](../../app-service-mobile/app-service-mobile-ios-get-started.md), o [aplicación de API](../../app-service/app-service-web-tutorial-rest-api.md).
 
 >**Pruébelo ahora**: App Service le permite aprovisionar una aplicación de corta duración para probar la plataforma sin necesidad de registrarse para obtener una cuenta de Azure. Pruebe la plataforma y [cree una aplicación de Azure App Service](https://tryappservice.azure.com/).
 
@@ -103,7 +95,7 @@ Service Fabric admite WebAPI con Open Web Interface para .NET (OWIN) y ASP.NET C
 
 >**Cuándo se usa**: Service Fabric es una buena opción si se va a crear una aplicación o se va a volver a escribir una aplicación existente para que use una arquitectura de microservicios. Use Service Fabric cuando necesite más control sobre la infraestructura subyacente, o acceso directo a ella.
 
->**Para empezar:** [cree su primera aplicación de Azure Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
+>**Para empezar:**[cree su primera aplicación de Azure Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Mejore sus aplicaciones con los servicios de Azure
 
@@ -130,7 +122,7 @@ La mayoría de las aplicaciones debe almacenar datos; por lo tanto, independient
 
     >**Para empezar**: [cree una aplicación de consola de C# para DocumentDB](../../documentdb/documentdb-get-started.md). Si es un desarrollador de MongoDB, consulte el artículo sobre la [compatibilidad del protocolo DocumentDB para MongoDB](../../documentdb/documentdb-protocol-mongodb.md).
 
-Puede usar [Azure Data Factory](../../data-factory/data-factory-introduction.md) para mover los datos locales existentes a Azure. Si no está listo para mover los datos a la nube, [Conexiones híbridas](../../biztalk-services/integration-hybrid-connection-overview.md) en BizTalk le permite conectar su aplicación hospedada en App Service con recursos locales. También puede conectarse a los servicios de datos y almacenamiento de Azure desde las aplicaciones locales.
+Puede usar [Azure Data Factory](../../data-factory/introduction.md) para mover los datos locales existentes a Azure. Si no está listo para mover los datos a la nube, [Conexiones híbridas](../../biztalk-services/integration-hybrid-connection-overview.md) en BizTalk le permite conectar su aplicación hospedada en App Service con recursos locales. También puede conectarse a los servicios de datos y almacenamiento de Azure desde las aplicaciones locales.
 
 #### <a name="docker-support"></a>Compatibilidad con Docker
 
@@ -194,9 +186,9 @@ Cuando la aplicación está lista y funcionando en Azure, debe poder supervisar 
 
 Tanto para aprovisionar máquinas virtuales como para publicar aplicaciones web con integración continua, Azure se integra con la mayoría de las herramientas de DevOps más conocidas. Es compatible con herramientas como Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, VSTS y otras, y permite trabajar con las herramientas que ya tiene y maximizar su experiencia actual.
 
->**Pruébelo ahora:** [pruebe algunas de las integraciones con DevOps](https://azure.microsoft.com/try/devops/).
+>**Pruébelo ahora:**[pruebe algunas de las integraciones con DevOps](https://azure.microsoft.com/try/devops/).
 
->**Para empezar**: para ver las opciones de DevOps para una aplicación de App Service, consulte [Implementación continua en Azure App Service](../../app-service-web/app-service-continuous-deployment.md).
+>**Para empezar**: para ver las opciones de DevOps para una aplicación de App Service, consulte [Implementación continua en Azure App Service](../../app-service/app-service-continuous-deployment.md).
 
 
 ## <a name="azure-regions"></a>Regiones de Azure
@@ -333,4 +325,3 @@ Aunque resulta difícil calcular los costos de antemano, Azure tiene una [calcul
 Después de haber implementado la aplicación o la solución en Azure, puede crear alertas que le envíen correos electrónicos al aproximarse a los límites de gastos definidos en la alerta.
 
 >[Para empezar](../../billing-set-up-alerts.md): para más información, consulte **Configuración de alertas de crédito o facturación para las suscripciones de Microsoft Azure**.
-

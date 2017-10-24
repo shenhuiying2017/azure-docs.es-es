@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
+ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ee8e282feacfb6b5db2f746b468fe2cd26cb0a52
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copia de datos de los blobs de almacenamiento de Azure en el Almacén de Data Lake
 > [!div class="op_single_selector"]
@@ -145,7 +144,7 @@ Por ejemplo:
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
-De forma similar, ejecute el siguiente comando para copiar de un blob de Almacenamiento de Azure a una cuenta de Data Lake Store mediante la cuenta de Data Lake Analytics:
+De forma similar, ejecute el siguiente comando para copiar todos los archivos de una carpeta específica de la cuenta de Data Lake Store de origen en una carpeta de la cuenta de Data Lake Store de destino con la utilización de la cuenta de Data Lake Analytics:
 
     AdlCopy /Source adl://mysourcedatalakestore.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastore.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
 
@@ -183,4 +182,3 @@ AdlCopy admite la copia de datos que contienen miles de archivos y carpetas. Sin
 * [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
 * [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
-

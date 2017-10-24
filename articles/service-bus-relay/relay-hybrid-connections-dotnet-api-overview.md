@@ -1,6 +1,6 @@
 ---
-title: "Introducción a las API estándar de .NET de Retransmisión de Azure | Microsoft Docs"
-description: "Introducción a la API estándar de .NET de retransmisión"
+title: "Introducción a las API de .NET Standard para Azure Relay | Microsoft Docs"
+description: "Introducción a las API de .NET Standard para Azure Relay"
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 10/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: f3f4a2e721b1a75a5b92a5c17a9939c7013340d4
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 58451bae409c74c319f41c38a1cec5f051619e0c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Introducción a la API de estándar de .NET de las conexiones híbridas de Retransmisión de Azure
 
 En este artículo se resumen algunas de las [API de cliente](/dotnet/api/microsoft.azure.relay) estándar de .NET de conexiones híbridas de Retransmisión de Azure.
@@ -62,10 +60,10 @@ catch (ArgumentException ae)
 }
 ```
 
-## <a name="hybrid-connection-stream"></a>Transmisión de conexión híbrida
+## <a name="hybrid-connection-stream"></a>Flujo de conexión híbrida
 La clase [HybridConnectionStream][HCStream] clase es el objeto principal que se usa para enviar y recibir datos de un punto de conexión de Retransmisión de Azure, tanto si trabaja con [HybridConnectionClient][HCClient] como si lo hace con [HybridConnectionListener][HCListener].
 
-### <a name="getting-a-hybrid-connection-stream"></a>Obtener una transmisión de conexión híbrida
+### <a name="getting-a-hybrid-connection-stream"></a>Obtención de un flujo de conexión híbrida
 
 #### <a name="listener"></a>Agente de escucha
 Mediante [HybridConnectionListener][HCListener], puede obtener un objeto `HybridConnectionStream` como se indica a continuación:

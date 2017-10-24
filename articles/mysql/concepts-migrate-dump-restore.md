@@ -8,15 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 8606067a8e82c6314ab931eb4816d45755a8e04f
-ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: ce6edbdffe9704383676e990865cd4e2958f30fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migre su Base de datos MySQL a Azure Database for MySQL mediante el volcado y la restauración.
 En este artículo se explican dos formas habituales de hacer una copia de seguridad y restaurar bases de datos en Azure Database for MySQL.
 - Volcado y restauración desde la línea de comandos (mediante mysqldump) 
@@ -46,8 +44,8 @@ Puede emplear utilidades de MySQL, como mysqldump y mysqlpump para realizar un v
 ## <a name="performance-considerations"></a>Consideraciones sobre rendimiento
 Para optimizar el rendimiento, tenga en cuenta estas consideraciones al volcar grandes bases de datos:
 -   Use la opción `exclude-triggers` en mysqldump al volcar las bases de datos. Excluya los desencadenadores de los archivos de volcado para evitar que los comandos de desencadenamiento se disparen durante la restauración de datos. 
--   Evite la opción `single-transaction` en mysqldump al realizar el volcado de bases de datos muy grandes. El volcado de muchas tablas dentro de una única transacción hace que se consuman almacenamiento y recursos de memoria adicionales durante la restauración. Esto puede ocasionar retrasos en el rendimiento o restricciones en los recursos.
--   Use inserciones de varios valores al cargar con SQL a fin de reducir la sobrecarga de ejecución de instrucciones al volcar las bases de datos. Cuando se usan archivos de volcado generados con la utilidad mysqldump, se habilutan automáticamente las inserciones de varios valores. 
+-   Use la opción `single-transaction` para establecer el modo de aislamiento de transacción a REPEATABLE READ y enviar una instrucción SQL START TRANSACTION al servidor antes de volcar datos. El volcado de muchas tablas en una única transacción provoca el consumo de almacenamiento adicional durante la restauración. Las opciones `single-transaction` y `lock-tables` son mutuamente excluyentes porque LOCK TABLES hace que las transacciones pendientes se confirmen implícitamente. Para volcar las tablas grandes, combine la opción `single-transaction` con la opción `quick`. 
+-   Use la sintaxis de varias filas `extended-insert` que incluye varias listas VALUE. Esto da como resultado un archivo de volcado de memoria más pequeño y acelera las inserciones cuando se vuelve a cargar el archivo.
 -  Use la opción `order-by-primary` de mysqldump al volcar las bases de datos, para que el script de los datos se genere en el orden de la clave principal.
 -   Use la opción `disable-keys` de mysqldump al volcar los datos para deshabilitar las restricciones de clave externa antes de la carga. El hecho de deshabilitar las comprobaciones de clave externa favorece un aumento del rendimiento. Habilite las restricciones y compruebe los datos después de la carga para garantizar la integridad referencial.
 -   Use tablas con particiones cuando sea necesario.
@@ -126,4 +124,3 @@ La importación de la base de datos es similar a la exportación. Haga lo siguie
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Conexión de aplicaciones a Azure Database for MySQL](./howto-connection-string.md)
-

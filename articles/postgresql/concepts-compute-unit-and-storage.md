@@ -8,19 +8,18 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 09/26/2017
+ms.openlocfilehash: 3c8f6a66b3dd1564bc5eafbecafee6e2f1542caa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e480671e6550b305c49442becaed3c0b42ce5cb3
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Explicación de las unidades de proceso en Azure Database for PostgreSQL
-En este artículo se explica el concepto de unidades de proceso y lo que sucede cuando se alcanza el número máximo de tales unidades en la carga de trabajo.
+En este tema se explica el concepto de unidades de proceso y lo que sucede cuando se alcanza el nivel máximo de tales unidades en la carga de trabajo.
 
 ## <a name="what-are-compute-units"></a>¿Qué son las unidades de proceso?
-Las unidades de proceso son una medida de la capacidad de proceso de la CPU que se garantiza que está disponible para un único servidor de Azure Database for PostgreSQL. Una unidad de proceso es una medida combinada de recursos de CPU y memoria. Por lo general, 50 unidades de proceso equivalen a medio núcleo. 100 unidades de proceso equivalen a un núcleo. 2000 unidades de proceso equivalen a una disponibilidad de rendimiento de procesamiento de veinte núcleos garantizada para el servidor.
+Las unidades de proceso son una medida de la capacidad de proceso de la CPU que se garantiza que está disponible para un único servidor de Azure Database for PostgreSQL. Una unidad de proceso es una medida combinada de recursos de CPU y memoria. Por lo general, 50 unidades de proceso equivalen a medio núcleo. 100 unidades de proceso equivalen a un núcleo. 2000 unidades de proceso equivalen a una disponibilidad de rendimiento de procesamiento de 20 núcleos garantizada para el servidor.
 
 La cantidad de memoria por unidad de proceso está optimizada para los planes de tarifa Básico y Estándar. Duplicar las unidades de proceso aumentando el nivel de rendimiento equivale duplicar el conjunto de recursos disponibles para ese único servidor de Azure Database for PostgreSQL.
 
@@ -34,7 +33,7 @@ Si el servidor del entorno local o de la máquina virtual está usando actualmen
 Supervise el grafo de métricas de Azure Portal o escriba comandos de CLI de Azure para medir las unidades de proceso. Las métricas pertinentes que se deben supervisar son el porcentaje de unidades de proceso y el límite de unidades de proceso.
 
 >[!IMPORTANT]
-> Si detecta que las E/S por segundo del almacenamiento no se usan a máxima capacidad, considere supervisar también la utilización de las unidades de proceso. Aumentar el número de unidades de proceso puede incrementar el rendimiento de E/S reduciendo los cuellos de botella de rendimiento que se producen debido a limitaciones en la CPU o la memoria.
+> Si detecta que las E/S de almacenamiento no se usan a máxima capacidad, considere supervisar también la utilización de las unidades de proceso. Aumentar el número de unidades de proceso puede incrementar el rendimiento de E/S reduciendo los cuellos de botella de rendimiento que se producen debido a limitaciones en la CPU o la memoria.
 
 ## <a name="what-happens-when-i-hit-my-maximum-compute-units"></a>¿Qué ocurre cuando se alcanza el número máximo de unidades de proceso?
 Los niveles de rendimiento se calibran y regulan para proporcionar recursos para ejecutar la carga de trabajo de la base de datos hasta los límites máximos del plan de tarifa y el nivel de rendimiento seleccionados. 
@@ -45,4 +44,3 @@ Si la carga de trabajo alcanza los límites máximos de número de conexiones, s
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre los planes de tarifa, consulte [Planes de tarifa de Azure Database for PostgreSQL](./concepts-service-tiers.md).
-

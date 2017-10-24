@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: ashwink
 ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Ejemplos de inicio rápido de PowerShell de Azure Monitor
 En este artículo se muestran comandos de PowerShell de ejemplo para ayudarle a acceder a las características de Azure Monitor. Azure Monitor permite escalar automáticamente Cloud Services, Virtual Machines y Web Apps para enviar notificaciones de alerta o llamar a direcciones URL web en función de los valores de datos de telemetría configurados.
@@ -151,7 +151,7 @@ En la tabla siguiente se describen los parámetros y valores utilizados para cre
 | Ubicación (Location) de esta regla de alerta |Este de EE. UU. |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| Nombre de la métrica (MetricName) de la alerta que se crea |\PhysicalDisk (_Total) \Disk escrituras por segundo. Consulte la `Get-MetricDefinitions` acerca de cómo recuperar los nombres exactos de métrica del cmdlet |
+| Nombre de la métrica (MetricName) de la alerta que se crea |\PhysicalDisk(_Total)\Disk Writes/sec. Consulte el cmdlet `Get-MetricDefinitions` acerca de cómo recuperar los nombres exactos de las métricas |
 | operator |GreaterThan |
 | Valor de umbral (número por segundo para esta métrica) |1 |
 | WindowSize (formato hh:mm:ss) |00:05:00 |
