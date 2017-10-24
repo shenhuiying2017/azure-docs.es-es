@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
+ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 06fbf6019aa4a2ceab99a83efe072fc0b71bfbf4
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="model-management-setup"></a>Instalación de Administración de modelos
 
@@ -122,7 +121,7 @@ Utilice la implementación de clúster para escenarios de producción de gran es
 Para implementar el servicio web en un entorno de producción, primero configure el entorno con el comando siguiente:
 
 ```azurecli
-az ml env setup -c --cluster-name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
+az ml env setup -c --name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
 ```
 
 El comando de instalación de entorno del clúster crea los siguientes recursos en su suscripción:
@@ -143,6 +142,9 @@ az ml env set -n [environment name] -g [resource group]
 >[!NOTE] 
 > Una vez creado el entorno, para las implementaciones posteriores, bastará con usar el comando anterior para volver a usarlo.
 >
+
+>[!NOTE] 
+>Para crear un punto de conexión HTTPS, especifique un certificado SSL cuando cree un clúster mediante las opciones --cert-name y --cert-pem en la configuración de az ml env. Esto configura el clúster para atender solicitudes en https, protegidas mediante el certificado proporcionado. Una vez completada la instalación, cree un registro CNAME DNS que apunte al FQDN del clúster.
 
 ### <a name="create-an-account"></a>Creación de una cuenta
 Una cuenta es necesaria para la implementación de modelos. Tiene que hacer esto una vez por cada cuenta y puede volver a usar la misma cuenta en varias implementaciones.
@@ -167,4 +169,3 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 
 ### <a name="next-steps"></a>Pasos siguientes
 Pruebe uno de los muchos ejemplos de la galería.
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
+ms.openlocfilehash: 2ee7ec91700c66d5bedd917d0203a726b5c5e300
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 55298a7ff96bd9662310fa6b5d1764370f500be5
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Predicción del abandono de clientes con Azure Machine Learning
 
 En promedio, mantener los clientes existentes es cinco veces más económico que el costo de incorporar nuevos. Como resultado, los ejecutivos de marketing a menudo intentar calcular la probabilidad de abandono de clientes y buscan las acciones necesarias para minimizar la tasa de abandono.
@@ -77,7 +75,7 @@ Cree un nuevo proyecto usando este ejemplo como plantilla:
 
 ## <a name="data-description"></a>Descripción de los datos
 
-El conjunto de datos utilizado en la solución procede de la competición SIDKDD 2009. Se llama `CATelcoCustomerChurnTrainingSample.csv` y se encuentra en la carpeta [`Data` ](https://github.com/mezmicrosoft/MachineLearningSamples-ChurnPrediction/tree/master/Data). El conjunto de datos consta de datos heterogéneos con ruido (variables numéricas y de categorías) de la empresa de telecomunicaciones francesa Orange y es anónimo.
+El conjunto de datos utilizado en la solución procede de la competición SIDKDD 2009. Se llama `CATelcoCustomerChurnTrainingSample.csv` y se encuentra en la carpeta [`data` ](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/tree/master/data). El conjunto de datos consta de datos heterogéneos con ruido (variables numéricas y de categorías) de la empresa de telecomunicaciones francesa Orange y es anónimo.
 
 Las variables de capturan información demográfica del cliente, estadísticas de llamadas (por ejemplo, duración media de la llamada, porcentaje de errores de llamada, etc.), información de contratos y estadísticas de reclamaciones. La variable de abandono es binaria (0: no abandona, 1: abandona).
 
@@ -85,27 +83,24 @@ Las variables de capturan información demográfica del cliente, estadísticas d
 
 La estructura de carpetas se organiza de la siguiente forma:
 
-__Code__ (Código): contiene todo el código relacionado con la predicción de abandono usando Azure Machine Learning Workbench
+__data__: contiene el conjunto de datos utilizado en la solución  
 
-__Data__ (Datos): contiene el conjunto de datos utilizado en la solución  
-
-__Labs__ (Laboratorios): contiene todos los laboratorios prácticos
+__docs__: contiene todos los laboratorios prácticos
 
 El orden de los laboratorios prácticos para llevar a cabo la solución es el siguiente:
-1. Preparación de datos: los archivos relacionados con la preparación de los datos en la carpeta code son `CATelcoCustomerChurnTrainingSample.dprep`, `CATelcoCustomerChurnTrainingSample.dconn` y `CATelcoCustomerChurnTrainingSample.csv`
-2. Modelado y evaluación: el archivo principal relacionado con el modelado y la evaluación en la carpeta code es `CATelcoCustomerChurnModeling.py`
-3. Modelado y evaluación en Docker: el archivo principal para esta tarea en la carpeta code es `CATelcoCustomerChurnModelingDocker.py`
+1. Preparación de datos: el archivo principal relacionado con la preparación de los datos en la carpeta data es `CATelcoCustomerChurnTrainingSample.csv`
+2. Modelado y evaluación: el archivo principal relacionado con el modelado y la evaluación en la carpeta raíz es `CATelcoCustomerChurnModeling.py`
+3. Modelado y evaluación en Docker: el archivo principal para esta tarea en la carpeta raíz es `CATelcoCustomerChurnModelingDocker.py`
 4. Operacionalización: los archivos principales para implementar son el modelo (`model.pkl`) y `churn_schema_gen.py`
 
 | Orden| Nombre de archivo | Archivos relacionados |
 |--|-----------|------|
-| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/DataPreparation.md) | 'Data/CATelcoCustomerChurnTrainingSample.csv' |
-| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluation.md) | 'Code/CATelcoCustomerChurnModeling.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluationDocker.md) | 'Code/CATelcoCustomerChurnModelingDocker.py' |
-| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/Operationalization.md) | 'Code/model.pkl'<br>'Code/churn_schema_gen.py' |
+| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | 'data/CATelcoCustomerChurnTrainingSample.csv' |
+| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | 'CATelcoCustomerChurnModeling.py' |
+| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationDocker.md) | 'CATelcoCustomerChurnModelingDocker.py' |
+| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | 'model.pkl'<br>'churn_schema_gen.py' |
 
 Siga los laboratorios de la manera secuencial que se ha descrito anteriormente.
 
 ## <a name="conclusion"></a>Conclusión
 Este escenario práctico muestra cómo llevar a cabo predicciones de abandono con Azure Machine Learning Workbench. En primer lugar se ha realizado la limpieza de los datos para controlar los datos con ruido y heterogéneos, seguido de ingeniería de características con herramientas de preparación de datos. A continuación, se utilizan herramientas de aprendizaje automático de código abierto para crear y evaluar un modelo de clasificación y, a continuación, se usa un contenedor de Docker local para implementar el modelo, que está listo para producción.
-

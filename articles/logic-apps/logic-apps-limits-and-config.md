@@ -1,6 +1,6 @@
 ---
-title: "Límites y configuración de Logic Apps | Microsoft Docs"
-description: "Información general de los límites de servicio y los valores de configuración disponibles para Logic Apps."
+title: "Límites y configuración - Azure Logic Apps | Microsoft Docs"
+description: "Valores de límites y configuración del servicio para Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -12,153 +12,173 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/25/2017
 ms.author: LADocs; jehollan
+ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 5d905d410e70c5b635a3f6221e7e0c0bda7ad140
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="logic-app-limits-and-configuration"></a>Límites y configuración de Logic Apps
+# <a name="logic-apps-limits-and-configuration"></a>Límites y configuración de Logic Apps
 
-A continuación se muestra información sobre los límites actuales y los detalles de configuración de Azure Logic Apps.
+En este tema se describen los límites actuales y los detalles de configuración de Azure Logic Apps.
 
 ## <a name="limits"></a>límites
 
 ### <a name="http-request-limits"></a>Límites de solicitudes HTTP
 
-Los límites de una única solicitud HTTP o llamada a un conector son los siguientes.
+Estos límites se aplican a una única solicitud HTTP o llamada de conector.
 
 #### <a name="timeout"></a>Tiempo de espera
 
-|Nombre|Límite|Notas|
-|----|----|----|
-|Tiempo de espera de solicitud|120 segundos|Un [patrón asincrónico](../logic-apps/logic-apps-create-api-app.md) o un [bucle until](logic-apps-loops-and-scopes.md) se pueden compensar, según sea necesario.|
+| Nombre | Límite | Notas | 
+| ---- | ----- | ----- | 
+| Tiempo de espera de solicitud | 120 segundos | Un [patrón asincrónico](../logic-apps/logic-apps-create-api-app.md) o un [bucle until](logic-apps-loops-and-scopes.md) se pueden compensar, según sea necesario. |
+|||| 
 
 #### <a name="message-size"></a>Tamaño del mensaje
 
-|Nombre|Límite|Notas|
-|----|----|----|
-|Tamaño del mensaje|100 MB|Puede que algunos conectores y API no admitan 100 MB |
-|Límite de evaluación de expresiones|131 072 caracteres.|`@concat()`, `@base64()` y `string` no pueden superar este límite|
+| Nombre | Límite | Notas | 
+| ---- | ----- | ----- | 
+| Tamaño del mensaje | 100 MB | Puede que algunos conectores y API no admitan 100 MB. | 
+| Límite de evaluación de expresiones | 131 072 caracteres. | `@concat()`, `@base64()` y `string` no pueden superar este límite. | 
+|||| 
 
 #### <a name="retry-policy"></a>Directiva de reintentos
 
-|Nombre|Límite|Notas|
-|----|----|----|
-|Número de reintentos|10| El valor predeterminado es 4. Se puede configurar con el [parámetro de directiva de reintento](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
-|Retraso máximo entre reintentos|1 hora|Se puede configurar con el [parámetro de directiva de reintento](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
-|Retraso mínimo entre reintentos|5 segundos|Se puede configurar con el [parámetro de directiva de reintento](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+| Nombre | Límite | Notas | 
+| ---- | ----- | ----- | 
+| Número de reintentos | 90 | El valor predeterminado es 4. Se puede configurar con el [parámetro de directiva de reintento](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
+| Retraso máximo entre reintentos | 1 día | Se puede configurar con el [parámetro de directiva de reintento](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
+| Retraso mínimo entre reintentos | 5 segundos | Se puede configurar con el [parámetro de directiva de reintento](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+|||| 
 
 ### <a name="run-duration-and-retention"></a>Retención y duración de ejecución
 
-Los límites de ejecución de una única aplicación lógica son los siguientes.
+Estos límites se aplican a una única ejecución de aplicación lógica.
 
-|Nombre|Límite|Notas|
-|----|----|----|
-|Duración de la ejecución|90 días||
-|Retención de almacenamiento|90 días|A partir de la hora de inicio de la ejecución|
-|Intervalo de periodicidad mínima|1 segundo|| 15 segundos para aplicaciones lógicas con un plan de App Service
-|Intervalo de periodicidad máxima|500 días||
+| Nombre | Límite | 
+| ---- | ----- | 
+| Duración de la ejecución | 90 días | 
+| Retención de almacenamiento | 90 días a partir de la hora de inicio de la ejecución | 
+| Intervalo de periodicidad mínima | 1 segundo </br>Para las aplicaciones lógicas con un plan de App Service: 15 segundos | 
+| Intervalo de periodicidad máxima | 500 días | 
+||| 
 
-Si espera superar la duración de ejecución o los límites de retención de almacenamiento del flujo de procesamiento normal, [póngase en contacto con nosotros](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus necesidades.
-
+Si desea superar los límites de la duración de ejecución o la retención de almacenamiento del flujo de procesamiento normal, [póngase en contacto con nosotros](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus necesidades.
 
 ### <a name="looping-and-debatching-limits"></a>Límites de bucle y anulación de procesamiento por lotes
 
-Los límites de ejecución de una única aplicación lógica son los siguientes.
+Estos límites se aplican a una única ejecución de aplicación lógica.
 
-|Nombre|Límite|Notas|
-|----|----|----|
-|Elementos ForEach|100 000|Puede usar la [acción de consulta](../connectors/connectors-native-query.md) para filtrar matrices más grandes, según sea necesario.|
-|Iteraciones Until|5.000||
-|Elementos SplitOn|100 000||
-|Paralelismo de ForEach|50| El valor predeterminado es 20. Puede establecerlo en una instrucción foreach secuencial agregando `"operationOptions": "Sequential"` a la acción `foreach` o en un nivel específico de paralelismo mediante `runtimeConfiguration`.|
-
+| Nombre | Límite | Notas | 
+| ---- | ----- | ----- | 
+| Elementos ForEach | 100 000 | Puede usar la [acción de consulta](../connectors/connectors-native-query.md) para filtrar matrices más grandes, según sea necesario. | 
+| Iteraciones Until | 5.000 | | 
+| Elementos SplitOn | 100 000 | | 
+| Paralelismo de ForEach | 50 | El valor predeterminado es 20. <p>Para establecer un nivel específico de paralelismo en un bucle ForEach, establezca la propiedad `runtimeConfiguration` en la acción `foreach`. <p>Para ejecutar secuencialmente un bucle ForEach, establezca la propiedad `operationOptions` en "Sequential" en la acción `foreach`. | 
+|||| 
 
 ### <a name="throughput-limits"></a>Límites de rendimiento
 
-Los límites para una instancia de aplicación lógica única son los siguientes. 
+Estos límites se aplican a una única instancia de aplicación lógica.
 
-|Nombre|Límite|Notas|
-|----|----|----|
-|Ejecuciones de acciones cada 5 minutos |100 000|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
-|Llamadas salientes simultáneas de acciones |Aproximadamente 2500|Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario|
-|Llamadas entrantes simultáneas de puntos de conexión en tiempo de ejecución |~1000|Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario|
-|Llamadas de lectura de punto de conexión en tiempo de ejecución por 5 minutos |60 000|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
-|Llamadas de invocación de punto de conexión en tiempo de ejecución por 5 minutos |45 000|Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario.|
+| Nombre | Límite | Notas | 
+| ---- | ----- | ----- | 
+| Ejecuciones de acciones cada 5 minutos | 100 000 | Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario. | 
+| Llamadas salientes simultáneas de acciones | Aproximadamente 2500 | Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: llamadas entrantes simultáneas | ~1000 | Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: llamadas de lectura por 5 minutos | 60 000 | Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: llamadas de invocación por 5 minutos | 45 000 | Puede distribuir cargas de trabajo entre varias aplicaciones, según sea necesario. | 
+|||| 
 
-Si espera superar este límite en el procesamiento normal o desea ejecutar una prueba de carga que puede exceder este límite durante un tiempo, [póngase en contacto con nosotros](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus requisitos.
+Si desea superar estos límites en el procesamiento normal, o ejecutar pruebas de carga que puedan superar estos límites, [póngase en contacto con nosotros](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus necesidades.
 
-### <a name="definition-limits"></a>Límites de definición
+### <a name="logic-app-definition-limits"></a>Límites de definición de aplicación lógica
 
-Los límites de una definición de aplicación lógica única son los siguientes.
+Estos límites se aplican a una única definición de aplicación lógica.
 
-|Nombre|Límite|Notas|
-|----|----|----|
-|Acciones por flujo de trabajo|500|Puede agregar flujos de trabajo anidados para ampliar este límite según sea necesario|
-|Niveles de anidamiento de acciones permitidos|8|Puede agregar flujos de trabajo anidados para ampliar este límite según sea necesario|
-|Flujos de trabajo por región y suscripción|1000||
-|Desencadenadores por flujo de trabajo|10||
-|Límite de cambio de ámbito de casos|25||
-|Número de variables por flujo de trabajo|250||
-|Número máximo de caracteres por expresión|8192||
-|Tamaño máximo de `trackedProperties` expresado en caracteres|16 000|
-|`action`/`trigger` |80||
-|`description` |256||
-|`parameters` limit|50||
-|`outputs` limit|10||
+| Nombre | Límite | Notas | 
+| ---- | ----- | ----- | 
+| Acciones por flujo de trabajo | 500 | Para ampliar este límite, puede agregar flujos de trabajo anidados según sea necesario. |
+| Niveles de anidamiento de acciones permitidos | 8 | Para ampliar este límite, puede agregar flujos de trabajo anidados según sea necesario. | 
+| Flujos de trabajo por región y suscripción | 1000 | | 
+| Desencadenadores por flujo de trabajo | 10 | | 
+| Límite de cambio de ámbito de casos | 25 | | 
+| Número de variables por flujo de trabajo | 250 | | 
+| Número máximo de caracteres por expresión | 8192 | | 
+| Tamaño máximo de `trackedProperties` expresado en caracteres | 16 000 | 
+| `action`/`trigger` | 80 | | 
+| `description` | 256 | | 
+| `parameters` limit | 50 | | 
+| `outputs` limit | 10 | | 
+|||| 
+
+<a name="custom-connector-limits"></a>
+
+### <a name="custom-connector-limits"></a>Límites de conector personalizado
+
+Estos límites se aplican a los conectores personalizados que puede crear a partir de las API web.
+
+| Nombre | Límite | 
+| ---- | ----- | 
+| Número de conectores personalizados que puede crear | 1000 por cada suscripción de Azure | 
+| Número de solicitudes por minuto para cada conexión creada por un conector personalizado | 500 solicitudes para cada conexión creada por el conector |
+||| 
 
 ### <a name="integration-account-limits"></a>Límites de cuenta de integración
 
-Existen límites en cuanto a los artefactos que se pueden agregar a una cuenta de integración.
+Estos límites se aplican a los artefactos que se pueden agregar a una cuenta de integración.
 
-|Nombre|Límite|Notas|
-|----|----|----|
-|Esquema|8 MB|Puede usar el [identificador URI del blob](logic-apps-enterprise-integration-schemas.md) para cargar archivos mayores de 2 MB |
-|Asignación (archivo XSLT)|2 MB| |
-|Llamadas de lectura de punto de conexión en tiempo de ejecución por 5 minutos |60 000|Puede distribuir cargas de trabajo entre varias cuentas según sea necesario.|
-|Llamadas de invocación de punto de conexión en tiempo de ejecución por 5 minutos |45 000|Puede distribuir cargas de trabajo entre varias cuentas según sea necesario.|
-|Llamadas de seguimiento de punto de conexión en tiempo de ejecución por 5 minutos |45 000|Puede distribuir cargas de trabajo entre varias cuentas según sea necesario.|
-|Llamadas simultáneas de bloqueo de puntos de conexión en tiempo de ejecución |~1000|Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario|
+| Nombre | Límite | Notas | 
+| ---- | ----- | ----- | 
+| Esquema | 8 MB | Puede usar el [identificador URI del blob](../logic-apps/logic-apps-enterprise-integration-schemas.md) para cargar archivos mayores de 2 MB. | 
+| Asignación (archivo XSLT) | 2 MB | | 
+| Punto de conexión en tiempo de ejecución: llamadas de lectura por 5 minutos | 60 000 | Puede distribuir cargas de trabajo entre varias cuentas según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: llamadas de invocación por 5 minutos | 45 000 | Puede distribuir cargas de trabajo entre varias cuentas según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: llamadas de seguimiento por 5 minutos | 45 000 | Puede distribuir cargas de trabajo entre varias cuentas según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: llamadas simultáneas de bloqueo | ~1000 | Reducir el número de solicitudes simultáneas o reducir la duración según sea necesario. | 
+|||| 
 
-Existen límites en cuanto al número de artefactos que se pueden agregar a una cuenta de integración.
+Estos límites se aplican al número de artefactos que puede agregar a una cuenta de integración.
 
-Plan de tarifa Gratis
+#### <a name="free-pricing-tier"></a>Plan de tarifa Gratis
 
-|Nombre|Límite|Notas|
-|----|----|----|
-|Contratos|10||
-|Otros tipos de artefacto|25|Los tipos incluyen socios, esquemas, certificados y asignaciones. Cada tipo puede tener el número máximo de artefactos.|
+| Nombre | Límite | Notas | 
+| ---- | ----- | ----- | 
+| Contratos | 10 | | 
+| Otros tipos de artefacto | 25 |Los tipos de artefacto incluyen socios, esquemas, certificados y asignaciones. Cada tipo puede tener el número máximo de artefactos. | 
+|||| 
 
-Plan de tarifa Estándar
+#### <a name="standard-pricing-tier"></a>Plan de tarifa Estándar
 
-|Nombre|Límite|Notas|
-|----|----|----|
-|Cualquier tipo de artefacto|500|Los tipos incluyen acuerdos, socios, esquemas, certificados y asignaciones. Cada tipo puede tener el número máximo de artefactos.|
+| Nombre | Límite | Notas | 
+| ---- | ----- | ----- | 
+| Cualquier tipo de artefacto | 500 | Los tipos de artefacto incluyen acuerdos, socios, esquemas, certificados y asignaciones. Cada tipo puede tener el número máximo de artefactos. | 
+|||| 
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Tamaño de mensaje de protocolos B2B (AS2, X12 y EDIFACT)
 
-Los límites de los protocolos B2B son los siguientes
+Estos límites se aplican a los protocolos B2B.
 
-|Nombre|Límite|Notas|
-|----|----|----|
-|AS2|50 MB|Aplicable para descodificar y codificar|
-|X12|50 MB|Aplicable para descodificar y codificar|
-|EDIFACT|50 MB|Aplicable para descodificar y codificar|
+| Nombre | Límite | Notas | 
+| ---- | ----- | ----- | 
+| AS2 | 50 MB | Se aplica a la decodificación y la codificación | 
+| X12 | 50 MB | Se aplica a la decodificación y la codificación | 
+| EDIFACT | 50 MB | Se aplica a la decodificación y la codificación | 
+|||| 
 
-## <a name="configuration"></a>Configuración
+<a name="configuration"></a>
 
-### <a name="ip-address"></a>Dirección IP
+## <a name="configuration-ip-addresses"></a>Configuración: direcciones IP
 
-#### <a name="logic-app-service"></a>Servicio de aplicación lógica
+### <a name="logic-apps-service"></a>Servicio Logic Apps
 
-Las llamadas realizadas directamente desde una aplicación lógica (es decir, a través de [HTTP](../connectors/connectors-native-http.md) o [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) o de otras solicitudes HTTP procederán de la dirección IP especificada en la siguiente lista:
+Las llamadas que efectúa directamente una aplicación lógica, esto es, a través de [HTTP](../connectors/connectors-native-http.md) o [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) u otras solicitudes HTTP, proceden de las direcciones IP de esta lista.
 
-|Región de aplicación lógica|IP de salida|
-|-----|----|
+|Región de Logic Apps|IP de salida|
+|-----------------|-----------|
 |Australia Oriental|13.75.149.4, 104.210.91.55, 104.210.90.241|
 |Sudeste de Australia|13.73.114.207, 13.77.3.139, 13.70.159.205|
 |Sur de Brasil|191.235.82.221, 191.235.91.7, 191.234.182.26|
@@ -183,13 +203,14 @@ Las llamadas realizadas directamente desde una aplicación lógica (es decir, a 
 |Oeste de EE. UU. 2|13.66.210.167, 52.183.30.169, 52.183.29.132|
 |Sur del Reino Unido 2|51.140.74.14, 51.140.73.85, 51.140.78.44|
 |Oeste de Reino Unido|51.141.54.185, 51.141.45.238, 51.141.47.136|
+| | |
 
-#### <a name="connectors"></a>Conectores
+### <a name="connectors"></a>Conectores
 
-Las llamadas realizadas desde un [conector](../connectors/apis-list.md) proceden de la dirección IP especificada en la siguiente lista:
+Las llamadas que los [conectores](../connectors/apis-list.md) efectúan proceden de las direcciones IP de esta lista.
 
-|Región de aplicación lógica|IP de salida|
-|-----|----|
+|Región de Logic Apps|IP de salida|
+|-----------------|-----------|
 |Australia Oriental|40.126.251.213|
 |Sudeste de Australia|40.127.80.34|
 |Sur de Brasil|191.232.38.129|
@@ -212,12 +233,11 @@ Las llamadas realizadas desde un [conector](../connectors/apis-list.md) proceden
 |Oeste de EE. UU.|104.40.51.248|
 |Sur del Reino Unido 2|51.140.80.51|
 |Oeste de Reino Unido|51.141.47.105|
-
+| | | 
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-- Para comenzar con las aplicaciones lógicas, siga el tutorial [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).  
-- [Ejemplos de aplicaciones lógicas y escenarios comunes](../logic-apps/logic-apps-examples-and-scenarios.md)
-- [Con las aplicaciones lógicas puede automatizar procesos empresariales.](http://channel9.msdn.com/Events/Build/2016/T694) 
-- [Obtenga información acerca de cómo integrar sus sistemas con Aplicaciones lógicas](http://channel9.msdn.com/Events/Build/2016/P462)
-
+* [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [Ejemplos y escenarios comunes](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [Vídeo: Automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) (Automatización de procesos empresariales con Logic Apps) 
+* [Vídeo: Integrate your systems with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462) (Integración de los sistemas con Logic Apps)

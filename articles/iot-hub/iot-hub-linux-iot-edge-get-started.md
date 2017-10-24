@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: fb65e3c34d2b2a14370792d8506c13c8c5fb522e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: e2f26c1abe09feff77e1e2633d8bfcf4ca527aee
-ms.contentlocale: es-es
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explore-azure-iot-edge-architecture-on-linux"></a>Explorar la arquitectura de Azure IoT Edge en Linux
 
@@ -32,7 +31,7 @@ ms.lasthandoff: 09/22/2017
 
 El script **build.sh** genera su salida en la carpeta **build** de la copia local del repositorio **iot-edge**. Esta salida incluye los dos módulos de IoT Edge utilizados en este ejemplo.
 
-El script de compilación coloca **liblogger.so** en la carpeta **build/modules/logger/** y **lib\_helloworld.so** en la carpeta **build/modules/hello_world/**. Use estas rutas de acceso en los valores de **module path**, tal y como se muestra en el archivo de configuración JSON siguiente.
+El script de compilación coloca **liblogger.so** en la carpeta **build/modules/logger/** y **lib\_helloworld.so** en la carpeta **build/modules/hello_world/**. Use estas rutas de acceso en los valores de **module path**, tal y como se muestra en el archivo de configuración JSON de ejemplo.
 
 El proceso de hello\_world\_sample toma la ruta de acceso a un archivo de configuración JSON como argumento de línea de comandos. El siguiente archivo JSON de ejemplo se encuentra en el repositorio de SDK, en **samples/hello\_world/src/hello\_world\_lin.json**. Este archivo de configuración funciona tal y como está, a menos que se modifique el script de compilación para colocar los módulos de IoT Edge o los ejecutables de ejemplo en ubicaciones diferentes de las predeterminadas.
 
@@ -79,9 +78,8 @@ El proceso de hello\_world\_sample toma la ruta de acceso a un archivo de config
 1. Ejecute el siguiente comando:
 
     ```sh
-    ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json`
+    ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json
     ```
 
 [!INCLUDE [iot-hub-iot-edge-getstarted-code](../../includes/iot-hub-iot-edge-getstarted-code.md)]
-
 

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: b960d56188abf102cf4a8894582203205eaa9a03
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 6f0a1e5263a034e825d4c12860fd6f97a4c556c6
-ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances y orquestadores de contenedores
 
 Los contenedores, debido a su tamaño pequeño y a la orientación de aplicaciones, se adaptan perfectamente a entornos de entrega ágil y arquitecturas basadas en microservicios. La tarea de automatizar y administrar una gran cantidad de contenedores y cómo interactúan se conoce como *orquestación*. Los orquestadores de contenedores populares incluyen Kubernetes, DC/OS y Docker Swarm, todos los cuales se encuentran disponibles en [Azure Container Service](https://docs.microsoft.com/azure/container-service/).
@@ -66,9 +64,9 @@ En el caso de cargas de trabajo estables y de ejecución prolongada, orquestar c
 
 ## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>Implementación de ejemplo: conector de Azure Container Instances para Kubernetes
 
-Para mostrar cómo las plataformas de orquestación de contenedores se puede integrar con Azure Container Instances, se comenzó a construir un [conector de ejemplo para Kubernetes][aci-connector-k8s]. 
+Para mostrar cómo las plataformas de orquestación de contenedores se puede integrar con Azure Container Instances, se comenzó a construir un [conector de ejemplo para Kubernetes][aci-connector-k8s].
 
-El conector para Kubernetes imita a [kubelet][kubelet-doc] al registrarse como un nodo con capacidad ilimitada y distribuir la creación de [pods][pod-doc] como grupos de contenedores en Azure Container Instances. 
+El conector para Kubernetes imita a [kubelet][kubelet-doc] al registrarse como un nodo con capacidad ilimitada y distribuir la creación de [pods][pod-doc] como grupos de contenedores en Azure Container Instances.
 
 <!-- ![ACI Connector for Kubernetes][aci-connector-k8s-gif] -->
 

@@ -8,19 +8,18 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/15/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 7099e26fd749820ab6869c0262e1f97d993ab7b2
-ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.date: 09/26/2017
+ms.openlocfilehash: 35b7f026aa05fb16d57f49b93edff831b43268db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Bibliotecas de conexiones de Azure Database for PostgreSQL
-En este tema se enumeran las bibliotecas y los controladores que pueden usar los desarrolladores para programar aplicaciones para conectarse a Azure Database for PostgreSQL y realizar ahí consultas.
+En este tema se enumeran las bibliotecas y los controladores que pueden usar los desarrolladores para programar aplicaciones con el fin de conectarse a Azure Database for PostgreSQL y realizar ahí consultas.
 
 ## <a name="client-interfaces"></a>Interfaces de cliente
-La mayoría de bibliotecas de cliente de lenguajes para conectarse al servidor de PostgreSQL son proyectos externos y se distribuyen de manera independiente. Estas se admiten en plataformas Windows, Linux y Mac. Se enumeran algunos de los controladores cliente más conocidos:
+La mayoría de las bibliotecas de cliente de lenguajes para conectarse al servidor PostgreSQL son proyectos externos y se distribuyen de manera independiente. Estas se admiten en plataformas Windows, Linux y Mac. A continuación, se enumeran algunos de los controladores cliente más conocidos:
 
 | **Lenguaje** | **Interfaz de cliente** | **Información adicional** | **Descargar** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
@@ -39,4 +38,3 @@ La mayoría de bibliotecas de cliente de lenguajes para conectarse al servidor d
 Lea estos tutoriales rápidos sobre cómo conectarse a Azure Database for PostgreSQL y realizar consultas ahí mediante el lenguaje de su elección:
 
 [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [.NET (C#)](./connect-csharp.md)
-

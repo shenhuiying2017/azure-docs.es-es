@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
 ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Cree una aplicación sin servidor en Visual Studio con Logic Apps y Functions
 
@@ -46,7 +46,7 @@ La administración de recursos en Azure se realiza en un grupo de recursos.  Un 
 1. En la categoría **Nube**, seleccione esta opción para crear un proyecto de **grupo de recursos** de Azure  
  * Si no ve la categoría o el proyecto en la lista, asegúrese de haber instalado el SDK de Azure para Visual Studio
 1. Asigne al proyecto un nombre y una ubicación y seleccione **Aceptar** para crear Visual Studio. Se le pedirá que seleccione una plantilla.  Puede empezar en blanco, con una lógica de aplicación o con otro recurso.  Sin embargo, en este caso usaremos una plantilla de inicio rápido de Azure para empezar a trabajar con una aplicación sin servidor.
-1. Seleccione esta opción para mostrar las plantillas desde **inicio rápido de Azure** ![plantillas de selección de inicio rápido de Azure][1]
+1. Seleccione esta opción para mostrar las plantillas desde **Inicio rápido de Azure** ![Selección de plantillas de inicio rápido de Azure][1].
 1. Seleccione la plantilla de inicio rápido sin servidor: **101-logic-app-and-function-app** y haga clic en **Aceptar**
 
 La plantilla de inicio rápido crea una plantilla de implementación en el proyecto del grupo de recursos.  La plantilla contiene una aplicación lógica sencilla que llama a Azure Functions y devuelve el resultado.  Si abre el archivo `azuredeploy.json` en el Explorador de soluciones, verá los recursos de la aplicación sin servidor.
@@ -55,7 +55,7 @@ La plantilla de inicio rápido crea una plantilla de implementación en el proye
 
 Antes de abrir el diseñador visual de Logic App en Visual Studio, debe haber un grupo de recursos de Azure implementado.  Esto permite al diseñador crear y usar las conexiones a los recursos y servicios en la aplicación lógica.  Para empezar, solo hay que implementar la solución creada.
 
-1. Haga clic en el proyecto en Visual Studio, seleccione **implementar**y crear un **New** implementación ![seleccionando la nueva implementación de recursos][2]
+1. Haga clic con el botón derecho en el proyecto de Visual Studio, seleccione **Implementar**y cree una **Nueva** implementación ![Selección de una nueva implementación de recursos][2].
 1. Seleccione una suscripción válida a Azure y el grupo de recursos
 1. Seleccione esta opción para **implementar** la solución
 1. Escriba el nombre de la aplicación lógica y de la función de Azure Function App.  El nombre de la función de Azure no tiene que ser único globalmente

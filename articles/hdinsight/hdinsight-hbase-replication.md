@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 10/09/2017
 ms.author: jgao
+ms.openlocfilehash: fbd6ff573a1d4f7fe2754935dd8c199092076725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 9d1b629ad05f45efc8d01799616c82b4a11ecaab
-ms.contentlocale: es-es
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clúster de HBase en redes virtuales de Azure
 
@@ -57,7 +56,7 @@ Existen tres opciones de configuración:
 
 Para ayudar a configurar los entornos, hemos creado algunas [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Si prefiere configurar los entornos mediante otros métodos, consulte:
 
-- [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Consulte Creación de clústeres de Hadoop en HDInsight.](hdinsight-hadoop-provision-linux-clusters.md)
 - [Create HBase clusters in Azure Virtual Network](hdinsight-hbase-provision-vnet.md) (Creación de clústeres de HBase en Azure Virtual Network)
 
 ### <a name="set-up-one-virtual-network"></a>Configuración de una red virtual
@@ -97,11 +96,54 @@ En el escenario de varias redes virtuales, debe usar el modificador **-ip** cuan
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configuración de dos redes virtuales en dos regiones distintas
 
-Para crear dos redes virtuales en dos regiones distintas, seleccione la siguiente imagen. La plantilla se encuentra almacenada en un contenedor global de Azure Blob.
+Haga clic en la imagen siguiente para crear dos redes virtuales en dos regiones distintas y la conexión VPN entre las redes virtuales. La plantilla se encuentra en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-geo-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-Cree una puerta de enlace de VPN entre las dos redes virtuales. Para obtener instrucciones, consulte [Creación de una red virtual con una conexión de sitio a sitio](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Algunos de los valores de la plantilla están codificados de forma rígida:
+
+**Red virtual 1**
+
+| Propiedad | Valor |
+|----------|-------|
+| Ubicación | Oeste de EE. UU. |
+| Nombre de red virtual | &lt;ClusterNamePrevix>-vnet1 |
+| Prefijo del espacio de direcciones | 10.1.0.0/16 |
+| Nombre de subred | subred 1 |
+| Prefijo de la subred | 10.1.0.0/24 |
+| Nombre de subred (puerta de enlace) | GatewaySubnet (no se puede cambiar) |
+| Prefijo de la subred (puerta de enlace) | 10.1.255.0/27 |
+| Nombre de puerta de enlace | vnet1gw |
+| Tipo de puerta de enlace | VPN |
+| Tipo de VPN de la puerta de enlace | RouteBased |
+| SKU de puerta de enlace | Básica |
+| Dirección IP de puerta de enlace | vnet1gwip |
+| Cluster Name | &lt;ClusterNamePrefix>1 |
+| Versión del clúster | 3.6 |
+| Tipo de clúster | hbase |
+| Número de nodos de trabajo en el clúster | 2 |
+
+
+**Red virtual 2**
+
+| Propiedad | Valor |
+|----------|-------|
+| Ubicación | Este de EE. UU. |
+| Nombre de red virtual | &lt;ClusterNamePrevix>-vnet2 |
+| Prefijo del espacio de direcciones | 10.2.0.0/16 |
+| Nombre de subred | subred 1 |
+| Prefijo de la subred | 10.2.0.0/24 |
+| Nombre de subred (puerta de enlace) | GatewaySubnet (no se puede cambiar) |
+| Prefijo de la subred (puerta de enlace) | 10.2.255.0/27 |
+| Nombre de puerta de enlace | vnet2gw |
+| Tipo de puerta de enlace | VPN |
+| Tipo de VPN de la puerta de enlace | RouteBased |
+| SKU de puerta de enlace | Básica |
+| Dirección IP de puerta de enlace | vnet1gwip |
+| Cluster Name | &lt;ClusterNamePrefix>2 |
+| Versión del clúster | 3.6 |
+| Tipo de clúster | hbase |
+| Número de nodos de trabajo en el clúster | 2 |
 
 La replicación de HBase utiliza las direcciones IP de las máquinas virtuales ZooKeeper. Debe configurar direcciones IP estáticas para los nodos ZooKeeper de HBase de destino. Para configurar la dirección IP estática, consulte [Configuración de dos redes virtuales de la misma región](#set-up-two-virtual-networks-in-the-same-region) en este artículo.
 
@@ -111,11 +153,11 @@ En el escenario de varias redes virtuales, debe usar el modificador **-ip** cuan
 
 Al replicar un clúster, debe especificar las tablas que quere replicar. En esta sección, va a cargar algunos datos en el clúster de origen. En la siguiente sección, habilitará la replicación entre los dos clústeres.
 
-Para crear una tabla **Contacts** e insertar algunos datos en la tabla, siga las instrucciones que se indican en el [tutorial de HBase sobre la introducción al uso de Apache HBase con Hadoop basado en Linux en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+Para crear una tabla **Contacts** e insertar algunos datos en ella, siga las instrucciones que se indican en el [tutorial de HBase sobre la introducción al uso de Apache HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
-En los pasos siguientes se describe cómo llamar al script de acción de script desde Azure Portal. Para información sobre la ejecución de una acción de script mediante Azure PowerShell y la herramienta de línea de comandos (CLI de Azure), consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
+En los pasos siguientes se describe cómo llamar al script de acción de script desde Azure Portal. Para información sobre la ejecución de una acción de script mediante Azure PowerShell y la herramienta de línea de comandos de Azure (CLI de Azure), vea [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Para habilitar la replicación de HBase desde Azure Portal**
 
@@ -241,7 +283,6 @@ En este tutorial, aprendió a configurar la replicación de HBase en una red vir
 * [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started] (Introducción a HBase Apache en HDInsight)
 * [HDInsight HBase overview][hdinsight-hbase-overview] (Información general de HBase de HDInsight)
 * [Create HBase clusters in Azure Virtual Network][hdinsight-hbase-provision-vnet] (Creación de clústeres de HBase en Azure Virtual Network)
-* [Analyze real-time Twitter sentiment with HBase][hdinsight-hbase-twitter-sentiment] (Análisis de opinión en Twitter en tiempo real con HBase)
 * [Análisis de datos de sensores con Storm y HBase en HDInsight (Hadoop)][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
@@ -254,8 +295,6 @@ En este tutorial, aprendió a configurar la replicación de HBase en una red vir
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-

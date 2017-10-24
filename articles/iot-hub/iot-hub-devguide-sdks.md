@@ -12,26 +12,24 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/15/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: bcbf4b9633f58293edb19aeb33dec6602ac4ec8f
-ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: e299de0953cefac925b0015a15983d25d456576f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>SDK de IoT de Azure
 
-Hay tres categorías de SDK para trabajar con IoT Hub:
+Hay tres categorías de kits de desarrollo de software (SDK) para trabajar con IoT Hub:
 
 * Los **SDK de dispositivos** permiten diseñar aplicaciones que se ejecuten en sus dispositivos IoT. Estas aplicaciones envían telemetría a IoT Hub y, de manera opcional, reciben mensajes de dicho servicio.
 
 * Los **SDK de servicios** permiten administrar IoT Hub y, si se desea, enviar mensajes a los dispositivos IoT.
 
-* **Azure IoT Edge** permite crear puertas de enlace para habilitar dispositivos que no utilicen uno de los protocolos compatibles, o bien cuando se necesite procesar mensajes en el perímetro.
+* **Azure IoT Edge** permite crear puertas de enlace para dispositivos que no utilizan uno de los protocolos admitidos. Las puertas de enlace también pueden procesar mensajes en el borde.
 
 Los SDK se incluyen para admitir varios lenguajes de programación.
 
@@ -41,11 +39,11 @@ Los SDK de dispositivos IoT de Microsoft Azure contienen código que facilita la
 
 Los siguientes SDK de dispositivos IoT de Azure están disponibles para su descarga desde GitHub:
 
-* [SDK de dispositivos IoT de Azure para C][lnk-c-device-sdk] escrito en ANSI C (C99) para portabilidad y amplia compatibilidad de plataformas. Hay dos bibliotecas de cliente de dispositivo para C, **iothub_client**de bako nivel y **serializer**.
 * [SDK de dispositivos IoT de Azure para .NET][lnk-dotnet-device-sdk]
 * [SDK de dispositivos IoT de Azure para Java][lnk-java-device-sdk]
 * [SDK de dispositivo IoT de Azure para Node.js][lnk-node-device-sdk]
 * [SDK de dispositivo IoT de Azure para Python][lnk-python-device-sdk]
+* [SDK de dispositivos IoT de Azure para C][lnk-c-device-sdk] escrito en ANSI C (C99) para portabilidad y amplia compatibilidad de plataformas. Hay dos bibliotecas de cliente de dispositivo para C, **iothub_client**de bako nivel y **serializer**.
 
 > [!NOTE]
 > Consulte los archivos Léame en los repositorios de GitHub para obtener información sobre el uso de administradores de paquetes específicos de la plataforma y el lenguaje para instalar los archivos binarios y dependencias en el equipo de desarrollo.
@@ -63,8 +61,8 @@ Los SDK de servicios IoT de Azure contienen código que facilitan la creación d
 Los siguientes SDK de servicios IoT de Azure están disponibles para su descarga desde GitHub:
 
 * [SDK de servicios IoT de Azure para .NET][lnk-dotnet-service-sdk]
-* [SDK de servicios IoT de Azure para Node.js][lnk-node-service-sdk]
 * [SDK de servicios IoT de Azure para Java][lnk-java-service-sdk]
+* [SDK de servicios IoT de Azure para Node.js][lnk-node-service-sdk]
 * [SDK de servicios IoT de Azure para Python][lnk-python-service-sdk]
 * [SDK de servicios de Azure IoT para C][lnk-c-service-sdk]
 
@@ -82,12 +80,12 @@ Puede descargar [Azure IoT Edge][lnk-iot-edge] desde GitHub.
 La siguiente lista contiene vínculos a documentación en línea de referencia de API para bibliotecas de dispositivo, servicio y puerta de enlace IoT de Azure:
 
 * [.NET de Internet de las cosas (IoT)][lnk-dotnet-ref]
-* [REST de IoT Hub][lnk-rest-ref]
-* [SDK de dispositivo IoT de Azure para C][lnk-c-ref]
-* [SDK de dispositivo IoT de Azure para Java][lnk-java-ref]
+* [SDK de dispositivos IoT de Azure para Java][lnk-java-ref]
 * [SDK de servicios IoT de Azure para Java][lnk-java-service-ref]
 * [SDK de dispositivo IoT de Azure para Node.js][lnk-node-ref]
 * [SDK de servicios IoT de Azure para Node.js][lnk-node-service-ref]
+* [SDK de dispositivo IoT de Azure para C][lnk-c-ref]
+* [REST de IoT Hub][lnk-rest-ref]
 * [Azure IoT Edge][lnk-gateway-ref]
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -127,4 +125,3 @@ Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-

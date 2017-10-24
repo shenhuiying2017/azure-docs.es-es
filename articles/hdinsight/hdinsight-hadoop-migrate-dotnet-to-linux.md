@@ -14,14 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: df931d0f76498506cfc946501e4d385d0dfead80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6ad188fb752474ff5c7d8a3fb9d609eefe8c7a9a
-ms.contentlocale: es-es
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migración de soluciones .NET para HDInsight basado en Windows a HDInsight basado en Linux
 
@@ -31,7 +30,7 @@ Los clústeres de HDInsight basado en Linux se sirven de [Mono (https://mono-pro
 
 La versión 4.2.1 de Mono está incluida en la versión 3.5 de HDInsight. Para obtener más información sobre la versión de Mono incluida en HDInsight, consulte el artículo relativo a las [versiones de componentes de HDInsight](hdinsight-component-versioning.md). Para instalar una versión específica de Mono, consulte el documento [Instalación o actualización de Mono](hdinsight-hadoop-install-mono.md).
 
-Para obtener información detallada sobre la compatibilidad entre Mono y .NET, consulte el documento sobre [compatibilidad con Mono (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/).
+Para más información sobre la compatibilidad entre Mono y .NET, vea el documento sobre [compatibilidad con Mono (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/).
 
 > [!IMPORTANT]
 > El marco de trabajo de SCP.NET es compatible con Mono. Para obtener más información sobre cómo usar SCP.NET con Mono, consulte [Uso de Visual Studio para el desarrollo de topologías de C# para Apache Storm en HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
@@ -55,7 +54,7 @@ El [Analizador de portabilidad de .NET](https://marketplace.visualstudio.com/ite
     ![Cuadro de diálogo de resultados del analizador de portabilidad](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
 > [!IMPORTANT]
-> El analizador no puede detectar todos los problemas de su solución. Por ejemplo, una ruta de archivo de `c:\temp\file.txt` se considera correcta porque Mono se ejecuta en Windows y la ruta de acceso es válida en ese contexto. Sin embargo, la ruta de acceso no es válida en una plataforma de Linux.
+> El analizador no puede detectar todos los problemas de su solución. Por ejemplo, la ruta del archivo `c:\temp\file.txt` se considera correcta si Mono se ejecuta en Windows. Sin embargo, la misma ruta de acceso no es válida en una plataforma Linux.
 
 ## <a name="manual-portability-analysis"></a>Análisis de portabilidad manual
 

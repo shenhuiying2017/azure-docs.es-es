@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 10/10/2017
 ms.author: nberdy
+ms.openlocfilehash: 3eafa32907c8f68cfc44cb2771d625349ff42003
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: b6de5c5df5f9401a41be152bfa06eb994594e83d
-ms.contentlocale: es-es
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-hub-operations-monitoring"></a>Supervisión de operaciones de IoT Hub
 
 La supervisión de operaciones de IoT Hub permite supervisar el estado de las operaciones de su centro de IoT en tiempo real. IoT Hub realiza el seguimiento de eventos a través de varias categorías de operaciones. Se puede optar por que los eventos de una o varias categorías se envíen a un punto de conexión de su centro de IoT para su procesamiento. Los usuarios pueden supervisar los datos en busca de errores o configurar un procesamiento más complejo basado en patrones de datos.
+
+>[!NOTE]
+>La supervisión de operaciones de IoT Hub está en desuso y, por tanto, se quitará de IoT Hub en el futuro. Para supervisar las operaciones y el mantenimiento de IoT Hub, vea [Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente][lnk-monitor]. Para más información sobre la escala de tiempo de desuso, vea [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health][lnk-blog-announcement] (Supervisión de las soluciones de Azure IoT con Azure Monitor y Azure Resource Health).
 
 IoT Hub supervisa seis categorías de eventos:
 
@@ -33,6 +35,9 @@ IoT Hub supervisa seis categorías de eventos:
 * Conexiones
 * Cargas de archivos
 * Enrutamiento de mensajes
+
+> [!IMPORTANT]
+> La supervisión de operaciones de IoT Hub no garantiza una entrega de eventos confiable u ordenada. En función de la infraestructura subyacente de IoT Hub de que se trate, algunos eventos pueden perderse o entregarse de forma desordenada. Use la supervisión de operaciones para generar alertas basadas en señales de error, como intentos de conexión con errores o desconexiones de alta frecuencia de dispositivos específicos. No debe confiar en los eventos de supervisión de operaciones para crear un almacén coherente para el estado del dispositivo, como por ejemplo un almacén en el que se realice un seguimiento del estado de conexión o desconexión de un dispositivo. 
 
 ## <a name="how-to-enable-operations-monitoring"></a>Habilitación de la supervisión de operaciones
 
@@ -294,6 +299,8 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 [img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
 [img-service-key]: media/iot-hub-operations-monitoring/service-key.png
 
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
+[lnk-monitor]: iot-hub-monitor-resource-health.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-diagnostic-metrics]: iot-hub-metrics.md
 [lnk-scaling]: iot-hub-scaling.md

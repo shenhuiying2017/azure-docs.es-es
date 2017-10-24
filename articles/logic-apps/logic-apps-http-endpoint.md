@@ -16,14 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
-ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas
 
 Puede exponer de manera nativa puntos de conexión HTTP sincrónicos como desencadenadores en aplicaciones lógicas, de manera que pueda desencadenar las aplicaciones lógicas o llamarlas a través de una dirección URL. También puede anidar flujos de trabajo en las aplicaciones lógicas mediante el uso de un patrón de puntos de conexión invocables.
@@ -86,7 +84,7 @@ Para crear un punto de conexión HTTP, agregue un desencadenador que pueda recib
     genera este esquema:
 
     ```json
-    }
+    {
        "type": "object",
        "properties": {
           "address": {
@@ -147,8 +145,7 @@ Si desea que la dirección URL del punto de conexión HTTP acepte parámetros, p
 5. En el **Cuerpo** de la respuesta, incluya el token para el parámetro especificado en la ruta de acceso relativa del desencadenador.
 
     Por ejemplo, para devolver `Hello {customerID}`, actualice el **cuerpo** de la respuesta con `Hello {customerID token}`. 
-    Debe aparecer la lista de contenido dinámica, donde debe mostrarse el token `customerID` 
-    para que pueda seleccionarlo.
+    Debe aparecer la lista de contenido dinámica, donde debe mostrarse el token `customerID` para que pueda seleccionarlo.
 
     ![Adición del parámetro al cuerpo de respuesta](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
@@ -320,4 +317,3 @@ Para ayudar a mejorar Azure Logic Apps y los conectores, vote o envíe ideas en 
 [1]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [3]: ./media/logic-apps-http-endpoint/response.png
-

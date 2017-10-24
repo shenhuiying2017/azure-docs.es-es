@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
+ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 3bc631606afbc93d5bca94f4955fd2ef816fa9fd
-ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Supervisión y diagnóstico del procesamiento de solicitudes en el proxy inverso.
 
@@ -158,11 +157,11 @@ El primer evento a continuación registra los detalles de la solicitud recibida 
     
     Si solo está habilitada la recolección de eventos críticos o de error, observa un evento con detalles sobre el tiempo de espera y el número de intentos de resolución. 
     
-    Si el servicio pretende enviar al usuario un código de estado 404, debe ir acompañado de un encabezado "X-ServiceFabric". Después de corregir esto, verá que el proxy inverso reenvía el código de estado al cliente.  
+    Los servicios que tengan la intención de reenviar un código de estado 404 al usuario, deben agregar un encabezado "X-ServiceFabric" en la respuesta. Una vez que el encabezado se agrega a la respuesta, el servidor proxy inverso reenvía el código de estado al cliente.  
 
 4. Casos cuando el cliente ha desconectado la solicitud.
 
-    El siguiente evento se registra cuando el proxy inverso está reenviando la respuesta al cliente, pero este se desconecta:
+    El siguiente evento se registra cuando el servidor proxy inverso está reenviando la respuesta al cliente, pero este se desconecta:
 
     ```
     {
@@ -180,6 +179,18 @@ El primer evento a continuación registra los detalles de la solicitud recibida 
       }
     }
     ```
+5. El servidor proxy inverso devuelve 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
+
+    El error FABRIC_E_SERVICE_DOES_NOT_EXIST se devuelve si el esquema URI no se especifica para el punto de conexión de servicio en el manifiesto de servicio.
+
+    ```
+    <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>
+    ```
+
+    Para resolver el problema, especifique el esquema URI en el manifiesto.
+    ```
+    <Endpoint Name="ServiceEndpointHttp" UriScheme="http" Port="80" Protocol="http" Type="Input"/>
+    ```
 
 > [!NOTE]
 > Actualmente no se registran los eventos relacionados con el procesamiento de la solicitud de websocket. Se agregará esta funcionalidad en la próxima versión.
@@ -189,4 +200,3 @@ El primer evento a continuación registra los detalles de la solicitud recibida 
 * Para ver los eventos de Service Fabric en Visual Studio, consulte [Supervisión y diagnóstico locales](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 * Consulte [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) (Configuración del proxy inverso para conectarse a servicios seguros) para ver las muestras de plantillas de Azure Resource Manager y para configurar el proxy inverso seguro con diferentes opciones de validación de certificados de servicio.
 * Para más información, lea [Proxy inverso de Service Fabric](service-fabric-reverseproxy.md).
-

@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
+ms.openlocfilehash: 492d5dc4e20f67bcb9f72a022fec19f5ba86caac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: b05672744dadb15f2780af100f3dd41412e55265
-ms.contentlocale: es-es
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configuración de mi cuenta para la comprobación en dos pasos
 La comprobación en dos pasos es un paso adicional de seguridad que ayuda a proteger su cuenta para que el acceso para las demás personas sea más complicado. Si está leyendo este artículo, probablemente tiene un correo electrónico del administrador del trabajo o la escuela sobre Multi-Factor Authentication. O quizás ha intentado iniciar sesión y tiene un mensaje pidiéndole que configure la comprobación de seguridad adicional. Si es así, **no puede iniciar sesión hasta que haya completado el proceso de inscripción automática**.
@@ -107,4 +106,3 @@ Si desea agregar una cuenta a la aplicación móvil manualmente, en lugar de usa
 * Cambiar las opciones preferidas y [administrar la configuración de la comprobación en dos pasos](multi-factor-authentication-end-user-manage-settings.md)
 * Configure las [contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) para las aplicaciones de dispositivos nativos que no admiten la comprobación en dos pasos.
 * Consulte la [aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para una autenticación segura rápida incluso cuando no tiene el servicio de celda.
-

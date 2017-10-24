@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: afd0bc8c19456fd123f53de7d1704619405bed67
-ms.contentlocale: es-es
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: 8c6877b923c6000abe3aece37a24b275462ba378
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Ejecución de consultas de Hive con Hadoop en HDInsight con REST
 
@@ -39,14 +38,14 @@ Obtenga información acerca de cómo usar la API de REST de WebHCat para ejecuta
 > [!NOTE]
 > Al usar Curl o cualquier otra comunicación REST con WebHCat, debe proporcionar el nombre de usuario y la contraseña del administrador del clúster de HDInsight para autenticar las solicitudes.
 >
-> En el caso de los comandos que aparecen en esta sección, reemplace **USERNAME** por el usuario para autenticación en el clúster y **PASSWORD** por la contraseña de la cuenta de usuario. Reemplace **CLUSTERNAME** por el nombre del clúster.
+> En el caso de los comandos de esta sección, reemplace **admin** por el usuario que se va a autenticar en el clúster. Reemplace **CLUSTERNAME** por el nombre del clúster. Cuando se le solicite, escriba la contraseña de la cuenta de usuario.
 >
 > La API de REST se protege con la [autenticación básica](http://en.wikipedia.org/wiki/Basic_access_authentication). Para garantizar que las credenciales se envían de manera segura al servidor, siempre debe crear solicitudes usando HTTP segura (HTTPS).
 
 1. Desde una línea de comandos, utilice el siguiente comando para comprobar que puede conectarse al clúster de HDInsight.
 
     ```bash
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
     Debe recibir una respuesta similar al texto siguiente:
@@ -55,23 +54,23 @@ Obtenga información acerca de cómo usar la API de REST de WebHCat para ejecuta
 
     Los parámetros que se utilizan en este comando son los siguientes:
 
-   * **-u** : el nombre de usuario y la contraseña que se utilizan para autenticar la solicitud.
-   * **-G**: indica que esta es una solicitud de operación GET.
+    * **-u** : el nombre de usuario y la contraseña que se utilizan para autenticar la solicitud.
+    * **-G**: indica que esta es una solicitud de operación GET.
 
-     El comienzo del identificador URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será el mismo para todas las solicitudes. La ruta de acceso, **/status**, indica que la solicitud debe devolver un estado de WebHCat (también conocido como Templeton) al servidor. También puede solicitar la versión de Hive con el siguiente comando:
+   El comienzo del identificador URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será el mismo para todas las solicitudes. La ruta de acceso, **/status**, indica que la solicitud debe devolver un estado de WebHCat (también conocido como Templeton) al servidor. También puede solicitar la versión de Hive con el siguiente comando:
 
     ```bash
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
+    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
     ```
 
-     Esta solicitud devuelve una respuesta similar al texto siguiente:
+    Esta solicitud devuelve una respuesta similar al texto siguiente:
 
-       {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+        {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
 
 2. Use lo siguiente para crear una tabla llamada **log4jLogs**:
 
     ```bash
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
     ```
 
     Los parámetros siguientes se utilizan con esta solicitud:
@@ -82,7 +81,8 @@ Obtenga información acerca de cómo usar la API de REST de WebHCat para ejecuta
      * **execute** : las instrucciones HiveQL para ejecutar.
      * **statusdir**: el directorio donde se escribe el estado de este trabajo.
 
-     Estas instrucciones realizan las acciones siguientes:
+   Estas instrucciones realizan las acciones siguientes:
+   
    * **DROP TABLE**: si la tabla ya existe, se elimina.
    * **CREATE EXTERNAL TABLE** : crea una tabla "externa" nueva en Hive. Las tablas externas solo almacenan la definición de tabla en Hive. Los datos permanecen en la ubicación original.
 
@@ -103,14 +103,14 @@ Obtenga información acerca de cómo usar la API de REST de WebHCat para ejecuta
      > [!NOTE]
      > `%25` es el formato codificado de URL de %, por lo que la condición real es `like '%.log'`. El % tiene que ser una dirección URL codificada, ya que se trata como carácter especial en las direcciones URL.
 
-     Este comando debe devolver un identificador de trabajo que se pueda usar para comprobar el estado del trabajo.
+   Este comando devuelve un identificador de trabajo que se pueda usar para comprobar el estado del trabajo.
 
        {"id":"job_1415651640909_0026"}
 
 3. Para revisar el estado del trabajo, use el siguiente comando:
 
     ```bash
-    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
     Reemplace **JOBID** por el valor devuelto en el paso anterior. Por ejemplo, si el valor devuelto fuese `{"id":"job_1415651640909_0026"}`, entonces **JOBID** sería `job_1415651640909_0026`.
@@ -127,12 +127,12 @@ Obtenga información acerca de cómo usar la API de REST de WebHCat para ejecuta
 5. Use las siguientes instrucciones para crear una nueva tabla "interna" llamada **errorLogs**.
 
     ```bash
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
     ```
 
     Estas instrucciones realizan las acciones siguientes:
 
-   * **CREATE TABLE IF NOT EXISTS** : crea una tabla, si todavía no existe. Esta instrucción crea una tabla interna que se almacena en el almacenamiento de datos de Hive y Hive la administra completamente.
+   * **CREATE TABLE IF NOT EXISTS** : crea una tabla, si todavía no existe. Esta instrucción crea una tabla interna que se almacena en el almacenamiento de datos de Hive. Hive administra esta tabla.
 
      > [!NOTE]
      > A diferencia de las tablas externas , la eliminación de una tabla interna también elimina los datos subyacentes.
@@ -184,6 +184,5 @@ Para obtener más información sobre la API de REST usada en este documento, con
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-
 
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/22/2017
 ms.author: trinadhk;markgal
+ms.openlocfilehash: b6e4c6761e1bd5c17c9c3428491113042d3b1d31
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: d0b6eb8eea8971eb8f80c6623f9a41a3692241b3
-ms.contentlocale: es-es
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
@@ -47,7 +45,7 @@ En la tabla siguiente se capturan acciones de administración de Backup y el rol
 | Habilitar la copia de seguridad de VM de Azure | Operador de copia de seguridad en el almacén, colaborador de máquina virtual en VM |
 | Copia de seguridad a petición de VM | Operador de copia de seguridad |
 | Restaurar VM | Operador de copia de seguridad, colaborador de grupo de recursos donde se implementa la máquina virtual y las redes virtuales |
-| Restaurar discos y archivos individuales a partir de la copia de seguridad de VM | Operador de copia de seguridad |
+| Restaurar discos y archivos individuales a partir de la copia de seguridad de VM | Operador de copia de seguridad, colaborador de máquina virtual en VM |
 | Crear directiva de copia de seguridad para copia de seguridad de VM de Azure | Colaborador de copia de seguridad |
 | Modificar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copia de seguridad |
 | Eliminar directiva de copia de seguridad de copia de seguridad de VM de Azure | Colaborador de copia de seguridad |
@@ -56,10 +54,9 @@ En la tabla siguiente se capturan acciones de administración de Backup y el rol
 | Eliminar Windows Server, cliente o SCDPM local registrado o Azure Backup Server | Colaborador de copia de seguridad |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md): introducción a RBAC en Azure Portal.
+* [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure.
 * Aprenda a administrar el acceso con:
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   * [CLI de Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   * [API DE REST](../active-directory/role-based-access-control-manage-access-rest.md)
 * [Solución de problemas del control de acceso basado en roles](../active-directory/role-based-access-control-troubleshooting.md): sugerencias para resolver problemas frecuentes.
-

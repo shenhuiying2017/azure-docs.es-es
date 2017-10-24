@@ -12,28 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
-ms.author: shvija;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: b085091ea7bfd601efb0eee84144ddd091422d6e
-ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: 1cd31e0866ee6088483f88e8f80d01f75764c771
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs
 
-## <a name="overview"></a>Información general
+Azure Event Hubs es una plataforma de streaming de datos muy escalable. Por lo tanto, los clientes de Event Hubs suelen aumentar su uso después de adoptar el servicio. Para ello, hay que incrementar las unidades de rendimiento predeterminadas con el objetivo de escalar Event Hubs y controlar velocidades de transferencia más elevadas. La característica de *inflado automático* de Event Hubs escala verticalmente y de forma automática el número de unidades de rendimiento para responder a las necesidades de uso. Al aumentar las unidades de rendimiento, se evitan escenarios de limitación en los que nos encontramos con:
 
-Azure Event Hubs es una plataforma de streaming de datos muy escalable. Por lo tanto, los clientes de Event Hubs suelen aumentar su uso después de adoptar el servicio. Para ello, hay que incrementar las unidades de rendimiento predeterminadas (TU) con el objetivo de escalar Event Hubs y controlar velocidades de transferencia más elevadas. La característica de *inflado automático* de Event Hubs escala verticalmente y de forma automática el número de TU para responder a las necesidades de uso. Al aumentar las TU, se evitan escenarios de limitación en los que nos encontramos con:
-
-* Velocidades de entrada de datos que superan las TU establecidas
-* Velocidades de solicitud de salida de datos que superan las TU establecidas
+* Velocidades de entrada de datos que superan las unidades de rendimiento establecidas.
+* Velocidades de solicitud de salida de datos que superan las unidades de rendimiento establecidas.
 
 ## <a name="how-auto-inflate-works"></a>Funcionamiento del inflado automático
 
-El tráfico de Event Hubs lo controlan las unidades de procesamiento. Una sola TU permite una entrada de 1 MB/s y una salida que duplica esas cifras. Event Hubs estándar se puede configurar con un número de unidades de procesamiento del 1 a 20. El inflado automático permite empezar poco a poco con las unidades de procesamiento mínimas que se requieran. Después, la característica escala automáticamente la cantidad hasta el límite máximo de unidades de procesamiento que necesite, según el aumento del tráfico. El inflado automático proporciona las siguientes ventajas:
+El tráfico de Event Hubs lo controlan las unidades de procesamiento. Una sola unidad de procesamiento permite una entrada de 1 MB por segundo y una salida que duplica esa cifra. Event Hubs estándar se puede configurar con un número de unidades de procesamiento del 1 a 20. El inflado automático permite empezar poco a poco con las unidades de procesamiento mínimas que se requieran. Después, la característica escala automáticamente la cantidad hasta el límite máximo de unidades de procesamiento que necesite, según el aumento del tráfico. El inflado automático proporciona las siguientes ventajas:
 
 - Un mecanismo de escalado eficaz para empezar poco a poco y escalar verticalmente a medida que aumente el tráfico.
 - Escalado automático hasta el límite superior especificado sin problemas de limitación.
@@ -52,7 +48,7 @@ Puede habilitar la característica de inflado automático en un espacio de nombr
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
-Con esta opción habilitada, puede empezar poco a poco con las unidades de procesamiento y escalarlas verticalmente a medida que sus necesidades de uso sean más exigentes. El límite superior del inflado no afecta al precio, que depende del número de TU utilizado por hora.
+Con esta opción habilitada, puede empezar poco a poco con las unidades de procesamiento y escalarlas verticalmente a medida que sus necesidades de uso sean más exigentes. El límite superior del inflado no afecta al precio, que depende del número de unidades de rendimiento utilizado por hora.
 
 También puede habilitar el inflado automático mediante la opción **Escalar** de la hoja de configuración del portal:
  
@@ -111,4 +107,3 @@ Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Creación de un centro de eventos](event-hubs-create.md)
-

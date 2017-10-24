@@ -11,14 +11,12 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
+ms.openlocfilehash: daa202ddf0dc934c491ead3951ddc4fdc3dd819c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 720d4c592256389f9494cb1b2be56393f4e9f03f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-and-jenkins"></a>Azure y Jenkins
 
 [Jenkins](https://jenkins.io/) es un conocido servidor de automatización de código abierto usado para configurar la integración y entrega continuas (CI/CD) de los proyectos de software. Puede hospedar la implementación de Jenkins en Azure o ampliar la configuración de Jenkins existente con recursos de Azure. También hay complementos de Jenkins disponibles para simplificar la integración y entrega continuas de las aplicaciones en Azure.
@@ -46,11 +44,10 @@ Una vez configurado con una [entidad de servicio de Azure](/azure/azure-resource
 
 ## <a name="deploy-your-code-into-azure-services"></a>Implementación del código en los servicios de Azure
 
-Use los complementos de Jenkins para implementar las aplicaciones en Azure como parte de sus canalizaciones de integración y entrega continuas de Jenkins. La implementación en [Azure App Service](/azure/app-service-web/) y [Azure Container Service](/azure/container-service/kubernetes/) le permite realizar copias intermedias, probar y publicar actualizaciones de las aplicaciones sin tener que administrar la infraestructura subyacente.
+Use los complementos de Jenkins para implementar las aplicaciones en Azure como parte de sus canalizaciones de integración y entrega continuas de Jenkins. La implementación en [Azure App Service](/azure/app-service/) y [Azure Container Service](/azure/container-service/kubernetes/) le permite realizar copias intermedias, probar y publicar actualizaciones de las aplicaciones sin tener que administrar la infraestructura subyacente.
 
  Hay complementos disponibles para implementar los siguientes servicios y entornos:
 
-- [Azure Web App en Linux](/azure/app-service-web/app-service-linux-intro). Consulte el [tutorial](java-deploy-webapp-tutorial.md) para empezar a trabajar.
+- [Azure Web App en Linux](/azure/app-service/containers/app-service-linux-intro). Consulte el [tutorial](java-deploy-webapp-tutorial.md) para empezar a trabajar.
 - [Aplicación web de Azure](/azure/app-service/app-service-web-overview). Consulte los [procedimientos](deploy-Jenkins-app-service-plugin.md) para empezar a trabajar.
-
 

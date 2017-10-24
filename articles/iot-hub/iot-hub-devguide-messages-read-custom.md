@@ -11,15 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/19/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a21f1c61f344f96e2e03422e41fd8c5f7f841a0c
-ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: a499783fc02e1371562edd41b827758e19fbd823
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Uso de rutas de mensajes y de puntos de conexión personalizados para mensajes de dispositivo a nube
 
@@ -34,7 +32,10 @@ IoT Hub le permite enrutar [mensajes de dispositivo a nube][lnk-device-to-cloud]
 
 Un solo mensaje puede cumplir la condición en varias reglas de enrutamiento, en cuyo caso IoT Hub entrega el mensaje al punto de conexión asociado a cada regla coincidente. IoT Hub también desduplica automáticamente la entrega de mensajes, por lo que si un mensaje cumple varias reglas que tienen el mismo destino, solo se escribe en ese destino una vez.
 
-Un centro de IoT tiene un [punto de conexión integrado][lnk-built-in] predeterminado. Puede crear puntos de conexión personalizados a los que enrutar mensajes vinculando otros servicios de su suscripción al centro. IoT Hub admite actualmente Event Hubs, colas de Service Bus y temas de Service Bus como puntos de conexión personalizados.
+Un centro de IoT tiene un [punto de conexión integrado][lnk-built-in] predeterminado. Puede crear puntos de conexión personalizados a los que enrutar mensajes vinculando otros servicios de su suscripción al centro. IoT Hub admite actualmente los contenedores de Azure Storage, Event Hubs, las colas de Service Bus y los temas de Service Bus como puntos de conexión personalizados.
+
+> [!NOTE]
+> IoT Hub solo admite la escritura de datos en contenedores de Azure Storage como blobs.
 
 > [!WARNING]
 > Las colas y los temas de Service Bus con **Sesiones** o **Detección de duplicados** habilitadas no son compatibles como puntos de conexión personalizados.
@@ -43,6 +44,7 @@ Para más información sobre cómo crear puntos de conexión personalizados en I
 
 Para obtener más información sobre la lectura de puntos de conexión personalizados, consulte:
 
+* Leer de [contenedores de Azure Storage][lnk-getstarted-storage].
 * Leer de [Event Hubs][lnk-getstarted-eh].
 * Leer de [colas de Service Bus][lnk-getstarted-queue].
 * Leer de [temas de Service Bus][lnk-getstarted-topic].
@@ -63,4 +65,4 @@ El tutorial [Procesamiento de mensajes de dispositivo a nube de IoT Hub mediante
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
-
+[lnk-getstarted-storage]: ../storage/blobs/storage-blobs-introduction.md

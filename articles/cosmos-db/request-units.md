@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
+ms.openlocfilehash: 83cbc622975344ec2a5700d2e10a5c77371e9899
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7a4efc0fb9b3855b9dbbe445768ceb2a9940d0b2
-ms.contentlocale: es-es
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
 Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) de Azure Cosmos DB. Obtenga más información en [Estimación de las necesidades de rendimiento](request-units.md#estimating-throughput-needs).
@@ -40,7 +39,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 * ¿Cómo puedo estimar mis necesidades de unidad de solicitud de la aplicación?
 * ¿Qué ocurre si supero la capacidad de la unidad de solicitud para una colección?
 
-Debido a que Azure Cosmos DB es un servicio de base de datos con varios modelos, resulta importante tener en cuenta que haremos referencia a una colección/documento para una API de documento, a un grafo/nodo para una API de grafo y a una tabla/entidad para una API de tabla. En este documento se generalizará a los conceptos de contenedor/elemento.
+Debido a que Azure Cosmos DB es un servicio de base de datos con varios modelos, resulta importante tener en cuenta que haremos referencia a una colección/documento para una API de documento, a un grafo/nodo para una API de grafo y a una tabla/entidad para una API de tabla. En este documento se generalizarán los conceptos de contenedor/elemento.
 
 ## <a name="request-units-and-request-charges"></a>Unidades de solicitud y cargos de solicitud
 Azure Cosmos DB ofrece un rendimiento predecible y rápido mediante la *reserva* de recursos para satisfacer las necesidades de rendimiento de la aplicación.  Como la carga de aplicaciones y los patrones de acceso cambian con el tiempo, Azure Cosmos DB permite aumentar o disminuir fácilmente el rendimiento reservado disponible para la aplicación.
@@ -365,4 +364,3 @@ Para empezar a usar pruebas de escala y rendimiento con Azure Cosmos DB, consult
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
 [6]: ./media/request-units/api-for-mongodb-metrics.png
-

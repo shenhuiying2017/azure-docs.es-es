@@ -8,24 +8,22 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 511cc50c28b9b114b763f3c46cb1e26f15575349
-ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.date: 10/03/2017
+ms.openlocfilehash: 0e0f98d873e112aae222fab2657f60ea13611624
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Reglas de firewall del servidor de Azure Database para MySQL
 Los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
 
-Para configurar su firewall, cree reglas de firewall que especifiquen intervalos de direcciones IP aceptables. Puede crear reglas de firewall a nivel de servidor.
+Para configurar un firewall, cree reglas de firewall que especifiquen intervalos de direcciones IP aceptables. Puede crear reglas de firewall a nivel de servidor.
 
 **Reglas de firewall:** estas reglas permiten a los clientes tener acceso a todo el servidor de Azure Database for MySQL; es decir, a todas las bases de datos que se encuentren en el mismo servidor lógico. Las reglas de firewall de nivel de servidor pueden configurarse a través de Azure Portal o los comandos de la CLI de Azure. Para crear reglas de firewall en el nivel del servidor, debe ser propietario o colaborador de la suscripción.
 
 ## <a name="firewall-overview"></a>Información general de firewalls
-Todos los accesos de base de datos al servidor de Azure Database for MySQL se bloquean por el firewall de manera predeterminada. Para comenzar a usar el servidor desde otro equipo, debe especificar una o varias reglas de firewall a nivel de servidor para habilitar el acceso a su servidor. Use las reglas de firewall para especificar los intervalos de direcciones IP de Internet que se permitirán. La acción de las reglas de firewall no repercute sobre el acceso al propio sitio web de Azure Portal.
+De manera predeterminada, el firewall bloque todos los accesos de base de datos al servidor de Azure Database for MySQL. Para comenzar a usar el servidor desde otro equipo, debe especificar una o varias reglas de firewall a nivel de servidor para habilitar el acceso a su servidor. Use las reglas de firewall para especificar los intervalos de direcciones IP de Internet que se permitirán. La acción de las reglas de firewall no repercute sobre el acceso al propio sitio web de Azure Portal.
 
 Los intentos de conexión desde Internet y Azure deben atravesar primero el firewall antes de alcanzar la base de datos de Azure Database for MySQL, tal y como se muestra en el siguiente diagrama:
 
@@ -34,9 +32,9 @@ Los intentos de conexión desde Internet y Azure deben atravesar primero el fire
 ## <a name="connecting-from-the-internet"></a>Conexión desde Internet
 Las reglas de firewall de nivel de servidor se aplican a todas las bases de datos del servidor de Azure Database for MySQL.
 
-Si la dirección IP de la solicitud está comprendida en uno de los intervalos especificados en las reglas de firewall de nivel de servidor, la conexión se concede.
+Si la dirección IP de la solicitud se encuentra dentro de uno de los intervalos especificados en las reglas de firewall de nivel de servidor, la conexión se concede.
 
-Si la dirección IP de la solicitud no se encuentra dentro de los intervalos especificados en cualquiera de las reglas de firewall de nivel de base de datos o de servidor, la solicitud de conexión genera un error.
+Si la dirección IP de la solicitud se encuentra fuera de los intervalos especificados en cualquiera de las reglas de firewall de nivel de base de datos o de servidor, la solicitud de conexión genera un error.
 
 ## <a name="programmatically-managing-firewall-rules"></a>Administración mediante programación de reglas de firewall
 Además de Azure Portal, las reglas de firewall se pueden administrar mediante programación con la CLI de Azure. Consulte también la información sobre la [creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure](./howto-manage-firewall-using-cli.md).
@@ -48,7 +46,7 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor 
 
 * **El inicio de sesión no está autorizado o se ha usado una contraseña incorrecta:** si un inicio de sesión no tiene permisos en el servidor de Azure Database for MySQL o la contraseña usada es incorrecta, se denegará la conexión al servidor de Azure Database for MySQL. La creación de una configuración de firewall solo ofrece a los clientes una oportunidad de intentar conectarse al servidor; cada cliente debe ofrecer las credenciales de seguridad necesarias.
 
-* **Dirección IP dinámica:** si tiene una conexión a Internet con una direccionamiento IP dinámica y tiene problemas al acceder al firewall, podría intentar una de las siguientes soluciones:
+* **Dirección IP dinámica:** si tiene una conexión a Internet con un direccionamiento de IP dinámica y tiene problemas al acceder al firewall, puede probar una de las siguientes soluciones:
 
 * Pida a su proveedor de acceso a Internet (ISP) el intervalo de direcciones IP asignado a los equipos cliente que acceden al servidor de Azure Database for MySQL y agréguelo como regla de firewall.
 
@@ -58,4 +56,3 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor 
 
 [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md) (Creación y administración de reglas de firewall de Azure Database for MySQL mediante Azure Portal)
 [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md) (Creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure)
-

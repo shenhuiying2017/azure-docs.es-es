@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: e673b45a43a06d18040c3437caf8765704d5c36a
-ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>Configuración de directivas de seguridad para la aplicación
 Azure Service Fabric le permite proteger aplicaciones que se ejecutan en distintas cuentas de usuario en el clúster. Service Fabric también protege los recursos que usan las aplicaciones en el momento de la implementación con la cuenta de usuario; por ejemplo, archivos, directorios y certificados. Esto aumenta la seguridad entre aplicaciones en ejecución, incluso en un entorno hospedado compartido.
@@ -139,6 +138,8 @@ A menudo es preferible ejecutar el script de inicio mediante una cuenta de siste
    </Principals>
 </ApplicationManifest>
 ```
+
+En los clústeres de Linux, para ejecutar un servicio o el punto de entrada de configuración como **raíz**, puede especificar **AccountType** como **LocalSystem**.
 
 ## <a name="start-powershell-commands-from-a-setup-entry-point"></a>Inicio de comandos de PowerShell desde un SetupEntryPoint
 Para ejecutar PowerShell desde el punto **SetupEntryPoint**, puede ejecutar **PowerShell.exe** en un archivo por lotes que apunte al archivo de PowerShell. En primer lugar, agregue un archivo de PowerShell al proyecto de servicio, por ejemplo, **MySetup.ps1**. No olvide configurar la propiedad *Copiar si es posterior* para que el archivo se incluya también en el paquete de servicio. En el ejemplo siguiente se muestra un archivo por lotes de ejemplo que inicia un archivo de PowerShell denominado MySetup.ps1, que establece una variable de entorno del sistema denominada **TestVariable**.
@@ -422,4 +423,3 @@ El siguiente manifiesto de aplicación muestra muchos de los diferentes valores:
 * [Implementar una aplicación](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
-
