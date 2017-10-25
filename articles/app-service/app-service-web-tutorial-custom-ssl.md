@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1923a145d258e558811b610be9a6bb8ea0e4c933
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1923a145d258e558811b610be9a6bb8ea0e4c933
+ms.contentlocale: es-es
+ms.lasthandoff: 09/20/2017
+
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Enlazar un certificado SSL personalizado a Azure Web Apps
 
@@ -279,7 +280,7 @@ Puede automatizar enlaces SSL de la aplicación web con scripts, mediante la [CL
 El comando siguiente carga un archivo PFX exportado y obtiene la huella digital.
 
 ```bash
-thumbprint=$(az appservice web config ssl upload \
+thumbprint=$(az webapp config ssl upload \
     --name <app_name> \
     --resource-group <resource_group_name> \
     --certificate-file <path_to_PFX_file> \
@@ -291,7 +292,7 @@ thumbprint=$(az appservice web config ssl upload \
 El comando siguiente usa la huella digital del comando anterior para agregar un enlace SSL basado en SNI.
 
 ```bash
-az appservice web config ssl bind \
+az webapp config ssl bind \
     --name <app_name> \
     --resource-group <resource_group_name>
     --certificate-thumbprint $thumbprint \
@@ -326,3 +327,4 @@ Para aprender a usar Azure Content Delivery Network, avance al siguiente tutoria
 
 > [!div class="nextstepaction"]
 > [Incorporación de una red de entrega de contenido a Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+

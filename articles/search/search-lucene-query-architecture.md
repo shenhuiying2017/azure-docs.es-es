@@ -12,12 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
+ms.contentlocale: es-es
+ms.lasthandoff: 09/14/2017
+
 ---
+
 # <a name="how-full-text-search-works-in-azure-search"></a>Cómo funciona la búsqueda de texto completo en Azure Search
 
 Este artículo está dirigido a desarrolladores que necesitan un conocimiento más profundo sobre cómo funciona la búsqueda de texto completo de Lucene en Azure Search. Para las consultas de texto, Azure Search ofrecerá perfectamente resultados esperados en la mayoría de los escenarios, pero en ocasiones, podría obtener un resultado que parezca "desconectado" de algún modo. En estas situaciones, tener experiencia en las cuatro fases de ejecución de la consulta de Lucene (análisis de consulta, análisis léxico, coincidencia de búsqueda y puntuación) puede ayudar a identificar los cambios específicos en la configuración del índice y los parámetros de la consulta que proporcionarán el resultado deseado. 
@@ -183,11 +185,14 @@ El analizador estándar divide el texto de entrada en los siguientes dos tokens,
 }
 ~~~~
 
+<a name="exceptions"></a>
+
 ### <a name="exceptions-to-lexical-analysis"></a>Excepciones para el análisis léxico 
 
-El análisis léxico se aplica únicamente a los tipos de consultas que requieren términos completos: una consulta de término o una consulta de frase. No se aplica a los tipos de consulta con términos incompletos: consulta de prefijo, consulta de carácter comodín, consulta regex o a una consulta de coincidencia parcial. Estos tipos de consulta, incluida la consulta de prefijo con el término *post-vacacional\**  en nuestro ejemplo, se agregan directamente al árbol de consulta omitiendo la fase de análisis. La única transformación realizada en los términos de consulta de esos tipos es el establecimiento de minúsculas.
+El análisis léxico se aplica únicamente a los tipos de consultas que requieren términos completos: una consulta de término o una consulta de frase. No se aplica a los tipos de consulta con términos incompletos: consulta de prefijo, consulta de carácter comodín, consulta regex o a una consulta de coincidencia parcial. Estos tipos de consulta, incluida la consulta de prefijo con el término *post-vacacional\* * en nuestro ejemplo, se agregan directamente al árbol de consulta omitiendo la fase de análisis. La única transformación realizada en los términos de consulta de esos tipos es el establecimiento de minúsculas.
 
 <a name="stage3"></a>
+
 ## <a name="stage-3-document-retrieval"></a>Fase 3: Recuperación de documentos 
 
 La recuperación de documentos hace referencia a la búsqueda de documentos con términos coincidentes en el índice. Esta fase se entiende mejor mediante un ejemplo. Puede empezar con un índice de hoteles que tengan el siguiente esquema simple: 
@@ -408,3 +413,4 @@ En este artículo se ha analizado la búsqueda de texto completo en el contexto 
 [2]: ./media/search-lucene-query-architecture/azSearch-queryparsing-should2.png
 [3]: ./media/search-lucene-query-architecture/azSearch-queryparsing-must2.png
 [4]: ./media/search-lucene-query-architecture/azSearch-queryparsing-spacious2.png
+

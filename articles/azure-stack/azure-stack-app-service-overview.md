@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: c962af0977a09655d36d1c5dc3a948bb9278e6f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Introducción a App Service en Azure Stack
 
@@ -39,6 +39,7 @@ App Service ofrece varios tipos de aplicación, cada uno pensado para hospedar u
 
 - [Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) para hospedar sitios y aplicaciones web.
 - [API Apps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) para hospedar API de RESTful.
+- Azure Functions para hospedar cargas de trabajo sin servidor basadas en eventos.
 
 La palabra app (aplicación) aquí hace referencia a los recursos de hospedaje dedicados a ejecutar una carga de trabajo. Si se toma "aplicación web" como ejemplo, probablemente piense en una aplicación web como aquellos recursos de proceso y código de aplicación que juntos ofrecen funcionalidad a un explorador. Pero en App Service, una aplicación web son los recursos de procesos que Azure Stack proporciona para hospedar su código de aplicación.
 
