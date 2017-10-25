@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 430101c398eff85b330d15242ed1e396a277a93a
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 8ebac8ca3bed6825ff9170a305a44ad58ec0da31
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de empezar a trabajar con App Service en Azure Stack
 
 Azure App Service de Azure Stack cuenta con una serie de pasos de requisitos previos que deben realizarse antes de la implementación:
 
 - Descargue Azure App Service en los scripts de la aplicación auxiliar de Azure Stack
+- Alta disponibilidad
 - Certificados necesarios para Azure App Service en Azure Stack
 - Preparar el servidor de archivos
 - Preparar SQL Server
@@ -42,6 +43,13 @@ Azure App Service de Azure Stack cuenta con una serie de pasos de requisitos pre
     - AzureStack.Identity.psm1
     - GraphAPI.psm1
     
+## <a name="high-availability"></a>Alta disponibilidad
+
+Azure App Service en Azure Stack no puede ofrecer alta disponibilidad porque Azure Stack solo implementa cargas de trabajo en un dominio de error individual.
+
+Para preparar Azure App Service on Azure Stack para que proporcione alta disponibilidad, asegúrese de implementar el servidor de archivos y SQL Server necesarios en una configuración de alta disponibilidad. Cuando Azure Stack admita varios dominios de error, se le proporcionarán instrucciones acerca de cómo habilitar Azure App Service en Azure Stack en una configuración de alta disponibilidad.
+
+
 ## <a name="certificates-required-for-azure-app-service-on-azure-stack"></a>Certificados necesarios para Azure App Service en Azure Stack
 
 ### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Certificados necesarios para el Azure Stack Development Kit
@@ -193,7 +201,9 @@ net localgroup Administrators %DOMAIN%\FileShareOwners /add
 
 Ejecute el siguiente comando en un símbolo del sistema con privilegios elevados en el servidor de archivos.
 
+```powershell
 net localgroup Administrators FileShareOwners /add
+```
 
 ### <a name="configure-access-control-to-the-shares"></a>Configurar el control de acceso a los recursos compartidos
 
@@ -224,12 +234,14 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 ## <a name="prepare-the-sql-server"></a>Preparar SQL Server
 
-Para Azure App Service en las bases de datos de medición y hospedaje de Azure Stack, debe preparar SQL Server para almacenar la base de datos de tiempo de ejecución de Windows Azure Pack Web Sites.
+Para que Azure App Service en Azure Stack hospede y mida bases de datos, es preciso preparar un servidor con SQL Server para almacenar las bases de datos de Azure App Service.
 
-Para su uso con el kit de desarrollo de Azure Stack, puede usar SQL Express 2012 SP1 o versiones posteriores. Para más información sobre la descarga, consulte [Descargar SQL Server 2012 Express con SP1](https://msdn.microsoft.com/evalcenter/hh230763.aspx).
-Para fines de alta disponibilidad y de producción, debe usar una versión completa de SQL 2012 SP1 o versiones posteriores. Para más información acerca de cómo instalar SQL Server, consulte [Instalación de SQL Server 2012](http://go.microsoft.com/fwlink/?LinkId=322141).
-Habilitar la autenticación de modo mixto.
-Azure App Service en Azure Stack SQL Server debe ser accesible desde todos los roles de App Service.
+Para su uso con el kit de desarrollo de Azure Stack, puede usar SQL Express 2014 SP2, o cualquier versión posterior.
+
+Por motivos de producción y para ofrecer alta disponibilidad, debe usar una versión completa de SQL 2014 SP2, o cualquier versión posterior, habilitar la autenticación de modo mixto y realizar la implementación en una [configuración de alta disponibilidad](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
+
+Azure App Service en Azure Stack SQL Server debe ser accesible desde todos los roles de App Service. SQL Server se puede implementar en la suscripción de proveedor predeterminada en Azure Stack. O bien, puede usar la infraestructura existente en su organización (siempre y cuando haya conectividad con Azure Stack).
+
 Para cualquiera de los roles de SQL Server, puede utilizar una instancia predeterminada o una instancia con nombre. Sin embargo, si usa una instancia con nombre, asegúrese de iniciar manualmente el servicio SQL Browser y abrir el puerto 1434.
 
 ## <a name="create-an-azure-active-directory-application"></a>Creación de una aplicación de Azure Active Directory
@@ -249,7 +261,7 @@ Siga estos pasos:
 1. Abra una instancia de PowerShell como azurestack\azurestackadmin.
 2. Vaya a la ubicación de los scripts descargados y extraídos en el [paso de requisito previo](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-deploy#download-required-components).
 3. [Instale](azure-stack-powershell-install.md) y [configure un entorno de PowerShell de Azure Stack](azure-stack-powershell-configure-admin.md).
-4. En la misma sesión de PowerShell, ejecute el script **CreateIdentityApp.ps1**. Cuando se le pida el identificador de inquilino de Azure AD, escriba el identificador de inquilino de Azure AD que usa para la implementación de Azure Stack, por ejemplo, myazurestack.onmicrosoft.com.
+4. En la misma sesión de PowerShell, ejecute el script **Create-AADIdentityApp.ps1**. Cuando se le pida el identificador de inquilino de Azure AD, escriba el identificador de inquilino de Azure AD que usa para la implementación de Azure Stack, por ejemplo, myazurestack.onmicrosoft.com.
 5. En la ventana **Credencial**, escriba la cuenta y la contraseña de administrador del servicio de Azure AD. Haga clic en **Aceptar**.
 6. Escriba la contraseña y la ruta de acceso del archivo del [certificado creado anteriormente](azure-stack-app-service-deploy.md). El certificado creado para este paso de forma predeterminada es sso.appservice.local.azurestack.external.pfx.
 7. El script crea una nueva aplicación en la instancia de Azure AD del inquilino y genera un nuevo script de PowerShell denominado **UpdateConfigOnController.ps1**. Tome nota del identificador de la aplicación que se devuelve en la salida de PowerShell. Necesitará esta información para buscarlo en el paso 11.
@@ -267,8 +279,6 @@ Siga estos pasos:
 | AzureStackCredential | Obligatorio | Null | Administrador de Azure AD |
 | CertificateFilePath | Obligatorio | Null | Ruta de acceso del archivo de certificado de la aplicación de identidad generado anteriormente. |
 | CertificatePassword | Obligatorio | Null | Contraseña usada para proteger la clave privada del certificado. |
-| DomainName | Obligatorio | local.azurestack.external | Región y sufijo de dominio de Azure Stack. |
-| AdfsMachineName | Opcional | Nombre de la máquina de AD FS, por ejemplo, AzS-ADFS01.azurestack.local | Necesario en la implementación de AD FS. Ignorar en una implementación de Azure AD. |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Creación de una aplicación de Servicios de federación de Active Directory
 
@@ -286,19 +296,17 @@ Siga estos pasos:
 1. Abra una instancia de PowerShell como azurestack\azurestackadmin.
 2. Vaya a la ubicación de los scripts descargados y extraídos en el [paso de requisito previo](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-deploy#download-required-components).
 3. [Instale](azure-stack-powershell-install.md) y [configure un entorno de PowerShell de Azure Stack](azure-stack-powershell-configure-admin.md).
-4.  En la misma sesión de PowerShell, ejecute el script **CreateIdentityApp.ps1**. Cuando se le pida el identificador de inquilino de Azure AD, escriba ADFS.
-5.  En la ventana **Credencial**, escriba la cuenta y la contraseña de administrador del servicio de AD FS. Haga clic en **Aceptar**.
+4.  En la misma sesión de PowerShell, ejecute el script **Create-ADFSIdentityApp.ps1**.
+5.  En la ventana **Credencial**, escriba la cuenta y la contraseña de administrador de la nube de AD FS. Haga clic en **Aceptar**.
 6.  Proporcione la ruta de acceso del archivo y la contraseña del [certificado creado anteriormente](azure-stack-app-service-deploy.md). El certificado creado para este paso de forma predeterminada es sso.appservice.local.azurestack.external.pfx.
 
 | Parámetro CreateIdentityApp.ps1 | Obligatorio/opcional | Valor predeterminado | Descripción |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Obligatorio | Null | Use ADFS para el entorno de AD FS. |
-| TenantAzure Resource ManagerEndpoint | Obligatorio | management.local.azurestack.external | Punto de conexión de Azure Resource Manager del inquilino. |
-| AzureStackCredential | Obligatorio | Null | Administrador de Azure AD |
-| CertificateFilePath | Obligatorio | Null | Ruta de acceso del archivo de certificado de la aplicación de identidad generado anteriormente. |
+| AdminARMEndpoint | Obligatorio | Null | Punto de conexión de Azure Resource Manager de administrador. Por ejemplo, adminmanagement.local.azurestack.external. |
+| PrivilegedEndpoint | Obligatorio | Null | Punto de conexión con privilegios de la consola de emergencia. Por ejemplo, AzD ERCS01. |
+| CloudAdminCredential | Obligatorio | Null | Credencial de cuenta de dominio de cloudadmin de Azure Stack. Por ejemplo, Azurestack\CloudAdmin. |
+| CertificateFilePath | Obligatorio | Null | Ruta de acceso al archivo PFX del certificado de la aplicación de identidad. |
 | CertificatePassword | Obligatorio | Null | Contraseña usada para proteger la clave privada del certificado. |
-| DomainName | Obligatorio | local.azurestack.external | Región y sufijo de dominio de Azure Stack. |
-| AdfsMachineName | Opcional | Nombre de la máquina de AD FS, por ejemplo, AzS-ADFS01.azurestack.local | Necesario en la implementación de AD FS. Ignorar en una implementación de Azure AD. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes
