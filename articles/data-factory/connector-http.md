@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
+ms.openlocfilehash: 07f6d0ddac0daf5810d5433c1089114966e80719
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b27e852b70651cec34b200bde362ff0efae30226
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copia de datos desde el punto de conexión HTTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +65,7 @@ Establezca la propiedad "authenticationType" en **Básica**, **Implícita** o **
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | userName | Nombre de usuario para acceder al punto de conexión HTTP. | Sí |
-| Contraseña | Contraseña del usuario (userName). Marque este campo como SecureString. | Sí |
+| Contraseña | Contraseña para el usuario (nombre de usuario). Marque este campo como SecureString. | Sí |
 
 **Ejemplo**
 
@@ -173,7 +172,7 @@ Para copiar datos desde HTTP, establezca la propiedad type del conjunto de datos
 | additionalHeaders | Encabezados de solicitud HTTP adicionales. | No |
 | requestBody | Cuerpo de la solicitud HTTP. | No |
 | formato | Si desea **recuperar datos tal cual desde el punto de conexión HTTP** sin analizarlos ni copiarlos en un almacén basado en archivos, ignore la sección de formato de las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato de archivos: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para obtener más información, consulte las secciones sobre [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format) y [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Para obtener más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Los niveles admitidos son **Optimal** y **Fastest**. |No |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Los niveles admitidos son **Optimal** y **Fastest**. |No |
 
 **Ejemplo 1: Uso del método Get (valor predeterminado)**
 

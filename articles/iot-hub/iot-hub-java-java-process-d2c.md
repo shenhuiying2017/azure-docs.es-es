@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: d1aca8f39e305105d4ec9f63fbe7bee95487e294
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0fb3e9012ae88112515ebb552e49fa463a087f54
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>Procesamiento de mensajes de dispositivo a nube de IoT Hub (Java)
 
@@ -42,7 +42,7 @@ Para completar este tutorial, necesitará lo siguiente:
 * Una versión funcional y completa del tutorial [Introducción a IoT Hub] .
 * La versión más reciente de [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
-* Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos).
+* Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 
 También se dan por sentados ciertos conocimientos sobre [Azure Storage] y [Azure Service Bus].
 
@@ -210,3 +210,4 @@ Para obtener más información sobre el enrutamiento de mensajes en IoT Hub, con
 
 [lnk-c2d]: iot-hub-java-java-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-free-trial]: https://azure.microsoft.com/free/

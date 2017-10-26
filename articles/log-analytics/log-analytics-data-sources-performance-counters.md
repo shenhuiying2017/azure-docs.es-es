@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: magoedte
-ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Orígenes de datos de rendimiento de Windows y Linux en Log Analytics
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Log Analytics puede recopilar contadores de rendimiento a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
@@ -207,23 +207,6 @@ Los registros de rendimiento tienen el tipo **Perf** y sus propiedades son las q
 La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que recuperan registros de rendimiento.
 
 | Consultar | Descripción |
-|:--- |:--- |
-| Type=Perf |Todos los datos de rendimiento |
-| Type=Perf Computer="MyComputer" |Todos los datos de rendimiento de un equipo concreto |
-| Type=Perf CounterName="Current Disk Queue Length" |Todos los datos de rendimiento de un contador concreto |
-| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=_Total &#124; measure Avg(Average) as AVGCPU  by Computer |Uso medio de CPU en todos los equipos |
-| Type=Perf (CounterName="% Processor Time") &#124;  measure max(Max) by Computer |Uso máximo de CPU en todos los equipos |
-| Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" &#124; measure Avg(Average) by InstanceName |Longitud media de cola de disco actual en todas las instancias de un equipo dado |
-| Type=Perf CounterName="DiskTransfers/sec" &#124; measure percentile95(Average) by Computer |Percentil 95 de transferencias de disco por segundo en todos los equipos |
-| Type=Perf CounterName="% Processor Time" InstanceName="_Total"  &#124; measure avg(CounterValue) by Computer Interval 1HOUR |Promedio por hora de uso de CPU en todos los equipos |
-| Type=Perf Computer="MyComputer" CounterName=%* InstanceName=_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR |Percentil 70 por hora de cada contador de porcentaje % para un equipo concreto |
-| Type=Perf CounterName="% Processor Time" InstanceName="_Total"  (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |Promedio, mínimo, máximo y percentil 75 por hora de uso de CPU de un equipo específico |
-| Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | Todos los datos de rendimiento del objeto de rendimiento de la base de datos para la base de datos maestra (master) de la instancia de SQL Server con nombre INST2.  
-
->[!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas anteriores cambiarían como sigue.
-
-> | Consultar | Descripción |
 |:--- |:--- |
 | Perf |Todos los datos de rendimiento |
 | Perf &#124; where Computer == "MyComputer" |Todos los datos de rendimiento de un equipo concreto |

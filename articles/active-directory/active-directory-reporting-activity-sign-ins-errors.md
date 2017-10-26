@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: dcdd8b5830edb542cb99d07f1b0087629d374264
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2a1b7b87df2cd8fa2e98f217480b46f5f6334297
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -101,5 +100,4 @@ En la siguiente sección se proporciona una información general completa de tod
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte [Introducción a los informes de actividad de inicio de sesión en el portal de Azure Active Directory](active-directory-reporting-activity-sign-ins.md).
-
 

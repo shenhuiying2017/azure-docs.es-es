@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: asteen
+ms.openlocfilehash: ff3e3284f34f8373a2cfd80438d94a7052bb7f5e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b8f0cfdb468094bc761d6b939ca318fcfbea3ea4
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Administración de aplicaciones con Azure Active Directory
 Además del flujo de trabajo o contenido real, para las empresas las aplicaciones deben cumplir dos requisitos básicos:
@@ -113,5 +112,4 @@ Para comenzar a integrar las aplicaciones con Azure AD, eche un vistazo a la [Gu
 
 ## <a name="see-also"></a>Consulte también
 [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-
 

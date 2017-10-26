@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 73f63300e65e1f6bc25edf7f28ec2769acbb7c9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a1a33705648a982631315439f99425bab59ad1d1
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory
 Hoy en día Azure Active Directory admite el inicio de sesión único con la mayoría de las aplicaciones empresariales, incluidas las aplicaciones previamente integradas en la galería de aplicaciones de Azure AD, así como las aplicaciones personalizadas. Cuando un usuario se autentica en una aplicación a través de Azure AD con el protocolo SAML 2.0, Azure AD envía un token a la aplicación (mediante HTTP POST). A continuación, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML contienen trozos de información sobre el usuario conocidos como "notificaciones".
@@ -127,7 +127,7 @@ Hay algunas notificaciones restringidas en SAML. Si agrega estas notificaciones,
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
-* [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](../active-directory-saas-custom-apps.md)
+* [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md)
 
 <!--Image references-->

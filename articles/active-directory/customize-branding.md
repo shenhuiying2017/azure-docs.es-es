@@ -16,12 +16,11 @@ ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
+ms.openlocfilehash: 41f4ceea4842303760c5b156e90bd9e0746a7825
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Guía de inicio rápido: Incorporación de personalización de marca de empresa a su página de inicio de sesión de Azure AD
 Para evitar confusiones, muchas empresas quieren aplicar un aspecto coherente en todos los sitios web y servicios que administran. Azure Active Directory (Azure AD) ofrece esta funcionalidad, ya que permite personalizar la apariencia de la página de inicio de sesión con el logotipo de la empresa y combinaciones de colores personalizadas. Se trata de la página que aparece al iniciar sesión en Office 365 u otras aplicaciones web que estén utilizando Azure AD como proveedor de identidades. Interactuará con esta página para especificar las credenciales.

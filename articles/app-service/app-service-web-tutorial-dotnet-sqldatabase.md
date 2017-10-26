@@ -15,14 +15,12 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
+ms.openlocfilehash: a5814691da8430f986d052e9d81e480bda226a46
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 810d3281ee1bcf15fb61ecea4e5de0c8fbc0bc8e
-ms.contentlocale: es-es
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/20/2017
 ---
-
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Compilación de una aplicación ASP.NET en Azure con SQL Database
 
 [Azure Web Apps](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En este tutorial se muestra cómo implementar una aplicación web de ASP.NET orientada a datos en Azure y conectarla a [Azure SQL Database](../sql-database/sql-database-technical-overview.md). Cuando haya terminado, tendrá una aplicación ASP.NET en ejecución en Azure y conectada a SQL Database.
@@ -431,4 +429,3 @@ Pase al siguiente tutorial para saber cómo asignar un nombre DNS personalizado 
 
 > [!div class="nextstepaction"]
 > [Asignar un nombre DNS personalizado a Azure Web Apps](app-service-web-tutorial-custom-domain.md)
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2017
 ms.author: bwren
-ms.openlocfilehash: b7f28868e3ffdf95dbe39872f382e7c97eae692c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3a4c631cd69921fec60b3ae33a23c4c7c369194
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registros personalizados de Log Analytics
 El origen de datos de registros personalizados en Log Analytics permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog.  Una vez recopilada la información, puede analizar cada entrada del registro en campos individuales mediante la característica [Campos personalizados](log-analytics-custom-fields.md) de Log Analytics.
@@ -136,14 +136,6 @@ Las entradas de los registros personalizados se almacenan en el repositorio de O
 La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que recuperan entradas de los registros personalizados.
 
 | Consultar | Descripción |
-|:--- |:--- |
-| Type=MyApp_CL |Todos los eventos de un registro personalizado llamado MyApp_CL. |
-| Type=MyApp_CL Severity_CF=error |Todos los eventos de un registro personalizado llamado MyApp_CL con el valor *error* en un campo personalizado llamado *Severity_CF*. |
-
->[!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta Log Analytics](log-analytics-log-search-upgrade.md), las consultas anteriores cambiarían como sigue.
-
-> | Consultar | Descripción |
 |:--- |:--- |
 | MyApp_CL |Todos los eventos de un registro personalizado llamado MyApp_CL. |
 | MyApp_CL &#124; donde Severity_CF=="error" |Todos los eventos de un registro personalizado llamado MyApp_CL con el valor *error* en un campo personalizado llamado *Severity_CF*. |

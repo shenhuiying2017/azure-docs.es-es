@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2017
 ms.author: larryfr
-ms.openlocfilehash: a36a41c231472ceeeb46d02ddb65549b1c79728a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2078e5f1bb1bafdf8b53ec8c8ead014773cc9f0
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Creación de clústeres de Hadoop mediante la API de REST de Azure
 
@@ -229,7 +229,7 @@ Siga los pasos documentados en [Get started with Azure CLI 2.0](https://docs.mic
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
 > [!NOTE]
-> Estos pasos son una versión resumida de la sección *Creación de entidad de servicio con contraseña* del documento [Uso de la CLI de Azure para crear a una entidad de servicio para acceder a recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password). Estos pasos crean una entidad de servicio que sirve para autenticarse en la API de REST de Azure.
+> Estos pasos son una versión resumida de la sección *Creación de entidad de servicio con contraseña* del documento [Uso de la CLI de Azure para crear a una entidad de servicio para acceder a recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Estos pasos crean una entidad de servicio que sirve para autenticarse en la API de REST de Azure.
 
 1. Desde una línea de comandos, use el siguiente comando para enumerar las suscripciones de Azure.
 

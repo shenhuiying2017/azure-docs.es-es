@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 7513f405d5c7c05a8e6e2b7b0e6313f23a319c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 061c32fe39530f8b67899b1b9e1104e7fe006380
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Orígenes de datos de Syslog en Log Analytics
 Syslog es un protocolo de registro de eventos que es común a Linux.  Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog.  Al instalar el agente de OMS para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente.  En ese momento, el agente envía el mensaje a Log Analytics, donde se crea un registro correspondiente en el repositorio de OMS.  
@@ -198,16 +198,6 @@ Los registros de Syslog tienen un tipo **Syslog** y las propiedades que aparecen
 La tabla siguiente proporciona ejemplos distintos de consultas de registro que recuperan registros de Syslog.
 
 | Consultar | Descripción |
-|:--- |:--- |
-| Type=Syslog |Todos los registros de Syslog. |
-| Type=Syslog SeverityLevel=error |Todos los registros de Syslog con gravedad de error. |
-| Type=Syslog &#124; measure count() by Computer |Número de registros de Syslog por equipo. |
-| Type=Syslog &#124; measure count() by Facility |Número de registros de Syslog por recurso. |
-
->[!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta Log Analytics](log-analytics-log-search-upgrade.md), las consultas anteriores cambiarían como sigue.
-
-> | Consultar | Descripción |
 |:--- |:--- |
 | syslog |Todos los registros de Syslog. |
 | Syslog &#124; where SeverityLevel == "error" |Todos los registros de Syslog con gravedad de error. |

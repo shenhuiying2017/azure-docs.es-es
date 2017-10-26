@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
-ms.author: kgremban
+ms.date: 10/11/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1dde300780c8d1f7ea9eee4c92de06bcf70a1f12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c15808a97d4efa5f9453f33d9ac70ebde5288201
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Uso de dominios personalizados en el proxy de la aplicación de Azure AD
 
@@ -69,8 +69,6 @@ Cuando tenga listos estos tres requisitos, siga estos pasos para configurar el d
 No hay ninguna restricción sobre los métodos de firma del certificado. Se admiten todos los tipos de certificado habituales como, por ejemplo, la criptografía de curva elíptica (ECC) y el nombre alternativo del firmante (SAN). 
 
 Puede usar un certificado comodín siempre y cuando este coincida con la dirección URL externa deseada. 
-
-También puede usar certificados autofirmados. Si usa una entidad de certificación privada, el CDP (punto de distribución de lista de revocación de certificados) del certificado debe ser público.
 
 ### <a name="changing-the-domain"></a>Cambio del dominio
 Todos los dominios comprobados aparecen en la lista desplegable de direcciones URL externas de la aplicación. Para cambiar el dominio, actualice ese campo de la aplicación. Si el dominio que desea no está en la lista, [agréguelo como dominio comprobado](active-directory-domains-add-azure-portal.md). Si selecciona un dominio que no tiene aún un certificado asociado, siga los pasos del 5 al 7 para agregarlo. A continuación, asegúrese de actualizar el registro DNS para redirigirlo desde la nueva dirección URL externa. 

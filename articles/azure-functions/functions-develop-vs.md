@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 5f0b346ec1c4a42d11ef74ab8ac8701dd45b00eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3d4e5367dd41ce2ade7033cefcc774dcec9c82c
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Herramientas de Azure Functions para Visual Studio  
 
@@ -39,8 +39,7 @@ Las herramientas de Azure Functions forman parte de la carga de trabajo de desar
 
 ![Instalar Visual Studio 2017 con la cargas de trabajo Desarrollo de Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
->[!NOTE]  
->Después de instalar Visual Studio 2017 versión 15.3 o actualizar a esta versión, también debe actualizar manualmente las herramientas de Visual Studio 2017 para Azure Functions. Puede actualizar las herramientas del menú **Herramientas** situado bajo **Extensiones y actualizaciones...**  > **Actualizaciones** > **Visual Studio Marketplace** > **Herramientas de Azure Functions y Web Jobs** > **Actualizar**. 
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
 Para crear e implementar funciones, también necesita:
 

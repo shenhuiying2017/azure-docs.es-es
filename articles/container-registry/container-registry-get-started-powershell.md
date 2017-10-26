@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/08/2017
 ms.author: nepeters
-ms.openlocfilehash: 15046d1d2aabafd72df590233f416dd266c661de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b58b10e644e934cc38a6e0512ba7642ab8bf27c4
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>Creación de una instancia de Azure Container Registry mediante PowerShell
 
@@ -49,8 +49,8 @@ Cree una instancia de ACR mediante el comando [New-AzureRMContainerRegistry](/po
 
 El nombre del registro **debe ser único**. En el ejemplo siguiente, se usa *myContainerRegistry007*. Actualice este valor a uno único.
 
-```PowerShell
-$Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+```powershell
+$registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
 ## <a name="log-in-to-acr"></a>Inicio de sesión en ACR
@@ -58,13 +58,13 @@ $Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -N
 Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en la instancia de ACR. En primer lugar, use el comando [Get AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) para obtener las credenciales de administrador para la instancia ACR.
 
 ```powershell
-$creds = Get-AzureRmContainerRegistryCredential -Registry $Registry
+$creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
 Después, use el comando [docker login](https://docs.docker.com/engine/reference/commandline/login/) para iniciar sesión en la instancia de ACR.
 
 ```bash
-docker login $Registry.LoginServer -u $creds.Username -p $creds.Password
+docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
 Al finalizar, el comando devuelve un mensaje que indica que el inicio de sesión se ha realizado correctamente.
@@ -79,10 +79,11 @@ docker pull microsoft/aci-helloworld
 
 La imagen debe estar etiquetada con el nombre del servidor de inicio de sesión de ACR. Ejecute el comando [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) para devolver el nombre del servidor de inicio de sesión de la instancia de ACR.
 
-```powershell` Get-AzureRmContainerRegistry | Select Loginserver
+```powershell
+Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name of your ACR instance.
+Etiquete la imagen mediante el comando [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Reemplace *acrLoginServer* por el nombre del servidor de inicio de sesión de su instancia de ACR.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1

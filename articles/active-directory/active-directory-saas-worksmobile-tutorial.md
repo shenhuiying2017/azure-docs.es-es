@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 139a1968a59424eae278de3e7fa227ad340a1eb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 760fbb21c86fa14808f9a946c2c2fd0814bfb139
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-works-mobile"></a>Tutorial: Integración de Azure Active Directory con WORKS MOBILE
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.worksmobile.com/jp/myservice`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`.
 
     b. En el cuadro de texto **Identificador**, escriba el valor como `worksmobile.com`.
 
