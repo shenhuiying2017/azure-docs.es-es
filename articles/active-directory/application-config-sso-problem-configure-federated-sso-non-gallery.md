@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4eb2c04c940dd6ad15a491a331aed76c237f0387
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8fb9c71ede7558d12ce3e22dcd359ed82527e43
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Problemas en la configuración del inicio de sesión único federado para una aplicación ajena a la galería
 
-Si se produce un problema al configurar una aplicación. Compruebe que ha seguido todos los pasos del artículo [Configuración del inicio de sesión único en aplicaciones que no están en la galería de aplicaciones de Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
+Si se produce un problema al configurar una aplicación. Compruebe que ha seguido todos los pasos del artículo [Configuración del inicio de sesión único en aplicaciones que no están en la galería de aplicaciones de Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery)
 
 ## <a name="cant-add-another-instance-of-the-application"></a>No se puede agregar otra instancia de la aplicación
 

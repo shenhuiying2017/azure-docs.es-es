@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 10/12/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 5322fa5cc8e841ecea97a69d15cf130a4426ad95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c969696b7489a9a8c45e10428cdeaa833f63d6d2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: desarrollo con Table API en .NET
 
@@ -43,7 +43,7 @@ En este tutorial se describen las tareas siguientes:
 
 Azure Cosmos DB proporciona [Table API](table-introduction.md) (versión preliminar) para las aplicaciones que necesitan un almacén de pares clave-valor con un diseño sin esquema. Las API de REST y los SDK de [Azure Table Storage](../storage/common/storage-introduction.md) se pueden usar para trabajar con Azure Cosmos DB. Puede usar Azure Cosmos DB para crear tablas con requisitos de alto rendimiento. Azure Cosmos DB admite tablas optimizadas para el rendimiento (llamadas informalmente "tablas premium"), actualmente en versión preliminar pública. 
 
-Puede seguir usando Azure Table Storage para las tablas con requisitos de alto almacenamiento y menor rendimiento. Azure Cosmos DB incorporará compatibilidad con tablas optimizadas para almacenamiento en una futura actualización; además, las cuentas existentes y nuevas de Azure Table Storage se actualizarán sin problemas a Azure Cosmos DB.
+Puede seguir usando Azure Table Storage para las tablas con requisitos de alto almacenamiento y menor rendimiento.
 
 Si actualmente usa Azure Table Storage, obtendrá las siguientes ventajas con la versión preliminar de las "tablas premium":
 
